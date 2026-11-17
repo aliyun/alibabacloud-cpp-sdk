@@ -227,9 +227,9 @@ namespace Models
 
 
     protected:
-      // The path. The model call path, which can be up to 2,048 characters in length.
+      // The path. The model call path, which is up to 2,048 characters in length.
       shared_ptr<string> path_ {};
-      // The protocol type corresponding to the path, which can be up to 64 characters in length.
+      // The protocol type corresponding to the path, which is up to 64 characters in length.
       shared_ptr<string> type_ {};
     };
 
@@ -298,7 +298,7 @@ namespace Models
     shared_ptr<vector<CreateAiModelCardRequest::AvailablePaths>> availablePaths_ {};
     // The credit billing information of the model. Currently, only the fixed type is supported, and the billing unit is Credits per million tokens. If this parameter is not specified, all costs default to 0.
     shared_ptr<CreateAiModelCardRequest::Credit> credit_ {};
-    // The model capability switches. The key must be the name of a model capability supported by the API gateway, and the value must be a Boolean value.
+    // The model capability switches. The key must be the name of a model capability supported by API Gateway, and the value must be a Boolean value.
     Darabonba::Json features_ {};
     // The AI gateway instance ID. The target instance must exist, belong to the current account, and be of the AI gateway type.
     // 
@@ -306,11 +306,11 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // The token limits and input and output modality information of the model.
     shared_ptr<CreateAiModelCardRequest::Meta> meta_ {};
-    // The name of the model. The model name must be unique within the same AI gateway instance and model provider, and can be up to 256 characters in length.
+    // The name of the model. The model name must be unique within the same AI gateway instance and the same model provider, and be up to 256 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
-    // The identifier of the model provider. It must reference an existing model provider in the target AI gateway instance and can be up to 128 characters in length.
+    // The identifier of the model provider. It must reference an existing model provider in the target AI gateway instance and be up to 128 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> modelProvider_ {};

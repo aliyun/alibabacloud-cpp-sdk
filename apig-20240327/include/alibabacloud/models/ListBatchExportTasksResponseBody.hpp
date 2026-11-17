@@ -158,24 +158,19 @@ namespace Models
 
 
       protected:
-        // The task creation time. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+        // The creation time of the task. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
         shared_ptr<string> createTime_ {};
         // The error message.
         shared_ptr<string> errorMessage_ {};
-        // The gateway instance ID associated with the task.
+        // The instance ID of the gateway associated with the task.
         shared_ptr<string> gatewayId_ {};
         // The number of processed items.
         shared_ptr<int32_t> processedCount_ {};
-        // The task status. Valid values:
-        // - Pending: The task is pending.
-        // - Running: The task is running.
-        // - Success: All items succeeded.
-        // - PartialSuccess: Some items succeeded.
-        // - Failed: All items failed.
+        // The status of the task. Valid values: Pending, Running, Success, PartialSuccess, and Failed.
         shared_ptr<string> status_ {};
-        // The task ID.
+        // The ID of the task.
         shared_ptr<string> taskId_ {};
-        // The task type.
+        // The type of the task.
         shared_ptr<string> taskType_ {};
         // The total number of tasks.
         shared_ptr<int32_t> totalCount_ {};
@@ -214,11 +209,11 @@ namespace Models
 
 
     protected:
-      // The list of tasks, returned in reverse chronological order with the most recent tasks first.
+      // The list of tasks. Tasks are returned in descending order of creation time, with the latest tasks first.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of tasks.
       shared_ptr<int32_t> totalSize_ {};
@@ -279,7 +274,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The pagination token for the next query. This value is empty when no more results are available.
+    // The starting token for the next query. This parameter is empty when no more results are available.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

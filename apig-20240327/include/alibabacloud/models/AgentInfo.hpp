@@ -92,7 +92,7 @@ namespace Models
 
 
     protected:
-      // The list of consumer identity bindings maintained by the agent domain. The Model API ID and the consumer IDs in the list jointly identify the agent and take effect for all routes of the Model API. You can obtain consumer details and their Model API authorization details by calling existing Consumer API and consumer authorization query operations.
+      // The list of consumer identity bindings maintained by the agent domain. The Model API ID and the consumer IDs in the list jointly locate the agent identity and take effect for all routes of the Model API. Consumer details and their Model API authorization details are obtained through existing Consumer API and consumer authorization query operations.
       shared_ptr<vector<string>> consumerIds_ {};
       // The ID of the Model API associated with the model access capability. Model access does not distinguish between routes. The frontend uses this ID to query the basic information and all routes of the Model API.
       shared_ptr<string> modelApiId_ {};
@@ -126,7 +126,7 @@ namespace Models
 
 
     protected:
-      // The ID of the HTTP API associated with the agent access capability. The frontend uses this ID to call existing HTTP API, route, consumer authorization, policy, and plugin query operations.
+      // The ID of the HTTP API associated with the agent access capability. The frontend uses this ID to call existing HTTP API, route, consumer authorization, policy, and plug-in query operations.
       shared_ptr<string> httpApiId_ {};
     };
 
@@ -229,11 +229,11 @@ namespace Models
     shared_ptr<AgentInfo::AgentAccess> agentAccess_ {};
     // The agent ID.
     shared_ptr<string> agentId_ {};
-    // The type of the agent. DashScope allows only agent access. Dify allows agent access and model access. ClaudeCode allows only model access. Custom allows agent access and model access.
+    // The type of the agent. DashScope (Model Studio) allows only agent access, Dify allows agent access and model access, ClaudeCode allows only model access, and Custom allows agent access and model access.
     shared_ptr<string> agentType_ {};
-    // The list of capabilities that the current agent type is allowed to configure. This field does not indicate that the capabilities are already configured. To check whether a capability is configured, determine whether agentAccess or modelAccess is null.
+    // The list of capabilities that the current agent type is allowed to configure. This field does not indicate that the capabilities are configured. To determine whether they are configured, check whether agentAccess or modelAccess is null.
     shared_ptr<vector<string>> allowedCapabilities_ {};
-    // The time when the agent was created. The value is a UNIX timestamp in milliseconds.
+    // The creation time of the agent, as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTimestamp_ {};
     // The description of the agent.
     shared_ptr<string> description_ {};
@@ -247,7 +247,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The status of the agent. In the current phase, agents that are successfully created and can be queried always return Ready. Internal creation or compensation statuses are not returned externally.
     shared_ptr<string> status_ {};
-    // The time when the agent was last updated. The value is a UNIX timestamp in milliseconds.
+    // The last update time of the agent, as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> updateTimestamp_ {};
   };
 

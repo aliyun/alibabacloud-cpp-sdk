@@ -153,9 +153,9 @@ namespace Models
     protected:
       // Indicates whether all routes are compatible and can be migrated.
       shared_ptr<bool> isSupported_ {};
-      // The description of the check result, such as the failure cause or incompatibility summary, which is derived from the Istio validation reason.
+      // The description of the check result, such as the cause of failure or incompatibility summary, which is derived from the Istio validation reason.
       shared_ptr<string> message_ {};
-      // Indicates whether the check is successfully executed, which reflects whether the Istiod query link is functioning properly.
+      // Indicates whether the check is executed successfully, which indicates whether the Istiod query path is normal.
       shared_ptr<bool> success_ {};
       // The list of incompatible routes.
       shared_ptr<vector<Data::UnSupportedRouteRules>> unSupportedRouteRules_ {};

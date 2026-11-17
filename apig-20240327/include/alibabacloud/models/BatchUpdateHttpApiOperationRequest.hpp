@@ -108,9 +108,9 @@ namespace Models
   protected:
     // The authentication configuration. This parameter is required when enableAuth is set to true.
     shared_ptr<BatchUpdateHttpApiOperationRequest::AuthConfig> authConfig_ {};
-    // Specifies whether to enable consumer authentication. If set to true, a valid authConfig must be provided. If set to false, authConfig is not validated and the existing configuration remains unchanged.
+    // Specifies whether to enable consumer authentication. If this parameter is set to true, a valid authConfig must be provided. If this parameter is set to false, authConfig is not verified and the original configuration remains unchanged.
     shared_ptr<bool> enableAuth_ {};
-    // The list of operation IDs to update in batches. This parameter cannot be empty.
+    // The list of operation IDs to be updated in batches. This parameter cannot be empty.
     shared_ptr<vector<string>> operationIds_ {};
   };
 

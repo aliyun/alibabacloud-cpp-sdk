@@ -160,13 +160,13 @@ namespace Models
 
 
     protected:
-      // The name of the module that performed the check.
+      // The name of the module that performs the check.
       shared_ptr<string> checkModule_ {};
-      // The detailed data related to the risk. The data structure varies by risk type.
+      // The detailed data related to the risk. The data structure varies based on the risk type.
       shared_ptr<map<string, string>> data_ {};
       // The detailed description of the risk in JSON string format.
       shared_ptr<string> description_ {};
-      // Indicates whether the alert notification for the risk item is muted.
+      // Specifies whether the alert notification for the risk item is muted.
       shared_ptr<bool> isNoticeMute_ {};
       // The unique identifier of the risk item.
       shared_ptr<string> riskCode_ {};
@@ -174,15 +174,11 @@ namespace Models
       shared_ptr<string> riskLevel_ {};
       // The name of the risk item.
       shared_ptr<string> riskName_ {};
-      // The risk category. Valid values:
-      // - SYSTEM: System risk.
-      // - VERSION: Version risk.
-      // - SAFE: Security risk.
-      // - CAPACITY: Capacity risk.
+      // The risk categorization. Valid values: SYSTEM (system risk), VERSION (version risk), SAFE (security risk), and CAPACITY (capacity risk).
       shared_ptr<string> riskType_ {};
       // The current risk situation of the instance in JSON string format.
       shared_ptr<string> situation_ {};
-      // The optimization suggestions for the risk in JSON string format, including descriptions and action links.
+      // The optimization suggestions for the risk in JSON string format, including descriptions and operation links.
       shared_ptr<string> suggestion_ {};
     };
 
@@ -327,24 +323,17 @@ namespace Models
     shared_ptr<int64_t> checkTime_ {};
     // The unique identifier of the gateway instance.
     shared_ptr<string> gatewayId_ {};
-    // The basic information about the instance.
+    // The basic information of the instance.
     shared_ptr<RiskCheckResults::Metadata> metadata_ {};
-    // The list of detailed risk items.
+    // The list of detailed risk item information.
     shared_ptr<vector<RiskCheckResults::RiskDetails>> riskDetails_ {};
-    // The overall risk level. Valid values:
-    // - LOW: Low risk.
-    // - MEDIUM: Medium risk.
-    // - HIGH: High risk.
-    // - CRITICAL: Critical risk.
+    // The overall risk level. Valid values: LOW (low risk), MEDIUM (medium risk), HIGH (high risk), and CRITICAL (critical risk).
     shared_ptr<string> riskLevel_ {};
     // The overall risk score. Valid values: 0 to 100. A higher score indicates a lower risk.
     shared_ptr<int32_t> score_ {};
     // The snapshot time.
     shared_ptr<int64_t> snapshotTime_ {};
-    // The risk detection status. Valid values:
-    // - SUCCESS: The detection succeeded.
-    // - FAIL: The detection failed.
-    // - RUNNING: The detection is running.
+    // The risk check status. Valid values: SUCCESS, FAIL, and RUNNING.
     shared_ptr<string> status_ {};
     // The total number of detected risk items.
     shared_ptr<int32_t> totalRisk_ {};

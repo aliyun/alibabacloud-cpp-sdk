@@ -339,7 +339,7 @@ namespace Models
         shared_ptr<int64_t> expireTimestamp_ {};
         // The gateway information.
         shared_ptr<GatewayInfo> gatewayInfo_ {};
-        // The principal type. Valid values: Consumer and ConsumerGroup.
+        // The type of the authorized principal. Valid values: Consumer and ConsumerGroup.
         shared_ptr<string> principalType_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};

@@ -85,9 +85,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The type of the HTTP API.
     shared_ptr<string> type_ {};
-    // Indicates whether version management is enabled.
+    // Specifies whether version management is enabled.
     shared_ptr<bool> versionEnabled_ {};
-    // The version information of the versioned APIs.
+    // The versioned API version information.
     shared_ptr<vector<HttpApiApiInfo>> versionedHttpApis_ {};
   };
 

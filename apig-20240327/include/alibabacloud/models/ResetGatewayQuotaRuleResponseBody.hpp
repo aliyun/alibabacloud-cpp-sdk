@@ -168,13 +168,13 @@ namespace Models
 
 
         protected:
-          // The period type of the existing conflicting rule on the subject. A value of day, week, or month indicates that the period of the existing conflicting rule on the subject is daily, weekly, or monthly.
+          // The period type of the existing conflicting rule on the subject. A value of day, week, or month indicates that the period of the existing conflicting rule on the subject is day, week, or month, respectively.
           shared_ptr<string> conflictPeriodType_ {};
-          // The type of the existing conflicting rule on the subject. A value of calendar indicates that the existing conflicting rule on the subject uses a natural period. A value of epoch indicates that the existing conflicting rule uses a custom period.
+          // The type of the existing conflicting rule on the subject. A value of calendar indicates that the existing conflicting rule on the subject uses a calendar period. A value of epoch indicates that the existing conflicting rule uses a custom period.
           shared_ptr<string> conflictType_ {};
-          // The consumer ID. This parameter can now be uniformly replaced by subjectId.
+          // The consumer ID. You can use subjectId instead.
           shared_ptr<string> consumerId_ {};
-          // The consumer name. This parameter can now be uniformly replaced by subjectName.
+          // The consumer name. You can use subjectName instead.
           shared_ptr<string> consumerName_ {};
           // The ID of the conflicting subject.
           shared_ptr<string> subjectId_ {};
@@ -251,11 +251,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the semantics of the current write request can be accepted by the system. A value of false is common in retryable scenarios such as unconfirmed conflict overwrites.
+      // Indicates whether the semantics of the current write request can be accepted by the system. A value of false typically occurs in retryable scenarios, such as when conflicts are not confirmed for overwriting.
       shared_ptr<bool> accepted_ {};
       // The conflict preview.
       shared_ptr<Data::ConflictPreview> conflictPreview_ {};
-      // Indicates whether it is a dry run.
+      // Indicates whether a dry run is performed.
       shared_ptr<bool> dryRun_ {};
       // The rule ID.
       shared_ptr<string> ruleId_ {};
@@ -296,11 +296,11 @@ namespace Models
   protected:
     // The status code or error code.
     shared_ptr<string> code_ {};
-    // The request data content.
+    // The response data content.
     shared_ptr<ResetGatewayQuotaRuleResponseBody::Data> data_ {};
     // The message content.
     shared_ptr<string> message_ {};
-    // The unique identifier of the request.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

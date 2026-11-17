@@ -149,11 +149,11 @@ namespace Models
 
 
   protected:
-    // The identity key of the field, which is unique within the same request path, such as input_token.
+    // The identity key of the field, which is unique within the same URI of the request, such as input_token.
     shared_ptr<string> fieldKey_ {};
     // The JSONPath expression of the field in the request or response message, such as usage.prompt_tokens.
     shared_ptr<string> jsonPath_ {};
-    // The value rule for the field.
+    // The value extraction rule for the field.
     shared_ptr<string> rule_ {};
     // The display name of the field.
     shared_ptr<string> name_ {};
@@ -163,17 +163,17 @@ namespace Models
     shared_ptr<string> source_ {};
     // The statistical category to which the field belongs.
     shared_ptr<string> category_ {};
-    // The message direction of the field, which indicates whether the field is extracted from the request or the response.
+    // The message direction of the field, which indicates whether it is extracted from the request or the response.
     shared_ptr<string> io_ {};
     // Indicates whether the field contains sensitive information.
     shared_ptr<bool> sensitive_ {};
     // Indicates whether collection is enabled for the field.
     shared_ptr<bool> recordEnabled_ {};
-    // Indicates whether the collection status of the field can be toggled.
+    // Indicates whether the collection switch for the field can be toggled.
     shared_ptr<bool> toggleAllowed_ {};
     // Indicates whether the JSONPath of the field can be rewritten.
     shared_ptr<bool> jsonPathRewriteAllowed_ {};
-    // Indicates whether the field configuration is from a field template.
+    // Indicates whether the field configuration is derived from a field template.
     shared_ptr<bool> fromTemplate_ {};
   };
 

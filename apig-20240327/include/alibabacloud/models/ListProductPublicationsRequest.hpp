@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The name of the portal to which the API product is published.
     shared_ptr<string> portalName_ {};

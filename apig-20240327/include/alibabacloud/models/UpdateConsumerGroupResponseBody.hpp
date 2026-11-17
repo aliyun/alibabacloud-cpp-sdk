@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The response status code. Ok is returned if the request is successful.
+    // The response status code. Returns Ok if the request is successful.
     shared_ptr<string> code_ {};
     // The response message.
     shared_ptr<string> message_ {};

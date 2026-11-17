@@ -129,13 +129,13 @@ namespace Models
 
 
       protected:
-        // The port. When an NLB instance is associated, two placeholder entries with ports 80 and 443 are returned.
+        // The port. When an NLB is bound, ports 80 and 443 are fixed and returned as placeholders.
         shared_ptr<string> port_ {};
-        // The protocol. When an NLB instance is associated, HTTP and HTTPS are returned as placeholders. For CLB, the value is deserialized from the stored vServerGroupMetaInfo.
+        // The protocol. When an NLB is bound, HTTP and HTTPS are fixed and returned as placeholders. For CLB, the value is deserialized from the persisted vServerGroupMetaInfo.
         shared_ptr<string> protocol_ {};
-        // The VServerGroup or ServerGroup ID. When an NLB instance is associated, this field is an empty string placeholder.
+        // The VServerGroup or ServerGroup ID. When an NLB is bound, an empty string is returned as a placeholder.
         shared_ptr<string> virtualServiceGroupId_ {};
-        // The group name. When an NLB instance is associated, this field is an empty string placeholder.
+        // The group name. When an NLB is bound, an empty string is returned as a placeholder.
         shared_ptr<string> virtualServiceGroupName_ {};
       };
 
@@ -217,7 +217,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the load balancer can be edited. This serves as the edit toggle for a load balancer that is being migrated.
+      // Specifies whether the load balancer being migrated can be edited.
       shared_ptr<bool> editEnable_ {};
       // The load balancer address.
       shared_ptr<string> loadBalancerAddress_ {};
@@ -231,11 +231,11 @@ namespace Models
       shared_ptr<string> networkType_ {};
       // The port information.
       shared_ptr<vector<int32_t>> ports_ {};
-      // The gateway service weight for traffic shifting during migration. Valid values: 0 to 100.
+      // The gateway service weight in traffic switching scenarios during migration. Valid values: 0 to 100.
       shared_ptr<int64_t> serviceWeight_ {};
       // The status description.
       shared_ptr<string> statusDescription_ {};
-      // The backend server group bindings.
+      // The list of backend server group bindings.
       shared_ptr<vector<Data::VirtualServiceList>> virtualServiceList_ {};
     };
 

@@ -177,13 +177,15 @@ namespace Models
 
 
         protected:
-          // The period type of the existing conflicting rule on the consumer. A value of day, week, or month indicates that the period of the existing conflicting rule is day, week, or month, respectively. This is a legacy field. Use the periodType field in the actual response instead. This field is not guaranteed to be returned.
+          // The period type of the existing conflicting rule on the consumer. This is a historically declared field. Use periodType in the actual response instead. This field is not guaranteed to be returned. Valid values: day, week, and month.
           shared_ptr<string> conflictPeriodType_ {};
-          // The type of the existing conflicting rule on the consumer. Valid values: calendar, which indicates that the existing conflicting rule uses a natural period, and epoch, which indicates that the existing conflicting rule uses a custom period.
+          // The type of the existing conflicting rule on the consumer. Valid values:
+          // - calendar: The existing conflicting rule on the consumer uses a natural period.
+          // - epoch: The existing conflicting rule uses a custom period.
           shared_ptr<string> conflictType_ {};
-          // The ID of the consumer. This parameter is replaced by subjectId.
+          // The consumer ID. You can now uniformly use subjectId instead.
           shared_ptr<string> consumerId_ {};
-          // The name of the consumer. This parameter is replaced by subjectName.
+          // The consumer name. You can now uniformly use subjectName instead.
           shared_ptr<string> consumerName_ {};
           // The period type of the existing conflicting rule. Valid values: day, week, and month.
           shared_ptr<string> periodType_ {};
@@ -262,13 +264,13 @@ namespace Models
 
 
     protected:
-      // Indicates whether the write request is accepted by the system. If dryRun=true, a value of true only indicates that the dry run is accepted, not that the configuration is saved. If a formal write request returns false, it indicates that the configuration is not saved due to conflicts, and you should check the conflictPreview. A value of false typically occurs in retryable scenarios, such as when a conflict overwrite is not confirmed.
+      // Indicates whether the semantics of the current write request can be accepted by the system. A value of false typically occurs in retryable scenarios, such as when a conflict is not confirmed for overwriting.
       shared_ptr<bool> accepted_ {};
       // The conflict preview.
       shared_ptr<Data::ConflictPreview> conflictPreview_ {};
-      // Indicates whether the request is a dry run.
+      // Indicates whether a dry run is performed.
       shared_ptr<bool> dryRun_ {};
-      // The ID of the rule.
+      // The rule ID.
       shared_ptr<string> ruleId_ {};
     };
 

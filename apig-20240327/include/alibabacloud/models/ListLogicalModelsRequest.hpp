@@ -1,0 +1,86 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTLOGICALMODELSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTLOGICALMODELSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace APIG20240327
+{
+namespace Models
+{
+  class ListLogicalModelsRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListLogicalModelsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
+      DARABONBA_PTR_TO_JSON(keyword, keyword_);
+      DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListLogicalModelsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
+      DARABONBA_PTR_FROM_JSON(keyword, keyword_);
+      DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+    };
+    ListLogicalModelsRequest() = default ;
+    ListLogicalModelsRequest(const ListLogicalModelsRequest &) = default ;
+    ListLogicalModelsRequest(ListLogicalModelsRequest &&) = default ;
+    ListLogicalModelsRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListLogicalModelsRequest() = default ;
+    ListLogicalModelsRequest& operator=(const ListLogicalModelsRequest &) = default ;
+    ListLogicalModelsRequest& operator=(ListLogicalModelsRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->gatewayId_ == nullptr
+        && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
+    // gatewayId Field Functions 
+    bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
+    void deleteGatewayId() { this->gatewayId_ = nullptr;};
+    inline string getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
+    inline ListLogicalModelsRequest& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
+
+
+    // keyword Field Functions 
+    bool hasKeyword() const { return this->keyword_ != nullptr;};
+    void deleteKeyword() { this->keyword_ = nullptr;};
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline ListLogicalModelsRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
+
+
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline ListLogicalModelsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListLogicalModelsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+  protected:
+    // The ID of the gateway instance. Specifies the gateway instance for which to query logical models.
+    // 
+    // This parameter is required.
+    shared_ptr<string> gatewayId_ {};
+    // The keyword used to filter logical models.
+    shared_ptr<string> keyword_ {};
+    // The maximum number of entries to return per page. Valid values: 1 to 100. This parameter is required. This operation uses token-based pagination with maxResults and nextToken instead of pageNumber and pageSize.
+    // 
+    // This parameter is required.
+    shared_ptr<int32_t> maxResults_ {};
+    // The nextToken value returned in the response of the previous page. Omit this parameter for the first page. The last page does not return a nextToken value.
+    shared_ptr<string> nextToken_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace APIG20240327
+#endif

@@ -95,7 +95,7 @@ namespace Models
       protected:
         // The Nacos instance ID.
         shared_ptr<string> instanceId_ {};
-        // The Nacos instance name.
+        // The name of the Nacos instance.
         shared_ptr<string> name_ {};
       };
 

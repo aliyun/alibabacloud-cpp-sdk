@@ -147,17 +147,17 @@ namespace Models
 
 
       protected:
-        // The annotation information of the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and purposes.
+        // The annotation information of the tool, formatted as a map. The API definition declares this field only as map<any> without specifying its members or purposes.
         Darabonba::Json annotations_ {};
         // The description of the tool.
         shared_ptr<string> description_ {};
-        // The structure definition of the input parameters for the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
+        // The input parameter schema of the tool, formatted as a map. The API definition declares this field only as map<any> without specifying its members or constraints.
         Darabonba::Json inputSchema_ {};
-        // The metadata of the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and purposes.
+        // The metadata of the tool, formatted as a map. The API definition declares this field only as map<any> without specifying its members or purposes.
         Darabonba::Json meta_ {};
         // The name of the tool.
         shared_ptr<string> name_ {};
-        // The structure definition of the output results for the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
+        // The output result schema of the tool, formatted as a map. The API definition declares this field only as map<any> without specifying its members or constraints.
         Darabonba::Json outputSchema_ {};
         // The title of the tool.
         shared_ptr<string> title_ {};
@@ -174,7 +174,7 @@ namespace Models
 
 
     protected:
-      // The list of MCP tools. Each element in the list is named tool and represents an MCP tool.
+      // The list of MCP tools. Each element in the list is named tool and represents a single MCP tool.
       shared_ptr<vector<Data::Tools>> tools_ {};
     };
 

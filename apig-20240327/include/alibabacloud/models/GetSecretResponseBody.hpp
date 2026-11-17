@@ -143,22 +143,22 @@ namespace Models
       // The creation timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
       // The gateway type. Valid values:
-      // - API: API gateway.
-      // - AI: AI gateway.
+      // - API: API gateway
+      // - AI: AI gateway
       shared_ptr<string> gatewayType_ {};
       // The KMS configuration information.
       shared_ptr<KMSConfig> kmsConfig_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The number of resources that reference the current key.
+      // The number of resources that reference the current secret.
       shared_ptr<int32_t> referenceCount_ {};
-      // The key ID.
+      // The ID of the secret.
       shared_ptr<string> secretId_ {};
-      // The key source.
+      // The source of the secret.
       shared_ptr<string> secretSource_ {};
-      // The key status. Valid values:
+      // The secret status. Valid values:
       // - ENALBE: Enabled.
-      // - DISABLE: Disabled.
+      // - DISABLE: Unavailable.
       // - DELETED: Deleted.
       shared_ptr<string> status_ {};
       // The update timestamp.
@@ -200,7 +200,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The key information.
+    // The secret information.
     shared_ptr<GetSecretResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};

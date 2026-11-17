@@ -101,9 +101,9 @@ namespace Models
 
 
       protected:
-        // The collection of field configurations under the path, grouped by mapping key, where each group represents a set of field configuration items.
+        // The collection of field configurations under the path, grouped by mapping key. Each group represents a set of field configuration items.
         shared_ptr<map<string, vector<DataPathConfigsFieldPathsValue>>> fieldPaths_ {};
-        // The request path of the API.
+        // The URI of the request of the API.
         shared_ptr<string> path_ {};
       };
 
@@ -137,7 +137,7 @@ namespace Models
       shared_ptr<string> apiId_ {};
       // The ID of the cloud-native API gateway.
       shared_ptr<string> gatewayId_ {};
-      // The list of field configurations grouped by API request path.
+      // The list of field configurations grouped by API URI of the request.
       shared_ptr<vector<Data::PathConfigs>> pathConfigs_ {};
     };
 

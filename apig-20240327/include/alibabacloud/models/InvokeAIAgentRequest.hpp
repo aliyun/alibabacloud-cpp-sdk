@@ -77,7 +77,7 @@ namespace Models
 
 
     protected:
-      // The content. The returned data is in rich text format.
+      // The content of the message. The returned data is in rich text format.
       shared_ptr<string> content_ {};
       // The role.
       shared_ptr<string> role_ {};
@@ -129,13 +129,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> agentName_ {};
-    // The business parameters. Each agent performs custom validation. For example, pass the Simple Log Service context for log diagnostics.
+    // The business parameters. Each agent performs custom validation. For example, pass the SLS context for log diagnosis.
     shared_ptr<map<string, string>> bizParams_ {};
     // The conversation history, which includes the role (user or assistant) and content. The role and content in each element cannot be empty.
     shared_ptr<vector<InvokeAIAgentRequest::History>> history_ {};
-    // The output language. If this parameter is set to en, the default error message is displayed in English.
+    // The output language. If set to en, the default error message is in English.
     shared_ptr<string> outputLanguage_ {};
-    // The current user input. If this parameter is empty, a default value is used based on the scenario, such as Start.
+    // The user input for the current session. If empty, a default value is used based on the scenario, such as Start.
     shared_ptr<string> prompt_ {};
   };
 

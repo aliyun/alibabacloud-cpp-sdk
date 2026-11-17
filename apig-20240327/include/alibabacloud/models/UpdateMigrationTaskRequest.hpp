@@ -100,13 +100,13 @@ namespace Models
 
 
     protected:
-      // The port. Valid values: 1 to 65535.
+      // The port number. Valid values: 1 to 65535.
       shared_ptr<int32_t> port_ {};
-      // The protocol. Required for CLB.
+      // The protocol. This parameter is required for CLB.
       shared_ptr<string> protocol_ {};
       // CLB VServerGroupId / NLB ServerGroupId
       shared_ptr<string> virtualServiceGroupId_ {};
-      // The group name.
+      // The name of the group.
       shared_ptr<string> virtualServiceGroupName_ {};
     };
 
@@ -172,21 +172,21 @@ namespace Models
 
 
   protected:
-    // The namespace of the source cluster (for SLB traffic switching).
+    // The namespace of the source cluster for SLB traffic switching.
     shared_ptr<string> clusterNamespace_ {};
-    // The task description. For DNS-based Engine updates, only this field is modified.
+    // The description of the task. When the target is Engine and the switch type is DNS, only this field can be updated.
     shared_ptr<string> description_ {};
-    // The SLB service name.
+    // The name of the SLB service.
     shared_ptr<string> serviceName_ {};
-    // The SLB instance ID. Required when the task is in the Initial state with SLB traffic switching. The type is determined by the prefix (lb- or nlb-).
+    // The ID of the SLB instance. This parameter is required when the status is advanced to Initial and the switch type is SLB. The instance type is determined by the prefix lb- or nlb-.
     shared_ptr<string> slbId_ {};
-    // The traffic switching method. Required when advancing from the Initial state.
+    // The traffic switching method. This parameter is required when the status is advanced to Initial.
     shared_ptr<string> switchType_ {};
-    // Required. The update target. Determines whether to advance the task status or perform an engine operation.
+    // Required. The update target, which determines whether to advance the status or perform an engine operation.
     shared_ptr<string> target_ {};
-    // The list of backend server group bindings.
+    // The list of backend group bindings.
     shared_ptr<vector<UpdateMigrationTaskRequest::VirtualServices>> virtualServices_ {};
-    // The traffic switching weight for the legacy flow. Valid values: 0 to 100. Takes effect when the target is set to Engine.
+    // The traffic switching weight for the legacy process. Valid values: 0 to 100. This parameter takes effect when the target is Engine.
     shared_ptr<int32_t> weight_ {};
   };
 

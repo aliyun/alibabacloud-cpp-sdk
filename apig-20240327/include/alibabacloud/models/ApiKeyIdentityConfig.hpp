@@ -40,10 +40,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Credentials& obj) { 
         DARABONBA_PTR_TO_JSON(apikey, apikey_);
+        DARABONBA_PTR_TO_JSON(createTimestamp, createTimestamp_);
         DARABONBA_PTR_TO_JSON(generateMode, generateMode_);
       };
       friend void from_json(const Darabonba::Json& j, Credentials& obj) { 
         DARABONBA_PTR_FROM_JSON(apikey, apikey_);
+        DARABONBA_PTR_FROM_JSON(createTimestamp, createTimestamp_);
         DARABONBA_PTR_FROM_JSON(generateMode, generateMode_);
       };
       Credentials() = default ;
@@ -58,12 +60,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->apikey_ == nullptr
-        && this->generateMode_ == nullptr; };
+        && this->createTimestamp_ == nullptr && this->generateMode_ == nullptr; };
       // apikey Field Functions 
       bool hasApikey() const { return this->apikey_ != nullptr;};
       void deleteApikey() { this->apikey_ = nullptr;};
       inline string getApikey() const { DARABONBA_PTR_GET_DEFAULT(apikey_, "") };
       inline Credentials& setApikey(string apikey) { DARABONBA_PTR_SET_VALUE(apikey_, apikey) };
+
+
+      // createTimestamp Field Functions 
+      bool hasCreateTimestamp() const { return this->createTimestamp_ != nullptr;};
+      void deleteCreateTimestamp() { this->createTimestamp_ = nullptr;};
+      inline int64_t getCreateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(createTimestamp_, 0L) };
+      inline Credentials& setCreateTimestamp(int64_t createTimestamp) { DARABONBA_PTR_SET_VALUE(createTimestamp_, createTimestamp) };
 
 
       // generateMode Field Functions 
@@ -76,6 +85,8 @@ namespace Models
     protected:
       // The API key configuration.
       shared_ptr<string> apikey_ {};
+      // The creation time of this logical key saved by the server, in Unix milliseconds, for read-only purposes. When updated, the original key retains the saved time, and client input is not used as the time basis. A missing or null history indicates an unknown time, and the consumer creation time must not be used as a substitute.
+      shared_ptr<int64_t> createTimestamp_ {};
       // The generation mode.
       shared_ptr<string> generateMode_ {};
     };

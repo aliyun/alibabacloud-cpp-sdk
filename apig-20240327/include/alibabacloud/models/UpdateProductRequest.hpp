@@ -129,7 +129,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The documentation content of the API product.
     shared_ptr<string> document_ {};
-    // The capability configuration of the API product. Currently, this parameter only includes the modelFeature member, which contains the model, maxTokens, temperature, streaming, webSearch, enableThinking, and enableMultiModal fields.
+    // The capability configuration of the API product. Currently, this configuration only includes the modelFeature member, which contains the model, maxTokens, temperature, streaming, webSearch, enableThinking, and enableMultiModal fields.
     shared_ptr<HiMarketProductFeature> feature_ {};
     // The icon configuration of the API product, which consists of the icon type (type) and icon information (value) fields.
     shared_ptr<HiMarketIcon> icon_ {};

@@ -158,7 +158,7 @@ namespace Models
         protected:
           // The ID of the API.
           shared_ptr<string> apiId_ {};
-          // The API name. The value unknown is returned if the name cannot be identified.
+          // The name of the API. If the name cannot be identified, unknown is returned.
           shared_ptr<string> apiName_ {};
           // The error message.
           shared_ptr<string> errorMessage_ {};
@@ -325,23 +325,23 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow overwriting existing APIs.
+          // Specifies whether to allow overwriting and updating existing APIs.
           shared_ptr<bool> allowUpdate_ {};
           // The API type.
           shared_ptr<string> apiType_ {};
-          // Specifies whether the request is in dry run mode. This parameter is fixed to false in the formal import request body.
+          // Indicates whether the dry run mode is enabled. This parameter is fixed to false in the formal import request body.
           shared_ptr<bool> dryRun_ {};
           // The gateway instance ID.
           shared_ptr<string> gatewayId_ {};
-          // The resource group ID.
+          // The ID of the resource group.
           shared_ptr<string> resourceGroupId_ {};
-          // The download URL of the OAS ZIP file, which is consistent with the dry run request.
+          // The download URL of the OAS ZIP file, which is the same as that in the dry run request.
           shared_ptr<string> specFileUrl_ {};
-          // The OSS configuration of the OAS file, which is consistent with the dry run request.
+          // The OSS configuration of the OAS file, which is the same as that in the dry run request.
           shared_ptr<ImportRequest::SpecOssConfig> specOssConfig_ {};
           // The conflict merge strategy used during import.
           shared_ptr<string> strategy_ {};
-          // Specifies whether to import with gateway extension configurations.
+          // Specifies whether to import with the gateway extension configuration.
           shared_ptr<bool> withGatewayExtension_ {};
         };
 
@@ -403,7 +403,7 @@ namespace Models
         protected:
           // The ID of the API.
           shared_ptr<string> apiId_ {};
-          // The API name. The value unknown is returned if the name cannot be identified.
+          // The name of the API. If the name cannot be identified, unknown is returned.
           shared_ptr<string> apiName_ {};
           // The error message.
           shared_ptr<string> errorMessage_ {};
@@ -509,7 +509,7 @@ namespace Models
 
 
             protected:
-              // The action type to be performed after the dry run.
+              // The type of action to be performed after the dry run.
               shared_ptr<string> action_ {};
               // The name of the route.
               shared_ptr<string> name_ {};
@@ -571,7 +571,7 @@ namespace Models
 
 
             protected:
-              // The action type to be performed after the dry run.
+              // The type of action to be performed after the dry run.
               shared_ptr<string> action_ {};
               // The HTTP method of the REST API operation.
               shared_ptr<string> method_ {};
@@ -619,7 +619,7 @@ namespace Models
 
 
             protected:
-              // The action type to be performed after the dry run.
+              // The type of action to be performed after the dry run.
               shared_ptr<string> action_ {};
               // The name of the data structure.
               shared_ptr<string> name_ {};
@@ -663,7 +663,7 @@ namespace Models
 
 
             protected:
-              // The reason why the dry run failed.
+              // The reason for the dry run failure.
               shared_ptr<string> errorMessage_ {};
               // The name of the route.
               shared_ptr<string> name_ {};
@@ -716,7 +716,7 @@ namespace Models
 
 
             protected:
-              // The reason why the dry run failed.
+              // The reason for the dry run failure.
               shared_ptr<string> errorMessage_ {};
               // The HTTP method of the REST API operation.
               shared_ptr<string> method_ {};
@@ -762,7 +762,7 @@ namespace Models
 
 
             protected:
-              // The reason why the dry run failed.
+              // The reason for the dry run failure.
               shared_ptr<string> errorMessage_ {};
               // The name of the data structure.
               shared_ptr<string> name_ {};
@@ -862,7 +862,7 @@ namespace Models
 
 
               protected:
-                // Indicates whether versioning is enabled.
+                // Specifies whether versioning is enabled.
                 shared_ptr<bool> enable_ {};
                 // The key in the specified header parameter when the header versioning scheme is used.
                 shared_ptr<string> headerName_ {};
@@ -931,7 +931,7 @@ namespace Models
               shared_ptr<string> name_ {};
               // The API type.
               shared_ptr<string> type_ {};
-              // The API versioning information.
+              // The versioning information of the API.
               shared_ptr<ExistHttpApiInfo::VersionInfo> versionInfo_ {};
             };
 
@@ -1022,7 +1022,7 @@ namespace Models
           protected:
             // The list of dry run error messages.
             shared_ptr<vector<string>> errorMessages_ {};
-            // The basic information about the existing HTTP API matched during import.
+            // The basic information of the existing HTTP API matched during import.
             shared_ptr<DryRunInfo::ExistHttpApiInfo> existHttpApiInfo_ {};
             // The list of data structures that failed the dry run.
             shared_ptr<vector<DryRunInfo::FailureComponents>> failureComponents_ {};
@@ -1073,9 +1073,9 @@ namespace Models
 
 
         protected:
-          // The API name. The value unknown is returned if the name cannot be identified.
+          // The name of the API. If the name cannot be identified, unknown is returned.
           shared_ptr<string> apiName_ {};
-          // The dry run details, including the operations, routes, components, and error or warning messages planned for creation or update in this file.
+          // The dry run details, including the operations, routes, components, and error and warning messages to be created or updated by this file.
           shared_ptr<DryRunResults::DryRunInfo> dryRunInfo_ {};
           // The dry run error message.
           shared_ptr<string> error_ {};
@@ -1146,7 +1146,7 @@ namespace Models
       protected:
         // The API type.
         shared_ptr<string> apiType_ {};
-        // Indicates whether the task is in dry run mode.
+        // Indicates whether the dry run mode is enabled.
         shared_ptr<bool> dryRun_ {};
         // The list of dry run results.
         shared_ptr<vector<Result::DryRunResults>> dryRunResults_ {};
@@ -1154,7 +1154,7 @@ namespace Models
         shared_ptr<vector<Result::FailureItems>> failureItems_ {};
         // The gateway instance ID.
         shared_ptr<string> gatewayId_ {};
-        // The formal import request body. This field is returned only for dry run tasks and can be resubmitted as the request body of BatchImportHttpApis. The dryRun parameter is fixed to false. Temporary specFileUrl values are still subject to URL expiration constraints.
+        // The formal import request body. Returned only for dry run tasks. Can be resubmitted as the BatchImportHttpApis request body with dryRun set to false. The temporary specFileUrl is still subject to the URL expiration period.
         shared_ptr<Result::ImportRequest> importRequest_ {};
         // The list of successfully processed APIs.
         shared_ptr<vector<Result::SuccessItems>> successItems_ {};
@@ -1222,11 +1222,11 @@ namespace Models
 
 
     protected:
-      // The time when the task was created. The time is in UTC and follows the RFC 3339 format.
+      // The time when the task was created. The time is in UTC and follows the RFC 3339 standard.
       shared_ptr<string> createTime_ {};
       // The error message.
       shared_ptr<string> errorMessage_ {};
-      // The number of processed items.
+      // The processed count.
       shared_ptr<int32_t> processedCount_ {};
       // The task result details.
       shared_ptr<Data::Result> result_ {};

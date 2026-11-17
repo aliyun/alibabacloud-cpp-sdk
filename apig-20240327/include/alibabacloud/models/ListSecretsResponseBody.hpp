@@ -170,17 +170,17 @@ namespace Models
         shared_ptr<int64_t> createTimestamp_ {};
         // The gateway type.
         shared_ptr<string> gatewayType_ {};
-        // The KMS configuration information.
+        // The KMS configuration.
         shared_ptr<KMSConfig> kmsConfig_ {};
-        // The key name.
+        // The secret name.
         shared_ptr<string> name_ {};
-        // The resource count of resources that reference the current key.
+        // The resource count of the resources that reference the current secret.
         shared_ptr<int32_t> referenceCount_ {};
-        // The key ID.
+        // The secret ID.
         shared_ptr<string> secretId_ {};
-        // The key source.
+        // The secret source.
         shared_ptr<string> secretSource_ {};
-        // The key status. Valid values:
+        // The secret status. Valid values:
         // - ENABLE: Enabled.
         // - DISABLE: Disabled.
         // - DELETED: Deleted.
@@ -222,7 +222,7 @@ namespace Models
 
 
     protected:
-      // The list of key details.
+      // The list of secret details.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
@@ -267,7 +267,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The list of key information.
+    // The list of secrets.
     shared_ptr<ListSecretsResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};

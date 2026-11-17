@@ -14,10 +14,12 @@ namespace Models
   class UpdateAiModelProviderRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateAiModelProviderRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(defaultServiceId, defaultServiceId_);
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(serviceIds, serviceIds_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateAiModelProviderRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(defaultServiceId, defaultServiceId_);
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(serviceIds, serviceIds_);
     };
@@ -32,8 +34,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->displayName_ == nullptr
-        && this->serviceIds_ == nullptr; };
+    virtual bool empty() const override { return this->defaultServiceId_ == nullptr
+        && this->displayName_ == nullptr && this->serviceIds_ == nullptr; };
+    // defaultServiceId Field Functions 
+    bool hasDefaultServiceId() const { return this->defaultServiceId_ != nullptr;};
+    void deleteDefaultServiceId() { this->defaultServiceId_ = nullptr;};
+    inline string getDefaultServiceId() const { DARABONBA_PTR_GET_DEFAULT(defaultServiceId_, "") };
+    inline UpdateAiModelProviderRequest& setDefaultServiceId(string defaultServiceId) { DARABONBA_PTR_SET_VALUE(defaultServiceId_, defaultServiceId) };
+
+
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
@@ -51,11 +60,13 @@ namespace Models
 
 
   protected:
-    // The display name of the model provider. This parameter is required. The name can be up to 128 characters in length.
+    // The optional default AI service ID. If not empty, it must be a service in the updated association set. Omitting this parameter retains the saved default. An explicit empty string clears the default. A non-empty value sets the default. The value can be up to 64 characters in length.
+    shared_ptr<string> defaultServiceId_ {};
+    // The display name of the model provider. This parameter is required and can be up to 128 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
-    // The complete set of AI service IDs to bind to the model provider. If this parameter is not specified, the existing bindings are retained. If an empty array is passed, all bindings are cleared. Duplicate and empty values are normalized.
+    // The complete set of AI service IDs to associate with the model provider. If you do not specify this parameter, the existing associations are retained. If you pass an empty array, all associations are cleared. Duplicate and empty values are normalized.
     shared_ptr<vector<string>> serviceIds_ {};
   };
 

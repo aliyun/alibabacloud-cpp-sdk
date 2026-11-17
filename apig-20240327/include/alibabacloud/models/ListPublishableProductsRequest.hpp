@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The name of the API product. This corresponds to the name field in the response list items.
+    // The name of the API product. This is the same field as the name property in the response list items.
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

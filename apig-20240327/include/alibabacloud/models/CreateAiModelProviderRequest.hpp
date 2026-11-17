@@ -14,6 +14,7 @@ namespace Models
   class CreateAiModelProviderRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateAiModelProviderRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(defaultServiceId, defaultServiceId_);
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(provider, provider_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAiModelProviderRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(defaultServiceId, defaultServiceId_);
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(provider, provider_);
@@ -38,8 +40,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->displayName_ == nullptr
-        && this->gatewayId_ == nullptr && this->provider_ == nullptr && this->serviceIds_ == nullptr && this->clientToken_ == nullptr; };
+    virtual bool empty() const override { return this->defaultServiceId_ == nullptr
+        && this->displayName_ == nullptr && this->gatewayId_ == nullptr && this->provider_ == nullptr && this->serviceIds_ == nullptr && this->clientToken_ == nullptr; };
+    // defaultServiceId Field Functions 
+    bool hasDefaultServiceId() const { return this->defaultServiceId_ != nullptr;};
+    void deleteDefaultServiceId() { this->defaultServiceId_ = nullptr;};
+    inline string getDefaultServiceId() const { DARABONBA_PTR_GET_DEFAULT(defaultServiceId_, "") };
+    inline CreateAiModelProviderRequest& setDefaultServiceId(string defaultServiceId) { DARABONBA_PTR_SET_VALUE(defaultServiceId_, defaultServiceId) };
+
+
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
@@ -78,6 +87,8 @@ namespace Models
 
 
   protected:
+    // The optional default AI service ID. If not empty, it must be a service in the current association set. Omitting this parameter indicates that no default is set. An explicit empty string clears the default. A non-empty value sets the default. The length cannot exceed 64 characters.
+    shared_ptr<string> defaultServiceId_ {};
     // The display name of the model provider.
     // 
     // This parameter is required.
@@ -90,9 +101,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> provider_ {};
-    // The list of service IDs to bind to the provider.
+    // The list of service IDs to associate with the provider.
     shared_ptr<vector<string>> serviceIds_ {};
-    // The client token that ensures the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
   };
 

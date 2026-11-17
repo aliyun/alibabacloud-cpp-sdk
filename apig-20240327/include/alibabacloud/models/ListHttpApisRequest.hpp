@@ -190,7 +190,7 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // The type of the gateway associated with the HTTP API. Valid values: API (cloud-native API gateway) and AI (AI gateway).
     shared_ptr<string> gatewayType_ {};
-    // The search keyword. Supports fuzzy match by API name or exact search by API ID.
+    // The search keyword. Supports fuzzy search by API name or exact search by API ID.
     shared_ptr<string> keyword_ {};
     // The name for exact search.
     shared_ptr<string> name_ {};
@@ -200,7 +200,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The types of the HTTP API. You can specify multiple types separated by commas (,). Valid values:
+    // The types of the HTTP APIs. You can specify multiple types separated by commas (,). Valid values:
     // - Http
     // - Rest
     // - Websocket
@@ -208,19 +208,19 @@ namespace Models
     shared_ptr<string> types_ {};
     // Specifies whether to return the information about APIs published to the specified environment.
     shared_ptr<bool> withAPIsPublishedToEnvironment_ {};
-    // The ID of the environment. If specified, the response includes the consumer authentication policy information for each API in the specified environment.
+    // The environment ID. If specified, the response includes consumer authentication policy information for each API in the specified environment.
     shared_ptr<string> withAuthPolicyInEnvironmentId_ {};
-    // Specifies whether the permission authentication policy is enabled.
+    // Specifies whether the authentication policy is enabled.
     shared_ptr<bool> withAuthPolicyList_ {};
-    // The ID of the consumer. If specified, the response includes the list of authorization rules for the specified consumer in each API information.
+    // The consumer ID. If specified, the response includes the authorization rule list for the specified consumer in the information of each API.
     shared_ptr<string> withConsumerInfoById_ {};
-    // The environment context.
+    // Specifies whether to include the environment context.
     shared_ptr<bool> withEnvironmentInfo_ {};
-    // The ID of the environment.
+    // The environment ID.
     shared_ptr<string> withEnvironmentInfoById_ {};
     // Specifies whether to include Ingress information.
     shared_ptr<bool> withIngressInfo_ {};
-    // The ID of the plug-in. If specified, the plug-in release information is retrieved based on this plug-in ID.
+    // The plugin ID. If specified, the plugin release information is retrieved based on this ID.
     shared_ptr<string> withPluginAttachmentByPluginId_ {};
     // Specifies whether to include policy information.
     shared_ptr<bool> withPolicyConfigs_ {};

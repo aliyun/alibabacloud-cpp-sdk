@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The description of the product category. Maximum length: 500 characters.
+    // The description of the product category. The description can be up to 500 characters in length.
     shared_ptr<string> description_ {};
     // The icon of the product category, which consists of the icon type and icon information fields.
     shared_ptr<HiMarketIcon> icon_ {};
-    // The name of the product category. Maximum length: 100 characters.
+    // The name of the product category. The name can be up to 100 characters in length.
     shared_ptr<string> name_ {};
   };
 

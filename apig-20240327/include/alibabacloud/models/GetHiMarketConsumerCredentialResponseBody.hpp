@@ -79,9 +79,9 @@ namespace Models
 
 
     protected:
-      // The API key credential configuration of the consumer, which corresponds to the common data structure HiMarketApiKeyConfig. The members include key, source, and the credentials list, where each list item contains an apiKey.
+      // The API key consumer credential configuration. This corresponds to the common data structure HiMarketApiKeyConfig. The members include key, source, and the credential list credentials, where each list item contains an apiKey.
       shared_ptr<HiMarketApiKeyConfig> apiKeyConfig_ {};
-      // The HMAC credential configuration of the consumer, which corresponds to the common data structure HiMarketHmacConfig. The members include the credentials list, where each list item contains ak and sk.
+      // The HMAC consumer credential configuration. This corresponds to the common data structure HiMarketHmacConfig. The members include the credential list credentials, where each list item contains an ak and an sk.
       shared_ptr<HiMarketHmacConfig> hmacConfig_ {};
     };
 

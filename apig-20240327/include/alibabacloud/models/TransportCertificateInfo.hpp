@@ -137,25 +137,25 @@ namespace Models
   protected:
     // The signature or key algorithm.
     shared_ptr<string> algorithm_ {};
-    // The certificate identifier (the certificate ID under the APIG Alibaba Cloud account).
+    // The certificate identifier, which is the certificate ID under the APIG cloud account.
     shared_ptr<string> certIdentifier_ {};
     // The certificate name.
     shared_ptr<string> certName_ {};
-    // The match status between the certificate and the gateway instance domain names.
+    // The matching status between the certificate and the instance domain names.
     shared_ptr<string> certificateMatchStatus_ {};
-    // The certificate Common Name (CN).
+    // The common name (CN) of the certificate.
     shared_ptr<string> commonName_ {};
-    // The set of covered domain names parsed from CN and SAN (lowercase, deduplicated, may contain *. wildcards).
+    // The set of covered domain names parsed from the CN and SAN. The domain names are in lowercase, deduplicated, and may include wildcards such as *.
     shared_ptr<vector<string>> coveredDomains_ {};
     // The certificate issuer.
     shared_ptr<string> issuer_ {};
-    // The gateway instance domain names matched by the covered domain names (ordered by instance domain name, deduplicated).
+    // The gateway instance domain names matched by the covered domain names. The order follows the instance domain names, and the results are deduplicated.
     shared_ptr<vector<string>> matchedDomains_ {};
-    // The expiration timestamp (Unix milliseconds, from the certificate afterDate).
+    // The expiration timestamp in UNIX milliseconds, which is obtained from the afterDate of the certificate.
     shared_ptr<int64_t> notAfterTimestamp_ {};
-    // The effective period UNIX timestamp (milliseconds, from the certificate beforeDate).
+    // The UNIX timestamp for the effective period in milliseconds, which is obtained from the beforeDate of the certificate.
     shared_ptr<int64_t> notBeforeTimestamp_ {};
-    // The raw Subject Alternative Name (SAN) string (separated by commas, semicolons, or whitespace. Elements may have a DNS: prefix).
+    // The raw Subject Alternative Name (SAN) string separated by commas, semicolons, or spaces. Elements may include the DNS: prefix.
     shared_ptr<string> sans_ {};
   };
 

@@ -164,11 +164,11 @@ namespace Models
 
 
     protected:
-      // The list of consumers. Each element represents a HiMarket consumer.
+      // The list of consumers. Each element in the list is named consumer and represents a HiMarket consumer.
       shared_ptr<vector<Data::Content>> content_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
@@ -229,7 +229,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The cursor for the next page. An empty value indicates that the last page has been reached.
+    // The pagination token for the next page. An empty value indicates that the last page is reached.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

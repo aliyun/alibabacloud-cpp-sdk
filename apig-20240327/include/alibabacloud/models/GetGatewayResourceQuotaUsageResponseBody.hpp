@@ -133,7 +133,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether the quota value is provided.
+        // Indicates whether the quota value is provided.
         shared_ptr<bool> applicable_ {};
         // The effective limit.
         shared_ptr<int64_t> limit_ {};
@@ -143,7 +143,7 @@ namespace Models
         shared_ptr<string> quotaKey_ {};
         // The current usage.
         shared_ptr<int64_t> used_ {};
-        // The scope of usage statistics.
+        // The usage statistics scope.
         shared_ptr<string> usedScope_ {};
       };
 
@@ -177,7 +177,7 @@ namespace Models
       shared_ptr<string> gatewayId_ {};
       // The resource quota items.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The time when the statistics collection was completed.
+      // The statistics completion time.
       shared_ptr<string> observedAt_ {};
     };
 

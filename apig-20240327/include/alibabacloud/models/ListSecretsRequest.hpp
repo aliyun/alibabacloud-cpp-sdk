@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The gateway type used for filtering. Valid values: **AI** and **API**.
+    // The gateway type for filtering. Supported gateway types: **AI** and **API**.
     shared_ptr<string> gatewayType_ {};
-    // The key name. Fuzzy match is supported.
+    // The name of the secret for fuzzy match.
     shared_ptr<string> nameLike_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

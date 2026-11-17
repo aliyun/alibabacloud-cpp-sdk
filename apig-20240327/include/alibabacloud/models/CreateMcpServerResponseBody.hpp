@@ -75,7 +75,7 @@ namespace Models
     protected:
       // MCP Server ID
       shared_ptr<string> mcpServerId_ {};
-      // The MCP server name.
+      // The name of the MCP server.
       shared_ptr<string> name_ {};
     };
 

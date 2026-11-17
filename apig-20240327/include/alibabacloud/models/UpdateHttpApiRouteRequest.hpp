@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(dfpConfig, dfpConfig_);
       DARABONBA_PTR_TO_JSON(domainIds, domainIds_);
       DARABONBA_PTR_TO_JSON(environmentId, environmentId_);
+      DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(match, match_);
       DARABONBA_PTR_TO_JSON(mcpRouteConfig, mcpRouteConfig_);
       DARABONBA_PTR_TO_JSON(policyConfigs, policyConfigs_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(dfpConfig, dfpConfig_);
       DARABONBA_PTR_FROM_JSON(domainIds, domainIds_);
       DARABONBA_PTR_FROM_JSON(environmentId, environmentId_);
+      DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(match, match_);
       DARABONBA_PTR_FROM_JSON(mcpRouteConfig, mcpRouteConfig_);
       DARABONBA_PTR_FROM_JSON(policyConfigs, policyConfigs_);
@@ -268,19 +270,19 @@ namespace Models
 
 
       protected:
-        // The service group. Used in HTTP-to-Dubbo conversion scenarios.
+        // The service group. Used for HTTP-to-Dubbo conversion scenarios.
         shared_ptr<string> groupName_ {};
-        // The HTTP-to-Dubbo protocol conversion configuration. This configuration is only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
+        // The HTTP-to-Dubbo protocol conversion configuration. Only SingleService MSE_NACOS DUBBO backends of HTTP APIs are supported.
         shared_ptr<HttpDubboTranscoder> httpDubboTranscoder_ {};
-        // The name of the target model. This field is shared by multiple existing model backend scenarios. The specific routing or model rewriting semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If it is not configured for the AiAutoRouter scenario, the default model of the AI service is used.
+        // The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewriting semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not configured for the AiAutoRouter scenario, the default model of the AI service is used.
         shared_ptr<string> modelName_ {};
-        // The service namespace. Used in HTTP-to-Dubbo conversion scenarios.
+        // The service namespace. Used for HTTP-to-Dubbo conversion scenarios.
         shared_ptr<string> namespace_ {};
         // The service port. Do not specify this parameter for dynamic ports.
         shared_ptr<int32_t> port_ {};
         // The service protocol. Valid values:
-        // - HTTP.
-        // - HTTPS.
+        // - HTTP
+        // - HTTPS
         shared_ptr<string> protocol_ {};
         // The service ID.
         shared_ptr<string> serviceId_ {};
@@ -318,8 +320,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->backendConfig_ == nullptr
-        && this->description_ == nullptr && this->dfpConfig_ == nullptr && this->domainIds_ == nullptr && this->environmentId_ == nullptr && this->match_ == nullptr
-        && this->mcpRouteConfig_ == nullptr && this->policyConfigs_ == nullptr; };
+        && this->description_ == nullptr && this->dfpConfig_ == nullptr && this->domainIds_ == nullptr && this->environmentId_ == nullptr && this->gatewayId_ == nullptr
+        && this->match_ == nullptr && this->mcpRouteConfig_ == nullptr && this->policyConfigs_ == nullptr; };
     // backendConfig Field Functions 
     bool hasBackendConfig() const { return this->backendConfig_ != nullptr;};
     void deleteBackendConfig() { this->backendConfig_ = nullptr;};
@@ -361,6 +363,13 @@ namespace Models
     inline UpdateHttpApiRouteRequest& setEnvironmentId(string environmentId) { DARABONBA_PTR_SET_VALUE(environmentId_, environmentId) };
 
 
+    // gatewayId Field Functions 
+    bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
+    void deleteGatewayId() { this->gatewayId_ = nullptr;};
+    inline string getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
+    inline UpdateHttpApiRouteRequest& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
+
+
     // match Field Functions 
     bool hasMatch() const { return this->match_ != nullptr;};
     void deleteMatch() { this->match_ = nullptr;};
@@ -393,12 +402,14 @@ namespace Models
     shared_ptr<UpdateHttpApiRouteRequest::BackendConfig> backendConfig_ {};
     // The route description.
     shared_ptr<string> description_ {};
-    // The current ExtProc service selection for fixed DFP routes. You can only edit mounted routes. This parameter cannot be submitted together with backendConfig, mcpRouteConfig, or policyConfigs.
+    // The ExtProc service selection for fixed DFP routes. You can only edit mounted routes. This parameter cannot be submitted together with backendConfig, mcpRouteConfig, or policyConfigs.
     shared_ptr<UpdateHttpApiRouteRequest::DfpConfig> dfpConfig_ {};
     // The list of domain name IDs.
     shared_ptr<vector<string>> domainIds_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
+    // The gateway ID. This parameter is used to replace the deprecated environment ID for verifying the gateway to which the route belongs. If the gateway ID does not match the gateway to which the route record belongs, the request is rejected. If the environment ID is omitted, the route ownership remains unchanged.
+    shared_ptr<string> gatewayId_ {};
     // The route match rule.
     shared_ptr<HttpRouteMatch> match_ {};
     // The MCP route configuration.

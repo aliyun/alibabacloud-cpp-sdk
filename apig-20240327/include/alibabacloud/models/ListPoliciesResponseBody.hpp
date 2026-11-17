@@ -144,7 +144,7 @@ namespace Models
     shared_ptr<ListPoliciesResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID, which is used to trace the API call chain.
+    // The request ID. You can use the ID to trace the API call chain.
     shared_ptr<string> requestId_ {};
   };
 

@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ruleStatus, ruleStatus_);
     };
     friend void from_json(const Darabonba::Json& j, ListConsumerGroupQuotaRulesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ruleStatus, ruleStatus_);
     };
     ListConsumerGroupQuotaRulesRequest() = default ;
     ListConsumerGroupQuotaRulesRequest(const ListConsumerGroupQuotaRulesRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gatewayId_ == nullptr
-        && this->keyword_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+        && this->keyword_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->ruleStatus_ == nullptr; };
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
@@ -65,15 +67,24 @@ namespace Models
     inline ListConsumerGroupQuotaRulesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // ruleStatus Field Functions 
+    bool hasRuleStatus() const { return this->ruleStatus_ != nullptr;};
+    void deleteRuleStatus() { this->ruleStatus_ = nullptr;};
+    inline string getRuleStatus() const { DARABONBA_PTR_GET_DEFAULT(ruleStatus_, "") };
+    inline ListConsumerGroupQuotaRulesRequest& setRuleStatus(string ruleStatus) { DARABONBA_PTR_SET_VALUE(ruleStatus_, ruleStatus) };
+
+
   protected:
     // The gateway ID. This parameter is optional. If specified, the results are filtered by the exact gateway ID.
     shared_ptr<string> gatewayId_ {};
-    // The keyword for the rule name. This parameter is optional. If specified, fuzzy matching is performed on the rule name.
+    // The keyword for the rule name. This parameter is optional. If specified, the results are filtered by a fuzzy match on the rule name.
     shared_ptr<string> keyword_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
+    // The rule status. This parameter is optional. Valid values: enabled and disabled. If not specified, all rules are queried.
+    shared_ptr<string> ruleStatus_ {};
   };
 
   } // namespace Models

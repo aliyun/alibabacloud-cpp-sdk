@@ -95,7 +95,7 @@ namespace Models
 
 
     protected:
-      // The MCP server spec configuration. This parameter is mutually exclusive with swaggerConfig.
+      // The MCP server configuration. This parameter is mutually exclusive with the swaggerConfig parameter.
       shared_ptr<string> mcpServerSpec_ {};
       // The Swagger document for HTTP-to-MCP conversion. The document must comply with the OpenAPI 3.0 specification.
       shared_ptr<string> swaggerConfig_ {};
@@ -241,7 +241,7 @@ namespace Models
 
 
       protected:
-        // The backend scenario.
+        // The backend scene.
         shared_ptr<string> scene_ {};
         // The backend services.
         shared_ptr<vector<BackendConfig::Services>> services_ {};
@@ -277,7 +277,7 @@ namespace Models
     protected:
       // The backend configuration.
       shared_ptr<GrayMcpServerConfigs::BackendConfig> backendConfig_ {};
-      // The route match rule.
+      // The route matching rule.
       shared_ptr<HttpRouteMatch> match_ {};
       // The route ID.
       shared_ptr<string> routeId_ {};
@@ -371,11 +371,11 @@ namespace Models
       protected:
         // The backend node port of the service.
         shared_ptr<int32_t> port_ {};
-        // The service protocol. Valid values:
-        // - HTTP
-        // - HTTPS
+        // The service protocol:
+        // - HTTP.
+        // - HTTPS.
         shared_ptr<string> protocol_ {};
-        // The service ID. The serviceId must be a backend service ID that is registered under the gateway. You can call the ListServices operation (with the gatewayId parameter) to query available service IDs.
+        // The service ID. This is the ID of a registered backend service under the gateway. You can obtain it by calling the ListServices API and specifying the gatewayId.
         shared_ptr<string> serviceId_ {};
         // The service version.
         shared_ptr<string> version_ {};
@@ -402,7 +402,7 @@ namespace Models
 
 
     protected:
-      // The backend service scenario.
+      // The backend service scene.
       shared_ptr<string> scene_ {};
       // The backend services.
       shared_ptr<vector<BackendConfig::Services>> services_ {};
@@ -459,7 +459,7 @@ namespace Models
     protected:
       // MCP Server ID
       shared_ptr<string> mcpServerId_ {};
-      // The MCP server name.
+      // The name of the MCP server.
       shared_ptr<string> mcpServerName_ {};
       // The list of MCP tools.
       shared_ptr<vector<string>> tools_ {};
@@ -580,23 +580,23 @@ namespace Models
 
 
   protected:
-    // The list of assembly sources. This parameter is required when type is set to AssemblyMCP.
+    // The list of assembly sources. This parameter is required when the type is AssemblyMCP.
     shared_ptr<vector<CreateMcpServerRequest::AssembledSources>> assembledSources_ {};
-    // The backend service configuration for the route. This parameter is required. You must specify the backend service configuration, including scene and services. If this parameter is not specified, the API returns InvalidParameter.WithValue(400).
+    // The backend service configuration for the route. This parameter is required. You must provide the backend service configuration, including scene and services. If this parameter is omitted, the API returns InvalidParameter.WithValue(400).
     shared_ptr<CreateMcpServerRequest::BackendConfig> backendConfig_ {};
-    // The creation source type. Valid values:
+    // The creation source type.
     // 
-    // - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
-    // - ApiGatewayProxyMcpHosting: gateway-managed direct MCP proxy.
-    // - ApiGatewayAssembly: gateway MCP assembly.
-    // - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
-    // - NacosMcpHosting: gateway-managed Nacos-synced direct MCP proxy.
+    // ApiGatewayHttpToMCP API gateway-hosted HTTP-to-MCP conversion
+    // ApiGatewayProxyMcpHosting API gateway-hosted MCP direct proxy
+    // ApiGatewayAssembly API gateway MCP assembly
+    // NacosHttpToMCP API gateway-hosted Nacos-synchronized HTTP-to-MCP conversion
+    // NacosMcpHosting API gateway-hosted Nacos-synchronized MCP direct proxy.
     shared_ptr<string> createFromType_ {};
     // The description of the MCP server.
     shared_ptr<string> description_ {};
     // The domain name IDs.
     shared_ptr<vector<string>> domainIds_ {};
-    // The exposed URI path. This parameter is required when protocol is set to SSE or StreamableHTTP and type is set to RealMCP.
+    // The exposed URI path. This parameter is required when the protocol is SSE or StreamableHTTP and the type is RealMCP.
     shared_ptr<string> exposedUriPath_ {};
     // The gateway ID.
     // 
@@ -604,21 +604,21 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // The canary release route configurations.
     shared_ptr<vector<CreateMcpServerRequest::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
-    // The route match rule. When type is set to RealMCP, the match parameter is required and you must specify a route match rule.
+    // The route match rule. If the type is RealMCP, the match parameter is required and a route matching rule must be provided.
     shared_ptr<HttpRouteMatch> match_ {};
     // The HTTP-to-MCP configuration.
     shared_ptr<CreateMcpServerRequest::McpServerConfig> mcpServerConfig_ {};
     // Specifies whether to enable MCP observability. Default value: false.
     shared_ptr<bool> mcpStatisticsEnable_ {};
-    // The MCP server name. The name must match the regular expression ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$ and cannot exceed 64 characters in length.
+    // The name of the MCP server. The name must match the regular expression ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$ and cannot exceed 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The protocol type. This parameter is required. You must explicitly specify the protocol type (HTTP/HTTPS/SSE/StreamableHTTP). If this parameter is not specified, the API returns InvalidParameter.WithValue(400).
+    // The protocol type. This parameter is required. You must explicitly specify the protocol type, such as HTTP, HTTPS, SSE, or StreamableHTTP. If this parameter is omitted, the API returns InvalidParameter.WithValue(400).
     shared_ptr<string> protocol_ {};
-    // The type. Valid values:
+    // The type.
     // 
-    // - RealMCP: a standard MCP service.
+    // RealMCP: Standard MCP service
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -100,13 +100,13 @@ namespace Models
 
 
     protected:
-      // The custom field mapping.
+      // The custom field mappings.
       shared_ptr<map<string, string>> customFields_ {};
-      // The identity field name that corresponds to the email address.
+      // The name of the identity field that corresponds to the email address.
       shared_ptr<string> emailField_ {};
-      // The identity field name that corresponds to the user ID.
+      // The name of the identity field that corresponds to the user ID.
       shared_ptr<string> userIdField_ {};
-      // The identity field name that corresponds to the username.
+      // The name of the identity field that corresponds to the username.
       shared_ptr<string> userNameField_ {};
     };
 
@@ -224,7 +224,7 @@ namespace Models
       shared_ptr<string> jwkSetUri_ {};
       // The OAuth2 redirect URI.
       shared_ptr<string> redirectUri_ {};
-      // The OAuth2 authorization scopes.
+      // The OAuth2 scopes.
       shared_ptr<string> scopes_ {};
       // The token endpoint URL.
       shared_ptr<string> tokenEndpoint_ {};
@@ -289,19 +289,19 @@ namespace Models
 
 
   protected:
-    // The OAuth2 Authorization Code configuration.
+    // The OAuth2 authorization code configuration.
     shared_ptr<HiMarketOidcConfig::AuthCodeConfig> authCodeConfig_ {};
-    // Specifies whether to enable the OIDC configuration.
+    // Specifies whether the OIDC configuration is enabled.
     shared_ptr<bool> enabled_ {};
-    // The authorization type.
+    // The grant type.
     shared_ptr<string> grantType_ {};
     // The identity field mapping configuration.
     shared_ptr<HiMarketOidcConfig::IdentityMapping> identityMapping_ {};
-    // The provider logo URL.
+    // The URL of the provider logo.
     shared_ptr<string> logoUrl_ {};
-    // The OIDC configuration name.
+    // The name of the OIDC configuration.
     shared_ptr<string> name_ {};
-    // The OIDC provider name.
+    // The name of the OIDC provider.
     shared_ptr<string> provider_ {};
   };
 

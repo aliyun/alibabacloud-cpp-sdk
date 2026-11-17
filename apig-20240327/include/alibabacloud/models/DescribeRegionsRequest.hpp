@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values: zh, en.
+    // The language of the response. Valid values: zh and en.
     shared_ptr<string> language_ {};
   };
 

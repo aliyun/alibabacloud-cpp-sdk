@@ -206,7 +206,7 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The list of APIs.
+    // The list of operations.
     shared_ptr<ListExternalServicesResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};

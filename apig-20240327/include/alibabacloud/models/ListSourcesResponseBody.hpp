@@ -145,7 +145,7 @@ namespace Models
         protected:
           // The access address of the Nacos instance.
           shared_ptr<string> address_ {};
-          // The NACOS registry cluster ID.
+          // The ID of the Nacos registry cluster.
           shared_ptr<string> clusterId_ {};
           // The Nacos instance ID.
           shared_ptr<string> instanceId_ {};
@@ -179,7 +179,7 @@ namespace Models
 
 
         protected:
-          // The container service cluster ID.
+          // The ID of the container service cluster.
           shared_ptr<string> clusterId_ {};
         };
 
@@ -264,9 +264,9 @@ namespace Models
         shared_ptr<Items::K8sSourceInfo> k8sSourceInfo_ {};
         // The MSE Nacos source information.
         shared_ptr<Items::NacosSourceInfo> nacosSourceInfo_ {};
-        // The source name. If the source type is container service, the name is the container service cluster name. If the source type is MSE Nacos, the name is the Nacos instance name.
+        // The source name. If the source type is container service, the name is the name of the container service cluster. If the source is MSE Nacos, the name is the name of the Nacos instance.
         shared_ptr<string> name_ {};
-        // The resource group ID.
+        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
         // The source ID.
         shared_ptr<string> sourceId_ {};

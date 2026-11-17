@@ -119,19 +119,19 @@ namespace Models
 
 
     protected:
-      // The plug-in alias.
+      // The alias of the plugin.
       shared_ptr<string> alias_ {};
-      // The plug-in description.
+      // The description of the plugin.
       shared_ptr<string> description_ {};
       // The document key.
       shared_ptr<string> document_ {};
-      // The plug-in name.
+      // The name of the plugin.
       shared_ptr<string> name_ {};
       // The publish status.
       shared_ptr<string> publishStatus_ {};
-      // The plug-in type.
+      // The type of the plugin.
       shared_ptr<string> type_ {};
-      // The programming language of the Wasm plug-in.
+      // The programming language of the Wasm plugin.
       shared_ptr<string> wasmLanguage_ {};
     };
 

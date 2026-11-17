@@ -159,11 +159,11 @@ namespace Models
 
 
       protected:
-        // The list of authorized CIDR block addresses.
+        // The list of authorized CIDR blocks.
         shared_ptr<vector<string>> authCidrs_ {};
         // The rule description.
         shared_ptr<string> description_ {};
-        // The protocol:
+        // The protocol. Valid values:
         // - TCP
         shared_ptr<string> ipProtocol_ {};
         // The port range.
@@ -172,7 +172,7 @@ namespace Models
         shared_ptr<string> securityGroupId_ {};
         // The security group name.
         shared_ptr<string> securityGroupName_ {};
-        // The security rule ID of the cloud-native API gateway.
+        // The ID of the security rule for the cloud-native API gateway.
         shared_ptr<string> securityGroupRuleId_ {};
         // The source security group ID.
         shared_ptr<string> sourceSecurityGroupId_ {};

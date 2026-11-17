@@ -119,11 +119,11 @@ namespace Models
 
 
     protected:
-      // The ID of the attached resource.
+      // The attached resource ID.
       shared_ptr<string> attachResourceId_ {};
-      // The type of the attached resource. Valid values: HttpApi, GatewayRoute, Operation, GatewayService, GatewayServicePort, Gateway, and Domain.
+      // The attached resource type, such as HttpApi, GatewayRoute, Operation, GatewayService, GatewayServicePort, Gateway, or Domain.
       shared_ptr<string> attachResourceType_ {};
-      // The configuration of the attached policy.
+      // The policy attachment configuration.
       shared_ptr<string> config_ {};
       // The environment ID.
       shared_ptr<string> environmentId_ {};

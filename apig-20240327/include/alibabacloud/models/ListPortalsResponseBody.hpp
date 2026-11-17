@@ -161,7 +161,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The portal name, which is the Name property of the portal resource.
         shared_ptr<string> name_ {};
-        // The portal domain configuration list. The list element is named domainConfig.
+        // The portal domain name configuration list. The list element is named domainConfig.
         shared_ptr<vector<HiMarketPortalDomainConfig>> portalDomainConfig_ {};
         // The portal ID, which is the primary ID of the portal resource. It can be used in GetPortal, UpdatePortal, and DeletePortal to locate the portal at /himarket/v1/portals/{portalId}.
         shared_ptr<string> portalId_ {};
@@ -210,7 +210,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total count.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -269,7 +269,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The cursor token for querying the next page.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

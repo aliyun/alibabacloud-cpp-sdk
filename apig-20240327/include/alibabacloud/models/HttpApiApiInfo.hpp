@@ -215,15 +215,15 @@ namespace Models
     protected:
       // The environment context.
       shared_ptr<IngressInfo::EnvironmentInfo> environmentInfo_ {};
-      // The ingress class to listen on.
+      // The Ingress class to listen on.
       shared_ptr<string> ingressClass_ {};
       // The Kubernetes cluster information.
       shared_ptr<IngressInfo::K8sClusterInfo> k8sClusterInfo_ {};
-      // Specifies whether to update the address in the ingress status.
+      // Specifies whether to update the IP address in the Ingress status.
       shared_ptr<bool> overrideIngressIp_ {};
       // The source ID.
       shared_ptr<string> sourceId_ {};
-      // The watched namespace.
+      // The namespace to watch.
       shared_ptr<string> watchNamespace_ {};
     };
 
@@ -427,7 +427,7 @@ namespace Models
       protected:
         // The service ID.
         shared_ptr<string> gatewayServiceId_ {};
-        // The match conditions.
+        // The match condition.
         shared_ptr<HttpApiBackendMatchConditions> match_ {};
         // The service name.
         shared_ptr<string> name_ {};
@@ -588,7 +588,7 @@ namespace Models
       shared_ptr<string> backendType_ {};
       // The published domain name information.
       shared_ptr<vector<HttpApiDomainInfo>> customDomains_ {};
-      // The API deployment status in the current environment.
+      // The deployment status of the API in the current environment.
       shared_ptr<string> deployStatus_ {};
       // The environment ID.
       shared_ptr<string> environmentId_ {};
@@ -596,9 +596,9 @@ namespace Models
       shared_ptr<Environments::GatewayInfo> gatewayInfo_ {};
       // The environment name.
       shared_ptr<string> name_ {};
-      // The existing service configurations.
+      // The existing service configuration.
       shared_ptr<vector<Environments::ServiceConfigs>> serviceConfigs_ {};
-      // The list of default domain names for the environment.
+      // The default domain names for the environment.
       shared_ptr<vector<Environments::SubDomains>> subDomains_ {};
     };
 
@@ -758,13 +758,13 @@ namespace Models
     shared_ptr<vector<string>> aiProtocols_ {};
     // The authentication configuration.
     shared_ptr<AuthConfig> authConfig_ {};
-    // The API base path.
+    // The base path of the API.
     shared_ptr<string> basePath_ {};
-    // The API operation deployment status.
+    // The publish status of the API operation.
     shared_ptr<map<string, HttpApiApiInfoDeployCntMapValue>> deployCntMap_ {};
     // The list of API deployment configurations.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
-    // The API description.
+    // The description of the API.
     shared_ptr<string> description_ {};
     // Specifies whether to enable authentication.
     shared_ptr<bool> enableAuth_ {};
@@ -772,9 +772,9 @@ namespace Models
     shared_ptr<vector<HttpApiApiInfo::Environments>> environments_ {};
     // The ID of the gateway instance to which the API belongs.
     shared_ptr<string> gatewayId_ {};
-    // The HTTP API ID.
+    // The ID of the HTTP API.
     shared_ptr<string> httpApiId_ {};
-    // The HTTP ingress API information.
+    // The information of the HTTP Ingress API.
     shared_ptr<HttpApiApiInfo::IngressInfo> ingressInfo_ {};
     // The model category.
     shared_ptr<string> modelCategory_ {};
@@ -786,7 +786,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The API type.
     shared_ptr<string> type_ {};
-    // The API versioning information.
+    // The versioning information of the API.
     shared_ptr<HttpApiVersionInfo> versionInfo_ {};
   };
 

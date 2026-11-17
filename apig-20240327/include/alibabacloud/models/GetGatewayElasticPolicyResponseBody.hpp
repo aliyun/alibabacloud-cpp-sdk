@@ -139,9 +139,9 @@ namespace Models
 
 
         protected:
-          // The O&M end time in the HH:mm format.
+          // The end time of the O&M window (HH:mm).
           shared_ptr<string> endTime_ {};
-          // The O&M start time in the HH:mm format.
+          // The start time of the O&M window (HH:mm).
           shared_ptr<string> startTime_ {};
           // The number of replicas.
           shared_ptr<int64_t> units_ {};
@@ -185,9 +185,9 @@ namespace Models
 
 
         protected:
-          // The O&M end time in the HH:mm format.
+          // The end time of the O&M window (HH:mm).
           shared_ptr<string> endTime_ {};
-          // The O&M start time in the HH:mm format.
+          // The start time of the O&M window (HH:mm).
           shared_ptr<string> startTime_ {};
         };
 
@@ -229,9 +229,9 @@ namespace Models
 
 
         protected:
-          // The O&M end time in the HH:mm format.
+          // The end time of the O&M window (HH:mm).
           shared_ptr<string> endTime_ {};
-          // The O&M start time in the HH:mm format.
+          // The start time of the O&M window (HH:mm).
           shared_ptr<string> startTime_ {};
         };
 
@@ -294,19 +294,19 @@ namespace Models
 
 
       protected:
-        // The time periods during which AutoHPA scale-out is prohibited.
+        // The time periods during which AutoHPA is prohibited from scaling out.
         shared_ptr<vector<ElasticPolicy::DisableScaleTimePolicyList>> disableScaleTimePolicyList_ {};
         // Indicates whether elastic scaling is enabled.
         shared_ptr<bool> elasticEnabled_ {};
         // The policy type.
         shared_ptr<string> elasticType_ {};
-        // The time periods during which AutoHPA scale-out is allowed.
+        // The time periods during which AutoHPA is allowed to scale out.
         shared_ptr<vector<ElasticPolicy::EnableScaleTimePolicyList>> enableScaleTimePolicyList_ {};
-        // The load alert threshold switch for AutoHPA.
+        // The AutoHPA load alert threshold switch.
         shared_ptr<bool> loadWarningThreshold_ {};
         // The maximum number of replicas for AutoHPA.
         shared_ptr<int32_t> maxUnits_ {};
-        // The list of CronHPA scheduled policies. Each entry includes units (number of replicas), startTime, and endTime.
+        // The list of scheduled policies for CronHPA, including units (number of replicas), startTime, and endTime.
         shared_ptr<vector<ElasticPolicy::TimePolicyList>> timePolicyList_ {};
       };
 
@@ -343,13 +343,13 @@ namespace Models
 
 
     protected:
-      // The elastic policy configuration, deserialized from the elastic_config JSON field in the database.
+      // The elastic policy configuration, deserialized from the elastic_config JSON in the database.
       shared_ptr<Data::ElasticPolicy> elasticPolicy_ {};
-      // The KubeOne AutoScaleStrategy instance ID.
+      // The ID of the KubeOne AutoScaleStrategy instance.
       shared_ptr<string> elasticStrategyId_ {};
       // The elastic policy type.
       shared_ptr<string> elasticType_ {};
-      // The gateway ID.
+      // The ID of the gateway.
       shared_ptr<string> gatewayId_ {};
     };
 

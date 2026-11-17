@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
-    // The description of the policy.
+    // The description.
     shared_ptr<string> description_ {};
     // The policy name.
     // 

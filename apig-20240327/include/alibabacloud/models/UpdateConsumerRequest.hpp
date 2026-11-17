@@ -85,15 +85,15 @@ namespace Models
 
 
   protected:
-    // The list of AccessKey pair authentication configurations.
+    // The list of AK/SK identity authentication configurations.
     shared_ptr<vector<AkSkIdentityConfig>> akSkIdentityConfigs_ {};
-    // The API key authentication configuration.
+    // The API key identity authentication configuration.
     shared_ptr<ApiKeyIdentityConfig> apikeyIdentityConfig_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable the consumer.
+    // Specifies whether the consumer is enabled.
     shared_ptr<bool> enable_ {};
-    // The JWT authentication configuration.
+    // The JWT identity authentication configuration.
     shared_ptr<JwtIdentityConfig> jwtIdentityConfig_ {};
   };
 

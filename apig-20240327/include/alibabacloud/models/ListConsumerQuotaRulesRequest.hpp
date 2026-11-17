@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ruleStatus, ruleStatus_);
     };
     friend void from_json(const Darabonba::Json& j, ListConsumerQuotaRulesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ruleStatus, ruleStatus_);
     };
     ListConsumerQuotaRulesRequest() = default ;
     ListConsumerQuotaRulesRequest(const ListConsumerQuotaRulesRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gatewayId_ == nullptr
-        && this->keyword_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+        && this->keyword_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->ruleStatus_ == nullptr; };
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
@@ -65,15 +67,24 @@ namespace Models
     inline ListConsumerQuotaRulesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // ruleStatus Field Functions 
+    bool hasRuleStatus() const { return this->ruleStatus_ != nullptr;};
+    void deleteRuleStatus() { this->ruleStatus_ = nullptr;};
+    inline string getRuleStatus() const { DARABONBA_PTR_GET_DEFAULT(ruleStatus_, "") };
+    inline ListConsumerQuotaRulesRequest& setRuleStatus(string ruleStatus) { DARABONBA_PTR_SET_VALUE(ruleStatus_, ruleStatus) };
+
+
   protected:
     // The gateway ID. This parameter is optional.
     shared_ptr<string> gatewayId_ {};
-    // The keyword in the rule name for fuzzy match.
+    // The keyword used to perform a fuzzy match on the rule name.
     shared_ptr<string> keyword_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of items per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The rule status. This parameter is optional. Valid values: enabled and disabled. If this parameter is not specified, all rules are queried.
+    shared_ptr<string> ruleStatus_ {};
   };
 
   } // namespace Models

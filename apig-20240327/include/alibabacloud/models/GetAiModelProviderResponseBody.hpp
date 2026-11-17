@@ -41,6 +41,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(boundServices, boundServices_);
+        DARABONBA_PTR_TO_JSON(defaultServiceId, defaultServiceId_);
         DARABONBA_PTR_TO_JSON(displayName, displayName_);
         DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
         DARABONBA_PTR_TO_JSON(modelCards, modelCards_);
@@ -52,6 +53,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(boundServices, boundServices_);
+        DARABONBA_PTR_FROM_JSON(defaultServiceId, defaultServiceId_);
         DARABONBA_PTR_FROM_JSON(displayName, displayName_);
         DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
         DARABONBA_PTR_FROM_JSON(modelCards, modelCards_);
@@ -180,15 +182,15 @@ namespace Models
 
 
         protected:
-          // The maximum number of input tokens supported by the model. The value is greater than or equal to 0.
+          // The maximum number of input tokens supported by the model. The value must be greater than or equal to 0.
           shared_ptr<int64_t> maxInputTokens_ {};
-          // The maximum number of output tokens supported by the model. The value is greater than or equal to 0.
+          // The maximum number of output tokens supported by the model. The value must be greater than or equal to 0.
           shared_ptr<int64_t> maxOutputTokens_ {};
-          // The maximum total number of context tokens supported by the model. The value is greater than or equal to 0.
+          // The maximum total number of context tokens supported by the model. The value must be greater than or equal to 0.
           shared_ptr<int64_t> maxTokens_ {};
-          // The list of input modalities supported by the model. The list contains up to 16 items, and each item cannot be empty.
+          // The list of input modalities supported by the model. The list can contain up to 16 items, and each item cannot be empty.
           shared_ptr<vector<string>> supportedInputModalities_ {};
-          // The list of output modalities supported by the model. The list contains up to 16 items, and each item cannot be empty.
+          // The list of output modalities supported by the model. The list can contain up to 16 items, and each item cannot be empty.
           shared_ptr<vector<string>> supportedOutputModalities_ {};
         };
 
@@ -248,13 +250,13 @@ namespace Models
 
 
         protected:
-          // The cost of cache hit tokens, in Credits per million tokens.
+          // The cache hit token cost. The unit is Credits per million tokens.
           shared_ptr<float> cacheCost_ {};
-          // The cost of input tokens, in Credits per million tokens.
+          // The input token cost. The unit is Credits per million tokens.
           shared_ptr<float> inputCost_ {};
-          // The cost of output tokens, in Credits per million tokens.
+          // The output token cost. The unit is Credits per million tokens.
           shared_ptr<float> outputCost_ {};
-          // The billing type. Only fixed is supported.
+          // The billing type. Currently, only fixed is supported.
           shared_ptr<string> type_ {};
         };
 
@@ -296,9 +298,9 @@ namespace Models
 
 
         protected:
-          // The model invocation path. The value can be up to 2048 characters in length.
+          // The model invocation path. The length cannot exceed 2,048 characters.
           shared_ptr<string> path_ {};
-          // The protocol type of the path. The value can be up to 64 characters in length.
+          // The protocol type corresponding to the path. The length cannot exceed 64 characters.
           shared_ptr<string> type_ {};
         };
 
@@ -391,33 +393,33 @@ namespace Models
 
 
       protected:
-        // The list of invocation paths supported by the model. Each item contains both path and type.
+        // The list of invocation paths supported by the model. Each item contains a path and a type.
         shared_ptr<vector<ModelCards::AvailablePaths>> availablePaths_ {};
         // The credit billing information of the model. The unit is Credits per million tokens.
         shared_ptr<ModelCards::Credit> credit_ {};
-        // The model capability switches. Keys are model capability names supported by the API gateway, and values are Boolean values.
+        // The model capability toggles. The key is the name of a model capability supported by the API gateway, and the value is a Boolean value.
         Darabonba::Json features_ {};
         // The ID of the AI gateway instance to which the model card belongs.
         shared_ptr<string> gatewayId_ {};
-        // The token limits and input/output modality information of the model.
+        // The token limits and input and output modality information of the model.
         shared_ptr<ModelCards::Meta> meta_ {};
-        // The model card ID. The ID is generated by the system and starts with mc-.
+        // The model card ID. This ID is generated by the system and starts with mc-.
         shared_ptr<string> modelCardId_ {};
         // The model name.
         shared_ptr<string> modelName_ {};
-        // The model provider identifier.
+        // The identifier of the model provider.
         shared_ptr<string> modelProvider_ {};
-        // The source of the model card. For instance-level model cards, user is returned.
+        // The source of the model card. The value user is returned for instance-level model cards.
         shared_ptr<string> source_ {};
         // The URL of the model metadata.
         shared_ptr<string> sourceURL_ {};
-        // The last update time of the model card, in the yyyy-MM-dd HH:mm:ss format.
+        // The last update time of the model card. The format is yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> updateTime_ {};
       };
 
       virtual bool empty() const override { return this->boundServices_ == nullptr
-        && this->displayName_ == nullptr && this->gatewayId_ == nullptr && this->modelCards_ == nullptr && this->modelCount_ == nullptr && this->modelProviderId_ == nullptr
-        && this->provider_ == nullptr && this->source_ == nullptr && this->updateTime_ == nullptr; };
+        && this->defaultServiceId_ == nullptr && this->displayName_ == nullptr && this->gatewayId_ == nullptr && this->modelCards_ == nullptr && this->modelCount_ == nullptr
+        && this->modelProviderId_ == nullptr && this->provider_ == nullptr && this->source_ == nullptr && this->updateTime_ == nullptr; };
       // boundServices Field Functions 
       bool hasBoundServices() const { return this->boundServices_ != nullptr;};
       void deleteBoundServices() { this->boundServices_ = nullptr;};
@@ -425,6 +427,13 @@ namespace Models
       inline vector<ServiceInfo> getBoundServices() { DARABONBA_PTR_GET(boundServices_, vector<ServiceInfo>) };
       inline Data& setBoundServices(const vector<ServiceInfo> & boundServices) { DARABONBA_PTR_SET_VALUE(boundServices_, boundServices) };
       inline Data& setBoundServices(vector<ServiceInfo> && boundServices) { DARABONBA_PTR_SET_RVALUE(boundServices_, boundServices) };
+
+
+      // defaultServiceId Field Functions 
+      bool hasDefaultServiceId() const { return this->defaultServiceId_ != nullptr;};
+      void deleteDefaultServiceId() { this->defaultServiceId_ = nullptr;};
+      inline string getDefaultServiceId() const { DARABONBA_PTR_GET_DEFAULT(defaultServiceId_, "") };
+      inline Data& setDefaultServiceId(string defaultServiceId) { DARABONBA_PTR_SET_VALUE(defaultServiceId_, defaultServiceId) };
 
 
       // displayName Field Functions 
@@ -486,23 +495,25 @@ namespace Models
 
 
     protected:
-      // The list of AI service summaries that are currently bound to the model provider.
+      // The list of AI service summaries currently bound to the model provider.
       shared_ptr<vector<ServiceInfo>> boundServices_ {};
-      // The display name of the model provider. The value can be up to 128 characters in length.
+      // The default AI service ID. This field is empty if it is not set. The persisted value is returned as is in read operations.
+      shared_ptr<string> defaultServiceId_ {};
+      // The display name of the model provider. The length cannot exceed 128 characters.
       shared_ptr<string> displayName_ {};
       // The ID of the AI gateway instance to which the model provider belongs.
       shared_ptr<string> gatewayId_ {};
-      // The list of model cards that are currently associated with the model provider.
+      // The list of model cards currently associated with the model provider.
       shared_ptr<vector<Data::ModelCards>> modelCards_ {};
       // The number of model cards currently associated with the model provider.
       shared_ptr<int32_t> modelCount_ {};
-      // The model provider ID. The ID is generated by the system and starts with mp-.
+      // The model provider ID. This ID is generated by the system and starts with mp-.
       shared_ptr<string> modelProviderId_ {};
-      // The stable identifier of the model provider. The value can be up to 128 characters in length.
+      // The stable identifier of the model provider. The length cannot exceed 128 characters.
       shared_ptr<string> provider_ {};
       // The source of the model provider. Valid values: user and builtin.
       shared_ptr<string> source_ {};
-      // The last update time of the model provider, in the yyyy-MM-dd HH:mm:ss format.
+      // The last update time of the model provider. The format is yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -539,13 +550,13 @@ namespace Models
 
 
   protected:
-    // The response status code. Ok is returned for a successful request.
+    // The response status code. Ok is returned if the request succeeds.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<GetAiModelProviderResponseBody::Data> data_ {};
-    // The response message. success is returned for a successful request.
+    // The response message. success is returned if the request succeeds.
     shared_ptr<string> message_ {};
-    // The request ID, which is generated by the system and used to locate the current call.
+    // The request ID generated by the system to trace the request.
     shared_ptr<string> requestId_ {};
   };
 

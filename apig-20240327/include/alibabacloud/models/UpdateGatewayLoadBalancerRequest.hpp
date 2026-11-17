@@ -93,7 +93,7 @@ namespace Models
 
 
       protected:
-        // The listening port. Valid values: 0 to 65535. A maximum of 50 custom ports can be configured in the console.
+        // The listener port. Valid values: 0 to 65535. A maximum of 50 custom ports can be configured on the frontend.
         shared_ptr<int32_t> port_ {};
         // The protocol.
         shared_ptr<string> protocol_ {};
@@ -118,7 +118,7 @@ namespace Models
 
 
     protected:
-      // The listening ports.
+      // The listener ports.
       shared_ptr<vector<Ports::GatewayLoadBalancerPorts>> gatewayLoadBalancerPorts_ {};
       // The load balancer type.
       shared_ptr<string> type_ {};
@@ -207,13 +207,13 @@ namespace Models
 
 
       protected:
-        // The port number. Valid values: 1 to 65535. An error is returned if an invalid value is specified.
+        // The port number. Valid values: 1 to 65535. If the value is invalid, an error is reported.
         shared_ptr<int64_t> port_ {};
-        // The protocol. This parameter is required for CLB. If this parameter is not specified for CLB, the error message "protocol is missing for CLB" is returned. No backend enumeration validation is performed. Valid values: tcp, udp, http, https, and tls.
+        // The protocol. This parameter is required for CLB. If this parameter is missing for CLB, a "protocol is missing for CLB" error is reported. No backend enum validation is performed. Valid values: tcp, udp, http, https, and tls.
         shared_ptr<string> protocol_ {};
-        // The CLB VServerGroupId or NLB ServerGroupId. This parameter is required. If a duplicate group ID is specified, an error is returned.
+        // The CLB VServerGroupId or NLB ServerGroupId. This parameter is required. If the same group ID is duplicated, a group conflict error is reported.
         shared_ptr<string> virtualServiceGroupId_ {};
-        // The group name. This parameter is required. If this parameter is not specified, the error message "virtual service parameter is missing" is returned.
+        // The group name. This parameter is required. If this parameter is missing, a "virtual service parameter is missing" error is reported.
         shared_ptr<string> virtualServiceGroupName_ {};
       };
 
@@ -265,7 +265,7 @@ namespace Models
       shared_ptr<string> networkType_ {};
       // The service weight. Valid values: 0 to 100.
       shared_ptr<int64_t> serviceWeight_ {};
-      // The backend server group bindings.
+      // The list of backend server group bindings.
       shared_ptr<vector<LoadBalancerDTO::VirtualServiceList>> virtualServiceList_ {};
     };
 
@@ -299,9 +299,9 @@ namespace Models
   protected:
     // The load balancer operation DTO.
     shared_ptr<UpdateGatewayLoadBalancerRequest::LoadBalancerDTO> loadBalancerDTO_ {};
-    // The operation type. If this parameter is left empty or not specified, only the listening ports are updated (only the ports field is used).
+    // The operation type. If this parameter is empty or not specified, only the ports are updated based on the ports parameter.
     shared_ptr<string> option_ {};
-    // The port list.
+    // The list of ports.
     shared_ptr<vector<UpdateGatewayLoadBalancerRequest::Ports>> ports_ {};
   };
 

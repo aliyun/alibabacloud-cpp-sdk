@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ruleStatus, ruleStatus_);
+      DARABONBA_PTR_TO_JSON(subjectNameLike, subjectNameLike_);
     };
     friend void from_json(const Darabonba::Json& j, ListGatewayQuotaRulesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
@@ -25,6 +27,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ruleStatus, ruleStatus_);
+      DARABONBA_PTR_FROM_JSON(subjectNameLike, subjectNameLike_);
     };
     ListGatewayQuotaRulesRequest() = default ;
     ListGatewayQuotaRulesRequest(const ListGatewayQuotaRulesRequest &) = default ;
@@ -38,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyword_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->ruleStatus_ == nullptr
+        && this->subjectNameLike_ == nullptr; };
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
@@ -74,17 +79,35 @@ namespace Models
     inline ListGatewayQuotaRulesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // ruleStatus Field Functions 
+    bool hasRuleStatus() const { return this->ruleStatus_ != nullptr;};
+    void deleteRuleStatus() { this->ruleStatus_ = nullptr;};
+    inline string getRuleStatus() const { DARABONBA_PTR_GET_DEFAULT(ruleStatus_, "") };
+    inline ListGatewayQuotaRulesRequest& setRuleStatus(string ruleStatus) { DARABONBA_PTR_SET_VALUE(ruleStatus_, ruleStatus) };
+
+
+    // subjectNameLike Field Functions 
+    bool hasSubjectNameLike() const { return this->subjectNameLike_ != nullptr;};
+    void deleteSubjectNameLike() { this->subjectNameLike_ = nullptr;};
+    inline string getSubjectNameLike() const { DARABONBA_PTR_GET_DEFAULT(subjectNameLike_, "") };
+    inline ListGatewayQuotaRulesRequest& setSubjectNameLike(string subjectNameLike) { DARABONBA_PTR_SET_VALUE(subjectNameLike_, subjectNameLike) };
+
+
   protected:
-    // The keyword in the rule name for fuzzy match.
+    // The keyword in the rule name used for fuzzy matching.
     shared_ptr<string> keyword_ {};
-    // The maximum number of records to return in a single request. This parameter is not supported.
+    // The maximum number of entries to return in a single call. This parameter is not supported.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token. This parameter is not supported.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of items per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The status of the rule. Valid values: enabled and disabled. If you do not specify this parameter, all rules are queried.
+    shared_ptr<string> ruleStatus_ {};
+    // The keyword in the name of the associated subject for fuzzy matching based on the consumer or consumer group name.
+    shared_ptr<string> subjectNameLike_ {};
   };
 
   } // namespace Models

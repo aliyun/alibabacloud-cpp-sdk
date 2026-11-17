@@ -75,7 +75,7 @@ namespace Models
     protected:
       // The consumer group ID.
       shared_ptr<string> consumerGroupId_ {};
-      // The gateway type. Valid values: API or AI.
+      // The gateway type. Valid values: API and AI.
       shared_ptr<string> gatewayType_ {};
     };
 

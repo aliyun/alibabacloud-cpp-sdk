@@ -126,7 +126,7 @@ namespace Models
 
 
       protected:
-        // mcp route path
+        // The URI path exposed by the MCP route.
         shared_ptr<string> exposedUriPath_ {};
         // The MCP protocol type.
         shared_ptr<string> protocol_ {};
@@ -276,7 +276,7 @@ namespace Models
 
 
       protected:
-        // The domain ID.
+        // The domain name ID.
         shared_ptr<string> domainId_ {};
         // The domain name.
         shared_ptr<string> name_ {};
@@ -391,7 +391,7 @@ namespace Models
       shared_ptr<EnvironmentInfo::GatewayInfo> gatewayInfo_ {};
       // The environment name.
       shared_ptr<string> name_ {};
-      // The list of default subdomains for the environment.
+      // The list of default second-level domain names of the environment.
       shared_ptr<vector<EnvironmentInfo::SubDomains>> subDomains_ {};
     };
 
@@ -442,7 +442,7 @@ namespace Models
 
 
     protected:
-      // The domain ID.
+      // The domain name ID.
       shared_ptr<string> domainId_ {};
       // The domain name.
       shared_ptr<string> name_ {};
@@ -601,7 +601,7 @@ namespace Models
   protected:
     // The backend service.
     shared_ptr<Backend> backend_ {};
-    // Indicates whether the route is a built-in system route.
+    // Specifies whether the route is a built-in system route.
     shared_ptr<string> builtin_ {};
     // The creation time, in milliseconds.
     shared_ptr<int64_t> createTimestamp_ {};
@@ -609,9 +609,9 @@ namespace Models
     shared_ptr<string> deployStatus_ {};
     // The route description.
     shared_ptr<string> description_ {};
-    // The ExtProc service selected for the fixed dynamic forwarding route. This field is not returned when no matching binding exists.
+    // The ExtProc service selection mounted for fixed dynamic forwarding routes. This field is not returned when no matching binding exists.
     shared_ptr<HttpRoute::DfpConfig> dfpConfig_ {};
-    // The list of domain information.
+    // The domain name information list.
     shared_ptr<vector<HttpRoute::DomainInfos>> domainInfos_ {};
     // The environment context of the routing.
     shared_ptr<HttpRoute::EnvironmentInfo> environmentInfo_ {};

@@ -48,12 +48,12 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
  * @description This operation adds a quota rule based on consumers or consumer groups for an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
  * > 
  * >  Recommended call logic:
- * > - 1. Perform a dry run to check for rule conflicts.
- * > - - Set dryRun to true.
- * > - - The response returns a conflict preview that contains conflictHash.
- * > - 2. Submit the request after confirmation.
- * > - - If no conflicts exist: Set dryRun to false and overwrite to false.
- * > - - If conflicts exist and you confirm to overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - 1. First, perform a dry run to check for rule conflicts.
+ * > - - Set dryRun=true.
+ * > - - The response returns a conflict preview containing a conflictHash.
+ * > - 2. After confirmation, formally submit the request.
+ * > - - No conflicts: Set dryRun=false and overwrite=false.
+ * > - - Conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
  *
  * @param request AddGatewayQuotaRuleRequest
  * @param headers map
@@ -139,12 +139,12 @@ AddGatewayQuotaRuleResponse Client::addGatewayQuotaRuleWithOptions(const string 
  * @description This operation adds a quota rule based on consumers or consumer groups for an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
  * > 
  * >  Recommended call logic:
- * > - 1. Perform a dry run to check for rule conflicts.
- * > - - Set dryRun to true.
- * > - - The response returns a conflict preview that contains conflictHash.
- * > - 2. Submit the request after confirmation.
- * > - - If no conflicts exist: Set dryRun to false and overwrite to false.
- * > - - If conflicts exist and you confirm to overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - 1. First, perform a dry run to check for rule conflicts.
+ * > - - Set dryRun=true.
+ * > - - The response returns a conflict preview containing a conflictHash.
+ * > - 2. After confirmation, formally submit the request.
+ * > - - No conflicts: Set dryRun=false and overwrite=false.
+ * > - - Conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
  *
  * @param request AddGatewayQuotaRuleRequest
  * @return AddGatewayQuotaRuleResponse
@@ -209,7 +209,64 @@ AddGatewaySecurityGroupRuleResponse Client::addGatewaySecurityGroupRule(const st
 }
 
 /**
- * @summary Adds consumer group members in batches.
+ * @summary Grants model card licenses to a consumer.
+ *
+ * @param request AuthorizeConsumerModelCardGrantsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AuthorizeConsumerModelCardGrantsResponse
+ */
+AuthorizeConsumerModelCardGrantsResponse Client::authorizeConsumerModelCardGrantsWithOptions(const string &httpApiId, const AuthorizeConsumerModelCardGrantsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModelCardIds()) {
+    body["modelCardIds"] = request.getModelCardIds();
+  }
+
+  if (!!request.hasModelGroupIds()) {
+    body["modelGroupIds"] = request.getModelGroupIds();
+  }
+
+  if (!!request.hasPrincipalId()) {
+    body["principalId"] = request.getPrincipalId();
+  }
+
+  if (!!request.hasPrincipalType()) {
+    body["principalType"] = request.getPrincipalType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AuthorizeConsumerModelCardGrants"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-apis/" , Darabonba::Encode::Encoder::percentEncode(httpApiId) , "/model-card-grants")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AuthorizeConsumerModelCardGrantsResponse>();
+}
+
+/**
+ * @summary Grants model card licenses to a consumer.
+ *
+ * @param request AuthorizeConsumerModelCardGrantsRequest
+ * @return AuthorizeConsumerModelCardGrantsResponse
+ */
+AuthorizeConsumerModelCardGrantsResponse Client::authorizeConsumerModelCardGrants(const string &httpApiId, const AuthorizeConsumerModelCardGrantsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return authorizeConsumerModelCardGrantsWithOptions(httpApiId, request, headers, runtime);
+}
+
+/**
+ * @summary Adds members to a consumer group in batches.
  *
  * @param request BatchAddConsumerGroupConsumersRequest
  * @param headers map
@@ -242,7 +299,7 @@ BatchAddConsumerGroupConsumersResponse Client::batchAddConsumerGroupConsumersWit
 }
 
 /**
- * @summary Adds consumer group members in batches.
+ * @summary Adds members to a consumer group in batches.
  *
  * @param request BatchAddConsumerGroupConsumersRequest
  * @return BatchAddConsumerGroupConsumersResponse
@@ -254,7 +311,7 @@ BatchAddConsumerGroupConsumersResponse Client::batchAddConsumerGroupConsumers(co
 }
 
 /**
- * @summary Revokes API consumer authorization rules in batches.
+ * @summary Revokes consumer authorization rules in batches.
  *
  * @param request BatchDeleteConsumerAuthorizationRuleRequest
  * @param headers map
@@ -287,7 +344,7 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
 }
 
 /**
- * @summary Revokes API consumer authorization rules in batches.
+ * @summary Revokes consumer authorization rules in batches.
  *
  * @param request BatchDeleteConsumerAuthorizationRuleRequest
  * @return BatchDeleteConsumerAuthorizationRuleResponse
@@ -299,7 +356,7 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
 }
 
 /**
- * @summary Batch exports HTTP APIs.
+ * @summary Performs a batch export of HTTP APIs.
  *
  * @param request BatchExportHttpApisRequest
  * @param headers map
@@ -348,7 +405,7 @@ BatchExportHttpApisResponse Client::batchExportHttpApisWithOptions(const BatchEx
 }
 
 /**
- * @summary Batch exports HTTP APIs.
+ * @summary Performs a batch export of HTTP APIs.
  *
  * @param request BatchExportHttpApisRequest
  * @return BatchExportHttpApisResponse
@@ -441,7 +498,7 @@ BatchImportHttpApisResponse Client::batchImportHttpApis(const BatchImportHttpApi
 }
 
 /**
- * @summary Removes multiple members from a consumer group.
+ * @summary Removes members from a consumer group in batches.
  *
  * @param request BatchRemoveConsumerGroupConsumersRequest
  * @param headers map
@@ -474,7 +531,7 @@ BatchRemoveConsumerGroupConsumersResponse Client::batchRemoveConsumerGroupConsum
 }
 
 /**
- * @summary Removes multiple members from a consumer group.
+ * @summary Removes members from a consumer group in batches.
  *
  * @param request BatchRemoveConsumerGroupConsumersRequest
  * @return BatchRemoveConsumerGroupConsumersResponse
@@ -486,7 +543,7 @@ BatchRemoveConsumerGroupConsumersResponse Client::batchRemoveConsumerGroupConsum
 }
 
 /**
- * @summary Updates HTTP API operations in batches.
+ * @summary Batch updates HTTP API operations.
  *
  * @param request BatchUpdateHttpApiOperationRequest
  * @param headers map
@@ -527,7 +584,7 @@ BatchUpdateHttpApiOperationResponse Client::batchUpdateHttpApiOperationWithOptio
 }
 
 /**
- * @summary Updates HTTP API operations in batches.
+ * @summary Batch updates HTTP API operations.
  *
  * @param request BatchUpdateHttpApiOperationRequest
  * @return BatchUpdateHttpApiOperationResponse
@@ -596,7 +653,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Retrieves the activation status of the API Management service.
+ * @summary Retrieves the activation status of the API management service.
  *
  * @param request CheckCommodityStatusRequest
  * @param headers map
@@ -623,7 +680,7 @@ CheckCommodityStatusResponse Client::checkCommodityStatusWithOptions(const Check
 }
 
 /**
- * @summary Retrieves the activation status of the API Management service.
+ * @summary Retrieves the activation status of the API management service.
  *
  * @param request CheckCommodityStatusRequest
  * @return CheckCommodityStatusResponse
@@ -637,7 +694,7 @@ CheckCommodityStatusResponse Client::checkCommodityStatus(const CheckCommoditySt
 /**
  * @summary Creates an AI model card.
  *
- * @description Creates a model card for model creation under an existing model provider of a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider parameter must reference an existing model provider in the gateway. The modelName must be unique within the same AI gateway instance and model provider. You can create up to 1,000 model cards per gateway instance. The credit parameter currently supports only the fixed type, and the billing unit is Credits per million tokens. If this parameter is not specified, the type defaults to fixed and all costs default to 0. Each item in availablePaths must include both path and type.
+ * @description Performs model creation for a model card under an existing model provider of a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider parameter must reference an existing model provider in the gateway. The modelName must be unique within the same AI gateway instance and the same model provider. You can create up to 1,000 model cards for a single gateway instance. The credit parameter currently supports only the fixed type, and the billing unit is Credits per million tokens. If this parameter is not specified, the type defaults to fixed and all costs default to 0. Each item in availablePaths must include both path and type.
  *
  * @param request CreateAiModelCardRequest
  * @param headers map
@@ -696,7 +753,7 @@ CreateAiModelCardResponse Client::createAiModelCardWithOptions(const CreateAiMod
 /**
  * @summary Creates an AI model card.
  *
- * @description Creates a model card for model creation under an existing model provider of a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider parameter must reference an existing model provider in the gateway. The modelName must be unique within the same AI gateway instance and model provider. You can create up to 1,000 model cards per gateway instance. The credit parameter currently supports only the fixed type, and the billing unit is Credits per million tokens. If this parameter is not specified, the type defaults to fixed and all costs default to 0. Each item in availablePaths must include both path and type.
+ * @description Performs model creation for a model card under an existing model provider of a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider parameter must reference an existing model provider in the gateway. The modelName must be unique within the same AI gateway instance and the same model provider. You can create up to 1,000 model cards for a single gateway instance. The credit parameter currently supports only the fixed type, and the billing unit is Credits per million tokens. If this parameter is not specified, the type defaults to fixed and all costs default to 0. Each item in availablePaths must include both path and type.
  *
  * @param request CreateAiModelCardRequest
  * @return CreateAiModelCardResponse
@@ -723,6 +780,10 @@ CreateAiModelProviderResponse Client::createAiModelProviderWithOptions(const Cre
   }
 
   json body = {};
+  if (!!request.hasDefaultServiceId()) {
+    body["defaultServiceId"] = request.getDefaultServiceId();
+  }
+
   if (!!request.hasDisplayName()) {
     body["displayName"] = request.getDisplayName();
   }
@@ -768,6 +829,140 @@ CreateAiModelProviderResponse Client::createAiModelProvider(const CreateAiModelP
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createAiModelProviderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates a standalone AI model source.
+ *
+ * @param request CreateAiModelSourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAiModelSourceResponse
+ */
+CreateAiModelSourceResponse Client::createAiModelSourceWithOptions(const CreateAiModelSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasProvider()) {
+    body["provider"] = request.getProvider();
+  }
+
+  if (!!request.hasServiceId()) {
+    body["serviceId"] = request.getServiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAiModelSource"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-sources")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAiModelSourceResponse>();
+}
+
+/**
+ * @summary Creates a standalone AI model source.
+ *
+ * @param request CreateAiModelSourceRequest
+ * @return CreateAiModelSourceResponse
+ */
+CreateAiModelSourceResponse Client::createAiModelSource(const CreateAiModelSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAiModelSourceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates an in-source AI model.
+ *
+ * @param request CreateAiModelSourceModelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAiModelSourceModelResponse
+ */
+CreateAiModelSourceModelResponse Client::createAiModelSourceModelWithOptions(const CreateAiModelSourceModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasAvailablePaths()) {
+    body["availablePaths"] = request.getAvailablePaths();
+  }
+
+  if (!!request.hasCredit()) {
+    body["credit"] = request.getCredit();
+  }
+
+  if (!!request.hasFeatures()) {
+    body["features"] = request.getFeatures();
+  }
+
+  if (!!request.hasMeta()) {
+    body["meta"] = request.getMeta();
+  }
+
+  if (!!request.hasModelName()) {
+    body["modelName"] = request.getModelName();
+  }
+
+  if (!!request.hasModelSourceId()) {
+    body["modelSourceId"] = request.getModelSourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAiModelSourceModel"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-source-models")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAiModelSourceModelResponse>();
+}
+
+/**
+ * @summary Creates an in-source AI model.
+ *
+ * @param request CreateAiModelSourceModelRequest
+ * @return CreateAiModelSourceModelResponse
+ */
+CreateAiModelSourceModelResponse Client::createAiModelSourceModel(const CreateAiModelSourceModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAiModelSourceModelWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1043,12 +1238,12 @@ CreateConsumerAuthorizationRuleResponse Client::createConsumerAuthorizationRule(
 /**
  * @summary Creates a consumer authorization rule.
  *
- * @description Prerequisites: Before creating a consumer authorization rule, prepare resources according to the following dependency chain (the corresponding creation APIs and ID passing relationships are in parentheses):
- * Gateway instance (CreateGateway → gatewayId, with the gw- prefix)
- * Environment (A default environment is automatically created after the gateway is created. You can also call CreateEnvironment → environmentId, with the env- prefix. The gatewayId from Step 1 is required.)
- * HTTP API (CreateHttpApi → httpApiId, with the api- prefix)
- * Route and publish (CreateHttpApiRoute → routeId, with the hr- prefix, which belongs to the API in Step 3. Then, call DeployHttpApi to publish it to the environment in Step 2. Unpublished routes cannot be authorized.)
- * Consumer (CreateConsumer → consumerId, with the cs- prefix, or consumerGroupId, with the csg- prefix. Choose either consumerId or consumerGroupId.)
+ * @description Prerequisites: Before you create a consumer authorization rule, prepare resources based on the following dependency chain (the parentheses indicate the corresponding creation API and ID passing relationship):
+ * Gateway instance (CreateGateway → gatewayId, gw- prefix)
+ * Environment (A default environment is created with the gateway. You can also call CreateEnvironment → environmentId, env- prefix, and associate it with the gatewayId from Step 1.)
+ * HTTP API (CreateHttpApi → httpApiId, api- prefix)
+ * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, belonging to the API in Step 3; then call DeployHttpApi to publish it to the environment in Step 2. Unpublished routes cannot be authorized.)
+ * Consumer (CreateConsumer → consumerId, cs- prefix; or consumer group consumerGroupId, csg- prefix. Choose one of consumerId and consumerGroupId.)
  *
  * @param request CreateConsumerAuthorizationRulesRequest
  * @param headers map
@@ -1083,12 +1278,12 @@ CreateConsumerAuthorizationRulesResponse Client::createConsumerAuthorizationRule
 /**
  * @summary Creates a consumer authorization rule.
  *
- * @description Prerequisites: Before creating a consumer authorization rule, prepare resources according to the following dependency chain (the corresponding creation APIs and ID passing relationships are in parentheses):
- * Gateway instance (CreateGateway → gatewayId, with the gw- prefix)
- * Environment (A default environment is automatically created after the gateway is created. You can also call CreateEnvironment → environmentId, with the env- prefix. The gatewayId from Step 1 is required.)
- * HTTP API (CreateHttpApi → httpApiId, with the api- prefix)
- * Route and publish (CreateHttpApiRoute → routeId, with the hr- prefix, which belongs to the API in Step 3. Then, call DeployHttpApi to publish it to the environment in Step 2. Unpublished routes cannot be authorized.)
- * Consumer (CreateConsumer → consumerId, with the cs- prefix, or consumerGroupId, with the csg- prefix. Choose either consumerId or consumerGroupId.)
+ * @description Prerequisites: Before you create a consumer authorization rule, prepare resources based on the following dependency chain (the parentheses indicate the corresponding creation API and ID passing relationship):
+ * Gateway instance (CreateGateway → gatewayId, gw- prefix)
+ * Environment (A default environment is created with the gateway. You can also call CreateEnvironment → environmentId, env- prefix, and associate it with the gatewayId from Step 1.)
+ * HTTP API (CreateHttpApi → httpApiId, api- prefix)
+ * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, belonging to the API in Step 3; then call DeployHttpApi to publish it to the environment in Step 2. Unpublished routes cannot be authorized.)
+ * Consumer (CreateConsumer → consumerId, cs- prefix; or consumer group consumerGroupId, csg- prefix. Choose one of consumerId and consumerGroupId.)
  *
  * @param request CreateConsumerAuthorizationRulesRequest
  * @return CreateConsumerAuthorizationRulesResponse
@@ -1157,7 +1352,7 @@ CreateConsumerGroupResponse Client::createConsumerGroup(const CreateConsumerGrou
 }
 
 /**
- * @summary Registers a HiMarket developer account and returns the ID of the newly created developer upon successful creation.
+ * @summary Registers a HiMarket developer account and returns the ID of the new developer.
  *
  * @param request CreateDeveloperRequest
  * @param headers map
@@ -1194,7 +1389,7 @@ CreateDeveloperResponse Client::createDeveloperWithOptions(const CreateDeveloper
 }
 
 /**
- * @summary Registers a HiMarket developer account and returns the ID of the newly created developer upon successful creation.
+ * @summary Registers a HiMarket developer account and returns the ID of the new developer.
  *
  * @param request CreateDeveloperRequest
  * @return CreateDeveloperResponse
@@ -1467,20 +1662,20 @@ CreateGatewayResponse Client::createGateway(const CreateGatewayRequest &request)
 }
 
 /**
- * @summary 创建网关配额限流规则主体用量明细导出任务
+ * @summary Creates an asynchronous export task for the consumption details of a single consumer or consumer group under a gateway quota rule.
  *
- * @description ## 调用流程
- * 本接口为指定网关配额规则下的一个消费者或消费者组创建消费明细导出任务，导出内容来自网关访问日志。
- * 1. 调用本接口获取 taskId。新任务返回 Pending，表示已提交，文件尚未生成。
- * 2. 使用相同的 gatewayId、ruleId、subjectId 和返回的 taskId 调用 GetGatewayQuotaRuleSubjectUsageExportTask，轮询任务状态。
- * 3. 当轮询状态为 Success 且文件未过期时，通过GetGatewayQuotaRuleSubjectUsageExportTask下载 csv.gz 文件；状态为 Failed 时，根据 errorMessage 排查后重新创建任务。
- * ## 使用条件与限制
- * - 创建任务时，配额规则必须存在，且目标主体已绑定到该规则。消费者规则使用消费者 ID，消费者组规则使用消费者组 ID。
- * - 有效导出时间范围内的明细依赖网关访问日志投递，请先启用日志投递并确认所需时段的日志可查询。
- * - 单次导出时间跨度不得超过一个规则周期。单次最多导出 100000 条明细；后台统计结果超过上限时任务失败，请缩小时间范围后重试。
- * - 同一用户在当前地域对同一网关、规则和主体在最近 10 分钟内已有 Pending 或 Running 任务时，重复创建会被拒绝；最近 10 分钟内创建且仍为 Pending 或 Running 的导出任务总数达到 3 个时也会被拒绝。请等待已有任务结束。相同 clientToken、相同参数的幂等重试可复用已有任务。
- * - 任务自创建起的处理超时为 10 分钟。超时后任务按 Failed 处理；这不是任务必定成功完成的时限承诺。
- * - 创建时确定导出时间范围、计量维度和主体名称，后续查询不会重新计算这些条件。文件成功生成后可在 24 小时内获取下载链接；每次查询生成的签名链接有效期为 10 分钟，具体时间以查询结果为准。
+ * @description ## Call procedure
+ * This operation creates an export task for the consumption details of a consumer or consumer group under a specified gateway quota rule. The exported content is derived from gateway access logs.
+ * 1. Call this operation to obtain the taskId. A new task returns Pending, indicating that the task is submitted and the file is not yet generated.
+ * 2. Use the same gatewayId, ruleId, subjectId, and the returned taskId to call GetGatewayQuotaRuleSubjectUsageExportTask and poll the task status.
+ * 3. When the polled status is Success and the file has not expired, download the csv.gz file by using GetGatewayQuotaRuleSubjectUsageExportTask. If the status is Failed, troubleshoot the issue based on the errorMessage and recreate the task.
+ * ## Prerequisites and limits
+ * - When you create a task, the quota rule must exist, and the target subject must be bound to the rule. Use the consumer ID for consumer rules and the consumer group ID for consumer group rules.
+ * - The details within the valid export time range depend on the delivery of gateway access logs. Enable log delivery first and ensure that the logs for the required time period are queryable.
+ * - The time span for a single export cannot exceed one rule period. A single export can contain up to 100,000 details. If the background statistics exceed the limit, the task fails. Narrow the time range and try again.
+ * - If the same user already has a Pending or Running task for the same gateway, rule, and subject in the current region within the last 10 minutes, repeated creation is rejected. Creation is also rejected if the total number of export tasks created within the last 10 minutes that are still Pending or Running reaches 3. Wait for the existing tasks to complete. Idempotent retries with the same clientToken and identical parameters can reuse existing tasks.
+ * - The processing timeout for a task is 10 minutes from the time of creation. After the timeout, the task is processed as Failed. This is not a guarantee that the task will definitely complete successfully within this time limit.
+ * - The export time range, metering dimension, and subject name are determined at creation time, and subsequent queries do not recalculate these conditions. After the file is successfully generated, the download link can be obtained within 24 hours. The signed link generated for each query is valid for 10 minutes, subject to the actual query result.
  *
  * @param request CreateGatewayQuotaRuleSubjectUsageExportTaskRequest
  * @param headers map
@@ -1529,20 +1724,20 @@ CreateGatewayQuotaRuleSubjectUsageExportTaskResponse Client::createGatewayQuotaR
 }
 
 /**
- * @summary 创建网关配额限流规则主体用量明细导出任务
+ * @summary Creates an asynchronous export task for the consumption details of a single consumer or consumer group under a gateway quota rule.
  *
- * @description ## 调用流程
- * 本接口为指定网关配额规则下的一个消费者或消费者组创建消费明细导出任务，导出内容来自网关访问日志。
- * 1. 调用本接口获取 taskId。新任务返回 Pending，表示已提交，文件尚未生成。
- * 2. 使用相同的 gatewayId、ruleId、subjectId 和返回的 taskId 调用 GetGatewayQuotaRuleSubjectUsageExportTask，轮询任务状态。
- * 3. 当轮询状态为 Success 且文件未过期时，通过GetGatewayQuotaRuleSubjectUsageExportTask下载 csv.gz 文件；状态为 Failed 时，根据 errorMessage 排查后重新创建任务。
- * ## 使用条件与限制
- * - 创建任务时，配额规则必须存在，且目标主体已绑定到该规则。消费者规则使用消费者 ID，消费者组规则使用消费者组 ID。
- * - 有效导出时间范围内的明细依赖网关访问日志投递，请先启用日志投递并确认所需时段的日志可查询。
- * - 单次导出时间跨度不得超过一个规则周期。单次最多导出 100000 条明细；后台统计结果超过上限时任务失败，请缩小时间范围后重试。
- * - 同一用户在当前地域对同一网关、规则和主体在最近 10 分钟内已有 Pending 或 Running 任务时，重复创建会被拒绝；最近 10 分钟内创建且仍为 Pending 或 Running 的导出任务总数达到 3 个时也会被拒绝。请等待已有任务结束。相同 clientToken、相同参数的幂等重试可复用已有任务。
- * - 任务自创建起的处理超时为 10 分钟。超时后任务按 Failed 处理；这不是任务必定成功完成的时限承诺。
- * - 创建时确定导出时间范围、计量维度和主体名称，后续查询不会重新计算这些条件。文件成功生成后可在 24 小时内获取下载链接；每次查询生成的签名链接有效期为 10 分钟，具体时间以查询结果为准。
+ * @description ## Call procedure
+ * This operation creates an export task for the consumption details of a consumer or consumer group under a specified gateway quota rule. The exported content is derived from gateway access logs.
+ * 1. Call this operation to obtain the taskId. A new task returns Pending, indicating that the task is submitted and the file is not yet generated.
+ * 2. Use the same gatewayId, ruleId, subjectId, and the returned taskId to call GetGatewayQuotaRuleSubjectUsageExportTask and poll the task status.
+ * 3. When the polled status is Success and the file has not expired, download the csv.gz file by using GetGatewayQuotaRuleSubjectUsageExportTask. If the status is Failed, troubleshoot the issue based on the errorMessage and recreate the task.
+ * ## Prerequisites and limits
+ * - When you create a task, the quota rule must exist, and the target subject must be bound to the rule. Use the consumer ID for consumer rules and the consumer group ID for consumer group rules.
+ * - The details within the valid export time range depend on the delivery of gateway access logs. Enable log delivery first and ensure that the logs for the required time period are queryable.
+ * - The time span for a single export cannot exceed one rule period. A single export can contain up to 100,000 details. If the background statistics exceed the limit, the task fails. Narrow the time range and try again.
+ * - If the same user already has a Pending or Running task for the same gateway, rule, and subject in the current region within the last 10 minutes, repeated creation is rejected. Creation is also rejected if the total number of export tasks created within the last 10 minutes that are still Pending or Running reaches 3. Wait for the existing tasks to complete. Idempotent retries with the same clientToken and identical parameters can reuse existing tasks.
+ * - The processing timeout for a task is 10 minutes from the time of creation. After the timeout, the task is processed as Failed. This is not a guarantee that the task will definitely complete successfully within this time limit.
+ * - The export time range, metering dimension, and subject name are determined at creation time, and subsequent queries do not recalculate these conditions. After the file is successfully generated, the download link can be obtained within 24 hours. The signed link generated for each query is valid for 10 minutes, subject to the actual query result.
  *
  * @param request CreateGatewayQuotaRuleSubjectUsageExportTaskRequest
  * @return CreateGatewayQuotaRuleSubjectUsageExportTaskResponse
@@ -1756,6 +1951,10 @@ CreateHttpApiRouteResponse Client::createHttpApiRouteWithOptions(const string &h
     body["environmentId"] = request.getEnvironmentId();
   }
 
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
+  }
+
   if (!!request.hasMatch()) {
     body["match"] = request.getMatch();
   }
@@ -1805,7 +2004,7 @@ CreateHttpApiRouteResponse Client::createHttpApiRoute(const string &httpApiId, c
 /**
  * @summary Creates an API version.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @param request CreateHttpApiVersionRequest
  * @param headers map
@@ -1840,7 +2039,7 @@ CreateHttpApiVersionResponse Client::createHttpApiVersionWithOptions(const strin
 /**
  * @summary Creates an API version.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @param request CreateHttpApiVersionRequest
  * @return CreateHttpApiVersionResponse
@@ -1852,7 +2051,88 @@ CreateHttpApiVersionResponse Client::createHttpApiVersion(const string &httpApiI
 }
 
 /**
+ * @summary Creates a logical model.
+ *
+ * @param request CreateLogicalModelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateLogicalModelResponse
+ */
+CreateLogicalModelResponse Client::createLogicalModelWithOptions(const CreateLogicalModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasCallStrategy()) {
+    body["callStrategy"] = request.getCallStrategy();
+  }
+
+  if (!!request.hasFallbackTargets()) {
+    body["fallbackTargets"] = request.getFallbackTargets();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasResponseModel()) {
+    body["responseModel"] = request.getResponseModel();
+  }
+
+  if (!!request.hasRoutingPolicy()) {
+    body["routingPolicy"] = request.getRoutingPolicy();
+  }
+
+  if (!!request.hasSlots()) {
+    body["slots"] = request.getSlots();
+  }
+
+  if (!!request.hasTargets()) {
+    body["targets"] = request.getTargets();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateLogicalModel"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/logical-models")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateLogicalModelResponse>();
+}
+
+/**
+ * @summary Creates a logical model.
+ *
+ * @param request CreateLogicalModelRequest
+ * @return CreateLogicalModelResponse
+ */
+CreateLogicalModelResponse Client::createLogicalModel(const CreateLogicalModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createLogicalModelWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a Model Context Protocol (MCP) server.
+ *
+ * @description Only sources of the **container service** type are allowed to update Ingress listener configurations.
  *
  * @param request CreateMcpServerRequest
  * @param headers map
@@ -1939,6 +2219,8 @@ CreateMcpServerResponse Client::createMcpServerWithOptions(const CreateMcpServer
 /**
  * @summary Creates a Model Context Protocol (MCP) server.
  *
+ * @description Only sources of the **container service** type are allowed to update Ingress listener configurations.
+ *
  * @param request CreateMcpServerRequest
  * @return CreateMcpServerResponse
  */
@@ -2019,6 +2301,158 @@ CreateMigrationTaskResponse Client::createMigrationTask(const CreateMigrationTas
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createMigrationTaskWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates a model creation API.
+ *
+ * @param request CreateModelApiRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateModelApiResponse
+ */
+CreateModelApiResponse Client::createModelApiWithOptions(const CreateModelApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasBasePath()) {
+    body["basePath"] = request.getBasePath();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectSupplyFallbackEnabled()) {
+    body["directSupplyFallbackEnabled"] = request.getDirectSupplyFallbackEnabled();
+  }
+
+  if (!!request.hasDomainIds()) {
+    body["domainIds"] = request.getDomainIds();
+  }
+
+  if (!!request.hasEnableAuth()) {
+    body["enableAuth"] = request.getEnableAuth();
+  }
+
+  if (!!request.hasFirstByteTimeout()) {
+    body["firstByteTimeout"] = request.getFirstByteTimeout();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasInitialConfiguration()) {
+    body["initialConfiguration"] = request.getInitialConfiguration();
+  }
+
+  if (!!request.hasModelSelection()) {
+    body["modelSelection"] = request.getModelSelection();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasPolicyConfigs()) {
+    body["policyConfigs"] = request.getPolicyConfigs();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateModelApi"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-apis")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateModelApiResponse>();
+}
+
+/**
+ * @summary Creates a model creation API.
+ *
+ * @param request CreateModelApiRequest
+ * @return CreateModelApiResponse
+ */
+CreateModelApiResponse Client::createModelApi(const CreateModelApiRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createModelApiWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates a model group.
+ *
+ * @param request CreateModelGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateModelGroupResponse
+ */
+CreateModelGroupResponse Client::createModelGroupWithOptions(const CreateModelGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasModelCardIds()) {
+    body["modelCardIds"] = request.getModelCardIds();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateModelGroup"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-groups")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateModelGroupResponse>();
+}
+
+/**
+ * @summary Creates a model group.
+ *
+ * @param request CreateModelGroupRequest
+ * @return CreateModelGroupResponse
+ */
+CreateModelGroupResponse Client::createModelGroup(const CreateModelGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createModelGroupWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2347,7 +2781,7 @@ CreatePolicyAttachmentResponse Client::createPolicyAttachment(const CreatePolicy
 }
 
 /**
- * @summary Creates a HiMarket developer portal and returns the ID of the newly created portal.
+ * @summary Creates a HiMarket developer portal and returns the ID of the newly created portal upon success.
  *
  * @param request CreatePortalRequest
  * @param headers map
@@ -2390,7 +2824,7 @@ CreatePortalResponse Client::createPortalWithOptions(const CreatePortalRequest &
 }
 
 /**
- * @summary Creates a HiMarket developer portal and returns the ID of the newly created portal.
+ * @summary Creates a HiMarket developer portal and returns the ID of the newly created portal upon success.
  *
  * @param request CreatePortalRequest
  * @return CreatePortalResponse
@@ -2403,6 +2837,8 @@ CreatePortalResponse Client::createPortal(const CreatePortalRequest &request) {
 
 /**
  * @summary Creates an API product in the product catalog of the HiMarket portal and returns the ID of the new product upon successful creation.
+ *
+ * @description Creates an API product with a specified name and type.
  *
  * @param request CreateProductRequest
  * @param headers map
@@ -2471,6 +2907,8 @@ CreateProductResponse Client::createProductWithOptions(const CreateProductReques
 /**
  * @summary Creates an API product in the product catalog of the HiMarket portal and returns the ID of the new product upon successful creation.
  *
+ * @description Creates an API product with a specified name and type.
+ *
  * @param request CreateProductRequest
  * @return CreateProductResponse
  */
@@ -2481,7 +2919,7 @@ CreateProductResponse Client::createProduct(const CreateProductRequest &request)
 }
 
 /**
- * @summary Creates a product category for an API product and returns the ID and name of the new category upon success.
+ * @summary Creates a product category for an API product and returns the ID and name of the new category.
  *
  * @param request CreateProductCategoryRequest
  * @param headers map
@@ -2522,7 +2960,7 @@ CreateProductCategoryResponse Client::createProductCategoryWithOptions(const Cre
 }
 
 /**
- * @summary Creates a product category for an API product and returns the ID and name of the new category upon success.
+ * @summary Creates a product category for an API product and returns the ID and name of the new category.
  *
  * @param request CreateProductCategoryRequest
  * @return CreateProductCategoryResponse
@@ -2534,7 +2972,7 @@ CreateProductCategoryResponse Client::createProductCategory(const CreateProductC
 }
 
 /**
- * @summary Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. You can query the association result by calling GetProductRef on the same path or remove the association by calling DeleteProductRef.
+ * @summary Associates an API configuration with a specified API product by submitting the gateway ID and API gateway reference configuration to the /himarket/v1/products/{productId}/ref endpoint. The association can be queried by GetProductRef and removed by DeleteProductRef on the same path.
  *
  * @param request CreateProductRefRequest
  * @param headers map
@@ -2571,7 +3009,7 @@ CreateProductRefResponse Client::createProductRefWithOptions(const string &produ
 }
 
 /**
- * @summary Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. You can query the association result by calling GetProductRef on the same path or remove the association by calling DeleteProductRef.
+ * @summary Associates an API configuration with a specified API product by submitting the gateway ID and API gateway reference configuration to the /himarket/v1/products/{productId}/ref endpoint. The association can be queried by GetProductRef and removed by DeleteProductRef on the same path.
  *
  * @param request CreateProductRefRequest
  * @return CreateProductRefResponse
@@ -2622,7 +3060,13 @@ CreateRiskCheckTaskResponse Client::createRiskCheckTask(const string &gatewayId,
 }
 
 /**
- * @summary Generates a key.
+ * @summary Generates a secret.
+ *
+ * @description ## Before you begin
+ * Before calling this operation, you must prepare the following resources in Key Management Service (KMS):
+ * - KMS instance: Create an instance in KMS and obtain the instance ID. Pass the instance ID as the kmsConfig.kmsInstanceId parameter.
+ * - KMS key: Create a key in the instance and obtain the key ID. Pass the key ID as the kmsConfig.kmsKeyId parameter.
+ * When calling this operation, you must set secretSource to KMS and pass the preceding two identifiers in kmsConfig. After the secret is created, you can call ListSecrets to query the list of secrets under your account.
  *
  * @param request CreateSecretRequest
  * @param headers map
@@ -2675,7 +3119,13 @@ CreateSecretResponse Client::createSecretWithOptions(const CreateSecretRequest &
 }
 
 /**
- * @summary Generates a key.
+ * @summary Generates a secret.
+ *
+ * @description ## Before you begin
+ * Before calling this operation, you must prepare the following resources in Key Management Service (KMS):
+ * - KMS instance: Create an instance in KMS and obtain the instance ID. Pass the instance ID as the kmsConfig.kmsInstanceId parameter.
+ * - KMS key: Create a key in the instance and obtain the key ID. Pass the key ID as the kmsConfig.kmsKeyId parameter.
+ * When calling this operation, you must set secretSource to KMS and pass the preceding two identifiers in kmsConfig. After the secret is created, you can call ListSecrets to query the list of secrets under your account.
  *
  * @param request CreateSecretRequest
  * @return CreateSecretResponse
@@ -2946,6 +3396,96 @@ DeleteAiModelProviderResponse Client::deleteAiModelProvider(const string &modelP
 }
 
 /**
+ * @summary Deletes a standalone AI model source.
+ *
+ * @param request DeleteAiModelSourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAiModelSourceResponse
+ */
+DeleteAiModelSourceResponse Client::deleteAiModelSourceWithOptions(const string &modelSourceId, const DeleteAiModelSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExpectedVersion()) {
+    query["expectedVersion"] = request.getExpectedVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAiModelSource"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-sources/" , Darabonba::Encode::Encoder::percentEncode(modelSourceId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAiModelSourceResponse>();
+}
+
+/**
+ * @summary Deletes a standalone AI model source.
+ *
+ * @param request DeleteAiModelSourceRequest
+ * @return DeleteAiModelSourceResponse
+ */
+DeleteAiModelSourceResponse Client::deleteAiModelSource(const string &modelSourceId, const DeleteAiModelSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAiModelSourceWithOptions(modelSourceId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes an AI model in the source.
+ *
+ * @param request DeleteAiModelSourceModelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAiModelSourceModelResponse
+ */
+DeleteAiModelSourceModelResponse Client::deleteAiModelSourceModelWithOptions(const string &modelCardId, const DeleteAiModelSourceModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExpectedVersion()) {
+    query["expectedVersion"] = request.getExpectedVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAiModelSourceModel"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-source-models/" , Darabonba::Encode::Encoder::percentEncode(modelCardId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAiModelSourceModelResponse>();
+}
+
+/**
+ * @summary Deletes an AI model in the source.
+ *
+ * @param request DeleteAiModelSourceModelRequest
+ * @return DeleteAiModelSourceModelResponse
+ */
+DeleteAiModelSourceModelResponse Client::deleteAiModelSourceModel(const string &modelCardId, const DeleteAiModelSourceModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAiModelSourceModelWithOptions(modelCardId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a consumer.
  *
  * @param headers map
@@ -3175,7 +3715,7 @@ DeleteGatewayResponse Client::deleteGateway(const string &gatewayId) {
 /**
  * @summary Deletes a quota throttling rule for a gateway.
  *
- * @description Deletes a quota rule based on a consumer or consumer group for an AI gateway. Note that this operation takes effect only for AI gateways whose version is later than 2.1.19.
+ * @description Deletes a quota rule based on an API consumer or API consumer group for an AI gateway. Note that this operation applies only to AI gateways of a version later than 2.1.19.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @param headers map
@@ -3204,7 +3744,7 @@ DeleteGatewayQuotaRuleResponse Client::deleteGatewayQuotaRuleWithOptions(const s
 /**
  * @summary Deletes a quota throttling rule for a gateway.
  *
- * @description Deletes a quota rule based on a consumer or consumer group for an AI gateway. Note that this operation takes effect only for AI gateways whose version is later than 2.1.19.
+ * @description Deletes a quota rule based on an API consumer or API consumer group for an AI gateway. Note that this operation applies only to AI gateways of a version later than 2.1.19.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @return DeleteGatewayQuotaRuleResponse
@@ -3382,6 +3922,51 @@ DeleteHttpApiRouteResponse Client::deleteHttpApiRoute(const string &httpApiId, c
 }
 
 /**
+ * @summary Deletes the specified logical model.
+ *
+ * @param request DeleteLogicalModelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteLogicalModelResponse
+ */
+DeleteLogicalModelResponse Client::deleteLogicalModelWithOptions(const string &logicalModelId, const DeleteLogicalModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExpectedRevision()) {
+    query["expectedRevision"] = request.getExpectedRevision();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteLogicalModel"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/logical-models/" , Darabonba::Encode::Encoder::percentEncode(logicalModelId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteLogicalModelResponse>();
+}
+
+/**
+ * @summary Deletes the specified logical model.
+ *
+ * @param request DeleteLogicalModelRequest
+ * @return DeleteLogicalModelResponse
+ */
+DeleteLogicalModelResponse Client::deleteLogicalModel(const string &logicalModelId, const DeleteLogicalModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteLogicalModelWithOptions(logicalModelId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes an MCP server.
  *
  * @param headers map
@@ -3418,7 +4003,7 @@ DeleteMcpServerResponse Client::deleteMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary Deletes a data migration task.
+ * @summary Deletes a migration task.
  *
  * @param request DeleteMigrationTaskRequest
  * @param headers map
@@ -3445,7 +4030,7 @@ DeleteMigrationTaskResponse Client::deleteMigrationTaskWithOptions(const string 
 }
 
 /**
- * @summary Deletes a data migration task.
+ * @summary Deletes a migration task.
  *
  * @param request DeleteMigrationTaskRequest
  * @return DeleteMigrationTaskResponse
@@ -3454,6 +4039,104 @@ DeleteMigrationTaskResponse Client::deleteMigrationTask(const string &taskId, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteMigrationTaskWithOptions(taskId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a model API.
+ *
+ * @description Automatically stops the service and cleans up the resources owned by the API when a published new-version model API is deleted. A successful response indicates that the request is accepted or is an idempotent replay of a completed deletion, but does not indicate that all background steps are complete. Monitor the progress by checking the deleteStatus parameter of GetModelApi. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully complete. The object is retained during deletion or upon failure. Shared model sources, model groups, models, services, consumers, and keys are not deleted.
+ *
+ * @param request DeleteModelApiRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteModelApiResponse
+ */
+DeleteModelApiResponse Client::deleteModelApiWithOptions(const string &httpApiId, const DeleteModelApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["dryRun"] = request.getDryRun();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteModelApi"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-apis/" , Darabonba::Encode::Encoder::percentEncode(httpApiId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteModelApiResponse>();
+}
+
+/**
+ * @summary Deletes a model API.
+ *
+ * @description Automatically stops the service and cleans up the resources owned by the API when a published new-version model API is deleted. A successful response indicates that the request is accepted or is an idempotent replay of a completed deletion, but does not indicate that all background steps are complete. Monitor the progress by checking the deleteStatus parameter of GetModelApi. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully complete. The object is retained during deletion or upon failure. Shared model sources, model groups, models, services, consumers, and keys are not deleted.
+ *
+ * @param request DeleteModelApiRequest
+ * @return DeleteModelApiResponse
+ */
+DeleteModelApiResponse Client::deleteModelApi(const string &httpApiId, const DeleteModelApiRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteModelApiWithOptions(httpApiId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a model group.
+ *
+ * @param request DeleteModelGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteModelGroupResponse
+ */
+DeleteModelGroupResponse Client::deleteModelGroupWithOptions(const string &modelGroupId, const DeleteModelGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExpectedVersion()) {
+    query["expectedVersion"] = request.getExpectedVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteModelGroup"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-groups/" , Darabonba::Encode::Encoder::percentEncode(modelGroupId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteModelGroupResponse>();
+}
+
+/**
+ * @summary Deletes a model group.
+ *
+ * @param request DeleteModelGroupRequest
+ * @return DeleteModelGroupResponse
+ */
+DeleteModelGroupResponse Client::deleteModelGroup(const string &modelGroupId, const DeleteModelGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteModelGroupWithOptions(modelGroupId, request, headers, runtime);
 }
 
 /**
@@ -3645,6 +4328,8 @@ DeletePortalResponse Client::deletePortal(const string &portalId, const DeletePo
 /**
  * @summary Deletes a specified API product by API product ID.
  *
+ * @description Deletes an API product by product ID.
+ *
  * @param request DeleteProductRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3672,6 +4357,8 @@ DeleteProductResponse Client::deleteProductWithOptions(const string &productId, 
 /**
  * @summary Deletes a specified API product by API product ID.
  *
+ * @description Deletes an API product by product ID.
+ *
  * @param request DeleteProductRequest
  * @return DeleteProductResponse
  */
@@ -3682,7 +4369,7 @@ DeleteProductResponse Client::deleteProduct(const string &productId, const Delet
 }
 
 /**
- * @summary Deletes a specified product category by product category ID.
+ * @summary Deletes a specified product category by its ID.
  *
  * @param request DeleteProductCategoryRequest
  * @param headers map
@@ -3709,7 +4396,7 @@ DeleteProductCategoryResponse Client::deleteProductCategoryWithOptions(const str
 }
 
 /**
- * @summary Deletes a specified product category by product category ID.
+ * @summary Deletes a specified product category by its ID.
  *
  * @param request DeleteProductCategoryRequest
  * @return DeleteProductCategoryResponse
@@ -3721,7 +4408,7 @@ DeleteProductCategoryResponse Client::deleteProductCategory(const string &catego
 }
 
 /**
- * @summary Dissociates an API from an API product by API product ID. The association is established by CreateProductRef on the same resource path and can be queried by using GetProductRef.
+ * @summary Dissociates an API product from an API by API product ID. The association is created by CreateProductRef on the same resource path and can be queried by GetProductRef.
  *
  * @param request DeleteProductRefRequest
  * @param headers map
@@ -3748,7 +4435,7 @@ DeleteProductRefResponse Client::deleteProductRefWithOptions(const string &produ
 }
 
 /**
- * @summary Dissociates an API from an API product by API product ID. The association is established by CreateProductRef on the same resource path and can be queried by using GetProductRef.
+ * @summary Dissociates an API product from an API by API product ID. The association is created by CreateProductRef on the same resource path and can be queried by GetProductRef.
  *
  * @param request DeleteProductRefRequest
  * @return DeleteProductRefResponse
@@ -3760,9 +4447,9 @@ DeleteProductRefResponse Client::deleteProductRef(const string &productId, const
 }
 
 /**
- * @summary Deletes a key value.
+ * @summary Deletes a secret value.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3787,9 +4474,9 @@ DeleteSecretResponse Client::deleteSecretWithOptions(const string &secretId, con
 }
 
 /**
- * @summary Deletes a key value.
+ * @summary Deletes a secret value.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @return DeleteSecretResponse
  */
@@ -3967,7 +4654,7 @@ DeployHttpApiResponse Client::deployHttpApi(const string &httpApiId, const Deplo
 /**
  * @summary Publishes an MCP server.
  *
- * @description Before deployment, ensure that domainIds have been configured for the MCP server by calling CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
+ * @description Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to verify the domain binding status.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3994,7 +4681,7 @@ DeployMcpServerResponse Client::deployMcpServerWithOptions(const string &mcpServ
 /**
  * @summary Publishes an MCP server.
  *
- * @description Before deployment, ensure that domainIds have been configured for the MCP server by calling CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
+ * @description Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to verify the domain binding status.
  *
  * @return DeployMcpServerResponse
  */
@@ -4005,7 +4692,7 @@ DeployMcpServerResponse Client::deployMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary Queries the regions where the cloud-native API gateway is available for the current account.
+ * @summary Queries the regions where Cloud-native API Gateway is available for the current account.
  *
  * @param request DescribeRegionsRequest
  * @param headers map
@@ -4038,7 +4725,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries the regions where the cloud-native API gateway is available for the current account.
+ * @summary Queries the regions where Cloud-native API Gateway is available for the current account.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -4050,7 +4737,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Detaches and deletes a policy.
+ * @summary Unmounts and deletes a policy.
  *
  * @param request DetachAndDeletePolicyRequest
  * @param headers map
@@ -4083,7 +4770,7 @@ DetachAndDeletePolicyResponse Client::detachAndDeletePolicyWithOptions(const str
 }
 
 /**
- * @summary Detaches and deletes a policy.
+ * @summary Unmounts and deletes a policy.
  *
  * @param request DetachAndDeletePolicyRequest
  * @return DetachAndDeletePolicyResponse
@@ -4226,7 +4913,124 @@ GetAiModelProviderResponse Client::getAiModelProvider(const string &modelProvide
 }
 
 /**
- * @summary Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
+ * @summary Queries a standalone AI model source.
+ *
+ * @param request GetAiModelSourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiModelSourceResponse
+ */
+GetAiModelSourceResponse Client::getAiModelSourceWithOptions(const string &modelSourceId, const GetAiModelSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiModelSource"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-sources/" , Darabonba::Encode::Encoder::percentEncode(modelSourceId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiModelSourceResponse>();
+}
+
+/**
+ * @summary Queries a standalone AI model source.
+ *
+ * @param request GetAiModelSourceRequest
+ * @return GetAiModelSourceResponse
+ */
+GetAiModelSourceResponse Client::getAiModelSource(const string &modelSourceId, const GetAiModelSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAiModelSourceWithOptions(modelSourceId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the impact of editing an AI model source.
+ *
+ * @param request GetAiModelSourceEditImpactRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiModelSourceEditImpactResponse
+ */
+GetAiModelSourceEditImpactResponse Client::getAiModelSourceEditImpactWithOptions(const string &modelSourceId, const GetAiModelSourceEditImpactRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiModelSourceEditImpact"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-sources/" , Darabonba::Encode::Encoder::percentEncode(modelSourceId) , "/edit-impact")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiModelSourceEditImpactResponse>();
+}
+
+/**
+ * @summary Queries the impact of editing an AI model source.
+ *
+ * @param request GetAiModelSourceEditImpactRequest
+ * @return GetAiModelSourceEditImpactResponse
+ */
+GetAiModelSourceEditImpactResponse Client::getAiModelSourceEditImpact(const string &modelSourceId, const GetAiModelSourceEditImpactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAiModelSourceEditImpactWithOptions(modelSourceId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries AI models in a source.
+ *
+ * @param request GetAiModelSourceModelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiModelSourceModelResponse
+ */
+GetAiModelSourceModelResponse Client::getAiModelSourceModelWithOptions(const string &modelCardId, const GetAiModelSourceModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiModelSourceModel"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-source-models/" , Darabonba::Encode::Encoder::percentEncode(modelCardId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiModelSourceModelResponse>();
+}
+
+/**
+ * @summary Queries AI models in a source.
+ *
+ * @param request GetAiModelSourceModelRequest
+ * @return GetAiModelSourceModelResponse
+ */
+GetAiModelSourceModelResponse Client::getAiModelSourceModel(const string &modelCardId, const GetAiModelSourceModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAiModelSourceModelWithOptions(modelCardId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the effective field collection configurations for each URI of the request of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
  *
  * @param request GetApiPathFieldConfigRequest
  * @param headers map
@@ -4263,7 +5067,7 @@ GetApiPathFieldConfigResponse Client::getApiPathFieldConfigWithOptions(const Get
 }
 
 /**
- * @summary Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
+ * @summary Queries the effective field collection configurations for each URI of the request of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
  *
  * @param request GetApiPathFieldConfigRequest
  * @return GetApiPathFieldConfigResponse
@@ -4320,7 +5124,7 @@ GetApiPathFieldTemplateResponse Client::getApiPathFieldTemplate(const GetApiPath
 }
 
 /**
- * @summary Queries a batch export task.
+ * @summary Queries batch export tasks.
  *
  * @param request GetBatchExportTaskRequest
  * @param headers map
@@ -4347,7 +5151,7 @@ GetBatchExportTaskResponse Client::getBatchExportTaskWithOptions(const string &t
 }
 
 /**
- * @summary Queries a batch export task.
+ * @summary Queries batch export tasks.
  *
  * @param request GetBatchExportTaskRequest
  * @return GetBatchExportTaskResponse
@@ -4359,7 +5163,7 @@ GetBatchExportTaskResponse Client::getBatchExportTask(const string &taskId, cons
 }
 
 /**
- * @summary Queries a batch import task. The task ID is returned after a batch import task is created by calling BatchImportHttpApis. Pass an empty string to list all existing batch import tasks.
+ * @summary Queries batch import tasks. The task ID is returned after a batch import task is created by calling BatchImportHttpApis. Pass an empty string to list all existing batch import tasks.
  *
  * @param request GetBatchImportTaskRequest
  * @param headers map
@@ -4386,7 +5190,7 @@ GetBatchImportTaskResponse Client::getBatchImportTaskWithOptions(const string &t
 }
 
 /**
- * @summary Queries a batch import task. The task ID is returned after a batch import task is created by calling BatchImportHttpApis. Pass an empty string to list all existing batch import tasks.
+ * @summary Queries batch import tasks. The task ID is returned after a batch import task is created by calling BatchImportHttpApis. Pass an empty string to list all existing batch import tasks.
  *
  * @param request GetBatchImportTaskRequest
  * @return GetBatchImportTaskResponse
@@ -4398,7 +5202,7 @@ GetBatchImportTaskResponse Client::getBatchImportTask(const string &taskId, cons
 }
 
 /**
- * @summary Retrieves an API consumer.
+ * @summary Retrieves a consumer.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4423,7 +5227,7 @@ GetConsumerResponse Client::getConsumerWithOptions(const string &consumerId, con
 }
 
 /**
- * @summary Retrieves an API consumer.
+ * @summary Retrieves a consumer.
  *
  * @return GetConsumerResponse
  */
@@ -4431,6 +5235,51 @@ GetConsumerResponse Client::getConsumer(const string &consumerId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getConsumerWithOptions(consumerId, headers, runtime);
+}
+
+/**
+ * @summary Queries the access overview of a consumer.
+ *
+ * @param request GetConsumerAccessOverviewRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetConsumerAccessOverviewResponse
+ */
+GetConsumerAccessOverviewResponse Client::getConsumerAccessOverviewWithOptions(const string &consumerId, const GetConsumerAccessOverviewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetConsumerAccessOverview"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/consumer-access/consumers/" , Darabonba::Encode::Encoder::percentEncode(consumerId) , "/overview")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetConsumerAccessOverviewResponse>();
+}
+
+/**
+ * @summary Queries the access overview of a consumer.
+ *
+ * @param request GetConsumerAccessOverviewRequest
+ * @return GetConsumerAccessOverviewResponse
+ */
+GetConsumerAccessOverviewResponse Client::getConsumerAccessOverview(const string &consumerId, const GetConsumerAccessOverviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getConsumerAccessOverviewWithOptions(consumerId, request, headers, runtime);
 }
 
 /**
@@ -4598,6 +5447,14 @@ GetDashboardResponse Client::getDashboard(const string &gatewayId, const GetDash
 /**
  * @summary Queries the account information of the currently logged-on developer and returns the developer ID, portal ID, username, and status.
  *
+ * @description ## Before you begin and call sequence
+ * This operation queries the account information of the currently logged-on developer. You must complete the following steps in order:
+ * 1. Call CreatePortal to create a developer portal and obtain the portalId.
+ * 2. Call CreateDeveloper to register a developer account under the portal.
+ * 3. Call LoginDeveloper to log on to the developer account and obtain the accessToken.
+ * 4. Call this operation with the accessToken obtained in the previous step.
+ * Related operations: CreatePortal, CreateDeveloper, and LoginDeveloper.
+ *
  * @param request GetDeveloperRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4625,6 +5482,14 @@ GetDeveloperResponse Client::getDeveloperWithOptions(const GetDeveloperRequest &
 /**
  * @summary Queries the account information of the currently logged-on developer and returns the developer ID, portal ID, username, and status.
  *
+ * @description ## Before you begin and call sequence
+ * This operation queries the account information of the currently logged-on developer. You must complete the following steps in order:
+ * 1. Call CreatePortal to create a developer portal and obtain the portalId.
+ * 2. Call CreateDeveloper to register a developer account under the portal.
+ * 3. Call LoginDeveloper to log on to the developer account and obtain the accessToken.
+ * 4. Call this operation with the accessToken obtained in the previous step.
+ * Related operations: CreatePortal, CreateDeveloper, and LoginDeveloper.
+ *
  * @param request GetDeveloperRequest
  * @return GetDeveloperResponse
  */
@@ -4632,6 +5497,51 @@ GetDeveloperResponse Client::getDeveloper(const GetDeveloperRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getDeveloperWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the direct-supply models and candidate models for a specified gateway, including billing, capabilities, and available invocation paths.
+ *
+ * @param request GetDirectSupplyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDirectSupplyResponse
+ */
+GetDirectSupplyResponse Client::getDirectSupplyWithOptions(const GetDirectSupplyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDirectSupply"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/direct-supply")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDirectSupplyResponse>();
+}
+
+/**
+ * @summary Queries the direct-supply models and candidate models for a specified gateway, including billing, capabilities, and available invocation paths.
+ *
+ * @param request GetDirectSupplyRequest
+ * @return GetDirectSupplyResponse
+ */
+GetDirectSupplyResponse Client::getDirectSupply(const GetDirectSupplyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getDirectSupplyWithOptions(request, headers, runtime);
 }
 
 /**
@@ -4771,7 +5681,7 @@ GetGatewayResponse Client::getGateway(const string &gatewayId) {
 /**
  * @summary Retrieves the dynamic forwarding ExtProc service bound to a gateway.
  *
- * @description Queries the dynamic forwarding ExtProc gRPC service and port currently bound to the specified gateway. If no service is bound, bound=false is returned.
+ * @description Queries the dynamic forwarding ExtProc gRPC service and port currently bound to a specified gateway. If no service is bound, bound=false is returned.
  *
  * @param request GetGatewayDfpExtProcServiceRequest
  * @param headers map
@@ -4800,7 +5710,7 @@ GetGatewayDfpExtProcServiceResponse Client::getGatewayDfpExtProcServiceWithOptio
 /**
  * @summary Retrieves the dynamic forwarding ExtProc service bound to a gateway.
  *
- * @description Queries the dynamic forwarding ExtProc gRPC service and port currently bound to the specified gateway. If no service is bound, bound=false is returned.
+ * @description Queries the dynamic forwarding ExtProc gRPC service and port currently bound to a specified gateway. If no service is bound, bound=false is returned.
  *
  * @param request GetGatewayDfpExtProcServiceRequest
  * @return GetGatewayDfpExtProcServiceResponse
@@ -4812,7 +5722,7 @@ GetGatewayDfpExtProcServiceResponse Client::getGatewayDfpExtProcService(const st
 }
 
 /**
- * @summary Retrieves the elastic scaling rule of a gateway.
+ * @summary Retrieves the elastic rules of a gateway.
  *
  * @param request GetGatewayElasticPolicyRequest
  * @param headers map
@@ -4839,7 +5749,7 @@ GetGatewayElasticPolicyResponse Client::getGatewayElasticPolicyWithOptions(const
 }
 
 /**
- * @summary Retrieves the elastic scaling rule of a gateway.
+ * @summary Retrieves the elastic rules of a gateway.
  *
  * @param request GetGatewayElasticPolicyRequest
  * @return GetGatewayElasticPolicyResponse
@@ -4853,7 +5763,7 @@ GetGatewayElasticPolicyResponse Client::getGatewayElasticPolicy(const string &ga
 /**
  * @summary Queries the details of a gateway quota throttling rule.
  *
- * @description This operation queries a specific consumer quota rule on an AI gateway.
+ * @description Queries a specific consumer quota rule on an AI gateway.
  *
  * @param request GetGatewayQuotaRuleRequest
  * @param headers map
@@ -4900,7 +5810,7 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRuleWithOptions(const string 
 /**
  * @summary Queries the details of a gateway quota throttling rule.
  *
- * @description This operation queries a specific consumer quota rule on an AI gateway.
+ * @description Queries a specific consumer quota rule on an AI gateway.
  *
  * @param request GetGatewayQuotaRuleRequest
  * @return GetGatewayQuotaRuleResponse
@@ -4914,7 +5824,8 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRule(const string &gatewayId,
 /**
  * @summary Queries the usage details of a subject under a gateway quota throttling rule, including the used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description This operation retrieves the usage details of a specific consumption subject under a quota rule. Note that this operation takes effect only for AI gateways of a version later than 2.1.19. Prerequisites: Before calling this operation, make sure that Simple Log Service (SLS) log delivery is enabled for the target gateway by calling UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
+ * @description This operation retrieves the usage details of a specific consumption subject under a quota rule. Note that this operation takes effect only for AI gateways of a version later than 2.1.19.
+ * Before you begin: Make sure that the target gateway has enabled the Simple Log Service (SLS) log delivery feature by calling UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @param headers map
@@ -4965,7 +5876,8 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsageW
 /**
  * @summary Queries the usage details of a subject under a gateway quota throttling rule, including the used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
  *
- * @description This operation retrieves the usage details of a specific consumption subject under a quota rule. Note that this operation takes effect only for AI gateways of a version later than 2.1.19. Prerequisites: Before calling this operation, make sure that Simple Log Service (SLS) log delivery is enabled for the target gateway by calling UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
+ * @description This operation retrieves the usage details of a specific consumption subject under a quota rule. Note that this operation takes effect only for AI gateways of a version later than 2.1.19.
+ * Before you begin: Make sure that the target gateway has enabled the Simple Log Service (SLS) log delivery feature by calling UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @return GetGatewayQuotaRuleSubjectUsageResponse
@@ -4981,15 +5893,15 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsage(
  *
  * @description ## Call flow
  * First, call CreateGatewayQuotaRuleSubjectUsageExportTask to create a task. Then, use the returned taskId along with the same gatewayId, ruleId, and subjectId to call this operation in the same region.
- * - Pending or Running: The task is not completed. You can query again after a period of time.
+ * - Pending or Running: The task is not completed. You can query the task again after a period of time.
  * - Success: Check result.fileExpired and result.downloadUrl. If the file is not expired and a link is returned, you can download the file.
- * - Failed: Troubleshoot the issue based on errorMessage. To re-export, call the create operation and use a new clientToken.
+ * - Failed: Troubleshoot the issue based on errorMessage. To export the data again, call the create operation with a new clientToken.
  * ## Download link and file validity period
- * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but the file has not reached fileExpiredAt, you can query again to obtain a new link. Querying again does not regenerate the file or extend the 24-hour validity period of the file.
- * After the file reaches fileExpiredAt, this operation no longer issues new links, returns fileExpired=true, and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export again, create a new task.
+ * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but the file has not reached fileExpiredAt, you can query the task again to obtain a new link. Querying the task again does not regenerate the file or extend the 24-hour validity period of the file.
+ * After the file reaches fileExpiredAt, this operation no longer issues new links. It returns fileExpired=true and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export the data again, create a new task.
  * ## Query scope and task progress
  * This operation returns only the export tasks of the current user in the current region that match the gateway, rule, and subject paths. If the paths do not match or the task does not exist, a not found error is returned. Existing tasks are queried based on the information recorded at creation. The export conditions are not recalculated due to subsequent rule resets or subject name changes.
- * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on the status, not just totalCount or processedCount.
+ * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on the status, not only on totalCount or processedCount.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageExportTaskRequest
  * @param headers map
@@ -5020,15 +5932,15 @@ GetGatewayQuotaRuleSubjectUsageExportTaskResponse Client::getGatewayQuotaRuleSub
  *
  * @description ## Call flow
  * First, call CreateGatewayQuotaRuleSubjectUsageExportTask to create a task. Then, use the returned taskId along with the same gatewayId, ruleId, and subjectId to call this operation in the same region.
- * - Pending or Running: The task is not completed. You can query again after a period of time.
+ * - Pending or Running: The task is not completed. You can query the task again after a period of time.
  * - Success: Check result.fileExpired and result.downloadUrl. If the file is not expired and a link is returned, you can download the file.
- * - Failed: Troubleshoot the issue based on errorMessage. To re-export, call the create operation and use a new clientToken.
+ * - Failed: Troubleshoot the issue based on errorMessage. To export the data again, call the create operation with a new clientToken.
  * ## Download link and file validity period
- * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but the file has not reached fileExpiredAt, you can query again to obtain a new link. Querying again does not regenerate the file or extend the 24-hour validity period of the file.
- * After the file reaches fileExpiredAt, this operation no longer issues new links, returns fileExpired=true, and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export again, create a new task.
+ * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but the file has not reached fileExpiredAt, you can query the task again to obtain a new link. Querying the task again does not regenerate the file or extend the 24-hour validity period of the file.
+ * After the file reaches fileExpiredAt, this operation no longer issues new links. It returns fileExpired=true and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export the data again, create a new task.
  * ## Query scope and task progress
  * This operation returns only the export tasks of the current user in the current region that match the gateway, rule, and subject paths. If the paths do not match or the task does not exist, a not found error is returned. Existing tasks are queried based on the information recorded at creation. The export conditions are not recalculated due to subsequent rule resets or subject name changes.
- * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on the status, not just totalCount or processedCount.
+ * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on the status, not only on totalCount or processedCount.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageExportTaskRequest
  * @return GetGatewayQuotaRuleSubjectUsageExportTaskResponse
@@ -5042,7 +5954,7 @@ GetGatewayQuotaRuleSubjectUsageExportTaskResponse Client::getGatewayQuotaRuleSub
 /**
  * @summary Queries the resource quotas and usage of a gateway.
  *
- * @description Queries the usage, effective limits, and statistical scopes of nine resource quotas for a specified API gateway or AI gateway. This operation is read-only. A successful response includes all nine items. Quota values for custom plug-ins are not displayed. The result is a current observation read independently from various sources and does not guarantee the success of subsequent resource creation.
+ * @description Queries the usage, effective limits, and statistical scopes of nine resource quotas for a specified API gateway or AI gateway. This operation is read-only, and a successful response includes all nine items. Quota values for custom plug-ins are not displayed. The result is a current observation read independently from various sources and does not guarantee the success of adding new resources.
  *
  * @param request GetGatewayResourceQuotaUsageRequest
  * @param headers map
@@ -5071,7 +5983,7 @@ GetGatewayResourceQuotaUsageResponse Client::getGatewayResourceQuotaUsageWithOpt
 /**
  * @summary Queries the resource quotas and usage of a gateway.
  *
- * @description Queries the usage, effective limits, and statistical scopes of nine resource quotas for a specified API gateway or AI gateway. This operation is read-only. A successful response includes all nine items. Quota values for custom plug-ins are not displayed. The result is a current observation read independently from various sources and does not guarantee the success of subsequent resource creation.
+ * @description Queries the usage, effective limits, and statistical scopes of nine resource quotas for a specified API gateway or AI gateway. This operation is read-only, and a successful response includes all nine items. Quota values for custom plug-ins are not displayed. The result is a current observation read independently from various sources and does not guarantee the success of adding new resources.
  *
  * @param request GetGatewayResourceQuotaUsageRequest
  * @return GetGatewayResourceQuotaUsageResponse
@@ -5083,7 +5995,7 @@ GetGatewayResourceQuotaUsageResponse Client::getGatewayResourceQuotaUsage(const 
 }
 
 /**
- * @summary Queries the details of a single HiMarket consumer by consumer ID, including the consumer ID, name, description, and whether the consumer is a primary consumer.
+ * @summary Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is a primary consumer.
  *
  * @param request GetHiMarketConsumerRequest
  * @param headers map
@@ -5110,7 +6022,7 @@ GetHiMarketConsumerResponse Client::getHiMarketConsumerWithOptions(const string 
 }
 
 /**
- * @summary Queries the details of a single HiMarket consumer by consumer ID, including the consumer ID, name, description, and whether the consumer is a primary consumer.
+ * @summary Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is a primary consumer.
  *
  * @param request GetHiMarketConsumerRequest
  * @return GetHiMarketConsumerResponse
@@ -5278,6 +6190,84 @@ GetHttpApiRouteResponse Client::getHttpApiRoute(const string &httpApiId, const s
 }
 
 /**
+ * @summary Queries the details of a logical model.
+ *
+ * @param request GetLogicalModelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLogicalModelResponse
+ */
+GetLogicalModelResponse Client::getLogicalModelWithOptions(const string &logicalModelId, const GetLogicalModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetLogicalModel"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/logical-models/" , Darabonba::Encode::Encoder::percentEncode(logicalModelId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLogicalModelResponse>();
+}
+
+/**
+ * @summary Queries the details of a logical model.
+ *
+ * @param request GetLogicalModelRequest
+ * @return GetLogicalModelResponse
+ */
+GetLogicalModelResponse Client::getLogicalModel(const string &logicalModelId, const GetLogicalModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getLogicalModelWithOptions(logicalModelId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the configuration delivery of a logical model.
+ *
+ * @param request GetLogicalModelDeploymentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLogicalModelDeploymentResponse
+ */
+GetLogicalModelDeploymentResponse Client::getLogicalModelDeploymentWithOptions(const string &operationId, const GetLogicalModelDeploymentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetLogicalModelDeployment"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/logical-model-deployments/" , Darabonba::Encode::Encoder::percentEncode(operationId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLogicalModelDeploymentResponse>();
+}
+
+/**
+ * @summary Queries the configuration delivery of a logical model.
+ *
+ * @param request GetLogicalModelDeploymentRequest
+ * @return GetLogicalModelDeploymentResponse
+ */
+GetLogicalModelDeploymentResponse Client::getLogicalModelDeployment(const string &operationId, const GetLogicalModelDeploymentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getLogicalModelDeploymentWithOptions(operationId, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves an MCP server.
  *
  * @description This operation supports creating multiple services.
@@ -5396,6 +6386,88 @@ GetMigrationTaskResponse Client::getMigrationTask(const string &taskId, const Ge
 }
 
 /**
+ * @summary Queries the details of a model API.
+ *
+ * @description During deletion, check deleteStatus for Deleting or DeleteFailed, and review deployErrorMessage. The NotFound.ModelApi error is returned only after the target model API is completely deleted. Missing dependencies, permission issues, or storage errors do not indicate that the deletion is complete.
+ *
+ * @param request GetModelApiRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetModelApiResponse
+ */
+GetModelApiResponse Client::getModelApiWithOptions(const string &httpApiId, const GetModelApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetModelApi"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-apis/" , Darabonba::Encode::Encoder::percentEncode(httpApiId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetModelApiResponse>();
+}
+
+/**
+ * @summary Queries the details of a model API.
+ *
+ * @description During deletion, check deleteStatus for Deleting or DeleteFailed, and review deployErrorMessage. The NotFound.ModelApi error is returned only after the target model API is completely deleted. Missing dependencies, permission issues, or storage errors do not indicate that the deletion is complete.
+ *
+ * @param request GetModelApiRequest
+ * @return GetModelApiResponse
+ */
+GetModelApiResponse Client::getModelApi(const string &httpApiId, const GetModelApiRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getModelApiWithOptions(httpApiId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the configuration, entitlement status, and the summary of the latest configuration deployment for a specified model group.
+ *
+ * @param request GetModelGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetModelGroupResponse
+ */
+GetModelGroupResponse Client::getModelGroupWithOptions(const string &modelGroupId, const GetModelGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetModelGroup"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-groups/" , Darabonba::Encode::Encoder::percentEncode(modelGroupId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetModelGroupResponse>();
+}
+
+/**
+ * @summary Queries the configuration, entitlement status, and the summary of the latest configuration deployment for a specified model group.
+ *
+ * @param request GetModelGroupRequest
+ * @return GetModelGroupResponse
+ */
+GetModelGroupResponse Client::getModelGroup(const string &modelGroupId, const GetModelGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getModelGroupWithOptions(modelGroupId, request, headers, runtime);
+}
+
+/**
  * @summary Queries a plugin attachment.
  *
  * @param headers map
@@ -5432,7 +6504,7 @@ GetPluginAttachmentResponse Client::getPluginAttachment(const string &pluginAtta
 }
 
 /**
- * @summary Retrieves a custom plug-in class.
+ * @summary Retrieves a custom plugin class.
  *
  * @param request GetPluginClassRequest
  * @param headers map
@@ -5459,7 +6531,7 @@ GetPluginClassResponse Client::getPluginClassWithOptions(const string &pluginCla
 }
 
 /**
- * @summary Retrieves a custom plug-in class.
+ * @summary Retrieves a custom plugin class.
  *
  * @param request GetPluginClassRequest
  * @return GetPluginClassResponse
@@ -5471,7 +6543,7 @@ GetPluginClassResponse Client::getPluginClass(const string &pluginClassId, const
 }
 
 /**
- * @summary Queries the WebIDE workspace of a plugin.
+ * @summary Queries the plug-in WebIDE workspace.
  *
  * @param request GetPluginWorkspaceRequest
  * @param headers map
@@ -5498,7 +6570,7 @@ GetPluginWorkspaceResponse Client::getPluginWorkspaceWithOptions(const string &w
 }
 
 /**
- * @summary Queries the WebIDE workspace of a plugin.
+ * @summary Queries the plug-in WebIDE workspace.
  *
  * @param request GetPluginWorkspaceRequest
  * @return GetPluginWorkspaceResponse
@@ -5546,7 +6618,7 @@ GetPolicyResponse Client::getPolicy(const string &policyId) {
 }
 
 /**
- * @summary Queries the resource attachment of a policy.
+ * @summary Queries policy resource attachments.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5571,7 +6643,7 @@ GetPolicyAttachmentResponse Client::getPolicyAttachmentWithOptions(const string 
 }
 
 /**
- * @summary Queries the resource attachment of a policy.
+ * @summary Queries policy resource attachments.
  *
  * @return GetPolicyAttachmentResponse
  */
@@ -5582,7 +6654,7 @@ GetPolicyAttachmentResponse Client::getPolicyAttachment(const string &policyAtta
 }
 
 /**
- * @summary Queries the details of a single HiMarket developer portal by portal ID, including the portal name, description, region ID, portal settings, and portal domain name configurations.
+ * @summary Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal configurations, and portal domain name configurations.
  *
  * @param request GetPortalRequest
  * @param headers map
@@ -5609,7 +6681,7 @@ GetPortalResponse Client::getPortalWithOptions(const string &portalId, const Get
 }
 
 /**
- * @summary Queries the details of a single HiMarket developer portal by portal ID, including the portal name, description, region ID, portal settings, and portal domain name configurations.
+ * @summary Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal configurations, and portal domain name configurations.
  *
  * @param request GetPortalRequest
  * @return GetPortalResponse
@@ -5621,7 +6693,7 @@ GetPortalResponse Client::getPortal(const string &portalId, const GetPortalReque
 }
 
 /**
- * @summary Queries the details of a single API product by API product ID, and returns information such as the name, description, status, type, documentation, icon, whether subscription requests are automatically approved, MCP, agent, and model configurations, product capability configurations, and the region to which the product belongs.
+ * @summary Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval setting, MCP, agent, and model configurations, product capability configurations, and region.
  *
  * @param request GetProductRequest
  * @param headers map
@@ -5648,7 +6720,7 @@ GetProductResponse Client::getProductWithOptions(const string &productId, const 
 }
 
 /**
- * @summary Queries the details of a single API product by API product ID, and returns information such as the name, description, status, type, documentation, icon, whether subscription requests are automatically approved, MCP, agent, and model configurations, product capability configurations, and the region to which the product belongs.
+ * @summary Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval setting, MCP, agent, and model configurations, product capability configurations, and region.
  *
  * @param request GetProductRequest
  * @return GetProductResponse
@@ -5660,7 +6732,7 @@ GetProductResponse Client::getProduct(const string &productId, const GetProductR
 }
 
 /**
- * @summary Queries the details of a product category by category ID and returns the ID, name, description, and icon of the category.
+ * @summary Queries the details of a single product category by category ID and returns the ID, name, description, and icon of the category.
  *
  * @param request GetProductCategoryRequest
  * @param headers map
@@ -5687,7 +6759,7 @@ GetProductCategoryResponse Client::getProductCategoryWithOptions(const string &c
 }
 
 /**
- * @summary Queries the details of a product category by category ID and returns the ID, name, description, and icon of the category.
+ * @summary Queries the details of a single product category by category ID and returns the ID, name, description, and icon of the category.
  *
  * @param request GetProductCategoryRequest
  * @return GetProductCategoryResponse
@@ -5699,7 +6771,7 @@ GetProductCategoryResponse Client::getProductCategory(const string &categoryId, 
 }
 
 /**
- * @summary Queries the API configurations associated with an API product by API product ID, and returns the ID of the gateway where the association resides and the APIG association configuration.
+ * @summary Queries the API configurations associated with an API product by product ID, and returns the gateway ID and APIG association configurations.
  *
  * @param request GetProductRefRequest
  * @param headers map
@@ -5726,7 +6798,7 @@ GetProductRefResponse Client::getProductRefWithOptions(const string &productId, 
 }
 
 /**
- * @summary Queries the API configurations associated with an API product by API product ID, and returns the ID of the gateway where the association resides and the APIG association configuration.
+ * @summary Queries the API configurations associated with an API product by product ID, and returns the gateway ID and APIG association configurations.
  *
  * @param request GetProductRefRequest
  * @return GetProductRefResponse
@@ -5783,7 +6855,7 @@ GetResourceOverviewResponse Client::getResourceOverview(const GetResourceOvervie
 }
 
 /**
- * @summary Retrieves the notification configuration for a risk item.
+ * @summary Retrieves the risk item notification configuration.
  *
  * @param request GetRiskNotificationRequest
  * @param headers map
@@ -5816,7 +6888,7 @@ GetRiskNotificationResponse Client::getRiskNotificationWithOptions(const string 
 }
 
 /**
- * @summary Retrieves the notification configuration for a risk item.
+ * @summary Retrieves the risk item notification configuration.
  *
  * @param request GetRiskNotificationRequest
  * @return GetRiskNotificationResponse
@@ -5828,9 +6900,9 @@ GetRiskNotificationResponse Client::getRiskNotification(const string &gatewayId,
 }
 
 /**
- * @summary Retrieves a key.
+ * @summary Retrieves a secret.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5855,9 +6927,9 @@ GetSecretResponse Client::getSecretWithOptions(const string &secretId, const map
 }
 
 /**
- * @summary Retrieves a key.
+ * @summary Retrieves a secret.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @return GetSecretResponse
  */
@@ -5868,9 +6940,9 @@ GetSecretResponse Client::getSecret(const string &secretId) {
 }
 
 /**
- * @summary Retrieves the value of a secret.
+ * @summary Retrieves the secret value.
  *
- * @description The operation supports creating multiple services.
+ * @description The API supports creating multiple services.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5895,9 +6967,9 @@ GetSecretValueResponse Client::getSecretValueWithOptions(const string &name, con
 }
 
 /**
- * @summary Retrieves the value of a secret.
+ * @summary Retrieves the secret value.
  *
- * @description The operation supports creating multiple services.
+ * @description The API supports creating multiple services.
  *
  * @return GetSecretValueResponse
  */
@@ -6025,7 +7097,7 @@ GetTraceConfigResponse Client::getTraceConfig(const string &gatewayId, const Get
 }
 
 /**
- * @summary Submits the code and state query parameters via a GET request during the callback step of the OIDC logon process. The response data includes the accessToken, tokenType, and expiresIn fields.
+ * @summary Executes the callback step in the OIDC logon flow by submitting the code and state query parameters via the GET method. The response data includes the accessToken, tokenType, and expiresIn fields.
  *
  * @param request HandleOidcCallbackRequest
  * @param headers map
@@ -6062,7 +7134,7 @@ HandleOidcCallbackResponse Client::handleOidcCallbackWithOptions(const HandleOid
 }
 
 /**
- * @summary Submits the code and state query parameters via a GET request during the callback step of the OIDC logon process. The response data includes the accessToken, tokenType, and expiresIn fields.
+ * @summary Executes the callback step in the OIDC logon flow by submitting the code and state query parameters via the GET method. The response data includes the accessToken, tokenType, and expiresIn fields.
  *
  * @param request HandleOidcCallbackRequest
  * @return HandleOidcCallbackResponse
@@ -6171,7 +7243,7 @@ ImportHttpApiResponse Client::importHttpApi(const ImportHttpApiRequest &request)
 }
 
 /**
- * @summary Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the data business output parameter.
+ * @summary Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body contains only the requestId, code, and message fields, and does not include the business output parameter data.
  *
  * @param request InitiateOidcAuthRequest
  * @param headers map
@@ -6204,7 +7276,7 @@ InitiateOidcAuthResponse Client::initiateOidcAuthWithOptions(const InitiateOidcA
 }
 
 /**
- * @summary Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the data business output parameter.
+ * @summary Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body contains only the requestId, code, and message fields, and does not include the business output parameter data.
  *
  * @param request InitiateOidcAuthRequest
  * @return InitiateOidcAuthResponse
@@ -6389,7 +7461,7 @@ InvokeAIAgentResponse Client::invokeAIAgent(const InvokeAIAgentRequest &request)
 }
 
 /**
- * @summary Queries a list of AI model cards.
+ * @summary Queries the list of AI model cards.
  *
  * @param request ListAiModelCardsRequest
  * @param headers map
@@ -6434,7 +7506,7 @@ ListAiModelCardsResponse Client::listAiModelCardsWithOptions(const ListAiModelCa
 }
 
 /**
- * @summary Queries a list of AI model cards.
+ * @summary Queries the list of AI model cards.
  *
  * @param request ListAiModelCardsRequest
  * @return ListAiModelCardsResponse
@@ -6503,7 +7575,129 @@ ListAiModelProvidersResponse Client::listAiModelProviders(const ListAiModelProvi
 }
 
 /**
- * @summary Performs a paging query on the list of field templates and returns the template ID, API request path, and applicable protocol for each template record.
+ * @summary Queries the AI models in a model source.
+ *
+ * @param request ListAiModelSourceModelsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAiModelSourceModelsResponse
+ */
+ListAiModelSourceModelsResponse Client::listAiModelSourceModelsWithOptions(const ListAiModelSourceModelsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasModelSourceId()) {
+    query["modelSourceId"] = request.getModelSourceId();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAiModelSourceModels"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-source-models")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAiModelSourceModelsResponse>();
+}
+
+/**
+ * @summary Queries the AI models in a model source.
+ *
+ * @param request ListAiModelSourceModelsRequest
+ * @return ListAiModelSourceModelsResponse
+ */
+ListAiModelSourceModelsResponse Client::listAiModelSourceModels(const ListAiModelSourceModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAiModelSourceModelsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries a list of standalone AI model sources.
+ *
+ * @param request ListAiModelSourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAiModelSourcesResponse
+ */
+ListAiModelSourcesResponse Client::listAiModelSourcesWithOptions(const ListAiModelSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasProvider()) {
+    query["provider"] = request.getProvider();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAiModelSources"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-sources")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAiModelSourcesResponse>();
+}
+
+/**
+ * @summary Queries a list of standalone AI model sources.
+ *
+ * @param request ListAiModelSourcesRequest
+ * @return ListAiModelSourcesResponse
+ */
+ListAiModelSourcesResponse Client::listAiModelSources(const ListAiModelSourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAiModelSourcesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paging query on the field template list and returns the template ID, API request path, and applicable protocol for each template record.
  *
  * @param request ListApiPathFieldTemplatesRequest
  * @param headers map
@@ -6540,7 +7734,7 @@ ListApiPathFieldTemplatesResponse Client::listApiPathFieldTemplatesWithOptions(c
 }
 
 /**
- * @summary Performs a paging query on the list of field templates and returns the template ID, API request path, and applicable protocol for each template record.
+ * @summary Performs a paging query on the field template list and returns the template ID, API request path, and applicable protocol for each template record.
  *
  * @param request ListApiPathFieldTemplatesRequest
  * @return ListApiPathFieldTemplatesResponse
@@ -6552,7 +7746,7 @@ ListApiPathFieldTemplatesResponse Client::listApiPathFieldTemplates(const ListAp
 }
 
 /**
- * @summary Queries a list of batch export tasks.
+ * @summary Queries the list of batch export tasks.
  *
  * @param request ListBatchExportTasksRequest
  * @param headers map
@@ -6613,7 +7807,7 @@ ListBatchExportTasksResponse Client::listBatchExportTasksWithOptions(const ListB
 }
 
 /**
- * @summary Queries a list of batch export tasks.
+ * @summary Queries the list of batch export tasks.
  *
  * @param request ListBatchExportTasksRequest
  * @return ListBatchExportTasksResponse
@@ -6625,7 +7819,7 @@ ListBatchExportTasksResponse Client::listBatchExportTasks(const ListBatchExportT
 }
 
 /**
- * @summary Performs a paged query on the list of HiMarket chat sessions. For each session, the response returns the session ID, name, conversation type, and associated API products. The response also returns the paging page number, paging size, and total count.
+ * @summary Performs a paged query on the HiMarket chat session list, returning the session ID, name, conversation type, and associated API products for each session. The response also returns the paging page number, paging size, and total count.
  *
  * @param request ListChatSessionsRequest
  * @param headers map
@@ -6670,7 +7864,7 @@ ListChatSessionsResponse Client::listChatSessionsWithOptions(const ListChatSessi
 }
 
 /**
- * @summary Performs a paged query on the list of HiMarket chat sessions. For each session, the response returns the session ID, name, conversation type, and associated API products. The response also returns the paging page number, paging size, and total count.
+ * @summary Performs a paged query on the HiMarket chat session list, returning the session ID, name, conversation type, and associated API products for each session. The response also returns the paging page number, paging size, and total count.
  *
  * @param request ListChatSessionsRequest
  * @return ListChatSessionsResponse
@@ -6739,7 +7933,68 @@ ListConsumerAuthorizationRulesResponse Client::listConsumerAuthorizationRules(co
 }
 
 /**
- * @summary Queries the member list of a consumer group.
+ * @summary Queries the summary list of consumers in the console.
+ *
+ * @param request ListConsumerConsoleSummariesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListConsumerConsoleSummariesResponse
+ */
+ListConsumerConsoleSummariesResponse Client::listConsumerConsoleSummariesWithOptions(const ListConsumerConsoleSummariesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["filter"] = request.getFilter();
+  }
+
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNameLike()) {
+    query["nameLike"] = request.getNameLike();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListConsumerConsoleSummaries"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/consumer-access/console-summaries")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListConsumerConsoleSummariesResponse>();
+}
+
+/**
+ * @summary Queries the summary list of consumers in the console.
+ *
+ * @param request ListConsumerConsoleSummariesRequest
+ * @return ListConsumerConsoleSummariesResponse
+ */
+ListConsumerConsoleSummariesResponse Client::listConsumerConsoleSummaries(const ListConsumerConsoleSummariesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listConsumerConsoleSummariesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the members of a consumer group.
  *
  * @param request ListConsumerGroupConsumersRequest
  * @param headers map
@@ -6780,7 +8035,7 @@ ListConsumerGroupConsumersResponse Client::listConsumerGroupConsumersWithOptions
 }
 
 /**
- * @summary Queries the member list of a consumer group.
+ * @summary Queries the members of a consumer group.
  *
  * @param request ListConsumerGroupConsumersRequest
  * @return ListConsumerGroupConsumersResponse
@@ -6794,7 +8049,7 @@ ListConsumerGroupConsumersResponse Client::listConsumerGroupConsumers(const stri
 /**
  * @summary Queries the quota throttling rules for a consumer group.
  *
- * @description Queries the quota rules directly bound to the specified consumer group without expanding the rules bound to individual consumers within the group. Returns an empty list if no direct binding exists.
+ * @description Queries the quota rules directly bound to a specified consumer group without expanding the rules bound to individual consumers within the group. Returns an empty list if no direct binding exists.
  *
  * @param request ListConsumerGroupQuotaRulesRequest
  * @param headers map
@@ -6820,6 +8075,10 @@ ListConsumerGroupQuotaRulesResponse Client::listConsumerGroupQuotaRulesWithOptio
     query["pageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasRuleStatus()) {
+    query["ruleStatus"] = request.getRuleStatus();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -6841,7 +8100,7 @@ ListConsumerGroupQuotaRulesResponse Client::listConsumerGroupQuotaRulesWithOptio
 /**
  * @summary Queries the quota throttling rules for a consumer group.
  *
- * @description Queries the quota rules directly bound to the specified consumer group without expanding the rules bound to individual consumers within the group. Returns an empty list if no direct binding exists.
+ * @description Queries the quota rules directly bound to a specified consumer group without expanding the rules bound to individual consumers within the group. Returns an empty list if no direct binding exists.
  *
  * @param request ListConsumerGroupQuotaRulesRequest
  * @return ListConsumerGroupQuotaRulesResponse
@@ -6853,7 +8112,7 @@ ListConsumerGroupQuotaRulesResponse Client::listConsumerGroupQuotaRules(const st
 }
 
 /**
- * @summary Queries the list of consumer groups.
+ * @summary Queries consumer groups.
  *
  * @param request ListConsumerGroupsRequest
  * @param headers map
@@ -6898,7 +8157,7 @@ ListConsumerGroupsResponse Client::listConsumerGroupsWithOptions(const ListConsu
 }
 
 /**
- * @summary Queries the list of consumer groups.
+ * @summary Queries consumer groups.
  *
  * @param request ListConsumerGroupsRequest
  * @return ListConsumerGroupsResponse
@@ -6910,7 +8169,68 @@ ListConsumerGroupsResponse Client::listConsumerGroups(const ListConsumerGroupsRe
 }
 
 /**
- * @summary Queries the list of configured quota rules for a consumer.
+ * @summary Queries the list of model card entitlements for consumers.
+ *
+ * @param request ListConsumerModelCardGrantsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListConsumerModelCardGrantsResponse
+ */
+ListConsumerModelCardGrantsResponse Client::listConsumerModelCardGrantsWithOptions(const string &httpApiId, const ListConsumerModelCardGrantsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasModelCardId()) {
+    query["modelCardId"] = request.getModelCardId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPrincipalId()) {
+    query["principalId"] = request.getPrincipalId();
+  }
+
+  if (!!request.hasPrincipalType()) {
+    query["principalType"] = request.getPrincipalType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListConsumerModelCardGrants"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-apis/" , Darabonba::Encode::Encoder::percentEncode(httpApiId) , "/model-card-grants")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListConsumerModelCardGrantsResponse>();
+}
+
+/**
+ * @summary Queries the list of model card entitlements for consumers.
+ *
+ * @param request ListConsumerModelCardGrantsRequest
+ * @return ListConsumerModelCardGrantsResponse
+ */
+ListConsumerModelCardGrantsResponse Client::listConsumerModelCardGrants(const string &httpApiId, const ListConsumerModelCardGrantsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listConsumerModelCardGrantsWithOptions(httpApiId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the configured quota rules for a consumer.
  *
  * @param request ListConsumerQuotaRulesRequest
  * @param headers map
@@ -6936,6 +8256,10 @@ ListConsumerQuotaRulesResponse Client::listConsumerQuotaRulesWithOptions(const s
     query["pageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasRuleStatus()) {
+    query["ruleStatus"] = request.getRuleStatus();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -6955,7 +8279,7 @@ ListConsumerQuotaRulesResponse Client::listConsumerQuotaRulesWithOptions(const s
 }
 
 /**
- * @summary Queries the list of configured quota rules for a consumer.
+ * @summary Queries the configured quota rules for a consumer.
  *
  * @param request ListConsumerQuotaRulesRequest
  * @return ListConsumerQuotaRulesResponse
@@ -6967,7 +8291,7 @@ ListConsumerQuotaRulesResponse Client::listConsumerQuotaRules(const string &cons
 }
 
 /**
- * @summary Retrieves a list of API consumers.
+ * @summary Retrieves a list of consumers.
  *
  * @param request ListConsumersRequest
  * @param headers map
@@ -7012,7 +8336,7 @@ ListConsumersResponse Client::listConsumersWithOptions(const ListConsumersReques
 }
 
 /**
- * @summary Retrieves a list of API consumers.
+ * @summary Retrieves a list of consumers.
  *
  * @param request ListConsumersRequest
  * @return ListConsumersResponse
@@ -7024,7 +8348,7 @@ ListConsumersResponse Client::listConsumers(const ListConsumersRequest &request)
 }
 
 /**
- * @summary Queries the HiMarket developer list by using paging. You can filter developers by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+ * @summary Queries the HiMarket developer list with paging. You can filter developers by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
  *
  * @param request ListDevelopersRequest
  * @param headers map
@@ -7081,7 +8405,7 @@ ListDevelopersResponse Client::listDevelopersWithOptions(const ListDevelopersReq
 }
 
 /**
- * @summary Queries the HiMarket developer list by using paging. You can filter developers by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+ * @summary Queries the HiMarket developer list with paging. You can filter developers by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
  *
  * @param request ListDevelopersRequest
  * @return ListDevelopersResponse
@@ -7239,7 +8563,7 @@ ListEnvironmentsResponse Client::listEnvironments(const ListEnvironmentsRequest 
 }
 
 /**
- * @summary Retrieves external service information for a gateway.
+ * @summary Retrieves the external service information of a gateway.
  *
  * @description This operation supports creating multiple services.
  *
@@ -7290,7 +8614,7 @@ ListExternalServicesResponse Client::listExternalServicesWithOptions(const strin
 }
 
 /**
- * @summary Retrieves external service information for a gateway.
+ * @summary Retrieves the external service information of a gateway.
  *
  * @description This operation supports creating multiple services.
  *
@@ -7349,7 +8673,7 @@ ListGatewayAuthorizableSecurityGroupsResponse Client::listGatewayAuthorizableSec
 }
 
 /**
- * @summary Queries the list of security group rules authorized for a gateway.
+ * @summary Queries the authorized security group rules for a gateway.
  *
  * @param request ListGatewayAuthorizedSecurityGroupRulesRequest
  * @param headers map
@@ -7376,7 +8700,7 @@ ListGatewayAuthorizedSecurityGroupRulesResponse Client::listGatewayAuthorizedSec
 }
 
 /**
- * @summary Queries the list of security group rules authorized for a gateway.
+ * @summary Queries the authorized security group rules for a gateway.
  *
  * @param request ListGatewayAuthorizedSecurityGroupRulesRequest
  * @return ListGatewayAuthorizedSecurityGroupRulesResponse
@@ -7493,7 +8817,7 @@ ListGatewayFeaturesResponse Client::listGatewayFeatures(const string &gatewayId)
 }
 
 /**
- * @summary Retrieves the list of gateway load balancers.
+ * @summary Queries the list of gateway load balancers.
  *
  * @param request ListGatewayLoadBalancersRequest
  * @param headers map
@@ -7546,7 +8870,7 @@ ListGatewayLoadBalancersResponse Client::listGatewayLoadBalancersWithOptions(con
 }
 
 /**
- * @summary Retrieves the list of gateway load balancers.
+ * @summary Queries the list of gateway load balancers.
  *
  * @param request ListGatewayLoadBalancersRequest
  * @return ListGatewayLoadBalancersResponse
@@ -7560,7 +8884,7 @@ ListGatewayLoadBalancersResponse Client::listGatewayLoadBalancers(const string &
 /**
  * @summary Queries the FinOps quota rules associated with a gateway.
  *
- * @description This operation queries the FinOps quota rules associated with a gateway.
+ * @description Queries the FinOps quota rules associated with a gateway.
  *
  * @param request ListGatewayQuotaRulesRequest
  * @param headers map
@@ -7590,6 +8914,14 @@ ListGatewayQuotaRulesResponse Client::listGatewayQuotaRulesWithOptions(const str
     query["pageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasRuleStatus()) {
+    query["ruleStatus"] = request.getRuleStatus();
+  }
+
+  if (!!request.hasSubjectNameLike()) {
+    query["subjectNameLike"] = request.getSubjectNameLike();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -7611,7 +8943,7 @@ ListGatewayQuotaRulesResponse Client::listGatewayQuotaRulesWithOptions(const str
 /**
  * @summary Queries the FinOps quota rules associated with a gateway.
  *
- * @description This operation queries the FinOps quota rules associated with a gateway.
+ * @description Queries the FinOps quota rules associated with a gateway.
  *
  * @param request ListGatewayQuotaRulesRequest
  * @return ListGatewayQuotaRulesResponse
@@ -7799,7 +9131,7 @@ ListGlobalPoliciesResponse Client::listGlobalPolicies(const ListGlobalPoliciesRe
 }
 
 /**
- * @summary Performs a paging query for the API product subscriptions of a specified HiMarket consumer. You can filter the subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+ * @summary Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. You can filter the subscriptions by status and use paging to navigate through the results. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
  *
  * @param request ListHiMarketConsumerSubscriptionsRequest
  * @param headers map
@@ -7848,7 +9180,7 @@ ListHiMarketConsumerSubscriptionsResponse Client::listHiMarketConsumerSubscripti
 }
 
 /**
- * @summary Performs a paging query for the API product subscriptions of a specified HiMarket consumer. You can filter the subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+ * @summary Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. You can filter the subscriptions by status and use paging to navigate through the results. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
  *
  * @param request ListHiMarketConsumerSubscriptionsRequest
  * @return ListHiMarketConsumerSubscriptionsResponse
@@ -7860,7 +9192,7 @@ ListHiMarketConsumerSubscriptionsResponse Client::listHiMarketConsumerSubscripti
 }
 
 /**
- * @summary Performs a paging query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. The response includes the consumer ID, name, description, and primary consumer status for each consumer.
+ * @summary Performs a paging query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. For each consumer, the response returns the consumer ID, name, description, and whether the consumer is a primary consumer.
  *
  * @param request ListHiMarketConsumersRequest
  * @param headers map
@@ -7917,7 +9249,7 @@ ListHiMarketConsumersResponse Client::listHiMarketConsumersWithOptions(const Lis
 }
 
 /**
- * @summary Performs a paging query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. The response includes the consumer ID, name, description, and primary consumer status for each consumer.
+ * @summary Performs a paging query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. For each consumer, the response returns the consumer ID, name, description, and whether the consumer is a primary consumer.
  *
  * @param request ListHiMarketConsumersRequest
  * @return ListHiMarketConsumersResponse
@@ -8022,7 +9354,7 @@ ListHttpApiOperationsResponse Client::listHttpApiOperations(const string &httpAp
 }
 
 /**
- * @summary Queries the route list of an HTTP API.
+ * @summary Queries the routes of an HTTP API.
  *
  * @param request ListHttpApiRoutesRequest
  * @param headers map
@@ -8111,7 +9443,7 @@ ListHttpApiRoutesResponse Client::listHttpApiRoutesWithOptions(const string &htt
 }
 
 /**
- * @summary Queries the route list of an HTTP API.
+ * @summary Queries the routes of an HTTP API.
  *
  * @param request ListHttpApiRoutesRequest
  * @return ListHttpApiRoutesResponse
@@ -8123,7 +9455,7 @@ ListHttpApiRoutesResponse Client::listHttpApiRoutes(const string &httpApiId, con
 }
 
 /**
- * @summary Retrieves a list of HTTP APIs.
+ * @summary Retrieves the list of HTTP APIs.
  *
  * @param request ListHttpApisRequest
  * @param headers map
@@ -8220,7 +9552,7 @@ ListHttpApisResponse Client::listHttpApisWithOptions(const ListHttpApisRequest &
 }
 
 /**
- * @summary Retrieves a list of HTTP APIs.
+ * @summary Retrieves the list of HTTP APIs.
  *
  * @param request ListHttpApisRequest
  * @return ListHttpApisResponse
@@ -8232,7 +9564,7 @@ ListHttpApisResponse Client::listHttpApis(const ListHttpApisRequest &request) {
 }
 
 /**
- * @summary Retrieves gateways on which a plugin can be installed.
+ * @summary Retrieves installable gateways.
  *
  * @param request ListInstallableGatewaysRequest
  * @param headers map
@@ -8273,7 +9605,7 @@ ListInstallableGatewaysResponse Client::listInstallableGatewaysWithOptions(const
 }
 
 /**
- * @summary Retrieves gateways on which a plugin can be installed.
+ * @summary Retrieves installable gateways.
  *
  * @param request ListInstallableGatewaysRequest
  * @return ListInstallableGatewaysResponse
@@ -8330,7 +9662,64 @@ ListK8sClusterSourcesResponse Client::listK8sClusterSources(const string &gatewa
 }
 
 /**
- * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields: name, title, and description, and four map fields: inputSchema, outputSchema, annotations, and meta.
+ * @summary Queries the logical models under a specified gateway. Supports keyword filtering and token-based pagination with maxResults and nextToken.
+ *
+ * @param request ListLogicalModelsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListLogicalModelsResponse
+ */
+ListLogicalModelsResponse Client::listLogicalModelsWithOptions(const ListLogicalModelsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListLogicalModels"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/logical-models")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListLogicalModelsResponse>();
+}
+
+/**
+ * @summary Queries the logical models under a specified gateway. Supports keyword filtering and token-based pagination with maxResults and nextToken.
+ *
+ * @param request ListLogicalModelsRequest
+ * @return ListLogicalModelsResponse
+ */
+ListLogicalModelsResponse Client::listLogicalModels(const ListLogicalModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listLogicalModelsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields (name, title, and description) and four map fields (inputSchema, outputSchema, annotations, and meta).
  *
  * @param request ListMcpProductToolsRequest
  * @param headers map
@@ -8357,7 +9746,7 @@ ListMcpProductToolsResponse Client::listMcpProductToolsWithOptions(const string 
 }
 
 /**
- * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields: name, title, and description, and four map fields: inputSchema, outputSchema, annotations, and meta.
+ * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields (name, title, and description) and four map fields (inputSchema, outputSchema, annotations, and meta).
  *
  * @param request ListMcpProductToolsRequest
  * @return ListMcpProductToolsResponse
@@ -8371,7 +9760,7 @@ ListMcpProductToolsResponse Client::listMcpProductTools(const string &productId,
 /**
  * @summary Retrieves a list of MCP servers.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @param request ListMcpServersRequest
  * @param headers map
@@ -8430,7 +9819,7 @@ ListMcpServersResponse Client::listMcpServersWithOptions(const ListMcpServersReq
 /**
  * @summary Retrieves a list of MCP servers.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @param request ListMcpServersRequest
  * @return ListMcpServersResponse
@@ -8491,7 +9880,76 @@ ListMigrationTasksResponse Client::listMigrationTasks(const ListMigrationTasksRe
 }
 
 /**
- * @summary Queries a list of model cards and returns the model name, provider, and source identifier of each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
+ * @summary Queries the list of model APIs.
+ *
+ * @param request ListModelApisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelApisResponse
+ */
+ListModelApisResponse Client::listModelApisWithOptions(const ListModelApisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasIncludeLegacy()) {
+    query["includeLegacy"] = request.getIncludeLegacy();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelApis"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-apis")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelApisResponse>();
+}
+
+/**
+ * @summary Queries the list of model APIs.
+ *
+ * @param request ListModelApisRequest
+ * @return ListModelApisResponse
+ */
+ListModelApisResponse Client::listModelApis(const ListModelApisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listModelApisWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with its features, pricing, metadata, available paths, and snapshots. The only request parameter is the provider identifier.
  *
  * @param request ListModelCardsRequest
  * @param headers map
@@ -8524,7 +9982,7 @@ ListModelCardsResponse Client::listModelCardsWithOptions(const ListModelCardsReq
 }
 
 /**
- * @summary Queries a list of model cards and returns the model name, provider, and source identifier of each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
+ * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with its features, pricing, metadata, available paths, and snapshots. The only request parameter is the provider identifier.
  *
  * @param request ListModelCardsRequest
  * @return ListModelCardsResponse
@@ -8533,6 +9991,63 @@ ListModelCardsResponse Client::listModelCards(const ListModelCardsRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listModelCardsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries a list of model groups.
+ *
+ * @param request ListModelGroupsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelGroupsResponse
+ */
+ListModelGroupsResponse Client::listModelGroupsWithOptions(const ListModelGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelGroups"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-groups")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelGroupsResponse>();
+}
+
+/**
+ * @summary Queries a list of model groups.
+ *
+ * @param request ListModelGroupsRequest
+ * @return ListModelGroupsResponse
+ */
+ListModelGroupsResponse Client::listModelGroups(const ListModelGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listModelGroupsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -8652,9 +10167,9 @@ ListPluginAttachmentsResponse Client::listPluginAttachments(const ListPluginAtta
 }
 
 /**
- * @summary Retrieves plug-ins.
+ * @summary Retrieves plugins.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @param request ListPluginClassesRequest
  * @param headers map
@@ -8727,9 +10242,9 @@ ListPluginClassesResponse Client::listPluginClassesWithOptions(const ListPluginC
 }
 
 /**
- * @summary Retrieves plug-ins.
+ * @summary Retrieves plugins.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @param request ListPluginClassesRequest
  * @return ListPluginClassesResponse
@@ -8741,7 +10256,7 @@ ListPluginClassesResponse Client::listPluginClasses(const ListPluginClassesReque
 }
 
 /**
- * @summary Queries the repositories and organization information for custom plug-ins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create an organization and repositories, and authorize APIG to access your Codeup account.
+ * @summary Queries the list of repositories and organization information for custom plug-ins hosted on Codeup. Before calling this operation, enable code hosting, create an organization and a repository in Codeup, and authorize APIG to access your Codeup account.
  *
  * @param request ListPluginRepositoriesRequest
  * @param headers map
@@ -8768,7 +10283,7 @@ ListPluginRepositoriesResponse Client::listPluginRepositoriesWithOptions(const L
 }
 
 /**
- * @summary Queries the repositories and organization information for custom plug-ins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create an organization and repositories, and authorize APIG to access your Codeup account.
+ * @summary Queries the list of repositories and organization information for custom plug-ins hosted on Codeup. Before calling this operation, enable code hosting, create an organization and a repository in Codeup, and authorize APIG to access your Codeup account.
  *
  * @param request ListPluginRepositoriesRequest
  * @return ListPluginRepositoriesResponse
@@ -8780,7 +10295,7 @@ ListPluginRepositoriesResponse Client::listPluginRepositories(const ListPluginRe
 }
 
 /**
- * @summary Retrieves the list of plugin WebIDE workspaces for the current user.
+ * @summary Retrieves the list of WebIDE workspaces for user plugins.
  *
  * @param request ListPluginWorkspaceRequest
  * @param headers map
@@ -8813,7 +10328,7 @@ ListPluginWorkspaceResponse Client::listPluginWorkspaceWithOptions(const ListPlu
 }
 
 /**
- * @summary Retrieves the list of plugin WebIDE workspaces for the current user.
+ * @summary Retrieves the list of WebIDE workspaces for user plugins.
  *
  * @param request ListPluginWorkspaceRequest
  * @return ListPluginWorkspaceResponse
@@ -8906,7 +10421,7 @@ ListPluginsResponse Client::listPlugins(const ListPluginsRequest &request) {
 }
 
 /**
- * @summary Queries a list of policies.
+ * @summary Queries the list of policies.
  *
  * @param request ListPoliciesRequest
  * @param headers map
@@ -8930,6 +10445,14 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
 
   if (!!request.hasGatewayId()) {
     query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasWithAttachments()) {
@@ -8959,7 +10482,7 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
 }
 
 /**
- * @summary Queries a list of policies.
+ * @summary Queries the list of policies.
  *
  * @param request ListPoliciesRequest
  * @return ListPoliciesResponse
@@ -9040,7 +10563,7 @@ ListPolicyClassesResponse Client::listPolicyClasses(const ListPolicyClassesReque
 }
 
 /**
- * @summary Queries the list of published API products on a specified HiMarket developer portal with paging. Each list item returns the publication record ID, API product ID, API product name, and API product type.
+ * @summary Performs a paging query for the list of published API products on a specified HiMarket developer portal. Each list item returns the publication record ID, API product ID, API product name, and API product type.
  *
  * @param request ListPortalPublicationsRequest
  * @param headers map
@@ -9081,7 +10604,7 @@ ListPortalPublicationsResponse Client::listPortalPublicationsWithOptions(const s
 }
 
 /**
- * @summary Queries the list of published API products on a specified HiMarket developer portal with paging. Each list item returns the publication record ID, API product ID, API product name, and API product type.
+ * @summary Performs a paging query for the list of published API products on a specified HiMarket developer portal. Each list item returns the publication record ID, API product ID, API product name, and API product type.
  *
  * @param request ListPortalPublicationsRequest
  * @return ListPortalPublicationsResponse
@@ -9093,7 +10616,7 @@ ListPortalPublicationsResponse Client::listPortalPublications(const string &port
 }
 
 /**
- * @summary Performs a paged query to retrieve the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
+ * @summary Performs a paging query on the list of HiMarket developer portals under the current tenant. Each list item returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain name configurations.
  *
  * @param request ListPortalsRequest
  * @param headers map
@@ -9142,7 +10665,7 @@ ListPortalsResponse Client::listPortalsWithOptions(const ListPortalsRequest &req
 }
 
 /**
- * @summary Performs a paged query to retrieve the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
+ * @summary Performs a paging query on the list of HiMarket developer portals under the current tenant. Each list item returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain name configurations.
  *
  * @param request ListPortalsRequest
  * @return ListPortalsResponse
@@ -9154,9 +10677,9 @@ ListPortalsResponse Client::listPortals(const ListPortalsRequest &request) {
 }
 
 /**
- * @summary Queries the list of unmanaged security groups available for a private endpoint.
+ * @summary Queries the unmanaged security groups available for private endpoints.
  *
- * @description This operation supports creating multiple services.
+ * @description The API supports creating multiple services.
  *
  * @param request ListPrivateLinkSecurityGroupsRequest
  * @param headers map
@@ -9197,9 +10720,9 @@ ListPrivateLinkSecurityGroupsResponse Client::listPrivateLinkSecurityGroupsWithO
 }
 
 /**
- * @summary Queries the list of unmanaged security groups available for a private endpoint.
+ * @summary Queries the unmanaged security groups available for private endpoints.
  *
- * @description This operation supports creating multiple services.
+ * @description The API supports creating multiple services.
  *
  * @param request ListPrivateLinkSecurityGroupsRequest
  * @return ListPrivateLinkSecurityGroupsResponse
@@ -9211,7 +10734,7 @@ ListPrivateLinkSecurityGroupsResponse Client::listPrivateLinkSecurityGroups(cons
 }
 
 /**
- * @summary Queries the list of product categories under the current tenant by using paging. You can search by category name keywords. Each item in the list returns the category ID, category name, category description, and category icon.
+ * @summary Performs a paged query on the list of product categories under the current tenant. The paging request supports searching by category name keywords. Each list item returns the category ID, name, description, and icon.
  *
  * @param request ListProductCategoriesRequest
  * @param headers map
@@ -9252,7 +10775,7 @@ ListProductCategoriesResponse Client::listProductCategoriesWithOptions(const Lis
 }
 
 /**
- * @summary Queries the list of product categories under the current tenant by using paging. You can search by category name keywords. Each item in the list returns the category ID, category name, category description, and category icon.
+ * @summary Performs a paged query on the list of product categories under the current tenant. The paging request supports searching by category name keywords. Each list item returns the category ID, name, description, and icon.
  *
  * @param request ListProductCategoriesRequest
  * @return ListProductCategoriesResponse
@@ -9264,7 +10787,7 @@ ListProductCategoriesResponse Client::listProductCategories(const ListProductCat
 }
 
 /**
- * @summary Performs a paged query to retrieve the publication information of a specified API product, which is a list of portal records to which the product is published. Each list item includes the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
+ * @summary Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product has been published. The list items include the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can also perform a parameter query by portal name and paging parameters.
  *
  * @param request ListProductPublicationsRequest
  * @param headers map
@@ -9305,7 +10828,7 @@ ListProductPublicationsResponse Client::listProductPublicationsWithOptions(const
 }
 
 /**
- * @summary Performs a paged query to retrieve the publication information of a specified API product, which is a list of portal records to which the product is published. Each list item includes the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
+ * @summary Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product has been published. The list items include the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can also perform a parameter query by portal name and paging parameters.
  *
  * @param request ListProductPublicationsRequest
  * @return ListProductPublicationsResponse
@@ -9317,7 +10840,7 @@ ListProductPublicationsResponse Client::listProductPublications(const string &pr
 }
 
 /**
- * @summary Performs a paged query to retrieve the subscribe records for a specified API product. You can use paging to filter the records by subscribe status or search for them by using consumer name keywords. Each record returns the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
+ * @summary Queries the list of subscription records for a specified API product with paging. You can filter the records by subscription status or search by consumer name keywords. Each record includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
  *
  * @param request ListProductSubscriptionsRequest
  * @param headers map
@@ -9362,7 +10885,7 @@ ListProductSubscriptionsResponse Client::listProductSubscriptionsWithOptions(con
 }
 
 /**
- * @summary Performs a paged query to retrieve the subscribe records for a specified API product. You can use paging to filter the records by subscribe status or search for them by using consumer name keywords. Each record returns the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
+ * @summary Queries the list of subscription records for a specified API product with paging. You can filter the records by subscription status or search by consumer name keywords. Each record includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
  *
  * @param request ListProductSubscriptionsRequest
  * @return ListProductSubscriptionsResponse
@@ -9374,7 +10897,7 @@ ListProductSubscriptionsResponse Client::listProductSubscriptions(const string &
 }
 
 /**
- * @summary Queries the API product list under the current tenant by using paging. Request parameters can specify the product name, product type, product status, product category, and the portal where the product is published. List items return the product ID, name, product description, status, type, documentation, icon, product categorization, whether automatic approval is enabled for subscription requests, and MCP, agent, model, and product capability configurations.
+ * @summary Queries the API products under the current tenant by using paging. You can specify the product name, type, status, category, and the portal where the product is published. The response includes the product ID, name, description, status, type, documentation, icon, product category, whether automatic approval of subscriptions is enabled, and the MCP, agent, model, and product capability configurations.
  *
  * @param request ListProductsRequest
  * @param headers map
@@ -9439,7 +10962,7 @@ ListProductsResponse Client::listProductsWithOptions(const ListProductsRequest &
 }
 
 /**
- * @summary Queries the API product list under the current tenant by using paging. Request parameters can specify the product name, product type, product status, product category, and the portal where the product is published. List items return the product ID, name, product description, status, type, documentation, icon, product categorization, whether automatic approval is enabled for subscription requests, and MCP, agent, model, and product capability configurations.
+ * @summary Queries the API products under the current tenant by using paging. You can specify the product name, type, status, category, and the portal where the product is published. The response includes the product ID, name, description, status, type, documentation, icon, product category, whether automatic approval of subscriptions is enabled, and the MCP, agent, model, and product capability configurations.
  *
  * @param request ListProductsRequest
  * @return ListProductsResponse
@@ -9451,7 +10974,7 @@ ListProductsResponse Client::listProducts(const ListProductsRequest &request) {
 }
 
 /**
- * @summary Queries the list of API products that can be published to a specified HiMarket developer portal. This paged query accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
+ * @summary Performs a paged query on the list of API products that can be published to a specified HiMarket developer portal. You can specify the portal ID, API product name, and paging parameters in the request. The list items return the API product ID, API product name, and API product description.
  *
  * @param request ListPublishableProductsRequest
  * @param headers map
@@ -9492,7 +11015,7 @@ ListPublishableProductsResponse Client::listPublishableProductsWithOptions(const
 }
 
 /**
- * @summary Queries the list of API products that can be published to a specified HiMarket developer portal. This paged query accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
+ * @summary Performs a paged query on the list of API products that can be published to a specified HiMarket developer portal. You can specify the portal ID, API product name, and paging parameters in the request. The list items return the API product ID, API product name, and API product description.
  *
  * @param request ListPublishableProductsRequest
  * @return ListPublishableProductsResponse
@@ -9504,7 +11027,7 @@ ListPublishableProductsResponse Client::listPublishableProducts(const string &po
 }
 
 /**
- * @summary Queries risk detection results.
+ * @summary Queries the risk detection results.
  *
  * @param request ListRiskCheckResultsRequest
  * @param headers map
@@ -9549,7 +11072,7 @@ ListRiskCheckResultsResponse Client::listRiskCheckResultsWithOptions(const strin
 }
 
 /**
- * @summary Queries risk detection results.
+ * @summary Queries the risk detection results.
  *
  * @param request ListRiskCheckResultsRequest
  * @return ListRiskCheckResultsResponse
@@ -9614,9 +11137,9 @@ ListSecretReferencesResponse Client::listSecretReferences(const string &secretId
 }
 
 /**
- * @summary Lists keys.
+ * @summary Lists secrets.
  *
- * @description The operation supports creating multiple services.
+ * @description The API operation supports creating multiple services.
  *
  * @param request ListSecretsRequest
  * @param headers map
@@ -9661,9 +11184,9 @@ ListSecretsResponse Client::listSecretsWithOptions(const ListSecretsRequest &req
 }
 
 /**
- * @summary Lists keys.
+ * @summary Lists secrets.
  *
- * @description The operation supports creating multiple services.
+ * @description The API operation supports creating multiple services.
  *
  * @param request ListSecretsRequest
  * @return ListSecretsResponse
@@ -10027,7 +11550,7 @@ ListZonesResponse Client::listZones(const ListZonesRequest &request) {
 }
 
 /**
- * @summary Logs in to a HiMarket developer account with a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+ * @summary Logs in to a HiMarket developer account by using a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
  *
  * @param request LoginDeveloperRequest
  * @param headers map
@@ -10064,7 +11587,7 @@ LoginDeveloperResponse Client::loginDeveloperWithOptions(const LoginDeveloperReq
 }
 
 /**
- * @summary Logs in to a HiMarket developer account with a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+ * @summary Logs in to a HiMarket developer account by using a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
  *
  * @param request LoginDeveloperRequest
  * @return LoginDeveloperResponse
@@ -10076,7 +11599,7 @@ LoginDeveloperResponse Client::loginDeveloper(const LoginDeveloperRequest &reque
 }
 
 /**
- * @summary Logs a developer out of a HiMarket developer account. This operation has no business request parameters, and a successful response returns only the requestId, code, and message fields.
+ * @summary Logs out a developer from a HiMarket developer account. This operation does not require business request parameters. A successful response returns only the requestId, code, and message fields.
  *
  * @param request LogoutDeveloperRequest
  * @param headers map
@@ -10103,7 +11626,7 @@ LogoutDeveloperResponse Client::logoutDeveloperWithOptions(const LogoutDeveloper
 }
 
 /**
- * @summary Logs a developer out of a HiMarket developer account. This operation has no business request parameters, and a successful response returns only the requestId, code, and message fields.
+ * @summary Logs out a developer from a HiMarket developer account. This operation does not require business request parameters. A successful response returns only the requestId, code, and message fields.
  *
  * @param request LogoutDeveloperRequest
  * @return LogoutDeveloperResponse
@@ -10115,7 +11638,76 @@ LogoutDeveloperResponse Client::logoutDeveloper(const LogoutDeveloperRequest &re
 }
 
 /**
- * @summary Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the current publication. You can query the publication record by calling ListProductPublications and unpublish the API product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+ * @summary Simulates the impact of logical model modifications.
+ *
+ * @param request PreviewLogicalModelUpdateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PreviewLogicalModelUpdateResponse
+ */
+PreviewLogicalModelUpdateResponse Client::previewLogicalModelUpdateWithOptions(const string &logicalModelId, const PreviewLogicalModelUpdateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCallStrategy()) {
+    body["callStrategy"] = request.getCallStrategy();
+  }
+
+  if (!!request.hasFallbackTargets()) {
+    body["fallbackTargets"] = request.getFallbackTargets();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasResponseModel()) {
+    body["responseModel"] = request.getResponseModel();
+  }
+
+  if (!!request.hasRoutingPolicy()) {
+    body["routingPolicy"] = request.getRoutingPolicy();
+  }
+
+  if (!!request.hasSlots()) {
+    body["slots"] = request.getSlots();
+  }
+
+  if (!!request.hasTargets()) {
+    body["targets"] = request.getTargets();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PreviewLogicalModelUpdate"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/logical-models/" , Darabonba::Encode::Encoder::percentEncode(logicalModelId) , "/preview")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PreviewLogicalModelUpdateResponse>();
+}
+
+/**
+ * @summary Simulates the impact of logical model modifications.
+ *
+ * @param request PreviewLogicalModelUpdateRequest
+ * @return PreviewLogicalModelUpdateResponse
+ */
+PreviewLogicalModelUpdateResponse Client::previewLogicalModelUpdate(const string &logicalModelId, const PreviewLogicalModelUpdateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return previewLogicalModelUpdateWithOptions(logicalModelId, request, headers, runtime);
+}
+
+/**
+ * @summary Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
  *
  * @param request PublishProductRequest
  * @param headers map
@@ -10148,7 +11740,7 @@ PublishProductResponse Client::publishProductWithOptions(const string &productId
 }
 
 /**
- * @summary Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the current publication. You can query the publication record by calling ListProductPublications and unpublish the API product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+ * @summary Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
  *
  * @param request PublishProductRequest
  * @return PublishProductResponse
@@ -10160,7 +11752,7 @@ PublishProductResponse Client::publishProduct(const string &productId, const Pub
 }
 
 /**
- * @summary Queries the list of consumer authorization rules.
+ * @summary Queries consumer authorization rules.
  *
  * @param request QueryConsumerAuthorizationRulesRequest
  * @param headers map
@@ -10245,7 +11837,7 @@ QueryConsumerAuthorizationRulesResponse Client::queryConsumerAuthorizationRulesW
 }
 
 /**
- * @summary Queries the list of consumer authorization rules.
+ * @summary Queries consumer authorization rules.
  *
  * @param request QueryConsumerAuthorizationRulesRequest
  * @return QueryConsumerAuthorizationRulesResponse
@@ -10257,7 +11849,7 @@ QueryConsumerAuthorizationRulesResponse Client::queryConsumerAuthorizationRules(
 }
 
 /**
- * @summary Refreshes the OAuth code for the plugin-managed repository.
+ * @summary Refreshes the OAuth code for the plugin hosted repository.
  *
  * @param request RefreshPluginOAuthCodeRequest
  * @param headers map
@@ -10290,7 +11882,7 @@ RefreshPluginOAuthCodeResponse Client::refreshPluginOAuthCodeWithOptions(const R
 }
 
 /**
- * @summary Refreshes the OAuth code for the plugin-managed repository.
+ * @summary Refreshes the OAuth code for the plugin hosted repository.
  *
  * @param request RefreshPluginOAuthCodeRequest
  * @return RefreshPluginOAuthCodeResponse
@@ -10302,7 +11894,7 @@ RefreshPluginOAuthCodeResponse Client::refreshPluginOAuthCode(const RefreshPlugi
 }
 
 /**
- * @summary Deletes an API consumer authorization rule.
+ * @summary Deletes a consumer authorization rule.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -10327,7 +11919,7 @@ RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRuleW
 }
 
 /**
- * @summary Deletes an API consumer authorization rule.
+ * @summary Deletes a consumer authorization rule.
  *
  * @return RemoveConsumerAuthorizationRuleResponse
  */
@@ -10340,15 +11932,15 @@ RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRule(
 /**
  * @summary Resets a quota throttling rule on a gateway.
  *
- * @description This operation resets a quota throttling rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The reset clears the historical usage of the consumption subjects on the rule.
+ * @description This operation resets a quota throttling rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The reset clears the historical usage of the consumption subjects associated with the rule.
  * > 
  * > Recommended call logic:
  * > - 1. Perform a dry run to check for rule conflicts.
  * > - - Set dryRun=true.
- * > - - The response returns a conflict preview containing a conflictHash.
+ * > - - The response returns a conflict preview that contains a conflictHash.
  * > - 2. Formally submit the request after confirmation.
- * > - - No conflicts: Set dryRun=false and overwrite=false.
- * > - - Conflicts exist and overwrite is confirmed: Set dryRun=false, overwrite=true, and conflictHash=<value returned in the previous step>.
+ * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
+ * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
  *
  * @param request ResetGatewayQuotaRuleRequest
  * @param headers map
@@ -10411,15 +12003,15 @@ ResetGatewayQuotaRuleResponse Client::resetGatewayQuotaRuleWithOptions(const str
 /**
  * @summary Resets a quota throttling rule on a gateway.
  *
- * @description This operation resets a quota throttling rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The reset clears the historical usage of the consumption subjects on the rule.
+ * @description This operation resets a quota throttling rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The reset clears the historical usage of the consumption subjects associated with the rule.
  * > 
  * > Recommended call logic:
  * > - 1. Perform a dry run to check for rule conflicts.
  * > - - Set dryRun=true.
- * > - - The response returns a conflict preview containing a conflictHash.
+ * > - - The response returns a conflict preview that contains a conflictHash.
  * > - 2. Formally submit the request after confirmation.
- * > - - No conflicts: Set dryRun=false and overwrite=false.
- * > - - Conflicts exist and overwrite is confirmed: Set dryRun=false, overwrite=true, and conflictHash=<value returned in the previous step>.
+ * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
+ * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
  *
  * @param request ResetGatewayQuotaRuleRequest
  * @return ResetGatewayQuotaRuleResponse
@@ -10467,9 +12059,58 @@ RestartGatewayResponse Client::restartGateway(const string &gatewayId) {
 }
 
 /**
- * @summary Queries the currently active credentials for the AI service.
+ * @summary Retries the delivery of logical model configurations.
  *
- * @description Queries the currently active credentials for the AI service.
+ * @param request RetryLogicalModelDeploymentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RetryLogicalModelDeploymentResponse
+ */
+RetryLogicalModelDeploymentResponse Client::retryLogicalModelDeploymentWithOptions(const string &operationId, const RetryLogicalModelDeploymentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasExpectedRevision()) {
+    query["expectedRevision"] = request.getExpectedRevision();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RetryLogicalModelDeployment"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/logical-model-deployments/" , Darabonba::Encode::Encoder::percentEncode(operationId) , "/retry")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RetryLogicalModelDeploymentResponse>();
+}
+
+/**
+ * @summary Retries the delivery of logical model configurations.
+ *
+ * @param request RetryLogicalModelDeploymentRequest
+ * @return RetryLogicalModelDeploymentResponse
+ */
+RetryLogicalModelDeploymentResponse Client::retryLogicalModelDeployment(const string &operationId, const RetryLogicalModelDeploymentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return retryLogicalModelDeploymentWithOptions(operationId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the currently active credentials for an AI service.
+ *
+ * @description Queries the currently active credentials for an AI service.
  *
  * @param request RevealServiceCredentialRequest
  * @param headers map
@@ -10496,9 +12137,9 @@ RevealServiceCredentialResponse Client::revealServiceCredentialWithOptions(const
 }
 
 /**
- * @summary Queries the currently active credentials for the AI service.
+ * @summary Queries the currently active credentials for an AI service.
  *
- * @description Queries the currently active credentials for the AI service.
+ * @description Queries the currently active credentials for an AI service.
  *
  * @param request RevealServiceCredentialRequest
  * @return RevealServiceCredentialResponse
@@ -10507,6 +12148,63 @@ RevealServiceCredentialResponse Client::revealServiceCredential(const string &se
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return revealServiceCredentialWithOptions(serviceId, request, headers, runtime);
+}
+
+/**
+ * @summary Revokes the model card entitlements for a consumer.
+ *
+ * @param request RevokeConsumerModelCardGrantsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeConsumerModelCardGrantsResponse
+ */
+RevokeConsumerModelCardGrantsResponse Client::revokeConsumerModelCardGrantsWithOptions(const string &httpApiId, const RevokeConsumerModelCardGrantsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModelCardIds()) {
+    body["modelCardIds"] = request.getModelCardIds();
+  }
+
+  if (!!request.hasModelGroupIds()) {
+    body["modelGroupIds"] = request.getModelGroupIds();
+  }
+
+  if (!!request.hasPrincipalId()) {
+    body["principalId"] = request.getPrincipalId();
+  }
+
+  if (!!request.hasPrincipalType()) {
+    body["principalType"] = request.getPrincipalType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RevokeConsumerModelCardGrants"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-apis/" , Darabonba::Encode::Encoder::percentEncode(httpApiId) , "/model-card-grants/revoke")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeConsumerModelCardGrantsResponse>();
+}
+
+/**
+ * @summary Revokes the model card entitlements for a consumer.
+ *
+ * @param request RevokeConsumerModelCardGrantsRequest
+ * @return RevokeConsumerModelCardGrantsResponse
+ */
+RevokeConsumerModelCardGrantsResponse Client::revokeConsumerModelCardGrants(const string &httpApiId, const RevokeConsumerModelCardGrantsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return revokeConsumerModelCardGrantsWithOptions(httpApiId, request, headers, runtime);
 }
 
 /**
@@ -10549,7 +12247,7 @@ RunPluginPipelineResponse Client::runPluginPipeline(const string &workspaceId, c
 }
 
 /**
- * @summary Subscribes to an API product for a specified HiMarket Consumer. The path parameter specifies the consumer ID, the request body specifies the ID of the API product to subscribe to, and the response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
+ * @summary Subscribes to an API product for a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
  *
  * @param request SubscribeProductRequest
  * @param headers map
@@ -10582,7 +12280,7 @@ SubscribeProductResponse Client::subscribeProductWithOptions(const string &consu
 }
 
 /**
- * @summary Subscribes to an API product for a specified HiMarket Consumer. The path parameter specifies the consumer ID, the request body specifies the ID of the API product to subscribe to, and the response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
+ * @summary Subscribes to an API product for a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
  *
  * @param request SubscribeProductRequest
  * @return SubscribeProductResponse
@@ -10594,7 +12292,14 @@ SubscribeProductResponse Client::subscribeProduct(const string &consumerId, cons
 }
 
 /**
- * @summary Syncs an external MCP server.
+ * @summary Syncs MCP servers from an external Nacos registry to a gateway.
+ *
+ * @description ## Before you begin
+ * Before you call this operation, complete the following preparations:
+ * 1. Create a Nacos instance in Microservices Engine (MSE) and register an MCP server in the instance.
+ * 2. Call CreateSource to register a service source for the target gateway. Set the type parameter to MSE_NACOS and point it to the Nacos instance.
+ * 3. Call ListGateways to obtain the system default domain name ID (subDomainInfos[].domainId) of the gateway for the domainIds parameter.
+ * After you complete the preceding steps, pass the gatewayId, domainIds, and namespace parameters to call this operation. This syncs the MCP servers in the specified namespace to the gateway.
  *
  * @param request SyncMCPServersRequest
  * @param headers map
@@ -10643,7 +12348,14 @@ SyncMCPServersResponse Client::syncMCPServersWithOptions(const SyncMCPServersReq
 }
 
 /**
- * @summary Syncs an external MCP server.
+ * @summary Syncs MCP servers from an external Nacos registry to a gateway.
+ *
+ * @description ## Before you begin
+ * Before you call this operation, complete the following preparations:
+ * 1. Create a Nacos instance in Microservices Engine (MSE) and register an MCP server in the instance.
+ * 2. Call CreateSource to register a service source for the target gateway. Set the type parameter to MSE_NACOS and point it to the Nacos instance.
+ * 3. Call ListGateways to obtain the system default domain name ID (subDomainInfos[].domainId) of the gateway for the domainIds parameter.
+ * After you complete the preceding steps, pass the gatewayId, domainIds, and namespace parameters to call this operation. This syncs the MCP servers in the specified namespace to the gateway.
  *
  * @param request SyncMCPServersRequest
  * @return SyncMCPServersResponse
@@ -10708,7 +12420,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Cancels the publishing of an MCP server.
+ * @summary Cancels the publication of an MCP server.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -10733,7 +12445,7 @@ UnDeployMcpServerResponse Client::unDeployMcpServerWithOptions(const string &mcp
 }
 
 /**
- * @summary Cancels the publishing of an MCP server.
+ * @summary Cancels the publication of an MCP server.
  *
  * @return UnDeployMcpServerResponse
  */
@@ -10837,7 +12549,7 @@ UninstallPluginResponse Client::uninstallPlugin(const string &pluginId) {
 }
 
 /**
- * @summary Takes a publication record of an API product offline based on the API product ID and publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by using the ListProductPublications operation. This operation only affects the publication record and does not delete the API product itself. To delete a product, use the DeleteProduct operation. The response returns only the requestId, code, and message.
+ * @summary Unpublishes a publication record of an API product based on the API product ID and publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is generated by PublishProduct and can be queried by ListProductPublications. This operation only affects the publication record and does not delete the API product itself. To delete a product, use DeleteProduct. The response returns only the requestId, code, and message.
  *
  * @param request UnpublishProductRequest
  * @param headers map
@@ -10864,7 +12576,7 @@ UnpublishProductResponse Client::unpublishProductWithOptions(const string &produ
 }
 
 /**
- * @summary Takes a publication record of an API product offline based on the API product ID and publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by using the ListProductPublications operation. This operation only affects the publication record and does not delete the API product itself. To delete a product, use the DeleteProduct operation. The response returns only the requestId, code, and message.
+ * @summary Unpublishes a publication record of an API product based on the API product ID and publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is generated by PublishProduct and can be queried by ListProductPublications. This operation only affects the publication record and does not delete the API product itself. To delete a product, use DeleteProduct. The response returns only the requestId, code, and message.
  *
  * @param request UnpublishProductRequest
  * @return UnpublishProductResponse
@@ -10876,7 +12588,7 @@ UnpublishProductResponse Client::unpublishProduct(const string &productId, const
 }
 
 /**
- * @summary Removes tags from resources.
+ * @summary Removes resource tags.
  *
  * @param tmpReq UntagResourcesRequest
  * @param headers map
@@ -10931,7 +12643,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from resources.
+ * @summary Removes resource tags.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -11018,6 +12730,10 @@ UpdateAiModelCardResponse Client::updateAiModelCard(const string &modelCardId, c
 UpdateAiModelProviderResponse Client::updateAiModelProviderWithOptions(const string &modelProviderId, const UpdateAiModelProviderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasDefaultServiceId()) {
+    body["defaultServiceId"] = request.getDefaultServiceId();
+  }
+
   if (!!request.hasDisplayName()) {
     body["displayName"] = request.getDisplayName();
   }
@@ -11054,6 +12770,124 @@ UpdateAiModelProviderResponse Client::updateAiModelProvider(const string &modelP
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateAiModelProviderWithOptions(modelProviderId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates a standalone AI model source.
+ *
+ * @param request UpdateAiModelSourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAiModelSourceResponse
+ */
+UpdateAiModelSourceResponse Client::updateAiModelSourceWithOptions(const string &modelSourceId, const UpdateAiModelSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasExpectedVersion()) {
+    body["expectedVersion"] = request.getExpectedVersion();
+  }
+
+  if (!!request.hasServiceId()) {
+    body["serviceId"] = request.getServiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAiModelSource"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-sources/" , Darabonba::Encode::Encoder::percentEncode(modelSourceId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAiModelSourceResponse>();
+}
+
+/**
+ * @summary Updates a standalone AI model source.
+ *
+ * @param request UpdateAiModelSourceRequest
+ * @return UpdateAiModelSourceResponse
+ */
+UpdateAiModelSourceResponse Client::updateAiModelSource(const string &modelSourceId, const UpdateAiModelSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAiModelSourceWithOptions(modelSourceId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates an AI model in a source.
+ *
+ * @param request UpdateAiModelSourceModelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAiModelSourceModelResponse
+ */
+UpdateAiModelSourceModelResponse Client::updateAiModelSourceModelWithOptions(const string &modelCardId, const UpdateAiModelSourceModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAvailablePaths()) {
+    body["availablePaths"] = request.getAvailablePaths();
+  }
+
+  if (!!request.hasCredit()) {
+    body["credit"] = request.getCredit();
+  }
+
+  if (!!request.hasExpectedVersion()) {
+    body["expectedVersion"] = request.getExpectedVersion();
+  }
+
+  if (!!request.hasFeatures()) {
+    body["features"] = request.getFeatures();
+  }
+
+  if (!!request.hasMeta()) {
+    body["meta"] = request.getMeta();
+  }
+
+  if (!!request.hasModelName()) {
+    body["modelName"] = request.getModelName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAiModelSourceModel"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-source-models/" , Darabonba::Encode::Encoder::percentEncode(modelCardId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAiModelSourceModelResponse>();
+}
+
+/**
+ * @summary Updates an AI model in a source.
+ *
+ * @param request UpdateAiModelSourceModelRequest
+ * @return UpdateAiModelSourceModelResponse
+ */
+UpdateAiModelSourceModelResponse Client::updateAiModelSourceModel(const string &modelCardId, const UpdateAiModelSourceModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAiModelSourceModelWithOptions(modelCardId, request, headers, runtime);
 }
 
 /**
@@ -11171,7 +13005,7 @@ UpdateAuthorizationRuleResponse Client::updateAuthorizationRule(const string &co
 }
 
 /**
- * @summary Adds or removes API products from a specified product category in bulk. The path parameter specifies the category ID. The action field in the request body specifies the operation type, and the productIds field specifies the list of API product IDs to be processed. The response returns only the request ID, status code, and message, and does not return the processing result for each item.
+ * @summary Adds or removes API products in batches under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message, without item-level processing results.
  *
  * @param request UpdateCategoryProductsRequest
  * @param headers map
@@ -11208,7 +13042,7 @@ UpdateCategoryProductsResponse Client::updateCategoryProductsWithOptions(const s
 }
 
 /**
- * @summary Adds or removes API products from a specified product category in bulk. The path parameter specifies the category ID. The action field in the request body specifies the operation type, and the productIds field specifies the list of API product IDs to be processed. The response returns only the request ID, status code, and message, and does not return the processing result for each item.
+ * @summary Adds or removes API products in batches under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message, without item-level processing results.
  *
  * @param request UpdateCategoryProductsRequest
  * @return UpdateCategoryProductsResponse
@@ -11283,7 +13117,7 @@ UpdateConsumerResponse Client::updateConsumer(const string &consumerId, const Up
 /**
  * @deprecated OpenAPI UpdateConsumerAuthorizationRule is deprecated
  *
- * @summary Updates the consumer authorization rule.
+ * @summary Updates a consumer authorization rule.
  *
  * @description This API operation has been replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
  *
@@ -11328,7 +13162,7 @@ UpdateConsumerAuthorizationRuleResponse Client::updateConsumerAuthorizationRuleW
 /**
  * @deprecated OpenAPI UpdateConsumerAuthorizationRule is deprecated
  *
- * @summary Updates the consumer authorization rule.
+ * @summary Updates a consumer authorization rule.
  *
  * @description This API operation has been replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
  *
@@ -11672,7 +13506,7 @@ UpdateGatewayFeatureResponse Client::updateGatewayFeature(const string &gatewayI
 }
 
 /**
- * @summary Updates a Gateway Load Balancer (GWLB).
+ * @summary Updates a gateway load balancer.
  *
  * @param request UpdateGatewayLoadBalancerRequest
  * @param headers map
@@ -11713,7 +13547,7 @@ UpdateGatewayLoadBalancerResponse Client::updateGatewayLoadBalancerWithOptions(c
 }
 
 /**
- * @summary Updates a Gateway Load Balancer (GWLB).
+ * @summary Updates a gateway load balancer.
  *
  * @param request UpdateGatewayLoadBalancerRequest
  * @return UpdateGatewayLoadBalancerResponse
@@ -11725,9 +13559,9 @@ UpdateGatewayLoadBalancerResponse Client::updateGatewayLoadBalancer(const string
 }
 
 /**
- * @summary Modifies the O&M window of a gateway.
+ * @summary Updates the O&M window of a gateway.
  *
- * @description Modifies the O&M time window of a gateway. This feature is supported only by specific gateway types. If the current gateway does not support modifying the O&M time window, the API returns 409 Conflict.GatewayNotSupportAutoMaintenance.
+ * @description Updates the O&M time window of a gateway. This feature is supported only by specific gateway types. If the current gateway does not support modifying the O&M time window, the API returns 409 Conflict.GatewayNotSupportAutoMaintenance.
  *
  * @param request UpdateGatewayMaintenancePeriodRequest
  * @param headers map
@@ -11760,9 +13594,9 @@ UpdateGatewayMaintenancePeriodResponse Client::updateGatewayMaintenancePeriodWit
 }
 
 /**
- * @summary Modifies the O&M window of a gateway.
+ * @summary Updates the O&M window of a gateway.
  *
- * @description Modifies the O&M time window of a gateway. This feature is supported only by specific gateway types. If the current gateway does not support modifying the O&M time window, the API returns 409 Conflict.GatewayNotSupportAutoMaintenance.
+ * @description Updates the O&M time window of a gateway. This feature is supported only by specific gateway types. If the current gateway does not support modifying the O&M time window, the API returns 409 Conflict.GatewayNotSupportAutoMaintenance.
  *
  * @param request UpdateGatewayMaintenancePeriodRequest
  * @return UpdateGatewayMaintenancePeriodResponse
@@ -11823,16 +13657,16 @@ UpdateGatewayNameResponse Client::updateGatewayName(const string &gatewayId, con
 }
 
 /**
- * @summary Modifies a quota throttling rule on a gateway.
+ * @summary Updates a quota throttling rule on a gateway.
  *
- * @description This operation modifies a quota rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The modification retains the historical usage of the consumers associated with the rule.
+ * @description This operation updates a quota rule on a gateway. Note that this operation takes effect only on AI gateways of versions later than 2.1.21. The update retains the historical usage of the consumers associated with the rule.
  * > Recommended call logic:
  * > - 1. Perform a dry run to check for rule conflicts.
  * > - - Set dryRun=true.
- * > - - The response returns a conflict preview that contains a conflictHash.
- * > - 2. Submit the request after confirmation.
- * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
- * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
+ * > - - The response returns a conflict preview containing a conflictHash.
+ * > - 2. Formally submit the request after confirmation.
+ * > - - No conflicts: Set dryRun=false and overwrite=false.
+ * > - - Conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
  *
  * @param request UpdateGatewayQuotaRuleRequest
  * @param headers map
@@ -11893,16 +13727,16 @@ UpdateGatewayQuotaRuleResponse Client::updateGatewayQuotaRuleWithOptions(const s
 }
 
 /**
- * @summary Modifies a quota throttling rule on a gateway.
+ * @summary Updates a quota throttling rule on a gateway.
  *
- * @description This operation modifies a quota rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The modification retains the historical usage of the consumers associated with the rule.
+ * @description This operation updates a quota rule on a gateway. Note that this operation takes effect only on AI gateways of versions later than 2.1.21. The update retains the historical usage of the consumers associated with the rule.
  * > Recommended call logic:
  * > - 1. Perform a dry run to check for rule conflicts.
  * > - - Set dryRun=true.
- * > - - The response returns a conflict preview that contains a conflictHash.
- * > - 2. Submit the request after confirmation.
- * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
- * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
+ * > - - The response returns a conflict preview containing a conflictHash.
+ * > - 2. Formally submit the request after confirmation.
+ * > - - No conflicts: Set dryRun=false and overwrite=false.
+ * > - - Conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
  *
  * @param request UpdateGatewayQuotaRuleRequest
  * @return UpdateGatewayQuotaRuleResponse
@@ -11916,7 +13750,7 @@ UpdateGatewayQuotaRuleResponse Client::updateGatewayQuotaRule(const string &gate
 /**
  * @summary Enables or disables a quota throttling rule for a gateway.
  *
- * @description This operation enables or disables a quota rule on a gateway. Note that this operation applies only to AI gateways of a version later than 2.1.21.
+ * @description This operation enables or disables a quota rule on a gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
  *
  * @param request UpdateGatewayQuotaRuleStatusRequest
  * @param headers map
@@ -11955,7 +13789,7 @@ UpdateGatewayQuotaRuleStatusResponse Client::updateGatewayQuotaRuleStatusWithOpt
 /**
  * @summary Enables or disables a quota throttling rule for a gateway.
  *
- * @description This operation enables or disables a quota rule on a gateway. Note that this operation applies only to AI gateways of a version later than 2.1.21.
+ * @description This operation enables or disables a quota rule on a gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
  *
  * @param request UpdateGatewayQuotaRuleStatusRequest
  * @return UpdateGatewayQuotaRuleStatusResponse
@@ -12115,7 +13949,7 @@ UpdateHttpApiOperationResponse Client::updateHttpApiOperation(const string &http
 }
 
 /**
- * @summary Updates the route of an HTTP API.
+ * @summary Updates a route of an HTTP API.
  *
  * @param request UpdateHttpApiRouteRequest
  * @param headers map
@@ -12143,6 +13977,10 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRouteWithOptions(const string &h
 
   if (!!request.hasEnvironmentId()) {
     body["environmentId"] = request.getEnvironmentId();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
   }
 
   if (!!request.hasMatch()) {
@@ -12176,7 +14014,7 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRouteWithOptions(const string &h
 }
 
 /**
- * @summary Updates the route of an HTTP API.
+ * @summary Updates a route of an HTTP API.
  *
  * @param request UpdateHttpApiRouteRequest
  * @return UpdateHttpApiRouteResponse
@@ -12185,6 +14023,85 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRoute(const string &httpApiId, c
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateHttpApiRouteWithOptions(httpApiId, routeId, request, headers, runtime);
+}
+
+/**
+ * @summary Modifies a logical model.
+ *
+ * @param request UpdateLogicalModelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateLogicalModelResponse
+ */
+UpdateLogicalModelResponse Client::updateLogicalModelWithOptions(const string &logicalModelId, const UpdateLogicalModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfirmationToken()) {
+    query["confirmationToken"] = request.getConfirmationToken();
+  }
+
+  if (!!request.hasExpectedRevision()) {
+    query["expectedRevision"] = request.getExpectedRevision();
+  }
+
+  json body = {};
+  if (!!request.hasCallStrategy()) {
+    body["callStrategy"] = request.getCallStrategy();
+  }
+
+  if (!!request.hasFallbackTargets()) {
+    body["fallbackTargets"] = request.getFallbackTargets();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasResponseModel()) {
+    body["responseModel"] = request.getResponseModel();
+  }
+
+  if (!!request.hasRoutingPolicy()) {
+    body["routingPolicy"] = request.getRoutingPolicy();
+  }
+
+  if (!!request.hasSlots()) {
+    body["slots"] = request.getSlots();
+  }
+
+  if (!!request.hasTargets()) {
+    body["targets"] = request.getTargets();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateLogicalModel"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/logical-models/" , Darabonba::Encode::Encoder::percentEncode(logicalModelId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateLogicalModelResponse>();
+}
+
+/**
+ * @summary Modifies a logical model.
+ *
+ * @param request UpdateLogicalModelRequest
+ * @return UpdateLogicalModelResponse
+ */
+UpdateLogicalModelResponse Client::updateLogicalModel(const string &logicalModelId, const UpdateLogicalModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateLogicalModelWithOptions(logicalModelId, request, headers, runtime);
 }
 
 /**
@@ -12354,7 +14271,141 @@ UpdateMigrationTaskResponse Client::updateMigrationTask(const string &taskId, co
 }
 
 /**
- * @summary Changes the network access type of a gateway.
+ * @summary Updates a model API.
+ *
+ * @param request UpdateModelApiRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateModelApiResponse
+ */
+UpdateModelApiResponse Client::updateModelApiWithOptions(const string &httpApiId, const UpdateModelApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBasePath()) {
+    body["basePath"] = request.getBasePath();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectSupplyFallbackEnabled()) {
+    body["directSupplyFallbackEnabled"] = request.getDirectSupplyFallbackEnabled();
+  }
+
+  if (!!request.hasDomainIds()) {
+    body["domainIds"] = request.getDomainIds();
+  }
+
+  if (!!request.hasEnableAuth()) {
+    body["enableAuth"] = request.getEnableAuth();
+  }
+
+  if (!!request.hasFirstByteTimeout()) {
+    body["firstByteTimeout"] = request.getFirstByteTimeout();
+  }
+
+  if (!!request.hasModelSelection()) {
+    body["modelSelection"] = request.getModelSelection();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasPolicyConfigs()) {
+    body["policyConfigs"] = request.getPolicyConfigs();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateModelApi"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-apis/" , Darabonba::Encode::Encoder::percentEncode(httpApiId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateModelApiResponse>();
+}
+
+/**
+ * @summary Updates a model API.
+ *
+ * @param request UpdateModelApiRequest
+ * @return UpdateModelApiResponse
+ */
+UpdateModelApiResponse Client::updateModelApi(const string &httpApiId, const UpdateModelApiRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateModelApiWithOptions(httpApiId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates a model group.
+ *
+ * @param request UpdateModelGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateModelGroupResponse
+ */
+UpdateModelGroupResponse Client::updateModelGroupWithOptions(const string &modelGroupId, const UpdateModelGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasExpectedVersion()) {
+    body["expectedVersion"] = request.getExpectedVersion();
+  }
+
+  if (!!request.hasModelCardIds()) {
+    body["modelCardIds"] = request.getModelCardIds();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateModelGroup"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-groups/" , Darabonba::Encode::Encoder::percentEncode(modelGroupId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateModelGroupResponse>();
+}
+
+/**
+ * @summary Updates a model group.
+ *
+ * @param request UpdateModelGroupRequest
+ * @return UpdateModelGroupResponse
+ */
+UpdateModelGroupResponse Client::updateModelGroup(const string &modelGroupId, const UpdateModelGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateModelGroupWithOptions(modelGroupId, request, headers, runtime);
+}
+
+/**
+ * @summary Modifies the network access type of a gateway.
  *
  * @param request UpdateNetworkAccessRequest
  * @param headers map
@@ -12387,7 +14438,7 @@ UpdateNetworkAccessResponse Client::updateNetworkAccessWithOptions(const string 
 }
 
 /**
- * @summary Changes the network access type of a gateway.
+ * @summary Modifies the network access type of a gateway.
  *
  * @param request UpdateNetworkAccessRequest
  * @return UpdateNetworkAccessResponse
@@ -12505,7 +14556,7 @@ UpdatePolicyResponse Client::updatePolicy(const string &policyId, const UpdatePo
 }
 
 /**
- * @summary Updates the name, description, and portal configuration of a HiMarket developer portal by portal ID. The request body is in JSON format, and a successful response returns the ID of the updated portal.
+ * @summary Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
  *
  * @param request UpdatePortalRequest
  * @param headers map
@@ -12552,7 +14603,7 @@ UpdatePortalResponse Client::updatePortalWithOptions(const string &portalId, con
 }
 
 /**
- * @summary Updates the name, description, and portal configuration of a HiMarket developer portal by portal ID. The request body is in JSON format, and a successful response returns the ID of the updated portal.
+ * @summary Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
  *
  * @param request UpdatePortalRequest
  * @return UpdatePortalResponse
@@ -12643,7 +14694,7 @@ UpdateProductResponse Client::updateProduct(const string &productId, const Updat
 }
 
 /**
- * @summary Updates the name, description, and icon of a product category by category ID. The request body is in JSON format, and the response returns only the request ID, response status code, and response message.
+ * @summary Updates the name, description, and icon of a product category by its ID. The request body is in JSON format, and the response returns only the request ID, response status code, and response message.
  *
  * @param request UpdateProductCategoryRequest
  * @param headers map
@@ -12684,7 +14735,7 @@ UpdateProductCategoryResponse Client::updateProductCategoryWithOptions(const str
 }
 
 /**
- * @summary Updates the name, description, and icon of a product category by category ID. The request body is in JSON format, and the response returns only the request ID, response status code, and response message.
+ * @summary Updates the name, description, and icon of a product category by its ID. The request body is in JSON format, and the response returns only the request ID, response status code, and response message.
  *
  * @param request UpdateProductCategoryRequest
  * @return UpdateProductCategoryResponse
@@ -12747,7 +14798,7 @@ UpdateRiskNotificationResponse Client::updateRiskNotification(const string &gate
 /**
  * @summary Updates a secret.
  *
- * @description Only sources of the **container service** type allow you to update the listener Ingress configuration.
+ * @description Updates a secret. Only sources of the **Container Service** type are allowed to update Ingress listener configurations.
  *
  * @param request UpdateSecretRequest
  * @param headers map
@@ -12782,7 +14833,7 @@ UpdateSecretResponse Client::updateSecretWithOptions(const string &secretId, con
 /**
  * @summary Updates a secret.
  *
- * @description Only sources of the **container service** type allow you to update the listener Ingress configuration.
+ * @description Updates a secret. Only sources of the **Container Service** type are allowed to update Ingress listener configurations.
  *
  * @param request UpdateSecretRequest
  * @return UpdateSecretResponse
@@ -12826,6 +14877,10 @@ UpdateServiceResponse Client::updateServiceWithOptions(const string &serviceId, 
 
   if (!!request.hasDnsServers()) {
     body["dnsServers"] = request.getDnsServers();
+  }
+
+  if (!!request.hasExpectedConfigRevision()) {
+    body["expectedConfigRevision"] = request.getExpectedConfigRevision();
   }
 
   if (!!request.hasHealthCheckConfig()) {

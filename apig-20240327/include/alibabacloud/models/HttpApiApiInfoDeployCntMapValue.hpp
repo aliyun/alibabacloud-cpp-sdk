@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The number of deployed API operations.
     shared_ptr<int64_t> deployedCnt_ {};
-    // The total number of operations.
+    // The total number of API operations.
     shared_ptr<int64_t> cnt_ {};
   };
 

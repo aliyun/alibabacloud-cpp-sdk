@@ -149,27 +149,27 @@ namespace Models
 
 
   protected:
-    // The attached resource type to filter by. This parameter takes effect only when globalPolicyType is set to BlackOrWhite. If this parameter is not specified, Gateway, Domain, and Route resources are queried.
+    // Filters by mounted resource type. This parameter takes effect only for the BlackOrWhite policy type. By default, the Gateway, Domain, and Route types are queried.
     shared_ptr<string> attachResourceType_ {};
-    // The policy class name. Separate multiple values with commas (server-side strings.Split).
+    // The policy class name. You can specify multiple values separated by commas.
     shared_ptr<string> className_ {};
-    // The enabling status to filter by.
+    // Filters by enabling status.
     shared_ptr<bool> enable_ {};
-    // The environment ID to filter by.
+    // Filters by environment ID.
     shared_ptr<string> environmentId_ {};
-    // The gateway ID to filter by (attachment dimension).
+    // Filters by gateway ID at the attachment level.
     shared_ptr<string> gatewayId_ {};
     // The global policy type.
     shared_ptr<string> globalPolicyType_ {};
-    // The IP content to filter by. A LIKE match is performed on the config field.
+    // Filters by IP content by performing a LIKE query on the configuration.
     shared_ptr<string> ipAccessControlContent_ {};
-    // The protocol layer to filter by. L4 queries config entries that contain L4. L7 queries config entries that do not contain L4.
+    // Filters by protocol layer. If you specify L4, configurations containing L4 are queried. If you specify L7, configurations that do not contain L4 are queried.
     shared_ptr<string> ipAccessControlProtocolLayer_ {};
-    // The resource name to filter by. A LIKE match is performed on the config field.
+    // Filters by resource name by performing a LIKE query on the configuration.
     shared_ptr<string> ipAccessControlResourceName_ {};
-    // The IP access control type to filter by. A LIKE match is performed on the config field.
+    // Filters by IP access control type by performing a LIKE query on the configuration.
     shared_ptr<string> ipAccessControlType_ {};
-    // The exact policy name to filter by.
+    // Filters by exact policy name.
     shared_ptr<string> name_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};

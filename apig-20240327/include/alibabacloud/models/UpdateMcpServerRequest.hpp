@@ -91,9 +91,9 @@ namespace Models
 
 
     protected:
-      // The MCP server configurations. This parameter is mutually exclusive with the swaggerConfig parameter.
+      // The MCP server configurations. This parameter is mutually exclusive with swaggerConfig.
       shared_ptr<string> mcpServerSpec_ {};
-      // The Swagger document for HTTP-to-MCP. The document must comply with the OpenAPI 3.0 specification.
+      // The Swagger document for HTTP-to-MCP, which must comply with the OpenAPI 3.0 specification.
       shared_ptr<string> swaggerConfig_ {};
     };
 
@@ -456,7 +456,7 @@ namespace Models
     protected:
       // MCP Server ID
       shared_ptr<string> mcpServerId_ {};
-      // The name of the MCP server.
+      // The MCP server name.
       shared_ptr<string> mcpServerName_ {};
       // The list of MCP tools.
       shared_ptr<vector<string>> tools_ {};
@@ -568,11 +568,12 @@ namespace Models
     // The backend service configurations of the route. This parameter is conditionally required. If it is not provided, the API returns InvalidParameter.WithValue(400).
     shared_ptr<UpdateMcpServerRequest::BackendConfig> backendConfig_ {};
     // The creation source type. Valid values:
-    // - ApiGatewayHttpToMCP: API gateway-hosted HTTP-to-MCP.
-    // - ApiGatewayProxyMcpHosting: API gateway-hosted MCP direct proxy.
-    // - ApiGatewayAssembly: API gateway MCP assembly.
-    // - NacosHttpToMCP: API gateway-hosted Nacos-synchronized HTTP-to-MCP.
-    // - NacosMcpHosting: API gateway-hosted Nacos-synchronized MCP direct proxy.
+    // 
+    // ApiGatewayHttpToMCP: API Gateway-managed HTTP-to-MCP.
+    // ApiGatewayProxyMcpHosting: API Gateway-managed MCP direct proxy.
+    // ApiGatewayAssembly: API Gateway MCP assembly.
+    // NacosHttpToMCP: API Gateway-managed Nacos-synchronized HTTP-to-MCP.
+    // NacosMcpHosting: API Gateway-managed Nacos-synchronized MCP direct proxy.
     shared_ptr<string> createFromType_ {};
     // The description.
     shared_ptr<string> description_ {};
@@ -589,10 +590,10 @@ namespace Models
     // Specifies whether to enable MCP observability. Default value: false.
     shared_ptr<bool> mcpStatisticsEnable_ {};
     // The protocol type. Valid values:
-    // - HTTP: HTTP.
-    // - HTTPS: HTTPS.
-    // - SSE: Server-Sent Events.
-    // - StreamableHTTP: Streaming HTTP.
+    // HTTP: HTTP protocol.
+    // HTTPS: HTTPS protocol.
+    // SSE: Server-Sent Events protocol.
+    // StreamableHTTP: Streaming HTTP protocol.
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};

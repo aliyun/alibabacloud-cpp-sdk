@@ -105,13 +105,13 @@ namespace Models
 
 
     protected:
-      // The exposed URI path. This parameter is required when protocol is set to SSE or StreamableHTTP and type is set to RealMCP.
+      // The exposed URI path. This parameter is required when the protocol is SSE or StreamableHTTP and the type is RealMCP.
       shared_ptr<string> exposedUriPath_ {};
       // The Nacos instance ID.
       shared_ptr<string> instanceId_ {};
-      // MCP Server ID
+      // The unique ID of the MCP server.
       shared_ptr<string> mcpServerId_ {};
-      // The MCP server name.
+      // The name of the MCP server.
       shared_ptr<string> mcpServerName_ {};
       // The protocols.
       shared_ptr<vector<string>> protocols_ {};
@@ -159,15 +159,15 @@ namespace Models
 
 
   protected:
-    // The domain name IDs.
+    // The list of domain name IDs. You can obtain the system default domain name ID from the subDomainInfos[].domainId field in the ListGateways response. Note: This parameter is required. If you do not specify this parameter, the API returns the InvalidParameter.IsEmpty (400) error.
     shared_ptr<vector<string>> domainIds_ {};
-    // The gateway ID.
+    // The ID of the gateway. Note: This parameter is required. If you do not specify this parameter, the API returns the InvalidParameter.IsEmpty (400) error.
     shared_ptr<string> gatewayId_ {};
-    // The list of Nacos MCP servers to sync. If the list contains MCP servers that have already been synced, include the mcpServerId.
+    // The list of Nacos MCP servers to sync. If the list includes an already synced MCP server, you must specify the mcpServerId parameter.
     shared_ptr<vector<SyncMCPServersRequest::NacosMcpServers>> nacosMcpServers_ {};
-    // The Nacos namespace.
+    // The Nacos namespace. Note: This parameter is required. If you do not specify this parameter, the API returns the InvalidParameter.IsEmpty (400) error.
     shared_ptr<string> namespace_ {};
-    // The source ID.
+    // The ID of the source.
     shared_ptr<string> sourceId_ {};
   };
 

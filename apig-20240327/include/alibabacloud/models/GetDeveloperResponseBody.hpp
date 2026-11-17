@@ -91,9 +91,9 @@ namespace Models
 
 
     protected:
-      // The developer ID. You can use it to identify the developer in API operations such as SetHiMarketDeveloperStatus and DeleteHiMarketDeveloper.
+      // The developer ID. You can use this ID to locate the developer in operations such as SetHiMarketDeveloperStatus and DeleteHiMarketDeveloper.
       shared_ptr<string> developerId_ {};
-      // The ID of the portal to which the developer belongs. You can use it to identify the portal in API operations such as GetPortal, UpdatePortal, and DeletePortal.
+      // The ID of the portal to which the developer belongs. You can use this ID to locate the portal in operations such as GetPortal, UpdatePortal, and DeletePortal.
       shared_ptr<string> portalId_ {};
       // The developer status. Valid values: PENDING, APPROVED, and REJECTED.
       shared_ptr<string> status_ {};

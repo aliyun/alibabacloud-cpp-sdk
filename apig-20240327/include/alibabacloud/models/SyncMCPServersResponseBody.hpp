@@ -97,7 +97,7 @@ namespace Models
 
 
       protected:
-        // The MCP server name.
+        // The name of the MCP server.
         shared_ptr<string> mcpServerName_ {};
         // The protocols.
         shared_ptr<vector<string>> protocols_ {};
@@ -143,7 +143,7 @@ namespace Models
 
 
       protected:
-        // The MCP server name.
+        // The name of the MCP server.
         shared_ptr<string> mcpServerName_ {};
         // The protocol.
         shared_ptr<vector<string>> protocols_ {};
@@ -170,9 +170,9 @@ namespace Models
 
 
     protected:
-      // The list of MCP servers that failed to sync.
+      // The list of MCP servers that fail to sync.
       shared_ptr<vector<Data::FailedMcpServers>> failedMcpServers_ {};
-      // The list of MCP servers that were synced successfully.
+      // The list of MCP servers that are successfully synced.
       shared_ptr<vector<Data::SucceedMcpServers>> succeedMcpServers_ {};
     };
 
@@ -215,7 +215,7 @@ namespace Models
     shared_ptr<SyncMCPServersResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

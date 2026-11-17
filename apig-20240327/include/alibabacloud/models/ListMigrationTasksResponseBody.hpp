@@ -174,13 +174,13 @@ namespace Models
 
 
         protected:
-          // The listener port. Valid values: 1 to 65535. This parameter is required in Step 3 of the frontend form.
+          // The listening port. Valid values: 1 to 65535. This field is required in Step 3 on the frontend.
           shared_ptr<int32_t> port_ {};
-          // The listener protocol. This parameter is required for CLB migration. During MSE migration validation, CLB requests without a protocol are directly rejected. See migrationtask.go#L95-L97. This parameter can be left empty for NLB scenarios.
+          // The listening protocol. This field is required for CLB migration. If the protocol is missing during MSE migration validation for CLB, the request is directly rejected. This field can be left empty for NLB scenarios.
           shared_ptr<string> protocol_ {};
-          // The virtual server group ID. For CLB, this is the VServerGroupId. For NLB, this is the ServerGroupId. This parameter is required in Step 3 of the frontend form.
+          // The virtual server group ID. For CLB, this is VServerGroupId. For NLB, this is ServerGroupId. This field is required in the Step 3 form on the frontend and is validated to be non-empty.
           shared_ptr<string> virtualServiceGroupId_ {};
-          // The name of the virtual server group.
+          // The name of the group.
           shared_ptr<string> virtualServiceGroupName_ {};
         };
 
@@ -222,9 +222,9 @@ namespace Models
 
 
         protected:
-          // The monitored Ingress Class.
+          // The Ingress class of the listener.
           shared_ptr<string> ingressClass_ {};
-          // The monitored namespace.
+          // The namespace watched by the listener.
           shared_ptr<string> watchNamespace_ {};
         };
 
@@ -382,13 +382,13 @@ namespace Models
         shared_ptr<string> apiId_ {};
         // The associated HTTP API.
         shared_ptr<string> apiName_ {};
-        // The source ACK cluster. A hyphen (-) is displayed if the cluster name fails to be queried.
+        // The source ACK cluster ID. A hyphen (-) is returned if the name query fails.
         shared_ptr<string> clusterId_ {};
         // The cluster name.
         shared_ptr<string> clusterName_ {};
-        // The namespace for SLB traffic switching.
+        // The namespace for SLB traffic shifting.
         shared_ptr<string> clusterNamespace_ {};
-        // The creation time, in Unix seconds.
+        // The creation time. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> createTime_ {};
         // The task description.
         shared_ptr<string> description_ {};
@@ -398,25 +398,25 @@ namespace Models
         shared_ptr<string> gatewayId_ {};
         // The name of the gateway to which the rule belongs.
         shared_ptr<string> gatewayName_ {};
-        // The monitored Ingress Class configuration.
+        // The Ingress class of the listener.
         shared_ptr<Items::IngressConfig> ingressConfig_ {};
         // The migration type. Currently, only Nginx Ingress is supported.
         shared_ptr<string> migrationType_ {};
         // The name of the SLB service.
         shared_ptr<string> serviceName_ {};
-        // The ID of the SLB instance used for traffic switching.
+        // The ID of the SLB instance for traffic shifting.
         shared_ptr<string> slbId_ {};
         // The task status.
         shared_ptr<string> status_ {};
-        // The traffic switching method. Valid values: DNS and SLB.
+        // The traffic shifting method. Valid values: DNS and SLB.
         shared_ptr<string> switchType_ {};
         // The task ID.
         shared_ptr<string> taskId_ {};
-        // The ID of the user to whom the task belongs.
+        // The ID of the owner user.
         shared_ptr<string> userId_ {};
         // The list of virtual server groups.
         shared_ptr<vector<Items::VirtualServices>> virtualServices_ {};
-        // The weight of the service on the API gateway side in the legacy workflow. Valid values: 0 to 100.
+        // The service weight on the APIG side in the legacy process. Valid values: 0 to 100.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -453,7 +453,7 @@ namespace Models
 
 
     protected:
-      // The list of migration tasks.
+      // The items.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

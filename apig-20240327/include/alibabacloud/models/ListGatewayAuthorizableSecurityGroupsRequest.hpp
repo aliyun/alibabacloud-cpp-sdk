@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Queries only the security groups associated with a Container Service cluster.
+    // The ID of the Container Service cluster. Only security groups associated with the cluster are queried.
     shared_ptr<string> csClusterId_ {};
   };
 

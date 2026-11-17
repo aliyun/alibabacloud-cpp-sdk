@@ -116,8 +116,8 @@ namespace Models
         // The security group ID.
         shared_ptr<string> securityGroupId_ {};
         // The security group type. Valid values:
-        // - Normal: Custom security group.
-        // - Enterprise: Advanced security group.
+        // - Normal: basic security group.
+        // - Enterprise: advanced security group.
         shared_ptr<string> type_ {};
         // The VPC ID.
         shared_ptr<string> vpcId_ {};

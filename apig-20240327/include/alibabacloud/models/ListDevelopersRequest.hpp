@@ -96,15 +96,15 @@ namespace Models
   protected:
     // The maximum number of entries per page. The default value and valid values are not specified in the API definition.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Pass the nextToken value returned in the previous response to retrieve the next page. Do not specify this parameter for the first query.
+    // The pagination token. Pass the nextToken returned in the previous response to obtain the next page. Do not specify this parameter for the first query.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The portal ID used to filter developers.
+    // The ID of the portal used to filter developers.
     shared_ptr<string> portalId_ {};
-    // The developer status used to filter developers. Valid values: PENDING, APPROVED, and REJECTED.
+    // The status of the developer used to filter developers. Valid values: PENDING, APPROVED, and REJECTED.
     shared_ptr<string> status_ {};
     // The logon username used to filter developers.
     shared_ptr<string> username_ {};

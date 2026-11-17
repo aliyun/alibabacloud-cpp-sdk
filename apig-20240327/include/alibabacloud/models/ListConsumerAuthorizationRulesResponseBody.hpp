@@ -213,7 +213,7 @@ namespace Models
         shared_ptr<HttpApiApiInfo> apiInfo_ {};
         // The ID of the consumer authorization rule.
         shared_ptr<string> consumerAuthorizationRuleId_ {};
-        // The consumer ID.
+        // The ID of the consumer.
         shared_ptr<string> consumerId_ {};
         // The creation timestamp.
         shared_ptr<int64_t> createTimestamp_ {};
@@ -229,9 +229,9 @@ namespace Models
         shared_ptr<int64_t> expireTimestamp_ {};
         // The gateway information.
         shared_ptr<GatewayInfo> gatewayInfo_ {};
-        // The resource ID.
+        // The ID of the resource.
         shared_ptr<string> resourceId_ {};
-        // The resource type.
+        // The type of the resource.
         shared_ptr<string> resourceType_ {};
         // The update timestamp. Unit: milliseconds.
         shared_ptr<int64_t> updateTimestamp_ {};

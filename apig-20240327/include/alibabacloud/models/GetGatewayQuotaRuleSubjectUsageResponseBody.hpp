@@ -113,9 +113,13 @@ namespace Models
             DARABONBA_PTR_TO_JSON(inputAmount, inputAmount_);
             DARABONBA_PTR_TO_JSON(inputAmountDecimal, inputAmountDecimal_);
             DARABONBA_PTR_TO_JSON(model, model_);
+            DARABONBA_PTR_TO_JSON(modelCardId, modelCardId_);
+            DARABONBA_PTR_TO_JSON(modelSourceId, modelSourceId_);
+            DARABONBA_PTR_TO_JSON(modelSourceName, modelSourceName_);
             DARABONBA_PTR_TO_JSON(outputAmount, outputAmount_);
             DARABONBA_PTR_TO_JSON(outputAmountDecimal, outputAmountDecimal_);
             DARABONBA_PTR_TO_JSON(requestId, requestId_);
+            DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
             DARABONBA_PTR_TO_JSON(startTime, startTime_);
             DARABONBA_PTR_TO_JSON(usedAmount, usedAmount_);
             DARABONBA_PTR_TO_JSON(usedAmountDecimal, usedAmountDecimal_);
@@ -127,9 +131,13 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(inputAmount, inputAmount_);
             DARABONBA_PTR_FROM_JSON(inputAmountDecimal, inputAmountDecimal_);
             DARABONBA_PTR_FROM_JSON(model, model_);
+            DARABONBA_PTR_FROM_JSON(modelCardId, modelCardId_);
+            DARABONBA_PTR_FROM_JSON(modelSourceId, modelSourceId_);
+            DARABONBA_PTR_FROM_JSON(modelSourceName, modelSourceName_);
             DARABONBA_PTR_FROM_JSON(outputAmount, outputAmount_);
             DARABONBA_PTR_FROM_JSON(outputAmountDecimal, outputAmountDecimal_);
             DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+            DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
             DARABONBA_PTR_FROM_JSON(startTime, startTime_);
             DARABONBA_PTR_FROM_JSON(usedAmount, usedAmount_);
             DARABONBA_PTR_FROM_JSON(usedAmountDecimal, usedAmountDecimal_);
@@ -147,8 +155,8 @@ namespace Models
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->cachedAmount_ == nullptr
         && this->cachedAmountDecimal_ == nullptr && this->consumer_ == nullptr && this->inputAmount_ == nullptr && this->inputAmountDecimal_ == nullptr && this->model_ == nullptr
-        && this->outputAmount_ == nullptr && this->outputAmountDecimal_ == nullptr && this->requestId_ == nullptr && this->startTime_ == nullptr && this->usedAmount_ == nullptr
-        && this->usedAmountDecimal_ == nullptr; };
+        && this->modelCardId_ == nullptr && this->modelSourceId_ == nullptr && this->modelSourceName_ == nullptr && this->outputAmount_ == nullptr && this->outputAmountDecimal_ == nullptr
+        && this->requestId_ == nullptr && this->serviceId_ == nullptr && this->startTime_ == nullptr && this->usedAmount_ == nullptr && this->usedAmountDecimal_ == nullptr; };
           // cachedAmount Field Functions 
           bool hasCachedAmount() const { return this->cachedAmount_ != nullptr;};
           void deleteCachedAmount() { this->cachedAmount_ = nullptr;};
@@ -191,6 +199,27 @@ namespace Models
           inline Items& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
+          // modelCardId Field Functions 
+          bool hasModelCardId() const { return this->modelCardId_ != nullptr;};
+          void deleteModelCardId() { this->modelCardId_ = nullptr;};
+          inline string getModelCardId() const { DARABONBA_PTR_GET_DEFAULT(modelCardId_, "") };
+          inline Items& setModelCardId(string modelCardId) { DARABONBA_PTR_SET_VALUE(modelCardId_, modelCardId) };
+
+
+          // modelSourceId Field Functions 
+          bool hasModelSourceId() const { return this->modelSourceId_ != nullptr;};
+          void deleteModelSourceId() { this->modelSourceId_ = nullptr;};
+          inline string getModelSourceId() const { DARABONBA_PTR_GET_DEFAULT(modelSourceId_, "") };
+          inline Items& setModelSourceId(string modelSourceId) { DARABONBA_PTR_SET_VALUE(modelSourceId_, modelSourceId) };
+
+
+          // modelSourceName Field Functions 
+          bool hasModelSourceName() const { return this->modelSourceName_ != nullptr;};
+          void deleteModelSourceName() { this->modelSourceName_ = nullptr;};
+          inline string getModelSourceName() const { DARABONBA_PTR_GET_DEFAULT(modelSourceName_, "") };
+          inline Items& setModelSourceName(string modelSourceName) { DARABONBA_PTR_SET_VALUE(modelSourceName_, modelSourceName) };
+
+
           // outputAmount Field Functions 
           bool hasOutputAmount() const { return this->outputAmount_ != nullptr;};
           void deleteOutputAmount() { this->outputAmount_ = nullptr;};
@@ -210,6 +239,13 @@ namespace Models
           void deleteRequestId() { this->requestId_ = nullptr;};
           inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
           inline Items& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+          // serviceId Field Functions 
+          bool hasServiceId() const { return this->serviceId_ != nullptr;};
+          void deleteServiceId() { this->serviceId_ = nullptr;};
+          inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+          inline Items& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
           // startTime Field Functions 
@@ -234,24 +270,32 @@ namespace Models
 
 
         protected:
-          // The cached token consumption.
+          // The number of cached tokens consumed.
           shared_ptr<int64_t> cachedAmount_ {};
           // The exact cached consumption. Decimals are supported in credit scenarios.
           shared_ptr<double> cachedAmountDecimal_ {};
           // The name of the consumer.
           shared_ptr<string> consumer_ {};
-          // The input token consumption.
+          // The number of input tokens consumed.
           shared_ptr<int64_t> inputAmount_ {};
           // The exact input consumption. Decimals are supported in credit scenarios.
           shared_ptr<double> inputAmountDecimal_ {};
           // The name of the model.
           shared_ptr<string> model_ {};
-          // The output token consumption.
+          // The ID of the executed model card.
+          shared_ptr<string> modelCardId_ {};
+          // The ID of the model source at execution. This field is empty for legacy records.
+          shared_ptr<string> modelSourceId_ {};
+          // The snapshot of the model source name at execution.
+          shared_ptr<string> modelSourceName_ {};
+          // The number of output tokens consumed.
           shared_ptr<int64_t> outputAmount_ {};
           // The exact output consumption. Decimals are supported in credit scenarios.
           shared_ptr<double> outputAmountDecimal_ {};
           // The request ID.
           shared_ptr<string> requestId_ {};
+          // The ID of the executed service.
+          shared_ptr<string> serviceId_ {};
           // The consumption or request time in the YYYY-MM-DD format.
           shared_ptr<string> startTime_ {};
           // The total consumption.
@@ -401,25 +445,25 @@ namespace Models
 
 
     protected:
-      // The total cached token consumption.
+      // The total number of cached tokens consumed.
       shared_ptr<int64_t> cachedAmount_ {};
       // The exact total cached consumption. Decimals are supported in credit scenarios.
       shared_ptr<double> cachedAmountDecimal_ {};
-      // The pagination of consumption details.
+      // The paginated consumption details.
       shared_ptr<Data::Details> details_ {};
-      // The total input token consumption.
+      // The total number of input tokens consumed.
       shared_ptr<int64_t> inputAmount_ {};
       // The exact total input consumption. Decimals are supported in credit scenarios.
       shared_ptr<double> inputAmountDecimal_ {};
-      // The total output token consumption.
+      // The total number of output tokens consumed.
       shared_ptr<int64_t> outputAmount_ {};
       // The exact total output consumption. Decimals are supported in credit scenarios.
       shared_ptr<double> outputAmountDecimal_ {};
       // Indicates whether the quota is exceeded.
       shared_ptr<bool> overLimit_ {};
-      // The quota dimension. Valid values: token and credit.
+      // The quota dimension. Valid values: token or credit.
       shared_ptr<string> quotaDimension_ {};
-      // The subject type. Valid values: consumer and consumer_group.
+      // The subject type. Valid values: consumer or consumer_group.
       shared_ptr<string> subjectType_ {};
       // The total quota of the subject.
       shared_ptr<int64_t> totalQuota_ {};

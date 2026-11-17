@@ -305,7 +305,7 @@ namespace Models
 
 
     protected:
-      // The base timestamp of the period.
+      // The base timestamp of the period, in UNIX seconds.
       shared_ptr<int64_t> baseTimestamp_ {};
       // The number of consumers associated with the rule.
       shared_ptr<int64_t> consumerCount_ {};

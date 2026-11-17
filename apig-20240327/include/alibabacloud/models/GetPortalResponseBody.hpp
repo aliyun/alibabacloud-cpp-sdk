@@ -136,7 +136,7 @@ namespace Models
       shared_ptr<vector<HiMarketPortalDomainConfig>> portalDomainConfig_ {};
       // The portal ID, which is the primary ID of the portal resource and points to the same portal as the portalId request parameter.
       shared_ptr<string> portalId_ {};
-      // The portal settings, which specify whether username and password authentication is enabled, whether developer registrations are automatically approved, and whether subscription requests are automatically approved.
+      // The portal configuration information, which includes whether account and password authentication is enabled, whether developer registrations are automatically approved, and whether subscription requests are automatically approved.
       shared_ptr<HiMarketPortalSettingConfig> portalSettingConfig_ {};
       // The region ID, which is the RegionId property of the portal resource.
       shared_ptr<string> regionId_ {};

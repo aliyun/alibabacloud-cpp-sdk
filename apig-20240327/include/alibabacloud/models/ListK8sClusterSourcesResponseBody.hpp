@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // The container service cluster ID.
+        // The ID of the Container Service cluster.
         shared_ptr<string> clusterId_ {};
-        // The container service cluster name.
+        // The name of the Container Service cluster.
         shared_ptr<string> name_ {};
       };
 

@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(apiKeyReferencesToAdd, apiKeyReferencesToAdd_);
       DARABONBA_PTR_TO_JSON(apiKeysToAdd, apiKeysToAdd_);
       DARABONBA_PTR_TO_JSON(dnsServers, dnsServers_);
+      DARABONBA_PTR_TO_JSON(expectedConfigRevision, expectedConfigRevision_);
       DARABONBA_PTR_TO_JSON(healthCheckConfig, healthCheckConfig_);
       DARABONBA_PTR_TO_JSON(healthyPanicThreshold, healthyPanicThreshold_);
       DARABONBA_PTR_TO_JSON(modelProviderId, modelProviderId_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(apiKeyReferencesToAdd, apiKeyReferencesToAdd_);
       DARABONBA_PTR_FROM_JSON(apiKeysToAdd, apiKeysToAdd_);
       DARABONBA_PTR_FROM_JSON(dnsServers, dnsServers_);
+      DARABONBA_PTR_FROM_JSON(expectedConfigRevision, expectedConfigRevision_);
       DARABONBA_PTR_FROM_JSON(healthCheckConfig, healthCheckConfig_);
       DARABONBA_PTR_FROM_JSON(healthyPanicThreshold, healthyPanicThreshold_);
       DARABONBA_PTR_FROM_JSON(modelProviderId, modelProviderId_);
@@ -103,7 +105,7 @@ namespace Models
     protected:
       // The port name.
       shared_ptr<string> name_ {};
-      // The port.
+      // The port number.
       shared_ptr<int32_t> port_ {};
       // The protocol.
       shared_ptr<string> protocol_ {};
@@ -174,11 +176,11 @@ namespace Models
 
 
     protected:
-      // The initial isolation duration. This is the initial isolation duration after a node is ejected, such as 30 seconds. The isolation time is calculated by using the following formula: k × base_ejection_time, where the initial value of k is 1. The isolation time is extended each time the node is ejected by incrementing k by 1. If consecutive health checks are normal, the isolation time is gradually reduced by decrementing k by 1.
+      // The initial isolation duration after a node is ejected, such as 30 seconds. The isolation time is calculated as k × base_ejection_time, where the initial value of k is 1. The isolation time increases with each ejection by incrementing k by 1, and gradually decreases when consecutive health checks succeed by decrementing k by 1.
       shared_ptr<int32_t> baseEjectionTime_ {};
-      // enable
+      // Specifies whether to enable outlier detection.
       shared_ptr<bool> enable_ {};
-      // The panic threshold. If the proportion of healthy nodes in the service is greater than the panic threshold, the health check takes effect normally, and requests are sent only to healthy nodes rather than ejected nodes. If the proportion of healthy nodes in the service is less than or equal to the panic threshold, the health check is equivalent to being disabled, and requests are sent to all nodes, including ejected nodes.
+      // The panic threshold. When the proportion of healthy nodes in the service is greater than the panic threshold, health checks take effect normally, and requests are sent only to healthy nodes, not to ejected nodes. When the proportion of healthy nodes is less than or equal to the panic threshold, health checks are effectively disabled, and requests are sent to all nodes, including ejected ones.
       shared_ptr<int32_t> failurePercentageMinimumHosts_ {};
       // The failure rate threshold. When the proportion of failed requests for a node reaches this threshold, the system triggers the ejection mechanism for the node.
       shared_ptr<int32_t> failurePercentageThreshold_ {};
@@ -290,30 +292,30 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable the health check for the service.
+      // Specifies whether to enable health checks for the service.
       shared_ptr<bool> enable_ {};
-      // The list of normal HTTP status codes returned by requests. This parameter is required when the protocol is HTTP.
+      // The list of normal HTTP status codes returned in responses. This parameter is required when the protocol is HTTP.
       shared_ptr<vector<string>> expectedStatuses_ {};
-      // The healthy threshold for the health check.
+      // The healthy threshold for health checks.
       shared_ptr<int32_t> healthyThreshold_ {};
-      // The domain name for the health check. This parameter is optional and can be configured when the protocol is HTTP.
+      // The domain name for health checks. This parameter is optional and can be configured when the protocol is HTTP.
       shared_ptr<string> httpHost_ {};
-      // The request path for the health check. This parameter is required when the protocol is HTTP.
+      // The request path for health checks. This parameter is required when the protocol is HTTP.
       shared_ptr<string> httpPath_ {};
       // The health check interval. Unit: seconds.
       shared_ptr<int32_t> interval_ {};
-      // The protocol for the health check.
+      // The protocol used for health checks.
       shared_ptr<string> protocol_ {};
-      // The response timeout period for the health check. Unit: seconds.
+      // The response timeout period for health checks. Unit: seconds.
       shared_ptr<int32_t> timeout_ {};
-      // The unhealthy threshold for the health check.
+      // The unhealthy threshold for health checks.
       shared_ptr<int32_t> unhealthyThreshold_ {};
     };
 
     virtual bool empty() const override { return this->addresses_ == nullptr
         && this->agentServiceConfig_ == nullptr && this->aiServiceConfig_ == nullptr && this->apiKeyReferencesToAdd_ == nullptr && this->apiKeysToAdd_ == nullptr && this->dnsServers_ == nullptr
-        && this->healthCheckConfig_ == nullptr && this->healthyPanicThreshold_ == nullptr && this->modelProviderId_ == nullptr && this->outlierDetectionConfig_ == nullptr && this->ports_ == nullptr
-        && this->protocol_ == nullptr; };
+        && this->expectedConfigRevision_ == nullptr && this->healthCheckConfig_ == nullptr && this->healthyPanicThreshold_ == nullptr && this->modelProviderId_ == nullptr && this->outlierDetectionConfig_ == nullptr
+        && this->ports_ == nullptr && this->protocol_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};
@@ -366,6 +368,13 @@ namespace Models
     inline vector<string> getDnsServers() { DARABONBA_PTR_GET(dnsServers_, vector<string>) };
     inline UpdateServiceRequest& setDnsServers(const vector<string> & dnsServers) { DARABONBA_PTR_SET_VALUE(dnsServers_, dnsServers) };
     inline UpdateServiceRequest& setDnsServers(vector<string> && dnsServers) { DARABONBA_PTR_SET_RVALUE(dnsServers_, dnsServers) };
+
+
+    // expectedConfigRevision Field Functions 
+    bool hasExpectedConfigRevision() const { return this->expectedConfigRevision_ != nullptr;};
+    void deleteExpectedConfigRevision() { this->expectedConfigRevision_ = nullptr;};
+    inline string getExpectedConfigRevision() const { DARABONBA_PTR_GET_DEFAULT(expectedConfigRevision_, "") };
+    inline UpdateServiceRequest& setExpectedConfigRevision(string expectedConfigRevision) { DARABONBA_PTR_SET_VALUE(expectedConfigRevision_, expectedConfigRevision) };
 
 
     // healthCheckConfig Field Functions 
@@ -423,12 +432,14 @@ namespace Models
     shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
     // The AI service configuration.
     shared_ptr<AiServiceConfig> aiServiceConfig_ {};
-    // The list of KMS reference names to append. This parameter is available only in Reference mode and does not read KMS content.
+    // The list of KMS reference names to append. This parameter is only available in Reference mode. KMS content is not read.
     shared_ptr<vector<string>> apiKeyReferencesToAdd_ {};
-    // The list of API keys to append. This parameter is available only in the Custom API Key mode for AI services. It must be used with fully masked apiKeys or omitted apiKeys, and does not read or return existing keys.
+    // The list of API keys to append. This parameter is only available in Custom API Key mode for AI services. It must be used with fully masked apiKeys or omitted apiKeys. Existing keys are not read or returned.
     shared_ptr<vector<string>> apiKeysToAdd_ {};
     // The DNS server addresses.
     shared_ptr<vector<string>> dnsServers_ {};
+    // The expected configuration revision for conditional updates of the AI service. If this parameter is not provided, backward compatibility with legacy calls is maintained. If the version changes, the Conflict.ServiceConfigurationChanged error is returned.
+    shared_ptr<string> expectedConfigRevision_ {};
     // The health check configuration of the service.
     shared_ptr<UpdateServiceRequest::HealthCheckConfig> healthCheckConfig_ {};
     // The health check threshold.

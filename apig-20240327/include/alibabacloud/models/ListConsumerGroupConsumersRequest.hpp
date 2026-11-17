@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Fuzzy match by consumer name.
+    // The fuzzy filter for consumer names.
     shared_ptr<string> nameLike_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

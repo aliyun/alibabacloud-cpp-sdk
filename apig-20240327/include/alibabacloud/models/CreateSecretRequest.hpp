@@ -87,17 +87,17 @@ namespace Models
 
 
   protected:
-    // The description of the key.
+    // The description of the secret.
     shared_ptr<string> description_ {};
     // The gateway type.
     shared_ptr<string> gatewayType_ {};
-    // The KMS key configuration information.
+    // The KMS key configuration. This parameter is required when secretSource is set to KMS. If this parameter is omitted, the API returns InvalidParameter.IsEmpty(400) with the message "Parameter kmsConfig should not be empty.". This parameter contains two sub-fields: kmsInstanceId (the KMS instance ID) and kmsKeyId (the KMS key ID).
     shared_ptr<KMSConfig> kmsConfig_ {};
-    // The key name. The name can contain letters, digits, and underscores (_) and can be up to 64 characters in length.
+    // The name of the secret. The name can contain letters, digits, and underscores (_) and can be up to 64 characters in length.
     shared_ptr<string> name_ {};
-    // The KMS credential value.
+    // The KMS secret value. This parameter is required. If this parameter is omitted, the API returns InvalidParameter.IsEmpty(400). Because secretSource only supports KMS, you must always provide this parameter in actual calls.
     shared_ptr<string> secretData_ {};
-    // The key source.
+    // The source of the secret. Currently, only KMS is supported. If you specify other values such as MANUAL, the API returns InvalidParameter.WithValue(400). This parameter is required. If this parameter is not provided, the API also returns InvalidParameter.WithValue(400).
     shared_ptr<string> secretSource_ {};
   };
 

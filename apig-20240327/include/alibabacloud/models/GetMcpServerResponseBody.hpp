@@ -267,9 +267,9 @@ namespace Models
           protected:
             // The service port.
             shared_ptr<int32_t> port_ {};
-            // The service protocol.
+            // The protocol.
             shared_ptr<string> protocol_ {};
-            // The ID of the service.
+            // The service ID.
             shared_ptr<string> serviceId_ {};
             // The service version.
             shared_ptr<string> version_ {};
@@ -332,7 +332,7 @@ namespace Models
       protected:
         // The backend configuration of the canary route.
         shared_ptr<GrayMcpServerConfigs::BackendConfig> backendConfig_ {};
-        // The match rules of the canary route.
+        // The match rule of the canary route.
         shared_ptr<HttpRouteMatch> match_ {};
         // The ID of the canary route.
         shared_ptr<string> routeId_ {};
@@ -634,17 +634,16 @@ namespace Models
     protected:
       // The API ID.
       shared_ptr<string> apiId_ {};
-      // The list of assembly sources. This parameter is required when type is set to AssemblyMCP.
+      // The list of assembly sources. Required when type is AssemblyMCP.
       shared_ptr<vector<Data::AssembledSources>> assembledSources_ {};
       // The backend service of the route.
       shared_ptr<Backend> backend_ {};
-      // The creation source type.
-      // 
-      // ApiGatewayHttpToMCP: Gateway-hosted HTTP-to-MCP conversion
-      // ApiGatewayMcpHosting: Gateway-hosted direct MCP proxy
-      // ApiGatewayAssembly: Gateway MCP assembly
-      // NacosHttpToMCP: Gateway-hosted Nacos-synchronized HTTP-to-MCP conversion
-      // NacosMcpHosting: Gateway-hosted Nacos-synchronized direct MCP proxy
+      // The creation source type. Valid values:
+      // - ApiGatewayHttpToMCP: HTTP-to-MCP conversion hosted by the gateway.
+      // - ApiGatewayMcpHosting: Direct MCP proxy hosted by the gateway.
+      // - ApiGatewayAssembly: MCP assembly by the gateway.
+      // - NacosHttpToMCP: Nacos-synchronized HTTP-to-MCP conversion hosted by the gateway.
+      // - NacosMcpHosting: Nacos-synchronized direct MCP proxy hosted by the gateway.
       shared_ptr<string> createFromType_ {};
       // The publish status of the API in the current environment.
       shared_ptr<string> deployStatus_ {};
@@ -656,29 +655,29 @@ namespace Models
       shared_ptr<vector<Data::DomainInfos>> domainInfos_ {};
       // The ID of the environment.
       shared_ptr<string> environmentId_ {};
-      // The exposed URI path. This parameter is required when protocol is set to SSE or StreamableHTTP and type is set to RealMCP.
+      // The exposed URI path. Required when protocol is SSE or StreamableHTTP and type is RealMCP.
       shared_ptr<string> exposedUriPath_ {};
       // The gateway instance ID.
       shared_ptr<string> gatewayId_ {};
       // The canary route configurations.
       shared_ptr<vector<Data::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
-      // The route match rules.
+      // The match rule of the route.
       shared_ptr<HttpRouteMatch> match_ {};
       // The HTTP-to-MCP configuration.
       shared_ptr<string> mcpServerConfig_ {};
-      // The attachment ID of the MCP server plug-in configuration.
+      // The mount ID of the MCP server plugin configuration.
       shared_ptr<string> mcpServerConfigPluginAttachmentId_ {};
       // MCP Server ID
       shared_ptr<string> mcpServerId_ {};
       // The access path of the MCP server provided by the gateway.
       shared_ptr<string> mcpServerPath_ {};
-      // Specifies whether to enable MCP observability. Default value: false.
+      // Specifies whether MCP observability is enabled. Default value: false.
       shared_ptr<bool> mcpStatisticsEnable_ {};
-      // The information about the Nacos-synchronized managed MCP.
+      // The Nacos-synchronized managed MCP information.
       shared_ptr<Data::NacosMcpSyncInfo> nacosMcpSyncInfo_ {};
       // The name of the MCP server.
       shared_ptr<string> name_ {};
-      // The service protocol.
+      // The protocol.
       shared_ptr<string> protocol_ {};
       // The ID of the route.
       shared_ptr<string> routeId_ {};

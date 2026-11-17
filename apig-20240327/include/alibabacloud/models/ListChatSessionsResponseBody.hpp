@@ -125,11 +125,11 @@ namespace Models
       protected:
         // The name of the chat session.
         shared_ptr<string> name_ {};
-        // The list of API products associated with the session. Each element in the list is named product.
+        // The list of API products associated with the session. The list element is named product.
         shared_ptr<vector<string>> products_ {};
-        // The ID of the chat session. You can use this ID to locate the session in API operations such as UpdateChatSession, DeleteChatSession, and ListConversations.
+        // The chat session ID. You can use this ID to locate the session in operations such as UpdateChatSession, DeleteChatSession, and ListConversations.
         shared_ptr<string> sessionId_ {};
-        // The conversation type of the session. Valid values: MODEL and AGENT. These values are defined in the talkType request parameter of the CreateChatSession operation. This response parameter does not include the @enums annotation.
+        // The conversation type of the session. Valid values: MODEL and AGENT. This set of valid values is declared in the talkType enum of the CreateChatSession request parameter, and no @enums annotation is attached to this response parameter.
         shared_ptr<string> talkType_ {};
       };
 
@@ -166,11 +166,11 @@ namespace Models
 
 
     protected:
-      // The list of chat sessions. Each element in the list is named session and represents a chat session.
+      // The list of chat sessions. The list element is named session, and each element represents a chat session.
       shared_ptr<vector<Data::Content>> content_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
@@ -231,9 +231,9 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. An empty value indicates that the last page has been reached.
+    // The cursor for the next page. An empty value indicates that the last page is reached.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

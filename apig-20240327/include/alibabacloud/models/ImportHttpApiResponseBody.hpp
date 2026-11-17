@@ -197,7 +197,7 @@ namespace Models
 
 
         protected:
-          // The action to be performed after the dry run.
+          // The action to perform after the dry run.
           // - Create: Create.
           // - Update: Update.
           shared_ptr<string> action_ {};
@@ -247,7 +247,7 @@ namespace Models
 
 
         protected:
-          // The action to be performed after the dry run.
+          // The action to perform after the dry run.
           // - Create: Create.
           // - Update: Update.
           shared_ptr<string> action_ {};
@@ -508,7 +508,7 @@ namespace Models
         shared_ptr<vector<DryRunInfo::SuccessOperations>> successOperations_ {};
         // The list of successfully imported routes.
         shared_ptr<vector<DryRunInfo::SuccessRoutes>> successRoutes_ {};
-        // The warning messages. If the warning messages are not empty, some operations or data structures may fail to be imported.
+        // The warning messages. If the warning messages are not empty, some operations or data structures may fail to import.
         shared_ptr<vector<string>> warningMessages_ {};
       };
 
@@ -538,7 +538,7 @@ namespace Models
 
 
     protected:
-      // The dry run results.
+      // The dry run result.
       shared_ptr<Data::DryRunInfo> dryRunInfo_ {};
       // The unique ID of the HTTP API.
       shared_ptr<string> httpApiId_ {};

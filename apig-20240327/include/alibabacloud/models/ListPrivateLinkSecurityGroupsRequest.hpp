@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The next token.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The ID of the VPC owned by the currently authorized user. The candidate security groups must belong to this VPC.
+    // The ID of the VPC owned by the authorized user. The candidate security groups must belong to this VPC.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

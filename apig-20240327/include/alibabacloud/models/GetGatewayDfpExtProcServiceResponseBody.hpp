@@ -123,11 +123,11 @@ namespace Models
 
 
   protected:
-    // The result code of the request. The value is Ok if the request is successful.
+    // The request result code. The value is Ok if the request is successful.
     shared_ptr<string> code_ {};
-    // The binding information of the dynamic forwarding ExtProc service for the gateway.
+    // The binding information of the gateway dynamic forwarding ExtProc service.
     shared_ptr<GetGatewayDfpExtProcServiceResponseBody::Data> data_ {};
-    // The result message of the request. If the request failed, the message contains the error message of the fault.
+    // The request result message. If the request fails, this parameter contains the error message.
     shared_ptr<string> message_ {};
     // The request ID, which is used for troubleshooting.
     shared_ptr<string> requestId_ {};

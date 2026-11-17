@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return in this request.
+    // The maximum number of records to return in the current request.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The page number. Default value: 1 (DefaultPageNumber).
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10 (DefaultPageSize).
+    // The page size. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

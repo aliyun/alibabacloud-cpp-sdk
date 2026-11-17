@@ -137,11 +137,11 @@ namespace Models
 
 
         protected:
-          // HTTP API ID。
+          // The HTTP API ID.
           shared_ptr<string> httpApiId_ {};
-          // The route name.
+          // The name of the route.
           shared_ptr<string> name_ {};
-          // The route ID.
+          // The ID of the route.
           shared_ptr<string> routeId_ {};
         };
 
@@ -183,9 +183,9 @@ namespace Models
 
 
         protected:
-          // The consumer ID.
+          // The ID of the consumer.
           shared_ptr<string> consumerId_ {};
-          // The consumer name.
+          // The name of the consumer.
           shared_ptr<string> name_ {};
         };
 
@@ -229,7 +229,7 @@ namespace Models
         protected:
           // The service name.
           shared_ptr<string> name_ {};
-          // The service ID.
+          // The ID of the service.
           shared_ptr<string> serviceId_ {};
         };
 
@@ -280,11 +280,11 @@ namespace Models
 
 
         protected:
-          // The plug-in name.
+          // The name of the plugin.
           shared_ptr<string> name_ {};
-          // The plug-in type ID.
+          // The ID of the plugin class.
           shared_ptr<string> pluginClassId_ {};
-          // The plug-in ID.
+          // The ID of the plugin.
           shared_ptr<string> pluginId_ {};
         };
 
@@ -341,15 +341,15 @@ namespace Models
 
 
       protected:
-        // The plug-in information that references the current secret.
+        // The information about the plugin that references the current secret.
         shared_ptr<Items::PluginConfig> pluginConfig_ {};
-        // The service information that references the current secret.
+        // The information about the service that references the current secret.
         shared_ptr<Items::ServiceConfig> serviceConfig_ {};
-        // The consumer information that references the current secret.
+        // The information about the consumer that references the current secret.
         shared_ptr<Items::ConsumerConfig> consumerConfig_ {};
         // The gateway instance ID.
         shared_ptr<string> gatewayId_ {};
-        // The MCP server information that references the current secret.
+        // The information about the MCP service that references the current secret.
         shared_ptr<Items::McpServerConfig> mcpServerConfig_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};

@@ -143,9 +143,9 @@ namespace Models
         shared_ptr<string> productId_ {};
         // The API product name. This is the Name property of the API product resource.
         shared_ptr<string> productName_ {};
-        // The API product type. The valid values are not defined in the API specification. Refer to the types displayed in the console.
+        // The API product type. The valid values are not declared in the API definition. Refer to the types displayed in the console.
         shared_ptr<string> productType_ {};
-        // The publication record ID of the API product. This ID is returned when an API product is published to a portal by using the PublishProduct operation. You can use this ID in the /himarket/v1/products/{productId}/publications/{publicationId} path to locate the publication record for the UnpublishProduct operation.
+        // The publication record ID of the API product. This ID is returned when you use PublishProduct to publish an API product to a portal. You can use this ID in the /himarket/v1/products/{productId}/publications/{publicationId} path to locate the publication record for the UnpublishProduct operation.
         shared_ptr<string> publicationId_ {};
       };
 
@@ -182,7 +182,7 @@ namespace Models
 
 
     protected:
-      // The list of published API products on the portal. The list elements are named portalConfig, and each element represents an API product publication record.
+      // The list of published API products on the portal. The list elements are named portalConfig, and each element represents a publication record of an API product.
       shared_ptr<vector<Data::Content>> content_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

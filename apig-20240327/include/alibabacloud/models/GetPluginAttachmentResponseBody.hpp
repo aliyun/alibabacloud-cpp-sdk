@@ -161,9 +161,9 @@ namespace Models
       shared_ptr<GatewayInfo> gatewayInfo_ {};
       // The parent mounted resource information.
       shared_ptr<ParentResourceInfo> parentResourceInfo_ {};
-      // The plugin attachment ID.
+      // The ID of the plugin attachment.
       shared_ptr<string> pluginAttachmentId_ {};
-      // The plugin class information.
+      // The plugin type information.
       shared_ptr<PluginClassInfo> pluginClassInfo_ {};
       // The Base64-encoded content of the original plugin configuration.
       shared_ptr<string> pluginConfig_ {};

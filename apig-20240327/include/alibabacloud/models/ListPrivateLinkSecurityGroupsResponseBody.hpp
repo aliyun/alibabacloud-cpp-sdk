@@ -117,10 +117,9 @@ namespace Models
       protected:
         // The security group ID.
         shared_ptr<string> securityGroupId_ {};
-        // The security group name.
+        // The name of the security group.
         shared_ptr<string> securityGroupName_ {};
         // Specifies whether the resource is created by a service account. Valid values:
-        // 
         // - 0: Not created by a service account.
         // - 1: Created by a service account.
         shared_ptr<bool> serviceManaged_ {};
@@ -156,9 +155,9 @@ namespace Models
     protected:
       // The source information.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The maximum number of entries returned in this query.
+      // The maximum number of results returned in this query.
       shared_ptr<int32_t> maxResults_ {};
-      // The next token.
+      // The token for the next page.
       shared_ptr<string> nextToken_ {};
     };
 

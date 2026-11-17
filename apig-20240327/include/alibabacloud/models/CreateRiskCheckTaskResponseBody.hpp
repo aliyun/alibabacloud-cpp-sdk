@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The risk detection task ID.
+      // The ID of the risk detection task.
       shared_ptr<string> taskId_ {};
     };
 

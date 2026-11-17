@@ -126,21 +126,21 @@ namespace Models
   protected:
     // The API key of the search engine.
     shared_ptr<string> apiKey_ {};
-    // The content mode. This parameter is specific to Quark.
+    // Quark-specific: the content mode.
     shared_ptr<string> contentMode_ {};
     // The number of results returned per search.
     shared_ptr<int32_t> count_ {};
     // The endpoint of the search engine.
     shared_ptr<string> endpoint_ {};
-    // The industry filter. This parameter is specific to Quark.
+    // Quark-specific: the industry filter.
     shared_ptr<string> industry_ {};
     // The search engine-specific parameters in key-value pair format.
     shared_ptr<map<string, string>> optionArgs_ {};
     // The offset of the search results.
     shared_ptr<int32_t> start_ {};
-    // The time range filter. This parameter is specific to Quark.
+    // Quark-specific: the time range filter.
     shared_ptr<string> timeRange_ {};
-    // The timeout period for the API call, in milliseconds.
+    // The API call timeout in milliseconds.
     shared_ptr<int32_t> timeoutMillisecond_ {};
     // The search engine type.
     shared_ptr<string> type_ {};

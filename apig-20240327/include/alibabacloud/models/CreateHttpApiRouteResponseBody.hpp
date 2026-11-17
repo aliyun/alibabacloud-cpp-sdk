@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The route ID.
+      // The ID of the route.
       shared_ptr<string> routeId_ {};
     };
 
@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<CreateHttpApiRouteResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

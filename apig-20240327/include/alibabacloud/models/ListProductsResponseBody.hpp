@@ -222,31 +222,31 @@ namespace Models
 
 
       protected:
-        // The agent-related configurations of the API product. The agentAPIConfig member includes agentProtocols (the list of protocols supported by the agent) and routes (the list of routes).
+        // The agent-related configurations of the API product. The agentAPIConfig member includes the list of protocols supported by the agent (agentProtocols) and the list of routes (routes).
         shared_ptr<HiMarketAgentConfig> agentConfig_ {};
-        // Specifies whether subscription requests for the API product are automatically approved. This corresponds to the AutoApprove property of the API product resource.
+        // Indicates whether subscription requests for the API product are automatically approved. This corresponds to the AutoApprove property of the Product resource.
         shared_ptr<bool> autoApprove_ {};
         // The list of product categories to which the API product belongs. The list element is named category.
         shared_ptr<vector<HiMarketProductCategory>> categories_ {};
-        // The description of the API product, which corresponds to the Description property of the API product resource.
+        // The description of the API product. This corresponds to the Description property of the Product resource.
         shared_ptr<string> description_ {};
-        // The documentation of the API product, which corresponds to the Document property of the API product resource.
+        // The documentation of the API product. This corresponds to the Document property of the Product resource.
         shared_ptr<string> document_ {};
-        // The capability configurations of the API product. Currently, it only includes the modelFeature (model capabilities) member, which contains model, maxTokens, temperature, streaming, webSearch, enableThinking, and enableMultiModal.
+        // The capability configurations of the API product. Currently, this includes only the modelFeature member, which contains model, maxTokens, temperature, streaming, webSearch, enableThinking, and enableMultiModal.
         shared_ptr<HiMarketProductFeature> feature_ {};
-        // The icon of the API product, which corresponds to the Icon property of the API product resource. It consists of two fields: the icon type (type) and the icon information (value).
+        // The icon of the API product. This corresponds to the Icon property of the Product resource and consists of two fields: icon type (type) and icon information (value).
         shared_ptr<HiMarketIcon> icon_ {};
-        // The MCP-related configurations of the API product. The members include mcpServerName (MCP server name), tools, mcpServerConfig (path and domains), and meta (protocol).
+        // The MCP-related configurations of the API product. The members include the MCP server name (mcpServerName), tools, MCP server configurations (mcpServerConfig, which includes path and domains), and metadata (meta, which includes protocol).
         shared_ptr<HiMarketMcpConfig> mcpConfig_ {};
-        // The model API-related configurations of the API product. The modelAPIConfig member includes modelCategory (AI model category), aiProtocols (the list of AI API protocols), and routes (the list of routes).
+        // The model API-related configurations of the API product. The modelAPIConfig member includes the AI model category (modelCategory), the list of AI API protocols (aiProtocols), and the list of routes (routes).
         shared_ptr<HiMarketModelConfig> modelConfig_ {};
-        // The name of the API product, which corresponds to the Name property of the API product resource.
+        // The name of the API product. This corresponds to the Name property of the Product resource.
         shared_ptr<string> name_ {};
-        // The ID of the API product, which is the primary ID of the API product resource. You can use this ID to locate the product in operations such as GetProduct, UpdateProduct, DeleteProduct, PublishProduct, SetProductCategories, and ListProductPublications.
+        // The ID of the API product. This is the primary ID of the Product resource. You can use this ID to locate the product in operations such as GetProduct, UpdateProduct, DeleteProduct, PublishProduct, SetProductCategories, and ListProductPublications.
         shared_ptr<string> productId_ {};
-        // The status of the API product, which corresponds to the Status property of the API product resource. Valid values: Pending, Ready, and Published.
+        // The status of the API product. This corresponds to the Status property of the Product resource. Valid values: Pending, Ready, Published.
         shared_ptr<string> status_ {};
-        // The type of the API product, which corresponds to the Type property of the API product resource. The valid values are not declared in the API definition. Refer to the types displayed in the console.
+        // The type of the API product. This corresponds to the Type property of the Product resource. The valid values are not declared in the API definition. Refer to the types displayed in the console.
         shared_ptr<string> type_ {};
       };
 
@@ -344,11 +344,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<ListProductsResponseBody::Data> data_ {};
-    // The maximum number of entries returned in this request.
+    // The maximum number of entries returned in the current request.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page.
+    // The cursor token for querying the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

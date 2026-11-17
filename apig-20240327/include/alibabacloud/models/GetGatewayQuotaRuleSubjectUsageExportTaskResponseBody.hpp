@@ -204,29 +204,29 @@ namespace Models
 
 
       protected:
-        // The temporary signed download URL of the exported file. It is returned only when status=Success and the file is not expired. It is dynamically generated for each query and is valid for 10 minutes from the generation time. If the link expires but fileExpiredAt is not reached, you can call this operation again to obtain the link. You do not need to pass the internal storage path as a request parameter.
+        // The temporary signed download URL of the exported file. This URL is returned only when status=Success and the file is not expired. It is dynamically generated for each query and is valid for 10 minutes from the generation time. If the link expires but fileExpiredAt is not reached, you can call this operation again to obtain the link. You do not need to pass the internal storage path as a request parameter.
         shared_ptr<string> downloadUrl_ {};
-        // The expiration time of the downloadUrl returned in this response. It is a UNIX timestamp in seconds. It is provided only when a download link is returned and is approximately 10 minutes after the link generation time. It can be updated by querying again and cannot be used to replace fileExpiredAt.
+        // The expiration time of the downloadUrl returned in this response. The value is a UNIX timestamp in seconds. This field is provided only when a download link is returned and is approximately 10 minutes after the link generation time. This value can be updated by querying the task again and cannot be used to replace fileExpiredAt.
         shared_ptr<int64_t> downloadUrlExpiredAt_ {};
-        // The start time of the actual export time range. It is a UNIX timestamp in seconds. The actual start time is also limited by the rule creation time, rule reset, or the effective start time of clearing history records. No details are available if the start time is not earlier than the end time.
+        // The start time of the actual export time range. The value is a UNIX timestamp in seconds. The actual start time is also limited by the rule creation time, rule reset, or the effective start time of clearing history records. No details are available if the start time is not earlier than the end time.
         shared_ptr<int64_t> effectiveWindowStart_ {};
-        // Indicates whether the exported file has exceeded the server-side period for providing download links. A value of true indicates that the file has expired, downloadUrl and downloadUrlExpiredAt are not returned, and you need to create a new export task. This field may be omitted when the value is false. To determine whether the file is downloadable, check both status and downloadUrl.
+        // Indicates whether the exported file has exceeded the period during which the server provides download links. A value of true indicates that the file has expired, downloadUrl and downloadUrlExpiredAt are not returned, and you need to create an export task again. This field may be omitted if the value is false. To determine whether the file can be downloaded, check both status and downloadUrl.
         shared_ptr<bool> fileExpired_ {};
-        // The time when the file stops providing new download links. It is a UNIX timestamp in seconds and is usually 24 hours after the file is successfully uploaded. After this time, this operation returns fileExpired=true and no longer generates downloadUrl. The task remains in the Success state. This time is different from the downloadUrlExpiredAt of a single signed link.
+        // The time when the file stops providing new download links. The value is a UNIX timestamp in seconds, which is usually 24 hours after the file is successfully uploaded. After this time, this operation returns fileExpired=true and no longer generates downloadUrl. The task status remains Success. This time is different from downloadUrlExpiredAt of a single signed link.
         shared_ptr<int64_t> fileExpiredAt_ {};
-        // The size of the successfully generated and uploaded GZIP compressed file, in bytes. This field may be omitted when the task is not successful.
+        // The size of the successfully generated and uploaded GZIP-compressed file, in bytes. This field may be omitted if the task is not successful.
         shared_ptr<int64_t> fileSize_ {};
-        // Specifies whether to filter out requests with failed or zero usage, which is specified when the task is created. A value of true filters out records with 0 usage and retains only records with usage. This field may be omitted when the value is false.
+        // The usage filter switch specified when the task was created. If the value is true, records with a usage of 0 are filtered out, and only records with usage are retained. This field may be omitted if the value is false.
         shared_ptr<bool> filterFailedRequests_ {};
-        // The format of the exported file. The value is currently fixed as CSV_GZIP. The downloaded file is a .csv.gz file, which becomes a CSV file after decompression.
+        // The format of the exported file. The value is fixed as CSV_GZIP. The downloaded file is a .csv.gz file, which is a CSV file after decompression.
         shared_ptr<string> format_ {};
-        // The end time of the request time range determined when the task was created. It is a UNIX timestamp in seconds and does not include this moment. If no time range is specified, this value is the task creation time and is not updated when the task is queried.
+        // The end time of the request time range determined when the task was created. The value is a UNIX timestamp in seconds and excludes this moment. If no time range is specified, this value is the task creation time and is not updated when the task is queried.
         shared_ptr<int64_t> queryWindowEnd_ {};
-        // The start time of the request time range determined when the task was created. It is a UNIX timestamp in seconds and includes this moment. If only one time parameter is passed, this value may be derived from the rule period. For the actual export start time, see effectiveWindowStart.
+        // The start time of the request time range determined when the task was created. The value is a UNIX timestamp in seconds and includes this moment. If only one time parameter is passed, this value may be derived from the rule period. For the actual export start time, see effectiveWindowStart.
         shared_ptr<int64_t> queryWindowStart_ {};
-        // The quota metering dimension determined when the task was created. token indicates token usage, and credit indicates credit usage. The CSV file outputs the corresponding columns based on this dimension. Credit usage retains decimal places.
+        // The quota metering dimension determined when the task was created. token indicates token usage, and credit indicates credit usage. The CSV file outputs the corresponding column based on this dimension. Credit usage retains decimal places.
         shared_ptr<string> quotaDimension_ {};
-        // The number of successfully exported consumption detail rows, excluding the CSV header. This field may be omitted when the task is not successful or the export result contains 0 rows. If the task is successful but no matching details exist, the file contains only the header.
+        // The number of successfully exported consumption detail rows, excluding the CSV header. This field may be omitted if the task is not successful or the export result contains 0 rows. If the task is successful but no matching details are found, the file contains only the header.
         shared_ptr<int64_t> rowCount_ {};
       };
 
@@ -313,13 +313,13 @@ namespace Models
 
 
     protected:
-      // The error summary when the task fails, which is used to troubleshoot issues such as disabled logs, query failures, exceeded detail limits, processing timeouts, or file generation failures. This field may be omitted when no errors occur.
+      // The error summary when the task fails, which is used to troubleshoot issues such as disabled logs, query failures, exceeded detail limits, processing timeouts, or file generation failures. This field may be omitted if no error occurs.
       shared_ptr<string> errorMessage_ {};
       // The gateway ID recorded when the task was created.
       shared_ptr<string> gatewayId_ {};
-      // The number of detail rows written to the exported file, excluding the header. This value is used to check the processing progress. Even if this value equals totalCount, you should determine whether the file is downloadable based on status=Success.
+      // The number of detail rows written to the exported file, excluding the header. This value is used to check the processing progress. Even if this value is equal to totalCount, determine whether the file can be downloaded based on status=Success.
       shared_ptr<int32_t> processedCount_ {};
-      // The export conditions and file results determined when the task was created. The time range, format, and metering dimension may be returned even in non-Success states. File and download information is available only after success. Fields with values of 0, false, or empty strings are omitted.
+      // The export conditions and file results determined when the task was created. The time range, format, and metering dimension may be returned even if the status is not Success. File and download information is available only after a successful export. Fields with values of 0, false, or empty strings are omitted.
       shared_ptr<Data::Result> result_ {};
       // The quota rule ID recorded when the task was created.
       shared_ptr<string> ruleId_ {};
@@ -327,9 +327,9 @@ namespace Models
       // - Pending: The task is submitted and waiting to be processed.
       // - Running: The task is querying details, generating files, or uploading files.
       // - Success: The file is generated and uploaded. You still need to check whether the file is expired.
-      // - Failed: The task failed. For the cause, see errorMessage.
+      // - Failed: The task failed. For more information, see errorMessage.
       // 
-      // Tasks that are not completed within 10 minutes after creation are processed as Failed. After a file expires, the task remains in the Success state.
+      // Tasks that are not completed within 10 minutes after creation are processed as Failed. After a file expires, the task status remains Success.
       shared_ptr<string> status_ {};
       // The consumer or consumer group ID recorded when the task was created.
       shared_ptr<string> subjectId_ {};
@@ -339,7 +339,7 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The task type. The value is fixed as FinOpsUsageDetailExport, which indicates the export of quota rule subject consumption details.
       shared_ptr<string> taskType_ {};
-      // The total number of detail rows to be exported as counted by backend queries, excluding the CSV header. This value may be 0 before the counting is completed. You cannot determine whether the result is empty or the task is completed based solely on this value.
+      // The total number of detail rows to be exported as counted by backend queries, excluding the CSV header. This value may be 0 before the counting is completed. Do not determine whether the result is empty or the task is completed based only on this value.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -382,7 +382,7 @@ namespace Models
     shared_ptr<GetGatewayQuotaRuleSubjectUsageExportTaskResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID of this OpenAPI query call, which is used to troubleshoot call issues. This is different from the request_id of each consumption record in the exported file.
+    // The request ID of this OpenAPI query call, which is used to troubleshoot call issues. This ID is different from the request_id of each consumption record in the exported file.
     shared_ptr<string> requestId_ {};
   };
 

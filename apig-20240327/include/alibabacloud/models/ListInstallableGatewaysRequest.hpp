@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The gateway type used for filtering.
+    // The gateway type filter.
     shared_ptr<string> gatewayType_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

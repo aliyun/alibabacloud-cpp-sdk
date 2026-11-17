@@ -84,9 +84,9 @@ namespace Models
     protected:
       // The gateway ID.
       shared_ptr<string> gatewayId_ {};
-      // Indicates whether the notification for the risk item is muted.
+      // Indicates whether notifications for the risk item are muted.
       shared_ptr<bool> isMute_ {};
-      // The code of the risk item.
+      // The risk item code.
       shared_ptr<string> riskCode_ {};
     };
 

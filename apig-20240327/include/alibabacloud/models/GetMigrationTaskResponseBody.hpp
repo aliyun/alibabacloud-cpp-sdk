@@ -153,7 +153,7 @@ namespace Models
         shared_ptr<int32_t> port_ {};
         // The protocol. This parameter is required for CLB.
         shared_ptr<string> protocol_ {};
-        // The backend server group ID.
+        // The ID of the backend server group.
         shared_ptr<string> virtualServiceGroupId_ {};
         // The name.
         shared_ptr<string> virtualServiceGroupName_ {};
@@ -197,9 +197,9 @@ namespace Models
 
 
       protected:
-        // The Ingress class to listen on.
+        // The Ingress class to monitor.
         shared_ptr<string> ingressClass_ {};
-        // The namespace in which to listen for Ingress resources.
+        // The namespace of the Ingress to monitor.
         shared_ptr<string> watchNamespace_ {};
       };
 
@@ -355,17 +355,17 @@ namespace Models
     protected:
       // The ID of the associated HTTP API.
       shared_ptr<string> apiId_ {};
-      // The API name. This value may be empty.
+      // The name of the API. This value may be empty.
       shared_ptr<string> apiName_ {};
       // The ID of the source ACK cluster.
       shared_ptr<string> clusterId_ {};
-      // The name of the source cluster. The name is retrieved by looking up the service source based on gatewayId and clusterId. If the lookup fails, a hyphen (-) is returned as a fallback.
+      // The name of the source cluster. The service source is reverse-queried based on the gateway ID and cluster ID. If the query fails, a hyphen (-) is returned as a fallback.
       shared_ptr<string> clusterName_ {};
-      // The namespace of the source cluster. This value is selected during SLB traffic switching.
+      // The namespace of the source cluster. This is selected during SLB traffic switching.
       shared_ptr<string> clusterNamespace_ {};
-      // The creation time. The value is a UNIX timestamp in seconds. Multiply the value by 1000 on the frontend before formatting.
+      // The creation time. This value is a UNIX timestamp in seconds. The frontend multiplies the value by 1,000 before formatting.
       shared_ptr<int64_t> createTime_ {};
-      // The task description.
+      // The description of the task.
       shared_ptr<string> description_ {};
       // The ID of the destination environment.
       shared_ptr<string> envId_ {};
@@ -376,23 +376,22 @@ namespace Models
       // The Ingress configuration.
       shared_ptr<Data::IngressConfig> ingressConfig_ {};
       // The migration type.
-      // [_single.resp.200.props.data.migrationType.enum.Nginx Ingress]Nginx Ingress migration.
       shared_ptr<string> migrationType_ {};
       // The name of the selected SLB service.
       shared_ptr<string> serviceName_ {};
       // The ID of the SLB instance used for traffic switching.
       shared_ptr<string> slbId_ {};
-      // The task status.
+      // The status of the task.
       shared_ptr<string> status_ {};
       // The traffic switching method.
       shared_ptr<string> switchType_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
-      // The ID of the user to whom the task belongs.
+      // The ID of the user who owns the task.
       shared_ptr<string> userId_ {};
       // The list of SLB virtual server groups.
       shared_ptr<vector<Data::VirtualServices>> virtualServices_ {};
-      // The weight of the APIG-side service in the legacy flow (0-100).
+      // The weight of the service on the APIG side in the legacy process. Valid values: 0 to 100.
       shared_ptr<int32_t> weight_ {};
     };
 

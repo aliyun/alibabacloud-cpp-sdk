@@ -102,7 +102,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> objectKey_ {};
-      // The region ID of the OSS bucket.
+      // The region ID of OSS.
       // 
       // This parameter is required.
       shared_ptr<string> regionId_ {};
@@ -184,27 +184,27 @@ namespace Models
 
 
   protected:
-    // Specifies whether to allow overwriting existing APIs. The gatewayId parameter is required when this parameter is set to true.
+    // Specifies whether to allow overwriting and updating existing APIs. The gatewayId parameter is required when this parameter is set to true.
     shared_ptr<bool> allowUpdate_ {};
     // The API type.
     // 
     // This parameter is required.
     shared_ptr<string> apiType_ {};
-    // The dry run feature that checks definitions without importing.
+    // Specifies whether to perform a dry run to check definitions without importing.
     shared_ptr<bool> dryRun_ {};
-    // The gateway instance ID. This parameter is required for REST APIs when withGatewayExtension or allowUpdate is set to true. This parameter is required for batch importing HTTP APIs.
+    // The gateway instance ID. This parameter is required for REST APIs when withGatewayExtension or allowUpdate is set to true, and is mandatory for batch import of HTTP APIs.
     shared_ptr<string> gatewayId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The standard Base64 encoding of the raw bytes of the OAS ZIP package. The maximum size after decoding is 10 MiB. This parameter cannot be specified together with specFileUrl or specOssConfig. Dry runs are supported and return check results, but the Base64 dry run task result does not return a replayable importRequest.
+    // The standard Base64 encoding of the raw bytes of the OAS ZIP package. The maximum decoded size is 10 MiB. This parameter cannot be specified together with specFileUrl or specOssConfig. Dry run pre-checks are supported and return check results, but the Base64 pre-check task result does not return a replayable importRequest.
     shared_ptr<string> specContentBase64_ {};
-    // The download URL of the OAS ZIP file. The URL must support unauthenticated downloads. OSS URLs or backend whitelisted domains are supported. At least one of specFileUrl and specOssConfig must be specified.
+    // The download URL of the OAS ZIP file, which must support unauthenticated downloads. OSS URLs or backend whitelisted domains are supported. At least one of specFileUrl and specOssConfig must be specified.
     shared_ptr<string> specFileUrl_ {};
-    // The OSS configuration of the OAS file. The file must be in ZIP format. At least one of specFileUrl and specOssConfig must be specified.
+    // The OSS configuration of the OAS file in ZIP format. At least one of specFileUrl and specOssConfig must be specified.
     shared_ptr<BatchImportHttpApisRequest::SpecOssConfig> specOssConfig_ {};
     // The conflict merging strategy during import. Default value: ExistFirst.
     shared_ptr<string> strategy_ {};
-    // Specifies whether to import with gateway extension configurations. This parameter must be set to true for batch importing HTTP APIs.
+    // Specifies whether to import with gateway extension configurations. This parameter must be set to true for batch import of HTTP APIs.
     shared_ptr<bool> withGatewayExtension_ {};
   };
 

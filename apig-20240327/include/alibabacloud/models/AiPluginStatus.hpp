@@ -62,9 +62,9 @@ namespace Models
   protected:
     // The list of plug-in runtime error logs. Each item is a map[string]any key-value pair.
     shared_ptr<vector<Darabonba::Json>> errorLogs_ {};
-    // The plug-in instance ID.
+    // The ID of the plug-in instance.
     shared_ptr<string> pluginId_ {};
-    // Indicates whether the backend service that the plugin depends on is healthy.
+    // Indicates whether the backend service on which the plug-in depends is healthy.
     shared_ptr<bool> serviceHealthy_ {};
   };
 

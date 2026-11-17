@@ -171,7 +171,7 @@ namespace Models
           protected:
             // The listener port.
             shared_ptr<int32_t> port_ {};
-            // The listener protocol. No backend enumeration validation is performed. The actual value is obtained from the SLB or NLB API. Common values include tcp, udp, http, https, and tls.
+            // The listener protocol. No backend enum verification is performed. The actual value is retrieved from the SLB or NLB POP API. Common values include tcp, udp, http, https, and tls.
             shared_ptr<string> protocol_ {};
           };
 
@@ -203,7 +203,7 @@ namespace Models
         protected:
           // The list of associated listeners.
           shared_ptr<vector<VirtualServerGroupList::Listeners>> listeners_ {};
-          // The ID of the virtual server group. This is VServerGroupId for Classic Load Balancer (CLB) and ServerGroupId for Network Load Balancer (NLB).
+          // The ID of the virtual server group. For CLB, this is the VServerGroupId. For NLB, this is the ServerGroupId.
           shared_ptr<string> virtualServiceGroupId_ {};
           // The name of the group.
           shared_ptr<string> virtualServiceGroupName_ {};
@@ -384,7 +384,7 @@ namespace Models
 
 
           protected:
-            // The allocation ID of the elastic IP address (EIP) corresponding to the public IP address.
+            // The EIP allocation ID corresponding to the public IP address.
             shared_ptr<string> allocationId_ {};
             // The ID of the elastic network interface controller (NIC).
             shared_ptr<string> eniId_ {};
@@ -587,7 +587,7 @@ namespace Models
       protected:
         // Indicates whether the load balancer is the default ingress of the gateway.
         shared_ptr<bool> defaultGatewayIngress_ {};
-        // Indicates whether the load balancer can be edited. This serves as an edit switch for load balancers during migration.
+        // Indicates whether the load balancer can be edited. This parameter serves as an edit switch for load balancers during migration.
         shared_ptr<bool> editEnable_ {};
         // The gateway ID.
         shared_ptr<string> gatewayId_ {};
@@ -601,7 +601,7 @@ namespace Models
         shared_ptr<string> loadBalancerAvailableStatus_ {};
         // The load balancer instance ID.
         shared_ptr<string> loadBalancerId_ {};
-        // The association mode.
+        // The binding mode.
         shared_ptr<string> loadBalancerMode_ {};
         // The load balancer name.
         shared_ptr<string> loadBalancerName_ {};

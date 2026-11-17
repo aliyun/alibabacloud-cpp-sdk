@@ -149,13 +149,13 @@ namespace Models
         shared_ptr<string> consumerId_ {};
         // The name of the consumer to which the subscription belongs. This corresponds to the keyword search of the consumerName request parameter.
         shared_ptr<string> consumerName_ {};
-        // The ID of the subscribed API product, which is the primary ID of the API product resource. This ID is the same as the productId path parameter of this operation.
+        // The ID of the subscribed API product. This is the primary ID of the API product resource and is the same as the productId path parameter of this operation.
         shared_ptr<string> productId_ {};
-        // The name of the subscribed API product, which is the Name property of the API product resource.
+        // The name of the subscribed API product. This is the Name property of the API product resource.
         shared_ptr<string> productName_ {};
         // The type of the subscribed API product. Valid values: REST_API, HTTP_API, MCP_SERVER, AGENT_API, and MODEL_API.
         shared_ptr<string> productType_ {};
-        // The subscription status. Valid values: PENDING and APPROVED. The valid values are defined in the enum of the status request parameter, and this response parameter is not annotated with @enums.
+        // The subscription status. Valid values: PENDING and APPROVED. The valid values are defined in the status request parameter.
         shared_ptr<string> status_ {};
         // The subscription ID, which identifies an API product subscription record. You can use this ID to cancel the subscription by calling UnsubscribeHiMarketProduct or approve the subscription by calling ApproveProductSubscription. Both operations locate the record by using the path /himarket/v1/consumers/{consumerId}/subscriptions/{subscriptionId}.
         shared_ptr<string> subscriptionId_ {};

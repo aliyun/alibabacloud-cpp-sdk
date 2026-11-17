@@ -71,20 +71,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to delete all tags. This parameter is valid only when tags are empty. Valid values:
-    // 
-    // - true
-    // - false
-    // - True
-    // - False
-    // 
-    // Default value: false.
+    // Specifies whether to delete all tags. This parameter is valid only when the tags parameter is empty. Valid values: true, false, True, and False. Default value: false.
     shared_ptr<bool> all_ {};
-    // The resource IDs. You can specify up to 50 subkeys.
+    // The resource IDs. You can specify up to 50 items.
     shared_ptr<vector<string>> resourceId_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};
-    // The list of tag keys. You can specify up to 20 subkeys.
+    // The tag keys. You can specify up to 20 items.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

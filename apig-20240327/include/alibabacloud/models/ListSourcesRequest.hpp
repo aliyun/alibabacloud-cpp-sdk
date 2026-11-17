@@ -81,9 +81,9 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource group ID used to filter results. This parameter is also used for RAM authentication.
+    // The ID of the resource group used to filter resources. This parameter is also used for Resource Access Management (RAM) authentication.
     shared_ptr<string> resourceGroupId_ {};
-    // The source type used to filter the query results.
+    // The source type.
     shared_ptr<string> type_ {};
   };
 

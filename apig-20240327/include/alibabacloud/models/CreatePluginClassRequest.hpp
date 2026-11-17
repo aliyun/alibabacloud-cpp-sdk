@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The alias of the plug-in. This parameter is required. If it is not provided, the service returns InvalidParameter.WithValue.
+    // The alias of the plug-in. This parameter is actually required. If it is not provided, the service returns InvalidParameter.WithValue.
     shared_ptr<string> alias_ {};
     // The description of the plug-in.
     // 
@@ -137,7 +137,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The minimum supported gateway version.
+    // The minimum compatible gateway version.
     shared_ptr<string> supportedMinGatewayVersion_ {};
     // The version number of the plug-in.
     // 
@@ -151,7 +151,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> wasmLanguage_ {};
-    // The download URL of the WASM plug-in binary file.
+    // The download URL of the binary file for the WASM plug-in.
     // 
     // This parameter is required.
     shared_ptr<string> wasmUrl_ {};
