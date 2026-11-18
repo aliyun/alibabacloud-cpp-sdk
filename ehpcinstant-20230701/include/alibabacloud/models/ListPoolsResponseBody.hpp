@@ -111,7 +111,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -184,44 +186,37 @@ namespace Models
 
 
     protected:
-      // The time when the resource pool was created.
+      // The time when the resource pool was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // Indicates whether the resource pool is the default pool. Valid values:
+      // Specifies whether the resource pool is the default resource pool. Valid values:
       // 
-      // - **true**: The resource pool is the default pool.
-      // 
-      // - **false**: The resource pool is not the default pool.
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> isDefault_ {};
-      // The number of running executor nodes in the resource pool.
+      // The number of running executor nodes in a resource pool.
       shared_ptr<int32_t> maxExecutorNum_ {};
-      // The name of the resource pool.
-      // 
-      // - Maximum length: 15 characters.
-      // 
-      // - Allowed characters: digits, letters, underscores (_), and periods (.).
+      // The resource pool name.
+      // - The name can be up to 15 characters in length.
+      // - The name can contain digits, uppercase letters, lowercase letters, underscores (_), and periods (.).
       shared_ptr<string> poolName_ {};
       // The priority of the resource pool.
       // 
-      // - Valid values: 1 to 99. Default value: 1 (lowest priority).
-      // 
-      // - Jobs in a resource pool with a higher priority are scheduled before those in a pool with a lower priority. The pool\\"s priority overrides the priority of an individual job.
+      // - Valid values: 1 to 99. Default value: 1, which indicates the lowest priority.
+      // - Jobs submitted to a resource pool with a higher priority level are scheduled before pending jobs in a resource pool with a lower priority level. The priority level of a resource pool takes precedence over the priority of a job.
       shared_ptr<int32_t> priority_ {};
       // The ID of the scheduling policy.
       shared_ptr<string> schedulingPolicyId_ {};
-      // The status of the resource pool. Valid values:
+      // The resource pool status. Valid values:
       // 
       // - Creating: The resource pool is being created.
-      // 
       // - Updating: The resource pool is being updated.
-      // 
       // - Deleting: The resource pool is being deleted.
-      // 
-      // - Working: The resource pool is operational.
-      // 
-      // - Deleted: The resource pool has been deleted.
+      // - Working: The resource pool is working.
+      // - Deleted: The resource pool is deleted.
       shared_ptr<string> status_ {};
+      // The tag information.
       shared_ptr<vector<PoolList::Tags>> tags_ {};
-      // The time when the resource pool was last updated.
+      // The time when the resource pool was updated. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -265,13 +260,13 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 1.
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page. Maximum value: 50. Default value: 10.
+    // The number of entries per page in a paging query. Maximum value: 50. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // An array of resource pools.
+    // The list of resource pools.
     shared_ptr<vector<ListPoolsResponseBody::PoolList>> poolList_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

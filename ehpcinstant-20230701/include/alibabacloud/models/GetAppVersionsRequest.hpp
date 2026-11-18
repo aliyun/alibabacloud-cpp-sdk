@@ -75,25 +75,25 @@ namespace Models
 
 
   protected:
-    // The application name.
+    // The name of the application.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The source of the image. Valid values:
+    // The image source. Valid values:
     // 
-    // Public: public images provided by Alibaba Cloud.
+    // - Public: public images provided by Alibaba Cloud.
     // 
-    // Custom: the custom image that you added.
+    // - Custom: custom images added by you.
     shared_ptr<string> imageCategory_ {};
-    // The type of the images. Valid values:
+    // The image type. Valid values:
     // 
-    // VM: Virtual Machine Image
+    // - VM: virtual machine images.
     // 
-    // Container: container image
+    // - Container: container images.
     shared_ptr<string> imageType_ {};
-    // The page number. Default value: 1.
+    // The current page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: 20.
+    // The number of entries per page. Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
   };
 

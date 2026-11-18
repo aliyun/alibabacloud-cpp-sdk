@@ -164,9 +164,9 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> appId_ {};
-      // The time when the storage resource was created.
+      // The creation time. The time is in the YYYY-MM-DDTHH:mm:ssZ format, where Z represents UTC.
       shared_ptr<string> createTime_ {};
-      // The description of the image.
+      // The image description.
       shared_ptr<string> description_ {};
       // The document ID.
       shared_ptr<int32_t> documentId_ {};
@@ -174,17 +174,17 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> imageId_ {};
-      // The type of the image.
+      // The image type.
       // 
       // This parameter is required.
       shared_ptr<string> imageType_ {};
-      // The name of the image.
+      // The image name.
       shared_ptr<string> name_ {};
-      // The ID of the specific OS version.
+      // The specific OS version identifier.
       shared_ptr<string> osTag_ {};
-      // The time when the image was updated.
+      // The image update time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> updateTime_ {};
-      // The version of the image.
+      // The image version.
       shared_ptr<string> version_ {};
       // The weight.
       shared_ptr<int32_t> weight_ {};
@@ -239,18 +239,18 @@ namespace Models
   protected:
     // The list of image information.
     shared_ptr<vector<ListImagesResponseBody::Images>> images_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the process of executing the command and obtaining the result was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of items that meet the request conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

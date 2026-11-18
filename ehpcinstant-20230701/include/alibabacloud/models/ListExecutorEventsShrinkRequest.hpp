@@ -57,13 +57,11 @@ namespace Models
 
 
   protected:
-    // The filter conditions for querying Executors.
+    // The filter conditions for querying executors.
     shared_ptr<string> filterShrink_ {};
-    // The page number.    
-    // Minimum value: 1.    
-    // Default value: 1.
+    // The page number. Starting value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging. Default value: 50. Maximum value: 100.
+    // The paging Settings for the number of entries per page in a paged query. Default value: 50. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

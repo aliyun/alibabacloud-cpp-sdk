@@ -160,23 +160,25 @@ namespace Models
 
 
     protected:
-      // A list of executor IDs. You can specify up to 100 IDs.
+      // The list of executor IDs. A maximum of 100 IDs are supported.
       shared_ptr<vector<string>> executorIds_ {};
       // The executor image.
       shared_ptr<string> image_ {};
-      // A list of private IP addresses. You can specify up to 100 IP addresses.
+      // The list of internal IP addresses. A maximum of 100 IP addresses are supported.
       shared_ptr<vector<string>> ipAddresses_ {};
-      // The job name. Fuzzy queries are supported.
+      // The job name. Fuzzy match is supported.
       shared_ptr<string> jobName_ {};
+      // The job template ID.
       shared_ptr<string> jobTemplateId_ {};
+      // The resource pool name.
       shared_ptr<string> poolName_ {};
-      // A list of executor statuses.
+      // The list of executor statuses.
       shared_ptr<vector<string>> status_ {};
-      // The jobs submitted after this time. This is a UNIX timestamp that is converted from the time in the region where the job is located. For sites in mainland China, the time is in the UTC+8 time zone.
+      // The time after which the job was submitted. The time is converted to a UNIX timestamp based on the time zone of the region. For regions in the Chinese mainland, the time zone is UTC+8.
       shared_ptr<int32_t> timeCreatedAfter_ {};
-      // The jobs submitted before this time. This is a UNIX timestamp that is converted from the time in the region where the job is located. For sites in mainland China, the time is in the UTC+8 time zone.
+      // The time before which the job was submitted. The time is converted to a UNIX timestamp based on the time zone of the region. For regions in the Chinese mainland, the time zone is UTC+8.
       shared_ptr<int32_t> timeCreatedBefore_ {};
-      // The virtual private cloud (VPC) ID.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
       // The vSwitch ID.
       shared_ptr<string> vswitchId_ {};
@@ -210,9 +212,9 @@ namespace Models
   protected:
     // The filter conditions for querying executors.
     shared_ptr<ListExecutorsRequest::Filter> filter_ {};
-    // The current page number.<br>Start value: 1<br>Default value: 1<br><br>
+    // The page number. Starting value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page for a paged query. Default value: 50. Maximum value: 100.
+    // The number of entries per page in the paging Settings for a paged query. Default value: 50. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

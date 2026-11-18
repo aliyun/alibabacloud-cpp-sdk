@@ -254,44 +254,44 @@ namespace Models
 
     protected:
       // The resource type. Valid values:
-      // 
-      // - Standard: standard.
-      // - Dedicated: dedicated. You must be added to the whitelist to use this type.
-      // - Economic: economy. You must be added to the whitelist to use this type.
+      // - Standard: Standard.
+      // - Dedicated: Dedicated. Requires whitelist authorization.
+      // - Economic: Economic. Requires whitelist authorization.
       shared_ptr<string> allocationSpec_ {};
-      // The array index of the executor.
+      // The executor index.
       shared_ptr<int32_t> arrayIndex_ {};
-      // The retention duration of compute resources.
+      // The retention period of the compute resource.
       shared_ptr<int32_t> blockDuration_ {};
-      // The creation time.
+      // The creation time. The example uses the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The end time.
+      // The end time. The example uses the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> endTime_ {};
       // The executor ID. The format is JobId-TaskName-ArrayIndex.
       shared_ptr<string> executorId_ {};
+      // The expiration time of the execution instance, returned in the YYYY-MM-DD HH:mm:ss format (UTC+8).
       shared_ptr<string> expirationTime_ {};
-      // The list of node public IP addresses.
+      // The list of public IP addresses of the node.
       shared_ptr<vector<string>> externalIpAddress_ {};
       // The array of node hostnames.
       shared_ptr<vector<string>> hostName_ {};
       // The list of node IP addresses.
       shared_ptr<vector<string>> ipAddress_ {};
+      // Indicates whether the execution instance is preemptible.
       shared_ptr<bool> preemptible_ {};
-      // The start time.
+      // The start time. The example uses the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> startTime_ {};
       // The executor status. Valid values:
-      // 
-      // - Pending: queued.
-      // - Initing: initializing.
-      // - Succeed: succeeded.
-      // - Failed: failed.
-      // - Running: running.
-      // - Exception: scheduling exception.
-      // - Retrying: retrying.
-      // - Expired: timed out.
-      // - Suspended: in hibernation.
-      // - Restarting: restarting.
-      // - Deleted: deleted.
+      // - Pending: Queued.
+      // - Initing: Initializing.
+      // - Succeed: Succeeded.
+      // - Failed: Failed.
+      // - Running: Running.
+      // - Exception: Scheduling exception.
+      // - Retrying: Retrying.
+      // - Expired: Timed out.
+      // - Suspended: Hibernated.
+      // - Restarting: Restarting.
+      // - Deleted: Deleted.
       shared_ptr<string> status_ {};
       // The description of the status reason.
       shared_ptr<string> statusReason_ {};
@@ -409,7 +409,7 @@ namespace Models
       shared_ptr<int32_t> failed_ {};
       // The number of executors in the initializing state.
       shared_ptr<int32_t> initing_ {};
-      // The number of executors in the queued state.
+      // The number of executors in the pending state.
       shared_ptr<int32_t> pending_ {};
       // The number of executors in the restarting state.
       shared_ptr<int32_t> restarting_ {};
@@ -417,7 +417,7 @@ namespace Models
       shared_ptr<int32_t> running_ {};
       // The number of executors in the succeeded state.
       shared_ptr<int32_t> succeeded_ {};
-      // The number of executors in the hibernation state.
+      // The number of executors in the hibernated state.
       shared_ptr<int32_t> suspended_ {};
     };
 
@@ -493,13 +493,13 @@ namespace Models
     shared_ptr<string> jobId_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The job name.
+    // The task name.
     shared_ptr<string> taskName_ {};
-    // The total number of entries in the list.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

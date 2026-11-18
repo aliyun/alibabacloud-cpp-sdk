@@ -2,11 +2,13 @@
 #include <alibabacloud/EhpcInstant20230701.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,24 +19,10 @@ namespace EhpcInstant20230701
 {
 
 AlibabaCloud::EhpcInstant20230701::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "EhpcInstant";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shenzhen" , "ehpcinstant.cn-shenzhen.aliyuncs.com"},
-    {"cn-wulanchabu" , "ehpcinstant.cn-wulanchabu.aliyuncs.com"},
-    {"cn-beijing" , "ehpcinstant.cn-beijing.aliyuncs.com"},
-    {"ap-northeast-2" , "ehpcinstant.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "ehpcinstant.ap-northeast-1.aliyuncs.com"},
-    {"cn-chengdu" , "ehpcinstant.cn-chengdu.aliyuncs.com"},
-    {"cn-shanghai" , "ehpcinstant.cn-shanghai.aliyuncs.com"},
-    {"cn-guangzhou" , "ehpcinstant.cn-guangzhou.aliyuncs.com"},
-    {"cn-hongkong" , "ehpcinstant.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan" , "ehpcinstant.cn-heyuan.aliyuncs.com"},
-    {"ap-southeast-1" , "ehpcinstant.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-3" , "ehpcinstant.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-5" , "ehpcinstant.ap-southeast-5.aliyuncs.com"},
-    {"cn-hangzhou" , "ehpcinstant.cn-hangzhou.aliyuncs.com"},
-    {"eu-central-1" , "ehpcinstant.eu-central-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("ehpcinstant", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -53,7 +41,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Add a custom image.
+ * @summary Adds a custom image.
  *
  * @param tmpReq AddImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -114,7 +102,7 @@ AddImageResponse Client::addImageWithOptions(const AddImageRequest &tmpReq, cons
 }
 
 /**
- * @summary Add a custom image.
+ * @summary Adds a custom image.
  *
  * @param request AddImageRequest
  * @return AddImageResponse
@@ -125,9 +113,9 @@ AddImageResponse Client::addImage(const AddImageRequest &request) {
 }
 
 /**
- * @summary Creates an E-HPC execution plan.
+ * @summary Creates an execution plan for Elastic High Performance Computing (E-HPC).
  *
- * @description **Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
+ * @description **Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/e-hpc/e-hpc-instant/product-overview/billing-overview) of E-HPC Instant before you call this operation.**
  *
  * @param tmpReq CreateActionPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -208,9 +196,9 @@ CreateActionPlanResponse Client::createActionPlanWithOptions(const CreateActionP
 }
 
 /**
- * @summary Creates an E-HPC execution plan.
+ * @summary Creates an execution plan for Elastic High Performance Computing (E-HPC).
  *
- * @description **Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
+ * @description **Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/e-hpc/e-hpc-instant/product-overview/billing-overview) of E-HPC Instant before you call this operation.**
  *
  * @param request CreateActionPlanRequest
  * @return CreateActionPlanResponse
@@ -306,6 +294,62 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
 CreateJobResponse Client::createJob(const CreateJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a job template.
+ *
+ * @param tmpReq CreateJobTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateJobTemplateResponse
+ */
+CreateJobTemplateResponse Client::createJobTemplateWithOptions(const CreateJobTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateJobTemplateShrinkRequest request = CreateJobTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasJobTemplateConfig()) {
+    request.setJobTemplateConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobTemplateConfig(), "JobTemplateConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasJobTemplateConfigShrink()) {
+    query["JobTemplateConfig"] = request.getJobTemplateConfigShrink();
+  }
+
+  if (!!request.hasJobTemplateDescription()) {
+    query["JobTemplateDescription"] = request.getJobTemplateDescription();
+  }
+
+  if (!!request.hasJobTemplateName()) {
+    query["JobTemplateName"] = request.getJobTemplateName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateJobTemplate"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateJobTemplateResponse>();
+}
+
+/**
+ * @summary Creates a job template.
+ *
+ * @param request CreateJobTemplateRequest
+ * @return CreateJobTemplateResponse
+ */
+CreateJobTemplateResponse Client::createJobTemplate(const CreateJobTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createJobTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -473,6 +517,48 @@ DeleteJobRecordsResponse Client::deleteJobRecords(const DeleteJobRecordsRequest 
 }
 
 /**
+ * @summary Deletes a job template.
+ *
+ * @param request DeleteJobTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteJobTemplateResponse
+ */
+DeleteJobTemplateResponse Client::deleteJobTemplateWithOptions(const DeleteJobTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobTemplateId()) {
+    query["JobTemplateId"] = request.getJobTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteJobTemplate"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteJobTemplateResponse>();
+}
+
+/**
+ * @summary Deletes a job template.
+ *
+ * @param request DeleteJobTemplateRequest
+ * @return DeleteJobTemplateResponse
+ */
+DeleteJobTemplateResponse Client::deleteJobTemplate(const DeleteJobTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteJobTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes one or more jobs from a specified cluster.
  *
  * @param tmpReq DeleteJobsRequest
@@ -575,7 +661,7 @@ DeletePoolResponse Client::deletePool(const DeletePoolRequest &request) {
 }
 
 /**
- * @summary You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
+ * @summary Queries the monitoring time series dataset of a job by specifying the job array index and monitoring metric parameters.
  *
  * @param tmpReq DescribeJobMetricDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -624,7 +710,7 @@ DescribeJobMetricDataResponse Client::describeJobMetricDataWithOptions(const Des
 }
 
 /**
- * @summary You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
+ * @summary Queries the monitoring time series dataset of a job by specifying the job array index and monitoring metric parameters.
  *
  * @param request DescribeJobMetricDataRequest
  * @return DescribeJobMetricDataResponse
@@ -635,7 +721,7 @@ DescribeJobMetricDataResponse Client::describeJobMetricData(const DescribeJobMet
 }
 
 /**
- * @summary Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
+ * @summary Queries all real-time monitoring metrics for a job array by specifying a list of job array indexes.
  *
  * @param tmpReq DescribeJobMetricLastRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -680,7 +766,7 @@ DescribeJobMetricLastResponse Client::describeJobMetricLastWithOptions(const Des
 }
 
 /**
- * @summary Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
+ * @summary Queries all real-time monitoring metrics for a job array by specifying a list of job array indexes.
  *
  * @param request DescribeJobMetricLastRequest
  * @return DescribeJobMetricLastResponse
@@ -795,7 +881,7 @@ GetActionPlanResponse Client::getActionPlan(const GetActionPlanRequest &request)
 }
 
 /**
- * @summary Obtains the application version list.
+ * @summary Retrieves a list of application versions.
  *
  * @param request GetAppVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -842,7 +928,7 @@ GetAppVersionsResponse Client::getAppVersionsWithOptions(const GetAppVersionsReq
 }
 
 /**
- * @summary Obtains the application version list.
+ * @summary Retrieves a list of application versions.
  *
  * @param request GetAppVersionsRequest
  * @return GetAppVersionsResponse
@@ -853,7 +939,7 @@ GetAppVersionsResponse Client::getAppVersions(const GetAppVersionsRequest &reque
 }
 
 /**
- * @summary Get image details.
+ * @summary Retrieves the details of an image.
  *
  * @param tmpReq GetImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -902,7 +988,7 @@ GetImageResponse Client::getImageWithOptions(const GetImageRequest &tmpReq, cons
 }
 
 /**
- * @summary Get image details.
+ * @summary Retrieves the details of an image.
  *
  * @param request GetImageRequest
  * @return GetImageResponse
@@ -913,7 +999,7 @@ GetImageResponse Client::getImage(const GetImageRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a job.
+ * @summary Retrieves the details of a job execution.
  *
  * @param request GetJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -944,7 +1030,7 @@ GetJobResponse Client::getJobWithOptions(const GetJobRequest &request, const Dar
 }
 
 /**
- * @summary Retrieves the details of a job.
+ * @summary Retrieves the details of a job execution.
  *
  * @param request GetJobRequest
  * @return GetJobResponse
@@ -955,7 +1041,7 @@ GetJobResponse Client::getJob(const GetJobRequest &request) {
 }
 
 /**
- * @summary Retrieves the job record retention period.
+ * @summary Retrieves the retention period of job records.
  *
  * @param request GetJobRecordDurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -979,7 +1065,7 @@ GetJobRecordDurationResponse Client::getJobRecordDurationWithOptions(const GetJo
 }
 
 /**
- * @summary Retrieves the job record retention period.
+ * @summary Retrieves the retention period of job records.
  *
  * @param request GetJobRecordDurationRequest
  * @return GetJobRecordDurationResponse
@@ -987,6 +1073,48 @@ GetJobRecordDurationResponse Client::getJobRecordDurationWithOptions(const GetJo
 GetJobRecordDurationResponse Client::getJobRecordDuration(const GetJobRecordDurationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getJobRecordDurationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a job template.
+ *
+ * @param request GetJobTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetJobTemplateResponse
+ */
+GetJobTemplateResponse Client::getJobTemplateWithOptions(const GetJobTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobTemplateId()) {
+    query["JobTemplateId"] = request.getJobTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetJobTemplate"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetJobTemplateResponse>();
+}
+
+/**
+ * @summary Queries the details of a job template.
+ *
+ * @param request GetJobTemplateRequest
+ * @return GetJobTemplateResponse
+ */
+GetJobTemplateResponse Client::getJobTemplate(const GetJobTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getJobTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -1138,9 +1266,9 @@ ListActionPlansResponse Client::listActionPlans(const ListActionPlansRequest &re
 }
 
 /**
- * @summary Queries the runtime event list of one or more Executors.
+ * @summary Queries the runtime events of one or more executors.
  *
- * @description Queries the Executor information of a job.
+ * @description Queries the executor information of a job.
  *
  * @param tmpReq ListExecutorEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1185,9 +1313,9 @@ ListExecutorEventsResponse Client::listExecutorEventsWithOptions(const ListExecu
 }
 
 /**
- * @summary Queries the runtime event list of one or more Executors.
+ * @summary Queries the runtime events of one or more executors.
  *
- * @description Queries the Executor information of a job.
+ * @description Queries the executor information of a job.
  *
  * @param request ListExecutorEventsRequest
  * @return ListExecutorEventsResponse
@@ -1198,7 +1326,7 @@ ListExecutorEventsResponse Client::listExecutorEvents(const ListExecutorEventsRe
 }
 
 /**
- * @summary Queries information about global executors.
+ * @summary Queries global executor information.
  *
  * @param tmpReq ListExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1243,7 +1371,7 @@ ListExecutorsResponse Client::listExecutorsWithOptions(const ListExecutorsReques
 }
 
 /**
- * @summary Queries information about global executors.
+ * @summary Queries global executor information.
  *
  * @param request ListExecutorsRequest
  * @return ListExecutorsResponse
@@ -1388,7 +1516,53 @@ ListJobExecutorsResponse Client::listJobExecutors(const ListJobExecutorsRequest 
 }
 
 /**
- * @summary Returns a list of jobs.
+ * @summary Queries job templates.
+ *
+ * @param request ListJobTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListJobTemplatesResponse
+ */
+ListJobTemplatesResponse Client::listJobTemplatesWithOptions(const ListJobTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListJobTemplates"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListJobTemplatesResponse>();
+}
+
+/**
+ * @summary Queries job templates.
+ *
+ * @param request ListJobTemplatesRequest
+ * @return ListJobTemplatesResponse
+ */
+ListJobTemplatesResponse Client::listJobTemplates(const ListJobTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listJobTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a list of jobs.
  *
  * @param tmpReq ListJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1441,7 +1615,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
 }
 
 /**
- * @summary Returns a list of jobs.
+ * @summary Queries a list of jobs.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -1452,7 +1626,7 @@ ListJobsResponse Client::listJobs(const ListJobsRequest &request) {
 }
 
 /**
- * @summary Lists resource pools.
+ * @summary Queries the list of resource pools.
  *
  * @param tmpReq ListPoolsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1497,7 +1671,7 @@ ListPoolsResponse Client::listPoolsWithOptions(const ListPoolsRequest &tmpReq, c
 }
 
 /**
- * @summary Lists resource pools.
+ * @summary Queries the list of resource pools.
  *
  * @param request ListPoolsRequest
  * @return ListPoolsResponse
@@ -1566,7 +1740,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Remove a custom image
+ * @summary Removes a custom image.
  *
  * @param request RemoveImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1601,7 +1775,7 @@ RemoveImageResponse Client::removeImageWithOptions(const RemoveImageRequest &req
 }
 
 /**
- * @summary Remove a custom image
+ * @summary Removes a custom image.
  *
  * @param request RemoveImageRequest
  * @return RemoveImageResponse
@@ -1612,7 +1786,7 @@ RemoveImageResponse Client::removeImage(const RemoveImageRequest &request) {
 }
 
 /**
- * @summary Application cross-region synchronization
+ * @summary Synchronizes an application across regions.
  *
  * @param tmpReq SynchronizeAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1653,7 +1827,7 @@ SynchronizeAppResponse Client::synchronizeAppWithOptions(const SynchronizeAppReq
 }
 
 /**
- * @summary Application cross-region synchronization
+ * @summary Synchronizes an application across regions.
  *
  * @param request SynchronizeAppRequest
  * @return SynchronizeAppResponse
@@ -1768,7 +1942,7 @@ UnTagResourcesResponse Client::unTagResources(const UnTagResourcesRequest &reque
 }
 
 /**
- * @summary Adjust the resource scale of the execution plan or modify the execution status
+ * @summary Modifies the resource scale or status of an execution plan.
  *
  * @param request UpdateActionPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1811,7 +1985,7 @@ UpdateActionPlanResponse Client::updateActionPlanWithOptions(const UpdateActionP
 }
 
 /**
- * @summary Adjust the resource scale of the execution plan or modify the execution status
+ * @summary Modifies the resource scale or status of an execution plan.
  *
  * @param request UpdateActionPlanRequest
  * @return UpdateActionPlanResponse
@@ -1822,7 +1996,7 @@ UpdateActionPlanResponse Client::updateActionPlan(const UpdateActionPlanRequest 
 }
 
 /**
- * @summary Updates the job record duration.
+ * @summary Updates the job retention period.
  *
  * @param request UpdateJobRecordDurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1853,7 +2027,7 @@ UpdateJobRecordDurationResponse Client::updateJobRecordDurationWithOptions(const
 }
 
 /**
- * @summary Updates the job record duration.
+ * @summary Updates the job retention period.
  *
  * @param request UpdateJobRecordDurationRequest
  * @return UpdateJobRecordDurationResponse
@@ -1861,6 +2035,66 @@ UpdateJobRecordDurationResponse Client::updateJobRecordDurationWithOptions(const
 UpdateJobRecordDurationResponse Client::updateJobRecordDuration(const UpdateJobRecordDurationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateJobRecordDurationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates a job template.
+ *
+ * @param tmpReq UpdateJobTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateJobTemplateResponse
+ */
+UpdateJobTemplateResponse Client::updateJobTemplateWithOptions(const UpdateJobTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateJobTemplateShrinkRequest request = UpdateJobTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasJobTemplateConfig()) {
+    request.setJobTemplateConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobTemplateConfig(), "JobTemplateConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasJobTemplateConfigShrink()) {
+    query["JobTemplateConfig"] = request.getJobTemplateConfigShrink();
+  }
+
+  if (!!request.hasJobTemplateDescription()) {
+    query["JobTemplateDescription"] = request.getJobTemplateDescription();
+  }
+
+  if (!!request.hasJobTemplateId()) {
+    query["JobTemplateId"] = request.getJobTemplateId();
+  }
+
+  if (!!request.hasJobTemplateName()) {
+    query["JobTemplateName"] = request.getJobTemplateName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateJobTemplate"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateJobTemplateResponse>();
+}
+
+/**
+ * @summary Updates a job template.
+ *
+ * @param request UpdateJobTemplateRequest
+ * @return UpdateJobTemplateResponse
+ */
+UpdateJobTemplateResponse Client::updateJobTemplate(const UpdateJobTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateJobTemplateWithOptions(request, runtime);
 }
 
 /**

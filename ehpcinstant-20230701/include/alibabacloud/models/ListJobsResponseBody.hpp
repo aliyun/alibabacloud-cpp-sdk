@@ -232,55 +232,45 @@ namespace Models
 
 
     protected:
-      // Additional information about the application.
+      // The additional information about the application.
       shared_ptr<string> appExtraInfo_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // The time when the job was submitted.
+      // The time when the job was submitted. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The time when the job ended.
+      // The time when the job ended. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> endTime_ {};
-      // The number of running nodes.
+      // The number of execution nodes.
       shared_ptr<int32_t> executorCount_ {};
-      // The description of the job.
+      // The job description.
       shared_ptr<string> jobDescription_ {};
-      // The ID of the job.
+      // The job ID.
       shared_ptr<string> jobId_ {};
-      // The name of the job.
+      // The job name.
       shared_ptr<string> jobName_ {};
-      // The UID of the user who created the job.
+      // The UID of the creator.
       shared_ptr<string> ownerUid_ {};
-      // The time when the job started.
+      // The time when the job started. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> startTime_ {};
-      // The status of the job. Possible values:
+      // The job status. Valid values:
       // 
-      // - Pending: The job is in the queue.
-      // 
-      // - Initing: The job is initializing.
-      // 
-      // - Succeeded: The job was successful.
-      // 
-      // - Failed: The job failed.
-      // 
+      // - Pending: The job is queued.
+      // - Initing: The job is being initialized.
+      // - Succeeded: The job ran successfully.
+      // - Failed: The job failed to run.
       // - Running: The job is running.
-      // 
       // - Exception: A scheduling exception occurred.
-      // 
       // - Retrying: The job is being retried.
-      // 
       // - Expired: The job timed out.
-      // 
-      // - Suspended: The job is in hibernation.
-      // 
-      // - Restarting: The job is restarting.
-      // 
+      // - Suspended: The job is hibernated.
+      // - Restarting: The job is being restarted.
       // - Deleted: The job is deleted.
       shared_ptr<string> status_ {};
       // The list of job tags.
       shared_ptr<vector<JobList::Tags>> tags_ {};
       // The number of tasks.
       shared_ptr<int32_t> taskCount_ {};
-      // Indicates whether the job is a long-running job.
+      // Specifies whether the job is a long-running job.
       shared_ptr<bool> taskSustainable_ {};
     };
 
@@ -328,12 +318,11 @@ namespace Models
     shared_ptr<vector<ListJobsResponseBody::JobList>> jobList_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The paging Settings for the number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that meet the filter conditions.
-    // This parameter is optional and may not be returned.
+    // The total number of entries that meet the request conditions. This parameter is optional and is not returned by default.
     shared_ptr<int32_t> totalCount_ {};
   };
 

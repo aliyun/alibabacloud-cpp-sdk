@@ -133,13 +133,13 @@ namespace Models
 
 
       protected:
-        // Architecture type.
+        // The architecture type.
         shared_ptr<string> architecture_ {};
-        // Image ID.
+        // The image ID.
         shared_ptr<string> imageId_ {};
-        // OS version identifier.
+        // The specific version identifier of the operating system.
         shared_ptr<string> osTag_ {};
-        // Platform type.
+        // The platform type.
         shared_ptr<string> platform_ {};
       };
 
@@ -190,8 +190,11 @@ namespace Models
 
 
       protected:
+        // The content of the application document.
         shared_ptr<string> document_ {};
+        // The application document ID.
         shared_ptr<string> documentId_ {};
+        // The encoding method of the application document. Base64 and PlainText are supported.
         shared_ptr<string> encodingMode_ {};
       };
 
@@ -275,11 +278,11 @@ namespace Models
 
 
         protected:
-          // Password for the username.
+          // The logon password.
           shared_ptr<string> password_ {};
-          // Registry server address.
+          // The server address of the image registry.
           shared_ptr<string> server_ {};
-          // Username to log on to the registry.
+          // The logon username.
           shared_ptr<string> userName_ {};
         };
 
@@ -345,26 +348,27 @@ namespace Models
 
 
       protected:
+        // The architecture type.
         shared_ptr<string> architecture_ {};
-        // Indicates whether the image is stored in an ACR Enterprise Edition instance. Valid values:
+        // Indicates whether the image is stored in Container Registry Enterprise Edition. Valid values:
         // 
-        // - True: yes.
-        // 
-        // - False: no.
+        // - True: Yes.
+        // - False: No.
         shared_ptr<bool> isACREnterprise_ {};
-        // Indicates whether the image is stored in an Alibaba Cloud Container Registry (ACR) instance. Valid values:
+        // Indicates whether the image is stored in Container Registry. Valid values:
         // 
-        // - True: yes.
-        // 
-        // - False: no.
+        // - True: Yes.
+        // - False: No.
         shared_ptr<bool> isACRRegistry_ {};
+        // The specific version identifier of the operating system.
         shared_ptr<string> osTag_ {};
+        // The platform type.
         shared_ptr<string> platform_ {};
-        // Authentication for a private image registry.
+        // The authentication information for the private image registry.
         shared_ptr<ContainerImageSpec::RegistryCredential> registryCredential_ {};
-        // ACR Enterprise Edition instance ID.
+        // The ID of the Container Registry Enterprise Edition instance.
         shared_ptr<string> registryCriId_ {};
-        // Container image registry URL.
+        // The access URL of the container image.
         shared_ptr<string> registryUrl_ {};
       };
 
@@ -415,8 +419,11 @@ namespace Models
 
 
       protected:
+        // The image ID in the additional region.
         shared_ptr<string> imageId_ {};
+        // The additional region ID.
         shared_ptr<string> regionId_ {};
+        // The status of the image in the additional region.
         shared_ptr<string> status_ {};
       };
 
@@ -517,27 +524,31 @@ namespace Models
 
 
     protected:
+      // The list of status information of the image in additional regions.
       shared_ptr<vector<Image::AdditionalRegionsInfo>> additionalRegionsInfo_ {};
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // Container image configuration details.
+      // The configuration details of the container image.
       shared_ptr<Image::ContainerImageSpec> containerImageSpec_ {};
-      // Image creation time.
+      // The time when the image was created. The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format, where Z represents UTC.
       shared_ptr<string> createTime_ {};
-      // Image description.
+      // The image description.
       shared_ptr<string> description_ {};
+      // The application document information associated with the image.
       shared_ptr<Image::DocumentInfo> documentInfo_ {};
-      // Image type.
+      // The image type.
       // 
       // This parameter is required.
       shared_ptr<string> imageType_ {};
-      // Image name.
+      // The image name.
       shared_ptr<string> name_ {};
-      // Image size, in GiB.
+      // The image size. Unit: GiB.
       shared_ptr<string> size_ {};
+      // The image status.
       shared_ptr<string> status_ {};
-      // Virtual machine image configuration details.
+      // The configuration details of the virtual machine image.
       shared_ptr<Image::VMImageSpec> VMImageSpec_ {};
-      // Version.
+      // The version.
       shared_ptr<string> version_ {};
     };
 
@@ -574,17 +585,16 @@ namespace Models
 
 
   protected:
-    // Image details.
+    // The image details.
     shared_ptr<GetImageResponseBody::Image> image_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation succeeded. Valid values:
+    // Indicates whether the process of executing the command and obtaining the result is successful. Valid values:
     // 
-    // - true: succeeded.
-    // 
-    // - false: failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
-    // Total number of items returned for this request.
+    // The total number of items that meet the request conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

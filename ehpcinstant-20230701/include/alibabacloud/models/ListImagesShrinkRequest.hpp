@@ -94,31 +94,30 @@ namespace Models
 
 
   protected:
-    // The source of the image. Valid values:
-    // 
-    // *   Public: public images provided by Alibaba Cloud.
-    // *   Custom: the custom image that you added.
+    // The image source. Valid values:
+    // - Public: public images provided by Alibaba Cloud
+    // - Custom: custom images added by you
     shared_ptr<string> imageCategory_ {};
     // The array of image IDs.
     shared_ptr<string> imageIdsShrink_ {};
     // The array of image names.
     shared_ptr<string> imageNamesShrink_ {};
-    // The type of the images. Valid values:
+    // The image type. Valid values:
     // 
-    // *   VM: virtual machine image.
-    // *   Container: the container image.
+    // - VM: virtual machine image
+    // - Container: container image
     // 
-    // Default value: VM
+    // Default value: VM.
     shared_ptr<string> imageType_ {};
     // The query mode. Valid values:
     // 
-    // *   List: queries the list of all corresponding image versions.
-    // *   Merge: merges images to query the latest version list.
+    // - List: Queries the list of all image versions.
+    // - Merge: Queries the list of the latest versions for each image.
     shared_ptr<string> mode_ {};
-    // The number of the page to return.\\
+    // The current page number.    
     // Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of pieces per page.\\
+    // The number of entries per page.    
     // Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
   };

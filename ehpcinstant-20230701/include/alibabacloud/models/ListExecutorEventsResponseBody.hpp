@@ -105,11 +105,11 @@ namespace Models
     protected:
       // The content of the runtime event.
       shared_ptr<string> content_ {};
-      // The Executor ID. Format: JobId-TaskName-ArrayIndex.
+      // The executor ID. Format: JobId-TaskName-ArrayIndex.
       shared_ptr<string> executorId_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
-      // The runtime event level. Valid values:
+      // The level of the runtime event. Valid values:
       // - Normal
       // - Warning
       // - Error
@@ -162,7 +162,7 @@ namespace Models
     shared_ptr<vector<ListExecutorEventsResponseBody::ExecutorEventList>> executorEventList_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging.
+    // The paging Settings for the number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

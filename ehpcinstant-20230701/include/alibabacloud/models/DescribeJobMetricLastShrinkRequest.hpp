@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The list of array job indexes.
+    // The list of job array indexes.
     shared_ptr<string> arrayIndexShrink_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The name of the task.
+    // The task name.
     shared_ptr<string> taskName_ {};
   };
 

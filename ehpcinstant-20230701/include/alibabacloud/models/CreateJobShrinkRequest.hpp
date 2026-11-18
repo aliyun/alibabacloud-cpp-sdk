@@ -109,7 +109,7 @@ namespace Models
     shared_ptr<string> deploymentPolicyShrink_ {};
     // The job description.
     shared_ptr<string> jobDescription_ {};
-    // The job name. The name must be 2 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+    // The job name. The name must be 2 to 64 characters in length and can contain Chinese characters, English letters, and digits. It can also contain hyphens (-) and underscores (_).
     // 
     // This parameter is required.
     shared_ptr<string> jobName_ {};
@@ -118,7 +118,7 @@ namespace Models
     shared_ptr<string> jobTemplateId_ {};
     // The security policy.
     shared_ptr<string> securityPolicyShrink_ {};
-    // The task list. Currently, only one task is supported.
+    // The list of tasks. Only one task is supported.
     // 
     // This parameter is required.
     shared_ptr<string> tasksShrink_ {};

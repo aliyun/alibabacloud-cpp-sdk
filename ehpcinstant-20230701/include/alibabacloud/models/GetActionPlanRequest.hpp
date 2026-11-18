@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // ID of the execution plan.
+    // The ID of the execution plan.
     shared_ptr<string> actionPlanId_ {};
   };
 

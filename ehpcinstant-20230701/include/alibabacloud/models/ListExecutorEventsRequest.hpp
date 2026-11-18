@@ -101,18 +101,18 @@ namespace Models
 
 
     protected:
-      // The list of Executor IDs. A maximum of 100 entries are supported.
+      // The list of executor IDs. You can specify up to 100 IDs.
       shared_ptr<vector<string>> executorIds_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
-      // The runtime event level. Valid values:
+      // The level of the runtime event. Valid values:
       // - Normal
       // - Warning
       // - Error
       shared_ptr<string> level_ {};
-      // Events that occurred after this time. The value is a UNIX timestamp converted from the local time of the region (UTC+8 for Chinese mainland regions).
+      // The start time of the events. Events that occur after this time are returned. The time must be a UNIX timestamp based on the time zone of the region (UTC+8 for the Chinese site).
       shared_ptr<int64_t> timeAfter_ {};
-      // Events that occurred before this time. The value is a UNIX timestamp converted from the local time of the region (UTC+8 for Chinese mainland regions).
+      // The end time of the events. Events that occur before this time are returned. The time must be a UNIX timestamp based on the time zone of the region (UTC+8 for the Chinese site).
       shared_ptr<int64_t> timeBefore_ {};
     };
 
@@ -142,13 +142,11 @@ namespace Models
 
 
   protected:
-    // The filter conditions for querying Executors.
+    // The filter conditions for querying executors.
     shared_ptr<ListExecutorEventsRequest::Filter> filter_ {};
-    // The page number.    
-    // Minimum value: 1.    
-    // Default value: 1.
+    // The page number. Starting value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging. Default value: 50. Maximum value: 100.
+    // The paging Settings for the number of entries per page in a paged query. Default value: 50. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

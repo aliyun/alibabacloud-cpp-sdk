@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The index of the array job.
+      // The job array index.
       shared_ptr<int32_t> arrayIndex_ {};
-      // The monitoring item information corresponding to the array job index.
+      // The monitoring metric information for the job array index.
       shared_ptr<string> metric_ {};
     };
 
@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The list of the JobMetric details.
+    // The list of JobMetric details.
     shared_ptr<vector<DescribeJobMetricLastResponseBody::Metrics>> metrics_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

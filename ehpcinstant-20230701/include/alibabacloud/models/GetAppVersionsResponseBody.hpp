@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The image ID of the application.
+      // The ID of the application image.
       // 
       // This parameter is required.
       shared_ptr<string> imageId_ {};
-      // The application name.
+      // The name of the application.
       shared_ptr<string> name_ {};
       // The application version.
       shared_ptr<string> version_ {};
@@ -146,19 +146,19 @@ namespace Models
   protected:
     // The list of application versions.
     shared_ptr<vector<GetAppVersionsResponseBody::AppVersions>> appVersions_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the process of executing the command and retrieving the result was successful. Valid values:
     // 
-    // true
+    // - true: Successful.
     // 
-    // false
+    // - false: Failed.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of entries that meet the request conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

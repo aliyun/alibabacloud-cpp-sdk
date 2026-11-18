@@ -73,9 +73,9 @@ namespace Models
     shared_ptr<vector<int32_t>> arrayIndex_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The metrics of the job.
+    // The job monitoring metric.
     shared_ptr<string> metricName_ {};
-    // The name of the task.
+    // The task name.
     shared_ptr<string> taskName_ {};
   };
 

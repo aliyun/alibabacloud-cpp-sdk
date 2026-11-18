@@ -143,9 +143,9 @@ namespace Models
 
 
       protected:
-        // The tag key of the executor.
+        // The executor tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value of the executor.
+        // The executor tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -212,13 +212,11 @@ namespace Models
 
 
         protected:
-          // The size of the cloud disk.
+          // The cloud disk size.
           shared_ptr<int32_t> size_ {};
-          // The type of the cloud disk. The following types are supported:
-          // 
-          // - System: The system disk.
-          // 
-          // - Data: The data disk.
+          // The cloud disk type. Valid values:
+          // - System: System cloud disk.
+          // - Data: Data cloud disk.
           shared_ptr<string> type_ {};
         };
 
@@ -255,13 +253,13 @@ namespace Models
 
 
       protected:
-        // The number of CPU cores.
+        // The number of CPUs.
         shared_ptr<float> cores_ {};
-        // An array of cloud disks.
+        // The array of cloud disks.
         shared_ptr<vector<Resource::Disks>> disks_ {};
         // The instance type of the runtime environment.
         shared_ptr<string> instanceType_ {};
-        // The total amount of memory resources. Unit: GiB.
+        // The total memory resources. Unit: GiB.
         shared_ptr<float> memory_ {};
       };
 
@@ -457,80 +455,67 @@ namespace Models
 
 
     protected:
-      // The resource type.
-      // 
+      // The resource type. Valid values:
       // - Standard: Standard.
-      // 
-      // - Dedicated: Dedicated. This type requires whitelisting.
-      // 
-      // - Economic: Economy. This type requires whitelisting.
+      // - Dedicated: Dedicated. A whitelist is required.
+      // - Economic: Economic. A whitelist is required.
       shared_ptr<string> allocationSpec_ {};
       // The application name.
       shared_ptr<string> appName_ {};
-      // The executor number.
+      // The executor index.
       shared_ptr<int32_t> arrayIndex_ {};
-      // The duration for which the compute resources are reserved.
+      // The retention period of compute resources.
       shared_ptr<int32_t> blockDuration_ {};
-      // The creation time.
+      // The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The end time.
+      // The end time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> endTime_ {};
       // The executor ID. The format is JobId-TaskName-ArrayIndex.
       shared_ptr<string> executorId_ {};
-      // The expiration time.
+      // The expiration time. The time is returned in the YYYY-MM-DD HH:mm:ss format based on the UTC+8 time zone.
       shared_ptr<string> expirationTime_ {};
-      // A list of public IP addresses of the node.
+      // The list of public IP addresses of the node.
       shared_ptr<vector<string>> externalIpAddress_ {};
-      // A list of hostnames.
+      // The list of hostnames.
       shared_ptr<vector<string>> hostName_ {};
       // The executor image.
       shared_ptr<string> image_ {};
-      // A list of private IP addresses.
+      // The list of internal IP addresses.
       shared_ptr<vector<string>> ipAddress_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
       // The job name.
       shared_ptr<string> jobName_ {};
+      // Indicates whether the execution instance is preemptible.
       shared_ptr<bool> preemptible_ {};
       // The resource information.
       shared_ptr<Executors::Resource> resource_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The start time.
+      // The start time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> startTime_ {};
-      // The status of the executor. Possible values:
-      // 
-      // - Pending: The executor is waiting in a queue.
-      // 
-      // - Initing: The executor is being initialized.
-      // 
-      // - Succeeded: The executor ran successfully.
-      // 
-      // - Failed: The executor failed to run.
-      // 
-      // - Running: The executor is running.
-      // 
-      // - Exception: A scheduling error occurred.
-      // 
-      // - Retrying: The system is retrying the executor.
-      // 
-      // - Expired: The executor timed out.
-      // 
-      // - Suspended: The job is in hibernation.
-      // 
-      // - Restarting: The job is restarting.
-      // 
-      // - Deleted: The executor is deleted.
+      // The executor status. Valid values:
+      // - Pending: Queued.
+      // - Initing: Initializing.
+      // - Succeeded: Succeeded.
+      // - Failed: Failed.
+      // - Running: Running.
+      // - Exception: Scheduling exception.
+      // - Retrying: Retrying.
+      // - Expired: Timed out.
+      // - Suspended: Job suspended.
+      // - Restarting: Job restarting.
+      // - Deleted: Deleted.
       shared_ptr<string> status_ {};
       // The description of the status reason.
       shared_ptr<string> statusReason_ {};
-      // A list of executor tags.
+      // The list of executor tags.
       shared_ptr<vector<Executors::Tags>> tags_ {};
       // The task name.
       shared_ptr<string> taskName_ {};
       // Indicates whether the job is a long-running job.
       shared_ptr<bool> taskSustainable_ {};
-      // The virtual private cloud (VPC) ID.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
       // The vSwitch ID.
       shared_ptr<string> vswitchId_ {};
@@ -578,13 +563,13 @@ namespace Models
   protected:
     // The list of executors.
     shared_ptr<vector<ListExecutorsResponseBody::Executors>> executors_ {};
-    // The current page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page in the paging Settings for a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

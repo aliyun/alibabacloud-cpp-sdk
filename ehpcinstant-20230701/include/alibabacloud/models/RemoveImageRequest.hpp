@@ -52,10 +52,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The type of the images. Valid values:
+    // The image type. Valid values:
     // 
-    // *   VM: Virtual Machine Image
-    // *   Container: container image
+    // - VM: virtual machine image
+    // - Container: container image
     shared_ptr<string> imageType_ {};
   };
 

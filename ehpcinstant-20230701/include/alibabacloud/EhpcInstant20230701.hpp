@@ -21,7 +21,7 @@ namespace EhpcInstant20230701
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Add a custom image.
+       * @summary Adds a custom image.
        *
        * @param tmpReq AddImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace EhpcInstant20230701
       Models::AddImageResponse addImageWithOptions(const Models::AddImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add a custom image.
+       * @summary Adds a custom image.
        *
        * @param request AddImageRequest
        * @return AddImageResponse
@@ -38,9 +38,9 @@ namespace EhpcInstant20230701
       Models::AddImageResponse addImage(const Models::AddImageRequest &request);
 
       /**
-       * @summary Creates an E-HPC execution plan.
+       * @summary Creates an execution plan for Elastic High Performance Computing (E-HPC).
        *
-       * @description **Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
+       * @description **Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/e-hpc/e-hpc-instant/product-overview/billing-overview) of E-HPC Instant before you call this operation.**
        *
        * @param tmpReq CreateActionPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -49,9 +49,9 @@ namespace EhpcInstant20230701
       Models::CreateActionPlanResponse createActionPlanWithOptions(const Models::CreateActionPlanRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an E-HPC execution plan.
+       * @summary Creates an execution plan for Elastic High Performance Computing (E-HPC).
        *
-       * @description **Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
+       * @description **Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/e-hpc/e-hpc-instant/product-overview/billing-overview) of E-HPC Instant before you call this operation.**
        *
        * @param request CreateActionPlanRequest
        * @return CreateActionPlanResponse
@@ -74,6 +74,23 @@ namespace EhpcInstant20230701
        * @return CreateJobResponse
        */
       Models::CreateJobResponse createJob(const Models::CreateJobRequest &request);
+
+      /**
+       * @summary Creates a job template.
+       *
+       * @param tmpReq CreateJobTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateJobTemplateResponse
+       */
+      Models::CreateJobTemplateResponse createJobTemplateWithOptions(const Models::CreateJobTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a job template.
+       *
+       * @param request CreateJobTemplateRequest
+       * @return CreateJobTemplateResponse
+       */
+      Models::CreateJobTemplateResponse createJobTemplate(const Models::CreateJobTemplateRequest &request);
 
       /**
        * @summary Creates a resource pool.
@@ -133,6 +150,23 @@ namespace EhpcInstant20230701
       Models::DeleteJobRecordsResponse deleteJobRecords(const Models::DeleteJobRecordsRequest &request);
 
       /**
+       * @summary Deletes a job template.
+       *
+       * @param request DeleteJobTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteJobTemplateResponse
+       */
+      Models::DeleteJobTemplateResponse deleteJobTemplateWithOptions(const Models::DeleteJobTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a job template.
+       *
+       * @param request DeleteJobTemplateRequest
+       * @return DeleteJobTemplateResponse
+       */
+      Models::DeleteJobTemplateResponse deleteJobTemplate(const Models::DeleteJobTemplateRequest &request);
+
+      /**
        * @summary Deletes one or more jobs from a specified cluster.
        *
        * @param tmpReq DeleteJobsRequest
@@ -167,7 +201,7 @@ namespace EhpcInstant20230701
       Models::DeletePoolResponse deletePool(const Models::DeletePoolRequest &request);
 
       /**
-       * @summary You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
+       * @summary Queries the monitoring time series dataset of a job by specifying the job array index and monitoring metric parameters.
        *
        * @param tmpReq DescribeJobMetricDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -176,7 +210,7 @@ namespace EhpcInstant20230701
       Models::DescribeJobMetricDataResponse describeJobMetricDataWithOptions(const Models::DescribeJobMetricDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
+       * @summary Queries the monitoring time series dataset of a job by specifying the job array index and monitoring metric parameters.
        *
        * @param request DescribeJobMetricDataRequest
        * @return DescribeJobMetricDataResponse
@@ -184,7 +218,7 @@ namespace EhpcInstant20230701
       Models::DescribeJobMetricDataResponse describeJobMetricData(const Models::DescribeJobMetricDataRequest &request);
 
       /**
-       * @summary Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
+       * @summary Queries all real-time monitoring metrics for a job array by specifying a list of job array indexes.
        *
        * @param tmpReq DescribeJobMetricLastRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -193,7 +227,7 @@ namespace EhpcInstant20230701
       Models::DescribeJobMetricLastResponse describeJobMetricLastWithOptions(const Models::DescribeJobMetricLastRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
+       * @summary Queries all real-time monitoring metrics for a job array by specifying a list of job array indexes.
        *
        * @param request DescribeJobMetricLastRequest
        * @return DescribeJobMetricLastResponse
@@ -235,7 +269,7 @@ namespace EhpcInstant20230701
       Models::GetActionPlanResponse getActionPlan(const Models::GetActionPlanRequest &request);
 
       /**
-       * @summary Obtains the application version list.
+       * @summary Retrieves a list of application versions.
        *
        * @param request GetAppVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -244,7 +278,7 @@ namespace EhpcInstant20230701
       Models::GetAppVersionsResponse getAppVersionsWithOptions(const Models::GetAppVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the application version list.
+       * @summary Retrieves a list of application versions.
        *
        * @param request GetAppVersionsRequest
        * @return GetAppVersionsResponse
@@ -252,7 +286,7 @@ namespace EhpcInstant20230701
       Models::GetAppVersionsResponse getAppVersions(const Models::GetAppVersionsRequest &request);
 
       /**
-       * @summary Get image details.
+       * @summary Retrieves the details of an image.
        *
        * @param tmpReq GetImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -261,7 +295,7 @@ namespace EhpcInstant20230701
       Models::GetImageResponse getImageWithOptions(const Models::GetImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get image details.
+       * @summary Retrieves the details of an image.
        *
        * @param request GetImageRequest
        * @return GetImageResponse
@@ -269,7 +303,7 @@ namespace EhpcInstant20230701
       Models::GetImageResponse getImage(const Models::GetImageRequest &request);
 
       /**
-       * @summary Retrieves the details of a job.
+       * @summary Retrieves the details of a job execution.
        *
        * @param request GetJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -278,7 +312,7 @@ namespace EhpcInstant20230701
       Models::GetJobResponse getJobWithOptions(const Models::GetJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a job.
+       * @summary Retrieves the details of a job execution.
        *
        * @param request GetJobRequest
        * @return GetJobResponse
@@ -286,7 +320,7 @@ namespace EhpcInstant20230701
       Models::GetJobResponse getJob(const Models::GetJobRequest &request);
 
       /**
-       * @summary Retrieves the job record retention period.
+       * @summary Retrieves the retention period of job records.
        *
        * @param request GetJobRecordDurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -295,12 +329,29 @@ namespace EhpcInstant20230701
       Models::GetJobRecordDurationResponse getJobRecordDurationWithOptions(const Models::GetJobRecordDurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the job record retention period.
+       * @summary Retrieves the retention period of job records.
        *
        * @param request GetJobRecordDurationRequest
        * @return GetJobRecordDurationResponse
        */
       Models::GetJobRecordDurationResponse getJobRecordDuration(const Models::GetJobRecordDurationRequest &request);
+
+      /**
+       * @summary Queries the details of a job template.
+       *
+       * @param request GetJobTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetJobTemplateResponse
+       */
+      Models::GetJobTemplateResponse getJobTemplateWithOptions(const Models::GetJobTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a job template.
+       *
+       * @param request GetJobTemplateRequest
+       * @return GetJobTemplateResponse
+       */
+      Models::GetJobTemplateResponse getJobTemplate(const Models::GetJobTemplateRequest &request);
 
       /**
        * @summary Retrieves the details of a resource pool.
@@ -354,9 +405,9 @@ namespace EhpcInstant20230701
       Models::ListActionPlansResponse listActionPlans(const Models::ListActionPlansRequest &request);
 
       /**
-       * @summary Queries the runtime event list of one or more Executors.
+       * @summary Queries the runtime events of one or more executors.
        *
-       * @description Queries the Executor information of a job.
+       * @description Queries the executor information of a job.
        *
        * @param tmpReq ListExecutorEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -365,9 +416,9 @@ namespace EhpcInstant20230701
       Models::ListExecutorEventsResponse listExecutorEventsWithOptions(const Models::ListExecutorEventsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the runtime event list of one or more Executors.
+       * @summary Queries the runtime events of one or more executors.
        *
-       * @description Queries the Executor information of a job.
+       * @description Queries the executor information of a job.
        *
        * @param request ListExecutorEventsRequest
        * @return ListExecutorEventsResponse
@@ -375,7 +426,7 @@ namespace EhpcInstant20230701
       Models::ListExecutorEventsResponse listExecutorEvents(const Models::ListExecutorEventsRequest &request);
 
       /**
-       * @summary Queries information about global executors.
+       * @summary Queries global executor information.
        *
        * @param tmpReq ListExecutorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -384,7 +435,7 @@ namespace EhpcInstant20230701
       Models::ListExecutorsResponse listExecutorsWithOptions(const Models::ListExecutorsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about global executors.
+       * @summary Queries global executor information.
        *
        * @param request ListExecutorsRequest
        * @return ListExecutorsResponse
@@ -430,7 +481,24 @@ namespace EhpcInstant20230701
       Models::ListJobExecutorsResponse listJobExecutors(const Models::ListJobExecutorsRequest &request);
 
       /**
-       * @summary Returns a list of jobs.
+       * @summary Queries job templates.
+       *
+       * @param request ListJobTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListJobTemplatesResponse
+       */
+      Models::ListJobTemplatesResponse listJobTemplatesWithOptions(const Models::ListJobTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries job templates.
+       *
+       * @param request ListJobTemplatesRequest
+       * @return ListJobTemplatesResponse
+       */
+      Models::ListJobTemplatesResponse listJobTemplates(const Models::ListJobTemplatesRequest &request);
+
+      /**
+       * @summary Queries a list of jobs.
        *
        * @param tmpReq ListJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -439,7 +507,7 @@ namespace EhpcInstant20230701
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Returns a list of jobs.
+       * @summary Queries a list of jobs.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse
@@ -447,7 +515,7 @@ namespace EhpcInstant20230701
       Models::ListJobsResponse listJobs(const Models::ListJobsRequest &request);
 
       /**
-       * @summary Lists resource pools.
+       * @summary Queries the list of resource pools.
        *
        * @param tmpReq ListPoolsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -456,7 +524,7 @@ namespace EhpcInstant20230701
       Models::ListPoolsResponse listPoolsWithOptions(const Models::ListPoolsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists resource pools.
+       * @summary Queries the list of resource pools.
        *
        * @param request ListPoolsRequest
        * @return ListPoolsResponse
@@ -481,7 +549,7 @@ namespace EhpcInstant20230701
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Remove a custom image
+       * @summary Removes a custom image.
        *
        * @param request RemoveImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -490,7 +558,7 @@ namespace EhpcInstant20230701
       Models::RemoveImageResponse removeImageWithOptions(const Models::RemoveImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Remove a custom image
+       * @summary Removes a custom image.
        *
        * @param request RemoveImageRequest
        * @return RemoveImageResponse
@@ -498,7 +566,7 @@ namespace EhpcInstant20230701
       Models::RemoveImageResponse removeImage(const Models::RemoveImageRequest &request);
 
       /**
-       * @summary Application cross-region synchronization
+       * @summary Synchronizes an application across regions.
        *
        * @param tmpReq SynchronizeAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -507,7 +575,7 @@ namespace EhpcInstant20230701
       Models::SynchronizeAppResponse synchronizeAppWithOptions(const Models::SynchronizeAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Application cross-region synchronization
+       * @summary Synchronizes an application across regions.
        *
        * @param request SynchronizeAppRequest
        * @return SynchronizeAppResponse
@@ -549,7 +617,7 @@ namespace EhpcInstant20230701
       Models::UnTagResourcesResponse unTagResources(const Models::UnTagResourcesRequest &request);
 
       /**
-       * @summary Adjust the resource scale of the execution plan or modify the execution status
+       * @summary Modifies the resource scale or status of an execution plan.
        *
        * @param request UpdateActionPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -558,7 +626,7 @@ namespace EhpcInstant20230701
       Models::UpdateActionPlanResponse updateActionPlanWithOptions(const Models::UpdateActionPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adjust the resource scale of the execution plan or modify the execution status
+       * @summary Modifies the resource scale or status of an execution plan.
        *
        * @param request UpdateActionPlanRequest
        * @return UpdateActionPlanResponse
@@ -566,7 +634,7 @@ namespace EhpcInstant20230701
       Models::UpdateActionPlanResponse updateActionPlan(const Models::UpdateActionPlanRequest &request);
 
       /**
-       * @summary Updates the job record duration.
+       * @summary Updates the job retention period.
        *
        * @param request UpdateJobRecordDurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -575,12 +643,29 @@ namespace EhpcInstant20230701
       Models::UpdateJobRecordDurationResponse updateJobRecordDurationWithOptions(const Models::UpdateJobRecordDurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the job record duration.
+       * @summary Updates the job retention period.
        *
        * @param request UpdateJobRecordDurationRequest
        * @return UpdateJobRecordDurationResponse
        */
       Models::UpdateJobRecordDurationResponse updateJobRecordDuration(const Models::UpdateJobRecordDurationRequest &request);
+
+      /**
+       * @summary Updates a job template.
+       *
+       * @param tmpReq UpdateJobTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateJobTemplateResponse
+       */
+      Models::UpdateJobTemplateResponse updateJobTemplateWithOptions(const Models::UpdateJobTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a job template.
+       *
+       * @param request UpdateJobTemplateRequest
+       * @return UpdateJobTemplateResponse
+       */
+      Models::UpdateJobTemplateResponse updateJobTemplate(const Models::UpdateJobTemplateRequest &request);
 
       /**
        * @summary Updates the configuration of a resource pool.

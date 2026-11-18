@@ -145,11 +145,11 @@ namespace Models
 
 
       protected:
-        // The password of the logon user.
+        // The logon password.
         shared_ptr<string> password_ {};
-        // The registered address of the image repository.
+        // The registry address of the image repository.
         shared_ptr<string> server_ {};
-        // The username of the logon user.
+        // The logon username.
         shared_ptr<string> userName_ {};
       };
 
@@ -193,21 +193,21 @@ namespace Models
 
 
     protected:
-      // Whether the instance is an Alibaba Cloud image repository Enterprise Edition.
+      // Specifies whether the image is stored in Alibaba Cloud Container Registry Enterprise Edition. Valid values:
       // 
-      // *   True
-      // *   False
+      // - True: yes
+      // - False: no
       shared_ptr<bool> isACREnterprise_ {};
-      // Whether it is an Alibaba Cloud image repository.
+      // Specifies whether the image is stored in Alibaba Cloud Container Registry. Valid values:
       // 
-      // *   True
-      // *   False
+      // - True: yes
+      // - False: no
       shared_ptr<bool> isACRRegistry_ {};
-      // The authentication of the private image repository.
+      // The authentication credentials for the private image repository.
       shared_ptr<ContainerImageSpec::RegistryCredential> registryCredential_ {};
-      // The ID of the Container Registry Enterprise Edition image repository.
+      // The ID of the Container Registry Enterprise Edition instance.
       shared_ptr<string> registryCriId_ {};
-      // The endpoint of the container image.
+      // The access URL of the container image.
       shared_ptr<string> registryUrl_ {};
     };
 
@@ -260,22 +260,22 @@ namespace Models
 
 
   protected:
-    // The configurations of the container image.
+    // The container image configuration.
     shared_ptr<AddImageRequest::ContainerImageSpec> containerImageSpec_ {};
-    // The description of the image.
+    // The image description.
     shared_ptr<string> description_ {};
-    // The type of the images. Valid values:
+    // The image type. Valid values:
     // 
-    // *   VM: virtual machine image.
-    // *   Container: the container image.
+    // - VM: virtual machine image
+    // - Container: container image
     shared_ptr<string> imageType_ {};
-    // The version of the image.
+    // The image version.
     shared_ptr<string> imageVersion_ {};
-    // The name of the custom image.
+    // The image name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The image configuration of the virtual machine.
+    // The virtual machine image configuration.
     shared_ptr<AddImageRequest::VMImageSpec> VMImageSpec_ {};
   };
 

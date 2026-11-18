@@ -68,18 +68,16 @@ namespace Models
   protected:
     // The ID of the execution plan.
     shared_ptr<string> actionPlanId_ {};
-    // The expected scale of resources for the execution plan. If the ResourceType parameter is set to VcpuCapacity, the execution plan is expected to have 10000 vCPUs.
+    // The expected resource scale of the execution plan. If ResourceType is set to VcpuCapacity, this field indicates that the execution plan expects to maintain 10,000 vCPUs.
     shared_ptr<float> desiredCapacity_ {};
-    // Whether to enable the execution plan. Valid values:
+    // Specifies whether to enable the execution plan. Valid values:
     // 
-    // *   true: enables the execution plan.
+    // - true: Enables the execution plan.
     // 
-    // *   false: The execution plan is disabled.
-    // 
-    //     **
-    // 
-    //     **Note:** After an execution plan is disabled, the created Instant jobs are not automatically managed by the execution plan.
+    // - false: Disables the execution plan.
+    // >Notice: After the execution plan is disabled, already created Instant jobs are no longer automatically managed by the execution plan.
     shared_ptr<string> enabled_ {};
+    // The scheduling interval of the execution plan. Unit: minutes. Valid values: 10 to 10080. Default value: 60.
     shared_ptr<int32_t> intervalMinutes_ {};
   };
 

@@ -74,7 +74,7 @@ namespace Models
 
 
     protected:
-      // The list of executor IDs contained in the task.
+      // The list of executor IDs included in the task.
       shared_ptr<vector<string>> executorIds_ {};
       // The task name.
       shared_ptr<string> taskName_ {};
@@ -110,7 +110,7 @@ namespace Models
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task list.
+    // The list of tasks.
     shared_ptr<vector<CreateJobResponseBody::Tasks>> tasks_ {};
   };
 

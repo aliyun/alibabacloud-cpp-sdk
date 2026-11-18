@@ -74,17 +74,15 @@ namespace Models
 
 
     protected:
-      // The field to sort by. Valid values:
+      // The sorting label. Valid values:
       // 
       // - time_start
-      // 
       // - job_name
       shared_ptr<string> label_ {};
-      // The sort order. Valid values:
+      // The sorting order. Valid values:
       // 
-      // - ASC (default): Ascending
-      // 
-      // - DESC: Descending
+      // - ASC: ascending order. This is the default value.
+      // - DESC: descending order.
       shared_ptr<string> order_ {};
     };
 
@@ -161,7 +159,9 @@ namespace Models
 
 
       protected:
+        // The key of the job tag.
         shared_ptr<string> key_ {};
+        // The value of the job tag.
         shared_ptr<string> value_ {};
       };
 
@@ -236,41 +236,35 @@ namespace Models
 
 
     protected:
-      // The ID of the job.
+      // The job ID.
       shared_ptr<string> jobId_ {};
+      // Filters jobs by a list of job IDs. A maximum of 100 job IDs are supported.
       shared_ptr<vector<string>> jobIds_ {};
-      // The name of the job. Fuzzy search is supported.
+      // The job name. Fuzzy match is supported.
       shared_ptr<string> jobName_ {};
+      // The ID of the job template.
       shared_ptr<string> jobTemplateId_ {};
+      // The name of the resource pool.
       shared_ptr<string> poolName_ {};
-      // The status of the job. Valid values:
+      // The job status. Valid values:
       // 
-      // - Pending: The job is in the queue.
-      // 
-      // - Initing: The job is initializing.
-      // 
-      // - Succeeded: The job was successful.
-      // 
-      // - Failed: The job failed.
-      // 
+      // - Pending: The job is queued.
+      // - Initing: The job is being initialized.
+      // - Succeeded: The job ran successfully.
+      // - Failed: The job failed to run.
       // - Running: The job is running.
-      // 
       // - Exception: A scheduling exception occurred.
-      // 
       // - Retrying: The job is being retried.
-      // 
       // - Expired: The job timed out.
-      // 
-      // - Suspended: The job is in hibernation.
-      // 
-      // - Restarting: The job is restarting.
-      // 
+      // - Suspended: The job is hibernated.
+      // - Restarting: The job is being restarted.
       // - Deleted: The job is deleted.
       shared_ptr<string> status_ {};
+      // The list of job tags.
       shared_ptr<vector<Filter::Tag>> tag_ {};
-      // The time after which the jobs were submitted. This is a UNIX timestamp based on the local time of the region. For sites in the Chinese mainland, the time zone is UTC+8.
+      // The time after which jobs were submitted. The time is converted to a UNIX timestamp based on the time zone of the region. For regions in the Chinese mainland, the time zone is UTC+8.
       shared_ptr<int32_t> timeCreatedAfter_ {};
-      // The time before which the jobs were submitted. This is a UNIX timestamp based on the local time of the region. For sites in the Chinese mainland, the time zone is UTC+8.
+      // The time before which jobs were submitted. The time is converted to a UNIX timestamp based on the time zone of the region. For regions in the Chinese mainland, the time zone is UTC+8.
       shared_ptr<int32_t> timeCreatedBefore_ {};
     };
 
@@ -311,13 +305,9 @@ namespace Models
   protected:
     // The filter conditions for querying jobs.
     shared_ptr<ListJobsRequest::Filter> filter_ {};
-    // The current page number.
-    // 
-    // Start value: 1
-    // 
-    // Default value: 1
+    // The page number. Starting value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. The default value is 50. The maximum value is 100.
+    // The paging Settings for the number of entries per page in a paged query. Default value: 50. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The sorting method.
     shared_ptr<ListJobsRequest::SortBy> sortBy_ {};

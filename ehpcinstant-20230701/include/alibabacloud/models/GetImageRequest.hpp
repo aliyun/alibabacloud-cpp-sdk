@@ -69,22 +69,20 @@ namespace Models
 
 
   protected:
+    // The list of additional region IDs for which to query image information.
     shared_ptr<vector<string>> additionalRegionIds_ {};
-    // Image source. Valid values:
-    // 
-    // - Public: public images provided by Alibaba Cloud.
-    // 
-    // - Custom: custom images that you added.
+    // The image source. Valid values:
+    // - Public: public images provided by Alibaba Cloud
+    // - Custom: custom images added by you
     shared_ptr<string> imageCategory_ {};
-    // Image ID.
+    // The image ID.
     shared_ptr<string> imageId_ {};
-    // Image type. Valid values:
+    // The image type. Valid values:
     // 
-    // - VM: virtual machine image.
+    // - VM: virtual machine image
+    // - Container: container image
     // 
-    // - Container: container image.
-    // 
-    // Default value: VM
+    // Default value: VM.
     shared_ptr<string> imageType_ {};
   };
 

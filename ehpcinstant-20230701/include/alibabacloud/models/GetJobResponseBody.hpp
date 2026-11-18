@@ -174,8 +174,20 @@ namespace Models
 
 
           protected:
+            // The list of mount parameters for the data volume. The parameters are key-value pairs in JSON format.
+            // - Format for mounting a NAS file system: {"server":"xxxxx-xxxxx.cn-heyuan.nas.aliyuncs.com","vers":"3","path":"/data","options":"nolock,tcp,noresvport"}
+            // > server specifies the mount target address of the NAS file system. path specifies the subdirectory under the NAS path, which must start with / and must already exist. vers specifies the NFS protocol version used to mount the NAS file system. Use v3. options specifies the custom parameters used when mounting the NAS file system, in the format of "xxx,xxx,xxx".
+            // 
+            // - Format for mounting an OSS bucket: {"bucket":"xxxxx", "url":"oss-cn-heyuan-internal.aliyuncs.com","path":"/data","akId":"xxxxx","akSecret":"xxxxx"}
+            // > bucket specifies the name of the OSS bucket. url specifies the endpoint of the OSS bucket. You can log on to the OSS console and obtain the endpoint on the Overview page of the bucket. path specifies the directory structure relative to the root directory of the bucket when mounting. The default value is /, and the directory must already exist. akId specifies the AccessKey ID used for direct authorization with an AccessKey pair. akSecret specifies the AccessKey secret used for direct authorization with an AccessKey pair.
             shared_ptr<string> mountOptions_ {};
+            // The directory where the data volume is mounted to the task.
+            // 
+            // > The content in the mount directory will be directly overwritten by the content of the volume. Use this parameter with caution.
             shared_ptr<string> mountPath_ {};
+            // The supported data volume types. Valid values:
+            // - alicloud/nas: Mount a NAS file system.
+            // - alicloud/oss: Mount an OSS bucket.
             shared_ptr<string> volumeDriver_ {};
           };
 
@@ -247,9 +259,9 @@ namespace Models
             protected:
               // The image ID.
               shared_ptr<string> image_ {};
-              // The pre-processing script. The script must be Base64-encoded.
+              // The pre-processing script. Base64 encoding is required.
               shared_ptr<string> prologScript_ {};
-              // The job execution script. The script must be Base64-encoded.
+              // The script used to run the job. Base64 encoding is required.
               shared_ptr<string> script_ {};
             };
 
@@ -264,7 +276,7 @@ namespace Models
 
 
           protected:
-            // The ECS instance configuration.
+            // The ECS instance used.
             shared_ptr<TaskExecutor::VM> VM_ {};
           };
 
@@ -327,7 +339,13 @@ namespace Models
 
 
             protected:
+              // The next action for the task. Valid values:
+              // 
+              // - Retry: The job starts a new retry when a specific exit code is matched.
+              // 
+              // - Exit: The job exits when a specific exit code is matched.
               shared_ptr<string> action_ {};
+              // The task exit code, which is used together with Action to form a job retry rule. Valid values: 0 to 255.
               shared_ptr<int64_t> exitCode_ {};
             };
 
@@ -350,7 +368,9 @@ namespace Models
 
 
           protected:
+            // The retry rules. A maximum of 10 rules are supported.
             shared_ptr<vector<RetryPolicy::ExitCodeActions>> exitCodeActions_ {};
+            // The number of retries. Valid values: 1 to 10. Default value: 3.
             shared_ptr<int32_t> retryCount_ {};
           };
 
@@ -425,8 +445,8 @@ namespace Models
               shared_ptr<int32_t> size_ {};
               // The cloud disk type. Valid values:
               // 
-              // - System: system cloud disk.
-              // - Data: data cloud disk.
+              // - System: System cloud disk.
+              // - Data: Data cloud disk.
               shared_ptr<string> type_ {};
             };
 
@@ -483,8 +503,15 @@ namespace Models
             shared_ptr<float> cores_ {};
             // The cloud disk array.
             shared_ptr<vector<Resource::Disks>> disks_ {};
+            // Specifies whether to enable hyper-threading for the runtime environment. Default value: true.
             shared_ptr<bool> enableHT_ {};
+            // The hostname prefix of the runtime environment. The limits are as follows:
+            // 
+            // - A period (.) and a hyphen (-) cannot be used as the first or last character, and cannot be used consecutively.
+            // - Windows environment: The length cannot exceed 10 characters. Periods (.) are not supported, and the name cannot contain only digits. Uppercase and lowercase letters, digits, and hyphens (-) are allowed.
+            // - Linux environment: The length cannot exceed 32 characters. Multiple periods (.) are supported. The string between periods is considered a segment, and each segment can contain uppercase and lowercase letters, digits, and hyphens (-).
             shared_ptr<string> hostNamePrefix_ {};
+            // The instance types of the runtime environment. A maximum of 5 instance types are supported.
             shared_ptr<vector<string>> instanceTypes_ {};
             // The total amount of memory resources. Unit: GiB.
             shared_ptr<int32_t> memory_ {};
@@ -531,9 +558,11 @@ namespace Models
         protected:
           // The resource information.
           shared_ptr<TaskSpec::Resource> resource_ {};
+          // The task retry policy.
           shared_ptr<TaskSpec::RetryPolicy> retryPolicy_ {};
           // The task execution configuration.
           shared_ptr<vector<TaskSpec::TaskExecutor>> taskExecutor_ {};
+          // The list of data volumes mounted to the task. A maximum of 10 data volumes are supported.
           shared_ptr<vector<TaskSpec::VolumeMount>> volumeMount_ {};
         };
 
@@ -611,17 +640,17 @@ namespace Models
 
 
         protected:
-          // The subtask ID.
+          // The sub-job ID.
           shared_ptr<int32_t> arrayId_ {};
-          // The job creation time.
+          // The time when the job was created. The example uses the YYYY-MM-DD HH:mm:ss format.
           shared_ptr<string> createTime_ {};
-          // The job end time.
+          // The time when the job ended. The example uses the YYYY-MM-DD HH:mm:ss format.
           shared_ptr<string> endTime_ {};
-          // The job start time.
+          // The time when the job started. The example uses the YYYY-MM-DD HH:mm:ss format.
           shared_ptr<string> startTime_ {};
           // The job status.
           shared_ptr<string> status_ {};
-          // The status reason description.
+          // The description of the status reason.
           shared_ptr<string> statusReason_ {};
         };
 
@@ -693,12 +722,12 @@ namespace Models
 
 
           protected:
-            // The end value of the array job index. Valid values: 0 to 4999. The value must be greater than or equal to IndexStart.
+            // The end value of the array job index. Valid values: 0 to 4999. The value must be greater than or equal to the value of IndexStart.
             shared_ptr<int32_t> indexEnd_ {};
             // The start value of the array job index. Valid values: 0 to 4999.
             shared_ptr<int32_t> indexStart_ {};
-            // The interval of the array job index.
-            // > If the array job properties are IndexStart=1, IndexEnd=5, and IndexStep=2, the array job contains three subtasks with indexes 1, 3, and 5.
+            // The step size of the array job index.
+            // > If the array job attributes are IndexStart=1, IndexEnd=5, and IndexStep=2, the array job contains three subtasks with indexes 1, 3, and 5.
             shared_ptr<int32_t> indexStep_ {};
           };
 
@@ -723,7 +752,7 @@ namespace Models
         protected:
           // The array job details.
           shared_ptr<ExecutorPolicy::ArraySpec> arraySpec_ {};
-          // The maximum number of nodes for running the job.
+          // The maximum number of nodes for job execution.
           shared_ptr<int32_t> maxCount_ {};
         };
 
@@ -779,7 +808,7 @@ namespace Models
         shared_ptr<string> taskName_ {};
         // The task specification details.
         shared_ptr<Tasks::TaskSpec> taskSpec_ {};
-        // Indicates whether the job is a long-running job.
+        // Specifies whether the job is a long-running job.
         shared_ptr<bool> taskSustainable_ {};
       };
 
@@ -832,6 +861,7 @@ namespace Models
 
 
         protected:
+          // The security group ID array.
           shared_ptr<vector<string>> securityGroupIds_ {};
         };
 
@@ -846,6 +876,7 @@ namespace Models
 
 
       protected:
+        // The security group.
         shared_ptr<SecurityPolicy::SecurityGroup> securityGroup_ {};
       };
 
@@ -971,13 +1002,13 @@ namespace Models
 
 
         protected:
-          // Indicates whether resources are created in the zone that corresponds to the specified vSwitch.
+          // Specifies whether the resource is created in the zone corresponding to the specified vSwitch parameter. Valid values:
           // 
-          // - true: Resources are created in the zone that corresponds to the specified vSwitch.
+          // - true: The resource is created in the zone corresponding to the specified vSwitch parameter.
           // 
-          // - false: Resources are created in any zone that has available resources.
+          // - false: The resource is created in any zone with available resources.
           shared_ptr<bool> enableENIMapping_ {};
-          // Indicates whether a public IP address is created.
+          // Specifies whether to create a public IP address.
           shared_ptr<bool> enableExternalIpAddress_ {};
           // The vSwitch array.
           shared_ptr<vector<string>> vswitch_ {};
@@ -1035,18 +1066,18 @@ namespace Models
         // The resource type. Currently, only Dedicated is supported. You must be added to the whitelist to use this feature.
         shared_ptr<string> allocationSpec_ {};
         // The computing power level. Valid values:
-        // - General: general-purpose.
-        // - Performance: performance-optimized.
+        // - General: General-purpose.
+        // - Performance: Performance-optimized.
         // 
         // Default value: General.
         shared_ptr<string> level_ {};
-        // The network configuration.
+        // The network configuration information.
         shared_ptr<DeploymentPolicy::Network> network_ {};
         // The resource pool.
         shared_ptr<string> pool_ {};
         // The priority.
         shared_ptr<int32_t> priority_ {};
-        // The job tag list.
+        // The list of job tags.
         shared_ptr<vector<DeploymentPolicy::Tags>> tags_ {};
       };
 
@@ -1107,7 +1138,16 @@ namespace Models
 
 
         protected:
+          // The job ID.
           shared_ptr<string> jobId_ {};
+          // The dependency type. Valid values:
+          // 
+          // - AfterSucceeded: All subtasks of the dependent job or array job run successfully (the exit code is 0).
+          // - AfterFailed: Any subtask of the dependent job or array job fails (the exit code is not 0).
+          // - AfterAny: The dependent job finishes running, regardless of success or failure.
+          // - AfterCorresponding: The corresponding subtask of the dependent array job runs successfully (the exit code is 0).
+          // 
+          // Default value: AfterSucceeded.
           shared_ptr<string> type_ {};
         };
 
@@ -1122,6 +1162,7 @@ namespace Models
 
 
       protected:
+        // The job dependencies. A maximum of 10 dependencies are supported.
         shared_ptr<vector<DependencyPolicy::JobDependency>> jobDependency_ {};
       };
 
@@ -1229,14 +1270,15 @@ namespace Models
 
 
     protected:
-      // The application additional information.
+      // The additional application information.
       shared_ptr<string> appExtraInfo_ {};
-      // The job submission time.
+      // The time when the job was submitted. The example uses the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
+      // The dependency policy.
       shared_ptr<JobInfo::DependencyPolicy> dependencyPolicy_ {};
       // The resource deployment policy.
       shared_ptr<JobInfo::DeploymentPolicy> deploymentPolicy_ {};
-      // The job end time.
+      // The time when the job ended. The example uses the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> endTime_ {};
       // The job description.
       shared_ptr<string> jobDescription_ {};
@@ -1245,21 +1287,22 @@ namespace Models
       // The job name.
       shared_ptr<string> jobName_ {};
       shared_ptr<string> jobScheduler_ {};
+      // The security policy.
       shared_ptr<JobInfo::SecurityPolicy> securityPolicy_ {};
-      // The job start time.
+      // The time when the job started. The example uses the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> startTime_ {};
       // The job status. Valid values:
       // 
       // - Pending: The job is queued.
       // - Initing: The job is being initialized.
       // - Succeed: The job ran successfully.
-      // - Failed: The job failed.
+      // - Failed: The job failed to run.
       // - Running: The job is running.
       // - Exception: A scheduling exception occurred.
       // - Retrying: The job is being retried.
       // - Expired: The job timed out.
-      // - Deleted: The job has been deleted.
-      // - Suspended: The job is in hibernation.
+      // - Deleted: The job is deleted.
+      // - Suspended: The job is hibernated.
       // - Restarting: The job is being restarted.
       shared_ptr<string> status_ {};
       // The task list. Currently, only one task is supported.

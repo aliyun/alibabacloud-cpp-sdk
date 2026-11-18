@@ -84,22 +84,22 @@ namespace Models
 
 
   protected:
-    // The configurations of the container image.
+    // The container image configuration.
     shared_ptr<string> containerImageSpecShrink_ {};
-    // The description of the image.
+    // The image description.
     shared_ptr<string> description_ {};
-    // The type of the images. Valid values:
+    // The image type. Valid values:
     // 
-    // *   VM: virtual machine image.
-    // *   Container: the container image.
+    // - VM: virtual machine image
+    // - Container: container image
     shared_ptr<string> imageType_ {};
-    // The version of the image.
+    // The image version.
     shared_ptr<string> imageVersion_ {};
-    // The name of the custom image.
+    // The image name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The image configuration of the virtual machine.
+    // The virtual machine image configuration.
     shared_ptr<string> VMImageSpecShrink_ {};
   };
 

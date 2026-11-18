@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // Monitoring statistics points.
+    // The monitoring statistics data points.
     shared_ptr<string> dataPoints_ {};
     // The statistical period of the monitoring data. Valid values: 15, 60, 900, and 3600. Unit: seconds.
     shared_ptr<int32_t> period_ {};

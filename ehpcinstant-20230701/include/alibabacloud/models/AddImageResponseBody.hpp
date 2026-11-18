@@ -61,10 +61,10 @@ namespace Models
     shared_ptr<string> imageId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the command execution and result retrieval were successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: successful
+    // - false: failed
     shared_ptr<bool> success_ {};
   };
 

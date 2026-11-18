@@ -14,6 +14,10 @@
 #include <alibabacloud/models/CreateJobShrinkRequest.hpp>
 #include <alibabacloud/models/CreateJobResponseBody.hpp>
 #include <alibabacloud/models/CreateJobResponse.hpp>
+#include <alibabacloud/models/CreateJobTemplateRequest.hpp>
+#include <alibabacloud/models/CreateJobTemplateShrinkRequest.hpp>
+#include <alibabacloud/models/CreateJobTemplateResponseBody.hpp>
+#include <alibabacloud/models/CreateJobTemplateResponse.hpp>
 #include <alibabacloud/models/CreatePoolRequest.hpp>
 #include <alibabacloud/models/CreatePoolShrinkRequest.hpp>
 #include <alibabacloud/models/CreatePoolResponseBody.hpp>
@@ -25,6 +29,9 @@
 #include <alibabacloud/models/DeleteJobRecordsShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteJobRecordsResponseBody.hpp>
 #include <alibabacloud/models/DeleteJobRecordsResponse.hpp>
+#include <alibabacloud/models/DeleteJobTemplateRequest.hpp>
+#include <alibabacloud/models/DeleteJobTemplateResponseBody.hpp>
+#include <alibabacloud/models/DeleteJobTemplateResponse.hpp>
 #include <alibabacloud/models/DeleteJobsRequest.hpp>
 #include <alibabacloud/models/DeleteJobsShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteJobsResponseBody.hpp>
@@ -59,6 +66,9 @@
 #include <alibabacloud/models/GetJobRecordDurationRequest.hpp>
 #include <alibabacloud/models/GetJobRecordDurationResponseBody.hpp>
 #include <alibabacloud/models/GetJobRecordDurationResponse.hpp>
+#include <alibabacloud/models/GetJobTemplateRequest.hpp>
+#include <alibabacloud/models/GetJobTemplateResponseBody.hpp>
+#include <alibabacloud/models/GetJobTemplateResponse.hpp>
 #include <alibabacloud/models/GetPoolRequest.hpp>
 #include <alibabacloud/models/GetPoolResponseBody.hpp>
 #include <alibabacloud/models/GetPoolResponse.hpp>
@@ -84,6 +94,9 @@
 #include <alibabacloud/models/ListJobExecutorsRequest.hpp>
 #include <alibabacloud/models/ListJobExecutorsResponseBody.hpp>
 #include <alibabacloud/models/ListJobExecutorsResponse.hpp>
+#include <alibabacloud/models/ListJobTemplatesRequest.hpp>
+#include <alibabacloud/models/ListJobTemplatesResponseBody.hpp>
+#include <alibabacloud/models/ListJobTemplatesResponse.hpp>
 #include <alibabacloud/models/ListJobsRequest.hpp>
 #include <alibabacloud/models/ListJobsShrinkRequest.hpp>
 #include <alibabacloud/models/ListJobsResponseBody.hpp>
@@ -114,6 +127,10 @@
 #include <alibabacloud/models/UpdateJobRecordDurationRequest.hpp>
 #include <alibabacloud/models/UpdateJobRecordDurationResponseBody.hpp>
 #include <alibabacloud/models/UpdateJobRecordDurationResponse.hpp>
+#include <alibabacloud/models/UpdateJobTemplateRequest.hpp>
+#include <alibabacloud/models/UpdateJobTemplateShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateJobTemplateResponseBody.hpp>
+#include <alibabacloud/models/UpdateJobTemplateResponse.hpp>
 #include <alibabacloud/models/UpdatePoolRequest.hpp>
 #include <alibabacloud/models/UpdatePoolShrinkRequest.hpp>
 #include <alibabacloud/models/UpdatePoolResponseBody.hpp>
