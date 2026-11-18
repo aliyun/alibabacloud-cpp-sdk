@@ -49,8 +49,6 @@ namespace Models
 
   protected:
     shared_ptr<string> regionId_ {};
-    // The name of the export rules.
-    // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
   };

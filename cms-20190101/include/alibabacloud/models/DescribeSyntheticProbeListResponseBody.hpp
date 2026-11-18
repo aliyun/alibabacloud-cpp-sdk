@@ -250,11 +250,11 @@ namespace Models
       shared_ptr<string> countryCn_ {};
       // The English name of the country or region.
       shared_ptr<string> countryEn_ {};
-      // The number of IPv4 nodes in the IDC.
+      // The number of IDC IPv4 nodes.
       shared_ptr<int32_t> idcV4ProbeCount_ {};
-      // The number of IPv6 nodes in the IDC.
+      // The number of IDC IPv6 nodes.
       shared_ptr<int32_t> idcV6ProbeCount_ {};
-      // The list of node IP addresses.
+      // The list of IP addresses of the node.
       shared_ptr<vector<string>> ipPool_ {};
       // The carrier ID.
       shared_ptr<string> isp_ {};
@@ -324,8 +324,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the operation is successful. Valid values:
     // 
-    // - true: The operation is successful.
-    // - false: The operation fails.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<string> success_ {};
   };
 

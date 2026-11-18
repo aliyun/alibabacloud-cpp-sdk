@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Channels, channels_);
       DARABONBA_PTR_TO_JSON(ContactName, contactName_);
       DARABONBA_PTR_TO_JSON(Describe, describe_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
     };
     friend void from_json(const Darabonba::Json& j, PutContactRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Channels, channels_);
       DARABONBA_PTR_FROM_JSON(ContactName, contactName_);
       DARABONBA_PTR_FROM_JSON(Describe, describe_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
     };
     PutContactRequest() = default ;
@@ -91,34 +93,34 @@ namespace Models
 
 
     protected:
-      // The TradeManager ID of the alert contact.
+      // The TradeManager contact.
       // 
-      // <props="china">Specify at least one of the following contact methods: phone number, email address, DingTalk chatbot, or TradeManager.
-      // <props="intl">Specify at least one of the following contact methods: email address or DingTalk chatbot.
-      // <props="partner">Specify at least one of the following contact methods: email address or DingTalk chatbot..
+      // <props="china">You must specify at least one of the following contact methods: mobile phone number, email address, DingTalk chatbot, and TradeManager.
+      // <props="intl">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
+      // <props="partner">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
       shared_ptr<string> aliIM_ {};
-      // The webhook URL of the DingTalk chatbot.
+      // The DingTalk chatbot.
       // 
-      // <props="china">Specify at least one of the following contact methods: phone number, email address, DingTalk chatbot, or TradeManager.
-      // <props="intl">Specify at least one of the following contact methods: email address or DingTalk chatbot.
-      // <props="partner">Specify at least one of the following contact methods: email address or DingTalk chatbot..
+      // <props="china">You must specify at least one of the following contact methods: mobile phone number, email address, DingTalk chatbot, and TradeManager.
+      // <props="intl">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
+      // <props="partner">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
       shared_ptr<string> dingWebHook_ {};
-      // The email address of the alert contact. An activation link is sent to the email address. The alert contact is added only after the link is activated.
+      // The email address. The email address receives an activation link. The contact is added only after the link is activated.
       // 
-      // <props="china">Specify at least one of the following contact methods: phone number, email address, DingTalk chatbot, or TradeManager.
-      // <props="intl">Specify at least one of the following contact methods: email address or DingTalk chatbot.
-      // <props="partner">Specify at least one of the following contact methods: email address or DingTalk chatbot..
+      // <props="china">You must specify at least one of the following contact methods: mobile phone number, email address, DingTalk chatbot, and TradeManager.
+      // <props="intl">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
+      // <props="partner">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
       shared_ptr<string> mail_ {};
-      // The phone number of the alert contact. An activation link is sent to the phone number. The alert contact is added only after the link is activated.
+      // The mobile phone number. The mobile phone number receives an activation link. The contact is added only after the link is activated.
       // 
-      // <props="china">Specify at least one of the following contact methods: phone number, email address, DingTalk chatbot, or TradeManager.
-      // <props="intl">Specify at least one of the following contact methods: email address or DingTalk chatbot.
-      // <props="partner">Specify at least one of the following contact methods: email address or DingTalk chatbot..
+      // <props="china">You must specify at least one of the following contact methods: mobile phone number, email address, DingTalk chatbot, and TradeManager.
+      // <props="intl">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
+      // <props="partner">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
       shared_ptr<string> SMS_ {};
     };
 
     virtual bool empty() const override { return this->channels_ == nullptr
-        && this->contactName_ == nullptr && this->describe_ == nullptr && this->lang_ == nullptr; };
+        && this->contactName_ == nullptr && this->describe_ == nullptr && this->dryRun_ == nullptr && this->lang_ == nullptr; };
     // channels Field Functions 
     bool hasChannels() const { return this->channels_ != nullptr;};
     void deleteChannels() { this->channels_ = nullptr;};
@@ -142,6 +144,13 @@ namespace Models
     inline PutContactRequest& setDescribe(string describe) { DARABONBA_PTR_SET_VALUE(describe_, describe) };
 
 
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline PutContactRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -159,11 +168,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> describe_ {};
-    // The language in which alert notifications are sent. Valid values:
-    // - zh-cn: simplified Chinese.
+    // Specifies whether to perform only a dry run.
+    shared_ptr<bool> dryRun_ {};
+    // The language of the alert notification. Valid values:
+    // - zh-cn: Simplified Chinese.
     // - en: English.
     // 
-    // > If you do not set this parameter, the language is automatically determined based on the region of the account.
+    // > If you do not specify this parameter, the system automatically determines the language based on the region of the account.
     shared_ptr<string> lang_ {};
   };
 

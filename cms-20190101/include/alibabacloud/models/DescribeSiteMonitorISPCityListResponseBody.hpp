@@ -341,20 +341,20 @@ namespace Models
 
 
   protected:
-    // 状态码。
+    // The status code.
     // 
-    // > 200表示成功。
+    // > 200 indicates success.
     shared_ptr<string> code_ {};
     shared_ptr<DescribeSiteMonitorISPCityListResponseBody::IspCityList> ispCityList_ {};
-    // 返回信息。
+    // The message returned.
     shared_ptr<string> message_ {};
-    // 请求ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 操作是否成功。取值：
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // - true：成功。
+    // - true: successful.
     // 
-    // - false：失败。
+    // - false: failed.
     shared_ptr<string> success_ {};
   };
 

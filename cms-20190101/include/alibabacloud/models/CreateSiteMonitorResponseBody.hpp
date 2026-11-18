@@ -302,9 +302,7 @@ namespace Models
 
 
   protected:
-    // The status code.
-    // 
-    // > 200 indicates success.
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
     shared_ptr<CreateSiteMonitorResponseBody::CreateResultList> createResultList_ {};
     // The details of the monitoring task result.

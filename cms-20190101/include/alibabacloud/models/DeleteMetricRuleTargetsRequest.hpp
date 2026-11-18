@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};
-    // The resource IDs.
+    // The target IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> targetIds_ {};

@@ -123,9 +123,9 @@ namespace Models
   protected:
     // The URL or IP address of the monitoring task.
     shared_ptr<string> address_ {};
-    // The ID of the alert rule. The ID of an existing alert rule in CloudMonitor. You can call the DescribeMetricRuleList operation to query alert rule IDs. For more information, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+    // The ID of the alert rule. The alert rule must already exist in CloudMonitor. You can call the [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html) operation to query the alert rule ID.
     shared_ptr<string> alertIds_ {};
-    // The custom monitoring schedule. You can select a specific time period from Monday to Sunday for monitoring.
+    // The custom probing schedule. You can select a specific time period from Monday to Sunday for probing.
     shared_ptr<string> customSchedule_ {};
     // The monitoring frequency. Valid values: 1, 5, and 15. Unit: minutes. Default value: 1.
     shared_ptr<string> interval_ {};
@@ -133,11 +133,11 @@ namespace Models
     // 
     // Unit: milliseconds (ms).
     shared_ptr<string> intervalUnit_ {};
-    // The detection point information. The value is in JSONArray format, for example: `[{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]`, where `city` corresponds to Beijing, Hangzhou, and Qingdao respectively.
+    // The probe information. The value is a JSON array. Example: `[{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]`. The `city` values correspond to Beijing, Hangzhou, and Qingdao.
     // 
-    // > You can call the DescribeSiteMonitorISPCityList operation to query detection point information. For more information, see [DescribeSiteMonitorISPCityList](https://help.aliyun.com/document_detail/115045.html). If this parameter is left empty, the system randomly selects three detection points.
+    // > You can call the [DescribeSiteMonitorISPCityList](https://help.aliyun.com/document_detail/115045.html) operation to obtain the detection point information. If this parameter is left empty, the system randomly selects three detection points.
     shared_ptr<string> ispCities_ {};
-    // The advanced extended options for the protocol type of the monitoring task. Different protocol types correspond to different extended options.
+    // The advanced extension options for the protocol type of the monitoring task. Different protocol types correspond to different extension options.
     shared_ptr<string> optionsJson_ {};
     shared_ptr<string> regionId_ {};
     // The ID of the monitoring task.

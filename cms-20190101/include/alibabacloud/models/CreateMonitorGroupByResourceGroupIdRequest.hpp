@@ -89,7 +89,7 @@ namespace Models
   protected:
     // The alert contact group. Alert notifications for the application group are sent to the alert contacts in this alert contact group.
     // 
-    // An alert contact group is a collection of alert contacts and can contain one or more alert contacts. For more information about how to create alert contacts and alert contact groups, see [PutContact](https://help.aliyun.com/document_detail/114923.html) and [PutContactGroup](https://help.aliyun.com/document_detail/114929.html). For more information about how to obtain alert contact groups, see [DescribeContactGroupList](https://help.aliyun.com/document_detail/114922.html).
+    // An alert contact group contains one or more alert contacts. For more information about how to create alert contacts and alert contact groups, see [PutContact](https://help.aliyun.com/document_detail/114923.html) and [PutContactGroup](https://help.aliyun.com/document_detail/114929.html). For more information about how to obtain alert contact groups, see [DescribeContactGroupList](https://help.aliyun.com/document_detail/114922.html).
     // 
     // This parameter is required.
     shared_ptr<vector<string>> contactGroupList_ {};
@@ -97,15 +97,15 @@ namespace Models
     // 
     // - true: Enabled.
     // 
-    // - false: Disabled. Default value.
+    // - false: Disabled. This is the default value.
     shared_ptr<bool> enableInstallAgent_ {};
     // Specifies whether to enable automatic subscription to event notifications for the application group. When critical or warning events occur on resources in the application group, CloudMonitor sends alert notifications. Valid values:
     // 
     // - true: Enabled.
     // 
-    // - false: Disabled. Default value.
+    // - false: Disabled. This is the default value.
     shared_ptr<bool> enableSubscribeEvent_ {};
-    // The region ID of the resource group.
+    // The ID of the region to which the resource group belongs.
     // 
     // For more information about how to obtain the region ID of a resource group, see [GetResourceGroup](https://help.aliyun.com/document_detail/158866.html).
     // 
@@ -113,13 +113,13 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the resource group.
     // 
-    // For more information about how to obtain the resource group ID, see [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html).
+    // For more information about how to obtain the ID of a resource group, see [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html).
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};
     // The name of the resource group.
     // 
-    // For more information about how to obtain the resource group name, see [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html).
+    // For more information about how to obtain the name of a resource group, see [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html).
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupName_ {};

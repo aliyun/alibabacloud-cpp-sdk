@@ -97,25 +97,13 @@ namespace Models
 
 
   protected:
-    // The description of the export rules.
     shared_ptr<string> describe_ {};
-    // The destinations for data export.
-    // 
     // This parameter is required.
     shared_ptr<vector<string>> dstNames_ {};
-    // The name of the metric. >For more information, see [Alibaba Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> metricName_ {};
-    // The data namespace of the Alibaba Cloud service. For more information, see [Alibaba Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
     shared_ptr<string> namespace_ {};
     shared_ptr<string> regionId_ {};
-    // The name of the rule.
-    // 
-    // > If the specified rule name is the same as an existing rule name, the existing rule is modified. Otherwise, a new rule is created.
     shared_ptr<string> ruleName_ {};
-    // The time window for exporting data. Unit: seconds.
-    // 
-    // > - To export data for multiple time windows, separate the values with commas (,).
-    // - Exporting data for a time window of less than 60 seconds is not supported.
     shared_ptr<string> targetWindows_ {};
   };
 

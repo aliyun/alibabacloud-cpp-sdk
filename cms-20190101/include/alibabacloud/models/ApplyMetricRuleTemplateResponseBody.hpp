@@ -125,7 +125,7 @@ namespace Models
 
       protected:
         // The HTTP status code.
-        // > A status code of 200 indicates that the request was successful.
+        // >200 indicates success.
         shared_ptr<string> code_ {};
         // The returned message.
         shared_ptr<string> message_ {};
@@ -207,13 +207,13 @@ namespace Models
 
   protected:
     // The HTTP status code.
-    // > A status code of 200 indicates that the request was successful.
+    // >200 indicates success.
     shared_ptr<int32_t> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources affected by the alert rule.
+    // The resources affected by the alert rules.
     shared_ptr<ApplyMetricRuleTemplateResponseBody::Resource> resource_ {};
     // Indicates whether the operation was successful. Valid values:
     // 

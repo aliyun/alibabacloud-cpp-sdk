@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the availability monitoring jobs.
+    // The ID of the availability monitoring task.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> id_ {};

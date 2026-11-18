@@ -60,14 +60,14 @@ namespace Models
 
 
   protected:
-    // The IDs of event-triggered alert rules.
+    // The list of event-triggered alert rule IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> ids_ {};
     shared_ptr<string> regionId_ {};
     // The name of the event-triggered alert rule.
     // 
-    // For information about how to obtain the name of an event-triggered alert rule, see [DescribeEventRuleList](https://help.aliyun.com/document_detail/114996.html).
+    // For more information about how to obtain the name of an event-triggered alert rule, see [DescribeEventRuleList](https://help.aliyun.com/document_detail/114996.html).
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};

@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The ID of the synthetic monitoring task.
+      // The ID of the detection task.
       shared_ptr<string> taskId_ {};
-      // The name of the synthetic monitoring task.
+      // The name of the detection task.
       shared_ptr<string> taskName_ {};
     };
 
@@ -126,13 +126,13 @@ namespace Models
     // 
     // > A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The result list of the one-time synthetic monitoring task creation.
+    // The list of results for creating the one-time detection task.
     shared_ptr<vector<CreateInstantSiteMonitorResponseBody::CreateResultList>> createResultList_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // * true: Successful.
     // * false: Failed.
     shared_ptr<string> success_ {};

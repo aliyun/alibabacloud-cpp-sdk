@@ -109,9 +109,9 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     // 
-    // > A status code of 200 indicates success.
+    // > A value of 200 indicates success.
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
@@ -121,9 +121,9 @@ namespace Models
     shared_ptr<PutGroupMetricRuleResponseBody::Result> result_ {};
     // Indicates whether the operation is successful. Valid values:
     // 
-    // - true: The operation is successful.
+    // - true: successful.
     // 
-    // - false: The operation fails.
+    // - false: failed.
     shared_ptr<bool> success_ {};
   };
 

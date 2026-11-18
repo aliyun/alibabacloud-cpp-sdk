@@ -48,8 +48,6 @@ namespace Models
 
 
   protected:
-    // The destination name of the configuration.
-    // 
     // This parameter is required.
     shared_ptr<string> destName_ {};
     shared_ptr<string> regionId_ {};

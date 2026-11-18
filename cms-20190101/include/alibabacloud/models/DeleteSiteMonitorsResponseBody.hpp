@@ -115,11 +115,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The number of affected rows.
     shared_ptr<DeleteSiteMonitorsResponseBody::Data> data_ {};
-    // The returned message. If the request is successful, a success message is returned. If the request fails, the cause of the failure is returned, such as `TaskId not found`.
+    // The returned message. If the request succeeds, a success message is returned. If the request fails, the cause of the failure is returned, such as `TaskId not found`.
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. A value of true indicates success, and a value of false indicates failure.
+    // Indicates whether the operation is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<string> success_ {};
   };
 

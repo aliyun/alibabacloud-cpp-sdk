@@ -86,21 +86,21 @@ namespace Models
   protected:
     // The status code.
     // 
-    // > A status code of 200 indicates that the operation was successful.
+    // > 200 indicates success.
     shared_ptr<string> code_ {};
     // The detection logs of the one-time detection task.
     shared_ptr<string> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The token that is used to query the next page.
+    // The token used to query the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // - true: The operation was successful.
+    // - true: Successful.
     // 
-    // - false: The operation failed.
+    // - false: Failed.
     shared_ptr<string> success_ {};
   };
 

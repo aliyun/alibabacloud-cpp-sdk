@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to delete alert rules when you delete the tasks. Valid values:
+    // Specifies whether to delete alert rules when deleting tasks. Valid values:
     // 
-    // - true (default): Deletes the alert rules.
+    // - true (default): Deletes alert rules.
     // 
-    // - false: Does not delete the alert rules.
+    // - false: Does not delete alert rules.
     shared_ptr<bool> isDeleteAlarms_ {};
     shared_ptr<string> regionId_ {};
     // The IDs of the tasks to be deleted. Separate multiple task IDs with commas (,).

@@ -70,13 +70,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The UUID of the request, which is used to query logs.
+    // The UUID of the request, which can be used to query logs.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation is successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // - true: Successful.
+    // - true: The operation was successful.
     // 
-    // - false: Failed.
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

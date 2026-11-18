@@ -75,23 +75,11 @@ namespace Models
 
 
   protected:
-    // The data export configuration. It is a JSON object string that must contain the following fields:
-    // 
-    // - endpoint: the domain name for Simple Log Service (SLS) data.
-    // - project: the project.
-    // - logstore: the Logstore.
-    // - ak: the AccessKey ID.
-    // - as: the AccessKey Secret.
-    // 
     // This parameter is required.
     shared_ptr<string> configJson_ {};
-    // The description of the configuration.
     shared_ptr<string> desc_ {};
-    // The name of the configuration.
-    // 
     // This parameter is required.
     shared_ptr<string> destName_ {};
-    // The destination service for the export.
     shared_ptr<string> destType_ {};
     shared_ptr<string> regionId_ {};
   };

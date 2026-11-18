@@ -580,7 +580,7 @@ namespace Models
   protected:
     // The status code.
     // 
-    // > The value 200 indicates success.
+    // > 200 indicates success.
     shared_ptr<int32_t> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
@@ -588,7 +588,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeMonitorGroupsResponseBody::Resources> resources_ {};
     // Indicates whether the operation was successful. Valid values:

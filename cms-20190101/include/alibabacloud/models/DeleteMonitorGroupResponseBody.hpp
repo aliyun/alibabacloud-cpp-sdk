@@ -143,6 +143,7 @@ namespace Models
 
     protected:
       shared_ptr<Group::ContactGroups> contactGroups_ {};
+      // The name of the application group.
       shared_ptr<string> groupName_ {};
     };
 
@@ -186,10 +187,15 @@ namespace Models
 
 
   protected:
+    // The status code. A value of 200 indicates that the deletion was successful.
     shared_ptr<int32_t> code_ {};
+    // The information about the deleted application group.
     shared_ptr<DeleteMonitorGroupResponseBody::Group> group_ {};
+    // The error message returned when the request fails. The example indicates that the required parameter GroupId is missing. No error message is returned when the deletion is successful.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the application group was deleted. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

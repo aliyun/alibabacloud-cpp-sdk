@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The status code.
     // 
-    // > 200 indicates success.
+    // > A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
     // The application group ID.
     shared_ptr<int64_t> groupId_ {};
@@ -87,9 +87,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the operation is successful. Valid values:
     // 
-    // - true: The operation is successful.
+    // - true: Success.
     // 
-    // - false: The operation fails.
+    // - false: Failure.
     shared_ptr<bool> success_ {};
   };
 

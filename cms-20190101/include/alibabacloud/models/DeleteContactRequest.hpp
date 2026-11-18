@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteContactRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ContactName, contactName_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteContactRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ContactName, contactName_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
     };
     DeleteContactRequest() = default ;
     DeleteContactRequest(const DeleteContactRequest &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->contactName_ == nullptr; };
+    virtual bool empty() const override { return this->contactName_ == nullptr
+        && this->dryRun_ == nullptr; };
     // contactName Field Functions 
     bool hasContactName() const { return this->contactName_ != nullptr;};
     void deleteContactName() { this->contactName_ = nullptr;};
@@ -37,11 +40,20 @@ namespace Models
     inline DeleteContactRequest& setContactName(string contactName) { DARABONBA_PTR_SET_VALUE(contactName_, contactName) };
 
 
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline DeleteContactRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
   protected:
     // The name of the alert contact.
     // 
     // This parameter is required.
     shared_ptr<string> contactName_ {};
+    // Specifies whether to perform only a dry run for this request.
+    shared_ptr<bool> dryRun_ {};
   };
 
   } // namespace Models

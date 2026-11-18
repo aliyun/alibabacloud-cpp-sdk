@@ -111,9 +111,9 @@ namespace Models
   protected:
     // The status code.
     // 
-    // > The value 200 indicates success.
+    // > A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The details of the node task result.
+    // The details of the node modification task result.
     shared_ptr<ModifySiteMonitorResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
@@ -121,9 +121,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the operation was successful. Valid values:
     // 
-    // - true: The operation was successful.
+    // - true: Successful.
     // 
-    // - false: The operation failed.
+    // - false: Failed.
     shared_ptr<string> success_ {};
   };
 

@@ -110,13 +110,13 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> SLSRegion_ {};
-      // The member ID.
+      // The ID of the member.
       // 
       // Valid values of N: 1 to 25.
       // 
-      // If you invoke this operation by using a management account, you can associate the Alibaba Cloud services of any member in the resource folder with Hybrid Cloud Monitoring through cloud native mode. You can use the resource folder to monitor the Alibaba Cloud services of multiple accounts.
+      // When you invoke this API operation by using a management account, you can use the cloud native mode for the Alibaba Cloud services of any member in the resource folder for Hybrid Cloud Monitoring. This allows you to monitor the Alibaba Cloud services across accounts in an enterprise by using the resource folder.
       // 
-      // > If a member uses CloudMonitor for the first time, make sure that the member has been granted the authorization for the CloudMonitor service-linked role (AliyunServiceRoleForCloudMonitor). For more information, see [CloudMonitor service-linked role](https://help.aliyun.com/document_detail/170423.html).
+      // > If the member uses CloudMonitor for the first time, make sure that the member has completed the authorization to associate the CloudMonitor service-linked role (AliyunServiceRoleForCloudMonitor). For more information, see [CloudMonitor service-linked role](https://help.aliyun.com/document_detail/170423.html).
       shared_ptr<string> SLSUserId_ {};
     };
 
@@ -154,7 +154,7 @@ namespace Models
 
   protected:
     shared_ptr<string> regionId_ {};
-    // The configurations of the Logstore group.
+    // The configuration information of the Logstore group.
     // 
     // Valid values of N: 1 to 25.
     // 
@@ -164,7 +164,7 @@ namespace Models
     shared_ptr<string> SLSGroupDescription_ {};
     // The name of the Logstore group.
     // 
-    // The name must be 2 to 32 characters in length and can contain uppercase letters, lowercase letters, digits, and underscores (_). The name must start with a letter.
+    // The name must be 2 to 32 characters in length, and can contain uppercase letters, lowercase letters, digits, and underscores (_). It must start with a letter.
     // 
     // This parameter is required.
     shared_ptr<string> SLSGroupName_ {};

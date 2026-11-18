@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ContactGroupName, contactGroupName_);
       DARABONBA_PTR_TO_JSON(ContactNames, contactNames_);
       DARABONBA_PTR_TO_JSON(Describe, describe_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EnableSubscribed, enableSubscribed_);
     };
     friend void from_json(const Darabonba::Json& j, PutContactGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ContactGroupName, contactGroupName_);
       DARABONBA_PTR_FROM_JSON(ContactNames, contactNames_);
       DARABONBA_PTR_FROM_JSON(Describe, describe_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EnableSubscribed, enableSubscribed_);
     };
     PutContactGroupRequest() = default ;
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactGroupName_ == nullptr
-        && this->contactNames_ == nullptr && this->describe_ == nullptr && this->enableSubscribed_ == nullptr; };
+        && this->contactNames_ == nullptr && this->describe_ == nullptr && this->dryRun_ == nullptr && this->enableSubscribed_ == nullptr; };
     // contactGroupName Field Functions 
     bool hasContactGroupName() const { return this->contactGroupName_ != nullptr;};
     void deleteContactGroupName() { this->contactGroupName_ = nullptr;};
@@ -61,6 +63,13 @@ namespace Models
     inline PutContactGroupRequest& setDescribe(string describe) { DARABONBA_PTR_SET_VALUE(describe_, describe) };
 
 
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline PutContactGroupRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // enableSubscribed Field Functions 
     bool hasEnableSubscribed() const { return this->enableSubscribed_ != nullptr;};
     void deleteEnableSubscribed() { this->enableSubscribed_ = nullptr;};
@@ -73,15 +82,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> contactGroupName_ {};
-    // The name of the alert contact.
+    // The names of the alert contacts.
     shared_ptr<vector<string>> contactNames_ {};
     // The description of the alert contact group.
     shared_ptr<string> describe_ {};
+    // Specifies whether to perform a dry run on the request.
+    shared_ptr<bool> dryRun_ {};
     // Specifies whether to enable the subscription feature. Valid values:
     // 
-    // - true: Enabled.
+    // - true: Yes.
     // 
-    // - false: Disabled.
+    // - false: No.
     shared_ptr<bool> enableSubscribed_ {};
   };
 
