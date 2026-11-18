@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // Page number, starting from 1
+    // The page number. The value starts from 1.
     shared_ptr<int32_t> page_ {};
-    // Number of items per page
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Search query content
+    // The search query.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};
-    // Web page publish time range
+    // The relative time range of the webpage publication time. Specify a value based on the relative time options.
     shared_ptr<string> timeRange_ {};
   };
 

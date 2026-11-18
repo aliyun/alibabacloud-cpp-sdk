@@ -117,7 +117,7 @@ namespace Models
 
 
         protected:
-          // Indicates whether query rewriting is enabled.
+          // Specifies whether query rewrite is enabled.
           shared_ptr<bool> enabled_ {};
           // The rewritten time range.
           shared_ptr<string> timeRange_ {};
@@ -183,7 +183,7 @@ namespace Models
           shared_ptr<string> industry_ {};
           // The page number.
           shared_ptr<int32_t> page_ {};
-          // The query condition.
+          // The query conditions.
           shared_ptr<string> query_ {};
           // The time range.
           shared_ptr<string> timeRange_ {};
@@ -255,7 +255,7 @@ namespace Models
       shared_ptr<string> eventId_ {};
       // The query context.
       shared_ptr<Header::QueryContext> queryContext_ {};
-      // The response time, in milliseconds.
+      // The time taken (ms).
       shared_ptr<int64_t> responseTime_ {};
     };
 
@@ -285,9 +285,9 @@ namespace Models
 
 
   protected:
-    // The header of the response.
+    // The header of the returned result.
     shared_ptr<AiSearchResponseBody::Header> header_ {};
-    // The payload of the response. The value is a JSON structure that varies by event type.
+    // The payload of the returned result in JSON format. The structure varies based on the event.
     shared_ptr<string> payload_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

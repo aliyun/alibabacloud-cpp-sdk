@@ -76,9 +76,13 @@ namespace Models
 
 
   protected:
+    // The list of recognized entity property results. An empty array is returned if no entities are recognized.
     shared_ptr<vector<MedicalKnowledgeInfo>> messages_ {};
+    // The query context information, such as the original query content.
     shared_ptr<MultimodalQueryContext> queryContext_ {};
+    // The ID of the request, which can be provided for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // The search information for the query, such as the search duration.
     shared_ptr<UnifiedSearchInformation> searchInformation_ {};
   };
 

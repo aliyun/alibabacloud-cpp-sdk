@@ -239,34 +239,65 @@ namespace Models
 
 
   protected:
+    // The search result template. Different templates return different fields.
+    // 
     // This parameter is required.
     shared_ptr<string> cardType_ {};
+    // The relevance tag. A value of 0 indicates low relevance, and 1 indicates non-low relevance.
     shared_ptr<int32_t> correlationTag_ {};
+    // The abbreviated URL of this search result.
+    // 
     // This parameter is required.
     shared_ptr<string> displayLink_ {};
+    // The dynamic authority score, which ranges from 0 to 2 and is calculated based on the relevance of the query content.
     shared_ptr<double> hostAuthorityScore_ {};
+    // The site logo.
     shared_ptr<string> hostLogo_ {};
+    // The site name.
     shared_ptr<string> hostname_ {};
+    // The description snippet of the search result in HTML format.
+    // 
     // This parameter is required.
     shared_ptr<string> htmlSnippet_ {};
+    // The search result title in HTML format.
+    // 
     // This parameter is required.
     shared_ptr<string> htmlTitle_ {};
+    // The image information.
     shared_ptr<vector<IncludeImage>> images_ {};
+    // The full URL that the search result points to.
+    // 
     // This parameter is required.
     shared_ptr<string> link_ {};
+    // The full text of the search result, which is available in some scenarios.
     shared_ptr<string> mainText_ {};
+    // The web page body in Markdown format.
     shared_ptr<string> markdownText_ {};
+    // The MIME type of the search result.
     shared_ptr<string> mime_ {};
+    // The supplementary page information.
     shared_ptr<map<string, string>> pageMap_ {};
+    // The publish time.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> publishTime_ {};
+    // The full rich text body, which preserves the order of text, images, audio, video, tables, and code in the web page.
     shared_ptr<string> richMainBody_ {};
+    // The score.
     shared_ptr<double> score_ {};
+    // The site label. Two types are currently supported:
+    // * Authoritative media
+    //  * Party and government organs
     shared_ptr<string> siteLabel_ {};
+    // The description snippet of the search result in text format.
     shared_ptr<string> snippet_ {};
+    // The enhanced summary.
     shared_ptr<string> summary_ {};
+    // The search result title in plain text.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
+    // The static authority score, which is determined solely by the authority of the website itself and is independent of the query content.
     shared_ptr<int32_t> websiteAuthorityScore_ {};
   };
 

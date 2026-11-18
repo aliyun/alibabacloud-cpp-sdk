@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The city associated with the search. It is used to return information about the corresponding region in scenarios such as weather.
     shared_ptr<string> city_ {};
+    // The IP address associated with the search. It is used to identify the region in supported scenarios and has a lower priority than city.
     shared_ptr<string> ip_ {};
   };
 

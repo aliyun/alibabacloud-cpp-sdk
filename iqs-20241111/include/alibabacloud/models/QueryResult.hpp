@@ -165,12 +165,19 @@ namespace Models
 
 
       protected:
+        // The average spend in CNY.
         shared_ptr<string> averageSpend_ {};
+        // The business area.
         shared_ptr<string> businessArea_ {};
+        // The business hours for today.
         shared_ptr<string> dailyOpeningHours_ {};
+        // The main tag.
         shared_ptr<string> mainTag_ {};
+        // The contact phone numbers. Multiple numbers are separated by vertical bars.
         shared_ptr<string> phone_ {};
+        // The rating.
         shared_ptr<string> score_ {};
+        // The weekly opening days.
         shared_ptr<string> weeklyOpeningDays_ {};
       };
 
@@ -212,7 +219,9 @@ namespace Models
 
 
       protected:
+        // The image name.
         shared_ptr<string> title_ {};
+        // The image URL.
         shared_ptr<string> url_ {};
       };
 
@@ -337,21 +346,37 @@ namespace Models
 
 
     protected:
+      // The detailed address.
       shared_ptr<string> address_ {};
+      // The city code.
       shared_ptr<string> cityCode_ {};
+      // The city name.
       shared_ptr<string> cityName_ {};
+      // The distance from the center point in meters.
       shared_ptr<string> distanceMeter_ {};
+      // The district code.
       shared_ptr<string> districtCode_ {};
+      // The district name.
       shared_ptr<string> districtName_ {};
+      // The internal identifier of the location.
       shared_ptr<string> id_ {};
+      // The list of images.
       shared_ptr<vector<Data::Images>> images_ {};
+      // The latitude of the location.
       shared_ptr<string> latitude_ {};
+      // The longitude of the location.
       shared_ptr<string> longitude_ {};
+      // The related business information.
       shared_ptr<Data::Metadata> metadata_ {};
+      // The location name.
       shared_ptr<string> name_ {};
+      // The province code.
       shared_ptr<string> provinceCode_ {};
+      // The province name.
       shared_ptr<string> provinceName_ {};
+      // The location type code.
       shared_ptr<string> typeCode_ {};
+      // The location types. Multiple types are separated by vertical bars.
       shared_ptr<string> types_ {};
     };
 
@@ -374,7 +399,9 @@ namespace Models
 
 
   protected:
+    // The list of returned locations.
     shared_ptr<vector<QueryResult::Data>> data_ {};
+    // The unique request ID for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

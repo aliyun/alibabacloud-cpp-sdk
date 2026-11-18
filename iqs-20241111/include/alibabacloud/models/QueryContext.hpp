@@ -69,7 +69,9 @@ namespace Models
 
 
     protected:
+      // Specifies whether query rewrite is enabled.
       shared_ptr<bool> enabled_ {};
+      // The rewritten time range. An empty value indicates that no rewrite is performed or the rewrite result is the same as the original result.
       shared_ptr<string> timeRange_ {};
     };
 
@@ -129,9 +131,13 @@ namespace Models
 
 
     protected:
+      // The industry classification of the original request.
       shared_ptr<string> industry_ {};
+      // The page number of the original request.
       shared_ptr<string> page_ {};
+      // The query content of the original request.
       shared_ptr<string> query_ {};
+      // The time range of the original request. Valid values: OneDay, OneWeek, OneMonth, OneYear, and NoLimit.
       shared_ptr<string> timeRange_ {};
     };
 
@@ -156,7 +162,9 @@ namespace Models
 
 
   protected:
+    // The initial query condition.
     shared_ptr<QueryContext::OriginalQuery> originalQuery_ {};
+    // The query rewrite information.
     shared_ptr<QueryContext::Rewrite> rewrite_ {};
   };
 

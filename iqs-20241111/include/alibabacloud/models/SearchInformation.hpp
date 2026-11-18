@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The search time, in milliseconds (ms).
     shared_ptr<int64_t> searchTime_ {};
+    // The total count.
     shared_ptr<int64_t> total_ {};
   };
 

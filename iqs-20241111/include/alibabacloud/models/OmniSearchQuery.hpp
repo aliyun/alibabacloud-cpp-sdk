@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The request parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // The session ID. This is a reserved field and is not currently supported.
     shared_ptr<string> sessionId_ {};
+    // Specifies whether to use CoT. This is a reserved field and is not currently supported.
     shared_ptr<bool> useCot_ {};
+    // The model version to use. Valid values: pro for the deep version, and lite for the fast version.
     shared_ptr<string> useModel_ {};
   };
 

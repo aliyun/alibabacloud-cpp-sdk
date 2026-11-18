@@ -100,11 +100,17 @@ namespace Models
 
 
   protected:
+    // The web content list.
     shared_ptr<vector<ScorePageItem>> pageItems_ {};
+    // The query context information.
     shared_ptr<QueryContext> queryContext_ {};
+    // requestId
     shared_ptr<string> requestId_ {};
+    // The list of scenario-specific query results, such as structured results for time and weather.
     shared_ptr<vector<SceneItem>> sceneItems_ {};
+    // The search information.
     shared_ptr<SearchInformation> searchInformation_ {};
+    // The Weibo list.
     shared_ptr<vector<WeiboItem>> weiboItems_ {};
   };
 

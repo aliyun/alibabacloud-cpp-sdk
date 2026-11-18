@@ -76,9 +76,13 @@ namespace Models
 
 
   protected:
+    // The list of medical Q&A answers. An empty array is returned if the question is empty or no content is matched.
     shared_ptr<vector<MedicalAnswerMessage>> messages_ {};
+    // The query context information, such as the original query content.
     shared_ptr<MultimodalQueryContext> queryContext_ {};
+    // The ID of the request. You can provide this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // The search information, such as the execution duration.
     shared_ptr<UnifiedSearchInformation> searchInformation_ {};
   };
 

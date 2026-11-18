@@ -100,11 +100,17 @@ namespace Models
 
 
   protected:
+    // The consumed credits information.
     shared_ptr<UnifiedCostCredits> costCredits_ {};
+    // The web page search results.
     shared_ptr<vector<UnifiedPageItem>> pageItems_ {};
+    // The search context information.
     shared_ptr<UnifiedQueryContext> queryContext_ {};
+    // The web page results.
     shared_ptr<string> requestId_ {};
+    // The vertical API scenario-based results.
     shared_ptr<vector<UnifiedSceneItem>> sceneItems_ {};
+    // The basic search information.
     shared_ptr<UnifiedSearchInformation> searchInformation_ {};
   };
 

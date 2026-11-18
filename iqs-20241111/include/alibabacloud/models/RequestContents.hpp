@@ -77,12 +77,13 @@ namespace Models
   protected:
     // Specifies whether to return the main text. Default value: false.
     shared_ptr<bool> mainText_ {};
-    // Specifies whether to return markdown. Default value: false.
+    // Specifies whether to return Markdown. Default value: false.
     shared_ptr<bool> markdownText_ {};
-    // Specifies whether to enable Rerank and return the RerankScore. Default value: true.
+    // Specifies whether to enable reranking and return the rerank score. Default value: true.
     shared_ptr<bool> rerankScore_ {};
+    // Specifies whether to return the full rich text content.
     shared_ptr<bool> richMainBody_ {};
-    // Specifies whether to return an enhanced summary. Default value: false. The summary feature is billed separately.
+    // Specifies whether to return the enhanced summary. Default value: false. The summary feature is billed separately.
     shared_ptr<bool> summary_ {};
   };
 

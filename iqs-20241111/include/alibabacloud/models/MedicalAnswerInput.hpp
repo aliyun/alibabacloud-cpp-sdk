@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The medical question to be answered.
     shared_ptr<string> query_ {};
   };
 

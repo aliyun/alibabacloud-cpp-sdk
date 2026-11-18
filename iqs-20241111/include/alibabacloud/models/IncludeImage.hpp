@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The image height in pixels.
     shared_ptr<int32_t> height_ {};
+    // The image link.
     shared_ptr<string> imageLink_ {};
+    // The image width in pixels.
     shared_ptr<int32_t> width_ {};
   };
 

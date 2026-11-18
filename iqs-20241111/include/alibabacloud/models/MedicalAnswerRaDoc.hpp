@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The content summary of the reference source. Summaries can be returned for medical web pages and drug instructions.
     shared_ptr<string> content_ {};
+    // The URL of the reference source. This can be an empty string for sources such as papers, clinical guidelines, and books.
     shared_ptr<string> rawUrl_ {};
+    // The title of the reference source.
     shared_ptr<string> title_ {};
+    // The type of the reference source, such as medical web pages, medical books, papers, or clinical guidelines.
     shared_ptr<string> type_ {};
   };
 

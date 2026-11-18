@@ -82,8 +82,6 @@
 #include <alibabacloud/models/ReadPageScrapeRequest.hpp>
 #include <alibabacloud/models/ReadPageScrapeResponseBody.hpp>
 #include <alibabacloud/models/ReadPageScrapeResponse.hpp>
-#include <alibabacloud/models/ScanFileRequest.hpp>
-#include <alibabacloud/models/ScanFileResponse.hpp>
 #include <alibabacloud/models/UnifiedSearchRequest.hpp>
 #include <alibabacloud/models/UnifiedSearchResponse.hpp>
 

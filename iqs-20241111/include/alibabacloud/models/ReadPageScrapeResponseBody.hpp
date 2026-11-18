@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // Parsing result of the target URL
+    // The parsing result of the target URL.
     shared_ptr<ReadPageItem> data_ {};
-    // error code
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // error message
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // Request ID. Provide this information when troubleshooting issues.
+    // The request ID. You can provide this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

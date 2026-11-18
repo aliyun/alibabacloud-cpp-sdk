@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of place results to return. Default value: 10.
     shared_ptr<int32_t> limit_ {};
+    // The natural language question used to retrieve nearby places.
     shared_ptr<string> query_ {};
+    // The search scenario code. Valid values: hotels (hotel), attractions (attraction), restaurants (restaurant), and entertainment (leisure and entertainment). If you do not specify this parameter, the model identifies the scenario.
     shared_ptr<string> querySceneEnumCode_ {};
+    // The search result mode. Valid values: single (returns simplified fields) and normal (returns all fields). Default value: normal.
     shared_ptr<string> searchModel_ {};
   };
 

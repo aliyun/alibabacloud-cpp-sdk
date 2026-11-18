@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> link_ {};
-    // The description excerpt of the search result in text format.
+    // The truncated description of the search result in text format.
     shared_ptr<string> snippet_ {};
     // The title of the search result in plain text.
     // 

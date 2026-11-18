@@ -97,16 +97,27 @@ namespace Models
 
 
   protected:
+    // The search result template. Fixed as weibo_strong for Weibo scenarios.
+    // 
     // This parameter is required.
     shared_ptr<string> cardType_ {};
+    // The Weibo homepage of the user.
     shared_ptr<string> homepageLink_ {};
+    // The content of the Weibo post.
+    // 
     // This parameter is required.
     shared_ptr<string> htmlSnippet_ {};
+    // The image information.
     shared_ptr<vector<string>> images_ {};
+    // The Weibo URL of the search result.
+    // 
     // This parameter is required.
     shared_ptr<string> link_ {};
+    // The publish time.
+    // 
     // This parameter is required.
     shared_ptr<string> publishDisplayTime_ {};
+    // The Weibo username.
     shared_ptr<string> username_ {};
   };
 

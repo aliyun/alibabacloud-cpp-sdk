@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // Search information
+    // The search information.
     shared_ptr<MedicalAnswerInput> body_ {};
   };
 

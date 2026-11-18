@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The structured text composed of the entity name and its properties.
     shared_ptr<string> content_ {};
+    // The source link of the entity property content.
     shared_ptr<string> url_ {};
   };
 

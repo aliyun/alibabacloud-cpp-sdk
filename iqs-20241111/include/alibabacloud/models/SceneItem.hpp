@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The result details for vertical scenarios. Different scenarios return different JSON string structures.
     shared_ptr<string> detail_ {};
+    // The result type for vertical scenarios, such as weather or time.
     shared_ptr<string> type_ {};
   };
 

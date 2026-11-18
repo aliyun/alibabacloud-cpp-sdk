@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The automatic trim.
     shared_ptr<string> autoCrop_ {};
+    // The automatic rotation.
     shared_ptr<string> autoRotate_ {};
   };
 

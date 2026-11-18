@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The industry. After you specify this parameter, only content from websites within the specified industries is recalled. Separate multiple industries with commas.
+    // The industry. If you specify this parameter, only website content specific to the specified industry is recalled. Separate multiple industries with commas.
     shared_ptr<string> industry_ {};
-    // The query text to search for.
+    // The search query.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};
     // The session ID for multi-turn interactions.
     shared_ptr<string> sessionId_ {};
-    // The time range for filtering web pages by publish time.
+    // The relative query range for the web page publication time. Valid values: OneDay, OneWeek, OneMonth, OneYear, and NoLimit. A value of NoLimit indicates that no time limit is applied.
     shared_ptr<string> timeRange_ {};
   };
 

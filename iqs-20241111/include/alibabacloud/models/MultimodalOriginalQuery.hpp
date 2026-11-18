@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The query conditions.
     shared_ptr<string> query_ {};
   };
 

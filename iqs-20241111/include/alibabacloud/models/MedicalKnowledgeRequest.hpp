@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // Health Graph query conditions
+    // The query conditions for the health graph.
     shared_ptr<MedicalKnowInput> body_ {};
   };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The natural language question used to retrieve nearby locations.
     shared_ptr<string> query_ {};
   };
 

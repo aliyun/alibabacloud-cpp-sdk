@@ -111,13 +111,21 @@ namespace Models
 
 
   protected:
+    // The advanced search parameters.
     Darabonba::Json advancedParams_ {};
+    // The query category. If specified, only search results from sites of the corresponding category are returned. Separate multiple categories with commas.
     shared_ptr<string> category_ {};
+    // The options for controlling the returned content.
     shared_ptr<RequestContents> contents_ {};
+    // The engine type. Default value: Generic. Valid values: Generic, GenericAdvanced. GenericAdvanced is billed separately and returns more records.
     shared_ptr<string> engineType_ {};
+    // **[Deprecated]** The location parameter. Use locationInfo to specify a city or IP address.
     shared_ptr<string> location_ {};
+    // The location information, used for scenario-based searches such as weather.
     shared_ptr<LocationInfo> locationInfo_ {};
+    // The query content. The length limit is 1 to 100 characters.
     shared_ptr<string> query_ {};
+    // The publication time range for the content.
     shared_ptr<string> timeRange_ {};
   };
 

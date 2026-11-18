@@ -76,11 +76,11 @@ namespace Models
 
 
     protected:
-      // 页码
+      // The page number.
       shared_ptr<string> page_ {};
-      // 查询关键字
+      // The query keyword.
       shared_ptr<string> query_ {};
-      // 时间范围
+      // The time range.
       shared_ptr<string> timeRange_ {};
     };
 

@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the Alibaba Cloud RAM user or the API key caller identifier to query.
     shared_ptr<string> callerId_ {};
-    // End Date.
+    // The end date for the usage query, inclusive. The format is YYYYMMDD. The date must be within the last 60 days.
     shared_ptr<string> endDate_ {};
-    // Start Date.
+    // The start date for the usage query, inclusive. The format is YYYYMMDD. The date must be within the last 60 days.
     shared_ptr<string> startDate_ {};
   };
 

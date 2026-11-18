@@ -59,10 +59,11 @@ namespace Models
 
 
   protected:
-    // Additional query parameters, such as blocked sites
+    // The additional query items, such as blocked sites.
     Darabonba::Json advancedParams_ {};
+    // The search engine type.
     shared_ptr<string> engineType_ {};
-    // Query content
+    // The query content.
     shared_ptr<string> query_ {};
   };
 

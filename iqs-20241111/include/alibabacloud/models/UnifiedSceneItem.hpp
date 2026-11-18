@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The result in JSON structure.
+    // The JSON structured result.
     shared_ptr<string> detail_ {};
     // The type.
     shared_ptr<string> type_ {};

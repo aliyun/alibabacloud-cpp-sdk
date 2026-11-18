@@ -130,28 +130,29 @@ namespace Models
 
 
   protected:
+    // The advanced search parameters. Filters search results by the start and end dates of the webpage publication time. The date format is YYYY-MM-DD. This parameter takes precedence over timeRange.
     shared_ptr<string> advancedParamsShrink_ {};
+    // Specifies whether to rerank the search results. Default value: true.
     shared_ptr<bool> enableRerank_ {};
-    // The industry. After you specify an industry, only site content related to the specified industry is recalled. Separate multiple industries with commas.
+    // The industry. If specified, only site content restricted to the specified industries is recalled. Separate multiple industries with commas.
     shared_ptr<string> industry_ {};
-    // The page number. Pages start from 1.
+    // The page number. The value starts from 1.
     shared_ptr<int32_t> page_ {};
-    // The search keyword.
+    // The search keywords.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // Specifies whether to return the main text of the webpage. Default value: true.
     shared_ptr<bool> returnMainText_ {};
+    // Specifies whether to return the webpage content in Markdown format. Default value: true.
     shared_ptr<bool> returnMarkdownText_ {};
+    // Specifies whether to return the full rich text body. Default value: false.
     shared_ptr<bool> returnRichMainBody_ {};
+    // Specifies whether to return the enhanced summary. Default value: true.
     shared_ptr<bool> returnSummary_ {};
-    // The session ID for multi-turn interaction.
+    // The session ID for multi-turn interactions.
     shared_ptr<string> sessionId_ {};
-    // The time range for filtering results. Valid values:
-    // - OneDay: last day
-    // - OneWeek: last week
-    // - OneMonth: last month
-    // - OneYear: last year
-    // - NoLimit: no limit.
+    // The time range.
     shared_ptr<string> timeRange_ {};
   };
 

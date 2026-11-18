@@ -169,18 +169,31 @@ namespace Models
 
 
     protected:
+      // The API name.
       shared_ptr<string> api_ {};
+      // The queries per second (QPS) for tiered billing.
       shared_ptr<int32_t> billingQps_ {};
+      // The metering date in the YYYYMMDD format.
       shared_ptr<string> date_ {};
+      // The search engine type.
       shared_ptr<string> engineType_ {};
+      // The number of failed calls.
       shared_ptr<int32_t> failedCalls_ {};
+      // The matched metering tier. Valid values: 1001, 1002, 1003, and 1004.
       shared_ptr<string> ladderType_ {};
+      // The ID of the Alibaba Cloud account.
       shared_ptr<string> mainAccountId_ {};
+      // The sub-account that initiates the call (RAM user or API key identifier).
       shared_ptr<string> subAccountId_ {};
+      // The number of successful calls.
       shared_ptr<int32_t> successCalls_ {};
+      // The total number of calls.
       shared_ptr<int32_t> totalBillStatCalls_ {};
+      // The total number of calls.
       shared_ptr<int32_t> totalCalls_ {};
+      // The value-added package usage for calling enhanced APIs.
       shared_ptr<int32_t> valueAddedAdvanced_ {};
+      // The number of value-added package calls used for the summarization feature.
       shared_ptr<int32_t> valueAddedSummary_ {};
     };
 
@@ -195,6 +208,7 @@ namespace Models
 
 
   protected:
+    // The daily call volume records.
     shared_ptr<vector<GetIqsUsageResult::Records>> records_ {};
   };
 
