@@ -425,6 +425,9 @@
 #include <alibabacloud/models/GetGatewayResourceQuotaUsageRequest.hpp>
 #include <alibabacloud/models/GetGatewayResourceQuotaUsageResponseBody.hpp>
 #include <alibabacloud/models/GetGatewayResourceQuotaUsageResponse.hpp>
+#include <alibabacloud/models/GetGatewayWebsocketUsageRequest.hpp>
+#include <alibabacloud/models/GetGatewayWebsocketUsageResponseBody.hpp>
+#include <alibabacloud/models/GetGatewayWebsocketUsageResponse.hpp>
 #include <alibabacloud/models/GetHiMarketConsumerRequest.hpp>
 #include <alibabacloud/models/GetHiMarketConsumerResponseBody.hpp>
 #include <alibabacloud/models/GetHiMarketConsumerResponse.hpp>
@@ -588,6 +591,9 @@
 #include <alibabacloud/models/ListGatewayQuotaRulesRequest.hpp>
 #include <alibabacloud/models/ListGatewayQuotaRulesResponseBody.hpp>
 #include <alibabacloud/models/ListGatewayQuotaRulesResponse.hpp>
+#include <alibabacloud/models/ListGatewayWebsocketEventsRequest.hpp>
+#include <alibabacloud/models/ListGatewayWebsocketEventsResponseBody.hpp>
+#include <alibabacloud/models/ListGatewayWebsocketEventsResponse.hpp>
 #include <alibabacloud/models/ListGatewaysRequest.hpp>
 #include <alibabacloud/models/ListGatewaysShrinkRequest.hpp>
 #include <alibabacloud/models/ListGatewaysResponseBody.hpp>

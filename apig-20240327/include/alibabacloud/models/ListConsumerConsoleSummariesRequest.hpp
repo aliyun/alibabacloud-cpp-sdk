@@ -75,9 +75,9 @@ namespace Models
 
 
   protected:
-    // The filter condition. Valid values: all, granted, and disabled. Default value: all.
+    // The filter condition. Valid values: all, granted, and disabled. If you do not specify this parameter, all is used by default.
     shared_ptr<string> filter_ {};
-    // The target AI gateway instance ID. Consumer identities are shared across the region, while authorizations are isolated by instance.
+    // The target AI gateway instance ID. Consumer identities are shared across the region, and authorizations are isolated by instance.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
@@ -85,9 +85,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> maxResults_ {};
-    // The keyword for fuzzy search by consumer name. This parameter does not affect the total count.
+    // The keyword for fuzzy search by consumer name. This parameter does not affect the total counts.
     shared_ptr<string> nameLike_ {};
-    // The pagination token returned from the previous page. Omit this parameter when querying the first page. An empty or omitted value indicates the last page.
+    // The pagination token returned from the previous page. Omit this parameter when you query the first page. If the value is empty or omitted, it indicates the last page.
     shared_ptr<string> nextToken_ {};
   };
 

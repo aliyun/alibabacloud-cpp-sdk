@@ -5246,7 +5246,7 @@ GetConsumerResponse Client::getConsumer(const string &consumerId) {
 }
 
 /**
- * @summary Queries the access overview of a consumer.
+ * @summary Queries the consumer access overview.
  *
  * @param request GetConsumerAccessOverviewRequest
  * @param headers map
@@ -5279,7 +5279,7 @@ GetConsumerAccessOverviewResponse Client::getConsumerAccessOverviewWithOptions(c
 }
 
 /**
- * @summary Queries the access overview of a consumer.
+ * @summary Queries the consumer access overview.
  *
  * @param request GetConsumerAccessOverviewRequest
  * @return GetConsumerAccessOverviewResponse
@@ -6000,6 +6000,49 @@ GetGatewayResourceQuotaUsageResponse Client::getGatewayResourceQuotaUsage(const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getGatewayResourceQuotaUsageWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the current cycle usage of the configured metering policy for a dedicated Professional AI gateway. Returns a specific error if cycle metering is not configured, and does not pad with zeros when no cycle data is available.
+ *
+ * @description Retrieves the current half-open cycle Redis summary for the configured metering policy of the current user\\"s dedicated Professional AI gateway. Only total instance counts are supported. Filters for time ranges, models, connections, or SLS destinations are not accepted. If data_present is false, it indicates that no cycle data is available, and the value is not padded with zeros.
+ *
+ * @param request GetGatewayWebsocketUsageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGatewayWebsocketUsageResponse
+ */
+GetGatewayWebsocketUsageResponse Client::getGatewayWebsocketUsageWithOptions(const string &gatewayId, const GetGatewayWebsocketUsageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetGatewayWebsocketUsage"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/websocket-observability/usage")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGatewayWebsocketUsageResponse>();
+}
+
+/**
+ * @summary Retrieves the current cycle usage of the configured metering policy for a dedicated Professional AI gateway. Returns a specific error if cycle metering is not configured, and does not pad with zeros when no cycle data is available.
+ *
+ * @description Retrieves the current half-open cycle Redis summary for the configured metering policy of the current user\\"s dedicated Professional AI gateway. Only total instance counts are supported. Filters for time ranges, models, connections, or SLS destinations are not accepted. If data_present is false, it indicates that no cycle data is available, and the value is not padded with zeros.
+ *
+ * @param request GetGatewayWebsocketUsageRequest
+ * @return GetGatewayWebsocketUsageResponse
+ */
+GetGatewayWebsocketUsageResponse Client::getGatewayWebsocketUsage(const string &gatewayId, const GetGatewayWebsocketUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getGatewayWebsocketUsageWithOptions(gatewayId, request, headers, runtime);
 }
 
 /**
@@ -8972,6 +9015,87 @@ ListGatewayQuotaRulesResponse Client::listGatewayQuotaRules(const string &gatewa
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listGatewayQuotaRulesWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+ *
+ * @description Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+ *
+ * @param request ListGatewayWebsocketEventsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGatewayWebsocketEventsResponse
+ */
+ListGatewayWebsocketEventsResponse Client::listGatewayWebsocketEventsWithOptions(const string &gatewayId, const ListGatewayWebsocketEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConnectionId()) {
+    query["connectionId"] = request.getConnectionId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasModel()) {
+    query["model"] = request.getModel();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasProvider()) {
+    query["provider"] = request.getProvider();
+  }
+
+  if (!!request.hasSource()) {
+    query["source"] = request.getSource();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTurnId()) {
+    query["turnId"] = request.getTurnId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListGatewayWebsocketEvents"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/websocket-observability/events")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGatewayWebsocketEventsResponse>();
+}
+
+/**
+ * @summary Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+ *
+ * @description Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+ *
+ * @param request ListGatewayWebsocketEventsRequest
+ * @return ListGatewayWebsocketEventsResponse
+ */
+ListGatewayWebsocketEventsResponse Client::listGatewayWebsocketEvents(const string &gatewayId, const ListGatewayWebsocketEventsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listGatewayWebsocketEventsWithOptions(gatewayId, request, headers, runtime);
 }
 
 /**

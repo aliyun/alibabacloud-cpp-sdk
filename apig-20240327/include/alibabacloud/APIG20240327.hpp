@@ -1851,7 +1851,7 @@ namespace APIG20240327
       Models::GetConsumerResponse getConsumer(const string &consumerId);
 
       /**
-       * @summary Queries the access overview of a consumer.
+       * @summary Queries the consumer access overview.
        *
        * @param request GetConsumerAccessOverviewRequest
        * @param headers map
@@ -1861,7 +1861,7 @@ namespace APIG20240327
       Models::GetConsumerAccessOverviewResponse getConsumerAccessOverviewWithOptions(const string &consumerId, const Models::GetConsumerAccessOverviewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the access overview of a consumer.
+       * @summary Queries the consumer access overview.
        *
        * @param request GetConsumerAccessOverviewRequest
        * @return GetConsumerAccessOverviewResponse
@@ -2181,6 +2181,28 @@ namespace APIG20240327
        * @return GetGatewayResourceQuotaUsageResponse
        */
       Models::GetGatewayResourceQuotaUsageResponse getGatewayResourceQuotaUsage(const string &gatewayId, const Models::GetGatewayResourceQuotaUsageRequest &request);
+
+      /**
+       * @summary Retrieves the current cycle usage of the configured metering policy for a dedicated Professional AI gateway. Returns a specific error if cycle metering is not configured, and does not pad with zeros when no cycle data is available.
+       *
+       * @description Retrieves the current half-open cycle Redis summary for the configured metering policy of the current user\\"s dedicated Professional AI gateway. Only total instance counts are supported. Filters for time ranges, models, connections, or SLS destinations are not accepted. If data_present is false, it indicates that no cycle data is available, and the value is not padded with zeros.
+       *
+       * @param request GetGatewayWebsocketUsageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGatewayWebsocketUsageResponse
+       */
+      Models::GetGatewayWebsocketUsageResponse getGatewayWebsocketUsageWithOptions(const string &gatewayId, const Models::GetGatewayWebsocketUsageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the current cycle usage of the configured metering policy for a dedicated Professional AI gateway. Returns a specific error if cycle metering is not configured, and does not pad with zeros when no cycle data is available.
+       *
+       * @description Retrieves the current half-open cycle Redis summary for the configured metering policy of the current user\\"s dedicated Professional AI gateway. Only total instance counts are supported. Filters for time ranges, models, connections, or SLS destinations are not accepted. If data_present is false, it indicates that no cycle data is available, and the value is not padded with zeros.
+       *
+       * @param request GetGatewayWebsocketUsageRequest
+       * @return GetGatewayWebsocketUsageResponse
+       */
+      Models::GetGatewayWebsocketUsageResponse getGatewayWebsocketUsage(const string &gatewayId, const Models::GetGatewayWebsocketUsageRequest &request);
 
       /**
        * @summary Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is a primary consumer.
@@ -3249,6 +3271,28 @@ namespace APIG20240327
        * @return ListGatewayQuotaRulesResponse
        */
       Models::ListGatewayQuotaRulesResponse listGatewayQuotaRules(const string &gatewayId, const Models::ListGatewayQuotaRulesRequest &request);
+
+      /**
+       * @summary Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+       *
+       * @description Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+       *
+       * @param request ListGatewayWebsocketEventsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGatewayWebsocketEventsResponse
+       */
+      Models::ListGatewayWebsocketEventsResponse listGatewayWebsocketEventsWithOptions(const string &gatewayId, const Models::ListGatewayWebsocketEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+       *
+       * @description Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+       *
+       * @param request ListGatewayWebsocketEventsRequest
+       * @return ListGatewayWebsocketEventsResponse
+       */
+      Models::ListGatewayWebsocketEventsResponse listGatewayWebsocketEvents(const string &gatewayId, const Models::ListGatewayWebsocketEventsRequest &request);
 
       /**
        * @summary Queries a list of gateways.
