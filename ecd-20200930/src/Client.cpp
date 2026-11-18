@@ -1055,7 +1055,7 @@ BatchModifyEntitlementResponse Client::batchModifyEntitlement(const BatchModifyE
 }
 
 /**
- * @summary Associates a configuration group with a cloud computer or resource group.
+ * @summary Associates a configuration group with a cloud desktop or a resource group.
  *
  * @param request BindConfigGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1094,7 +1094,7 @@ BindConfigGroupResponse Client::bindConfigGroupWithOptions(const BindConfigGroup
 }
 
 /**
- * @summary Associates a configuration group with a cloud computer or resource group.
+ * @summary Associates a configuration group with a cloud desktop or a resource group.
  *
  * @param request BindConfigGroupRequest
  * @return BindConfigGroupResponse
@@ -1961,7 +1961,7 @@ CreateADConnectorOfficeSiteResponse Client::createADConnectorOfficeSite(const Cr
 }
 
 /**
- * @summary Creates a NAS file system and binds it to the office network of a shared cloud computer.
+ * @summary Creates a NAS file system and associates it with the office network of a shared cloud desktop.
  *
  * @param request CreateAndBindNasFileSystemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1998,6 +1998,10 @@ CreateAndBindNasFileSystemResponse Client::createAndBindNasFileSystemWithOptions
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasSizeQuota()) {
+    query["SizeQuota"] = request.getSizeQuota();
+  }
+
   if (!!request.hasStorageType()) {
     query["StorageType"] = request.getStorageType();
   }
@@ -2020,7 +2024,7 @@ CreateAndBindNasFileSystemResponse Client::createAndBindNasFileSystemWithOptions
 }
 
 /**
- * @summary Creates a NAS file system and binds it to the office network of a shared cloud computer.
+ * @summary Creates a NAS file system and associates it with the office network of a shared cloud desktop.
  *
  * @param request CreateAndBindNasFileSystemRequest
  * @return CreateAndBindNasFileSystemResponse
@@ -3327,9 +3331,10 @@ CreateConfigGroupResponse Client::createConfigGroup(const CreateConfigGroupReque
 }
 
 /**
- * @summary Creates a shared cloud computer.
+ * @summary Creates a shared cloud desktop.
  *
- * @description - For information about the features, common scenarios, limits, and scaling policies of shared cloud computers, see [Shared cloud computers (formerly cloud computer pools) overview](https://help.aliyun.com/document_detail/290959.html).
+ * @description - For information about the features, common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
+ * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policies are created.
  *
  * @param request CreateDesktopGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3600,9 +3605,10 @@ CreateDesktopGroupResponse Client::createDesktopGroupWithOptions(const CreateDes
 }
 
 /**
- * @summary Creates a shared cloud computer.
+ * @summary Creates a shared cloud desktop.
  *
- * @description - For information about the features, common scenarios, limits, and scaling policies of shared cloud computers, see [Shared cloud computers (formerly cloud computer pools) overview](https://help.aliyun.com/document_detail/290959.html).
+ * @description - For information about the features, common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
+ * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policies are created.
  *
  * @param request CreateDesktopGroupRequest
  * @return CreateDesktopGroupResponse
@@ -4194,6 +4200,10 @@ CreateDriveResponse Client::createDriveWithOptions(const CreateDriveRequest &req
     query["ExternalDomainId"] = request.getExternalDomainId();
   }
 
+  if (!!request.hasPlatforms()) {
+    query["Platforms"] = request.getPlatforms();
+  }
+
   if (!!request.hasProfileRoaming()) {
     query["ProfileRoaming"] = request.getProfileRoaming();
   }
@@ -4679,7 +4689,7 @@ CreateNetworkPackageResponse Client::createNetworkPackage(const CreateNetworkPac
 /**
  * @summary Enables Global Accelerator (GA) for an office network.
  *
- * @description Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+ * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
  *
  * @param request CreateOfficeSiteAcceleratorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4728,7 +4738,7 @@ CreateOfficeSiteAcceleratorResponse Client::createOfficeSiteAcceleratorWithOptio
 /**
  * @summary Enables Global Accelerator (GA) for an office network.
  *
- * @description Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+ * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
  *
  * @param request CreateOfficeSiteAcceleratorRequest
  * @return CreateOfficeSiteAcceleratorResponse
@@ -4739,9 +4749,9 @@ CreateOfficeSiteAcceleratorResponse Client::createOfficeSiteAccelerator(const Cr
 }
 
 /**
- * @summary Creates a cloud computer policy.
+ * @summary Creates a cloud desktop policy.
  *
- * @description A cloud computer policy is a collection of rules that primarily includes configurations for cloud computer performance and security, such as basic policies like disk mapping, USB redirection, and watermarks, as well as rules like DNS management. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+ * @description A cloud desktop policy is a collection of rules that mainly includes performance and security configurations for cloud desktops, such as basic policies for disk mapping, USB redirection, and watermarks, as well as rules for DNS control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
  *
  * @param request CreatePolicyGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4996,9 +5006,9 @@ CreatePolicyGroupResponse Client::createPolicyGroupWithOptions(const CreatePolic
 }
 
 /**
- * @summary Creates a cloud computer policy.
+ * @summary Creates a cloud desktop policy.
  *
- * @description A cloud computer policy is a collection of rules that primarily includes configurations for cloud computer performance and security, such as basic policies like disk mapping, USB redirection, and watermarks, as well as rules like DNS management. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+ * @description A cloud desktop policy is a collection of rules that mainly includes performance and security configurations for cloud desktops, such as basic policies for disk mapping, USB redirection, and watermarks, as well as rules for DNS control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
  *
  * @param request CreatePolicyGroupRequest
  * @return CreatePolicyGroupResponse
@@ -5009,9 +5019,9 @@ CreatePolicyGroupResponse Client::createPolicyGroup(const CreatePolicyGroupReque
 }
 
 /**
- * @summary Creates a rate limiting rule.
+ * @summary Creates a bandwidth throttling rule.
  *
- * @description Cloud computer templates include system templates and custom templates. System templates are default templates provided by Alibaba Cloud. Call this operation to create a custom template.
+ * @description Cloud computer templates are divided into system templates and custom templates. System templates are default templates provided by Alibaba Cloud. You can call this operation to create a custom template.
  *
  * @param request CreateQosRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5066,9 +5076,9 @@ CreateQosRuleResponse Client::createQosRuleWithOptions(const CreateQosRuleReques
 }
 
 /**
- * @summary Creates a rate limiting rule.
+ * @summary Creates a bandwidth throttling rule.
  *
- * @description Cloud computer templates include system templates and custom templates. System templates are default templates provided by Alibaba Cloud. Call this operation to create a custom template.
+ * @description Cloud computer templates are divided into system templates and custom templates. System templates are default templates provided by Alibaba Cloud. You can call this operation to create a custom template.
  *
  * @param request CreateQosRuleRequest
  * @return CreateQosRuleResponse
@@ -5581,11 +5591,11 @@ CreateSubnetResponse Client::createSubnet(const CreateSubnetRequest &request) {
 }
 
 /**
- * @summary Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
+ * @summary Creates a custom cloud desktop template. A cloud desktop template (template for short) is a collection of cloud desktop configurations used to reduce configuration steps and accelerate the creation of cloud desktops.
  *
  * @description When you call this operation, take note of the following items:
- * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
- * - For region-specific parameters in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
+ * - Most parameters in an instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence and validity of the parameter values in the template. The validity of the parameter values is verified only when an instance is actually created.
+ * - For parameters with region attributes in the template, if the region does not match when you use the template to create a cloud desktop, these parameters do not take effect.
  *
  * @param request CreateTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5708,11 +5718,11 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
 }
 
 /**
- * @summary Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
+ * @summary Creates a custom cloud desktop template. A cloud desktop template (template for short) is a collection of cloud desktop configurations used to reduce configuration steps and accelerate the creation of cloud desktops.
  *
  * @description When you call this operation, take note of the following items:
- * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
- * - For region-specific parameters in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
+ * - Most parameters in an instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence and validity of the parameter values in the template. The validity of the parameter values is verified only when an instance is actually created.
+ * - For parameters with region attributes in the template, if the region does not match when you use the template to create a cloud desktop, these parameters do not take effect.
  *
  * @param request CreateTemplateRequest
  * @return CreateTemplateResponse
@@ -5725,7 +5735,7 @@ CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &reque
 /**
  * @summary Creates a virtual bridge.
  *
- * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a cloud desktop.
+ * @description Deleting an MFA device dissociates the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a Cloud Desktop.
  *
  * @param request CreateVirtualBridgeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5790,7 +5800,7 @@ CreateVirtualBridgeResponse Client::createVirtualBridgeWithOptions(const CreateV
 /**
  * @summary Creates a virtual bridge.
  *
- * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a cloud desktop.
+ * @description Deleting an MFA device dissociates the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a Cloud Desktop.
  *
  * @param request CreateVirtualBridgeRequest
  * @return CreateVirtualBridgeResponse
@@ -5951,7 +5961,7 @@ DeleteCdsFileResponse Client::deleteCdsFile(const DeleteCdsFileRequest &request)
 }
 
 /**
- * @summary Deletes a non-region-specific policy.
+ * @summary Deletes a regionless policy.
  *
  * @param request DeleteCenterPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5994,7 +6004,7 @@ DeleteCenterPolicyResponse Client::deleteCenterPolicyWithOptions(const DeleteCen
 }
 
 /**
- * @summary Deletes a non-region-specific policy.
+ * @summary Deletes a regionless policy.
  *
  * @param request DeleteCenterPolicyRequest
  * @return DeleteCenterPolicyResponse
@@ -6055,6 +6065,52 @@ DeleteCloudDriveGroupsResponse Client::deleteCloudDriveGroups(const DeleteCloudD
 }
 
 /**
+ * @summary Deletes one or more Wuying cloud disks.
+ *
+ * @param request DeleteCloudDriveServicesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCloudDriveServicesResponse
+ */
+DeleteCloudDriveServicesResponse Client::deleteCloudDriveServicesWithOptions(const DeleteCloudDriveServicesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCdsId()) {
+    query["CdsId"] = request.getCdsId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCloudDriveServices"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCloudDriveServicesResponse>();
+}
+
+/**
+ * @summary Deletes one or more Wuying cloud disks.
+ *
+ * @param request DeleteCloudDriveServicesRequest
+ * @return DeleteCloudDriveServicesResponse
+ */
+DeleteCloudDriveServicesResponse Client::deleteCloudDriveServices(const DeleteCloudDriveServicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCloudDriveServicesWithOptions(request, runtime);
+}
+
+/**
  * @summary Delete the personal drive of a user in WUYING Workspace.
  *
  * @param request DeleteCloudDriveUsersRequest
@@ -6105,7 +6161,7 @@ DeleteCloudDriveUsersResponse Client::deleteCloudDriveUsers(const DeleteCloudDri
 }
 
 /**
- * @summary Deletes a configuration group.
+ * @summary Deletes configuration groups.
  *
  * @param request DeleteConfigGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6140,7 +6196,7 @@ DeleteConfigGroupResponse Client::deleteConfigGroupWithOptions(const DeleteConfi
 }
 
 /**
- * @summary Deletes a configuration group.
+ * @summary Deletes configuration groups.
  *
  * @param request DeleteConfigGroupRequest
  * @return DeleteConfigGroupResponse
@@ -6376,8 +6432,20 @@ DeleteDirectoriesResponse Client::deleteDirectories(const DeleteDirectoriesReque
 DeleteDriveResponse Client::deleteDriveWithOptions(const DeleteDriveRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDomainId()) {
+    query["DomainId"] = request.getDomainId();
+  }
+
   if (!!request.hasDriveId()) {
     query["DriveId"] = request.getDriveId();
+  }
+
+  if (!!request.hasEndUserId()) {
+    query["EndUserId"] = request.getEndUserId();
+  }
+
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.getOfficeSiteId();
   }
 
   if (!!request.hasRegionId()) {
@@ -6711,7 +6779,7 @@ DeleteNetworkPackagesResponse Client::deleteNetworkPackages(const DeleteNetworkP
 }
 
 /**
- * @summary Deletes a Global Accelerator (GA) configuration.
+ * @summary Deletes the Global Accelerator configuration.
  *
  * @param request DeleteOfficeSiteAcceleratorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6746,7 +6814,7 @@ DeleteOfficeSiteAcceleratorResponse Client::deleteOfficeSiteAcceleratorWithOptio
 }
 
 /**
- * @summary Deletes a Global Accelerator (GA) configuration.
+ * @summary Deletes the Global Accelerator configuration.
  *
  * @param request DeleteOfficeSiteAcceleratorRequest
  * @return DeleteOfficeSiteAcceleratorResponse
@@ -6865,7 +6933,7 @@ DeletePolicyGroupsResponse Client::deletePolicyGroups(const DeletePolicyGroupsRe
 }
 
 /**
- * @summary Deletes QoS rules.
+ * @summary Deletes a QoS rule.
  *
  * @param request DeleteQosRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6896,7 +6964,7 @@ DeleteQosRulesResponse Client::deleteQosRulesWithOptions(const DeleteQosRulesReq
 }
 
 /**
- * @summary Deletes QoS rules.
+ * @summary Deletes a QoS rule.
  *
  * @param request DeleteQosRulesRequest
  * @return DeleteQosRulesResponse
@@ -7157,9 +7225,9 @@ DeleteSubnetResponse Client::deleteSubnet(const DeleteSubnetRequest &request) {
 }
 
 /**
- * @summary Deletes a custom cloud computer template.
+ * @summary Deletes a custom cloud desktop template.
  *
- * @description After a template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
+ * @description After a template is deleted, cloud desktops created based on the template and resources associated with the template are not affected.
  *
  * @param request DeleteTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7194,9 +7262,9 @@ DeleteTemplatesResponse Client::deleteTemplatesWithOptions(const DeleteTemplates
 }
 
 /**
- * @summary Deletes a custom cloud computer template.
+ * @summary Deletes a custom cloud desktop template.
  *
- * @description After a template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
+ * @description After a template is deleted, cloud desktops created based on the template and resources associated with the template are not affected.
  *
  * @param request DeleteTemplatesRequest
  * @return DeleteTemplatesResponse
@@ -7209,7 +7277,7 @@ DeleteTemplatesResponse Client::deleteTemplates(const DeleteTemplatesRequest &re
 /**
  * @summary Modifies the status of a virtual bridge.
  *
- * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting and disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a Cloud Desktop.
+ * @description Deleting an MFA device unbinds the device, which is equivalent to resetting and disabling it. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a Cloud Desktop.
  *
  * @param request DeleteVirtualBridgeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7246,7 +7314,7 @@ DeleteVirtualBridgeResponse Client::deleteVirtualBridgeWithOptions(const DeleteV
 /**
  * @summary Modifies the status of a virtual bridge.
  *
- * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting and disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a Cloud Desktop.
+ * @description Deleting an MFA device unbinds the device, which is equivalent to resetting and disabling it. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a Cloud Desktop.
  *
  * @param request DeleteVirtualBridgeRequest
  * @return DeleteVirtualBridgeResponse
@@ -7427,7 +7495,7 @@ DescribeAutoSnapshotPolicyResponse Client::describeAutoSnapshotPolicy(const Desc
 }
 
 /**
- * @summary Queries the details of cloud computer templates.
+ * @summary Queries the details of cloud desktop templates.
  *
  * @param request DescribeBundlesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7538,7 +7606,7 @@ DescribeBundlesResponse Client::describeBundlesWithOptions(const DescribeBundles
 }
 
 /**
- * @summary Queries the details of cloud computer templates.
+ * @summary Queries the details of cloud desktop templates.
  *
  * @param request DescribeBundlesRequest
  * @return DescribeBundlesResponse
@@ -7665,7 +7733,7 @@ DescribeCensResponse Client::describeCens(const DescribeCensRequest &request) {
 }
 
 /**
- * @summary 查詢無地域策略的詳細資訊。
+ * @summary Queries the details of regionless policies.
  *
  * @param request DescribeCenterPolicyListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7728,7 +7796,7 @@ DescribeCenterPolicyListResponse Client::describeCenterPolicyListWithOptions(con
 }
 
 /**
- * @summary 查詢無地域策略的詳細資訊。
+ * @summary Queries the details of regionless policies.
  *
  * @param request DescribeCenterPolicyListRequest
  * @return DescribeCenterPolicyListResponse
@@ -8637,9 +8705,9 @@ DescribeDesktopInfoResponse Client::describeDesktopInfo(const DescribeDesktopInf
 }
 
 /**
- * @summary Queries the list and metadata of cloud desktops across all regions.
+ * @summary Queries a list of cloud desktops and their metadata across all regions.
  *
- * @description This is a centralized API that only supports queries from the Shanghai and Singapore sites.
+ * @description This operation is centralized and supports queries only in the Shanghai and Singapore sites.
  *
  * @param request DescribeDesktopMetadataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8726,9 +8794,9 @@ DescribeDesktopMetadataResponse Client::describeDesktopMetadataWithOptions(const
 }
 
 /**
- * @summary Queries the list and metadata of cloud desktops across all regions.
+ * @summary Queries a list of cloud desktops and their metadata across all regions.
  *
- * @description This is a centralized API that only supports queries from the Shanghai and Singapore sites.
+ * @description This operation is centralized and supports queries only in the Shanghai and Singapore sites.
  *
  * @param request DescribeDesktopMetadataRequest
  * @return DescribeDesktopMetadataResponse
@@ -9347,7 +9415,7 @@ DescribeDesktopsResponse Client::describeDesktops(const DescribeDesktopsRequest 
 }
 
 /**
- * @summary Queries the list of cloud desktops in a shared cloud desktop by billing method.
+ * @summary Queries the cloud desktops in a shared cloud desktop by billing method.
  *
  * @param request DescribeDesktopsInGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9406,7 +9474,7 @@ DescribeDesktopsInGroupResponse Client::describeDesktopsInGroupWithOptions(const
 }
 
 /**
- * @summary Queries the list of cloud desktops in a shared cloud desktop by billing method.
+ * @summary Queries the cloud desktops in a shared cloud desktop by billing method.
  *
  * @param request DescribeDesktopsInGroupRequest
  * @return DescribeDesktopsInGroupResponse
@@ -10143,7 +10211,7 @@ DescribeGlobalTimerBatchesResponse Client::describeGlobalTimerBatches(const Desc
 }
 
 /**
- * @summary Queries the execution records of scheduled tasks for cloud computers across regions.
+ * @summary Queries the execution records of scheduled tasks for cloud desktops across regions.
  *
  * @param request DescribeGlobalTimerRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10226,7 +10294,7 @@ DescribeGlobalTimerRecordsResponse Client::describeGlobalTimerRecordsWithOptions
 }
 
 /**
- * @summary Queries the execution records of scheduled tasks for cloud computers across regions.
+ * @summary Queries the execution records of scheduled tasks for cloud desktops across regions.
  *
  * @param request DescribeGlobalTimerRecordsRequest
  * @return DescribeGlobalTimerRecordsResponse
@@ -11013,7 +11081,7 @@ DescribeOfficeSiteBridgeInfoResponse Client::describeOfficeSiteBridgeInfo(const 
 }
 
 /**
- * @summary Queries all attributes of an office network, including the ID, name, status, and creation time.
+ * @summary Queries all properties of an office network, including the ID, name, status, and creation time.
  *
  * @param request DescribeOfficeSitesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11076,7 +11144,7 @@ DescribeOfficeSitesResponse Client::describeOfficeSitesWithOptions(const Describ
 }
 
 /**
- * @summary Queries all attributes of an office network, including the ID, name, status, and creation time.
+ * @summary Queries all properties of an office network, including the ID, name, status, and creation time.
  *
  * @param request DescribeOfficeSitesRequest
  * @return DescribeOfficeSitesResponse
@@ -12481,7 +12549,7 @@ DescribeSessionStatisticResponse Client::describeSessionStatistic(const Describe
 }
 
 /**
- * @summary Queries the list and details of snapshots for a cloud desktop.
+ * @summary Queries the snapshots and their details for a cloud desktop.
  *
  * @param request DescribeSnapshotsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12564,7 +12632,7 @@ DescribeSnapshotsResponse Client::describeSnapshotsWithOptions(const DescribeSna
 }
 
 /**
- * @summary Queries the list and details of snapshots for a cloud desktop.
+ * @summary Queries the snapshots and their details for a cloud desktop.
  *
  * @param request DescribeSnapshotsRequest
  * @return DescribeSnapshotsResponse
@@ -14117,7 +14185,7 @@ ExportDesktopListInfoResponse Client::exportDesktopListInfo(const ExportDesktopL
 }
 
 /**
- * @summary Generates an access key for a scenario.
+ * @summary Generates a scenario access key.
  *
  * @param request GenerateSceneKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14160,7 +14228,7 @@ GenerateSceneKeyResponse Client::generateSceneKeyWithOptions(const GenerateScene
 }
 
 /**
- * @summary Generates an access key for a scenario.
+ * @summary Generates a scenario access key.
  *
  * @param request GenerateSceneKeyRequest
  * @return GenerateSceneKeyResponse
@@ -14596,6 +14664,68 @@ HibernateDesktopsResponse Client::hibernateDesktopsWithOptions(const HibernateDe
 HibernateDesktopsResponse Client::hibernateDesktops(const HibernateDesktopsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return hibernateDesktopsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Imports a UPM user VHD.
+ *
+ * @param request ImportDriveRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImportDriveResponse
+ */
+ImportDriveResponse Client::importDriveWithOptions(const ImportDriveRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainId()) {
+    query["DomainId"] = request.getDomainId();
+  }
+
+  if (!!request.hasEndUserId()) {
+    query["EndUserId"] = request.getEndUserId();
+  }
+
+  if (!!request.hasForceUpdate()) {
+    query["ForceUpdate"] = request.getForceUpdate();
+  }
+
+  if (!!request.hasMountUrl()) {
+    query["MountUrl"] = request.getMountUrl();
+  }
+
+  if (!!request.hasPlatform()) {
+    query["Platform"] = request.getPlatform();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ImportDrive"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImportDriveResponse>();
+}
+
+/**
+ * @summary Imports a UPM user VHD.
+ *
+ * @param request ImportDriveRequest
+ * @return ImportDriveResponse
+ */
+ImportDriveResponse Client::importDrive(const ImportDriveRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return importDriveWithOptions(request, runtime);
 }
 
 /**
@@ -16903,12 +17033,12 @@ ModifyCustomizedListHeadersResponse Client::modifyCustomizedListHeaders(const Mo
 }
 
 /**
- * @summary Converts the billing method of cloud desktops to subscription or pay-as-you-go.
+ * @summary Changes the billing method of a cloud desktop to subscription or pay-as-you-go.
  *
- * @description - Before you invoke this operation, make sure that you fully understand the billing methods of cloud desktops. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
- * - When you invoke this operation, make sure that the cloud desktops are in the Running or Stopped state and that no overdue payments exist.
- * - After the order is paid, the system starts to convert the billing method of the cloud desktops. During the conversion, the cloud desktops are in the Upgrade/Downgrade state and do not support other operations such as starting, stopping, or changing specifications.
- * <props="china">When you convert the billing method from subscription to pay-as-you-go, refund quota limits apply. For more information, see [Switch from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/439964.html).
+ * @description - Before you call this operation, make sure that you fully understand the billing methods of cloud desktops. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+ * - When you call this operation, make sure that the target cloud desktop is in the Running or Stopped state and has no overdue payments.
+ * - After the order is paid, the system starts to change the billing method of the cloud desktop. During the change, the cloud desktop is in the Upgrade/Downgrade state and does not support other operations, such as starting, stopping, or changing configurations.
+ * <props="china">When you change the billing method from subscription to pay-as-you-go, a refund quota limit applies. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/439964.html).
  *
  * @param request ModifyDesktopChargeTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16971,12 +17101,12 @@ ModifyDesktopChargeTypeResponse Client::modifyDesktopChargeTypeWithOptions(const
 }
 
 /**
- * @summary Converts the billing method of cloud desktops to subscription or pay-as-you-go.
+ * @summary Changes the billing method of a cloud desktop to subscription or pay-as-you-go.
  *
- * @description - Before you invoke this operation, make sure that you fully understand the billing methods of cloud desktops. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
- * - When you invoke this operation, make sure that the cloud desktops are in the Running or Stopped state and that no overdue payments exist.
- * - After the order is paid, the system starts to convert the billing method of the cloud desktops. During the conversion, the cloud desktops are in the Upgrade/Downgrade state and do not support other operations such as starting, stopping, or changing specifications.
- * <props="china">When you convert the billing method from subscription to pay-as-you-go, refund quota limits apply. For more information, see [Switch from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/439964.html).
+ * @description - Before you call this operation, make sure that you fully understand the billing methods of cloud desktops. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+ * - When you call this operation, make sure that the target cloud desktop is in the Running or Stopped state and has no overdue payments.
+ * - After the order is paid, the system starts to change the billing method of the cloud desktop. During the change, the cloud desktop is in the Upgrade/Downgrade state and does not support other operations, such as starting, stopping, or changing configurations.
+ * <props="china">When you change the billing method from subscription to pay-as-you-go, a refund quota limit applies. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/439964.html).
  *
  * @param request ModifyDesktopChargeTypeRequest
  * @return ModifyDesktopChargeTypeResponse
@@ -18149,7 +18279,7 @@ ModifyOfficeSiteAcceleratorResponse Client::modifyOfficeSiteAccelerator(const Mo
 }
 
 /**
- * @summary Modifies the basic attributes of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to cloud computer users.
+ * @summary Modifies the basic properties of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to users of cloud desktops.
  *
  * @param request ModifyOfficeSiteAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18180,6 +18310,10 @@ ModifyOfficeSiteAttributeResponse Client::modifyOfficeSiteAttributeWithOptions(c
 
   if (!!request.hasEnableAdminAccess()) {
     query["EnableAdminAccess"] = request.getEnableAdminAccess();
+  }
+
+  if (!!request.hasEnableUpm()) {
+    query["EnableUpm"] = request.getEnableUpm();
   }
 
   if (!!request.hasNeedVerifyLoginRisk()) {
@@ -18228,7 +18362,7 @@ ModifyOfficeSiteAttributeResponse Client::modifyOfficeSiteAttributeWithOptions(c
 }
 
 /**
- * @summary Modifies the basic attributes of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to cloud computer users.
+ * @summary Modifies the basic properties of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to users of cloud desktops.
  *
  * @param request ModifyOfficeSiteAttributeRequest
  * @return ModifyOfficeSiteAttributeResponse

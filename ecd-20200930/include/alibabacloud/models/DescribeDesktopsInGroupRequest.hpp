@@ -103,9 +103,9 @@ namespace Models
 
 
   protected:
-    // The end time of the custom time range.
+    // The end time of the custom time period.
     shared_ptr<int64_t> customEndTimePeriod_ {};
-    // The start time of the custom time range.
+    // The start time of the custom time period.
     shared_ptr<int64_t> customStartTimePeriod_ {};
     // The ID of the shared cloud desktop.
     // 
@@ -113,13 +113,15 @@ namespace Models
     shared_ptr<string> desktopGroupId_ {};
     // Specifies whether to ignore the deletion flag.
     shared_ptr<bool> ignoreDeleted_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries to return per page for paging in a paged query.
+    // - Default value: 10.
+    // - Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. An empty value indicates that no more results exist.
+    // The pagination token used to start the next query. An empty value indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
     // The billing method.
     shared_ptr<string> payType_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to obtain the list of regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

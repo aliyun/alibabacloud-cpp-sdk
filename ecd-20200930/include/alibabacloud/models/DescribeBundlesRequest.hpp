@@ -227,31 +227,34 @@ namespace Models
 
 
   protected:
-    // The list of cloud computer template IDs. You can specify 1 to 100 IDs.
+    // The list of cloud desktop template IDs. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> bundleId_ {};
-    // The cloud computer templatetype.
+    // The cloud desktop templatetype.
     shared_ptr<string> bundleType_ {};
-    // Specifies whether to query the stock status of the cloud computer instance type.
+    // Specifies whether to query the inventory status of the cloud desktop instance type.
     shared_ptr<bool> checkStock_ {};
-    // The number of vCPUs included in the cloud computer instance type.
+    // The number of vCPUs in the cloud desktop instance type.
     shared_ptr<int32_t> cpuCount_ {};
-    // The cloud computer instance family.
+    // The cloud desktop instance family.
     shared_ptr<string> desktopTypeFamily_ {};
     // > This parameter is not publicly available.
     shared_ptr<string> fotaChannel_ {};
-    // Specifies whether the template belongs to a cloud computer pool.
+    // Specifies whether the template belongs to a cloud desktop pool.
     shared_ptr<bool> fromDesktopGroup_ {};
-    // The number of GPUs included in the cloud computer instance type.
+    // The number of GPUs in the cloud desktop instance type.
     shared_ptr<float> gpuCount_ {};
     // The GPU driver type.
     shared_ptr<string> gpuDriverType_ {};
     // The list of image IDs.
     shared_ptr<vector<string>> imageId_ {};
-    // The maximum number of entries per page for a paged query.
+    // The maximum number of entries to return per page when paging in a paged query.
+    // 
+    // - Maximum value: 100.
+    // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The memory size included in the cloud computer instance type. Unit: GiB.
+    // The memory size of the cloud desktop instance type. Unit: GiB.
     shared_ptr<int32_t> memorySize_ {};
-    // The token for the next query.
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The operating system type.
     shared_ptr<string> osType_ {};
@@ -261,15 +264,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Scenarios.
+    // The Scenarios.
     shared_ptr<string> scope_ {};
-    // The selected template.
+    // The featured template.
     shared_ptr<bool> selectedBundle_ {};
     // The session type.
     shared_ptr<string> sessionType_ {};
-    // Specifies whether to return multi-session cloud computer templates when querying the cloud computer list. Multi-session templates are not returned by default.
+    // Specifies whether to return multi-session cloud desktop templates when you query the cloud desktop list. By default, multi-session templates are not returned.
     shared_ptr<bool> supportMultiSession_ {};
-    // Specifies whether to enable disk encryption.
+    // Specifies whether disk encryption is enabled.
     shared_ptr<bool> volumeEncryptionEnabled_ {};
   };
 

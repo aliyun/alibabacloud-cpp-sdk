@@ -142,11 +142,11 @@ namespace Models
 
 
       protected:
-        // The disk performance level.
+        // The performance level of the disk.
         shared_ptr<string> diskPerformanceLevel_ {};
-        // The disk size. Unit: GiB.
+        // The size of the disk. Unit: GiB.
         shared_ptr<int32_t> diskSize_ {};
-        // The disk type.
+        // The type of the disk.
         shared_ptr<string> diskType_ {};
       };
 
@@ -381,33 +381,33 @@ namespace Models
 
 
     protected:
-      // The cloud computer template ID.
+      // The cloud desktop template ID.
       shared_ptr<string> bundleId_ {};
-      // The name of the cloud computer template.
+      // The name of the cloud desktop template.
       shared_ptr<string> bundleName_ {};
-      // The cloud computer templatetype.
+      // The cloud desktop templatetype.
       shared_ptr<string> bundleType_ {};
-      // The time when the cloud computer template was created. The time is in the ISO 8601 standard in UTC.
+      // The creation time of the cloud desktop template. The time follows the ISO 8601 standard in UTC.
       shared_ptr<string> creationTime_ {};
-      // The data cloud disk type.
+      // The category of the data cloud disk.
       shared_ptr<string> dataDiskCategory_ {};
-      // The description of the cloud computer template.
+      // The description of the cloud desktop template.
       shared_ptr<string> description_ {};
-      // The cloud computer specifications.
+      // The cloud desktop specifications.
       shared_ptr<string> desktopType_ {};
-      // The details of the cloud computer specifications.
+      // The details of the cloud desktop specifications.
       shared_ptr<Bundles::DesktopTypeAttribute> desktopTypeAttribute_ {};
-      // The cloud computer instance family.
+      // The cloud desktop instance family.
       shared_ptr<string> desktopTypeFamily_ {};
       // The disk information.
       shared_ptr<vector<Bundles::Disks>> disks_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
-      // The image name.
+      // The name of the image.
       shared_ptr<string> imageName_ {};
-      // The image status.
+      // The status of the image.
       shared_ptr<string> imageStatus_ {};
-      // The language of the image operating system.
+      // The operating system language of the image.
       shared_ptr<string> language_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
@@ -417,11 +417,11 @@ namespace Models
       shared_ptr<string> protocolType_ {};
       // The session type.
       shared_ptr<string> sessionType_ {};
-      // The stock status. This parameter is returned when `CheckStock` is set to `True`.
+      // The stock status. This parameter is returned when CheckStock is set to True.
       shared_ptr<string> stockState_ {};
-      // The system cloud disk type.
+      // The category of the system cloud disk.
       shared_ptr<string> systemDiskCategory_ {};
-      // Specifies whether to enable disk encryption.
+      // Specifies whether disk encryption is enabled.
       shared_ptr<bool> volumeEncryptionEnabled_ {};
       // The ID of the KMS key used when disk encryption is enabled.
       shared_ptr<string> volumeEncryptionKey_ {};
@@ -453,9 +453,9 @@ namespace Models
 
 
   protected:
-    // The list of cloud computer templates.
+    // The list of cloud desktop templates.
     shared_ptr<vector<DescribeBundlesResponseBody::Bundles>> bundles_ {};
-    // The token for the next query. If NextToken is empty, no more results exist.
+    // The token used to start the next query. An empty NextToken indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The GA instance ID.
+    // The instance ID of the Alibaba Cloud Global Accelerator (GA).
     shared_ptr<string> acceleratorId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

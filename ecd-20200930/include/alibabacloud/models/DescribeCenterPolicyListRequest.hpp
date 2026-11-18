@@ -115,34 +115,34 @@ namespace Models
 
 
   protected:
-    // 學術代理功能開關。取值範圍：
-    // - on：開啟。
-    // - off：關閉。
+    // Specifies whether the academic proxy feature is enabled. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> academicProxy_ {};
-    // 業務類型。
+    // The business type.
     // 
     // This parameter is required.
     shared_ptr<int32_t> businessType_ {};
-    // 模型庫功能開關。取值範圍：
-    // - on：開啟。
-    // - off：關閉。
+    // Specifies whether the model library feature is enabled. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> modelLibrary_ {};
-    // 分頁查詢時，當前頁的頁碼。    
-    // 預設值：1。
+    // The page number of the current page for paging.    
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // 分頁查詢時，每頁最大行數。
+    // The maximum number of entries per page for paging.
     shared_ptr<int32_t> pageSize_ {};
-    // 雲端電腦策略ID清單。
+    // The list of cloud desktop policy IDs.
     shared_ptr<vector<string>> policyGroupId_ {};
-    // 連接埠代理功能開關。取值範圍：
-    // - on：開啟。
-    // - off：關閉。
+    // Specifies whether the port proxy feature is enabled. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> portProxy_ {};
-    // 資源類型。
+    // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // 雲端電腦策略的生效範圍。
+    // The effective scope of the cloud desktop policy.
     shared_ptr<string> scope_ {};
   };
 

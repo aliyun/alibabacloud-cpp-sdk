@@ -71,9 +71,9 @@ namespace Models
 
 
   protected:
-    // The ID of the shared cloud computer.
+    // The ID of the shared cloud desktop.
     shared_ptr<string> desktopGroupId_ {};
-    // The list of shared cloud computer IDs.
+    // The IDs of the shared cloud desktops.
     shared_ptr<vector<string>> desktopGroupIds_ {};
     // The order IDs.
     shared_ptr<vector<string>> orderIds_ {};

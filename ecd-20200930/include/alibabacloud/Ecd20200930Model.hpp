@@ -217,6 +217,9 @@
 #include <alibabacloud/models/DeleteCloudDriveGroupsRequest.hpp>
 #include <alibabacloud/models/DeleteCloudDriveGroupsResponseBody.hpp>
 #include <alibabacloud/models/DeleteCloudDriveGroupsResponse.hpp>
+#include <alibabacloud/models/DeleteCloudDriveServicesRequest.hpp>
+#include <alibabacloud/models/DeleteCloudDriveServicesResponseBody.hpp>
+#include <alibabacloud/models/DeleteCloudDriveServicesResponse.hpp>
 #include <alibabacloud/models/DeleteCloudDriveUsersRequest.hpp>
 #include <alibabacloud/models/DeleteCloudDriveUsersResponseBody.hpp>
 #include <alibabacloud/models/DeleteCloudDriveUsersResponse.hpp>
@@ -598,6 +601,9 @@
 #include <alibabacloud/models/HibernateDesktopsRequest.hpp>
 #include <alibabacloud/models/HibernateDesktopsResponseBody.hpp>
 #include <alibabacloud/models/HibernateDesktopsResponse.hpp>
+#include <alibabacloud/models/ImportDriveRequest.hpp>
+#include <alibabacloud/models/ImportDriveResponseBody.hpp>
+#include <alibabacloud/models/ImportDriveResponse.hpp>
 #include <alibabacloud/models/ListCdsFilesRequest.hpp>
 #include <alibabacloud/models/ListCdsFilesShrinkRequest.hpp>
 #include <alibabacloud/models/ListCdsFilesResponseBody.hpp>

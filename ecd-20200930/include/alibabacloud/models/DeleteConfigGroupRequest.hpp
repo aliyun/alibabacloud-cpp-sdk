@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The list of configuration group IDs to delete.
+    // The IDs of the configuration groups to delete.
     shared_ptr<vector<string>> groupIds_ {};
-    // The region ID. This operation is not region-specific. Set this parameter to `cn-shanghai`.
+    // The region ID. This feature is not region-specific. Set this parameter to `cn-shanghai`.
     shared_ptr<string> regionId_ {};
   };
 

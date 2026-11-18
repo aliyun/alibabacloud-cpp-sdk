@@ -300,25 +300,23 @@ namespace Models
       shared_ptr<string> connectionStatus_ {};
       // The retention duration. Unit: milliseconds.
       shared_ptr<string> createDuration_ {};
-      // The creation time.
-      // 
-      // The time is displayed in UTC in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
+      // The creation time. Time format: ISO 8601 standard in UTC (yyyy-MM-ddTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
-      // The cloud desktop ID.
+      // The ID of the cloud desktop.
       shared_ptr<string> desktopId_ {};
-      // The cloud desktop name.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
-      // The cloud desktop status.
+      // The status of the cloud desktop.
       shared_ptr<string> desktopStatus_ {};
-      // The disk type.
+      // The cloud disk type.
       shared_ptr<string> diskType_ {};
-      // The authorized user.
+      // The ID of the authorized user.
       shared_ptr<string> endUserId_ {};
-      // The list of currently connected user IDs. This value is empty if the desktop is not connected.
+      // The list of IDs of currently connected users. This list is empty if the cloud desktop is disconnected.
       shared_ptr<vector<string>> endUserIds_ {};
-      // The authorized username.
+      // The username of the authorized user.
       shared_ptr<string> endUserName_ {};
-      // The list of current usernames. This value is empty if the desktop is not connected.
+      // The list of usernames of currently connected users. This list is empty if the cloud desktop is disconnected.
       shared_ptr<vector<string>> endUserNames_ {};
       // The image version information.
       shared_ptr<string> fotaVersion_ {};
@@ -330,22 +328,21 @@ namespace Models
       shared_ptr<string> imageName_ {};
       // The management flag.
       shared_ptr<string> managementFlag_ {};
-      // The collection of management flags.
+      // The set of management flags.
       shared_ptr<vector<string>> managementFlags_ {};
-      // The IP address of the secondary ENI of the instance.
+      // The IP address of the member elastic network interface (ENI) of the instance.
       shared_ptr<string> memberEniIp_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
-      // The IP address of the primary ENI of the instance.
+      // The IP address of the primary elastic network interface (ENI) of the instance.
       shared_ptr<string> primaryEniIp_ {};
       // The protocol type.
       shared_ptr<string> protocolType_ {};
-      // The release time.
-      // The time is displayed in UTC in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
+      // The release time. Time format: ISO 8601 standard in UTC (yyyy-MM-ddTHH:mm:ssZ).
       shared_ptr<string> releaseTime_ {};
-      // The reset time of the cloud desktop.
+      // The reset time of the cloud desktop. Time format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> resetTime_ {};
-      // The system cloud disk size. Unit: GiB.
+      // The size of the system cloud disk. Unit: GiB.
       shared_ptr<int32_t> systemDiskSize_ {};
     };
 
@@ -579,23 +576,23 @@ namespace Models
     protected:
       // The connection status.
       shared_ptr<string> connectionStatus_ {};
-      // The cloud desktop ID.
+      // The ID of the cloud desktop.
       shared_ptr<string> desktopId_ {};
-      // The cloud desktop name.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
-      // The cloud desktop status.
+      // The status of the cloud desktop.
       shared_ptr<string> desktopStatus_ {};
-      // The disk type.
+      // The cloud disk type.
       shared_ptr<string> diskType_ {};
-      // The authorized user.
+      // The ID of the authorized user.
       shared_ptr<string> endUserId_ {};
-      // The list of currently connected user IDs. This value is empty if the desktop is not connected.
+      // The list of IDs of currently connected users. This list is empty if the cloud desktop is disconnected.
       shared_ptr<vector<string>> endUserIds_ {};
-      // The authorized username.
+      // The username of the authorized user.
       shared_ptr<string> endUserName_ {};
-      // The list of current usernames. This value is empty if the desktop is not connected.
+      // The list of usernames of currently connected users. This list is empty if the cloud desktop is disconnected.
       shared_ptr<vector<string>> endUserNames_ {};
-      // The time when the cloud desktop expires. This value is returned only for cloud desktops that use the subscription billable methods. The time is in the ISO 8601 format (UTC).
+      // The time when the cloud desktop will expire. This value is returned only for cloud desktops whose Billable methods are subscription billing. Time format: ISO 8601 standard (UTC).
       shared_ptr<string> expiredTime_ {};
       // The image version information.
       shared_ptr<string> fotaVersion_ {};
@@ -609,17 +606,17 @@ namespace Models
       shared_ptr<string> managementFlag_ {};
       // The list of management flags.
       shared_ptr<vector<string>> managementFlags_ {};
-      // The IP address of the secondary ENI of the instance.
+      // The IP address of the member elastic network interface (ENI) of the instance.
       shared_ptr<string> memberEniIp_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
-      // The IP address of the primary ENI of the instance.
+      // The IP address of the primary elastic network interface (ENI) of the instance.
       shared_ptr<string> primaryEniIp_ {};
       // The protocol type.
       shared_ptr<string> protocolType_ {};
-      // The reset time of the cloud desktop.
+      // The reset time of the cloud desktop. Time format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> resetTime_ {};
-      // The system cloud disk size. Unit: GiB.
+      // The size of the system cloud disk. Unit: GiB.
       shared_ptr<int32_t> systemDiskSize_ {};
     };
 
@@ -720,7 +717,7 @@ namespace Models
     shared_ptr<vector<DescribeDesktopsInGroupResponseBody::PostPaidDesktops>> postPaidDesktops_ {};
     // The total number of pay-as-you-go cloud desktops.
     shared_ptr<int32_t> postPaidDesktopsCount_ {};
-    // The total billing amount of pay-as-you-go cloud desktops.
+    // The total billing amount for pay-as-you-go cloud desktops.
     shared_ptr<int32_t> postPaidDesktopsTotalAmount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

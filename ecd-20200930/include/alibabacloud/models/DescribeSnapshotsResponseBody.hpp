@@ -283,19 +283,19 @@ namespace Models
 
 
     protected:
-      // The time when the snapshot was created. The time is displayed in UTC and follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format.
+      // The time when the snapshot was created. The time is displayed in the `yyyy-mm-ddthh:mm:ssz` format based on the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in UTC.
       shared_ptr<string> creationTime_ {};
       // The creator.
       shared_ptr<string> creator_ {};
-      // The time when the snapshot was created. The time is displayed in UTC+0 in the `yyyy-mm-ddthh:mm:ssz` format in accordance with the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard.
+      // The time when the snapshot was created. The time is displayed in the `yyyy-mm-ddthh:mm:ssz` format based on the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in UTC.
       shared_ptr<string> deletionTime_ {};
-      // The description of the snapshot.
+      // The snapshot description.
       shared_ptr<string> description_ {};
       // The ID of the cloud desktop to which the snapshot belongs.
       shared_ptr<string> desktopId_ {};
       // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
-      // The status of the cloud desktop.
+      // The cloud desktop status.
       shared_ptr<string> desktopStatus_ {};
       // The status of the disk to which the snapshot belongs.
       shared_ptr<string> diskStatus_ {};
@@ -304,13 +304,13 @@ namespace Models
       shared_ptr<string> jvsId_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
-      // The creation progress of the snapshot. Unit: percentage.
+      // The progress of snapshot creation. Unit: %.
       shared_ptr<string> progress_ {};
       // The protocol type.
       shared_ptr<string> protocolType_ {};
       // The remaining time required to create the snapshot. Unit: seconds.
       // 
-      // > If `Status` is `PROGRESSING`, the value of `RemainTime` is `-1`, which indicates that the remaining time is being calculated.
+      // > If `Status` is `PROGRESSING`, a `RemainTime` value of `-1` indicates that the remaining time is being calculated.
       shared_ptr<int32_t> remainTime_ {};
       // The ID of the restore point.
       shared_ptr<string> restorePointId_ {};
@@ -318,13 +318,13 @@ namespace Models
       shared_ptr<string> restorePointName_ {};
       // The ID of the snapshot.
       shared_ptr<string> snapshotId_ {};
-      // The name of the snapshot.
+      // The snapshot name.
       shared_ptr<string> snapshotName_ {};
       // The snapshot type.
       shared_ptr<string> snapshotType_ {};
-      // The capacity of the source disk. Unit: GiB.
+      // The size of the source disk. Unit: GiB.
       shared_ptr<string> sourceDiskSize_ {};
-      // The type of the source disk.
+      // The source disk type.
       shared_ptr<string> sourceDiskType_ {};
       // The snapshot status.
       shared_ptr<string> status_ {};
@@ -360,11 +360,11 @@ namespace Models
 
 
   protected:
-    // The pagination token for the next query. If the value is empty, no more results are available.
+    // The token for the next query. An empty NextToken indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The snapshots.
+    // The list of snapshots.
     shared_ptr<vector<DescribeSnapshotsResponseBody::Snapshots>> snapshots_ {};
   };
 

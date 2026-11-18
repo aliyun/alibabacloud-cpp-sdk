@@ -208,15 +208,15 @@ namespace Models
       shared_ptr<VirtualMFADevices::AdUser> adUser_ {};
       // The number of consecutive failures to bind or authenticate the virtual MFA device.
       shared_ptr<int32_t> consecutiveFails_ {};
-      // > This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not yet available.
       shared_ptr<string> directoryId_ {};
       // The username of the AD account that uses the virtual MFA device.
       shared_ptr<string> endUserId_ {};
-      // The time when the virtual MFA device was enabled. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the virtual MFA device is enabled. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format and is in UTC.
       shared_ptr<string> gmtEnabled_ {};
-      // The automatic unlock time after the virtual MFA device is locked. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the virtual MFA device is automatically unlocked after being locked. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format and is in UTC.
       shared_ptr<string> gmtUnlock_ {};
-      // The office network ID.
+      // The ID of the office network.
       shared_ptr<string> officeSiteId_ {};
       // The serial number of the virtual MFA device.
       shared_ptr<string> serialNumber_ {};
@@ -250,11 +250,11 @@ namespace Models
 
 
   protected:
-    // The token for the next query. If NextToken is empty, no more results exist.
+    // The pagination token for the next query. An empty NextToken indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about virtual MFA devices.
+    // The virtual MFA device information.
     shared_ptr<vector<DescribeVirtualMFADevicesResponseBody::VirtualMFADevices>> virtualMFADevices_ {};
   };
 

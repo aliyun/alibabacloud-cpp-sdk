@@ -103,6 +103,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(TotalEdsCountForGroup, totalEdsCountForGroup_);
         DARABONBA_PTR_TO_JSON(TotalResourceAmount, totalResourceAmount_);
         DARABONBA_PTR_TO_JSON(TrustPassword, trustPassword_);
+        DARABONBA_PTR_TO_JSON(UpmDomainId, upmDomainId_);
+        DARABONBA_PTR_TO_JSON(UpmStatus, upmStatus_);
         DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
         DARABONBA_PTR_TO_JSON(VpcType, vpcType_);
@@ -173,6 +175,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(TotalEdsCountForGroup, totalEdsCountForGroup_);
         DARABONBA_PTR_FROM_JSON(TotalResourceAmount, totalResourceAmount_);
         DARABONBA_PTR_FROM_JSON(TrustPassword, trustPassword_);
+        DARABONBA_PTR_FROM_JSON(UpmDomainId, upmDomainId_);
+        DARABONBA_PTR_FROM_JSON(UpmStatus, upmStatus_);
         DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
         DARABONBA_PTR_FROM_JSON(VpcType, vpcType_);
@@ -227,7 +231,7 @@ namespace Models
 
 
       protected:
-        // The number of resources.
+        // The resource count.
         shared_ptr<int64_t> amount_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};
@@ -291,11 +295,11 @@ namespace Models
       protected:
         // The log level.
         shared_ptr<string> level_ {};
-        // The detailed log information.
+        // The detailed log message.
         shared_ptr<string> message_ {};
         // The step associated with the log entry.
         shared_ptr<string> step_ {};
-        // The time when the log was generated. The time is in the ISO 8601 standard format (UTC).
+        // The time when the log was generated. The time is displayed in UTC and follows the ISO 8601 standard.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -373,17 +377,17 @@ namespace Models
 
 
       protected:
-        // The connection address of the AD Connector.
+        // The endpoint of the AD connector.
         shared_ptr<string> ADConnectorAddress_ {};
-        // The status of the AD Connector.
+        // The status of the AD connector.
         shared_ptr<string> connectorStatus_ {};
-        // The ID of the elastic network interface (ENI) attached to the AD Connector.
+        // The ID of the network interface attached to the AD connector.
         shared_ptr<string> networkInterfaceId_ {};
-        // The specification of the AD Connector.
+        // The specifications of the AD connector.
         shared_ptr<string> specification_ {};
-        // The trust password specified when configuring the AD trust relationship.
+        // The trust password configured for the AD trust relationship.
         shared_ptr<string> trustKey_ {};
-        // The vSwitch ID of the network where the AD Connector resides.
+        // The ID of the vSwitch to which the AD connector is connected.
         shared_ptr<string> vSwitchId_ {};
       };
 
@@ -400,8 +404,8 @@ namespace Models
         && this->ouName_ == nullptr && this->protocolType_ == nullptr && this->rdsLicenseAddress_ == nullptr && this->rdsLicenseDomainName_ == nullptr && this->rdsLicenseStatus_ == nullptr
         && this->resourceAmounts_ == nullptr && this->securityProtection_ == nullptr && this->ssoEnabled_ == nullptr && this->ssoType_ == nullptr && this->status_ == nullptr
         && this->subDnsAddress_ == nullptr && this->subDomainName_ == nullptr && this->subnetMode_ == nullptr && this->tenantId_ == nullptr && this->totalEdsCount_ == nullptr
-        && this->totalEdsCountForGroup_ == nullptr && this->totalResourceAmount_ == nullptr && this->trustPassword_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr
-        && this->vpcType_ == nullptr && this->vplVersion_ == nullptr; };
+        && this->totalEdsCountForGroup_ == nullptr && this->totalResourceAmount_ == nullptr && this->trustPassword_ == nullptr && this->upmDomainId_ == nullptr && this->upmStatus_ == nullptr
+        && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr && this->vpcType_ == nullptr && this->vplVersion_ == nullptr; };
       // ADConnectors Field Functions 
       bool hasADConnectors() const { return this->ADConnectors_ != nullptr;};
       void deleteADConnectors() { this->ADConnectors_ = nullptr;};
@@ -864,6 +868,20 @@ namespace Models
       inline OfficeSites& setTrustPassword(string trustPassword) { DARABONBA_PTR_SET_VALUE(trustPassword_, trustPassword) };
 
 
+      // upmDomainId Field Functions 
+      bool hasUpmDomainId() const { return this->upmDomainId_ != nullptr;};
+      void deleteUpmDomainId() { this->upmDomainId_ = nullptr;};
+      inline string getUpmDomainId() const { DARABONBA_PTR_GET_DEFAULT(upmDomainId_, "") };
+      inline OfficeSites& setUpmDomainId(string upmDomainId) { DARABONBA_PTR_SET_VALUE(upmDomainId_, upmDomainId) };
+
+
+      // upmStatus Field Functions 
+      bool hasUpmStatus() const { return this->upmStatus_ != nullptr;};
+      void deleteUpmStatus() { this->upmStatus_ = nullptr;};
+      inline string getUpmStatus() const { DARABONBA_PTR_GET_DEFAULT(upmStatus_, "") };
+      inline OfficeSites& setUpmStatus(string upmStatus) { DARABONBA_PTR_SET_VALUE(upmStatus_, upmStatus) };
+
+
       // vSwitchIds Field Functions 
       bool hasVSwitchIds() const { return this->vSwitchIds_ != nullptr;};
       void deleteVSwitchIds() { this->vSwitchIds_ = nullptr;};
@@ -895,24 +913,23 @@ namespace Models
 
 
     protected:
-      // The collection of AD Connector information.
+      // The AD connector information.
       shared_ptr<vector<OfficeSites::ADConnectors>> ADConnectors_ {};
-      // The ID of the Global Accelerator (GA) instance.
+      // The instance ID of the Alibaba Cloud Global Accelerator (GA).
       shared_ptr<string> acceleratorId_ {};
-      // The access attribute of the office network (workspace).
+      // The access attributes of the office network (workspace).
       shared_ptr<string> accessAttribute_ {};
       // The account type.
       shared_ptr<string> accountType_ {};
       // The hostname of the domain controller. The hostname must comply with Windows host naming conventions.
       shared_ptr<string> adHostname_ {};
-      // The authority URL of the identity authentication service.
+      // The authority address of the identity authentication service.
       shared_ptr<string> authorityHost_ {};
       // The hostname of the backup domain controller.
       shared_ptr<string> backupDCHostname_ {};
       // The DNS address of the backup domain controller.
       shared_ptr<string> backupDns_ {};
-      // The peak public bandwidth. Valid values: 0 to 1000 Mbps.    
-      // If the value is empty or 0, Internet access is not enabled.
+      // The peak Internet bandwidth. Valid values: 0 to 1000 Mbps. If this parameter is empty or set to 0, Internet access is not enabled.
       shared_ptr<int32_t> bandwidth_ {};
       // The basic bandwidth type.
       shared_ptr<string> basicInternetType_ {};
@@ -920,31 +937,31 @@ namespace Models
       shared_ptr<string> cenAttachStatus_ {};
       // The Cloud Enterprise Network (CEN) instance ID.
       shared_ptr<string> cenId_ {};
-      // The IPv4 CIDR block of the office network VPC.
+      // The IPv4 CIDR block of the VPC for the office network.
       shared_ptr<string> cidrBlock_ {};
-      // The client ID registered with the identity provider application.
+      // The client ID registered for the identity provider application.
       shared_ptr<string> clientId_ {};
-      // The client secret registered with the identity provider application.
+      // The client secret registered for the identity provider application.
       shared_ptr<string> clientSecret_ {};
-      // Indicates whether the office network is a CloudBox office network.
+      // Specifies whether the office network is a CloudBox office network.
       shared_ptr<bool> cloudBoxOfficeSite_ {};
-      // The time when the office network was created. The time is in the ISO 8601 standard format (UTC).
+      // The time when the office network was created. The time is displayed in UTC and follows the ISO 8601 standard.
       shared_ptr<string> creationTime_ {};
       // The custom access gateway address.
       shared_ptr<string> customAccessPoint_ {};
       // The array of custom DNS addresses.
       shared_ptr<vector<string>> customDnsAddress_ {};
-      // The security group ID.
+      // The ID of the security group.
       shared_ptr<string> customSecurityGroupId_ {};
-      // The access method allowed for connecting to cloud computers.
+      // The allowed connection methods for cloud desktops.
       // 
-      // > The VPC connection method depends on the Alibaba Cloud PrivateLink service, which is free of charge. When this parameter is set to `VPC` or `Any`, the system automatically activates the PrivateLink service for you.
+      // > The VPC connection method relies on Alibaba Cloud PrivateLink, which is provided free of charge. If you set this parameter to `VPC` or `Any`, the system automatically activates PrivateLink.
       shared_ptr<string> desktopAccessType_ {};
-      // The number of cloud computers that have been created.
+      // The number of cloud computers created.
       shared_ptr<int64_t> desktopCount_ {};
-      // The endpoint used for VPC connections to cloud computers.
+      // The endpoint used to connect to cloud desktops from a VPC.
       shared_ptr<string> desktopVpcEndpoint_ {};
-      // The array of DNS addresses corresponding to the AD domain.
+      // The array of DNS addresses for the AD domain.
       shared_ptr<vector<string>> dnsAddress_ {};
       // The DNS username.
       shared_ptr<string> dnsUserName_ {};
@@ -956,37 +973,37 @@ namespace Models
       shared_ptr<string> domainUserName_ {};
       // The enterprise ID (EID).
       shared_ptr<string> eid_ {};
-      // Indicates whether local administrator permissions are granted to users of cloud computers.
+      // Specifies whether to grant local administrator permissions to users of cloud desktops.
       shared_ptr<bool> enableAdminAccess_ {};
-      // Indicates whether cross-cloud-computer access within the office network is enabled. After this feature is enabled, cloud computers within the same office network can access each other over the network.
+      // Specifies whether to enable network connectivity between cloud desktops in the office network. After you enable this feature, cloud desktops in the same office network can access each other.
       shared_ptr<bool> enableCrossDesktopAccess_ {};
-      // Indicates whether public network access is enabled.
+      // Specifies whether the public network access feature is enabled.
       shared_ptr<bool> enableInternetAccess_ {};
-      // Indicates whether cloud service route access control is enabled.
+      // Specifies whether access control for cloud service routing is enabled.
       shared_ptr<bool> enableServiceRoute_ {};
-      // The environment type. This parameter is not publicly available.
+      // The environment type. This field is not publicly available.
       shared_ptr<string> envType_ {};
-      // The array of NAS file system IDs.
+      // The NAS file system IDs.
       shared_ptr<vector<string>> fileSystemIds_ {};
-      // Indicates whether the directory is an LDAP directory.
+      // Specifies whether the directory is an LDAP directory.
       shared_ptr<bool> isLdap_ {};
-      // The access URL of the LDAP service.
+      // The access address of the LDAP service.
       shared_ptr<string> ldapUrl_ {};
       // The registration log information.
       shared_ptr<vector<OfficeSites::Logs>> logs_ {};
-      // Indicates whether multi-factor authentication (MFA) is enabled.
+      // Specifies whether to enable multi-factor authentication (MFA).
       shared_ptr<bool> mfaEnabled_ {};
-      // The name of the office network. The name is unique within a region.
+      // The name of the office network. The name must be unique within a region.
       shared_ptr<string> name_ {};
-      // Applicable only to convenience account office networks. Indicates whether secondary verification is required during logon. If logon secondary verification is enabled, the system checks whether the logon account has security risks when a convenience user logs on to the client. If a risk is detected, the system sends a verification code to the email address associated with the account. The convenience user can log on to the client only after passing the verification code check.
+      // Specifies whether secondary authentication is required during logon. This parameter applies only to convenience account office networks. If secondary authentication is enabled, the system checks for security risks when a convenience user logs on to the client. If a risk is detected, the system sends a verification code to the mailbox associated with the account. The user must authenticate with the verification code to log on to the client.
       shared_ptr<bool> needVerifyLoginRisk_ {};
-      // Indicates whether trusted device verification is enabled.
+      // Specifies whether trusted device verification is enabled.
       shared_ptr<bool> needVerifyZeroDevice_ {};
-      // The Internet access package ID.
+      // The ID of the Internet access package.
       shared_ptr<string> networkPackageId_ {};
-      // The network version. The new version supports products such as Wuying Cloud Application.
+      // The network version. The new version supports products such as WUYING Cloud Application.
       shared_ptr<string> nmVersion_ {};
-      // The office network ID.
+      // The ID of the office network.
       shared_ptr<string> officeSiteId_ {};
       // The account system type of the office network.
       shared_ptr<string> officeSiteType_ {};
@@ -996,37 +1013,41 @@ namespace Models
       shared_ptr<string> protocolType_ {};
       // The IP address of the RDS license.
       shared_ptr<string> rdsLicenseAddress_ {};
-      // The domain name where the RDS license resides.
+      // The domain name where the RDS license is located.
       shared_ptr<string> rdsLicenseDomainName_ {};
       // The status of the RDS license.
       shared_ptr<string> rdsLicenseStatus_ {};
-      // The list of resource quantities.
+      // The list of resource counts.
       shared_ptr<vector<OfficeSites::ResourceAmounts>> resourceAmounts_ {};
       // The security protection configuration of the office network.
       shared_ptr<string> securityProtection_ {};
-      // Indicates whether Single Sign-On (SSO) is enabled.
+      // Specifies whether to enable single sign-on (SSO).
       shared_ptr<bool> ssoEnabled_ {};
       // The SSO type.
       shared_ptr<string> ssoType_ {};
-      // The office network status.
+      // The status of the office network.
       shared_ptr<string> status_ {};
       // The array of DNS addresses for the AD subdomain.
       shared_ptr<vector<string>> subDnsAddress_ {};
-      // The username of the AD subdomain DNS.
+      // The username for the DNS of the AD subdomain.
       shared_ptr<string> subDomainName_ {};
       // The subnet mode of the office network.
       shared_ptr<string> subnetMode_ {};
       // The tenant ID of the identity provider.
       shared_ptr<string> tenantId_ {};
-      // The number of cloud computers.
+      // The total number of cloud computers.
       shared_ptr<int64_t> totalEdsCount_ {};
-      // The number of cloud computers in shared cloud computer pools.
+      // The number of cloud computers in a shared cloud computer.
       shared_ptr<int64_t> totalEdsCountForGroup_ {};
-      // The total number of network interface controllers (NICs).
+      // The total number of network interfaces.
       shared_ptr<int64_t> totalResourceAmount_ {};
-      // > This parameter is not yet available.
+      // > This parameter is not available.
       shared_ptr<string> trustPassword_ {};
-      // The array of vSwitch IDs.
+      // The logical UPM domain ID bound to the workspace.
+      shared_ptr<string> upmDomainId_ {};
+      // The UPM status of the workspace. Valid values: UNBOUND, BINDING, BOUND, UNBINDING, and FAILED.
+      shared_ptr<string> upmStatus_ {};
+      // The vSwitch IDs.
       shared_ptr<vector<string>> vSwitchIds_ {};
       // The VPC ID of the secure office network.
       shared_ptr<string> vpcId_ {};
@@ -1069,9 +1090,9 @@ namespace Models
 
 
   protected:
-    // The token for the next query. If NextToken is empty, no more results exist.
+    // The token used to start the next query. An empty NextToken indicates that no further results are available.
     shared_ptr<string> nextToken_ {};
-    // The collection of office network information.
+    // The office network information.
     shared_ptr<vector<DescribeOfficeSitesResponseBody::OfficeSites>> officeSites_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

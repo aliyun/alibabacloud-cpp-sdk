@@ -112,7 +112,7 @@ namespace Models
 
 
     protected:
-      // The application control policy ID.
+      // The ID of the application control policy.
       shared_ptr<string> appRuleId_ {};
       // The site ID.
       shared_ptr<string> siteId_ {};
@@ -255,21 +255,21 @@ namespace Models
 
 
     protected:
-      // The office network ID.
+      // The ID of the office network.
       shared_ptr<string> officeSiteId_ {};
-      // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by WUYING Workspace.
+      // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by WUYING Workspace.
       shared_ptr<string> regionId_ {};
-      // The cloud computer specification ID.
+      // The ID of the cloud desktop specification.
       shared_ptr<string> resourceInstanceType_ {};
-      // The automatic snapshot policy ID.
+      // The ID of the automatic snapshot policy.
       shared_ptr<string> snapshotPolicyId_ {};
-      // The subnet ID.
+      // The ID of the subnet.
       shared_ptr<string> subnetId_ {};
-      // The virtual node pool, used in workstation scenarios.
+      // The ID of the virtual node pool. This parameter is used in workstation scenarios.
       shared_ptr<string> virtualNodePoolId_ {};
-      // Specifies whether to enable disk encryption.
+      // Specifies whether to enable cloud disk encryption.
       shared_ptr<bool> volumeEncryptionEnable_ {};
-      // The KMS key ID used when disk encryption is enabled. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
+      // The ID of the Key Management Service (KMS) key used when cloud disk encryption is enabled. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to obtain the key ID.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 
@@ -311,11 +311,11 @@ namespace Models
 
 
     protected:
-      // The performance level of the data disk. Default value: `AutoPL`.
+      // The performance level of the data cloud disk. Default value: `AutoPL`.
       shared_ptr<string> performanceLevel_ {};
-      // The data cloud disk size. Unit: GiB. Valid values: 40 to 2040, in increments of 10 GiB.
+      // The size of the data cloud disk. Unit: GiB. Valid values: 40 to 2040. The value must be a multiple of 10.
       // 
-      // >Notice: The larger the ESSD cloud disk capacity, the higher the available performance level (PL) (for example, PL2 is available for capacities of 460 GiB or more). Higher performance levels (PLs) incur higher costs. Select the ESSD cloud disk performance level (PL) based on your requirements.
+      // >Notice: The larger the capacity of a standard SSD, the higher the performance level (PL) that you can select. For example, you can select PL2 for a standard SSD with a capacity of 460 GiB or larger. A higher PL incurs higher costs. Select an appropriate PL based on your business requirements.</notice>
       shared_ptr<int32_t> size_ {};
     };
 
@@ -497,75 +497,75 @@ namespace Models
   protected:
     // Specifies whether automatic payment is enabled for the subscription order.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal for the subscription cloud computer.
+    // Specifies whether to enable auto-renewal for the subscription shared cloud desktop.
     shared_ptr<bool> autoRenew_ {};
-    // > This parameter is not publicly available.
+    // > This parameter is not available for public use.
     shared_ptr<string> bizType_ {};
-    // The billing method of the cloud computer.
+    // The billing method of the cloud desktop.
     shared_ptr<string> chargeType_ {};
-    // The data disk size and specification configurations.
+    // The size and specification configurations of the data cloud disk.
     shared_ptr<vector<CreateTemplateRequest::DataDiskList>> dataDiskList_ {};
-    // The default language set when the cloud computer starts. This parameter takes effect only when a system image is used to create the cloud computer.
+    // The default language configured when the cloud desktop starts. This parameter takes effect only when you use a system image to create a cloud desktop.
     shared_ptr<string> defaultLanguage_ {};
     // The description of the template. The description must meet the following requirements:
     // 
-    // - The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-    // - The description can contain Chinese characters, letters, digits, spaces, and special characters, and supports line breaks.
+    // - The description must be 2 to 256 characters in length, and cannot start with `http://` or `https://`.
+    // - The description can contain Chinese characters, English letters, digits, spaces, and special characters, and supports line breaks.
     shared_ptr<string> description_ {};
-    // The cloud computer image ID. You can query the ID on the image management page. System images, custom images, and other image types are supported.
+    // The ID of the cloud desktop image. You can query the image ID on the Images page. System images and custom images are supported.
     shared_ptr<string> imageId_ {};
-    // The instance name.
+    // The name of the instance.
     shared_ptr<string> instanceName_ {};
-    // The subscription duration of the subscription cloud computer. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`. The unit is specified by `PeriodUnit`.
-    // - If `PeriodUnit` is set to `Month`, valid values:
+    // The subscription duration of the shared cloud desktop. This parameter is required and takes effect only when the `ChargeType` parameter is set to `PrePaid`. The unit is specified by the `PeriodUnit` parameter.
+    // - If the `PeriodUnit` parameter is set to `Month`, valid values are:
     //     - 1
     //     - 2
     //     - 3
     //     - 6
-    // - If `PeriodUnit` is set to `Year`, valid values:
+    // - If the `PeriodUnit` parameter is set to `Year`, valid values are:
     //     - 1
     //     - 2
     //     - 3
     //     - 4
     //     - 5
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription billable methods duration.
+    // The time unit of the subscription Billable methods.
     shared_ptr<string> periodUnit_ {};
     // The ID of the global policy.
     shared_ptr<string> policyGroupId_ {};
-    // Specifies whether to automatically switch to pay-as-you-go billing after the duration plan is used up.
+    // Specifies whether to automatically switch to the pay-as-you-go billing method after the usage duration plan is exhausted.
     shared_ptr<bool> postPaidAfterUsedUp_ {};
     // The product type. Set the value to `CloudDesktop`.
     shared_ptr<string> productType_ {};
-    // The region-specific template configurations. Multiple configurations are supported. The configuration that matches the specific region is used.
+    // The region-specific template configurations. You can configure multiple regions. The configurations are matched based on the specific region when the template is used.
     // 
     // > You can configure up to 20 regions.
     shared_ptr<vector<CreateTemplateRequest::RegionConfigList>> regionConfigList_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The cloud computer tags in key-value format. You can specify up to 20 tags.
+    // The tags of the cloud desktop. The tags are in key-value pairs. You can specify up to 20 tags.
     shared_ptr<vector<CreateTemplateRequest::ResourceTagList>> resourceTagList_ {};
-    // The site configuration management.
+    // Site configuration management.
     shared_ptr<vector<CreateTemplateRequest::SiteConfigList>> siteConfigList_ {};
-    // The system disk type.
+    // The type of the system cloud disk.
     // 
-    // > Only high frequency and graphics cloud computer specifications support ESSD disks.
+    // > Only cloud desktops with high clock speeds or GPU-accelerated specifications support ESSDs.
     shared_ptr<string> systemDiskPerformanceLevel_ {};
-    // The system disk size. Unit: GiB. Valid values: 40 to 500, in increments of 10 GiB.
+    // The size of the system cloud disk. Unit: GiB. Valid values: 40 to 500. The value must be a multiple of 10.
     // 
-    // > The system disk size cannot be smaller than the size of the configured image.
+    // > The size of the system cloud disk cannot be smaller than the size of the configured image.
     shared_ptr<int32_t> systemDiskSize_ {};
     // The name of the template. The name must meet the following requirements:
     // 
-    // - The name must be 2 to 126 characters in length and can contain letters and Chinese characters.
-    // - The name must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
-    // - The name can contain letters, digits, Chinese characters, colons (:), underscores (_), or hyphens (-). Periods (.) are not supported.
+    // - The name must be 2 to 126 characters in length.
+    // - The name must start with a letter or a Chinese character, and cannot start with `http://` or `https://`.
+    // - The name can contain letters, digits, Chinese characters, colons (:), underscores (_), and hyphens (-), but cannot contain periods (.).
     // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
-    // The configuration group ID.
+    // The ID of the configuration group.
     shared_ptr<string> timerGroupId_ {};
-    // The usage duration plan per user.
+    // The usage duration plan for a single user.
     shared_ptr<int32_t> userDuration_ {};
   };
 

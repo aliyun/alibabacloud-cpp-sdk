@@ -169,29 +169,33 @@ namespace Models
   protected:
     // The batch ID of the scheduled task execution.
     shared_ptr<string> batchId_ {};
-    // The list of cloud computer IDs.
+    // The list of cloud desktop IDs.
     shared_ptr<vector<string>> desktopIds_ {};
-    // The display result name.
+    // The display name of the result.
     shared_ptr<string> displayResultName_ {};
     // The ID of the scheduled task group.
     shared_ptr<string> groupId_ {};
-    // The number of entries per page for a paged query.
+    // The maximum number of entries per page in a paging query.
+    // 
+    // Maximum value: 100.
+    // 
+    // Default value: 10.
     shared_ptr<string> maxResults_ {};
-    // The pagination token for the next query.
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Wuying Workspace.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by Elastic Desktop Service.
     shared_ptr<string> regionId_ {};
-    // The list of resource types. If empty, all resource types are queried.
+    // The list of resource types. If this parameter is left empty, all resource types are queried.
     shared_ptr<vector<string>> resourceTypes_ {};
-    // Filters results by execution result.
+    // Filters the results by execution result.
     shared_ptr<string> resultCategory_ {};
     // Specifies whether the task can be retried.
     shared_ptr<bool> retryable_ {};
-    // The region ID used to filter cloud computer information for a specified region.
+    // The search region ID. This parameter is used to filter cloud desktop information in a specified region.
     shared_ptr<string> searchRegionId_ {};
     // The execution result of the scheduled task.
     shared_ptr<string> timerResult_ {};
-    // The list of scheduled tasks.
+    // The list of scheduled task types.
     shared_ptr<vector<string>> timerTypes_ {};
     // The list of Wuying server IDs.
     shared_ptr<vector<string>> wuyingServerIds_ {};

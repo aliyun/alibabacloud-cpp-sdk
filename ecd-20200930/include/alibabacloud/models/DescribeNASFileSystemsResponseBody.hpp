@@ -143,9 +143,9 @@ namespace Models
 
 
       protected:
-        // The ID of the office network.
+        // The office network ID.
         shared_ptr<string> officeSiteId_ {};
-        // The name of the office network.
+        // The office network name.
         shared_ptr<string> officeSiteName_ {};
       };
 
@@ -231,9 +231,9 @@ namespace Models
 
 
       protected:
-        // The ID of the delivery group.
+        // The delivery group ID.
         shared_ptr<string> appInstanceGroupId_ {};
-        // The name of the delivery group.
+        // The delivery group name.
         shared_ptr<string> appInstanceGroupName_ {};
       };
 
@@ -440,53 +440,51 @@ namespace Models
 
 
     protected:
-      // Indicates whether operations on user directories are supported, such as adding users and deleting data.
+      // Specifies whether operations on the user directory are supported, such as adding users and deleting data.
       shared_ptr<bool> allowOperateUserDrive_ {};
       // The list of cloud application delivery groups bound to the NAS file system that supports UPM.
       shared_ptr<vector<FileSystems::AppInstanceGroups>> appInstanceGroups_ {};
       // The bandwidth.
       shared_ptr<int64_t> bandwidth_ {};
       // The total capacity of the NAS file system. Unit: GiB.
-      // 
-      // - If the storage type is Capacity, the capacity is fixed at 10 PiB, which is 10485760 GiB.
-      // - If the storage type is Performance, the capacity is fixed at 1 PiB, which is 1048576 GiB.
+      // - If the storage type is Capacity, the capacity is fixed at 10 PiB, which is 10,485,760 GiB.
+      // - If the storage type is Performance, the capacity is fixed at 1 PiB, which is 1,048,576 GiB.
       shared_ptr<int64_t> capacity_ {};
-      // The time when the NAS file system was created. The time follows the ISO 8601 standard in the UTC time zone.
+      // The creation time of the NAS file system. The time is displayed in ISO 8601 format in UTC.
       shared_ptr<string> createTime_ {};
       // The description of the NAS file system.
       shared_ptr<string> description_ {};
       // The list of shared cloud desktops bound to the NAS file system that supports UPM.
       shared_ptr<vector<FileSystems::DesktopGroups>> desktopGroups_ {};
-      // Indicates whether disk encryption is enabled.
+      // Specifies whether disk encryption is enabled.
       shared_ptr<bool> encryptionEnabled_ {};
-      // The ID of the NAS file system.
+      // The NAS file system ID.
       shared_ptr<string> fileSystemId_ {};
       // The name of the NAS file system.
       shared_ptr<string> fileSystemName_ {};
       // The status of the NAS file system.
       shared_ptr<string> fileSystemStatus_ {};
-      // The type of the NAS file system. Currently, only the general-purpose type is supported, which is `standard`.
+      // The type of the NAS file system. Only the standard type is supported.
       shared_ptr<string> fileSystemType_ {};
-      // The used capacity of the NAS file system. Unit: Byte.
+      // The used capacity of the NAS file system. Unit: bytes.
       shared_ptr<int64_t> meteredSize_ {};
       // The domain name of the mount target.
       shared_ptr<string> mountTargetDomain_ {};
-      // The status of the mount target.
+      // The mount target status.
       shared_ptr<string> mountTargetStatus_ {};
-      // **[Deprecated]** The ID of the office network.
+      // The office network ID. **[Deprecated]**
       shared_ptr<string> officeSiteId_ {};
-      // **[Deprecated]** The name of the office network.
+      // The office network name. **[Deprecated]**
       shared_ptr<string> officeSiteName_ {};
       // The list of office networks.
       shared_ptr<vector<FileSystems::OfficeSites>> officeSites_ {};
       // The product type of the NAS file system.
       shared_ptr<string> productType_ {};
-      // Indicates whether the User Profile Management (UPM) feature is supported.
+      // Specifies whether the User Profile Management (UPM) feature is supported.
       shared_ptr<bool> profileCompatible_ {};
       // The protocol type of the file system. Valid values:
-      // 
-      // - NFS: NFS protocol
-      // - SMB: SMB protocol
+      // - NFS: NFS protocol.
+      // - SMB: SMB protocol.
       shared_ptr<string> protocolType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -496,7 +494,7 @@ namespace Models
       shared_ptr<int64_t> sizeQuota_ {};
       // The storage type of the NAS file system.
       shared_ptr<string> storageType_ {};
-      // Indicates whether the SMB ACL feature is supported.
+      // Specifies whether the SMB ACL feature is supported.
       shared_ptr<bool> supportAcl_ {};
       // The zone.
       shared_ptr<string> zoneId_ {};
@@ -528,9 +526,9 @@ namespace Models
 
 
   protected:
-    // The NAS file system information.
+    // The collection of NAS file system information.
     shared_ptr<vector<DescribeNASFileSystemsResponseBody::FileSystems>> fileSystems_ {};
-    // The pagination token for the next query. An empty NextToken indicates that no more results are available.
+    // The token for the next query. An empty value indicates that no subsequent results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

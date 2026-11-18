@@ -132,7 +132,7 @@ namespace Models
     shared_ptr<string> groupId_ {};
     // The region ID. This feature is not region-specific. Set this parameter to `cn-shanghai`.
     shared_ptr<string> regionId_ {};
-    // The resource information to associate.
+    // The information about the resources to be associated.
     // 
     // This parameter is required.
     shared_ptr<vector<BindConfigGroupRequest::ResourceInfos>> resourceInfos_ {};

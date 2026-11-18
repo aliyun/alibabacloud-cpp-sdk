@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The rate limiting rule ID.
+    // The ID of the bandwidth throttling rule.
     shared_ptr<string> qosRuleId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

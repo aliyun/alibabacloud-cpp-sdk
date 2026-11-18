@@ -277,13 +277,13 @@ namespace Models
 
 
       protected:
-        // Used for executing scheduled tasks at a specific time. After this parameter is specified, the scheduled task is executed at the specified time.
+        // Used for executing scheduled tasks at a specified time. After you specify this parameter, the scheduled task is executed at the specified time.
         shared_ptr<int64_t> appointmentTimer_ {};
         // Specifies whether to create a snapshot.
         shared_ptr<bool> createSnapshot_ {};
-        // The cron expression for ending the execution of the scheduled task.
+        // The cron expression for the end time of the scheduled task.
         shared_ptr<string> endCronExpression_ {};
-        // Specifies whether to forcibly execute the task. A value of true indicates that the desktop and connection status checks are ignored, and the scheduled task is forcibly executed.
+        // Specifies whether to forcibly execute the task. A value of true indicates that the system ignores the desktop and connection status checks and forcibly executes the scheduled task.
         shared_ptr<bool> enforce_ {};
         // The image ID.
         shared_ptr<string> imageId_ {};
@@ -291,25 +291,25 @@ namespace Models
         shared_ptr<int32_t> interval_ {};
         // The list of effective IP CIDR blocks.
         shared_ptr<vector<string>> ipSegments_ {};
-        // Used for the no-operation lock screen feature. Specifies the duration of inactivity before the screen is locked. Unit: minutes. Only AD cloud desktops are supported.
+        // Used for the inactivity lock screen feature to specify the duration of inactivity before the screen is locked. Unit: minutes. Only AD cloud desktops are supported.
         shared_ptr<int32_t> lockScreenTime_ {};
         // The advance notification time before the scheduled task is executed. Unit: seconds.
         shared_ptr<int32_t> notificationTime_ {};
-        // The operation type of the scheduled task. Currently, only disconnection scheduled tasks are supported.
+        // The operation type of the scheduled task. Currently, only disconnect scheduled tasks are supported.
         shared_ptr<string> operationType_ {};
         // The patch ID.
         shared_ptr<string> patchId_ {};
-        // The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not executed.
+        // The process whitelist for intelligent detection of inactivity scheduled tasks. If a specified process is running, the inactivity scheduled task is not triggered.
         shared_ptr<vector<string>> processWhitelist_ {};
-        // The reset type. Specifies whether to reset the cloud desktop and the scope of cloud disks to be reset.
+        // The reset type, which determines whether to perform a reset and the scope of cloud disks to be reset.
         shared_ptr<string> resetType_ {};
-        // The cron expression for starting the execution of the scheduled task.
+        // The cron expression for the start time of the scheduled task.
         shared_ptr<string> startCronExpression_ {};
         // The execution sequence number of the timer.
         shared_ptr<int32_t> timerOrder_ {};
         // The time zone used by the scheduled task.
         shared_ptr<string> timezone_ {};
-        // The trigger configuration type for no-operation scheduled tasks.
+        // The trigger configuration type for inactivity scheduled tasks.
         shared_ptr<string> triggerType_ {};
         // The advance notification time before verification is executed. Unit: seconds.
         shared_ptr<int32_t> verificationNotificationTime_ {};
@@ -405,8 +405,7 @@ namespace Models
       // Specifies whether to allow end users to configure scheduled tasks.
       shared_ptr<bool> allowClientSetting_ {};
       // The cron expression of the scheduled task.
-      // 
-      // >Notice: You must specify the time in UTC. For example, to specify 00:00:00 every day in UTC+8, pass 0 0 16 ? * 1,2,3,4,5,6,7.</notice>
+      // >Notice: You must specify the time in UTC. For example, to specify 00:00:00 every day in UTC+8 (Beijing time), set this parameter to 0 0 16 ? * 1,2,3,4,5,6,7.</notice>
       shared_ptr<string> cronExpression_ {};
       // Specifies whether to forcibly execute the task.
       shared_ptr<bool> enforce_ {};
@@ -414,9 +413,9 @@ namespace Models
       shared_ptr<int32_t> interval_ {};
       // The advance notification time before the scheduled task is executed. Unit: seconds.
       shared_ptr<int32_t> notificationTime_ {};
-      // The operation type of the scheduled task. Currently, only disconnection scheduled tasks are supported.
+      // The operation type of the scheduled task. Currently, only disconnect scheduled tasks are supported.
       shared_ptr<string> operationType_ {};
-      // The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not executed.
+      // The process whitelist for intelligent detection of inactivity scheduled tasks. If a specified process is running, the inactivity scheduled task is not triggered.
       shared_ptr<vector<string>> processWhitelist_ {};
       // The reset type of the cloud desktop.
       shared_ptr<string> resetType_ {};
@@ -426,7 +425,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> timerType_ {};
-      // The trigger configuration type for no-operation scheduled tasks.
+      // The trigger configuration type for inactivity scheduled tasks.
       shared_ptr<string> triggerType_ {};
     };
 
@@ -477,7 +476,7 @@ namespace Models
 
 
   protected:
-    // The configuration information of the scheduled tasks. This is a list.
+    // The configuration information of the scheduled tasks. The value is a list.
     shared_ptr<vector<CreateConfigGroupRequest::ConfigTimers>> configTimers_ {};
     // The description of the configuration group.
     shared_ptr<string> description_ {};
@@ -485,7 +484,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The product type of the configuration group.
+    // The product type used by the configuration group.
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};

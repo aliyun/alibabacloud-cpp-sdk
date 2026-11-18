@@ -232,39 +232,39 @@ namespace Models
 
 
     protected:
-      // The agents supported by the current cloud computer.
+      // The agents supported by the cloud desktop.
       shared_ptr<vector<string>> agentProviderList_ {};
-      // The billing type of the cloud desktop. Valid values:
-      // - PostPaid: pay-as-you-go.
-      // - PrePaid: subscription.
+      // The billing method of the cloud desktop. Valid values:
+      // - PostPaid: pay-as-you-go
+      // - PrePaid: subscription
       shared_ptr<string> chargeType_ {};
-      // The time when the cloud desktop was created. The time is in the ISO 8601 standard (UTC).
+      // The creation time of the cloud desktop. The time is displayed in the ISO 8601 standard in UTC.
       shared_ptr<string> creationTime_ {};
-      // The shared cloud computer ID.
+      // The ID of the shared cloud desktop group.
       shared_ptr<string> desktopGroupId_ {};
       // The cloud desktop ID.
       shared_ptr<string> desktopId_ {};
-      // The cloud desktop name.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
-      // The cloud desktop status. Valid values:
-      // - Stopped: stopped.
-      // - Starting: starting.
-      // - Rebuilding: rebuilding.
-      // - Running: running.
-      // - Stopping: stopping.
-      // - Expired: expired.
-      // - Deleted: deleted.
-      // - Pending: pending.
+      // The status of the cloud desktop. Valid values:
+      // - Stopped: The cloud desktop is stopped.
+      // - Starting: The cloud desktop is starting.
+      // - Rebuilding: The cloud desktop is being rebuilt.
+      // - Running: The cloud desktop is running.
+      // - Stopping: The cloud desktop is stopping.
+      // - Expired: The cloud desktop has expired.
+      // - Deleted: The cloud desktop is deleted.
+      // - Pending: The cloud desktop is pending.
       shared_ptr<string> desktopStatus_ {};
       // The cloud desktop specifications.
       shared_ptr<string> desktopType_ {};
-      // The time when the cloud desktop expires. This value is returned only for cloud desktops that use the subscription billable method. The time format follows the ISO 8601 standard (UTC).
+      // The time when the cloud desktop will expire. This parameter is returned only for cloud desktops whose Billable methods are subscription billing. The time format is ISO 8601 standard (UTC).
       shared_ptr<string> expiredTime_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
-      // The local name of the region to which the cloud desktop belongs.
+      // The local name of the region where the cloud desktop resides.
       shared_ptr<string> localName_ {};
-      // The management status of the cloud computer.
+      // The management status of the cloud desktop.
       shared_ptr<vector<string>> managementFlags_ {};
       // The IP address of the member elastic network interface (ENI) of the instance.
       shared_ptr<string> memberEniIp_ {};
@@ -278,7 +278,7 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // The resource group name.
       shared_ptr<string> resourceGroupName_ {};
-      // The time when the cloud desktop was started. The time is in the ISO 8601 standard (UTC).
+      // The start time of the cloud desktop. The time is displayed in the ISO 8601 standard in UTC.
       shared_ptr<string> startTime_ {};
     };
 
@@ -308,9 +308,9 @@ namespace Models
 
 
   protected:
-    // The cloud desktop details.
+    // The detailed information of the cloud desktops.
     shared_ptr<vector<DescribeDesktopMetadataResponseBody::Desktops>> desktops_ {};
-    // The token for the next query. An empty value indicates that there are no more results.
+    // The pagination token for the next query. If NextToken is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

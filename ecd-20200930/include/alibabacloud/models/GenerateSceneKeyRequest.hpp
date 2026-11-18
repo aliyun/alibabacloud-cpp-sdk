@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The cloud desktop ID.
+    // The Cloud Desktop ID.
     // 
     // This parameter is required.
     shared_ptr<string> desktopId_ {};
-    // The validity period of the key, in hours. A value of 0 indicates that the key never expires. If this parameter is not specified, the default server value is used.
+    // The validity period of the key, in hours. A value of 0 indicates that the key never expires. If this parameter is not specified, the default value on the server is used.
     shared_ptr<int32_t> expireTime_ {};
     // The region ID.
     // 

@@ -193,27 +193,27 @@ namespace Models
 
 
     protected:
-      // The type of action that was performed.
+      // The type of action performed.
       shared_ptr<string> actionType_ {};
       // The batch ID of the scheduled task execution.
       shared_ptr<string> batchId_ {};
-      // The record information during the execution of the scheduled task.
+      // The record information generated during the execution of the scheduled task.
       shared_ptr<string> context_ {};
       // The time when the record was created.
-      // The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
+      // The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
-      // The cloud computer ID.
+      // The cloud desktop ID.
       shared_ptr<string> desktopId_ {};
-      // The name of the cloud computer.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
-      // The display result name.
+      // The display name of the result.
       shared_ptr<string> displayResultName_ {};
       // The time when the task ended.
-      // The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
+      // The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> finishTime_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource parent.
+      // The ID of the parent resource.
       shared_ptr<string> resourceParentId_ {};
       // Specifies whether the task can be retried.
       shared_ptr<bool> retryable_ {};
@@ -262,11 +262,11 @@ namespace Models
   protected:
     // The total number of entries.
     shared_ptr<int32_t> count_ {};
-    // The token for the next query. If NextToken is empty, no more results exist.
+    // The token used to start the next query. An empty NextToken indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result information.
+    // The returned results.
     shared_ptr<vector<DescribeGlobalTimerRecordsResponseBody::Results>> results_ {};
   };
 

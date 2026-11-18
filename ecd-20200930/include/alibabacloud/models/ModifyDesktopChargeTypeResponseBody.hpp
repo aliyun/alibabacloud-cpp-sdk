@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The cloud desktop IDs. If multiple cloud desktops are created in a single call, multiple cloud desktop IDs are returned.
+    // The IDs of the cloud desktops. If multiple cloud desktops are created in a single call, multiple cloud desktop IDs are returned.
     shared_ptr<vector<string>> desktopId_ {};
-    // The order ID.
+    // The ID of the order.
     shared_ptr<string> orderId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The file transfer task ID.
+    // The ID of the file transfer task.
     shared_ptr<string> taskId_ {};
   };
 

@@ -112,26 +112,26 @@ namespace Models
 
 
   protected:
-    // > This parameter is not publicly available. You can only pass in `1` or leave it empty.
+    // > This field is not available for use. You can only set this parameter to `1` or leave it empty.
     shared_ptr<string> assignedInfo_ {};
-    // The fuzzy query character string.
+    // The fuzzy query string.
     shared_ptr<string> filter_ {};
-    // Specifies whether to return only users who are assigned cloud computers.
+    // Specifies whether to return only the users to which cloud desktops are assigned.
     shared_ptr<bool> includeAssignedUser_ {};
     // The number of entries per page for a paged query.    
     // 
     // - Maximum value: 100.    
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Leave this parameter empty for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token for the next query. Leave this parameter empty for the first query or when no subsequent query is required. For subsequent queries, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The specified AD domain organizational unit (OU).
+    // The specified organizational unit (OU) of the AD domain.
     shared_ptr<string> OUPath_ {};
     // The office network ID. Only office networks based on enterprise AD accounts are supported.
     // 
     // This parameter is required.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

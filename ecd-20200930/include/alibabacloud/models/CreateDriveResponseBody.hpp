@@ -205,14 +205,14 @@ namespace Models
     protected:
       // The Alibaba Cloud account ID.
       shared_ptr<string> aliUid_ {};
-      // The storage resource description.
+      // The description of the storage resource.
       shared_ptr<string> description_ {};
       // The storage resource ID.
       shared_ptr<string> domainId_ {};
-      // The user-level storage resource ID.
+      // The ID of the user-level storage resource.
       shared_ptr<string> driveId_ {};
-      // The external user-level storage resource ID.
-      // > This parameter is returned only when the storage resource type is PDS.
+      // The ID of the external user-level storage resource.
+      // > This parameter is returned only when the storage resource is PDS.
       shared_ptr<string> externalDriveId_ {};
       // The external user ID.
       shared_ptr<string> externalUserId_ {};
@@ -220,11 +220,11 @@ namespace Models
       shared_ptr<string> gmtCreate_ {};
       // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // ID。
+      // The ID.
       shared_ptr<string> id_ {};
-      // The storage resource name.
+      // The name of the storage resource.
       shared_ptr<string> name_ {};
-      // > This parameter is deprecated.
+      // > **[Deprecated]**
       shared_ptr<bool> profileRoaming_ {};
       // The status of the user-level storage resource.
       shared_ptr<string> status_ {};
@@ -288,7 +288,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

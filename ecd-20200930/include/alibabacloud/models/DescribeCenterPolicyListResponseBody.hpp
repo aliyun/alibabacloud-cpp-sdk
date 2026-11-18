@@ -426,15 +426,15 @@ namespace Models
 
 
       protected:
-        // 規則描述。
+        // The description of the rule.
         shared_ptr<string> description_ {};
-        // 產品 ID。
+        // The product ID.
         shared_ptr<string> productId_ {};
-        // USB 重新導向類型。
+        // The USB redirection type.
         shared_ptr<int64_t> usbRedirectType_ {};
-        // USB 重新導向規則類型。
+        // The type of the USB redirection rule.
         shared_ptr<int64_t> usbRuleType_ {};
-        // 生產廠商 ID。參見 [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf)。
+        // The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
         shared_ptr<string> vendorId_ {};
       };
 
@@ -485,11 +485,11 @@ namespace Models
 
 
       protected:
-        // 網域。
+        // The domain name.
         shared_ptr<string> domain_ {};
-        // 重新導向策略。
+        // The redirection policy.
         shared_ptr<string> policy_ {};
-        // 規則類型。
+        // The rule type.
         shared_ptr<string> ruleType_ {};
       };
 
@@ -540,11 +540,11 @@ namespace Models
 
 
       protected:
-        // 原則描述。
+        // The policy description.
         shared_ptr<string> description_ {};
-        // 網域。
+        // The domain name.
         shared_ptr<string> domain_ {};
-        // 解析原則。
+        // The resolution policy.
         shared_ptr<string> policy_ {};
       };
 
@@ -632,19 +632,19 @@ namespace Models
 
 
       protected:
-        // 裝置名稱。
+        // The device name.
         shared_ptr<string> deviceName_ {};
-        // 產品 ID。
+        // The product ID.
         shared_ptr<string> devicePid_ {};
-        // 周邊裝置類型。
+        // The peripheral type.
         shared_ptr<string> deviceType_ {};
-        // 生產廠商 ID。參見 [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf)。
+        // The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
         shared_ptr<string> deviceVid_ {};
-        // 連結最佳化指令。
+        // The link optimization command.
         shared_ptr<string> optCommand_ {};
-        // 裝置規則適用的平台類型。
+        // The platform types to which the device rules apply.
         shared_ptr<string> platforms_ {};
-        // 重新導向類型。
+        // The redirection type.
         shared_ptr<string> redirectType_ {};
       };
 
@@ -686,9 +686,9 @@ namespace Models
 
 
       protected:
-        // 周邊裝置類型。
+        // The peripheral type.
         shared_ptr<string> deviceType_ {};
-        // 重新導向類型。
+        // The redirection type.
         shared_ptr<string> redirectType_ {};
       };
 
@@ -730,9 +730,9 @@ namespace Models
 
 
       protected:
-        // 用戶端類型。
+        // The client type.
         shared_ptr<string> clientType_ {};
-        // 是否允許某一類型的用戶端登入雲端桌面。
+        // Specifies whether to allow a specific type of client to log on to the cloud desktop.
         shared_ptr<string> status_ {};
       };
 
@@ -820,19 +820,19 @@ namespace Models
 
 
       protected:
-        // 安全性群組管控規則的對象，CIDR 格式的 IPv4 位址區段。
+        // The target of the security group control rule. The value must be an IPv4 CIDR block.
         shared_ptr<string> cidrIp_ {};
-        // 安全性群組管控規則的描述資訊。
+        // The description of the security group control rule.
         shared_ptr<string> description_ {};
-        // 安全性群組管控規則的通訊協定類型。
+        // The protocol type of the security group control rule.
         shared_ptr<string> ipProtocol_ {};
-        // 安全性群組管控規則的授權原則。
+        // The authorization policy of the security group control rule.
         shared_ptr<string> policy_ {};
-        // 安全性群組管控規則的連接埠範圍。
+        // The port range of the security group control rule.
         shared_ptr<string> portRange_ {};
-        // 安全性群組管控規則的優先順序，數字越小，代表優先順序越高。
+        // The priority of the security group control rule. A smaller value indicates a higher priority.
         shared_ptr<string> priority_ {};
-        // 安全性群組管控規則的規則方向。
+        // The direction of the security group control rule.
         shared_ptr<string> type_ {};
       };
 
@@ -874,9 +874,9 @@ namespace Models
 
 
       protected:
-        // 用戶端存取 IP 位址區段。格式為 CIDR 格式的 IPv4 位址區段。
+        // The CIDR block for client access. The value must be an IPv4 CIDR block.
         shared_ptr<string> cidrIp_ {};
-        // 用戶端存取 IP 位址區段備註資訊。
+        // The description of the CIDR block for client access.
         shared_ptr<string> description_ {};
       };
 
@@ -918,9 +918,9 @@ namespace Models
 
 
       protected:
-        // Bucket 名稱。
+        // The name of the bucket.
         shared_ptr<string> bucketName_ {};
-        // 使用者 OSS Bucket 所在地域，必須與 Bucket 的實際地域一致。
+        // The region where the user\\"s OSS bucket is located. It must be the same as the actual region of the bucket.
         shared_ptr<string> bucketRegionId_ {};
       };
 
@@ -2070,400 +2070,400 @@ namespace Models
 
 
     protected:
-      // 學術代理功能開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether the academic proxy feature is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> academicProxy_ {};
-      // 使用者連線雲端電腦後是否具有管理員權限。
+      // Specifies whether the user has administrator permissions after connecting to the cloud computer.
       // 
-      // > 該功能處於定向邀測中，暫不對外開放。
+      // > This feature is in limited preview and is not publicly available.
       shared_ptr<string> adminAccess_ {};
-      // 全螢幕模式下管理員鍵盤控制開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable administrator keyboard control in full-screen mode. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> adminKeyboardOnFullScreen_ {};
-      // Windows 系統內管理員鍵盤控制開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable administrator keyboard control in Windows. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> adminKeyboardOnWindows_ {};
-      // 管理員監控開關。取值範圍：
-      // - 1：開啟。
-      // - 0：關閉。
+      // Specifies whether to enable administrator monitoring. Valid values:
+      // - 1: Enabled.
+      // - 0: Disabled.
       shared_ptr<int32_t> adminMonitor_ {};
-      // 是否開啟防截圖功能。
+      // Specifies whether to enable the screen capture prevention feature.
       shared_ptr<string> appContentProtection_ {};
-      // 防截圖行動裝置截圖自訂 OSS Bucket 清單。
+      // The list of custom OSS buckets for mobile screenshots in screen capture prevention.
       shared_ptr<vector<DescribePolicyGroups::AppScreenshotBuckets>> appScreenshotBuckets_ {};
-      // 用戶端存取 IP 白名單。
+      // The IP address whitelist for client access.
       shared_ptr<vector<DescribePolicyGroups::AuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ {};
-      // 安全性群組管控規則清單。
+      // The list of security group control rules.
       shared_ptr<vector<DescribePolicyGroups::AuthorizeSecurityPolicyRules>> authorizeSecurityPolicyRules_ {};
-      // 用戶端自動重新連線開關。
+      // Specifies whether to enable automatic reconnection for the client.
       shared_ptr<string> autoReconnect_ {};
-      // 自動儲存行動裝置截圖。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to automatically save mobile screenshots. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> autoSaveAppScreenshot_ {};
-      // 是否開啟本機攝影機重新導向。
+      // Specifies whether to enable local camera redirection.
       shared_ptr<string> cameraRedirect_ {};
-      // 用戶端控制選單顯示開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to display the client control menu. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> clientControlMenu_ {};
-      // 用戶端建立自訂快照功能開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the feature that allows the client to create custom snapshots. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> clientCreateSnapshot_ {};
-      // 用戶端休眠選單開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the hibernate option in the client menu. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> clientHibernate_ {};
-      // 用戶端重新啟動選單開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the restart option in the client menu. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> clientRestart_ {};
-      // 用戶端關機選單開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the shutdown option in the client menu. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> clientShutdown_ {};
-      // 登入方式管控規則。
+      // The logon method control rules.
       shared_ptr<vector<DescribePolicyGroups::ClientTypes>> clientTypes_ {};
-      // 剪貼簿權限。
+      // The clipboard permissions.
       shared_ptr<string> clipboard_ {};
-      // 設計及 3D 應用場景選擇是否開啟色彩增強。
+      // Specifies whether color enhancement is enabled for design and 3D Common scenarios.
       shared_ptr<string> colorEnhancement_ {};
-      // 本機驅動程式剪貼簿功能開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the local drive clipboard feature. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> cpdDriveClipboard_ {};
-      // CPU 降頻時長，取值範圍： 30\\~120。單位：秒。
+      // The CPU downclocking duration. Valid values: 30 to 120. Unit: seconds.
       shared_ptr<int32_t> cpuDownGradeDuration_ {};
-      // CPU 負載保護開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable CPU load protection. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> cpuOverload_ {};
-      // 處理程序名稱。
+      // The process name.
       shared_ptr<vector<string>> cpuProcessors_ {};
-      // CPU 保護模式開關。
+      // Specifies whether to enable CPU protection mode.
       shared_ptr<string> cpuProtectedMode_ {};
-      // CPU 整體使用率百分比，取值範圍： 70\\~90。
+      // The overall CPU utilization percentage. Valid values: 70 to 90.
       shared_ptr<int32_t> cpuRateLimit_ {};
-      // CPU 整體取樣時長，取值範圍： 10\\~60。單位：秒。
+      // The overall CPU sampling duration. Valid values: 10 to 60. Unit: seconds.
       shared_ptr<int32_t> cpuSampleDuration_ {};
-      // CPU 單核心使用率百分比，取值範圍： 70\\~100。
+      // The single-core CPU utilization percentage. Valid values: 70 to 100.
       shared_ptr<int32_t> cpuSingleRateLimit_ {};
-      // 已關聯該原則的雲端電腦數量。
+      // The number of cloud computers associated with this policy.
       shared_ptr<int32_t> desktopCount_ {};
-      // 已關聯該原則的雲端電腦集區數量。
+      // The number of cloud computer pools associated with this policy.
       shared_ptr<int32_t> desktopGroupCount_ {};
-      // 周邊裝置連線提示控制。
+      // The peripheral connection prompt control.
       shared_ptr<string> deviceConnectHint_ {};
-      // 裝置重新導向規則。
+      // The device redirection rules.
       shared_ptr<vector<DescribePolicyGroups::DeviceRedirects>> deviceRedirects_ {};
-      // 自訂周邊裝置規則。
+      // The custom peripheral rules.
       shared_ptr<vector<DescribePolicyGroups::DeviceRules>> deviceRules_ {};
-      // 工作階段斷線保留。
-      // > 僅適用於雲端應用程式原則。
+      // Specifies whether to retain the session after disconnection.
+      // > This applies only to cloud application policies.
       shared_ptr<string> disconnectKeepSession_ {};
-      // 工作階段斷線保留時長。單位：秒。
-      // > 僅適用於雲端應用程式原則。
+      // The session retention duration after disconnection. Unit: seconds.
+      // > This applies only to cloud application policies.
       shared_ptr<int32_t> disconnectKeepSessionTime_ {};
-      // 磁碟負載保護開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable disk load protection. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> diskOverload_ {};
-      // 顯示模式。
+      // The display mode.
       shared_ptr<string> displayMode_ {};
-      // 網域解析生效欄位。
+      // The effective field for domain name resolution.
       shared_ptr<string> domainRegisterValue_ {};
-      // 網域解析原則詳情。
+      // The details of the domain name resolution policy.
       shared_ptr<vector<DescribePolicyGroups::DomainResolveRule>> domainResolveRule_ {};
-      // 網域解析原則開關。
+      // Specifies whether to enable the domain name resolution policy.
       shared_ptr<string> domainResolveRuleType_ {};
-      // 使用者請求管理員協助。
+      // Specifies whether to allow users to request administrator assistance.
       shared_ptr<string> endUserApplyAdminCoordinate_ {};
-      // 關聯的終端使用者數量。
+      // The number of associated end users.
       shared_ptr<string> endUserCount_ {};
-      // 同一個辦公網路下使用者共享雲端電腦。
+      // Specifies whether users in the same office network share cloud desktops.
       shared_ptr<string> endUserGroupCoordinate_ {};
-      // 外接儲存裝置使用開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to allow the use of external storage devices. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> externalDrive_ {};
-      // 檔案遷移。
+      // The file migration setting.
       shared_ptr<string> fileMigrate_ {};
-      // 檔案傳輸功能的服務位址。
+      // The service address for the file transfer feature.
       shared_ptr<string> fileTransferAddress_ {};
-      // 單次傳入雲端電腦的檔案大小限制，需與傳入單位參數配合使用。
+      // The maximum size of a file that can be transferred to the cloud desktop in a single operation. This parameter must be used together with the transfer-in unit parameter.
       shared_ptr<string> fileTransferInSize_ {};
-      // 單次傳入雲端電腦的檔案大小限制單位。
+      // The unit for the maximum size of a file that can be transferred to the cloud desktop in a single operation.
       shared_ptr<string> fileTransferInUnit_ {};
-      // 單次從雲端電腦傳出的檔案大小限制，需與傳出單位參數配合使用。
+      // The maximum size of a file that can be transferred from the cloud desktop in a single operation. This parameter must be used together with the transfer-out unit parameter.
       shared_ptr<string> fileTransferOutSize_ {};
-      // 單次從雲端電腦傳出的檔案大小限制單位。
+      // The unit for the maximum size of a file that can be transferred from the cloud desktop in a single operation.
       shared_ptr<string> fileTransferOutUnit_ {};
-      // 檔案傳輸大小限制開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the file transfer size limit. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> fileTransferSizeLimit_ {};
-      // 檔案傳輸速度檔位。
+      // The file transfer speed level.
       shared_ptr<string> fileTransferSpeed_ {};
-      // 用戶端設定的檔案傳輸速度生效位置。
+      // The location where the file transfer speed configured on the client takes effect.
       shared_ptr<string> fileTransferSpeedLocation_ {};
-      // 檔案同步開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable file synchronization. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> folderSync_ {};
-      // 是否為圖形型規格雲端電腦開啟畫質策略。對雲端電腦效能和使用體驗要求較高時，例如專業設計場景下，建議開啟該策略。
+      // Specifies whether to enable the image quality policy for cloud desktops with graphics-optimized specifications. Enable this policy when high performance and user experience are required, such as in professional design scenarios.
       shared_ptr<string> gpuAcceleration_ {};
-      // 懸浮球設定訊息提示開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable message prompts for the floating ball configuration. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> hoverConfigMsg_ {};
-      // 懸浮球休眠按鈕開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the hibernate button on the floating ball. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> hoverHibernate_ {};
-      // 懸浮球重新啟動按鈕開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the restart button on the floating ball. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> hoverRestart_ {};
-      // 懸浮球關機按鈕開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the shutdown button on the floating ball. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> hoverShutdown_ {};
-      // Web用戶端存取策略。
+      // The access policy for the web client.
       shared_ptr<string> html5Access_ {};
-      // Web用戶端檔案傳輸策略。
+      // The file transfer policy for the web client.
       shared_ptr<string> html5FileTransfer_ {};
-      // 網路通訊協定。
+      // The network communication protocol.
       shared_ptr<string> internetCommunicationProtocol_ {};
-      // 網路印表機功能開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the network printer feature. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> internetPrinter_ {};
-      // 懸浮球鍵盤控制開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable keyboard control on the floating ball. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> keyboardControl_ {};
-      // KMS 伺服器開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the KMS server. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> kmsServer_ {};
-      // KMS 伺服器設定，格式為位址:連接埠。
+      // The KMS server configuration in the address:port format.
       shared_ptr<string> kmsServerConfig_ {};
-      // 本機磁碟映射權限。
+      // The mapping permissions for local disks.
       shared_ptr<string> localDrive_ {};
-      // 雲端電腦由於客觀原因造成中斷連線的最大連線重試時間。取值範圍：30\\~7200，單位：秒。
+      // The maximum connection retry time for a cloud desktop that is disconnected due to objective reasons. Valid values: 30 to 7200. Unit: seconds.
       shared_ptr<int32_t> maxReconnectTime_ {};
-      // 開啟 MCP 服務。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the MCP service. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> mcpService_ {};
-      // 單個處理程序記憶體降頻時長，取值範圍： 30\\~120。單位：秒。
+      // The memory downgrade duration for a single process. Valid values: 30 to 120. Unit: seconds.
       shared_ptr<int32_t> memoryDownGradeDuration_ {};
-      // 記憶體負載保護開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable memory load protection. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> memoryOverload_ {};
-      // 處理程序名稱。
+      // The process name.
       shared_ptr<vector<string>> memoryProcessors_ {};
-      // 記憶體保護模式開關。
+      // Specifies whether to enable the memory protection mode.
       shared_ptr<string> memoryProtectedMode_ {};
-      // 記憶體整體使用率百分比，取值範圍： 70\\~90。
+      // The overall memory usage percentage. Valid values: 70 to 90.
       shared_ptr<int32_t> memoryRateLimit_ {};
-      // 記憶體整體取樣時長，取值範圍： 30\\~60。單位：秒。
+      // The overall memory sampling duration. Valid values: 30 to 60. Unit: seconds.
       shared_ptr<int32_t> memorySampleDuration_ {};
-      // 單個處理程序記憶體使用率百分比，取值範圍： 30\\~60。
+      // The memory usage percentage for a single process. Valid values: 30 to 60.
       shared_ptr<int32_t> memorySingleRateLimit_ {};
-      // 透過行動端（Android用戶端<props="china">和iOS用戶端）連線雲端電腦時，是否在雲端電腦懸浮球內提供重新啟動按鈕。
+      // Specifies whether to provide a restart button on the floating ball when you connect to a cloud desktop from a mobile client (Android client<props="china"> and iOS client).
       // 
-      // > 僅適用於V7.4或更高版本的行動端。
+      // > This parameter applies only to mobile clients of V7.4 or later.
       shared_ptr<string> mobileRestart_ {};
-      // 行動端Windows 安全性控制開關。
+      // Specifies whether to enable the Windows security control on the mobile client.
       shared_ptr<string> mobileSafeMenu_ {};
-      // 透過行動端（Android用戶端<props="china">和iOS用戶端）連線雲端電腦時，是否在雲端電腦懸浮球內提供關機按鈕。
+      // Specifies whether to provide a shutdown button on the floating ball when you connect to a cloud desktop from a mobile client (Android client<props="china"> and iOS client).
       // 
-      // > 僅適用於V7.4或更高版本的行動端。
+      // > This parameter applies only to mobile clients of V7.4 or later.
       shared_ptr<string> mobileShutdown_ {};
-      // 行動端無影管家開關。
+      // Specifies whether to enable WUYING Keeper on the mobile client.
       shared_ptr<string> mobileWuyingKeeper_ {};
-      // 行動端小穎的開關。
+      // Specifies whether to enable the Wuying Assistant on the mobile client.
       shared_ptr<string> mobileWyAssistant_ {};
-      // 模型庫功能開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether the model library feature is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> modelLibrary_ {};
-      // 多螢幕顯示功能開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the multi-screen display feature. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> multiScreen_ {};
-      // 策略名稱。
+      // The policy name.
       shared_ptr<string> name_ {};
-      // 網路重新導向。
+      // The network redirection setting.
       // 
-      // > 該功能處於定向邀測中，暫不對外開放。
+      // > This feature is in closed beta and is not publicly available.
       shared_ptr<string> netRedirect_ {};
-      // 網路重新導向策略詳細資訊。
+      // The details of the network redirection policy.
       // 
-      // > 該功能處於定向邀測中，暫不對外開放。
+      // > This feature is in closed beta and is not publicly available.
       // >
       shared_ptr<vector<DescribePolicyGroups::NetRedirectRule>> netRedirectRule_ {};
-      // 網路印表機功能開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the network printer feature. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> networkPrinter_ {};
-      // 無操作中斷連線。
-      // > 僅適用於雲端應用策略。
+      // Specifies whether to disconnect the session when no operations are performed.
+      // > This parameter applies only to cloud application policies.
       shared_ptr<string> noOperationDisconnect_ {};
-      // 無操作中斷連線時長。單位：秒。
-      // > 僅適用於雲端應用策略。
+      // The idle timeout period before disconnection. Unit: seconds.
+      // > This parameter applies only to cloud application policies.
       shared_ptr<int32_t> noOperationDisconnectTime_ {};
-      // 關聯的組織數量。
+      // The number of associated organizations.
       shared_ptr<string> organizationCount_ {};
-      // 策略ID。
+      // The policy ID.
       shared_ptr<string> policyGroupId_ {};
-      // 策略類型。
+      // The policy type.
       shared_ptr<string> policyGroupType_ {};
-      // 雲端電腦策略狀態。
+      // The status of the cloud desktop policy.
       shared_ptr<string> policyStatus_ {};
-      // 連接埠代理功能開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether the port proxy feature is enabled. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> portProxy_ {};
-      // 印表機彈出視窗提示。取值範圍：
-      // - default：預設值。
-      // - off：關閉。
-      // - custom：自訂。
+      // The printer pop-up prompt setting. Valid values:
+      // - default: Default value.
+      // - off: Disabled.
+      // - custom: Custom.
       shared_ptr<string> printerAlert_ {};
-      // 印表機彈出視窗提示內容。
+      // The content of the printer pop-up prompt.
       shared_ptr<string> printerAlertContent_ {};
-      // 印表機彈出視窗提示標題。
+      // The title of the printer pop-up prompt.
       shared_ptr<string> printerAlertTitle_ {};
-      // 印表機重新導向策略。
+      // The printer redirection policy.
       shared_ptr<string> printerRedirection_ {};
-      // 設計及3D應用場景選擇是否開啟畫質增強。
+      // Specifies whether image quality enhancement is enabled for Common scenarios such as design and 3D.
       shared_ptr<string> qualityEnhancement_ {};
-      // 是否開啟自訂螢幕錄影。
+      // Specifies whether to enable custom screen recording.
       shared_ptr<string> recordContent_ {};
-      // 自訂螢幕錄影的檔案過期時間，預設30天。
+      // The expiration time for custom screen recording files. Default value: 30 days.
       shared_ptr<int64_t> recordContentExpires_ {};
-      // 螢幕錄影稽核中偵測到事件發生後螢幕錄影的時長。單位：分鐘。取值範圍：10\\~60。
+      // The screen recording duration after an event is detected in screen recording audit. Unit: minutes. Valid values: 10 to 60.
       shared_ptr<int32_t> recordEventDuration_ {};
-      // 螢幕錄影稽核中的檔案監控絕對路徑。
+      // The absolute paths for file monitoring in screen recording audit.
       shared_ptr<vector<string>> recordEventFilePaths_ {};
-      // 螢幕錄影稽核中的登錄檔監控絕對路徑。
+      // The absolute paths for registry monitoring in screen recording audit.
       shared_ptr<vector<string>> recordEventRegisters_ {};
-      // 是否開啟螢幕錄影。
+      // Specifies whether to enable screen recording.
       shared_ptr<string> recording_ {};
-      // 錄製雲端電腦聲音選項。
+      // The option for recording the audio of the cloud desktop.
       shared_ptr<string> recordingAudio_ {};
-      // 螢幕錄影檔案閱覽時長，單位為分鐘。錄製檔案會根據您設定的時長自動分割並上傳至儲存空間，檔案達到300MB時優先滾動更新。
+      // The duration of each screen recording file, in minutes. Recorded files are automatically split and uploaded to the storage space based on the specified duration. If a file reaches 300 MB, it is overwritten on a rolling basis.
       shared_ptr<int32_t> recordingDuration_ {};
-      // 螢幕錄影結束時間，取值：HH:MM:SS。只有Recording取值是period時，該傳回值有實際意義。
+      // The end time of screen recording. Format: HH:MM:SS. This parameter is valid only when the Recording parameter is set to period.
       shared_ptr<string> recordingEndTime_ {};
-      // 螢幕錄影檔案的保留時間。取值範圍為1\\~180天。
+      // The retention period of screen recording files. Valid values: 1 to 180 days.
       shared_ptr<int64_t> recordingExpires_ {};
-      // 螢幕錄影幀率。單位：FPS（幀/秒）。
+      // The frame rate of screen recording. Unit: FPS.
       shared_ptr<int64_t> recordingFps_ {};
-      // 螢幕錄影開始時間，取值：HH:MM:SS。只有Recording取值是period時，該傳回值有實際意義。
+      // The start time of screen recording. Format: HH:MM:SS. This parameter is valid only when the Recording parameter is set to period.
       shared_ptr<string> recordingStartTime_ {};
-      // 提示終端客戶已開啟螢幕錄影。
+      // Specifies whether to notify the terminal user that screen recording is enabled.
       shared_ptr<string> recordingUserNotify_ {};
-      // 提示終端客戶開啟螢幕錄影的資訊。
+      // The notification message sent to the terminal user when screen recording is enabled.
       shared_ptr<string> recordingUserNotifyMessage_ {};
-      // 遠端協助鍵盤與滑鼠控制權限。
+      // The permissions for keyboard and mouse control during remote assistance.
       shared_ptr<string> remoteCoordinate_ {};
-      // 重置雲端電腦。
+      // The permission to reset the cloud desktop.
       shared_ptr<string> resetDesktop_ {};
-      // 螢幕解析度的 DPI 值。
+      // The DPI value of the screen resolution.
       shared_ptr<int32_t> resolutionDpi_ {};
-      // 解析度的高度。單位：畫素。
+      // The height of the resolution. Unit: pixels.
       shared_ptr<int32_t> resolutionHeight_ {};
-      // 解析度類型。
+      // The resolution type.
       shared_ptr<string> resolutionModel_ {};
-      // 解析度的寬度。單位：畫素。
+      // The width of the resolution. Unit: pixels.
       shared_ptr<int32_t> resolutionWidth_ {};
-      // 已關聯該策略的資源群組數量。
+      // The number of resource groups associated with the policy.
       shared_ptr<int32_t> resourceGroupCount_ {};
-      // 安全中心快速鍵開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the shortcut key for the security center. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> safeMenu_ {};
-      // 策略的生效範圍。
+      // The effective scope of the policy.
       shared_ptr<string> scope_ {};
-      // 生效的 CIDR Block。
+      // The effective CIDR block.
       shared_ptr<vector<string>> scopeValue_ {};
-      // 螢幕顯示模式。
+      // The screen display mode.
       shared_ptr<string> screenDisplayMode_ {};
-      // 日常辦公場景選擇，是否開啟平滑度增強。
+      // Specifies whether to enable smoothness enhancement for daily office scenarios.
       shared_ptr<string> smoothEnhancement_ {};
-      // 是否在雲端電腦懸浮球內提供狀態監控功能入口。
+      // Specifies whether to provide an entry for the status monitoring feature in the floating ball of the cloud desktop.
       shared_ptr<string> statusMonitor_ {};
-      // 串流模式適配場景。
+      // The applicable scenario for the streaming mode.
       shared_ptr<string> streamingMode_ {};
-      // 目標幀率，取值範圍：10\\~60。
+      // The target frame rate. Valid values: 10 to 60.
       shared_ptr<int32_t> targetFps_ {};
-      // 應用程式工作列。
-      // > 僅適用於雲端應用程式策略。
+      // The application taskbar.
+      // > This parameter applies only to cloud application policies.
       shared_ptr<string> taskbar_ {};
-      // 三螢幕開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the triple-screen feature. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> threeScreen_ {};
-      // USB 重新導向。
+      // The USB redirection setting.
       shared_ptr<string> usbRedirect_ {};
-      // USB 重新導向規則。
+      // The USB redirection rules.
       shared_ptr<vector<DescribePolicyGroups::UsbSupplyRedirectRule>> usbSupplyRedirectRule_ {};
-      // 懸浮球使用時長顯示開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to display the usage duration in the floating ball. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> useTime_ {};
-      // 影片編碼平均位元率。單位：Kbps。取值範圍：1000\\~50000。
+      // The average video encoding bitrate. Unit: Kbps. Valid values: 1000 to 50000.
       shared_ptr<int32_t> videoEncAvgKbps_ {};
-      // 影片編碼最大 QP，畫面最低品質，取值範圍：0\\~51。
+      // The maximum quantization parameter (QP) for video encoding, which indicates the lowest video quality. Valid values: 0 to 51.
       shared_ptr<int32_t> videoEncMaxQP_ {};
-      // 影片編碼最小 QP，最高品質。取值範圍：0\\~51。
+      // The minimum quantization parameter (QP) for video encoding, which indicates the highest video quality. Valid values: 0 to 51.
       shared_ptr<int32_t> videoEncMinQP_ {};
-      // 影片編碼峰值位元率。單位：Kbps。取值範圍：1000~50000。
+      // The peak video encoding bitrate. Unit: Kbps. Valid values: 1000 to 50000.
       shared_ptr<int32_t> videoEncPeakKbps_ {};
-      // 影片編碼策略。
+      // The video encoding policy.
       shared_ptr<string> videoEncPolicy_ {};
-      // 多媒體重新導向。
+      // The multimedia redirection setting.
       shared_ptr<string> videoRedirect_ {};
-      // 影像顯示品質策略。
+      // The image display quality policy.
       shared_ptr<string> visualQuality_ {};
-      // 浮水印。
+      // The watermark setting.
       shared_ptr<string> watermark_ {};
-      // 隱藏式浮水印防拍照功能。
+      // The blind watermark anti-camera capture feature.
       shared_ptr<string> watermarkAntiCam_ {};
-      // 浮水印字型顏色。取值範圍：0\\~16777215。
+      // The font color of the watermark. Valid values: 0 to 16777215.
       shared_ptr<int32_t> watermarkColor_ {};
-      // 若參數 `WatermarkType` 傳入 `custom`，則必須同時透過參數 `WatermarkCustomText` 傳入自訂文字的內容。
+      // If the WatermarkType parameter is set to custom, you must specify the custom text by using the WatermarkCustomText parameter.
       shared_ptr<string> watermarkCustomText_ {};
-      // 浮水印傾斜度。取值範圍：-10\\~-30。
+      // The tilt angle of the watermark. Valid values: -10 to -30.
       shared_ptr<double> watermarkDegree_ {};
-      // 浮水印字型大小。取值範圍：10\\~20。
+      // The font size of the watermark. Valid values: 10 to 20.
       shared_ptr<int32_t> watermarkFontSize_ {};
-      // 浮水印字型樣式。
+      // The font style of the watermark.
       shared_ptr<string> watermarkFontStyle_ {};
-      // 隱藏式浮水印增強功能。
+      // The blind watermark enhancement feature.
       shared_ptr<string> watermarkPower_ {};
-      // 浮水印行數。
+      // The number of watermark rows.
       shared_ptr<int32_t> watermarkRowAmount_ {};
-      // 隱藏式浮水印安全優先規則。
+      // The security priority rule for blind watermarks.
       shared_ptr<string> watermarkSecurity_ {};
-      // 浮水印陰影效果開關。取值範圍：
-      // - on：開啟。
-      // - off：關閉。
+      // Specifies whether to enable the shadow effect for the watermark. Valid values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> watermarkShadow_ {};
-      // 浮水印透明度，值越大，透明度越小。取值範圍：10\\~100。
+      // The transparency of the watermark. A larger value indicates lower transparency. Valid values: 10 to 100.
       shared_ptr<int32_t> watermarkTransparencyValue_ {};
-      // 浮水印類型。
+      // The watermark type.
       shared_ptr<string> watermarkType_ {};
-      // 無影管家開關。
+      // Specifies whether to enable WUYING Keeper.
       shared_ptr<string> wuyingKeeper_ {};
-      // 是否在雲端電腦懸浮球內提供無影 AI 助手功能入口。
+      // Specifies whether to provide an entry for the WUYING AI Assistant feature in the floating ball of the cloud desktop.
       shared_ptr<string> wyAssistant_ {};
     };
 
@@ -2493,11 +2493,11 @@ namespace Models
 
 
   protected:
-    // 雲端電腦原則的詳細資訊。
+    // The details of the cloud computer policy.
     shared_ptr<vector<DescribeCenterPolicyListResponseBody::DescribePolicyGroups>> describePolicyGroups_ {};
-    // 請求 ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 查詢結果總數。
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

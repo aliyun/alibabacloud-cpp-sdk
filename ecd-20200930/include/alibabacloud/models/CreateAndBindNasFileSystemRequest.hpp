@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileSystemName, fileSystemName_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(SizeQuota, sizeQuota_);
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAndBindNasFileSystemRequest& obj) { 
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileSystemName, fileSystemName_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(SizeQuota, sizeQuota_);
       DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
     };
     CreateAndBindNasFileSystemRequest() = default ;
@@ -46,7 +48,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
         && this->desktopGroupId_ == nullptr && this->encryptType_ == nullptr && this->endUserIds_ == nullptr && this->fileSystemName_ == nullptr && this->officeSiteId_ == nullptr
-        && this->regionId_ == nullptr && this->storageType_ == nullptr; };
+        && this->regionId_ == nullptr && this->sizeQuota_ == nullptr && this->storageType_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -98,6 +100,13 @@ namespace Models
     inline CreateAndBindNasFileSystemRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // sizeQuota Field Functions 
+    bool hasSizeQuota() const { return this->sizeQuota_ != nullptr;};
+    void deleteSizeQuota() { this->sizeQuota_ = nullptr;};
+    inline int64_t getSizeQuota() const { DARABONBA_PTR_GET_DEFAULT(sizeQuota_, 0L) };
+    inline CreateAndBindNasFileSystemRequest& setSizeQuota(int64_t sizeQuota) { DARABONBA_PTR_SET_VALUE(sizeQuota_, sizeQuota) };
+
+
     // storageType Field Functions 
     bool hasStorageType() const { return this->storageType_ != nullptr;};
     void deleteStorageType() { this->storageType_ = nullptr;};
@@ -108,13 +117,11 @@ namespace Models
   protected:
     // The description of the NAS file system.
     shared_ptr<string> description_ {};
-    // The ID of the shared cloud computer.
-    // 
-    // This parameter is required.
+    // The ID of the shared cloud desktop.
     shared_ptr<string> desktopGroupId_ {};
-    // Specifies whether the file system uses a KMS-managed key to encrypt data at rest. Encrypted data does not need to be decrypted during read and write operations.
+    // Specifies whether the file system uses Key Management Service (KMS) managed keys to encrypt data at rest. No decryption is required when reading or writing encrypted data.
     // 
-    // > NAS-managed keys are supported when `FileSystemType` is set to `standard` or `extreme`. User-managed keys are supported when `FileSystemType` is set to `extreme`.
+    // > When `FileSystemType` is set to `standard` or `extreme`, NAS-managed keys are supported. When `FileSystemType` is set to `extreme`, user-managed keys are supported.
     shared_ptr<int32_t> encryptType_ {};
     // The list of user IDs.
     shared_ptr<vector<string>> endUserIds_ {};
@@ -126,11 +133,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The storage specification type of the NAS file system.
+    // The user VHD capacity tier in GiB. Valid values: 5, 20, 50, 100, and 500. Default value: 500.
+    shared_ptr<int64_t> sizeQuota_ {};
+    // The storage type of the NAS file system.
     // 
     // This parameter is required.
     shared_ptr<string> storageType_ {};

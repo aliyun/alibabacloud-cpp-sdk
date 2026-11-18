@@ -101,21 +101,21 @@ namespace Models
 
 
   protected:
-    // The list of cloud phones to associate.
+    // The IDs of the cloud phones to associate.
     shared_ptr<vector<string>> authAndroidId_ {};
-    // The ID of the cloud computer pool for which the authorization takes effect.
+    // The ID of the cloud computer pool where the authorization takes effect.
     shared_ptr<vector<string>> authDesktopGroupId_ {};
-    // The list of cloud computer IDs to associate.
+    // The IDs of the cloud computers to associate.
     shared_ptr<vector<string>> authDesktopId_ {};
     // The peak downstream bandwidth. Unit: Mbit/s.
     // 
     // This parameter is required.
     shared_ptr<int32_t> download_ {};
-    // The premium bandwidth ID.
+    // The ID of the premium bandwidth.
     // 
     // This parameter is required.
     shared_ptr<string> networkPackageId_ {};
-    // The name of the rate limiting rule.
+    // The name of the bandwidth throttling rule.
     // 
     // This parameter is required.
     shared_ptr<string> qosRuleName_ {};

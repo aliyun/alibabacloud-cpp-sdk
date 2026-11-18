@@ -788,12 +788,12 @@ namespace Models
 
 
     protected:
-      // The size limit for a single clipboard transfer. This parameter must be used together with the size unit parameter.
+      // The maximum size of a single clipboard transfer. This parameter must be used together with the size unit parameter.
       shared_ptr<int32_t> clipboardSize_ {};
-      // The unit for the size limit of a single clipboard transfer.
+      // The unit of the maximum size for a single clipboard transfer.
       shared_ptr<string> clipboardSizeUnit_ {};
       // The fine-grained clipboard control type. Valid values:
-      // - off: Disables the clipboard.
+      // - off: Disabled.
       // - read: Read-only.
       // - write: Write-only.
       // - readwrite: Read and write.
@@ -804,13 +804,13 @@ namespace Models
       // - file: File.
       // - picture: Image.
       shared_ptr<string> grainedType_ {};
-      // The size limit for a single clipboard transfer to the cloud computer. This parameter must be used together with the inbound size unit parameter.
+      // The maximum size of a single clipboard transfer to the cloud computer. This parameter must be used together with the inbound size unit parameter.
       shared_ptr<int32_t> inClipboardSize_ {};
-      // The unit for the size limit of a single clipboard transfer to the cloud computer.
+      // The unit of the maximum size for a single clipboard transfer to the cloud computer.
       shared_ptr<string> inClipboardSizeUnit_ {};
-      // The size limit for a single clipboard transfer from the cloud computer. This parameter must be used together with the outbound size unit parameter.
+      // The maximum size of a single clipboard transfer from the cloud computer. This parameter must be used together with the outbound size unit parameter.
       shared_ptr<int32_t> outClipboardSize_ {};
-      // The unit for the size limit of a single clipboard transfer from the cloud computer.
+      // The unit of the maximum size for a single clipboard transfer from the cloud computer.
       shared_ptr<string> outClipboardSizeUnit_ {};
     };
 
@@ -854,9 +854,9 @@ namespace Models
     protected:
       // The client type for logon method control.
       shared_ptr<string> clientType_ {};
-      // Specifies whether to allow a specific type of client to log on to the cloud computer for logon method control.
+      // Specifies whether to allow a specific type of client to log on to the cloud desktop.
       // 
-      // > If you do not configure the `ClientType` parameter, all types of clients are allowed to log on to the cloud computer by default.
+      // > If you do not configure the `ClientType` parameter, all types of clients are allowed to log on to the cloud desktop by default.
       shared_ptr<string> status_ {};
     };
 
@@ -952,20 +952,20 @@ namespace Models
       shared_ptr<string> ipProtocol_ {};
       // The authorization policy of the security group control rule.
       shared_ptr<string> policy_ {};
-      // The port range of the security group control rule. The valid port range depends on the value of `IpProtocol`:
+      // The port range of the security group control rule. The valid port range depends on the value of the IpProtocol parameter:
       // 
       // - TCP or UDP: 1 to 65535. Use a forward slash (/) to separate the start port and the end port. Example: 1/200.
       // - ICMP: -1/-1.
       // - GRE: -1/-1.
-      // - All protocols: -1/-1.
+      // - all: -1/-1.
       // 
-      // For more information about common ports of typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+      // For more information about common ports used by typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
       shared_ptr<string> portRange_ {};
       // The priority of the security group control rule. A smaller value indicates a higher priority.    
       // Valid values: 1 to 60.    
       // Default value: 1.
       shared_ptr<string> priority_ {};
-      // The direction of the security group control rule.
+      // The rule direction of the security group control rule.
       shared_ptr<string> type_ {};
     };
 
@@ -1007,7 +1007,7 @@ namespace Models
 
 
     protected:
-      // The IPv4 CIDR block from which clients are allowed to access the cloud computer.
+      // The client access IP address range, which is an IPv4 CIDR block.
       shared_ptr<string> cidrIp_ {};
       // The description of the client IP address whitelist.
       shared_ptr<string> description_ {};
@@ -1051,7 +1051,7 @@ namespace Models
 
 
     protected:
-      // The bucket name.
+      // The name of the bucket.
       shared_ptr<string> bucketName_ {};
       // The region where the user\\"s OSS bucket is located. It must be the same as the actual region of the bucket.
       shared_ptr<string> bucketRegionId_ {};
@@ -2150,8 +2150,8 @@ namespace Models
     // - on: Enabled.
     // - off: Disabled.
     shared_ptr<string> academicProxy_ {};
-    // Specifies whether users have administrator permissions after they log on to the cloud computer.
-    // > This feature is in invitational preview and is not publicly available.
+    // Specifies whether the user has administrator permissions after logging on to the cloud computer.
+    // > This feature is in targeted beta testing and is not publicly available.
     shared_ptr<string> adminAccess_ {};
     // Specifies whether to enable administrator keyboard control in full-screen mode. Valid values:
     // - on: Enabled.
@@ -2165,11 +2165,11 @@ namespace Models
     shared_ptr<string> appContentProtection_ {};
     // The list of custom OSS buckets for mobile screenshots in the screen capture prevention feature.
     shared_ptr<vector<CreateCenterPolicyRequest::AppScreenshotBuckets>> appScreenshotBuckets_ {};
-    // The list of client IP address whitelists. After this parameter is configured, only IP addresses in the whitelisted CIDR blocks can access the cloud computer.
+    // The client IP address whitelist. After this parameter is configured, only IP addresses in the whitelisted CIDR blocks can access the cloud desktop.
     shared_ptr<vector<CreateCenterPolicyRequest::AuthorizeAccessPolicyRule>> authorizeAccessPolicyRule_ {};
     // The list of security group control rules.
     shared_ptr<vector<CreateCenterPolicyRequest::AuthorizeSecurityPolicyRule>> authorizeSecurityPolicyRule_ {};
-    // Specifies whether to enable automatic reconnection on the client.
+    // Specifies whether to enable automatic reconnection for the client.
     shared_ptr<string> autoReconnect_ {};
     // Specifies whether to automatically save mobile screenshots. Valid values:
     // - on: Enabled.
@@ -2193,7 +2193,7 @@ namespace Models
     // - on: Enabled.
     // - off: Disabled.
     shared_ptr<string> clientCreateSnapshot_ {};
-    // The list of logon method control rules. This parameter is used to control which clients can be used to access the cloud computer.
+    // The list of logon method control rules. This parameter is used to control which clients can be used to access the cloud desktop.
     shared_ptr<vector<CreateCenterPolicyRequest::ClientType>> clientType_ {};
     // The clipboard permissions.
     shared_ptr<string> clipboard_ {};
@@ -2207,7 +2207,7 @@ namespace Models
     // - on: Enabled.
     // - off: Disabled.
     shared_ptr<string> cpdDriveClipboard_ {};
-    // The CPU frequency reduction duration. Valid values: 30 to 120. Unit: seconds.
+    // The CPU throttling duration. Valid values: 30 to 120. Unit: seconds.
     shared_ptr<int32_t> cpuDownGradeDuration_ {};
     // Specifies whether to enable CPU load protection. Valid values:
     // - on: Enabled.
@@ -2215,13 +2215,13 @@ namespace Models
     shared_ptr<string> cpuOverload_ {};
     // The process name.
     shared_ptr<vector<string>> cpuProcessors_ {};
-    // Specifies whether to enable the CPU protection mode.
+    // Specifies whether the CPU protection mode is enabled.
     shared_ptr<string> cpuProtectedMode_ {};
-    // The overall CPU utilization percentage. Valid values: 70 to 90.
+    // The overall CPU usage percentage. Valid values: 70 to 90.
     shared_ptr<int32_t> cpuRateLimit_ {};
     // The overall CPU sampling duration. Valid values: 10 to 60. Unit: seconds.
     shared_ptr<int32_t> cpuSampleDuration_ {};
-    // The single-core CPU utilization percentage. Valid values: 70 to 100.
+    // The single-core CPU usage percentage. Valid values: 70 to 100.
     shared_ptr<int32_t> cpuSingleRateLimit_ {};
     // The description of the NAS file system.
     shared_ptr<string> description_ {};
@@ -2232,10 +2232,11 @@ namespace Models
     // The list of custom peripheral rules.
     shared_ptr<vector<CreateCenterPolicyRequest::DeviceRules>> deviceRules_ {};
     // Specifies whether to retain the session after disconnection.
-    // > Applicable only to cloud application policies.
+    // > Applies only to cloud application policies.
     shared_ptr<string> disconnectKeepSession_ {};
     // The session retention duration after disconnection. Valid values: 30 to 7200. Unit: seconds.
-    // > Applicable only to cloud application policies.
+    // 
+    // > Applies only to cloud application policies.
     shared_ptr<int32_t> disconnectKeepSessionTime_ {};
     // Specifies whether to enable disk load protection. Valid values:
     // - on: Enabled.
@@ -2249,7 +2250,7 @@ namespace Models
     shared_ptr<string> domainResolveRuleType_ {};
     // Specifies whether to enable session bandwidth throttling.
     shared_ptr<string> enableSessionRateLimiting_ {};
-    // Specifies whether end users can request administrator assistance.
+    // Specifies whether users can request administrator assistance.
     shared_ptr<string> endUserApplyAdminCoordinate_ {};
     // Specifies whether users in the same office network can share cloud computers.
     shared_ptr<string> endUserGroupCoordinate_ {};
@@ -2301,7 +2302,7 @@ namespace Models
     shared_ptr<string> keyboardControl_ {};
     // The local disk mapping permissions.
     shared_ptr<string> localDrive_ {};
-    // The maximum retry time for reconnecting to a cloud computer after a disconnection caused by objective reasons. Valid values: 30 to 7200. Unit: seconds.
+    // The maximum retry time for reconnecting to a cloud desktop after a disconnection caused by objective reasons. Valid values: 30 to 7200. Unit: seconds.
     shared_ptr<int32_t> maxReconnectTime_ {};
     // Specifies whether to enable the MCP service. Valid values:
     // - on: Enabled.
@@ -2315,27 +2316,27 @@ namespace Models
     shared_ptr<string> memoryOverload_ {};
     // The process name.
     shared_ptr<vector<string>> memoryProcessors_ {};
-    // Specifies whether to enable the memory protection mode.
+    // Specifies whether the memory protection mode is enabled.
     shared_ptr<string> memoryProtectedMode_ {};
-    // The overall memory utilization percentage. Valid values: 70 to 90.
+    // The overall memory usage percentage. Valid values: 70 to 90.
     shared_ptr<int32_t> memoryRateLimit_ {};
     // The overall memory sampling duration. Valid values: 30 to 60. Unit: seconds.
     shared_ptr<int32_t> memorySampleDuration_ {};
-    // The memory utilization percentage of a single process. Valid values: 30 to 60.
+    // The memory usage percentage of a single process. Valid values: 30 to 60.
     shared_ptr<int32_t> memorySingleRateLimit_ {};
     // Specifies whether to provide a restart button in the floating ball of the cloud computer when you connect to the cloud computer from a mobile client (Android client<props="china"> and iOS client).
     // 
-    // > Only applicable to mobile clients of V7.4 or later.
+    // > This parameter applies only to mobile clients of V7.4 or later.
     shared_ptr<string> mobileRestart_ {};
     // Specifies whether to enable Windows security controls on mobile devices.
     shared_ptr<string> mobileSafeMenu_ {};
     // Specifies whether to provide a shutdown button in the floating ball of the cloud computer when you connect from a mobile client (Android client<props="china"> and iOS client).
     // 
-    // > Only applicable to mobile clients of V7.4 or later.
+    // > This parameter applies only to mobile clients of V7.4 or later.
     shared_ptr<string> mobileShutdown_ {};
-    // Specifies whether to enable WUYING Keeper on mobile devices.
+    // Specifies whether to enable Wuying Keeper on mobile devices.
     shared_ptr<string> mobileWuyingKeeper_ {};
-    // Specifies whether to enable the WUYING Assistant on mobile devices.
+    // Specifies whether to enable Wuying Assistant on mobile devices.
     shared_ptr<string> mobileWyAssistant_ {};
     // Specifies whether to enable the model library feature. Valid values:
     // - on: Enabled.
@@ -2355,20 +2356,21 @@ namespace Models
     shared_ptr<string> netRedirect_ {};
     // The details of the network redirection policy.
     // 
-    // > This feature is in invitational preview and is not publicly available.
+    // > This feature is in targeted invitation-only testing and is not publicly available.
     // >
     shared_ptr<vector<CreateCenterPolicyRequest::NetRedirectRule>> netRedirectRule_ {};
-    // Specifies whether to disconnect the session when no operations are performed.
-    // > Applicable only to cloud application policies.
+    // Specifies whether to disconnect the session upon inactivity.
+    // > Applies only to cloud application policies.
     shared_ptr<string> noOperationDisconnect_ {};
-    // The idle disconnect timeout. Valid values: 120 to 7200. Unit: seconds.
-    // > Applicable only to cloud application policies.
+    // The duration before disconnection due to inactivity. Valid values: 120 to 7200. Unit: seconds.
+    // 
+    // > Applies only to cloud application policies.
     shared_ptr<int32_t> noOperationDisconnectTime_ {};
     // Specifies whether to enable the port proxy feature. Valid values:
     // - on: Enabled.
     // - off: Disabled.
     shared_ptr<string> portProxy_ {};
-    // The printer pop-up prompt. Valid values:
+    // The printer pop-up prompt setting. Valid values:
     // - default: Default.
     // - off: Disabled.
     // - custom: Custom.
@@ -2383,11 +2385,11 @@ namespace Models
     shared_ptr<string> qualityEnhancement_ {};
     // The screen recording duration after an event is detected in screen recording audit. Unit: minutes. Valid values: 10 to 60.
     shared_ptr<int32_t> recordEventDuration_ {};
-    // The file name extension for screen recording events.
+    // The file name extensions for screen recording events.
     shared_ptr<vector<string>> recordEventFileExts_ {};
     // The absolute paths for file monitoring in screen recording audit.
     shared_ptr<vector<string>> recordEventFilePaths_ {};
-    // The level of the screen recording event.
+    // The levels of screen recording events.
     shared_ptr<vector<CreateCenterPolicyRequest::RecordEventLevels>> recordEventLevels_ {};
     // The absolute paths for registry monitoring in screen recording audit.
     shared_ptr<vector<string>> recordEventRegisters_ {};
@@ -2395,21 +2397,21 @@ namespace Models
     shared_ptr<vector<string>> recordEvents_ {};
     // Specifies whether to enable screen recording.
     shared_ptr<string> recording_ {};
-    // The audio recording option for the cloud computer.
+    // The option for recording the audio of the cloud computer.
     shared_ptr<string> recordingAudio_ {};
-    // The duration of each screen recording file. Unit: minutes. Recorded files are automatically split and uploaded to the storage space based on the specified duration. If a file reaches 300 MB, it is rolled over. Valid values: 10 to 60.
+    // The duration of each screen recording file. Unit: minutes. The recording file is automatically split and uploaded to the storage space based on the specified duration. When the file size reaches 300 MB, it is overwritten on a rolling basis. Valid values: 10 to 60.
     shared_ptr<int32_t> recordingDuration_ {};
-    // The end time of screen recording. Format: HH:MM:SS. This parameter is valid only when `Recording` is set to `period`.
+    // The end time of screen recording. Format: HH:MM:SS. This value is valid only when the Recording parameter is set to PERIOD.
     shared_ptr<string> recordingEndTime_ {};
-    // The retention period of screen recording files. Valid values: 1 to 180. Unit: days.
+    // The retention period of screen recording files. Valid values: 1 to 180 days.
     shared_ptr<int32_t> recordingExpires_ {};
-    // The frame rate of screen recording. Unit: FPS.
+    // The frame rate of screen recording. Unit: FPS (frames per second).
     shared_ptr<string> recordingFps_ {};
-    // The start time of screen recording. Format: HH:MM:SS. This parameter is valid only when `Recording` is set to `period`.
+    // The start time of screen recording. Format: HH:MM:SS. This value is valid only when the Recording parameter is set to PERIOD.
     shared_ptr<string> recordingStartTime_ {};
-    // Specifies whether to notify end users that screen recording is enabled.
+    // Specifies whether to notify the end user that screen recording is enabled.
     shared_ptr<string> recordingUserNotify_ {};
-    // The notification message displayed to end users when screen recording is enabled.
+    // The notification message sent to the end user when screen recording is enabled.
     shared_ptr<string> recordingUserNotifyMessage_ {};
     // The region ID. This feature is region-independent. Set this parameter to cn-shanghai.
     // 
@@ -2437,24 +2439,24 @@ namespace Models
     shared_ptr<string> safeMenu_ {};
     // The effective scope of the policy.
     shared_ptr<string> scope_ {};
-    // The value specified when `Scope` is set to `IP`. This parameter takes effect only when `Scope` is set to `IP`.
+    // The value to be specified when `Scope` is set to `IP`. This parameter takes effect only when `Scope` is set to `IP`.
     shared_ptr<vector<string>> scopeValue_ {};
     // The screen display mode.
     shared_ptr<string> screenDisplayMode_ {};
-    // The maximum value for session bandwidth throttling. Unit: Kbit/s. Valid values: 2000 to 100000.
+    // The maximum session bandwidth throttling. Unit: Kbps. Valid values: 2000 to 100000.
     shared_ptr<int32_t> sessionMaxRateKbps_ {};
     // Specifies whether to enable smoothness enhancement for daily office scenarios.
     shared_ptr<string> smoothEnhancement_ {};
-    // Specifies whether to provide an entry for the status monitoring feature in the floating ball of the cloud computer.
+    // Specifies whether to provide a status monitoring feature entry in the floating ball of the cloud computer.
     shared_ptr<string> statusMonitor_ {};
-    // The streaming mode.
+    // The streaming mode for the scenario.
     shared_ptr<string> streamingMode_ {};
     // The target frame rate. Valid values: 10 to 60.
     shared_ptr<int32_t> targetFps_ {};
     // The application taskbar.
-    // > Only applicable to cloud application policies.
+    // > This parameter applies only to cloud application policies.
     shared_ptr<string> taskbar_ {};
-    // Specifies whether to enable the triple-screen display. Valid values:
+    // Specifies whether to enable the triple-screen display feature. Valid values:
     // - on: Enabled.
     // - off: Disabled.
     shared_ptr<string> threeScreen_ {};
@@ -2466,7 +2468,7 @@ namespace Models
     // - on: Enabled.
     // - off: Disabled.
     shared_ptr<string> useTime_ {};
-    // The average bitrate for video encoding. Unit: Kbit/s. Valid values: 1000 to 50000.
+    // The average bitrate for video encoding. Unit: Kbps. Valid values: 1000 to 50000.
     shared_ptr<int32_t> videoEncAvgKbps_ {};
     // The maximum QP for video encoding, which indicates the lowest image quality. Valid values: 0 to 51.
     shared_ptr<int32_t> videoEncMaxQP_ {};
@@ -2484,23 +2486,23 @@ namespace Models
     shared_ptr<string> watermark_ {};
     // The blind watermark anti-photography feature.
     shared_ptr<string> watermarkAntiCam_ {};
-    // The watermark font color. Valid values: 0 to 16777215.
+    // The font color of the watermark. Valid values: 0 to 16777215.
     shared_ptr<int32_t> watermarkColor_ {};
     // The number of watermark columns. Valid values: 3 to 10.
     shared_ptr<int32_t> watermarkColumnAmount_ {};
-    // If you set the WatermarkType parameter to custom, you must also specify the custom text by using this parameter.
+    // If you set the `WatermarkType` parameter to `custom`, you must use this parameter to specify the custom text.
     shared_ptr<string> watermarkCustomText_ {};
-    // The tilt angle of the watermark. Valid values: -10 to -30.
+    // The tilt degree of the watermark. Valid values: -10 to -30.
     shared_ptr<double> watermarkDegree_ {};
     // The font size of the watermark. Valid values: 10 to 20.
     shared_ptr<int32_t> watermarkFontSize_ {};
     // The font style of the watermark.
     shared_ptr<string> watermarkFontStyle_ {};
-    // The blind watermark strength.
+    // The blind watermark enhancement feature.
     shared_ptr<string> watermarkPower_ {};
     // The number of watermark rows. Valid values: 3 to 10.
     shared_ptr<int32_t> watermarkRowAmount_ {};
-    // The blind watermark security priority rule.
+    // The security priority rule for blind watermarks.
     shared_ptr<string> watermarkSecurity_ {};
     // Specifies whether to enable the watermark shadow effect. Valid values:
     // - on: Enabled.
@@ -2508,13 +2510,13 @@ namespace Models
     shared_ptr<string> watermarkShadow_ {};
     // The watermark opacity. A larger value indicates lower transparency. Valid values: 10 to 100.
     shared_ptr<int32_t> watermarkTransparencyValue_ {};
-    // The watermark type. You can select up to three types and separate them with commas (,).
+    // The watermark type. You can select up to three types, separated by commas.
     // 
-    // > If you set this parameter to custom, you must also specify the custom text by using the WatermarkCustomText parameter.
+    // > If you set this parameter to `custom`, you must also use the `WatermarkCustomText` parameter to specify the custom text.
     shared_ptr<string> watermarkType_ {};
-    // Specifies whether to enable WUYING Keeper.
+    // Specifies whether to enable Wuying Keeper.
     shared_ptr<string> wuyingKeeper_ {};
-    // Specifies whether to provide the entry point for the Wuying AI Assistant in the floating ball of the cloud computer when you connect to the cloud computer by using a desktop client, including the Windows client and macOS client.
+    // Specifies whether to provide the entry for the Wuying AI Assistant in the floating ball of the cloud desktop when you connect to the cloud desktop through a desktop client, including Windows and macOS clients.
     // 
     // > This parameter applies only to desktop clients of V7.7 or later.
     shared_ptr<string> wyAssistant_ {};

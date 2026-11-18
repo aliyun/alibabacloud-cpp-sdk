@@ -170,32 +170,32 @@ namespace Models
 
 
   protected:
-    // The time when the cloud computer was created. The time is in UTC and follows the format:
+    // The time when the cloud desktop was created. Specify the time in the UTC format:
     // `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
     shared_ptr<string> creationTimeStart_ {};
-    // The list of cloud computer IDs.
+    // The list of cloud desktop IDs.
     shared_ptr<vector<string>> desktopIds_ {};
     // The end user ID.
     shared_ptr<string> endUserId_ {};
-    // The shared cloud computer ID.
+    // The ID of the shared cloud desktop group.
     shared_ptr<string> groupId_ {};
     // The hostname.
     shared_ptr<string> hostName_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
-    // Specifies whether the response includes cloud computers in shared cloud computer groups.
+    // Specifies whether the response includes cloud desktops in shared cloud desktop groups.
     shared_ptr<bool> includeDesktopGroup_ {};
-    // >This parameter is not yet available for use.
+    // >This parameter is not available.
     shared_ptr<string> keyword_ {};
-    // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
+    // The number of entries to return per page in a paged query. This parameter is used for paging. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
     // The private IP address.
     shared_ptr<string> networkInterfaceIp_ {};
-    // The token for the next query. An empty value indicates that there are no more results.
+    // The pagination token for the next query. If NextToken is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The workspace ID.
     shared_ptr<string> officeSiteId_ {};
-    // The start time of operations performed on the cloud computer. The time is in UTC and follows the format:
+    // The start time of the operation on the cloud desktop. Time format:
     // `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
     shared_ptr<string> operationTimeStart_ {};
     // The region ID.

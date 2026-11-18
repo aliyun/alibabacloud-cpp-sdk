@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEDRIVEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEDRIVEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DomainId, domainId_);
       DARABONBA_PTR_TO_JSON(DriveName, driveName_);
       DARABONBA_PTR_TO_JSON(ExternalDomainId, externalDomainId_);
+      DARABONBA_PTR_TO_JSON(Platforms, platforms_);
       DARABONBA_PTR_TO_JSON(ProfileRoaming, profileRoaming_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
@@ -30,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DomainId, domainId_);
       DARABONBA_PTR_FROM_JSON(DriveName, driveName_);
       DARABONBA_PTR_FROM_JSON(ExternalDomainId, externalDomainId_);
+      DARABONBA_PTR_FROM_JSON(Platforms, platforms_);
       DARABONBA_PTR_FROM_JSON(ProfileRoaming, profileRoaming_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
@@ -48,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliUid_ == nullptr
-        && this->description_ == nullptr && this->domainId_ == nullptr && this->driveName_ == nullptr && this->externalDomainId_ == nullptr && this->profileRoaming_ == nullptr
-        && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->type_ == nullptr && this->userId_ == nullptr; };
+        && this->description_ == nullptr && this->domainId_ == nullptr && this->driveName_ == nullptr && this->externalDomainId_ == nullptr && this->platforms_ == nullptr
+        && this->profileRoaming_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->type_ == nullptr && this->userId_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -83,6 +86,15 @@ namespace Models
     void deleteExternalDomainId() { this->externalDomainId_ = nullptr;};
     inline string getExternalDomainId() const { DARABONBA_PTR_GET_DEFAULT(externalDomainId_, "") };
     inline CreateDriveRequest& setExternalDomainId(string externalDomainId) { DARABONBA_PTR_SET_VALUE(externalDomainId_, externalDomainId) };
+
+
+    // platforms Field Functions 
+    bool hasPlatforms() const { return this->platforms_ != nullptr;};
+    void deletePlatforms() { this->platforms_ = nullptr;};
+    inline const vector<string> & getPlatforms() const { DARABONBA_PTR_GET_CONST(platforms_, vector<string>) };
+    inline vector<string> getPlatforms() { DARABONBA_PTR_GET(platforms_, vector<string>) };
+    inline CreateDriveRequest& setPlatforms(const vector<string> & platforms) { DARABONBA_PTR_SET_VALUE(platforms_, platforms) };
+    inline CreateDriveRequest& setPlatforms(vector<string> && platforms) { DARABONBA_PTR_SET_RVALUE(platforms_, platforms) };
 
 
     // profileRoaming Field Functions 
@@ -126,14 +138,16 @@ namespace Models
     // The description of the user-level storage resource.
     shared_ptr<string> description_ {};
     // The storage resource ID.
-    // > You can call the DescribeDrives operation to obtain this value.
+    // > You can obtain this ID by calling the DescribeDrives operation.
     shared_ptr<string> domainId_ {};
     // The name of the user-level storage resource.
     shared_ptr<string> driveName_ {};
     // The external storage resource ID.
-    // > You can call the DescribeDrives operation to obtain this value.
+    // > You can obtain this ID by calling the DescribeDrives operation.
     shared_ptr<string> externalDomainId_ {};
-    // > This parameter is deprecated.
+    // The list of image platforms for which to initialize VHDs, such as WINDOWS_SERVER_2025. This parameter applies to UPM binding scenarios such as workspaces, desktop pools, and cloud application delivery groups. If you specify this parameter, the VHDs are initialized based on the specified platforms. If you do not specify this parameter, the original platform derivation rules for each scenario are used.
+    shared_ptr<vector<string>> platforms_ {};
+    // > **[Deprecated]**
     shared_ptr<bool> profileRoaming_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
