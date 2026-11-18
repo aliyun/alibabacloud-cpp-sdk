@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The Langfuse organization ID.
+    // The ID of the Langfuse organization.
     // 
     // This parameter is required.
     shared_ptr<string> organizationId_ {};

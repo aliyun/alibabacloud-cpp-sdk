@@ -129,7 +129,7 @@ namespace Models
 
 
           protected:
-            // The ID of the instance.
+            // The instance ID.
             shared_ptr<string> DBInstanceId_ {};
           };
 
@@ -166,9 +166,9 @@ namespace Models
 
 
         protected:
-          // The list of attached instances.
+          // The list of associated instances.
           shared_ptr<vector<Templates::DbInstances>> dbInstances_ {};
-          // The IP address whitelist.
+          // The IP whitelist.
           shared_ptr<string> securityIPList_ {};
           // The ID of the whitelist template.
           shared_ptr<string> templateId_ {};
@@ -241,7 +241,7 @@ namespace Models
       protected:
         // The name of the instance.
         shared_ptr<string> DBInstanceId_ {};
-        // The reason for the attachment failure.
+        // The reason for the association failure.
         shared_ptr<string> reason_ {};
       };
 
@@ -273,11 +273,11 @@ namespace Models
 
 
     protected:
-      // Instances that failed to be attached.
+      // The instances that failed to be associated.
       shared_ptr<vector<Data::AttachFailList>> attachFailList_ {};
-      // Instances to which the template was successfully attached.
+      // The successfully associated templates.
       shared_ptr<vector<Data::AttachSuccessedList>> attachSuccessedList_ {};
-      // The status of the operation. A value of `ok` indicates success.
+      // The status of the operation.
       shared_ptr<string> status_ {};
     };
 
@@ -302,7 +302,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<AttachWhitelistTemplateToInstanceResponseBody::Data> data_ {};
-    // Request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The computing group ID.
+    // The compute group ID.
     shared_ptr<string> computingGroupId_ {};
-    // The prefix for the connection string.
+    // The prefix of the destination endpoint, which is the prefix of the ConnectionString parameter.
     shared_ptr<string> connectionPrefix_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The network type. Set this value to Public to create a public endpoint.
+    // The network type.
     shared_ptr<string> DBInstanceNetType_ {};
     // The region ID.
     // 

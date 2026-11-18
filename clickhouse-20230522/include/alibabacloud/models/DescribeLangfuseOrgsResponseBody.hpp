@@ -113,13 +113,13 @@ namespace Models
 
 
       protected:
-        // The time when the Langfuse organization was created.
+        // The time when the Langfuse organization was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> createdAt_ {};
-        // The Langfuse organization name.
+        // The name of the Langfuse organization.
         shared_ptr<string> name_ {};
-        // The Langfuse organization ID.
+        // The ID of the Langfuse organization.
         shared_ptr<string> organizationId_ {};
-        // The time when the Langfuse organization was last updated.
+        // The time when the Langfuse organization was updated. The time follows the YYYY-MM-DDTHH:mm:ss format.
         shared_ptr<string> updatedAt_ {};
       };
 
@@ -156,13 +156,13 @@ namespace Models
 
 
     protected:
-      // The Langfuse organization information.
+      // The Langfuse organizations.
       shared_ptr<vector<Data::Organizations>> organizations_ {};
       // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of records per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -185,7 +185,7 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // The response data.
     shared_ptr<DescribeLangfuseOrgsResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

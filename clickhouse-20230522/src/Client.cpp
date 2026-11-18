@@ -2,11 +2,13 @@
 #include <alibabacloud/Clickhouse20230522.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace Clickhouse20230522
 {
 
 AlibabaCloud::Clickhouse20230522::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "clickhouse";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"ap-northeast-2-pop" , "clickhouse.aliyuncs.com"},
@@ -63,7 +68,8 @@ AlibabaCloud::Clickhouse20230522::Client::Client(Config &config): OpenApiClient(
     {"rus-west-1-pop" , "clickhouse.aliyuncs.com"},
     {"us-east-1" , "clickhouse.aliyuncs.com"},
     {"us-west-1" , "clickhouse.aliyuncs.com"},
-    {"ap-southeast-3" , "clickhouse.aliyuncs.com"}
+    {"ap-southeast-3" , "clickhouse.aliyuncs.com"},
+    {"ap-southeast-7" , "clickhouse.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("clickhouse", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -83,7 +89,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Attaches a whitelist template to instances.
+ * @summary Associates instances with a whitelist template.
  *
  * @param request AttachWhitelistTemplateToInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -122,7 +128,7 @@ AttachWhitelistTemplateToInstanceResponse Client::attachWhitelistTemplateToInsta
 }
 
 /**
- * @summary Attaches a whitelist template to instances.
+ * @summary Associates instances with a whitelist template.
  *
  * @param request AttachWhitelistTemplateToInstanceRequest
  * @return AttachWhitelistTemplateToInstanceResponse
@@ -133,7 +139,7 @@ AttachWhitelistTemplateToInstanceResponse Client::attachWhitelistTemplateToInsta
 }
 
 /**
- * @summary Changes the resource group of a ClickHouse Enterprise instance.
+ * @summary Modifies the resource group of a ClickHouse Enterprise instance.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -176,7 +182,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Changes the resource group of a ClickHouse Enterprise instance.
+ * @summary Modifies the resource group of a ClickHouse Enterprise instance.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -263,7 +269,7 @@ CreateAccountResponse Client::createAccount(const CreateAccountRequest &request)
 }
 
 /**
- * @summary Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
+ * @summary Creates a backup policy for a specified ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request CreateBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -310,7 +316,7 @@ CreateBackupPolicyResponse Client::createBackupPolicyWithOptions(const CreateBac
 }
 
 /**
- * @summary Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
+ * @summary Creates a backup policy for a specified ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request CreateBackupPolicyRequest
  * @return CreateBackupPolicyResponse
@@ -375,7 +381,7 @@ CreateDBResponse Client::createDB(const CreateDBRequest &request) {
 }
 
 /**
- * @summary To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
+ * @summary Creates an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param tmpReq CreateDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -500,7 +506,7 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
 }
 
 /**
- * @summary To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
+ * @summary Creates an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request CreateDBInstanceRequest
  * @return CreateDBInstanceResponse
@@ -511,7 +517,7 @@ CreateDBInstanceResponse Client::createDBInstance(const CreateDBInstanceRequest 
 }
 
 /**
- * @summary Creates a public endpoint that provides a public address to access a cluster.
+ * @summary Creates a public endpoint.
  *
  * @param request CreateEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -558,7 +564,7 @@ CreateEndpointResponse Client::createEndpointWithOptions(const CreateEndpointReq
 }
 
 /**
- * @summary Creates a public endpoint that provides a public address to access a cluster.
+ * @summary Creates a public endpoint.
  *
  * @param request CreateEndpointRequest
  * @return CreateEndpointResponse
@@ -744,6 +750,10 @@ CreateLangfuseProjectResponse Client::createLangfuseProject(const CreateLangfuse
 CreateLangfuseUserResponse Client::createLangfuseUserWithOptions(const CreateLangfuseUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAllowOrgCreation()) {
+    query["AllowOrgCreation"] = request.getAllowOrgCreation();
+  }
+
   if (!!request.hasDBInstanceId()) {
     query["DBInstanceId"] = request.getDBInstanceId();
   }
@@ -853,7 +863,7 @@ CreateWhitelistTemplateResponse Client::createWhitelistTemplate(const CreateWhit
 }
 
 /**
- * @summary Deletes a database account from an ApsaraDB for ClickHouse cluster.
+ * @summary Deletes an account.
  *
  * @param request DeleteAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -896,7 +906,7 @@ DeleteAccountResponse Client::deleteAccountWithOptions(const DeleteAccountReques
 }
 
 /**
- * @summary Deletes a database account from an ApsaraDB for ClickHouse cluster.
+ * @summary Deletes an account.
  *
  * @param request DeleteAccountRequest
  * @return DeleteAccountResponse
@@ -907,7 +917,7 @@ DeleteAccountResponse Client::deleteAccount(const DeleteAccountRequest &request)
 }
 
 /**
- * @summary Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
+ * @summary Deletes the backup policy of an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request DeleteBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -942,7 +952,7 @@ DeleteBackupPolicyResponse Client::deleteBackupPolicyWithOptions(const DeleteBac
 }
 
 /**
- * @summary Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
+ * @summary Deletes the backup policy of an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request DeleteBackupPolicyRequest
  * @return DeleteBackupPolicyResponse
@@ -953,7 +963,7 @@ DeleteBackupPolicyResponse Client::deleteBackupPolicy(const DeleteBackupPolicyRe
 }
 
 /**
- * @summary Call this operation to delete a database.
+ * @summary Deletes a database.
  *
  * @param request DeleteDBRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -992,7 +1002,7 @@ DeleteDBResponse Client::deleteDBWithOptions(const DeleteDBRequest &request, con
 }
 
 /**
- * @summary Call this operation to delete a database.
+ * @summary Deletes a database.
  *
  * @param request DeleteDBRequest
  * @return DeleteDBResponse
@@ -1415,7 +1425,7 @@ DeleteWhitelistTemplateResponse Client::deleteWhitelistTemplate(const DeleteWhit
 }
 
 /**
- * @summary Call the DescribeAccountAuthority operation to query the permissions of an account.
+ * @summary Queries the permissions of an account.
  *
  * @param request DescribeAccountAuthorityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1454,7 +1464,7 @@ DescribeAccountAuthorityResponse Client::describeAccountAuthorityWithOptions(con
 }
 
 /**
- * @summary Call the DescribeAccountAuthority operation to query the permissions of an account.
+ * @summary Queries the permissions of an account.
  *
  * @param request DescribeAccountAuthorityRequest
  * @return DescribeAccountAuthorityResponse
@@ -1569,7 +1579,7 @@ DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPo
 }
 
 /**
- * @summary Queries the backup sets of a ClickHouse Enterprise Edition cluster.
+ * @summary Queries the backup sets of an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request DescribeBackupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1624,7 +1634,7 @@ DescribeBackupsResponse Client::describeBackupsWithOptions(const DescribeBackups
 }
 
 /**
- * @summary Queries the backup sets of a ClickHouse Enterprise Edition cluster.
+ * @summary Queries the backup sets of an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request DescribeBackupsRequest
  * @return DescribeBackupsResponse
@@ -1635,7 +1645,7 @@ DescribeBackupsResponse Client::describeBackups(const DescribeBackupsRequest &re
 }
 
 /**
- * @summary Queries the details of an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the details of an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1670,7 +1680,7 @@ DescribeDBInstanceAttributeResponse Client::describeDBInstanceAttributeWithOptio
 }
 
 /**
- * @summary Queries the details of an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the details of an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @return DescribeDBInstanceAttributeResponse
@@ -1719,7 +1729,7 @@ DescribeDBInstanceConfigResponse Client::describeDBInstanceConfig(const Describe
 }
 
 /**
- * @summary Queries the parameter configuration records of an instance
+ * @summary Queries the parameter settings change records of an instance.
  *
  * @param request DescribeDBInstanceConfigChangeLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1746,7 +1756,7 @@ DescribeDBInstanceConfigChangeLogResponse Client::describeDBInstanceConfigChange
 }
 
 /**
- * @summary Queries the parameter configuration records of an instance
+ * @summary Queries the parameter settings change records of an instance.
  *
  * @param request DescribeDBInstanceConfigChangeLogRequest
  * @return DescribeDBInstanceConfigChangeLogResponse
@@ -1981,7 +1991,7 @@ DescribeLangfuseEndpointsResponse Client::describeLangfuseEndpoints(const Descri
 }
 
 /**
- * @summary Queries the member information of a Langfuse organization.
+ * @summary Queries the members of a Langfuse organization.
  *
  * @param request DescribeLangfuseOrgMembershipsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2028,7 +2038,7 @@ DescribeLangfuseOrgMembershipsResponse Client::describeLangfuseOrgMembershipsWit
 }
 
 /**
- * @summary Queries the member information of a Langfuse organization.
+ * @summary Queries the members of a Langfuse organization.
  *
  * @param request DescribeLangfuseOrgMembershipsRequest
  * @return DescribeLangfuseOrgMembershipsResponse
@@ -2039,7 +2049,7 @@ DescribeLangfuseOrgMembershipsResponse Client::describeLangfuseOrgMemberships(co
 }
 
 /**
- * @summary Queries the list of organizations for a Langfuse instance.
+ * @summary Queries the organizations of a Langfuse instance.
  *
  * @param request DescribeLangfuseOrgsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2082,7 +2092,7 @@ DescribeLangfuseOrgsResponse Client::describeLangfuseOrgsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the list of organizations for a Langfuse instance.
+ * @summary Queries the organizations of a Langfuse instance.
  *
  * @param request DescribeLangfuseOrgsRequest
  * @return DescribeLangfuseOrgsResponse
@@ -2445,7 +2455,7 @@ DescribeProcessListResponse Client::describeProcessList(const DescribeProcessLis
 }
 
 /**
- * @summary Returns information about the available regions and zones for ApsaraDB for ClickHouse.
+ * @summary Queries the information about all regions and zones of ApsaraDB for ClickHouse Enterprise Edition.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRegionsResponse
@@ -2467,7 +2477,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const Darabonba::Runt
 }
 
 /**
- * @summary Returns information about the available regions and zones for ApsaraDB for ClickHouse.
+ * @summary Queries the information about all regions and zones of ApsaraDB for ClickHouse Enterprise Edition.
  *
  * @return DescribeRegionsResponse
  */
@@ -2959,7 +2969,7 @@ ListWhitelistTemplatesResponse Client::listWhitelistTemplates(const ListWhitelis
 }
 
 /**
- * @summary Modifies the permissions of a database account.
+ * @summary Modifies the authorization information of an account.
  *
  * @param tmpReq ModifyAccountAuthorityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3008,7 +3018,7 @@ ModifyAccountAuthorityResponse Client::modifyAccountAuthorityWithOptions(const M
 }
 
 /**
- * @summary Modifies the permissions of a database account.
+ * @summary Modifies the authorization information of an account.
  *
  * @param request ModifyAccountAuthorityRequest
  * @return ModifyAccountAuthorityResponse
@@ -3073,9 +3083,9 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAc
 }
 
 /**
- * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the backup policy of an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
- * @description >ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
+ * @description > ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
  *
  * @param request ModifyBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3122,9 +3132,9 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicyWithOptions(const ModifyBac
 }
 
 /**
- * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the backup policy of an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
- * @description >ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
+ * @description > ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
  *
  * @param request ModifyBackupPolicyRequest
  * @return ModifyBackupPolicyResponse
@@ -3135,7 +3145,7 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicy(const ModifyBackupPolicyRe
 }
 
 /**
- * @summary You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
+ * @summary Modifies the configuration attributes of a cluster.
  *
  * @param request ModifyDBInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3182,7 +3192,7 @@ ModifyDBInstanceAttributeResponse Client::modifyDBInstanceAttributeWithOptions(c
 }
 
 /**
- * @summary You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
+ * @summary Modifies the configuration attributes of a cluster.
  *
  * @param request ModifyDBInstanceAttributeRequest
  * @return ModifyDBInstanceAttributeResponse
@@ -3193,7 +3203,7 @@ ModifyDBInstanceAttributeResponse Client::modifyDBInstanceAttribute(const Modify
 }
 
 /**
- * @summary Modifies the elastic configuration of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the elastic configuration of a cluster.
  *
  * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
  *
@@ -3272,7 +3282,7 @@ ModifyDBInstanceClassResponse Client::modifyDBInstanceClassWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the elastic configuration of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the elastic configuration of a cluster.
  *
  * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
  *
@@ -3576,6 +3586,60 @@ ModifyLangfuseSecurityIPListResponse Client::modifyLangfuseSecurityIPListWithOpt
 ModifyLangfuseSecurityIPListResponse Client::modifyLangfuseSecurityIPList(const ModifyLangfuseSecurityIPListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyLangfuseSecurityIPListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the organization creation permissions for a Langfuse user.
+ *
+ * @param request ModifyLangfuseUserAllowOrgCreationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyLangfuseUserAllowOrgCreationResponse
+ */
+ModifyLangfuseUserAllowOrgCreationResponse Client::modifyLangfuseUserAllowOrgCreationWithOptions(const ModifyLangfuseUserAllowOrgCreationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAllowOrgCreation()) {
+    query["AllowOrgCreation"] = request.getAllowOrgCreation();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyLangfuseUserAllowOrgCreation"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyLangfuseUserAllowOrgCreationResponse>();
+}
+
+/**
+ * @summary Modifies the organization creation permissions for a Langfuse user.
+ *
+ * @param request ModifyLangfuseUserAllowOrgCreationRequest
+ * @return ModifyLangfuseUserAllowOrgCreationResponse
+ */
+ModifyLangfuseUserAllowOrgCreationResponse Client::modifyLangfuseUserAllowOrgCreation(const ModifyLangfuseUserAllowOrgCreationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyLangfuseUserAllowOrgCreationWithOptions(request, runtime);
 }
 
 /**
@@ -3941,7 +4005,7 @@ UpdateWhitelistTemplateResponse Client::updateWhitelistTemplate(const UpdateWhit
 }
 
 /**
- * @summary Upgrades the minor engine version of a specified ApsaraDB for ClickHouse cluster.
+ * @summary Upgrades the minor engine version of a specified ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request UpgradeMinorVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3988,7 +4052,7 @@ UpgradeMinorVersionResponse Client::upgradeMinorVersionWithOptions(const Upgrade
 }
 
 /**
- * @summary Upgrades the minor engine version of a specified ApsaraDB for ClickHouse cluster.
+ * @summary Upgrades the minor engine version of a specified ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request UpgradeMinorVersionRequest
  * @return UpgradeMinorVersionResponse

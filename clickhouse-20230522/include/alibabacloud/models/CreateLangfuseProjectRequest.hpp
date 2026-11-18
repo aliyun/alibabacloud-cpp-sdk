@@ -70,11 +70,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The Langfuse project name.
+    // The name of the Langfuse project.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The organization ID to which the Langfuse project belongs.
+    // The ID of the organization to which the Langfuse project belongs.
     // 
     // This parameter is required.
     shared_ptr<string> organizationId_ {};

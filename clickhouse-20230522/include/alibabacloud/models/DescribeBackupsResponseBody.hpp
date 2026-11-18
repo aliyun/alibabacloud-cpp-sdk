@@ -149,30 +149,27 @@ namespace Models
 
 
     protected:
-      // The end time of the backup. The time is in UTC.
+      // The end time of the backup in UTC.
       shared_ptr<string> backupEndTime_ {};
       // The backup record ID.
       shared_ptr<string> backupId_ {};
       // The backup method.
       shared_ptr<string> backupMethod_ {};
-      // The information about the backup set.
+      // The backup set information.
       shared_ptr<string> backupSetInfo_ {};
-      // The size of the backup file in MB.
+      // The size of the backup file. Unit: MB.
       shared_ptr<int64_t> backupSize_ {};
-      // The start time of the backup.
+      // The start time of the backup. The time is in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> backupStartTime_ {};
       // The status of the backup set.
       shared_ptr<string> backupStatus_ {};
-      // The backup type.
-      // Valid values:
-      // 
-      // - **FullBackup**: full backup.
-      // 
-      // - **IncrementalBackup**: incremental backup.
+      // The backup type. Valid values:
+      // - **FullBackup**: full backup
+      // - **IncrementalBackup**: incremental backup
       shared_ptr<string> backupType_ {};
       // The cluster ID.
       shared_ptr<string> DBInstanceId_ {};
-      // The expiration time of the backup set.
+      // The expiration time of the backup set. The time is in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> expireDate_ {};
     };
 
@@ -220,11 +217,11 @@ namespace Models
     shared_ptr<vector<DescribeBackupsResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of backups.
+    // The total number of backup sets.
     shared_ptr<string> totalCount_ {};
   };
 

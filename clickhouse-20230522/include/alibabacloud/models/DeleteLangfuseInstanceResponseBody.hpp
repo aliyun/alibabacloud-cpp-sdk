@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned result.
     shared_ptr<DeleteLangfuseInstanceResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

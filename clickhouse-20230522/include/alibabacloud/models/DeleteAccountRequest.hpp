@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The destination database account.
+    // The target database account.
     // 
     // This parameter is required.
     shared_ptr<string> account_ {};
@@ -74,7 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The code of the cloud service.
+    // The product code.
     shared_ptr<string> product_ {};
     // The region ID.
     // 

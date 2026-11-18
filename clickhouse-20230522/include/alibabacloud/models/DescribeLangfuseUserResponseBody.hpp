@@ -35,6 +35,7 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AllowOrgCreation, allowOrgCreation_);
         DARABONBA_PTR_TO_JSON(CreatedAt, createdAt_);
         DARABONBA_PTR_TO_JSON(Email, email_);
         DARABONBA_PTR_TO_JSON(Memberships, memberships_);
@@ -42,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(UpdatedAt, updatedAt_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AllowOrgCreation, allowOrgCreation_);
         DARABONBA_PTR_FROM_JSON(CreatedAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(Email, email_);
         DARABONBA_PTR_FROM_JSON(Memberships, memberships_);
@@ -131,11 +133,11 @@ namespace Models
 
 
         protected:
-          // The Langfuse project ID.
+          // The ID of the Langfuse project.
           shared_ptr<string> projectId_ {};
-          // The Langfuse project name.
+          // The name of the Langfuse project.
           shared_ptr<string> projectName_ {};
-          // The role of the user within the project.
+          // The role in the project.
           shared_ptr<string> projectRole_ {};
         };
 
@@ -172,18 +174,25 @@ namespace Models
 
 
       protected:
-        // The role of the user within the organization.
+        // The role in the organization.
         shared_ptr<string> orgRole_ {};
-        // The Langfuse organization ID.
+        // The ID of the Langfuse organization.
         shared_ptr<string> organizationId_ {};
-        // The Langfuse organization name.
+        // The name of the Langfuse organization.
         shared_ptr<string> organizationName_ {};
         // The list of Langfuse projects.
         shared_ptr<vector<Memberships::Projects>> projects_ {};
       };
 
-      virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->email_ == nullptr && this->memberships_ == nullptr && this->name_ == nullptr && this->updatedAt_ == nullptr; };
+      virtual bool empty() const override { return this->allowOrgCreation_ == nullptr
+        && this->createdAt_ == nullptr && this->email_ == nullptr && this->memberships_ == nullptr && this->name_ == nullptr && this->updatedAt_ == nullptr; };
+      // allowOrgCreation Field Functions 
+      bool hasAllowOrgCreation() const { return this->allowOrgCreation_ != nullptr;};
+      void deleteAllowOrgCreation() { this->allowOrgCreation_ = nullptr;};
+      inline bool getAllowOrgCreation() const { DARABONBA_PTR_GET_DEFAULT(allowOrgCreation_, false) };
+      inline Data& setAllowOrgCreation(bool allowOrgCreation) { DARABONBA_PTR_SET_VALUE(allowOrgCreation_, allowOrgCreation) };
+
+
       // createdAt Field Functions 
       bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
       void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -222,15 +231,17 @@ namespace Models
 
 
     protected:
-      // The time when the user was created.
+      // Indicates whether the user is allowed to create an organization.
+      shared_ptr<bool> allowOrgCreation_ {};
+      // The time when the user was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createdAt_ {};
       // The email address of the user.
       shared_ptr<string> email_ {};
       // The role information of the user.
       shared_ptr<vector<Data::Memberships>> memberships_ {};
-      // The username.
+      // The name of the user.
       shared_ptr<string> name_ {};
-      // The time when the user was last updated.
+      // The time when the user was updated. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -253,7 +264,7 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // The response data.
     shared_ptr<DescribeLangfuseUserResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

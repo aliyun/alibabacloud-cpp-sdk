@@ -90,11 +90,11 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The email address of the user.
     shared_ptr<string> email_ {};
-    // The username.
+    // The name of the user.
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     // 

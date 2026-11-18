@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The response result.
+    // The response data.
     shared_ptr<ResetLangfuseUserPasswordResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

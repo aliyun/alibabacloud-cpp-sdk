@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The Langfuse instance ID.
+    // The instance ID of the Langfuse instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The current page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

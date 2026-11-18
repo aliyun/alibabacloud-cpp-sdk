@@ -85,7 +85,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> preferredBackupPeriod_ {};
-    // The backup time.
+    // The backup time in UTC. The format is HH:mmZ-HH:mmZ.
     // 
     // This parameter is required.
     shared_ptr<string> preferredBackupTime_ {};

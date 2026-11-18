@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The name of the database account.
+    // The database account.
     // 
     // This parameter is required.
     shared_ptr<string> account_ {};
@@ -74,7 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The information about permissions.
+    // The authorization information.
     // 
     // This parameter is required.
     shared_ptr<string> dmlAuthSettingShrink_ {};

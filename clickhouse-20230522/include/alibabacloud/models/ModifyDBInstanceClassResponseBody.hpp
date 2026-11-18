@@ -111,9 +111,9 @@ namespace Models
       shared_ptr<int64_t> DBInstanceID_ {};
       // The cluster name.
       shared_ptr<string> DBInstanceName_ {};
-      // The maximum value for serverless elastic scaling.
+      // **[Deprecated]** The maximum value for serverless elastic scaling.
       shared_ptr<int64_t> scaleMax_ {};
-      // The minimum value for serverless elastic scaling.
+      // **[Deprecated]** The minimum value for serverless elastic scaling.
       shared_ptr<int64_t> scaleMin_ {};
       // The task ID.
       shared_ptr<int64_t> taskId_ {};

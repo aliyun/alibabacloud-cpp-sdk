@@ -113,7 +113,7 @@ namespace Models
 
 
       protected:
-        // The vSwitch IDs in the zone.
+        // The vSwitch ID in the zone.
         shared_ptr<vector<string>> vSwitchIds_ {};
         // The zone of the hot pool.
         shared_ptr<string> zoneId_ {};
@@ -145,12 +145,11 @@ namespace Models
 
 
     protected:
-      // The number of nodes available for burstable horizontal scaling.
+      // The number of burstable nodes for horizontal elastic scaling.
       shared_ptr<int32_t> burstNum_ {};
       // The configuration status. Valid values:
-      // 
-      // - disable: disabled.
-      // - enable: enabled.
+      // - disable: Disabled.
+      // - enable: Enabled.
       shared_ptr<string> status_ {};
       // The vSwitch information.
       shared_ptr<vector<AutoScaleConfig::VSwitchInfos>> vSwitchInfos_ {};
@@ -239,7 +238,7 @@ namespace Models
 
 
   protected:
-    // The automatic horizontal scaling configuration.
+    // The automatic horizontal elastic configuration.
     shared_ptr<ModifyDBInstanceClassRequest::AutoScaleConfig> autoScaleConfig_ {};
     // The compute group ID.
     shared_ptr<string> computingGroupId_ {};
@@ -257,11 +256,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The maximum value for serverless elastic scaling.
+    // **[Deprecated]** The maximum value for serverless elastic scaling.
     shared_ptr<int64_t> scaleMax_ {};
-    // The minimum value for serverless elastic scaling.
+    // **[Deprecated]** The minimum value for serverless elastic scaling.
     shared_ptr<int64_t> scaleMin_ {};
-    // The pre-purchased storage quota, in GB.
+    // The purchased storage quota. Unit: GB.
     shared_ptr<int64_t> storageQuota_ {};
     // The storage type.
     shared_ptr<string> storageType_ {};

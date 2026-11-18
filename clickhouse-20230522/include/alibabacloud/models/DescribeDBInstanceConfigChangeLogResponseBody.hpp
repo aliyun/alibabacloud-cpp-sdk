@@ -137,18 +137,19 @@ namespace Models
 
 
       protected:
-        // Indicates whether the configuration takes effect:
+        // Indicates whether the configuration has taken effect. Valid values:
         // 
-        // - true: The execution plan takes effect.
-        // - false: The execution plan does not take effect.
+        // - true: The configuration has taken effect.
+        // 
+        // - false: The configuration has not taken effect.
         shared_ptr<bool> applied_ {};
         // The time when the change was created.
         shared_ptr<string> gmtCreated_ {};
-        // The time when the change was modified.
+        // The time when the change was last modified.
         shared_ptr<string> gmtModified_ {};
         // The operation ID.
         shared_ptr<int64_t> ID_ {};
-        // The name of the parameter.
+        // The parameter name.
         shared_ptr<string> name_ {};
         // The new parameter value.
         shared_ptr<string> newValue_ {};
@@ -200,7 +201,7 @@ namespace Models
 
 
   protected:
-    // The result set.
+    // The query result set.
     shared_ptr<DescribeDBInstanceConfigChangeLogResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

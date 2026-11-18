@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The confirmation flag for deleting the AiGateway instance associated with the Langfuse instance.
+    // The confirmation mark for deleting the AI gateway instance associated with the Langfuse instance.
     shared_ptr<bool> confirmDeleteAiGateway_ {};
     // The Langfuse instance ID.
     // 

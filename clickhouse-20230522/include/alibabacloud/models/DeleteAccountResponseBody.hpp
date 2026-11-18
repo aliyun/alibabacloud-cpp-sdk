@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The name of the account.
+      // The database account.
       shared_ptr<string> account_ {};
       // The cluster ID.
       shared_ptr<string> DBInstanceId_ {};
@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned result.
     shared_ptr<DeleteAccountResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

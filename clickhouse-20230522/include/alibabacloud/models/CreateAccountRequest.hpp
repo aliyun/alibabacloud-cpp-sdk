@@ -104,23 +104,19 @@ namespace Models
 
 
     protected:
-      // The databases on which you want to grant permissions. Separate multiple databases with commas (,).
+      // The list of databases to be authorized. Separate multiple databases with commas (,).
       shared_ptr<vector<string>> allowDatabases_ {};
-      // The dictionaries on which you want to grant permissions. Separate multiple dictionaries with commas (,).
+      // The list of dictionaries to be authorized. Separate multiple dictionaries with commas (,).
       shared_ptr<vector<string>> allowDictionaries_ {};
-      // Specifies whether to grant the DDL permissions to the database account. Valid values:
+      // Specifies whether to grant Data Definition Language (DDL) permissions to the database account. Valid values:
       // 
-      // - **true**: The account has the permissions to execute DDL statements.
-      // 
-      // - **false**: The account does not have the permissions to execute DDL statements.
+      // - **true**: Allows DDL operations.
+      // - **false**: Prohibits DDL operations.
       shared_ptr<bool> ddlAuthority_ {};
-      // Specifies whether to grant the DML permissions to the database account. Valid values:
-      // 
-      // - **0**: The account has the permissions to read data from the database, write data to the database, and modify the settings of the database.
-      // 
-      // - **1**: The account only has the permissions to read data from the database.
-      // 
-      // - **2**: The account only has the permissions to read data from the database and modify the settings of the database.
+      // Specifies whether to grant Data Manipulation Language (DML) permissions to the database account. Valid values:
+      // - **0**: Allows queries for reading, writing, and changing settings.
+      // - **1**: Allows only queries for reading data.
+      // - **2**: Allows queries for reading data and changing settings.
       shared_ptr<int32_t> dmlAuthority_ {};
     };
 
@@ -186,15 +182,17 @@ namespace Models
 
 
   protected:
-    // The name of the account.
+    // The database account. The name must meet the following requirements:
+    // - The name must be unique.
+    // - The name can contain lowercase letters, digits, and underscores (_).
+    // - The name must start with a lowercase letter and end with a lowercase letter or a digit.
+    // - The name must be 2 to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> account_ {};
     // The type of the database account. Valid values:
-    // 
-    // - **NormalAccount**: standard account
-    // 
-    // - **SuperAccount**: privileged account
+    // - **NormalAccount**: standard account.
+    // - **SuperAccount**: privileged account.
     // 
     // This parameter is required.
     shared_ptr<string> accountType_ {};
@@ -202,21 +200,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The description of the account.
+    // The description.
     shared_ptr<string> description_ {};
-    // The information about permissions.
+    // The authorization information.
     shared_ptr<CreateAccountRequest::DmlAuthSetting> dmlAuthSetting_ {};
     // The password of the database account. The password must meet the following requirements:
     // 
     // - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
     // 
-    // - The following special characters are supported: ! @ # $ % ^ & \\* ( ) _ + - =
+    // - Special characters include !@#$%^&*()_+-=.
     // 
     // - The password must be 8 to 32 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> password_ {};
-    // The code of the cloud service.
+    // The product code.
     shared_ptr<string> product_ {};
     // The region ID.
     // 

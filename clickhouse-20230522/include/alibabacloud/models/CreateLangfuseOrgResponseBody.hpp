@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // The time when the Langfuse organization was created.
+      // The time when the Langfuse organization was created. The time is in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ss.SSSZ format.
       shared_ptr<string> createdAt_ {};
       // The name of the Langfuse organization.
       shared_ptr<string> name_ {};

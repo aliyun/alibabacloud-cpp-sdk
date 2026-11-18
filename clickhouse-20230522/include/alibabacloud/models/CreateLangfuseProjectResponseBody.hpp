@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The time when the Langfuse project was created.
+      // The time when the Langfuse project was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createdAt_ {};
-      // The Langfuse project name.
+      // The name of the Langfuse project.
       shared_ptr<string> name_ {};
-      // The Langfuse organization ID.
+      // The ID of the Langfuse organization.
       shared_ptr<string> organizationId_ {};
-      // The Langfuse project ID.
+      // The ID of the Langfuse project.
       shared_ptr<string> projectId_ {};
     };
 

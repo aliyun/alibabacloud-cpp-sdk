@@ -13,6 +13,7 @@ namespace Models
   class CreateLangfuseUserRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateLangfuseUserRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AllowOrgCreation, allowOrgCreation_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(Email, email_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateLangfuseUserRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AllowOrgCreation, allowOrgCreation_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(Email, email_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -41,9 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && this->email_ == nullptr && this->name_ == nullptr && this->orgRole_ == nullptr && this->organizationId_ == nullptr && this->password_ == nullptr
-        && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->allowOrgCreation_ == nullptr
+        && this->DBInstanceId_ == nullptr && this->email_ == nullptr && this->name_ == nullptr && this->orgRole_ == nullptr && this->organizationId_ == nullptr
+        && this->password_ == nullptr && this->regionId_ == nullptr; };
+    // allowOrgCreation Field Functions 
+    bool hasAllowOrgCreation() const { return this->allowOrgCreation_ != nullptr;};
+    void deleteAllowOrgCreation() { this->allowOrgCreation_ = nullptr;};
+    inline bool getAllowOrgCreation() const { DARABONBA_PTR_GET_DEFAULT(allowOrgCreation_, false) };
+    inline CreateLangfuseUserRequest& setAllowOrgCreation(bool allowOrgCreation) { DARABONBA_PTR_SET_VALUE(allowOrgCreation_, allowOrgCreation) };
+
+
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
@@ -94,6 +103,8 @@ namespace Models
 
 
   protected:
+    // Specifies whether the user is allowed to create organizations. Default value: false.
+    shared_ptr<bool> allowOrgCreation_ {};
     // The Langfuse instance ID.
     // 
     // This parameter is required.
@@ -102,19 +113,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> email_ {};
-    // The username.
+    // The name of the user.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The role of the user in the organization.
     shared_ptr<string> orgRole_ {};
-    // The Langfuse organization ID.
+    // The ID of the Langfuse organization.
     shared_ptr<string> organizationId_ {};
     // The password of the user account. The password must meet the following requirements:
     // 
-    // - Contains at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+    // - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
     // 
-    // - The following special characters are supported: !@#$%^&*()_+-=
+    // - Special characters include !@#$%^&*()_+-=.
     // 
     // - The password must be 8 to 32 characters in length.
     // 

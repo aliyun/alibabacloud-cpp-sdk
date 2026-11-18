@@ -88,13 +88,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The end time of the query. Format: yyyy-MM-dd hh:mm:ss.
+    // The end of the time range to query. Format: yyyy-MM-dd hh:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The page number to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page. Default value: 30. Valid values:
+    // The number of entries per page. Valid values:
     // 
     // - **30** (default)
     // - **50**
@@ -104,7 +104,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start time of the query. Format: yyyy-MM-dd hh:mm:ss.
+    // The beginning of the time range to query. Format: yyyy-MM-dd hh:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

@@ -60,11 +60,13 @@ namespace Models
       class Users : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Users& obj) { 
+          DARABONBA_PTR_TO_JSON(AllowOrgCreation, allowOrgCreation_);
           DARABONBA_PTR_TO_JSON(CreatedAt, createdAt_);
           DARABONBA_PTR_TO_JSON(Email, email_);
           DARABONBA_PTR_TO_JSON(Name, name_);
         };
         friend void from_json(const Darabonba::Json& j, Users& obj) { 
+          DARABONBA_PTR_FROM_JSON(AllowOrgCreation, allowOrgCreation_);
           DARABONBA_PTR_FROM_JSON(CreatedAt, createdAt_);
           DARABONBA_PTR_FROM_JSON(Email, email_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -80,8 +82,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->email_ == nullptr && this->name_ == nullptr; };
+        virtual bool empty() const override { return this->allowOrgCreation_ == nullptr
+        && this->createdAt_ == nullptr && this->email_ == nullptr && this->name_ == nullptr; };
+        // allowOrgCreation Field Functions 
+        bool hasAllowOrgCreation() const { return this->allowOrgCreation_ != nullptr;};
+        void deleteAllowOrgCreation() { this->allowOrgCreation_ = nullptr;};
+        inline bool getAllowOrgCreation() const { DARABONBA_PTR_GET_DEFAULT(allowOrgCreation_, false) };
+        inline Users& setAllowOrgCreation(bool allowOrgCreation) { DARABONBA_PTR_SET_VALUE(allowOrgCreation_, allowOrgCreation) };
+
+
         // createdAt Field Functions 
         bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
         void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -104,11 +113,13 @@ namespace Models
 
 
       protected:
-        // The time when the user was created.
+        // Indicates whether the user is allowed to create an organization.
+        shared_ptr<bool> allowOrgCreation_ {};
+        // The time when the user was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
         shared_ptr<string> createdAt_ {};
         // The email address of the user.
         shared_ptr<string> email_ {};
-        // The username.
+        // The name of the user.
         shared_ptr<string> name_ {};
       };
 
@@ -147,9 +158,9 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries per page.
+      // The number of entries to return on each page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
       // The list of users.
       shared_ptr<vector<Data::Users>> users_ {};
@@ -174,7 +185,7 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // The response data.
     shared_ptr<DescribeLangfuseUsersResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

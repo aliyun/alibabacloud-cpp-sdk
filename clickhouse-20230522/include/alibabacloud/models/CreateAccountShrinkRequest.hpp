@@ -103,15 +103,17 @@ namespace Models
 
 
   protected:
-    // The name of the account.
+    // The database account. The name must meet the following requirements:
+    // - The name must be unique.
+    // - The name can contain lowercase letters, digits, and underscores (_).
+    // - The name must start with a lowercase letter and end with a lowercase letter or a digit.
+    // - The name must be 2 to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> account_ {};
     // The type of the database account. Valid values:
-    // 
-    // - **NormalAccount**: standard account
-    // 
-    // - **SuperAccount**: privileged account
+    // - **NormalAccount**: standard account.
+    // - **SuperAccount**: privileged account.
     // 
     // This parameter is required.
     shared_ptr<string> accountType_ {};
@@ -119,21 +121,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The description of the account.
+    // The description.
     shared_ptr<string> description_ {};
-    // The information about permissions.
+    // The authorization information.
     shared_ptr<string> dmlAuthSettingShrink_ {};
     // The password of the database account. The password must meet the following requirements:
     // 
     // - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
     // 
-    // - The following special characters are supported: ! @ # $ % ^ & \\* ( ) _ + - =
+    // - Special characters include !@#$%^&*()_+-=.
     // 
     // - The password must be 8 to 32 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> password_ {};
-    // The code of the cloud service.
+    // The product code.
     shared_ptr<string> product_ {};
     // The region ID.
     // 

@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The automatic horizontal scaling configuration.
+    // The automatic horizontal elastic configuration.
     shared_ptr<string> autoScaleConfigShrink_ {};
     // The compute group ID.
     shared_ptr<string> computingGroupId_ {};
@@ -148,11 +148,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The maximum value for serverless elastic scaling.
+    // **[Deprecated]** The maximum value for serverless elastic scaling.
     shared_ptr<int64_t> scaleMax_ {};
-    // The minimum value for serverless elastic scaling.
+    // **[Deprecated]** The minimum value for serverless elastic scaling.
     shared_ptr<int64_t> scaleMin_ {};
-    // The pre-purchased storage quota, in GB.
+    // The purchased storage quota. Unit: GB.
     shared_ptr<int64_t> storageQuota_ {};
     // The storage type.
     shared_ptr<string> storageType_ {};

@@ -122,15 +122,15 @@ namespace Models
 
 
       protected:
-        // The time when the Langfuse project was created.
+        // The time when the Langfuse project was created. The time is in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> createdAt_ {};
-        // The Langfuse project name.
+        // The name of the Langfuse project.
         shared_ptr<string> name_ {};
-        // The organization ID to which the Langfuse project belongs.
+        // The ID of the organization to which the Langfuse project belongs.
         shared_ptr<string> organizationId_ {};
         // The Langfuse project ID.
         shared_ptr<string> projectId_ {};
-        // The time when the Langfuse project was last updated.
+        // The time when the Langfuse project was updated. The time is in the YYYY-MM-DDTHH:mm:ss format.
         shared_ptr<string> updatedAt_ {};
       };
 
@@ -169,11 +169,11 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of records per page.
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
       // The list of Langfuse projects.
       shared_ptr<vector<Data::Projects>> projects_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -196,7 +196,7 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // The returned results.
     shared_ptr<DescribeLangfuseProjectsResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

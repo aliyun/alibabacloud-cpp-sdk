@@ -113,11 +113,11 @@ namespace Models
 
 
       protected:
-        // The time when the user was created.
+        // The time when the user was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> createdAt_ {};
         // The email address of the user.
         shared_ptr<string> email_ {};
-        // The username.
+        // The name of the user.
         shared_ptr<string> name_ {};
         // The role of the user.
         shared_ptr<string> role_ {};
@@ -162,7 +162,7 @@ namespace Models
       shared_ptr<int64_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 

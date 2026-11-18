@@ -79,11 +79,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The Langfuse organization ID.
+    // The ID of the Langfuse organization.
     // 
     // This parameter is required.
     shared_ptr<string> organizationId_ {};
-    // The page number of the page to return.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};

@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
-    // The name of the whitelist template.
+    // The whitelist template ID.
     shared_ptr<string> templateName_ {};
   };
 
