@@ -122,7 +122,7 @@ namespace Models
 
 
     protected:
-      // The information about the associated data source.
+      // The associated data source information.
       shared_ptr<TaskInstances::DataSource> dataSource_ {};
       // The node instance ID.
       // 
@@ -155,9 +155,9 @@ namespace Models
 
 
   protected:
-    // The remarks.
+    // The comment.
     shared_ptr<string> comment_ {};
-    // The list of node instances.
+    // The list of task instances.
     shared_ptr<vector<UpdateTaskInstancesRequest::TaskInstances>> taskInstances_ {};
   };
 

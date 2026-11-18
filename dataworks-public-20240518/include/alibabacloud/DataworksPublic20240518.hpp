@@ -8020,9 +8020,9 @@ namespace DataworksPublic20240518
       Models::RemoveKnowledgeBaseAdministratorResponse removeKnowledgeBaseAdministrator(const Models::RemoveKnowledgeBaseAdministratorRequest &request);
 
       /**
-       * @summary Removes multiple upstream dependencies from a node instance in a single call.
+       * @summary Removes multiple upstream dependencies of a node instance.
        *
-       * @description You must purchase DataWorks Basic Edition or a later edition to use this operation.
+       * @description You must purchase DataWorks Basic Edition or later to use this operation.
        *
        * @param tmpReq RemoveTaskInstanceDependenciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8031,9 +8031,9 @@ namespace DataworksPublic20240518
       Models::RemoveTaskInstanceDependenciesResponse removeTaskInstanceDependenciesWithOptions(const Models::RemoveTaskInstanceDependenciesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes multiple upstream dependencies from a node instance in a single call.
+       * @summary Removes multiple upstream dependencies of a node instance.
        *
-       * @description You must purchase DataWorks Basic Edition or a later edition to use this operation.
+       * @description You must purchase DataWorks Basic Edition or later to use this operation.
        *
        * @param request RemoveTaskInstanceDependenciesRequest
        * @return RemoveTaskInstanceDependenciesResponse
@@ -8168,9 +8168,9 @@ namespace DataworksPublic20240518
       Models::RerunWorkflowInstancesResponse rerunWorkflowInstances(const Models::RerunWorkflowInstancesRequest &request);
 
       /**
-       * @summary Resumes multiple paused task instances.
+       * @summary Resumes multiple paused node instances.
        *
-       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * @description DataWorks Basic Edition or later is required.
        *
        * @param tmpReq ResumeTaskInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8179,9 +8179,9 @@ namespace DataworksPublic20240518
       Models::ResumeTaskInstancesResponse resumeTaskInstancesWithOptions(const Models::ResumeTaskInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resumes multiple paused task instances.
+       * @summary Resumes multiple paused node instances.
        *
-       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * @description DataWorks Basic Edition or later is required.
        *
        * @param request ResumeTaskInstancesRequest
        * @return ResumeTaskInstancesResponse
@@ -9931,9 +9931,9 @@ namespace DataworksPublic20240518
       Models::UpdateTaskAsyncResponse updateTaskAsync(const Models::UpdateTaskAsyncRequest &request);
 
       /**
-       * @summary Modifies the properties of multiple node instances, including the priority, scheduling resource group, and data source.
+       * @summary Updates the properties of multiple task instances in batches, including the priority, scheduling resource group, and data source.
        *
-       * @description You must purchase DataWorks Basic Edition or higher to use this feature.
+       * @description You must purchase DataWorks Basic Edition or later to use this operation.
        *
        * @param tmpReq UpdateTaskInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9942,9 +9942,9 @@ namespace DataworksPublic20240518
       Models::UpdateTaskInstancesResponse updateTaskInstancesWithOptions(const Models::UpdateTaskInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the properties of multiple node instances, including the priority, scheduling resource group, and data source.
+       * @summary Updates the properties of multiple task instances in batches, including the priority, scheduling resource group, and data source.
        *
-       * @description You must purchase DataWorks Basic Edition or higher to use this feature.
+       * @description You must purchase DataWorks Basic Edition or later to use this operation.
        *
        * @param request UpdateTaskInstancesRequest
        * @return UpdateTaskInstancesResponse

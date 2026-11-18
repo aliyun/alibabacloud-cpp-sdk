@@ -21353,9 +21353,9 @@ RemoveKnowledgeBaseAdministratorResponse Client::removeKnowledgeBaseAdministrato
 }
 
 /**
- * @summary Removes multiple upstream dependencies from a node instance in a single call.
+ * @summary Removes multiple upstream dependencies of a node instance.
  *
- * @description You must purchase DataWorks Basic Edition or a later edition to use this operation.
+ * @description You must purchase DataWorks Basic Edition or later to use this operation.
  *
  * @param tmpReq RemoveTaskInstanceDependenciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21402,9 +21402,9 @@ RemoveTaskInstanceDependenciesResponse Client::removeTaskInstanceDependenciesWit
 }
 
 /**
- * @summary Removes multiple upstream dependencies from a node instance in a single call.
+ * @summary Removes multiple upstream dependencies of a node instance.
  *
- * @description You must purchase DataWorks Basic Edition or a later edition to use this operation.
+ * @description You must purchase DataWorks Basic Edition or later to use this operation.
  *
  * @param request RemoveTaskInstanceDependenciesRequest
  * @return RemoveTaskInstanceDependenciesResponse
@@ -21827,9 +21827,9 @@ RerunWorkflowInstancesResponse Client::rerunWorkflowInstances(const RerunWorkflo
 }
 
 /**
- * @summary Resumes multiple paused task instances.
+ * @summary Resumes multiple paused node instances.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description DataWorks Basic Edition or later is required.
  *
  * @param tmpReq ResumeTaskInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21870,9 +21870,9 @@ ResumeTaskInstancesResponse Client::resumeTaskInstancesWithOptions(const ResumeT
 }
 
 /**
- * @summary Resumes multiple paused task instances.
+ * @summary Resumes multiple paused node instances.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description DataWorks Basic Edition or later is required.
  *
  * @param request ResumeTaskInstancesRequest
  * @return ResumeTaskInstancesResponse
@@ -27517,9 +27517,9 @@ UpdateTaskAsyncResponse Client::updateTaskAsync(const UpdateTaskAsyncRequest &re
 }
 
 /**
- * @summary Modifies the properties of multiple node instances, including the priority, scheduling resource group, and data source.
+ * @summary Updates the properties of multiple task instances in batches, including the priority, scheduling resource group, and data source.
  *
- * @description You must purchase DataWorks Basic Edition or higher to use this feature.
+ * @description You must purchase DataWorks Basic Edition or later to use this operation.
  *
  * @param tmpReq UpdateTaskInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27560,9 +27560,9 @@ UpdateTaskInstancesResponse Client::updateTaskInstancesWithOptions(const UpdateT
 }
 
 /**
- * @summary Modifies the properties of multiple node instances, including the priority, scheduling resource group, and data source.
+ * @summary Updates the properties of multiple task instances in batches, including the priority, scheduling resource group, and data source.
  *
- * @description You must purchase DataWorks Basic Edition or higher to use this feature.
+ * @description You must purchase DataWorks Basic Edition or later to use this operation.
  *
  * @param request UpdateTaskInstancesRequest
  * @return UpdateTaskInstancesResponse

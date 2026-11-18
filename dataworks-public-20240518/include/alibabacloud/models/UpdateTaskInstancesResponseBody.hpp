@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+    // The ID of the request, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The result information of the batch operation. The data structure is a map, where the key is the node instance ID and the value is the result information.
+    // The result information of the batch operation. The structure is a map where the key is the task instance ID and the value is the result information.
     shared_ptr<map<string, SuccessInfoValue>> successInfo_ {};
   };
 

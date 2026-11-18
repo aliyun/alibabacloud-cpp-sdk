@@ -63,7 +63,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The list of upstream node instance IDs.
+    // The upstream node instance IDs.
     shared_ptr<string> upstreamTaskInstanceIdsShrink_ {};
   };
 
