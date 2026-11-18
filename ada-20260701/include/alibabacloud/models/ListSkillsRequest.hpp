@@ -103,15 +103,15 @@ namespace Models
 
 
   protected:
-    // Filters the skills by creator ID.
+    // Filters skills by the creator ID.
     shared_ptr<string> creatorId_ {};
-    // The number of entries per page for cursor-based pagination. Valid values: 1 to 100. Default value: 20. If you explicitly specify this parameter, cursor-based pagination takes precedence.
+    // The number of entries per page for cursor-based pagination. Valid values: 1 to 100. Default value: `20`. If this parameter is explicitly specified, cursor-based pagination takes precedence.
     shared_ptr<int32_t> maxResults_ {};
-    // The next token returned by the server. Do not pass this parameter for the first query. For subsequent queries, use the value from the previous response.
+    // The next token returned by the server. Do not specify this parameter for the first query. For subsequent queries, use the value from the previous response.
     shared_ptr<string> nextToken_ {};
-    // The compatible page number parameter for page number-based pagination. Pages start from 1. Default value: 1.
+    // The compatible page number parameter for page number-based pagination. Pages start from 1. Default value: `1`.
     shared_ptr<int64_t> pageNumber_ {};
-    // The compatible number of entries per page for page number-based pagination. Valid values: 1 to 100. Default value: 20.
+    // The compatible number of entries per page for page number-based pagination. Valid values: 1 to 100. Default value: `20`.
     shared_ptr<int64_t> pageSize_ {};
     // Performs a fuzzy match on the skill name or description.
     shared_ptr<string> q_ {};

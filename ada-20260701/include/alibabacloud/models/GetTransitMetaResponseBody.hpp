@@ -94,17 +94,17 @@ namespace Models
 
 
   protected:
-    // The temporary download URL. If Network is not specified, null is returned. The URL may be unavailable if the file is not yet available. Do not write this URL to logs, store it for a long time, or forward it to irrelevant users.
+    // The temporary download URL. If Network is not specified, null is returned. If the file is not yet available, the URL may be unavailable. Do not write this URL to logs, store it for a long time, or forward it to unrelated users.
     shared_ptr<string> downloadUrl_ {};
-    // The expiration time of the transit record. The value is a UTC UNIX timestamp in milliseconds, which is the number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970. You can directly compare this value with the current UNIX timestamp in milliseconds without adding or subtracting 8 hours. Do not continue to use the record after this time.
+    // The expiration time of the transit record. The value is a UTC UNIX timestamp in milliseconds, which indicates the number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970. You can directly compare it with the current UNIX timestamp in milliseconds without adding or subtracting 8 hours. Do not continue to use the record after this time.
     shared_ptr<int64_t> expireAt_ {};
     // The opaque object path corresponding to the file. Callers must not parse or construct this value.
     shared_ptr<string> filePath_ {};
     // The request ID, which is used for Tracing Analysis and troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The file size, in bytes. If no available file is detected, null may be returned.
+    // The file size in bytes. If no available file is detected, null may be returned.
     shared_ptr<int64_t> size_ {};
-    // The status of the transit file. A value of PENDING indicates that the file is not yet available, and the caller can query again later. A value of SUCCESS indicates that the file is available.
+    // The status of the transit file. A value of PENDING indicates that the file is not yet available and the caller can query again later. A value of SUCCESS indicates that the file is available.
     shared_ptr<string> status_ {};
     // The transit ID.
     shared_ptr<string> transitId_ {};

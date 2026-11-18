@@ -59,11 +59,11 @@ namespace Models
 
 
   protected:
-    // The client call identifier. It is used to associate the current response and does not provide idempotence guarantees.
+    // The client call identifier used to associate the current response. It does not provide idempotency guarantees.
     shared_ptr<string> id_ {};
     // The JSON-RPC version. Set this parameter to `2.0`.
     shared_ptr<string> jsonrpc_ {};
-    // The business parameter structure. For core nested fields, refer to the supplementary description.
+    // The business parameter structure. For core nested fields, see the supplementary description.
     // 
     // This parameter is required.
     Darabonba::Json params_ {};

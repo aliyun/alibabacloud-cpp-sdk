@@ -59,11 +59,11 @@ namespace Models
 
 
   protected:
-    // The defined JSON-RPC response structure. For core nested fields, see the supplementary description.
+    // The defined JSON-RPC response structure. For more information about the core nested fields, see the supplementary description.
     Darabonba::Json jsonRpcResponse_ {};
     // The ID of the current request, which is used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the setting is successful. The value is `true` if the setting is successful. Read the actual model and thinking level from the business result.
+    // Indicates whether the setting is successful. The value is true if the setting is successful. Read the actual model and thinking level from the business result.
     shared_ptr<bool> success_ {};
   };
 

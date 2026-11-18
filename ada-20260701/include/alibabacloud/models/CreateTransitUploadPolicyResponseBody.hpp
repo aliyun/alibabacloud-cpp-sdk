@@ -111,15 +111,15 @@ namespace Models
 
 
     protected:
-      // The `OSSAccessKeyId` in the PostObject form. Keep it secure along with the entire `PolicyInfo`.
+      // The OSSAccessKeyId in the PostObject form. This field must be properly protected along with the entire PolicyInfo.
       shared_ptr<string> accessId_ {};
-      // The object storage key. The value is the same as the top-level `FilePath`.
+      // The object storage key. The value is the same as the top-level FilePath.
       shared_ptr<string> dir_ {};
       // The destination URL for the client to execute the PostObject request.
       shared_ptr<string> host_ {};
-      // The Base64-encoded PostObject upload policy. Keep it secure along with the entire `PolicyInfo`.
+      // The Base64-encoded PostObject upload policy. This field must be properly protected along with the entire PolicyInfo.
       shared_ptr<string> policy_ {};
-      // When STS credentials are used, this is the `x-oss-security-token` in the PostObject form. It may be empty if STS is not used. This field contains sensitive authorization information.
+      // The x-oss-security-token in the PostObject form when Security Token Service (STS) credentials are used. This field may be empty if STS is not used. This field contains sensitive authorization information.
       shared_ptr<string> securityToken_ {};
       // The signature of the PostObject form. This field contains sensitive authorization information.
       shared_ptr<string> signature_ {};
@@ -165,15 +165,15 @@ namespace Models
 
 
   protected:
-    // The object storage key, which is also the `key` in the PostObject form.
+    // The object storage key, which is also the key in the PostObject form.
     shared_ptr<string> filePath_ {};
-    // The upload policy object. For complete sub-fields, see the following table.
+    // The upload policy object. For more information about the complete sub-fields, see the following table.
     shared_ptr<CreateTransitUploadPolicyResponseBody::PolicyInfo> policyInfo_ {};
-    // The request ID, used for Tracing Analysis and troubleshooting.
+    // The request ID, which is used for Tracing Analysis and troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the upload policy is successfully generated. A successful response always returns `true`. An error response is returned upon failure.
+    // Indicates whether the upload policy is successfully generated. A success response always returns true. An error response is returned upon failure.
     shared_ptr<bool> success_ {};
-    // The ID of the newly created Transit record, which is used for subsequent queries and storage.
+    // The ID of the newly created transit record, which can be used for subsequent queries and storage.
     shared_ptr<string> transitId_ {};
   };
 

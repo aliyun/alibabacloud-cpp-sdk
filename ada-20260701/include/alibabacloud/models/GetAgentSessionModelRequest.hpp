@@ -59,7 +59,7 @@ namespace Models
 
 
   protected:
-    // The client request identifier, which is echoed in the response. It is used to correlate this call and does not have idempotent semantics.
+    // The client request identifier, which is echoed in the response. It is used to associate this call and does not have idempotent semantics.
     shared_ptr<string> id_ {};
     // The JSON-RPC version. Set the value to `2.0`.
     shared_ptr<string> jsonrpc_ {};

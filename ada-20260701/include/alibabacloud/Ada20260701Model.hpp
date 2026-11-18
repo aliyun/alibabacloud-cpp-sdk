@@ -46,6 +46,9 @@
 #include <alibabacloud/models/GetTransitMetaRequest.hpp>
 #include <alibabacloud/models/GetTransitMetaResponseBody.hpp>
 #include <alibabacloud/models/GetTransitMetaResponse.hpp>
+#include <alibabacloud/models/GetWorkflowGlobalEnvRequest.hpp>
+#include <alibabacloud/models/GetWorkflowGlobalEnvResponseBody.hpp>
+#include <alibabacloud/models/GetWorkflowGlobalEnvResponse.hpp>
 #include <alibabacloud/models/ListAgentSessionsRequest.hpp>
 #include <alibabacloud/models/ListAgentSessionsShrinkRequest.hpp>
 #include <alibabacloud/models/ListAgentSessionsResponseBody.hpp>
@@ -71,6 +74,9 @@
 #include <alibabacloud/models/ReplyAgentSessionShrinkRequest.hpp>
 #include <alibabacloud/models/ReplyAgentSessionResponseBody.hpp>
 #include <alibabacloud/models/ReplyAgentSessionResponse.hpp>
+#include <alibabacloud/models/SaveWorkflowGlobalEnvRequest.hpp>
+#include <alibabacloud/models/SaveWorkflowGlobalEnvResponseBody.hpp>
+#include <alibabacloud/models/SaveWorkflowGlobalEnvResponse.hpp>
 #include <alibabacloud/models/SetAgentSessionModelRequest.hpp>
 #include <alibabacloud/models/SetAgentSessionModelShrinkRequest.hpp>
 #include <alibabacloud/models/SetAgentSessionModelResponseBody.hpp>

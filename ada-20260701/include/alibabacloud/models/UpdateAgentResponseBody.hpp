@@ -81,9 +81,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The request ID, which is used for Tracing Analysis and troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the agent is updated. A success response always returns `true`. An error response is returned upon failure.
+    // Indicates whether the agent was successfully updated. A success response always returns `true`. An error response is returned upon failure.
     shared_ptr<bool> success_ {};
-    // The most recent update time. The value is a UNIX timestamp in milliseconds.
+    // The time of the most recent update. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> updatedAt_ {};
   };
 

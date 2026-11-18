@@ -123,9 +123,9 @@ namespace Models
     Darabonba::Json skills_ {};
     // The system prompt.
     shared_ptr<string> systemPrompt_ {};
-    // The list of MCP server and connector name references. The same array supports both types of entries. Specify only one type of reference for each entry. For MCP, omitting items indicates all public tools, and historically specified items retain their original values.
+    // The list of references to MCP server and connector names. The same array supports both types of entries. Specify only one type of reference for each entry. For MCP, omitting items indicates all public tools, and historically specified items retain their original values.
     Darabonba::Json tools_ {};
-    // The visibility scope of the agent. Valid values: `user` and `tenant`. Default value: `user`.
+    // The visibility scope of the agent. Valid values: user and tenant. Default value: user.
     shared_ptr<string> visibility_ {};
   };
 

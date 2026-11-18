@@ -217,29 +217,29 @@ namespace Models
     protected:
       // The model capabilities structure.
       shared_ptr<Models::Capabilities> capabilities_ {};
-      // The deprecated compatibility field. This field is not returned. Do not rely on this field for integration.
+      // **[Deprecated]** The legacy compatibility field. It is no longer returned. Do not use it as a dependency for integration.
       shared_ptr<int64_t> contextWindow_ {};
-      // The time when the model was created. The value is a UNIX timestamp in seconds.
+      // The time when the model was created. It is a UNIX timestamp in seconds.
       shared_ptr<int64_t> created_ {};
-      // The credits coefficient of the model. The value is returned as a decimal string. This parameter is not returned if it is not configured.
+      // The credit coefficient of the model, returned as a decimal string. Not returned if not configured.
       shared_ptr<string> creditsCoefficient_ {};
-      // The display name of the model. Do not pass this value as the model identifier.
+      // The display name of the model. Do not pass it as the model identifier.
       shared_ptr<string> displayName_ {};
       // The model identifier. Used as Params.modelId for SetAgentSessionModel. Use the actual returned value.
       shared_ptr<string> id_ {};
-      // The deprecated compatibility field. This field is not returned. Do not rely on this field for integration.
+      // **[Deprecated]** The legacy compatibility field. It is no longer returned. Do not use it as a dependency for integration.
       shared_ptr<int64_t> maxContextWindow_ {};
-      // The object type. The value is fixed to model.
+      // The object type. Fixed to model.
       shared_ptr<string> object_ {};
       // The identifier of the model provider.
       shared_ptr<string> ownedBy_ {};
-      // The deprecated compatibility field. This field is not returned. Use ThinkingLevels instead.
+      // **[Deprecated]** The legacy compatibility field. It is no longer returned. Use ThinkingLevels instead.
       shared_ptr<int32_t> supportsThinking_ {};
-      // The default thinking level in the model catalog. This value does not represent the current value of the session. Query the current value by using GetAgentSessionModel.
+      // The default thinking level in the model catalog. It does not represent the current value of the session. Query the current value by using GetAgentSessionModel.
       shared_ptr<string> thinkingLevel_ {};
-      // The thinking levels supported by the model. An empty array does not indicate that all levels are supported. The target session still requires validation.
+      // The thinking levels supported by the model. An empty array does not mean all levels are supported. The target session still needs to be verified.
       shared_ptr<vector<string>> thinkingLevels_ {};
-      // The deprecated compatibility field. This field is not returned. Use ThinkingLevel instead.
+      // **[Deprecated]** The legacy compatibility field. It is no longer returned. Use ThinkingLevel instead.
       shared_ptr<int32_t> thinkingMode_ {};
     };
 
@@ -283,13 +283,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of results used for the current pagination. If pagination is not used, this value is the total number of results. This value is not the actual number of entries returned on the current page.
+    // The maximum number of results used for this pagination. If not paginated, it is the total number of results. It is not the actual number of entries returned on this page.
     shared_ptr<int32_t> maxResults_ {};
     // The array of model structures. For nested fields, refer to the supplementary description of response parameters.
     shared_ptr<vector<ListModelsResponseBody::Models>> models_ {};
-    // The token for the next page. An empty value indicates that no more pages exist.
+    // The token for the next page. An empty value indicates that there is no next page.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request. You can use the ID to troubleshoot issues.
+    // The ID of the request. It is used for troubleshooting.
     shared_ptr<string> requestId_ {};
     // The total number of models that meet the filter conditions.
     shared_ptr<int64_t> total_ {};

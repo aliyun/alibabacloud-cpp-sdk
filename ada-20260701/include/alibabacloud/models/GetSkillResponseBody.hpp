@@ -175,9 +175,9 @@ namespace Models
     shared_ptr<bool> canModify_ {};
     // The creation time of the skill. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createdAt_ {};
-    // The description in the current main record of the skill.
+    // The description in the current primary record of the skill.
     shared_ptr<string> description_ {};
-    // The download URL of the bundle. This field is returned when the network is specified, an accessible artifact exists, and the pre-signing is successful.
+    // The download URL of the bundle. This field is returned when the network is specified, an accessible artifact exists, and presigning is successful.
     shared_ptr<string> downloadUrl_ {};
     // The network type actually used to generate the download URL.
     shared_ptr<string> downloadUrlNetwork_ {};
@@ -193,11 +193,11 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The skill ID.
     shared_ptr<string> skillId_ {};
-    // The current status of the skill. Common values include DRAFT and PUBLISHED.
+    // The current status of the skill. Common values are DRAFT and PUBLISHED.
     shared_ptr<string> status_ {};
     // The update time of the skill. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> updatedAt_ {};
-    // The visibility of the current skill. Common values include user and tenant.
+    // The visibility of the current skill. Common values are user and tenant.
     shared_ptr<string> visibility_ {};
   };
 

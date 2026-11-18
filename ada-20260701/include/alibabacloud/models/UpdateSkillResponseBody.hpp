@@ -81,7 +81,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The skill ID.
     shared_ptr<string> skillId_ {};
-    // Indicates whether the operation is successful. Returns `true` if the skill update and optional package replacement have been fully submitted and confirmed by read-back.
+    // Indicates whether the operation is successful. A value of `true` is returned when the skill update and optional bundle replacement are fully submitted and confirmed by read-back.
     shared_ptr<bool> success_ {};
     // The time when the skill was updated. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> updatedAt_ {};

@@ -126,9 +126,9 @@ namespace Models
     shared_ptr<string> q_ {};
     // Filters agents by the runtime tag.
     shared_ptr<string> requiredRuntime_ {};
-    // The query scope. Valid values: `SYSTEM` and `CUSTOM`.
+    // The query scope. Valid values: SYSTEM and CUSTOM.
     shared_ptr<string> scope_ {};
-    // Filters agents by visibility scope. Valid values: `user` and `tenant`.
+    // Filters agents by visibility scope. Valid values: user and tenant.
     shared_ptr<string> visibility_ {};
   };
 

@@ -59,7 +59,7 @@ namespace Models
 
 
   protected:
-    // The correlation identifier for this call. It is echoed in the response and does not provide idempotence guarantees.
+    // The correlation identifier for this call. It is echoed in the response and does not provide idempotency guarantees.
     shared_ptr<string> id_ {};
     // The JSON-RPC protocol version. Set the value to `2.0`.
     shared_ptr<string> jsonrpc_ {};

@@ -63,7 +63,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The network type of the download URL. Valid values: public and internal. If omitted, no download URL is generated.
     shared_ptr<string> network_ {};
-    // Specifies the published history version number to query. If omitted, the current main record of the skill is returned.
+    // Specifies the published historical version number to query. If omitted, the current primary record of the skill is returned.
     shared_ptr<int64_t> skillVersion_ {};
   };
 

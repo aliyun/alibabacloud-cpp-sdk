@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation is successful. Returns `true` if the skill is logically deleted and optional artifacts are logically archived.
+    // Indicates whether the operation is successful. Returns `true` when the logical deletion of the skill and the optional logical archiving of artifacts are complete.
     shared_ptr<bool> success_ {};
   };
 

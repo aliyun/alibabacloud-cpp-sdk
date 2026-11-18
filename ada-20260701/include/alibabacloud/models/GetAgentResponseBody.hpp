@@ -218,35 +218,35 @@ namespace Models
     shared_ptr<string> agentId_ {};
     // The current configuration revision number.
     shared_ptr<int64_t> agentVersion_ {};
-    // Indicates whether the current identity can delete the agent.
+    // Specifies whether the current identity can delete the agent.
     shared_ptr<bool> canDelete_ {};
-    // Indicates whether the current identity can modify the agent.
+    // Specifies whether the current identity can modify the agent.
     shared_ptr<bool> canModify_ {};
     // The creation time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createdAt_ {};
-    // The agent description. This field may not be returned if it is not configured.
+    // The description of the agent. This field may not be returned if it is not configured.
     shared_ptr<string> description_ {};
     // The display name of the agent. This field may not be returned if it is not configured.
     shared_ptr<string> displayName_ {};
-    // The knowledge base reference list. The list contains at most one element.
+    // The list of knowledge base references. The list contains at most one element.
     Darabonba::Json knowledgeBases_ {};
-    // The display metadata of the agent. For specific fields, refer to the supplementary description of response parameters.
+    // The display metadata of the agent. For specific fields, see the supplementary description of response parameters.
     Darabonba::Json metadata_ {};
-    // The saved model configuration. This information is returned only for official agents. Object arrays are supported, and historical single objects and strings are compatible. An empty array is returned as [ \\]. Object arrays retain the original order, duplicate names, and object fields.
+    // The saved model configuration. This information is returned only for official agents. Object arrays are supported, and historical single objects and strings are compatible. An empty array returns [ \\]. Object arrays retain the original order, duplicate names, and object fields.
     Darabonba::Json model_ {};
-    // The agent name.
+    // The name of the agent.
     shared_ptr<string> name_ {};
-    // Indicates whether the agent is an official agent provided by the platform.
+    // Specifies whether the agent is an official agent provided by the platform.
     shared_ptr<bool> official_ {};
     // The request ID. It is used for Tracing Analysis and troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The skill reference list. For specific fields, refer to the supplementary description of response parameters.
+    // The list of skill references. For specific fields, see the supplementary description of response parameters.
     Darabonba::Json skills_ {};
-    // The agent status. The default status of a newly created agent is `draft`.
+    // The status of the agent. The default status of a newly created agent is `draft`.
     shared_ptr<string> status_ {};
     // The system prompt. This field may not be returned if it is not configured.
     shared_ptr<string> systemPrompt_ {};
-    // The reference list of MCP server and connector names. For element fields, refer to the following sections.
+    // The list of MCP server and connector name references. For element fields, see the following sections.
     Darabonba::Json tools_ {};
     // The last update time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> updatedAt_ {};

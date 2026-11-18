@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The agent name.
+    // The name of the agent.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

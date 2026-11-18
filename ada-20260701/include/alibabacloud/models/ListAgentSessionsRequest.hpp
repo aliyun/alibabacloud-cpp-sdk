@@ -114,9 +114,9 @@ namespace Models
 
 
   protected:
-    // The correlation identifier for this call. It is echoed in the response and does not provide idempotency guarantees.
+    // The correlation identifier for this call. This identifier is echoed in the response and does not provide idempotency guarantees.
     shared_ptr<string> id_ {};
-    // The JSON-RPC protocol version. Set this parameter to `2.0`.
+    // The JSON-RPC protocol version. Set this parameter to 2.0.
     shared_ptr<string> jsonrpc_ {};
     // The business parameter object. The public fields are only AgentName, MaxResults, and NextToken.
     // 

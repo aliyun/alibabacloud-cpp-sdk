@@ -61,7 +61,7 @@ namespace Models
   protected:
     // The response object. The business result is located in `result`.
     Darabonba::Json jsonRpcResponse_ {};
-    // The server-side request ID, which is used to troubleshoot this call.
+    // The server-side request ID. It is used to troubleshoot this call.
     shared_ptr<string> requestId_ {};
     // Indicates whether the operation is successful. Determine the final execution state based on the description of this operation.
     shared_ptr<bool> success_ {};

@@ -102,11 +102,11 @@ namespace Models
   protected:
     // The `Error` field in the frame. It is an in-stream error and is actually an object.
     Darabonba::Json error_ {};
-    // The `Id` field in the frame. It is used to associate the request. Notification frames may not contain this field.
+    // The `Id` field in the frame, used to associate the request. Notification frames may not contain this field.
     shared_ptr<string> id_ {};
     // The `Jsonrpc` field in the frame. The value is `2.0`.
     shared_ptr<string> jsonrpc_ {};
-    // The `Method` field in the frame. It is used to distinguish notification categories.
+    // The `Method` field in the frame, used to distinguish notification categories.
     shared_ptr<string> method_ {};
     // The `Params` field in the frame. It is the notification payload and is actually an object.
     Darabonba::Json params_ {};

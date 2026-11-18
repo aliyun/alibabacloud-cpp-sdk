@@ -97,19 +97,19 @@ namespace Models
 
 
   protected:
-    // The list of agent summaries. For the fields of each element, see the supplementary description of response parameters.
+    // The list of agent summaries. For field details of each element, see the supplementary description of response parameters.
     shared_ptr<vector<Darabonba::Json>> agents_ {};
     // The actual page size used for cursor-based pagination.
     shared_ptr<int32_t> maxResults_ {};
-    // The next token. An empty string is returned if no next page exists.
+    // The next token. An empty string is returned if there are no more pages.
     shared_ptr<string> nextToken_ {};
     // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The current page size for page number-based pagination.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID, used for Tracing Analysis and troubleshooting.
+    // The request ID, which is used for Tracing Analysis and troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The total number of agents that meet the filter conditions.
+    // The total number of agents that match the filter conditions.
     shared_ptr<int64_t> total_ {};
   };
 

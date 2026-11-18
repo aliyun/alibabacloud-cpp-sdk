@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the agent to delete.
+    // The name of the agent to be deleted.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

@@ -118,25 +118,25 @@ namespace Models
 
 
   protected:
-    // The new description. If not passed, the original value is retained.
+    // The new description. If this parameter is not passed, the original value is retained.
     shared_ptr<string> description_ {};
-    // The new display name. If not passed, the original value is retained.
+    // The new display name. If this parameter is not passed, the original value is retained.
     shared_ptr<string> displayName_ {};
-    // The expected current configuration revision number. This parameter is omitted by default. Pass the `AgentVersion` returned by the most recent `GetAgent` call when concurrent protection is required.
+    // The expected current configuration revision number. This parameter is omitted by default. Pass the `AgentVersion` returned by the most recent `GetAgent` call when concurrency protection is required.
     shared_ptr<int64_t> expectedVersion_ {};
-    // The list of knowledge base bindings, which can contain at most one element. If not passed, the original value is retained. If a non-empty array is passed, the entire list is replaced. If `[ ]` is passed, all bindings are removed.
+    // The list of knowledge base bindings, which can contain at most one element. If this parameter is not passed, the original value is retained. If a non-empty array is passed, it replaces the original value entirely. If `[ ]` is passed, all bindings are removed.
     Darabonba::Json knowledgeBases_ {};
-    // The name of the agent to update.
+    // The name of the agent to be updated.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The list of skill references. If not passed, the original value is retained. If a non-empty array is passed, the entire list is replaced. If `[ ]` is passed, all bindings are removed.
+    // The list of skill references. If this parameter is not passed, the original value is retained. If a non-empty array is passed, it replaces the original value entirely. If `[ ]` is passed, all bindings are removed.
     Darabonba::Json skills_ {};
-    // The new system prompt. If not passed, the original value is retained.
+    // The new system prompt. If this parameter is not passed, the original value is retained.
     shared_ptr<string> systemPrompt_ {};
-    // The list of MCP server and connector name references. The same array supports both types of entries. Specify only one type of reference for each entry. For MCP, omitting items indicates all public tools. Historically specified items retain their original values.
+    // The list of MCP server and connector name references. The same array supports the coexistence of both types of entries. Specify only one type of reference for each entry. For MCP, omitting items indicates all public tools, and historically specified items retain their original values.
     Darabonba::Json tools_ {};
-    // The new visibility scope. Valid values: `user` and `tenant`. If not passed, the original value is retained.
+    // The new visibility scope. Valid values: `user` and `tenant`. If this parameter is not passed, the original value is retained.
     shared_ptr<string> visibility_ {};
   };
 

@@ -105,7 +105,7 @@ namespace Models
       protected:
         // The effective page size for the current page.
         shared_ptr<int32_t> maxResults_ {};
-        // The credential to continue querying the next page. Pass it as is to Params.NextToken. Pagination ends when the token is not returned or is empty.
+        // The credential for querying the next page. Pass this value as is to Params.NextToken. Pagination ends when this value is not returned or is empty.
         shared_ptr<string> nextToken_ {};
         // The array of session summaries for the current page. If no matching records are found, an empty array [] is returned. The type is any. The fields of array elements retain the original backend names. For the structure, see the supplementary description of response parameters.
         Darabonba::Json sessionList_ {};
@@ -139,7 +139,7 @@ namespace Models
     protected:
       // The Id from the request, echoed as is.
       shared_ptr<string> id_ {};
-      // The fixed value `2.0`.
+      // The fixed value 2.0.
       shared_ptr<string> jsonrpc_ {};
       // The paginated result.
       shared_ptr<JsonRpcResponse::Result> result_ {};

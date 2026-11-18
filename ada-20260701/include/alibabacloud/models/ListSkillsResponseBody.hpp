@@ -97,17 +97,17 @@ namespace Models
 
 
   protected:
-    // The number of entries per page for the current cursor-based pagination.
+    // The current number of entries per page for cursor-based pagination.
     shared_ptr<int32_t> maxResults_ {};
-    // The next token. An empty string is returned if no next page exists.
+    // The next token. An empty string is returned if there are no more pages.
     shared_ptr<string> nextToken_ {};
     // The current compatible page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page for the current compatible pagination.
+    // The current compatible number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of skill summaries. The structure of list items is not fixed in the current public contract. For common fields, see the supplementary description of response parameters.
+    // The list of skill summaries. The structure of list items is not fixed in the current public contract. For common fields, refer to the supplementary description of response parameters.
     shared_ptr<vector<Darabonba::Json>> skills_ {};
     // The total number of skills that meet the current visibility and filter conditions.
     shared_ptr<int64_t> total_ {};

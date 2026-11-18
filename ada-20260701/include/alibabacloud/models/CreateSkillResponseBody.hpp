@@ -81,7 +81,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The skill ID.
     shared_ptr<string> skillId_ {};
-    // Indicates whether the operation is successful. A value of true is returned when the skill and its body or bundle are fully created and readable. Business failures are indicated by error responses.
+    // Indicates whether the operation is successful. true is returned when the skill and its body or bundle are fully created and readable. Business failures are returned in error responses.
     shared_ptr<bool> success_ {};
     // The update time after the skill is created. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> updatedAt_ {};

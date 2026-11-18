@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The maximum number of models to return per page. Valid values: 1 to 100. Explicitly specify this parameter.
     shared_ptr<int32_t> maxResults_ {};
-    // Set this parameter to `text` for text sessions. If you omit this parameter, all visible models are queried.
+    // Set to `text` for text sessions. If omitted, all visible models are queried.
     shared_ptr<string> modelType_ {};
     // The pagination token returned from the previous page. Omit this parameter for the first page.
     shared_ptr<string> nextToken_ {};
