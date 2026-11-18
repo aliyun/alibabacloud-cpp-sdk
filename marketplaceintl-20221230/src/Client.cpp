@@ -2,11 +2,13 @@
 #include <alibabacloud/MarketplaceIntl20221230.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace MarketplaceIntl20221230
 {
 
 AlibabaCloud::MarketplaceIntl20221230::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "marketplaceIntl";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "";
   checkConfig(config);
   this->_endpoint = getEndpoint("marketplaceintl", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -46,7 +51,7 @@ DescribePushMeteringDataResponse Client::describePushMeteringDataWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasPushOrderBizId()) {
-    query["PushOrderBizId"] = request.pushOrderBizId();
+    query["PushOrderBizId"] = request.getPushOrderBizId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -88,23 +93,23 @@ DescribeSellerInstancesResponse Client::describeSellerInstancesWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceStatus()) {
-    query["InstanceStatus"] = request.instanceStatus();
+    query["InstanceStatus"] = request.getInstanceStatus();
   }
 
   if (!!request.hasPageIndex()) {
-    query["PageIndex"] = request.pageIndex();
+    query["PageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -146,15 +151,15 @@ NoticeInstanceUserResponse Client::noticeInstanceUserWithOptions(const NoticeIns
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNoticeParam()) {
-    body["NoticeParam"] = request.noticeParam();
+    body["NoticeParam"] = request.getNoticeParam();
   }
 
   if (!!request.hasNoticeType()) {
-    body["NoticeType"] = request.noticeType();
+    body["NoticeType"] = request.getNoticeType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -194,18 +199,24 @@ NoticeInstanceUserResponse Client::noticeInstanceUser(const NoticeInstanceUserRe
  */
 PushMeteringDataResponse Client::pushMeteringDataWithOptions(const PushMeteringDataRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasMetering()) {
+    query["Metering"] = request.getMetering();
+  }
+
   json body = {};
   if (!!request.hasGmtCreate()) {
-    body["GmtCreate"] = request.gmtCreate();
+    body["GmtCreate"] = request.getGmtCreate();
   }
 
   if (!!request.hasMeteringData()) {
-    body["MeteringData"] = request.meteringData();
+    body["MeteringData"] = request.getMeteringData();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "PushMeteringData"},
     {"version" , "2022-12-30"},

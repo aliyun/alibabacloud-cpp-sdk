@@ -14,9 +14,5 @@
 #include <alibabacloud/models/PushMeteringDataRequest.hpp>
 #include <alibabacloud/models/PushMeteringDataResponseBody.hpp>
 #include <alibabacloud/models/PushMeteringDataResponse.hpp>
-#include <alibabacloud/models/DescribePushMeteringDataResponseBodyResult.hpp>
-#include <alibabacloud/models/DescribeSellerInstancesResponseBodyResult.hpp>
-#include <alibabacloud/models/NoticeInstanceUserResponseBodyAccessDeniedDetail.hpp>
-#include <alibabacloud/models/PushMeteringDataRequestMeteringData.hpp>
 
 #endif

@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pushOrderBizId_ != nullptr; };
+    virtual bool empty() const override { return this->pushOrderBizId_ == nullptr; };
     // pushOrderBizId Field Functions 
     bool hasPushOrderBizId() const { return this->pushOrderBizId_ != nullptr;};
     void deletePushOrderBizId() { this->pushOrderBizId_ = nullptr;};
-    inline string pushOrderBizId() const { DARABONBA_PTR_GET_DEFAULT(pushOrderBizId_, "") };
+    inline string getPushOrderBizId() const { DARABONBA_PTR_GET_DEFAULT(pushOrderBizId_, "") };
     inline DescribePushMeteringDataRequest& setPushOrderBizId(string pushOrderBizId) { DARABONBA_PTR_SET_VALUE(pushOrderBizId_, pushOrderBizId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> pushOrderBizId_ = nullptr;
+    shared_ptr<string> pushOrderBizId_ {};
   };
 
   } // namespace Models
