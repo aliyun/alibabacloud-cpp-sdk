@@ -154,7 +154,7 @@ namespace Models
 
 
         protected:
-          // The database engine version.
+          // The database version.
           shared_ptr<string> custinsDbVersion_ {};
         };
 
@@ -263,7 +263,7 @@ namespace Models
         // The ID of the backup file.
         shared_ptr<string> backupId_ {};
         // The internal download URL of the backup file.
-        // > You can use this URL to download the backup file from an ECS instance that is connected to the current instance. Both instances must reside in the same VPC.
+        // > You can use this URL to download the backup file from an ECS instance that is connected to the current instance. Both instances must belong to the same VPC.
         shared_ptr<string> backupIntranetDownloadURL_ {};
         // The backup name.
         shared_ptr<string> backupName_ {};
@@ -272,8 +272,8 @@ namespace Models
         // The start time of the backup. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format and displayed in UTC.
         shared_ptr<string> backupStartTime_ {};
         // The backup status. Valid values:
-        // * **OK**: The backup is successful.
-        // * **ERROR**: The backup failed.
+        // * **OK**: Successful.
+        // * **ERROR**: Failed.
         shared_ptr<string> backupStatus_ {};
         // The database engine type. The value is fixed as **redis**.
         shared_ptr<string> engine_ {};
@@ -282,8 +282,8 @@ namespace Models
         // The name of the instance.
         shared_ptr<string> instanceName_ {};
         // Indicates whether the backup set is available. Valid values:
-        // * **0**: unavailable.
-        // * **1**: available.
+        // * **0**: Unavailable.
+        // * **1**: Available.
         shared_ptr<string> isAvail_ {};
         // This parameter is not in effect. Ignore this parameter.
         shared_ptr<string> recoverConfigMode_ {};
@@ -385,9 +385,9 @@ namespace Models
       // The start time of the cluster backup. The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
       shared_ptr<string> clusterBackupStartTime_ {};
       // The status of the cluster backup set. Valid values:
-      // - OK: The backup is successful.
-      // - RUNNING: The backup is in progress.
-      // - Other values: The backup failed.
+      // - OK: Successful.
+      // - RUNNING: Running.
+      // - Other values: Failed.
       shared_ptr<string> clusterBackupStatus_ {};
       // The expiration time of the backup set. The time is in the yyyy-MM-ddTHH:mmZ format and displayed in UTC.
       shared_ptr<string> expectExpireTime_ {};
@@ -395,7 +395,7 @@ namespace Models
       shared_ptr<int32_t> isAvail_ {};
       // The backup progress. This parameter is returned only for backups that are in progress.
       shared_ptr<string> progress_ {};
-      // The memory size of a single DB node when the full backup is created. Unit: MB.
+      // The memory size of a single database node when the full backup was created. Unit: MB.
       shared_ptr<int32_t> shardClassMemory_ {};
     };
 
@@ -461,22 +461,22 @@ namespace Models
 
 
   protected:
-    // The list of cluster backup sets. A cluster backup set contains the backup sets of all nodes in the cluster.
+    // The list of cluster backup sets. A cluster backup contains the backup sets of all nodes in the cluster.
     shared_ptr<vector<DescribeClusterBackupListResponseBody::ClusterBackups>> clusterBackups_ {};
-    // <props="china">The free backup quota of the instance. Unit: bytes. The free quota is equal to the default memory capacity of the instance type. For more information, see the notice on backup commercialization. Full backups and log backups share this free quota. When you change the instance type, the free quota of the instance changes accordingly.
+    // <props="china">The free backup quota of the instance. Unit: bytes. The free quota is equal to the default memory capacity of the instance type. For more information, see the notice on the commercialization of backups. Full backups and log backups share this free quota. When you change the instance type, the free quota of the instance changes accordingly.
     // <props="intl">This parameter is not in effect. Ignore this parameter.
     shared_ptr<int64_t> freeSize_ {};
     // The size of full backup files for the current instance. Unit: bytes. Full backups are generated from daily scheduled backups, manual backups, and backups generated during cache analysis.
     // > This value is independent of the number and size of backup sets returned in the current request. It represents the total size of all valid full backups for the instance.
     shared_ptr<int64_t> fullStorageSize_ {};
-    // The size of the instance log backup files for the current instance. Unit: bytes. This value is valid only when the flashback feature is enabled.
-    // > This value is independent of the number and size of backup sets in the current response. It represents the total size of all valid instance log backups for the current instance.
+    // The size of instance log backup files for the current instance. Unit: bytes. This value is valid only when the flashback feature is enabled.
+    // > This value is independent of the number and size of backup sets in the response to the current request. It represents the total size of all valid instance log backups for the instance.
     shared_ptr<int64_t> logStorageSize_ {};
-    // The maximum number of records returned by the current request.
+    // The maximum number of entries returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
     // The page number, which is the same as the request parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of records per page, which is the same as the request parameter.
+    // The maximum number of entries per page, which is the same as the request parameter.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

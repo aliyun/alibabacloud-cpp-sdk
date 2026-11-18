@@ -131,7 +131,7 @@ namespace Models
 
 
   protected:
-    // The IP whitelist template information.
+    // The information about the IP whitelist templates.
     shared_ptr<vector<DescribeGlobalSecurityIPGroupResponseBody::GlobalSecurityIPGroup>> globalSecurityIPGroup_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

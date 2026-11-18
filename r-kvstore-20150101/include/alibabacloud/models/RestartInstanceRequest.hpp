@@ -104,8 +104,8 @@ namespace Models
 
   protected:
     // The time when the instance is restarted. Valid values:
-    // * **Immediately**: The instance is restarted immediately. This is the default value.
-    // * **MaintainTime**: The instance is restarted during the maintenance window.
+    // * **Immediately**: Restarts the instance immediately. This is the default value.
+    // * **MaintainTime**: Restarts the instance during the maintenance window.
     shared_ptr<string> effectiveTime_ {};
     // The instance ID.
     // 

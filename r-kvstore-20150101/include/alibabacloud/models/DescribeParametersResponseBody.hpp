@@ -311,7 +311,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeParametersResponseBody::ConfigParameters> configParameters_ {};
-    // The database type.
+    // The database engine.
     shared_ptr<string> engine_ {};
     // The database engine version.
     shared_ptr<string> engineVersion_ {};

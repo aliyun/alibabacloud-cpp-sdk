@@ -57,10 +57,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether there are O&M tasks that require a pop-up notification for user action. Valid values:
-    // 
-    // - **0**: No pop-up notification.
-    // - **1**: A pop-up notification exists.
+    // Indicates whether there are O&M tasks that require a pop-up notification for user operations. Valid values:
+    // - **0**: No pop-up window.
+    // - **1**: Pop-up window.
     shared_ptr<int32_t> needPop_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

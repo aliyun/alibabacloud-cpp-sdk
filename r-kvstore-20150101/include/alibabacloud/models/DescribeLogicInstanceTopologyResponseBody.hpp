@@ -291,7 +291,7 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
     shared_ptr<DescribeLogicInstanceTopologyResponseBody::RedisProxyList> redisProxyList_ {};
     shared_ptr<DescribeLogicInstanceTopologyResponseBody::RedisShardList> redisShardList_ {};

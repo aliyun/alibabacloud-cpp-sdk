@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The time when the node started. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+    // The start time of the task, in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC time).
     shared_ptr<string> beginTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The node status.
+    // The task status.
     shared_ptr<string> status_ {};
   };
 

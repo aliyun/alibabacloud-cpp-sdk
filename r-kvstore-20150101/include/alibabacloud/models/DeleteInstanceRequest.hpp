@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The instance ID of the distributed instance to which the instance that you want to release belongs. This parameter is applicable only to Chinese site (aliyun.com).
+    // The distributed instance ID to which the instance ID to be released belongs. This parameter is applicable only to the China site.
     shared_ptr<string> globalInstanceId_ {};
-    // The instance ID of the instance that you want to release.
+    // The instance ID of the instance to be released.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

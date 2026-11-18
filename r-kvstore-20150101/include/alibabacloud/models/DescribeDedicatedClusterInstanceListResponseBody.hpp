@@ -207,7 +207,7 @@ namespace Models
         // The node type. Valid values:
         // * **db**: Data node.
         // * **proxy**: Proxy node.
-        // * **normal**: Regular node. This value is returned for instances that use the standard architecture.
+        // * **normal**: Regular node. This value is returned for instances of the standard architecture.
         shared_ptr<string> nodeType_ {};
         // The port of the node.
         shared_ptr<int32_t> port_ {};
@@ -414,7 +414,7 @@ namespace Models
       shared_ptr<int64_t> currentBandWidth_ {};
       // An internal parameter used for instance maintenance.
       shared_ptr<string> customId_ {};
-      // The database engine. The value is fixed as **redis**.
+      // The database engine type. The value is fixed as **redis**.
       shared_ptr<string> engine_ {};
       // The database engine version. The value is fixed as **5.0**.
       shared_ptr<string> engineVersion_ {};
@@ -429,7 +429,7 @@ namespace Models
       // The instance status. Valid values:
       // * **Normal**: Normal.
       // * **Creating**: Creating.
-      // * **Changing**: Changing.
+      // * **Changing**: Modifying.
       // * **Inactive**: Disabled.
       // * **Flushing**: Purge in progress.
       // * **Released**: Released.
@@ -438,9 +438,9 @@ namespace Models
       // * **Error**: Creation failed.
       // * **Migrating**: Migrating.
       // * **BackupRecovering**: Restoring from backup.
-      // * **MinorVersionUpgrading**: Minor version upgrade in progress.
-      // * **NetworkModifying**: Changing the network.
-      // * **SSLModifying**: Changing SSL configurations.
+      // * **MinorVersionUpgrading**: Upgrading the minor engine version.
+      // * **NetworkModifying**: Modifying the network.
+      // * **SSLModifying**: Modifying SSL settings.
       // * **MajorVersionUpgrading**: Major engine version upgrade in progress. The instance remains accessible.
       shared_ptr<string> instanceStatus_ {};
       // The end time of the maintenance window. The time is in the <i>HH:mm</i>Z format. The time is displayed in UTC.
@@ -448,6 +448,7 @@ namespace Models
       // The start time of the maintenance window. The time is in the <i>HH:mm</i>Z format. The time is displayed in UTC.
       shared_ptr<string> maintainStartTime_ {};
       // The number of proxy nodes.
+      // 
       // > * A value of **0** indicates that the proxy mode is disabled for the instance. A value greater than **0** (such as **1**) indicates that the proxy mode is enabled for the instance.
       // > * This parameter is returned only when the instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
       shared_ptr<int32_t> proxyCount_ {};
@@ -456,7 +457,7 @@ namespace Models
       // The number of data shards.
       // > This parameter is returned only when the instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
       shared_ptr<int32_t> shardCount_ {};
-      // The storage type. The value is fixed as LOCAL_SSD ([ESSD cloud disk (standard SSD)](https://help.aliyun.com/document_detail/122389.html)).
+      // The storage type. The value is fixed as LOCAL_SSD ([ESSD standard SSD](https://help.aliyun.com/document_detail/122389.html)).
       shared_ptr<string> storageType_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};

@@ -170,24 +170,24 @@ namespace Models
     // The bandwidth limit of the instance. Unit: MB/s.
     shared_ptr<int64_t> bandwidth_ {};
     // The billing method. Valid values:
-    // - PrePaid: subscription.
-    // - PostPaid: pay-as-you-go.
+    // - `PrePaid`: subscription.
+    // - `PostPaid`: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The detailed configuration of the instance in JSON format. For more information about the parameters, see [Parameter settings](https://help.aliyun.com/document_detail/43885.html).
+    // The detailed configurations of the instance. The value is a JSON string. For more information about the parameters, see [Parameter settings](https://help.aliyun.com/document_detail/43885.html).
     shared_ptr<string> config_ {};
-    // The internal endpoint of the Redis instance.
+    // The internal network connection endpoint of the ApsaraDB for Redis instance.
     shared_ptr<string> connectionDomain_ {};
-    // The maximum number of connections supported by the instance.
+    // The maximum number of connections to the instance.
     shared_ptr<int64_t> connections_ {};
-    // The globally unique instance ID.
+    // The instance ID. The ID is globally unique.
     shared_ptr<string> instanceId_ {};
     // The current status of the instance. The value is fixed as Creating.
     shared_ptr<string> instanceStatus_ {};
     // The order ID.
     shared_ptr<int64_t> orderId_ {};
-    // The Redis service port.
+    // The ApsaraDB for Redis service port.
     shared_ptr<int32_t> port_ {};
-    // The queries per second (QPS). This value is the theoretical value for the current instance specification.
+    // The queries per second (QPS). This value is the theoretical QPS of the current instance specifications.
     shared_ptr<int64_t> QPS_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -195,7 +195,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The instance name.
     shared_ptr<string> tableName_ {};
-    // The ID of the task flow that is executed for the creation.
+    // The ID of the task flow created and executed.
     shared_ptr<string> taskId_ {};
     // The zone ID of the instance.
     shared_ptr<string> zoneId_ {};

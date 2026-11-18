@@ -181,38 +181,38 @@ namespace Models
     // * **en-US**: English.
     shared_ptr<string> acceptLanguage_ {};
     // The engine type. Valid values:
-    // * **Redis**: Redis engine
-    // * **Memcache**: Memcache engine
+    // * **Redis**.
+    // * **Memcache**.
     shared_ptr<string> engine_ {};
     // The billing method. Valid values:
-    // * **PrePaid** (default): subscription
-    // * **PostPaid**: pay-as-you-go
+    // * **PrePaid** (default): subscription.
+    // * **PostPaid**: pay-as-you-go.
     shared_ptr<string> instanceChargeType_ {};
     // The instance ID.
     // > This parameter is available and required only when **OrderType** is set to **UPGRADE** or **DOWNGRADE**.
     shared_ptr<string> instanceId_ {};
     // The product series. Valid values:
-    // - **professional**: Professional Edition. This edition supports the standalone, primary/secondary, read/write splitting, and cluster architectures, and provides high scalability.
+    // - **professional**: Standard Edition. This edition supports the single-replica, primary/secondary, read/write splitting, and cluster architectures, and provides high scalability.
     //  <props="china">
-    // -  **economical**: Economical Edition. This edition supports only the primary/secondary architecture and is cost-effective. For more information, see [YiTian RDS instances](https://help.aliyun.com/document_detail/2489678.html).
+    // - **economical**: This edition supports only the primary/secondary architecture and is cost-effective. For more information, see [YiTian RDS instance](https://help.aliyun.com/document_detail/2489678.html).
     shared_ptr<string> instanceScene_ {};
-    // The data node ID. You can call the [DescribeLogicInstanceTopology](https://help.aliyun.com/document_detail/473786.html) operation to obtain the data node ID. For the obtained data node ID, you must remove the number sign (`#`) and the content that follows it. For example, retain only r-bp10noxlhcoim2****-db-0.
+    // The data node ID. You can call the [DescribeLogicInstanceTopology](https://help.aliyun.com/document_detail/473786.html) operation to obtain the data node ID. For the obtained data node ID, you must remove the number sign (`#`) and the content after it. For example, retain only r-bp10noxlhcoim2****-db-0.
     // > Before you specify this parameter, you must also specify the **InstanceId** parameter, and the instance must use the cluster or read/write splitting architecture.
     shared_ptr<string> nodeId_ {};
     // The order type. Valid values:
-    // * **BUY** (default): new purchase
-    // * **UPGRADE**: upgrade instance type
-    // * **DOWNGRADE**: downgrade instance type
+    // * **BUY** (default): new purchase.
+    // * **UPGRADE**: upgrade the instance type.
+    // * **DOWNGRADE**: downgrade the instance type.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The product type. Valid values:
-    // - **Local** (default): Redis Community Edition instance (classic architecture) or memory-optimized instance (classic architecture).
-    // - **Tair_rdb**: memory-optimized instance (cloud-native architecture).
+    // The product type. Default value: Local. Valid values:
+    // - **Local**: Redis Community Edition instance (Classic Edition) or memory-optimized instance (Classic Edition).
+    // - **Tair_rdb**: memory-optimized instance (Cloud-native Edition).
     // - **Tair_scm**: persistent memory-optimized instance.
     // - **Tair_essd**: disk-optimized instance.
-    // - **OnECS**: Redis Community Edition instance (cloud-native architecture).
-    // > The default value is Local. If you want to query cloud disk resources, you must specify the product type that corresponds to the required cloud disk resources.
+    // - **OnECS**: Redis Community Edition instance (Cloud-native Edition).
+    // > The default value of this parameter is Local. If you want to query cloud disk resources, you must specify the product type corresponding to the required cloud disk resources.
     shared_ptr<string> productType_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
     // 

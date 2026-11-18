@@ -275,24 +275,24 @@ namespace Models
     // - **PrePaid**: Subscription.
     // - **PostPaid**: Pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The expiration status of the instance. Valid values:
+    // Specifies whether the instance has expired. Valid values:
     // 
-    // * **true**: Expired.
-    // * **false**: Not expired.
+    // * **true**: The instance has expired.
+    // * **false**: The instance has not expired.
     shared_ptr<string> expired_ {};
     // The instance type.
     shared_ptr<string> instanceClass_ {};
     // The IDs of the instances to query.
-    // > If you specify multiple instance IDs, separate them with commas (,). You can specify up to 30 instance IDs in a single request.
+    // > Separate multiple instance IDs with commas (,). You can specify up to 30 instance IDs in a single request.
     shared_ptr<string> instanceIds_ {};
-    // The instance status. Valid values:
+    // The status of the instance. Valid values:
     // * **Normal**: Normal.
     // * **Creating**: Creating.
     // 
     // > For more information about instance statuses, see [Instance statuses and impacts](https://help.aliyun.com/document_detail/200740.html).
     shared_ptr<string> instanceStatus_ {};
     // The network type. Valid values:
-    // * **VPC**: Virtual Private Cloud (VPC). This is the default value.
+    // * **VPC**: VPC. This is the default value.
     shared_ptr<string> networkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -300,7 +300,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // **[Deprecated]** The private IP address of the VPC.
+    // The private IP address in the VPC. **[Deprecated]** This parameter is deprecated.
     shared_ptr<string> privateIp_ {};
     // The region ID of the instance.
     // 
@@ -310,7 +310,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The search keyword. You can use this parameter to perform a fuzzy search by instance name or instance ID.
+    // The keyword for fuzzy search by instance name or instance ID.
     shared_ptr<string> searchKey_ {};
     shared_ptr<string> securityToken_ {};
     // The tags of the instance.

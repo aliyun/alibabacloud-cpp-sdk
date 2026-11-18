@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The instance ID of the instance to revoke from the recycle bin.
+    // The ID of the revoked instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

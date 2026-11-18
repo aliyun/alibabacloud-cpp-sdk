@@ -82,14 +82,14 @@ namespace Models
 
 
     protected:
-      // The key of the label.
+      // The label key.
       // 
       // > * **N** specifies the sequence number of the label key. For example, **Tag.1.Key** specifies the key of the first label, and **Tag.2.Key** specifies the key of the second label.
-      // > * If the label key does not exist, automatic creation of the key is performed.
+      // > * If the label key does not exist, automatic creation is performed.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       // 
       // > **N** specifies the sequence number of the tag value. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
       // 
@@ -177,7 +177,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags of the instances.
+    // The tag information of the instances.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

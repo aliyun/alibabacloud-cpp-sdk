@@ -117,28 +117,28 @@ namespace Models
 
 
     protected:
-      // The time when the O&M task configuration was created. The time is in the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format (UTC).
+      // The time when the O&M task configuration was created. The time follows the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format (UTC).
       shared_ptr<string> createdTime_ {};
       // The cycle time.
       // 
-      // - If CycleType is set to Month, a number from 1 to 28 is returned, indicating the day of the month. Multiple values are separated by commas (,). The value is 0 if the configuration is inactive.
-      // - If CycleType is set to Week, a number from 1 to 7 is returned, indicating the day of the week. Multiple values are separated by commas (,). The value is 0 if the configuration is inactive.
+      // - If CycleType is set to Month, a number from 1 to 28 is returned, indicating the day of the month. Multiple days are separated by commas (,). If the configuration does not take effect, 0 is returned.
+      // - If CycleType is set to Week, a number from 1 to 7 is returned, indicating the day of the week. Multiple days are separated by commas (,). If the configuration does not take effect, 0 is returned.
       shared_ptr<string> cycleTime_ {};
       // The cycle type. Valid values:
       // 
-      // - Month: monthly
-      // - Week: weekly
+      // - Month: Monthly.
+      // - Week: Weekly.
       shared_ptr<string> cycleType_ {};
-      // The end time of the O&M time window. The time is in the <i>hh:mm:ss</i>Z format (UTC).
+      // The end time of the O&M time window. The time follows the <i>hh:mm:ss</i>Z format (UTC).
       shared_ptr<string> maintainEndTime_ {};
-      // The start time of the O&M time window. The time is in the <i>hh:mm:ss</i>Z format (UTC).
+      // The start time of the O&M time window. The time follows the <i>hh:mm:ss</i>Z format (UTC).
       shared_ptr<string> maintainStartTime_ {};
-      // The time when the O&M task configuration was last modified. The time is in the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format (UTC).
+      // The time when the O&M task configuration was last modified. The time follows the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format (UTC).
       shared_ptr<string> modifiedTime_ {};
-      // Indicates whether the configuration is active. Valid values:
+      // Indicates whether the configuration takes effect. Valid values:
       // 
-      // - 1: Active.
-      // - 2: Inactive.
+      // - 1: Effective.
+      // - 2: Invalid.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -170,7 +170,7 @@ namespace Models
   protected:
     // The configuration details of the O&M task.
     shared_ptr<DescribeActiveOperationMaintenanceConfigResponseBody::Config> config_ {};
-    // Indicates whether the configuration exists. Valid values:
+    // Indicates whether the O&M task is configured. Valid values:
     // 
     // - 1: Configured.
     // - 0: Not configured.

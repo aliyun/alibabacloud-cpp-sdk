@@ -241,23 +241,23 @@ namespace Models
 
 
     protected:
-      // The allowed operation information. When used, the operation Action is matched based on currentStepName and status in this information. If no Action is matched, the task does not support operations in its current state. Example:
+      // The information about allowed operations. When you use this parameter, the system matches the operation action based on the CurrentStepName and Status in this information. If no action is matched, the current task status does not support the operation. Example:
       // 
       // ```
       // {"steps": [
       //     {
-      //       "step_name": "exec_task", // Step name, matched with currentStepName
-      //       "action_info": {    // Operations supported by the step
-      //         "Waiting": [      // Status, matched with status
-      //           "modifySwitchTime" // Operation Action, may have multiple values, indicating multiple supported operations
+      //       "step_name": "exec_task", // The step name, which matches CurrentStepName.
+      //       "action_info": {    // The operations supported by the step.
+      //         "Waiting": [      // The status, which matches Status.
+      //           "modifySwitchTime" // The operation action. Multiple actions indicate that multiple operations are supported.
       //         ]
       //       }
       //     },
       //     {
-      //       "step_name": "init_task", // Step name
-      //       "action_info": {    // Operations supported by the step
-      //         "Running": [      // Status
-      //           "cancel",       // Operation
+      //       "step_name": "init_task", // The step name.
+      //       "action_info": {    // The operations supported by the step.
+      //         "Running": [      // The status.
+      //           "cancel",       // The operation.
       //           "pause"
       //         ]
       //       }
@@ -266,22 +266,22 @@ namespace Models
       // }
       // ```
       // 
-      // Operations that the system may support: 
+      // Operations that may be supported by the system: 
       // * **retry**: Retry.
       // * **cancel**: Cancel.
       // * **modifySwitchTime**: Modify the switchover time or recovery time.
       shared_ptr<string> actionInfo_ {};
-      // The request user ID. When callerSource is User, this value represents the user UID.
+      // The ID of the requesting user. If CallerSource is set to User, this parameter represents the user ID.
       shared_ptr<string> callerSource_ {};
       // The request source. Valid values: 
-      // * **System**: Automatically initiated by the system.
-      // * **User**: Initiated by a user.
+      // * **System**: Automatic system operation.
+      // * **User**: User.
       shared_ptr<string> callerUid_ {};
-      // The name of the current step being executed. An empty value indicates that the task has not started.
+      // The name of the current step being executed. If this parameter is empty, the task has not started.
       shared_ptr<string> currentStepName_ {};
       // The database type. The value is fixed as redis.
       shared_ptr<string> dbType_ {};
-      // The end time of the task in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+      // The end time of the task. The time is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
       shared_ptr<string> endTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -299,23 +299,23 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The estimated remaining execution time. Unit: seconds. A value of 0 indicates that the execution is complete.
       shared_ptr<int32_t> remainTime_ {};
-      // The start time of the task in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+      // The start time of the task. The time is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
       shared_ptr<string> startTime_ {};
       // The task status. Valid values:
-      // - **Scheduled**: Waiting for execution.
+      // - **Scheduled**: Pending execution.
       // - **Running**: Running.
       // - **Succeed**: Succeeded.
       // - **Failed**: Failed.
-      // - **Cancelling**: Being stopped.
-      // - **Canceled**: Stopped.
+      // - **Cancelling**: Cancelling.
+      // - **Canceled**: Canceled.
       // - **Waiting**: Waiting for the scheduled time.
       shared_ptr<string> status_ {};
-      // The task details. Different task types correspond to different outputs.
+      // The task details. The output varies based on the task type.
       shared_ptr<string> taskDetail_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
       // The task type. Valid values:
-      // - **ModifyInsSpec**: Specification change or migration.
+      // - **ModifyInsSpec**: Instance specification change or migration.
       // - **DeleteInsNode**: Shard deletion.
       // - **AddInsNode**: Shard addition.
       // - **HaSwitch**: Primary/secondary switchover.
@@ -323,7 +323,7 @@ namespace Models
       // - **CreateIns**: Instance creation.
       // - **ModifyInsConfig**: Configuration change.
       shared_ptr<string> taskType_ {};
-      // The user ID of the resource owner.
+      // The ID of the user to whom the resource belongs.
       shared_ptr<string> uid_ {};
     };
 

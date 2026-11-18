@@ -98,7 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The reason for locking the instance.
+    // The reason for the lock.
     // 
     // This parameter is required.
     shared_ptr<string> lockReason_ {};

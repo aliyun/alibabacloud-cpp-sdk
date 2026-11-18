@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether TDE is enabled. Valid values:
-    // * **Enabled**: TDE is enabled.
-    // * **Disabled**: TDE is disabled.
+    // * **Enabled**: Enabled.
+    // * **Disabled**: Disabled.
     shared_ptr<string> TDEStatus_ {};
   };
 

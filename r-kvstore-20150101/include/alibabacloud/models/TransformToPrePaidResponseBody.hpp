@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The time when the instance expires after the billing method of the instance is changed to subscription.
+    // The instance expires time after the payer billing method is transformed to subscription.
     // 
-    // The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+    // The time is in UTC and follows the YYYY-MM-DDTHH:mm:ssZ format.
     shared_ptr<string> endTime_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

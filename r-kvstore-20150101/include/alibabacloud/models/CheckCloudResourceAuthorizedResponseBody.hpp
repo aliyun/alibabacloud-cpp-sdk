@@ -53,7 +53,7 @@ namespace Models
     // * **1**: Authorized.
     // * **2**: KMS is not activated. For more information, see [Activate KMS](https://help.aliyun.com/document_detail/153781.html).
     shared_ptr<int32_t> authorizationState_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

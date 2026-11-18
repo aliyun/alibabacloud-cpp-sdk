@@ -123,12 +123,12 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // Specifies whether to restrict specification changes on the instance. Valid values:
-    // * **0**: Unrestricted.
-    // * **1**: Restricted. Users are prompted when they perform a specification change.
+    // Specifies whether to restrict specification changes for the instance. Valid values:
+    // * **0**: No restriction.
+    // * **1**: Restricted. Users receive a prompt when performing a specification change.
     shared_ptr<string> status_ {};
     // Instance ID of the DTS instance. You can log on to the [DTS console](https://dts.console.aliyun.com/) to view instance ID.
-    // > An instance may be involved in multiple DTS migration or synchronization tasks simultaneously. To remove the specification change restrictions on the instance, pass this parameter to avoid calling this operation multiple times.
+    // > An instance may be involved in multiple DTS migration or synchronization tasks. When you need to remove the specification change restriction for the instance, you can pass this parameter to avoid calling this operation multiple times.
     shared_ptr<string> taskId_ {};
   };
 

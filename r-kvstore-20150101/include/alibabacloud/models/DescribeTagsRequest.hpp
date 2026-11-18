@@ -95,7 +95,7 @@ namespace Models
 
   protected:
     // The token used to start the next query to return more results.
-    // > You do not need to provide this parameter for the first query. If a single query does not return all results, you can pass the **NextToken** value returned in the previous response to continue the query.
+    // > You do not need to specify this parameter for the first query. If a query does not return all results, you can pass the **NextToken** value returned in the previous response to continue the query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

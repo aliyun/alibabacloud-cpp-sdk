@@ -86,7 +86,7 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The parameter template ID.
+    // The ID of the parameter template.
     // 
     // This parameter is required.
     shared_ptr<string> parameterGroupId_ {};

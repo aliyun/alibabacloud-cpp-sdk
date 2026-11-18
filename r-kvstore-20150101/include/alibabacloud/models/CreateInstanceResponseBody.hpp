@@ -242,17 +242,17 @@ namespace Models
     shared_ptr<string> chargeType_ {};
     // The detailed configurations of the instance.
     shared_ptr<string> config_ {};
-    // The internal network connection endpoint of the ApsaraDB for Redis instance.
+    // The internal network endpoint of the Redis instance.
     shared_ptr<string> connectionDomain_ {};
-    // The maximum number of connections supported by the instance.
+    // The maximum number of connections to the instance.
     shared_ptr<int64_t> connections_ {};
-    // The time when the subscription instance expires. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+    // The time when the subscription instance expires. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
     shared_ptr<string> endTime_ {};
-    // The globally unique instance ID.
+    // Instance ID of the instance. Instance ID is globally unique.
     shared_ptr<string> instanceId_ {};
     // The name of the instance.
     shared_ptr<string> instanceName_ {};
-    // The current status of the instance. The return value is fixed to Creating.
+    // The current status of the instance. The value is fixed to Creating.
     shared_ptr<string> instanceStatus_ {};
     // The network type. Valid values:
     // * **CLASSIC**: classic network.
@@ -266,21 +266,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> orderId_ {};
-    // The service port of ApsaraDB for Redis.
+    // The Redis service port.
     shared_ptr<int32_t> port_ {};
     // The internal IP address of the instance.
     shared_ptr<string> privateIpAddr_ {};
     // The queries per second (QPS). This is the theoretical value for the current instance type.
     shared_ptr<int64_t> QPS_ {};
-    // The region where the instance resides.
+    // The region where the instance is deployed.
     shared_ptr<string> regionId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The username used to connect to ApsaraDB for Redis. By default, an account named after the instance ID is included.
+    // The username used to connect to the Redis instance. By default, an account named after the instance ID is included.
     shared_ptr<string> userName_ {};
     // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC.
+    // The ID of the virtual private cloud (VPC).
     shared_ptr<string> vpcId_ {};
     // The ID of the zone to which the instance belongs.
     shared_ptr<string> zoneId_ {};

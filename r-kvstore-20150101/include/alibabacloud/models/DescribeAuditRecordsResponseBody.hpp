@@ -254,7 +254,7 @@ namespace Models
   protected:
     // The end time of the query.
     // 
-    // The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
+    // The time is in the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
     shared_ptr<string> endTime_ {};
     // The name of the instance.
     shared_ptr<string> instanceName_ {};
@@ -267,7 +267,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The start time of the query.
     // 
-    // The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
+    // The time is in the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
     shared_ptr<string> startTime_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};

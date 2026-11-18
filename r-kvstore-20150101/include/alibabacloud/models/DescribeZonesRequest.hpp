@@ -94,8 +94,7 @@ namespace Models
 
 
   protected:
-    // The language of the zone names in the response. Valid values:
-    // 
+    // Specifies the language of the returned zone names. Valid values:
     // * **zh-CN** (default): Chinese.
     // * **en-US**: English.
     shared_ptr<string> acceptLanguage_ {};

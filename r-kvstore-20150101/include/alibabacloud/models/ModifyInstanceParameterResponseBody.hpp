@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The task ID.
+    // The ID of the task.
     shared_ptr<int64_t> taskId_ {};
   };
 

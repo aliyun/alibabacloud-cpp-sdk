@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The name of the account whose password you want to modify. You can call [DescribeAccounts](https://help.aliyun.com/document_detail/473816.html) to query the account name.
+    // The name of the account whose password you want to update. You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/473816.html) operation to query the account name.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
@@ -129,13 +129,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The new password to set for the account. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `!@#$%^&*()_+-=`.
+    // The new password to be set for the account. The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The special characters are `!@#$%^&*()_+-=`.
     // 
     // This parameter is required.
     shared_ptr<string> newAccountPassword_ {};
     // The original password of the account.
     // 
-    // > If you forget the password of the account, you can call [ResetAccountPassword](https://help.aliyun.com/document_detail/473815.html) to reset the password.
+    // > If you forget the account password, you can also call the [ResetAccountPassword](https://help.aliyun.com/document_detail/473815.html) operation to reset the password.
     // 
     // This parameter is required.
     shared_ptr<string> oldAccountPassword_ {};
@@ -144,7 +144,7 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // This parameter is used only for internal maintenance purposes. You do not need to specify this parameter.
+    // This parameter is used only for internal maintenance and does not need to be specified.
     shared_ptr<string> sourceBiz_ {};
   };
 

@@ -233,7 +233,7 @@ namespace Models
 
 
   protected:
-    // The request ID, which is used to locate logs and troubleshoot issues.
+    // The ID of the request. You can use the request ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeTairSkvDdbTableResponseBody::Tables> tables_ {};
   };

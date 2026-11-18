@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The distributed instance ID.
+    // The instance ID of the distributed instance.
     shared_ptr<string> globalInstanceId_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

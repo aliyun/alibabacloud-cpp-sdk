@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The instance ID of the AI assistant.
+    // The ID of the AI assistant instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The scheduling ID of the timed scheduling.
+    // The ID of the schedule.
     shared_ptr<string> scheduleId_ {};
     shared_ptr<string> securityToken_ {};
   };

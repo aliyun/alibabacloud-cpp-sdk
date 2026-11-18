@@ -118,9 +118,9 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The IDs of the proxy nodes to operate. Separate multiple IDs with commas.
+    // The IDs of the proxy nodes to be operated on. Separate multiple IDs with commas.
     shared_ptr<string> proxyList_ {};
-    // The IDs of the hosts on which the proxy nodes to operate reside. Separate multiple IDs with commas.
+    // The IDs of the hosts where the proxy nodes to be operated on reside. Separate multiple IDs with commas.
     shared_ptr<string> proxyNodeList_ {};
     // The operation type. Valid values:
     // 

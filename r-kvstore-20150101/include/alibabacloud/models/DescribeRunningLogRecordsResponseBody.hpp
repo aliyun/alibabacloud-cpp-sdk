@@ -223,7 +223,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. The time is in the YYYY-MM-DDTHH:mmZ format and is in UTC.
+    // The start time of the query.
+    // 
+    // The time is in the YYYY-MM-DDTHH:mmZ format and is in UTC.
     shared_ptr<string> startTime_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};

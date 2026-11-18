@@ -132,9 +132,9 @@ namespace Models
       // The time when the parameter template was created.
       shared_ptr<string> created_ {};
       // The engine type. Valid values:
-      // - **redis**: open-source Redis or Tair (Memory-optimized).
-      // - **tair_pena**: Tair (Persistent Memory-optimized).
-      // - **tair_pdb**: Tair (Disk-optimized).
+      // - **redis**: open-source Redis or Tair (memory-optimized).
+      // - **tair_pena**: Tair (persistent memory-optimized).
+      // - **tair_pdb**: Tair (disk-optimized).
       shared_ptr<string> engine_ {};
       // The compatible engine version.
       shared_ptr<string> engineVersion_ {};

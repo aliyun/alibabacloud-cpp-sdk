@@ -197,24 +197,24 @@ namespace Models
   protected:
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // * **true**: enabled.
-    // * **false**: disabled.
+    // * **true**: enables auto-renewal.
+    // * **false**: disables auto-renewal.
     shared_ptr<string> autoRenew_ {};
-    // The auto-renewal period. Unit: months. Valid values: **1**, **2**, **3**, **6**, and **12**.
+    // The auto-renewal epoch. Unit: months. Valid values: **1**, **2**, **3**, **6**, and **12**.
     // 
-    // > This parameter is required when **AutoRenew** is set to **true**.
+    // > This parameter is required when the **AutoRenew** parameter is set to **true**.
     shared_ptr<int64_t> autoRenewPeriod_ {};
-    // The billing method to convert to. Valid values:
+    // The billing method of the destination instance. Valid values:
     // * **PostPaid**: pay-as-you-go.
     // * **PrePaid**: subscription. If you set this parameter to PrePaid, you must also specify the **Period** parameter.
     shared_ptr<string> chargeType_ {};
-    // Specifies whether to perform a dry run for this operation. Valid values:
-    // * **true**: performs a dry run without creating the cloud-native instance. The system checks items such as the request parameters, request format, service limits, and available inventory. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
-    // * **false** (default): sends the request. If the check succeeds, the instance is created.
+    // Specifies whether to perform a dry run before creating the instance. Valid values:
+    // * **true**: performs a dry run without creating the cloud-native instance. The system checks the request parameters, request format, service limits, and inventory. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // * **false** (default): sends a normal request. If the request passes the dry run, the instance is created.
     shared_ptr<bool> dryRun_ {};
     // The time when the database switchover is performed after data migration. Valid values: 
-    // * **Immediately**: The switchover is performed immediately after the migration is complete.
-    // * **MaintainTime**: The switchover is performed during the maintenance window.
+    // * **Immediately**: The switchover is performed immediately after the migration is completed.
+    // * **MaintainTime**: The switchover is performed within the maintenance window.
     // 
     // > Default value: **Immediately**.
     shared_ptr<string> effectiveTime_ {};
@@ -222,14 +222,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
-    // The instance type of the target cloud-native instance. For more information, see [Overview of instance specifications](https://help.aliyun.com/document_detail/26350.html).
+    // The instance type of the destination cloud-native instance. For more information, see [Instance type query navigation](https://help.aliyun.com/document_detail/26350.html).
     // 
-    // > This is the description content.
-    // > - For cluster instances, specify the corresponding cloud-native cluster instance type with .proxy, and specify the ShardCount parameter for the number of shards.
+    // > Note:
+    // > - For a cluster instance, you must specify a cloud-native cluster instance type that includes with.proxy and specify the ShardCount parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceClass_ {};
-    // The ID of the classic architecture instance to convert.
+    // The ID of the classic instance to be converted.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -238,12 +238,12 @@ namespace Models
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The subscription duration. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
-    // > This parameter is available and required only when **ChargeType** is set to **PrePaid**.
+    // > This parameter is available and required only when the **ChargeType** parameter is set to **PrePaid**.
     shared_ptr<int64_t> period_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> secondaryIzNo_ {};
-    // The number of data shard nodes in the cloud-native cluster instance.
+    // The number of data shards in the cloud-native cluster instance.
     shared_ptr<int64_t> shardCount_ {};
     shared_ptr<string> vSwitchId_ {};
   };

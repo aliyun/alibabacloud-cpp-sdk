@@ -107,7 +107,7 @@ namespace Models
 
   protected:
     // The token used to start the next query.
-    // > This parameter is returned if a single query does not return all results. You can pass the value of this parameter in a subsequent query to continue the query.
+    // > This parameter is returned if a query does not return all results. You can pass the value of this parameter in a subsequent query to continue the query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

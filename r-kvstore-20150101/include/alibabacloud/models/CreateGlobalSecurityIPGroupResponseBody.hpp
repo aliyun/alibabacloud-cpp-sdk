@@ -90,9 +90,9 @@ namespace Models
     protected:
       // The IP addresses in the whitelist template.
       shared_ptr<string> GIpList_ {};
-      // The name of the IP address whitelist template.
+      // The name of the IP whitelist template.
       shared_ptr<string> globalIgName_ {};
-      // The ID of the IP address whitelist template.
+      // The ID of the IP whitelist template.
       shared_ptr<string> globalSecurityGroupId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -117,7 +117,7 @@ namespace Models
 
 
   protected:
-    // The information about the global IP address whitelist template.
+    // The global IP whitelist template information.
     shared_ptr<vector<CreateGlobalSecurityIPGroupResponseBody::GlobalSecurityIPGroup>> globalSecurityIPGroup_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -261,7 +261,7 @@ namespace Models
 
 
   protected:
-    // The database engine.
+    // The database type.
     shared_ptr<string> engine_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
@@ -274,9 +274,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the query.
-    // 
-    // The time is in the YYYY-MM-DDTHH:mmZ format and displayed in UTC.
+    // The start time of the query. The time is in the YYYY-MM-DDTHH:mmZ format and displayed in UTC.
     shared_ptr<string> startTime_ {};
     // The total number of log entries.
     shared_ptr<int32_t> totalRecordCount_ {};

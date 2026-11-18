@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The instance ID of the virtual node.
+    // The virtual node instance ID.
     shared_ptr<string> instanceId_ {};
     // The ID of the virtual node.
     shared_ptr<string> nodeId_ {};
@@ -115,7 +115,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The ID of the virtual cluster.
     shared_ptr<string> VClusterId_ {};
-    // The instance ID of the virtual cluster.
+    // The virtual cluster instance ID.
     shared_ptr<string> vkName_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

@@ -297,6 +297,7 @@ namespace Models
               DARABONBA_PTR_TO_JSON(CanPromFee, canPromFee_);
               DARABONBA_PTR_TO_JSON(CouponNo, couponNo_);
               DARABONBA_PTR_TO_JSON(Description, description_);
+              DARABONBA_PTR_TO_JSON(Effective, effective_);
               DARABONBA_PTR_TO_JSON(Name, name_);
               DARABONBA_PTR_TO_JSON(OptionCode, optionCode_);
               DARABONBA_PTR_TO_JSON(PromotionName, promotionName_);
@@ -309,6 +310,7 @@ namespace Models
               DARABONBA_PTR_FROM_JSON(CanPromFee, canPromFee_);
               DARABONBA_PTR_FROM_JSON(CouponNo, couponNo_);
               DARABONBA_PTR_FROM_JSON(Description, description_);
+              DARABONBA_PTR_FROM_JSON(Effective, effective_);
               DARABONBA_PTR_FROM_JSON(Name, name_);
               DARABONBA_PTR_FROM_JSON(OptionCode, optionCode_);
               DARABONBA_PTR_FROM_JSON(PromotionName, promotionName_);
@@ -328,8 +330,8 @@ namespace Models
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
             virtual bool empty() const override { return this->activityExtInfo_ == nullptr
-        && this->canPromFee_ == nullptr && this->couponNo_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->optionCode_ == nullptr
-        && this->promotionName_ == nullptr && this->promotionOptionNo_ == nullptr && this->selected_ == nullptr && this->show_ == nullptr; };
+        && this->canPromFee_ == nullptr && this->couponNo_ == nullptr && this->description_ == nullptr && this->effective_ == nullptr && this->name_ == nullptr
+        && this->optionCode_ == nullptr && this->promotionName_ == nullptr && this->promotionOptionNo_ == nullptr && this->selected_ == nullptr && this->show_ == nullptr; };
             // activityExtInfo Field Functions 
             bool hasActivityExtInfo() const { return this->activityExtInfo_ != nullptr;};
             void deleteActivityExtInfo() { this->activityExtInfo_ = nullptr;};
@@ -358,6 +360,13 @@ namespace Models
             void deleteDescription() { this->description_ = nullptr;};
             inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
             inline OptionalPromotion& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+            // effective Field Functions 
+            bool hasEffective() const { return this->effective_ != nullptr;};
+            void deleteEffective() { this->effective_ = nullptr;};
+            inline bool getEffective() const { DARABONBA_PTR_GET_DEFAULT(effective_, false) };
+            inline OptionalPromotion& setEffective(bool effective) { DARABONBA_PTR_SET_VALUE(effective_, effective) };
 
 
             // name Field Functions 
@@ -407,6 +416,7 @@ namespace Models
             shared_ptr<string> canPromFee_ {};
             shared_ptr<string> couponNo_ {};
             shared_ptr<string> description_ {};
+            shared_ptr<bool> effective_ {};
             shared_ptr<string> name_ {};
             shared_ptr<string> optionCode_ {};
             shared_ptr<string> promotionName_ {};
@@ -1539,7 +1549,7 @@ namespace Models
           shared_ptr<int64_t> activityId_ {};
           // The promotion name.
           shared_ptr<string> activityName_ {};
-          // The price after the discount.
+          // The final price after the discount.
           shared_ptr<double> finalFee_ {};
           // The total discount amount.
           shared_ptr<double> finalPromFee_ {};
@@ -1626,19 +1636,19 @@ namespace Models
 
 
       protected:
-        // The price reduction ratio.
+        // The price reduction rate.
         shared_ptr<int64_t> cheapRate_ {};
         // The total price on the official website after the price reduction.
         shared_ptr<int64_t> cheapStandAmount_ {};
         // The promotion information.
         shared_ptr<DepreciateInfo::ContractActivity> contractActivity_ {};
-        // The price difference discount, displayed in the order total.
+        // The price difference discount (displayed in the total order price).
         shared_ptr<int64_t> differential_ {};
         // The name of the price difference discount.
         shared_ptr<string> differentialName_ {};
-        // Indicates whether a contract-based discount is applied.
+        // Indicates whether a contract discount is applied.
         shared_ptr<bool> isContractActivity_ {};
-        // Indicates whether the price reduction is displayed.
+        // Indicates whether to display the price reduction extent.
         shared_ptr<bool> isShow_ {};
         // The list price.
         shared_ptr<int64_t> listPrice_ {};
@@ -1670,14 +1680,18 @@ namespace Models
         class Coupon : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Coupon& obj) { 
+            DARABONBA_ANY_TO_JSON(ActivityExtInfo, activityExtInfo_);
             DARABONBA_PTR_TO_JSON(CouponNo, couponNo_);
             DARABONBA_PTR_TO_JSON(Description, description_);
+            DARABONBA_PTR_TO_JSON(Effective, effective_);
             DARABONBA_PTR_TO_JSON(IsSelected, isSelected_);
             DARABONBA_PTR_TO_JSON(Name, name_);
           };
           friend void from_json(const Darabonba::Json& j, Coupon& obj) { 
+            DARABONBA_ANY_FROM_JSON(ActivityExtInfo, activityExtInfo_);
             DARABONBA_PTR_FROM_JSON(CouponNo, couponNo_);
             DARABONBA_PTR_FROM_JSON(Description, description_);
+            DARABONBA_PTR_FROM_JSON(Effective, effective_);
             DARABONBA_PTR_FROM_JSON(IsSelected, isSelected_);
             DARABONBA_PTR_FROM_JSON(Name, name_);
           };
@@ -1692,8 +1706,17 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->couponNo_ == nullptr
-        && this->description_ == nullptr && this->isSelected_ == nullptr && this->name_ == nullptr; };
+          virtual bool empty() const override { return this->activityExtInfo_ == nullptr
+        && this->couponNo_ == nullptr && this->description_ == nullptr && this->effective_ == nullptr && this->isSelected_ == nullptr && this->name_ == nullptr; };
+          // activityExtInfo Field Functions 
+          bool hasActivityExtInfo() const { return this->activityExtInfo_ != nullptr;};
+          void deleteActivityExtInfo() { this->activityExtInfo_ = nullptr;};
+          inline           const Darabonba::Json & getActivityExtInfo() const { DARABONBA_GET(activityExtInfo_) };
+          Darabonba::Json & getActivityExtInfo() { DARABONBA_GET(activityExtInfo_) };
+          inline Coupon& setActivityExtInfo(const Darabonba::Json & activityExtInfo) { DARABONBA_SET_VALUE(activityExtInfo_, activityExtInfo) };
+          inline Coupon& setActivityExtInfo(Darabonba::Json && activityExtInfo) { DARABONBA_SET_RVALUE(activityExtInfo_, activityExtInfo) };
+
+
           // couponNo Field Functions 
           bool hasCouponNo() const { return this->couponNo_ != nullptr;};
           void deleteCouponNo() { this->couponNo_ = nullptr;};
@@ -1706,6 +1729,13 @@ namespace Models
           void deleteDescription() { this->description_ = nullptr;};
           inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
           inline Coupon& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+          // effective Field Functions 
+          bool hasEffective() const { return this->effective_ != nullptr;};
+          void deleteEffective() { this->effective_ = nullptr;};
+          inline bool getEffective() const { DARABONBA_PTR_GET_DEFAULT(effective_, false) };
+          inline Coupon& setEffective(bool effective) { DARABONBA_PTR_SET_VALUE(effective_, effective) };
 
 
           // isSelected Field Functions 
@@ -1723,8 +1753,10 @@ namespace Models
 
 
         protected:
+          Darabonba::Json activityExtInfo_ {};
           shared_ptr<string> couponNo_ {};
           shared_ptr<string> description_ {};
+          shared_ptr<bool> effective_ {};
           shared_ptr<string> isSelected_ {};
           shared_ptr<string> name_ {};
         };
@@ -1855,7 +1887,7 @@ namespace Models
       // The order code.
       shared_ptr<string> code_ {};
       shared_ptr<Order::Coupons> coupons_ {};
-      // The currency. The value is CNY (Chinese Yuan) for the China site and USD (US Dollar) for the international site.
+      // The currency. CNY for the China site and USD for the international site.
       shared_ptr<string> currency_ {};
       // The promotion information.
       shared_ptr<Order::DepreciateInfo> depreciateInfo_ {};
@@ -1863,14 +1895,14 @@ namespace Models
       shared_ptr<string> discountAmount_ {};
       // The service fee.
       shared_ptr<string> handlingFeeAmount_ {};
-      // Indicates whether a contract-based discount is applied.
+      // Indicates whether a contract discount is applied.
       shared_ptr<bool> isContractActivity_ {};
       // The order information.
       shared_ptr<string> message_ {};
       // The original price of the order.
       shared_ptr<string> originalAmount_ {};
       shared_ptr<Order::RuleIds> ruleIds_ {};
-      // Indicates whether discount information is displayed.
+      // Indicates whether to display the discount information.
       shared_ptr<bool> showDiscountInfo_ {};
       // The discount price.
       shared_ptr<int64_t> standDiscountPrice_ {};
@@ -1926,7 +1958,7 @@ namespace Models
   protected:
     // The order information.
     shared_ptr<DescribePriceResponseBody::Order> order_ {};
-    // The order parameters. This parameter is returned when OrderParamOut is set to `true`.
+    // The order parameters. Returned when OrderParamOut is set to `true`.
     shared_ptr<string> orderParams_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

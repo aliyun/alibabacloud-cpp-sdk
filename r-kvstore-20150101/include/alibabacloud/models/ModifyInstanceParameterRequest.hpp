@@ -118,8 +118,8 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The parameter template ID.
-    // > You can call the DescribeParameterGroups operation to query the list of parameter templates in the target region, including parameter template IDs.
+    // The ID of the parameter template.
+    // > You can call the DescribeParameterGroups operation to query the parameter templates in the target region, including the parameter template IDs.
     shared_ptr<string> parameterGroupId_ {};
     // The parameter information.
     shared_ptr<string> parameters_ {};

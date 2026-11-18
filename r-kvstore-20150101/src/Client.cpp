@@ -2,11 +2,13 @@
 #include <alibabacloud/RKvstore20150101.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace RKvstore20150101
 {
 
 AlibabaCloud::RKvstore20150101::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "R-kvstore";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-hangzhou" , "r-kvstore.aliyuncs.com"},
@@ -70,7 +75,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds data shard nodes to a cluster instance. This operation supports only cloud-native Cluster Edition instances.
+ * @summary Adds data shard nodes to a cluster instance. This operation is supported only for cloud-native cluster instances.
  *
  * @param request AddShardingNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +154,7 @@ AddShardingNodeResponse Client::addShardingNodeWithOptions(const AddShardingNode
 }
 
 /**
- * @summary Adds data shard nodes to a cluster instance. This operation supports only cloud-native Cluster Edition instances.
+ * @summary Adds data shard nodes to a cluster instance. This operation is supported only for cloud-native cluster instances.
  *
  * @param request AddShardingNodeRequest
  * @return AddShardingNodeResponse
@@ -160,14 +165,14 @@ AddShardingNodeResponse Client::addShardingNode(const AddShardingNodeRequest &re
 }
 
 /**
- * @summary Applies for a direct connection endpoint for an ApsaraDB Tair (Redis® OSS-Compatible) database cluster instance.
+ * @summary Applies for a direct connection endpoint for a Tair (Redis® OSS-Compatible) database cluster instance.
  *
- * @description Clients can use the direct connection endpoint to bypass the proxy and connect to the cluster instance in the same way as they connect to a native Redis cluster. This reduces link overhead and further improves the response speed of the ApsaraDB Tair (Redis® OSS-Compatible) database service.
- * The instance for which you invoke this operation must meet the following conditions:
+ * @description Clients can use the direct connection endpoint to bypass the proxy and connect to the cluster instance in the same way as they connect to a native Redis cluster. This reduces link overhead and further improves the response speed of the Tair (Redis® OSS-Compatible) database service.
+ * To call this operation, the instance must meet the following conditions:
  * * The instance uses the cluster architecture.
- * * The deployment pattern is classic.
- * * The network type of the instance is VPC. If the instance is connected to the classic network, you can invoke the [SwitchNetwork](https://help.aliyun.com/document_detail/473797.html) operation to switch the network type to VPC.
- * * The Secure Sockets Layer (SSL) encryption feature is disabled for the instance. If the Secure Sockets Layer (SSL) encryption feature is enabled, you can invoke the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/473838.html) operation for shutdown.
+ * * The deployment mode is classic.
+ * * The network type of the instance is VPC. If the instance is connected to the classic network, you can call the [SwitchNetwork](https://help.aliyun.com/document_detail/473797.html) operation to switch the network type to VPC.
+ * * The Secure Sockets Layer (SSL) encryption feature is disabled for the instance. If the Secure Sockets Layer (SSL) encryption feature is enabled, you can call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/473838.html) operation to shut down the feature.
  *
  * @param request AllocateDirectConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -226,14 +231,14 @@ AllocateDirectConnectionResponse Client::allocateDirectConnectionWithOptions(con
 }
 
 /**
- * @summary Applies for a direct connection endpoint for an ApsaraDB Tair (Redis® OSS-Compatible) database cluster instance.
+ * @summary Applies for a direct connection endpoint for a Tair (Redis® OSS-Compatible) database cluster instance.
  *
- * @description Clients can use the direct connection endpoint to bypass the proxy and connect to the cluster instance in the same way as they connect to a native Redis cluster. This reduces link overhead and further improves the response speed of the ApsaraDB Tair (Redis® OSS-Compatible) database service.
- * The instance for which you invoke this operation must meet the following conditions:
+ * @description Clients can use the direct connection endpoint to bypass the proxy and connect to the cluster instance in the same way as they connect to a native Redis cluster. This reduces link overhead and further improves the response speed of the Tair (Redis® OSS-Compatible) database service.
+ * To call this operation, the instance must meet the following conditions:
  * * The instance uses the cluster architecture.
- * * The deployment pattern is classic.
- * * The network type of the instance is VPC. If the instance is connected to the classic network, you can invoke the [SwitchNetwork](https://help.aliyun.com/document_detail/473797.html) operation to switch the network type to VPC.
- * * The Secure Sockets Layer (SSL) encryption feature is disabled for the instance. If the Secure Sockets Layer (SSL) encryption feature is enabled, you can invoke the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/473838.html) operation for shutdown.
+ * * The deployment mode is classic.
+ * * The network type of the instance is VPC. If the instance is connected to the classic network, you can call the [SwitchNetwork](https://help.aliyun.com/document_detail/473797.html) operation to switch the network type to VPC.
+ * * The Secure Sockets Layer (SSL) encryption feature is disabled for the instance. If the Secure Sockets Layer (SSL) encryption feature is enabled, you can call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/473838.html) operation to shut down the feature.
  *
  * @param request AllocateDirectConnectionRequest
  * @return AllocateDirectConnectionResponse
@@ -244,7 +249,7 @@ AllocateDirectConnectionResponse Client::allocateDirectConnection(const Allocate
 }
 
 /**
- * @summary Applies for a public endpoint for a Tair (Redis® OSS-Compatible) instance.
+ * @summary Applies for a public endpoint for a Tair (Redis® OSS-Compatible) database instance.
  *
  * @description For the corresponding console operation, see [Apply for a public endpoint](https://help.aliyun.com/document_detail/124920.html).
  *
@@ -305,7 +310,7 @@ AllocateInstancePublicConnectionResponse Client::allocateInstancePublicConnectio
 }
 
 /**
- * @summary Applies for a public endpoint for a Tair (Redis® OSS-Compatible) instance.
+ * @summary Applies for a public endpoint for a Tair (Redis® OSS-Compatible) database instance.
  *
  * @description For the corresponding console operation, see [Apply for a public endpoint](https://help.aliyun.com/document_detail/124920.html).
  *
@@ -318,12 +323,12 @@ AllocateInstancePublicConnectionResponse Client::allocateInstancePublicConnectio
 }
 
 /**
- * @summary Cancels O&M events in batches.
+ * @summary Cancels multiple O&M events.
  *
- * @description Scenarios in which O&M events cannot be canceled
+ * @description Scenarios where O&M events cannot be canceled:
  * - allowCancel is 0.
  * - The current time is later than the start time of the O&M event.
- * - The status of the O&M event is not 3 (waiting for execution).
+ * - The status of the O&M event is not 3 (Pending execution).
  *
  * @param request CancelActiveOperationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -374,12 +379,12 @@ CancelActiveOperationTasksResponse Client::cancelActiveOperationTasksWithOptions
 }
 
 /**
- * @summary Cancels O&M events in batches.
+ * @summary Cancels multiple O&M events.
  *
- * @description Scenarios in which O&M events cannot be canceled
+ * @description Scenarios where O&M events cannot be canceled:
  * - allowCancel is 0.
  * - The current time is later than the start time of the O&M event.
- * - The status of the O&M event is not 3 (waiting for execution).
+ * - The status of the O&M event is not 3 (Pending execution).
  *
  * @param request CancelActiveOperationTasksRequest
  * @return CancelActiveOperationTasksResponse
@@ -440,10 +445,10 @@ CancelInspectionTaskResponse Client::cancelInspectionTask(const CancelInspection
 }
 
 /**
- * @summary Queries whether an ApsaraDB for Redis (Tair) instance has been granted authorization to use the Key Management Service (KMS).
+ * @summary Queries whether an ApsaraDB Tair (Redis-compatible) database instance is granted authorization to use Key Management Service (KMS).
  *
- * @description * For more information about Transparent Data Encryption (TDE) and related precautions, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
- * * After you call this operation to confirm that the authorization is complete, you can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) operation to enable TDE.
+ * @description * For more information about Transparent Data Encryption (TDE) and precautions, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+ * * After you call this operation to confirm the authorization, you can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) operation to enable TDE.
  *
  * @param request CheckCloudResourceAuthorizedRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -498,10 +503,10 @@ CheckCloudResourceAuthorizedResponse Client::checkCloudResourceAuthorizedWithOpt
 }
 
 /**
- * @summary Queries whether an ApsaraDB for Redis (Tair) instance has been granted authorization to use the Key Management Service (KMS).
+ * @summary Queries whether an ApsaraDB Tair (Redis-compatible) database instance is granted authorization to use Key Management Service (KMS).
  *
- * @description * For more information about Transparent Data Encryption (TDE) and related precautions, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
- * * After you call this operation to confirm that the authorization is complete, you can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) operation to enable TDE.
+ * @description * For more information about Transparent Data Encryption (TDE) and precautions, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+ * * After you call this operation to confirm the authorization, you can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) operation to enable TDE.
  *
  * @param request CheckCloudResourceAuthorizedRequest
  * @return CheckCloudResourceAuthorizedResponse
@@ -512,12 +517,12 @@ CheckCloudResourceAuthorizedResponse Client::checkCloudResourceAuthorized(const 
 }
 
 /**
- * @summary Creates an account for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Creates an account for a Tair (Redis® OSS-Compatible) instance.
  *
- * @description * This operation supports only instances that are compatible with Redis 4.0 or later.
- *  * The instance status must be Running when you call this operation. 
+ * @description * This API operation is supported only by instances that are compatible with Redis 4.0 or later.
+ *  * This API operation requires the instance to be in the Running state. 
  *  * You can create up to 18 accounts for each instance.
- * > For the console operation that corresponds to this API operation, see [Account management](https://help.aliyun.com/document_detail/92665.html).
+ * > For the corresponding console operation, see [Account management](https://help.aliyun.com/document_detail/92665.html).
  *
  * @param request CreateAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -596,12 +601,12 @@ CreateAccountResponse Client::createAccountWithOptions(const CreateAccountReques
 }
 
 /**
- * @summary Creates an account for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Creates an account for a Tair (Redis® OSS-Compatible) instance.
  *
- * @description * This operation supports only instances that are compatible with Redis 4.0 or later.
- *  * The instance status must be Running when you call this operation. 
+ * @description * This API operation is supported only by instances that are compatible with Redis 4.0 or later.
+ *  * This API operation requires the instance to be in the Running state. 
  *  * You can create up to 18 accounts for each instance.
- * > For the console operation that corresponds to this API operation, see [Account management](https://help.aliyun.com/document_detail/92665.html).
+ * > For the corresponding console operation, see [Account management](https://help.aliyun.com/document_detail/92665.html).
  *
  * @param request CreateAccountRequest
  * @return CreateAccountResponse
@@ -612,9 +617,9 @@ CreateAccountResponse Client::createAccount(const CreateAccountRequest &request)
 }
 
 /**
- * @summary Creates a data backup for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Creates a data backup for an ApsaraDB for Tair (Redis OSS-Compatible) instance.
  *
- * @description For the console operation that corresponds to this API operation, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
+ * @description For the corresponding console operation, refer to [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
  *
  * @param request CreateBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -669,9 +674,9 @@ CreateBackupResponse Client::createBackupWithOptions(const CreateBackupRequest &
 }
 
 /**
- * @summary Creates a data backup for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Creates a data backup for an ApsaraDB for Tair (Redis OSS-Compatible) instance.
  *
- * @description For the console operation that corresponds to this API operation, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
+ * @description For the corresponding console operation, refer to [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
  *
  * @param request CreateBackupRequest
  * @return CreateBackupResponse
@@ -682,9 +687,9 @@ CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
 }
 
 /**
- * @summary Manually initiates a cache analysis task for an instance.
+ * @summary Initiates a manual cache analysis task for an instance.
  *
- * @description This operation is no longer recommended. Use the new operation [Real-time Top Key Statistics and Offline Full Key Analysis](https://help.aliyun.com/document_detail/184226.html) instead.
+ * @description This operation is deprecated. Use the [Real-time top key statistics and offline full key analysis](https://help.aliyun.com/document_detail/184226.html) operation instead.
  *
  * @param request CreateCacheAnalysisTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -735,9 +740,9 @@ CreateCacheAnalysisTaskResponse Client::createCacheAnalysisTaskWithOptions(const
 }
 
 /**
- * @summary Manually initiates a cache analysis task for an instance.
+ * @summary Initiates a manual cache analysis task for an instance.
  *
- * @description This operation is no longer recommended. Use the new operation [Real-time Top Key Statistics and Offline Full Key Analysis](https://help.aliyun.com/document_detail/184226.html) instead.
+ * @description This operation is deprecated. Use the [Real-time top key statistics and offline full key analysis](https://help.aliyun.com/document_detail/184226.html) operation instead.
  *
  * @param request CreateCacheAnalysisTaskRequest
  * @return CreateCacheAnalysisTaskResponse
@@ -752,9 +757,9 @@ CreateCacheAnalysisTaskResponse Client::createCacheAnalysisTask(const CreateCach
  *
  * @description You can call this operation to convert an existing instance into the first child instance of a distributed instance. After the conversion, the distributed instance to which the instance belongs is created.
  * The instance to be converted must meet the following requirements:
- * * The instance is a Tair [memory-optimized](https://help.aliyun.com/document_detail/126164.html) (Classic Edition) instance.
- * * If the instance uses a cluster architecture, you must disable the direct connection mode. For more information, see [Release a direct connection endpoint](https://help.aliyun.com/document_detail/150047.html).
- * > You can also call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation to create an instance as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which it belongs is created.
+ * * The instance to be converted is a Tair [memory-optimized](https://help.aliyun.com/document_detail/126164.html) (Classic Edition) instance.
+ * * If the instance to be converted uses the cluster architecture, the direct connection mode must be disabled. For more information, see [Release a direct connection endpoint](https://help.aliyun.com/document_detail/150047.html).
+ * > You can also call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation to purchase a new instance as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
  *
  * @param request CreateGlobalDistributeCacheRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -817,9 +822,9 @@ CreateGlobalDistributeCacheResponse Client::createGlobalDistributeCacheWithOptio
  *
  * @description You can call this operation to convert an existing instance into the first child instance of a distributed instance. After the conversion, the distributed instance to which the instance belongs is created.
  * The instance to be converted must meet the following requirements:
- * * The instance is a Tair [memory-optimized](https://help.aliyun.com/document_detail/126164.html) (Classic Edition) instance.
- * * If the instance uses a cluster architecture, you must disable the direct connection mode. For more information, see [Release a direct connection endpoint](https://help.aliyun.com/document_detail/150047.html).
- * > You can also call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation to create an instance as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which it belongs is created.
+ * * The instance to be converted is a Tair [memory-optimized](https://help.aliyun.com/document_detail/126164.html) (Classic Edition) instance.
+ * * If the instance to be converted uses the cluster architecture, the direct connection mode must be disabled. For more information, see [Release a direct connection endpoint](https://help.aliyun.com/document_detail/150047.html).
+ * > You can also call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation to purchase a new instance as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
  *
  * @param request CreateGlobalDistributeCacheRequest
  * @return CreateGlobalDistributeCacheResponse
@@ -830,7 +835,7 @@ CreateGlobalDistributeCacheResponse Client::createGlobalDistributeCache(const Cr
 }
 
 /**
- * @summary Creates a global IP address whitelist template.
+ * @summary Creates a global IP whitelist template.
  *
  * @param request CreateGlobalSecurityIPGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -893,7 +898,7 @@ CreateGlobalSecurityIPGroupResponse Client::createGlobalSecurityIPGroupWithOptio
 }
 
 /**
- * @summary Creates a global IP address whitelist template.
+ * @summary Creates a global IP whitelist template.
  *
  * @param request CreateGlobalSecurityIPGroupRequest
  * @return CreateGlobalSecurityIPGroupResponse
@@ -904,7 +909,7 @@ CreateGlobalSecurityIPGroupResponse Client::createGlobalSecurityIPGroup(const Cr
 }
 
 /**
- * @summary Creates a scheduled inspection task configuration.
+ * @summary Creates a configuration for a scheduled inspection task.
  *
  * @param request CreateInspectionScheduleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -967,7 +972,7 @@ CreateInspectionScheduleResponse Client::createInspectionScheduleWithOptions(con
 }
 
 /**
- * @summary Creates a scheduled inspection task configuration.
+ * @summary Creates a configuration for a scheduled inspection task.
  *
  * @param request CreateInspectionScheduleRequest
  * @return CreateInspectionScheduleResponse
@@ -978,7 +983,7 @@ CreateInspectionScheduleResponse Client::createInspectionSchedule(const CreateIn
 }
 
 /**
- * @summary Creates a manual inspection task.
+ * @summary Manually creates an inspection task.
  *
  * @param request CreateInspectionTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1029,7 +1034,7 @@ CreateInspectionTaskResponse Client::createInspectionTaskWithOptions(const Creat
 }
 
 /**
- * @summary Creates a manual inspection task.
+ * @summary Manually creates an inspection task.
  *
  * @param request CreateInspectionTaskRequest
  * @return CreateInspectionTaskResponse
@@ -1040,11 +1045,11 @@ CreateInspectionTaskResponse Client::createInspectionTask(const CreateInspection
 }
 
 /**
- * @summary Creates an ApsaraDB for Redis Community Edition instance with the classic or cloud-native architecture, or a Tair in-memory instance with the classic architecture. To create a Tair instance with the cloud-native architecture, call the CreateTairInstance operation.
+ * @summary Creates a Redis Community Edition instance with the classic or cloud-native architecture, or a Tair in-memory instance with the classic architecture. To create a Tair instance with the cloud-native architecture, call the CreateTairInstance operation.
  *
- * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
- * This operation can be used to create an ApsaraDB for Redis Community Edition instance or a Tair in-memory instance with the classic architecture. To create a Tair instance with the cloud-native architecture, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
- * > For information about how to create an ApsaraDB for Redis instance in the console and how to select an instance type, see [Create an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/26351.html).
+ * @description Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis (Tair) before you call this operation.
+ * This operation allows you to create a Redis Community Edition instance or a Tair memory-optimized instance with the classic architecture. To create a Tair instance with the cloud-native architecture, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
+ * > For information about how to create a Redis instance and select instance types in the console, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
  *
  * @param request CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1275,11 +1280,11 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
- * @summary Creates an ApsaraDB for Redis Community Edition instance with the classic or cloud-native architecture, or a Tair in-memory instance with the classic architecture. To create a Tair instance with the cloud-native architecture, call the CreateTairInstance operation.
+ * @summary Creates a Redis Community Edition instance with the classic or cloud-native architecture, or a Tair in-memory instance with the classic architecture. To create a Tair instance with the cloud-native architecture, call the CreateTairInstance operation.
  *
- * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair (Redis OSS-compatible).
- * This operation can be used to create an ApsaraDB for Redis Community Edition instance or a Tair in-memory instance with the classic architecture. To create a Tair instance with the cloud-native architecture, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
- * > For information about how to create an ApsaraDB for Redis instance in the console and how to select an instance type, see [Create an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/26351.html).
+ * @description Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis (Tair) before you call this operation.
+ * This operation allows you to create a Redis Community Edition instance or a Tair memory-optimized instance with the classic architecture. To create a Tair instance with the cloud-native architecture, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
+ * > For information about how to create a Redis instance and select instance types in the console, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
@@ -1290,7 +1295,7 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary Creates multiple VIPs for an instance.
+ * @summary Creates multiple virtual IP addresses for an instance.
  *
  * @param request CreateInstanceMultiVIPRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1341,7 +1346,7 @@ CreateInstanceMultiVIPResponse Client::createInstanceMultiVIPWithOptions(const C
 }
 
 /**
- * @summary Creates multiple VIPs for an instance.
+ * @summary Creates multiple virtual IP addresses for an instance.
  *
  * @param request CreateInstanceMultiVIPRequest
  * @return CreateInstanceMultiVIPResponse
@@ -1352,13 +1357,13 @@ CreateInstanceMultiVIPResponse Client::createInstanceMultiVIP(const CreateInstan
 }
 
 /**
- * @summary Creates multiple ApsaraDB for Tair (Redis OSS-compatible) database Classic Edition instances.
+ * @summary Creates multiple ApsaraDB for Tair (Redis-compatible) database Classic Edition instances.
  *
- * @description Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the ApsaraDB for Tair (Redis OSS-compatible) database before you call this API operation.
- * > This API operation only supports creating Classic Edition instances.
- * Use the following operations to create a single instance:
- * > - [CreateInstance](https://help.aliyun.com/document_detail/473757.html): creates an open-source Redis instance or a Tair memory-optimized Classic Edition instance.
- * > - [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): creates a Tair cloud-native instance (including memory-optimized, persistent memory-optimized, and disk-optimized instances).
+ * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the ApsaraDB for Tair (Redis-compatible) database.
+ * > This operation only supports creating Classic Edition instances.
+ * Use the following API operations to create a single instance:
+ * > - [CreateInstance](https://help.aliyun.com/document_detail/473757.html): Creates an open-source Redis instance or a Tair memory-optimized Classic Edition instance.
+ * > - [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): Creates a Tair cloud-native instance (including memory-optimized, persistent memory-optimized, and disk-optimized instances).
  *
  * @param request CreateInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1441,13 +1446,13 @@ CreateInstancesResponse Client::createInstancesWithOptions(const CreateInstances
 }
 
 /**
- * @summary Creates multiple ApsaraDB for Tair (Redis OSS-compatible) database Classic Edition instances.
+ * @summary Creates multiple ApsaraDB for Tair (Redis-compatible) database Classic Edition instances.
  *
- * @description Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the ApsaraDB for Tair (Redis OSS-compatible) database before you call this API operation.
- * > This API operation only supports creating Classic Edition instances.
- * Use the following operations to create a single instance:
- * > - [CreateInstance](https://help.aliyun.com/document_detail/473757.html): creates an open-source Redis instance or a Tair memory-optimized Classic Edition instance.
- * > - [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): creates a Tair cloud-native instance (including memory-optimized, persistent memory-optimized, and disk-optimized instances).
+ * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the ApsaraDB for Tair (Redis-compatible) database.
+ * > This operation only supports creating Classic Edition instances.
+ * Use the following API operations to create a single instance:
+ * > - [CreateInstance](https://help.aliyun.com/document_detail/473757.html): Creates an open-source Redis instance or a Tair memory-optimized Classic Edition instance.
+ * > - [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): Creates a Tair cloud-native instance (including memory-optimized, persistent memory-optimized, and disk-optimized instances).
  *
  * @param request CreateInstancesRequest
  * @return CreateInstancesResponse
@@ -1460,7 +1465,7 @@ CreateInstancesResponse Client::createInstances(const CreateInstancesRequest &re
 /**
  * @summary Creates a parameter template.
  *
- * @description Parameter templates are applicable only to instances deployed in cloud-native deployment mode (formerly cloud disk instances).
+ * @description Parameter templates apply only to instances in cloud-native deployment mode (formerly cloud disk instances).
  *
  * @param request CreateParameterGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1537,7 +1542,7 @@ CreateParameterGroupResponse Client::createParameterGroupWithOptions(const Creat
 /**
  * @summary Creates a parameter template.
  *
- * @description Parameter templates are applicable only to instances deployed in cloud-native deployment mode (formerly cloud disk instances).
+ * @description Parameter templates apply only to instances in cloud-native deployment mode (formerly cloud disk instances).
  *
  * @param request CreateParameterGroupRequest
  * @return CreateParameterGroupResponse
@@ -1694,12 +1699,134 @@ CreateTCInstanceResponse Client::createTCInstance(const CreateTCInstanceRequest 
 }
 
 /**
+ * @summary Creates a Tair AI Gateway instance.
+ *
+ * @param request CreateTairAIGatewayInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTairAIGatewayInstanceResponse
+ */
+CreateTairAIGatewayInstanceResponse Client::createTairAIGatewayInstanceWithOptions(const CreateTairAIGatewayInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.getAutoPay();
+  }
+
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasAutoRenewPeriod()) {
+    query["AutoRenewPeriod"] = request.getAutoRenewPeriod();
+  }
+
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.getAutoUseCoupon();
+  }
+
+  if (!!request.hasBusinessInfo()) {
+    query["BusinessInfo"] = request.getBusinessInfo();
+  }
+
+  if (!!request.hasChargeType()) {
+    query["ChargeType"] = request.getChargeType();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCouponNo()) {
+    query["CouponNo"] = request.getCouponNo();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasGatewayName()) {
+    query["GatewayName"] = request.getGatewayName();
+  }
+
+  if (!!request.hasGatewayType()) {
+    query["GatewayType"] = request.getGatewayType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPluginParams()) {
+    query["PluginParams"] = request.getPluginParams();
+  }
+
+  if (!!request.hasPluginType()) {
+    query["PluginType"] = request.getPluginType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTairAIGatewayInstance"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTairAIGatewayInstanceResponse>();
+}
+
+/**
+ * @summary Creates a Tair AI Gateway instance.
+ *
+ * @param request CreateTairAIGatewayInstanceRequest
+ * @return CreateTairAIGatewayInstanceResponse
+ */
+CreateTairAIGatewayInstanceResponse Client::createTairAIGatewayInstance(const CreateTairAIGatewayInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTairAIGatewayInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a cloud-native Tair (Enterprise Edition) instance.
  *
- * @description For selection reference, see [Must-read for selecting Tair database (Redis OSS-Compatible)](https://help.aliyun.com/document_detail/223808.html).
- * Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair database (Redis OSS-Compatible) before you invoke this operation.
- * > * For instructions on how to perform this operation in the console, see [Create a Tair instance](https://help.aliyun.com/document_detail/26351.html).
- * > * To create other types of instances, such as open-source instances or [Tair memory-optimized](https://help.aliyun.com/document_detail/126164.html) classic instances, you can invoke the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation.
+ * @description For selection reference, see [Must-read for selecting the ApsaraDB Tair database (Redis OSS-compatible)](https://help.aliyun.com/document_detail/223808.html).
+ * Make sure you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the ApsaraDB Tair database (Redis OSS-compatible) before you invoke this operation.
+ * > * For console operations, see [Create a Tair instance](https://help.aliyun.com/document_detail/26351.html).
+ * > * To create other types of instances, such as open-source or [Tair memory-optimized](https://help.aliyun.com/document_detail/126164.html) classic edition instances, you can invoke the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation.
  *
  * @param request CreateTairInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1924,10 +2051,10 @@ CreateTairInstanceResponse Client::createTairInstanceWithOptions(const CreateTai
 /**
  * @summary Creates a cloud-native Tair (Enterprise Edition) instance.
  *
- * @description For selection reference, see [Must-read for selecting Tair database (Redis OSS-Compatible)](https://help.aliyun.com/document_detail/223808.html).
- * Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of Tair database (Redis OSS-Compatible) before you invoke this operation.
- * > * For instructions on how to perform this operation in the console, see [Create a Tair instance](https://help.aliyun.com/document_detail/26351.html).
- * > * To create other types of instances, such as open-source instances or [Tair memory-optimized](https://help.aliyun.com/document_detail/126164.html) classic instances, you can invoke the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation.
+ * @description For selection reference, see [Must-read for selecting the ApsaraDB Tair database (Redis OSS-compatible)](https://help.aliyun.com/document_detail/223808.html).
+ * Make sure you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the ApsaraDB Tair database (Redis OSS-compatible) before you invoke this operation.
+ * > * For console operations, see [Create a Tair instance](https://help.aliyun.com/document_detail/26351.html).
+ * > * To create other types of instances, such as open-source or [Tair memory-optimized](https://help.aliyun.com/document_detail/126164.html) classic edition instances, you can invoke the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) operation.
  *
  * @param request CreateTairInstanceRequest
  * @return CreateTairInstanceResponse
@@ -2082,8 +2209,8 @@ CreateTairKVCacheVNodeResponse Client::createTairKVCacheVNode(const CreateTairKV
 /**
  * @summary Creates a Tair Serverless KV table instance.
  *
- * @description ## Operation description
- * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+ * @description ## Request description
+ * - Before calling this operation, make sure that you understand the billing methods and [pricing details](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
  *
  * @param request CreateTairSkvDdbTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2172,8 +2299,8 @@ CreateTairSkvDdbTableResponse Client::createTairSkvDdbTableWithOptions(const Cre
 /**
  * @summary Creates a Tair Serverless KV table instance.
  *
- * @description ## Operation description
- * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+ * @description ## Request description
+ * - Before calling this operation, make sure that you understand the billing methods and [pricing details](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
  *
  * @param request CreateTairSkvDdbTableRequest
  * @return CreateTairSkvDdbTableResponse
@@ -2188,7 +2315,7 @@ CreateTairSkvDdbTableResponse Client::createTairSkvDdbTable(const CreateTairSkvD
  *
  * @description ## Request description
  * - Before you call this operation, make sure that you understand the billing methods and [pricing details](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
- * - To create a Tair Serverless KV table instance, call the `CreateTairSkvDdbTable` operation.
+ * - To create a Tair Serverless KV table instance, use the `CreateTairSkvDdbTable` operation.
  *
  * @param request CreateTairSkvDdbWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2279,7 +2406,7 @@ CreateTairSkvDdbWorkspaceResponse Client::createTairSkvDdbWorkspaceWithOptions(c
  *
  * @description ## Request description
  * - Before you call this operation, make sure that you understand the billing methods and [pricing details](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
- * - To create a Tair Serverless KV table instance, call the `CreateTairSkvDdbTable` operation.
+ * - To create a Tair Serverless KV table instance, use the `CreateTairSkvDdbTable` operation.
  *
  * @param request CreateTairSkvDdbWorkspaceRequest
  * @return CreateTairSkvDdbWorkspaceResponse
@@ -2290,10 +2417,10 @@ CreateTairSkvDdbWorkspaceResponse Client::createTairSkvDdbWorkspace(const Create
 }
 
 /**
- * @summary Deletes an account of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Deletes an account from an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
- * @description * This API operation supports only instances that are compatible with Redis 4.0 or later.
- * * You can call this API operation only when the instance is in the Running state.
+ * @description * This operation is supported only for instances that are compatible with Redis 4.0 or later.
+ * * You can call this operation only when the instance is in the Running state.
  *
  * @param request DeleteAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2352,10 +2479,10 @@ DeleteAccountResponse Client::deleteAccountWithOptions(const DeleteAccountReques
 }
 
 /**
- * @summary Deletes an account of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Deletes an account from an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
- * @description * This API operation supports only instances that are compatible with Redis 4.0 or later.
- * * You can call this API operation only when the instance is in the Running state.
+ * @description * This operation is supported only for instances that are compatible with Redis 4.0 or later.
+ * * You can call this operation only when the instance is in the Running state.
  *
  * @param request DeleteAccountRequest
  * @return DeleteAccountResponse
@@ -2368,7 +2495,7 @@ DeleteAccountResponse Client::deleteAccount(const DeleteAccountRequest &request)
 /**
  * @summary Deletes a specified backup set. Only manual backup sets can be deleted.
  *
- * @description * This operation supports only cloud-native edition instances.
+ * @description * This operation is supported only for cloud-native instances.
  *
  * @param request DeleteBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2421,7 +2548,7 @@ DeleteBackupResponse Client::deleteBackupWithOptions(const DeleteBackupRequest &
 /**
  * @summary Deletes a specified backup set. Only manual backup sets can be deleted.
  *
- * @description * This operation supports only cloud-native edition instances.
+ * @description * This operation is supported only for cloud-native instances.
  *
  * @param request DeleteBackupRequest
  * @return DeleteBackupResponse
@@ -2434,7 +2561,7 @@ DeleteBackupResponse Client::deleteBackup(const DeleteBackupRequest &request) {
 /**
  * @summary Deletes a global IP address whitelist template.
  *
- * @description Before you delete an IP whitelist template, dissociate all instances that are associated with the template.
+ * @description Before deleting an IP address whitelist template, disassociate the instances that are associated with the template.
  *
  * @param request DeleteGlobalSecurityIPGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2499,7 +2626,7 @@ DeleteGlobalSecurityIPGroupResponse Client::deleteGlobalSecurityIPGroupWithOptio
 /**
  * @summary Deletes a global IP address whitelist template.
  *
- * @description Before you delete an IP whitelist template, dissociate all instances that are associated with the template.
+ * @description Before deleting an IP address whitelist template, disassociate the instances that are associated with the template.
  *
  * @param request DeleteGlobalSecurityIPGroupRequest
  * @return DeleteGlobalSecurityIPGroupResponse
@@ -2510,13 +2637,13 @@ DeleteGlobalSecurityIPGroupResponse Client::deleteGlobalSecurityIPGroup(const De
 }
 
 /**
- * @summary Deletes a scheduled inspection task.
+ * @summary Deletes a specified scheduled inspection task configuration. ScheduleId specifies the ID of the scheduling configuration to delete, and InstanceId specifies the ID of the AI assistant instance. This operation does not release the database instance.
  *
- * @description For the console operation that corresponds to this API, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
+ * @description For the corresponding console operation, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
  * When you invoke this operation, the instance must meet the following conditions:
  * * The instance status is Running.
- * * The payer of the instance is pay-as-you-go.
- * > Upfront (subscription) instances cannot be deleted by invoking this operation. They will undergo automatic release when they expire. To release a subscription instance in advance, perform the operation in the console.
+ * * The payer of the instance uses the pay-as-you-go billing method.
+ * > You cannot invoke this operation to delete an upfront (subscription) instance. An upfront instance is subject to automatic release upon expiration. To delete an upfront instance in advance, use the console.
  *
  * @param request DeleteInspectionScheduleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2555,13 +2682,13 @@ DeleteInspectionScheduleResponse Client::deleteInspectionScheduleWithOptions(con
 }
 
 /**
- * @summary Deletes a scheduled inspection task.
+ * @summary Deletes a specified scheduled inspection task configuration. ScheduleId specifies the ID of the scheduling configuration to delete, and InstanceId specifies the ID of the AI assistant instance. This operation does not release the database instance.
  *
- * @description For the console operation that corresponds to this API, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
+ * @description For the corresponding console operation, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
  * When you invoke this operation, the instance must meet the following conditions:
  * * The instance status is Running.
- * * The payer of the instance is pay-as-you-go.
- * > Upfront (subscription) instances cannot be deleted by invoking this operation. They will undergo automatic release when they expire. To release a subscription instance in advance, perform the operation in the console.
+ * * The payer of the instance uses the pay-as-you-go billing method.
+ * > You cannot invoke this operation to delete an upfront (subscription) instance. An upfront instance is subject to automatic release upon expiration. To delete an upfront instance in advance, use the console.
  *
  * @param request DeleteInspectionScheduleRequest
  * @return DeleteInspectionScheduleResponse
@@ -2574,11 +2701,11 @@ DeleteInspectionScheduleResponse Client::deleteInspectionSchedule(const DeleteIn
 /**
  * @summary Releases an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the console operation that corresponds to this API operation, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
+ * @description For the corresponding console operation, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
  * When you invoke this operation, the instance must meet the following conditions:
  * * The instance status is Running.
- * * The payer uses the pay-as-you-go billing method.
- * > Upfront (subscription) instances cannot be deleted by invoking this operation. They will undergo automatic release after they expire. To release a subscription instance in advance, perform the operation in the console.
+ * * The payer of the instance uses the pay-as-you-go billing method.
+ * > You cannot invoke this operation to manually delete an upfront (subscription) instance. Such instances undergo automatic release upon expiration. To release an upfront instance in advance, use the console.
  *
  * @param request DeleteInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2635,11 +2762,11 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 /**
  * @summary Releases an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the console operation that corresponds to this API operation, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
+ * @description For the corresponding console operation, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
  * When you invoke this operation, the instance must meet the following conditions:
  * * The instance status is Running.
- * * The payer uses the pay-as-you-go billing method.
- * > Upfront (subscription) instances cannot be deleted by invoking this operation. They will undergo automatic release after they expire. To release a subscription instance in advance, perform the operation in the console.
+ * * The payer of the instance uses the pay-as-you-go billing method.
+ * > You cannot invoke this operation to manually delete an upfront (subscription) instance. Such instances undergo automatic release upon expiration. To release an upfront instance in advance, use the console.
  *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
@@ -2926,9 +3053,9 @@ DescribeActiveOperationMaintenanceConfigResponse Client::describeActiveOperation
 }
 
 /**
- * @summary Queries the details of O&M tasks for an ApsaraDB for Redis (Tair) instance.
+ * @summary Queries the details of O&M tasks for ApsaraDB Tair (Redis® OSS-Compatible) instances.
  *
- * @description After you call this operation to check whether O&M tasks exist, you can call [ModifyActiveOperationTask](https://help.aliyun.com/document_detail/473864.html) to modify the scheduled switchover time of an O&M task.
+ * @description After you call this operation to query existing O&M tasks, you can call [ModifyActiveOperationTask](https://help.aliyun.com/document_detail/473864.html) to modify the scheduled switchover time of an O&M task.
  *
  * @param request DescribeActiveOperationTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2995,9 +3122,9 @@ DescribeActiveOperationTaskResponse Client::describeActiveOperationTaskWithOptio
 }
 
 /**
- * @summary Queries the details of O&M tasks for an ApsaraDB for Redis (Tair) instance.
+ * @summary Queries the details of O&M tasks for ApsaraDB Tair (Redis® OSS-Compatible) instances.
  *
- * @description After you call this operation to check whether O&M tasks exist, you can call [ModifyActiveOperationTask](https://help.aliyun.com/document_detail/473864.html) to modify the scheduled switchover time of an O&M task.
+ * @description After you call this operation to query existing O&M tasks, you can call [ModifyActiveOperationTask](https://help.aliyun.com/document_detail/473864.html) to modify the scheduled switchover time of an O&M task.
  *
  * @param request DescribeActiveOperationTaskRequest
  * @return DescribeActiveOperationTaskResponse
@@ -3172,9 +3299,9 @@ DescribeActiveOperationTasksResponse Client::describeActiveOperationTasks(const 
 }
 
 /**
- * @summary Queries the audit log configuration of a Tair (Redis® OSS-Compatible) instance, such as whether audit logging is enabled and the log retention period.
+ * @summary Queries the audit log configurations of a Tair (Redis® OSS-Compatible) database instance, such as whether audit logging is enabled and the log retention period.
  *
- * @description Before calling this operation, audit logging must be enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) or [Audit logs](https://help.aliyun.com/document_detail/102015.html).
+ * @description When you call this operation, the audit log feature must be enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) or [Audit logs](https://help.aliyun.com/document_detail/102015.html).
  *
  * @param request DescribeAuditLogConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3229,9 +3356,9 @@ DescribeAuditLogConfigResponse Client::describeAuditLogConfigWithOptions(const D
 }
 
 /**
- * @summary Queries the audit log configuration of a Tair (Redis® OSS-Compatible) instance, such as whether audit logging is enabled and the log retention period.
+ * @summary Queries the audit log configurations of a Tair (Redis® OSS-Compatible) database instance, such as whether audit logging is enabled and the log retention period.
  *
- * @description Before calling this operation, audit logging must be enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) or [Audit logs](https://help.aliyun.com/document_detail/102015.html).
+ * @description When you call this operation, the audit log feature must be enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) or [Audit logs](https://help.aliyun.com/document_detail/102015.html).
  *
  * @param request DescribeAuditLogConfigRequest
  * @return DescribeAuditLogConfigResponse
@@ -3242,7 +3369,7 @@ DescribeAuditLogConfigResponse Client::describeAuditLogConfig(const DescribeAudi
 }
 
 /**
- * @summary Queries the audit logs of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the audit logs of an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
  * @description When you call this operation, the audit log feature must be enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html).
  *
@@ -3331,7 +3458,7 @@ DescribeAuditRecordsResponse Client::describeAuditRecordsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the audit logs of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the audit logs of an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
  * @description When you call this operation, the audit log feature must be enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html).
  *
@@ -3446,7 +3573,7 @@ DescribeAvailableResourceResponse Client::describeAvailableResource(const Descri
 }
 
 /**
- * @summary Queries the backup policy of a Tair (Redis® OSS-Compatible) instance, including the backup cycle and backup time.
+ * @summary Queries the backup policy of an ApsaraDB Tair (Redis® OSS-Compatible) database instance, including the backup cycle and backup time.
  *
  * @param request DescribeBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3497,7 +3624,7 @@ DescribeBackupPolicyResponse Client::describeBackupPolicyWithOptions(const Descr
 }
 
 /**
- * @summary Queries the backup policy of a Tair (Redis® OSS-Compatible) instance, including the backup cycle and backup time.
+ * @summary Queries the backup policy of an ApsaraDB Tair (Redis® OSS-Compatible) database instance, including the backup cycle and backup time.
  *
  * @param request DescribeBackupPolicyRequest
  * @return DescribeBackupPolicyResponse
@@ -3578,9 +3705,9 @@ DescribeBackupTasksResponse Client::describeBackupTasks(const DescribeBackupTask
 }
 
 /**
- * @summary Queries the backup file information of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the backup file information of an ApsaraDB for Tair (compatible with Redis) database instance.
  *
- * @description This operation is not applicable to cloud-native cluster architecture instances. If needed, use the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) operation.
+ * @description This operation is not applicable to cloud-native cluster architecture instances. To query the backup sets of such instances, use the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) operation.
  *
  * @param request DescribeBackupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3659,9 +3786,9 @@ DescribeBackupsResponse Client::describeBackupsWithOptions(const DescribeBackups
 }
 
 /**
- * @summary Queries the backup file information of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the backup file information of an ApsaraDB for Tair (compatible with Redis) database instance.
  *
- * @description This operation is not applicable to cloud-native cluster architecture instances. If needed, use the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) operation.
+ * @description This operation is not applicable to cloud-native cluster architecture instances. To query the backup sets of such instances, use the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679168.html) operation.
  *
  * @param request DescribeBackupsRequest
  * @return DescribeBackupsResponse
@@ -3758,9 +3885,9 @@ DescribeCacheAnalysisReportResponse Client::describeCacheAnalysisReport(const De
 }
 
 /**
- * @summary Queries the list of cache analysis reports of an instance.
+ * @summary Queries the cache analysis reports of an instance.
  *
- * @description This operation is no longer recommended. Use the new operation [Real-time top key statistics and offline full key analysis](https://help.aliyun.com/document_detail/184226.html).
+ * @description This API operation is deprecated. Use the new API operation [Real-time top key statistics and offline full key analysis](https://help.aliyun.com/document_detail/184226.html).
  *
  * @param request DescribeCacheAnalysisReportListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3827,9 +3954,9 @@ DescribeCacheAnalysisReportListResponse Client::describeCacheAnalysisReportListW
 }
 
 /**
- * @summary Queries the list of cache analysis reports of an instance.
+ * @summary Queries the cache analysis reports of an instance.
  *
- * @description This operation is no longer recommended. Use the new operation [Real-time top key statistics and offline full key analysis](https://help.aliyun.com/document_detail/184226.html).
+ * @description This API operation is deprecated. Use the new API operation [Real-time top key statistics and offline full key analysis](https://help.aliyun.com/document_detail/184226.html).
  *
  * @param request DescribeCacheAnalysisReportListRequest
  * @return DescribeCacheAnalysisReportListResponse
@@ -3840,7 +3967,7 @@ DescribeCacheAnalysisReportListResponse Client::describeCacheAnalysisReportList(
 }
 
 /**
- * @summary Queries the backup list of an ApsaraDB for Tair (Redis-compatible) database cluster instance.
+ * @summary Queries the backup list of an ApsaraDB Tair (Redis® OSS-Compatible) database cluster instance.
  *
  * @description This operation is applicable only to cloud-native instances.
  *
@@ -3869,7 +3996,7 @@ DescribeClusterBackupListResponse Client::describeClusterBackupListWithOptions(c
 }
 
 /**
- * @summary Queries the backup list of an ApsaraDB for Tair (Redis-compatible) database cluster instance.
+ * @summary Queries the backup list of an ApsaraDB Tair (Redis® OSS-Compatible) database cluster instance.
  *
  * @description This operation is applicable only to cloud-native instances.
  *
@@ -3882,7 +4009,7 @@ DescribeClusterBackupListResponse Client::describeClusterBackupList(const Descri
 }
 
 /**
- * @summary Queries the node configuration information of a Tair (Redis® OSS-Compatible) cluster instance, such as specifications and maximum connections.
+ * @summary Queries the node configuration information of an ApsaraDB for Tair (Redis OSS-compatible) database cluster instance, such as the instance specifications and maximum number of connections.
  *
  * @description > This operation is applicable only to [cloud-native instances](https://help.aliyun.com/document_detail/188068.html) in the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
  *
@@ -3943,7 +4070,7 @@ DescribeClusterMemberInfoResponse Client::describeClusterMemberInfoWithOptions(c
 }
 
 /**
- * @summary Queries the node configuration information of a Tair (Redis® OSS-Compatible) cluster instance, such as specifications and maximum connections.
+ * @summary Queries the node configuration information of an ApsaraDB for Tair (Redis OSS-compatible) database cluster instance, such as the instance specifications and maximum number of connections.
  *
  * @description > This operation is applicable only to [cloud-native instances](https://help.aliyun.com/document_detail/188068.html) in the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
  *
@@ -3956,7 +4083,7 @@ DescribeClusterMemberInfoResponse Client::describeClusterMemberInfo(const Descri
 }
 
 /**
- * @summary Queries the monitoring collection granularity of a Tair instance.
+ * @summary Queries the monitoring data collection granularity of a Tair instance.
  *
  * @param request DescribeDBInstanceMonitorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4007,7 +4134,7 @@ DescribeDBInstanceMonitorResponse Client::describeDBInstanceMonitorWithOptions(c
 }
 
 /**
- * @summary Queries the monitoring collection granularity of a Tair instance.
+ * @summary Queries the monitoring data collection granularity of a Tair instance.
  *
  * @param request DescribeDBInstanceMonitorRequest
  * @return DescribeDBInstanceMonitorResponse
@@ -4018,7 +4145,7 @@ DescribeDBInstanceMonitorResponse Client::describeDBInstanceMonitor(const Descri
 }
 
 /**
- * @summary Queries the network information of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the network information of a Tair (Redis® OSS-Compatible) database instance.
  *
  * @param request DescribeDBInstanceNetInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4073,7 +4200,7 @@ DescribeDBInstanceNetInfoResponse Client::describeDBInstanceNetInfoWithOptions(c
 }
 
 /**
- * @summary Queries the network information of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the network information of a Tair (Redis® OSS-Compatible) database instance.
  *
  * @param request DescribeDBInstanceNetInfoRequest
  * @return DescribeDBInstanceNetInfoResponse
@@ -4084,7 +4211,7 @@ DescribeDBInstanceNetInfoResponse Client::describeDBInstanceNetInfo(const Descri
 }
 
 /**
- * @summary Queries the virtual IP address (VIP) information of the child instances of a cluster instance in direct connection mode.
+ * @summary Queries the virtual IP address (VIP) information of child instances for a Cluster Edition direct-connected instance.
  *
  * @description <notice>Only cloud-native instances support this operation.</notice>
  *
@@ -4133,7 +4260,7 @@ DescribeDBNodeDirectVipInfoResponse Client::describeDBNodeDirectVipInfoWithOptio
 }
 
 /**
- * @summary Queries the virtual IP address (VIP) information of the child instances of a cluster instance in direct connection mode.
+ * @summary Queries the virtual IP address (VIP) information of child instances for a Cluster Edition direct-connected instance.
  *
  * @description <notice>Only cloud-native instances support this operation.</notice>
  *
@@ -4146,7 +4273,7 @@ DescribeDBNodeDirectVipInfoResponse Client::describeDBNodeDirectVipInfo(const De
 }
 
 /**
- * @summary Checks the connectivity from a source client IP address to an instance.
+ * @summary Checks the connectivity from the source client IP address to the instance.
  *
  * @param request DescribeDbInstanceConnectivityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4201,7 +4328,7 @@ DescribeDbInstanceConnectivityResponse Client::describeDbInstanceConnectivityWit
 }
 
 /**
- * @summary Checks the connectivity from a source client IP address to an instance.
+ * @summary Checks the connectivity from the source client IP address to the instance.
  *
  * @param request DescribeDbInstanceConnectivityRequest
  * @return DescribeDbInstanceConnectivityResponse
@@ -4212,7 +4339,7 @@ DescribeDbInstanceConnectivityResponse Client::describeDbInstanceConnectivity(co
 }
 
 /**
- * @summary Queries the information about ApsaraDB for Tair (Redis-compatible) database instances in a dedicated cluster.
+ * @summary Queries the information about ApsaraDB Tair (Redis® OSS-Compatible) database instances in a dedicated cluster.
  *
  * @description > To query the information about instances that are not in a dedicated cluster, call [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/473779.html).
  *
@@ -4305,7 +4432,7 @@ DescribeDedicatedClusterInstanceListResponse Client::describeDedicatedClusterIns
 }
 
 /**
- * @summary Queries the information about ApsaraDB for Tair (Redis-compatible) database instances in a dedicated cluster.
+ * @summary Queries the information about ApsaraDB Tair (Redis® OSS-Compatible) database instances in a dedicated cluster.
  *
  * @description > To query the information about instances that are not in a dedicated cluster, call [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/473779.html).
  *
@@ -4318,9 +4445,9 @@ DescribeDedicatedClusterInstanceListResponse Client::describeDedicatedClusterIns
 }
 
 /**
- * @summary Queries the details of a custom Transparent Data Encryption (TDE) key for an ApsaraDB for Redis (Tair) instance.
+ * @summary Queries the details of the custom key for Transparent Data Encryption (TDE) of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
- * @description Before you call this operation, make sure that TDE (Transparent Data Encryption) has been enabled for the instance by using a custom key. For more information about the related operation, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html).
+ * @description When you call this operation, the instance must have Transparent Data Encryption (TDE) enabled by using a custom key. For more information about the related operation, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html).
  * > For more information about TDE and precautions, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
  *
  * @param request DescribeEncryptionKeyRequest
@@ -4376,9 +4503,9 @@ DescribeEncryptionKeyResponse Client::describeEncryptionKeyWithOptions(const Des
 }
 
 /**
- * @summary Queries the details of a custom Transparent Data Encryption (TDE) key for an ApsaraDB for Redis (Tair) instance.
+ * @summary Queries the details of the custom key for Transparent Data Encryption (TDE) of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
- * @description Before you call this operation, make sure that TDE (Transparent Data Encryption) has been enabled for the instance by using a custom key. For more information about the related operation, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html).
+ * @description When you call this operation, the instance must have Transparent Data Encryption (TDE) enabled by using a custom key. For more information about the related operation, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html).
  * > For more information about TDE and precautions, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
  *
  * @param request DescribeEncryptionKeyRequest
@@ -4390,10 +4517,10 @@ DescribeEncryptionKeyResponse Client::describeEncryptionKey(const DescribeEncryp
 }
 
 /**
- * @summary Queries the list of custom keys used by an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the list of custom keys used by an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
- * @description * When you invoke [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) to enable transparent data encryption (TDE), you can use a custom key. This operation helps you query the custom keys used by an instance. To create a custom key, invoke the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service.
- * * For more information about transparent data encryption (TDE) and precautions, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+ * @description * When you invoke [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) to enable transparent data encryption (TDE), you can use custom keys. This operation helps you query the custom keys used by the instance. To create a custom key, invoke the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
+ * * For more information and precautions about transparent data encryption (TDE), see [Enable transparent data encryption (TDE)](https://help.aliyun.com/document_detail/265913.html).
  *
  * @param request DescribeEncryptionKeyListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4444,10 +4571,10 @@ DescribeEncryptionKeyListResponse Client::describeEncryptionKeyListWithOptions(c
 }
 
 /**
- * @summary Queries the list of custom keys used by an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the list of custom keys used by an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
- * @description * When you invoke [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) to enable transparent data encryption (TDE), you can use a custom key. This operation helps you query the custom keys used by an instance. To create a custom key, invoke the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service.
- * * For more information about transparent data encryption (TDE) and precautions, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+ * @description * When you invoke [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) to enable transparent data encryption (TDE), you can use custom keys. This operation helps you query the custom keys used by the instance. To create a custom key, invoke the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
+ * * For more information and precautions about transparent data encryption (TDE), see [Enable transparent data encryption (TDE)](https://help.aliyun.com/document_detail/265913.html).
  *
  * @param request DescribeEncryptionKeyListRequest
  * @return DescribeEncryptionKeyListResponse
@@ -4520,7 +4647,7 @@ DescribeEngineVersionResponse Client::describeEngineVersion(const DescribeEngine
 }
 
 /**
- * @summary Queries the details of a distributed instance.
+ * @summary Queries the details of distributed instances.
  *
  * @param request DescribeGlobalDistributeCacheRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4583,7 +4710,7 @@ DescribeGlobalDistributeCacheResponse Client::describeGlobalDistributeCacheWithO
 }
 
 /**
- * @summary Queries the details of a distributed instance.
+ * @summary Queries the details of distributed instances.
  *
  * @param request DescribeGlobalDistributeCacheRequest
  * @return DescribeGlobalDistributeCacheResponse
@@ -4668,7 +4795,7 @@ DescribeGlobalSecurityIPGroupResponse Client::describeGlobalSecurityIPGroup(cons
 }
 
 /**
- * @summary Queries the information about global IP whitelist templates associated with an instance.
+ * @summary Queries the global IP whitelist templates associated with an instance.
  *
  * @param request DescribeGlobalSecurityIPGroupRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4727,7 +4854,7 @@ DescribeGlobalSecurityIPGroupRelationResponse Client::describeGlobalSecurityIPGr
 }
 
 /**
- * @summary Queries the information about global IP whitelist templates associated with an instance.
+ * @summary Queries the global IP whitelist templates associated with an instance.
  *
  * @param request DescribeGlobalSecurityIPGroupRelationRequest
  * @return DescribeGlobalSecurityIPGroupRelationResponse
@@ -4856,7 +4983,7 @@ DescribeHistoryEventsResponse Client::describeHistoryEvents(const DescribeHistor
 }
 
 /**
- * @summary Queries historical event statistics.
+ * @summary Queries the statistics of historical events.
  *
  * @param request DescribeHistoryEventsStatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4919,7 +5046,7 @@ DescribeHistoryEventsStatResponse Client::describeHistoryEventsStatWithOptions(c
 }
 
 /**
- * @summary Queries historical event statistics.
+ * @summary Queries the statistics of historical events.
  *
  * @param request DescribeHistoryEventsStatRequest
  * @return DescribeHistoryEventsStatResponse
@@ -5122,7 +5249,7 @@ DescribeHistoryTasksResponse Client::describeHistoryTasks(const DescribeHistoryT
 }
 
 /**
- * @summary Queries task statistics in the task center.
+ * @summary Queries task statistics in Task Center.
  *
  * @param request DescribeHistoryTasksStatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5193,7 +5320,7 @@ DescribeHistoryTasksStatResponse Client::describeHistoryTasksStatWithOptions(con
 }
 
 /**
- * @summary Queries task statistics in the task center.
+ * @summary Queries task statistics in Task Center.
  *
  * @param request DescribeHistoryTasksStatRequest
  * @return DescribeHistoryTasksStatResponse
@@ -5215,6 +5342,10 @@ DescribeInspectionScheduleReportsResponse Client::describeInspectionScheduleRepo
   json query = {};
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasLevelSummary()) {
+    query["LevelSummary"] = request.getLevelSummary();
   }
 
   if (!!request.hasPageNum()) {
@@ -5324,7 +5455,7 @@ DescribeInspectionSchedulesResponse Client::describeInspectionSchedules(const De
 }
 
 /**
- * @summary Queries the report of a specific inspection task.
+ * @summary Queries the report for a specific inspection task.
  *
  * @param request DescribeInspectionTaskReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5339,6 +5470,10 @@ DescribeInspectionTaskReportResponse Client::describeInspectionTaskReportWithOpt
 
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasLevelSummary()) {
+    query["LevelSummary"] = request.getLevelSummary();
   }
 
   if (!!request.hasSecurityToken()) {
@@ -5367,7 +5502,7 @@ DescribeInspectionTaskReportResponse Client::describeInspectionTaskReportWithOpt
 }
 
 /**
- * @summary Queries the report of a specific inspection task.
+ * @summary Queries the report for a specific inspection task.
  *
  * @param request DescribeInspectionTaskReportRequest
  * @return DescribeInspectionTaskReportResponse
@@ -5378,7 +5513,7 @@ DescribeInspectionTaskReportResponse Client::describeInspectionTaskReport(const 
 }
 
 /**
- * @summary Query the list of smart inspection tasks
+ * @summary Queries the list of intelligent inspection tasks.
  *
  * @param request DescribeInspectionTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5389,6 +5524,10 @@ DescribeInspectionTasksResponse Client::describeInspectionTasksWithOptions(const
   json query = {};
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasLevelSummary()) {
+    query["LevelSummary"] = request.getLevelSummary();
   }
 
   if (!!request.hasPageNum()) {
@@ -5425,7 +5564,7 @@ DescribeInspectionTasksResponse Client::describeInspectionTasksWithOptions(const
 }
 
 /**
- * @summary Query the list of smart inspection tasks
+ * @summary Queries the list of intelligent inspection tasks.
  *
  * @param request DescribeInspectionTasksRequest
  * @return DescribeInspectionTasksResponse
@@ -5436,7 +5575,7 @@ DescribeInspectionTasksResponse Client::describeInspectionTasks(const DescribeIn
 }
 
 /**
- * @summary Queries the detailed information of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries the details of an ApsaraDB Tair (Redis OSS-Compatible) database instance.
  *
  * @param request DescribeInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5487,7 +5626,7 @@ DescribeInstanceAttributeResponse Client::describeInstanceAttributeWithOptions(c
 }
 
 /**
- * @summary Queries the detailed information of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries the details of an ApsaraDB Tair (Redis OSS-Compatible) database instance.
  *
  * @param request DescribeInstanceAttributeRequest
  * @return DescribeInstanceAttributeResponse
@@ -5498,7 +5637,7 @@ DescribeInstanceAttributeResponse Client::describeInstanceAttribute(const Descri
 }
 
 /**
- * @summary Queries whether auto-renewal is enabled for a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries whether enable auto-renewal is enabled for ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
  *
  * @param request DescribeInstanceAutoRenewalAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5561,7 +5700,7 @@ DescribeInstanceAutoRenewalAttributeResponse Client::describeInstanceAutoRenewal
 }
 
 /**
- * @summary Queries whether auto-renewal is enabled for a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries whether enable auto-renewal is enabled for ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
  *
  * @param request DescribeInstanceAutoRenewalAttributeRequest
  * @return DescribeInstanceAutoRenewalAttributeResponse
@@ -5572,7 +5711,7 @@ DescribeInstanceAutoRenewalAttributeResponse Client::describeInstanceAutoRenewal
 }
 
 /**
- * @summary Queries some default configuration parameters of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries some default configuration parameters of an ApsaraDB Tair (Redis® OSS-Compatible) instance.
  *
  * @param request DescribeInstanceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5623,7 +5762,7 @@ DescribeInstanceConfigResponse Client::describeInstanceConfigWithOptions(const D
 }
 
 /**
- * @summary Queries some default configuration parameters of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries some default configuration parameters of an ApsaraDB Tair (Redis® OSS-Compatible) instance.
  *
  * @param request DescribeInstanceConfigRequest
  * @return DescribeInstanceConfigResponse
@@ -5634,9 +5773,9 @@ DescribeInstanceConfigResponse Client::describeInstanceConfig(const DescribeInst
 }
 
 /**
- * @summary Queries the load balancer (LB) information of an instance.
+ * @summary Queries the load balancer information of an instance.
  *
- * @description For more information about multiple LBs, see.
+ * @description For more information about multiple load balancers, see.
  *
  * @param request DescribeInstanceMultiVIPRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5683,9 +5822,9 @@ DescribeInstanceMultiVIPResponse Client::describeInstanceMultiVIPWithOptions(con
 }
 
 /**
- * @summary Queries the load balancer (LB) information of an instance.
+ * @summary Queries the load balancer information of an instance.
  *
- * @description For more information about multiple LBs, see.
+ * @description For more information about multiple load balancers, see.
  *
  * @param request DescribeInstanceMultiVIPRequest
  * @return DescribeInstanceMultiVIPResponse
@@ -5696,7 +5835,7 @@ DescribeInstanceMultiVIPResponse Client::describeInstanceMultiVIP(const Describe
 }
 
 /**
- * @summary Queries whether TLS (SSL) encryption authentication is enabled for a Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries whether TLS (SSL) encryption authentication is enabled for an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
  * @param request DescribeInstanceSSLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5747,7 +5886,7 @@ DescribeInstanceSSLResponse Client::describeInstanceSSLWithOptions(const Describ
 }
 
 /**
- * @summary Queries whether TLS (SSL) encryption authentication is enabled for a Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries whether TLS (SSL) encryption authentication is enabled for an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
  * @param request DescribeInstanceSSLRequest
  * @return DescribeInstanceSSLResponse
@@ -5758,10 +5897,10 @@ DescribeInstanceSSLResponse Client::describeInstanceSSL(const DescribeInstanceSS
 }
 
 /**
- * @summary Queries whether the TDE data encryption feature is enabled for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries whether the Transparent Data Encryption (TDE) feature is enabled for an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For more information about the transparent data encryption (TDE) feature and precautions, see [Enable transparent data encryption TDE](https://help.aliyun.com/document_detail/265913.html).
- * > You can invoke [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) to enable or shutdown the TDE encrypt feature.
+ * @description For detailed information and precautions about Transparent Data Encryption (TDE), see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+ * > You can call [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) to enable or disable TDE.
  *
  * @param request DescribeInstanceTDEStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5812,10 +5951,10 @@ DescribeInstanceTDEStatusResponse Client::describeInstanceTDEStatusWithOptions(c
 }
 
 /**
- * @summary Queries whether the TDE data encryption feature is enabled for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries whether the Transparent Data Encryption (TDE) feature is enabled for an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For more information about the transparent data encryption (TDE) feature and precautions, see [Enable transparent data encryption TDE](https://help.aliyun.com/document_detail/265913.html).
- * > You can invoke [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) to enable or shutdown the TDE encrypt feature.
+ * @description For detailed information and precautions about Transparent Data Encryption (TDE), see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+ * > You can call [ModifyInstanceTDE](https://help.aliyun.com/document_detail/473859.html) to enable or disable TDE.
  *
  * @param request DescribeInstanceTDEStatusRequest
  * @return DescribeInstanceTDEStatusResponse
@@ -5826,7 +5965,7 @@ DescribeInstanceTDEStatusResponse Client::describeInstanceTDEStatus(const Descri
 }
 
 /**
- * @summary Queries the information of one or more Tair (Redis® OSS-Compatible) instances.
+ * @summary Queries the information of one or more Tair (Redis OSS-compatible) instances.
  *
  * @param request DescribeInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5961,7 +6100,7 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 }
 
 /**
- * @summary Queries the information of one or more Tair (Redis® OSS-Compatible) instances.
+ * @summary Queries the information of one or more Tair (Redis OSS-compatible) instances.
  *
  * @param request DescribeInstancesRequest
  * @return DescribeInstancesResponse
@@ -5972,10 +6111,10 @@ DescribeInstancesResponse Client::describeInstances(const DescribeInstancesReque
 }
 
 /**
- * @summary Queries the overview information of one or more ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
+ * @summary Queries the overview information of one or more Tair (Redis® OSS-Compatible) instances.
  *
- * @description If you do not specify any request parameters, the overview information of all instances is returned.
- * > This operation does not support pagination for the returned results.
+ * @description If you do not specify request parameters, the overview information of all instances is returned.
+ * > The response of this operation is not paginated.
  *
  * @param request DescribeInstancesOverviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6090,10 +6229,10 @@ DescribeInstancesOverviewResponse Client::describeInstancesOverviewWithOptions(c
 }
 
 /**
- * @summary Queries the overview information of one or more ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
+ * @summary Queries the overview information of one or more Tair (Redis® OSS-Compatible) instances.
  *
- * @description If you do not specify any request parameters, the overview information of all instances is returned.
- * > This operation does not support pagination for the returned results.
+ * @description If you do not specify request parameters, the overview information of all instances is returned.
+ * > The response of this operation is not paginated.
  *
  * @param request DescribeInstancesOverviewRequest
  * @return DescribeInstancesOverviewResponse
@@ -6104,7 +6243,7 @@ DescribeInstancesOverviewResponse Client::describeInstancesOverview(const Descri
 }
 
 /**
- * @summary Queries the current bandwidth of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries the current bandwidth of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
  * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to purchase bandwidth for an instance.
  *
@@ -6161,7 +6300,7 @@ DescribeIntranetAttributeResponse Client::describeIntranetAttributeWithOptions(c
 }
 
 /**
- * @summary Queries the current bandwidth of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries the current bandwidth of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
  * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to purchase bandwidth for an instance.
  *
@@ -6174,9 +6313,9 @@ DescribeIntranetAttributeResponse Client::describeIntranetAttribute(const Descri
 }
 
 /**
- * @summary Queries the logical topology structure of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the logical topology structure of an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
- * @description This operation is supported only for cluster and read/write splitting instances.
+ * @description This operation is supported only by instances that use the cluster or read/write splitting architecture.
  *
  * @param request DescribeLogicInstanceTopologyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6227,9 +6366,9 @@ DescribeLogicInstanceTopologyResponse Client::describeLogicInstanceTopologyWithO
 }
 
 /**
- * @summary Queries the logical topology structure of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the logical topology structure of an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
- * @description This operation is supported only for cluster and read/write splitting instances.
+ * @description This operation is supported only by instances that use the cluster or read/write splitting architecture.
  *
  * @param request DescribeLogicInstanceTopologyRequest
  * @return DescribeLogicInstanceTopologyResponse
@@ -6240,10 +6379,10 @@ DescribeLogicInstanceTopologyResponse Client::describeLogicInstanceTopology(cons
 }
 
 /**
- * @summary Queries the list of monitoring items supported by a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries the list of monitoring metrics supported by ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
  *
- * @description > To improve user experience, Tair (Redis® OSS-Compatible) has upgraded its performance monitoring. This operation will be taken offline. For more information, see [Notice: Tair (Redis® OSS-Compatible) DescribeMonitorItems operation offline](https://help.aliyun.com/document_detail/189893.html).
- * After you call this operation to obtain the list of monitoring items, you can call the [DescribeHistoryMonitorValues](https://help.aliyun.com/document_detail/473827.html) operation to query the historical monitoring information of an instance.
+ * @description > To improve user experience, the ApsaraDB for Tair (Redis® OSS-Compatible) database has upgraded its performance monitoring feature, and this API operation will be taken offline. For more information, see [Notice: The DescribeMonitorItems API operation for ApsaraDB for Tair (Redis® OSS-Compatible) is taken offline](https://help.aliyun.com/document_detail/189893.html).
+ * After you invoke this API operation to obtain the list of monitoring metrics, you can invoke the [DescribeHistoryMonitorValues](https://help.aliyun.com/document_detail/473827.html) API operation to query the historical monitoring information of the instance.
  *
  * @param request DescribeMonitorItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6290,10 +6429,10 @@ DescribeMonitorItemsResponse Client::describeMonitorItemsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the list of monitoring items supported by a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries the list of monitoring metrics supported by ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
  *
- * @description > To improve user experience, Tair (Redis® OSS-Compatible) has upgraded its performance monitoring. This operation will be taken offline. For more information, see [Notice: Tair (Redis® OSS-Compatible) DescribeMonitorItems operation offline](https://help.aliyun.com/document_detail/189893.html).
- * After you call this operation to obtain the list of monitoring items, you can call the [DescribeHistoryMonitorValues](https://help.aliyun.com/document_detail/473827.html) operation to query the historical monitoring information of an instance.
+ * @description > To improve user experience, the ApsaraDB for Tair (Redis® OSS-Compatible) database has upgraded its performance monitoring feature, and this API operation will be taken offline. For more information, see [Notice: The DescribeMonitorItems API operation for ApsaraDB for Tair (Redis® OSS-Compatible) is taken offline](https://help.aliyun.com/document_detail/189893.html).
+ * After you invoke this API operation to obtain the list of monitoring metrics, you can invoke the [DescribeHistoryMonitorValues](https://help.aliyun.com/document_detail/473827.html) API operation to query the historical monitoring information of the instance.
  *
  * @param request DescribeMonitorItemsRequest
  * @return DescribeMonitorItemsResponse
@@ -6304,7 +6443,7 @@ DescribeMonitorItemsResponse Client::describeMonitorItems(const DescribeMonitorI
 }
 
 /**
- * @summary Queries the basic information about a query parameter template.
+ * @summary Queries the basic information of a query parameter template.
  *
  * @param request DescribeParameterGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6359,7 +6498,7 @@ DescribeParameterGroupResponse Client::describeParameterGroupWithOptions(const D
 }
 
 /**
- * @summary Queries the basic information about a query parameter template.
+ * @summary Queries the basic information of a query parameter template.
  *
  * @param request DescribeParameterGroupRequest
  * @return DescribeParameterGroupResponse
@@ -6370,7 +6509,7 @@ DescribeParameterGroupResponse Client::describeParameterGroup(const DescribePara
 }
 
 /**
- * @summary Queries the list of parameters that can be configured in parameter templates of different versions.
+ * @summary Queries the parameters that can be configured in parameter templates of different versions.
  *
  * @param request DescribeParameterGroupSupportParamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6429,7 +6568,7 @@ DescribeParameterGroupSupportParamResponse Client::describeParameterGroupSupport
 }
 
 /**
- * @summary Queries the list of parameters that can be configured in parameter templates of different versions.
+ * @summary Queries the parameters that can be configured in parameter templates of different versions.
  *
  * @param request DescribeParameterGroupSupportParamRequest
  * @return DescribeParameterGroupSupportParamResponse
@@ -6440,7 +6579,7 @@ DescribeParameterGroupSupportParamResponse Client::describeParameterGroupSupport
 }
 
 /**
- * @summary Queries the details of configurable query parameters in a parameter template, such as default values, value ranges, and descriptions.
+ * @summary Queries the details of a configurable query parameter in a parameter template, such as the default value, valid values, and description.
  *
  * @param request DescribeParameterGroupTemplateListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6503,7 +6642,7 @@ DescribeParameterGroupTemplateListResponse Client::describeParameterGroupTemplat
 }
 
 /**
- * @summary Queries the details of configurable query parameters in a parameter template, such as default values, value ranges, and descriptions.
+ * @summary Queries the details of a configurable query parameter in a parameter template, such as the default value, valid values, and description.
  *
  * @param request DescribeParameterGroupTemplateListRequest
  * @return DescribeParameterGroupTemplateListResponse
@@ -6662,9 +6801,9 @@ DescribeParameterModificationHistoryResponse Client::describeParameterModificati
 }
 
 /**
- * @summary Queries the parameters and default values of ApsaraDB Tair (Redis® OSS-Compatible) database instances across different architectures and major engine versions.
+ * @summary Queries the parameter list and default values for ApsaraDB Tair (Redis® OSS-Compatible) database instances across different architectures and major versions.
  *
- * @description After you call this operation to retrieve the parameter list and default values, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameters of a Redis instance as needed.
+ * @description After you call this operation to query the parameter list and default values, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameters of the instance based on your business requirements.
  *
  * @param request DescribeParameterTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6735,9 +6874,9 @@ DescribeParameterTemplatesResponse Client::describeParameterTemplatesWithOptions
 }
 
 /**
- * @summary Queries the parameters and default values of ApsaraDB Tair (Redis® OSS-Compatible) database instances across different architectures and major engine versions.
+ * @summary Queries the parameter list and default values for ApsaraDB Tair (Redis® OSS-Compatible) database instances across different architectures and major versions.
  *
- * @description After you call this operation to retrieve the parameter list and default values, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameters of a Redis instance as needed.
+ * @description After you call this operation to query the parameter list and default values, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameters of the instance based on your business requirements.
  *
  * @param request DescribeParameterTemplatesRequest
  * @return DescribeParameterTemplatesResponse
@@ -6748,7 +6887,7 @@ DescribeParameterTemplatesResponse Client::describeParameterTemplates(const Desc
 }
 
 /**
- * @summary Queries the configuration parameters and running parameters of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries the configuration and runtime parameters of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
  * @param request DescribeParametersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6807,7 +6946,7 @@ DescribeParametersResponse Client::describeParametersWithOptions(const DescribeP
 }
 
 /**
- * @summary Queries the configuration parameters and running parameters of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries the configuration and runtime parameters of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
  * @param request DescribeParametersRequest
  * @return DescribeParametersResponse
@@ -6818,7 +6957,7 @@ DescribeParametersResponse Client::describeParameters(const DescribeParametersRe
 }
 
 /**
- * @summary Queries the fees generated by operations such as creating a Tair (Redis® OSS-Compatible) database instance, upgrading the instance configuration, or renewing the instance.
+ * @summary Queries the fees incurred by operations such as creation, upgrade, or renewal of ApsaraDB Tair (Redis OSS-Compatible) database instances.
  *
  * @param request DescribePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6861,6 +7000,10 @@ DescribePriceResponse Client::describePriceWithOptions(const DescribePriceReques
 
   if (!!request.hasInstances()) {
     query["Instances"] = request.getInstances();
+  }
+
+  if (!!request.hasNeedUnavailableCoupon()) {
+    query["NeedUnavailableCoupon"] = request.getNeedUnavailableCoupon();
   }
 
   if (!!request.hasNodeType()) {
@@ -6937,7 +7080,7 @@ DescribePriceResponse Client::describePriceWithOptions(const DescribePriceReques
 }
 
 /**
- * @summary Queries the fees generated by operations such as creating a Tair (Redis® OSS-Compatible) database instance, upgrading the instance configuration, or renewing the instance.
+ * @summary Queries the fees incurred by operations such as creation, upgrade, or renewal of ApsaraDB Tair (Redis OSS-Compatible) database instances.
  *
  * @param request DescribePriceRequest
  * @return DescribePriceResponse
@@ -7010,7 +7153,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries the roles, types, minor versions, and zones of nodes in a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries the roles, types, minor engine versions, and active zones of nodes in a Tair (Redis® OSS-Compatible) instance.
  *
  * @param request DescribeRoleZoneInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7073,7 +7216,7 @@ DescribeRoleZoneInfoResponse Client::describeRoleZoneInfoWithOptions(const Descr
 }
 
 /**
- * @summary Queries the roles, types, minor versions, and zones of nodes in a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries the roles, types, minor engine versions, and active zones of nodes in a Tair (Redis® OSS-Compatible) instance.
  *
  * @param request DescribeRoleZoneInfoRequest
  * @return DescribeRoleZoneInfoResponse
@@ -7084,9 +7227,10 @@ DescribeRoleZoneInfoResponse Client::describeRoleZoneInfo(const DescribeRoleZone
 }
 
 /**
- * @summary Queries the running logs of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the running logs of an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the corresponding console operation of this API, see [Query running logs](https://help.aliyun.com/document_detail/101713.html). The maximum call frequency of DescribeRunningLogRecords is 100 calls per minute.
+ * @description For the corresponding console operation, see [Query running logs](https://help.aliyun.com/document_detail/101713.html).
+ * The maximum number of calls to the DescribeRunningLogRecords operation is 100 per minute.
  *
  * @param request DescribeRunningLogRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7181,9 +7325,10 @@ DescribeRunningLogRecordsResponse Client::describeRunningLogRecordsWithOptions(c
 }
 
 /**
- * @summary Queries the running logs of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the running logs of an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the corresponding console operation of this API, see [Query running logs](https://help.aliyun.com/document_detail/101713.html). The maximum call frequency of DescribeRunningLogRecords is 100 calls per minute.
+ * @description For the corresponding console operation, see [Query running logs](https://help.aliyun.com/document_detail/101713.html).
+ * The maximum number of calls to the DescribeRunningLogRecords operation is 100 per minute.
  *
  * @param request DescribeRunningLogRecordsRequest
  * @return DescribeRunningLogRecordsResponse
@@ -7194,7 +7339,7 @@ DescribeRunningLogRecordsResponse Client::describeRunningLogRecords(const Descri
 }
 
 /**
- * @summary Queries the security groups in the Settings of the whitelist for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the security groups configured in the whitelist Settings of an ApsaraDB Tair (Redis® OSS-Compatible) database.
  *
  * @param request DescribeSecurityGroupConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7245,7 +7390,7 @@ DescribeSecurityGroupConfigurationResponse Client::describeSecurityGroupConfigur
 }
 
 /**
- * @summary Queries the security groups in the Settings of the whitelist for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Queries the security groups configured in the whitelist Settings of an ApsaraDB Tair (Redis® OSS-Compatible) database.
  *
  * @param request DescribeSecurityGroupConfigurationRequest
  * @return DescribeSecurityGroupConfigurationResponse
@@ -7256,7 +7401,7 @@ DescribeSecurityGroupConfigurationResponse Client::describeSecurityGroupConfigur
 }
 
 /**
- * @summary Queries the IP address whitelist of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries the IP whitelists of an ApsaraDB Tair (Redis OSS-compatible) database instance.
  *
  * @param request DescribeSecurityIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7307,7 +7452,7 @@ DescribeSecurityIpsResponse Client::describeSecurityIpsWithOptions(const Describ
 }
 
 /**
- * @summary Queries the IP address whitelist of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Queries the IP whitelists of an ApsaraDB Tair (Redis OSS-compatible) database instance.
  *
  * @param request DescribeSecurityIpsRequest
  * @return DescribeSecurityIpsResponse
@@ -7318,9 +7463,9 @@ DescribeSecurityIpsResponse Client::describeSecurityIps(const DescribeSecurityIp
 }
 
 /**
- * @summary Queries whether the service-linked role has been authorized for Tair (Redis® OSS-Compatible).
+ * @summary Queries the authorization of the service-linked role associated with the ApsaraDB Tair (Redis® OSS-Compatible) database.
  *
- * @description Call this operation to query whether the associated role named AliyunServiceRoleForKvstore has been authorized for use by Tair (Redis® OSS-Compatible) database under the current account. For more information, see [Service-linked role for Tair (Redis® OSS-Compatible) database](https://help.aliyun.com/document_detail/184337.html).
+ * @description You can invoke this operation to query whether the authorization of the service-linked role named AliyunServiceRoleForKvstore is associated with the ApsaraDB Tair (Redis® OSS-Compatible) database within the current account. For more information, see [Service-linked role associated with ApsaraDB Tair (Redis® OSS-Compatible)](https://help.aliyun.com/document_detail/184337.html).
  *
  * @param request DescribeServiceLinkedRoleExistsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7375,9 +7520,9 @@ DescribeServiceLinkedRoleExistsResponse Client::describeServiceLinkedRoleExistsW
 }
 
 /**
- * @summary Queries whether the service-linked role has been authorized for Tair (Redis® OSS-Compatible).
+ * @summary Queries the authorization of the service-linked role associated with the ApsaraDB Tair (Redis® OSS-Compatible) database.
  *
- * @description Call this operation to query whether the associated role named AliyunServiceRoleForKvstore has been authorized for use by Tair (Redis® OSS-Compatible) database under the current account. For more information, see [Service-linked role for Tair (Redis® OSS-Compatible) database](https://help.aliyun.com/document_detail/184337.html).
+ * @description You can invoke this operation to query whether the authorization of the service-linked role named AliyunServiceRoleForKvstore is associated with the ApsaraDB Tair (Redis® OSS-Compatible) database within the current account. For more information, see [Service-linked role associated with ApsaraDB Tair (Redis® OSS-Compatible)](https://help.aliyun.com/document_detail/184337.html).
  *
  * @param request DescribeServiceLinkedRoleExistsRequest
  * @return DescribeServiceLinkedRoleExistsResponse
@@ -7388,10 +7533,10 @@ DescribeServiceLinkedRoleExistsResponse Client::describeServiceLinkedRoleExists(
 }
 
 /**
- * @summary Queries the slow query logs generated by a Tair (Redis® OSS-Compatible) database instance within a specified time period.
+ * @summary Queries the slow logs generated by a Tair (Redis® OSS-Compatible) instance within a specified time period.
  *
- * @description For the corresponding console operation, see [Query slow query logs](https://help.aliyun.com/document_detail/95874.html).
- * The maximum number of calls to DescribeSlowLogRecords is 100 per minute.
+ * @description For the corresponding console operation, see [Query slow logs](https://help.aliyun.com/document_detail/95874.html).
+ * The rate limit for the DescribeSlowLogRecords operation is 100 calls per minute.
  *
  * @param request DescribeSlowLogRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7482,10 +7627,10 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecordsWithOptions(const D
 }
 
 /**
- * @summary Queries the slow query logs generated by a Tair (Redis® OSS-Compatible) database instance within a specified time period.
+ * @summary Queries the slow logs generated by a Tair (Redis® OSS-Compatible) instance within a specified time period.
  *
- * @description For the corresponding console operation, see [Query slow query logs](https://help.aliyun.com/document_detail/95874.html).
- * The maximum number of calls to DescribeSlowLogRecords is 100 per minute.
+ * @description For the corresponding console operation, see [Query slow logs](https://help.aliyun.com/document_detail/95874.html).
+ * The rate limit for the DescribeSlowLogRecords operation is 100 calls per minute.
  *
  * @param request DescribeSlowLogRecordsRequest
  * @return DescribeSlowLogRecordsResponse
@@ -7559,6 +7704,196 @@ DescribeTagsResponse Client::describeTagsWithOptions(const DescribeTagsRequest &
 DescribeTagsResponse Client::describeTags(const DescribeTagsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeTagsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries AI gateway instances.
+ *
+ * @param request DescribeTairAIGatewayInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTairAIGatewayInstancesResponse
+ */
+DescribeTairAIGatewayInstancesResponse Client::describeTairAIGatewayInstancesWithOptions(const DescribeTairAIGatewayInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChargeType()) {
+    query["ChargeType"] = request.getChargeType();
+  }
+
+  if (!!request.hasExpired()) {
+    query["Expired"] = request.getExpired();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasInstanceStatus()) {
+    query["InstanceStatus"] = request.getInstanceStatus();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTairAIGatewayInstances"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTairAIGatewayInstancesResponse>();
+}
+
+/**
+ * @summary Queries AI gateway instances.
+ *
+ * @param request DescribeTairAIGatewayInstancesRequest
+ * @return DescribeTairAIGatewayInstancesResponse
+ */
+DescribeTairAIGatewayInstancesResponse Client::describeTairAIGatewayInstances(const DescribeTairAIGatewayInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTairAIGatewayInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the parameters of an AI gateway.
+ *
+ * @param request DescribeTairAIGatewayParametersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTairAIGatewayParametersResponse
+ */
+DescribeTairAIGatewayParametersResponse Client::describeTairAIGatewayParametersWithOptions(const DescribeTairAIGatewayParametersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPluginType()) {
+    query["PluginType"] = request.getPluginType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTairAIGatewayParameters"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTairAIGatewayParametersResponse>();
+}
+
+/**
+ * @summary Queries the parameters of an AI gateway.
+ *
+ * @param request DescribeTairAIGatewayParametersRequest
+ * @return DescribeTairAIGatewayParametersResponse
+ */
+DescribeTairAIGatewayParametersResponse Client::describeTairAIGatewayParameters(const DescribeTairAIGatewayParametersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTairAIGatewayParametersWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the AI gateway plug-in switch.
+ *
+ * @param request DescribeTairAIGatewayPluginSwitchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTairAIGatewayPluginSwitchResponse
+ */
+DescribeTairAIGatewayPluginSwitchResponse Client::describeTairAIGatewayPluginSwitchWithOptions(const DescribeTairAIGatewayPluginSwitchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTairAIGatewayPluginSwitch"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTairAIGatewayPluginSwitchResponse>();
+}
+
+/**
+ * @summary Queries the AI gateway plug-in switch.
+ *
+ * @param request DescribeTairAIGatewayPluginSwitchRequest
+ * @return DescribeTairAIGatewayPluginSwitchResponse
+ */
+DescribeTairAIGatewayPluginSwitchResponse Client::describeTairAIGatewayPluginSwitch(const DescribeTairAIGatewayPluginSwitchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTairAIGatewayPluginSwitchWithOptions(request, runtime);
 }
 
 /**
@@ -7759,8 +8094,8 @@ DescribeTairKVCacheInferInstancesResponse Client::describeTairKVCacheInferInstan
  * @summary Queries all Tair Serverless KV table instances in a specified workspace.
  *
  * @description ## Operation description
- * - You must specify the `InstanceId` parameter when you call this operation.
- * - The response includes basic information about each table, such as the table ID, name, bandwidth, and maximum number of connections.
+ * - When you call this operation, you must specify the `InstanceId` parameter.
+ * - The response includes the basic information of each table, such as the table ID, name, bandwidth, and maximum number of connections.
  *
  * @param request DescribeTairSkvDdbTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7798,8 +8133,8 @@ DescribeTairSkvDdbTableResponse Client::describeTairSkvDdbTableWithOptions(const
  * @summary Queries all Tair Serverless KV table instances in a specified workspace.
  *
  * @description ## Operation description
- * - You must specify the `InstanceId` parameter when you call this operation.
- * - The response includes basic information about each table, such as the table ID, name, bandwidth, and maximum number of connections.
+ * - When you call this operation, you must specify the `InstanceId` parameter.
+ * - The response includes the basic information of each table, such as the table ID, name, bandwidth, and maximum number of connections.
  *
  * @param request DescribeTairSkvDdbTableRequest
  * @return DescribeTairSkvDdbTableResponse
@@ -7812,11 +8147,11 @@ DescribeTairSkvDdbTableResponse Client::describeTairSkvDdbTable(const DescribeTa
 /**
  * @summary Retrieves the table schema and configuration information of a specified instance.
  *
- * @description ## Operation description
- * - This operation queries the table schema configuration of a Tair Serverless KV table instance.
- * - When you invoke this operation, you must specify the InstanceId parameter. The value of this parameter is the instance ID of the instance that you want to query.
- * - The BackupId parameter specifies the backup set of the table to query.
- * - The response packet includes the time-to-live (TTL) specifications and detailed table structure definition.
+ * @description ## Request description
+ * - This operation queries the table schema and configuration information of a Tair Serverless KV table instance.
+ * - You must specify the `InstanceId` parameter when you call this operation, and set it to the ID of the instance that you want to query.
+ * - The `BackupId` parameter specifies the backup set of the table to query.
+ * - The returned data includes the time-to-live (TTL) specifications and detailed table schema definitions.
  *
  * @param request DescribeTairSkvDdbTableSchemaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7873,11 +8208,11 @@ DescribeTairSkvDdbTableSchemaResponse Client::describeTairSkvDdbTableSchemaWithO
 /**
  * @summary Retrieves the table schema and configuration information of a specified instance.
  *
- * @description ## Operation description
- * - This operation queries the table schema configuration of a Tair Serverless KV table instance.
- * - When you invoke this operation, you must specify the InstanceId parameter. The value of this parameter is the instance ID of the instance that you want to query.
- * - The BackupId parameter specifies the backup set of the table to query.
- * - The response packet includes the time-to-live (TTL) specifications and detailed table structure definition.
+ * @description ## Request description
+ * - This operation queries the table schema and configuration information of a Tair Serverless KV table instance.
+ * - You must specify the `InstanceId` parameter when you call this operation, and set it to the ID of the instance that you want to query.
+ * - The `BackupId` parameter specifies the backup set of the table to query.
+ * - The returned data includes the time-to-live (TTL) specifications and detailed table schema definitions.
  *
  * @param request DescribeTairSkvDdbTableSchemaRequest
  * @return DescribeTairSkvDdbTableSchemaResponse
@@ -7888,7 +8223,7 @@ DescribeTairSkvDdbTableSchemaResponse Client::describeTairSkvDdbTableSchema(cons
 }
 
 /**
- * @summary Queries the details of a node.
+ * @summary Queries the details of a task.
  *
  * @param request DescribeTaskDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7923,7 +8258,7 @@ DescribeTaskDetailResponse Client::describeTaskDetailWithOptions(const DescribeT
 }
 
 /**
- * @summary Queries the details of a node.
+ * @summary Queries the details of a task.
  *
  * @param request DescribeTaskDetailRequest
  * @return DescribeTaskDetailResponse
@@ -7934,7 +8269,7 @@ DescribeTaskDetailResponse Client::describeTaskDetail(const DescribeTaskDetailRe
 }
 
 /**
- * @summary Queries the zones supported by Tair (Redis® OSS-Compatible) in a specified region. To query the zones that are active for purchase, call the DescribeAvailableResource operation.
+ * @summary Queries the zones supported by the ApsaraDB Tair (Redis® OSS-Compatible) database in a specified region. To query the active zones for purchase, call the DescribeAvailableResource operation.
  *
  * @param request DescribeZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7989,7 +8324,7 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
 }
 
 /**
- * @summary Queries the zones supported by Tair (Redis® OSS-Compatible) in a specified region. To query the zones that are active for purchase, call the DescribeAvailableResource operation.
+ * @summary Queries the zones supported by the ApsaraDB Tair (Redis® OSS-Compatible) database in a specified region. To query the active zones for purchase, call the DescribeAvailableResource operation.
  *
  * @param request DescribeZonesRequest
  * @return DescribeZonesResponse
@@ -8000,11 +8335,11 @@ DescribeZonesResponse Client::describeZones(const DescribeZonesRequest &request)
 }
 
 /**
- * @summary Permanently destroys an instance and its data backups from the recycle bin.
+ * @summary Permanently destroys instances and their data backups in the recycle bin.
  *
- * @description When you call this operation, the instance must exist in the recycle bin. For more information, see [Cluster recycle bin](https://help.aliyun.com/document_detail/86114.html).
- * > After you call this operation, the instance and its data backups in the recycle bin are permanently deleted.
- * <danger>After this operation is performed, the data of the instance is permanently deleted and cannot be recovered. Proceed with caution.
+ * @description When you call this operation, the instances must exist in the recycle bin. For more information, see [Instance recycle bin](https://help.aliyun.com/document_detail/86114.html).
+ * > After you call this operation, the instances and their data backups in the recycle bin are permanently deleted.
+ * <danger>After this operation is performed, the data of the instances is permanently deleted and cannot be recovered. Proceed with caution.</danger>
  *
  * @param request DestroyInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8055,11 +8390,11 @@ DestroyInstanceResponse Client::destroyInstanceWithOptions(const DestroyInstance
 }
 
 /**
- * @summary Permanently destroys an instance and its data backups from the recycle bin.
+ * @summary Permanently destroys instances and their data backups in the recycle bin.
  *
- * @description When you call this operation, the instance must exist in the recycle bin. For more information, see [Cluster recycle bin](https://help.aliyun.com/document_detail/86114.html).
- * > After you call this operation, the instance and its data backups in the recycle bin are permanently deleted.
- * <danger>After this operation is performed, the data of the instance is permanently deleted and cannot be recovered. Proceed with caution.
+ * @description When you call this operation, the instances must exist in the recycle bin. For more information, see [Instance recycle bin](https://help.aliyun.com/document_detail/86114.html).
+ * > After you call this operation, the instances and their data backups in the recycle bin are permanently deleted.
+ * <danger>After this operation is performed, the data of the instances is permanently deleted and cannot be recovered. Proceed with caution.</danger>
  *
  * @param request DestroyInstanceRequest
  * @return DestroyInstanceResponse
@@ -8070,10 +8405,10 @@ DestroyInstanceResponse Client::destroyInstance(const DestroyInstanceRequest &re
 }
 
 /**
- * @summary Adjusts the bandwidth of an ApsaraDB Tair (Redis® OSS-Compatible) instance. Currently, only the pay-as-you-go billing method is supported. You only need to specify the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
+ * @summary Adjusts the bandwidth of an ApsaraDB Tair (Redis OSS-compatible) instance. Currently, only the pay-as-you-go billing method is supported. You need to specify only the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
  *
- * @description If you enable the elastic elastic scaling feature for the instance while calling this operation, the instance preferentially uses the elastic elastic scaling feature. When the bandwidth is elastically scaled down, it is scaled down to the default bandwidth of the instance specifications. For more information about the limits, billing, and FAQ of this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
- * > Before you call this operation, you can call [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) to query the current bandwidth of each data node in the instance.
+ * @description If you enable the elastic bandwidth scaling feature for the instance when calling this operation, the elastic bandwidth scaling feature takes precedence. During an elastic bandwidth scale-down, the bandwidth reverts to the default bandwidth of the instance type. For more information about the limits, billing, and FAQs of this feature, see [Adjust instance bandwidth](https://help.aliyun.com/document_detail/102588.html).
+ * > Before calling this operation, you can call [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) to query the current bandwidth of each data node in the instance.
  *
  * @param request EnableAdditionalBandwidthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8164,10 +8499,10 @@ EnableAdditionalBandwidthResponse Client::enableAdditionalBandwidthWithOptions(c
 }
 
 /**
- * @summary Adjusts the bandwidth of an ApsaraDB Tair (Redis® OSS-Compatible) instance. Currently, only the pay-as-you-go billing method is supported. You only need to specify the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
+ * @summary Adjusts the bandwidth of an ApsaraDB Tair (Redis OSS-compatible) instance. Currently, only the pay-as-you-go billing method is supported. You need to specify only the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
  *
- * @description If you enable the elastic elastic scaling feature for the instance while calling this operation, the instance preferentially uses the elastic elastic scaling feature. When the bandwidth is elastically scaled down, it is scaled down to the default bandwidth of the instance specifications. For more information about the limits, billing, and FAQ of this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
- * > Before you call this operation, you can call [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) to query the current bandwidth of each data node in the instance.
+ * @description If you enable the elastic bandwidth scaling feature for the instance when calling this operation, the elastic bandwidth scaling feature takes precedence. During an elastic bandwidth scale-down, the bandwidth reverts to the default bandwidth of the instance type. For more information about the limits, billing, and FAQs of this feature, see [Adjust instance bandwidth](https://help.aliyun.com/document_detail/102588.html).
+ * > Before calling this operation, you can call [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/473782.html) to query the current bandwidth of each data node in the instance.
  *
  * @param request EnableAdditionalBandwidthRequest
  * @return EnableAdditionalBandwidthResponse
@@ -8178,7 +8513,7 @@ EnableAdditionalBandwidthResponse Client::enableAdditionalBandwidth(const Enable
 }
 
 /**
- * @summary Purges expired keys from a Tair (Redis® OSS-Compatible) instance.
+ * @summary Purges expired keys from an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
  * @description For the corresponding console operation, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
  * > Expired keys cannot be recovered after they are cleared. Use this API operation with caution.
@@ -8236,7 +8571,7 @@ FlushExpireKeysResponse Client::flushExpireKeysWithOptions(const FlushExpireKeys
 }
 
 /**
- * @summary Purges expired keys from a Tair (Redis® OSS-Compatible) instance.
+ * @summary Purges expired keys from an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
  * @description For the corresponding console operation, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
  * > Expired keys cannot be recovered after they are cleared. Use this API operation with caution.
@@ -8250,10 +8585,10 @@ FlushExpireKeysResponse Client::flushExpireKeys(const FlushExpireKeysRequest &re
 }
 
 /**
- * @summary Flushes all data from an ApsaraDB for Tair (Redis® OSS-Compatible) database instance. The data cannot be recovered.
+ * @summary Clears the data in an ApsaraDB for Tair (Redis® OSS-Compatible) database instance. The data cannot be recovered.
  *
- * @description For the corresponding console operation, refer to [Purge data](https://help.aliyun.com/document_detail/43881.html).
- * > Before calling this API to delete data, back up your data or confirm that a backup is not required.
+ * @description For the corresponding operation in the console, refer to [Clear data](https://help.aliyun.com/document_detail/43881.html).
+ * > Before calling this API to delete data, back up your data or confirm that no backup is required.
  *
  * @param request FlushInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8304,10 +8639,10 @@ FlushInstanceResponse Client::flushInstanceWithOptions(const FlushInstanceReques
 }
 
 /**
- * @summary Flushes all data from an ApsaraDB for Tair (Redis® OSS-Compatible) database instance. The data cannot be recovered.
+ * @summary Clears the data in an ApsaraDB for Tair (Redis® OSS-Compatible) database instance. The data cannot be recovered.
  *
- * @description For the corresponding console operation, refer to [Purge data](https://help.aliyun.com/document_detail/43881.html).
- * > Before calling this API to delete data, back up your data or confirm that a backup is not required.
+ * @description For the corresponding operation in the console, refer to [Clear data](https://help.aliyun.com/document_detail/43881.html).
+ * > Before calling this API to delete data, back up your data or confirm that no backup is required.
  *
  * @param request FlushInstanceRequest
  * @return FlushInstanceResponse
@@ -8318,10 +8653,10 @@ FlushInstanceResponse Client::flushInstance(const FlushInstanceRequest &request)
 }
 
 /**
- * @summary Clears data from a specified database in an ApsaraDB for Tair (Redis® OSS-Compatible) instance.
+ * @summary Clears the data in a specified database of an ApsaraDB Tair (Redis® OSS-Compatible) instance.
  *
- * @description ApsaraDB for Tair (Redis® OSS-Compatible) instances support 256 databases, from DB0 to DB255. Each database does not have a separate memory usage limit. The memory capacity available to a database is subject to the total memory limit of the instance. You can run the `SELECT` command to switch between databases. For more information, see [Tair DB](https://help.aliyun.com/document_detail/38688.html).
- * > This operation supports only cloud-native instances (formerly cloud disk-based instances) in cluster architecture.
+ * @description An ApsaraDB Tair (Redis® OSS-Compatible) instance supports 256 databases, from DB0 to DB255. Each database does not have a separate memory usage limit. The memory capacity available for a database is constrained by the total memory of the instance. You can use the `SELECT` command to switch databases. For more information, see [Tair DB](https://help.aliyun.com/document_detail/38688.html).
+ * > This operation is supported only by cloud-native instances (formerly cloud disk instances) in a cluster architecture.
  *
  * @param request FlushInstanceForDBRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8372,10 +8707,10 @@ FlushInstanceForDBResponse Client::flushInstanceForDBWithOptions(const FlushInst
 }
 
 /**
- * @summary Clears data from a specified database in an ApsaraDB for Tair (Redis® OSS-Compatible) instance.
+ * @summary Clears the data in a specified database of an ApsaraDB Tair (Redis® OSS-Compatible) instance.
  *
- * @description ApsaraDB for Tair (Redis® OSS-Compatible) instances support 256 databases, from DB0 to DB255. Each database does not have a separate memory usage limit. The memory capacity available to a database is subject to the total memory limit of the instance. You can run the `SELECT` command to switch between databases. For more information, see [Tair DB](https://help.aliyun.com/document_detail/38688.html).
- * > This operation supports only cloud-native instances (formerly cloud disk-based instances) in cluster architecture.
+ * @description An ApsaraDB Tair (Redis® OSS-Compatible) instance supports 256 databases, from DB0 to DB255. Each database does not have a separate memory usage limit. The memory capacity available for a database is constrained by the total memory of the instance. You can use the `SELECT` command to switch databases. For more information, see [Tair DB](https://help.aliyun.com/document_detail/38688.html).
+ * > This operation is supported only by cloud-native instances (formerly cloud disk instances) in a cluster architecture.
  *
  * @param request FlushInstanceForDBRequest
  * @return FlushInstanceForDBResponse
@@ -8386,7 +8721,7 @@ FlushInstanceForDBResponse Client::flushInstanceForDB(const FlushInstanceForDBRe
 }
 
 /**
- * @summary Modifies the permissions of an ApsaraDB for Tair (Redis® OSS-Compatible) database account.
+ * @summary Modifies the permissions of an account for the ApsaraDB Tair (Redis® OSS-Compatible) database.
  *
  * @param request GrantAccountPrivilegeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8449,7 +8784,7 @@ GrantAccountPrivilegeResponse Client::grantAccountPrivilegeWithOptions(const Gra
 }
 
 /**
- * @summary Modifies the permissions of an ApsaraDB for Tair (Redis® OSS-Compatible) database account.
+ * @summary Modifies the permissions of an account for the ApsaraDB Tair (Redis® OSS-Compatible) database.
  *
  * @param request GrantAccountPrivilegeRequest
  * @return GrantAccountPrivilegeResponse
@@ -8460,9 +8795,9 @@ GrantAccountPrivilegeResponse Client::grantAccountPrivilege(const GrantAccountPr
 }
 
 /**
- * @summary Associates the service-linked role named AliyunServiceRoleForKvstore with Tair (Redis® OSS-Compatible) database.
+ * @summary Grants authorization to associate the service-linked role with the ApsaraDB for Tair (Redis® OSS-Compatible) database.
  *
- * @description The Log Management feature of Tair (Redis® OSS-Compatible) database requires resources from [Simple Log Service](https://help.aliyun.com/document_detail/48869.html). Before using the Log Management feature, call this operation to associate the service-linked role named AliyunServiceRoleForKvstore with Tair (Redis® OSS-Compatible) database. For more information, see [Service-linked role for Tair (Redis® OSS-Compatible) database](https://help.aliyun.com/document_detail/184337.html).
+ * @description The log management feature of the ApsaraDB for Tair (Redis® OSS-Compatible) database requires resources from [Simple Log Service](https://help.aliyun.com/document_detail/48869.html). Before using the log management feature, invoke this operation to associate the service-linked role named AliyunServiceRoleForKvstore with the ApsaraDB for Tair (Redis® OSS-Compatible) database and grant the required authorization. For more information, see [Service-linked role for ApsaraDB for Tair (Redis® OSS-Compatible)](https://help.aliyun.com/document_detail/184337.html).
  *
  * @param request InitializeKvstorePermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8513,9 +8848,9 @@ InitializeKvstorePermissionResponse Client::initializeKvstorePermissionWithOptio
 }
 
 /**
- * @summary Associates the service-linked role named AliyunServiceRoleForKvstore with Tair (Redis® OSS-Compatible) database.
+ * @summary Grants authorization to associate the service-linked role with the ApsaraDB for Tair (Redis® OSS-Compatible) database.
  *
- * @description The Log Management feature of Tair (Redis® OSS-Compatible) database requires resources from [Simple Log Service](https://help.aliyun.com/document_detail/48869.html). Before using the Log Management feature, call this operation to associate the service-linked role named AliyunServiceRoleForKvstore with Tair (Redis® OSS-Compatible) database. For more information, see [Service-linked role for Tair (Redis® OSS-Compatible) database](https://help.aliyun.com/document_detail/184337.html).
+ * @description The log management feature of the ApsaraDB for Tair (Redis® OSS-Compatible) database requires resources from [Simple Log Service](https://help.aliyun.com/document_detail/48869.html). Before using the log management feature, invoke this operation to associate the service-linked role named AliyunServiceRoleForKvstore with the ApsaraDB for Tair (Redis® OSS-Compatible) database and grant the required authorization. For more information, see [Service-linked role for ApsaraDB for Tair (Redis® OSS-Compatible)](https://help.aliyun.com/document_detail/184337.html).
  *
  * @param request InitializeKvstorePermissionRequest
  * @return InitializeKvstorePermissionResponse
@@ -8526,7 +8861,7 @@ InitializeKvstorePermissionResponse Client::initializeKvstorePermission(const In
 }
 
 /**
- * @summary Queries the labels you attach to ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
+ * @summary Queries the attach relationships between ApsaraDB for Tair (Redis® OSS-Compatible) database instances and labels.
  *
  * @description For the corresponding console operations of this API, refer to [Filter instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
  *
@@ -8591,7 +8926,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the labels you attach to ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
+ * @summary Queries the attach relationships between ApsaraDB for Tair (Redis® OSS-Compatible) database instances and labels.
  *
  * @description For the corresponding console operations of this API, refer to [Filter instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
  *
@@ -8604,7 +8939,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Locks an instance so that it supports only data reads and does not support writes.
+ * @summary Locks an instance to read-only mode, disabling write operations.
  *
  * @param request LockDBInstanceWriteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8659,7 +8994,7 @@ LockDBInstanceWriteResponse Client::lockDBInstanceWriteWithOptions(const LockDBI
 }
 
 /**
- * @summary Locks an instance so that it supports only data reads and does not support writes.
+ * @summary Locks an instance to read-only mode, disabling write operations.
  *
  * @param request LockDBInstanceWriteRequest
  * @return LockDBInstanceWriteResponse
@@ -8670,7 +9005,7 @@ LockDBInstanceWriteResponse Client::lockDBInstanceWrite(const LockDBInstanceWrit
 }
 
 /**
- * @summary Simulates a failure of a specified data node or proxy node in Tair (Redis® OSS-Compatible). The instance automatically performs a primary/secondary switchover to ensure high availability.
+ * @summary Performs impersonation of a specified data node or proxy node failure in the ApsaraDB for Tair (Redis® OSS-Compatible) database. The instance automatically performs a primary/secondary switchover to ensure high availability and keep the system active.
  *
  * @description - When you call this operation, the specified node is shut down. The instance automatically triggers a primary/secondary switchover to promote the secondary node to the primary node.
  * - The node with the simulated failure automatically recovers later.
@@ -8729,7 +9064,7 @@ MasterNodeShutDownFailOverResponse Client::masterNodeShutDownFailOverWithOptions
 }
 
 /**
- * @summary Simulates a failure of a specified data node or proxy node in Tair (Redis® OSS-Compatible). The instance automatically performs a primary/secondary switchover to ensure high availability.
+ * @summary Performs impersonation of a specified data node or proxy node failure in the ApsaraDB for Tair (Redis® OSS-Compatible) database. The instance automatically performs a primary/secondary switchover to ensure high availability and keep the system active.
  *
  * @description - When you call this operation, the specified node is shut down. The instance automatically triggers a primary/secondary switchover to promote the secondary node to the primary node.
  * - The node with the simulated failure automatically recovers later.
@@ -8744,10 +9079,10 @@ MasterNodeShutDownFailOverResponse Client::masterNodeShutDownFailOver(const Mast
 }
 
 /**
- * @summary Migrates an ApsaraDB Tair (Redis OSS-Compatible) instance to another zone in the same region.
+ * @summary Migrates an ApsaraDB for Tair (Redis-compatible) instance to another zone within the same region.
  *
  * @description Before you call this operation, you must release the public endpoint. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
- * > * If the instance was switched from the classic network to a VPC and retains the classic network endpoint, you must wait until the classic network endpoint expires and is released before you can migrate the instance across zones.
+ * > * If the instance was switched from the classic network to a VPC and the classic network endpoint is retained, you must wait until the classic network endpoint expires and is released before you can migrate the instance across zones.
  * > * After the migration, the endpoint of the instance remains unchanged, but the virtual IP address (VIP) changes. Use the endpoint instead of the VIP to connect to the instance in your business applications.
  *
  * @param request MigrateToOtherZoneRequest
@@ -8831,10 +9166,10 @@ MigrateToOtherZoneResponse Client::migrateToOtherZoneWithOptions(const MigrateTo
 }
 
 /**
- * @summary Migrates an ApsaraDB Tair (Redis OSS-Compatible) instance to another zone in the same region.
+ * @summary Migrates an ApsaraDB for Tair (Redis-compatible) instance to another zone within the same region.
  *
  * @description Before you call this operation, you must release the public endpoint. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
- * > * If the instance was switched from the classic network to a VPC and retains the classic network endpoint, you must wait until the classic network endpoint expires and is released before you can migrate the instance across zones.
+ * > * If the instance was switched from the classic network to a VPC and the classic network endpoint is retained, you must wait until the classic network endpoint expires and is released before you can migrate the instance across zones.
  * > * After the migration, the endpoint of the instance remains unchanged, but the virtual IP address (VIP) changes. Use the endpoint instead of the VIP to connect to the instance in your business applications.
  *
  * @param request MigrateToOtherZoneRequest
@@ -8846,7 +9181,7 @@ MigrateToOtherZoneResponse Client::migrateToOtherZone(const MigrateToOtherZoneRe
 }
 
 /**
- * @summary Modifies the account description of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Modifies the description of an account for a Tair (Redis® OSS-Compatible) instance.
  *
  * @description This API operation supports only instances that are compatible with Redis 4.0 or later.
  *
@@ -8911,7 +9246,7 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescriptionWithOptions(con
 }
 
 /**
- * @summary Modifies the account description of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Modifies the description of an account for a Tair (Redis® OSS-Compatible) instance.
  *
  * @description This API operation supports only instances that are compatible with Redis 4.0 or later.
  *
@@ -8924,9 +9259,9 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAc
 }
 
 /**
- * @summary Modifies account parameters.
+ * @summary Modifies the account parameters.
  *
- * @description Currently, only Tair Serverless KV instances are supported.
+ * @description This operation is supported only for Tair Serverless KV instances.
  *
  * @param request ModifyAccountParameterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8969,9 +9304,9 @@ ModifyAccountParameterResponse Client::modifyAccountParameterWithOptions(const M
 }
 
 /**
- * @summary Modifies account parameters.
+ * @summary Modifies the account parameters.
  *
- * @description Currently, only Tair Serverless KV instances are supported.
+ * @description This operation is supported only for Tair Serverless KV instances.
  *
  * @param request ModifyAccountParameterRequest
  * @return ModifyAccountParameterResponse
@@ -8982,7 +9317,7 @@ ModifyAccountParameterResponse Client::modifyAccountParameter(const ModifyAccoun
 }
 
 /**
- * @summary Modifies the password of a specified account in a Tair (Redis® OSS-Compatible) instance.
+ * @summary Updates the password of a specified account in an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
  * @param request ModifyAccountPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9049,7 +9384,7 @@ ModifyAccountPasswordResponse Client::modifyAccountPasswordWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the password of a specified account in a Tair (Redis® OSS-Compatible) instance.
+ * @summary Updates the password of a specified account in an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
  * @param request ModifyAccountPasswordRequest
  * @return ModifyAccountPasswordResponse
@@ -9140,7 +9475,7 @@ ModifyActiveOperationMaintainConfigResponse Client::modifyActiveOperationMaintai
 /**
  * @summary Modifies the scheduled switchover time of an O&M task.
  *
- * @description O&M events of Tair (Redis® OSS-Compatible) instances, such as instance migration and version upgrades, are notified through text messages, phone calls, emails, or internal messages, and are also displayed in the console. In addition to invoking this operation to modify the scheduled switchover time, you can also modify it in the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
+ * @description O&M events for ApsaraDB for Tair (Redis® OSS-Compatible) database instances, such as instance migration and version upgrades, are notified through SMS, voice calls, emails, or internal messages, as well as in the console. You can invoke this operation to modify the scheduled switchover time. Alternatively, you can modify it in the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
  *
  * @param request ModifyActiveOperationTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9197,7 +9532,7 @@ ModifyActiveOperationTaskResponse Client::modifyActiveOperationTaskWithOptions(c
 /**
  * @summary Modifies the scheduled switchover time of an O&M task.
  *
- * @description O&M events of Tair (Redis® OSS-Compatible) instances, such as instance migration and version upgrades, are notified through text messages, phone calls, emails, or internal messages, and are also displayed in the console. In addition to invoking this operation to modify the scheduled switchover time, you can also modify it in the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
+ * @description O&M events for ApsaraDB for Tair (Redis® OSS-Compatible) database instances, such as instance migration and version upgrades, are notified through SMS, voice calls, emails, or internal messages, as well as in the console. You can invoke this operation to modify the scheduled switchover time. Alternatively, you can modify it in the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
  *
  * @param request ModifyActiveOperationTaskRequest
  * @return ModifyActiveOperationTaskResponse
@@ -9208,7 +9543,7 @@ ModifyActiveOperationTaskResponse Client::modifyActiveOperationTask(const Modify
 }
 
 /**
- * @summary Modifies the switchover time of scheduled O&M events for an instance.
+ * @summary Modifies the switchover time of scheduled O&M events for instances.
  *
  * @param request ModifyActiveOperationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9267,7 +9602,7 @@ ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasksWithOptions
 }
 
 /**
- * @summary Modifies the switchover time of scheduled O&M events for an instance.
+ * @summary Modifies the switchover time of scheduled O&M events for instances.
  *
  * @param request ModifyActiveOperationTasksRequest
  * @return ModifyActiveOperationTasksResponse
@@ -9278,9 +9613,9 @@ ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasks(const Modi
 }
 
 /**
- * @summary Enables or modifies the audit log settings of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Enables or modifies the audit log settings for a Tair (Redis® OSS-Compatible) database instance.
  *
- * @description Before you call this operation, make sure that you fully understand the billing and [pricing](https://help.aliyun.com/document_detail/54532.html) of audit logs.
+ * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of audit logs.
  *
  * @param request ModifyAuditLogConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9339,9 +9674,9 @@ ModifyAuditLogConfigResponse Client::modifyAuditLogConfigWithOptions(const Modif
 }
 
 /**
- * @summary Enables or modifies the audit log settings of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Enables or modifies the audit log settings for a Tair (Redis® OSS-Compatible) database instance.
  *
- * @description Before you call this operation, make sure that you fully understand the billing and [pricing](https://help.aliyun.com/document_detail/54532.html) of audit logs.
+ * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of audit logs.
  *
  * @param request ModifyAuditLogConfigRequest
  * @return ModifyAuditLogConfigResponse
@@ -9496,7 +9831,7 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicy(const ModifyBackupPolicyRe
 }
 
 /**
- * @summary Modifies the automatic minor engine version update switch for an instance.
+ * @summary Modifies the automatic minor version upgrade switch for an instance.
  *
  * @param request ModifyDBInstanceAutoUpgradeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9551,7 +9886,7 @@ ModifyDBInstanceAutoUpgradeResponse Client::modifyDBInstanceAutoUpgradeWithOptio
 }
 
 /**
- * @summary Modifies the automatic minor engine version update switch for an instance.
+ * @summary Modifies the automatic minor version upgrade switch for an instance.
  *
  * @param request ModifyDBInstanceAutoUpgradeRequest
  * @return ModifyDBInstanceAutoUpgradeResponse
@@ -9562,9 +9897,9 @@ ModifyDBInstanceAutoUpgradeResponse Client::modifyDBInstanceAutoUpgrade(const Mo
 }
 
 /**
- * @summary Modifies the endpoint and port of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Modifies the endpoint and port of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the console operation that corresponds to this API operation, see [Modify an endpoint](https://help.aliyun.com/document_detail/85683.html).
+ * @description For the corresponding console operation, see [Modify endpoints](https://help.aliyun.com/document_detail/85683.html).
  *
  * @param request ModifyDBInstanceConnectionStringRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9631,9 +9966,9 @@ ModifyDBInstanceConnectionStringResponse Client::modifyDBInstanceConnectionStrin
 }
 
 /**
- * @summary Modifies the endpoint and port of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Modifies the endpoint and port of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the console operation that corresponds to this API operation, see [Modify an endpoint](https://help.aliyun.com/document_detail/85683.html).
+ * @description For the corresponding console operation, see [Modify endpoints](https://help.aliyun.com/document_detail/85683.html).
  *
  * @param request ModifyDBInstanceConnectionStringRequest
  * @return ModifyDBInstanceConnectionStringResponse
@@ -9768,7 +10103,7 @@ ModifyEventInfoResponse Client::modifyEventInfo(const ModifyEventInfoRequest &re
 }
 
 /**
- * @summary Modifies a global IP address whitelist template.
+ * @summary Modifies a global IP whitelist template.
  *
  * @param request ModifyGlobalSecurityIPGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9835,7 +10170,7 @@ ModifyGlobalSecurityIPGroupResponse Client::modifyGlobalSecurityIPGroupWithOptio
 }
 
 /**
- * @summary Modifies a global IP address whitelist template.
+ * @summary Modifies a global IP whitelist template.
  *
  * @param request ModifyGlobalSecurityIPGroupRequest
  * @return ModifyGlobalSecurityIPGroupResponse
@@ -9846,7 +10181,7 @@ ModifyGlobalSecurityIPGroupResponse Client::modifyGlobalSecurityIPGroup(const Mo
 }
 
 /**
- * @summary Modifies the name of a global IP address whitelist template.
+ * @summary Updates the name of a global IP whitelist template.
  *
  * @param request ModifyGlobalSecurityIPGroupNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9909,7 +10244,7 @@ ModifyGlobalSecurityIPGroupNameResponse Client::modifyGlobalSecurityIPGroupNameW
 }
 
 /**
- * @summary Modifies the name of a global IP address whitelist template.
+ * @summary Updates the name of a global IP whitelist template.
  *
  * @param request ModifyGlobalSecurityIPGroupNameRequest
  * @return ModifyGlobalSecurityIPGroupNameResponse
@@ -10072,7 +10407,7 @@ ModifyInspectionScheduleResponse Client::modifyInspectionSchedule(const ModifyIn
 }
 
 /**
- * @summary Modifies partial information of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance, including the instance password and name.
+ * @summary Modifies specific information of a Tair (Redis® OSS-Compatible) database instance, such as the instance password and name.
  *
  * @param request ModifyInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10135,7 +10470,7 @@ ModifyInstanceAttributeResponse Client::modifyInstanceAttributeWithOptions(const
 }
 
 /**
- * @summary Modifies partial information of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance, including the instance password and name.
+ * @summary Modifies specific information of a Tair (Redis® OSS-Compatible) database instance, such as the instance password and name.
  *
  * @param request ModifyInstanceAttributeRequest
  * @return ModifyInstanceAttributeResponse
@@ -10146,7 +10481,7 @@ ModifyInstanceAttributeResponse Client::modifyInstanceAttribute(const ModifyInst
 }
 
 /**
- * @summary Enables or disables the auto-renewal feature for a Tair (Redis® OSS-Compatible) instance before it expires.
+ * @summary Enables or disables the auto-renewal feature for ApsaraDB for Tair (Redis® OSS-Compatible) instances before expiration.
  *
  * @description > Auto-renewal is triggered 7 days before the instance expires.
  *
@@ -10211,7 +10546,7 @@ ModifyInstanceAutoRenewalAttributeResponse Client::modifyInstanceAutoRenewalAttr
 }
 
 /**
- * @summary Enables or disables the auto-renewal feature for a Tair (Redis® OSS-Compatible) instance before it expires.
+ * @summary Enables or disables the auto-renewal feature for ApsaraDB for Tair (Redis® OSS-Compatible) instances before expiration.
  *
  * @description > Auto-renewal is triggered 7 days before the instance expires.
  *
@@ -10224,10 +10559,10 @@ ModifyInstanceAutoRenewalAttributeResponse Client::modifyInstanceAutoRenewalAttr
 }
 
 /**
- * @summary Sets the target bandwidth value for a Tair (Redis® OSS-Compatible) database instance.
+ * @summary Configures the target bandwidth settings for a Tair (Redis® OSS-Compatible) instance.
  *
- * @description - Before calling this operation, make sure that you fully understand the bandwidth billing method and pricing of the instance. Tair (Redis® OSS-Compatible) charges fees on an hourly basis based on the increased bandwidth and usage duration. The pricing varies by region. For more information, see [Billable items](https://help.aliyun.com/document_detail/54532.html).
- * - The bandwidth of an instance (or a single shard) can be increased by up to 6 times the default bandwidth of the instance, with a maximum increase of 192 MB/s. For example, the default bandwidth of a Tair memory-optimized 2 GB standard architecture instance is 96 MB/s. The bandwidth of this instance type can be increased by up to 192 MB/s, resulting in a maximum bandwidth of 288 MB/s. The default bandwidth of a Redis Community Edition 256 MB standard architecture instance is 10 MB/s. The bandwidth of this instance type can be increased by up to 60 MB/s, resulting in a maximum bandwidth of 70 MB/s.
+ * @description - Before calling this operation, make sure that you fully understand the bandwidth billing method and pricing of the instance. Tair (Redis® OSS-Compatible) charges hourly fees based on the increased bandwidth and usage duration. Billing standards vary by region. For more information, see [Billable items](https://help.aliyun.com/document_detail/54532.html).
+ * - An instance or a single shard supports an additional bandwidth increase of up to 6 times the default bandwidth of the original instance, with a maximum increase limit of 192 MB/s. For example, the default bandwidth of a 2 GB standard-architecture Tair memory-optimized instance is 96 MB/s. The bandwidth for this specification can be increased by up to 192 MB/s, resulting in a maximum instance bandwidth of 288 MB/s. The default bandwidth of a 256 MB standard-architecture open-source Redis instance is 10 MB/s. The bandwidth for this specification can be increased by up to 60 MB/s, resulting in a maximum instance bandwidth of 70 MB/s.
  *
  * @param request ModifyInstanceBandwidthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10282,10 +10617,10 @@ ModifyInstanceBandwidthResponse Client::modifyInstanceBandwidthWithOptions(const
 }
 
 /**
- * @summary Sets the target bandwidth value for a Tair (Redis® OSS-Compatible) database instance.
+ * @summary Configures the target bandwidth settings for a Tair (Redis® OSS-Compatible) instance.
  *
- * @description - Before calling this operation, make sure that you fully understand the bandwidth billing method and pricing of the instance. Tair (Redis® OSS-Compatible) charges fees on an hourly basis based on the increased bandwidth and usage duration. The pricing varies by region. For more information, see [Billable items](https://help.aliyun.com/document_detail/54532.html).
- * - The bandwidth of an instance (or a single shard) can be increased by up to 6 times the default bandwidth of the instance, with a maximum increase of 192 MB/s. For example, the default bandwidth of a Tair memory-optimized 2 GB standard architecture instance is 96 MB/s. The bandwidth of this instance type can be increased by up to 192 MB/s, resulting in a maximum bandwidth of 288 MB/s. The default bandwidth of a Redis Community Edition 256 MB standard architecture instance is 10 MB/s. The bandwidth of this instance type can be increased by up to 60 MB/s, resulting in a maximum bandwidth of 70 MB/s.
+ * @description - Before calling this operation, make sure that you fully understand the bandwidth billing method and pricing of the instance. Tair (Redis® OSS-Compatible) charges hourly fees based on the increased bandwidth and usage duration. Billing standards vary by region. For more information, see [Billable items](https://help.aliyun.com/document_detail/54532.html).
+ * - An instance or a single shard supports an additional bandwidth increase of up to 6 times the default bandwidth of the original instance, with a maximum increase limit of 192 MB/s. For example, the default bandwidth of a 2 GB standard-architecture Tair memory-optimized instance is 96 MB/s. The bandwidth for this specification can be increased by up to 192 MB/s, resulting in a maximum instance bandwidth of 288 MB/s. The default bandwidth of a 256 MB standard-architecture open-source Redis instance is 10 MB/s. The bandwidth for this specification can be increased by up to 60 MB/s, resulting in a maximum instance bandwidth of 70 MB/s.
  *
  * @param request ModifyInstanceBandwidthRequest
  * @return ModifyInstanceBandwidthResponse
@@ -10296,7 +10631,7 @@ ModifyInstanceBandwidthResponse Client::modifyInstanceBandwidth(const ModifyInst
 }
 
 /**
- * @summary Modifies the parameter settings of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Modifies the parameter settings of an ApsaraDB for Tair (Redis OSS-compatible) instance.
  *
  * @param request ModifyInstanceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10375,7 +10710,7 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfigWithOptions(const Modif
 }
 
 /**
- * @summary Modifies the parameter settings of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
+ * @summary Modifies the parameter settings of an ApsaraDB for Tair (Redis OSS-compatible) instance.
  *
  * @param request ModifyInstanceConfigRequest
  * @return ModifyInstanceConfigResponse
@@ -10386,9 +10721,9 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfig(const ModifyInstanceCo
 }
 
 /**
- * @summary Modifies the maintenance window of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance. Alibaba Cloud performs routine maintenance on the instance within the specified maintenance window.
+ * @summary Modifies the maintenance window of a Tair (Redis® OSS-Compatible) database instance. Alibaba Cloud performs routine maintenance on the instance during the specified maintenance window.
  *
- * @description For the console operation that corresponds to this API operation, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
+ * @description For the corresponding console operation, see [Set the maintenance window](https://help.aliyun.com/document_detail/55252.html).
  *
  * @param request ModifyInstanceMaintainTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10447,9 +10782,9 @@ ModifyInstanceMaintainTimeResponse Client::modifyInstanceMaintainTimeWithOptions
 }
 
 /**
- * @summary Modifies the maintenance window of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance. Alibaba Cloud performs routine maintenance on the instance within the specified maintenance window.
+ * @summary Modifies the maintenance window of a Tair (Redis® OSS-Compatible) database instance. Alibaba Cloud performs routine maintenance on the instance during the specified maintenance window.
  *
- * @description For the console operation that corresponds to this API operation, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
+ * @description For the corresponding console operation, see [Set the maintenance window](https://help.aliyun.com/document_detail/55252.html).
  *
  * @param request ModifyInstanceMaintainTimeRequest
  * @return ModifyInstanceMaintainTimeResponse
@@ -10460,9 +10795,9 @@ ModifyInstanceMaintainTimeResponse Client::modifyInstanceMaintainTime(const Modi
 }
 
 /**
- * @summary Upgrades the major engine version of a Tair (Redis® OSS-Compatible) database instance.
+ * @summary Upgrades the major version of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the precautions and impacts of this API operation, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
+ * @description For precautions and impacts of this API operation, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
  *
  * @param request ModifyInstanceMajorVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10521,9 +10856,9 @@ ModifyInstanceMajorVersionResponse Client::modifyInstanceMajorVersionWithOptions
 }
 
 /**
- * @summary Upgrades the major engine version of a Tair (Redis® OSS-Compatible) database instance.
+ * @summary Upgrades the major version of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the precautions and impacts of this API operation, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
+ * @description For precautions and impacts of this API operation, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
  *
  * @param request ModifyInstanceMajorVersionRequest
  * @return ModifyInstanceMajorVersionResponse
@@ -10534,11 +10869,11 @@ ModifyInstanceMajorVersionResponse Client::modifyInstanceMajorVersion(const Modi
 }
 
 /**
- * @summary Upgrades the minor version of an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
+ * @summary Upgrades the minor engine version of a Tair (Redis® OSS-Compatible) database instance.
  *
- * @description The upgrade process varies by architecture. For more information, see [How minor version upgrades work](https://help.aliyun.com/document_detail/56450.html).
- * > * Before you call this operation, you can call [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) to query the current minor version of the instance.
- * > * During an instance switchover or primary/secondary switchover, the instance enters a read-only state for up to 60 seconds to wait for full data synchronization. Transient disconnections that last for a few seconds may also occur. Perform the upgrade during off-peak hours and ensure that your application has a reconnection mechanism.
+ * @description The upgrade process varies based on the architecture. For more information, see [Minor engine version upgrade principles](https://help.aliyun.com/document_detail/56450.html).
+ * > * Before calling this operation, you can call [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) to query the current minor engine version of the instance.
+ * > * During an instance switchover or primary/secondary switchover, the instance remains in a read-only state for up to 60 seconds while waiting for data to be fully synchronized. Transient disconnections that last for a few seconds may also occur. Perform the upgrade during off-peak hours and ensure that your application is configured with a reconnection mechanism.
  *
  * @param request ModifyInstanceMinorVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10597,11 +10932,11 @@ ModifyInstanceMinorVersionResponse Client::modifyInstanceMinorVersionWithOptions
 }
 
 /**
- * @summary Upgrades the minor version of an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
+ * @summary Upgrades the minor engine version of a Tair (Redis® OSS-Compatible) database instance.
  *
- * @description The upgrade process varies by architecture. For more information, see [How minor version upgrades work](https://help.aliyun.com/document_detail/56450.html).
- * > * Before you call this operation, you can call [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) to query the current minor version of the instance.
- * > * During an instance switchover or primary/secondary switchover, the instance enters a read-only state for up to 60 seconds to wait for full data synchronization. Transient disconnections that last for a few seconds may also occur. Perform the upgrade during off-peak hours and ensure that your application has a reconnection mechanism.
+ * @description The upgrade process varies based on the architecture. For more information, see [Minor engine version upgrade principles](https://help.aliyun.com/document_detail/56450.html).
+ * > * Before calling this operation, you can call [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) to query the current minor engine version of the instance.
+ * > * During an instance switchover or primary/secondary switchover, the instance remains in a read-only state for up to 60 seconds while waiting for data to be fully synchronized. Transient disconnections that last for a few seconds may also occur. Perform the upgrade during off-peak hours and ensure that your application is configured with a reconnection mechanism.
  *
  * @param request ModifyInstanceMinorVersionRequest
  * @return ModifyInstanceMinorVersionResponse
@@ -10612,9 +10947,9 @@ ModifyInstanceMinorVersionResponse Client::modifyInstanceMinorVersion(const Modi
 }
 
 /**
- * @summary Extends the retention period of the classic network endpoint for a Tair (Redis® OSS-Compatible) database instance that retains the classic network endpoint after a switch from the classic network to a VPC.
+ * @summary Extends the retention period of the classic network endpoint for a Tair (Redis® OSS-Compatible) database instance. You can call this API operation if the instance previously executed a switch from the classic network to a VPC and the classic network endpoint was retained.
  *
- * @description For the corresponding console operation of this API, refer to [Modify the retention period of the original classic network endpoint](https://help.aliyun.com/document_detail/60062.html).
+ * @description For the corresponding console operation of this API operation, refer to [Modify the validity period of the original classic network endpoint](https://help.aliyun.com/document_detail/60062.html).
  * > For information about how to switch an instance from the classic network to a VPC, refer to [SwitchNetwork](https://help.aliyun.com/document_detail/473797.html).
  *
  * @param request ModifyInstanceNetExpireTimeRequest
@@ -10674,9 +11009,9 @@ ModifyInstanceNetExpireTimeResponse Client::modifyInstanceNetExpireTimeWithOptio
 }
 
 /**
- * @summary Extends the retention period of the classic network endpoint for a Tair (Redis® OSS-Compatible) database instance that retains the classic network endpoint after a switch from the classic network to a VPC.
+ * @summary Extends the retention period of the classic network endpoint for a Tair (Redis® OSS-Compatible) database instance. You can call this API operation if the instance previously executed a switch from the classic network to a VPC and the classic network endpoint was retained.
  *
- * @description For the corresponding console operation of this API, refer to [Modify the retention period of the original classic network endpoint](https://help.aliyun.com/document_detail/60062.html).
+ * @description For the corresponding console operation of this API operation, refer to [Modify the validity period of the original classic network endpoint](https://help.aliyun.com/document_detail/60062.html).
  * > For information about how to switch an instance from the classic network to a VPC, refer to [SwitchNetwork](https://help.aliyun.com/document_detail/473797.html).
  *
  * @param request ModifyInstanceNetExpireTimeRequest
@@ -10688,7 +11023,7 @@ ModifyInstanceNetExpireTimeResponse Client::modifyInstanceNetExpireTime(const Mo
 }
 
 /**
- * @summary Applies a parameter template to a specified instance. This assigns the parameter values from the template to the specified instance. After you modify a parameter template, you must reapply it to the specified instance for the modified parameter values to take effect.
+ * @summary Applies a parameter template to a specified instance to assign the values in the parameter template to the instance. If you modify a parameter template, you must reapply it to the specified instance for the modified parameter values to take effect.
  *
  * @param request ModifyInstanceParameterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10751,7 +11086,7 @@ ModifyInstanceParameterResponse Client::modifyInstanceParameterWithOptions(const
 }
 
 /**
- * @summary Applies a parameter template to a specified instance. This assigns the parameter values from the template to the specified instance. After you modify a parameter template, you must reapply it to the specified instance for the modified parameter values to take effect.
+ * @summary Applies a parameter template to a specified instance to assign the values in the parameter template to the instance. If you modify a parameter template, you must reapply it to the specified instance for the modified parameter values to take effect.
  *
  * @param request ModifyInstanceParameterRequest
  * @return ModifyInstanceParameterResponse
@@ -10764,8 +11099,8 @@ ModifyInstanceParameterResponse Client::modifyInstanceParameter(const ModifyInst
 /**
  * @summary Enables the Transport Layer Security (TLS) encryption protocol for an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the corresponding console operation, see [Secure Sockets Layer (SSL) encryption settings](https://help.aliyun.com/document_detail/84898.html).
- * > To specify the minimum SSL version, you can invoke the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the relevant parameter.
+ * @description For the corresponding console operation, see [Settings for Secure Sockets Layer (SSL) encryption](https://help.aliyun.com/document_detail/84898.html).
+ * > To specify the minimum SSL version, you can invoke the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameter.
  *
  * @param request ModifyInstanceSSLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10822,8 +11157,8 @@ ModifyInstanceSSLResponse Client::modifyInstanceSSLWithOptions(const ModifyInsta
 /**
  * @summary Enables the Transport Layer Security (TLS) encryption protocol for an ApsaraDB Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the corresponding console operation, see [Secure Sockets Layer (SSL) encryption settings](https://help.aliyun.com/document_detail/84898.html).
- * > To specify the minimum SSL version, you can invoke the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the relevant parameter.
+ * @description For the corresponding console operation, see [Settings for Secure Sockets Layer (SSL) encryption](https://help.aliyun.com/document_detail/84898.html).
+ * > To specify the minimum SSL version, you can invoke the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameter.
  *
  * @param request ModifyInstanceSSLRequest
  * @return ModifyInstanceSSLResponse
@@ -10834,9 +11169,9 @@ ModifyInstanceSSLResponse Client::modifyInstanceSSL(const ModifyInstanceSSLReque
 }
 
 /**
- * @summary Modifies the specifications of an ApsaraDB Tair (Redis OSS-Compatible) instance.
+ * @summary Changes the specifications of an ApsaraDB Tair (Redis OSS-Compatible) database instance.
  *
- * @description > For information about the execution process, impacts, feature limits, and billing of modifying instance specifications, refer to [Change instance configurations](https://help.aliyun.com/document_detail/26353.html).
+ * @description > For information about the execution process, impacts, feature limits, and billing of changing instance specifications, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
  *
  * @param request ModifyInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10971,9 +11306,9 @@ ModifyInstanceSpecResponse Client::modifyInstanceSpecWithOptions(const ModifyIns
 }
 
 /**
- * @summary Modifies the specifications of an ApsaraDB Tair (Redis OSS-Compatible) instance.
+ * @summary Changes the specifications of an ApsaraDB Tair (Redis OSS-Compatible) database instance.
  *
- * @description > For information about the execution process, impacts, feature limits, and billing of modifying instance specifications, refer to [Change instance configurations](https://help.aliyun.com/document_detail/26353.html).
+ * @description > For information about the execution process, impacts, feature limits, and billing of changing instance specifications, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
  *
  * @param request ModifyInstanceSpecRequest
  * @return ModifyInstanceSpecResponse
@@ -10984,9 +11319,9 @@ ModifyInstanceSpecResponse Client::modifyInstanceSpec(const ModifyInstanceSpecRe
 }
 
 /**
- * @summary Enables the transparent data encryption (TDE) feature for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance, with support for custom keys.
+ * @summary Enables the Transparent Data Encryption (TDE) feature for an ApsaraDB Tair (Redis® OSS-Compatible) database instance and supports custom keys.
  *
- * @description > For more information about Transparent Data Encryption (TDE) and the impacts of enabling TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+ * @description > For detailed information about Transparent Data Encryption (TDE) and the impacts of enabling it, see [Enable Transparent Data Encryption (TDE)](https://help.aliyun.com/document_detail/265913.html).
  *
  * @param request ModifyInstanceTDERequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11053,9 +11388,9 @@ ModifyInstanceTDEResponse Client::modifyInstanceTDEWithOptions(const ModifyInsta
 }
 
 /**
- * @summary Enables the transparent data encryption (TDE) feature for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance, with support for custom keys.
+ * @summary Enables the Transparent Data Encryption (TDE) feature for an ApsaraDB Tair (Redis® OSS-Compatible) database instance and supports custom keys.
  *
- * @description > For more information about Transparent Data Encryption (TDE) and the impacts of enabling TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+ * @description > For detailed information about Transparent Data Encryption (TDE) and the impacts of enabling it, see [Enable Transparent Data Encryption (TDE)](https://help.aliyun.com/document_detail/265913.html).
  *
  * @param request ModifyInstanceTDERequest
  * @return ModifyInstanceTDEResponse
@@ -11066,7 +11401,7 @@ ModifyInstanceTDEResponse Client::modifyInstanceTDE(const ModifyInstanceTDEReque
 }
 
 /**
- * @summary Enables or initiates a shutdown of password-free access over a VPC. After this feature is enabled, cloud servers in the same VPC can connect to the ApsaraDB for Tair (Redis® OSS-Compatible) database instance without a password. Connections using a username and password are still supported.
+ * @summary Enables or performs shutdown of password-free access over a virtual private cloud (VPC). After this feature is enabled, cloud servers in the same VPC can connect to a Tair (Redis® OSS-Compatible) instance without a password, while connections using a username and password remain supported.
  *
  * @description For information about how to perform this operation in the console, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
  *
@@ -11123,7 +11458,7 @@ ModifyInstanceVpcAuthModeResponse Client::modifyInstanceVpcAuthModeWithOptions(c
 }
 
 /**
- * @summary Enables or initiates a shutdown of password-free access over a VPC. After this feature is enabled, cloud servers in the same VPC can connect to the ApsaraDB for Tair (Redis® OSS-Compatible) database instance without a password. Connections using a username and password are still supported.
+ * @summary Enables or performs shutdown of password-free access over a virtual private cloud (VPC). After this feature is enabled, cloud servers in the same VPC can connect to a Tair (Redis® OSS-Compatible) instance without a password, while connections using a username and password remain supported.
  *
  * @description For information about how to perform this operation in the console, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
  *
@@ -11136,9 +11471,9 @@ ModifyInstanceVpcAuthModeResponse Client::modifyInstanceVpcAuthMode(const Modify
 }
 
 /**
- * @summary Temporarily adjusts the internal network bandwidth of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance in a dedicated cluster.
+ * @summary Temporarily adjusts the internal network bandwidth of an ApsaraDB Tair (Redis® OSS-Compatible) database instance in a dedicated cluster.
  *
- * @description > * This operation applies only to instances created in dedicated clusters<props="china">. For information about the related console operations and limits, see [Modify bandwidth policy](https://help.aliyun.com/document_detail/206257.html). To adjust the bandwidth of a regular instance, call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation.
+ * @description > * This operation applies only to instances created in dedicated clusters<props="china">. For information about the related console operations and limits, see [Modify bandwidth policies](https://help.aliyun.com/document_detail/206257.html). To adjust the bandwidth of a regular instance, call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation.
  *
  * @param request ModifyIntranetAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11197,9 +11532,9 @@ ModifyIntranetAttributeResponse Client::modifyIntranetAttributeWithOptions(const
 }
 
 /**
- * @summary Temporarily adjusts the internal network bandwidth of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance in a dedicated cluster.
+ * @summary Temporarily adjusts the internal network bandwidth of an ApsaraDB Tair (Redis® OSS-Compatible) database instance in a dedicated cluster.
  *
- * @description > * This operation applies only to instances created in dedicated clusters<props="china">. For information about the related console operations and limits, see [Modify bandwidth policy](https://help.aliyun.com/document_detail/206257.html). To adjust the bandwidth of a regular instance, call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation.
+ * @description > * This operation applies only to instances created in dedicated clusters<props="china">. For information about the related console operations and limits, see [Modify bandwidth policies](https://help.aliyun.com/document_detail/206257.html). To adjust the bandwidth of a regular instance, call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation.
  *
  * @param request ModifyIntranetAttributeRequest
  * @return ModifyIntranetAttributeResponse
@@ -11292,10 +11627,10 @@ ModifyParameterGroupResponse Client::modifyParameterGroup(const ModifyParameterG
 }
 
 /**
- * @summary Modifies the resource group to which a Tair (Redis® OSS-Compatible) instance belongs.
+ * @summary Modifies the resource group to which an ApsaraDB Tair (Redis® OSS-Compatible) database instance belongs.
  *
- * @description You can also perform this operation in the [Resource Management](https://resourcemanager.console.aliyun.com/resource-center) console. For more information, see [Move resources across resource groups](https://help.aliyun.com/document_detail/94487.html).
- * > A resource group is a mechanism for managing resources in groups within an Alibaba Cloud account. Resource groups help you address the complexity of resource grouping and authorization management within a single Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+ * @description You can also perform this operation in the [Resource Management](https://resourcemanager.console.aliyun.com/resource-center) console. For more information, see [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html).
+ * > A resource group is a mechanism for grouping and managing resources within an Alibaba Cloud account. Resource groups help you simplify resource grouping and authorization management within a single Alibaba Cloud account. For more information, see [What is Resource Management](https://help.aliyun.com/document_detail/94475.html).
  *
  * @param request ModifyResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11354,10 +11689,10 @@ ModifyResourceGroupResponse Client::modifyResourceGroupWithOptions(const ModifyR
 }
 
 /**
- * @summary Modifies the resource group to which a Tair (Redis® OSS-Compatible) instance belongs.
+ * @summary Modifies the resource group to which an ApsaraDB Tair (Redis® OSS-Compatible) database instance belongs.
  *
- * @description You can also perform this operation in the [Resource Management](https://resourcemanager.console.aliyun.com/resource-center) console. For more information, see [Move resources across resource groups](https://help.aliyun.com/document_detail/94487.html).
- * > A resource group is a mechanism for managing resources in groups within an Alibaba Cloud account. Resource groups help you address the complexity of resource grouping and authorization management within a single Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+ * @description You can also perform this operation in the [Resource Management](https://resourcemanager.console.aliyun.com/resource-center) console. For more information, see [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html).
+ * > A resource group is a mechanism for grouping and managing resources within an Alibaba Cloud account. Resource groups help you simplify resource grouping and authorization management within a single Alibaba Cloud account. For more information, see [What is Resource Management](https://help.aliyun.com/document_detail/94475.html).
  *
  * @param request ModifyResourceGroupRequest
  * @return ModifyResourceGroupResponse
@@ -11368,9 +11703,9 @@ ModifyResourceGroupResponse Client::modifyResourceGroup(const ModifyResourceGrou
 }
 
 /**
- * @summary Settings the security groups in the whitelist of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Configures the security group settings in the whitelist of an ApsaraDB Tair (Redis OSS-Compatible) database instance.
  *
- * @description This operation overwrites the existing security groups in the instance whitelist and adds the security groups specified by the **SecurityGroupId** parameter to the whitelist. For the corresponding console operation, see [Add a security group](https://help.aliyun.com/document_detail/148267.html).
+ * @description Calling this operation overwrites the existing security groups in the instance whitelist and adds the security groups specified in the **SecurityGroupId** parameter to the whitelist. For the corresponding console operation, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
  *
  * @param request ModifySecurityGroupConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11425,9 +11760,9 @@ ModifySecurityGroupConfigurationResponse Client::modifySecurityGroupConfiguratio
 }
 
 /**
- * @summary Settings the security groups in the whitelist of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Configures the security group settings in the whitelist of an ApsaraDB Tair (Redis OSS-Compatible) database instance.
  *
- * @description This operation overwrites the existing security groups in the instance whitelist and adds the security groups specified by the **SecurityGroupId** parameter to the whitelist. For the corresponding console operation, see [Add a security group](https://help.aliyun.com/document_detail/148267.html).
+ * @description Calling this operation overwrites the existing security groups in the instance whitelist and adds the security groups specified in the **SecurityGroupId** parameter to the whitelist. For the corresponding console operation, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
  *
  * @param request ModifySecurityGroupConfigurationRequest
  * @return ModifySecurityGroupConfigurationResponse
@@ -11438,9 +11773,9 @@ ModifySecurityGroupConfigurationResponse Client::modifySecurityGroupConfiguratio
 }
 
 /**
- * @summary Configures the IP whitelist of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Configures the IP whitelist Settings for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the console operation that corresponds to this API operation, see [Configure an IP whitelist](https://help.aliyun.com/document_detail/56464.html).
+ * @description For the corresponding console operation, see [Configure the IP whitelist](https://help.aliyun.com/document_detail/56464.html).
  *
  * @param request ModifySecurityIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11507,9 +11842,9 @@ ModifySecurityIpsResponse Client::modifySecurityIpsWithOptions(const ModifySecur
 }
 
 /**
- * @summary Configures the IP whitelist of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Configures the IP whitelist Settings for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the console operation that corresponds to this API operation, see [Configure an IP whitelist](https://help.aliyun.com/document_detail/56464.html).
+ * @description For the corresponding console operation, see [Configure the IP whitelist](https://help.aliyun.com/document_detail/56464.html).
  *
  * @param request ModifySecurityIpsRequest
  * @return ModifySecurityIpsResponse
@@ -11517,6 +11852,114 @@ ModifySecurityIpsResponse Client::modifySecurityIpsWithOptions(const ModifySecur
 ModifySecurityIpsResponse Client::modifySecurityIps(const ModifySecurityIpsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifySecurityIpsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the parameters of an AI gateway instance.
+ *
+ * @param request ModifyTairAIGatewayParameterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyTairAIGatewayParameterResponse
+ */
+ModifyTairAIGatewayParameterResponse Client::modifyTairAIGatewayParameterWithOptions(const ModifyTairAIGatewayParameterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasParameters()) {
+    query["Parameters"] = request.getParameters();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyTairAIGatewayParameter"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyTairAIGatewayParameterResponse>();
+}
+
+/**
+ * @summary Modifies the parameters of an AI gateway instance.
+ *
+ * @param request ModifyTairAIGatewayParameterRequest
+ * @return ModifyTairAIGatewayParameterResponse
+ */
+ModifyTairAIGatewayParameterResponse Client::modifyTairAIGatewayParameter(const ModifyTairAIGatewayParameterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyTairAIGatewayParameterWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the plug-in switches of the AI gateway.
+ *
+ * @param request ModifyTairAIGatewayPluginSwitchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyTairAIGatewayPluginSwitchResponse
+ */
+ModifyTairAIGatewayPluginSwitchResponse Client::modifyTairAIGatewayPluginSwitchWithOptions(const ModifyTairAIGatewayPluginSwitchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasParameters()) {
+    query["Parameters"] = request.getParameters();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyTairAIGatewayPluginSwitch"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyTairAIGatewayPluginSwitchResponse>();
+}
+
+/**
+ * @summary Modifies the plug-in switches of the AI gateway.
+ *
+ * @param request ModifyTairAIGatewayPluginSwitchRequest
+ * @return ModifyTairAIGatewayPluginSwitchResponse
+ */
+ModifyTairAIGatewayPluginSwitchResponse Client::modifyTairAIGatewayPluginSwitch(const ModifyTairAIGatewayPluginSwitchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyTairAIGatewayPluginSwitchWithOptions(request, runtime);
 }
 
 /**
@@ -11590,7 +12033,7 @@ ModifyTairKVCacheCustomInstanceAttributeResponse Client::modifyTairKVCacheCustom
 }
 
 /**
- * @summary Performs a node operation. Currently, this operation supports modifying the execution time of a node.
+ * @summary Performs an operation on a task. Currently, modifying the task execution time is supported.
  *
  * @param request ModifyTaskInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11649,7 +12092,7 @@ ModifyTaskInfoResponse Client::modifyTaskInfoWithOptions(const ModifyTaskInfoReq
 }
 
 /**
- * @summary Performs a node operation. Currently, this operation supports modifying the execution time of a node.
+ * @summary Performs an operation on a task. Currently, modifying the task execution time is supported.
  *
  * @param request ModifyTaskInfoRequest
  * @return ModifyTaskInfoResponse
@@ -11660,7 +12103,7 @@ ModifyTaskInfoResponse Client::modifyTaskInfo(const ModifyTaskInfoRequest &reque
 }
 
 /**
- * @summary Restarts the proxy nodes of a running Tair (Redis® OSS-Compatible) database instance.
+ * @summary Restarts the proxy nodes of a running ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
  * @description This operation is supported only for instances that use the cluster architecture in proxy mode or the read/write splitting architecture. For more information, see [Restart or rebuild proxy nodes](https://help.aliyun.com/document_detail/164224.html).
  *
@@ -11725,7 +12168,7 @@ RebootProxyResponse Client::rebootProxyWithOptions(const RebootProxyRequest &req
 }
 
 /**
- * @summary Restarts the proxy nodes of a running Tair (Redis® OSS-Compatible) database instance.
+ * @summary Restarts the proxy nodes of a running ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
  * @description This operation is supported only for instances that use the cluster architecture in proxy mode or the read/write splitting architecture. For more information, see [Restart or rebuild proxy nodes](https://help.aliyun.com/document_detail/164224.html).
  *
@@ -11738,9 +12181,9 @@ RebootProxyResponse Client::rebootProxy(const RebootProxyRequest &request) {
 }
 
 /**
- * @summary Releases the direct connection address of a Tair (Redis® OSS-Compatible) cluster instance.
+ * @summary Releases the direct connection endpoint of an ApsaraDB for Tair (Redis® OSS-Compatible) database cluster instance.
  *
- * @description A client can use the direct connection address to bypass the proxy and connect to a Tair (Redis® OSS-Compatible) database cluster in the same way as connecting to a native Redis cluster. This reduces link overhead and further improves the response speed of the instance. For more information, see [Enable direct connection access](https://help.aliyun.com/document_detail/146901.html).
+ * @description Clients can use the direct connection endpoint to bypass proxies and connect to an ApsaraDB for Tair (Redis® OSS-Compatible) database cluster in the same way as connecting to a native Redis cluster. This reduces link overhead and further improves the response speed of the instance. For more information, see [Enable direct connection access](https://help.aliyun.com/document_detail/146901.html).
  *
  * @param request ReleaseDirectConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11791,9 +12234,9 @@ ReleaseDirectConnectionResponse Client::releaseDirectConnectionWithOptions(const
 }
 
 /**
- * @summary Releases the direct connection address of a Tair (Redis® OSS-Compatible) cluster instance.
+ * @summary Releases the direct connection endpoint of an ApsaraDB for Tair (Redis® OSS-Compatible) database cluster instance.
  *
- * @description A client can use the direct connection address to bypass the proxy and connect to a Tair (Redis® OSS-Compatible) database cluster in the same way as connecting to a native Redis cluster. This reduces link overhead and further improves the response speed of the instance. For more information, see [Enable direct connection access](https://help.aliyun.com/document_detail/146901.html).
+ * @description Clients can use the direct connection endpoint to bypass proxies and connect to an ApsaraDB for Tair (Redis® OSS-Compatible) database cluster in the same way as connecting to a native Redis cluster. This reduces link overhead and further improves the response speed of the instance. For more information, see [Enable direct connection access](https://help.aliyun.com/document_detail/146901.html).
  *
  * @param request ReleaseDirectConnectionRequest
  * @return ReleaseDirectConnectionResponse
@@ -11804,9 +12247,9 @@ ReleaseDirectConnectionResponse Client::releaseDirectConnection(const ReleaseDir
 }
 
 /**
- * @summary Releases the public endpoint of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Releases the public endpoint of a Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the corresponding console operation, refer to [Release a public endpoint](https://help.aliyun.com/document_detail/125424.html).
+ * @description For the corresponding console operation, see [Release a public endpoint](https://help.aliyun.com/document_detail/125424.html).
  *
  * @param request ReleaseInstancePublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11861,9 +12304,9 @@ ReleaseInstancePublicConnectionResponse Client::releaseInstancePublicConnectionW
 }
 
 /**
- * @summary Releases the public endpoint of a Tair (Redis® OSS-Compatible) instance.
+ * @summary Releases the public endpoint of a Tair (Redis® OSS-Compatible) database instance.
  *
- * @description For the corresponding console operation, refer to [Release a public endpoint](https://help.aliyun.com/document_detail/125424.html).
+ * @description For the corresponding console operation, see [Release a public endpoint](https://help.aliyun.com/document_detail/125424.html).
  *
  * @param request ReleaseInstancePublicConnectionRequest
  * @return ReleaseInstancePublicConnectionResponse
@@ -11874,9 +12317,9 @@ ReleaseInstancePublicConnectionResponse Client::releaseInstancePublicConnection(
 }
 
 /**
- * @summary Removes a child instance from a distributed instance and converts it to a standard instance. Data is retained.
+ * @summary Removes a child instance from a distributed instance and converts it into a regular instance. The data is retained.
  *
- * @description > After the conversion is complete, the child instance becomes a standard instance. You can find and manage the instance in the instance list of the corresponding region.
+ * @description > After the conversion is complete, the child instance becomes a regular instance. You can find and manage the instance in the instance list of the corresponding region.
  *
  * @param request RemoveSubInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11927,9 +12370,9 @@ RemoveSubInstanceResponse Client::removeSubInstanceWithOptions(const RemoveSubIn
 }
 
 /**
- * @summary Removes a child instance from a distributed instance and converts it to a standard instance. Data is retained.
+ * @summary Removes a child instance from a distributed instance and converts it into a regular instance. The data is retained.
  *
- * @description > After the conversion is complete, the child instance becomes a standard instance. You can find and manage the instance in the instance list of the corresponding region.
+ * @description > After the conversion is complete, the child instance becomes a regular instance. You can find and manage the instance in the instance list of the corresponding region.
  *
  * @param request RemoveSubInstanceRequest
  * @return RemoveSubInstanceResponse
@@ -11940,9 +12383,9 @@ RemoveSubInstanceResponse Client::removeSubInstance(const RemoveSubInstanceReque
 }
 
 /**
- * @summary The bandwidth of ApsaraDB for Tair (Redis® OSS-Compatible) database instances has been upgraded to the pay-as-you-go pattern. This operation is no longer recommended.
+ * @summary Renews the bandwidth of a Tair (Redis® OSS-Compatible) instance. This operation is deprecated because the bandwidth has been upgraded to the pay-as-you-go billing method.
  *
- * @description This operation is no longer recommended. You can adjust instance bandwidth through the console ([Modify instance bandwidth](https://help.aliyun.com/document_detail/102588.html)) or by calling [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html).
+ * @description This operation is deprecated. You can purchase bandwidth for an instance by using the console ([Adjust instance bandwidth](https://help.aliyun.com/document_detail/102588.html)) or by calling the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation.
  *
  * @param request RenewAdditionalBandwidthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12009,9 +12452,9 @@ RenewAdditionalBandwidthResponse Client::renewAdditionalBandwidthWithOptions(con
 }
 
 /**
- * @summary The bandwidth of ApsaraDB for Tair (Redis® OSS-Compatible) database instances has been upgraded to the pay-as-you-go pattern. This operation is no longer recommended.
+ * @summary Renews the bandwidth of a Tair (Redis® OSS-Compatible) instance. This operation is deprecated because the bandwidth has been upgraded to the pay-as-you-go billing method.
  *
- * @description This operation is no longer recommended. You can adjust instance bandwidth through the console ([Modify instance bandwidth](https://help.aliyun.com/document_detail/102588.html)) or by calling [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html).
+ * @description This operation is deprecated. You can purchase bandwidth for an instance by using the console ([Adjust instance bandwidth](https://help.aliyun.com/document_detail/102588.html)) or by calling the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation.
  *
  * @param request RenewAdditionalBandwidthRequest
  * @return RenewAdditionalBandwidthResponse
@@ -12120,9 +12563,9 @@ RenewInstanceResponse Client::renewInstance(const RenewInstanceRequest &request)
 }
 
 /**
- * @summary Resets the password of an ApsaraDB for Tair (Redis® OSS-Compatible) database account.
+ * @summary Resets the password of an account for a Tair (Redis® OSS-Compatible) instance.
  *
- * @description > This operation is supported only for Redis instances that run version 4.0 or later.
+ * @description > This operation is supported only by Redis instances of version 4.0 or later.
  *
  * @param request ResetAccountPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12185,9 +12628,9 @@ ResetAccountPasswordResponse Client::resetAccountPasswordWithOptions(const Reset
 }
 
 /**
- * @summary Resets the password of an ApsaraDB for Tair (Redis® OSS-Compatible) database account.
+ * @summary Resets the password of an account for a Tair (Redis® OSS-Compatible) instance.
  *
- * @description > This operation is supported only for Redis instances that run version 4.0 or later.
+ * @description > This operation is supported only by Redis instances of version 4.0 or later.
  *
  * @param request ResetAccountPasswordRequest
  * @return ResetAccountPasswordResponse
@@ -12342,7 +12785,7 @@ ResizeTairKVCacheCustomInstanceDiskResponse Client::resizeTairKVCacheCustomInsta
 }
 
 /**
- * @summary Restarts a running Tair (Redis® OSS-Compatible) database instance.
+ * @summary Restarts a running ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
  * @param request RestartInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12401,7 +12844,7 @@ RestartInstanceResponse Client::restartInstanceWithOptions(const RestartInstance
 }
 
 /**
- * @summary Restarts a running Tair (Redis® OSS-Compatible) database instance.
+ * @summary Restarts a running ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
  *
  * @param request RestartInstanceRequest
  * @return RestartInstanceResponse
@@ -12474,10 +12917,10 @@ RestartTairKVCacheCustomInstanceResponse Client::restartTairKVCacheCustomInstanc
 }
 
 /**
- * @summary Restores data from a specified backup file to a Tair (Redis OSS-Compatible) database instance.
+ * @summary Recovers data from a specified backup file to a Tair (Redis® OSS-Compatible) database instance.
  *
- * @description * If your instance is a Tair (Enterprise Edition) memory-optimized instance of the classic architecture, you can call this operation to restore specified keys in the current instance to a specific point in time accurate to seconds. This enables more fine-grained data restoration.
- * * For instances other than the preceding type, call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) or [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation to restore backup data to a new instance.
+ * @description * If your instance is a Tair (Enterprise Edition) memory-optimized instance with the classic architecture, you can call this operation to restore specified keys in the current instance to a specific point in time accurate to seconds. This enables more fine-grained data restoration.
+ * * For other types of instances, call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) or [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation to restore backup data to a new instance.
  *
  * @param request RestoreInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12548,10 +12991,10 @@ RestoreInstanceResponse Client::restoreInstanceWithOptions(const RestoreInstance
 }
 
 /**
- * @summary Restores data from a specified backup file to a Tair (Redis OSS-Compatible) database instance.
+ * @summary Recovers data from a specified backup file to a Tair (Redis® OSS-Compatible) database instance.
  *
- * @description * If your instance is a Tair (Enterprise Edition) memory-optimized instance of the classic architecture, you can call this operation to restore specified keys in the current instance to a specific point in time accurate to seconds. This enables more fine-grained data restoration.
- * * For instances other than the preceding type, call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) or [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation to restore backup data to a new instance.
+ * @description * If your instance is a Tair (Enterprise Edition) memory-optimized instance with the classic architecture, you can call this operation to restore specified keys in the current instance to a specific point in time accurate to seconds. This enables more fine-grained data restoration.
+ * * For other types of instances, call the [CreateInstance](https://help.aliyun.com/document_detail/473757.html) or [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation to restore backup data to a new instance.
  *
  * @param request RestoreInstanceRequest
  * @return RestoreInstanceResponse
@@ -12736,13 +13179,13 @@ StopTairKVCacheCustomInstanceResponse Client::stopTairKVCacheCustomInstance(cons
 }
 
 /**
- * @summary Performs a primary/secondary switchover to switch node roles. This operation is applicable to scenarios such as disaster recovery drills and nearest access for applications in multi-zone deployments.
+ * @summary Performs a primary/secondary switchover to switch node roles. This operation applies to scenarios such as disaster recovery drills and nearest access for applications in multi-zone deployments.
  *
- * @description > For more information about nearest access for applications in multi-zone deployment scenarios, see [Scenario examples](https://help.aliyun.com/document_detail/164222.html).
+ * @description > For more information about nearest access for applications in multi-zone scenarios, see [Scenario examples](https://help.aliyun.com/document_detail/164222.html).
  * When you call this operation, the instance must be of the high-availability or dual-replica type.
  * Calling this operation has the following impacts:
  * * After the node role switchover is triggered, the data node on which the switchover is performed will enter a read-only state for a few seconds and experience transient disconnections. Make sure that your application has a reconnection mechanism.
- * * While the instance is in the switching state, you cannot perform instance-level operations, such as changing configurations or migrating zones.
+ * * While the instance is in the switching state, you cannot perform instance-level operations, such as modifying configurations or migrating zones.
  *
  * @param request SwitchInstanceHARequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12817,13 +13260,13 @@ SwitchInstanceHAResponse Client::switchInstanceHAWithOptions(const SwitchInstanc
 }
 
 /**
- * @summary Performs a primary/secondary switchover to switch node roles. This operation is applicable to scenarios such as disaster recovery drills and nearest access for applications in multi-zone deployments.
+ * @summary Performs a primary/secondary switchover to switch node roles. This operation applies to scenarios such as disaster recovery drills and nearest access for applications in multi-zone deployments.
  *
- * @description > For more information about nearest access for applications in multi-zone deployment scenarios, see [Scenario examples](https://help.aliyun.com/document_detail/164222.html).
+ * @description > For more information about nearest access for applications in multi-zone scenarios, see [Scenario examples](https://help.aliyun.com/document_detail/164222.html).
  * When you call this operation, the instance must be of the high-availability or dual-replica type.
  * Calling this operation has the following impacts:
  * * After the node role switchover is triggered, the data node on which the switchover is performed will enter a read-only state for a few seconds and experience transient disconnections. Make sure that your application has a reconnection mechanism.
- * * While the instance is in the switching state, you cannot perform instance-level operations, such as changing configurations or migrating zones.
+ * * While the instance is in the switching state, you cannot perform instance-level operations, such as modifying configurations or migrating zones.
  *
  * @param request SwitchInstanceHARequest
  * @return SwitchInstanceHAResponse
@@ -12834,13 +13277,13 @@ SwitchInstanceHAResponse Client::switchInstanceHA(const SwitchInstanceHARequest 
 }
 
 /**
- * @summary Enables or shuts down the proxy mode for a Tair (Redis® OSS-Compatible) database cluster instance in a dedicated cluster.
+ * @summary Enables or shutdown the proxy mode for a Tair (Redis® OSS-Compatible) cluster instance in a dedicated cluster.
  *
  * @description For more information about the proxy mode, see [Proxy features](https://help.aliyun.com/document_detail/142959.html).
- * Before calling this operation, ensure that the following conditions are met:
- * * The instance is created in a dedicated cluster. For more information, see [ApsaraDB MyBase dedicated cluster](https://help.aliyun.com/document_detail/141455.html).
+ * To call this operation, the following conditions must be met:
+ * * The instance is created in a dedicated cluster. For more information, see [ApsaraDB MyBase](https://help.aliyun.com/document_detail/141455.html).
  * * The instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
- * > Before calling this operation, call the [DescribeDedicatedClusterInstanceList](https://help.aliyun.com/document_detail/473867.html) operation and check the value of the **ProxyCount** response parameter to determine whether the proxy mode is enabled for the instance. For example, a value of 0 indicates that the proxy mode is disabled. A value greater than 0 indicates that the proxy mode is enabled.
+ * > Before calling this operation, call the [DescribeDedicatedClusterInstanceList](https://help.aliyun.com/document_detail/473867.html) operation and check the value of the **ProxyCount** response parameter to determine whether the proxy mode is enabled for the instance. For example, a value of 0 indicates that the proxy mode is disabled, and a value greater than 0 indicates that the proxy mode is enabled.
  *
  * @param request SwitchInstanceProxyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12891,13 +13334,13 @@ SwitchInstanceProxyResponse Client::switchInstanceProxyWithOptions(const SwitchI
 }
 
 /**
- * @summary Enables or shuts down the proxy mode for a Tair (Redis® OSS-Compatible) database cluster instance in a dedicated cluster.
+ * @summary Enables or shutdown the proxy mode for a Tair (Redis® OSS-Compatible) cluster instance in a dedicated cluster.
  *
  * @description For more information about the proxy mode, see [Proxy features](https://help.aliyun.com/document_detail/142959.html).
- * Before calling this operation, ensure that the following conditions are met:
- * * The instance is created in a dedicated cluster. For more information, see [ApsaraDB MyBase dedicated cluster](https://help.aliyun.com/document_detail/141455.html).
+ * To call this operation, the following conditions must be met:
+ * * The instance is created in a dedicated cluster. For more information, see [ApsaraDB MyBase](https://help.aliyun.com/document_detail/141455.html).
  * * The instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
- * > Before calling this operation, call the [DescribeDedicatedClusterInstanceList](https://help.aliyun.com/document_detail/473867.html) operation and check the value of the **ProxyCount** response parameter to determine whether the proxy mode is enabled for the instance. For example, a value of 0 indicates that the proxy mode is disabled. A value greater than 0 indicates that the proxy mode is enabled.
+ * > Before calling this operation, call the [DescribeDedicatedClusterInstanceList](https://help.aliyun.com/document_detail/473867.html) operation and check the value of the **ProxyCount** response parameter to determine whether the proxy mode is enabled for the instance. For example, a value of 0 indicates that the proxy mode is disabled, and a value greater than 0 indicates that the proxy mode is enabled.
  *
  * @param request SwitchInstanceProxyRequest
  * @return SwitchInstanceProxyResponse
@@ -12908,9 +13351,9 @@ SwitchInstanceProxyResponse Client::switchInstanceProxy(const SwitchInstanceProx
 }
 
 /**
- * @summary Switches an instance to a specified zone.
+ * @summary Switches an instance to a specified target zone.
  *
- * @description This operation is supported only for cloud-native architecture instances.
+ * @description This operation supports only cloud-native architecture instances.
  *
  * @param request SwitchInstanceToTargetZoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12953,9 +13396,9 @@ SwitchInstanceToTargetZoneResponse Client::switchInstanceToTargetZoneWithOptions
 }
 
 /**
- * @summary Switches an instance to a specified zone.
+ * @summary Switches an instance to a specified target zone.
  *
- * @description This operation is supported only for cloud-native architecture instances.
+ * @description This operation supports only cloud-native architecture instances.
  *
  * @param request SwitchInstanceToTargetZoneRequest
  * @return SwitchInstanceToTargetZoneResponse
@@ -12966,10 +13409,10 @@ SwitchInstanceToTargetZoneResponse Client::switchInstanceToTargetZone(const Swit
 }
 
 /**
- * @summary Performs an impersonation of a zone-level failure of an active ApsaraDB for Tair (Redis® OSS-Compatible) cluster architecture database instance, triggering an automatic switchover to the secondary zone.
+ * @summary Simulates a zone-level failure for a Tair (Redis® OSS-Compatible) cluster architecture instance, triggering an automatic switchover to the secondary zone.
  *
- * @description - This operation applies only to active multi-zone (dual-zone) cluster architecture instances.
- * - The node subjected to failure impersonation automatically recovers later. However, the primary node is located in the secondary zone and the secondary node is located in the primary zone. This may cause cross-data-center access between the instance and other services. To resolve this issue, you can perform a manual switchover of zones on the Service Availability page in the console.
+ * @description - This operation is applicable only to multi-zone (dual-zone) cluster architecture instances.
+ * - The node where the failure is simulated automatically recovers later. However, the primary node is located in the secondary zone and the secondary node is located in the primary zone, which may result in cross-data center access between the instance and other workloads. To resolve this issue, you can manually switch zones on the Service Availability page in the console.
  *
  * @param request SwitchInstanceZoneFailOverRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13008,10 +13451,10 @@ SwitchInstanceZoneFailOverResponse Client::switchInstanceZoneFailOverWithOptions
 }
 
 /**
- * @summary Performs an impersonation of a zone-level failure of an active ApsaraDB for Tair (Redis® OSS-Compatible) cluster architecture database instance, triggering an automatic switchover to the secondary zone.
+ * @summary Simulates a zone-level failure for a Tair (Redis® OSS-Compatible) cluster architecture instance, triggering an automatic switchover to the secondary zone.
  *
- * @description - This operation applies only to active multi-zone (dual-zone) cluster architecture instances.
- * - The node subjected to failure impersonation automatically recovers later. However, the primary node is located in the secondary zone and the secondary node is located in the primary zone. This may cause cross-data-center access between the instance and other services. To resolve this issue, you can perform a manual switchover of zones on the Service Availability page in the console.
+ * @description - This operation is applicable only to multi-zone (dual-zone) cluster architecture instances.
+ * - The node where the failure is simulated automatically recovers later. However, the primary node is located in the secondary zone and the secondary node is located in the primary zone, which may result in cross-data center access between the instance and other workloads. To resolve this issue, you can manually switch zones on the Service Availability page in the console.
  *
  * @param request SwitchInstanceZoneFailOverRequest
  * @return SwitchInstanceZoneFailOverResponse
@@ -13022,7 +13465,7 @@ SwitchInstanceZoneFailOverResponse Client::switchInstanceZoneFailOver(const Swit
 }
 
 /**
- * @summary Switches the virtual private cloud (VPC) or vSwitch of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance. If the instance uses the classic network, the instance is switched to a VPC.
+ * @summary Switches the VPC or vSwitch of a Tair (Redis® OSS-Compatible) instance. If the instance is in the classic network, it is switched to a VPC.
  *
  * @param request SwitchNetworkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13093,7 +13536,7 @@ SwitchNetworkResponse Client::switchNetworkWithOptions(const SwitchNetworkReques
 }
 
 /**
- * @summary Switches the virtual private cloud (VPC) or vSwitch of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance. If the instance uses the classic network, the instance is switched to a VPC.
+ * @summary Switches the VPC or vSwitch of a Tair (Redis® OSS-Compatible) instance. If the instance is in the classic network, it is switched to a VPC.
  *
  * @param request SwitchNetworkRequest
  * @return SwitchNetworkResponse
@@ -13104,7 +13547,7 @@ SwitchNetworkResponse Client::switchNetwork(const SwitchNetworkRequest &request)
 }
 
 /**
- * @summary Before you use Data Transmission Service (DTS) to migrate or synchronize data of an ApsaraDB for Tair (Redis OSS-Compatible) database instance, you can invoke this operation to restrict the instance so that it does not execute Upgrade/Downgrade operations. This prevents data migration or synchronization nodes from becoming failed due to Upgrade/Downgrade.
+ * @summary Before you use Data Transmission Service (DTS) to migrate or synchronize data of an ApsaraDB Tair (Redis® OSS-Compatible) instance, you can call this operation to restrict the instance so that it cannot execute Upgrade/Downgrade operations, preventing data migration or synchronization tasks from failing due to Upgrade/Downgrade.
  *
  * @description - This operation applies only to Classic Edition instances.
  * - After the data migration or synchronization task is completed, you can call this operation again to remove the specification change restrictions.
@@ -13170,7 +13613,7 @@ SyncDtsStatusResponse Client::syncDtsStatusWithOptions(const SyncDtsStatusReques
 }
 
 /**
- * @summary Before you use Data Transmission Service (DTS) to migrate or synchronize data of an ApsaraDB for Tair (Redis OSS-Compatible) database instance, you can invoke this operation to restrict the instance so that it does not execute Upgrade/Downgrade operations. This prevents data migration or synchronization nodes from becoming failed due to Upgrade/Downgrade.
+ * @summary Before you use Data Transmission Service (DTS) to migrate or synchronize data of an ApsaraDB Tair (Redis® OSS-Compatible) instance, you can call this operation to restrict the instance so that it cannot execute Upgrade/Downgrade operations, preventing data migration or synchronization tasks from failing due to Upgrade/Downgrade.
  *
  * @description - This operation applies only to Classic Edition instances.
  * - After the data migration or synchronization task is completed, you can call this operation again to remove the specification change restrictions.
@@ -13184,12 +13627,12 @@ SyncDtsStatusResponse Client::syncDtsStatus(const SyncDtsStatusRequest &request)
 }
 
 /**
- * @summary Attaches labels to one or more ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
+ * @summary Attaches labels to one or more ApsaraDB for Tair (Redis-compatible) database instances.
  *
- * @description If you have a large number of instances, you can create multiple labels and attach different labels to the instances for categorization. You can then filter instances by label.
- * * A label consists of a key-value pair. The key must be unique within the same account and region, while the value has no such restriction.
- * * If the label in Settings does not exist, automatic creation of the label is performed and it is attached to the target instance.
- * * If the instance is already attached to a label with the same key, the new label overwrites the existing one.
+ * @description If you manage a large number of instances, you can create multiple labels and attach different labels to instances for categorization. You can then filter instances by label.
+ * * A label consists of a key-value pair. Keys must be unique within the same account and region, whereas values have no such restriction.
+ * * If the label in Settings does not exist, automatic creation of the label is performed and it is attached to the target instances.
+ * * If an instance already has a label with the same key attached, the new label overwrites the existing one.
  * * You can attach up to 20 labels to each instance.
  * * You can attach labels to up to 50 instances each time you invoke the API.
  * For the corresponding console operation, see [Create a label](https://help.aliyun.com/document_detail/118779.html).
@@ -13251,12 +13694,12 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Attaches labels to one or more ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
+ * @summary Attaches labels to one or more ApsaraDB for Tair (Redis-compatible) database instances.
  *
- * @description If you have a large number of instances, you can create multiple labels and attach different labels to the instances for categorization. You can then filter instances by label.
- * * A label consists of a key-value pair. The key must be unique within the same account and region, while the value has no such restriction.
- * * If the label in Settings does not exist, automatic creation of the label is performed and it is attached to the target instance.
- * * If the instance is already attached to a label with the same key, the new label overwrites the existing one.
+ * @description If you manage a large number of instances, you can create multiple labels and attach different labels to instances for categorization. You can then filter instances by label.
+ * * A label consists of a key-value pair. Keys must be unique within the same account and region, whereas values have no such restriction.
+ * * If the label in Settings does not exist, automatic creation of the label is performed and it is attached to the target instances.
+ * * If an instance already has a label with the same key attached, the new label overwrites the existing one.
  * * You can attach up to 20 labels to each instance.
  * * You can attach labels to up to 50 instances each time you invoke the API.
  * For the corresponding console operation, see [Create a label](https://help.aliyun.com/document_detail/118779.html).
@@ -13270,11 +13713,11 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Changes the billing method of a Tair (Redis® OSS-Compatible) database instance. You can switch between the pay-as-you-go and subscription billing methods.
+ * @summary Changes the billing method of an ApsaraDB for Tair (Redis OSS-Compatible) instance. You can switch the billing method between pay-as-you-go and subscription.
  *
  * @description Before you call this operation, make sure that you understand the precautions and billing instructions. For more information, see:
- * * [Switch from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/54542.html).
- * * [Switch from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
+ * * [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/54542.html).
+ * * [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
  *
  * @param request TransformInstanceChargeTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13349,11 +13792,11 @@ TransformInstanceChargeTypeResponse Client::transformInstanceChargeTypeWithOptio
 }
 
 /**
- * @summary Changes the billing method of a Tair (Redis® OSS-Compatible) database instance. You can switch between the pay-as-you-go and subscription billing methods.
+ * @summary Changes the billing method of an ApsaraDB for Tair (Redis OSS-Compatible) instance. You can switch the billing method between pay-as-you-go and subscription.
  *
  * @description Before you call this operation, make sure that you understand the precautions and billing instructions. For more information, see:
- * * [Switch from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/54542.html).
- * * [Switch from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
+ * * [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/54542.html).
+ * * [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
  *
  * @param request TransformInstanceChargeTypeRequest
  * @return TransformInstanceChargeTypeResponse
@@ -13364,7 +13807,7 @@ TransformInstanceChargeTypeResponse Client::transformInstanceChargeType(const Tr
 }
 
 /**
- * @summary Converts a classic architecture instance to cloud-native.
+ * @summary Converts a local disk instance to a cloud-native instance.
  *
  * @param request TransformToEcsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13463,7 +13906,7 @@ TransformToEcsResponse Client::transformToEcsWithOptions(const TransformToEcsReq
 }
 
 /**
- * @summary Converts a classic architecture instance to cloud-native.
+ * @summary Converts a local disk instance to a cloud-native instance.
  *
  * @param request TransformToEcsRequest
  * @return TransformToEcsResponse
@@ -13474,9 +13917,9 @@ TransformToEcsResponse Client::transformToEcs(const TransformToEcsRequest &reque
 }
 
 /**
- * @summary Transforms a pay-as-you-go Tair (Redis® OSS-Compatible) database instance into a subscription instance.
+ * @summary Transforms a pay-as-you-go ApsaraDB for Tair (Redis® OSS-Compatible) database instance to a subscription (upfront) instance.
  *
- * @description For the corresponding console operation, see [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
+ * @description For the corresponding console operation, refer to [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
  *
  * @param request TransformToPrePaidRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13547,9 +13990,9 @@ TransformToPrePaidResponse Client::transformToPrePaidWithOptions(const Transform
 }
 
 /**
- * @summary Transforms a pay-as-you-go Tair (Redis® OSS-Compatible) database instance into a subscription instance.
+ * @summary Transforms a pay-as-you-go ApsaraDB for Tair (Redis® OSS-Compatible) database instance to a subscription (upfront) instance.
  *
- * @description For the corresponding console operation, see [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
+ * @description For the corresponding console operation, refer to [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
  *
  * @param request TransformToPrePaidRequest
  * @return TransformToPrePaidResponse
@@ -13560,7 +14003,7 @@ TransformToPrePaidResponse Client::transformToPrePaid(const TransformToPrePaidRe
 }
 
 /**
- * @summary Unlocks a write-locked instance. After the instance is unlocked, the instance supports both reading and writing data.
+ * @summary Unlocks a write-locked instance. After the instance is unlocked, it supports data read and write operations.
  *
  * @param request UnlockDBInstanceWriteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13611,7 +14054,7 @@ UnlockDBInstanceWriteResponse Client::unlockDBInstanceWriteWithOptions(const Unl
 }
 
 /**
- * @summary Unlocks a write-locked instance. After the instance is unlocked, the instance supports both reading and writing data.
+ * @summary Unlocks a write-locked instance. After the instance is unlocked, it supports data read and write operations.
  *
  * @param request UnlockDBInstanceWriteRequest
  * @return UnlockDBInstanceWriteResponse
@@ -13622,9 +14065,9 @@ UnlockDBInstanceWriteResponse Client::unlockDBInstanceWrite(const UnlockDBInstan
 }
 
 /**
- * @summary Removes labels from an ApsaraDB for Tair (Redis OSS-compatible) database instance.
+ * @summary Removes tags from Tair (Redis® OSS-Compatible) database instances.
  *
- * @description * You can remove up to 20 tags at a time.
+ * @description * You can remove a maximum of 20 tags at a time.
  * * If a tag is removed from an instance and is not attached to any other instances, the tag is automatically deleted.
  * For the corresponding console operation, see [Remove tags](https://help.aliyun.com/document_detail/119157.html).
  *
@@ -13689,9 +14132,9 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes labels from an ApsaraDB for Tair (Redis OSS-compatible) database instance.
+ * @summary Removes tags from Tair (Redis® OSS-Compatible) database instances.
  *
- * @description * You can remove up to 20 tags at a time.
+ * @description * You can remove a maximum of 20 tags at a time.
  * * If a tag is removed from an instance and is not attached to any other instances, the tag is automatically deleted.
  * For the corresponding console operation, see [Remove tags](https://help.aliyun.com/document_detail/119157.html).
  *
@@ -13704,11 +14147,11 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Upgrades the proxy nodes of a cluster instance to the latest version.
+ * @summary Upgrades the proxy node of a cluster instance to the latest version.
  *
- * @description The upgrade process and impact vary depending on the architecture. For more information, see [Minor engine version update](https://help.aliyun.com/document_detail/56450.html).
- * > * Before you call this operation, you can call [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) to query the current minor version of the proxy nodes.
- * > * The upgrade causes connection interruptions. Perform the upgrade during off-peak hours and make sure that your application has a reconnection mechanism. For more information about the impact, see [Minor engine version update](https://help.aliyun.com/document_detail/56450.html).
+ * @description The upgrade process and impact vary based on the architecture. For more information, see [Principles of minor version updates](https://help.aliyun.com/document_detail/56450.html).
+ * > * Before you call this operation, you can call [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) to query the current minor version of the proxy node.
+ * > * Upgrades cause connection interruptions. Perform upgrades during off-peak hours and ensure that your applications have a reconnection mechanism. For more information about the impact, see [Principles of minor version updates](https://help.aliyun.com/document_detail/56450.html).
  *
  * @param request UpgradeProxyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13767,11 +14210,11 @@ UpgradeProxyResponse Client::upgradeProxyWithOptions(const UpgradeProxyRequest &
 }
 
 /**
- * @summary Upgrades the proxy nodes of a cluster instance to the latest version.
+ * @summary Upgrades the proxy node of a cluster instance to the latest version.
  *
- * @description The upgrade process and impact vary depending on the architecture. For more information, see [Minor engine version update](https://help.aliyun.com/document_detail/56450.html).
- * > * Before you call this operation, you can call [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) to query the current minor version of the proxy nodes.
- * > * The upgrade causes connection interruptions. Perform the upgrade during off-peak hours and make sure that your application has a reconnection mechanism. For more information about the impact, see [Minor engine version update](https://help.aliyun.com/document_detail/56450.html).
+ * @description The upgrade process and impact vary based on the architecture. For more information, see [Principles of minor version updates](https://help.aliyun.com/document_detail/56450.html).
+ * > * Before you call this operation, you can call [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) to query the current minor version of the proxy node.
+ * > * Upgrades cause connection interruptions. Perform upgrades during off-peak hours and ensure that your applications have a reconnection mechanism. For more information about the impact, see [Principles of minor version updates](https://help.aliyun.com/document_detail/56450.html).
  *
  * @param request UpgradeProxyRequest
  * @return UpgradeProxyResponse

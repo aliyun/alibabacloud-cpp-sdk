@@ -198,9 +198,7 @@ namespace Models
 
 
       protected:
-        // The time when the scheduled task configuration was created.
-        // 
-        // The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+        // The time when the scheduled task configuration was created. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
         shared_ptr<string> createTime_ {};
         // The cron expression.
         shared_ptr<string> cronExpression_ {};
@@ -208,15 +206,13 @@ namespace Models
         shared_ptr<int64_t> enabled_ {};
         // The inspection items.
         // > 
-        // > - Supported inspection items include RESOURCE_USAGE, BIGKEY, HOTKEY, PERFORMANCE_METRICS, and SLOWLOG.
+        // > - Currently, the supported inspection items are RESOURCE_USAGE, BIGKEY, HOTKEY, PERFORMANCE_METRICS, and SLOWLOG.
         shared_ptr<string> inspectionItems_ {};
         // The time window.
         shared_ptr<string> inspectionWindow_ {};
         // The list of associated instance IDs.
         shared_ptr<string> instanceIds_ {};
-        // The next time the task is scheduled to run.
-        // 
-        // The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+        // The next time the task is scheduled to run. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
         shared_ptr<string> nextFireTime_ {};
         // The notification configuration.
         shared_ptr<string> notifyConfig_ {};
@@ -228,9 +224,7 @@ namespace Models
         shared_ptr<string> scheduleName_ {};
         // The time zone.
         shared_ptr<string> timezone_ {};
-        // The update time.
-        // 
-        // The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+        // The update time. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -271,7 +265,7 @@ namespace Models
       shared_ptr<vector<Data::Items>> items_ {};
       // The current page number.
       shared_ptr<int64_t> pageNum_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int64_t> total_ {};

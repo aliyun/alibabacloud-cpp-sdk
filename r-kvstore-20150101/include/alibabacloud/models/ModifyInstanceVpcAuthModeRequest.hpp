@@ -103,7 +103,7 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The authentication mode in a VPC. Valid values:
+    // The authentication mode in the VPC. Valid values:
     // * **Open**: Uses password authentication.
     // * **Close**: Disables password authentication and enables password-free access.
     // 

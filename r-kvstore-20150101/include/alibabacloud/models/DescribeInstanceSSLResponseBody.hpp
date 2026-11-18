@@ -98,7 +98,7 @@ namespace Models
     shared_ptr<string> SSLEnabled_ {};
     // The expiration time of the CA certificate.
     // 
-    // The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+    // The time follows the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
     shared_ptr<string> SSLExpiredTime_ {};
   };
 

@@ -102,8 +102,8 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IDs of the security groups that you want to set. You can specify up to 10 security group IDs, separated by commas (,).
-    // > This operation overwrites the existing settings. For valid values, query the basic information about the security groups that you created by calling [DescribeSecurityGroups](https://next.api.aliyun.com/api/Ecs/2014-05-26/DescribeSecurityGroups).
+    // The IDs of the security groups to be configured. You can specify up to 10 security group IDs. Separate multiple IDs with commas (,).
+    // > This overwrites the existing settings. For valid values, call [DescribeSecurityGroups](https://next.api.aliyun.com/api/Ecs/2014-05-26/DescribeSecurityGroups) to query the basic information of the security groups you created.
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};

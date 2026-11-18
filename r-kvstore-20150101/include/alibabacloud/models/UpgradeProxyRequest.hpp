@@ -109,17 +109,16 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The IDs of the proxy nodes to upgrade, separated by commas (,). This parameter is valid only for Classic Edition instances.
+    // The IDs of the proxy nodes to be upgraded. Separate multiple IDs with commas. This parameter is valid only for classic instances.
     shared_ptr<string> proxyInstanceIds_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The time when the upgrade is performed. Valid values:
+    // The execution time for the proxy node upgrade. Valid values:
+    // * **0**: Default value. The upgrade is executed immediately.
+    // * **1**: The upgrade is executed within the maintenance window of the instance.
     // 
-    // * **Immediately**: The upgrade is immediately performed. This is the default value.
-    // * **MaintainTime**: The upgrade is performed within the O&M window of the instance.
-    // 
-    // > You can call [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) to modify the O&M window of a Redis instance.
+    // > You can call [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) to modify the maintenance window of the Redis instance.
     shared_ptr<int32_t> switchTimeMode_ {};
   };
 

@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeInspectionTaskReportRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InspectionInsId, inspectionInsId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(LevelSummary, levelSummary_);
       DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInspectionTaskReportRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InspectionInsId, inspectionInsId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(LevelSummary, levelSummary_);
       DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->inspectionInsId_ == nullptr
-        && this->instanceId_ == nullptr && this->securityToken_ == nullptr && this->taskId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->levelSummary_ == nullptr && this->securityToken_ == nullptr && this->taskId_ == nullptr; };
     // inspectionInsId Field Functions 
     bool hasInspectionInsId() const { return this->inspectionInsId_ != nullptr;};
     void deleteInspectionInsId() { this->inspectionInsId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeInspectionTaskReportRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // levelSummary Field Functions 
+    bool hasLevelSummary() const { return this->levelSummary_ != nullptr;};
+    void deleteLevelSummary() { this->levelSummary_ = nullptr;};
+    inline string getLevelSummary() const { DARABONBA_PTR_GET_DEFAULT(levelSummary_, "") };
+    inline DescribeInspectionTaskReportRequest& setLevelSummary(string levelSummary) { DARABONBA_PTR_SET_VALUE(levelSummary_, levelSummary) };
 
 
     // securityToken Field Functions 
@@ -66,12 +75,18 @@ namespace Models
 
 
   protected:
-    // The ID of the inspection instance.
+    // The inspection instance ID.
     shared_ptr<string> inspectionInsId_ {};
     // The assistant instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The summary of risk levels for inspection results. You can specify multiple values. Valid values:
+    // - Normal: normal
+    // - Warning: warning
+    // - Error: high-risk
+    // - Failed: failed
+    shared_ptr<string> levelSummary_ {};
     shared_ptr<string> securityToken_ {};
     // The task ID.
     // 

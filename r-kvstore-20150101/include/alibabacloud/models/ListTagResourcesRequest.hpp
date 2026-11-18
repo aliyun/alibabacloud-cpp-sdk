@@ -84,9 +84,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -162,7 +162,7 @@ namespace Models
 
   protected:
     // The token used to start the next query to return more results.
-    // > You do not need to provide this parameter for the first query. If a query does not return all results, you can pass the **NextToken** value returned from the previous query in subsequent queries to continue the query.
+    // > You do not need to specify this parameter for the first query. If a query does not return all results, you can pass the **NextToken** value returned from the previous query in subsequent queries to continue the query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -172,7 +172,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The list of instance IDs.
     // 
-    // > * You must specify at least one of this parameter and the **Tag** parameter.
+    // > * You must specify either this parameter or the **Tag** parameter.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
@@ -180,7 +180,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag information of the instance. You must specify at least one of this parameter and the **ResourceId** parameter.
+    // The tag information of the instance. You must specify either this parameter or the **ResourceId** parameter.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

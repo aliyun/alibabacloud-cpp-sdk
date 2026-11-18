@@ -179,19 +179,13 @@ namespace Models
 
 
       protected:
-        // The time when the task was created.
-        // 
-        // The time is displayed in UTC time in the YYYY-MM-DDTHH:mm:ssZ format.
+        // The creation time of the task. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> createTime_ {};
-        // The end time of the task.
-        // 
-        // The time is displayed in UTC time in the YYYY-MM-DDTHH:mm:ssZ format.
+        // The end time of the task. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> endTime_ {};
-        // The completion time of the task.
-        // 
-        // The time is displayed in UTC time in the YYYY-MM-DDTHH:mm:ssZ format.
+        // The completion time of the task. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> finishTime_ {};
-        // The specified inspection items. The following inspection items are supported:
+        // The specified inspection items. Supported inspection items:
         // - RESOURCE_USAGE
         // - BIGKEY
         // - HOTKEY
@@ -202,15 +196,13 @@ namespace Models
         shared_ptr<string> instanceIds_ {};
         // The language of the report.
         shared_ptr<string> reportLanguage_ {};
-        // The ID of the scheduled task.
+        // The ID of the timed scheduling.
         shared_ptr<string> scheduleId_ {};
         // The source of the task.
         shared_ptr<string> source_ {};
-        // The start time of the task.
-        // 
-        // The time is displayed in UTC time in the YYYY-MM-DDTHH:mm:ssZ format.
+        // The start time of the task. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> startTime_ {};
-        // The status of the task.
+        // The status.
         shared_ptr<string> status_ {};
         // The task ID.
         shared_ptr<string> taskId_ {};
@@ -249,7 +241,7 @@ namespace Models
 
 
     protected:
-      // The list of tasks.
+      // The list of task data.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int64_t> pageNum_ {};
@@ -289,7 +281,7 @@ namespace Models
     shared_ptr<DescribeInspectionTasksResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

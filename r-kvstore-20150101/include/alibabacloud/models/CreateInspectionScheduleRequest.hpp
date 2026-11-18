@@ -112,9 +112,9 @@ namespace Models
 
 
   protected:
-    // The cron expression for the periodic scheduling.
+    // The cron expression for the periodic schedule.
     shared_ptr<string> cronExpression_ {};
-    // The specified inspection items. The following inspection items are supported:
+    // The specified inspection items. Valid values:
     // 
     // - RESOURCE_USAGE
     // - BIGKEY
@@ -124,15 +124,15 @@ namespace Models
     shared_ptr<string> inspectionItems_ {};
     // The time window.
     shared_ptr<string> inspectionWindow_ {};
-    // The O&M Assistant instance ID.
+    // The ID of the assistant instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The list of associated instance IDs.
     // > 
-    // > - Separate multiple instances with commas (,).
+    // > - Separate multiple instance IDs with commas (,).
     shared_ptr<string> instanceIds_ {};
-    // The report language.
+    // The language of the report.
     shared_ptr<string> reportLanguage_ {};
     // The name of the timed scheduling.
     shared_ptr<string> scheduleName_ {};

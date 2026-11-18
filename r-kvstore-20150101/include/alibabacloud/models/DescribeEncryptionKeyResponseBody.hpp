@@ -130,31 +130,31 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID of the key creator.
+    // The ID of the Alibaba Cloud account that created the key.
     shared_ptr<string> creator_ {};
-    // The estimated time when the key is to be deleted. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
-    // > If this parameter is empty, the key will not be automatically deleted.
+    // The scheduled deletion time of the key for the instance. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+    // > If this parameter is empty, the key is not automatically deleted.
     shared_ptr<string> deleteDate_ {};
-    // The description of the key. By default, this parameter is empty.
+    // The description of the key. Default value: empty.
     shared_ptr<string> description_ {};
-    // The key ID of the instance.
+    // The ID of the key for the instance.
     shared_ptr<string> encryptionKey_ {};
-    // The status of the key. Valid values:
-    // * **Enabled**: The key is available.
-    // * **Disabled**: The key is unavailable.
+    // The status of the key for the instance. Valid values:
+    // * **Enabled**: Available.
+    // * **Disabled**: Unavailable.
     shared_ptr<string> encryptionKeyStatus_ {};
     // The encryption algorithm.
     shared_ptr<string> encryptionName_ {};
-    // The purpose of the key. The return value `ENCRYPT/DECRYPT` indicates that the key is used for encryption and decryption.
+    // The purpose of the key for the instance. A value of `ENCRYPT/DECRYPT` indicates encryption and decryption.
     shared_ptr<string> keyUsage_ {};
-    // The expiration time of the key. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+    // The expiration time of the key. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
     // > If this parameter is empty, the key does not expire.
     shared_ptr<string> materialExpireTime_ {};
-    // The source of the key material. The return value is **Aliyun_KMS**, which indicates Alibaba Cloud [Key Management Service (KMS)](https://help.aliyun.com/document_detail/28935.html).
+    // The source of the key material. A value of **Aliyun_KMS** indicates Alibaba Cloud [Key Management Service (KMS)](https://help.aliyun.com/document_detail/28935.html).
     shared_ptr<string> origin_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The global resource descriptor ARN (Alibaba Cloud Resource Name) of the role to be granted authorization.
+    // The global resource descriptor ARN (Alibaba Cloud Resource Name) of the role pending authorization.
     shared_ptr<string> roleArn_ {};
   };
 

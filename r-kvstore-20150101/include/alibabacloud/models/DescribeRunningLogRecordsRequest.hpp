@@ -187,15 +187,15 @@ namespace Models
 
   protected:
     // The shard type of the cluster instance. Valid values:
-    // * **proxy**: proxy node
-    // * **db**: data node
-    // * **cs**: config server node
+    // * **proxy**: proxy node.
+    // * **db**: data node.
+    // * **cs**: config server node.
     // 
     // > If you specify this parameter, you must also specify the **NodeId** parameter.
     shared_ptr<string> characterType_ {};
     // The name of the database.
     shared_ptr<string> DBName_ {};
-    // The end time of the query. The end time must be later than the start time, and the time span between the start time and end time cannot exceed one day. We recommend that you set the time span to one hour. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
+    // The end time of the query. The end time must be later than the start time. The time range between the start time and the end time cannot exceed one day. We recommend that you set the time range to one hour. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -209,12 +209,12 @@ namespace Models
     // > * If you specify this parameter, you must also specify the **CharacterType** parameter.
     shared_ptr<string> nodeId_ {};
     // The sort order of the query results. Valid values:
-    // * **asc**: ascending order
-    // * **desc**: descending order
+    // * **asc**: ascending order.
+    // * **desc**: descending order.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be greater than **0** and cannot exceed the maximum value of the INTEGER data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The maximum number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
@@ -225,8 +225,8 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The role type of the data shard. Valid values:
-    // * **master** (default): primary node
-    // * **slave**: secondary node
+    // * **master** (default): primary node.
+    // * **slave**: secondary node.
     shared_ptr<string> roleType_ {};
     shared_ptr<string> securityToken_ {};
     // The start time of the query. You can view the running logs generated within the last 72 hours. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.

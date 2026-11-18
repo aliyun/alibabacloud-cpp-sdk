@@ -151,7 +151,7 @@ namespace Models
   protected:
     // The ID of the backup file.
     shared_ptr<int64_t> backupId_ {};
-    // The ID of the backup job. This ID is returned by the CreateBackup operation. If CreateBackup returns multiple BackupJobIds, you must call this operation to query each of them separately.
+    // The ID of the backup task. This ID is returned by the CreateBackup operation. If the CreateBackup operation returns multiple BackupJobIds, you must call this operation to query each of them separately.
     shared_ptr<int64_t> backupJobId_ {};
     // The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     // 
@@ -162,8 +162,8 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // Specifies whether to enable AOF persistence. Valid values:
-    // * **0**: Disabled.
-    // * **1**: Enabled.
+    // * **0**: disabled.
+    // * **1**: enabled.
     // 
     // > Default value: **0**.
     shared_ptr<string> needAof_ {};

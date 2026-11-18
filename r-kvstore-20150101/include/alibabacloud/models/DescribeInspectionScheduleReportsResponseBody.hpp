@@ -154,15 +154,15 @@ namespace Models
       protected:
         // The creation time of the task.
         // 
-        // The value is a UNIX timestamp in milliseconds.
+        // The time is a UNIX timestamp in milliseconds.
         shared_ptr<string> createTime_ {};
         // The end time of the task.
         // 
-        // The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+        // The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
         shared_ptr<string> endTime_ {};
         // The completion time of the task.
         // 
-        // The time is displayed in the ISO 8601 format with an explicit time zone offset.
+        // The time is in the ISO 8601 format and includes a specific time zone offset.
         shared_ptr<string> finishTime_ {};
         // The summary of risk levels in the inspection results.
         shared_ptr<string> levelSummary_ {};
@@ -170,7 +170,7 @@ namespace Models
         shared_ptr<string> reportLanguage_ {};
         // The start time of the task.
         // 
-        // The time is displayed in the YYYY-MM-DDTHH:mmZ format in UTC.
+        // The time is in the YYYY-MM-DDTHH:mmZ format and displayed in UTC.
         shared_ptr<string> startTime_ {};
         // The status of the inspection task.
         shared_ptr<string> status_ {};
@@ -215,7 +215,7 @@ namespace Models
       shared_ptr<vector<Data::Items>> items_ {};
       // The returned page number.
       shared_ptr<int64_t> pageNum_ {};
-      // The page size. Default value: 25.
+      // The number of entries per page. Default value: 25.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int64_t> total_ {};

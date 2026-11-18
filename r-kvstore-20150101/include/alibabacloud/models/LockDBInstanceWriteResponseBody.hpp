@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
-    // The reason for locking the instance.
+    // The reason for the lock.
     shared_ptr<string> lockReason_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

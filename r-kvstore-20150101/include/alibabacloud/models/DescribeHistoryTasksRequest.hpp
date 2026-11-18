@@ -167,50 +167,50 @@ namespace Models
 
 
   protected:
-    // The minimum execution duration. This parameter is used to filter tasks whose execution duration is greater than the specified value. Unit: seconds. Default value: 0, which indicates no restriction.
+    // The minimum execution duration of the tasks. This parameter is used to filter tasks whose execution duration is greater than the specified value. Unit: seconds. Default value: 0, which means no limit is applied.
     shared_ptr<int32_t> fromExecTime_ {};
-    // The earliest start time for querying tasks. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC). You can query data from up to 30 days ago.
+    // The earliest start time of the tasks to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. You can query data from up to 30 days ago.
     // 
     // This parameter is required.
     shared_ptr<string> fromStartTime_ {};
-    // The instance ID. This parameter is used to query tasks for the specified instance. The default value is empty, which indicates no restriction. To specify multiple instances, separate them with commas (,). A maximum of 30 instances are supported.
+    // The ID of the instance, which is used to query tasks of the specified instance. By default, this parameter is empty, which means no limit is applied. To query multiple instances, separate the instance IDs with commas (,). You can specify up to 30 instance IDs.
     shared_ptr<string> instanceId_ {};
-    // Currently fixed as Instance.
+    // The instance type. Set the value to Instance.
     shared_ptr<string> instanceType_ {};
-    // The page number of the query results. Valid values: positive integers. Default value: 1.
+    // The page number of the query result. Valid values: positive integers. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: 10 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the pending event. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query the region ID.
+    // The ID of the region to which the pending events belong. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The task status. This parameter is used to filter tasks by status. Valid values:
-    // - **Scheduled**: Waiting for execution.
+    // The task status, which is used to filter tasks by status. Valid values:
+    // - **Scheduled**: Pending execution.
     // - **Running**: Running.
     // - **Succeed**: Succeeded.
     // - **Failed**: Failed.
-    // - **Cancelling**: Being stopped.
-    // - **Canceled**: Stopped.
+    // - **Cancelling**: Cancelling.
+    // - **Canceled**: Canceled.
     // - **Waiting**: Waiting for the scheduled time.
-    // > The default value is empty, which indicates all statuses. To specify multiple statuses, separate them with commas (,).
+    // By default, this parameter is empty, which means all statuses are selected. To specify multiple statuses, separate them with commas (,).
     shared_ptr<string> status_ {};
-    // The task ID. This parameter is used to query tasks with known IDs. The default value is empty, which indicates no restriction. To specify multiple task IDs, separate them with commas (,). A maximum of 30 task IDs are supported.
+    // The ID of the task, which is used to query tasks with known IDs. By default, this parameter is empty, which means no limit is applied. To query multiple tasks, separate the task IDs with commas (,). You can specify up to 30 task IDs.
     shared_ptr<string> taskId_ {};
-    // The task type. This parameter is used to query tasks of a specific type. The default value is empty, which indicates no restriction. Valid values:
-    // - **ModifyInsSpec**: Specification change or migration.
+    // The task type, which is used to query tasks of a specific type. By default, this parameter is empty, which means no limit is applied. Valid values:
+    // - **ModifyInsSpec**: Instance specification change or migration.
     // - **DeleteInsNode**: Shard deletion.
     // - **AddInsNode**: Shard addition.
     // - **HaSwitch**: Primary/secondary switchover.
     // - **RestartIns**: Instance restart.
     // - **CreateIns**: Instance creation.
     // - **ModifyInsConfig**: Configuration change.
-    // > To specify multiple task types, separate them with commas (,).
+    // To query multiple task types, separate them with commas (,).
     shared_ptr<string> taskType_ {};
-    // The maximum execution duration. This parameter is used to filter tasks whose execution duration is not less than the specified value. Unit: seconds. Default value: 0, which indicates no restriction.
+    // The maximum execution duration of the tasks. This parameter is used to filter tasks whose execution duration is not less than the specified value. Unit: seconds. Default value: 0, which means no limit is applied.
     shared_ptr<int32_t> toExecTime_ {};
-    // The latest start time for querying tasks. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC). The value must be later than the earliest start time of the task.
+    // The latest start time of the tasks to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The time must be later than the earliest start time of the tasks.
     // 
     // This parameter is required.
     shared_ptr<string> toStartTime_ {};

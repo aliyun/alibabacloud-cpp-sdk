@@ -117,19 +117,19 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags from the instance. Valid values:
-    // * **true**: removes all tags from the instance.
-    // * **false**: does not remove all tags from the instance. This is the default value.
+    // Specifies whether to remove all tags from the instances. Valid values:
+    // * **true**: Removes all tags from the instances.
+    // * **false**: Does not remove all tags from the instances. This is the default value.
     // 
-    // > If both **TagKey.N** and this parameter are specified, this parameter does not take effect.
+    // > If you specify both **TagKey.N** and this parameter, this parameter does not take effect.
     shared_ptr<bool> all_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query the region ID.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of instance IDs.
+    // The instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
@@ -139,7 +139,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The list of tag keys.
+    // The tag keys.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

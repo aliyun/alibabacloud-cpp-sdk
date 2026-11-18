@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) to query the instance ID.
+    // Instance ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -102,10 +102,10 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The global resource descriptor Alibaba Cloud Resource Name (ARN) of the role to be authorized. After the role is granted authorization, the related KMS can be used. Format: `acs:ram::$accountID:role/$roleName`.
+    // Specifies the global resource descriptor ARN (Alibaba Cloud Resource Name) of the role to be granted authorization. After the role authorization is completed, you can use the related Key Management Service (KMS). Format: `acs:ram::$accountID:role/$roleName`.
     // 
-    // > * `$accountID`: the ID of the Alibaba Cloud account. Log on to the Alibaba Cloud Management Console, move the mouse pointer over the profile picture in the upper-right corner, and then click **Security Settings** to view the account ID.
-    // > * `$roleName`: the name of the RAM role. Set this value to **AliyunRdsInstanceEncryptionDefaultRole**.
+    // > * `$accountID`: the Alibaba Cloud account ID. You can logon to the Alibaba Cloud Management Console, move the mouse over the profile picture in the upper-right corner, and click **Security Settings** to view the ID.
+    // > * `$roleName`: the name of the RAM role. Set the value to **AliyunRdsInstanceEncryptionDefaultRole**.
     shared_ptr<string> roleArn_ {};
     shared_ptr<string> securityToken_ {};
   };

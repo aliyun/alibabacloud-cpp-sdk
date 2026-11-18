@@ -159,13 +159,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether to display the details of the backup sets for cluster nodes. Valid values:
-    // * **false** (default): displays the backup set information of cluster nodes.
-    // * **true**: does not display the backup set information of cluster nodes.
+    // Specifies whether to display the backup set details of cluster nodes. Valid values:
+    // * **false** (default): Displays the backup set information of cluster nodes.
+    // * **true**: Does not display the backup set information of cluster nodes.
     shared_ptr<string> noShardBackup_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The current page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};

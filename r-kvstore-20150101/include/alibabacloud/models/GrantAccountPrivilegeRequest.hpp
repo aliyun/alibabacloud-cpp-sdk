@@ -112,12 +112,11 @@ namespace Models
 
 
   protected:
-    // The account name. You can call [DescribeAccounts](https://help.aliyun.com/document_detail/473816.html) to obtain the account name.
+    // The name of the account. You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/473816.html) operation to query the account name.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
     // The permissions of the account. Valid values:
-    // 
     // * RoleReadOnly: read-only permissions.
     // * RoleReadWrite: read and write permissions. This is the default value.
     // 

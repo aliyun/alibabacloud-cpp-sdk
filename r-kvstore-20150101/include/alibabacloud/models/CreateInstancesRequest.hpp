@@ -161,15 +161,15 @@ namespace Models
     // Specifies whether to enable automatic payment. Valid values:
     // 
     // * **true**: enables automatic payment. This is the default value.
-    // * **false**: disables automatic payment. You must manually pay for the order. In the top navigation bar of the console, choose **Billing** > **Renewal Management**. In the left-side navigation pane, choose **Order Management** > **My Orders**, find the order, and then complete the payment.
+    // * **false**: disables automatic payment. You must manually pay for the order. To pay for the order, log on to the console, choose **Expenses and Costs** > **Renewal Management** in the top navigation bar, and then choose **Order Management** > **My Orders** in the left-side navigation pane to find the order.
     // 
-    // > This parameter is available only when the **ChargeType** parameter in the **Instances** array is set to **PrePaid**.
+    // > This parameter is available only when the **ChargeType** parameter in the **Instances** field is set to **PrePaid**.
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // * **true**: enables auto-renewal.
     // * **false**: disables auto-renewal. This is the default value.
     // 
-    // > This parameter is available only when the **ChargeType** parameter in the **Instances** array is set to **PrePaid**.
+    // > This parameter is available only when the **ChargeType** parameter in the **Instances** field is set to **PrePaid**.
     shared_ptr<string> autoRenew_ {};
     // The extended business information.
     shared_ptr<string> businessInfo_ {};
@@ -178,7 +178,7 @@ namespace Models
     // The Redis-compatible engine version of the instance. Valid values: **4.0** and **5.0**.
     // > Default value: **5.0**.
     shared_ptr<string> engineVersion_ {};
-    // The configuration information of the new instances. The value must be in JSON format. For more information, see the supplementary description of the Instances parameter.
+    // The configuration information of the new instances. The value is in JSON format. For more information, see the supplementary description of the Instances parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instances_ {};
@@ -188,7 +188,7 @@ namespace Models
     // * **true**: yes.
     // * **false**: no. This is the default value.
     // 
-    // > This parameter is available only when the **SrcDBInstanceId** parameter is specified in the **Instances** array.
+    // > This parameter is available only when the **SrcDBInstanceId** parameter is specified in the **Instances** field.
     shared_ptr<bool> rebuildInstance_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};

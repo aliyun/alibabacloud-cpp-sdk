@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeInspectionScheduleReportsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(LevelSummary, levelSummary_);
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ScheduleId, scheduleId_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeInspectionScheduleReportsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(LevelSummary, levelSummary_);
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ScheduleId, scheduleId_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->scheduleId_ == nullptr && this->securityToken_ == nullptr; };
+        && this->levelSummary_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->scheduleId_ == nullptr && this->securityToken_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeInspectionScheduleReportsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // levelSummary Field Functions 
+    bool hasLevelSummary() const { return this->levelSummary_ != nullptr;};
+    void deleteLevelSummary() { this->levelSummary_ = nullptr;};
+    inline string getLevelSummary() const { DARABONBA_PTR_GET_DEFAULT(levelSummary_, "") };
+    inline DescribeInspectionScheduleReportsRequest& setLevelSummary(string levelSummary) { DARABONBA_PTR_SET_VALUE(levelSummary_, levelSummary) };
 
 
     // pageNum Field Functions 
@@ -75,10 +84,16 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
+    // The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The summary of risk levels in the inspection results. You can specify multiple values. Valid values:
+    // - Normal: Normal.
+    // - Warning: Alert.
+    // - Error: High-risk.
+    // - Failed: Failed.
+    shared_ptr<string> levelSummary_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNum_ {};
     // The number of entries per page.

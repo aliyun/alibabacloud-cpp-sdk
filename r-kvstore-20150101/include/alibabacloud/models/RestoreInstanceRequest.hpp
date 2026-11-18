@@ -130,11 +130,11 @@ namespace Models
 
 
   protected:
-    // The ID of the backup file for the instance. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) operation to query the ID.
+    // The ID of the backup file for the instance. You can call [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) to query the ID.
     shared_ptr<string> backupId_ {};
     // The keys to restore. Regular expressions are supported. Separate multiple values with commas (,).
     // - If you do not specify this parameter, the entire instance is restored.
-    // - If you specify this parameter, only the specified keys are restored. This feature is supported only by classic architecture instances.
+    // - If you specify this parameter, only the specified keys are restored. This feature is supported only by classic edition instances.
     // > For example, in a regular expression, an asterisk (`*`) matches the preceding subexpression zero or more times. If you set this parameter to `h.*llo`, the system matches strings such as `hllo` and `heeeello`.
     shared_ptr<string> filterKey_ {};
     // The instance ID.
@@ -149,13 +149,13 @@ namespace Models
     // > The point in time cannot be earlier than the time when the data flashback feature is enabled.
     shared_ptr<string> restoreTime_ {};
     // The restoration type. Valid values:
-    // * **0** (default): This value is deprecated.
+    // * **0** (default): This value is no longer valid.
     // * **1**: Restores data to a specified point in time. You can specify this value only when the [data flashback](https://help.aliyun.com/document_detail/148479.html) feature is enabled for the instance. If you specify this value, you must also specify the **RestoreTime** parameter.
     shared_ptr<string> restoreType_ {};
     shared_ptr<string> securityToken_ {};
-    // When you restore a classic architecture instance, you can apply an offset to the expiration time of keys regardless of whether you choose to restore full data or specified keys. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. The instance calculates the remaining expiration duration of the keys at the specified flashback point in time, starting from the specified expiration offset point in time.
-    // > * This feature supports offsetting the expiration time only at the key level. It does not support offsetting the internal expiration time of keys in Tair-developed data structures, such as the fields in exHash and the skeys in TS.
-    // > * The point in time cannot be earlier than the specified flashback point in time or later than the time when the restoration task is submitted.
+    // When you restore a classic edition instance, you can shift the expiration time of keys regardless of whether you choose to restore full data or specified keys. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. The instance takes the remaining time to live (TTL) of the keys at the specified flashback point in time and shifts the expiration calculation to start from the specified shift point in time.
+    // > * This feature supports shifting the expiration time only at the key level. It does not support shifting the expiration time inside keys in Tair-developed data structures, such as the fields in exHash and the skeys in TS.
+    // > * The shift point in time cannot be earlier than the specified flashback point in time or later than the time when the restoration task is submitted.
     shared_ptr<string> timeShift_ {};
   };
 

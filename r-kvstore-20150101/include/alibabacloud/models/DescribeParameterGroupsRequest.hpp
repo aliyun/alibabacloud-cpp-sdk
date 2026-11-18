@@ -104,9 +104,9 @@ namespace Models
 
   protected:
     // The engine type. Valid values:
-    // - **redis**: open-source Redis or Tair (Memory-optimized).
-    // - **tair_pena**: Tair (Persistent Memory-optimized).
-    // - **tair_pdb**: Tair (Disk-optimized, ESSD/SSD).
+    // - **redis**: open-source Redis or Tair (memory-optimized).
+    // - **tair_pena**: Tair (persistent memory-optimized).
+    // - **tair_pdb**: Tair (disk-optimized, ESSD/SSD).
     shared_ptr<string> dbType_ {};
     // The compatible engine version.
     shared_ptr<string> engineVersion_ {};

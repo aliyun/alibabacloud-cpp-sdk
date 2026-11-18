@@ -330,12 +330,12 @@ namespace Models
     // * **true**: uses a voucher.
     // * **false** (default): does not use a voucher.
     shared_ptr<bool> autoUseCoupon_ {};
-    // The extended information, such as the campaign ID and business information.
+    // The extended information such as the campaign ID and business information.
     shared_ptr<string> businessInfo_ {};
-    // The billing method. Valid values:
-    // * **PrePaid**: subscription. If you set this parameter to PrePaid, you must also specify the **Period** parameter.
+    // The billing method to switch to. Valid values:
+    // * **PrePaid**: Subscription. If you specify this value, you must also specify the **Period** parameter.
     shared_ptr<string> chargeType_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must ensure that the token is unique among different requests. The token is case-sensitive and can be up to 64 ASCII characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must ensure that it is unique among different requests. The token is case-sensitive and can be up to 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
     // The number of compute units. Currently, only one compute unit is supported.
     // 
@@ -352,11 +352,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceClass_ {};
-    // The name of the new instance. The name must be 2 to 80 characters in length and start with a letter or a Chinese character. It cannot contain spaces or the following special characters: `@/:=”<>{[]}`.
+    // The name of the new instance. The name must be 2 to 80 characters in length and start with a letter or a Chinese character. It cannot contain spaces or the following special characters: `@/:="<>{[]}`.
     shared_ptr<string> instanceName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The subscription duration. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
+    // The subscription period. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
     // > This parameter is required when the **ChargeType** parameter is set to **PrePaid**.
     shared_ptr<int32_t> period_ {};
     // The region ID. Specifies the region where you want to create the instance.
@@ -365,7 +365,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the destination resource group.
     // 
-    // > * You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or go to the console to obtain the resource group ID list. For related operations, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // > * You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or go to the console to obtain the resource group ID list. Related operations: see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     // > * Before you change the resource group to which the instance belongs, you can invoke the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the current resource group of the instance.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
@@ -373,9 +373,10 @@ namespace Models
     shared_ptr<string> securityToken_ {};
     // The tag information of the instance.
     shared_ptr<vector<CreateTairKVCacheVNodeRequest::Tag>> tag_ {};
+    // The virtual node type. Valid values: fixed and elastic.
     shared_ptr<string> VNodeType_ {};
-    // The vSwitch ID of the instance. The vSwitch must belong to the VPC associated with the specified VCluster virtual cluster. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation of the VPC API to query the vSwitch ID.
-    // > The zone of the vSwitch must be the same as the zone of the instance.
+    // The vSwitch ID of the instance. The vSwitch must belong to the VPC of the specified VCluster virtual cluster. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation of the VPC API to query the vSwitch ID.
+    // > The zone of the vSwitch must be the same as that of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};

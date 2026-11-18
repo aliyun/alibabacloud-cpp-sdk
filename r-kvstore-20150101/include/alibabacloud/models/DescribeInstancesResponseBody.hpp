@@ -692,7 +692,7 @@ namespace Models
     shared_ptr<DescribeInstancesResponseBody::Instances> instances_ {};
     // The page number of the instance list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page specified in the request.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

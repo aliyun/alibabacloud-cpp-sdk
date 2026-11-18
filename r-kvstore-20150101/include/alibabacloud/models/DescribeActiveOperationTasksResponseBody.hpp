@@ -317,66 +317,66 @@ namespace Models
 
 
     protected:
-      // Indicates whether the event can be canceled. A value of 1 indicates that the event can be canceled. A value of 0 indicates that the event cannot be canceled.
+      // Indicates whether the event can be canceled. A value of 1 indicates that users are allowed to cancel the event. A value of 0 indicates that users are not allowed to cancel the event.
       shared_ptr<string> allowCancel_ {};
-      // Indicates whether the event time can be modified. A value of 1 indicates that the time can be modified. A value of 0 indicates that the time cannot be modified.
+      // Indicates whether the execution time can be modified. A value of 1 indicates that users are allowed to modify the execution time. A value of 0 indicates that users are not allowed to modify the execution time.
       shared_ptr<string> allowChange_ {};
-      // The event level code. S1 indicates system O&M. S0 indicates risk recovery.
+      // The code of the event level. S1 indicates system O&M, and S0 indicates exception repair.
       shared_ptr<string> changeLevel_ {};
       // The event level in English.
       shared_ptr<string> changeLevelEn_ {};
       // The event level in Chinese.
       shared_ptr<string> changeLevelZh_ {};
-      // The creation time in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
+      // The time when the event was created. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createdTime_ {};
       // The current zone.
       shared_ptr<string> currentAVZ_ {};
-      // The database type. Return value: **redis**.
+      // The database engine. Valid value: **redis**.
       shared_ptr<string> dbType_ {};
-      // The Milvus version number of the kernel.
+      // The Milvus version.
       shared_ptr<string> dbVersion_ {};
-      // The latest deadline by which the task execution time can be adjusted, in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
+      // The latest time within the adjustable range for the task execution time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> deadline_ {};
-      // The O&M event ID.
+      // The ID of the O&M event.
       shared_ptr<int32_t> id_ {};
-      // The event impact.
+      // The impact of the event.
       shared_ptr<string> impact_ {};
-      // The event impact in English.
+      // The impact of the event in English.
       shared_ptr<string> impactEn_ {};
-      // The event impact in Chinese.
+      // The impact of the event in Chinese.
       shared_ptr<string> impactZh_ {};
-      // The instance alias or description.
+      // The alias or description of the instance.
       shared_ptr<string> insComment_ {};
       // The instance ID.
       shared_ptr<string> insName_ {};
-      // The modification time in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
+      // The time when the event was modified. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> modifiedTime_ {};
-      // The preparation time required between the start time and the switchover time. Format: HH:mm:ss.
+      // The preparation time required between the start time and the switchover time. The time is in the HH:mm:ss format.
       shared_ptr<string> prepareInterval_ {};
       // The region ID.
       shared_ptr<string> region_ {};
       // The execution result information.
       shared_ptr<string> resultInfo_ {};
-      // The time when the backend starts executing the event, in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
+      // The time when the backend executes the event. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> startTime_ {};
       // The status of the O&M event. Valid values:
-      // - **3**: pending.
-      // - **4**: being processed.
-      // - **5**: ended successfully.
-      // - **6**: ended with failure.
-      // - **7**: canceled.
+      // - **3**: Pending events.
+      // - **4**: Processing events.
+      // - **5**: Successfully completed events.
+      // - **6**: Failed events.
+      // - **7**: Canceled events.
       shared_ptr<int32_t> status_ {};
       // The list of sub-events.
       shared_ptr<vector<string>> subInsNames_ {};
-      // The time when the backend initiates the switchover operation, in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
+      // The time when the backend initiates the switchover operation. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> switchTime_ {};
-      // The O&M event parameters.
+      // The parameters of the O&M event.
       shared_ptr<string> taskParams_ {};
       // The type of the O&M event.
       shared_ptr<string> taskType_ {};
-      // The reason for the O&M event in English.
+      // The cause of the O&M event in English.
       shared_ptr<string> taskTypeEn_ {};
-      // The task reason in Chinese.
+      // The cause of the task in Chinese.
       shared_ptr<string> taskTypeZh_ {};
     };
 
@@ -428,7 +428,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of O&M event records returned.
+    // The total number of returned O&M event records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

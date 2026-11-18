@@ -130,37 +130,37 @@ namespace Models
 
 
   protected:
-    // The minimum execution duration used to filter tasks whose execution duration is greater than this value. Unit: seconds. Default value: 0, which indicates no restriction.
+    // The minimum execution duration of a task. This parameter is used to filter tasks whose execution duration is greater than the specified value. Unit: seconds. Default value: 0. A value of 0 indicates that no limit is applied.
     shared_ptr<int32_t> fromExecTime_ {};
-    // The beginning of the query time range. Specify the time in the <i>yyyy-mm-dd</i>t<i>hh:mm</i>z format (UTC).
+    // The start time of the query period. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> fromStartTime_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the pending event. You can call the DescribeRegions operation to query the most recent region list.
+    // The ID of the region to which the pending events belong. You can call the DescribeRegions operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
     // The task status. This parameter is used to filter tasks by status. Valid values:
-    // - **Scheduled**: Waiting to be executed.
+    // - **Scheduled**: Pending execution.
     // - **Running**: Running.
     // - **Succeed**: Succeeded.
     // - **Failed**: Failed.
-    // - **Cancelling**: Being stopped.
-    // - **Canceled**: Stopped.
+    // - **Cancelling**: Cancelling.
+    // - **Canceled**: Canceled.
     // - **Waiting**: Waiting for the scheduled time.
-    // > By default, this parameter is empty, which indicates that tasks in all statuses are queried. To specify multiple statuses, separate them with commas (,).
+    // Default value: empty. An empty value indicates that all statuses are selected. Separate multiple statuses with commas (,).
     shared_ptr<string> status_ {};
-    // The task ID. This parameter is used to query a task with a known ID. By default, this parameter is empty, which indicates no restriction. To specify multiple task IDs, separate them with commas (,). A maximum of 30 task IDs are supported.
+    // The task ID. This parameter is used to query tasks with known IDs. Default value: empty. An empty value indicates that no limit is applied. Separate multiple task IDs with commas (,). You can specify up to 30 task IDs.
     shared_ptr<string> taskId_ {};
     // The task type.
     shared_ptr<string> taskType_ {};
-    // The maximum execution duration used to filter tasks whose execution duration is not less than this value. Unit: seconds. Default value: 0, which indicates no restriction.
+    // The maximum execution duration of a task. This parameter is used to filter tasks whose execution duration is less than or equal to the specified value. Unit: seconds. Default value: 0. A value of 0 indicates that no limit is applied.
     shared_ptr<int32_t> toExecTime_ {};
-    // The end of the query time range. Specify the time in the <i>yyyy-mm-dd</i>t<i>hh:mm</i>z format (UTC).
+    // The end time of the query period. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> toStartTime_ {};

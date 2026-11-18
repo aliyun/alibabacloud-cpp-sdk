@@ -104,8 +104,8 @@ namespace Models
 
   protected:
     // The time when the upgrade is performed. Valid values:
-    // * **Immediately**: Performs the upgrade immediately. This is the default value.
-    // * **MaintainTime**: Performs the upgrade during the maintenance window.
+    // * **Immediately**: The upgrade is performed immediately. This is the default value.
+    // * **MaintainTime**: The upgrade is performed during the maintenance window.
     // 
     // > You can call [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) to change the maintenance window of the instance.
     shared_ptr<string> effectiveTime_ {};
@@ -113,7 +113,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The minor version to which you want to upgrade. Default value: **latest_version**, which indicates the latest version.
+    // The minor engine version to which you want to upgrade. Default value: **latest_version**, which indicates the latest version.
     shared_ptr<string> minorversion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

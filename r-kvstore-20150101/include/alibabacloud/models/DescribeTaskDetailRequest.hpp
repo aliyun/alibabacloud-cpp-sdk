@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The node ID.
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

@@ -233,41 +233,41 @@ namespace Models
 
   protected:
     // The architecture type. Valid values:
-    // * **cluster**: Cluster Edition.
-    // * **standard**: Standard Edition.
-    // * **rwsplit**: read/write splitting Edition.
+    // * **cluster**: Cluster.
+    // * **standard**: Standard.
+    // * **rwsplit**: Read/write splitting.
     shared_ptr<string> architectureType_ {};
     // The billing method. Valid values:
-    // * **PrePaid**: subscription.
-    // * **PostPaid**: pay-as-you-go.
+    // * **PrePaid**: Subscription.
+    // * **PostPaid**: Pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The edition type. Valid values:
+    // The edition. Valid values:
     // * **Community**: Community Edition.
     // * **Enterprise**: Enterprise Edition.
     shared_ptr<string> editionType_ {};
     // The Redis-compatible engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, **6.0**, and **7.0**.
     shared_ptr<string> engineVersion_ {};
-    // The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
+    // The instance specifications. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/107984.html).
     shared_ptr<string> instanceClass_ {};
     // The IDs of the instances that you want to query.
-    // > By default, all instances under the current account are queried. To specify multiple instance IDs, separate them with commas (,).
+    // > By default, all instances under the account are queried. To specify multiple instance IDs, separate the IDs with commas (,).
     shared_ptr<string> instanceIds_ {};
     // The instance status. Valid values:
-    // * **Normal**: The instance is running.
-    // * **Creating**: The instance is being created.
-    // * **Changing**: The instance is being modified.
-    // * **Inactive**: The instance is disabled.
-    // * **Flushing**: The instance is being purged.
-    // * **Released**: The instance is released.
-    // * **Transforming**: The instance is being transformed.
-    // * **Migrating**: The instance is being migrated.
-    // * **BackupRecovering**: The instance is being restored from a backup.
-    // * **MinorVersionUpgrading**: A minor version upgrade is in progress.
-    // * **NetworkModifying**: The network configuration is being modified.
-    // * **SSLModifying**: The SSL configuration is being modified.
-    // * **MajorVersionUpgrading**: A major engine version upgrade is in progress. The instance can be accessed normally.
+    // * **Normal**: Running.
+    // * **Creating**: Being created.
+    // * **Changing**: Being modified.
+    // * **Inactive**: Disabled.
+    // * **Flushing**: Being purged.
+    // * **Released**: Released.
+    // * **Transforming**: Being transformed.
+    // * **Migrating**: Being migrated.
+    // * **BackupRecovering**: Recovering from a backup.
+    // * **MinorVersionUpgrading**: Minor version upgrade in progress.
+    // * **NetworkModifying**: Modifying the network.
+    // * **SSLModifying**: Modifying SSL configurations.
+    // * **MajorVersionUpgrading**: Major engine version upgrade in progress. The instance remains accessible.
     // 
-    // > For more information about instance statuses, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
+    // > For more information about instance statuses, see [Instance statuses and impacts](https://help.aliyun.com/document_detail/200740.html).
     shared_ptr<string> instanceStatus_ {};
     // The instance type. Valid values:
     // * **Tair**
@@ -275,22 +275,22 @@ namespace Models
     // * **Memcache**
     shared_ptr<string> instanceType_ {};
     // The network type. Valid values:
-    // * **CLASSIC**: classic network.
-    // * **VPC**: virtual private cloud (VPC).
+    // * **CLASSIC**: Classic network.
+    // * **VPC**: VPC.
     shared_ptr<string> networkType_ {};
     shared_ptr<string> nodeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The private IP address.
+    // The VPC IP address.
     shared_ptr<string> privateIp_ {};
     // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
-    // > You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or use the console to obtain the resource group ID. Related operations: see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // > You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or go to the console to obtain the resource group ID. Related operations: [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The keyword used for fuzzy search by instance ID or instance description.
+    // The keyword used for fuzzy search based on the instance ID or description.
     shared_ptr<string> searchKey_ {};
     shared_ptr<string> securityToken_ {};
     // The vSwitch ID.

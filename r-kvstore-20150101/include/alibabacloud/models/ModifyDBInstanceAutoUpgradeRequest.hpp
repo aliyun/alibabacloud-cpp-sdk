@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // The ID of the instance. You can call the DescribeDBInstances operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -103,7 +103,7 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The automatic minor engine version update switch. Valid values:
+    // The automatic minor version upgrade switch. Valid values:
     // * **1**: Enabled.
     // * **0**: Disabled.
     // 

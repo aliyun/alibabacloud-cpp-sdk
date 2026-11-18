@@ -176,23 +176,23 @@ namespace Models
 
 
   protected:
-    // The dedicated cluster ID. You can obtain the ID on the dedicated cluster information page in the ApsaraDB for MyBase console.
+    // The dedicated cluster ID. You can obtain the ID on the Dedicated Cluster Information page in the ApsaraDB MyBase console.
     // > To specify multiple IDs, separate them with commas (,).
     shared_ptr<string> clusterId_ {};
     // The host ID in the dedicated cluster. You can call [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/200944.html) to query the host ID.
     // > To specify multiple IDs, separate them with commas (,).
     shared_ptr<string> dedicatedHostName_ {};
-    // The database engine. Set the value to **Redis**.
+    // The database engine type. Set the value to **Redis**.
     shared_ptr<string> engine_ {};
     // The database engine version. Set the value to **5.0**.
     shared_ptr<string> engineVersion_ {};
     // The instance ID.
-    // > The instance must be created in a dedicated cluster. For more information, see [ApsaraDB for MyBase](https://help.aliyun.com/document_detail/141455.html).
+    // > The instance must be created in a dedicated cluster. For more information, see [ApsaraDB MyBase](https://help.aliyun.com/document_detail/141455.html).
     shared_ptr<string> instanceId_ {};
     // The network type of the instance endpoint. Valid values:
     // * **0**: Internet.
     // * **1**: Classic network.
-    // * **2**: Virtual Private Cloud (VPC).
+    // * **2**: VPC.
     shared_ptr<string> instanceNetType_ {};
     // The instance status. Valid values:
     // * **0**: Creating.
@@ -206,18 +206,18 @@ namespace Models
     shared_ptr<int32_t> instanceStatus_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be greater than **0** and less than or equal to the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The maximum number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query region IDs.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The zone ID. You can call [DescribeZones](https://help.aliyun.com/document_detail/473764.html) to query zone IDs.
+    // The zone ID. You can call [DescribeZones](https://help.aliyun.com/document_detail/473764.html) to query available zones.
     shared_ptr<string> zoneId_ {};
   };
 

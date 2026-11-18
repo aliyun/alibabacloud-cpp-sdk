@@ -192,7 +192,7 @@ namespace Models
       // The bandwidth of the node. Unit: MB/s.
       // > This parameter is returned only when the **Service** parameter is set to **redis**, which indicates that the node is a data node.
       shared_ptr<int64_t> bandWidth_ {};
-      // The number of days for which binary logs are retained.
+      // The binary log retention period in days.
       shared_ptr<int32_t> binlogRetentionDays_ {};
       // The business type. The value is fixed as **ALIYUN**.
       shared_ptr<string> bizType_ {};
@@ -208,7 +208,7 @@ namespace Models
       // <props="china">This parameter is returned only when the instance is created in a dedicated cluster.
       shared_ptr<int64_t> currentBandWidth_ {};
       // The storage space of the [ESSD cloud disk](https://help.aliyun.com/document_detail/122389.html) for the data node. Unit: MB.
-      // > The ESSD cloud disk is used only for system operations, such as data persistence, and is not used as a medium for data access.
+      // > The ESSD cloud disk is used only for system operations, such as data persistence, and is not used as a medium for data storage and access.
       shared_ptr<int32_t> diskSizeMB_ {};
       // The replica set ID of the node.
       shared_ptr<int64_t> id_ {};
@@ -219,10 +219,10 @@ namespace Models
       // The name of the resource group to which the node belongs.
       shared_ptr<string> resourceGroupName_ {};
       // The node type. Valid values:
-      // * **redis**: data node.
-      // * **redis_cs**: configuration server node.
+      // * **redis**: data node
+      // * **redis_cs**: configuration server node
       shared_ptr<string> service_ {};
-      // The major version of the node.
+      // The major engine version of the node.
       shared_ptr<string> serviceVersion_ {};
       // The user ID.
       shared_ptr<string> userId_ {};

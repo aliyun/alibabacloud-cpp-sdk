@@ -193,9 +193,9 @@ namespace Models
 
 
   protected:
-    // The database engine. The value is always **Redis**.
+    // The database engine type. The value is **Redis**.
     shared_ptr<string> engine_ {};
-    // The major engine version of the instance.
+    // The major version of the instance.
     shared_ptr<string> engineVersion_ {};
     // The number of parameters.
     shared_ptr<string> parameterCount_ {};

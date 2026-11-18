@@ -257,17 +257,17 @@ namespace Models
 
     protected:
       // The architecture type. Valid values:
-      // * **cluster**: Cluster Edition.
-      // * **standard**: Standard Edition.
-      // * **rwsplit**: read/write splitting Edition.
+      // * **cluster**: Cluster.
+      // * **standard**: Standard.
+      // * **rwsplit**: Read/write splitting.
       shared_ptr<string> architectureType_ {};
       // The storage capacity of the instance. Unit: MB.
       shared_ptr<int64_t> capacity_ {};
       // The billing method. Valid values:
-      // * **PrePaid**: subscription.
-      // * **PostPaid**: pay-as-you-go.
+      // * **PrePaid**: Subscription.
+      // * **PostPaid**: Pay-as-you-go.
       shared_ptr<string> chargeType_ {};
-      // The internal endpoint of the instance.
+      // The internal network endpoint of the instance.
       shared_ptr<string> connectionDomain_ {};
       // The time when the instance was created.
       shared_ptr<string> createTime_ {};
@@ -278,46 +278,46 @@ namespace Models
       // The distributed instance ID.
       // > This parameter is returned only when the instance is a child instance of a distributed instance.
       shared_ptr<string> globalInstanceId_ {};
-      // The instance type.
+      // The instance specifications.
       shared_ptr<string> instanceClass_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The name of the instance.
       shared_ptr<string> instanceName_ {};
       // The instance status. Valid values:
-      // * **Normal**: The instance is running.
-      // * **Creating**: The instance is being created.
-      // * **Changing**: The instance is being modified.
-      // * **Inactive**: The instance is disabled.
-      // * **Flushing**: The instance is being purged.
-      // * **Released**: The instance is released.
-      // * **Transforming**: The instance is being transformed.
-      // * **Unavailable**: The instance is unavailable.
-      // * **Error**: The instance failed to be created.
-      // * **Migrating**: The instance is being migrated.
-      // * **BackupRecovering**: The instance is being restored from a backup.
-      // * **MinorVersionUpgrading**: A minor version upgrade is in progress.
-      // * **NetworkModifying**: The network configuration is being modified.
-      // * **SSLModifying**: The SSL configuration is being modified.
-      // * **MajorVersionUpgrading**: A major engine version upgrade is in progress. The instance can be accessed normally.
+      // * **Normal**: Running.
+      // * **Creating**: Being created.
+      // * **Changing**: Being modified.
+      // * **Inactive**: Disabled.
+      // * **Flushing**: Being purged.
+      // * **Released**: Released.
+      // * **Transforming**: Being transformed.
+      // * **Unavailable**: Service stopped.
+      // * **Error**: Creation failed.
+      // * **Migrating**: Being migrated.
+      // * **BackupRecovering**: Recovering from a backup.
+      // * **MinorVersionUpgrading**: Minor version upgrade in progress.
+      // * **NetworkModifying**: Modifying the network.
+      // * **SSLModifying**: Modifying SSL configurations.
+      // * **MajorVersionUpgrading**: Major engine version upgrade in progress. The instance remains accessible.
       shared_ptr<string> instanceStatus_ {};
       // The instance type. Valid values:
-      // * **Tair**: Tair (Enterprise Edition).
-      // * **Redis**: Redis Community Edition.
-      // * **Memcache**
+      // * **Tair**: Tair (Enterprise Edition)
+      // * **Redis**: Open-source Redis
+      // * **Memcache**: Memcache
       shared_ptr<string> instanceType_ {};
       // The network type. Valid values:
-      // * **CLASSIC**: classic network.
-      // * **VPC**: virtual private cloud (VPC).
+      // * **CLASSIC**: Classic network.
+      // * **VPC**: VPC.
       shared_ptr<string> networkType_ {};
       shared_ptr<string> nodeType_ {};
-      // The private IP address of the instance in a VPC. The IP address may change. Use ConnectionDomain (the internal endpoint) to connect to the instance.
+      // The VPC IP address. The IP address may change. Connect to the instance by using the internal network endpoint specified by ConnectionDomain.
       // > - This parameter is not returned if the network type of the instance is classic network.
       // > - This parameter is not returned for cloud-native instances.
       shared_ptr<string> privateIp_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The resource group ID to which the instance belongs.
+      // The resource group ID of the instance.
       shared_ptr<string> resourceGroupId_ {};
       // The secondary zone ID.
       // > This parameter is returned only when the instance has a secondary zone.

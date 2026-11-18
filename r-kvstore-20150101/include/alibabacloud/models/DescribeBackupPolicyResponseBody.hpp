@@ -129,19 +129,19 @@ namespace Models
 
 
     protected:
-      // Same as above.
+      // The description is the same as above.
       shared_ptr<string> authAction_ {};
-      // Same as above.
+      // The description is the same as above.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // Same as above.
+      // The description is the same as above.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // Same as above.
+      // The description is the same as above.
       shared_ptr<string> authPrincipalType_ {};
-      // Same as above.
+      // The description is the same as above.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // Same as above.
+      // The description is the same as above.
       shared_ptr<string> noPermissionType_ {};
-      // Same as above.
+      // The description is the same as above.
       shared_ptr<string> policyType_ {};
     };
 
@@ -214,10 +214,11 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated. Ignore this parameter.
+    // **[Deprecated]** This group of parameters is deprecated. Ignore it.
     shared_ptr<DescribeBackupPolicyResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // The earliest point in time for data flashback, in the yyyy-MM-ddTHH:mm:ssZ format (UTC). This parameter is returned only when the data flashback feature is enabled for the instance.
     shared_ptr<string> backupLogStartTime_ {};
-    // The number of days for which backup data is retained.
+    // The backup retention period in days.
     shared_ptr<string> backupRetentionPeriod_ {};
     // Indicates whether the backup service is enabled for the instance. Valid values:
     // * **1**: Enabled.
@@ -228,17 +229,17 @@ namespace Models
     // * **0**: Disabled.
     shared_ptr<int32_t> enableBackupLog_ {};
     // The backup cycle. Valid values:
-    // * **Monday**
-    // * **Tuesday**
-    // * **Wednesday**
-    // * **Thursday**
-    // * **Friday**
-    // * **Saturday**
-    // * **Sunday**
+    // * **Monday**: Monday.
+    // * **Tuesday**: Tuesday.
+    // * **Wednesday**: Wednesday.
+    // * **Thursday**: Thursday.
+    // * **Friday**: Friday.
+    // * **Saturday**: Saturday.
+    // * **Sunday**: Sunday.
     shared_ptr<string> preferredBackupPeriod_ {};
-    // The backup time. The time is in the <i>HH:mm</i>Z-<i>HH:mm</i>Z format (UTC).
+    // The backup time, in the <i>HH:mm</i>Z-<i>HH:mm</i>Z format (UTC).
     shared_ptr<string> preferredBackupTime_ {};
-    // The next backup time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
+    // The time of the next backup, in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
     shared_ptr<string> preferredNextBackupTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

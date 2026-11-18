@@ -71,12 +71,12 @@ namespace Models
 
     protected:
       // The task status. Valid values:
-      // - **Scheduled**: Waiting to be executed.
+      // - **Scheduled**: Pending execution.
       // - **Running**: Running.
       // - **Succeed**: Succeeded.
       // - **Failed**: Failed.
-      // - **Cancelling**: Being stopped.
-      // - **Canceled**: Stopped.
+      // - **Cancelling**: Cancelling.
+      // - **Canceled**: Canceled.
       // - **Waiting**: Waiting for the scheduled time.
       shared_ptr<string> status_ {};
       // The total number of tasks.
@@ -102,7 +102,7 @@ namespace Models
 
 
   protected:
-    // The task list.
+    // The list of tasks.
     shared_ptr<vector<DescribeHistoryTasksStatResponseBody::Items>> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

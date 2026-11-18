@@ -121,25 +121,25 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+    // The end time of the query. The end time must be later than the start time. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
+    // Instance ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The node ID.
+    // The ID of the node.
     // > Specify this parameter to query the parameter settings of a specific node in a cluster instance.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The parameter name.
+    // The name of the parameter.
     shared_ptr<string> parameterName_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+    // The start time of the query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

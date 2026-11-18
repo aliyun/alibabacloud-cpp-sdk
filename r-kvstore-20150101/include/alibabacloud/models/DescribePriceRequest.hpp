@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Instances, instances_);
+      DARABONBA_PTR_TO_JSON(NeedUnavailableCoupon, needUnavailableCoupon_);
       DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
       DARABONBA_PTR_TO_JSON(OrderParamOut, orderParamOut_);
       DARABONBA_PTR_TO_JSON(OrderType, orderType_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Instances, instances_);
+      DARABONBA_PTR_FROM_JSON(NeedUnavailableCoupon, needUnavailableCoupon_);
       DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
       DARABONBA_PTR_FROM_JSON(OrderParamOut, orderParamOut_);
       DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
@@ -75,10 +77,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessInfo_ == nullptr
         && this->capacity_ == nullptr && this->chargeType_ == nullptr && this->couponNo_ == nullptr && this->engineVersion_ == nullptr && this->forceUpgrade_ == nullptr
-        && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->instances_ == nullptr && this->nodeType_ == nullptr && this->orderParamOut_ == nullptr
-        && this->orderType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->period_ == nullptr && this->quantity_ == nullptr
-        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->secondaryZoneId_ == nullptr && this->securityToken_ == nullptr
-        && this->shardCount_ == nullptr && this->zoneId_ == nullptr; };
+        && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->instances_ == nullptr && this->needUnavailableCoupon_ == nullptr && this->nodeType_ == nullptr
+        && this->orderParamOut_ == nullptr && this->orderType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->period_ == nullptr
+        && this->quantity_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->secondaryZoneId_ == nullptr
+        && this->securityToken_ == nullptr && this->shardCount_ == nullptr && this->zoneId_ == nullptr; };
     // businessInfo Field Functions 
     bool hasBusinessInfo() const { return this->businessInfo_ != nullptr;};
     void deleteBusinessInfo() { this->businessInfo_ = nullptr;};
@@ -140,6 +142,13 @@ namespace Models
     void deleteInstances() { this->instances_ = nullptr;};
     inline string getInstances() const { DARABONBA_PTR_GET_DEFAULT(instances_, "") };
     inline DescribePriceRequest& setInstances(string instances) { DARABONBA_PTR_SET_VALUE(instances_, instances) };
+
+
+    // needUnavailableCoupon Field Functions 
+    bool hasNeedUnavailableCoupon() const { return this->needUnavailableCoupon_ != nullptr;};
+    void deleteNeedUnavailableCoupon() { this->needUnavailableCoupon_ = nullptr;};
+    inline bool getNeedUnavailableCoupon() const { DARABONBA_PTR_GET_DEFAULT(needUnavailableCoupon_, false) };
+    inline DescribePriceRequest& setNeedUnavailableCoupon(bool needUnavailableCoupon) { DARABONBA_PTR_SET_VALUE(needUnavailableCoupon_, needUnavailableCoupon) };
 
 
     // nodeType Field Functions 
@@ -241,10 +250,10 @@ namespace Models
 
 
   protected:
-    // The extended information such as the promotional event ID and business information.
+    // The extended information, such as the promotion ID and business information.
     shared_ptr<string> businessInfo_ {};
-    // The storage capacity used to specify the instance type, in MB. This parameter is used only to query Redis Community Edition instances in classic deployment mode. We recommend that you use the **InstanceClass** parameter to specify an exact instance type.
-    // > After you specify the **InstanceClass** parameter, you do not need to specify this parameter.
+    // Specifies the instance type by using the storage capacity of the instance. Unit: MB. This parameter applies only to instances of ApsaraDB for Redis Community Edition in the classic deployment mode. We recommend that you use the **InstanceClass** parameter to specify an exact instance type.
+    // > If you specify the **InstanceClass** parameter, you do not need to specify this parameter.
     shared_ptr<int64_t> capacity_ {};
     // The billing method. Valid values:
     // * **PostPaid** (default): pay-as-you-go.
@@ -258,59 +267,61 @@ namespace Models
     // 
     // <props="partner">Database engine version of the Redis instance. Valid values: **2.8**, **4.0**, and **5.0**.
     shared_ptr<string> engineVersion_ {};
-    // Specifies whether to forcibly change the configuration. Valid values:
-    // * **false**: yes.
-    // * **true** (default): no.
+    // Specifies whether to forcibly upgrade or downgrade the instance. Valid values:
+    // * **false**: Yes.
+    // * **true** (default): No.
     shared_ptr<bool> forceUpgrade_ {};
-    // The instance type specified by using the **InstanceClass** code. To find the **InstanceClass** code:
-    // 1. In the [instance type navigation](https://help.aliyun.com/document_detail/26350.html), select the desired instance type and click the value in the **Architecture** column to open the specification document.
-    // 2. In the instance type table of the specification document, find the desired instance type and locate the code in the **InstanceClass** column.
+    // Specifies the instance type by using the **InstanceClass** code. To query the **InstanceClass** code, perform the following steps:
+    // 1. On the [Instance type query](https://help.aliyun.com/document_detail/26350.html) page, select the instance type as needed and click the value in the **Architecture Type** column to open the instance type documentation.
+    // 2. In the instance type table of the documentation, select the required instance type and find the code in the **InstanceClass** column.
     // 
-    // > The following example describes the parameters required for querying the price of a new instance. In addition to other key parameters, specify at least the following parameters:
-    // > * Classic Edition instance: specify this parameter.
-    // > * Cloud-native Edition standard architecture instance: specify this parameter.
-    // > * Cloud-native Edition cluster architecture instance: specify this parameter and the **ShardCount** parameter.
-    // > * Cloud-native Edition read/write splitting architecture instance: specify this parameter and the **Instances** parameter.
-    // > * Multiple instances of different types, or Tair ESSD-based instances (custom storage type and storage capacity): specify the Instances parameter (this parameter is not required).
+    // > For example, to query pricing for a new purchase, you must specify at least the following parameters in addition to other key parameters:
+    // > * To query a classic instance: specify this parameter.
+    // > * To query a cloud-native standard architecture instance: specify this parameter.
+    // > * To query a cloud-native cluster architecture instance: specify this parameter and the **ShardCount** parameter.
+    // > * To query a cloud-native read/write splitting architecture instance: specify this parameter and the **Instances** parameter.
+    // > * To query multiple instances of different types, or to query Tair ESSD instances (with custom storage types and storage space): specify the Instances parameter. You do not need to specify this parameter.
     shared_ptr<string> instanceClass_ {};
     // The instance ID.
     // > This parameter is required when **OrderType** is set to **UPGRADE** or **RENEW**.
     shared_ptr<string> instanceId_ {};
-    // If you want to query the price of cloud-native read/write splitting architecture instances, Tair ESSD-based instances, or multiple instances of different types, specify this parameter. The value is a JSON-formatted string. For more information, see **Additional description of the Instances parameter** below.
+    // The instances to query. This parameter is required when you query cloud-native read/write splitting architecture instances, Tair ESSD instances, or multiple instances of different types. The value is a JSON string. For more information, see **Supplementary description of the Instances parameter** below.
     shared_ptr<string> instances_ {};
+    // Specifies whether to return unavailable coupons.
+    shared_ptr<bool> needUnavailableCoupon_ {};
     // The node type. Valid values:
-    // - **STAND_ALONE**: standalone (single replica).
-    // - **MASTER_SLAVE** (default): high availability (dual replicas).
+    // - **STAND_ALONE**: Single-replica.
+    // - **MASTER_SLAVE** (default): High-availability (dual-replica).
     shared_ptr<string> nodeType_ {};
-    // Specifies whether to return order parameters. Valid values:
-    // * **false** (default): does not return order parameters.
-    // * **true**: returns order parameters.
+    // Specifies whether to return the order parameters. Valid values:
+    // * **false** (default): Not returned.
+    // * **true**: Returned.
     shared_ptr<string> orderParamOut_ {};
     // The order type. Valid values:
-    // * **BUY**: new purchase.
-    // * **UPGRADE**: configuration change.
-    // * **RENEW**: renewal.
-    // * **CONVERT**: billing method conversion.
+    // * **BUY**: New purchase.
+    // * **UPGRADE**: Upgrade or downgrade.
+    // * **RENEW**: Renewal.
+    // * **CONVERT**: Billing method conversion.
     // 
     // This parameter is required.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The subscription duration, in months. Valid values: **1** to **9**, **12**, **24**, and **36**.
+    // The subscription duration. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
     shared_ptr<int64_t> period_ {};
     // The number of instances to purchase. Valid values: **1** to **30**. Default value: **1**.
     shared_ptr<int64_t> quantity_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query available regions.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query available regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The secondary zone ID. You can call [DescribeZones](https://help.aliyun.com/document_detail/473764.html) to query available zones.
-    // > The value of this parameter must be different from the value of the ZoneId parameter.
+    // The secondary zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/473764.html) operation to query available zones.
+    // > The value of this parameter cannot be the same as the value of the ZoneId parameter.
     shared_ptr<string> secondaryZoneId_ {};
     shared_ptr<string> securityToken_ {};
-    // The number of data shard nodes in a cloud-native cluster instance.
+    // The number of data shard nodes in the cloud-native cluster instance.
     shared_ptr<int32_t> shardCount_ {};
-    // The zone ID. You can call [DescribeZones](https://help.aliyun.com/document_detail/473764.html) to query available zones.
+    // The zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/473764.html) operation to query available zones.
     shared_ptr<string> zoneId_ {};
   };
 

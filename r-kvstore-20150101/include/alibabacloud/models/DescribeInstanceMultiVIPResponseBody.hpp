@@ -114,11 +114,11 @@ namespace Models
   protected:
     // The IP address of the primary DNS server.
     shared_ptr<string> masterDns_ {};
-    // The list of IP addresses corresponding to all LBs of the current instance.
+    // The list of IP addresses for all load balancers of the instance.
     shared_ptr<vector<string>> masterDnsRecord_ {};
     // The maximum number of VIPs that can be created.
     shared_ptr<int64_t> maxQuota_ {};
-    // The list of multiple LB VIPs.
+    // The list of virtual IP addresses (VIPs) for multiple load balancers.
     shared_ptr<vector<DescribeInstanceMultiVIPResponseBody::MultiVIPList>> multiVIPList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

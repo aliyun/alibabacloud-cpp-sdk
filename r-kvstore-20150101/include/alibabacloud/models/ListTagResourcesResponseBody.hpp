@@ -155,7 +155,7 @@ namespace Models
 
 
   protected:
-    // The token used to start the next query. If a query does not return all results, you can pass the token returned from the previous query in subsequent queries to continue the query.
+    // The token used to start the next query. If a query does not return all results, you can pass this token in subsequent queries to continue the query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

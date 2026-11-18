@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Indicates whether audit logging is enabled. Valid values:
+    // Indicates whether the audit log feature is enabled. Valid values:
     // * **true**: Enabled.
     // * **false**: Disabled.
     // 
-    // > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) operation to enable or disable audit logging for the instance.
+    // > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) operation to enable or disable the audit log feature for the instance.
     shared_ptr<string> dbAudit_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The retention period of audit logs. Unit: days.
     shared_ptr<string> retention_ {};

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the canceled O&M events. Multiple IDs are separated by commas (,).
+    // The IDs of the O&M events canceled in batches. Separate multiple IDs with commas (,).
     shared_ptr<string> ids_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

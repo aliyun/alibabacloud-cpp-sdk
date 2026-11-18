@@ -119,13 +119,13 @@ namespace Models
 
 
       protected:
-        // The number of high-risk items.
+        // The high-risk count.
         shared_ptr<int64_t> error_ {};
-        // The number of failed items.
+        // The failed count.
         shared_ptr<int64_t> failed_ {};
-        // The number of normal items.
+        // The normal count.
         shared_ptr<int64_t> normal_ {};
-        // The number of warning items.
+        // The warning count.
         shared_ptr<int64_t> warning_ {};
       };
 

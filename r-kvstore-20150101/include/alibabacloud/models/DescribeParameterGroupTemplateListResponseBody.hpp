@@ -138,31 +138,31 @@ namespace Models
     protected:
       // The value range of the parameter.
       shared_ptr<string> checkingCode_ {};
-      // Indicates whether the parameter has taken effect. Valid values:
+      // Specifies whether the parameter takes effect. Valid values:
       // * **0**: No.
       // * **1**: Yes.
       shared_ptr<int64_t> effective_ {};
-      // The divisor factor. For integer and byte type parameters, the parameter value must not only fall within the valid range but also be a multiple of Factor (when Factor is not 0).
+      // The divisibility factor. For integer and byte parameters, the parameter value must not only fall within the valid value range but also be a multiple of the factor (which cannot be 0).
       shared_ptr<int64_t> factor_ {};
-      // The parameter description.
+      // The description of the parameter.
       shared_ptr<string> parameterDescription_ {};
-      // The parameter name.
+      // The name of the parameter.
       shared_ptr<string> parameterName_ {};
       // The default value of the parameter.
       shared_ptr<string> parameterValue_ {};
-      // Indicates whether the parameter can be modified. Valid values:
+      // Specifies whether the parameter can be modified. Valid values:
       // 
       // - **0**: The parameter cannot be modified.
       // - **1**: The parameter can be modified.
       shared_ptr<int64_t> revisable_ {};
-      // Indicates whether modification for minor versions is supported. Valid values:
+      // Specifies whether the minor version can be modified. Valid values:
       // * **true**: Supported.
       // * **false**: Not supported.
       shared_ptr<bool> supportModifyForMinorVersion_ {};
       // The unit of the parameter value. Valid values:
-      // * **INT**: a common integer.
-      // * **STRING**: a fixed string.
-      // * **B**: bytes.
+      // * **INT**: Standard integer.
+      // * **STRING**: Fixed string.
+      // * **B**: Byte.
       shared_ptr<string> unit_ {};
     };
 

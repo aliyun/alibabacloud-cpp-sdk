@@ -105,9 +105,9 @@ namespace Models
 
 
       protected:
-        // The parameter name.
+        // The name of the parameter.
         shared_ptr<string> paramName_ {};
-        // The parameter value.
+        // The value of the parameter.
         shared_ptr<string> paramValue_ {};
       };
 
@@ -181,15 +181,14 @@ namespace Models
 
     protected:
       // The product category. Valid values:
-      // 
-      // - **0**: Redis Community Edition.
-      // - **1**: Tair (Enterprise Edition).
+      // - **0**: open-source Redis
+      // - **1**: Tair (Enterprise Edition)
       shared_ptr<int64_t> category_ {};
       // The time when the parameter template was created.
       shared_ptr<string> created_ {};
       // The engine of the parameter template.
       shared_ptr<string> engine_ {};
-      // The engine-compatible version.
+      // The compatible engine version.
       shared_ptr<string> engineVersion_ {};
       // The time when the parameter template was last modified.
       shared_ptr<string> modified_ {};

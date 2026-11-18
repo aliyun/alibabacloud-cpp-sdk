@@ -135,7 +135,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The fuzzy match string for the account name.
+    // The keyword for fuzzy search of the account name.
     shared_ptr<string> searchAccountName_ {};
     shared_ptr<string> securityToken_ {};
   };

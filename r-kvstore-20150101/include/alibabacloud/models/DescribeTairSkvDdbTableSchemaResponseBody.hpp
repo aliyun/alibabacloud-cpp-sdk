@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The request ID. For more information, see common parameters.
+    // See common parameters.
     shared_ptr<string> requestId_ {};
     // The table schema information in JSON format.
     shared_ptr<string> schema_ {};
-    // The TTL property. The parameter settings toggle in JSON format.
+    // The TTL property and parameter setting switches in JSON format.
     shared_ptr<string> ttlSpec_ {};
   };
 

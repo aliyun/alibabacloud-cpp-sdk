@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The language of the value returned for the **LocalName** parameter. Valid values:
+    // Specifies the language of the value returned for the **LocalName** parameter. Valid values:
     // * **zh-CN**: Chinese.
     // * **en-US**: English.
     // 
