@@ -2,6 +2,7 @@
 #include <alibabacloud/STAROps20260428.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
@@ -10,6 +11,7 @@
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -21,6 +23,9 @@ namespace STAROps20260428
 {
 
 AlibabaCloud::STAROps20260428::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "STAROps";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("starops", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -219,7 +224,7 @@ CreateChatResponse Client::createChat(const CreateChatRequest &request) {
 }
 
 /**
- * @summary Creates a DigitalEmployee.
+ * @summary Creates a digital employee.
  *
  * @description Creates a digital employee.
  *
@@ -298,7 +303,7 @@ CreateDigitalEmployeeResponse Client::createDigitalEmployeeWithOptions(const Cre
 }
 
 /**
- * @summary Creates a DigitalEmployee.
+ * @summary Creates a digital employee.
  *
  * @description Creates a digital employee.
  *
@@ -767,7 +772,9 @@ DeleteThreadResponse Client::deleteThread(const string &name, const string &thre
 }
 
 /**
- * @summary Retrieves the tool list from a remote MCP server.
+ * @summary Retrieves the tool list from a remote MCP service.
+ *
+ * @description Retrieves the tool list from a remote MCP service.
  *
  * @param request FetchRemoteMcpToolsRequest
  * @param headers map
@@ -804,7 +811,9 @@ FetchRemoteMcpToolsResponse Client::fetchRemoteMcpToolsWithOptions(const FetchRe
 }
 
 /**
- * @summary Retrieves the tool list from a remote MCP server.
+ * @summary Retrieves the tool list from a remote MCP service.
+ *
+ * @description Retrieves the tool list from a remote MCP service.
  *
  * @param request FetchRemoteMcpToolsRequest
  * @return FetchRemoteMcpToolsResponse
@@ -974,7 +983,9 @@ GetDigitalEmployeeResponse Client::getDigitalEmployee(const string &name, const 
 }
 
 /**
- * @summary Queries the entity data of a digital employee.
+ * @summary Queries the entity data of a digital human.
+ *
+ * @description Queries the entity data of a digital human.
  *
  * @param request GetDigitalEmployeeEntityDataRequest
  * @param headers map
@@ -1015,7 +1026,9 @@ GetDigitalEmployeeEntityDataResponse Client::getDigitalEmployeeEntityDataWithOpt
 }
 
 /**
- * @summary Queries the entity data of a digital employee.
+ * @summary Queries the entity data of a digital human.
+ *
+ * @description Queries the entity data of a digital human.
  *
  * @param request GetDigitalEmployeeEntityDataRequest
  * @return GetDigitalEmployeeEntityDataResponse
@@ -1027,9 +1040,9 @@ GetDigitalEmployeeEntityDataResponse Client::getDigitalEmployeeEntityData(const 
 }
 
 /**
- * @summary Retrieves the details of a specific skill.
+ * @summary Retrieves the details of a skill.
  *
- * @description Retrieves the details of a specified skill for a digital employee.
+ * @description Retrieves the details of a skill.
  *
  * @param request GetDigitalEmployeeSkillRequest
  * @param headers map
@@ -1062,9 +1075,9 @@ GetDigitalEmployeeSkillResponse Client::getDigitalEmployeeSkillWithOptions(const
 }
 
 /**
- * @summary Retrieves the details of a specific skill.
+ * @summary Retrieves the details of a skill.
  *
- * @description Retrieves the details of a specified skill for a digital employee.
+ * @description Retrieves the details of a skill.
  *
  * @param request GetDigitalEmployeeSkillRequest
  * @return GetDigitalEmployeeSkillResponse
@@ -1117,6 +1130,8 @@ GetDigitalEmployeeUmodelResponse Client::getDigitalEmployeeUmodel(const string &
 /**
  * @summary Queries an MCP service.
  *
+ * @description Queries the configuration of an MCP service.
+ *
  * @param request GetMcpServiceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1144,6 +1159,8 @@ GetMcpServiceResponse Client::getMcpServiceWithOptions(const string &name, const
 /**
  * @summary Queries an MCP service.
  *
+ * @description Queries the configuration of an MCP service.
+ *
  * @param request GetMcpServiceRequest
  * @return GetMcpServiceResponse
  */
@@ -1154,9 +1171,9 @@ GetMcpServiceResponse Client::getMcpService(const string &name, const string &mc
 }
 
 /**
- * @summary Retrieves a thread.
+ * @summary Retrieves a session.
  *
- * @description Retrieves the details of a thread.
+ * @description Retrieves a session.
  *
  * @param request GetThreadRequest
  * @param headers map
@@ -1183,9 +1200,9 @@ GetThreadResponse Client::getThreadWithOptions(const string &name, const string 
 }
 
 /**
- * @summary Retrieves a thread.
+ * @summary Retrieves a session.
  *
- * @description Retrieves the details of a thread.
+ * @description Retrieves a session.
  *
  * @param request GetThreadRequest
  * @return GetThreadResponse
@@ -1307,9 +1324,9 @@ ListArtifactsResponse Client::listArtifacts(const string &name, const ListArtifa
 }
 
 /**
- * @summary Lists the versions of a skill.
+ * @summary Lists skill versions.
  *
- * @description Lists the previous versions of a skill.
+ * @description Lists historical versions of a skill.
  *
  * @param request ListDigitalEmployeeSkillVersionsRequest
  * @param headers map
@@ -1336,9 +1353,9 @@ ListDigitalEmployeeSkillVersionsResponse Client::listDigitalEmployeeSkillVersion
 }
 
 /**
- * @summary Lists the versions of a skill.
+ * @summary Lists skill versions.
  *
- * @description Lists the previous versions of a skill.
+ * @description Lists historical versions of a skill.
  *
  * @param request ListDigitalEmployeeSkillVersionsRequest
  * @return ListDigitalEmployeeSkillVersionsResponse
@@ -1350,9 +1367,9 @@ ListDigitalEmployeeSkillVersionsResponse Client::listDigitalEmployeeSkillVersion
 }
 
 /**
- * @summary Lists the skills of a digital employee.
+ * @summary Lists skills.
  *
- * @description Lists the skills of a specified digital employee.
+ * @description Lists skills.
  *
  * @param request ListDigitalEmployeeSkillsRequest
  * @param headers map
@@ -1393,9 +1410,9 @@ ListDigitalEmployeeSkillsResponse Client::listDigitalEmployeeSkillsWithOptions(c
 }
 
 /**
- * @summary Lists the skills of a digital employee.
+ * @summary Lists skills.
  *
- * @description Lists the skills of a specified digital employee.
+ * @description Lists skills.
  *
  * @param request ListDigitalEmployeeSkillsRequest
  * @return ListDigitalEmployeeSkillsResponse
@@ -1492,6 +1509,8 @@ ListDigitalEmployeesResponse Client::listDigitalEmployees(const ListDigitalEmplo
 /**
  * @summary Queries the list of MCP services.
  *
+ * @description Queries the list of MCP services.
+ *
  * @param request ListMcpServicesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1529,6 +1548,8 @@ ListMcpServicesResponse Client::listMcpServicesWithOptions(const string &name, c
 /**
  * @summary Queries the list of MCP services.
  *
+ * @description Queries the list of MCP services.
+ *
  * @param request ListMcpServicesRequest
  * @return ListMcpServicesResponse
  */
@@ -1539,9 +1560,9 @@ ListMcpServicesResponse Client::listMcpServices(const string &name, const ListMc
 }
 
 /**
- * @summary List sessions
+ * @summary Lists sessions.
  *
- * @description List sessions
+ * @description Lists sessions.
  *
  * @param tmpReq ListThreadsRequest
  * @param headers map
@@ -1600,9 +1621,9 @@ ListThreadsResponse Client::listThreadsWithOptions(const string &name, const Lis
 }
 
 /**
- * @summary List sessions
+ * @summary Lists sessions.
  *
- * @description List sessions
+ * @description Lists sessions.
  *
  * @param request ListThreadsRequest
  * @return ListThreadsResponse
@@ -1803,6 +1824,8 @@ UpdateDigitalEmployeeUmodelResponse Client::updateDigitalEmployeeUmodel(const st
 /**
  * @summary Updates an MCP service.
  *
+ * @description Updates the configuration of an MCP service.
+ *
  * @param request UpdateMcpServiceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1856,6 +1879,8 @@ UpdateMcpServiceResponse Client::updateMcpServiceWithOptions(const string &name,
 /**
  * @summary Updates an MCP service.
  *
+ * @description Updates the configuration of an MCP service.
+ *
  * @param request UpdateMcpServiceRequest
  * @return UpdateMcpServiceResponse
  */
@@ -1866,9 +1891,9 @@ UpdateMcpServiceResponse Client::updateMcpService(const string &name, const stri
 }
 
 /**
- * @summary Updates a thread.
+ * @summary Updates a session.
  *
- * @description Updates a thread.
+ * @description Updates a session.
  *
  * @param request UpdateThreadRequest
  * @param headers map
@@ -1909,9 +1934,9 @@ UpdateThreadResponse Client::updateThreadWithOptions(const string &name, const s
 }
 
 /**
- * @summary Updates a thread.
+ * @summary Updates a session.
  *
- * @description Updates a thread.
+ * @description Updates a session.
  *
  * @param request UpdateThreadRequest
  * @return UpdateThreadResponse

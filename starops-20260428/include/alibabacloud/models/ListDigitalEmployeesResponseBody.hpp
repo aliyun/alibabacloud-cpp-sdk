@@ -54,6 +54,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(roleArn, roleArn_);
+        DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(tags, tags_);
         DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
       };
@@ -69,6 +70,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(roleArn, roleArn_);
+        DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(tags, tags_);
         DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
       };
@@ -160,13 +162,13 @@ namespace Models
 
 
         protected:
-          // The knowledge base attributes.
+          // The attributes of the knowledge base.
           shared_ptr<string> attributes_ {};
-          // The Bailian index ID.
+          // The Model Studio index ID.
           shared_ptr<string> indexId_ {};
           // The region of the knowledge base.
           shared_ptr<string> region_ {};
-          // The Bailian workspace ID.
+          // The Model Studio workspace ID.
           shared_ptr<string> workspaceId_ {};
         };
 
@@ -191,7 +193,7 @@ namespace Models
 
 
       protected:
-        // The list of Bailian knowledge bases.
+        // The list of Model Studio knowledge bases.
         shared_ptr<vector<Knowledges::Bailian>> bailian_ {};
         // The list of SOP knowledge bases.
         shared_ptr<vector<Darabonba::Json>> sop_ {};
@@ -200,7 +202,7 @@ namespace Models
       virtual bool empty() const override { return this->attributes_ == nullptr
         && this->channel_ == nullptr && this->createTime_ == nullptr && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr
         && this->employeeType_ == nullptr && this->knowledges_ == nullptr && this->name_ == nullptr && this->resourceGroupId_ == nullptr && this->roleArn_ == nullptr
-        && this->tags_ == nullptr && this->updateTime_ == nullptr; };
+        && this->status_ == nullptr && this->tags_ == nullptr && this->updateTime_ == nullptr; };
       // attributes Field Functions 
       bool hasAttributes() const { return this->attributes_ != nullptr;};
       void deleteAttributes() { this->attributes_ = nullptr;};
@@ -282,6 +284,13 @@ namespace Models
       inline DigitalEmployees& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
 
 
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+      inline DigitalEmployees& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
       // tags Field Functions 
       bool hasTags() const { return this->tags_ != nullptr;};
       void deleteTags() { this->tags_ = nullptr;};
@@ -299,11 +308,11 @@ namespace Models
 
 
     protected:
-      // The attributes.
+      // The attributes of the digital employee.
       shared_ptr<map<string, string>> attributes_ {};
-      // The channel type of the digital employee.
+      // The channel type.
       shared_ptr<string> channel_ {};
-      // The creation time.
+      // The creation time in RFC 3339 format. The time zone is UTC.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
@@ -323,9 +332,11 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // The ARN of the RAM role.
       shared_ptr<string> roleArn_ {};
+      // The status of the digital employee. Valid values: 0: Normal. 1: Disabled.
+      shared_ptr<int32_t> status_ {};
       // The tags.
       shared_ptr<vector<Tag>> tags_ {};
-      // The update time.
+      // The update time in RFC 3339 format. The time zone is UTC.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};

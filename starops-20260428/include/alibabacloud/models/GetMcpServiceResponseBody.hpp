@@ -198,7 +198,7 @@ namespace Models
       protected:
         // The annotation information of the MCP tool.
         Darabonba::Json annotations_ {};
-        // Indicates whether user confirmation is required before the MCP tool is called.
+        // Indicates whether user confirmation is required before calling the MCP tool.
         shared_ptr<bool> confirm_ {};
         // The description of the MCP tool.
         shared_ptr<string> description_ {};
@@ -214,7 +214,7 @@ namespace Models
         Darabonba::Json inputSchema_ {};
         // The name of the MCP tool.
         shared_ptr<string> name_ {};
-        // The JSON Schema of the MCP tool output.
+        // The JSON Schema of the MCP tool output results.
         Darabonba::Json outputSchema_ {};
         // The title of the MCP tool.
         shared_ptr<string> title_ {};
@@ -336,7 +336,7 @@ namespace Models
         shared_ptr<string> region_ {};
         // The security group ID.
         shared_ptr<string> securityGroupId_ {};
-        // The virtual private cloud (VPC) ID.
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
         // The vSwitch ID.
         shared_ptr<string> vswId_ {};
@@ -413,7 +413,7 @@ namespace Models
         protected:
           // The key-value information required for authentication.
           shared_ptr<map<string, string>> keyInfo_ {};
-          // The authentication type. Currently, bearer is supported.
+          // The authentication type. Currently, only bearer is supported.
           shared_ptr<string> type_ {};
         };
 
@@ -470,6 +470,7 @@ namespace Models
         shared_ptr<Connection::Auth> auth_ {};
         // The access endpoint of the MCP service.
         shared_ptr<string> endpoint_ {};
+        // The custom HTTP request headers appended when calling the MCP service.
         shared_ptr<map<string, string>> headers_ {};
         // The MCP service platform type. Valid values: AIGateway and Custom.
         shared_ptr<string> platform_ {};

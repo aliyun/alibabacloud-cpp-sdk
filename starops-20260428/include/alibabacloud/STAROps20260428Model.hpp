@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_STAROPS20260428MODEL_HPP_
 #define ALIBABACLOUD_STAROPS20260428MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AutoPassPolicy.hpp>
 #include <alibabacloud/models/ConnectorAuthentication.hpp>
 #include <alibabacloud/models/ConnectorAuthenticationInput.hpp>
 #include <alibabacloud/models/ConnectorAuthenticationUpdateInput.hpp>
@@ -9,6 +10,7 @@
 #include <alibabacloud/models/ConnectorCreateInput.hpp>
 #include <alibabacloud/models/ConnectorInfo.hpp>
 #include <alibabacloud/models/ConnectorUpdateInput.hpp>
+#include <alibabacloud/models/Hook.hpp>
 #include <alibabacloud/models/Tag.hpp>
 #include <alibabacloud/models/CreateArtifactUploadTokenRequest.hpp>
 #include <alibabacloud/models/CreateArtifactUploadTokenResponseBody.hpp>

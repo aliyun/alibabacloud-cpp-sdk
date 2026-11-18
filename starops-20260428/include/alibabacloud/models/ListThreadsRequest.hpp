@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The filter key. Supported values are title, workspace, and project.
+      // The filter key. Valid values: title, workspace, and project.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The value for the filter key.
+      // The value to set.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -135,17 +135,17 @@ namespace Models
 
 
   protected:
-    // Filters the results. If this parameter is omitted, the operation returns all threads in the instance.
+    // The filter conditions for the query. If this parameter is not specified, all topics under the instance are queried.
     shared_ptr<vector<ListThreadsRequest::Filter>> filter_ {};
-    // Specifies whether to include threads created by missions.
+    // Specifies whether to include threads created by mission.
     shared_ptr<bool> includeMission_ {};
     // The maximum number of results to return. Maximum value: 200.
     shared_ptr<int64_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The status of the thread.
+    // The session status.
     shared_ptr<string> status_ {};
-    // The thread ID.
+    // The session ID.
     shared_ptr<string> threadId_ {};
   };
 

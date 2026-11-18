@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_UPDATEDIGITALEMPLOYEEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/AutoPassPolicy.hpp>
+#include <alibabacloud/models/Hook.hpp>
 #include <map>
 using namespace std;
 using json = nlohmann::json;
@@ -49,9 +51,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const ToolPolicy& obj) { 
         DARABONBA_PTR_TO_JSON(aliyun, aliyun_);
+        DARABONBA_PTR_TO_JSON(global, global_);
+        DARABONBA_PTR_TO_JSON(hooks, hooks_);
       };
       friend void from_json(const Darabonba::Json& j, ToolPolicy& obj) { 
         DARABONBA_PTR_FROM_JSON(aliyun, aliyun_);
+        DARABONBA_PTR_FROM_JSON(global, global_);
+        DARABONBA_PTR_FROM_JSON(hooks, hooks_);
       };
       ToolPolicy() = default ;
       ToolPolicy(const ToolPolicy &) = default ;
@@ -64,6 +70,40 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Global : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Global& obj) { 
+          DARABONBA_PTR_TO_JSON(autoPassPolicy, autoPassPolicy_);
+        };
+        friend void from_json(const Darabonba::Json& j, Global& obj) { 
+          DARABONBA_PTR_FROM_JSON(autoPassPolicy, autoPassPolicy_);
+        };
+        Global() = default ;
+        Global(const Global &) = default ;
+        Global(Global &&) = default ;
+        Global(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Global() = default ;
+        Global& operator=(const Global &) = default ;
+        Global& operator=(Global &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->autoPassPolicy_ == nullptr; };
+        // autoPassPolicy Field Functions 
+        bool hasAutoPassPolicy() const { return this->autoPassPolicy_ != nullptr;};
+        void deleteAutoPassPolicy() { this->autoPassPolicy_ = nullptr;};
+        inline const vector<AutoPassPolicy> & getAutoPassPolicy() const { DARABONBA_PTR_GET_CONST(autoPassPolicy_, vector<AutoPassPolicy>) };
+        inline vector<AutoPassPolicy> getAutoPassPolicy() { DARABONBA_PTR_GET(autoPassPolicy_, vector<AutoPassPolicy>) };
+        inline Global& setAutoPassPolicy(const vector<AutoPassPolicy> & autoPassPolicy) { DARABONBA_PTR_SET_VALUE(autoPassPolicy_, autoPassPolicy) };
+        inline Global& setAutoPassPolicy(vector<AutoPassPolicy> && autoPassPolicy) { DARABONBA_PTR_SET_RVALUE(autoPassPolicy_, autoPassPolicy) };
+
+
+      protected:
+        // The array of auto-approval policies.
+        shared_ptr<vector<AutoPassPolicy>> autoPassPolicy_ {};
+      };
+
       class Aliyun : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Aliyun& obj) { 
@@ -153,7 +193,7 @@ namespace Models
           shared_ptr<string> apiVersion_ {};
           // The execution policy.
           shared_ptr<string> decision_ {};
-          // The cloud product code.
+          // The code of the cloud service.
           shared_ptr<string> product_ {};
         };
 
@@ -194,9 +234,9 @@ namespace Models
 
 
       protected:
-        // The automatic pass-through policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched actions are automatically allowed without human confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, Describe*) are automatically allowed. Unmatched actions require human-in-the-loop (HIL) confirmation.
+        // The list of auto-approved RAM actions. The format is *, product:ApiName, or product:Prefix*.
         shared_ptr<vector<string>> autoPassPolicy_ {};
-        // The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no operations are actively denied. STAROps directly denies matched actions. Pop performs secondary enforcement.
+        // The list of denied RAM actions. The format is *, product:ApiName, or product:Prefix*.
         shared_ptr<vector<string>> denyPolicy_ {};
         // Specifies whether to enable the policy.
         shared_ptr<bool> enable_ {};
@@ -204,7 +244,8 @@ namespace Models
         shared_ptr<vector<Aliyun::Statements>> statements_ {};
       };
 
-      virtual bool empty() const override { return this->aliyun_ == nullptr; };
+      virtual bool empty() const override { return this->aliyun_ == nullptr
+        && this->global_ == nullptr && this->hooks_ == nullptr; };
       // aliyun Field Functions 
       bool hasAliyun() const { return this->aliyun_ != nullptr;};
       void deleteAliyun() { this->aliyun_ = nullptr;};
@@ -214,9 +255,31 @@ namespace Models
       inline ToolPolicy& setAliyun(ToolPolicy::Aliyun && aliyun) { DARABONBA_PTR_SET_RVALUE(aliyun_, aliyun) };
 
 
+      // global Field Functions 
+      bool hasGlobal() const { return this->global_ != nullptr;};
+      void deleteGlobal() { this->global_ = nullptr;};
+      inline const ToolPolicy::Global & getGlobal() const { DARABONBA_PTR_GET_CONST(global_, ToolPolicy::Global) };
+      inline ToolPolicy::Global getGlobal() { DARABONBA_PTR_GET(global_, ToolPolicy::Global) };
+      inline ToolPolicy& setGlobal(const ToolPolicy::Global & global) { DARABONBA_PTR_SET_VALUE(global_, global) };
+      inline ToolPolicy& setGlobal(ToolPolicy::Global && global) { DARABONBA_PTR_SET_RVALUE(global_, global) };
+
+
+      // hooks Field Functions 
+      bool hasHooks() const { return this->hooks_ != nullptr;};
+      void deleteHooks() { this->hooks_ = nullptr;};
+      inline const vector<Hook> & getHooks() const { DARABONBA_PTR_GET_CONST(hooks_, vector<Hook>) };
+      inline vector<Hook> getHooks() { DARABONBA_PTR_GET(hooks_, vector<Hook>) };
+      inline ToolPolicy& setHooks(const vector<Hook> & hooks) { DARABONBA_PTR_SET_VALUE(hooks_, hooks) };
+      inline ToolPolicy& setHooks(vector<Hook> && hooks) { DARABONBA_PTR_SET_RVALUE(hooks_, hooks) };
+
+
     protected:
-      // The Aliyun CLI tool calling security policy configuration.
+      // The security policy configuration for Aliyun CLI tool calling.
       shared_ptr<ToolPolicy::Aliyun> aliyun_ {};
+      // The global auto-approval rules for tool calling.
+      shared_ptr<ToolPolicy::Global> global_ {};
+      // The hook configuration.
+      shared_ptr<vector<Hook>> hooks_ {};
     };
 
     class SandboxNetworkPolicy : public Darabonba::Model {
@@ -270,9 +333,9 @@ namespace Models
 
 
     protected:
-      // The list of CIDRs or IP addresses that are allowed to be accessed.
+      // The list of allowed CIDR blocks or IP addresses.
       shared_ptr<vector<string>> allowCidrs_ {};
-      // The list of FQDNs that are allowed to be accessed.
+      // The list of allowed FQDNs.
       shared_ptr<vector<string>> allowFqdns_ {};
       // Specifies whether to enable the sandbox network ACL.
       shared_ptr<bool> enableAcl_ {};
@@ -355,13 +418,13 @@ namespace Models
 
 
       protected:
-        // The knowledge base attributes.
+        // The attributes of the knowledge base.
         shared_ptr<string> attributes_ {};
-        // The Bailian index ID.
+        // The ID of the Model Studio index.
         shared_ptr<string> indexId_ {};
         // The region of the knowledge base.
         shared_ptr<string> region_ {};
-        // The Bailian workspace ID.
+        // The ID of the Model Studio workspace.
         shared_ptr<string> workspaceId_ {};
       };
 
@@ -386,9 +449,9 @@ namespace Models
 
 
     protected:
-      // The Bailian knowledge base list.
+      // The list of Model Studio knowledge bases.
       shared_ptr<vector<Knowledges::Bailian>> bailian_ {};
-      // The SOP knowledge base list.
+      // The list of SOP knowledge bases.
       shared_ptr<vector<Darabonba::Json>> sop_ {};
     };
 
@@ -462,19 +525,19 @@ namespace Models
   protected:
     // The attributes.
     shared_ptr<map<string, string>> attributes_ {};
-    // The default rule of the digital employee.
+    // The default rules for the digital employee.
     shared_ptr<string> defaultRule_ {};
     // The description of the digital employee.
     shared_ptr<string> description_ {};
     // The display name of the digital employee.
     shared_ptr<string> displayName_ {};
-    // The knowledge base list.
+    // The list of knowledge bases.
     shared_ptr<UpdateDigitalEmployeeRequest::Knowledges> knowledges_ {};
     // The ARN of the RAM role.
     shared_ptr<string> roleArn_ {};
-    // The list of CIDRs or IP addresses that are allowed to be accessed.
+    // The list of allowed CIDR blocks or IP addresses.
     shared_ptr<UpdateDigitalEmployeeRequest::SandboxNetworkPolicy> sandboxNetworkPolicy_ {};
-    // The tool calling security policy configuration of the digital employee.
+    // The security policy configuration for tool calling by the digital employee.
     shared_ptr<UpdateDigitalEmployeeRequest::ToolPolicy> toolPolicy_ {};
   };
 

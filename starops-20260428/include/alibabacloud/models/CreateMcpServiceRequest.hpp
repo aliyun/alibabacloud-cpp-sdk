@@ -396,7 +396,7 @@ namespace Models
       protected:
         // The request body parameters.
         shared_ptr<map<string, string>> keyInfo_ {};
-        // The authentication type. Currently, only bearer is supported.
+        // The authentication type. Currently, bearer is supported.
         shared_ptr<string> type_ {};
       };
 
@@ -455,9 +455,9 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> endpoint_ {};
-      // The custom headers.
+      // The custom HTTP request headers appended when calling the MCP service.
       shared_ptr<map<string, string>> headers_ {};
-      // The platform type of the MCP service. Valid values: AIGateway and Custom.
+      // The MCP service platform type. Valid values: AIGateway and Custom.
       // 
       // This parameter is required.
       shared_ptr<string> platform_ {};

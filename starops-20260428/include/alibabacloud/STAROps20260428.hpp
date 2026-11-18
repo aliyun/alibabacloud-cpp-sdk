@@ -77,7 +77,7 @@ namespace STAROps20260428
       Models::CreateChatResponse createChat(const Models::CreateChatRequest &request);
 
       /**
-       * @summary Creates a DigitalEmployee.
+       * @summary Creates a digital employee.
        *
        * @description Creates a digital employee.
        *
@@ -89,7 +89,7 @@ namespace STAROps20260428
       Models::CreateDigitalEmployeeResponse createDigitalEmployeeWithOptions(const Models::CreateDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a DigitalEmployee.
+       * @summary Creates a digital employee.
        *
        * @description Creates a digital employee.
        *
@@ -285,7 +285,9 @@ namespace STAROps20260428
       Models::DeleteThreadResponse deleteThread(const string &name, const string &threadId, const Models::DeleteThreadRequest &request);
 
       /**
-       * @summary Retrieves the tool list from a remote MCP server.
+       * @summary Retrieves the tool list from a remote MCP service.
+       *
+       * @description Retrieves the tool list from a remote MCP service.
        *
        * @param request FetchRemoteMcpToolsRequest
        * @param headers map
@@ -295,7 +297,9 @@ namespace STAROps20260428
       Models::FetchRemoteMcpToolsResponse fetchRemoteMcpToolsWithOptions(const Models::FetchRemoteMcpToolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the tool list from a remote MCP server.
+       * @summary Retrieves the tool list from a remote MCP service.
+       *
+       * @description Retrieves the tool list from a remote MCP service.
        *
        * @param request FetchRemoteMcpToolsRequest
        * @return FetchRemoteMcpToolsResponse
@@ -369,7 +373,9 @@ namespace STAROps20260428
       Models::GetDigitalEmployeeResponse getDigitalEmployee(const string &name, const Models::GetDigitalEmployeeRequest &request);
 
       /**
-       * @summary Queries the entity data of a digital employee.
+       * @summary Queries the entity data of a digital human.
+       *
+       * @description Queries the entity data of a digital human.
        *
        * @param request GetDigitalEmployeeEntityDataRequest
        * @param headers map
@@ -379,7 +385,9 @@ namespace STAROps20260428
       Models::GetDigitalEmployeeEntityDataResponse getDigitalEmployeeEntityDataWithOptions(const string &name, const Models::GetDigitalEmployeeEntityDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the entity data of a digital employee.
+       * @summary Queries the entity data of a digital human.
+       *
+       * @description Queries the entity data of a digital human.
        *
        * @param request GetDigitalEmployeeEntityDataRequest
        * @return GetDigitalEmployeeEntityDataResponse
@@ -387,9 +395,9 @@ namespace STAROps20260428
       Models::GetDigitalEmployeeEntityDataResponse getDigitalEmployeeEntityData(const string &name, const Models::GetDigitalEmployeeEntityDataRequest &request);
 
       /**
-       * @summary Retrieves the details of a specific skill.
+       * @summary Retrieves the details of a skill.
        *
-       * @description Retrieves the details of a specified skill for a digital employee.
+       * @description Retrieves the details of a skill.
        *
        * @param request GetDigitalEmployeeSkillRequest
        * @param headers map
@@ -399,9 +407,9 @@ namespace STAROps20260428
       Models::GetDigitalEmployeeSkillResponse getDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const Models::GetDigitalEmployeeSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a specific skill.
+       * @summary Retrieves the details of a skill.
        *
-       * @description Retrieves the details of a specified skill for a digital employee.
+       * @description Retrieves the details of a skill.
        *
        * @param request GetDigitalEmployeeSkillRequest
        * @return GetDigitalEmployeeSkillResponse
@@ -429,6 +437,8 @@ namespace STAROps20260428
       /**
        * @summary Queries an MCP service.
        *
+       * @description Queries the configuration of an MCP service.
+       *
        * @param request GetMcpServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -439,15 +449,17 @@ namespace STAROps20260428
       /**
        * @summary Queries an MCP service.
        *
+       * @description Queries the configuration of an MCP service.
+       *
        * @param request GetMcpServiceRequest
        * @return GetMcpServiceResponse
        */
       Models::GetMcpServiceResponse getMcpService(const string &name, const string &mcpServiceName, const Models::GetMcpServiceRequest &request);
 
       /**
-       * @summary Retrieves a thread.
+       * @summary Retrieves a session.
        *
-       * @description Retrieves the details of a thread.
+       * @description Retrieves a session.
        *
        * @param request GetThreadRequest
        * @param headers map
@@ -457,9 +469,9 @@ namespace STAROps20260428
       Models::GetThreadResponse getThreadWithOptions(const string &name, const string &threadId, const Models::GetThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a thread.
+       * @summary Retrieves a session.
        *
-       * @description Retrieves the details of a thread.
+       * @description Retrieves a session.
        *
        * @param request GetThreadRequest
        * @return GetThreadResponse
@@ -511,9 +523,9 @@ namespace STAROps20260428
       Models::ListArtifactsResponse listArtifacts(const string &name, const Models::ListArtifactsRequest &request);
 
       /**
-       * @summary Lists the versions of a skill.
+       * @summary Lists skill versions.
        *
-       * @description Lists the previous versions of a skill.
+       * @description Lists historical versions of a skill.
        *
        * @param request ListDigitalEmployeeSkillVersionsRequest
        * @param headers map
@@ -523,9 +535,9 @@ namespace STAROps20260428
       Models::ListDigitalEmployeeSkillVersionsResponse listDigitalEmployeeSkillVersionsWithOptions(const string &name, const string &skillName, const Models::ListDigitalEmployeeSkillVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the versions of a skill.
+       * @summary Lists skill versions.
        *
-       * @description Lists the previous versions of a skill.
+       * @description Lists historical versions of a skill.
        *
        * @param request ListDigitalEmployeeSkillVersionsRequest
        * @return ListDigitalEmployeeSkillVersionsResponse
@@ -533,9 +545,9 @@ namespace STAROps20260428
       Models::ListDigitalEmployeeSkillVersionsResponse listDigitalEmployeeSkillVersions(const string &name, const string &skillName, const Models::ListDigitalEmployeeSkillVersionsRequest &request);
 
       /**
-       * @summary Lists the skills of a digital employee.
+       * @summary Lists skills.
        *
-       * @description Lists the skills of a specified digital employee.
+       * @description Lists skills.
        *
        * @param request ListDigitalEmployeeSkillsRequest
        * @param headers map
@@ -545,9 +557,9 @@ namespace STAROps20260428
       Models::ListDigitalEmployeeSkillsResponse listDigitalEmployeeSkillsWithOptions(const string &name, const Models::ListDigitalEmployeeSkillsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the skills of a digital employee.
+       * @summary Lists skills.
        *
-       * @description Lists the skills of a specified digital employee.
+       * @description Lists skills.
        *
        * @param request ListDigitalEmployeeSkillsRequest
        * @return ListDigitalEmployeeSkillsResponse
@@ -579,6 +591,8 @@ namespace STAROps20260428
       /**
        * @summary Queries the list of MCP services.
        *
+       * @description Queries the list of MCP services.
+       *
        * @param request ListMcpServicesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -589,15 +603,17 @@ namespace STAROps20260428
       /**
        * @summary Queries the list of MCP services.
        *
+       * @description Queries the list of MCP services.
+       *
        * @param request ListMcpServicesRequest
        * @return ListMcpServicesResponse
        */
       Models::ListMcpServicesResponse listMcpServices(const string &name, const Models::ListMcpServicesRequest &request);
 
       /**
-       * @summary List sessions
+       * @summary Lists sessions.
        *
-       * @description List sessions
+       * @description Lists sessions.
        *
        * @param tmpReq ListThreadsRequest
        * @param headers map
@@ -607,9 +623,9 @@ namespace STAROps20260428
       Models::ListThreadsResponse listThreadsWithOptions(const string &name, const Models::ListThreadsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List sessions
+       * @summary Lists sessions.
        *
-       * @description List sessions
+       * @description Lists sessions.
        *
        * @param request ListThreadsRequest
        * @return ListThreadsResponse
@@ -681,6 +697,8 @@ namespace STAROps20260428
       /**
        * @summary Updates an MCP service.
        *
+       * @description Updates the configuration of an MCP service.
+       *
        * @param request UpdateMcpServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -691,15 +709,17 @@ namespace STAROps20260428
       /**
        * @summary Updates an MCP service.
        *
+       * @description Updates the configuration of an MCP service.
+       *
        * @param request UpdateMcpServiceRequest
        * @return UpdateMcpServiceResponse
        */
       Models::UpdateMcpServiceResponse updateMcpService(const string &name, const string &mcpServiceName, const Models::UpdateMcpServiceRequest &request);
 
       /**
-       * @summary Updates a thread.
+       * @summary Updates a session.
        *
-       * @description Updates a thread.
+       * @description Updates a session.
        *
        * @param request UpdateThreadRequest
        * @param headers map
@@ -709,9 +729,9 @@ namespace STAROps20260428
       Models::UpdateThreadResponse updateThreadWithOptions(const string &name, const string &threadId, const Models::UpdateThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a thread.
+       * @summary Updates a session.
        *
-       * @description Updates a thread.
+       * @description Updates a session.
        *
        * @param request UpdateThreadRequest
        * @return UpdateThreadResponse

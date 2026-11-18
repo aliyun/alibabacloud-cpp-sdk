@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return in the response.
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in a subsequent request to retrieve the next page of results. To retrieve the first page, do not specify this parameter.
+    // The token for the next page. A value of null indicates that there is no next page.
     shared_ptr<string> nextToken_ {};
-    // The name of the skill.
+    // The skill name.
     shared_ptr<string> skillName_ {};
   };
 

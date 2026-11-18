@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_GETDIGITALEMPLOYEERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/AutoPassPolicy.hpp>
+#include <alibabacloud/models/Hook.hpp>
 #include <map>
 #include <alibabacloud/models/Tag.hpp>
 using namespace std;
@@ -30,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(roleArn, roleArn_);
       DARABONBA_PTR_TO_JSON(sandboxNetworkPolicy, sandboxNetworkPolicy_);
+      DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(toolPolicy, toolPolicy_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
@@ -49,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(roleArn, roleArn_);
       DARABONBA_PTR_FROM_JSON(sandboxNetworkPolicy, sandboxNetworkPolicy_);
+      DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(toolPolicy, toolPolicy_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
@@ -68,9 +72,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const ToolPolicy& obj) { 
         DARABONBA_PTR_TO_JSON(aliyun, aliyun_);
+        DARABONBA_PTR_TO_JSON(global, global_);
+        DARABONBA_PTR_TO_JSON(hooks, hooks_);
       };
       friend void from_json(const Darabonba::Json& j, ToolPolicy& obj) { 
         DARABONBA_PTR_FROM_JSON(aliyun, aliyun_);
+        DARABONBA_PTR_FROM_JSON(global, global_);
+        DARABONBA_PTR_FROM_JSON(hooks, hooks_);
       };
       ToolPolicy() = default ;
       ToolPolicy(const ToolPolicy &) = default ;
@@ -83,6 +91,40 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Global : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Global& obj) { 
+          DARABONBA_PTR_TO_JSON(autoPassPolicy, autoPassPolicy_);
+        };
+        friend void from_json(const Darabonba::Json& j, Global& obj) { 
+          DARABONBA_PTR_FROM_JSON(autoPassPolicy, autoPassPolicy_);
+        };
+        Global() = default ;
+        Global(const Global &) = default ;
+        Global(Global &&) = default ;
+        Global(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Global() = default ;
+        Global& operator=(const Global &) = default ;
+        Global& operator=(Global &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->autoPassPolicy_ == nullptr; };
+        // autoPassPolicy Field Functions 
+        bool hasAutoPassPolicy() const { return this->autoPassPolicy_ != nullptr;};
+        void deleteAutoPassPolicy() { this->autoPassPolicy_ = nullptr;};
+        inline const vector<AutoPassPolicy> & getAutoPassPolicy() const { DARABONBA_PTR_GET_CONST(autoPassPolicy_, vector<AutoPassPolicy>) };
+        inline vector<AutoPassPolicy> getAutoPassPolicy() { DARABONBA_PTR_GET(autoPassPolicy_, vector<AutoPassPolicy>) };
+        inline Global& setAutoPassPolicy(const vector<AutoPassPolicy> & autoPassPolicy) { DARABONBA_PTR_SET_VALUE(autoPassPolicy_, autoPassPolicy) };
+        inline Global& setAutoPassPolicy(vector<AutoPassPolicy> && autoPassPolicy) { DARABONBA_PTR_SET_RVALUE(autoPassPolicy_, autoPassPolicy) };
+
+
+      protected:
+        // The auto-pass policy for CLI commands.
+        shared_ptr<vector<AutoPassPolicy>> autoPassPolicy_ {};
+      };
+
       class Aliyun : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Aliyun& obj) { 
@@ -172,9 +214,7 @@ namespace Models
           shared_ptr<string> apiVersion_ {};
           // The execution policy.
           shared_ptr<string> decision_ {};
-          // The cloud product code.
-          // 
-          // This parameter is required.
+          // The code of the cloud service.
           shared_ptr<string> product_ {};
         };
 
@@ -215,17 +255,18 @@ namespace Models
 
 
       protected:
-        // The auto-pass policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched actions are automatically approved without human confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, Describe*) are automatically approved. Unmatched actions require human-in-the-loop (HIL) confirmation.
+        // The auto-pass policy. Each entry is a RAM action string in the format of product:ApiName, product:Prefix*, or product:*. If an operation matches the policy, it is automatically allowed without manual confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, and Describe*) are automatically allowed. Unmatched operations require manual confirmation (HIL).
         shared_ptr<vector<string>> autoPassPolicy_ {};
-        // The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no actions are actively denied. STAROps directly denies matched actions. The Pop side performs secondary fallback enforcement.
+        // The explicit deny policy, which has the highest priority. Each entry is a RAM action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no operations are explicitly denied. If a STAROps operation matches the policy, it is directly denied. The POP side provides a secondary fallback.
         shared_ptr<vector<string>> denyPolicy_ {};
-        // Indicates whether the policy is enabled.
+        // Specifies whether the policy is enabled.
         shared_ptr<bool> enable_ {};
-        // The list of Alibaba Cloud CLI tool policy statements.
+        // The list of policy statements for Alibaba Cloud CLI tools.
         shared_ptr<vector<Aliyun::Statements>> statements_ {};
       };
 
-      virtual bool empty() const override { return this->aliyun_ == nullptr; };
+      virtual bool empty() const override { return this->aliyun_ == nullptr
+        && this->global_ == nullptr && this->hooks_ == nullptr; };
       // aliyun Field Functions 
       bool hasAliyun() const { return this->aliyun_ != nullptr;};
       void deleteAliyun() { this->aliyun_ = nullptr;};
@@ -235,9 +276,31 @@ namespace Models
       inline ToolPolicy& setAliyun(ToolPolicy::Aliyun && aliyun) { DARABONBA_PTR_SET_RVALUE(aliyun_, aliyun) };
 
 
+      // global Field Functions 
+      bool hasGlobal() const { return this->global_ != nullptr;};
+      void deleteGlobal() { this->global_ = nullptr;};
+      inline const ToolPolicy::Global & getGlobal() const { DARABONBA_PTR_GET_CONST(global_, ToolPolicy::Global) };
+      inline ToolPolicy::Global getGlobal() { DARABONBA_PTR_GET(global_, ToolPolicy::Global) };
+      inline ToolPolicy& setGlobal(const ToolPolicy::Global & global) { DARABONBA_PTR_SET_VALUE(global_, global) };
+      inline ToolPolicy& setGlobal(ToolPolicy::Global && global) { DARABONBA_PTR_SET_RVALUE(global_, global) };
+
+
+      // hooks Field Functions 
+      bool hasHooks() const { return this->hooks_ != nullptr;};
+      void deleteHooks() { this->hooks_ = nullptr;};
+      inline const vector<Hook> & getHooks() const { DARABONBA_PTR_GET_CONST(hooks_, vector<Hook>) };
+      inline vector<Hook> getHooks() { DARABONBA_PTR_GET(hooks_, vector<Hook>) };
+      inline ToolPolicy& setHooks(const vector<Hook> & hooks) { DARABONBA_PTR_SET_VALUE(hooks_, hooks) };
+      inline ToolPolicy& setHooks(vector<Hook> && hooks) { DARABONBA_PTR_SET_RVALUE(hooks_, hooks) };
+
+
     protected:
-      // The security policy configuration for Alibaba Cloud CLI tool calling invokes.
+      // The security policy configuration for Alibaba Cloud CLI tool invocation.
       shared_ptr<ToolPolicy::Aliyun> aliyun_ {};
+      // The global auto-pass configuration for the digital employee.
+      shared_ptr<ToolPolicy::Global> global_ {};
+      // The hook configuration.
+      shared_ptr<vector<Hook>> hooks_ {};
     };
 
     class SandboxNetworkPolicy : public Darabonba::Model {
@@ -291,11 +354,11 @@ namespace Models
 
 
     protected:
-      // The list of allowed CIDRs or IP addresses.
+      // The list of allowed CIDR blocks or IP addresses.
       shared_ptr<vector<string>> allowCidrs_ {};
       // The list of allowed FQDNs.
       shared_ptr<vector<string>> allowFqdns_ {};
-      // Indicates whether the sandbox network ACL is enabled.
+      // Specifies whether to enable the sandbox network ACL.
       shared_ptr<bool> enableAcl_ {};
     };
 
@@ -376,13 +439,13 @@ namespace Models
 
 
       protected:
-        // The knowledge base attributes.
+        // The attributes of the knowledge base.
         shared_ptr<string> attributes_ {};
-        // The Bailian index ID.
+        // The index ID of Model Studio.
         shared_ptr<string> indexId_ {};
         // The region of the knowledge base.
         shared_ptr<string> region_ {};
-        // The Bailian workspace ID.
+        // The workspace ID of Model Studio.
         shared_ptr<string> workspaceId_ {};
       };
 
@@ -407,17 +470,17 @@ namespace Models
 
 
     protected:
-      // The Bailian knowledge base list.
+      // The list of Model Studio knowledge bases.
       shared_ptr<vector<Knowledges::Bailian>> bailian_ {};
-      // The SOP knowledge base list.
+      // The list of SOP knowledge bases.
       shared_ptr<vector<Darabonba::Json>> sop_ {};
     };
 
     virtual bool empty() const override { return this->attributes_ == nullptr
         && this->channel_ == nullptr && this->createTime_ == nullptr && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr
         && this->employeeType_ == nullptr && this->knowledges_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->roleArn_ == nullptr && this->sandboxNetworkPolicy_ == nullptr && this->tags_ == nullptr && this->toolPolicy_ == nullptr
-        && this->updateTime_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->roleArn_ == nullptr && this->sandboxNetworkPolicy_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
+        && this->toolPolicy_ == nullptr && this->updateTime_ == nullptr; };
     // attributes Field Functions 
     bool hasAttributes() const { return this->attributes_ != nullptr;};
     void deleteAttributes() { this->attributes_ = nullptr;};
@@ -522,6 +585,13 @@ namespace Models
     inline GetDigitalEmployeeResponseBody& setSandboxNetworkPolicy(GetDigitalEmployeeResponseBody::SandboxNetworkPolicy && sandboxNetworkPolicy) { DARABONBA_PTR_SET_RVALUE(sandboxNetworkPolicy_, sandboxNetworkPolicy) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline GetDigitalEmployeeResponseBody& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -552,11 +622,11 @@ namespace Models
     shared_ptr<map<string, string>> attributes_ {};
     // The channel type.
     shared_ptr<string> channel_ {};
-    // The creation time.
+    // The creation time in RFC 3339 format. The time zone is UTC.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
-    // The default rule of the digital employee.
+    // The default rules of the digital employee.
     shared_ptr<string> defaultRule_ {};
     // The description of the digital employee.
     shared_ptr<string> description_ {};
@@ -564,25 +634,27 @@ namespace Models
     shared_ptr<string> displayName_ {};
     // The type of the digital employee.
     shared_ptr<string> employeeType_ {};
-    // The knowledge base list.
+    // The list of knowledge bases.
     shared_ptr<GetDigitalEmployeeResponseBody::Knowledges> knowledges_ {};
     // The name of the digital employee.
     shared_ptr<string> name_ {};
-    // The region ID.
+    // The region ID of the resource.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the RAM role.
+    // The ARN of the RAM role.
     shared_ptr<string> roleArn_ {};
-    // The sandbox network ACL policy configuration of the digital employee.
+    // The sandbox network ACL policy configuration for the digital employee.
     shared_ptr<GetDigitalEmployeeResponseBody::SandboxNetworkPolicy> sandboxNetworkPolicy_ {};
+    // The status of the digital employee. Valid values: 0 (normal) and 1 (disabled).
+    shared_ptr<int32_t> status_ {};
     // The tags.
     shared_ptr<vector<Tag>> tags_ {};
     // The tool policy.
     shared_ptr<GetDigitalEmployeeResponseBody::ToolPolicy> toolPolicy_ {};
-    // The modification time.
+    // The update time in RFC 3339 format. The time zone is UTC.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};

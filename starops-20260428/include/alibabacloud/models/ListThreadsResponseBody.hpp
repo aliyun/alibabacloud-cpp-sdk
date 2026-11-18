@@ -114,7 +114,7 @@ namespace Models
 
 
       protected:
-        // The project in SLS.
+        // SLS project。
         shared_ptr<string> project_ {};
         // The workspace.
         shared_ptr<string> workspace_ {};
@@ -191,23 +191,23 @@ namespace Models
 
 
     protected:
-      // A map of key-value pairs that you can attach to the thread.
+      // The properties.
       shared_ptr<map<string, string>> attributes_ {};
-      // The creation time of the thread, in ISO 8601 format.
+      // The creation time in RFC 3339 format, including the time zone offset.
       shared_ptr<string> createTime_ {};
-      // The digital employee name.
+      // The name of the digital employee.
       shared_ptr<string> digitalEmployeeName_ {};
-      // The thread status.
+      // The session status.
       shared_ptr<string> status_ {};
-      // The thread ID.
+      // The session ID.
       shared_ptr<string> threadId_ {};
-      // The thread title.
+      // The session title.
       shared_ptr<string> title_ {};
-      // The last update time of the thread, in ISO 8601 format.
+      // The update time in RFC 3339 format, including the time zone offset.
       shared_ptr<string> updateTime_ {};
-      // The thread variables.
+      // The session properties.
       shared_ptr<Threads::Variables> variables_ {};
-      // The thread version.
+      // The version number.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -258,17 +258,17 @@ namespace Models
 
 
   protected:
-    // The maximum number of results to return. The maximum value is 200.
+    // The maximum number of results to return. Maximum value: 200.
     shared_ptr<int64_t> maxResults_ {};
-    // A token to retrieve the next page of results. If this parameter is absent, no more results are available.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The thread ID.
+    // The session ID.
     shared_ptr<string> threadId_ {};
-    // A list of threads.
+    // The sessions.
     shared_ptr<vector<ListThreadsResponseBody::Threads>> threads_ {};
-    // The total number of threads.
+    // The total number of sessions.
     shared_ptr<int64_t> total_ {};
   };
 

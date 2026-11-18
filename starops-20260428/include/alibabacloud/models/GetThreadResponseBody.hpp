@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The name of the SLS project.
+      // The Simple Log Service (SLS) project name.
       shared_ptr<string> project_ {};
-      // The name of the workspace.
+      // The workspace name.
       shared_ptr<string> workspace_ {};
     };
 
@@ -170,25 +170,25 @@ namespace Models
 
 
   protected:
-    // The thread\\"s attributes.
+    // The attributes.
     shared_ptr<map<string, string>> attributes_ {};
-    // The thread\\"s creation time, in ISO 8601 format.
+    // The creation time in RFC 3339 format, including the time zone offset.
     shared_ptr<string> createTime_ {};
     // The name of the digital employee.
     shared_ptr<string> digitalEmployeeName_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The thread\\"s status.
+    // The session status.
     shared_ptr<string> status_ {};
-    // The thread ID.
+    // The session ID.
     shared_ptr<string> threadId_ {};
-    // The thread\\"s title.
+    // The session title.
     shared_ptr<string> title_ {};
-    // The thread\\"s last update time, in ISO 8601 format.
+    // The update time in RFC 3339 format, including the time zone offset.
     shared_ptr<string> updateTime_ {};
-    // The thread\\"s variables.
+    // The session properties.
     shared_ptr<GetThreadResponseBody::Variables> variables_ {};
-    // The thread\\"s version.
+    // The version.
     shared_ptr<int64_t> version_ {};
   };
 

@@ -207,7 +207,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<ConnectorAuthentication> authentication_ {};
-    // The list of capabilities granted to the Connector.
+    // The list of capabilities granted to the connector.
     // 
     // This parameter is required.
     shared_ptr<vector<Darabonba::Json>> capabilityGrants_ {};
@@ -229,7 +229,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
-    // Specifies whether the Connector is enabled.
+    // Specifies whether the connector is enabled.
     // 
     // This parameter is required.
     shared_ptr<bool> enabled_ {};
@@ -241,7 +241,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The execution policy of the Connector.
+    // The execution policy of the connector.
     // 
     // This parameter is required.
     Darabonba::Json policy_ {};
@@ -253,7 +253,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> revision_ {};
-    // The runtime configuration of the Connector.
+    // The runtime configuration of the connector.
     // 
     // This parameter is required.
     shared_ptr<ConnectorRuntime> runtime_ {};

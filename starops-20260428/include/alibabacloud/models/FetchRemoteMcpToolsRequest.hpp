@@ -142,7 +142,9 @@ namespace Models
       shared_ptr<string> gatewayId_ {};
       // The MCP Server instance ID.
       shared_ptr<string> mcpServerId_ {};
-      // The network access mode of the MCP service. Valid values: public and vpc.
+      // The network access mode of the MCP service. Valid values:
+      // - public: Direct Internet Access mode.
+      // - vpc: VPC mode.
       shared_ptr<string> mode_ {};
       // The region where the VPC network resides.
       shared_ptr<string> region_ {};
@@ -225,7 +227,8 @@ namespace Models
       protected:
         // The request body parameters.
         shared_ptr<map<string, string>> keyInfo_ {};
-        // The authentication type. Currently, only bearer is supported.
+        // The authentication type. Currently, only bearer is supported. Valid values:
+        // - bearer: Bearer token authentication.
         shared_ptr<string> type_ {};
       };
 
@@ -284,12 +287,17 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> endpoint_ {};
+      // The custom HTTP request headers appended when calling the MCP service.
       shared_ptr<map<string, string>> headers_ {};
-      // The MCP service platform type. Valid values: AIGateway and Custom.
+      // The MCP service platform type. Valid values:
+      // - AIGateway: AI gateway.
+      // - Custom: custom MCP service.
       shared_ptr<string> platform_ {};
       // The timeout period for requests to the MCP service. Unit: milliseconds.
       shared_ptr<int64_t> timeout_ {};
-      // The transport protocol of the MCP service. Valid values: http and sse.
+      // The transport protocol of the MCP service. Valid values:
+      // - sse: Server-Sent Events (SSE) transport protocol.
+      // - http: HTTP transport protocol.
       // 
       // This parameter is required.
       shared_ptr<string> transport_ {};

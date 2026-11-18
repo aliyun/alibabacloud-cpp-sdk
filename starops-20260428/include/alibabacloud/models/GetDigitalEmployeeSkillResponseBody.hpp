@@ -168,7 +168,7 @@ namespace Models
 
 
   protected:
-    // The time when the skill was created.
+    // The creation time in RFC 3339 format with the UTC time zone.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
@@ -178,19 +178,19 @@ namespace Models
     shared_ptr<string> displayName_ {};
     // Indicates whether the skill is enabled.
     shared_ptr<bool> enable_ {};
-    // The file list of the skill.
+    // The list of skill files.
     shared_ptr<vector<GetDigitalEmployeeSkillResponseBody::Files>> files_ {};
-    // A user-provided remark about the skill.
+    // The remarks.
     shared_ptr<string> remark_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The name of the skill.
+    // The skill name.
     shared_ptr<string> skillName_ {};
-    // The time when the skill was last updated.
+    // The update time in RFC 3339 format with the UTC time zone.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};
-    // The version of the skill.
+    // The version number.
     shared_ptr<string> version_ {};
   };
 

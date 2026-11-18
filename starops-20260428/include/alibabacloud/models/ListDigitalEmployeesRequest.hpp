@@ -107,13 +107,13 @@ namespace Models
 
 
   protected:
-    // Filters digital employees by channel type. If this parameter is not specified, the default channel is used.
+    // The channel type.
     shared_ptr<string> channel_ {};
     // The display name of the digital employee.
     shared_ptr<string> displayName_ {};
     // The type of the digital employee.
     shared_ptr<string> employeeType_ {};
-    // The page size. Default value: 20. Maximum value: 100.
+    // The number of entries to return per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
     // The name of the digital employee.
     shared_ptr<string> name_ {};

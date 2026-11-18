@@ -13,11 +13,15 @@ namespace Models
   class ConnectorRuntime : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ConnectorRuntime& obj) { 
+      DARABONBA_PTR_TO_JSON(capabilityId, capabilityId_);
+      DARABONBA_PTR_TO_JSON(extensionName, extensionName_);
       DARABONBA_PTR_TO_JSON(mode, mode_);
       DARABONBA_PTR_TO_JSON(pluginId, pluginId_);
       DARABONBA_PTR_TO_JSON(satelliteId, satelliteId_);
     };
     friend void from_json(const Darabonba::Json& j, ConnectorRuntime& obj) { 
+      DARABONBA_PTR_FROM_JSON(capabilityId, capabilityId_);
+      DARABONBA_PTR_FROM_JSON(extensionName, extensionName_);
       DARABONBA_PTR_FROM_JSON(mode, mode_);
       DARABONBA_PTR_FROM_JSON(pluginId, pluginId_);
       DARABONBA_PTR_FROM_JSON(satelliteId, satelliteId_);
@@ -33,8 +37,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->mode_ == nullptr
-        && this->pluginId_ == nullptr && this->satelliteId_ == nullptr; };
+    virtual bool empty() const override { return this->capabilityId_ == nullptr
+        && this->extensionName_ == nullptr && this->mode_ == nullptr && this->pluginId_ == nullptr && this->satelliteId_ == nullptr; };
+    // capabilityId Field Functions 
+    bool hasCapabilityId() const { return this->capabilityId_ != nullptr;};
+    void deleteCapabilityId() { this->capabilityId_ = nullptr;};
+    inline string getCapabilityId() const { DARABONBA_PTR_GET_DEFAULT(capabilityId_, "") };
+    inline ConnectorRuntime& setCapabilityId(string capabilityId) { DARABONBA_PTR_SET_VALUE(capabilityId_, capabilityId) };
+
+
+    // extensionName Field Functions 
+    bool hasExtensionName() const { return this->extensionName_ != nullptr;};
+    void deleteExtensionName() { this->extensionName_ = nullptr;};
+    inline string getExtensionName() const { DARABONBA_PTR_GET_DEFAULT(extensionName_, "") };
+    inline ConnectorRuntime& setExtensionName(string extensionName) { DARABONBA_PTR_SET_VALUE(extensionName_, extensionName) };
+
+
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
@@ -57,6 +75,10 @@ namespace Models
 
 
   protected:
+    // The native client capability referenced by the SATELLITE runtime. This parameter is mutually exclusive with extensionName.
+    shared_ptr<string> capabilityId_ {};
+    // The environment agent extension name referenced by the SATELLITE runtime. This parameter is mutually exclusive with capabilityId.
+    shared_ptr<string> extensionName_ {};
     // Runtime mode
     // 
     // This parameter is required.

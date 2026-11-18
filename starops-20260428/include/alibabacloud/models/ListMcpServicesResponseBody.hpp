@@ -221,7 +221,7 @@ namespace Models
         protected:
           // The annotation information of the MCP tool.
           Darabonba::Json annotations_ {};
-          // Indicates whether user confirmation is required before calling the MCP tool.
+          // Specifies whether user confirmation is required before calling the MCP tool.
           shared_ptr<bool> confirm_ {};
           // The description of the MCP tool.
           shared_ptr<string> description_ {};
@@ -353,7 +353,9 @@ namespace Models
           shared_ptr<string> gatewayId_ {};
           // The MCP Server instance ID.
           shared_ptr<string> mcpServerId_ {};
-          // The network access mode of the MCP service. Valid values: public and vpc.
+          // The network access mode of the MCP service. Valid values:
+          // - public: direct public network access mode.
+          // - vpc: Virtual Private Cloud (VPC) mode.
           shared_ptr<string> mode_ {};
           // The region where the VPC network is located.
           shared_ptr<string> region_ {};
@@ -436,7 +438,8 @@ namespace Models
           protected:
             // The key-value information required for authentication.
             shared_ptr<map<string, string>> keyInfo_ {};
-            // The authentication type. Currently, bearer is supported.
+            // The authentication type. Currently, only bearer is supported. Valid values:
+            // - bearer: Bearer token authentication.
             shared_ptr<string> type_ {};
           };
 
@@ -493,12 +496,17 @@ namespace Models
           shared_ptr<Connection::Auth> auth_ {};
           // The access endpoint of the MCP service.
           shared_ptr<string> endpoint_ {};
+          // The custom HTTP request headers appended when calling the MCP service.
           shared_ptr<map<string, string>> headers_ {};
-          // The platform type of the MCP service. Valid values: AIGateway and Custom.
+          // The platform type of the MCP service. Valid values:
+          // - AIGateway: AI gateway.
+          // - Custom: custom MCP service.
           shared_ptr<string> platform_ {};
-          // The timeout period for requests to the MCP service. Unit: milliseconds.
+          // The timeout period for requests to the MCP service, in milliseconds.
           shared_ptr<int64_t> timeout_ {};
-          // The transport protocol of the MCP service. Valid values: http and sse.
+          // The transport protocol of the MCP service. Valid values:
+          // - sse: Server-Sent Events (SSE) transport protocol.
+          // - http: HTTP transport protocol.
           shared_ptr<string> transport_ {};
         };
 

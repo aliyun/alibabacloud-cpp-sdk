@@ -112,19 +112,19 @@ namespace Models
 
 
     protected:
-      // The time at which the skill was created.
+      // The creation time in RFC 3339 format with the UTC time zone.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
-      // The description of the skill.
+      // The description.
       shared_ptr<string> description_ {};
       // The display name of the skill.
       shared_ptr<string> displayName_ {};
       // Indicates whether the skill is enabled.
       shared_ptr<bool> enable_ {};
-      // The name of the skill.
+      // The skill name.
       shared_ptr<string> skillName_ {};
-      // The time at which the skill was last updated.
+      // The update time in RFC 3339 format with the UTC time zone.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
@@ -170,15 +170,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned.
+    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token to retrieve the next page of results. If this parameter is not returned, it indicates that no more results are available.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The list of skills.
     shared_ptr<vector<ListDigitalEmployeeSkillsResponseBody::Skills>> skills_ {};
-    // The total number of entries that match the query.
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 
