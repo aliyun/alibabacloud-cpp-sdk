@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The task ID returned by SubmitVideoCharacterReplaceJob.
+    // The job ID returned by SubmitVideoCharacterReplaceJob.
     shared_ptr<string> jobId_ {};
-    // The request ID, which is used to locate and troubleshoot the request.
+    // The request ID used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};
   };
 

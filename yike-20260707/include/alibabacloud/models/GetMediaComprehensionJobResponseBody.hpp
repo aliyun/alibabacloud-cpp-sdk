@@ -118,25 +118,25 @@ namespace Models
 
 
     protected:
-      // The error code. This parameter is returned when the status is `Failed`.
+      // The error code. This parameter is returned when the job is in the `Failed` state.
       shared_ptr<string> errorCode_ {};
-      // The error message. The value is a string. This parameter is returned when the status is Failed.
+      // The error message, which is a string. This parameter is returned when the job is in the Failed state.
       shared_ptr<string> errorMessage_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
       // The media asset ID.
       shared_ptr<string> mediaId_ {};
-      // The analysis result, which is a JSON-formatted string.
+      // The analysis result, which is a JSON string.
       shared_ptr<string> result_ {};
-      // The file status. Valid values:
+      // The job status. Valid values:
       // 
-      // - **Created**: Created.
-      // - **Executing**: Executing.
-      // - **Finished**: Finished.
-      // - **Failed**: Failed.
-      // - **Deleted**: Deleted.
+      // - **Created**: The job is created.
+      // - **Executing**: The job is being executed.
+      // - **Finished**: The job is finished.
+      // - **Failed**: The job failed.
+      // - **Deleted**: The job is deleted.
       shared_ptr<string> state_ {};
-      // The user-defined parameter, which is a JSON-formatted string.
+      // The custom user data, which is a JSON-formatted string.
       shared_ptr<string> userData_ {};
     };
 
@@ -216,23 +216,21 @@ namespace Models
 
 
     protected:
-      // The error code. This parameter is returned when the status is Failed.
+      // The error code. This parameter is returned when the job is in the Failed state.
       shared_ptr<string> errorCode_ {};
-      // The error message. The value is a string. This parameter is returned when the status is Failed.
+      // The error message, which is a string. This parameter is returned when the job is in the Failed state.
       shared_ptr<string> errorMessage_ {};
       // The list of media asset IDs. If the input is a URL, the registered media asset IDs are returned.
       shared_ptr<vector<string>> mediaIds_ {};
-      // The URL of the analysis result file. The file content is in JSON format.
-      shared_ptr<string> result_ {};
-      // The file status. Valid values:
+      // The analysis result, which is a string.
       // 
-      // - **Created**: Created.
-      // - **Executing**: Executing.
-      // - **Finished**: Finished.
-      // - **Failed**: Failed.
-      // - **Deleted**: Deleted.
+      // VideoBreakdown: the URL of the JSON file that contains the analysis result. The file content varies based on the JobParams.ResultType parameter specified when the job is submitted.
+      // 
+      // ProductRecognition: the text of the product recognition result. By default, the result is output in JSON format and returned directly as a string.
+      shared_ptr<string> result_ {};
+      // The job status. Valid values: Created, Executing, Finished, and Failed. If the queried job is deleted, does not exist, or does not belong to the current account, RecordNotFound is returned.
       shared_ptr<string> status_ {};
-      // The user-defined parameter, which is a JSON-formatted string.
+      // The custom user data, which is a JSON-formatted string.
       shared_ptr<string> userData_ {};
     };
 
@@ -264,9 +262,9 @@ namespace Models
 
 
   protected:
-    // The media content understanding result object.
+    // The media content comprehension result object.
     shared_ptr<GetMediaComprehensionJobResponseBody::Job> job_ {};
-    // **[Deprecated]** The media content understanding object.
+    // **[Deprecated]** The media content comprehension object.
     shared_ptr<GetMediaComprehensionJobResponseBody::MediaComprehensionJob> mediaComprehensionJob_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

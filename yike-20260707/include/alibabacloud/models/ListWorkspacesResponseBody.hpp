@@ -120,11 +120,11 @@ namespace Models
     protected:
       // The workspace code.
       shared_ptr<string> code_ {};
-      // The creation time. The time is in UTC and follows the ISO 8601 standard, ending with Z.
+      // The creation time. The time follows the ISO 8601 standard and is displayed in UTC.
       shared_ptr<string> createTime_ {};
       // The ID of the default project for the workspace.
       shared_ptr<string> defaultProjectId_ {};
-      // The workspace status. Valid values: Online (enabled) and Offline (disabled).
+      // The workspace status. Valid values: Online: enabled. Offline: disabled.
       shared_ptr<string> status_ {};
       // The workspace name.
       shared_ptr<string> title_ {};
@@ -160,7 +160,7 @@ namespace Models
 
 
   protected:
-    // The request ID, which is used to locate and troubleshoot requests.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of workspaces that meet the query conditions.
     shared_ptr<int32_t> totalCount_ {};

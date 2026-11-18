@@ -331,7 +331,7 @@ namespace Models
     protected:
       // The ID of the video character replacement application. Make sure to use a configured application.
       shared_ptr<string> appId_ {};
-      // The application input parameters specified when the job was submitted. The value is a JSON serialized string. This corresponds to the AppParams parameter in the submit operation.
+      // The application input parameters specified when the job was submitted. The value is a JSON-serialized string. This corresponds to the AppParams parameter in the submit operation.
       shared_ptr<string> appInputConfig_ {};
       // The time when the job finished execution. The time is in the ISO 8601 format with a time zone.
       shared_ptr<string> executionFinishTime_ {};
@@ -347,7 +347,7 @@ namespace Models
       shared_ptr<JobList::Result> result_ {};
       // The job status. Valid values:
       // - Created: The job is created.
-      // - Queuing: The job is queuing.
+      // - Queuing: The job is in the queue.
       // - Executing: The job is being executed.
       // - Finished: The job is finished.
       // - Failed: The job failed.
@@ -373,7 +373,7 @@ namespace Models
 
 
   protected:
-    // The list of job query results.
+    // The list of queried jobs.
     shared_ptr<vector<BatchGetVideoCharacterReplaceJobsResponseBody::JobList>> jobList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

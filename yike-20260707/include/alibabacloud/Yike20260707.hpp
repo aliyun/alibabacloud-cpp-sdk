@@ -65,9 +65,9 @@ namespace Yike20260707
       Models::BatchGetMediasResponse batchGetMedias(const Models::BatchGetMediasRequest &request);
 
       /**
-       * @summary Queries video character replacement jobs in batches.
+       * @summary Queries multiple video character replacement jobs.
        *
-       * @description Queries the status and results of video character replacement jobs in batches. JobIds is a comma-separated string of job IDs. The response includes a JobList. The input parameters for each job are located in the AppInputConfig field. For the single query operation GetVideoCharacterReplaceJob, the corresponding field is AppParams. When the Status is Finished, you can retrieve the output media assets from Result.
+       * @description Queries the status and results of multiple video character replacement jobs. JobIds is a comma-separated string of job IDs. The response includes a JobList. The input parameters for each job are located in the AppInputConfig field. For the single query operation GetVideoCharacterReplaceJob, the corresponding field is AppParams. When the Status is Finished, you can retrieve the output media assets from the Result field.
        *
        * @param request BatchGetVideoCharacterReplaceJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -76,9 +76,9 @@ namespace Yike20260707
       Models::BatchGetVideoCharacterReplaceJobsResponse batchGetVideoCharacterReplaceJobsWithOptions(const Models::BatchGetVideoCharacterReplaceJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries video character replacement jobs in batches.
+       * @summary Queries multiple video character replacement jobs.
        *
-       * @description Queries the status and results of video character replacement jobs in batches. JobIds is a comma-separated string of job IDs. The response includes a JobList. The input parameters for each job are located in the AppInputConfig field. For the single query operation GetVideoCharacterReplaceJob, the corresponding field is AppParams. When the Status is Finished, you can retrieve the output media assets from Result.
+       * @description Queries the status and results of multiple video character replacement jobs. JobIds is a comma-separated string of job IDs. The response includes a JobList. The input parameters for each job are located in the AppInputConfig field. For the single query operation GetVideoCharacterReplaceJob, the corresponding field is AppParams. When the Status is Finished, you can retrieve the output media assets from the Result field.
        *
        * @param request BatchGetVideoCharacterReplaceJobsRequest
        * @return BatchGetVideoCharacterReplaceJobsResponse
@@ -149,7 +149,7 @@ namespace Yike20260707
       /**
        * @summary Creates a project.
        *
-       * @description Creates a project in a specified workspace and returns the ProjectId. If WorkspaceId is not specified, the default workspace of the current account is used. After the project is created, you can call GetProject to query the details or call ListProjects to list projects.
+       * @description Creates a project in a specified workspace and returns the project ID. If WorkspaceId is not specified, the default workspace of the current account is used. After the project is created, you can call GetProject to query the details or call ListProjects to list projects.
        *
        * @param request CreateProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -160,7 +160,7 @@ namespace Yike20260707
       /**
        * @summary Creates a project.
        *
-       * @description Creates a project in a specified workspace and returns the ProjectId. If WorkspaceId is not specified, the default workspace of the current account is used. After the project is created, you can call GetProject to query the details or call ListProjects to list projects.
+       * @description Creates a project in a specified workspace and returns the project ID. If WorkspaceId is not specified, the default workspace of the current account is used. After the project is created, you can call GetProject to query the details or call ListProjects to list projects.
        *
        * @param request CreateProjectRequest
        * @return CreateProjectResponse
@@ -170,7 +170,7 @@ namespace Yike20260707
       /**
        * @summary Creates a studio.
        *
-       * @description Creates a studio and triggers automatic creation of a default project for the studio. Returns the WorkspaceId and the ProjectId of the default project. You can directly use the ProjectId without creating the default project again.
+       * @description Creates a studio and triggers the automatic creation of a default project for the studio. Returns the WorkspaceId and the ProjectId of the default project. You can use the ProjectId directly without creating the default project again.
        *
        * @param request CreateWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -181,7 +181,7 @@ namespace Yike20260707
       /**
        * @summary Creates a studio.
        *
-       * @description Creates a studio and triggers automatic creation of a default project for the studio. Returns the WorkspaceId and the ProjectId of the default project. You can directly use the ProjectId without creating the default project again.
+       * @description Creates a studio and triggers the automatic creation of a default project for the studio. Returns the WorkspaceId and the ProjectId of the default project. You can use the ProjectId directly without creating the default project again.
        *
        * @param request CreateWorkspaceRequest
        * @return CreateWorkspaceResponse
@@ -391,10 +391,10 @@ namespace Yike20260707
       Models::GetMediaResponse getMedia(const Models::GetMediaRequest &request);
 
       /**
-       * @summary Queries media content understanding jobs.
+       * @summary Queries media content comprehension jobs.
        *
        * @description ## Request description
-       * This API operation queries media content understanding jobs.
+       * This operation queries media content comprehension jobs.
        *
        * @param request GetMediaComprehensionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -403,10 +403,10 @@ namespace Yike20260707
       Models::GetMediaComprehensionJobResponse getMediaComprehensionJobWithOptions(const Models::GetMediaComprehensionJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries media content understanding jobs.
+       * @summary Queries media content comprehension jobs.
        *
        * @description ## Request description
-       * This API operation queries media content understanding jobs.
+       * This operation queries media content comprehension jobs.
        *
        * @param request GetMediaComprehensionJobRequest
        * @return GetMediaComprehensionJobResponse
@@ -416,7 +416,7 @@ namespace Yike20260707
       /**
        * @summary Queries the details of a project.
        *
-       * @description Queries the basic information of a project and the project permissions of the current caller by ProjectId. The project information is located in the Project object of the response and does not include the project asset list.
+       * @description Queries the basic information of a project and the permissions of the current caller on the project based on the ProjectId. The project information is contained in the Project object of the response and does not include the list of project assets.
        *
        * @param request GetProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -427,7 +427,7 @@ namespace Yike20260707
       /**
        * @summary Queries the details of a project.
        *
-       * @description Queries the basic information of a project and the project permissions of the current caller by ProjectId. The project information is located in the Project object of the response and does not include the project asset list.
+       * @description Queries the basic information of a project and the permissions of the current caller on the project based on the ProjectId. The project information is contained in the Project object of the response and does not include the list of project assets.
        *
        * @param request GetProjectRequest
        * @return GetProjectResponse
@@ -454,8 +454,8 @@ namespace Yike20260707
       /**
        * @summary Queries a video character replacement task.
        *
-       * @description Queries the status and result of a single task by using the JobId returned by the submit operation. When Status is Finished, you can read the output media assets in Result. Executing indicates that the task is still running.
-       * This operation uses AppParams to return the task input parameters. The corresponding field name in the batch query operation is AppInputConfig. The output results are categorized into ImageResult, VideoResult, and AudioResult. Each item contains MediaId and OutputUrl.
+       * @description Queries the status and result of a single task by using the JobId returned by the submit operation. When the Status is Finished, you can read the output media assets in Result. Executing indicates that the task is still running.
+       * This operation uses AppParams to return the task input parameters. The corresponding field name in the batch query operation is AppInputConfig. The output results are categorized into ImageResult, VideoResult, and AudioResult. Each category contains MediaId and OutputUrl.
        *
        * @param request GetVideoCharacterReplaceJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -466,8 +466,8 @@ namespace Yike20260707
       /**
        * @summary Queries a video character replacement task.
        *
-       * @description Queries the status and result of a single task by using the JobId returned by the submit operation. When Status is Finished, you can read the output media assets in Result. Executing indicates that the task is still running.
-       * This operation uses AppParams to return the task input parameters. The corresponding field name in the batch query operation is AppInputConfig. The output results are categorized into ImageResult, VideoResult, and AudioResult. Each item contains MediaId and OutputUrl.
+       * @description Queries the status and result of a single task by using the JobId returned by the submit operation. When the Status is Finished, you can read the output media assets in Result. Executing indicates that the task is still running.
+       * This operation uses AppParams to return the task input parameters. The corresponding field name in the batch query operation is AppInputConfig. The output results are categorized into ImageResult, VideoResult, and AudioResult. Each category contains MediaId and OutputUrl.
        *
        * @param request GetVideoCharacterReplaceJobRequest
        * @return GetVideoCharacterReplaceJobResponse
@@ -551,7 +551,7 @@ namespace Yike20260707
       Models::GetVideoRemakeJobResponse getVideoRemakeJob(const Models::GetVideoRemakeJobRequest &request);
 
       /**
-       * @summary Submits a video rendering and compositing task.
+       * @summary Submits a video rendering and compositing job.
        *
        * @param request GetVideoRenderJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -560,7 +560,7 @@ namespace Yike20260707
       Models::GetVideoRenderJobResponse getVideoRenderJobWithOptions(const Models::GetVideoRenderJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a video rendering and compositing task.
+       * @summary Submits a video rendering and compositing job.
        *
        * @param request GetVideoRenderJobRequest
        * @return GetVideoRenderJobResponse
@@ -688,8 +688,7 @@ namespace Yike20260707
       /**
        * @summary Queries the list of projects.
        *
-       * @description Queries the list of projects accessible to the current caller. You can use WorkspaceId to filter projects by workspace.
-       * For pagination, specify both PageNo and PageSize with valid positive integers starting from 1. If valid values are not provided for both parameters, the query defaults to page 1 with 10 entries per page. The response returns ProjectList but does not return TotalCount. MaxResults and NextToken are retained for compatibility and are not used for current pagination.
+       * @description Queries the list of projects accessible to the current caller. You can use WorkspaceId to filter projects by workspace. For pagination, specify both PageNo and PageSize as positive integers starting from 1. If valid values are not provided for both parameters, the query defaults to page 1 with 10 entries per page. The response includes ProjectList but does not include TotalCount. MaxResults and NextToken are retained for backward compatibility and are not used for pagination.
        *
        * @param request ListProjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -700,8 +699,7 @@ namespace Yike20260707
       /**
        * @summary Queries the list of projects.
        *
-       * @description Queries the list of projects accessible to the current caller. You can use WorkspaceId to filter projects by workspace.
-       * For pagination, specify both PageNo and PageSize with valid positive integers starting from 1. If valid values are not provided for both parameters, the query defaults to page 1 with 10 entries per page. The response returns ProjectList but does not return TotalCount. MaxResults and NextToken are retained for compatibility and are not used for current pagination.
+       * @description Queries the list of projects accessible to the current caller. You can use WorkspaceId to filter projects by workspace. For pagination, specify both PageNo and PageSize as positive integers starting from 1. If valid values are not provided for both parameters, the query defaults to page 1 with 10 entries per page. The response includes ProjectList but does not include TotalCount. MaxResults and NextToken are retained for backward compatibility and are not used for pagination.
        *
        * @param request ListProjectsRequest
        * @return ListProjectsResponse
@@ -711,7 +709,7 @@ namespace Yike20260707
       /**
        * @summary Queries a list of workspaces.
        *
-       * @description Queries a list of workspaces accessible to the current caller. Pagination is supported by using PageNo and PageSize. The default value of PageNo is 1, and the default value of PageSize is 10. The response includes WorkspaceList and TotalCount. The ID of the default project for a workspace is returned in the DefaultProjectId field.
+       * @description Queries the list of workspaces accessible to the current caller. You can use PageNo and PageSize to paginate the results. The default page number is 1, and the default page size is 10. The response includes WorkspaceList and TotalCount. The ID of the default project for a workspace is returned in the DefaultProjectId field.
        *
        * @param request ListWorkspacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -722,7 +720,7 @@ namespace Yike20260707
       /**
        * @summary Queries a list of workspaces.
        *
-       * @description Queries a list of workspaces accessible to the current caller. Pagination is supported by using PageNo and PageSize. The default value of PageNo is 1, and the default value of PageSize is 10. The response includes WorkspaceList and TotalCount. The ID of the default project for a workspace is returned in the DefaultProjectId field.
+       * @description Queries the list of workspaces accessible to the current caller. You can use PageNo and PageSize to paginate the results. The default page number is 1, and the default page size is 10. The response includes WorkspaceList and TotalCount. The ID of the default project for a workspace is returned in the DefaultProjectId field.
        *
        * @param request ListWorkspacesRequest
        * @return ListWorkspacesResponse
@@ -732,8 +730,8 @@ namespace Yike20260707
       /**
        * @summary Pre-validates a video character replacement task.
        *
-       * @description Validates the input materials of a specified application before submitting a task. AppParams is a JSON-serialized string. The field names must be consistent with the input definition of the application corresponding to AppId. Image, audio, and video materials must match the input types and be accessible.
-       * If Status is Success, the validation passes and Result is an empty array. If Status is Failed, Result returns the failed parameter Key and ErrorCode for each item. This operation does not create a task. After the validation passes, call SubmitVideoCharacterReplaceJob to submit the task.
+       * @description Before submitting a task, validates the input materials for a specified application. AppParams is a JSON-serialized string. The field names must match the input definition of the application corresponding to the AppId. Image, audio, and video materials must match the input types and be accessible.
+       * If Status is Success, the validation passes and Result is an empty array. If Status is Failed, Result returns the failed parameter keys and error codes for each item. This operation does not create a task. After the validation passes, call SubmitVideoCharacterReplaceJob to submit the task.
        *
        * @param request PrecheckVideoCharacterReplaceJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,8 +742,8 @@ namespace Yike20260707
       /**
        * @summary Pre-validates a video character replacement task.
        *
-       * @description Validates the input materials of a specified application before submitting a task. AppParams is a JSON-serialized string. The field names must be consistent with the input definition of the application corresponding to AppId. Image, audio, and video materials must match the input types and be accessible.
-       * If Status is Success, the validation passes and Result is an empty array. If Status is Failed, Result returns the failed parameter Key and ErrorCode for each item. This operation does not create a task. After the validation passes, call SubmitVideoCharacterReplaceJob to submit the task.
+       * @description Before submitting a task, validates the input materials for a specified application. AppParams is a JSON-serialized string. The field names must match the input definition of the application corresponding to the AppId. Image, audio, and video materials must match the input types and be accessible.
+       * If Status is Success, the validation passes and Result is an empty array. If Status is Failed, Result returns the failed parameter keys and error codes for each item. This operation does not create a task. After the validation passes, call SubmitVideoCharacterReplaceJob to submit the task.
        *
        * @param request PrecheckVideoCharacterReplaceJobRequest
        * @return PrecheckVideoCharacterReplaceJobResponse
@@ -804,10 +802,10 @@ namespace Yike20260707
       Models::SubmitImageGenerationJobResponse submitImageGenerationJob(const Models::SubmitImageGenerationJobRequest &request);
 
       /**
-       * @summary Submits a media asset content understanding job.
+       * @summary Submits a media content understanding job.
        *
        * @description ## Request description
-       * This operation performs content understanding based on the provided media asset files, such as video URLs. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * This API operation performs content understanding based on provided media files, such as video URLs. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitMediaComprehensionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -816,10 +814,10 @@ namespace Yike20260707
       Models::SubmitMediaComprehensionJobResponse submitMediaComprehensionJobWithOptions(const Models::SubmitMediaComprehensionJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a media asset content understanding job.
+       * @summary Submits a media content understanding job.
        *
        * @description ## Request description
-       * This operation performs content understanding based on the provided media asset files, such as video URLs. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * This API operation performs content understanding based on provided media files, such as video URLs. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitMediaComprehensionJobRequest
        * @return SubmitMediaComprehensionJobResponse
@@ -848,10 +846,10 @@ namespace Yike20260707
       Models::SubmitRemakeScriptJobResponse submitRemakeScriptJob(const Models::SubmitRemakeScriptJobRequest &request);
 
       /**
-       * @summary Submits a video character replacement task.
+       * @summary Submits a video character replacement job.
        *
-       * @description Submits a video character replacement node via asynchronous commit. Invoke PrecheckVideoCharacterReplaceJob with the same AppId and AppParams to validate the input assets first.
-       * The returned JobId only indicates that the node is submitted, not completed. Use GetVideoCharacterReplaceJob or BatchGetVideoCharacterReplaceJobs to query the status and output results. ProjectId specifies the project, and FolderId specifies the file folder.
+       * @description Performs an asynchronous commit for a video character replacement node. First, call PrecheckVideoCharacterReplaceJob with the same AppId and AppParams to check the input materials.
+       * A returned JobId only indicates that the node has been submitted, not that it has been completed. Use GetVideoCharacterReplaceJob or BatchGetVideoCharacterReplaceJobs to query the status and output results. ProjectId is used to specify a project, and FolderId is used to specify a file folder.
        *
        * @param request SubmitVideoCharacterReplaceJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -860,10 +858,10 @@ namespace Yike20260707
       Models::SubmitVideoCharacterReplaceJobResponse submitVideoCharacterReplaceJobWithOptions(const Models::SubmitVideoCharacterReplaceJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a video character replacement task.
+       * @summary Submits a video character replacement job.
        *
-       * @description Submits a video character replacement node via asynchronous commit. Invoke PrecheckVideoCharacterReplaceJob with the same AppId and AppParams to validate the input assets first.
-       * The returned JobId only indicates that the node is submitted, not completed. Use GetVideoCharacterReplaceJob or BatchGetVideoCharacterReplaceJobs to query the status and output results. ProjectId specifies the project, and FolderId specifies the file folder.
+       * @description Performs an asynchronous commit for a video character replacement node. First, call PrecheckVideoCharacterReplaceJob with the same AppId and AppParams to check the input materials.
+       * A returned JobId only indicates that the node has been submitted, not that it has been completed. Use GetVideoCharacterReplaceJob or BatchGetVideoCharacterReplaceJobs to query the status and output results. ProjectId is used to specify a project, and FolderId is used to specify a file folder.
        *
        * @param request SubmitVideoCharacterReplaceJobRequest
        * @return SubmitVideoCharacterReplaceJobResponse
@@ -1054,7 +1052,7 @@ namespace Yike20260707
       /**
        * @summary Updates the name of a project.
        *
-       * @description Updates the name of a project specified by ProjectId. Use Title to specify the new name. This operation only supports modifying the project name. You cannot modify the description or cover image. The caller must have edit permissions for the project.
+       * @description Updates the name of a project based on the ProjectId and uses Title to specify the new name. This operation only supports modifying the name and does not support modifying the description or cover image. The caller must have edit permissions for the project.
        *
        * @param request UpdateProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1065,7 +1063,7 @@ namespace Yike20260707
       /**
        * @summary Updates the name of a project.
        *
-       * @description Updates the name of a project specified by ProjectId. Use Title to specify the new name. This operation only supports modifying the project name. You cannot modify the description or cover image. The caller must have edit permissions for the project.
+       * @description Updates the name of a project based on the ProjectId and uses Title to specify the new name. This operation only supports modifying the name and does not support modifying the description or cover image. The caller must have edit permissions for the project.
        *
        * @param request UpdateProjectRequest
        * @return UpdateProjectResponse

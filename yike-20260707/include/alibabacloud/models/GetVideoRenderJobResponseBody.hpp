@@ -124,27 +124,21 @@ namespace Models
 
 
     protected:
-      // The ID of the online editing project, which can be used for secondary editing of the final video.
+      // The ID of the online editing project, which can be used for secondary editing of the produced video.
       shared_ptr<string> editingProjectId_ {};
-      // The error code, returned when the task status is Failed.
+      // The error code. This parameter is returned when the job status is Failed.
       shared_ptr<string> errorCode_ {};
-      // The error message of the String type, returned when the task status is Failed.
+      // The error message. This parameter is of the String type and is returned when the job status is Failed.
       shared_ptr<string> errorMessage_ {};
-      // The job ID.
+      // The ID of the job returned by SubmitVideoRenderJob.
       shared_ptr<string> jobId_ {};
-      // The voiceover language of the final video.
+      // The voiceover language of the produced video.
       shared_ptr<string> language_ {};
       // The download URL of the rendered and composited video.
       shared_ptr<string> result_ {};
-      // The file status. Valid values:
-      // 
-      // - Created: The file is created.
-      // - Executing: The file is executing.
-      // - Finished: The file is finished.
-      // - Failed: The file has failed.
-      // - Deleted: The file is deleted.
+      // The status of the job. Valid values: Created, Executing, Finished, and Failed. RecordNotFound is returned if the queried job is deleted, does not exist, or does not belong to the current account.
       shared_ptr<string> status_ {};
-      // The user-defined parameters in JSON format.
+      // The custom user data in JSON format.
       shared_ptr<string> userData_ {};
     };
 
@@ -167,7 +161,7 @@ namespace Models
 
 
   protected:
-    // The video rendering and compositing task object.
+    // The video rendering and compositing node object.
     shared_ptr<GetVideoRenderJobResponseBody::Job> job_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

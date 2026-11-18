@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The page number, starting from 1. Specify a valid positive integer along with PageSize. Otherwise, the query defaults to page 1 with 10 entries per page.
+    // The page number. Pages start from 1. Specify a valid positive integer for both this parameter and PageSize. Otherwise, the query defaults to page 1 with 10 entries per page.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries to return on each page. Specify a valid positive integer along with PageNo. Otherwise, the query defaults to page 1 with 10 entries per page.
+    // The number of entries to return on each page. Specify a valid positive integer for both this parameter and PageNo. Otherwise, the query defaults to page 1 with 10 entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // Filters projects by workspace ID.
     shared_ptr<string> workspaceId_ {};

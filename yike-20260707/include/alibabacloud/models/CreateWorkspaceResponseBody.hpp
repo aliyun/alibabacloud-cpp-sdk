@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the default project generated through automatic creation when the studio is created.
+    // The ID of the default project created through automatic creation when the studio is created.
     shared_ptr<string> projectId_ {};
     // The ID of the request, which is used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};

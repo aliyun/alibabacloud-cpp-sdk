@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the project.
     shared_ptr<string> projectId_ {};
-    // The ID of the request, which is used to locate and troubleshoot the request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

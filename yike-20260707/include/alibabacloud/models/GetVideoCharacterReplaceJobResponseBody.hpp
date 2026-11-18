@@ -109,7 +109,7 @@ namespace Models
 
 
       protected:
-        // The output media asset ID.
+        // The ID of the output media asset.
         shared_ptr<string> mediaId_ {};
         // The download URL of the output media asset.
         shared_ptr<string> outputUrl_ {};
@@ -153,7 +153,7 @@ namespace Models
 
 
       protected:
-        // The output media asset ID.
+        // The ID of the output media asset.
         shared_ptr<string> mediaId_ {};
         // The download URL of the output media asset.
         shared_ptr<string> outputUrl_ {};
@@ -197,7 +197,7 @@ namespace Models
 
 
       protected:
-        // The output media asset ID.
+        // The ID of the output media asset.
         shared_ptr<string> mediaId_ {};
         // The download URL of the output media asset.
         shared_ptr<string> outputUrl_ {};
@@ -233,7 +233,7 @@ namespace Models
 
 
     protected:
-      // The list of output audio.
+      // The list of output audio files.
       shared_ptr<vector<Result::AudioResult>> audioResult_ {};
       // The list of output images.
       shared_ptr<vector<Result::ImageResult>> imageResult_ {};
@@ -333,12 +333,12 @@ namespace Models
     shared_ptr<string> projectId_ {};
     // The request ID, which is used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};
-    // The task output results, which are categorized by image, video, and audio.
+    // The task output results, categorized by image, video, and audio.
     shared_ptr<GetVideoCharacterReplaceJobResponseBody::Result> result_ {};
     // The task status. Valid values:
     // - Created: The task is created.
     // - Queuing: The task is queuing.
-    // - Executing: The task is executing.
+    // - Executing: The task is being executed.
     // - Finished: The task is finished.
     // - Failed: The task failed.
     shared_ptr<string> status_ {};

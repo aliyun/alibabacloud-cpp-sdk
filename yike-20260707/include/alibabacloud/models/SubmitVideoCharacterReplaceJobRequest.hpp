@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The application input parameters as a JSON-serialized string. The field names and material requirements are subject to the input definition of the corresponding AppId.
+    // The input parameters of the application, serialized as a JSON string. The field names and material requirements are subject to the input definition of the corresponding AppId.
     shared_ptr<string> appParams_ {};
     // The folder ID.
     shared_ptr<string> folderId_ {};

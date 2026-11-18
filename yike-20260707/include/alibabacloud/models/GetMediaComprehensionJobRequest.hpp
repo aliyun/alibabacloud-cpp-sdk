@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The job ID.
+    // The ID of the job returned by SubmitMediaComprehensionJob.
     shared_ptr<string> jobId_ {};
   };
 

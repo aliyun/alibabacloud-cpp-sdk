@@ -124,21 +124,21 @@ namespace Models
 
 
     protected:
-      // The permissions of the current caller in the project. For example, Manage indicates management permissions.
+      // The permissions of the current caller on the project. For example, Manage indicates management permissions.
       shared_ptr<string> auth_ {};
       // The URL of the cover image.
       shared_ptr<string> coverUrl_ {};
-      // The creation time, in ISO 8601 UTC format ending with Z.
+      // The time when the project was created, in UTC and ISO 8601 format, ending with Z.
       shared_ptr<string> createTime_ {};
       // The username of the user who created the project.
       shared_ptr<string> createUserName_ {};
-      // The project description.
+      // The description of the project.
       shared_ptr<string> description_ {};
-      // The project ID.
+      // The ID of the project.
       shared_ptr<string> projectId_ {};
-      // The project name.
+      // The name of the project.
       shared_ptr<string> title_ {};
-      // The workspace ID.
+      // The ID of the workspace.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -163,7 +163,7 @@ namespace Models
   protected:
     // The project details.
     shared_ptr<GetProjectResponseBody::Project> project_ {};
-    // The request ID, used to trace and troubleshoot the request.
+    // The request ID used to locate and troubleshoot the request.
     shared_ptr<string> requestId_ {};
   };
 

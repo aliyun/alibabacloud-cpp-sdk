@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The task ID.
+    // The task ID returned by SubmitRemakeScriptJob.
     shared_ptr<string> jobId_ {};
   };
 

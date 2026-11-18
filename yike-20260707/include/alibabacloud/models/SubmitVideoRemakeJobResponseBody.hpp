@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The error code in the business response. This parameter is empty when the call is successful.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The unified remake job ID. Use GetVideoRemakeJob to query the progress and outputs.
+    // The job ID.
     shared_ptr<string> jobId_ {};
-    // The request tracking ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
