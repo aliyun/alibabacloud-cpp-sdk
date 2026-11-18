@@ -623,7 +623,7 @@ DeleteVolumeResponse Client::deleteVolume(const string &volumeID, const DeleteVo
 }
 
 /**
- * @summary Deletes a warm pool.
+ * @summary Deletes a warm-up pool.
  *
  * @param request DeleteWarmPoolRequest
  * @param headers map
@@ -650,7 +650,7 @@ DeleteWarmPoolResponse Client::deleteWarmPoolWithOptions(const string &teamID, c
 }
 
 /**
- * @summary Deletes a warm pool.
+ * @summary Deletes a warm-up pool.
  *
  * @param request DeleteWarmPoolRequest
  * @return DeleteWarmPoolResponse

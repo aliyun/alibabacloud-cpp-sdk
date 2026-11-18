@@ -116,11 +116,11 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 200 indicates success.
+    // The response code. The value is 200 if the request is successful.
     shared_ptr<string> code_ {};
     // The custom domain names.
     shared_ptr<vector<CustomDomainResp>> customDomains_ {};
-    // Indicates whether there is a next page.
+    // Indicates whether a next page is available.
     shared_ptr<bool> hasMore_ {};
     // The maximum number of records to return per page.
     shared_ptr<int32_t> maxResults_ {};
@@ -128,7 +128,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The offset for the next page.
     shared_ptr<int32_t> nextOffset_ {};
-    // The pagination token for the next page. This value is empty when no more results are available.
+    // The pagination token for the next page. This parameter is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

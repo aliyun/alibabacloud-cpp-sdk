@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The maximum number of records to return per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page.
+    // The pagination token for the next page, used for subsequent queries.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -69,7 +69,7 @@ namespace Models
 
 
   protected:
-    // The response business code.
+    // The business code in the response.
     shared_ptr<string> code_ {};
     // The response message.
     shared_ptr<string> message_ {};

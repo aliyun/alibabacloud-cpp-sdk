@@ -277,7 +277,7 @@ namespace Sandbox20260820
       Models::DeleteVolumeResponse deleteVolume(const string &volumeID, const Models::DeleteVolumeRequest &request);
 
       /**
-       * @summary Deletes a warm pool.
+       * @summary Deletes a warm-up pool.
        *
        * @param request DeleteWarmPoolRequest
        * @param headers map
@@ -287,7 +287,7 @@ namespace Sandbox20260820
       Models::DeleteWarmPoolResponse deleteWarmPoolWithOptions(const string &teamID, const string &templateID, const Models::DeleteWarmPoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a warm pool.
+       * @summary Deletes a warm-up pool.
        *
        * @param request DeleteWarmPoolRequest
        * @return DeleteWarmPoolResponse
