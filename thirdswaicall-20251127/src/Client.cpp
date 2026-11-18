@@ -2,11 +2,13 @@
 #include <alibabacloud/ThirdswAicall20251127.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace ThirdswAicall20251127
 {
 
 AlibabaCloud::ThirdswAicall20251127::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "ThirdswAicall";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "";
   checkConfig(config);
   this->_endpoint = getEndpoint("thirdswaicall", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -55,6 +60,10 @@ CreateCallOutboundInstantResponse Client::createCallOutboundInstantWithOptions(c
 
   if (!!request.hasCallerUacAccountId()) {
     body["CallerUacAccountId"] = request.getCallerUacAccountId();
+  }
+
+  if (!!request.hasCurrentWorkspaceCode()) {
+    body["CurrentWorkspaceCode"] = request.getCurrentWorkspaceCode();
   }
 
   if (!!request.hasCurrentWorkspaceId()) {
@@ -127,6 +136,10 @@ QueryTaskConcurrencyResponse Client::queryTaskConcurrencyWithOptions(const Query
     body["CallerUacAccountId"] = request.getCallerUacAccountId();
   }
 
+  if (!!request.hasCurrentWorkspaceCode()) {
+    body["CurrentWorkspaceCode"] = request.getCurrentWorkspaceCode();
+  }
+
   if (!!request.hasCurrentWorkspaceId()) {
     body["CurrentWorkspaceId"] = request.getCurrentWorkspaceId();
   }
@@ -186,6 +199,10 @@ ReadOutboundTaskCallListResponse Client::readOutboundTaskCallListWithOptions(con
     request.setLabelTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabelTags(), "LabelTags", "json"));
   }
 
+  if (!!tmpReq.hasStructuredLabelTags()) {
+    request.setStructuredLabelTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStructuredLabelTags(), "StructuredLabelTags", "json"));
+  }
+
   json body = {};
   if (!!request.hasCallEndTimeBegin()) {
     body["CallEndTimeBegin"] = request.getCallEndTimeBegin();
@@ -209,6 +226,10 @@ ReadOutboundTaskCallListResponse Client::readOutboundTaskCallListWithOptions(con
 
   if (!!request.hasCurrent()) {
     body["Current"] = request.getCurrent();
+  }
+
+  if (!!request.hasCurrentWorkspaceCode()) {
+    body["CurrentWorkspaceCode"] = request.getCurrentWorkspaceCode();
   }
 
   if (!!request.hasCurrentWorkspaceId()) {
@@ -241,6 +262,10 @@ ReadOutboundTaskCallListResponse Client::readOutboundTaskCallListWithOptions(con
 
   if (!!request.hasSize()) {
     body["Size"] = request.getSize();
+  }
+
+  if (!!request.hasStructuredLabelTagsShrink()) {
+    body["StructuredLabelTags"] = request.getStructuredLabelTagsShrink();
   }
 
   if (!!request.hasTaskId()) {

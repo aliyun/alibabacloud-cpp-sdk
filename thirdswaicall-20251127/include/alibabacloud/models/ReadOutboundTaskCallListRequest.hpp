@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CallStartTimeEnd, callStartTimeEnd_);
       DARABONBA_PTR_TO_JSON(CallerUacAccountId, callerUacAccountId_);
       DARABONBA_PTR_TO_JSON(Current, current_);
+      DARABONBA_PTR_TO_JSON(CurrentWorkspaceCode, currentWorkspaceCode_);
       DARABONBA_PTR_TO_JSON(CurrentWorkspaceId, currentWorkspaceId_);
       DARABONBA_PTR_TO_JSON(CustomerNameOrPhone, customerNameOrPhone_);
       DARABONBA_PTR_TO_JSON(DisplayStatusList, displayStatusList_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(Size, size_);
+      DARABONBA_PTR_TO_JSON(StructuredLabelTags, structuredLabelTags_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
     };
@@ -38,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CallStartTimeEnd, callStartTimeEnd_);
       DARABONBA_PTR_FROM_JSON(CallerUacAccountId, callerUacAccountId_);
       DARABONBA_PTR_FROM_JSON(Current, current_);
+      DARABONBA_PTR_FROM_JSON(CurrentWorkspaceCode, currentWorkspaceCode_);
       DARABONBA_PTR_FROM_JSON(CurrentWorkspaceId, currentWorkspaceId_);
       DARABONBA_PTR_FROM_JSON(CustomerNameOrPhone, customerNameOrPhone_);
       DARABONBA_PTR_FROM_JSON(DisplayStatusList, displayStatusList_);
@@ -46,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(Size, size_);
+      DARABONBA_PTR_FROM_JSON(StructuredLabelTags, structuredLabelTags_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
     };
@@ -60,10 +64,55 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class StructuredLabelTags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const StructuredLabelTags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, StructuredLabelTags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      StructuredLabelTags() = default ;
+      StructuredLabelTags(const StructuredLabelTags &) = default ;
+      StructuredLabelTags(StructuredLabelTags &&) = default ;
+      StructuredLabelTags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~StructuredLabelTags() = default ;
+      StructuredLabelTags& operator=(const StructuredLabelTags &) = default ;
+      StructuredLabelTags& operator=(StructuredLabelTags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline StructuredLabelTags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline const vector<string> & getValue() const { DARABONBA_PTR_GET_CONST(value_, vector<string>) };
+      inline vector<string> getValue() { DARABONBA_PTR_GET(value_, vector<string>) };
+      inline StructuredLabelTags& setValue(const vector<string> & value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+      inline StructuredLabelTags& setValue(vector<string> && value) { DARABONBA_PTR_SET_RVALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<vector<string>> value_ {};
+    };
+
     virtual bool empty() const override { return this->callEndTimeBegin_ == nullptr
         && this->callEndTimeEnd_ == nullptr && this->callStartTimeBegin_ == nullptr && this->callStartTimeEnd_ == nullptr && this->callerUacAccountId_ == nullptr && this->current_ == nullptr
-        && this->currentWorkspaceId_ == nullptr && this->customerNameOrPhone_ == nullptr && this->displayStatusList_ == nullptr && this->durationRangeList_ == nullptr && this->labelTags_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->size_ == nullptr && this->taskId_ == nullptr && this->userId_ == nullptr; };
+        && this->currentWorkspaceCode_ == nullptr && this->currentWorkspaceId_ == nullptr && this->customerNameOrPhone_ == nullptr && this->displayStatusList_ == nullptr && this->durationRangeList_ == nullptr
+        && this->labelTags_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->size_ == nullptr && this->structuredLabelTags_ == nullptr
+        && this->taskId_ == nullptr && this->userId_ == nullptr; };
     // callEndTimeBegin Field Functions 
     bool hasCallEndTimeBegin() const { return this->callEndTimeBegin_ != nullptr;};
     void deleteCallEndTimeBegin() { this->callEndTimeBegin_ = nullptr;};
@@ -104,6 +153,13 @@ namespace Models
     void deleteCurrent() { this->current_ = nullptr;};
     inline int32_t getCurrent() const { DARABONBA_PTR_GET_DEFAULT(current_, 0) };
     inline ReadOutboundTaskCallListRequest& setCurrent(int32_t current) { DARABONBA_PTR_SET_VALUE(current_, current) };
+
+
+    // currentWorkspaceCode Field Functions 
+    bool hasCurrentWorkspaceCode() const { return this->currentWorkspaceCode_ != nullptr;};
+    void deleteCurrentWorkspaceCode() { this->currentWorkspaceCode_ = nullptr;};
+    inline string getCurrentWorkspaceCode() const { DARABONBA_PTR_GET_DEFAULT(currentWorkspaceCode_, "") };
+    inline ReadOutboundTaskCallListRequest& setCurrentWorkspaceCode(string currentWorkspaceCode) { DARABONBA_PTR_SET_VALUE(currentWorkspaceCode_, currentWorkspaceCode) };
 
 
     // currentWorkspaceId Field Functions 
@@ -168,6 +224,15 @@ namespace Models
     inline ReadOutboundTaskCallListRequest& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
+    // structuredLabelTags Field Functions 
+    bool hasStructuredLabelTags() const { return this->structuredLabelTags_ != nullptr;};
+    void deleteStructuredLabelTags() { this->structuredLabelTags_ = nullptr;};
+    inline const vector<ReadOutboundTaskCallListRequest::StructuredLabelTags> & getStructuredLabelTags() const { DARABONBA_PTR_GET_CONST(structuredLabelTags_, vector<ReadOutboundTaskCallListRequest::StructuredLabelTags>) };
+    inline vector<ReadOutboundTaskCallListRequest::StructuredLabelTags> getStructuredLabelTags() { DARABONBA_PTR_GET(structuredLabelTags_, vector<ReadOutboundTaskCallListRequest::StructuredLabelTags>) };
+    inline ReadOutboundTaskCallListRequest& setStructuredLabelTags(const vector<ReadOutboundTaskCallListRequest::StructuredLabelTags> & structuredLabelTags) { DARABONBA_PTR_SET_VALUE(structuredLabelTags_, structuredLabelTags) };
+    inline ReadOutboundTaskCallListRequest& setStructuredLabelTags(vector<ReadOutboundTaskCallListRequest::StructuredLabelTags> && structuredLabelTags) { DARABONBA_PTR_SET_RVALUE(structuredLabelTags_, structuredLabelTags) };
+
+
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
@@ -189,6 +254,7 @@ namespace Models
     shared_ptr<int64_t> callStartTimeEnd_ {};
     shared_ptr<string> callerUacAccountId_ {};
     shared_ptr<int32_t> current_ {};
+    shared_ptr<string> currentWorkspaceCode_ {};
     shared_ptr<string> currentWorkspaceId_ {};
     shared_ptr<string> customerNameOrPhone_ {};
     shared_ptr<vector<string>> displayStatusList_ {};
@@ -197,6 +263,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
     shared_ptr<int32_t> size_ {};
+    shared_ptr<vector<ReadOutboundTaskCallListRequest::StructuredLabelTags>> structuredLabelTags_ {};
     shared_ptr<string> taskId_ {};
     shared_ptr<string> userId_ {};
   };

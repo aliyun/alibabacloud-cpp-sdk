@@ -66,6 +66,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ExtInfo, extInfo_);
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
+        DARABONBA_PTR_TO_JSON(HangupDirection, hangupDirection_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(LabelTags, labelTags_);
@@ -75,6 +76,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(RetryCount, retryCount_);
         DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(StructuredLabelTags, structuredLabelTags_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
         DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
         DARABONBA_PTR_TO_JSON(TtsVoiceCode, ttsVoiceCode_);
@@ -97,6 +99,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ExtInfo, extInfo_);
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
+        DARABONBA_PTR_FROM_JSON(HangupDirection, hangupDirection_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(LabelTags, labelTags_);
@@ -106,6 +109,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(RetryCount, retryCount_);
         DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(StructuredLabelTags, structuredLabelTags_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
         DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
         DARABONBA_PTR_FROM_JSON(TtsVoiceCode, ttsVoiceCode_);
@@ -123,6 +127,50 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class StructuredLabelTags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const StructuredLabelTags& obj) { 
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, StructuredLabelTags& obj) { 
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        StructuredLabelTags() = default ;
+        StructuredLabelTags(const StructuredLabelTags &) = default ;
+        StructuredLabelTags(StructuredLabelTags &&) = default ;
+        StructuredLabelTags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~StructuredLabelTags() = default ;
+        StructuredLabelTags& operator=(const StructuredLabelTags &) = default ;
+        StructuredLabelTags& operator=(StructuredLabelTags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline StructuredLabelTags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline const vector<string> & getValue() const { DARABONBA_PTR_GET_CONST(value_, vector<string>) };
+        inline vector<string> getValue() { DARABONBA_PTR_GET(value_, vector<string>) };
+        inline StructuredLabelTags& setValue(const vector<string> & value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+        inline StructuredLabelTags& setValue(vector<string> && value) { DARABONBA_PTR_SET_RVALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> key_ {};
+        shared_ptr<vector<string>> value_ {};
+      };
+
       class DialogueList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const DialogueList& obj) { 
@@ -188,10 +236,10 @@ namespace Models
       virtual bool empty() const override { return this->billingDuration_ == nullptr
         && this->callEndTime_ == nullptr && this->callId_ == nullptr && this->callStartTime_ == nullptr && this->callSummary_ == nullptr && this->channel_ == nullptr
         && this->customerName_ == nullptr && this->customerPhone_ == nullptr && this->dialogueList_ == nullptr && this->displayStatus_ == nullptr && this->duration_ == nullptr
-        && this->durationText_ == nullptr && this->extInfo_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr
-        && this->instanceId_ == nullptr && this->labelTags_ == nullptr && this->recordDetailReady_ == nullptr && this->recordUrl_ == nullptr && this->remark_ == nullptr
-        && this->retryCount_ == nullptr && this->sceneId_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->tenantId_ == nullptr
-        && this->ttsVoiceCode_ == nullptr && this->ttsVoiceDesc_ == nullptr && this->userId_ == nullptr; };
+        && this->durationText_ == nullptr && this->extInfo_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->hangupDirection_ == nullptr
+        && this->id_ == nullptr && this->instanceId_ == nullptr && this->labelTags_ == nullptr && this->recordDetailReady_ == nullptr && this->recordUrl_ == nullptr
+        && this->remark_ == nullptr && this->retryCount_ == nullptr && this->sceneId_ == nullptr && this->status_ == nullptr && this->structuredLabelTags_ == nullptr
+        && this->taskId_ == nullptr && this->tenantId_ == nullptr && this->ttsVoiceCode_ == nullptr && this->ttsVoiceDesc_ == nullptr && this->userId_ == nullptr; };
       // billingDuration Field Functions 
       bool hasBillingDuration() const { return this->billingDuration_ != nullptr;};
       void deleteBillingDuration() { this->billingDuration_ = nullptr;};
@@ -299,6 +347,13 @@ namespace Models
       inline Records& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
+      // hangupDirection Field Functions 
+      bool hasHangupDirection() const { return this->hangupDirection_ != nullptr;};
+      void deleteHangupDirection() { this->hangupDirection_ = nullptr;};
+      inline string getHangupDirection() const { DARABONBA_PTR_GET_DEFAULT(hangupDirection_, "") };
+      inline Records& setHangupDirection(string hangupDirection) { DARABONBA_PTR_SET_VALUE(hangupDirection_, hangupDirection) };
+
+
       // id Field Functions 
       bool hasId() const { return this->id_ != nullptr;};
       void deleteId() { this->id_ = nullptr;};
@@ -364,6 +419,15 @@ namespace Models
       inline Records& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // structuredLabelTags Field Functions 
+      bool hasStructuredLabelTags() const { return this->structuredLabelTags_ != nullptr;};
+      void deleteStructuredLabelTags() { this->structuredLabelTags_ = nullptr;};
+      inline const vector<Records::StructuredLabelTags> & getStructuredLabelTags() const { DARABONBA_PTR_GET_CONST(structuredLabelTags_, vector<Records::StructuredLabelTags>) };
+      inline vector<Records::StructuredLabelTags> getStructuredLabelTags() { DARABONBA_PTR_GET(structuredLabelTags_, vector<Records::StructuredLabelTags>) };
+      inline Records& setStructuredLabelTags(const vector<Records::StructuredLabelTags> & structuredLabelTags) { DARABONBA_PTR_SET_VALUE(structuredLabelTags_, structuredLabelTags) };
+      inline Records& setStructuredLabelTags(vector<Records::StructuredLabelTags> && structuredLabelTags) { DARABONBA_PTR_SET_RVALUE(structuredLabelTags_, structuredLabelTags) };
+
+
       // taskId Field Functions 
       bool hasTaskId() const { return this->taskId_ != nullptr;};
       void deleteTaskId() { this->taskId_ = nullptr;};
@@ -415,6 +479,7 @@ namespace Models
       shared_ptr<string> extInfo_ {};
       shared_ptr<string> gmtCreate_ {};
       shared_ptr<string> gmtModified_ {};
+      shared_ptr<string> hangupDirection_ {};
       shared_ptr<int64_t> id_ {};
       shared_ptr<string> instanceId_ {};
       shared_ptr<vector<string>> labelTags_ {};
@@ -424,6 +489,7 @@ namespace Models
       shared_ptr<int32_t> retryCount_ {};
       shared_ptr<string> sceneId_ {};
       shared_ptr<string> status_ {};
+      shared_ptr<vector<Records::StructuredLabelTags>> structuredLabelTags_ {};
       shared_ptr<string> taskId_ {};
       shared_ptr<string> tenantId_ {};
       shared_ptr<string> ttsVoiceCode_ {};

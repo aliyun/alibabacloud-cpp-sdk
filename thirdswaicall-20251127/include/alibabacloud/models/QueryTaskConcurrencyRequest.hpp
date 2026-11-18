@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const QueryTaskConcurrencyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApplicationCode, applicationCode_);
       DARABONBA_PTR_TO_JSON(CallerUacAccountId, callerUacAccountId_);
+      DARABONBA_PTR_TO_JSON(CurrentWorkspaceCode, currentWorkspaceCode_);
       DARABONBA_PTR_TO_JSON(CurrentWorkspaceId, currentWorkspaceId_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, QueryTaskConcurrencyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationCode, applicationCode_);
       DARABONBA_PTR_FROM_JSON(CallerUacAccountId, callerUacAccountId_);
+      DARABONBA_PTR_FROM_JSON(CurrentWorkspaceCode, currentWorkspaceCode_);
       DARABONBA_PTR_FROM_JSON(CurrentWorkspaceId, currentWorkspaceId_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationCode_ == nullptr
-        && this->callerUacAccountId_ == nullptr && this->currentWorkspaceId_ == nullptr && this->taskId_ == nullptr; };
+        && this->callerUacAccountId_ == nullptr && this->currentWorkspaceCode_ == nullptr && this->currentWorkspaceId_ == nullptr && this->taskId_ == nullptr; };
     // applicationCode Field Functions 
     bool hasApplicationCode() const { return this->applicationCode_ != nullptr;};
     void deleteApplicationCode() { this->applicationCode_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteCallerUacAccountId() { this->callerUacAccountId_ = nullptr;};
     inline string getCallerUacAccountId() const { DARABONBA_PTR_GET_DEFAULT(callerUacAccountId_, "") };
     inline QueryTaskConcurrencyRequest& setCallerUacAccountId(string callerUacAccountId) { DARABONBA_PTR_SET_VALUE(callerUacAccountId_, callerUacAccountId) };
+
+
+    // currentWorkspaceCode Field Functions 
+    bool hasCurrentWorkspaceCode() const { return this->currentWorkspaceCode_ != nullptr;};
+    void deleteCurrentWorkspaceCode() { this->currentWorkspaceCode_ = nullptr;};
+    inline string getCurrentWorkspaceCode() const { DARABONBA_PTR_GET_DEFAULT(currentWorkspaceCode_, "") };
+    inline QueryTaskConcurrencyRequest& setCurrentWorkspaceCode(string currentWorkspaceCode) { DARABONBA_PTR_SET_VALUE(currentWorkspaceCode_, currentWorkspaceCode) };
 
 
     // currentWorkspaceId Field Functions 
@@ -68,6 +77,7 @@ namespace Models
   protected:
     shared_ptr<string> applicationCode_ {};
     shared_ptr<string> callerUacAccountId_ {};
+    shared_ptr<string> currentWorkspaceCode_ {};
     shared_ptr<string> currentWorkspaceId_ {};
     shared_ptr<int64_t> taskId_ {};
   };

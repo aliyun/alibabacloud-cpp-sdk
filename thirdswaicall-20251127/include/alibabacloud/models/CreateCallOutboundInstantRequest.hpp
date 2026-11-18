@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CalledNumber, calledNumber_);
       DARABONBA_PTR_TO_JSON(CallerNumber, callerNumber_);
       DARABONBA_PTR_TO_JSON(CallerUacAccountId, callerUacAccountId_);
+      DARABONBA_PTR_TO_JSON(CurrentWorkspaceCode, currentWorkspaceCode_);
       DARABONBA_PTR_TO_JSON(CurrentWorkspaceId, currentWorkspaceId_);
       DARABONBA_PTR_TO_JSON(CustomerLineCode, customerLineCode_);
       DARABONBA_PTR_TO_JSON(CustomerName, customerName_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CalledNumber, calledNumber_);
       DARABONBA_PTR_FROM_JSON(CallerNumber, callerNumber_);
       DARABONBA_PTR_FROM_JSON(CallerUacAccountId, callerUacAccountId_);
+      DARABONBA_PTR_FROM_JSON(CurrentWorkspaceCode, currentWorkspaceCode_);
       DARABONBA_PTR_FROM_JSON(CurrentWorkspaceId, currentWorkspaceId_);
       DARABONBA_PTR_FROM_JSON(CustomerLineCode, customerLineCode_);
       DARABONBA_PTR_FROM_JSON(CustomerName, customerName_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calledNumber_ == nullptr
-        && this->callerNumber_ == nullptr && this->callerUacAccountId_ == nullptr && this->currentWorkspaceId_ == nullptr && this->customerLineCode_ == nullptr && this->customerName_ == nullptr
-        && this->encryptCall_ == nullptr && this->promptVariables_ == nullptr && this->taskId_ == nullptr; };
+        && this->callerNumber_ == nullptr && this->callerUacAccountId_ == nullptr && this->currentWorkspaceCode_ == nullptr && this->currentWorkspaceId_ == nullptr && this->customerLineCode_ == nullptr
+        && this->customerName_ == nullptr && this->encryptCall_ == nullptr && this->promptVariables_ == nullptr && this->taskId_ == nullptr; };
     // calledNumber Field Functions 
     bool hasCalledNumber() const { return this->calledNumber_ != nullptr;};
     void deleteCalledNumber() { this->calledNumber_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     void deleteCallerUacAccountId() { this->callerUacAccountId_ = nullptr;};
     inline string getCallerUacAccountId() const { DARABONBA_PTR_GET_DEFAULT(callerUacAccountId_, "") };
     inline CreateCallOutboundInstantRequest& setCallerUacAccountId(string callerUacAccountId) { DARABONBA_PTR_SET_VALUE(callerUacAccountId_, callerUacAccountId) };
+
+
+    // currentWorkspaceCode Field Functions 
+    bool hasCurrentWorkspaceCode() const { return this->currentWorkspaceCode_ != nullptr;};
+    void deleteCurrentWorkspaceCode() { this->currentWorkspaceCode_ = nullptr;};
+    inline string getCurrentWorkspaceCode() const { DARABONBA_PTR_GET_DEFAULT(currentWorkspaceCode_, "") };
+    inline CreateCallOutboundInstantRequest& setCurrentWorkspaceCode(string currentWorkspaceCode) { DARABONBA_PTR_SET_VALUE(currentWorkspaceCode_, currentWorkspaceCode) };
 
 
     // currentWorkspaceId Field Functions 
@@ -115,6 +124,7 @@ namespace Models
     shared_ptr<string> calledNumber_ {};
     shared_ptr<string> callerNumber_ {};
     shared_ptr<string> callerUacAccountId_ {};
+    shared_ptr<string> currentWorkspaceCode_ {};
     shared_ptr<string> currentWorkspaceId_ {};
     shared_ptr<string> customerLineCode_ {};
     shared_ptr<string> customerName_ {};
