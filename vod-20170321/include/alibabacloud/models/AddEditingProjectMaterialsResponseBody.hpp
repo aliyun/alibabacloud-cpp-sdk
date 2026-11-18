@@ -214,45 +214,45 @@ namespace Models
     protected:
       // The category ID.
       shared_ptr<int32_t> cateId_ {};
-      // The material category name.
+      // The name of the media asset category.
       shared_ptr<string> cateName_ {};
-      // The thumbnail URL of the material.
+      // The URL of the media asset thumbnail.
       shared_ptr<string> coverURL_ {};
-      // The time when the material was created. The time follows the format: <i>yyyy-mm-dd</i>t<i>hh:mm:ss</i>z (UTC).
+      // The time when the media asset was created. The time follows the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
       // The user ID.
       shared_ptr<int64_t> customerId_ {};
-      // The material description.
+      // The description of the media asset.
       shared_ptr<string> description_ {};
-      // The material duration. Unit: seconds. The value is accurate to four decimal places.
+      // The duration of the media asset. Unit: seconds. The value is accurate to four decimal places.
       shared_ptr<float> duration_ {};
-      // The material ID.
+      // The ID of the media asset.
       shared_ptr<string> materialId_ {};
-      // The material type. Valid values:
+      // The type of the media asset. Valid values:
       // 
-      // - **video**: video.
-      // - **audio**: audio-only.
-      // - **image**: image.
+      // - **video**: video
+      // - **audio**: audio-only
+      // - **image**: image
       shared_ptr<string> materialType_ {};
-      // The time when the material was last modified. The time follows the format: <i>yyyy-mm-dd</i>t<i>hh:mm:ss</i>z (UTC).
+      // The time when the media asset was updated. The time follows the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> modifyTime_ {};
       // The file size.
       shared_ptr<int64_t> size_ {};
-      // The array of snapshot URLs for the material.
+      // The array of snapshot URLs for the media asset.
       shared_ptr<vector<string>> snapshots_ {};
       // The sprite configuration.
       shared_ptr<string> spriteConfig_ {};
-      // The array of sprite URLs for the material.
+      // The array of sprite URLs for the media asset.
       shared_ptr<vector<string>> sprites_ {};
-      // The material status. Valid values:
+      // The status of the media asset. Valid values:
       // 
       // - **Normal**: Normal.
       // - **Uploading**: Uploading.
       // - **UploadFail**: Upload failed.
       shared_ptr<string> status_ {};
-      // The material tags. Multiple tags are separated by commas (,).
+      // The tags of the media asset. Separate multiple tags with commas (,).
       shared_ptr<string> tags_ {};
-      // The material title.
+      // The title of the media asset.
       shared_ptr<string> title_ {};
     };
 
@@ -275,7 +275,7 @@ namespace Models
 
 
   protected:
-    // The list of materials.
+    // The list of media assets.
     shared_ptr<vector<AddEditingProjectMaterialsResponseBody::MaterialList>> materialList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

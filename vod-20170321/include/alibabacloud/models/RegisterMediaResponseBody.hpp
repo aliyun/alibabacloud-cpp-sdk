@@ -81,14 +81,14 @@ namespace Models
 
 
     protected:
-      // The OSS file URL.
+      // The URL of the OSS file.
       shared_ptr<string> fileURL_ {};
-      // The VOD media ID. If the registered media file is an audio or video file, this value corresponds to the VideoId in ApsaraVideo VOD.
+      // The media ID in ApsaraVideo VOD. If the registered media file is an audio or video file, this parameter corresponds to the VideoId in ApsaraVideo VOD.
       shared_ptr<string> mediaId_ {};
-      // Indicates whether the media asset is newly registered or repeatedly registered.
+      // Specifies whether the media asset is newly registered or repeatedly registered.
       // 
-      // - **true**: newly registered.
-      // - **false**: repeatedly registered.
+      // - **true**: The media asset is newly registered.
+      // - **false**: The media asset is repeatedly registered.
       shared_ptr<bool> newRegister_ {};
     };
 
@@ -120,11 +120,11 @@ namespace Models
 
 
   protected:
-    // The list of file URLs that failed to be registered.
+    // The list of URLs of the files that failed to be registered.
     shared_ptr<vector<string>> failedFileURLs_ {};
-    // The list of media assets that are successfully registered, including both newly registered files and previously registered files.
+    // The list of media assets that are successfully registered in this request, including newly registered files and previously registered files.
     shared_ptr<vector<RegisterMediaResponseBody::RegisteredMediaList>> registeredMediaList_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

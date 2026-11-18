@@ -216,24 +216,24 @@ namespace Models
 
 
             protected:
-              // The terrorism and political sensitivity review result. Valid values:
+              // The terrorist and political content review result. Valid values:
               // 
-              // - **normal**: normal.
-              // - **bloody**: bloody content.
-              // - **explosion**: explosions and smoke.
-              // - **outfit**: special outfits.
-              // - **logo**: special logos.
-              // - **weapon**: weapons.
-              // - **politics**: politically sensitive content.
-              // - **violence**: fighting.
-              // - **crowd**: crowds.
-              // - **parade**: parades.
-              // - **carcrash**: car accident scenes.
-              // - **flag**: flags.
-              // - **location**: landmarks.
-              // - **others**: others.
+              // - **normal**: Normal.
+              // - **bloody**: Bloody.
+              // - **explosion**: Explosion and smoke.
+              // - **outfit**: Special outfit.
+              // - **logo**: Special logo.
+              // - **weapon**: Weapon.
+              // - **politics**: Political content.
+              // - **violence**: Violence.
+              // - **crowd**: Crowd.
+              // - **parade**: Parade.
+              // - **carcrash**: Car crash.
+              // - **flag**: Flag.
+              // - **location**: Landmark.
+              // - **others**: Others.
               shared_ptr<string> label_ {};
-              // The score of the video snapshot that hits the label. Value range: `[0, 100]`, with a precision of 10 decimal places. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
+              // The score of the video snapshot that hits the label. Valid values: `[0, 100]`. The precision is 10 decimal places. The score indicates the probability that the snapshot belongs to the corresponding label category. A higher score indicates higher accuracy.
               shared_ptr<string> score_ {};
               // The position of the video snapshot in the video. Unit: milliseconds.
               shared_ptr<string> timestamp_ {};
@@ -281,21 +281,21 @@ namespace Models
             protected:
               // The number of video snapshots.
               shared_ptr<int32_t> count_ {};
-              // The terrorism and political sensitivity review result. Valid values:
-              // - **normal**: normal.
-              // - **bloody**: bloody content.
-              // - **explosion**: explosions and smoke.
-              // - **outfit**: special outfits.
-              // - **logo**: special logos.
-              // - **weapon**: weapons.
-              // - **politics**: politically sensitive content.
-              // - **violence**: fighting.
-              // - **crowd**: crowds.
-              // - **parade**: parades.
-              // - **carcrash**: car accident scenes.
-              // - **flag**: flags.
-              // - **location**: landmarks.
-              // - **others**: others.
+              // The terrorist and political content review result. Valid values:
+              // - **normal**: Normal.
+              // - **bloody**: Bloody.
+              // - **explosion**: Explosion and smoke.
+              // - **outfit**: Special outfit.
+              // - **logo**: Special logo.
+              // - **weapon**: Weapon.
+              // - **politics**: Political content.
+              // - **violence**: Violence.
+              // - **crowd**: Crowd.
+              // - **parade**: Parade.
+              // - **carcrash**: Car crash.
+              // - **flag**: Flag.
+              // - **location**: Landmark.
+              // - **others**: Others.
               shared_ptr<string> label_ {};
             };
 
@@ -348,36 +348,36 @@ namespace Models
 
 
           protected:
-            // The average score of video snapshots that hit the label. Value range: `[0, 100]`, with a precision of 10 decimal places. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
+            // The average score of the video snapshots that hit the label. Valid values: `[0, 100]`. The precision is 10 decimal places. The score indicates the probability that the snapshot belongs to the corresponding label category. A higher score indicates higher accuracy.
             shared_ptr<string> averageScore_ {};
-            // The terrorism and political sensitivity result categories and the number of video snapshots for each category.
+            // The categories of the terrorist and political content review results and the number of video snapshots for each category.
             shared_ptr<vector<TerrorismResult::CounterList>> counterList_ {};
-            // The terrorism and political sensitivity review result. Valid values:
+            // The terrorist and political content review result. Valid values:
             // 
-            // - **normal**: normal.
-            // - **bloody**: bloody content.
-            // - **explosion**: explosions and smoke.
-            // - **outfit**: special outfits.
-            // - **logo**: special logos.
-            // - **weapon**: weapons.
-            // - **politics**: politically sensitive content.
-            // - **violence**: fighting.
-            // - **crowd**: crowds.
-            // - **parade**: parades.
-            // - **carcrash**: car accident scenes.
-            // - **flag**: flags.
-            // - **location**: landmarks.
-            // - **others**: others.
+            // - **normal**: Normal.
+            // - **bloody**: Bloody.
+            // - **explosion**: Explosion and smoke.
+            // - **outfit**: Special outfit.
+            // - **logo**: Special logo.
+            // - **weapon**: Weapon.
+            // - **politics**: Political content.
+            // - **violence**: Violence.
+            // - **crowd**: Crowd.
+            // - **parade**: Parade.
+            // - **carcrash**: Car crash.
+            // - **flag**: Flag.
+            // - **location**: Landmark.
+            // - **others**: Others.
             shared_ptr<string> label_ {};
-            // The highest score of video snapshots that hit the label. Value range: `[0, 100]`, with a precision of 10 decimal places. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
+            // The highest score of the video snapshots that hit the label. Valid values: `[0, 100]`. The precision is 10 decimal places. The score indicates the probability that the snapshot belongs to the corresponding label category. A higher score indicates higher accuracy.
             shared_ptr<string> maxScore_ {};
-            // The terrorism and political sensitivity review suggestion. Valid values:
+            // The terrorist and political content review suggestion. Valid values:
             // 
             // - **block**: Violation.
             // - **review**: Suspected violation.
             // - **pass**: Passed.
             shared_ptr<string> suggestion_ {};
-            // The information about the video snapshots with the highest scores that hit the label.
+            // The information about the video snapshots with the highest scores for the hit label.
             shared_ptr<vector<TerrorismResult::TopList>> topList_ {};
           };
 
@@ -468,11 +468,11 @@ namespace Models
             protected:
               // The pornography detection result. Valid values:
               // 
-              // - **porn**: pornographic content.
-              // - **sexy**: sexy content.
-              // - **normal**: normal.
+              // - **porn**: Pornographic.
+              // - **sexy**: Sexy.
+              // - **normal**: Normal.
               shared_ptr<string> label_ {};
-              // The score of the video snapshot that hits the label. Value range: `[0, 100]`, with a precision of 10 decimal places. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
+              // The score of the video snapshot that hits the label. Valid values: `[0, 100]`. The precision is 10 decimal places. The score indicates the probability that the snapshot belongs to the corresponding label category. A higher score indicates higher accuracy.
               shared_ptr<string> score_ {};
               // The position of the video snapshot in the video. Unit: milliseconds.
               shared_ptr<string> timestamp_ {};
@@ -522,9 +522,9 @@ namespace Models
               shared_ptr<int32_t> count_ {};
               // The pornography detection result. Valid values:
               // 
-              // - **porn**: pornographic content.
-              // - **sexy**: sexy content.
-              // - **normal**: normal.
+              // - **porn**: Pornographic.
+              // - **sexy**: Sexy.
+              // - **normal**: Normal.
               shared_ptr<string> label_ {};
             };
 
@@ -577,17 +577,17 @@ namespace Models
 
 
           protected:
-            // The average score of video snapshots that hit the label. Value range: `[0, 100]`, with a precision of 10 decimal places. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
+            // The average score of the video snapshots that hit the label. Valid values: `[0, 100]`. The precision is 10 decimal places. The score indicates the probability that the snapshot belongs to the corresponding label category. A higher score indicates higher accuracy.
             shared_ptr<string> averageScore_ {};
-            // The review result categories and the number of video snapshots for each category.
+            // The categories of the review results and the number of video snapshots for each category.
             shared_ptr<vector<PornResult::CounterList>> counterList_ {};
             // The pornography detection result. Valid values:
             // 
-            // - **porn**: pornographic content.
-            // - **sexy**: sexy content.
-            // - **normal**: normal.
+            // - **porn**: Pornographic.
+            // - **sexy**: Sexy.
+            // - **normal**: Normal.
             shared_ptr<string> label_ {};
-            // The highest score of video snapshots that hit the label. Value range: `[0, 100]`, with a precision of 10 decimal places. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
+            // The highest score of the video snapshots that hit the label. Valid values: `[0, 100]`. The precision is 10 decimal places. The score indicates the probability that the snapshot belongs to the corresponding label category. A higher score indicates higher accuracy.
             shared_ptr<string> maxScore_ {};
             // The pornography detection suggestion. Valid values:
             // 
@@ -595,7 +595,7 @@ namespace Models
             // - **review**: Suspected violation.
             // - **pass**: Passed.
             shared_ptr<string> suggestion_ {};
-            // The information about the video snapshots with the highest scores that hit the label.
+            // The information about the video snapshots with the highest scores for the hit label.
             shared_ptr<vector<PornResult::TopList>> topList_ {};
           };
 
@@ -684,10 +684,10 @@ namespace Models
 
 
             protected:
-              // The category of the logo review result. Valid values:
-              // - **normal**: Normal.
-              // - **TV**: Contains a regulated logo.
-              // - **trademark**: Contains a trademark.
+              // The logo moderation category. Valid values:
+              // - **normal**: normal
+              // - **TV**: the image contains a regulated logo
+              // - **trademark**: the image contains a trademark
               shared_ptr<string> label_ {};
               // The score of the video snapshot that hits the label.
               shared_ptr<string> score_ {};
@@ -737,10 +737,10 @@ namespace Models
             protected:
               // The number of video snapshots.
               shared_ptr<int32_t> count_ {};
-              // The category of the logo review result. Valid values:
-              // - **normal**: Normal.
-              // - **TV**: Contains a regulated logo.
-              // - **trademark**: Contains a trademark.
+              // The logo moderation category. Valid values:
+              // - **normal**: normal
+              // - **TV**: the image contains a regulated logo
+              // - **trademark**: the image contains a trademark
               shared_ptr<string> label_ {};
             };
 
@@ -793,24 +793,23 @@ namespace Models
 
 
           protected:
-            // The average score of video snapshots that hit the label.
+            // The average score of the video snapshots that hit the label.
             shared_ptr<string> averageScore_ {};
-            // The categories of the review results and the number of video snapshots in each category.
+            // The moderation categories and the number of video snapshots for each category.
             shared_ptr<vector<LogoResult::CounterList>> counterList_ {};
-            // The category of the logo review result. Valid values:
-            // - **normal**: Normal.
-            // - **TV**: Contains a regulated logo.
-            // - **trademark**: Contains a trademark.
+            // The logo moderation category. Valid values:
+            // - **normal**: normal
+            // - **TV**: the image contains a regulated logo
+            // - **trademark**: the image contains a trademark
             shared_ptr<string> label_ {};
-            // The highest score of video snapshots that hit the label.
+            // The highest score of the video snapshots that hit the label.
             shared_ptr<string> maxScore_ {};
-            // The logo review suggestion. Valid values:
-            // 
-            // - **block**: Violation.
-            // - **review**: Suspected violation.
-            // - **pass**: Passed.
+            // The logo moderation suggestion. Valid values:
+            // - **block**: The content violates regulations.
+            // - **review**: The content is suspected of violating regulations.
+            // - **pass**: The content passes the moderation.
             shared_ptr<string> suggestion_ {};
-            // The information about the video snapshots with the highest scores that hit the label.
+            // The information about the video snapshots with the highest scores for the hit label.
             shared_ptr<vector<LogoResult::TopList>> topList_ {};
           };
 
@@ -899,12 +898,12 @@ namespace Models
 
 
             protected:
-              // The category of the review result. Valid values:
-              // - **normal**: Normal.
-              // - **meaningless**: No content in the image (for example, black screen or white screen).
-              // - **PIP**: Picture-in-Picture (PiP).
-              // - **smoking**: Smoking.
-              // - **drivelive**: In-car live streaming.
+              // The moderation category. Valid values:
+              // - **normal**: normal
+              // - **meaningless**: the image contains no content, such as a black or white screen
+              // - **PIP**: Picture-in-Picture (PiP)
+              // - **smoking**: smoking
+              // - **drivelive**: live streaming inside a vehicle
               shared_ptr<string> label_ {};
               // The score of the video snapshot that hits the label.
               shared_ptr<string> score_ {};
@@ -954,12 +953,12 @@ namespace Models
             protected:
               // The number of video snapshots.
               shared_ptr<int32_t> count_ {};
-              // The category of the review result. Valid values:
-              // - **normal**: Normal.
-              // - **meaningless**: No content in the image (for example, black screen or white screen).
-              // - **PIP**: Picture-in-Picture (PiP).
-              // - **smoking**: Smoking.
-              // - **drivelive**: In-car live streaming.
+              // The moderation category. Valid values:
+              // - **normal**: normal
+              // - **meaningless**: the image contains no content, such as a black or white screen
+              // - **PIP**: Picture-in-Picture (PiP)
+              // - **smoking**: smoking
+              // - **drivelive**: live streaming inside a vehicle
               shared_ptr<string> label_ {};
             };
 
@@ -1012,25 +1011,25 @@ namespace Models
 
 
           protected:
-            // The average score of the review result.
+            // The average score of the moderation result.
             shared_ptr<string> averageScore_ {};
-            // The categories of the review results and the number of video snapshots in each category.
+            // The moderation categories and the number of video snapshots for each category.
             shared_ptr<vector<LiveResult::CounterList>> counterList_ {};
-            // The category of the review result. Valid values:
-            // - **normal**: Normal.
-            // - **meaningless**: No content in the image (for example, black screen or white screen).
-            // - **PIP**: Picture-in-Picture (PiP).
-            // - **smoking**: Smoking.
-            // - **drivelive**: In-car live streaming.
+            // The moderation category. Valid values:
+            // - **normal**: normal
+            // - **meaningless**: the image contains no content, such as a black or white screen
+            // - **PIP**: Picture-in-Picture (PiP)
+            // - **smoking**: smoking
+            // - **drivelive**: live streaming inside a vehicle
             shared_ptr<string> label_ {};
             // The highest review score.
             shared_ptr<string> maxScore_ {};
-            // The review result suggestion. Valid values:
-            // - **block**: Violation.
-            // - **review**: Suspected violation.
-            // - **pass**: Passed.
+            // The moderation suggestion. Valid values:
+            // - **block**: The content violates regulations.
+            // - **review**: The content is suspected of violating regulations.
+            // - **pass**: The content passes the moderation.
             shared_ptr<string> suggestion_ {};
-            // The information about the video snapshots with the highest scores that hit the label.
+            // The information about the video snapshots with the highest scores for the hit label.
             shared_ptr<vector<LiveResult::TopList>> topList_ {};
           };
 
@@ -1119,9 +1118,9 @@ namespace Models
 
 
             protected:
-              // The review result category.
+              // The moderation category.
               shared_ptr<string> label_ {};
-              // The confidence score of the video snapshot that hit the label.
+              // The confidence score of the video snapshot that hits the label.
               shared_ptr<string> score_ {};
               // The position of the video snapshot in the video.
               shared_ptr<string> timestamp_ {};
@@ -1167,9 +1166,9 @@ namespace Models
 
 
             protected:
-              // The number of captured video frames for the corresponding label.
+              // The number of video frames that correspond to the label.
               shared_ptr<int32_t> count_ {};
-              // The review result category.
+              // The moderation result label.
               shared_ptr<string> label_ {};
             };
 
@@ -1222,17 +1221,17 @@ namespace Models
 
 
           protected:
-            // The average confidence score of hit frames. This field is not returned if no frame is hit.
+            // The average confidence score of the hit frames. This parameter is not returned if no frames are hit.
             shared_ptr<string> averageScore_ {};
-            // The violation label count aggregation: Label (Green label) / Count (number of hit frames for the label).
+            // The aggregated count of violation labels, including Label (the Green label) and Count (the number of frames that hit the label).
             shared_ptr<vector<GreenEnhancedResult::CounterList>> counterList_ {};
-            // The union of hit Green native labels (comma-separated, such as pornographic_adultContent_tii). The value is normal if no label is hit.
+            // The union of hit Green native labels, separated by commas, such as pornographic_adultContent_tii. If no labels are hit, the value is normal.
             shared_ptr<string> label_ {};
-            // The highest confidence score of hit frames. This field is not returned if no frame is hit.
+            // The highest confidence score of the hit frames. This parameter is not returned if no frames are hit.
             shared_ptr<string> maxScore_ {};
-            // The frame review conclusion mapped from frameResult.riskLevel: high→block, medium/low→review, none→pass.
+            // The image moderation conclusion, which is mapped from frameResult.riskLevel: high to block, medium or low to review, and none to pass.
             shared_ptr<string> suggestion_ {};
-            // The hit frame details (sorted by confidence in descending order).
+            // The details of the hit frames, sorted in descending order of confidence score.
             shared_ptr<vector<GreenEnhancedResult::TopList>> topList_ {};
           };
 
@@ -1321,18 +1320,18 @@ namespace Models
 
 
             protected:
-              // The category of the advertisement review result. Valid values:
-              // - **normal**: normal.
-              // - **ad**: other advertisements.
-              // - **politics**: text containing politically sensitive content.
-              // - **porn**: text containing pornographic content.
-              // - **abuse**: text containing abusive content.
-              // - **terrorism**: text containing terrorist content.
-              // - **contraband**: text containing prohibited content.
-              // - **spam**: text containing other spam content.
-              // - **npx**: psoriasis advertisements.
-              // - **qrcode**: contains QR codes.
-              // - **programCode**: contains mini program codes.
+              // The ad review result category. Valid values:
+              // - **normal**: Normal.
+              // - **ad**: Other ads.
+              // - **politics**: Text containing political content.
+              // - **porn**: Text containing pornographic content.
+              // - **abuse**: Text containing abusive content.
+              // - **terrorism**: Text containing terrorist content.
+              // - **contraband**: Text containing contraband content.
+              // - **spam**: Text containing other spam content.
+              // - **npx**: Nuisance ad.
+              // - **qrcode**: QR code included.
+              // - **programCode**: Mini program code included.
               shared_ptr<string> label_ {};
               // The score of the video snapshot that hits the label.
               shared_ptr<string> score_ {};
@@ -1382,18 +1381,18 @@ namespace Models
             protected:
               // The number of video snapshots.
               shared_ptr<int32_t> count_ {};
-              // The category of the advertisement review result. Valid values:
-              // - **normal**: normal.
-              // - **ad**: other advertisements.
-              // - **politics**: text containing politically sensitive content.
-              // - **porn**: text containing pornographic content.
-              // - **abuse**: text containing abusive content.
-              // - **terrorism**: text containing terrorist content.
-              // - **contraband**: text containing prohibited content.
-              // - **spam**: text containing other spam content.
-              // - **npx**: psoriasis advertisements.
-              // - **qrcode**: contains QR codes.
-              // - **programCode**: contains mini program codes.
+              // The ad review result category. Valid values:
+              // - **normal**: Normal.
+              // - **ad**: Other ads.
+              // - **politics**: Text containing political content.
+              // - **porn**: Text containing pornographic content.
+              // - **abuse**: Text containing abusive content.
+              // - **terrorism**: Text containing terrorist content.
+              // - **contraband**: Text containing contraband content.
+              // - **spam**: Text containing other spam content.
+              // - **npx**: Nuisance ad.
+              // - **qrcode**: QR code included.
+              // - **programCode**: Mini program code included.
               shared_ptr<string> label_ {};
             };
 
@@ -1446,32 +1445,32 @@ namespace Models
 
 
           protected:
-            // The average score of the advertisement review result.
+            // The average score of the ad review result.
             shared_ptr<string> averageScore_ {};
-            // The review result categories and the number of video snapshots for each category.
+            // The categories of the review results and the number of video snapshots for each category.
             shared_ptr<vector<AdResult::CounterList>> counterList_ {};
-            // The category of the advertisement review result. Valid values:
-            // - **normal**: normal.
-            // - **ad**: other advertisements.
-            // - **politics**: text containing politically sensitive content.
-            // - **porn**: text containing pornographic content.
-            // - **abuse**: text containing abusive content.
-            // - **terrorism**: text containing terrorist content.
-            // - **contraband**: text containing prohibited content.
-            // - **spam**: text containing other spam content.
-            // - **npx**: psoriasis advertisements.
-            // - **qrcode**: contains QR codes.
-            // - **programCode**: contains mini program codes.
+            // The ad review result category. Valid values:
+            // - **normal**: Normal.
+            // - **ad**: Other ads.
+            // - **politics**: Text containing political content.
+            // - **porn**: Text containing pornographic content.
+            // - **abuse**: Text containing abusive content.
+            // - **terrorism**: Text containing terrorist content.
+            // - **contraband**: Text containing contraband content.
+            // - **spam**: Text containing other spam content.
+            // - **npx**: Nuisance ad.
+            // - **qrcode**: QR code included.
+            // - **programCode**: Mini program code included.
             shared_ptr<string> label_ {};
             // The highest review score.
             shared_ptr<string> maxScore_ {};
-            // The review result suggestion. Valid values:
+            // The review suggestion. Valid values:
             // 
             // - **block**: Violation.
             // - **review**: Suspected violation.
             // - **pass**: Passed.
             shared_ptr<string> suggestion_ {};
-            // The information about the video snapshots with the highest scores that hit the label.
+            // The information about the video snapshots with the highest scores for the hit label.
             shared_ptr<vector<AdResult::TopList>> topList_ {};
           };
 
@@ -1547,31 +1546,31 @@ namespace Models
 
 
         protected:
-          // The advertisement review result.
+          // The ad review result.
           shared_ptr<VideoResult::AdResult> adResult_ {};
-          // The GreenEnhanced review result.
+          // The GreenEnhanced moderation result.
           shared_ptr<VideoResult::GreenEnhancedResult> greenEnhancedResult_ {};
-          // The category of the review result. Valid values:
-          // - **porn**: pornography.
-          // - **terrorism**: terrorist content and political sensitivity.
-          // - **ad**: image and text violations.
-          // - **live**: undesirable scenes.
-          // - **logo**: logo in images.
-          // - **normal**: normal.
+          // The review result category. Valid values:
+          // - **porn**: Pornographic content.
+          // - **terrorism**: Terrorist and political content.
+          // - **ad**: Image and text violation.
+          // - **live**: Undesirable scene.
+          // - **logo**: Image logo.
+          // - **normal**: Normal.
           shared_ptr<string> label_ {};
-          // The review results for inappropriate content.
+          // The harmful content moderation result.
           shared_ptr<VideoResult::LiveResult> liveResult_ {};
-          // The logo review result.
+          // The logo moderation result.
           shared_ptr<VideoResult::LogoResult> logoResult_ {};
           // The pornography detection result.
           shared_ptr<VideoResult::PornResult> pornResult_ {};
-          // The video review result suggestion. Valid values:
+          // The video review suggestion. Valid values:
           // 
           // - **block**: Violation.
           // - **review**: Suspected violation.
           // - **pass**: Passed.
           shared_ptr<string> suggestion_ {};
-          // The terrorism and political sensitivity review result.
+          // The terrorist and political content review result.
           shared_ptr<VideoResult::TerrorismResult> terrorismResult_ {};
         };
 
@@ -1651,26 +1650,26 @@ namespace Models
         protected:
           // The text content.
           shared_ptr<string> content_ {};
-          // The category of the review result. Valid values:
-          // - **spam**: spam.
-          // - **ad**: advertisement.
-          // - **abuse**: abuse.
-          // - **flood**: flooding.
-          // - **contraband**: prohibited content.
-          // - **meaningless**: meaningless content.
-          // - **normal**: normal.
+          // The review result category. Valid values:
+          // - **spam**: Spam content.
+          // - **ad**: Ad.
+          // - **abuse**: Abuse.
+          // - **flood**: Flooding.
+          // - **contraband**: Contraband.
+          // - **meaningless**: Meaningless.
+          // - **normal**: Normal.
           shared_ptr<string> label_ {};
           // The review scene. Fixed value: **antispam**.
           shared_ptr<string> scene_ {};
-          // The score of the image that hits the label. Value range: `[0, 100]`. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
+          // The score of the image that hits the label. Valid values: `[0, 100]`. The score indicates the probability that the image belongs to the corresponding label category. A higher score indicates higher accuracy.
           shared_ptr<string> score_ {};
-          // The review result suggestion. Valid values:
+          // The review suggestion. Valid values:
           // 
           // - **block**: Violation.
           // - **review**: Suspected violation.
           // - **pass**: Passed.
           shared_ptr<string> suggestion_ {};
-          // The text categorization. Valid values: **title** (title).
+          // The text categorization. Valid value: **title** (title).
           shared_ptr<string> type_ {};
         };
 
@@ -1757,68 +1756,68 @@ namespace Models
 
 
           protected:
-            // The category of the review result.
+            // The review result category.
             // 
-            // When scene is **porn**, valid values:
+            // When the scene is **porn**, valid values:
             // 
-            // - **porn**: pornographic content.
-            // - **sexy**: sexy content.
-            // - **normal**: normal.
+            // - **porn**: Pornographic.
+            // - **sexy**: Sexy.
+            // - **normal**: Normal.
             // 
-            // When scene is **terrorism**, valid values:
+            // When the scene is **terrorism**, valid values:
             // 
-            // - **normal**: normal.
-            // - **bloody**: bloody content.
-            // - **explosion**: explosions and smoke.
-            // - **outfit**: special outfits.
-            // - **logo**: special logos.
-            // - **weapon**: weapons.
-            // - **politics**: politically sensitive content.
-            // - **violence**: fighting.
-            // - **crowd**: crowds.
-            // - **parade**: parades.
-            // - **carcrash**: car accident scenes.
-            // - **flag**: flags.
-            // - **location**: landmarks.
-            // - **others**: others.
+            // - **normal**: Normal.
+            // - **bloody**: Bloody.
+            // - **explosion**: Explosion and smoke.
+            // - **outfit**: Special outfit.
+            // - **logo**: Special logo.
+            // - **weapon**: Weapon.
+            // - **politics**: Political content.
+            // - **violence**: Violence.
+            // - **crowd**: Crowd.
+            // - **parade**: Parade.
+            // - **carcrash**: Car crash.
+            // - **flag**: Flag.
+            // - **location**: Landmark.
+            // - **others**: Others.
             // 
-            // When scene is **ad**, valid values:
+            // When the scene is **ad**, valid values:
             // 
-            // - **normal**: normal.
-            // - **ad**: other advertisements.
-            // - **politics**: text containing politically sensitive content.
-            // - **porn**: text containing pornographic content.
-            // - **abuse**: text containing abusive content.
-            // - **terrorism**: text containing terrorist content.
-            // - **contraband**: text containing prohibited content.
-            // - **spam**: text containing other spam content.
-            // - **npx**: psoriasis advertisements.
-            // - **qrcode**: contains QR codes.
-            // - **programCode**: contains mini program codes.
+            // - **normal**: Normal.
+            // - **ad**: Other ads.
+            // - **politics**: Text containing political content.
+            // - **porn**: Text containing pornographic content.
+            // - **abuse**: Text containing abusive content.
+            // - **terrorism**: Text containing terrorist content.
+            // - **contraband**: Text containing contraband content.
+            // - **spam**: Text containing other spam content.
+            // - **npx**: Nuisance ad.
+            // - **qrcode**: QR code included.
+            // - **programCode**: Mini program code included.
             // 
-            // When scene is **live**, valid values:
-            // - **normal**: normal.
-            // - **meaningless**: no content in the image (such as a black or white screen).
+            // When the scene is **live**, valid values:
+            // - **normal**: Normal.
+            // - **meaningless**: No content in the image, such as a black or white screen.
             // - **PIP**: Picture-in-Picture (PiP).
-            // - **smoking**: smoking.
-            // - **drivelive**: in-car live streaming.
+            // - **smoking**: Smoking.
+            // - **drivelive**: In-car live streaming.
             // 
-            // When scene is **logo**, valid values:
-            // - **normal**: normal.
-            // - **TV**: contains regulated logos.
-            // - **trademark**: contains trademarks.
+            // When the scene is **logo**, valid values:
+            // - **normal**: Normal.
+            // - **TV**: Regulated logo included.
+            // - **trademark**: Trademark included.
             shared_ptr<string> label_ {};
             // The review scene. Valid values:
             // 
-            // - **porn**: pornography detection.
-            // - **terrorism**: terrorist content and political sensitivity.
-            // - **ad**: image and text violations.
-            // - **live**: undesirable scenes.
-            // - **logo**: logo in images.
+            // - **porn**: Pornography detection.
+            // - **terrorism**: Terrorist and political content detection.
+            // - **ad**: Image and text violation detection.
+            // - **live**: Undesirable scene detection.
+            // - **logo**: Image logo detection.
             shared_ptr<string> scene_ {};
-            // The score of the image that hits the label. Value range: `[0, 100]`. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
+            // The score of the image that hits the label. Valid values: `[0, 100]`. The score indicates the probability that the image belongs to the corresponding label category. A higher score indicates higher accuracy.
             shared_ptr<string> score_ {};
-            // The review result suggestion. Valid values:
+            // The review suggestion. Valid values:
             // 
             // - **block**: Violation.
             // - **review**: Suspected violation.
@@ -1866,24 +1865,24 @@ namespace Models
 
 
         protected:
-          // The category of the image review result. Multiple values are separated by commas (,). Valid values:
+          // The image review result category. Multiple values are separated by commas (,). Valid values:
           // 
-          // - **porn**: pornography.
-          // - **terrorism**: terrorist content and political sensitivity.
-          // - **ad**: image and text violations.
-          // - **live**: undesirable scenes.
-          // - **logo**: logo in images.
-          // - **normal**: normal.
+          // - **porn**: Pornographic content.
+          // - **terrorism**: Terrorist and political content.
+          // - **ad**: Image and text violation.
+          // - **live**: Undesirable scene.
+          // - **logo**: Image logo.
+          // - **normal**: Normal.
           shared_ptr<string> label_ {};
-          // The details of the image review result.
+          // The image review result details.
           shared_ptr<vector<ImageResult::Result>> result_ {};
-          // The review result suggestion. Valid values:
+          // The review suggestion. Valid values:
           // 
           // - **block**: Violation.
           // - **review**: Suspected violation.
           // - **pass**: Passed.
           shared_ptr<string> suggestion_ {};
-          // The image category. Valid values: **cover** (thumbnail).
+          // The image category. Valid value: **cover** (thumbnail).
           shared_ptr<string> type_ {};
           // The URL of the image.
           shared_ptr<string> url_ {};
@@ -1945,24 +1944,24 @@ namespace Models
 
 
         protected:
-          // The category of the review result:
+          // The review result category. Valid values:
           // 
-          // - **normal**: normal.
-          // - **spam**: spam.
-          // - **ad**: advertisement.
-          // - **politics**: politically sensitive content.
-          // - **terrorism**: terrorist content.
-          // - **abuse**: abuse.
-          // - **porn**: pornographic content.
-          // - **flood**: flooding.
-          // - **contraband**: prohibited content.
-          // - **meaningless**: meaningless content.
+          // - **normal**: Normal.
+          // - **spam**: Spam content.
+          // - **ad**: Ad.
+          // - **politics**: Political content.
+          // - **terrorism**: Terrorist content.
+          // - **abuse**: Abuse.
+          // - **porn**: Pornographic content.
+          // - **flood**: Flooding.
+          // - **contraband**: Contraband.
+          // - **meaningless**: Meaningless.
           shared_ptr<string> label_ {};
           // The review scene. Fixed value: **antispam**.
           shared_ptr<string> scene_ {};
           // The result score.
           shared_ptr<string> score_ {};
-          // The review result suggestion. Valid values:
+          // The review suggestion. Valid values:
           // 
           // - **block**: Violation.
           // - **review**: Suspected violation.
@@ -2031,35 +2030,35 @@ namespace Models
 
 
       protected:
-        // The content that violates the moderation rules. Multiple values are separated by commas (,). Valid values:
+        // The reviewed content that contains violations. Multiple values are separated by commas (,). Valid values:
         // 
-        // - **video**: video.
-        // - **image-cover**: thumbnail.
-        // - **text-title**: title.
+        // - **video**: Video.
+        // - **image-cover**: Thumbnail.
+        // - **text-title**: Title.
         shared_ptr<string> abnormalModules_ {};
-        // The audio review results.
+        // The audio review result.
         shared_ptr<vector<Data::AudioResult>> audioResult_ {};
-        // The image review results.
+        // The image review result.
         shared_ptr<vector<Data::ImageResult>> imageResult_ {};
-        // The category of the review result. Multiple values are separated by commas (,). Valid values:
+        // The review result category. Multiple values are separated by commas (,). Valid values:
         // 
-        // - **porn**: pornography.
-        // - **terrorism**: terrorist content and political sensitivity.
-        // - **ad**: image and text violations.
-        // - **live**: undesirable scenes.
-        // - **logo**: logo in images.
-        // - **audio**: audio anti-spam.
-        // - **normal**: normal.
+        // - **porn**: Pornographic content.
+        // - **terrorism**: Terrorist and political content.
+        // - **ad**: Image and text violation.
+        // - **live**: Undesirable scene.
+        // - **logo**: Image logo.
+        // - **audio**: Audio anti-spam.
+        // - **normal**: Normal.
         shared_ptr<string> label_ {};
-        // The review result suggestion. Valid values:
+        // The review suggestion. Valid values:
         // 
         // - **block**: Violation.
         // - **review**: Suspected violation.
         // - **pass**: Passed.
         shared_ptr<string> suggestion_ {};
-        // The text review results.
+        // The text review result.
         shared_ptr<vector<Data::TextResult>> textResult_ {};
-        // The video review results.
+        // The video review result.
         shared_ptr<Data::VideoResult> videoResult_ {};
       };
 
@@ -2132,11 +2131,11 @@ namespace Models
 
 
     protected:
-      // The error code of the job. This field is relevant when Status is fail.
+      // The job error code. Check this field when the job status is fail.
       shared_ptr<string> code_ {};
-      // The time when the job ended. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The end time of the job. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> completeTime_ {};
-      // The time when the job started. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The start time of the job. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> creationTime_ {};
       // The job result data.
       shared_ptr<MediaAuditJob::Data> data_ {};
@@ -2144,16 +2143,16 @@ namespace Models
       shared_ptr<string> jobId_ {};
       // The video ID.
       shared_ptr<string> mediaId_ {};
-      // The error message of the job. This field is relevant when Status is fail.
+      // The job error message. Check this field when the job status is fail.
       shared_ptr<string> message_ {};
       // The job status. Valid values:
       // 
-      // - **success**: The job is successful.
-      // - **fail**: The job failed.
-      // - **init**: The job is being initialized.
-      // - **processing**: The job is in progress.
+      // - **success**: Succeeded.
+      // - **fail**: Failed.
+      // - **init**: Initialized.
+      // - **processing**: Processing.
       shared_ptr<string> status_ {};
-      // The job type. Only "automated review" is supported.
+      // The job type. Currently, only automated review is supported.
       shared_ptr<string> type_ {};
     };
 

@@ -124,25 +124,25 @@ namespace Models
 
 
     protected:
-      // The time when the AI template was created. The time is displayed in ISO 8601 format in UTC. The format is <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z.
+      // The creation time of the AI template. The time is displayed in UTC and follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format.
       shared_ptr<string> creationTime_ {};
-      // Indicates whether the template is the default AI template. Valid values:
-      // - **Default**: The template is the default AI template.
-      // - **NotDefault**: The template is not the default AI template.
+      // Indicates whether the AI template is the default template. Valid values:
+      // - **Default**: Yes.
+      // - **NotDefault**: No.
       shared_ptr<string> isDefault_ {};
-      // The time when the AI template was last modified. The time is displayed in ISO 8601 format in UTC. The format is <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z.
+      // The modification time of the AI template. The time is displayed in UTC and follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format.
       shared_ptr<string> modifyTime_ {};
       // The source of the AI template. Valid values:
-      // - **System**: system.
-      // - **Custom**: custom.
+      // - **System**: System.
+      // - **Custom**: Custom.
       shared_ptr<string> source_ {};
-      // The detailed configuration of the AI template. The value is a JSON string. For more information, see [AITemplateConfig](~~89863#title-vd3-499-o36~~).
+      // The detailed configuration of the AI template, which is a JSON string. For more information about the configuration, see [AITemplateConfig](~~89863#title-vd3-499-o36~~).
       shared_ptr<string> templateConfig_ {};
       // The ID of the AI template.
       shared_ptr<string> templateId_ {};
       // The name of the AI template.
       shared_ptr<string> templateName_ {};
-      // The AI templatetype. Set the value to **AIMediaAudit** (automated review).
+      // The AI templatetype. Fixed value: **AIMediaAudit** (automated review).
       shared_ptr<string> templateType_ {};
     };
 

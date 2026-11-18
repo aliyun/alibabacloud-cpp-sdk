@@ -97,26 +97,26 @@ namespace Models
     // The accelerated domain name to query.
     // 
     // - If you do not specify this parameter, the pooled data of all accelerated domain names is returned by default.
-    // - Batch queries are supported. Separate multiple domain names with commas (,). You can specify up to 500 domain names at a time.
-    // - You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com), and choose **Configuration Management > CDN Configuration > Domain Names** in the left-side navigation pane to view the accelerated domain names that you have added to ApsaraVideo VOD. You can also invoke the [DescribeVodUserDomains](~~DescribeVodUserDomains~~) operation to query the list of accelerated domain names.
+    // - Batch queries are supported. Separate multiple domain names with commas (,). You can query up to 500 domain names at a time.
+    // - You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Configuration Management > Distribution Acceleration Configuration > Domain Management** in the left-side navigation pane to view the accelerated domain names added to ApsaraVideo VOD, or call the [DescribeVodUserDomains](~~DescribeVodUserDomains~~) operation to query the list of accelerated domain names.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query.
+    // The end time of the data to retrieve.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // > The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
-    // The time granularity of the data. Unit: seconds. Valid values: **300**, **3600**, and **86400**. If you do not specify this parameter or specify an unsupported value, the default value is used. The supported time granularity varies based on the time span specified by `StartTime` and `EndTime`:
+    // The time granularity of the data to query. Unit: seconds. Valid values: **300**, **3600**, and **86400**. If you do not specify this parameter or specify an unsupported value, the default value is used. Based on the time range specified by StartTime and EndTime, the supported time granularities are as follows:
     // 
-    // - Less than 3 days (excluding exactly 3 days): **300** (default), **3600**, and **86400**.
-    // - 3 to 31 days (excluding exactly 31 days): **3600** (default) and **86400**.
-    // - 31 days or more: **86400** (default).
+    // - Less than 3 days: **300** (default), **3600**, and **86400**.
+    // - 3 to 31 days (excluding 31 days): **3600** (default) and **86400**.
+    // - More than 31 days: **86400** (default).
     shared_ptr<string> interval_ {};
-    // The name of the Internet service provider (ISP) in English. If you do not specify this parameter, data of all ISPs is queried by default.
+    // The English name of the Internet service provider (ISP). If you do not specify this parameter, all ISPs are queried by default.
     shared_ptr<string> ispNameEn_ {};
-    // The name of the region in English. If you do not specify this parameter, data of all regions is queried by default. Currently, only the Shanghai region is supported.
+    // The English name of the region. If you do not specify this parameter, all regions are queried by default. Currently, only the Shanghai region is supported.
     shared_ptr<string> locationNameEn_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time of the data to retrieve. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

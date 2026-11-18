@@ -136,12 +136,12 @@ namespace Models
 
 
     protected:
-      // The thumbnail URL of the audio or video file.
-      // > To obtain the thumbnail URL in real time after uploading a video, configure ApsaraVideo VOD callbacks. For more information, refer to [HTTP callback](https://help.aliyun.com/document_detail/67214.html) and [SnapshotComplete event](https://help.aliyun.com/document_detail/57337.html).
+      // The URL of the audio or video thumbnail.
+      // > If you need to obtain the thumbnail URL in real time after a video is uploaded, you can configure VOD callbacks. For more information, refer to [HTTP callbacks](https://help.aliyun.com/document_detail/67214.html) and [Snapshot completion event](https://help.aliyun.com/document_detail/57337.html).
       shared_ptr<string> coverURL_ {};
-      // The time when the audio or video file was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+      // The time when the audio or video file was created. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
-      // The URL of the China-accessible bullet screen mask data.
+      // The URL of the live comment mask data.
       shared_ptr<string> danMuURL_ {};
       // The duration of the audio or video file. Unit: seconds.
       shared_ptr<string> duration_ {};
@@ -150,23 +150,23 @@ namespace Models
       // - **video**: video.
       // - **audio**: audio-only.
       shared_ptr<string> mediaType_ {};
-      // The status of the audio or video file. For valid values and descriptions, refer to [Status: audio and video status](~~52839#title-vqg-8cz-7p8~~).
+      // The status of the audio or video file. For more information about the valid values and descriptions, refer to [Status: Audio and video status](~~52839#title-vqg-8cz-7p8~~).
       shared_ptr<string> status_ {};
       // The storage class of the media asset. Valid values:
       // 
-      // - **Standard**: standard.
-      // - **IA**: media asset infrequent access.
-      // - **Archive**: media asset archive.
-      // - **ColdArchive**: media asset cold archive.
-      // - **SourceIA**: source file infrequent access.
-      // - **SourceArchive**: source file archive.
-      // - **SourceColdArchive**: source file cold archive.
-      // - **Changing**: media asset storage class is being changed.
-      // - **SourceChanging**: source file storage class is being changed.
+      // - **Standard**: Standard.
+      // - **IA**: Infrequent Access.
+      // - **Archive**: Archive.
+      // - **ColdArchive**: Cold Archive.
+      // - **SourceIA**: Infrequent Access for mezzanine files.
+      // - **SourceArchive**: Archive for mezzanine files.
+      // - **SourceColdArchive**: Cold Archive for mezzanine files.
+      // - **Changing**: The storage class of the media asset is being changed.
+      // - **SourceChanging**: The storage class of the mezzanine file is being changed.
       shared_ptr<string> storageClass_ {};
       // The title of the audio or video file.
       shared_ptr<string> title_ {};
-      // The audio or video ID.
+      // The ID of the audio or video file.
       shared_ptr<string> videoId_ {};
     };
 

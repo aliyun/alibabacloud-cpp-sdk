@@ -162,18 +162,18 @@ namespace Models
 
 
   protected:
-    // The time interval between data entries, which is the time granularity of the data. Unit: seconds.
+    // The time interval of each data entry, which indicates the time granularity of the data. Unit: seconds.
     // 
-    // Based on the time range per query, this parameter returns a fixed value of 60 (1 minute), 300 (5 minutes), or 3600 (1 hour). For more information, see **Time granularity of returned data** in the **operation description**.
+    // The value of this parameter is fixed to 60 (1 minute), 300 (5 minutes), or 3600 (1 hour) based on the time range of a single query. For more information, see the **Time granularity of returned data** section in the **Operation description**.
     shared_ptr<string> dataInterval_ {};
     // The accelerated domain name.
     shared_ptr<string> domainName_ {};
-    // The end of the time range for the returned data.
+    // The end time of the data. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeVodDomainRealTimeTrafficDataResponseBody::RealTimeTrafficDataPerInterval> realTimeTrafficDataPerInterval_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range for the returned data.
+    // The start time of the data. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
     shared_ptr<string> startTime_ {};
   };
 

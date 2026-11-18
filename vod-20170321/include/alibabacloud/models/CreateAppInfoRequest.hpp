@@ -58,14 +58,14 @@ namespace Models
 
   protected:
     // The application name. The name must be unique.
-    // - The name can be up to 128 characters in length and can contain Chinese characters, letters, digits, periods (.), hyphens (-), and at signs (@).
-    // - UTF-8 encoding.
+    // - The name can be up to 128 characters in length and can contain only Chinese characters, uppercase and lowercase letters, digits, periods (.), hyphens (-), and at signs (@).
+    // - The name must be encoded in UTF-8.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
     // The application description.
     // - The description can be up to 512 characters in length.
-    // - UTF-8 encoding.
+    // - The description must be encoded in UTF-8.
     shared_ptr<string> description_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};

@@ -134,9 +134,9 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message returned when transcoding fails.
     shared_ptr<string> errorMessage_ {};
-    // The time when the task was completed. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
+    // The time when the task was completed. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> finishTimeUtc_ {};
-    // The time when the task was created. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
+    // The time when the task was created. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> gmtCreateUtc_ {};
     // The node results of the workflow task. The value is in JSON format and varies based on the workflow configuration.
     shared_ptr<string> nodeResults_ {};
@@ -144,7 +144,7 @@ namespace Models
     shared_ptr<string> outputs_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The result of this review. This indicates the current manual review result. Valid values:
+    // The review result. Indicates the current manual review result. Valid values:
     // - **running**: Running.
     // - **stopped**: Stopped.
     // - **failed**: Failed.
@@ -155,7 +155,7 @@ namespace Models
     shared_ptr<string> taskId_ {};
     // The custom information.
     shared_ptr<string> userData_ {};
-    // The workflow ID. You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Configuration Management** > **Media Processing** > **Workflow Management** to view the ID.
+    // The workflow ID. You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Configuration management** > **Media processing configuration** > **Workflow management** to view the ID.
     shared_ptr<string> workflowId_ {};
   };
 

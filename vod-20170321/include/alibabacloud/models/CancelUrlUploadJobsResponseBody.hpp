@@ -62,7 +62,7 @@ namespace Models
 
 
   protected:
-    // The list of tasks that were successfully canceled.
+    // The list of successfully canceled tasks.
     shared_ptr<vector<string>> canceledJobs_ {};
     // The list of tasks that do not exist.
     shared_ptr<vector<string>> nonExists_ {};

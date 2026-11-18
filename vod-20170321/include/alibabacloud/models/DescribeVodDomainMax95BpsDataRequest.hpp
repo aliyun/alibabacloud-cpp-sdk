@@ -86,24 +86,24 @@ namespace Models
   protected:
     // The cycle for the 95th percentile bandwidth. Default value: day. Valid values:
     // 
-    // - day: queries the 95th percentile bandwidth by day.
+    // - day: Queries the 95th percentile bandwidth by day.
     // 
-    // - month: queries the 95th percentile bandwidth by month.
+    // - month: Queries the 95th percentile bandwidth by month.
     shared_ptr<string> cycle_ {};
-    // The accelerated domain name to query. If this parameter is left empty, the merged data of all accelerated domain names is returned by default.
+    // The accelerated domain name to query. If this parameter is left empty, the aggregated data of all accelerated domain names is returned by default.
     // 
     // 
-    // > Batch domain name queries are not supported.
+    // > Batch query for domain names is not supported.
     shared_ptr<string> domainName_ {};
-    // The end time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // 
     // > The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The start time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
-    // The start time point for data retrieval. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time of the data. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> timePoint_ {};
   };
 

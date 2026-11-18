@@ -126,15 +126,15 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> appId_ {};
-      // The time when the watermark template was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The creation time of the watermark template. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format and is in UTC.
       shared_ptr<string> creationTime_ {};
-      // The URL of the watermark file (OSS URL or CDN URL).
+      // The URL of the watermark file, which is an OSS URL or a CDN URL.
       // > This parameter is returned only for image watermark templates.
       shared_ptr<string> fileUrl_ {};
-      // Indicates whether the watermark template is the default template. Valid values:
+      // Specifies whether the watermark template is the default image or text watermark template. Valid values:
       // 
-      // - **Default**: the default watermark template.
-      // - **NotDefault**: not the default watermark template.
+      // - **Default**: default image or text watermark template.
+      // - **NotDefault**: non-default image or text watermark template.
       shared_ptr<string> isDefault_ {};
       // The name of the watermark template.
       shared_ptr<string> name_ {};
@@ -142,9 +142,9 @@ namespace Models
       // - **Image**: image watermark template.
       // - **Text**: text watermark template.
       shared_ptr<string> type_ {};
-      // The configuration information of the watermark (JSON string), including the display position and effect of the watermark. The configuration parameters differ between image watermarks and text watermarks. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
+      // The configuration information of the image or text watermark in JSON string format, including the display position and effect of the watermark. The configuration parameters for image watermarks and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
       shared_ptr<string> watermarkConfig_ {};
-      // The watermark template ID.
+      // The ID of the watermark template.
       shared_ptr<string> watermarkId_ {};
     };
 
@@ -169,7 +169,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The watermark template information.
+    // The image or text watermark template information.
     shared_ptr<GetWatermarkResponseBody::WatermarkInfo> watermarkInfo_ {};
   };
 

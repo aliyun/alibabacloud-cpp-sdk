@@ -154,9 +154,9 @@ namespace Models
 
 
     protected:
-      // The completion time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The completion time. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> completeTime_ {};
-      // The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The creation time. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
       // The error code.
       shared_ptr<string> errorCode_ {};
@@ -168,10 +168,11 @@ namespace Models
       shared_ptr<string> jobId_ {};
       // The media ID.
       shared_ptr<string> mediaId_ {};
+      // The registered media asset ID.
       shared_ptr<string> registeredMediaId_ {};
-      // The status of the URL-based upload task. For more information about the status values and descriptions, see [Status](https://help.aliyun.com/document_detail/52839.html).
+      // The status of the URL pull task. For more information about the specific values and descriptions of the pull status, see [Status: URL upload task status](https://help.aliyun.com/document_detail/52839.html).
       shared_ptr<string> status_ {};
-      // The URL of the source video file.
+      // The URL of the video source file to upload.
       // 
       // > A maximum of 100 records can be returned.
       shared_ptr<string> uploadURL_ {};
@@ -207,11 +208,11 @@ namespace Models
 
 
   protected:
-    // The list of upload task IDs or URLs that do not exist.
+    // The list of URL upload task IDs or URLs that do not exist.
     shared_ptr<vector<string>> nonExists_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of URL upload information. For more information about the fields and descriptions, see [URLUploadInfo](https://help.aliyun.com/document_detail/52839.html).
+    // The list of URL upload information. For more information about the specific upload names and descriptions, see [URLUploadInfo: URL upload information](https://help.aliyun.com/document_detail/52839.html).
     shared_ptr<vector<GetURLUploadInfosResponseBody::URLUploadInfoList>> URLUploadInfoList_ {};
   };
 

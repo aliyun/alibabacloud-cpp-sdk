@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The VOD acceleration domain name.
+    // The name of the ApsaraVideo VOD accelerated domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};

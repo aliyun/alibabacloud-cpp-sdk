@@ -94,10 +94,10 @@ namespace Models
 
 
   protected:
-    // The type of watermark extraction. Valid values:
+    // The type of the watermark to extract. Valid values:
     // 
-    // - **TraceMark**: tracing watermark.
-    // - **CopyrightMark**: copyright watermark.
+    // - **TraceMark**: tracing watermark
+    // - **CopyrightMark**: copyright watermark
     // 
     // This parameter is required.
     shared_ptr<string> extractType_ {};
@@ -105,9 +105,9 @@ namespace Models
     // - The job ID is returned after you call the [SubmitDigitalWatermarkExtractJob](~~SubmitDigitalWatermarkExtractJob~~) operation.
     // - If you specify this parameter, the result of the specified watermark extraction job is returned. If you do not specify this parameter, the results of all historical watermark extraction jobs for the video are returned.
     shared_ptr<string> jobId_ {};
-    // The ID of the video to query. Only a single video ID is supported. You can obtain the video ID by using the following methods:
-    // - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Media Files** > **Audio/Video** to view the video ID.
-    // - Call the [SearchMedia](~~SearchMedia~~) operation. The video ID (VideoId) is returned in the response.
+    // The ID of the video to query. You can specify only one video ID. You can obtain the video ID by using one of the following methods:
+    // - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Media Assets** > **Audio/Video** to view the video ID.
+    // - Call the [SearchMedia](~~SearchMedia~~) operation. The video ID is returned in the VideoId parameter.
     // 
     // This parameter is required.
     shared_ptr<string> mediaId_ {};

@@ -46,10 +46,10 @@ namespace Vod20170321
       Models::AddAITemplateResponse addAITemplate(const Models::AddAITemplateRequest &request);
 
       /**
-       * @summary Creates a category to classify audio, video, image, and short video materials stored in ApsaraVideo VOD, making resource discovery and management more efficient.
+       * @summary Creates a category to classify audio, video, image, and short video materials stored in ApsaraVideo VOD, making resource search and management more efficient.
        *
-       * @description - Audio/video/image categories (`Type` set to `default`) support up to three levels, with a maximum of 100 subcategories per level. Short video material categories (`Type` set to `material`) support up to two levels, with a maximum of 100 subcategories per level.
-       * - After creating a category, you can assign it to media assets during upload or to already uploaded media assets. For more information, see [Media asset categories](https://help.aliyun.com/document_detail/86070.html).
+       * @description - Audio and video/image categories (`Type` set to `default`) support up to three levels of categories, with a maximum of 100 subcategories per level. Short video material categories (`Type` set to `material`) support up to two levels of categories, with a maximum of 100 subcategories per level.
+       * - After creating a category, you can classify media assets during or after upload. For more information, see [Media asset categories](https://help.aliyun.com/document_detail/86070.html).
        *
        * @param request AddCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -58,10 +58,10 @@ namespace Vod20170321
       Models::AddCategoryResponse addCategoryWithOptions(const Models::AddCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a category to classify audio, video, image, and short video materials stored in ApsaraVideo VOD, making resource discovery and management more efficient.
+       * @summary Creates a category to classify audio, video, image, and short video materials stored in ApsaraVideo VOD, making resource search and management more efficient.
        *
-       * @description - Audio/video/image categories (`Type` set to `default`) support up to three levels, with a maximum of 100 subcategories per level. Short video material categories (`Type` set to `material`) support up to two levels, with a maximum of 100 subcategories per level.
-       * - After creating a category, you can assign it to media assets during upload or to already uploaded media assets. For more information, see [Media asset categories](https://help.aliyun.com/document_detail/86070.html).
+       * @description - Audio and video/image categories (`Type` set to `default`) support up to three levels of categories, with a maximum of 100 subcategories per level. Short video material categories (`Type` set to `material`) support up to two levels of categories, with a maximum of 100 subcategories per level.
+       * - After creating a category, you can classify media assets during or after upload. For more information, see [Media asset categories](https://help.aliyun.com/document_detail/86070.html).
        *
        * @param request AddCategoryRequest
        * @return AddCategoryResponse
@@ -90,7 +90,7 @@ namespace Vod20170321
       Models::AddEditingProjectResponse addEditingProject(const Models::AddEditingProjectRequest &request);
 
       /**
-       * @summary Adds one or more materials to an online editing project.
+       * @summary Adds one or more media assets to an online editing project.
        *
        * @param request AddEditingProjectMaterialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -99,7 +99,7 @@ namespace Vod20170321
       Models::AddEditingProjectMaterialsResponse addEditingProjectMaterialsWithOptions(const Models::AddEditingProjectMaterialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds one or more materials to an online editing project.
+       * @summary Adds one or more media assets to an online editing project.
        *
        * @param request AddEditingProjectMaterialsRequest
        * @return AddEditingProjectMaterialsResponse
@@ -144,11 +144,12 @@ namespace Vod20170321
       Models::AddTranscodeTemplateGroupResponse addTranscodeTemplateGroup(const Models::AddTranscodeTemplateGroupRequest &request);
 
       /**
-       * @summary Adds a domain name for CDN acceleration in ApsaraVideo VOD.
+       * @summary Adds an accelerated domain name for ApsaraVideo VOD.
        *
-       * @description - Currently, the only supported service address is **China (Shanghai)**.
-       * - Before creating an accelerated domain name, you must activate [ApsaraVideo VOD](https://help.aliyun.com/document_detail/51512.html), and the accelerated domain name must have a completed ICP filing. 
-       * - Origin content that is not hosted on Alibaba Cloud requires review, which will be completed before the next business day.
+       * @description - Currently, the service endpoint supports only **China (Shanghai)**.
+       * - Before you create an accelerated domain name, you must activate [ApsaraVideo VOD](https://help.aliyun.com/document_detail/51512.html) and complete the ICP filing for the accelerated domain name. 
+       * - When you add a new domain name for the first time, you must verify the ownership of the domain name. To verify the ownership by using DNS records, call the DescribeVodVerifyContent operation to obtain the record value, add a TXT record in the DNS settings of the domain name, and wait for the DNS record to take effect. Then, call this operation to add the domain name. You can also verify the ownership by using a verification file. For more information, see the domain name ownership verification documentation.
+       * - Origin server content. If the content is not hosted on Alibaba Cloud, it must be reviewed. The review will be completed by the next business day.
        * - You can submit only one accelerated domain name at a time. Each user can add up to 20 domain names.
        *
        * @param request AddVodDomainRequest
@@ -158,11 +159,12 @@ namespace Vod20170321
       Models::AddVodDomainResponse addVodDomainWithOptions(const Models::AddVodDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a domain name for CDN acceleration in ApsaraVideo VOD.
+       * @summary Adds an accelerated domain name for ApsaraVideo VOD.
        *
-       * @description - Currently, the only supported service address is **China (Shanghai)**.
-       * - Before creating an accelerated domain name, you must activate [ApsaraVideo VOD](https://help.aliyun.com/document_detail/51512.html), and the accelerated domain name must have a completed ICP filing. 
-       * - Origin content that is not hosted on Alibaba Cloud requires review, which will be completed before the next business day.
+       * @description - Currently, the service endpoint supports only **China (Shanghai)**.
+       * - Before you create an accelerated domain name, you must activate [ApsaraVideo VOD](https://help.aliyun.com/document_detail/51512.html) and complete the ICP filing for the accelerated domain name. 
+       * - When you add a new domain name for the first time, you must verify the ownership of the domain name. To verify the ownership by using DNS records, call the DescribeVodVerifyContent operation to obtain the record value, add a TXT record in the DNS settings of the domain name, and wait for the DNS record to take effect. Then, call this operation to add the domain name. You can also verify the ownership by using a verification file. For more information, see the domain name ownership verification documentation.
+       * - Origin server content. If the content is not hosted on Alibaba Cloud, it must be reviewed. The review will be completed by the next business day.
        * - You can submit only one accelerated domain name at a time. Each user can add up to 20 domain names.
        *
        * @param request AddVodDomainRequest
@@ -171,11 +173,11 @@ namespace Vod20170321
       Models::AddVodDomainResponse addVodDomain(const Models::AddVodDomainRequest &request);
 
       /**
-       * @summary Binds a storage bucket to a sub-application of ApsaraVideo VOD.
+       * @summary Associates a storage bucket with a sub-application of ApsaraVideo VOD.
        *
-       * @description Calls AddVodStorageForApp to enable a VOD system bucket for an ApsaraVideo VOD sub-application.
-       *  <notice>Each sub-application can have at most one VOD system bucket enabled. If you specify an AppId that does not exist or an AppId that already has a VOD system bucket enabled, an error is returned.</notice>
-       * <notice>To call this operation, the caller must have application administrator permissions (VODAppAdministratorAccess). The Alibaba Cloud account has application administrator permissions by default. An application administrator can call AttachAppPolicyToIdentity to grant application permissions to a RAM user or role.</notice>
+       * @description Calls AddVodStorageForApp to enable a VOD system bucket for a sub-application of ApsaraVideo VOD.
+       * <notice>Each sub-application can have at most one VOD system bucket enabled. If the specified AppId does not exist or already has a VOD system bucket enabled, the request fails.</notice>
+       * <notice>To call this operation, the caller must have the application administrator permissions (VODAppAdministratorAccess). An Alibaba Cloud account has these permissions by default. An application administrator can call AttachAppPolicyToIdentity to grant application permissions to a RAM user or role.</notice>
        *
        * @param request AddVodStorageForAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -184,11 +186,11 @@ namespace Vod20170321
       Models::AddVodStorageForAppResponse addVodStorageForAppWithOptions(const Models::AddVodStorageForAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a storage bucket to a sub-application of ApsaraVideo VOD.
+       * @summary Associates a storage bucket with a sub-application of ApsaraVideo VOD.
        *
-       * @description Calls AddVodStorageForApp to enable a VOD system bucket for an ApsaraVideo VOD sub-application.
-       *  <notice>Each sub-application can have at most one VOD system bucket enabled. If you specify an AppId that does not exist or an AppId that already has a VOD system bucket enabled, an error is returned.</notice>
-       * <notice>To call this operation, the caller must have application administrator permissions (VODAppAdministratorAccess). The Alibaba Cloud account has application administrator permissions by default. An application administrator can call AttachAppPolicyToIdentity to grant application permissions to a RAM user or role.</notice>
+       * @description Calls AddVodStorageForApp to enable a VOD system bucket for a sub-application of ApsaraVideo VOD.
+       * <notice>Each sub-application can have at most one VOD system bucket enabled. If the specified AppId does not exist or already has a VOD system bucket enabled, the request fails.</notice>
+       * <notice>To call this operation, the caller must have the application administrator permissions (VODAppAdministratorAccess). An Alibaba Cloud account has these permissions by default. An application administrator can call AttachAppPolicyToIdentity to grant application permissions to a RAM user or role.</notice>
        *
        * @param request AddVodStorageForAppRequest
        * @return AddVodStorageForAppResponse
@@ -196,10 +198,10 @@ namespace Vod20170321
       Models::AddVodStorageForAppResponse addVodStorageForApp(const Models::AddVodStorageForAppRequest &request);
 
       /**
-       * @summary Adds a snapshot or animated image template.
+       * @summary Creates a snapshot or animated image template.
        *
-       * @description - After adding a template, you can pass the snapshot or animated image template ID through the [SubmitSnapshotJob](~~SubmitSnapshotJob~~) or [SubmitDynamicImageJob](~~SubmitDynamicImageJob~~) operation to initiate a snapshot or animated image job.
-       * - You can receive [video snapshot completed](https://help.aliyun.com/document_detail/57337.html) and [video animated image completed](https://help.aliyun.com/document_detail/143490.html) callback messages through HTTP callbacks (compatible with HTTPS) or MNS callbacks. For more information, see [Callback methods](https://help.aliyun.com/document_detail/55627.html).
+       * @description - After you create a template, you can pass the ID of the snapshot or animated image template to the [SubmitSnapshotJob](~~SubmitSnapshotJob~~) or [SubmitDynamicImageJob](~~SubmitDynamicImageJob~~) operation to initiate a snapshot or animated image job.
+       * - You can receive [video snapshot completion](https://help.aliyun.com/document_detail/57337.html) and [video animated image completion](https://help.aliyun.com/document_detail/143490.html) callback messages by using HTTP callbacks (HTTPS-compatible) or MNS callbacks. For more information, see [Callback methods](https://help.aliyun.com/document_detail/55627.html).
        *
        * @param request AddVodTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -208,10 +210,10 @@ namespace Vod20170321
       Models::AddVodTemplateResponse addVodTemplateWithOptions(const Models::AddVodTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a snapshot or animated image template.
+       * @summary Creates a snapshot or animated image template.
        *
-       * @description - After adding a template, you can pass the snapshot or animated image template ID through the [SubmitSnapshotJob](~~SubmitSnapshotJob~~) or [SubmitDynamicImageJob](~~SubmitDynamicImageJob~~) operation to initiate a snapshot or animated image job.
-       * - You can receive [video snapshot completed](https://help.aliyun.com/document_detail/57337.html) and [video animated image completed](https://help.aliyun.com/document_detail/143490.html) callback messages through HTTP callbacks (compatible with HTTPS) or MNS callbacks. For more information, see [Callback methods](https://help.aliyun.com/document_detail/55627.html).
+       * @description - After you create a template, you can pass the ID of the snapshot or animated image template to the [SubmitSnapshotJob](~~SubmitSnapshotJob~~) or [SubmitDynamicImageJob](~~SubmitDynamicImageJob~~) operation to initiate a snapshot or animated image job.
+       * - You can receive [video snapshot completion](https://help.aliyun.com/document_detail/57337.html) and [video animated image completion](https://help.aliyun.com/document_detail/143490.html) callback messages by using HTTP callbacks (HTTPS-compatible) or MNS callbacks. For more information, see [Callback methods](https://help.aliyun.com/document_detail/55627.html).
        *
        * @param request AddVodTemplateRequest
        * @return AddVodTemplateResponse
@@ -219,11 +221,11 @@ namespace Vod20170321
       Models::AddVodTemplateResponse addVodTemplate(const Models::AddVodTemplateRequest &request);
 
       /**
-       * @summary To simplify watermark task processing, ApsaraVideo VOD consolidates complex watermark parameters such as position, size, font, and color into templates, each identified by a unique watermark template ID. Calls this operation to add an image or text watermark template.
+       * @summary Adds an image or text watermark template. To simplify watermark processing, ApsaraVideo VOD consolidates complex watermark parameters, such as position, size, font, and color, into templates identified by unique watermark template IDs.
        *
-       * @description - Call this operation to add an image watermark template (`Image`) or a text watermark template (`Text`). Image watermark templates support the following formats: static images (PNG) and animated images (GIF, APNG, MOV).
-       * - After adding a watermark template by calling this operation, call [AddTranscodeTemplateGroup](~~AddTranscodeTemplateGroup~~) or [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) to associate the watermark template with a transcoding template group for subsequent watermark transcoding.
-       * - For more information about adding image and text watermarks to videos, see [Video watermarks](https://help.aliyun.com/document_detail/99369.html).
+       * @description - You can call this operation to add an image watermark template (`Image`) or a text watermark template (`Text`). Image watermark templates support the following formats: static images (PNG) and animated images (GIF, APNG, and MOV).
+       * - After you add an image or text watermark template, you must call the [AddTranscodeTemplateGroup](~~AddTranscodeTemplateGroup~~) or [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to associate the watermark template with a transcoding template group for subsequent watermark transcoding.
+       * - For more information about adding image and text watermarks to videos, see [Image and text watermarks](https://help.aliyun.com/document_detail/99369.html).
        *
        * @param request AddWatermarkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -232,11 +234,11 @@ namespace Vod20170321
       Models::AddWatermarkResponse addWatermarkWithOptions(const Models::AddWatermarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary To simplify watermark task processing, ApsaraVideo VOD consolidates complex watermark parameters such as position, size, font, and color into templates, each identified by a unique watermark template ID. Calls this operation to add an image or text watermark template.
+       * @summary Adds an image or text watermark template. To simplify watermark processing, ApsaraVideo VOD consolidates complex watermark parameters, such as position, size, font, and color, into templates identified by unique watermark template IDs.
        *
-       * @description - Call this operation to add an image watermark template (`Image`) or a text watermark template (`Text`). Image watermark templates support the following formats: static images (PNG) and animated images (GIF, APNG, MOV).
-       * - After adding a watermark template by calling this operation, call [AddTranscodeTemplateGroup](~~AddTranscodeTemplateGroup~~) or [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) to associate the watermark template with a transcoding template group for subsequent watermark transcoding.
-       * - For more information about adding image and text watermarks to videos, see [Video watermarks](https://help.aliyun.com/document_detail/99369.html).
+       * @description - You can call this operation to add an image watermark template (`Image`) or a text watermark template (`Text`). Image watermark templates support the following formats: static images (PNG) and animated images (GIF, APNG, and MOV).
+       * - After you add an image or text watermark template, you must call the [AddTranscodeTemplateGroup](~~AddTranscodeTemplateGroup~~) or [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to associate the watermark template with a transcoding template group for subsequent watermark transcoding.
+       * - For more information about adding image and text watermarks to videos, see [Image and text watermarks](https://help.aliyun.com/document_detail/99369.html).
        *
        * @param request AddWatermarkRequest
        * @return AddWatermarkResponse
@@ -244,10 +246,10 @@ namespace Vod20170321
       Models::AddWatermarkResponse addWatermark(const Models::AddWatermarkRequest &request);
 
       /**
-       * @summary Invokes this operation to attach access permissions of an ApsaraVideo VOD application to a specified identity (Resource Access Management (RAM) user or RAM role).
+       * @summary Invokes this operation to grant access permissions for ApsaraVideo VOD applications to a specified identity, such as a Resource Access Management (RAM) user or a RAM role.
        *
-       * @description >Notice:  Each Resource Access Management (RAM) user or RAM role can be granted permissions on up to 10 applications.
-       * >Notice: You must have application administrator permissions to invoke this operation. For the first invocation, use your Alibaba Cloud account.
+       * @description >Notice:  You can grant a maximum of 10 application permissions to each Resource Access Management (RAM) user or RAM role.
+       * >Notice:  You must have application administrator permissions to invoke this operation. We recommend that you use your Alibaba Cloud account to invoke this operation for the first time.
        * - If the policy name is VODAppAdministratorAccess, AppId is optional. For other policies, AppId is required.
        *
        * @param request AttachAppPolicyToIdentityRequest
@@ -257,10 +259,10 @@ namespace Vod20170321
       Models::AttachAppPolicyToIdentityResponse attachAppPolicyToIdentityWithOptions(const Models::AttachAppPolicyToIdentityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes this operation to attach access permissions of an ApsaraVideo VOD application to a specified identity (Resource Access Management (RAM) user or RAM role).
+       * @summary Invokes this operation to grant access permissions for ApsaraVideo VOD applications to a specified identity, such as a Resource Access Management (RAM) user or a RAM role.
        *
-       * @description >Notice:  Each Resource Access Management (RAM) user or RAM role can be granted permissions on up to 10 applications.
-       * >Notice: You must have application administrator permissions to invoke this operation. For the first invocation, use your Alibaba Cloud account.
+       * @description >Notice:  You can grant a maximum of 10 application permissions to each Resource Access Management (RAM) user or RAM role.
+       * >Notice:  You must have application administrator permissions to invoke this operation. We recommend that you use your Alibaba Cloud account to invoke this operation for the first time.
        * - If the policy name is VODAppAdministratorAccess, AppId is optional. For other policies, AppId is required.
        *
        * @param request AttachAppPolicyToIdentityRequest
@@ -269,10 +271,10 @@ namespace Vod20170321
       Models::AttachAppPolicyToIdentityResponse attachAppPolicyToIdentity(const Models::AttachAppPolicyToIdentityRequest &request);
 
       /**
-       * @summary Retrieves the basic information and source file information of multiple media assets in a batch.
+       * @summary Retrieves the basic information and source file information of media assets in batches.
        *
-       * @description - You can retrieve information about up to 20 audio or video files at a time.
-       * - After an audio or video file is uploaded, ApsaraVideo VOD analyzes the uploaded source file. Therefore, media asset information is generated asynchronously. You can configure an [event notification](https://help.aliyun.com/document_detail/55627.html) for the [AudioVideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. After you receive the [AudioVideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event notification, call this operation to retrieve the audio or video information.
+       * @description - You can retrieve the information of up to 20 audio and video files at a time.
+       * - After an audio or video file is uploaded, ApsaraVideo VOD analyzes the uploaded source file. Therefore, media asset information is generated asynchronously. You can configure [event notifications](https://help.aliyun.com/document_detail/55627.html) for [Audio and Video Analysis Completed](https://help.aliyun.com/document_detail/99935.html). After receiving the [Audio and Video Analysis Completed](https://help.aliyun.com/document_detail/99935.html) event notification, call this operation to retrieve the audio and video information.
        *
        * @param request BatchGetMediaInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -281,10 +283,10 @@ namespace Vod20170321
       Models::BatchGetMediaInfosResponse batchGetMediaInfosWithOptions(const Models::BatchGetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the basic information and source file information of multiple media assets in a batch.
+       * @summary Retrieves the basic information and source file information of media assets in batches.
        *
-       * @description - You can retrieve information about up to 20 audio or video files at a time.
-       * - After an audio or video file is uploaded, ApsaraVideo VOD analyzes the uploaded source file. Therefore, media asset information is generated asynchronously. You can configure an [event notification](https://help.aliyun.com/document_detail/55627.html) for the [AudioVideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. After you receive the [AudioVideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event notification, call this operation to retrieve the audio or video information.
+       * @description - You can retrieve the information of up to 20 audio and video files at a time.
+       * - After an audio or video file is uploaded, ApsaraVideo VOD analyzes the uploaded source file. Therefore, media asset information is generated asynchronously. You can configure [event notifications](https://help.aliyun.com/document_detail/55627.html) for [Audio and Video Analysis Completed](https://help.aliyun.com/document_detail/99935.html). After receiving the [Audio and Video Analysis Completed](https://help.aliyun.com/document_detail/99935.html) event notification, call this operation to retrieve the audio and video information.
        *
        * @param request BatchGetMediaInfosRequest
        * @return BatchGetMediaInfosResponse
@@ -317,10 +319,10 @@ namespace Vod20170321
       Models::BatchSetVodDomainConfigsResponse batchSetVodDomainConfigs(const Models::BatchSetVodDomainConfigsRequest &request);
 
       /**
-       * @summary Enables an accelerated domain name that is in the Disabled state.
+       * @summary Enables accelerated domain names that are in the Disabled state.
        *
-       * @description - Currently, the only supported endpoint is **China (Shanghai)**.
-       * - If the account associated with the domain name has an overdue payment or the domain name is in an illegal state, you cannot call this operation to enable the ApsaraVideo VOD domain name.
+       * @description - Currently, only the following endpoint is supported: **China (Shanghai)**.
+       * - If the account to which the domain name belongs has an overdue payment or the domain name is in an invalid state, you cannot call this operation to enable the ApsaraVideo VOD domain name.
        *
        * @param request BatchStartVodDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -329,10 +331,10 @@ namespace Vod20170321
       Models::BatchStartVodDomainResponse batchStartVodDomainWithOptions(const Models::BatchStartVodDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables an accelerated domain name that is in the Disabled state.
+       * @summary Enables accelerated domain names that are in the Disabled state.
        *
-       * @description - Currently, the only supported endpoint is **China (Shanghai)**.
-       * - If the account associated with the domain name has an overdue payment or the domain name is in an illegal state, you cannot call this operation to enable the ApsaraVideo VOD domain name.
+       * @description - Currently, only the following endpoint is supported: **China (Shanghai)**.
+       * - If the account to which the domain name belongs has an overdue payment or the domain name is in an invalid state, you cannot call this operation to enable the ApsaraVideo VOD domain name.
        *
        * @param request BatchStartVodDomainRequest
        * @return BatchStartVodDomainResponse
@@ -340,10 +342,10 @@ namespace Vod20170321
       Models::BatchStartVodDomainResponse batchStartVodDomain(const Models::BatchStartVodDomainRequest &request);
 
       /**
-       * @summary Pauses domain name acceleration.
+       * @summary Suspends acceleration for a domain name.
        *
-       * @description - Currently, the only supported service address is **China (Shanghai)**.
-       * - After you pause the accelerated domain name, the domain name information is retained. Requests to the accelerated domain name are automatically redirected to the origin server.
+       * @description - The service endpoint is supported only in **China (Shanghai)**.
+       * - After the accelerated domain name is disabled, the domain name information is retained. The system automatically routes requests for the accelerated domain name back to the origin.
        *
        * @param request BatchStopVodDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -352,10 +354,10 @@ namespace Vod20170321
       Models::BatchStopVodDomainResponse batchStopVodDomainWithOptions(const Models::BatchStopVodDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Pauses domain name acceleration.
+       * @summary Suspends acceleration for a domain name.
        *
-       * @description - Currently, the only supported service address is **China (Shanghai)**.
-       * - After you pause the accelerated domain name, the domain name information is retained. Requests to the accelerated domain name are automatically redirected to the origin server.
+       * @description - The service endpoint is supported only in **China (Shanghai)**.
+       * - After the accelerated domain name is disabled, the domain name information is retained. The system automatically routes requests for the accelerated domain name back to the origin.
        *
        * @param request BatchStopVodDomainRequest
        * @return BatchStopVodDomainResponse
@@ -363,11 +365,11 @@ namespace Vod20170321
       Models::BatchStopVodDomainResponse batchStopVodDomain(const Models::BatchStopVodDomainRequest &request);
 
       /**
-       * @summary Cancels URL upload tasks that are in the queue.
+       * @summary Cancels queued URL upload tasks.
        *
-       * @description - You can cancel only URL upload nodes whose status is **Pending**. You can call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation to query the node status.
-       * - Upload nodes that have already started to execute cannot be canceled.
-       * - The request parameters JobIds and UploadUrls must have one specified. If both are specified, only JobIds is processed.
+       * @description - Only URL upload nodes in the **Pending** state can be canceled. You can query the node status by calling the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
+       * - You cannot cancel upload nodes that have already started to execute.
+       * - You must specify either the JobIds or UploadUrls request parameter. If both are specified, only JobIds is processed.
        *
        * @param request CancelUrlUploadJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -376,11 +378,11 @@ namespace Vod20170321
       Models::CancelUrlUploadJobsResponse cancelUrlUploadJobsWithOptions(const Models::CancelUrlUploadJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels URL upload tasks that are in the queue.
+       * @summary Cancels queued URL upload tasks.
        *
-       * @description - You can cancel only URL upload nodes whose status is **Pending**. You can call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation to query the node status.
-       * - Upload nodes that have already started to execute cannot be canceled.
-       * - The request parameters JobIds and UploadUrls must have one specified. If both are specified, only JobIds is processed.
+       * @description - Only URL upload nodes in the **Pending** state can be canceled. You can query the node status by calling the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
+       * - You cannot cancel upload nodes that have already started to execute.
+       * - You must specify either the JobIds or UploadUrls request parameter. If both are specified, only JobIds is processed.
        *
        * @param request CancelUrlUploadJobsRequest
        * @return CancelUrlUploadJobsResponse
@@ -388,9 +390,9 @@ namespace Vod20170321
       Models::CancelUrlUploadJobsResponse cancelUrlUploadJobs(const Models::CancelUrlUploadJobsRequest &request);
 
       /**
-       * @summary Transfers a resource to a different resource group.
+       * @summary Transfers resources to another resource group.
        *
-       * @description Transfers a resource to another resource group.
+       * @description Transfers resources to another resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -399,9 +401,9 @@ namespace Vod20170321
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Transfers a resource to a different resource group.
+       * @summary Transfers resources to another resource group.
        *
-       * @description Transfers a resource to another resource group.
+       * @description Transfers resources to another resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -412,8 +414,8 @@ namespace Vod20170321
        * @summary Creates an application.
        *
        * @description Each account can create up to 10 applications. For more information, see [Multi-application development guide](https://help.aliyun.com/document_detail/113600.html).
-       * ### QPS limit
-       * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * ### QPS limits
+       * The QPS limit per user for this API operation is 50 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request CreateAppInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -425,8 +427,8 @@ namespace Vod20170321
        * @summary Creates an application.
        *
        * @description Each account can create up to 10 applications. For more information, see [Multi-application development guide](https://help.aliyun.com/document_detail/113600.html).
-       * ### QPS limit
-       * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * ### QPS limits
+       * The QPS limit per user for this API operation is 50 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request CreateAppInfoRequest
        * @return CreateAppInfoResponse
@@ -434,7 +436,7 @@ namespace Vod20170321
       Models::CreateAppInfoResponse createAppInfo(const Models::CreateAppInfoRequest &request);
 
       /**
-       * @summary Submits a manual review request to review media information such as videos and audio files.
+       * @summary Submits media content such as videos and audio for manual review.
        *
        * @param request CreateAuditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -443,7 +445,7 @@ namespace Vod20170321
       Models::CreateAuditResponse createAuditWithOptions(const Models::CreateAuditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a manual review request to review media information such as videos and audio files.
+       * @summary Submits media content such as videos and audio for manual review.
        *
        * @param request CreateAuditRequest
        * @return CreateAuditResponse
@@ -451,13 +453,13 @@ namespace Vod20170321
       Models::CreateAuditResponse createAudit(const Models::CreateAuditRequest &request);
 
       /**
-       * @summary The upload URL and credential are provided by ApsaraVideo VOD to address authorization and security concerns, prevent malicious uploads, and enable automatic creation of a media asset ID (MediaId) for management and processing. For auxiliary media assets such as watermarks and subtitles, invoke this operation to obtain the upload credential and create the corresponding media asset information.
+       * @summary Retrieves the upload URL and credential for auxiliary media assets. The upload URL and credential are provided by ApsaraVideo VOD to resolve authorization and security issues, prevent malicious uploads, and enable automatic creation of a media asset ID for management and processing. For auxiliary media assets such as watermarks and subtitles, invoke this operation to obtain the upload credential and create the corresponding media asset information.
        *
-       * @description - **Before using this operation, make sure that you understand the billing methods and pricing of ApsaraVideo VOD. Uploading media files to ApsaraVideo VOD incurs storage fees. For more information, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage transfer acceleration, uploading media files to ApsaraVideo VOD also incurs upload acceleration fees. For more information, see [Storage transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
-       * - This operation only obtains the upload URL and credential and creates basic media asset information. It does not upload files. For a complete example of uploading files by using the API, see [Upload media files by using the ApsaraVideo VOD API](https://help.aliyun.com/document_detail/476208.html).
-       * - If the upload credential expires (valid for 3000 seconds), call this operation again to obtain a new upload URL and credential.
-       * - You can configure callbacks to receive event notifications for [auxiliary media asset upload complete](https://help.aliyun.com/document_detail/103250.html) to determine whether the upload is successful.
-       * - Obtaining the upload URL and credential is a core fundamental of ApsaraVideo VOD and a required step for every upload operation. ApsaraVideo VOD provides various upload methods, each with different requirements for obtaining the upload URL and credential. For more information, see the instructions in [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
+       * @description - **Before calling this operation, ensure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Uploading media asset files to ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage transfer acceleration, uploading media asset files to ApsaraVideo VOD also incurs upload acceleration fees. For billing details, see [Storage transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
+       * - This operation is only used to obtain the upload URL and credential and create basic media asset information. It does not upload files. For a complete example of uploading files by calling the operation, see [Upload media asset files by using the ApsaraVideo VOD API](https://help.aliyun.com/document_detail/476208.html).
+       * - If the upload credential expires (valid for 3,000 seconds), call this operation again to obtain the upload URL and credential.
+       * - You can configure a callback to receive the [Auxiliary media asset upload completion](https://help.aliyun.com/document_detail/103250.html) event notification to determine whether the upload is successful.
+       * - Obtaining the upload URL and credential is the core foundation of ApsaraVideo VOD and a required process for every upload operation. ApsaraVideo VOD provides various upload methods, and each method has different requirements for obtaining the upload URL and credential. For details, see the usage instructions in [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
        *
        * @param request CreateUploadAttachedMediaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -466,13 +468,13 @@ namespace Vod20170321
       Models::CreateUploadAttachedMediaResponse createUploadAttachedMediaWithOptions(const Models::CreateUploadAttachedMediaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The upload URL and credential are provided by ApsaraVideo VOD to address authorization and security concerns, prevent malicious uploads, and enable automatic creation of a media asset ID (MediaId) for management and processing. For auxiliary media assets such as watermarks and subtitles, invoke this operation to obtain the upload credential and create the corresponding media asset information.
+       * @summary Retrieves the upload URL and credential for auxiliary media assets. The upload URL and credential are provided by ApsaraVideo VOD to resolve authorization and security issues, prevent malicious uploads, and enable automatic creation of a media asset ID for management and processing. For auxiliary media assets such as watermarks and subtitles, invoke this operation to obtain the upload credential and create the corresponding media asset information.
        *
-       * @description - **Before using this operation, make sure that you understand the billing methods and pricing of ApsaraVideo VOD. Uploading media files to ApsaraVideo VOD incurs storage fees. For more information, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage transfer acceleration, uploading media files to ApsaraVideo VOD also incurs upload acceleration fees. For more information, see [Storage transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
-       * - This operation only obtains the upload URL and credential and creates basic media asset information. It does not upload files. For a complete example of uploading files by using the API, see [Upload media files by using the ApsaraVideo VOD API](https://help.aliyun.com/document_detail/476208.html).
-       * - If the upload credential expires (valid for 3000 seconds), call this operation again to obtain a new upload URL and credential.
-       * - You can configure callbacks to receive event notifications for [auxiliary media asset upload complete](https://help.aliyun.com/document_detail/103250.html) to determine whether the upload is successful.
-       * - Obtaining the upload URL and credential is a core fundamental of ApsaraVideo VOD and a required step for every upload operation. ApsaraVideo VOD provides various upload methods, each with different requirements for obtaining the upload URL and credential. For more information, see the instructions in [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
+       * @description - **Before calling this operation, ensure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Uploading media asset files to ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage transfer acceleration, uploading media asset files to ApsaraVideo VOD also incurs upload acceleration fees. For billing details, see [Storage transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
+       * - This operation is only used to obtain the upload URL and credential and create basic media asset information. It does not upload files. For a complete example of uploading files by calling the operation, see [Upload media asset files by using the ApsaraVideo VOD API](https://help.aliyun.com/document_detail/476208.html).
+       * - If the upload credential expires (valid for 3,000 seconds), call this operation again to obtain the upload URL and credential.
+       * - You can configure a callback to receive the [Auxiliary media asset upload completion](https://help.aliyun.com/document_detail/103250.html) event notification to determine whether the upload is successful.
+       * - Obtaining the upload URL and credential is the core foundation of ApsaraVideo VOD and a required process for every upload operation. ApsaraVideo VOD provides various upload methods, and each method has different requirements for obtaining the upload URL and credential. For details, see the usage instructions in [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
        *
        * @param request CreateUploadAttachedMediaRequest
        * @return CreateUploadAttachedMediaResponse
@@ -480,13 +482,13 @@ namespace Vod20170321
       Models::CreateUploadAttachedMediaResponse createUploadAttachedMedia(const Models::CreateUploadAttachedMediaRequest &request);
 
       /**
-       * @summary Retrieves the upload URL and upload credential for uploading an image to ApsaraVideo VOD, and creates image information. ApsaraVideo VOD issues upload URLs and credentials to ensure authorization and security, prevent malicious uploads, and supports automatic creation of an image ID (ImageId) for management. You can invoke this operation to obtain the upload URL and credential and create image information.
+       * @summary Issues an upload URL and an upload credential to ensure authorization and security, prevent malicious uploads, and enable automatic creation of an image ID (ImageId) for management in ApsaraVideo VOD. You can invoke this operation to obtain the required upload URL and credential, and create image information.
        *
-       * @description - **Before using this operation, make sure that you understand the billing methods and pricing of ApsaraVideo VOD. Uploading media files to ApsaraVideo VOD incurs storage fees. For more information, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage and transfer acceleration, uploading media files to ApsaraVideo VOD also incurs upload acceleration fees. For more information, see [Storage and transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
-       * - This operation only retrieves the upload URL and credential and creates basic media asset information. It does not upload files. For a complete example of uploading files by calling API operations, see [Upload media files by using the ApsaraVideo VOD API](https://help.aliyun.com/document_detail/476208.html).
-       * - Refreshing the upload URL and credential is not supported for image uploads. If the image upload credential expires (the default validity period is 3000 seconds), call this operation again to obtain a new upload URL and credential.
-       * - You can configure callbacks to receive event notifications for [image upload completion](https://help.aliyun.com/document_detail/91968.html) to determine whether the upload is successful.
-       * - Retrieving the upload URL and credential is a core operation of ApsaraVideo VOD and is required for every upload. ApsaraVideo VOD provides multiple upload methods, each with different requirements for retrieving the upload URL and credential. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
+       * @description - **Make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD before calling this operation. Uploading media assets to ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage transfer acceleration, uploading media assets to ApsaraVideo VOD also incurs upload acceleration fees. For billing details, see [Storage transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
+       * - This operation is only used to obtain the upload URL and credential and create basic media asset information. It does not upload files. For a complete example of uploading files by calling API operations, see [Upload media assets by using the ApsaraVideo VOD API](https://help.aliyun.com/document_detail/476208.html).
+       * - Refreshing the upload URL and credential is not supported for image uploads. If the upload credential for an image expires (the default validity period is 3,000 seconds), call this operation again to obtain the upload URL and credential.
+       * - You can configure callbacks to receive the event notification for [image upload complete](https://help.aliyun.com/document_detail/91968.html) to determine whether the upload is successful.
+       * - Obtaining the upload URL and credential is the core foundation of ApsaraVideo VOD and a required step for every upload operation. ApsaraVideo VOD provides various upload methods, each with different requirements for obtaining the upload URL and credential. For details, see the usage notes in [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
        *
        * @param request CreateUploadImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -495,13 +497,13 @@ namespace Vod20170321
       Models::CreateUploadImageResponse createUploadImageWithOptions(const Models::CreateUploadImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the upload URL and upload credential for uploading an image to ApsaraVideo VOD, and creates image information. ApsaraVideo VOD issues upload URLs and credentials to ensure authorization and security, prevent malicious uploads, and supports automatic creation of an image ID (ImageId) for management. You can invoke this operation to obtain the upload URL and credential and create image information.
+       * @summary Issues an upload URL and an upload credential to ensure authorization and security, prevent malicious uploads, and enable automatic creation of an image ID (ImageId) for management in ApsaraVideo VOD. You can invoke this operation to obtain the required upload URL and credential, and create image information.
        *
-       * @description - **Before using this operation, make sure that you understand the billing methods and pricing of ApsaraVideo VOD. Uploading media files to ApsaraVideo VOD incurs storage fees. For more information, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage and transfer acceleration, uploading media files to ApsaraVideo VOD also incurs upload acceleration fees. For more information, see [Storage and transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
-       * - This operation only retrieves the upload URL and credential and creates basic media asset information. It does not upload files. For a complete example of uploading files by calling API operations, see [Upload media files by using the ApsaraVideo VOD API](https://help.aliyun.com/document_detail/476208.html).
-       * - Refreshing the upload URL and credential is not supported for image uploads. If the image upload credential expires (the default validity period is 3000 seconds), call this operation again to obtain a new upload URL and credential.
-       * - You can configure callbacks to receive event notifications for [image upload completion](https://help.aliyun.com/document_detail/91968.html) to determine whether the upload is successful.
-       * - Retrieving the upload URL and credential is a core operation of ApsaraVideo VOD and is required for every upload. ApsaraVideo VOD provides multiple upload methods, each with different requirements for retrieving the upload URL and credential. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
+       * @description - **Make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD before calling this operation. Uploading media assets to ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage transfer acceleration, uploading media assets to ApsaraVideo VOD also incurs upload acceleration fees. For billing details, see [Storage transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
+       * - This operation is only used to obtain the upload URL and credential and create basic media asset information. It does not upload files. For a complete example of uploading files by calling API operations, see [Upload media assets by using the ApsaraVideo VOD API](https://help.aliyun.com/document_detail/476208.html).
+       * - Refreshing the upload URL and credential is not supported for image uploads. If the upload credential for an image expires (the default validity period is 3,000 seconds), call this operation again to obtain the upload URL and credential.
+       * - You can configure callbacks to receive the event notification for [image upload complete](https://help.aliyun.com/document_detail/91968.html) to determine whether the upload is successful.
+       * - Obtaining the upload URL and credential is the core foundation of ApsaraVideo VOD and a required step for every upload operation. ApsaraVideo VOD provides various upload methods, each with different requirements for obtaining the upload URL and credential. For details, see the usage notes in [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
        *
        * @param request CreateUploadImageRequest
        * @return CreateUploadImageResponse
@@ -509,14 +511,14 @@ namespace Vod20170321
       Models::CreateUploadImageResponse createUploadImage(const Models::CreateUploadImageRequest &request);
 
       /**
-       * @summary ApsaraVideo VOD issues the upload URL and upload credential to ensure authorization and security and prevent malicious uploads. During issuance, a media ID (MediaId), also called a video ID (VideoId), undergoes automatic creation for management. Invoke this operation to obtain the upload URL and upload credential, and create audio or video information.
+       * @summary Obtains the upload URL and credential for an audio or video file, and creates the media information. ApsaraVideo VOD issues the upload URL and credential to ensure authorization and security, prevent malicious uploads, and automatically create a media ID (MediaId), also known as a video ID (VideoId), for management. You can invoke this operation to obtain the required upload URL and credential, and create the audio and video information.
        *
-       * @description - **Before you use this operation, make sure that you are familiar with the billing methods and pricing of ApsaraVideo VOD. Uploading media files to ApsaraVideo VOD incurs storage fees. For more information, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage and transfer acceleration, uploading media files to ApsaraVideo VOD also incurs upload acceleration fees. For more information, see [Storage and transfer acceleration billing](~~188310#section_sta_zm2_tsv~~). Storage fees are calculated from the time when the file is uploaded. Acceleration fees are calculated when you perform upload operations after the feature is enabled. Simply calling this operation does not incur fees.**
-       * - Obtaining the upload URL and credential is the core foundation of ApsaraVideo VOD and is a required step for every upload operation. ApsaraVideo VOD provides multiple upload methods, each with different requirements for obtaining the upload URL and credential. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
-       * - This operation is used only to obtain the upload URL and credential and create basic media asset information. It does not upload files. For a complete example of uploading files by using API operations, see [Upload media files by using the ApsaraVideo VOD API](https://help.aliyun.com/document_detail/476208.html).
+       * @description - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Uploading media assets to ApsaraVideo VOD incurs storage fees. For more information about billing, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage and transmission acceleration, uploading media assets to ApsaraVideo VOD also incurs upload acceleration fees. For more information about billing, see [Storage and transmission acceleration billing](~~188310#section_sta_zm2_tsv~~). Storage fees are calculated from the time when the file is uploaded. Acceleration fees are calculated when you upload files after enabling the feature. Calling this operation alone does not incur fees.**
+       * - Obtaining the upload URL and credential is the core foundation of ApsaraVideo VOD and a required step for every upload operation. ApsaraVideo VOD provides various upload methods, each with different requirements for obtaining the upload URL and credential. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
+       * - This operation is used only to obtain the upload URL and credential and create basic media asset information. It does not upload files. For a complete example of uploading files by calling API operations, see [Upload media asset files by using the ApsaraVideo VOD API](https://help.aliyun.com/document_detail/476208.html).
        * - This operation supports obtaining the upload URL and credential for both video and audio files. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
-       * - If the upload credential expires (the default validity period is 3000 seconds), call the [RefreshUploadVideo](~~RefreshUploadVideo~~) operation to obtain a new upload credential.
-       * - After the upload is complete, you can configure callbacks to receive [upload event notifications](https://help.aliyun.com/document_detail/55396.html) or call the [GetMezzanineInfo](https://help.aliyun.com/document_detail/59624.html) operation to check the file status and determine whether the upload is successful.
+       * - If the video upload credential expires (the default validity period is 3,000 seconds), call the [RefreshUploadVideo](~~RefreshUploadVideo~~) operation to obtain a new upload credential.
+       * - After the upload, you can configure a callback to receive [upload event notifications](https://help.aliyun.com/document_detail/55396.html) or call the [GetMezzanineInfo](https://help.aliyun.com/document_detail/59624.html) operation to check the file status in the response to determine whether the upload is successful.
        * - The VideoId parameter returned by this operation can be used for media asset lifecycle management or media processing.
        *
        * @param request CreateUploadVideoRequest
@@ -526,14 +528,14 @@ namespace Vod20170321
       Models::CreateUploadVideoResponse createUploadVideoWithOptions(const Models::CreateUploadVideoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ApsaraVideo VOD issues the upload URL and upload credential to ensure authorization and security and prevent malicious uploads. During issuance, a media ID (MediaId), also called a video ID (VideoId), undergoes automatic creation for management. Invoke this operation to obtain the upload URL and upload credential, and create audio or video information.
+       * @summary Obtains the upload URL and credential for an audio or video file, and creates the media information. ApsaraVideo VOD issues the upload URL and credential to ensure authorization and security, prevent malicious uploads, and automatically create a media ID (MediaId), also known as a video ID (VideoId), for management. You can invoke this operation to obtain the required upload URL and credential, and create the audio and video information.
        *
-       * @description - **Before you use this operation, make sure that you are familiar with the billing methods and pricing of ApsaraVideo VOD. Uploading media files to ApsaraVideo VOD incurs storage fees. For more information, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage and transfer acceleration, uploading media files to ApsaraVideo VOD also incurs upload acceleration fees. For more information, see [Storage and transfer acceleration billing](~~188310#section_sta_zm2_tsv~~). Storage fees are calculated from the time when the file is uploaded. Acceleration fees are calculated when you perform upload operations after the feature is enabled. Simply calling this operation does not incur fees.**
-       * - Obtaining the upload URL and credential is the core foundation of ApsaraVideo VOD and is a required step for every upload operation. ApsaraVideo VOD provides multiple upload methods, each with different requirements for obtaining the upload URL and credential. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
-       * - This operation is used only to obtain the upload URL and credential and create basic media asset information. It does not upload files. For a complete example of uploading files by using API operations, see [Upload media files by using the ApsaraVideo VOD API](https://help.aliyun.com/document_detail/476208.html).
+       * @description - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Uploading media assets to ApsaraVideo VOD incurs storage fees. For more information about billing, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage and transmission acceleration, uploading media assets to ApsaraVideo VOD also incurs upload acceleration fees. For more information about billing, see [Storage and transmission acceleration billing](~~188310#section_sta_zm2_tsv~~). Storage fees are calculated from the time when the file is uploaded. Acceleration fees are calculated when you upload files after enabling the feature. Calling this operation alone does not incur fees.**
+       * - Obtaining the upload URL and credential is the core foundation of ApsaraVideo VOD and a required step for every upload operation. ApsaraVideo VOD provides various upload methods, each with different requirements for obtaining the upload URL and credential. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
+       * - This operation is used only to obtain the upload URL and credential and create basic media asset information. It does not upload files. For a complete example of uploading files by calling API operations, see [Upload media asset files by using the ApsaraVideo VOD API](https://help.aliyun.com/document_detail/476208.html).
        * - This operation supports obtaining the upload URL and credential for both video and audio files. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
-       * - If the upload credential expires (the default validity period is 3000 seconds), call the [RefreshUploadVideo](~~RefreshUploadVideo~~) operation to obtain a new upload credential.
-       * - After the upload is complete, you can configure callbacks to receive [upload event notifications](https://help.aliyun.com/document_detail/55396.html) or call the [GetMezzanineInfo](https://help.aliyun.com/document_detail/59624.html) operation to check the file status and determine whether the upload is successful.
+       * - If the video upload credential expires (the default validity period is 3,000 seconds), call the [RefreshUploadVideo](~~RefreshUploadVideo~~) operation to obtain a new upload credential.
+       * - After the upload, you can configure a callback to receive [upload event notifications](https://help.aliyun.com/document_detail/55396.html) or call the [GetMezzanineInfo](https://help.aliyun.com/document_detail/59624.html) operation to check the file status in the response to determine whether the upload is successful.
        * - The VideoId parameter returned by this operation can be used for media asset lifecycle management or media processing.
        *
        * @param request CreateUploadVideoRequest
@@ -542,7 +544,7 @@ namespace Vod20170321
       Models::CreateUploadVideoResponse createUploadVideo(const Models::CreateUploadVideoRequest &request);
 
       /**
-       * @summary Invokes this operation to perform decryption on the CiphertextBlob in a KMS data key (DK).
+       * @summary Invokes this operation for decryption of the CiphertextBlob ciphertext of a KMS data key (DK).
        *
        * @param request DecryptKMSDataKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -551,7 +553,7 @@ namespace Vod20170321
       Models::DecryptKMSDataKeyResponse decryptKMSDataKeyWithOptions(const Models::DecryptKMSDataKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes this operation to perform decryption on the CiphertextBlob in a KMS data key (DK).
+       * @summary Invokes this operation for decryption of the CiphertextBlob ciphertext of a KMS data key (DK).
        *
        * @param request DecryptKMSDataKeyRequest
        * @return DecryptKMSDataKeyResponse
@@ -607,11 +609,11 @@ namespace Vod20170321
       Models::DeleteAITemplateResponse deleteAITemplate(const Models::DeleteAITemplateRequest &request);
 
       /**
-       * @summary Deletes application information.
+       * @summary Deletes an application.
        *
        * @description An application cannot be deleted if it contains resources.
-       * ### QPS limit
-       * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * ### QPS limits
+       * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request DeleteAppInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -620,11 +622,11 @@ namespace Vod20170321
       Models::DeleteAppInfoResponse deleteAppInfoWithOptions(const Models::DeleteAppInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes application information.
+       * @summary Deletes an application.
        *
        * @description An application cannot be deleted if it contains resources.
-       * ### QPS limit
-       * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * ### QPS limits
+       * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request DeleteAppInfoRequest
        * @return DeleteAppInfoResponse
@@ -657,8 +659,8 @@ namespace Vod20170321
       /**
        * @summary Deletes a category and its subcategories.
        *
-       * @description - **This operation deletes a category and all its subcategories (including second-level and third-level categories). Proceed with caution.**
-       * - If a category has been assigned to media assets, deleting the category also removes the category assignment from those media assets.
+       * @description - **This operation deletes the category and its subcategories, including level-2 and level-3 subcategories. Proceed with caution.**
+       * - If a category is assigned to media assets, deleting the category also removes the category from these media assets.
        *
        * @param request DeleteCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -669,8 +671,8 @@ namespace Vod20170321
       /**
        * @summary Deletes a category and its subcategories.
        *
-       * @description - **This operation deletes a category and all its subcategories (including second-level and third-level categories). Proceed with caution.**
-       * - If a category has been assigned to media assets, deleting the category also removes the category assignment from those media assets.
+       * @description - **This operation deletes the category and its subcategories, including level-2 and level-3 subcategories. Proceed with caution.**
+       * - If a category is assigned to media assets, deleting the category also removes the category from these media assets.
        *
        * @param request DeleteCategoryRequest
        * @return DeleteCategoryResponse
@@ -1168,9 +1170,9 @@ namespace Vod20170321
       Models::DescribeVodAIDataResponse describeVodAIData(const Models::DescribeVodAIDataRequest &request);
 
       /**
-       * @summary Queries the certificate list information.
+       * @summary Retrieves the certificate list.
        *
-       * @description - Currently, the service address is supported only in the **China (Shanghai)** region.
+       * @description - The service endpoint currently supports only **China (Shanghai)**.
        *
        * @param request DescribeVodCertificateListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1179,9 +1181,9 @@ namespace Vod20170321
       Models::DescribeVodCertificateListResponse describeVodCertificateListWithOptions(const Models::DescribeVodCertificateListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the certificate list information.
+       * @summary Retrieves the certificate list.
        *
-       * @description - Currently, the service address is supported only in the **China (Shanghai)** region.
+       * @description - The service endpoint currently supports only **China (Shanghai)**.
        *
        * @param request DescribeVodCertificateListRequest
        * @return DescribeVodCertificateListResponse
@@ -1189,18 +1191,18 @@ namespace Vod20170321
       Models::DescribeVodCertificateListResponse describeVodCertificateList(const Models::DescribeVodCertificateListRequest &request);
 
       /**
-       * @summary Invokes this operation to query the bandwidth data of an accelerated domain name. Compared with the DescribeVodDomainRealTimeBpsData operation, this operation supports a longer time range for historical data queries (up to 366 days) but provides a larger data time granularity (minimum of 5 minutes) and higher data latency.
+       * @summary Queries the bandwidth data of accelerated domain names. Compared with the DescribeVodDomainRealTimeBpsData operation, this operation supports a longer time range for querying historical data (up to the last 366 days), but has a larger time granularity (minimum of 5 minutes) and higher data latency.
        *
-       * @description - Currently, this operation is available only in the **China (Shanghai)** region.
+       * @description - The service endpoint for this operation supports only **China East 2 (Shanghai)**.
        * - Batch queries are supported. You can query data for up to 500 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, this operation returns data for the past 24 hours by default. If you specify `StartTime` and `EndTime`, this operation returns data for the specified time range.
+       * - If you do not specify StartTime and EndTime, the operation returns data for the last 24 hours by default. If you specify StartTime and EndTime, the operation returns data for the specified time range.
        * **Time granularity of returned data**
-       * If you specify `StartTime` and `EndTime` without Settings for `Interval`, the default time granularity of returned data, the queryable historical data time range, and the data latency are as follows:
-       * |Time granularity  |Time span per query   |  Queryable historical data time range  |  Data latency   |
+       * Based on the time span specified by `StartTime` and `EndTime`, if `Interval` is not specified at the same time, the default time granularity of the returned data, the corresponding time range for querying historical data, and the data latency are as follows:
+       * | Time granularity | Time range for a single query | Time range for querying historical data | Data latency |
        * | ------------- |------------   | ----------- | ----------- |
-       * |5 minutes  | Time span per query < 3 days   |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time span per query < 31 days  |186 days  |Generally 3-4 hours  |
-       * | 1 day | 31 days ≤ Time span per query ≤ 90 days |366 days  |Generally 4 hours, no more than 24 hours  |
+       * | 5 minutes | Time range for a single query < 3 days | 93 days | 15 minutes |
+       * | 1 hour | 3 days ≤ Time range for a single query < 31 days | 186 days | Generally 3 to 4 hours |
+       * | 1 day | 31 days ≤ Time range for a single query ≤ 90 days | 366 days | Generally 4 hours, up to 24 hours |
        *
        * @param request DescribeVodDomainBpsDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1209,18 +1211,18 @@ namespace Vod20170321
       Models::DescribeVodDomainBpsDataResponse describeVodDomainBpsDataWithOptions(const Models::DescribeVodDomainBpsDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes this operation to query the bandwidth data of an accelerated domain name. Compared with the DescribeVodDomainRealTimeBpsData operation, this operation supports a longer time range for historical data queries (up to 366 days) but provides a larger data time granularity (minimum of 5 minutes) and higher data latency.
+       * @summary Queries the bandwidth data of accelerated domain names. Compared with the DescribeVodDomainRealTimeBpsData operation, this operation supports a longer time range for querying historical data (up to the last 366 days), but has a larger time granularity (minimum of 5 minutes) and higher data latency.
        *
-       * @description - Currently, this operation is available only in the **China (Shanghai)** region.
+       * @description - The service endpoint for this operation supports only **China East 2 (Shanghai)**.
        * - Batch queries are supported. You can query data for up to 500 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, this operation returns data for the past 24 hours by default. If you specify `StartTime` and `EndTime`, this operation returns data for the specified time range.
+       * - If you do not specify StartTime and EndTime, the operation returns data for the last 24 hours by default. If you specify StartTime and EndTime, the operation returns data for the specified time range.
        * **Time granularity of returned data**
-       * If you specify `StartTime` and `EndTime` without Settings for `Interval`, the default time granularity of returned data, the queryable historical data time range, and the data latency are as follows:
-       * |Time granularity  |Time span per query   |  Queryable historical data time range  |  Data latency   |
+       * Based on the time span specified by `StartTime` and `EndTime`, if `Interval` is not specified at the same time, the default time granularity of the returned data, the corresponding time range for querying historical data, and the data latency are as follows:
+       * | Time granularity | Time range for a single query | Time range for querying historical data | Data latency |
        * | ------------- |------------   | ----------- | ----------- |
-       * |5 minutes  | Time span per query < 3 days   |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time span per query < 31 days  |186 days  |Generally 3-4 hours  |
-       * | 1 day | 31 days ≤ Time span per query ≤ 90 days |366 days  |Generally 4 hours, no more than 24 hours  |
+       * | 5 minutes | Time range for a single query < 3 days | 93 days | 15 minutes |
+       * | 1 hour | 3 days ≤ Time range for a single query < 31 days | 186 days | Generally 3 to 4 hours |
+       * | 1 day | 31 days ≤ Time range for a single query ≤ 90 days | 366 days | Generally 4 hours, up to 24 hours |
        *
        * @param request DescribeVodDomainBpsDataRequest
        * @return DescribeVodDomainBpsDataResponse
@@ -1269,7 +1271,7 @@ namespace Vod20170321
       /**
        * @summary Retrieves the certificate information of a specified accelerated domain name.
        *
-       * @description Currently, the only supported service region is **China (Shanghai)**.
+       * @description Currently, the only supported region is **China (Shanghai)**.
        *
        * @param request DescribeVodDomainCertificateInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1280,7 +1282,7 @@ namespace Vod20170321
       /**
        * @summary Retrieves the certificate information of a specified accelerated domain name.
        *
-       * @description Currently, the only supported service region is **China (Shanghai)**.
+       * @description Currently, the only supported region is **China (Shanghai)**.
        *
        * @param request DescribeVodDomainCertificateInfoRequest
        * @return DescribeVodDomainCertificateInfoResponse
@@ -1309,9 +1311,10 @@ namespace Vod20170321
       Models::DescribeVodDomainConfigsResponse describeVodDomainConfigs(const Models::DescribeVodDomainConfigsRequest &request);
 
       /**
-       * @summary Retrieves the basic configuration information of a specified China domain name for video-on-demand (VOD) acceleration.
+       * @summary Queries the basic configuration information of a specified ApsaraVideo VOD domain name.
        *
-       * @description Currently, the China service address supports only **China (Shanghai)**.
+       * @description - Currently, the service endpoint supports only **China (Shanghai)**.
+       * - DomainName must be an ApsaraVideo VOD accelerated domain name added to the current account. You can call DescribeVodUserDomains to query the accelerated domain names under the current account. When you add a new domain name for the first time, you must complete DNS or file verification based on the domain ownership verification documentation, and then call AddVodDomain to add the domain name. After the domain name is added, you can call this operation to query the domain name configuration.
        *
        * @param request DescribeVodDomainDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1320,9 +1323,10 @@ namespace Vod20170321
       Models::DescribeVodDomainDetailResponse describeVodDomainDetailWithOptions(const Models::DescribeVodDomainDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the basic configuration information of a specified China domain name for video-on-demand (VOD) acceleration.
+       * @summary Queries the basic configuration information of a specified ApsaraVideo VOD domain name.
        *
-       * @description Currently, the China service address supports only **China (Shanghai)**.
+       * @description - Currently, the service endpoint supports only **China (Shanghai)**.
+       * - DomainName must be an ApsaraVideo VOD accelerated domain name added to the current account. You can call DescribeVodUserDomains to query the accelerated domain names under the current account. When you add a new domain name for the first time, you must complete DNS or file verification based on the domain ownership verification documentation, and then call AddVodDomain to add the domain name. After the domain name is added, you can call this operation to query the domain name configuration.
        *
        * @param request DescribeVodDomainDetailRequest
        * @return DescribeVodDomainDetailResponse
@@ -1330,18 +1334,18 @@ namespace Vod20170321
       Models::DescribeVodDomainDetailResponse describeVodDomainDetail(const Models::DescribeVodDomainDetailRequest &request);
 
       /**
-       * @summary Queries the byte hit ratio (percentage of hit bytes) of an accelerated domain name.
+       * @summary Queries the byte hit ratio (percentage of hit bytes) of accelerated domain names.
        *
-       * @description - Currently, this operation is supported only in the **China (Shanghai)** region.
+       * @description - Currently, the endpoint for this API operation supports only **China (Shanghai)**.
        * - Batch queries are supported. You can query data for up to 500 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, data from the past 24 hours is returned by default. If you specify `StartTime` and `EndTime`, data for the specified time range is returned.
+       * - If you do not specify `StartTime` and `EndTime`, the API operation returns data for the last 24 hours by default. If you specify `StartTime` and `EndTime`, the API operation returns data for the specified time range.
        * **Time granularity of returned data**
-       * If you specify `StartTime` and `EndTime` without setting `Interval`, the default time granularity, the maximum time range for historical data queries, and the data delay are as follows:
-       * |Time granularity  |Time span per query   |  Maximum time range for historical data queries  |  Data delay   |
-       * | ------------- |------------   | ----------- | ----------- |
-       * |5 minutes  | Time span per query < 3 days   |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time span per query < 31 days  |186 days  |Generally 3 to 4 hours  |
-       * | 1 day | 31 days ≤ Time span per query ≤ 366 days |366 days  |Generally 4 hours, up to 24 hours  |
+       * Based on the time range specified by `StartTime` and `EndTime`, if `Interval` is not specified, the default time granularity of the returned data, the corresponding time range of historical data that can be queried, and the data delay are as follows:
+       * | Time granularity | Time range for a single query | Time range of historical data that can be queried | Data delay |
+       * |---|---|---|---|
+       * | 5 minutes | Time range for a single query < 3 days | 93 days | 15 minutes |
+       * | 1 hour | 3 days ≤ Time range for a single query < 31 days | 186 days | Generally 3 to 4 hours |
+       * | 1 day | 31 days ≤ Time range for a single query ≤ 366 days | 366 days | Generally 4 hours, up to 24 hours |
        *
        * @param request DescribeVodDomainHitRateDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1350,18 +1354,18 @@ namespace Vod20170321
       Models::DescribeVodDomainHitRateDataResponse describeVodDomainHitRateDataWithOptions(const Models::DescribeVodDomainHitRateDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the byte hit ratio (percentage of hit bytes) of an accelerated domain name.
+       * @summary Queries the byte hit ratio (percentage of hit bytes) of accelerated domain names.
        *
-       * @description - Currently, this operation is supported only in the **China (Shanghai)** region.
+       * @description - Currently, the endpoint for this API operation supports only **China (Shanghai)**.
        * - Batch queries are supported. You can query data for up to 500 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, data from the past 24 hours is returned by default. If you specify `StartTime` and `EndTime`, data for the specified time range is returned.
+       * - If you do not specify `StartTime` and `EndTime`, the API operation returns data for the last 24 hours by default. If you specify `StartTime` and `EndTime`, the API operation returns data for the specified time range.
        * **Time granularity of returned data**
-       * If you specify `StartTime` and `EndTime` without setting `Interval`, the default time granularity, the maximum time range for historical data queries, and the data delay are as follows:
-       * |Time granularity  |Time span per query   |  Maximum time range for historical data queries  |  Data delay   |
-       * | ------------- |------------   | ----------- | ----------- |
-       * |5 minutes  | Time span per query < 3 days   |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time span per query < 31 days  |186 days  |Generally 3 to 4 hours  |
-       * | 1 day | 31 days ≤ Time span per query ≤ 366 days |366 days  |Generally 4 hours, up to 24 hours  |
+       * Based on the time range specified by `StartTime` and `EndTime`, if `Interval` is not specified, the default time granularity of the returned data, the corresponding time range of historical data that can be queried, and the data delay are as follows:
+       * | Time granularity | Time range for a single query | Time range of historical data that can be queried | Data delay |
+       * |---|---|---|---|
+       * | 5 minutes | Time range for a single query < 3 days | 93 days | 15 minutes |
+       * | 1 hour | 3 days ≤ Time range for a single query < 31 days | 186 days | Generally 3 to 4 hours |
+       * | 1 day | 31 days ≤ Time range for a single query ≤ 366 days | 366 days | Generally 4 hours, up to 24 hours |
        *
        * @param request DescribeVodDomainHitRateDataRequest
        * @return DescribeVodDomainHitRateDataResponse
@@ -1396,17 +1400,17 @@ namespace Vod20170321
       Models::DescribeVodDomainLogResponse describeVodDomainLog(const Models::DescribeVodDomainLogRequest &request);
 
       /**
-       * @summary Queries the 95th percentile bandwidth monitoring data for accelerated domain names.
+       * @summary Queries the monitoring data of the 95th percentile bandwidth for accelerated domain names.
        *
-       * @description **Three query methods are available:**
-       * - When both StartTime and EndTime are specified: if the difference between EndTime and StartTime is within 24 hours, the 95th percentile bandwidth of the day that contains StartTime is returned. Otherwise, the 95th percentile bandwidth of the month that contains StartTime is returned.
-       * - When both TimePoint and Cycle are specified, the 95th percentile bandwidth of the cycle that contains TimePoint is returned.
-       * - When StartTime and EndTime are specified with an additional Cycle parameter, the 95th percentile bandwidth for all specified cycles within the query range is returned.
-       * If none of these three methods are specified, the 95th percentile bandwidth of the past 24 hours is returned by default.
-       * - Maximum query span: 90 days.
+       * @description **Three query methods:**
+       * - If both StartTime and EndTime are specified and the difference between EndTime and StartTime is within 24 hours, the 95th percentile bandwidth for the day of StartTime is queried. Otherwise, the 95th percentile bandwidth for the month of StartTime is queried.
+       * - If both TimePoint and Cycle are specified, the 95th percentile bandwidth for the cycle of TimePoint is returned.
+       * - If StartTime and EndTime are specified along with Cycle, the 95th percentile bandwidth for all specified cycles within the query range is returned.
+       * If none of these three methods are specified, the 95th percentile bandwidth for the past 24 hours is returned by default.
+       * - Maximum query time span: 90 days.
        * - Minimum query granularity: 1 day.
-       * - Maximum query range: 90 days.
-       * - Maximum number of calls per user per second: 100.
+       * - Maximum query time range: 90 days.
+       * - Rate limit per user: 100 calls per second.
        * - Data unit: bit/s.
        *
        * @param request DescribeVodDomainMax95BpsDataRequest
@@ -1416,17 +1420,17 @@ namespace Vod20170321
       Models::DescribeVodDomainMax95BpsDataResponse describeVodDomainMax95BpsDataWithOptions(const Models::DescribeVodDomainMax95BpsDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the 95th percentile bandwidth monitoring data for accelerated domain names.
+       * @summary Queries the monitoring data of the 95th percentile bandwidth for accelerated domain names.
        *
-       * @description **Three query methods are available:**
-       * - When both StartTime and EndTime are specified: if the difference between EndTime and StartTime is within 24 hours, the 95th percentile bandwidth of the day that contains StartTime is returned. Otherwise, the 95th percentile bandwidth of the month that contains StartTime is returned.
-       * - When both TimePoint and Cycle are specified, the 95th percentile bandwidth of the cycle that contains TimePoint is returned.
-       * - When StartTime and EndTime are specified with an additional Cycle parameter, the 95th percentile bandwidth for all specified cycles within the query range is returned.
-       * If none of these three methods are specified, the 95th percentile bandwidth of the past 24 hours is returned by default.
-       * - Maximum query span: 90 days.
+       * @description **Three query methods:**
+       * - If both StartTime and EndTime are specified and the difference between EndTime and StartTime is within 24 hours, the 95th percentile bandwidth for the day of StartTime is queried. Otherwise, the 95th percentile bandwidth for the month of StartTime is queried.
+       * - If both TimePoint and Cycle are specified, the 95th percentile bandwidth for the cycle of TimePoint is returned.
+       * - If StartTime and EndTime are specified along with Cycle, the 95th percentile bandwidth for all specified cycles within the query range is returned.
+       * If none of these three methods are specified, the 95th percentile bandwidth for the past 24 hours is returned by default.
+       * - Maximum query time span: 90 days.
        * - Minimum query granularity: 1 day.
-       * - Maximum query range: 90 days.
-       * - Maximum number of calls per user per second: 100.
+       * - Maximum query time range: 90 days.
+       * - Rate limit per user: 100 calls per second.
        * - Data unit: bit/s.
        *
        * @param request DescribeVodDomainMax95BpsDataRequest
@@ -1581,18 +1585,18 @@ namespace Vod20170321
       Models::DescribeVodDomainRealTimeDetailDataResponse describeVodDomainRealTimeDetailData(const Models::DescribeVodDomainRealTimeDetailDataRequest &request);
 
       /**
-       * @summary Queries the total number and proportion of HTTP status codes for an accelerated domain name. This operation supports a minimum data time granularity of 1 minute, with a data delay of at least 5 minutes, and allows you to query data from the last 186 days.
+       * @summary Queries the total count and proportion of HTTP status codes for accelerated domain names. This operation supports a minimum time granularity of 1 minute, a minimum data latency of 5 minutes, and a maximum query range of the last 186 days.
        *
-       * @description - Currently, this operation is available only in the **China (Shanghai)** region.
+       * @description - The endpoint for this operation currently supports only **China (Shanghai)**.
        * - Batch queries are supported. You can query data for up to 100 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, this operation returns data from the last hour by default. If you specify `StartTime` and `EndTime`, this operation returns data for the specified time range.
+       * - If you do not specify `StartTime` and `EndTime`, this operation returns data for the last hour by default. If you specify `StartTime` and `EndTime`, this operation returns data for the specified time range.
        * **Time granularity of returned data**
-       * The time granularity of returned data varies based on the time range specified by `StartTime` and `EndTime`. The following table describes the queryable historical data range and data delay for each time granularity:
-       * |Time granularity  |Time range per query   |  Queryable historical data range  |  Data delay   |
+       * The time granularity of the returned data varies based on the time range specified by `StartTime` and `EndTime`. The corresponding queryable historical data range and data latency are as follows:
+       * | Time granularity | Time range for a single query | Queryable historical data range | Data latency |
        * | ------------- |------------   | ----------- | ----------- |
-       * |1 minute  | Time range per query ≤ 1 hour   |7 days  |5 minutes  |
-       * |5 minutes  | 1 hour < Time range per query < 3 days  |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time range per query < 31 days |186 days  |Typically 3 to 4 hours  |
+       * | 1 minute | Time range for a single query ≤ 1 hour | 7 days | 5 minutes |
+       * | 5 minutes | 1 hour < Time range for a single query < 3 days | 93 days | 15 minutes |
+       * | 1 hour | 3 days ≤ Time range for a single query < 31 days | 186 days | Generally 3 to 4 hours |
        *
        * @param request DescribeVodDomainRealTimeHttpCodeDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1601,18 +1605,18 @@ namespace Vod20170321
       Models::DescribeVodDomainRealTimeHttpCodeDataResponse describeVodDomainRealTimeHttpCodeDataWithOptions(const Models::DescribeVodDomainRealTimeHttpCodeDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the total number and proportion of HTTP status codes for an accelerated domain name. This operation supports a minimum data time granularity of 1 minute, with a data delay of at least 5 minutes, and allows you to query data from the last 186 days.
+       * @summary Queries the total count and proportion of HTTP status codes for accelerated domain names. This operation supports a minimum time granularity of 1 minute, a minimum data latency of 5 minutes, and a maximum query range of the last 186 days.
        *
-       * @description - Currently, this operation is available only in the **China (Shanghai)** region.
+       * @description - The endpoint for this operation currently supports only **China (Shanghai)**.
        * - Batch queries are supported. You can query data for up to 100 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, this operation returns data from the last hour by default. If you specify `StartTime` and `EndTime`, this operation returns data for the specified time range.
+       * - If you do not specify `StartTime` and `EndTime`, this operation returns data for the last hour by default. If you specify `StartTime` and `EndTime`, this operation returns data for the specified time range.
        * **Time granularity of returned data**
-       * The time granularity of returned data varies based on the time range specified by `StartTime` and `EndTime`. The following table describes the queryable historical data range and data delay for each time granularity:
-       * |Time granularity  |Time range per query   |  Queryable historical data range  |  Data delay   |
+       * The time granularity of the returned data varies based on the time range specified by `StartTime` and `EndTime`. The corresponding queryable historical data range and data latency are as follows:
+       * | Time granularity | Time range for a single query | Queryable historical data range | Data latency |
        * | ------------- |------------   | ----------- | ----------- |
-       * |1 minute  | Time range per query ≤ 1 hour   |7 days  |5 minutes  |
-       * |5 minutes  | 1 hour < Time range per query < 3 days  |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time range per query < 31 days |186 days  |Typically 3 to 4 hours  |
+       * | 1 minute | Time range for a single query ≤ 1 hour | 7 days | 5 minutes |
+       * | 5 minutes | 1 hour < Time range for a single query < 3 days | 93 days | 15 minutes |
+       * | 1 hour | 3 days ≤ Time range for a single query < 31 days | 186 days | Generally 3 to 4 hours |
        *
        * @param request DescribeVodDomainRealTimeHttpCodeDataRequest
        * @return DescribeVodDomainRealTimeHttpCodeDataResponse
@@ -1700,18 +1704,18 @@ namespace Vod20170321
       Models::DescribeVodDomainRealTimeReqHitRateDataResponse describeVodDomainRealTimeReqHitRateData(const Models::DescribeVodDomainRealTimeReqHitRateDataRequest &request);
 
       /**
-       * @summary Invokes this operation to query the traffic data of an accelerated domain name. Compared with the DescribeVodDomainTrafficData operation, this operation supports a smaller time granularity (minimum of 1 minute), lower data latency (minimum of 5 minutes), but a shorter historical data range (up to 186 days).
+       * @summary Queries the traffic data of accelerated domain names. Compared with the DescribeVodDomainTrafficData operation, this operation supports a finer time granularity (as fine as 1 minute) and lower data latency (as low as 5 minutes), but covers a shorter historical data time range (up to the last 186 days).
        *
-       * @description - The service address of this operation supports only **China (Shanghai)**.
-       * - Batch queries are supported. You can query data for up to 100 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, this operation returns data for the last hour by default. If you specify `StartTime` and `EndTime`, this operation returns data for the specified time range.
+       * @description - Currently, the endpoint for this operation only supports **China (Shanghai)**.
+       * - Supports batch queries. You can query the data of up to 100 domain names at a time.
+       * - If you do not specify `StartTime` and `EndTime`, this operation returns the data of the last hour by default. If you specify `StartTime` and `EndTime`, this operation returns the data within the specified time range.
        * **Time granularity of returned data**
-       * The time granularity of returned data varies based on the time range specified by `StartTime` and `EndTime`. The following table describes the queryable historical data range and data latency for each time granularity:
-       * |Time granularity  |Time range per query   |  Queryable historical data range  |  Data latency   |
-       * | ------------- |------------   | ----------- | ----------- |
-       * |1 minute  | Time range per query ≤ 1 hour   |7 days  |5 minutes  |
-       * |5 minutes  | 1 hour < Time range per query < 3 days  |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time range per query < 31 days |186 days  |Generally 3 to 4 hours  |
+       * The time granularity of the returned data varies based on the time range specified by `StartTime` and `EndTime`. The corresponding historical data time range and data latency are as follows:
+       * | Time granularity | Time range for a single query | Historical data time range | Data latency |
+       * |---|---|---|---|
+       * | 1 minute | Time range for a single query ≤ 1 hour | 7 days | 5 minutes |
+       * | 5 minutes | 1 hour < Time range for a single query < 3 days | 93 days | 15 minutes |
+       * | 1 hour | 3 days ≤ Time range for a single query < 31 days | 186 days | Generally 3 to 4 hours |
        *
        * @param request DescribeVodDomainRealTimeTrafficDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1720,18 +1724,18 @@ namespace Vod20170321
       Models::DescribeVodDomainRealTimeTrafficDataResponse describeVodDomainRealTimeTrafficDataWithOptions(const Models::DescribeVodDomainRealTimeTrafficDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes this operation to query the traffic data of an accelerated domain name. Compared with the DescribeVodDomainTrafficData operation, this operation supports a smaller time granularity (minimum of 1 minute), lower data latency (minimum of 5 minutes), but a shorter historical data range (up to 186 days).
+       * @summary Queries the traffic data of accelerated domain names. Compared with the DescribeVodDomainTrafficData operation, this operation supports a finer time granularity (as fine as 1 minute) and lower data latency (as low as 5 minutes), but covers a shorter historical data time range (up to the last 186 days).
        *
-       * @description - The service address of this operation supports only **China (Shanghai)**.
-       * - Batch queries are supported. You can query data for up to 100 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, this operation returns data for the last hour by default. If you specify `StartTime` and `EndTime`, this operation returns data for the specified time range.
+       * @description - Currently, the endpoint for this operation only supports **China (Shanghai)**.
+       * - Supports batch queries. You can query the data of up to 100 domain names at a time.
+       * - If you do not specify `StartTime` and `EndTime`, this operation returns the data of the last hour by default. If you specify `StartTime` and `EndTime`, this operation returns the data within the specified time range.
        * **Time granularity of returned data**
-       * The time granularity of returned data varies based on the time range specified by `StartTime` and `EndTime`. The following table describes the queryable historical data range and data latency for each time granularity:
-       * |Time granularity  |Time range per query   |  Queryable historical data range  |  Data latency   |
-       * | ------------- |------------   | ----------- | ----------- |
-       * |1 minute  | Time range per query ≤ 1 hour   |7 days  |5 minutes  |
-       * |5 minutes  | 1 hour < Time range per query < 3 days  |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time range per query < 31 days |186 days  |Generally 3 to 4 hours  |
+       * The time granularity of the returned data varies based on the time range specified by `StartTime` and `EndTime`. The corresponding historical data time range and data latency are as follows:
+       * | Time granularity | Time range for a single query | Historical data time range | Data latency |
+       * |---|---|---|---|
+       * | 1 minute | Time range for a single query ≤ 1 hour | 7 days | 5 minutes |
+       * | 5 minutes | 1 hour < Time range for a single query < 3 days | 93 days | 15 minutes |
+       * | 1 hour | 3 days ≤ Time range for a single query < 31 days | 186 days | Generally 3 to 4 hours |
        *
        * @param request DescribeVodDomainRealTimeTrafficDataRequest
        * @return DescribeVodDomainRealTimeTrafficDataResponse
@@ -1739,18 +1743,18 @@ namespace Vod20170321
       Models::DescribeVodDomainRealTimeTrafficDataResponse describeVodDomainRealTimeTrafficData(const Models::DescribeVodDomainRealTimeTrafficDataRequest &request);
 
       /**
-       * @summary Queries the request hit ratio (percentage of hit requests) of an accelerated domain name.
+       * @summary Queries the request hit ratio (percentage of hit requests) of accelerated domain names.
        *
-       * @description - Currently, this operation supports only the following service address: **China (Shanghai)**.
-       * - Batch query is supported. You can query data of up to 500 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, this operation returns data of the last 24 hours by default. If you specify `StartTime` and `EndTime`, this operation returns data of the specified time range.
-       * **Time granularity of returned data**
-       * Based on the time span specified by `StartTime` and `EndTime`, and when `Interval` is not set, the default time granularity of returned data, the queryable historical data time range, and data latency are as follows:
-       * |Time granularity  |Time span per query   |  Queryable historical data time range  |  Data latency   |
+       * @description - Currently, the endpoint for this API operation supports only **China (Shanghai)**.
+       * - Batch queries are supported. You can query data for up to 500 domain names at a time.
+       * - If you do not specify StartTime and EndTime, this API operation returns data for the last 24 hours by default. If you specify StartTime and EndTime, this API operation returns data for the specified time range.
+       * **Returned data time granularity**
+       * Based on the time span specified by `StartTime` and `EndTime`, if `Interval` is not specified, the default data time granularity, the corresponding time range of historical data that can be queried, and the data delay are as follows:
+       * |Time granularity  |Time span for a single query   |  Time range of historical data that can be queried  |  Data delay   |
        * | ------------- |------------   | ----------- | ----------- |
-       * |5 minutes  | Time span per query < 3 days   |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time span per query < 31 days  |186 days  |Generally 3 to 4 hours  |
-       * | 1 day | 31 days ≤ Time span per query ≤ 90 days |366 days  |Generally 4 hours, no more than 24 hours  |
+       * |5 minutes  | Time span for a single query < 3 days   |93 days  |15 minutes  |
+       * |1 hour  | 3 days ≤ Time span for a single query < 31 days  |186 days  |Generally 3 to 4 hours  |
+       * | 1 day | 31 days ≤ Time span for a single query ≤ 90 days |366 days  |Generally 4 hours, up to 24 hours  |
        *
        * @param request DescribeVodDomainReqHitRateDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1759,18 +1763,18 @@ namespace Vod20170321
       Models::DescribeVodDomainReqHitRateDataResponse describeVodDomainReqHitRateDataWithOptions(const Models::DescribeVodDomainReqHitRateDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the request hit ratio (percentage of hit requests) of an accelerated domain name.
+       * @summary Queries the request hit ratio (percentage of hit requests) of accelerated domain names.
        *
-       * @description - Currently, this operation supports only the following service address: **China (Shanghai)**.
-       * - Batch query is supported. You can query data of up to 500 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, this operation returns data of the last 24 hours by default. If you specify `StartTime` and `EndTime`, this operation returns data of the specified time range.
-       * **Time granularity of returned data**
-       * Based on the time span specified by `StartTime` and `EndTime`, and when `Interval` is not set, the default time granularity of returned data, the queryable historical data time range, and data latency are as follows:
-       * |Time granularity  |Time span per query   |  Queryable historical data time range  |  Data latency   |
+       * @description - Currently, the endpoint for this API operation supports only **China (Shanghai)**.
+       * - Batch queries are supported. You can query data for up to 500 domain names at a time.
+       * - If you do not specify StartTime and EndTime, this API operation returns data for the last 24 hours by default. If you specify StartTime and EndTime, this API operation returns data for the specified time range.
+       * **Returned data time granularity**
+       * Based on the time span specified by `StartTime` and `EndTime`, if `Interval` is not specified, the default data time granularity, the corresponding time range of historical data that can be queried, and the data delay are as follows:
+       * |Time granularity  |Time span for a single query   |  Time range of historical data that can be queried  |  Data delay   |
        * | ------------- |------------   | ----------- | ----------- |
-       * |5 minutes  | Time span per query < 3 days   |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time span per query < 31 days  |186 days  |Generally 3 to 4 hours  |
-       * | 1 day | 31 days ≤ Time span per query ≤ 90 days |366 days  |Generally 4 hours, no more than 24 hours  |
+       * |5 minutes  | Time span for a single query < 3 days   |93 days  |15 minutes  |
+       * |1 hour  | 3 days ≤ Time span for a single query < 31 days  |186 days  |Generally 3 to 4 hours  |
+       * | 1 day | 31 days ≤ Time span for a single query ≤ 90 days |366 days  |Generally 4 hours, up to 24 hours  |
        *
        * @param request DescribeVodDomainReqHitRateDataRequest
        * @return DescribeVodDomainReqHitRateDataResponse
@@ -1780,16 +1784,16 @@ namespace Vod20170321
       /**
        * @summary Queries the back-to-origin bandwidth data of accelerated domain names.
        *
-       * @description - Currently, this operation supports only the following service address: **China (Shanghai)**.
-       * - Batch queries are supported. You can query data for up to 500 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, this operation returns data from the past 24 hours by default. If you specify `StartTime` and `EndTime`, this operation returns data for the specified time range.
-       * **Time granularity of returned data**
-       * Based on the time span specified by `StartTime` and `EndTime`, and when `Interval` is not set, the default time granularity of returned data, the queryable historical data range, and data latency are as follows:
-       * |Time granularity  |Time span per query   |  Queryable historical data range  |  Data latency   |
-       * | ------------- |------------   | ----------- | ----------- |
-       * |5 minutes  | Time span per query < 3 days   |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time span per query < 31 days  |186 days  |Generally 3 to 4 hours  |
-       * | 1 day | 31 days ≤ Time span per query ≤ 366 days |366 days  |Generally 4 hours, up to 24 hours  |
+       * @description - Currently, the endpoint for this API operation only supports **China (Shanghai)**.
+       * - Supports batch queries. You can query data for up to 500 domain names at a time.
+       * - If you do not specify StartTime and EndTime, this API operation returns data for the last 24 hours by default. If you specify StartTime and EndTime, this API operation returns data for the specified time period.
+       * **Time granularity of the returned data timestamp**
+       * If you do not specify the Interval Settings, the default time granularity of the returned data timestamp, the queryable time range of historical data, and the data delay vary based on the time span specified by StartTime and EndTime. The details are as follows:
+       * | Time granularity | Time span for a single query | Time range of queryable historical data | Data delay |
+       * | ------------- |------------ | ----------- | ----------- |
+       * | 5 minutes | Time span for a single query < 3 days | 93 days | 15 minutes |
+       * | 1 hour | 3 days ≤ Time span for a single query < 31 days | 186 days | Generally 3 to 4 hours |
+       * | 1 day | 31 days ≤ Time span for a single query ≤ 366 days | 366 days | Generally 4 hours, up to 24 hours |
        *
        * @param request DescribeVodDomainSrcBpsDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1800,16 +1804,16 @@ namespace Vod20170321
       /**
        * @summary Queries the back-to-origin bandwidth data of accelerated domain names.
        *
-       * @description - Currently, this operation supports only the following service address: **China (Shanghai)**.
-       * - Batch queries are supported. You can query data for up to 500 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, this operation returns data from the past 24 hours by default. If you specify `StartTime` and `EndTime`, this operation returns data for the specified time range.
-       * **Time granularity of returned data**
-       * Based on the time span specified by `StartTime` and `EndTime`, and when `Interval` is not set, the default time granularity of returned data, the queryable historical data range, and data latency are as follows:
-       * |Time granularity  |Time span per query   |  Queryable historical data range  |  Data latency   |
-       * | ------------- |------------   | ----------- | ----------- |
-       * |5 minutes  | Time span per query < 3 days   |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time span per query < 31 days  |186 days  |Generally 3 to 4 hours  |
-       * | 1 day | 31 days ≤ Time span per query ≤ 366 days |366 days  |Generally 4 hours, up to 24 hours  |
+       * @description - Currently, the endpoint for this API operation only supports **China (Shanghai)**.
+       * - Supports batch queries. You can query data for up to 500 domain names at a time.
+       * - If you do not specify StartTime and EndTime, this API operation returns data for the last 24 hours by default. If you specify StartTime and EndTime, this API operation returns data for the specified time period.
+       * **Time granularity of the returned data timestamp**
+       * If you do not specify the Interval Settings, the default time granularity of the returned data timestamp, the queryable time range of historical data, and the data delay vary based on the time span specified by StartTime and EndTime. The details are as follows:
+       * | Time granularity | Time span for a single query | Time range of queryable historical data | Data delay |
+       * | ------------- |------------ | ----------- | ----------- |
+       * | 5 minutes | Time span for a single query < 3 days | 93 days | 15 minutes |
+       * | 1 hour | 3 days ≤ Time span for a single query < 31 days | 186 days | Generally 3 to 4 hours |
+       * | 1 day | 31 days ≤ Time span for a single query ≤ 366 days | 366 days | Generally 4 hours, up to 24 hours |
        *
        * @param request DescribeVodDomainSrcBpsDataRequest
        * @return DescribeVodDomainSrcBpsDataResponse
@@ -1819,16 +1823,16 @@ namespace Vod20170321
       /**
        * @summary Queries the back-to-origin traffic data of accelerated domain names.
        *
-       * @description - Currently, this operation supports only the following service address: **China (Shanghai)**.
+       * @description - Currently, the endpoint for this API operation supports only **China (Shanghai)**.
        * - Batch queries are supported. You can query data for up to 500 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, this operation returns data from the past 24 hours by default. If you specify `StartTime` and `EndTime`, this operation returns data for the specified time range.
-       * **Time granularity of returned data**
-       * Based on the time span specified by `StartTime` and `EndTime`, and when `Interval` is not set at the same time, the default time granularity, the queryable historical data range, and data delay are as follows:
-       * |Time granularity  |Time span per query   |  Queryable historical data range  |  Data delay   |
+       * - If you do not specify StartTime and EndTime, this API operation returns data for the last 24 hours by default. If you specify StartTime and EndTime, this API operation returns data for the specified time range.
+       * **Time granularity of returned data timestamps**
+       * If you do not specify the Interval Settings, the default time granularity of the returned data timestamps, the time range of historical data that can be queried, and the data delay vary based on the time span between StartTime and EndTime. The details are as follows:
+       * |Time granularity|Time span per query|Time range of queryable historical data|Data delay|
        * | ------------- |------------   | ----------- | ----------- |
-       * |5 minutes  | Time span per query < 3 days   |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time span per query < 31 days  |186 days  |Generally 3 to 4 hours  |
-       * | 1 day | 31 days ≤ Time span per query ≤ 366 days |366 days  |Generally 4 hours, up to 24 hours  |
+       * |5 minutes|Time span per query < 3 days|93 days|15 minutes|
+       * |1 hour|3 days ≤ Time span per query < 31 days|186 days|Typically 3 to 4 hours|
+       * |1 day|31 days ≤ Time span per query ≤ 366 days|366 days|Typically 4 hours, up to 24 hours|
        *
        * @param request DescribeVodDomainSrcTrafficDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1839,16 +1843,16 @@ namespace Vod20170321
       /**
        * @summary Queries the back-to-origin traffic data of accelerated domain names.
        *
-       * @description - Currently, this operation supports only the following service address: **China (Shanghai)**.
+       * @description - Currently, the endpoint for this API operation supports only **China (Shanghai)**.
        * - Batch queries are supported. You can query data for up to 500 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, this operation returns data from the past 24 hours by default. If you specify `StartTime` and `EndTime`, this operation returns data for the specified time range.
-       * **Time granularity of returned data**
-       * Based on the time span specified by `StartTime` and `EndTime`, and when `Interval` is not set at the same time, the default time granularity, the queryable historical data range, and data delay are as follows:
-       * |Time granularity  |Time span per query   |  Queryable historical data range  |  Data delay   |
+       * - If you do not specify StartTime and EndTime, this API operation returns data for the last 24 hours by default. If you specify StartTime and EndTime, this API operation returns data for the specified time range.
+       * **Time granularity of returned data timestamps**
+       * If you do not specify the Interval Settings, the default time granularity of the returned data timestamps, the time range of historical data that can be queried, and the data delay vary based on the time span between StartTime and EndTime. The details are as follows:
+       * |Time granularity|Time span per query|Time range of queryable historical data|Data delay|
        * | ------------- |------------   | ----------- | ----------- |
-       * |5 minutes  | Time span per query < 3 days   |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time span per query < 31 days  |186 days  |Generally 3 to 4 hours  |
-       * | 1 day | 31 days ≤ Time span per query ≤ 366 days |366 days  |Generally 4 hours, up to 24 hours  |
+       * |5 minutes|Time span per query < 3 days|93 days|15 minutes|
+       * |1 hour|3 days ≤ Time span per query < 31 days|186 days|Typically 3 to 4 hours|
+       * |1 day|31 days ≤ Time span per query ≤ 366 days|366 days|Typically 4 hours, up to 24 hours|
        *
        * @param request DescribeVodDomainSrcTrafficDataRequest
        * @return DescribeVodDomainSrcTrafficDataResponse
@@ -1856,18 +1860,18 @@ namespace Vod20170321
       Models::DescribeVodDomainSrcTrafficDataResponse describeVodDomainSrcTrafficData(const Models::DescribeVodDomainSrcTrafficDataRequest &request);
 
       /**
-       * @summary Invokes this operation to query the traffic data of an accelerated domain name. Compared with the DescribeVodDomainRealTimeTrafficData operation, this operation supports a longer historical data query range (up to 366 days) but provides a larger data time granularity (minimum of 5 minutes) and higher data latency.
+       * @summary Queries the traffic data of accelerated domain names. Compared with the DescribeVodDomainRealTimeTrafficData operation, this operation supports a longer time range for querying historical data (up to the last 366 days), but has a larger time granularity (minimum of 5 minutes) and higher data latency.
        *
-       * @description - The service address of this operation supports only **China (Shanghai)**.
+       * @description - Currently, the endpoint for this operation is supported only in **China (Shanghai)**.
        * - Batch queries are supported. You can query data for up to 500 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, data of the last 24 hours is returned by default. If you specify `StartTime` and `EndTime`, data of the specified time range is returned.
-       * **Data time granularity of returned data**
-       * The following table describes the default data time granularity of returned data, the queryable historical data range, and the data latency based on the time span specified by `StartTime` and `EndTime` when `Interval` is not set:
-       * |Time granularity  |Time span per query   |  Queryable historical data range  |  Data latency   |
-       * | ------------- |------------   | ----------- | ----------- |
-       * |5 minutes  | Time span per query < 3 days   |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time span per query < 31 days  |186 days  |Typically 3 to 4 hours  |
-       * | 1 day | 31 days ≤ Time span per query ≤ 366 days |366 days  |Typically 4 hours, up to 24 hours  |
+       * - If you do not specify StartTime and EndTime, this operation returns data for the last 24 hours by default. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+       * **Time granularity of returned data**
+       * Based on the time span between the specified `StartTime` and `EndTime`, and when `Interval` is not specified, the default time granularity of the returned data, the corresponding time range for querying historical data, and the data latency are as follows:
+       * | Time granularity | Time span per query | Time range for querying historical data | Data latency |
+       * |---|---|---|---|
+       * | 5 minutes | Time span per query < 3 days | 93 days | 15 minutes |
+       * | 1 hour | 3 days ≤ Time span per query < 31 days | 186 days | Typically 3 to 4 hours |
+       * | 1 day | 31 days ≤ Time span per query ≤ 366 days | 366 days | Typically 4 hours, up to 24 hours |
        *
        * @param request DescribeVodDomainTrafficDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1876,18 +1880,18 @@ namespace Vod20170321
       Models::DescribeVodDomainTrafficDataResponse describeVodDomainTrafficDataWithOptions(const Models::DescribeVodDomainTrafficDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes this operation to query the traffic data of an accelerated domain name. Compared with the DescribeVodDomainRealTimeTrafficData operation, this operation supports a longer historical data query range (up to 366 days) but provides a larger data time granularity (minimum of 5 minutes) and higher data latency.
+       * @summary Queries the traffic data of accelerated domain names. Compared with the DescribeVodDomainRealTimeTrafficData operation, this operation supports a longer time range for querying historical data (up to the last 366 days), but has a larger time granularity (minimum of 5 minutes) and higher data latency.
        *
-       * @description - The service address of this operation supports only **China (Shanghai)**.
+       * @description - Currently, the endpoint for this operation is supported only in **China (Shanghai)**.
        * - Batch queries are supported. You can query data for up to 500 domain names at a time.
-       * - If you do not specify `StartTime` and `EndTime`, data of the last 24 hours is returned by default. If you specify `StartTime` and `EndTime`, data of the specified time range is returned.
-       * **Data time granularity of returned data**
-       * The following table describes the default data time granularity of returned data, the queryable historical data range, and the data latency based on the time span specified by `StartTime` and `EndTime` when `Interval` is not set:
-       * |Time granularity  |Time span per query   |  Queryable historical data range  |  Data latency   |
-       * | ------------- |------------   | ----------- | ----------- |
-       * |5 minutes  | Time span per query < 3 days   |93 days  |15 minutes  |
-       * |1 hour  | 3 days ≤ Time span per query < 31 days  |186 days  |Typically 3 to 4 hours  |
-       * | 1 day | 31 days ≤ Time span per query ≤ 366 days |366 days  |Typically 4 hours, up to 24 hours  |
+       * - If you do not specify StartTime and EndTime, this operation returns data for the last 24 hours by default. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+       * **Time granularity of returned data**
+       * Based on the time span between the specified `StartTime` and `EndTime`, and when `Interval` is not specified, the default time granularity of the returned data, the corresponding time range for querying historical data, and the data latency are as follows:
+       * | Time granularity | Time span per query | Time range for querying historical data | Data latency |
+       * |---|---|---|---|
+       * | 5 minutes | Time span per query < 3 days | 93 days | 15 minutes |
+       * | 1 hour | 3 days ≤ Time span per query < 31 days | 186 days | Typically 3 to 4 hours |
+       * | 1 day | 31 days ≤ Time span per query ≤ 366 days | 366 days | Typically 4 hours, up to 24 hours |
        *
        * @param request DescribeVodDomainTrafficDataRequest
        * @return DescribeVodDomainTrafficDataResponse
@@ -1996,7 +2000,7 @@ namespace Vod20170321
       Models::DescribeVodMediaPlayDataResponse describeVodMediaPlayData(const Models::DescribeVodMediaPlayDataRequest &request);
 
       /**
-       * @summary Queries aggregated playback data of the player.
+       * @summary Queries the aggregated playback data of the player.
        *
        * @param request DescribeVodPlayerCollectDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2005,7 +2009,7 @@ namespace Vod20170321
       Models::DescribeVodPlayerCollectDataResponse describeVodPlayerCollectDataWithOptions(const Models::DescribeVodPlayerCollectDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries aggregated playback data of the player.
+       * @summary Queries the aggregated playback data of the player.
        *
        * @param request DescribeVodPlayerCollectDataRequest
        * @return DescribeVodPlayerCollectDataResponse
@@ -2013,7 +2017,7 @@ namespace Vod20170321
       Models::DescribeVodPlayerCollectDataResponse describeVodPlayerCollectData(const Models::DescribeVodPlayerCollectDataRequest &request);
 
       /**
-       * @summary Queries the dimension metadata of the player.
+       * @summary Queries the metadata of player dimensions.
        *
        * @param request DescribeVodPlayerDimensionDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2022,7 +2026,7 @@ namespace Vod20170321
       Models::DescribeVodPlayerDimensionDataResponse describeVodPlayerDimensionDataWithOptions(const Models::DescribeVodPlayerDimensionDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the dimension metadata of the player.
+       * @summary Queries the metadata of player dimensions.
        *
        * @param request DescribeVodPlayerDimensionDataRequest
        * @return DescribeVodPlayerDimensionDataResponse
@@ -2103,11 +2107,11 @@ namespace Vod20170321
       Models::DescribeVodRefreshQuotaResponse describeVodRefreshQuota(const Models::DescribeVodRefreshQuotaRequest &request);
 
       /**
-       * @summary Queries whether purge and prefetch tasks have taken effect.
+       * @summary Queries whether refresh and prefetch tasks have taken effect.
        *
-       * @description - Currently, the service address supports only **China (Shanghai)**.
-       * - If neither Taskid nor Objectpath is specified, the first page of data (20 entries) within the last 3 days is returned by default. Taskid and Objectpath can be specified at the same time.
-       * - When DomainName or Status is specified, ObjectType is required.
+       * @description - Currently, the service endpoint supports only **China (Shanghai)**.
+       * - If neither TaskId nor ObjectPath is specified, the system queries the first page of data (20 entries) generated within the last three days by default. You can specify both TaskId and ObjectPath at the same time.
+       * - If you specify DomainName or Status, ObjectType is required.
        *
        * @param request DescribeVodRefreshTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2116,11 +2120,11 @@ namespace Vod20170321
       Models::DescribeVodRefreshTasksResponse describeVodRefreshTasksWithOptions(const Models::DescribeVodRefreshTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries whether purge and prefetch tasks have taken effect.
+       * @summary Queries whether refresh and prefetch tasks have taken effect.
        *
-       * @description - Currently, the service address supports only **China (Shanghai)**.
-       * - If neither Taskid nor Objectpath is specified, the first page of data (20 entries) within the last 3 days is returned by default. Taskid and Objectpath can be specified at the same time.
-       * - When DomainName or Status is specified, ObjectType is required.
+       * @description - Currently, the service endpoint supports only **China (Shanghai)**.
+       * - If neither TaskId nor ObjectPath is specified, the system queries the first page of data (20 entries) generated within the last three days by default. You can specify both TaskId and ObjectPath at the same time.
+       * - If you specify DomainName or Status, ObjectType is required.
        *
        * @param request DescribeVodRefreshTasksRequest
        * @return DescribeVodRefreshTasksResponse
@@ -2241,10 +2245,10 @@ namespace Vod20170321
       Models::DescribeVodTranscodeDataResponse describeVodTranscodeData(const Models::DescribeVodTranscodeDataRequest &request);
 
       /**
-       * @summary Queries the list of all acceleration domain names under your account for ApsaraVideo VOD.
+       * @summary Queries all ApsaraVideo VOD accelerated domain names under your account.
        *
-       * @description - Supports fuzzy match filtering by domain name and filtering by domain name status.
-       * - This operation currently supports only the following region: **China (Shanghai)**.
+       * @description - Supports fuzzy match filtering and domain name status filtering.
+       * - This operation is currently available only in the following region: **China (Shanghai)**.
        *
        * @param request DescribeVodUserDomainsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2253,10 +2257,10 @@ namespace Vod20170321
       Models::DescribeVodUserDomainsResponse describeVodUserDomainsWithOptions(const Models::DescribeVodUserDomainsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of all acceleration domain names under your account for ApsaraVideo VOD.
+       * @summary Queries all ApsaraVideo VOD accelerated domain names under your account.
        *
-       * @description - Supports fuzzy match filtering by domain name and filtering by domain name status.
-       * - This operation currently supports only the following region: **China (Shanghai)**.
+       * @description - Supports fuzzy match filtering and domain name status filtering.
+       * - This operation is currently available only in the following region: **China (Shanghai)**.
        *
        * @param request DescribeVodUserDomainsRequest
        * @return DescribeVodUserDomainsResponse
@@ -2264,7 +2268,7 @@ namespace Vod20170321
       Models::DescribeVodUserDomainsResponse describeVodUserDomains(const Models::DescribeVodUserDomainsRequest &request);
 
       /**
-       * @summary Queries the IP list of a domain name.
+       * @summary Queries the IP address list of a domain name.
        *
        * @description This operation is supported only in the China (Shanghai) region.
        *
@@ -2275,7 +2279,7 @@ namespace Vod20170321
       Models::DescribeVodUserVipsByDomainResponse describeVodUserVipsByDomainWithOptions(const Models::DescribeVodUserVipsByDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IP list of a domain name.
+       * @summary Queries the IP address list of a domain name.
        *
        * @description This operation is supported only in the China (Shanghai) region.
        *
@@ -2329,10 +2333,10 @@ namespace Vod20170321
       Models::DetachAppPolicyFromIdentityResponse detachAppPolicyFromIdentity(const Models::DetachAppPolicyFromIdentityRequest &request);
 
       /**
-       * @summary Generates a key for secure download. The secure download feature of ApsaraVideo Player SDK encrypts videos downloaded to local devices by using a key file. The encrypted videos can only be decrypted and played by using the key file generated by the unique app that is bindable in advance. This effectively protects video content and prevents downloaded videos from being maliciously played or distributed.
+       * @summary Generates a key for secure download. The secure download feature of ApsaraVideo Player SDK encrypts videos with a key file when they are downloaded to a local device. This ensures that the videos can only be decrypted and played by using the key file generated by a pre-bound unique app, which effectively protects video content and prevents downloaded videos from being maliciously played or distributed.
        *
-       * @description - To use the secure download feature, first enable the download feature in the ApsaraVideo VOD console and set the download method to secure download. For more information, see [Download settings](https://help.aliyun.com/document_detail/86107.html).
-       * - After generating a key for secure download, configure the key in ApsaraVideo Player SDK. For more information, see [Secure download](https://help.aliyun.com/document_detail/124735.html).
+       * @description - To use the secure download feature, you must first enable the download feature and set the download method to secure download in the ApsaraVideo VOD console. For more information, see [Download settings](https://help.aliyun.com/document_detail/86107.html).
+       * - After generating a key for secure download, you must configure the key in ApsaraVideo Player SDK. For more information, see [Secure download](https://help.aliyun.com/document_detail/124735.html).
        *
        * @param request GenerateDownloadSecretKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2341,10 +2345,10 @@ namespace Vod20170321
       Models::GenerateDownloadSecretKeyResponse generateDownloadSecretKeyWithOptions(const Models::GenerateDownloadSecretKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates a key for secure download. The secure download feature of ApsaraVideo Player SDK encrypts videos downloaded to local devices by using a key file. The encrypted videos can only be decrypted and played by using the key file generated by the unique app that is bindable in advance. This effectively protects video content and prevents downloaded videos from being maliciously played or distributed.
+       * @summary Generates a key for secure download. The secure download feature of ApsaraVideo Player SDK encrypts videos with a key file when they are downloaded to a local device. This ensures that the videos can only be decrypted and played by using the key file generated by a pre-bound unique app, which effectively protects video content and prevents downloaded videos from being maliciously played or distributed.
        *
-       * @description - To use the secure download feature, first enable the download feature in the ApsaraVideo VOD console and set the download method to secure download. For more information, see [Download settings](https://help.aliyun.com/document_detail/86107.html).
-       * - After generating a key for secure download, configure the key in ApsaraVideo Player SDK. For more information, see [Secure download](https://help.aliyun.com/document_detail/124735.html).
+       * @description - To use the secure download feature, you must first enable the download feature and set the download method to secure download in the ApsaraVideo VOD console. For more information, see [Download settings](https://help.aliyun.com/document_detail/86107.html).
+       * - After generating a key for secure download, you must configure the key in ApsaraVideo Player SDK. For more information, see [Secure download](https://help.aliyun.com/document_detail/124735.html).
        *
        * @param request GenerateDownloadSecretKeyRequest
        * @return GenerateDownloadSecretKeyResponse
@@ -2369,10 +2373,10 @@ namespace Vod20170321
       Models::GenerateKMSDataKeyResponse generateKMSDataKey(const Models::GenerateKMSDataKeyRequest &request);
 
       /**
-       * @summary Queries the list of AI image processing tasks.
+       * @summary Queries the list of AI image tasks.
        *
-       * @description -  Currently, this operation is supported in the following regions: **China (Beijing)** and **China (Shanghai)**.
-       * - Call the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation to submit an AI image processing task before you call this operation to query the list of AI image tasks.
+       * @description - This operation is supported in the following regions: **China (Beijing)** and **China (Shanghai)**.
+       * - Submit an AI image processing task by calling the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation, and then call this operation to query the list of AI image tasks.
        * - You can query up to 10 AI image processing tasks at a time.
        *
        * @param request GetAIImageJobsRequest
@@ -2382,10 +2386,10 @@ namespace Vod20170321
       Models::GetAIImageJobsResponse getAIImageJobsWithOptions(const Models::GetAIImageJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of AI image processing tasks.
+       * @summary Queries the list of AI image tasks.
        *
-       * @description -  Currently, this operation is supported in the following regions: **China (Beijing)** and **China (Shanghai)**.
-       * - Call the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation to submit an AI image processing task before you call this operation to query the list of AI image tasks.
+       * @description - This operation is supported in the following regions: **China (Beijing)** and **China (Shanghai)**.
+       * - Submit an AI image processing task by calling the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation, and then call this operation to query the list of AI image tasks.
        * - You can query up to 10 AI image processing tasks at a time.
        *
        * @param request GetAIImageJobsRequest
@@ -2394,11 +2398,11 @@ namespace Vod20170321
       Models::GetAIImageJobsResponse getAIImageJobs(const Models::GetAIImageJobsRequest &request);
 
       /**
-       * @summary Queries an automated review job. After you submit an AI job, the job is processed asynchronously. You can call this operation to query job information in real time.
+       * @summary Queries automated review jobs. After an AI job is submitted, it is processed asynchronously. You can call this operation to query the job information in real time.
        *
        * @description <props="intl">
        * - This operation is supported only in the Singapore region.
-       * - Image resources in automated review job results are retained in the free storage provided by ApsaraVideo VOD for only two weeks. After two weeks, the images are automatically deleted.
+       * - Image resources in the results of automated review jobs are retained in the free storage provided by ApsaraVideo VOD for only two weeks. They are automatically deleted after two weeks.
        *
        * @param request GetAIMediaAuditJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2407,11 +2411,11 @@ namespace Vod20170321
       Models::GetAIMediaAuditJobResponse getAIMediaAuditJobWithOptions(const Models::GetAIMediaAuditJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an automated review job. After you submit an AI job, the job is processed asynchronously. You can call this operation to query job information in real time.
+       * @summary Queries automated review jobs. After an AI job is submitted, it is processed asynchronously. You can call this operation to query the job information in real time.
        *
        * @description <props="intl">
        * - This operation is supported only in the Singapore region.
-       * - Image resources in automated review job results are retained in the free storage provided by ApsaraVideo VOD for only two weeks. After two weeks, the images are automatically deleted.
+       * - Image resources in the results of automated review jobs are retained in the free storage provided by ApsaraVideo VOD for only two weeks. They are automatically deleted after two weeks.
        *
        * @param request GetAIMediaAuditJobRequest
        * @return GetAIMediaAuditJobResponse
@@ -2442,9 +2446,9 @@ namespace Vod20170321
       Models::GetAITemplateResponse getAITemplate(const Models::GetAITemplateRequest &request);
 
       /**
-       * @summary Retrieves the results of smart tagging for a video.
+       * @summary Retrieves the smart tagging results.
        *
-       * @description - Currently, this operation is supported in the following regions: **China (Beijing)** and **China (Shanghai)**.
+       * @description - This operation is supported in the following regions: **China (Beijing)** and **China (Shanghai)**.
        * - Retrieves smart tagging results by video ID.
        *
        * @param request GetAIVideoTagResultRequest
@@ -2454,9 +2458,9 @@ namespace Vod20170321
       Models::GetAIVideoTagResultResponse getAIVideoTagResultWithOptions(const Models::GetAIVideoTagResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the results of smart tagging for a video.
+       * @summary Retrieves the smart tagging results.
        *
-       * @description - Currently, this operation is supported in the following regions: **China (Beijing)** and **China (Shanghai)**.
+       * @description - This operation is supported in the following regions: **China (Beijing)** and **China (Shanghai)**.
        * - Retrieves smart tagging results by video ID.
        *
        * @param request GetAIVideoTagResultRequest
@@ -2492,7 +2496,7 @@ namespace Vod20170321
       Models::GetAppInfosResponse getAppInfos(const Models::GetAppInfosRequest &request);
 
       /**
-       * @summary Retrieves the playback key of an application.
+       * @summary Retrieves the application playback key.
        *
        * @param request GetAppPlayKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2501,7 +2505,7 @@ namespace Vod20170321
       Models::GetAppPlayKeyResponse getAppPlayKeyWithOptions(const Models::GetAppPlayKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the playback key of an application.
+       * @summary Retrieves the application playback key.
        *
        * @param request GetAppPlayKeyRequest
        * @return GetAppPlayKeyResponse
@@ -2509,9 +2513,9 @@ namespace Vod20170321
       Models::GetAppPlayKeyResponse getAppPlayKey(const Models::GetAppPlayKeyRequest &request);
 
       /**
-       * @summary Retrieves the basic information and access URLs of multiple auxiliary media assets in a batch by specifying their IDs after the assets such as watermark images, subtitle files, and materials are uploaded to ApsaraVideo VOD.
+       * @summary Queries the basic information and access URLs of multiple auxiliary media assets, such as watermark images, subtitle files, and materials, that are uploaded to ApsaraVideo VOD.
        *
-       * @description You can retrieve information about up to 20 auxiliary media assets at a time.
+       * @description You can retrieve the information of up to 20 auxiliary media assets at a time.
        *
        * @param request GetAttachedMediaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2520,9 +2524,9 @@ namespace Vod20170321
       Models::GetAttachedMediaInfoResponse getAttachedMediaInfoWithOptions(const Models::GetAttachedMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the basic information and access URLs of multiple auxiliary media assets in a batch by specifying their IDs after the assets such as watermark images, subtitle files, and materials are uploaded to ApsaraVideo VOD.
+       * @summary Queries the basic information and access URLs of multiple auxiliary media assets, such as watermark images, subtitle files, and materials, that are uploaded to ApsaraVideo VOD.
        *
-       * @description You can retrieve information about up to 20 auxiliary media assets at a time.
+       * @description You can retrieve the information of up to 20 auxiliary media assets at a time.
        *
        * @param request GetAttachedMediaInfoRequest
        * @return GetAttachedMediaInfoResponse
@@ -2547,7 +2551,7 @@ namespace Vod20170321
       Models::GetAuditHistoryResponse getAuditHistory(const Models::GetAuditHistoryRequest &request);
 
       /**
-       * @summary Invokes this operation to perform a filtered query for specified categorization information by ID or type, and retrieves the list of its subcategories (next-level categories).
+       * @summary Invokes this operation to perform a filtered query for specified categorization information and the list of its sub-categorizations by ID or type.
        *
        * @param request GetCategoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2556,7 +2560,7 @@ namespace Vod20170321
       Models::GetCategoriesResponse getCategoriesWithOptions(const Models::GetCategoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes this operation to perform a filtered query for specified categorization information by ID or type, and retrieves the list of its subcategories (next-level categories).
+       * @summary Invokes this operation to perform a filtered query for specified categorization information and the list of its sub-categorizations by ID or type.
        *
        * @param request GetCategoriesRequest
        * @return GetCategoriesResponse
@@ -2591,8 +2595,8 @@ namespace Vod20170321
       /**
        * @summary Queries the default AI template.
        *
-       * @description - Currently, this operation is supported in the following regions: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-       * - Currently, only the default AI template for automated review can be queried.
+       * @description - This API operation is supported in the following regions: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+       * - Currently, you can only query the default AI template for automated review.
        *
        * @param request GetDefaultAITemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2603,8 +2607,8 @@ namespace Vod20170321
       /**
        * @summary Queries the default AI template.
        *
-       * @description - Currently, this operation is supported in the following regions: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-       * - Currently, only the default AI template for automated review can be queried.
+       * @description - This API operation is supported in the following regions: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+       * - Currently, you can only query the default AI template for automated review.
        *
        * @param request GetDefaultAITemplateRequest
        * @return GetDefaultAITemplateResponse
@@ -2612,11 +2616,11 @@ namespace Vod20170321
       Models::GetDefaultAITemplateResponse getDefaultAITemplate(const Models::GetDefaultAITemplateRequest &request);
 
       /**
-       * @summary Queries the results of a digital watermarking (copyright watermark or tracing watermark) extraction job, including the job status and the successfully extracted watermark text.
+       * @summary Queries the results of digital watermark extraction jobs (copyright watermarks or tracing watermarks) after you invoke this operation, including the job status and the successfully extracted watermark text.
        *
-       * @description - Currently, this operation is available only in the China (Shanghai) and China (Beijing) regions.
-       * - After you call the [SubmitDigitalWatermarkExtractJob](~~SubmitDigitalWatermarkExtractJob~~) operation to extract the copyright watermark or tracing watermark from a video, call this operation to query the extracted watermark text.
-       * - Only watermark extraction jobs from the last 2 years can be queried.
+       * @description - This API operation is available only in the China (Shanghai) and China (Beijing) regions.
+       * - After you invoke the [SubmitDigitalWatermarkExtractJob](~~SubmitDigitalWatermarkExtractJob~~) operation to extract the copyright watermark or tracing watermark from a video, invoke this operation to query the extracted watermark text.
+       * - You can query only the watermark extraction jobs created within the last two years.
        *
        * @param request GetDigitalWatermarkExtractResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2625,11 +2629,11 @@ namespace Vod20170321
       Models::GetDigitalWatermarkExtractResultResponse getDigitalWatermarkExtractResultWithOptions(const Models::GetDigitalWatermarkExtractResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the results of a digital watermarking (copyright watermark or tracing watermark) extraction job, including the job status and the successfully extracted watermark text.
+       * @summary Queries the results of digital watermark extraction jobs (copyright watermarks or tracing watermarks) after you invoke this operation, including the job status and the successfully extracted watermark text.
        *
-       * @description - Currently, this operation is available only in the China (Shanghai) and China (Beijing) regions.
-       * - After you call the [SubmitDigitalWatermarkExtractJob](~~SubmitDigitalWatermarkExtractJob~~) operation to extract the copyright watermark or tracing watermark from a video, call this operation to query the extracted watermark text.
-       * - Only watermark extraction jobs from the last 2 years can be queried.
+       * @description - This API operation is available only in the China (Shanghai) and China (Beijing) regions.
+       * - After you invoke the [SubmitDigitalWatermarkExtractJob](~~SubmitDigitalWatermarkExtractJob~~) operation to extract the copyright watermark or tracing watermark from a video, invoke this operation to query the extracted watermark text.
+       * - You can query only the watermark extraction jobs created within the last two years.
        *
        * @param request GetDigitalWatermarkExtractResultRequest
        * @return GetDigitalWatermarkExtractResultResponse
@@ -2637,7 +2641,7 @@ namespace Vod20170321
       Models::GetDigitalWatermarkExtractResultResponse getDigitalWatermarkExtractResult(const Models::GetDigitalWatermarkExtractResultRequest &request);
 
       /**
-       * @summary Retrieves the details of an online editing project (video editing task).
+       * @summary Queries the details of an online editing project (video editing task).
        *
        * @param request GetEditingProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2646,7 +2650,7 @@ namespace Vod20170321
       Models::GetEditingProjectResponse getEditingProjectWithOptions(const Models::GetEditingProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of an online editing project (video editing task).
+       * @summary Queries the details of an online editing project (video editing task).
        *
        * @param request GetEditingProjectRequest
        * @return GetEditingProjectResponse
@@ -2654,9 +2658,9 @@ namespace Vod20170321
       Models::GetEditingProjectResponse getEditingProject(const Models::GetEditingProjectRequest &request);
 
       /**
-       * @summary Retrieves the list of materials to be edited in an online editing project.
+       * @summary Queries the list of materials to be edited in an online editing project.
        *
-       * @description During the editing process, materials can be added to the timeline but are not necessarily fully used.
+       * @description During the editing process, materials can be added to the timeline, but they are not necessarily fully used.
        *
        * @param request GetEditingProjectMaterialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2665,9 +2669,9 @@ namespace Vod20170321
       Models::GetEditingProjectMaterialsResponse getEditingProjectMaterialsWithOptions(const Models::GetEditingProjectMaterialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of materials to be edited in an online editing project.
+       * @summary Queries the list of materials to be edited in an online editing project.
        *
-       * @description During the editing process, materials can be added to the timeline but are not necessarily fully used.
+       * @description During the editing process, materials can be added to the timeline, but they are not necessarily fully used.
        *
        * @param request GetEditingProjectMaterialsRequest
        * @return GetEditingProjectMaterialsResponse
@@ -2675,9 +2679,9 @@ namespace Vod20170321
       Models::GetEditingProjectMaterialsResponse getEditingProjectMaterials(const Models::GetEditingProjectMaterialsRequest &request);
 
       /**
-       * @summary Retrieves the basic information and access URL of an image by image ID after the image is uploaded to ApsaraVideo VOD.
+       * @summary Queries the basic information and access URL of an image by image ID after the image is uploaded to ApsaraVideo VOD.
        *
-       * @description This operation only supports querying information about images uploaded to ApsaraVideo VOD. To query information about snapshots generated from video snapshots, call the [ListSnapshots](~~ListSnapshots~~) operation.
+       * @description This operation only supports querying image information for images uploaded to ApsaraVideo VOD. To query snapshot information generated from video snapshots, call the [ListSnapshots](~~ListSnapshots~~) operation.
        *
        * @param request GetImageInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2686,9 +2690,9 @@ namespace Vod20170321
       Models::GetImageInfoResponse getImageInfoWithOptions(const Models::GetImageInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the basic information and access URL of an image by image ID after the image is uploaded to ApsaraVideo VOD.
+       * @summary Queries the basic information and access URL of an image by image ID after the image is uploaded to ApsaraVideo VOD.
        *
-       * @description This operation only supports querying information about images uploaded to ApsaraVideo VOD. To query information about snapshots generated from video snapshots, call the [ListSnapshots](~~ListSnapshots~~) operation.
+       * @description This operation only supports querying image information for images uploaded to ApsaraVideo VOD. To query snapshot information generated from video snapshots, call the [ListSnapshots](~~ListSnapshots~~) operation.
        *
        * @param request GetImageInfoRequest
        * @return GetImageInfoResponse
@@ -2696,9 +2700,9 @@ namespace Vod20170321
       Models::GetImageInfoResponse getImageInfo(const Models::GetImageInfoRequest &request);
 
       /**
-       * @summary Queries the basic information and access URLs of multiple images by image ID after the images are uploaded to ApsaraVideo VOD.
+       * @summary Retrieves the basic information and access URLs of multiple images uploaded to ApsaraVideo VOD by specifying image IDs.
        *
-       * @description - This operation only supports querying information about images uploaded to ApsaraVideo VOD. To query information about snapshots generated from video snapshots, call the [ListSnapshots](~~ListSnapshots~~) operation.
+       * @description - This operation only supports querying image information for images uploaded to ApsaraVideo VOD. To query snapshot information generated from video snapshots, call the [ListSnapshots](~~ListSnapshots~~) operation.
        * - You can query information about up to 20 images at a time.
        *
        * @param request GetImageInfosRequest
@@ -2708,9 +2712,9 @@ namespace Vod20170321
       Models::GetImageInfosResponse getImageInfosWithOptions(const Models::GetImageInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information and access URLs of multiple images by image ID after the images are uploaded to ApsaraVideo VOD.
+       * @summary Retrieves the basic information and access URLs of multiple images uploaded to ApsaraVideo VOD by specifying image IDs.
        *
-       * @description - This operation only supports querying information about images uploaded to ApsaraVideo VOD. To query information about snapshots generated from video snapshots, call the [ListSnapshots](~~ListSnapshots~~) operation.
+       * @description - This operation only supports querying image information for images uploaded to ApsaraVideo VOD. To query snapshot information generated from video snapshots, call the [ListSnapshots](~~ListSnapshots~~) operation.
        * - You can query information about up to 20 images at a time.
        *
        * @param request GetImageInfosRequest
@@ -2719,12 +2723,12 @@ namespace Vod20170321
       Models::GetImageInfosResponse getImageInfos(const Models::GetImageInfosRequest &request);
 
       /**
-       * @summary Queries the details of an asynchronous task by job ID.
+       * @summary Queries the details of an asynchronous task based on the job ID.
        *
        * @description **Usage notes**
-       * This operation supports querying asynchronous task data from the last 6 months. Supported task types: transcoding tasks, snapshot tasks, AI tasks, and workflow tasks.
+       * This operation only supports querying asynchronous task data within the last 6 months. Queryable task types include transcoding tasks, snapshot tasks, AI tasks, and workflow tasks.
        * **QPS limit**
-       * The single-user QPS limit for this operation is 15 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
+       * The QPS limit for a single user calling this operation is 15 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request GetJobDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2733,12 +2737,12 @@ namespace Vod20170321
       Models::GetJobDetailResponse getJobDetailWithOptions(const Models::GetJobDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an asynchronous task by job ID.
+       * @summary Queries the details of an asynchronous task based on the job ID.
        *
        * @description **Usage notes**
-       * This operation supports querying asynchronous task data from the last 6 months. Supported task types: transcoding tasks, snapshot tasks, AI tasks, and workflow tasks.
+       * This operation only supports querying asynchronous task data within the last 6 months. Queryable task types include transcoding tasks, snapshot tasks, AI tasks, and workflow tasks.
        * **QPS limit**
-       * The single-user QPS limit for this operation is 15 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
+       * The QPS limit for a single user calling this operation is 15 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request GetJobDetailRequest
        * @return GetJobDetailResponse
@@ -2763,13 +2767,13 @@ namespace Vod20170321
       Models::GetMediaAiAnalysisResponse getMediaAiAnalysis(const Models::GetMediaAiAnalysisRequest &request);
 
       /**
-       * @summary Retrieves the details of audio automated review results.
+       * @summary Retrieves the details of the automated audio review.
        *
        * @description ### Usage notes
-       * <props="china">After automated review is complete, if you have configured the [Automated review complete](https://help.aliyun.com/document_detail/89576.html) event notification, the callback URL is notified through a message callback. You can call this operation to query the details of audio review results.
+       * <props="china">After the automated review is completed, if you have configured the [Automated review completed](https://help.aliyun.com/document_detail/89576.html) event notification, the system sends a callback notification to the callback URL. You can call this operation to query the details of the audio review results.
        * <props="intl">
        * - This operation is supported only in the Singapore region.
-       * - After automated review is complete, if you have configured the [Automated review complete](https://help.aliyun.com/document_detail/89576.html) event notification, the callback URL is notified through a message callback. You can call this operation to query the details of audio review results.
+       * - After the automated review is completed, if you have configured the [Automated review completed](https://help.aliyun.com/document_detail/89576.html) event notification, the system sends a callback notification to the callback URL. You can call this operation to query the details of the audio review results.
        *
        * @param request GetMediaAuditAudioResultDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2778,13 +2782,13 @@ namespace Vod20170321
       Models::GetMediaAuditAudioResultDetailResponse getMediaAuditAudioResultDetailWithOptions(const Models::GetMediaAuditAudioResultDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of audio automated review results.
+       * @summary Retrieves the details of the automated audio review.
        *
        * @description ### Usage notes
-       * <props="china">After automated review is complete, if you have configured the [Automated review complete](https://help.aliyun.com/document_detail/89576.html) event notification, the callback URL is notified through a message callback. You can call this operation to query the details of audio review results.
+       * <props="china">After the automated review is completed, if you have configured the [Automated review completed](https://help.aliyun.com/document_detail/89576.html) event notification, the system sends a callback notification to the callback URL. You can call this operation to query the details of the audio review results.
        * <props="intl">
        * - This operation is supported only in the Singapore region.
-       * - After automated review is complete, if you have configured the [Automated review complete](https://help.aliyun.com/document_detail/89576.html) event notification, the callback URL is notified through a message callback. You can call this operation to query the details of audio review results.
+       * - After the automated review is completed, if you have configured the [Automated review completed](https://help.aliyun.com/document_detail/89576.html) event notification, the system sends a callback notification to the callback URL. You can call this operation to query the details of the audio review results.
        *
        * @param request GetMediaAuditAudioResultDetailRequest
        * @return GetMediaAuditAudioResultDetailResponse
@@ -2798,7 +2802,7 @@ namespace Vod20170321
        * ### Usage notes
        * This operation is supported only in the Singapore region.
        * ### QPS limit
-       * You can call this operation up to 20 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * The queries per second (QPS) limit per user for this operation is 20. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request GetMediaAuditResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2813,7 +2817,7 @@ namespace Vod20170321
        * ### Usage notes
        * This operation is supported only in the Singapore region.
        * ### QPS limit
-       * You can call this operation up to 20 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * The queries per second (QPS) limit per user for this operation is 20. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request GetMediaAuditResultRequest
        * @return GetMediaAuditResultResponse
@@ -2821,10 +2825,10 @@ namespace Vod20170321
       Models::GetMediaAuditResultResponse getMediaAuditResult(const Models::GetMediaAuditResultRequest &request);
 
       /**
-       * @summary Retrieves the details of automated review results. You can call this operation to query the details of review results in real time.
+       * @summary Retrieves the details of automated review results in real time.
        *
-       * @description - By default, only the review screenshot details of violating and suspected violating content are returned. No results are returned for compliant videos and images.
-       * - The image resources of review results are retained in the free storage provided by ApsaraVideo VOD for only 2 weeks. After 2 weeks, the images are automatically deleted.
+       * @description - By default, only the details of snapshots that are flagged as violations or suspected violations are returned. Results cannot be queried for videos and images that do not contain violations.
+       * - Image resources in review results are retained in the free storage provided by ApsaraVideo VOD for only two weeks. They are automatically deleted after two weeks.
        * <props="intl">
        * - This operation is supported only in the Singapore region.
        *
@@ -2835,10 +2839,10 @@ namespace Vod20170321
       Models::GetMediaAuditResultDetailResponse getMediaAuditResultDetailWithOptions(const Models::GetMediaAuditResultDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of automated review results. You can call this operation to query the details of review results in real time.
+       * @summary Retrieves the details of automated review results in real time.
        *
-       * @description - By default, only the review screenshot details of violating and suspected violating content are returned. No results are returned for compliant videos and images.
-       * - The image resources of review results are retained in the free storage provided by ApsaraVideo VOD for only 2 weeks. After 2 weeks, the images are automatically deleted.
+       * @description - By default, only the details of snapshots that are flagged as violations or suspected violations are returned. Results cannot be queried for videos and images that do not contain violations.
+       * - Image resources in review results are retained in the free storage provided by ApsaraVideo VOD for only two weeks. They are automatically deleted after two weeks.
        * <props="intl">
        * - This operation is supported only in the Singapore region.
        *
@@ -2963,14 +2967,14 @@ namespace Vod20170321
       Models::GetMezzanineInfoResponse getMezzanineInfo(const Models::GetMezzanineInfoRequest &request);
 
       /**
-       * @summary Retrieves the playback URL of an audio or video file by providing the audio or video ID, which can then be played using ApsaraVideo Player or a third-party player such as a system-native, open-source, or custom-built player.
+       * @summary Retrieves the playback URL of an audio or video file. You can use ApsaraVideo Player or a third-party player, such as a native, open-source, or custom player, to play the media content.
        *
-       * @description - **Before using this operation, make sure you fully understand the billing methods and pricing of ApsaraVideo VOD. Directly downloading or playing videos from ApsaraVideo VOD playback URLs incurs outbound traffic fees. If no accelerated domain name is configured, refer to [Storage outbound traffic billing](~~188308#section-rwh-e88-f7j~~). If an accelerated domain name is configured, refer to [Acceleration service billing](~~188308#section-c5t-oq9-15e~~). If you have enabled storage transfer acceleration, directly downloading or playing videos from ApsaraVideo VOD playback URLs also incurs download acceleration fees. For billing details, refer to [Storage transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
-       * - Only videos in the Normal state (the Status field value is Normal) can be played. For more information about playback URL descriptions and usage limits, refer to [Audio and video playback](https://help.aliyun.com/document_detail/57290.html).
-       * - When the [media storage](https://help.aliyun.com/document_detail/2392368.html) type is non-standard storage, set the StorageClass field of the PlayConfig parameter accordingly. For details, refer to [PlayConfig](~~86952#section-9g7-s9b-v7z~~).
-       * - If video playback is abnormal, call the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the video source file information is correct.
+       * @description - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Downloading or playing videos directly from the VOD playback URL incurs outbound traffic fees. If no accelerated domain name is configured, refer to [Billing of outbound traffic](~~188308#section-rwh-e88-f7j~~). If an accelerated domain name is configured, refer to [Billing of acceleration services](~~188308#section-c5t-oq9-15e~~). If you have enabled storage transfer acceleration, downloading or playing videos directly from the VOD playback URL also incurs download acceleration fees. For more information about billing, refer to [Billing of storage transfer acceleration](~~188310#section_sta_zm2_tsv~~).**
+       * - Only videos in the Normal state (the Status field is set to Normal) can be played. For more information about playback instructions and limits for playback URLs, refer to [Media playback](https://help.aliyun.com/document_detail/57290.html).
+       * - When the [media asset storage](https://help.aliyun.com/document_detail/2392368.html) type is non-standard storage, you must configure the StorageClass field in the PlayConfig parameter accordingly. For more information, refer to [PlayConfig](~~86952#section-9g7-s9b-v7z~~).
+       * - If video playback is abnormal, you can call the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the video source file information is correct.
        * <props="china">
-       * - To generate m3u8 tracing watermark video streams by calling this operation, submit a ticket to apply for activation. For information about how to submit a ticket, refer to [Contact us](https://help.aliyun.com/document_detail/464625.html). For more information about tracing watermarks, refer to [Digital watermarking](https://help.aliyun.com/document_detail/2527021.html).
+       * - To call this operation to generate an m3u8 tracing watermark video stream, submit a ticket to apply for activation. For more information about how to submit a ticket, refer to [Contact us](https://help.aliyun.com/document_detail/464625.html). For more information about tracing watermarks, refer to [Digital watermarking](https://help.aliyun.com/document_detail/2527021.html).
        *
        * @param request GetPlayInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2979,14 +2983,14 @@ namespace Vod20170321
       Models::GetPlayInfoResponse getPlayInfoWithOptions(const Models::GetPlayInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the playback URL of an audio or video file by providing the audio or video ID, which can then be played using ApsaraVideo Player or a third-party player such as a system-native, open-source, or custom-built player.
+       * @summary Retrieves the playback URL of an audio or video file. You can use ApsaraVideo Player or a third-party player, such as a native, open-source, or custom player, to play the media content.
        *
-       * @description - **Before using this operation, make sure you fully understand the billing methods and pricing of ApsaraVideo VOD. Directly downloading or playing videos from ApsaraVideo VOD playback URLs incurs outbound traffic fees. If no accelerated domain name is configured, refer to [Storage outbound traffic billing](~~188308#section-rwh-e88-f7j~~). If an accelerated domain name is configured, refer to [Acceleration service billing](~~188308#section-c5t-oq9-15e~~). If you have enabled storage transfer acceleration, directly downloading or playing videos from ApsaraVideo VOD playback URLs also incurs download acceleration fees. For billing details, refer to [Storage transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
-       * - Only videos in the Normal state (the Status field value is Normal) can be played. For more information about playback URL descriptions and usage limits, refer to [Audio and video playback](https://help.aliyun.com/document_detail/57290.html).
-       * - When the [media storage](https://help.aliyun.com/document_detail/2392368.html) type is non-standard storage, set the StorageClass field of the PlayConfig parameter accordingly. For details, refer to [PlayConfig](~~86952#section-9g7-s9b-v7z~~).
-       * - If video playback is abnormal, call the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the video source file information is correct.
+       * @description - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Downloading or playing videos directly from the VOD playback URL incurs outbound traffic fees. If no accelerated domain name is configured, refer to [Billing of outbound traffic](~~188308#section-rwh-e88-f7j~~). If an accelerated domain name is configured, refer to [Billing of acceleration services](~~188308#section-c5t-oq9-15e~~). If you have enabled storage transfer acceleration, downloading or playing videos directly from the VOD playback URL also incurs download acceleration fees. For more information about billing, refer to [Billing of storage transfer acceleration](~~188310#section_sta_zm2_tsv~~).**
+       * - Only videos in the Normal state (the Status field is set to Normal) can be played. For more information about playback instructions and limits for playback URLs, refer to [Media playback](https://help.aliyun.com/document_detail/57290.html).
+       * - When the [media asset storage](https://help.aliyun.com/document_detail/2392368.html) type is non-standard storage, you must configure the StorageClass field in the PlayConfig parameter accordingly. For more information, refer to [PlayConfig](~~86952#section-9g7-s9b-v7z~~).
+       * - If video playback is abnormal, you can call the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the video source file information is correct.
        * <props="china">
-       * - To generate m3u8 tracing watermark video streams by calling this operation, submit a ticket to apply for activation. For information about how to submit a ticket, refer to [Contact us](https://help.aliyun.com/document_detail/464625.html). For more information about tracing watermarks, refer to [Digital watermarking](https://help.aliyun.com/document_detail/2527021.html).
+       * - To call this operation to generate an m3u8 tracing watermark video stream, submit a ticket to apply for activation. For more information about how to submit a ticket, refer to [Contact us](https://help.aliyun.com/document_detail/464625.html). For more information about tracing watermarks, refer to [Digital watermarking](https://help.aliyun.com/document_detail/2527021.html).
        *
        * @param request GetPlayInfoRequest
        * @return GetPlayInfoResponse
@@ -3021,12 +3025,12 @@ namespace Vod20170321
       Models::GetTranscodeSummaryResponse getTranscodeSummary(const Models::GetTranscodeSummaryRequest &request);
 
       /**
-       * @summary Queries the details of transcoding jobs based on a transcoding task ID.
+       * @summary Queries the details of transcoding jobs based on the transcoding task ID.
        *
        * @description ### Usage notes
-       * **This operation only supports querying transcoding task data from the last year.**
+       * **This operation only supports querying transcoding task data within the last year.**
        * ### QPS limit
-       * A single user can perform a maximum of 15 queries per second (QPS). Throttling is triggered if this limit is exceeded, which may affect your business. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
+       * The queries per second (QPS) limit for a single user calling this operation is 15. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request GetTranscodeTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3035,12 +3039,12 @@ namespace Vod20170321
       Models::GetTranscodeTaskResponse getTranscodeTaskWithOptions(const Models::GetTranscodeTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of transcoding jobs based on a transcoding task ID.
+       * @summary Queries the details of transcoding jobs based on the transcoding task ID.
        *
        * @description ### Usage notes
-       * **This operation only supports querying transcoding task data from the last year.**
+       * **This operation only supports querying transcoding task data within the last year.**
        * ### QPS limit
-       * A single user can perform a maximum of 15 queries per second (QPS). Throttling is triggered if this limit is exceeded, which may affect your business. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
+       * The queries per second (QPS) limit for a single user calling this operation is 15. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request GetTranscodeTaskRequest
        * @return GetTranscodeTaskResponse
@@ -3048,9 +3052,9 @@ namespace Vod20170321
       Models::GetTranscodeTaskResponse getTranscodeTask(const Models::GetTranscodeTaskRequest &request);
 
       /**
-       * @summary Queries the details of a transcoding configuration by transcoding template group ID.
+       * @summary Queries the details of the transcoding configuration based on the ID of the transcoding template group.
        *
-       * @description Retrieves information about a single template group, including the configuration information of all transcoding templates in the group.
+       * @description Retrieves the information about a single template group and returns the configuration information of all transcoding templates in the template group.
        *
        * @param request GetTranscodeTemplateGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3059,9 +3063,9 @@ namespace Vod20170321
       Models::GetTranscodeTemplateGroupResponse getTranscodeTemplateGroupWithOptions(const Models::GetTranscodeTemplateGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a transcoding configuration by transcoding template group ID.
+       * @summary Queries the details of the transcoding configuration based on the ID of the transcoding template group.
        *
-       * @description Retrieves information about a single template group, including the configuration information of all transcoding templates in the group.
+       * @description Retrieves the information about a single template group and returns the configuration information of all transcoding templates in the template group.
        *
        * @param request GetTranscodeTemplateGroupRequest
        * @return GetTranscodeTemplateGroupResponse
@@ -3069,14 +3073,14 @@ namespace Vod20170321
       Models::GetTranscodeTemplateGroupResponse getTranscodeTemplateGroup(const Models::GetTranscodeTemplateGroupRequest &request);
 
       /**
-       * @summary Retrieves URL upload information.
+       * @summary Queries URL upload information.
        *
-       * @description - Retrieves URL upload information by using the JobId returned during URL-based upload or the URL used for upload. The information includes the URL upload status, UserData, creation time, and completion time.
+       * @description - Retrieves URL upload information by using the JobId returned during URL upload or the URL used for upload. The information includes the URL upload status, UserData, creation time, and completion time.
        * - **This operation only supports querying upload task data within the last year.**
-       * - This operation currently supports only the following service regions: **China (Shanghai)** and **Singapore**.
-       * - After you call the [UploadMediaByURL](~~UploadMediaByURL~~) operation to upload a media file to ApsaraVideo VOD, you can call this operation to query the upload information of a specified media file by using the upload task IDs (`JobIds`) or the source file URLs (`UploadURLs`).
-       * - When calling this operation, you must specify either `JobIds` or `UploadURLs`. If both are specified, only `JobIds` is processed.
-       * - If the media upload fails, you can call this operation to view the error code and error message. If the media upload succeeds, you can call this operation to view the corresponding media ID.
+       * - This operation is currently available only in the following regions: **China (Shanghai)** and **Singapore**.
+       * - After you call the [UploadMediaByURL](~~UploadMediaByURL~~) operation to upload media files to ApsaraVideo VOD, you can call this operation to query the upload information of specified media files by using the URL pull upload task IDs (JobIds) or the media source file URLs (UploadURLs).
+       * - When you call this operation, you must specify either JobIds or UploadURLs. If both are specified, only JobIds is processed.
+       * - If a media file fails to be uploaded, you can call this operation to view the error code and error message. If a media file is uploaded, you can call this operation to view the corresponding media ID.
        *
        * @param request GetURLUploadInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3085,14 +3089,14 @@ namespace Vod20170321
       Models::GetURLUploadInfosResponse getURLUploadInfosWithOptions(const Models::GetURLUploadInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves URL upload information.
+       * @summary Queries URL upload information.
        *
-       * @description - Retrieves URL upload information by using the JobId returned during URL-based upload or the URL used for upload. The information includes the URL upload status, UserData, creation time, and completion time.
+       * @description - Retrieves URL upload information by using the JobId returned during URL upload or the URL used for upload. The information includes the URL upload status, UserData, creation time, and completion time.
        * - **This operation only supports querying upload task data within the last year.**
-       * - This operation currently supports only the following service regions: **China (Shanghai)** and **Singapore**.
-       * - After you call the [UploadMediaByURL](~~UploadMediaByURL~~) operation to upload a media file to ApsaraVideo VOD, you can call this operation to query the upload information of a specified media file by using the upload task IDs (`JobIds`) or the source file URLs (`UploadURLs`).
-       * - When calling this operation, you must specify either `JobIds` or `UploadURLs`. If both are specified, only `JobIds` is processed.
-       * - If the media upload fails, you can call this operation to view the error code and error message. If the media upload succeeds, you can call this operation to view the corresponding media ID.
+       * - This operation is currently available only in the following regions: **China (Shanghai)** and **Singapore**.
+       * - After you call the [UploadMediaByURL](~~UploadMediaByURL~~) operation to upload media files to ApsaraVideo VOD, you can call this operation to query the upload information of specified media files by using the URL pull upload task IDs (JobIds) or the media source file URLs (UploadURLs).
+       * - When you call this operation, you must specify either JobIds or UploadURLs. If both are specified, only JobIds is processed.
+       * - If a media file fails to be uploaded, you can call this operation to view the error code and error message. If a media file is uploaded, you can call this operation to view the corresponding media ID.
        *
        * @param request GetURLUploadInfosRequest
        * @return GetURLUploadInfosResponse
@@ -3100,17 +3104,17 @@ namespace Vod20170321
       Models::GetURLUploadInfosResponse getURLUploadInfos(const Models::GetURLUploadInfosRequest &request);
 
       /**
-       * @summary Retrieves media upload details by media ID, such as upload time, upload ratio, and upload source. Batch retrieval is supported.
+       * @summary Queries the upload details of one or more media assets by media ID, such as the upload time, upload ratio, and upload source.
        *
-       * @description - This operation only supports retrieving upload details of audio and video files.
-       * - If audio or video files are uploaded through the ApsaraVideo VOD console, you can use this operation to retrieve information such as the upload ratio. If audio or video files are uploaded by using the upload SDK, only the following versions of the [upload SDK](https://help.aliyun.com/document_detail/52200.html) support this operation.
-       * > Only the server upload SDK supports this operation. The client upload SDK does not support this operation. The server upload SDK version requirements are as follows:
-       * > - Java upload SDK: version ≥ 1.4.4
-       * > - C++ upload SDK: version ≥ 1.0.0
-       * > - PHP upload SDK: version ≥ 1.0.2
-       * > - Python upload SDK: version ≥ 1.3.0
+       * @description - This operation only supports querying the upload details of audio and video files.
+       * - If the audio or video file is uploaded through the ApsaraVideo VOD console, you can obtain information such as the upload ratio by calling this operation. If the audio or video file is uploaded by using an SDK, you can obtain the upload details only if the [upload SDK](https://help.aliyun.com/document_detail/52200.html) meets the following requirements.
+       * > Only server-the upload SDKs support this operation. Client-the upload SDKs do not support this operation. The server-the upload SDK versions that support this operation are as follows:
+       * > - Java upload SDK: 1.4.4 or later
+       * > - C++ upload SDK: 1.0.0 or later
+       * > - PHP upload SDK: 1.0.2 or later
+       * > - Python upload SDK: 1.3.0 or later
        * ### QPS limit
-       * The single-user QPS limit for this operation is 100 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * The QPS limit for a single user is 100 calls per second. If the number of calls per second exceeds the limit, throttling is triggered, which may affect your business. Call this operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request GetUploadDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3119,17 +3123,17 @@ namespace Vod20170321
       Models::GetUploadDetailsResponse getUploadDetailsWithOptions(const Models::GetUploadDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves media upload details by media ID, such as upload time, upload ratio, and upload source. Batch retrieval is supported.
+       * @summary Queries the upload details of one or more media assets by media ID, such as the upload time, upload ratio, and upload source.
        *
-       * @description - This operation only supports retrieving upload details of audio and video files.
-       * - If audio or video files are uploaded through the ApsaraVideo VOD console, you can use this operation to retrieve information such as the upload ratio. If audio or video files are uploaded by using the upload SDK, only the following versions of the [upload SDK](https://help.aliyun.com/document_detail/52200.html) support this operation.
-       * > Only the server upload SDK supports this operation. The client upload SDK does not support this operation. The server upload SDK version requirements are as follows:
-       * > - Java upload SDK: version ≥ 1.4.4
-       * > - C++ upload SDK: version ≥ 1.0.0
-       * > - PHP upload SDK: version ≥ 1.0.2
-       * > - Python upload SDK: version ≥ 1.3.0
+       * @description - This operation only supports querying the upload details of audio and video files.
+       * - If the audio or video file is uploaded through the ApsaraVideo VOD console, you can obtain information such as the upload ratio by calling this operation. If the audio or video file is uploaded by using an SDK, you can obtain the upload details only if the [upload SDK](https://help.aliyun.com/document_detail/52200.html) meets the following requirements.
+       * > Only server-the upload SDKs support this operation. Client-the upload SDKs do not support this operation. The server-the upload SDK versions that support this operation are as follows:
+       * > - Java upload SDK: 1.4.4 or later
+       * > - C++ upload SDK: 1.0.0 or later
+       * > - PHP upload SDK: 1.0.2 or later
+       * > - Python upload SDK: 1.3.0 or later
        * ### QPS limit
-       * The single-user QPS limit for this operation is 100 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * The QPS limit for a single user is 100 calls per second. If the number of calls per second exceeds the limit, throttling is triggered, which may affect your business. Call this operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request GetUploadDetailsRequest
        * @return GetUploadDetailsResponse
@@ -3242,7 +3246,7 @@ namespace Vod20170321
       Models::GetVodTemplateResponse getVodTemplate(const Models::GetVodTemplateRequest &request);
 
       /**
-       * @summary Invokes this operation to query the parameter settings of a single image watermark template or text watermark template by watermark template ID, including the position, size, and display time of image watermarks, and the content, font, color, and position of text watermarks.
+       * @summary Invokes this operation to query the configuration information of a single image watermark template or text watermark template by watermark template ID. The configuration information includes the position, size, and display time of an image watermark, as well as the parameter settings such as the content, font, color, and position of a text watermark.
        *
        * @param request GetWatermarkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3251,7 +3255,7 @@ namespace Vod20170321
       Models::GetWatermarkResponse getWatermarkWithOptions(const Models::GetWatermarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes this operation to query the parameter settings of a single image watermark template or text watermark template by watermark template ID, including the position, size, and display time of image watermarks, and the content, font, color, and position of text watermarks.
+       * @summary Invokes this operation to query the configuration information of a single image watermark template or text watermark template by watermark template ID. The configuration information includes the position, size, and display time of an image watermark, as well as the parameter settings such as the content, font, color, and position of a text watermark.
        *
        * @param request GetWatermarkRequest
        * @return GetWatermarkResponse
@@ -3261,8 +3265,9 @@ namespace Vod20170321
       /**
        * @summary Queries the execution information of a workflow task.
        *
-       * @description - **Before you use this operation, make sure that you are familiar with the billing methods and pricing of ApsaraVideo VOD. Using workflows may incur fees for transcoding, encryption, automated review, and other services. For billing details, see [Billing overview](https://help.aliyun.com/document_detail/188307.html).**
-       * - You can call this operation to query workflow processing tasks. This operation currently supports only video understanding workflow task queries. Workflow tasks of other versions are not supported.
+       * @description - **Before calling this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Using workflows may incur fees for transcoding, encryption, and automated review. For more information, see [ApsaraVideo VOD billing overview](https://help.aliyun.com/document_detail/188307.html).**
+       * - After you call the SubmitWorkflowJob operation to submit a workflow task, you can pass the returned task ID to this operation to query the execution status and result of the task.
+       * - This operation currently supports only querying video understanding workflow tasks. Querying tasks of other workflow versions is not supported.
        *
        * @param request GetWorkflowTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3273,8 +3278,9 @@ namespace Vod20170321
       /**
        * @summary Queries the execution information of a workflow task.
        *
-       * @description - **Before you use this operation, make sure that you are familiar with the billing methods and pricing of ApsaraVideo VOD. Using workflows may incur fees for transcoding, encryption, automated review, and other services. For billing details, see [Billing overview](https://help.aliyun.com/document_detail/188307.html).**
-       * - You can call this operation to query workflow processing tasks. This operation currently supports only video understanding workflow task queries. Workflow tasks of other versions are not supported.
+       * @description - **Before calling this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Using workflows may incur fees for transcoding, encryption, and automated review. For more information, see [ApsaraVideo VOD billing overview](https://help.aliyun.com/document_detail/188307.html).**
+       * - After you call the SubmitWorkflowJob operation to submit a workflow task, you can pass the returned task ID to this operation to query the execution status and result of the task.
+       * - This operation currently supports only querying video understanding workflow tasks. Querying tasks of other workflow versions is not supported.
        *
        * @param request GetWorkflowTaskRequest
        * @return GetWorkflowTaskResponse
@@ -3305,10 +3311,10 @@ namespace Vod20170321
       Models::ListAIImageInfoResponse listAIImageInfo(const Models::ListAIImageInfoRequest &request);
 
       /**
-       * @summary Queries intelligent tagging or media fingerprint jobs. After you submit an intelligent tagging or media fingerprint job, the job is processed asynchronously. You can call this operation to query job information in real time.
+       * @summary Queries smart tagging or media fingerprint jobs. After a smart tagging or media fingerprint job is submitted, it is processed asynchronously. You can use this operation to query job information in real time.
        *
-       * @description - Regions that support media fingerprint: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-       * - Regions that support intelligent tagging: **China (Beijing)** and **China (Shanghai)**.
+       * @description - Regions supported by media fingerprint: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+       * - Regions supported by smart tagging: **China (Beijing)** and **China (Shanghai)**.
        *
        * @param request ListAIJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3317,10 +3323,10 @@ namespace Vod20170321
       Models::ListAIJobResponse listAIJobWithOptions(const Models::ListAIJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries intelligent tagging or media fingerprint jobs. After you submit an intelligent tagging or media fingerprint job, the job is processed asynchronously. You can call this operation to query job information in real time.
+       * @summary Queries smart tagging or media fingerprint jobs. After a smart tagging or media fingerprint job is submitted, it is processed asynchronously. You can use this operation to query job information in real time.
        *
-       * @description - Regions that support media fingerprint: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-       * - Regions that support intelligent tagging: **China (Beijing)** and **China (Shanghai)**.
+       * @description - Regions supported by media fingerprint: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+       * - Regions supported by smart tagging: **China (Beijing)** and **China (Shanghai)**.
        *
        * @param request ListAIJobRequest
        * @return ListAIJobResponse
@@ -3445,13 +3451,13 @@ namespace Vod20170321
       Models::ListDynamicImageResponse listDynamicImage(const Models::ListDynamicImageRequest &request);
 
       /**
-       * @summary Queries the historical task list based on a media asset ID.
+       * @summary Queries the list of historical tasks by media asset ID.
        *
        * @description **Usage notes**
        * - To query detailed task information, call the [GetJobDetail](https://help.aliyun.com/document_detail/2861326.html) operation.
-       * - This operation only supports querying asynchronous task data within the last 6 months. Supported task types: transcoding tasks, snapshot tasks, and AI tasks.
+       * - This operation only supports querying asynchronous task data within the last 6 months. Queryable task types include transcoding tasks, snapshot tasks, and AI tasks.
        * **QPS limit**
-       * The single-user QPS limit for this operation is 15 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * The QPS limit for a single user calling this operation is 15 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request ListJobInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3460,13 +3466,13 @@ namespace Vod20170321
       Models::ListJobInfoResponse listJobInfoWithOptions(const Models::ListJobInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the historical task list based on a media asset ID.
+       * @summary Queries the list of historical tasks by media asset ID.
        *
        * @description **Usage notes**
        * - To query detailed task information, call the [GetJobDetail](https://help.aliyun.com/document_detail/2861326.html) operation.
-       * - This operation only supports querying asynchronous task data within the last 6 months. Supported task types: transcoding tasks, snapshot tasks, and AI tasks.
+       * - This operation only supports querying asynchronous task data within the last 6 months. Queryable task types include transcoding tasks, snapshot tasks, and AI tasks.
        * **QPS limit**
-       * The single-user QPS limit for this operation is 15 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * The QPS limit for a single user calling this operation is 15 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request ListJobInfoRequest
        * @return ListJobInfoResponse
@@ -3583,7 +3589,7 @@ namespace Vod20170321
       Models::ListVodTemplateResponse listVodTemplate(const Models::ListVodTemplateRequest &request);
 
       /**
-       * @summary Invokes this operation to query the parameter settings of all image watermark templates and text watermark templates that have been added in the current service region, including the position, size, and display time of image watermarks, and the content, font, color, position, and other parameter settings of text watermarks.
+       * @summary Invokes this operation to query the configuration information of all image and text watermark templates added in the current service region. The information includes the position, size, and display duration of image watermarks, as well as the parameter settings such as the content, font, color, and position of text watermarks.
        *
        * @param request ListWatermarkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3592,7 +3598,7 @@ namespace Vod20170321
       Models::ListWatermarkResponse listWatermarkWithOptions(const Models::ListWatermarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes this operation to query the parameter settings of all image watermark templates and text watermark templates that have been added in the current service region, including the position, size, and display time of image watermarks, and the content, font, color, position, and other parameter settings of text watermarks.
+       * @summary Invokes this operation to query the configuration information of all image and text watermark templates added in the current service region. The information includes the position, size, and display duration of image watermarks, as well as the parameter settings such as the content, font, color, and position of text watermarks.
        *
        * @param request ListWatermarkRequest
        * @return ListWatermarkResponse
@@ -3617,10 +3623,10 @@ namespace Vod20170321
       Models::MoveAppResourceResponse moveAppResource(const Models::MoveAppResourceRequest &request);
 
       /**
-       * @summary Prefetches content from the origin server to L2 Cache nodes so that the first access directly hits the cache, reducing the load on the origin server.
+       * @summary Prefetches content from the origin server to L2 cache nodes so that first-time requests can directly hit the cache, reducing the load on the origin server.
        *
-       * @description - Currently, the only supported service region is **China (Shanghai)**.
-       * - A maximum of 500 prefetch URL requests can be submitted per account per day. Directory-level prefetch is not supported.
+       * @description - Currently, the service endpoint only supports **China (Shanghai)**.
+       * - Each account can submit up to 500 prefetch URL requests per day. Directory-level prefetching is not supported.
        * - The purge and prefetch operations include the [RefreshVodObjectCaches](~~RefreshVodObjectCaches~~) purge operation and the [PreloadVodObjectCaches](~~PreloadVodObjectCaches~~) prefetch operation.
        *
        * @param request PreloadVodObjectCachesRequest
@@ -3630,10 +3636,10 @@ namespace Vod20170321
       Models::PreloadVodObjectCachesResponse preloadVodObjectCachesWithOptions(const Models::PreloadVodObjectCachesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Prefetches content from the origin server to L2 Cache nodes so that the first access directly hits the cache, reducing the load on the origin server.
+       * @summary Prefetches content from the origin server to L2 cache nodes so that first-time requests can directly hit the cache, reducing the load on the origin server.
        *
-       * @description - Currently, the only supported service region is **China (Shanghai)**.
-       * - A maximum of 500 prefetch URL requests can be submitted per account per day. Directory-level prefetch is not supported.
+       * @description - Currently, the service endpoint only supports **China (Shanghai)**.
+       * - Each account can submit up to 500 prefetch URL requests per day. Directory-level prefetching is not supported.
        * - The purge and prefetch operations include the [RefreshVodObjectCaches](~~RefreshVodObjectCaches~~) purge operation and the [PreloadVodObjectCaches](~~PreloadVodObjectCaches~~) prefetch operation.
        *
        * @param request PreloadVodObjectCachesRequest
@@ -3770,13 +3776,13 @@ namespace Vod20170321
       Models::RefreshVodObjectCachesResponse refreshVodObjectCaches(const Models::RefreshVodObjectCachesRequest &request);
 
       /**
-       * @summary Registers media assets. Existing media files stored in your own OSS bucket that is connected to ApsaraVideo VOD must be registered to generate the associated data required by VOD before you can use VOD features such as transcoding and snapshotting.
+       * @summary Registers media assets. If you have existing media asset files stored in your own OSS buckets integrated with ApsaraVideo VOD, you must register the media assets to generate the associated data required by ApsaraVideo VOD before you can use features such as transcoding and snapshot generation.
        *
-       * @description - For audio and video files already stored in an OSS bucket connected to ApsaraVideo VOD, you must call this operation to generate the associated data required by VOD before you can initiate transcoding, snapshotting, AI processing, and other operations on these files by media ID.
-       * - You can register up to **10 OSS media files** at a time, and all media files submitted in a single request must correspond to the same storage address.
-       * - For media files uploaded through VOD, if no transcoding template group ID is specified, the default template group is used for transcoding. In contrast, after media asset registration, transcoding is not automatically triggered if no transcoding template group ID is specified. If a transcoding template group ID is specified, transcoding is performed based on the specified template group.
-       * - If a media file is registered repeatedly, only the **unique media ID associated with it** is returned, and no other processing is performed.
-       * - Make sure that the media file you want to register has a valid file name extension. Otherwise, the registration fails.
+       * @description - For audio and video media files already stored in OSS buckets integrated with ApsaraVideo VOD, you must call the media asset registration operation to generate the associated data required by ApsaraVideo VOD. Then, you can initiate transcoding, snapshot generation, and AI processing for these media files by using their media IDs in ApsaraVideo VOD.
+       * - You can register up to **10 OSS media files** at a time, and the storage addresses of the media files submitted at a time must be the same.
+       * - For media files uploaded to ApsaraVideo VOD, if no transcoding template group ID is specified, the default template group is used for transcoding. In contrast, after you register media assets, if no transcoding template group ID is specified, transcoding is not automatically triggered. If a transcoding template group ID is specified, the specified template group is used for transcoding.
+       * - For repeatedly registered media files, only the **unique media ID associated** with the file is returned, and no other processing is performed.
+       * - Make sure that the media asset files you want to register have valid file name extensions. Otherwise, the registration fails.
        *
        * @param request RegisterMediaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3785,13 +3791,13 @@ namespace Vod20170321
       Models::RegisterMediaResponse registerMediaWithOptions(const Models::RegisterMediaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Registers media assets. Existing media files stored in your own OSS bucket that is connected to ApsaraVideo VOD must be registered to generate the associated data required by VOD before you can use VOD features such as transcoding and snapshotting.
+       * @summary Registers media assets. If you have existing media asset files stored in your own OSS buckets integrated with ApsaraVideo VOD, you must register the media assets to generate the associated data required by ApsaraVideo VOD before you can use features such as transcoding and snapshot generation.
        *
-       * @description - For audio and video files already stored in an OSS bucket connected to ApsaraVideo VOD, you must call this operation to generate the associated data required by VOD before you can initiate transcoding, snapshotting, AI processing, and other operations on these files by media ID.
-       * - You can register up to **10 OSS media files** at a time, and all media files submitted in a single request must correspond to the same storage address.
-       * - For media files uploaded through VOD, if no transcoding template group ID is specified, the default template group is used for transcoding. In contrast, after media asset registration, transcoding is not automatically triggered if no transcoding template group ID is specified. If a transcoding template group ID is specified, transcoding is performed based on the specified template group.
-       * - If a media file is registered repeatedly, only the **unique media ID associated with it** is returned, and no other processing is performed.
-       * - Make sure that the media file you want to register has a valid file name extension. Otherwise, the registration fails.
+       * @description - For audio and video media files already stored in OSS buckets integrated with ApsaraVideo VOD, you must call the media asset registration operation to generate the associated data required by ApsaraVideo VOD. Then, you can initiate transcoding, snapshot generation, and AI processing for these media files by using their media IDs in ApsaraVideo VOD.
+       * - You can register up to **10 OSS media files** at a time, and the storage addresses of the media files submitted at a time must be the same.
+       * - For media files uploaded to ApsaraVideo VOD, if no transcoding template group ID is specified, the default template group is used for transcoding. In contrast, after you register media assets, if no transcoding template group ID is specified, transcoding is not automatically triggered. If a transcoding template group ID is specified, the specified template group is used for transcoding.
+       * - For repeatedly registered media files, only the **unique media ID associated** with the file is returned, and no other processing is performed.
+       * - Make sure that the media asset files you want to register have valid file name extensions. Otherwise, the registration fails.
        *
        * @param request RegisterMediaRequest
        * @return RegisterMediaResponse
@@ -3824,7 +3830,7 @@ namespace Vod20170321
       Models::RestoreMediaResponse restoreMedia(const Models::RestoreMediaRequest &request);
 
       /**
-       * @summary Searches for online editing projects (video editing lists).
+       * @summary Queries online editing projects (video editing list).
        *
        * @param request SearchEditingProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3833,7 +3839,7 @@ namespace Vod20170321
       Models::SearchEditingProjectResponse searchEditingProjectWithOptions(const Models::SearchEditingProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Searches for online editing projects (video editing lists).
+       * @summary Queries online editing projects (video editing list).
        *
        * @param request SearchEditingProjectRequest
        * @return SearchEditingProjectResponse
@@ -3880,7 +3886,7 @@ namespace Vod20170321
       Models::SearchMediaResponse searchMedia(const Models::SearchMediaRequest &request);
 
       /**
-       * @summary Sets the playback key for an application.
+       * @summary Sets the application playback key.
        *
        * @param request SetAppPlayKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3889,7 +3895,7 @@ namespace Vod20170321
       Models::SetAppPlayKeyResponse setAppPlayKeyWithOptions(const Models::SetAppPlayKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the playback key for an application.
+       * @summary Sets the application playback key.
        *
        * @param request SetAppPlayKeyRequest
        * @return SetAppPlayKeyResponse
@@ -4013,11 +4019,11 @@ namespace Vod20170321
       Models::SetEditingProjectMaterialsResponse setEditingProjectMaterials(const Models::SetEditingProjectMaterialsRequest &request);
 
       /**
-       * @summary Sets the callback method, callback URL, and event types for event notifications.
+       * @summary Configures the callback method, callback URL, and event types for event notifications.
        *
-       * @description HTTP callbacks and Simple Message Queue (formerly MNS) callbacks are supported. For more information, see [Event notifications](https://help.aliyun.com/document_detail/55627.html).
-       * ### QPS limit
-       * The single-user QPS limit for this operation is 15 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * @description Supports HTTP callbacks and Simple Message Queue (formerly MNS) callbacks. For more information, see [Event notifications](https://help.aliyun.com/document_detail/55627.html).
+       * ### QPS limits
+       * The QPS limit for a single user calling this API operation is 15 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the API operation at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request SetMessageCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4026,11 +4032,11 @@ namespace Vod20170321
       Models::SetMessageCallbackResponse setMessageCallbackWithOptions(const Models::SetMessageCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the callback method, callback URL, and event types for event notifications.
+       * @summary Configures the callback method, callback URL, and event types for event notifications.
        *
-       * @description HTTP callbacks and Simple Message Queue (formerly MNS) callbacks are supported. For more information, see [Event notifications](https://help.aliyun.com/document_detail/55627.html).
-       * ### QPS limit
-       * The single-user QPS limit for this operation is 15 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * @description Supports HTTP callbacks and Simple Message Queue (formerly MNS) callbacks. For more information, see [Event notifications](https://help.aliyun.com/document_detail/55627.html).
+       * ### QPS limits
+       * The QPS limit for a single user calling this API operation is 15 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the API operation at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request SetMessageCallbackRequest
        * @return SetMessageCallbackResponse
@@ -4059,10 +4065,10 @@ namespace Vod20170321
       Models::SetVodDomainCertificateResponse setVodDomainCertificate(const Models::SetVodDomainCertificateRequest &request);
 
       /**
-       * @summary Sets whether the certificate feature is enabled for a specified domain name and updates the certificate information.
+       * @summary Enables or disables the certificate feature for a domain name and updates the certificate information.
        *
-       * @description - This operation currently supports only the **China East 2 (Shanghai)** region.
-       * - Maximum calls per user: 30 calls per second.
+       * @description - This operation is currently supported only in the **China (Shanghai)** region.
+       * - Rate limit per user: 30 calls per second.
        * - Request method: POST.
        *
        * @param request SetVodDomainSSLCertificateRequest
@@ -4072,10 +4078,10 @@ namespace Vod20170321
       Models::SetVodDomainSSLCertificateResponse setVodDomainSSLCertificateWithOptions(const Models::SetVodDomainSSLCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets whether the certificate feature is enabled for a specified domain name and updates the certificate information.
+       * @summary Enables or disables the certificate feature for a domain name and updates the certificate information.
        *
-       * @description - This operation currently supports only the **China East 2 (Shanghai)** region.
-       * - Maximum calls per user: 30 calls per second.
+       * @description - This operation is currently supported only in the **China (Shanghai)** region.
+       * - Rate limit per user: 30 calls per second.
        * - Request method: POST.
        *
        * @param request SetVodDomainSSLCertificateRequest
@@ -4115,8 +4121,8 @@ namespace Vod20170321
       /**
        * @summary Submits an AI image processing task.
        *
-       * @description - Currently, this operation is supported in the following regions: **China (Beijing)** and **China (Shanghai)**.
-       * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a task, the task ID is returned. The task is not yet complete at this point and enters a background queue for asynchronous execution. The final result is sent through a callback notification. You can also call [GetAIImageJobs](https://help.aliyun.com/document_detail/186923.html) to query the task execution result.
+       * @description - This operation is supported in the following regions: **China (Beijing)** and **China (Shanghai)**.
+       * - This operation is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a task, a task ID is returned. The task is not completed at this time and enters the background queue for asynchronous execution. The final result is notified through a callback. You can also call [GetAIImageJobs](https://help.aliyun.com/document_detail/186923.html) to query the task execution result.
        *
        * @param request SubmitAIImageJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4127,8 +4133,8 @@ namespace Vod20170321
       /**
        * @summary Submits an AI image processing task.
        *
-       * @description - Currently, this operation is supported in the following regions: **China (Beijing)** and **China (Shanghai)**.
-       * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a task, the task ID is returned. The task is not yet complete at this point and enters a background queue for asynchronous execution. The final result is sent through a callback notification. You can also call [GetAIImageJobs](https://help.aliyun.com/document_detail/186923.html) to query the task execution result.
+       * @description - This operation is supported in the following regions: **China (Beijing)** and **China (Shanghai)**.
+       * - This operation is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a task, a task ID is returned. The task is not completed at this time and enters the background queue for asynchronous execution. The final result is notified through a callback. You can also call [GetAIImageJobs](https://help.aliyun.com/document_detail/186923.html) to query the task execution result.
        *
        * @param request SubmitAIImageJobRequest
        * @return SubmitAIImageJobResponse
@@ -4194,14 +4200,14 @@ namespace Vod20170321
       Models::SubmitAIMediaAuditJobResponse submitAIMediaAuditJob(const Models::SubmitAIMediaAuditJobRequest &request);
 
       /**
-       * @summary Submits a digital watermarking (copyright watermark or tracing watermark) extraction job to asynchronously extract a copyright watermark or tracing watermark.
+       * @summary Submits a digital watermark extraction job by invoking this operation to asynchronously extract a copyright watermark or a tracing watermark.
        *
-       * @description - **Before using this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Digital watermarking is a paid feature. Both the generation and extraction of digital watermarks incur fees. For billing details, see [Digital watermarking billing](~~188310#62b9c940403se~~).**
-       * - Currently, this operation is available only in the following regions: **China (Shanghai)** and **China (Beijing)**.
-       * - <props="china">For more information about the generation and extraction of digital watermarks, see [Digital watermarking](https://help.aliyun.com/document_detail/2527021.html).Before you submit a digital watermark extraction job, make sure that the following conditions are met:
-       *   - The video from which you want to extract the watermark has been uploaded to ApsaraVideo VOD.
+       * @description - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Digital watermarking is a paid feature. Both the generation and extraction of digital watermarks incur fees. For more information, see [Billing of digital watermarks](~~188310#62b9c940403se~~).**
+       * - Currently, this operation is supported only in the **China (Shanghai)** and **China (Beijing)** regions.
+       * - <props="china">For more information about the generation and extraction of digital watermarks, see [Digital watermarks](https://help.aliyun.com/document_detail/2527021.html). Before you submit a digital watermark extraction job, make sure that the following conditions are met:
+       *   - The video from which you want to extract the watermark is uploaded to ApsaraVideo VOD.
        *   - The duration of the video from which you want to extract the watermark exceeds 6 minutes.
-       * - After you submit a digital watermark extraction job, call the [GetDigitalWatermarkExtractResult](https://help.aliyun.com/document_detail/2587769.html) operation to query the job result.
+       * - After the digital watermark extraction job is submitted, call the [GetDigitalWatermarkExtractResult](https://help.aliyun.com/document_detail/2587769.html) operation to query the job result.
        *
        * @param request SubmitDigitalWatermarkExtractJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4210,14 +4216,14 @@ namespace Vod20170321
       Models::SubmitDigitalWatermarkExtractJobResponse submitDigitalWatermarkExtractJobWithOptions(const Models::SubmitDigitalWatermarkExtractJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a digital watermarking (copyright watermark or tracing watermark) extraction job to asynchronously extract a copyright watermark or tracing watermark.
+       * @summary Submits a digital watermark extraction job by invoking this operation to asynchronously extract a copyright watermark or a tracing watermark.
        *
-       * @description - **Before using this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Digital watermarking is a paid feature. Both the generation and extraction of digital watermarks incur fees. For billing details, see [Digital watermarking billing](~~188310#62b9c940403se~~).**
-       * - Currently, this operation is available only in the following regions: **China (Shanghai)** and **China (Beijing)**.
-       * - <props="china">For more information about the generation and extraction of digital watermarks, see [Digital watermarking](https://help.aliyun.com/document_detail/2527021.html).Before you submit a digital watermark extraction job, make sure that the following conditions are met:
-       *   - The video from which you want to extract the watermark has been uploaded to ApsaraVideo VOD.
+       * @description - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Digital watermarking is a paid feature. Both the generation and extraction of digital watermarks incur fees. For more information, see [Billing of digital watermarks](~~188310#62b9c940403se~~).**
+       * - Currently, this operation is supported only in the **China (Shanghai)** and **China (Beijing)** regions.
+       * - <props="china">For more information about the generation and extraction of digital watermarks, see [Digital watermarks](https://help.aliyun.com/document_detail/2527021.html). Before you submit a digital watermark extraction job, make sure that the following conditions are met:
+       *   - The video from which you want to extract the watermark is uploaded to ApsaraVideo VOD.
        *   - The duration of the video from which you want to extract the watermark exceeds 6 minutes.
-       * - After you submit a digital watermark extraction job, call the [GetDigitalWatermarkExtractResult](https://help.aliyun.com/document_detail/2587769.html) operation to query the job result.
+       * - After the digital watermark extraction job is submitted, call the [GetDigitalWatermarkExtractResult](https://help.aliyun.com/document_detail/2587769.html) operation to query the job result.
        *
        * @param request SubmitDigitalWatermarkExtractJobRequest
        * @return SubmitDigitalWatermarkExtractJobResponse
@@ -4228,11 +4234,11 @@ namespace Vod20170321
        * @summary Submits a media animated image job for asynchronous processing.
        *
        * @description ### Usage notes
-       * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a task, the task ID is returned. The task is queued for asynchronous execution in the background. You can receive the final result through a callback notification or proactively query the task status by calling [Get task details](https://help.aliyun.com/document_detail/2861326.html).
-       * - You can submit an animated image job only for videos in the **UploadSucc**, **Transcoding**, **Normal**, **Checking**, or **Blocked** state.
-       * - Animated image production is billed as video transcoding at the same rate, based on resolution and duration. For more information, see [Media transcoding billing](https://help.aliyun.com/document_detail/188308.html).
-       * ### QPS limit
-       * The QPS limit for a single user on this operation is 30 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * - This operation is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a task, a task ID is returned. The task is not completed at this time and enters the background queue for asynchronous execution. The final result is notified through a callback. You can also call the [Get task details](https://help.aliyun.com/document_detail/2861326.html) operation to actively query the task status.
+       * - You can initiate an animated image job only for videos whose status is **Upload Complete**, **Transcoding**, **Normal**, **Under Review**, or **Blocked**.
+       * - Animated image production is billed as video transcoding and follows the same billing standards, which are based on resolution and duration. For more information about billing, see [Billing of media asset transcoding](https://help.aliyun.com/document_detail/188308.html).
+       * ### QPS limits
+       * The QPS limit for a single user is 30 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the operation properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request SubmitDynamicImageJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4244,11 +4250,11 @@ namespace Vod20170321
        * @summary Submits a media animated image job for asynchronous processing.
        *
        * @description ### Usage notes
-       * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a task, the task ID is returned. The task is queued for asynchronous execution in the background. You can receive the final result through a callback notification or proactively query the task status by calling [Get task details](https://help.aliyun.com/document_detail/2861326.html).
-       * - You can submit an animated image job only for videos in the **UploadSucc**, **Transcoding**, **Normal**, **Checking**, or **Blocked** state.
-       * - Animated image production is billed as video transcoding at the same rate, based on resolution and duration. For more information, see [Media transcoding billing](https://help.aliyun.com/document_detail/188308.html).
-       * ### QPS limit
-       * The QPS limit for a single user on this operation is 30 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * - This operation is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a task, a task ID is returned. The task is not completed at this time and enters the background queue for asynchronous execution. The final result is notified through a callback. You can also call the [Get task details](https://help.aliyun.com/document_detail/2861326.html) operation to actively query the task status.
+       * - You can initiate an animated image job only for videos whose status is **Upload Complete**, **Transcoding**, **Normal**, **Under Review**, or **Blocked**.
+       * - Animated image production is billed as video transcoding and follows the same billing standards, which are based on resolution and duration. For more information about billing, see [Billing of media asset transcoding](https://help.aliyun.com/document_detail/188308.html).
+       * ### QPS limits
+       * The QPS limit for a single user is 30 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the operation properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request SubmitDynamicImageJobRequest
        * @return SubmitDynamicImageJobResponse
@@ -4336,11 +4342,11 @@ namespace Vod20170321
        * @summary Submits a media transcoding job to start asynchronous transcoding.
        *
        * @description ### Usage notes
-       * - **Before you use this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Transcoding is a paid feature. For more information about billing, see [Transcoding billing](~~188308#section-ejb-nii-nqa~~).**
-       * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a task, the task ID is returned. The task is not yet complete at this point and enters a queue for asynchronous execution. The final result is sent through a callback notification. You can also call [GetTranscodeTask](https://help.aliyun.com/document_detail/454946.html) to query the task status.
-       * - Only videos in the **UploadSucc**, **Normal**, or **Checking** state can be transcoded.
-       * - To obtain transcoding results, configure callback messages: [SingleCompleteEvent](https://help.aliyun.com/document_detail/55636.html) and [AllCompleteEvent](https://help.aliyun.com/document_detail/55638.html).
-       * - This operation supports dynamic replacement of subtitle URLs in HLS adaptive bitrate streaming packaging tasks. If the packaging task does not involve subtitle packaging, do not use this operation to initiate the task. Instead, specify the corresponding transcoding template group ID during video upload to automatically trigger the packaging process.
+       * - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Transcoding is a paid feature. For billing details, see [Billing of media asset transcoding](~~188308#section-ejb-nii-nqa~~).**
+       * - This operation is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a job, a job ID is returned. The job is not completed at this time and enters the background queue for asynchronous execution. The final result is notified through a callback. You can also call the [Get job details](https://help.aliyun.com/document_detail/454946.html) operation to actively query the job status.
+       * - Only videos in the **Upload Completed**, **Normal**, or **Under Review** state can be transcoded.
+       * - To obtain the transcoding result, you can receive callback messages: [Transcoding completed for a single definition](https://help.aliyun.com/document_detail/55636.html) and [All transcoding completed](https://help.aliyun.com/document_detail/55638.html).
+       * - This operation supports dynamic replacement of subtitle URLs in HLS adaptive bitrate streaming packaging jobs. If the packaging job does not involve subtitle packaging, we do not recommend using this operation to initiate the job. Instead, we recommend setting the corresponding packaging template group ID when uploading the video to automatically initiate the packaging process.
        *
        * @param request SubmitTranscodeJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4352,11 +4358,11 @@ namespace Vod20170321
        * @summary Submits a media transcoding job to start asynchronous transcoding.
        *
        * @description ### Usage notes
-       * - **Before you use this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Transcoding is a paid feature. For more information about billing, see [Transcoding billing](~~188308#section-ejb-nii-nqa~~).**
-       * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a task, the task ID is returned. The task is not yet complete at this point and enters a queue for asynchronous execution. The final result is sent through a callback notification. You can also call [GetTranscodeTask](https://help.aliyun.com/document_detail/454946.html) to query the task status.
-       * - Only videos in the **UploadSucc**, **Normal**, or **Checking** state can be transcoded.
-       * - To obtain transcoding results, configure callback messages: [SingleCompleteEvent](https://help.aliyun.com/document_detail/55636.html) and [AllCompleteEvent](https://help.aliyun.com/document_detail/55638.html).
-       * - This operation supports dynamic replacement of subtitle URLs in HLS adaptive bitrate streaming packaging tasks. If the packaging task does not involve subtitle packaging, do not use this operation to initiate the task. Instead, specify the corresponding transcoding template group ID during video upload to automatically trigger the packaging process.
+       * - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Transcoding is a paid feature. For billing details, see [Billing of media asset transcoding](~~188308#section-ejb-nii-nqa~~).**
+       * - This operation is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a job, a job ID is returned. The job is not completed at this time and enters the background queue for asynchronous execution. The final result is notified through a callback. You can also call the [Get job details](https://help.aliyun.com/document_detail/454946.html) operation to actively query the job status.
+       * - Only videos in the **Upload Completed**, **Normal**, or **Under Review** state can be transcoded.
+       * - To obtain the transcoding result, you can receive callback messages: [Transcoding completed for a single definition](https://help.aliyun.com/document_detail/55636.html) and [All transcoding completed](https://help.aliyun.com/document_detail/55638.html).
+       * - This operation supports dynamic replacement of subtitle URLs in HLS adaptive bitrate streaming packaging jobs. If the packaging job does not involve subtitle packaging, we do not recommend using this operation to initiate the job. Instead, we recommend setting the corresponding packaging template group ID when uploading the video to automatically initiate the packaging process.
        *
        * @param request SubmitTranscodeJobsRequest
        * @return SubmitTranscodeJobsResponse
@@ -4366,9 +4372,9 @@ namespace Vod20170321
       /**
        * @summary Initiates a VOD workflow for a video.
        *
-       * @description - **Before using this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Using workflows may incur fees for transcoding, encryption, automated review, and other services. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188307.html).**
-       * - This operation is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a task, a task ID is returned (the task is not yet complete and enters a background queue for asynchronous execution). The final result is sent through a callback notification. You can also call [GetTask](https://help.aliyun.com/document_detail/2861326.html) to query the task status.
-       * - Call this operation to initiate a workflow processing task for a video. For more information about workflows, see [Workflow](https://help.aliyun.com/document_detail/115347.html).
+       * @description - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Using a workflow may incur fees for transcoding, encryption, automated review, and other services. For more information about billing, see [Billing overview of ApsaraVideo VOD](https://help.aliyun.com/document_detail/188307.html).**
+       * - This operation is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a job, a job ID is returned. The job is not completed at this time and enters the background queue for asynchronous execution. The final result is notified by a callback. You can also call the [Get job details](https://help.aliyun.com/document_detail/2861326.html) operation to query the job status.
+       * - You can call this operation to initiate a workflow processing job for a video. For more information about workflows, see [Workflows](https://help.aliyun.com/document_detail/115347.html).
        *
        * @param request SubmitWorkflowJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4379,9 +4385,9 @@ namespace Vod20170321
       /**
        * @summary Initiates a VOD workflow for a video.
        *
-       * @description - **Before using this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Using workflows may incur fees for transcoding, encryption, automated review, and other services. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188307.html).**
-       * - This operation is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a task, a task ID is returned (the task is not yet complete and enters a background queue for asynchronous execution). The final result is sent through a callback notification. You can also call [GetTask](https://help.aliyun.com/document_detail/2861326.html) to query the task status.
-       * - Call this operation to initiate a workflow processing task for a video. For more information about workflows, see [Workflow](https://help.aliyun.com/document_detail/115347.html).
+       * @description - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Using a workflow may incur fees for transcoding, encryption, automated review, and other services. For more information about billing, see [Billing overview of ApsaraVideo VOD](https://help.aliyun.com/document_detail/188307.html).**
+       * - This operation is an [asynchronous operation](https://help.aliyun.com/document_detail/3027551.html). After you submit a job, a job ID is returned. The job is not completed at this time and enters the background queue for asynchronous execution. The final result is notified by a callback. You can also call the [Get job details](https://help.aliyun.com/document_detail/2861326.html) operation to query the job status.
+       * - You can call this operation to initiate a workflow processing job for a video. For more information about workflows, see [Workflows](https://help.aliyun.com/document_detail/115347.html).
        *
        * @param request SubmitWorkflowJobRequest
        * @return SubmitWorkflowJobResponse
@@ -4412,11 +4418,11 @@ namespace Vod20170321
       Models::UpdateAITemplateResponse updateAITemplate(const Models::UpdateAITemplateRequest &request);
 
       /**
-       * @summary Updates application information.
+       * @summary Updates the application information.
        *
-       * @description After an application is created, you can call this operation to locate an application by its application ID and modify the name, description, and status of the application.
-       * ### QPS limit
-       * The single-user QPS limit for this operation is 30 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation properly. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * @description After you create an application, you can call this operation to locate the application by its ID and modify the name, description, and status of the application.
+       * ### QPS limits
+       * The QPS limit for a single user is 30 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request UpdateAppInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4425,11 +4431,11 @@ namespace Vod20170321
       Models::UpdateAppInfoResponse updateAppInfoWithOptions(const Models::UpdateAppInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates application information.
+       * @summary Updates the application information.
        *
-       * @description After an application is created, you can call this operation to locate an application by its application ID and modify the name, description, and status of the application.
-       * ### QPS limit
-       * The single-user QPS limit for this operation is 30 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation properly. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * @description After you create an application, you can call this operation to locate the application by its ID and modify the name, description, and status of the application.
+       * ### QPS limits
+       * The QPS limit for a single user is 30 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request UpdateAppInfoRequest
        * @return UpdateAppInfoResponse
@@ -4437,7 +4443,7 @@ namespace Vod20170321
       Models::UpdateAppInfoResponse updateAppInfo(const Models::UpdateAppInfoRequest &request);
 
       /**
-       * @summary Batch updates the information of auxiliary media assets, such as title, description, tags, and category, by specifying the unique identifiers (IDs) of the auxiliary media assets that have been uploaded to ApsaraVideo VOD, including watermarked images, subtitle files, and other materials.
+       * @summary Updates the titles, descriptions, tags, and categories of multiple auxiliary media assets in ApsaraVideo VOD based on their IDs. Auxiliary media assets include watermarked images, subtitle files, and other materials.
        *
        * @description You can update the information of up to 20 auxiliary media assets at a time.
        *
@@ -4448,7 +4454,7 @@ namespace Vod20170321
       Models::UpdateAttachedMediaInfosResponse updateAttachedMediaInfosWithOptions(const Models::UpdateAttachedMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch updates the information of auxiliary media assets, such as title, description, tags, and category, by specifying the unique identifiers (IDs) of the auxiliary media assets that have been uploaded to ApsaraVideo VOD, including watermarked images, subtitle files, and other materials.
+       * @summary Updates the titles, descriptions, tags, and categories of multiple auxiliary media assets in ApsaraVideo VOD based on their IDs. Auxiliary media assets include watermarked images, subtitle files, and other materials.
        *
        * @description You can update the information of up to 20 auxiliary media assets at a time.
        *
@@ -4496,9 +4502,9 @@ namespace Vod20170321
       Models::UpdateEditingProjectResponse updateEditingProject(const Models::UpdateEditingProjectRequest &request);
 
       /**
-       * @summary Batch modifies the title, description, tags, and category information of images by image ID after the images are uploaded to ApsaraVideo VOD.
+       * @summary Updates the titles, descriptions, tags, and categories of multiple images by image ID after the images are uploaded to ApsaraVideo VOD.
        *
-       * @description - This operation only supports modifying uploaded images. Modifying images generated from video snapshots is not supported.
+       * @description - This operation only supports modifying uploaded images and does not support modifying images generated from video snapshots.
        * - You can modify the information of up to 20 images at a time.
        *
        * @param request UpdateImageInfosRequest
@@ -4508,9 +4514,9 @@ namespace Vod20170321
       Models::UpdateImageInfosResponse updateImageInfosWithOptions(const Models::UpdateImageInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch modifies the title, description, tags, and category information of images by image ID after the images are uploaded to ApsaraVideo VOD.
+       * @summary Updates the titles, descriptions, tags, and categories of multiple images by image ID after the images are uploaded to ApsaraVideo VOD.
        *
-       * @description - This operation only supports modifying uploaded images. Modifying images generated from video snapshots is not supported.
+       * @description - This operation only supports modifying uploaded images and does not support modifying images generated from video snapshots.
        * - You can modify the information of up to 20 images at a time.
        *
        * @param request UpdateImageInfosRequest
@@ -4519,14 +4525,14 @@ namespace Vod20170321
       Models::UpdateImageInfosResponse updateImageInfos(const Models::UpdateImageInfosRequest &request);
 
       /**
-       * @summary Modifies the storage class of a media asset.
+       * @summary Modifies the storage class of media assets.
        *
-       * @description - Before using this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Modifying the storage class of a media asset incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section-e97-xrp-mzz~~).
-       * - Modifying the storage class is an **asynchronous operation**. A callback is sent to you after the entire operation is complete.
-       * - If the current storage class of a media asset is Archive or ColdArchive, calling this operation automatically triggers a restore. After the restore is complete, the storage class is modified. You do not need to manually call the RestoreMedia operation to restore the media asset. For ColdArchive media assets, you need to specify the restore priority. The default value is RestoreTier=Standard.
-       * - A media asset that is being modified cannot be modified again or be used for production or processing.
-       * - Media assets in non-Standard storage classes have minimum storage duration requirements: Infrequent Access/source file Infrequent Access requires at least 30 days. Archive/source file Archive requires at least 60 days. ColdArchive/source file ColdArchive requires at least 180 days. If the storage duration is insufficient, modifying the storage class incurs storage fees for the remaining days. For example, if you modify the storage class from Infrequent Access to Standard after 10 days of storage, you are charged for the remaining 20 days of Infrequent Access storage, totaling 30 days of Infrequent Access storage fees.
-       * - **Modifying the storage class of a self-managed bucket is not supported**.
+       * @description - Make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD before you call this operation. Modifying the storage class of media assets in ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section-e97-xrp-mzz~~).
+       * - Modifying the storage class of media assets is an **asynchronous operation**. A callback is sent to you after the operation is complete.
+       * - If the current storage class of a media asset is Archive or Cold Archive, calling this operation automatically triggers restoration. The storage class is modified after the restoration is complete. You do not need to manually call the RestoreMedia operation to restore the media asset. For Cold Archive media assets, you must specify the restoration priority. The default value is RestoreTier=Standard.
+       * - Media assets that are being modified cannot be submitted for another modification task, production, or processing.
+       * - Media assets in non-standard storage classes have minimum storage duration requirements. Infrequent Access (IA) and Source File IA require a minimum of 30 days. Archive and Source File Archive require a minimum of 60 days. Cold Archive and Source File Cold Archive require a minimum of 180 days. If the storage duration does not meet the requirement when you modify the storage class, you are charged for the remaining days. For example, if you modify the storage class of a media asset from IA to Standard after 10 days of IA storage, you are charged for the remaining 20 days of IA storage at a time, resulting in a total charge for 30 days of IA storage.
+       * - **Modifying the storage class of media assets in custom buckets is not supported.**
        *
        * @param request UpdateMediaStorageClassRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4535,14 +4541,14 @@ namespace Vod20170321
       Models::UpdateMediaStorageClassResponse updateMediaStorageClassWithOptions(const Models::UpdateMediaStorageClassRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the storage class of a media asset.
+       * @summary Modifies the storage class of media assets.
        *
-       * @description - Before using this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Modifying the storage class of a media asset incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section-e97-xrp-mzz~~).
-       * - Modifying the storage class is an **asynchronous operation**. A callback is sent to you after the entire operation is complete.
-       * - If the current storage class of a media asset is Archive or ColdArchive, calling this operation automatically triggers a restore. After the restore is complete, the storage class is modified. You do not need to manually call the RestoreMedia operation to restore the media asset. For ColdArchive media assets, you need to specify the restore priority. The default value is RestoreTier=Standard.
-       * - A media asset that is being modified cannot be modified again or be used for production or processing.
-       * - Media assets in non-Standard storage classes have minimum storage duration requirements: Infrequent Access/source file Infrequent Access requires at least 30 days. Archive/source file Archive requires at least 60 days. ColdArchive/source file ColdArchive requires at least 180 days. If the storage duration is insufficient, modifying the storage class incurs storage fees for the remaining days. For example, if you modify the storage class from Infrequent Access to Standard after 10 days of storage, you are charged for the remaining 20 days of Infrequent Access storage, totaling 30 days of Infrequent Access storage fees.
-       * - **Modifying the storage class of a self-managed bucket is not supported**.
+       * @description - Make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD before you call this operation. Modifying the storage class of media assets in ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section-e97-xrp-mzz~~).
+       * - Modifying the storage class of media assets is an **asynchronous operation**. A callback is sent to you after the operation is complete.
+       * - If the current storage class of a media asset is Archive or Cold Archive, calling this operation automatically triggers restoration. The storage class is modified after the restoration is complete. You do not need to manually call the RestoreMedia operation to restore the media asset. For Cold Archive media assets, you must specify the restoration priority. The default value is RestoreTier=Standard.
+       * - Media assets that are being modified cannot be submitted for another modification task, production, or processing.
+       * - Media assets in non-standard storage classes have minimum storage duration requirements. Infrequent Access (IA) and Source File IA require a minimum of 30 days. Archive and Source File Archive require a minimum of 60 days. Cold Archive and Source File Cold Archive require a minimum of 180 days. If the storage duration does not meet the requirement when you modify the storage class, you are charged for the remaining days. For example, if you modify the storage class of a media asset from IA to Standard after 10 days of IA storage, you are charged for the remaining 20 days of IA storage at a time, resulting in a total charge for 30 days of IA storage.
+       * - **Modifying the storage class of media assets in custom buckets is not supported.**
        *
        * @param request UpdateMediaStorageClassRequest
        * @return UpdateMediaStorageClassResponse
@@ -4571,12 +4577,12 @@ namespace Vod20170321
       Models::UpdateTranscodeTemplateGroupResponse updateTranscodeTemplateGroup(const Models::UpdateTranscodeTemplateGroupRequest &request);
 
       /**
-       * @summary Modifies the information about a single audio or video file.
+       * @summary Modifies the information of a single audio or video file.
        *
-       * @description ### Operation description
-       * This operation locates an audio or video file by video ID and supports modifying the title, tags, description, and other information of the file. If a parameter is specified, the corresponding field is updated. Otherwise, the field is not overwritten or updated.
-       * ### QPS limit
-       * A single user can perform a maximum of 100 queries per second (QPS). Throttling is triggered when the QPS limit is exceeded, which may affect your business. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * @description ### Usage notes
+       * Locates an audio or video file by video ID. You can modify the title, tags, description, and other information of the audio or video file. If a parameter is passed, the corresponding field is updated. Otherwise, the field is not overwritten or updated.
+       * ### QPS limits
+       * The queries per second (QPS) limit per user for this API operation is 100. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request UpdateVideoInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4585,12 +4591,12 @@ namespace Vod20170321
       Models::UpdateVideoInfoResponse updateVideoInfoWithOptions(const Models::UpdateVideoInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about a single audio or video file.
+       * @summary Modifies the information of a single audio or video file.
        *
-       * @description ### Operation description
-       * This operation locates an audio or video file by video ID and supports modifying the title, tags, description, and other information of the file. If a parameter is specified, the corresponding field is updated. Otherwise, the field is not overwritten or updated.
-       * ### QPS limit
-       * A single user can perform a maximum of 100 queries per second (QPS). Throttling is triggered when the QPS limit is exceeded, which may affect your business. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * @description ### Usage notes
+       * Locates an audio or video file by video ID. You can modify the title, tags, description, and other information of the audio or video file. If a parameter is passed, the corresponding field is updated. Otherwise, the field is not overwritten or updated.
+       * ### QPS limits
+       * The queries per second (QPS) limit per user for this API operation is 100. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request UpdateVideoInfoRequest
        * @return UpdateVideoInfoResponse
@@ -4598,13 +4604,13 @@ namespace Vod20170321
       Models::UpdateVideoInfoResponse updateVideoInfo(const Models::UpdateVideoInfoRequest &request);
 
       /**
-       * @summary Modifies the information about multiple audio and video files at a time.
+       * @summary Modifies the information of multiple audio and video files.
        *
        * @description ### Usage notes
-       * - Audio and video files are identified by their IDs. You can modify the title, tags, and description of audio and video files. If a parameter is specified, the corresponding field is updated. Otherwise, the field is not overwritten or updated.
-       * - You can modify the information about up to 20 audio and video files at a time.
+       * - You can locate an audio or video file by its ID. You can modify the title, tags, description, and other information of the audio or video file. If a parameter is passed, the corresponding field is updated. Otherwise, the field is not overwritten or updated.
+       * - You can modify the information of up to 20 audio or video files at a time.
        * ### QPS limit
-       * The single-user QPS limit for this operation is 30 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation properly. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * The queries per second (QPS) limit on a single user for this API operation is 30. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Call this operation at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request UpdateVideoInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4613,13 +4619,13 @@ namespace Vod20170321
       Models::UpdateVideoInfosResponse updateVideoInfosWithOptions(const Models::UpdateVideoInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about multiple audio and video files at a time.
+       * @summary Modifies the information of multiple audio and video files.
        *
        * @description ### Usage notes
-       * - Audio and video files are identified by their IDs. You can modify the title, tags, and description of audio and video files. If a parameter is specified, the corresponding field is updated. Otherwise, the field is not overwritten or updated.
-       * - You can modify the information about up to 20 audio and video files at a time.
+       * - You can locate an audio or video file by its ID. You can modify the title, tags, description, and other information of the audio or video file. If a parameter is passed, the corresponding field is updated. Otherwise, the field is not overwritten or updated.
+       * - You can modify the information of up to 20 audio or video files at a time.
        * ### QPS limit
-       * The single-user QPS limit for this operation is 30 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation properly. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+       * The queries per second (QPS) limit on a single user for this API operation is 30. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Call this operation at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
        *
        * @param request UpdateVideoInfosRequest
        * @return UpdateVideoInfosResponse
@@ -4688,17 +4694,17 @@ namespace Vod20170321
       Models::UpdateWatermarkResponse updateWatermark(const Models::UpdateWatermarkRequest &request);
 
       /**
-       * @summary Pulls audio and video media files for upload based on source file URLs. Batch upload is supported.
+       * @summary Pulls and uploads audio and video media files from source URLs. Supports batch uploads.
        *
-       * @description - **Before using this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Uploading media files to ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage transfer acceleration, uploading media files to ApsaraVideo VOD also incurs upload acceleration fees. For billing details, see [Storage transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
+       * @description - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Uploading media assets to ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage transfer acceleration, uploading media assets to ApsaraVideo VOD also incurs upload acceleration fees. For billing details, see [Storage transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
        * - For the media file formats supported by this operation, see [Media formats](~~55396#section-e27-2rj-mde~~).
-       * - This operation is mainly applicable to scenarios where files are not stored on a local server or terminal and need to be uploaded through a URL with public network access.
-       * - This operation is an [asynchronous upload operation](https://help.aliyun.com/document_detail/3027551.html). It is not real-time and does not guarantee timeliness. Generally, the migration upload is completed within hours or even days after the node is submitted. If you have high timeliness requirements, use the upload SDK instead.
-       * - If a callback is configured, you will receive the [URL upload video complete](https://help.aliyun.com/document_detail/86326.html) event notification after the upload is completed. You can call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation to query the upload status.
-       * - After an upload node is submitted, an asynchronous node is generated in the cloud for execute. All URL upload nodes committed by users in the corresponding service region are queued for execute. The completion time is affected by the number of existing nodes. After the upload is completed, you can associate the URL with the video ID based on the information returned in the event notification (message callback).
-       * - This operation currently supports only the **China (Shanghai)**, **China (Beijing)**, **China (Shenzhen)**, **Singapore**, and **US (Silicon Valley)** regions.
-       * - Each time you commit an upload node for the same media file URL, a new media resource is generated in ApsaraVideo VOD (that is, a new media ID is generated).
-       * - If a single file exceeds 20 GB, the upload is failed. If you need to upload a single file larger than 20 GB, use the upload SDK. For more information, see [Overview of the upload SDK](https://help.aliyun.com/document_detail/52200.html).
+       * - This operation is mainly applicable to scenarios where files are not stored on local servers or terminals and need to be uploaded through URLs with public network access.
+       * - This operation is an [asynchronous upload operation](https://help.aliyun.com/document_detail/3027551.html). It is not real-time and does not guarantee timeliness. Generally, the migration and upload are completed within hours or even days after submission. If you have high requirements for timeliness, use the upload SDK.
+       * - If a callback is configured, you will receive a [URL-based video upload complete](https://help.aliyun.com/document_detail/86326.html) event notification after the upload is complete. You can query the upload status by calling the [Get URL upload information](https://help.aliyun.com/document_detail/106830.html) operation.
+       * - After an upload task is submitted, an asynchronously executed task is generated in the cloud. URL upload tasks submitted by all users in the corresponding service region are queued for execution. The completion time is affected by the number of existing tasks. After the upload is complete, you can associate the task based on the URL and video ID returned in the event notification (message callback).
+       * - This operation is currently supported only in the **China (Shanghai)**, **China (Beijing)**, **China (Shenzhen)**, **Singapore**, and **US** (**Silicon Valley**) regions.
+       * - For the same media file URL, each submitted upload task generates a new media asset in ApsaraVideo VOD (that is, a new media ID is generated).
+       * - If a single file exceeds 20 GB, it will result in a failed upload. If you need to upload a single file larger than 20 GB, use the upload SDK. For more information, see [Overview of the upload SDK](https://help.aliyun.com/document_detail/52200.html).
        *
        * @param request UploadMediaByURLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4707,17 +4713,17 @@ namespace Vod20170321
       Models::UploadMediaByURLResponse uploadMediaByURLWithOptions(const Models::UploadMediaByURLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Pulls audio and video media files for upload based on source file URLs. Batch upload is supported.
+       * @summary Pulls and uploads audio and video media files from source URLs. Supports batch uploads.
        *
-       * @description - **Before using this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Uploading media files to ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage transfer acceleration, uploading media files to ApsaraVideo VOD also incurs upload acceleration fees. For billing details, see [Storage transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
+       * @description - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Uploading media assets to ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage transfer acceleration, uploading media assets to ApsaraVideo VOD also incurs upload acceleration fees. For billing details, see [Storage transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
        * - For the media file formats supported by this operation, see [Media formats](~~55396#section-e27-2rj-mde~~).
-       * - This operation is mainly applicable to scenarios where files are not stored on a local server or terminal and need to be uploaded through a URL with public network access.
-       * - This operation is an [asynchronous upload operation](https://help.aliyun.com/document_detail/3027551.html). It is not real-time and does not guarantee timeliness. Generally, the migration upload is completed within hours or even days after the node is submitted. If you have high timeliness requirements, use the upload SDK instead.
-       * - If a callback is configured, you will receive the [URL upload video complete](https://help.aliyun.com/document_detail/86326.html) event notification after the upload is completed. You can call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation to query the upload status.
-       * - After an upload node is submitted, an asynchronous node is generated in the cloud for execute. All URL upload nodes committed by users in the corresponding service region are queued for execute. The completion time is affected by the number of existing nodes. After the upload is completed, you can associate the URL with the video ID based on the information returned in the event notification (message callback).
-       * - This operation currently supports only the **China (Shanghai)**, **China (Beijing)**, **China (Shenzhen)**, **Singapore**, and **US (Silicon Valley)** regions.
-       * - Each time you commit an upload node for the same media file URL, a new media resource is generated in ApsaraVideo VOD (that is, a new media ID is generated).
-       * - If a single file exceeds 20 GB, the upload is failed. If you need to upload a single file larger than 20 GB, use the upload SDK. For more information, see [Overview of the upload SDK](https://help.aliyun.com/document_detail/52200.html).
+       * - This operation is mainly applicable to scenarios where files are not stored on local servers or terminals and need to be uploaded through URLs with public network access.
+       * - This operation is an [asynchronous upload operation](https://help.aliyun.com/document_detail/3027551.html). It is not real-time and does not guarantee timeliness. Generally, the migration and upload are completed within hours or even days after submission. If you have high requirements for timeliness, use the upload SDK.
+       * - If a callback is configured, you will receive a [URL-based video upload complete](https://help.aliyun.com/document_detail/86326.html) event notification after the upload is complete. You can query the upload status by calling the [Get URL upload information](https://help.aliyun.com/document_detail/106830.html) operation.
+       * - After an upload task is submitted, an asynchronously executed task is generated in the cloud. URL upload tasks submitted by all users in the corresponding service region are queued for execution. The completion time is affected by the number of existing tasks. After the upload is complete, you can associate the task based on the URL and video ID returned in the event notification (message callback).
+       * - This operation is currently supported only in the **China (Shanghai)**, **China (Beijing)**, **China (Shenzhen)**, **Singapore**, and **US** (**Silicon Valley**) regions.
+       * - For the same media file URL, each submitted upload task generates a new media asset in ApsaraVideo VOD (that is, a new media ID is generated).
+       * - If a single file exceeds 20 GB, it will result in a failed upload. If you need to upload a single file larger than 20 GB, use the upload SDK. For more information, see [Overview of the upload SDK](https://help.aliyun.com/document_detail/52200.html).
        *
        * @param request UploadMediaByURLRequest
        * @return UploadMediaByURLResponse
@@ -4725,12 +4731,12 @@ namespace Vod20170321
       Models::UploadMediaByURLResponse uploadMediaByURL(const Models::UploadMediaByURLRequest &request);
 
       /**
-       * @summary Uploads a transcoded stream file from external storage and mounts it to the corresponding ApsaraVideo VOD media asset.
+       * @summary Uploads a transcoded stream file from external storage and attaches it to the corresponding ApsaraVideo VOD media asset.
        *
-       * @description - **Before using this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Uploading media files to ApsaraVideo VOD incurs storage fees. For more information, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage transmission acceleration, upload acceleration fees also apply. For more information, see [Storage transmission acceleration billing](~~188310#section_sta_zm2_tsv~~).**
-       * - This operation is currently supported only in the **Shanghai** and **Singapore** regions.
-       * - Call this operation to upload a transcoded stream file from external storage and mount it to the corresponding ApsaraVideo VOD media asset. The supported HDR types for transcoded streams are HDR, HDR10, HLG, DolbyVision, HDRVivid, and SDR+.
-       * - You can call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation to query the upload status. After the upload is complete, you will receive the [URL upload transcoded stream complete](https://help.aliyun.com/document_detail/376427.html) event notification.
+       * @description - **Before you use this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Uploading media files to ApsaraVideo VOD incurs storage fees. For more information, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage and transfer acceleration, uploading media files to ApsaraVideo VOD also incurs upload acceleration fees. For more information, see [Storage and transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
+       * - This operation is currently supported only in the China (Shanghai), China (Beijing), China (Shenzhen), Singapore, and US (Silicon Valley) regions.
+       * - Call this operation to upload a transcoded stream file from external storage and attach it to the corresponding ApsaraVideo VOD media asset. The supported HDR types for transcoded streams are HDR, HDR10, HLG, DolbyVision, HDRVivid, and SDR+.
+       * - You can call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation to query the upload status. After the upload is complete, you receive the [URL Upload Transcoded Stream Complete](https://help.aliyun.com/document_detail/376427.html) event notification.
        *
        * @param request UploadStreamByURLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4739,12 +4745,12 @@ namespace Vod20170321
       Models::UploadStreamByURLResponse uploadStreamByURLWithOptions(const Models::UploadStreamByURLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads a transcoded stream file from external storage and mounts it to the corresponding ApsaraVideo VOD media asset.
+       * @summary Uploads a transcoded stream file from external storage and attaches it to the corresponding ApsaraVideo VOD media asset.
        *
-       * @description - **Before using this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Uploading media files to ApsaraVideo VOD incurs storage fees. For more information, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage transmission acceleration, upload acceleration fees also apply. For more information, see [Storage transmission acceleration billing](~~188310#section_sta_zm2_tsv~~).**
-       * - This operation is currently supported only in the **Shanghai** and **Singapore** regions.
-       * - Call this operation to upload a transcoded stream file from external storage and mount it to the corresponding ApsaraVideo VOD media asset. The supported HDR types for transcoded streams are HDR, HDR10, HLG, DolbyVision, HDRVivid, and SDR+.
-       * - You can call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation to query the upload status. After the upload is complete, you will receive the [URL upload transcoded stream complete](https://help.aliyun.com/document_detail/376427.html) event notification.
+       * @description - **Before you use this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Uploading media files to ApsaraVideo VOD incurs storage fees. For more information, see [Media asset storage billing](~~188308#section_e97_xrp_mzz~~). If you have enabled storage and transfer acceleration, uploading media files to ApsaraVideo VOD also incurs upload acceleration fees. For more information, see [Storage and transfer acceleration billing](~~188310#section_sta_zm2_tsv~~).**
+       * - This operation is currently supported only in the China (Shanghai), China (Beijing), China (Shenzhen), Singapore, and US (Silicon Valley) regions.
+       * - Call this operation to upload a transcoded stream file from external storage and attach it to the corresponding ApsaraVideo VOD media asset. The supported HDR types for transcoded streams are HDR, HDR10, HLG, DolbyVision, HDRVivid, and SDR+.
+       * - You can call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation to query the upload status. After the upload is complete, you receive the [URL Upload Transcoded Stream Complete](https://help.aliyun.com/document_detail/376427.html) event notification.
        *
        * @param request UploadStreamByURLRequest
        * @return UploadStreamByURLResponse

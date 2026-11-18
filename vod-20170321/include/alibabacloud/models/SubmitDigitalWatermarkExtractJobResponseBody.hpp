@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the watermark extraction job. This ID can be used as a request parameter of the [GetDigitalWatermarkExtractResult](https://help.aliyun.com/document_detail/2587769.html) operation.
+    // The ID of the watermark extraction job. You can use this ID as a request parameter when you call the [GetDigitalWatermarkExtractResult](https://help.aliyun.com/document_detail/2587769.html) operation.
     shared_ptr<string> jobId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

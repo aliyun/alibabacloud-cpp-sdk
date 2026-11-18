@@ -70,13 +70,13 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The upload URL.
     // 
-    // > The upload URL returned by this operation is a Base64-encoded value. When you use an SDK or API to upload media assets, you must Base64-decode the value before use. Only uploads by using the native OSS SDK or OSS API require you to parse UploadAddress.
+    // > The upload URL returned by the operation is Base64-encoded. When you call an SDK or API operation to upload the media asset, you must decode the URL before use. You only need to parse UploadAddress when you use the native OSS SDK or OSS API for upload.
     shared_ptr<string> uploadAddress_ {};
     // The upload credential.
     // 
-    // > The upload credential returned by this operation is a Base64-encoded value. When you use an SDK or API to upload media assets, you must Base64-decode the value before use. Only uploads by using the native OSS SDK or OSS API require you to parse UploadAuth.
+    // > The upload credential returned by the operation is Base64-encoded. When you call an SDK or API operation to upload the media asset, you must decode the credential before use. You only need to parse UploadAuth when you use the native OSS SDK or OSS API for upload.
     shared_ptr<string> uploadAuth_ {};
-    // The audio or video ID. This ID can be used as a request parameter for media asset management, media processing, and content moderation operations.
+    // The audio or video ID. You can use this ID as a request parameter for media asset management, media processing, and media review operations.
     shared_ptr<string> videoId_ {};
   };
 

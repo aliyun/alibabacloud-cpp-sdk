@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The application ID. Default value: **app-1000000**. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
+    // The ID of the application. Default value: **app-1000000**. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
     shared_ptr<string> appId_ {};
-    // The template name.
+    // The name of the template.
     // 
     // - The name can be up to 128 bytes in length.
-    // - UTF-8 encoded.
+    // - The name must be encoded in UTF-8.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The template configuration data in JSON format. For more information about the data structure, see [Snapshot template configuration](https://help.aliyun.com/document_detail/98618.html) or [Animated image template configuration](https://help.aliyun.com/document_detail/98618.html).
+    // The configuration data of the template in JSON format. For more information about the data structure, see [Snapshot template configuration](https://help.aliyun.com/document_detail/98618.html) or [Animated image template configuration](https://help.aliyun.com/document_detail/98618.html).
     // 
     // This parameter is required.
     shared_ptr<string> templateConfig_ {};

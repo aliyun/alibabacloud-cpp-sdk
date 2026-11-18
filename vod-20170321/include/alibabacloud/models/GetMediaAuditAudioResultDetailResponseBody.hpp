@@ -111,22 +111,22 @@ namespace Models
 
 
       protected:
-        // The end time of the problematic audio segment. Unit: seconds.
+        // The end time of the flagged audio segment, in seconds.
         shared_ptr<int64_t> endTime_ {};
         // The category of the audio review result. Valid values:
         // 
         // - **normal**: Normal.
-        // - **spam**: Contains spam.
-        // - **ad**: Advertisement.
+        // - **spam**: Spam.
+        // - **ad**: Ad.
         // - **politics**: Political content.
-        // - **terrorism**: Terrorist content.
-        // - **abuse**: Abusive content.
-        // - **porn**: Pornographic content.
-        // - **flood**: Junk content.
-        // - **contraband**: Prohibited content.
-        // - **meaningless**: Meaningless content.
+        // - **terrorism**: Terrorism.
+        // - **abuse**: Abuse.
+        // - **porn**: Pornography.
+        // - **flood**: Flooding.
+        // - **contraband**: Contraband.
+        // - **meaningless**: Meaningless.
         shared_ptr<string> label_ {};
-        // The start time of the problematic audio segment. Unit: seconds.
+        // The start time of the flagged audio segment, in seconds.
         shared_ptr<int64_t> startTime_ {};
         // The text content corresponding to the audio.
         shared_ptr<string> text_ {};
@@ -158,7 +158,7 @@ namespace Models
 
 
     protected:
-      // The result list.
+      // The list of results.
       shared_ptr<vector<MediaAuditAudioResultDetail::List>> list_ {};
       // The current page number.
       shared_ptr<int32_t> pageTotal_ {};

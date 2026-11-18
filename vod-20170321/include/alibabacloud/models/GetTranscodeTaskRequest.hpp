@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The transcoding job IDs. You can specify a maximum of 10 IDs. Separate multiple IDs with commas (,). You can obtain the IDs by using the following method:
-    // - Call the [SubmitTranscodeJobs](https://help.aliyun.com/document_detail/68570.html) operation to submit a transcoding task. The value of JobId in the response is the transcoding job ID.
+    // The IDs of the transcoding jobs. You can specify up to 10 IDs. Separate multiple IDs with commas (,). You can obtain the IDs by using the following method:
+    // - Call the [SubmitTranscodeJobs](https://help.aliyun.com/document_detail/68570.html) operation to initiate a transcoding task. The ID is the value of the JobId response parameter.
     shared_ptr<string> jobIds_ {};
     // The transcoding task ID. You can obtain the ID by using one of the following methods:
-    // - Call the [SubmitTranscodeJobs](https://help.aliyun.com/document_detail/68570.html) operation to submit a transcoding task. The value of TranscodeTaskId in the response is the transcoding task ID.
-    // - Call the [ListTranscodeTask](https://help.aliyun.com/document_detail/109120.html) operation. The value of TranscodeTaskId in the response is the transcoding task ID.
+    // - Call the [SubmitTranscodeJobs](https://help.aliyun.com/document_detail/68570.html) operation to initiate a transcoding task. The ID is the value of the TranscodeTaskId response parameter.
+    // - Call the [ListTranscodeTask](https://help.aliyun.com/document_detail/109120.html) operation to query transcoding tasks. The ID is the value of the TranscodeTaskId response parameter.
     shared_ptr<string> transcodeTaskId_ {};
   };
 

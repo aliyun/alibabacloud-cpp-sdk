@@ -62,7 +62,7 @@ namespace Models
     // - **on**: Healthy VIPs.
     // - **off**: All VIPs.
     shared_ptr<string> available_ {};
-    // The accelerated domain name for ApsaraVideo VOD. Only a single domain name can be queried.
+    // The ApsaraVideo VOD accelerated domain name. You can specify only one domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};

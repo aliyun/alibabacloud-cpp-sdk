@@ -218,19 +218,19 @@ namespace Models
     protected:
       // The category ID.
       shared_ptr<int64_t> cateId_ {};
-      // The category name.
+      // The name of the category.
       shared_ptr<string> cateName_ {};
       // The category level. Valid values:
       // 
-      // - **0**: level-1 category.
-      // - **1**: level-2 category.
-      // - **2**: level-3 category.
+      // - **0**: Level 1 category.
+      // - **1**: Level 2 category.
+      // - **2**: Level 3 category.
       shared_ptr<int64_t> level_ {};
       // The ID of the parent category.
       shared_ptr<int64_t> parentId_ {};
       // The category type. Valid values:
-      // - **default**: audio, video, and image category.
-      // - **material**: short video material category.
+      // - **default**: Audio, video, or image category.
+      // - **material**: Short video material category.
       shared_ptr<string> type_ {};
     };
 

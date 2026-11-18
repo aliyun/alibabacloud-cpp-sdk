@@ -122,11 +122,17 @@ namespace Models
 
 
     protected:
+      // The platform ID.
       shared_ptr<string> itemId_ {};
+      // The list of licenses.
       shared_ptr<vector<string>> licenseItemIds_ {};
+      // The package name.
       shared_ptr<string> pkgName_ {};
+      // The package signature.
       shared_ptr<string> pkgSignature_ {};
+      // The platform type.
       shared_ptr<int64_t> platformType_ {};
+      // The platform type.
       shared_ptr<int64_t> type_ {};
     };
 
@@ -199,14 +205,26 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The application type. Valid values:
+    // 
+    // - 1: Common application.
+    // - 2: Embedded SDK.
     shared_ptr<int32_t> appType_ {};
+    // The creation time.
     shared_ptr<string> creationTime_ {};
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
+    // The update time.
     shared_ptr<string> gmtModified_ {};
+    // The application ID.
     shared_ptr<string> itemId_ {};
+    // The update time.
     shared_ptr<string> modificationTime_ {};
+    // The list of platform information for the application.
     shared_ptr<vector<AppInfoDTO::Platforms>> platforms_ {};
+    // The user ID.
     shared_ptr<int64_t> userId_ {};
   };
 

@@ -142,15 +142,15 @@ namespace Models
 
 
       protected:
-        // The file size. Unit: byte.
+        // The file size. Unit: bytes.
         shared_ptr<string> fileSize_ {};
         // The OSS URL of the image file.
         shared_ptr<string> fileURL_ {};
-        // The image height. Unit: pixel.
+        // The height of the image. Unit: pixels.
         shared_ptr<int32_t> height_ {};
-        // The address of the uploaded source image file.
+        // The name of the uploaded source image file.
         shared_ptr<string> originalFileName_ {};
-        // The image width. Unit: pixel.
+        // The width of the image. Unit: pixels.
         shared_ptr<int32_t> width_ {};
       };
 
@@ -258,7 +258,7 @@ namespace Models
       shared_ptr<int64_t> cateId_ {};
       // The category name.
       shared_ptr<string> cateName_ {};
-      // The time when the image was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The time when the image was created. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
       // The image description.
       shared_ptr<string> description_ {};
@@ -268,21 +268,21 @@ namespace Models
       // - **default**: regular image.
       // - **cover**: video thumbnail.
       shared_ptr<string> imageType_ {};
-      // The mezzanine information of the image.
+      // The source information of the image.
       shared_ptr<ImageInfo::Mezzanine> mezzanine_ {};
       // The image status. Valid values:
       // 
-      // - **Uploading**: The image is being uploaded. This is the initial status.
+      // - **Uploading**: The initial status, which indicates that the image is being uploaded.
       // - **Normal**: The image is uploaded.
       // - **UploadFail**: The image failed to be uploaded.
       shared_ptr<string> status_ {};
       // The storage address of the image file.
       shared_ptr<string> storageLocation_ {};
-      // The image tags. Multiple tags are separated by commas (,).
+      // The image tags. Separate multiple tags with commas (,).
       shared_ptr<string> tags_ {};
       // The image title.
       shared_ptr<string> title_ {};
-      // The image access URL. If a CDN domain name is configured, the CDN URL is returned. Otherwise, the OSS URL is returned.
+      // The image access URL. If a CDN domain name is configured, the value is a CDN URL. Otherwise, the value is an OSS URL.
       shared_ptr<string> URL_ {};
     };
 
@@ -314,7 +314,7 @@ namespace Models
 
 
   protected:
-    // The image information list.
+    // The list of image information.
     shared_ptr<vector<GetImageInfosResponseBody::ImageInfo>> imageInfo_ {};
     // The list of image IDs that do not exist.
     shared_ptr<vector<string>> nonExistImageIds_ {};

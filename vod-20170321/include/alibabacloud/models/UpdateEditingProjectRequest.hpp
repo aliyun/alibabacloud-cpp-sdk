@@ -124,7 +124,7 @@ namespace Models
     shared_ptr<string> projectId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<string> resourceOwnerId_ {};
-    // The timeline of the online editing project. For more information about the structure, see [Timeline](https://help.aliyun.com/document_detail/52839.html).
+    // The timeline of the online editing project. TimelineIn and TimelineOut indicate the in point and out point of a media clip on the timeline in seconds, accurate to four decimal places. For more information about the structure, see [Timeline](https://help.aliyun.com/document_detail/52839.html).
     shared_ptr<string> timeline_ {};
     // The title of the online editing project.
     shared_ptr<string> title_ {};

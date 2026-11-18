@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the auxiliary media assets that do not exist.
+    // The list of IDs of non-existent auxiliary media assets.
     shared_ptr<vector<string>> nonExistMediaIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

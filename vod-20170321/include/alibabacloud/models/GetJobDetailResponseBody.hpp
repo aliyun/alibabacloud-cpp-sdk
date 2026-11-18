@@ -158,18 +158,18 @@ namespace Models
       protected:
         // The application ID.
         shared_ptr<string> appId_ {};
-        // The time when the workflow was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
+        // The time when the workflow was created. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
         shared_ptr<string> createTime_ {};
-        // The time when the workflow was last modified.
+        // The time when the workflow was modified. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
         shared_ptr<string> modifiedTime_ {};
         // The workflow name.
         shared_ptr<string> name_ {};
         // The workflow status. Valid values:
-        // - Active: activated.
-        // - Inactive: not activated.
-        // - Deleted: deleted.
+        // - Active: The workflow is activated.
+        // - Inactive: The workflow is not activated.
+        // - Deleted: The workflow is deleted.
         shared_ptr<string> status_ {};
-        // The workflow type. Not populated by default.
+        // The workflow type. By default, this field is not populated.
         shared_ptr<string> type_ {};
         // The workflow ID.
         shared_ptr<string> workflowId_ {};
@@ -237,26 +237,26 @@ namespace Models
 
 
     protected:
-      // The processing results of each workflow node, in JSON format.
+      // The processing results of each node in the workflow, in JSON format.
       shared_ptr<string> activityResults_ {};
-      // The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
+      // The time when the task was created. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
       shared_ptr<string> createTime_ {};
-      // The time when the task was completed.
+      // The time when the task was completed. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
       shared_ptr<string> finishTime_ {};
       // The task status. Valid values:
       // 
-      // - Init: started.
-      // - Processing: processing in progress.
-      // - Succeed: succeeded.
-      // - Failed: failed.
-      // - Canceled: canceled.
-      // - Skip: skipped.
+      // - Init: The task is started.
+      // - Processing: The task is being processed.
+      // - Succeed: The task succeeded.
+      // - Failed: The task failed.
+      // - Canceled: The task is canceled.
+      // - Skip: The task is skipped.
       shared_ptr<string> status_ {};
-      // The task ID.
+      // The job ID.
       shared_ptr<string> taskId_ {};
       // The media asset information.
       shared_ptr<string> taskInput_ {};
-      // The custom settings. The value is a JSON string that supports message callback, upload acceleration, and other settings.
+      // The custom settings. The value is a JSON string that supports settings such as message callbacks and upload acceleration.
       shared_ptr<string> userData_ {};
       // The workflow details.
       shared_ptr<WorkflowTaskDetail::Workflow> workflow_ {};
@@ -355,21 +355,21 @@ namespace Models
 
 
     protected:
-      // The time when the task was completed.
+      // The time when the task was completed. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
       shared_ptr<string> completeTime_ {};
-      // The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
+      // The time when the task was created. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
       shared_ptr<string> createTime_ {};
       // The definition.
       shared_ptr<string> definition_ {};
-      // The task ID.
+      // The job ID.
       shared_ptr<string> jobId_ {};
       // The task status. Valid values:
       // 
-      // - Submitted: submitted.
-      // - Transcoding: transcoding in progress.
-      // - TranscodeSuccess: transcoding succeeded.
-      // - TranscodeFail: transcoding failed.
-      // - TranscodeCancelled: transcoding canceled.
+      // - Submitted: The task is submitted.
+      // - Transcoding: The task is being transcoded.
+      // - TranscodeSuccess: Transcoding succeeded.
+      // - TranscodeFail: Transcoding failed.
+      // - TranscodeCancelled: Transcoding is canceled.
       shared_ptr<string> status_ {};
       // The template ID.
       shared_ptr<string> templateId_ {};
@@ -481,11 +481,11 @@ namespace Models
 
 
     protected:
-      // The time when the task was completed.
+      // The time when the task was completed. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
       shared_ptr<string> completeTime_ {};
-      // The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
+      // The time when the task was created. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
       shared_ptr<string> createTime_ {};
-      // The task ID.
+      // The job ID.
       shared_ptr<string> jobId_ {};
       // The normal snapshot configuration.
       shared_ptr<string> normalConfig_ {};
@@ -493,14 +493,14 @@ namespace Models
       shared_ptr<string> spriteConfig_ {};
       // The task status. Valid values:
       // 
-      // - Processing: processing in progress.
-      // - Fail: task failed.
-      // - Success: task succeeded.
+      // - Processing: The task is being processed.
+      // - Fail: The task failed.
+      // - Success: The task succeeded.
       shared_ptr<string> status_ {};
       // The trigger method. Valid values:
       // 
-      // - Auto: automatically triggered by a workflow.
-      // - Manual: manually submitted.
+      // - Auto: Automatically triggered by a workflow.
+      // - Manual: Manually submitted.
       shared_ptr<string> trigger_ {};
       // The ID of the user who initiated the task.
       shared_ptr<int64_t> userId_ {};
@@ -610,30 +610,30 @@ namespace Models
 
 
     protected:
-      // The time when the task was completed.
+      // The time when the task ended. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
       shared_ptr<string> completeTime_ {};
-      // The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
+      // The time when the task was created. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
       shared_ptr<string> createTime_ {};
-      // The task ID.
+      // The job ID.
       shared_ptr<string> jobId_ {};
       // The AI task type.
       shared_ptr<string> jobType_ {};
       // The media asset ID.
       shared_ptr<string> mediaId_ {};
       // The task status. Valid values:
-      // - reserved: submitted.
-      // - init: started.
-      // - success: execution succeeded.
-      // - fail: execution failed.
-      // - processing: processing in progress.
-      // - analysing: analysis in progress.
+      // - reserved: The task is submitted.
+      // - init: The task is started.
+      // - success: The task succeeded.
+      // - fail: The task failed.
+      // - processing: The task is being processed.
+      // - analysing: The task is being analyzed.
       shared_ptr<string> status_ {};
       // The template configuration.
       shared_ptr<string> templateConfig_ {};
       // The trigger method. Valid values:
       // 
-      // - Auto: automatically triggered by a workflow.
-      // - Manual: manually submitted.
+      // - Auto: Automatically triggered by a workflow.
+      // - Manual: Manually submitted.
       shared_ptr<string> trigger_ {};
       // The ID of the user who initiated the task.
       shared_ptr<int64_t> userId_ {};
@@ -696,11 +696,11 @@ namespace Models
     shared_ptr<GetJobDetailResponseBody::AIJobDetail> AIJobDetail_ {};
     // The task type.
     shared_ptr<string> jobType_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The details of the snapshot task. This field has a value only when jobType is Snapshot.
+    // The details of the snapshot task. This field has a value only when JobType is Snapshot.
     shared_ptr<GetJobDetailResponseBody::SnapshotJobDetail> snapshotJobDetail_ {};
-    // The details of the transcoding task. This field has a value only when jobType is Transcode.
+    // The details of the transcoding task. This field has a value only when JobType is Transcode.
     shared_ptr<GetJobDetailResponseBody::TranscodeJobDetail> transcodeJobDetail_ {};
     // The details of the workflow task. This field has a value only when TaskType is Workflow.
     shared_ptr<GetJobDetailResponseBody::WorkflowTaskDetail> workflowTaskDetail_ {};

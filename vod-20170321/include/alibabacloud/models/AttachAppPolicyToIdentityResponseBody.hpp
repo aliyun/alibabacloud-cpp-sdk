@@ -62,9 +62,9 @@ namespace Models
 
 
   protected:
-    // The policy names that failed to be attached.
+    // The Policy Name of the failed policy.
     shared_ptr<vector<string>> failedPolicyNames_ {};
-    // The list of policy names that do not exist.
+    // The list of non-existent policy names.
     shared_ptr<vector<string>> nonExistPolicyNames_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

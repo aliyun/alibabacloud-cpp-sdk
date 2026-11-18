@@ -154,26 +154,26 @@ namespace Models
 
 
   protected:
-    // The accelerated domain name for ApsaraVideo VOD. Fuzzy match filtering is supported.
+    // The ApsaraVideo VOD accelerated domain name. Fuzzy match is supported.
     shared_ptr<string> domainName_ {};
-    // The domain name query type. Valid values:
+    // The domain name search type. Valid values:
     // 
     // - **fuzzy_match** (default): fuzzy match.
     // - **pre_match**: prefix match.
     // - **suf_match**: suffix match.
     // - **full_match**: exact match.
     shared_ptr<string> domainSearchType_ {};
-    // The domain name status filter. Valid values:
+    // The domain name status used for filtering. Valid values:
     // 
-    // - **online**: Enabled.
-    // - **offline**: Disabled.
-    // - **configuring**: Being configured.
-    // - **configure_failed**: Configuration failed.
-    // - **checking**: Being reviewed.
-    // - **check_failed**: Review failed.
+    // - **online**: The domain name is enabled.
+    // - **offline**: The domain name is disabled.
+    // - **configuring**: The domain name is being configured.
+    // - **configure_failed**: The domain name failed to be configured.
+    // - **checking**: The domain name is being reviewed.
+    // - **check_failed**: The domain name failed the review.
     shared_ptr<string> domainStatus_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: **20**. Maximum value: **50**. Valid values: any integer from **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};

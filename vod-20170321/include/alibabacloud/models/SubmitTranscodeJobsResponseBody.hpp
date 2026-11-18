@@ -127,7 +127,7 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<SubmitTranscodeJobsResponseBody::TranscodeJobs> transcodeJobs_ {};
-    // The ID of the submitted transcoding task.
+    // The ID of the submitted transcoding job.
     shared_ptr<string> transcodeTaskId_ {};
   };
 

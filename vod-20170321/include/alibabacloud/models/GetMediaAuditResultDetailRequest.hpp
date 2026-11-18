@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> mediaId_ {};
-    // The page number of the video content review results. Default value: **1**. A maximum of **20** records are returned per page.
+    // The page number of the video content review results. Default value: **1**. Maximum number of entries per page: **20**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};

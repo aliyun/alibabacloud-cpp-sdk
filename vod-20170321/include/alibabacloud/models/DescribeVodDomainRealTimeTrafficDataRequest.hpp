@@ -85,23 +85,23 @@ namespace Models
 
   protected:
     // The accelerated domain name to query.
-    // - Separate multiple domain names with commas (,). You can specify up to 100 domain names at a time. 
+    // - Separate multiple domain names with commas (,). You can query up to 100 domain names at a time. 
     // - When you query multiple domain names, the returned data is the aggregated data of all specified domain names.
-    // - You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Configuration Management > CDN Configuration > Domain Names** in the left-side navigation pane to view the accelerated domain names that you have added to ApsaraVideo VOD. You can also call the [DescribeVodUserDomains](~~DescribeVodUserDomains~~) operation to query the list of accelerated domain names.
+    // - You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Configuration Management > CDN Configuration > Domain Names** in the left-side navigation pane to view the accelerated domain names added to ApsaraVideo VOD. Alternatively, you can call the [DescribeVodUserDomains](~~DescribeVodUserDomains~~) operation to query the list of accelerated domain names.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query.
+    // The end time of the data to retrieve.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // > The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
-    // The name of the Internet service provider (ISP). If you do not specify this parameter, data of all ISPs is queried.
+    // The English name of the ISP. If you do not specify this parameter, all ISPs are queried by default.
     shared_ptr<string> ispNameEn_ {};
-    // The name of the region. If you do not specify this parameter, data of all regions is queried.
+    // The English name of the region. If you do not specify this parameter, all regions are queried by default.
     shared_ptr<string> locationNameEn_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The beginning of the time range to query.
+    // The start time of the data to retrieve.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};

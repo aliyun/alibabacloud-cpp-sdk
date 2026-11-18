@@ -175,9 +175,9 @@ namespace Models
 
 
     protected:
-      // The completion time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The completion time. The time is displayed in UTC and follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format.
       shared_ptr<string> completionTime_ {};
-      // The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The creation time. The time is displayed in UTC and follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format.
       shared_ptr<string> creationTime_ {};
       // The device model.
       shared_ptr<string> deviceModel_ {};
@@ -185,9 +185,9 @@ namespace Models
       shared_ptr<int64_t> fileSize_ {};
       // The ID of the uploaded audio or video file.
       shared_ptr<string> mediaId_ {};
-      // The modification time. The time is in the _yyyy-MM-ddTHH:mm:ssZ_ format (UTC).
+      // The update time. The time is displayed in UTC and follows the _yyyy-MM-ddTHH:mm:ssZ_ format.
       shared_ptr<string> modificationTime_ {};
-      // The video status. For the valid values and descriptions of video statuses, see the value list in [Status: video status](https://help.aliyun.com/document_detail/52839.html).
+      // The video status. For more information about the valid values and descriptions of the video status, see the valid values of [Status: Video status](https://help.aliyun.com/document_detail/52839.html).
       shared_ptr<string> status_ {};
       // The title.
       shared_ptr<string> title_ {};
@@ -199,7 +199,7 @@ namespace Models
       shared_ptr<int64_t> uploadSize_ {};
       // The upload source.
       shared_ptr<string> uploadSource_ {};
-      // The upload task status. For the valid values and descriptions of upload statuses, see the value list in [Status: URL upload task status](https://help.aliyun.com/document_detail/52839.html).
+      // The status of the upload task. For more information about the valid values and descriptions of the upload status, see the valid values of [Status: URL upload task status](https://help.aliyun.com/document_detail/52839.html).
       shared_ptr<string> uploadStatus_ {};
     };
 
@@ -240,13 +240,13 @@ namespace Models
 
 
   protected:
-    // The IDs of media files that cannot be accessed.
+    // The IDs of the media assets that you are not authorized to access.
     shared_ptr<vector<string>> forbiddenMediaIds_ {};
-    // The IDs of media files that do not exist.
+    // The IDs of the media assets that do not exist.
     shared_ptr<vector<string>> nonExistMediaIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The upload details.
+    // The list of upload details.
     shared_ptr<vector<GetUploadDetailsResponseBody::UploadDetails>> uploadDetails_ {};
   };
 

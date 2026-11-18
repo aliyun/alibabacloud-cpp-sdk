@@ -103,15 +103,15 @@ namespace Models
 
 
   protected:
-    // The health check URL.
+    // The URL for health checks.
     shared_ptr<string> checkUrl_ {};
-    // The accelerated domain name to be added to ApsaraVideo VOD. Wildcard domain names are supported, starting with a period (.), such as .example.com.
+    // The accelerated domain name that you want to add to ApsaraVideo VOD. Wildcard domain names are supported. A wildcard domain name must start with a period (.), such as .example.com.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // This parameter is valid for international users and Chinese mainland users of L3 or higher. Valid values:
+    // The acceleration region. This parameter is valid for users outside the Chinese mainland and users in the Chinese mainland at level 3 or above. Valid values:
     // - **domestic** (default): the Chinese mainland.
     // - **overseas**: Hong Kong (China), Macao (China), Taiwan (China), and regions outside China.
     // - **global**: global acceleration.

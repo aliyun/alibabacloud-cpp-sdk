@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // The label.
+        // The tag.
         shared_ptr<string> tag_ {};
-        // The collection of time points. Unit: milliseconds.
+        // The time points. Unit: milliseconds.
         shared_ptr<vector<string>> times_ {};
       };
 
@@ -154,13 +154,13 @@ namespace Models
 
 
       protected:
-        // The face URL.
+        // The URL of the face.
         // 
-        // > This field is returned only for person tag results.
+        // > This field is returned only for person tags.
         shared_ptr<string> faceUrl_ {};
-        // The label.
+        // The tag.
         shared_ptr<string> tag_ {};
-        // The collection of time points. Unit: milliseconds.
+        // The time points. Unit: milliseconds.
         shared_ptr<vector<string>> times_ {};
       };
 
@@ -204,9 +204,9 @@ namespace Models
 
 
       protected:
-        // The label.
+        // The tag.
         shared_ptr<string> tag_ {};
-        // The collection of time points. Unit: milliseconds.
+        // The time points. Unit: milliseconds.
         shared_ptr<vector<string>> times_ {};
       };
 
@@ -250,9 +250,9 @@ namespace Models
 
 
       protected:
-        // The label.
+        // The tag.
         shared_ptr<string> tag_ {};
-        // The collection of time points. Unit: milliseconds.
+        // The time points. Unit: milliseconds.
         shared_ptr<vector<string>> times_ {};
       };
 
@@ -284,7 +284,7 @@ namespace Models
 
 
       protected:
-        // The label.
+        // The tag.
         shared_ptr<string> tag_ {};
       };
 
@@ -336,15 +336,15 @@ namespace Models
 
 
     protected:
-      // The collection of video categories.
+      // The video categories.
       shared_ptr<vector<VideoTagResult::Category>> category_ {};
-      // The collection of keyword tags.
+      // The keyword tags.
       shared_ptr<vector<VideoTagResult::Keyword>> keyword_ {};
-      // The collection of location tags.
+      // The location tags.
       shared_ptr<vector<VideoTagResult::Location>> location_ {};
-      // The collection of person tags.
+      // The person tags.
       shared_ptr<vector<VideoTagResult::Person>> person_ {};
-      // The collection of time tags.
+      // The time tags.
       shared_ptr<vector<VideoTagResult::Time>> time_ {};
     };
 

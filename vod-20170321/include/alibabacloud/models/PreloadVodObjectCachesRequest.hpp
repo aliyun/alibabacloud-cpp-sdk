@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The prefetch region. Valid values: **domestic**, **overseas**.
+    // The prefetch region.
     shared_ptr<string> area_ {};
-    // Specifies whether to directly prefetch content to L2 nodes. Valid values:
+    // Specifies whether to prefetch content directly to L2 nodes. Valid values:
     // 
-    // - **true**: The prefetch node level must include L2 nodes.
+    // - **true**: The prefetch node hierarchy must include L2 nodes.
     // 
-    // - **false**: Only back-to-origin layer nodes are prefetched. This is the **default value**. The back-to-origin layer node may be an L2 node or an L3 node.
+    // - **false**: Content is prefetched only to the origin-fetching layer nodes. This is the **default value**. The origin-fetching layer nodes can be L2 or L3 nodes.
     shared_ptr<bool> l2Preload_ {};
-    // The URL of the file to prefetch. Separate multiple URLs with line breaks (
+    // The URLs of the files to be prefetched. Separate multiple URLs with line breaks (
     //  or 
     // ).
     // 
@@ -100,7 +100,7 @@ namespace Models
     shared_ptr<string> objectPath_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The default header carried in a prefetch request is Accept-Encoding:gzip. If you want the prefetch request to carry other headers or implement multi-copy prefetch, use this parameter to customize prefetch headers. Submit the value in JSON format.
+    // By default, prefetch requests carry the Accept-Encoding: gzip header. If you want prefetch requests to carry other headers or implement multi-replica prefetching, you can use this parameter to specify custom prefetch headers. Submit the headers in JSON format.
     shared_ptr<string> withHeader_ {};
   };
 

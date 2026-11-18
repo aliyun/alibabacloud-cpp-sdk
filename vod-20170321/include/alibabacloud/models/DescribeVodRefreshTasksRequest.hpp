@@ -132,16 +132,16 @@ namespace Models
   protected:
     // The domain name.
     shared_ptr<string> domainName_ {};
-    // The end time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+    // The end time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The path used to query. Exact match is used.
+    // The object path. Exact match is supported.
     shared_ptr<string> objectPath_ {};
     // The task type. Valid values:
-    // - **file**: file purge.
-    // - **directory**: directory purge.
-    // - **preload**: file prefetch.
+    // - **file**: file refresh
+    // - **directory**: directory refresh
+    // - **preload**: file prefetch
     // 
-    // > When DomainName or Status is specified, ObjectType is required.
+    // > If you specify DomainName or Status, ObjectType is required.
     shared_ptr<string> objectType_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
@@ -149,17 +149,17 @@ namespace Models
     // The number of entries per page. Default value: **20**. Maximum value: **50**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> securityToken_ {};
-    // The start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+    // The start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
     // 
-    // > Only data within the last 3 days can be queried.
+    // > You can query only the data generated within the last three days.
     shared_ptr<string> startTime_ {};
     // The task status. Valid values:
     // 
-    // - **Complete**: completed.
-    // - **Refreshing**: in progress.
-    // - **Failed**: failed.
+    // - **Complete**: The task is complete.
+    // - **Refreshing**: The task is in progress.
+    // - **Failed**: The task failed.
     shared_ptr<string> status_ {};
-    // The task ID used to query the purge status.
+    // The task ID used to query the refresh status.
     shared_ptr<string> taskId_ {};
   };
 

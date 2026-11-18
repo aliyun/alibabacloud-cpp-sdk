@@ -331,50 +331,50 @@ namespace Models
 
 
       protected:
-        // The color bit depth. The value is an integer.
+        // The color depth. The value is an integer.
         shared_ptr<int32_t> bitDepth_ {};
         // The bitrate of the media stream. Unit: Kbps.
         shared_ptr<string> bitrate_ {};
         // The short name of the codec.
         shared_ptr<string> codecName_ {};
-        // The time when the stream was created. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+        // The creation time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
         shared_ptr<string> creationTime_ {};
         // The definition of the video stream. Valid values:
         // 
-        // - **FD**: low definition.
-        // - **LD**: standard definition.
-        // - **SD**: high definition.
-        // - **HD**: ultra high definition.
-        // - **OD**: original quality.
-        // - **2K**: 2K.
-        // - **4K**: 4K.
-        // - **SQ**: standard sound quality.
-        // - **HQ**: high sound quality.
-        // - **AUTO**: adaptive bitrate streaming.
+        // - **FD**: smooth
+        // - **LD**: standard definition
+        // - **SD**: high definition
+        // - **HD**: ultra-high definition
+        // - **OD**: original quality
+        // - **2K**: 2K
+        // - **4K**: 4K
+        // - **SQ**: standard audio quality
+        // - **HQ**: high audio quality
+        // - **AUTO**: adaptive bitrate
         shared_ptr<string> definition_ {};
         // The duration of the media stream. Unit: seconds.
         shared_ptr<string> duration_ {};
-        // Indicates whether the media stream is encrypted. Valid values:
+        // Specifies whether the media stream is encrypted. Valid values:
         // 
-        // - **0**: The stream is not encrypted.
-        // - **1**: The stream is encrypted.
+        // - **0**: no
+        // - **1**: yes
         shared_ptr<int64_t> encrypt_ {};
         // The encryption mode of the media stream. Valid values:
         // 
-        // - **License**: local decryption mode.
+        // - **License**: local decryption mode
         // 
-        // > If the encryption mode is **License**, only ApsaraVideo Player SDK can be used for playback.
+        // > If the encryption mode is **License**, the stream can only be played by using the ApsaraVideo Player SDK.
         shared_ptr<string> encryptMode_ {};
         // The encryption type of the media stream. Valid values:
         // 
-        // - **AliyunVoDEncryption**: Alibaba Cloud video encryption.
-        // - **HLSEncryption**: HLS encryption.
+        // - **AliyunVoDEncryption**: Alibaba Cloud video encryption
+        // - **HLSEncryption**: HLS encryption
         // 
-        // > If the encryption type is **AliyunVoDEncryption**, only ApsaraVideo Player SDK can be used for playback.
+        // > If the encryption type is **AliyunVoDEncryption**, the stream can only be played by using the ApsaraVideo Player SDK.
         shared_ptr<string> encryptType_ {};
         // The format of the media stream.
         // - If the media file is a video, valid values are **mp4** and **m3u8**.
-        // - If the media file is audio-only, the value is **mp3**.
+        // - If the media file is audio-only, the valid value is **mp3**.
         shared_ptr<string> format_ {};
         // The frame rate of the media stream. Unit: frames per second.
         shared_ptr<string> fps_ {};
@@ -386,45 +386,45 @@ namespace Models
         // - HDRVivid
         // - SDR+
         shared_ptr<string> HDRType_ {};
-        // The height of the media stream. Unit: px.
+        // The height of the media stream. Unit: pixels.
         shared_ptr<int64_t> height_ {};
-        // The custom watermark information of the copyright watermark. This field is returned only when `JobType` is `2`.
+        // The custom watermark information for the copyright watermark. This field is returned only when `JobType` is set to `2`.
         shared_ptr<string> jobExt_ {};
-        // The job ID of the media stream transcoding. This value serves as the unique identifier of the media stream.
+        // The ID of the transcoding job for the media stream. This ID uniquely identifies the media stream.
         shared_ptr<string> jobId_ {};
         // The digital watermarking type. Valid values:
-        // - **1**: tracing watermark.
-        // - **2**: copyright watermark.
+        // - **1**: tracing watermark
+        // - **2**: copyright watermark
         shared_ptr<int32_t> jobType_ {};
-        // The time when the stream was last updated. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+        // The update time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
         shared_ptr<string> modificationTime_ {};
         // The transcoding type. Valid values:
         // 
-        // - **0**: standard transcoding.
-        // - **1.0**: Narrowband HD 1.0 transcoding.
-        // - **2.0**: Narrowband HD 2.0 transcoding.
+        // - **0**: standard transcoding
+        // - **1.0**: Narrowband HD 1.0 transcoding
+        // - **2.0**: Narrowband HD 2.0 transcoding
         shared_ptr<string> narrowBandType_ {};
         // The playback URL of the video stream.
         shared_ptr<string> playURL_ {};
         // The size of the media stream. Unit: bytes.
         shared_ptr<int64_t> size_ {};
-        // The output specification of the audio/video transcoding. For more information about valid values and descriptions, see [Output specifications: Specification](~~124671#section-6bv-l0g-opq~~).
+        // The output specification of video transcoding. For more information about the valid values and descriptions, see [Output specifications: Specification](~~124671#section-6bv-l0g-opq~~).
         shared_ptr<string> specification_ {};
         // The status of the media stream. Valid values:
         // 
-        // - **Normal**: The stream is in a normal state. This value indicates the status of the latest transcoded stream for each definition and format.
-        // - **Invisible**: The stream is invisible. When multiple duplicate transcoded streams exist for each definition and format, only the latest stream is marked as Normal, and the other streams are marked as Invisible.
+        // - **Normal**: The stream is in the normal state. This state marks the latest transcoded stream for each definition and format.
+        // - **Invisible**: The stream is in the invisible state. If multiple transcoded streams exist for the same definition and format, only the latest stream is marked as Normal, and the other streams are marked as Invisible.
         shared_ptr<string> status_ {};
         // The type of the media stream.
         // If the media stream is a video, the value is **video**. If the media stream is audio-only, the value is **audio**.
         shared_ptr<string> streamType_ {};
-        // The transcoding template group ID.
+        // The ID of the transcoding template group.
         shared_ptr<string> templateGroupId_ {};
-        // The transcoding template ID.
+        // The ID of the transcoding template.
         shared_ptr<string> templateId_ {};
-        // The watermark template ID associated with the current media stream.
+        // The ID of the watermark template associated with the current media stream.
         shared_ptr<string> watermarkId_ {};
-        // The width of the media stream. Unit: px.
+        // The width of the media stream. Unit: pixels.
         shared_ptr<int64_t> width_ {};
       };
 
@@ -717,7 +717,7 @@ namespace Models
           shared_ptr<string> avgFPS_ {};
           // The bitrate of the file. Unit: Kbps.
           shared_ptr<string> bitrate_ {};
-          // The full name of the codec.
+          // The long name of the codec.
           shared_ptr<string> codecLongName_ {};
           // The short name of the codec.
           shared_ptr<string> codecName_ {};
@@ -735,11 +735,11 @@ namespace Models
           shared_ptr<string> fps_ {};
           // The HDR type of the video stream.
           shared_ptr<string> HDRType_ {};
-          // Indicates whether the video stream contains B-frames.
+          // Indicates whether the video contains B-frames.
           shared_ptr<string> hasBFrames_ {};
-          // The height of the video resolution.
+          // The height of the video.
           shared_ptr<string> height_ {};
-          // The sequence number of the video stream, which identifies the position of the video stream in the overall media stream.
+          // The index of the video stream, which indicates the position of the video stream in all media streams.
           shared_ptr<string> index_ {};
           // The language.
           shared_ptr<string> lang_ {};
@@ -751,15 +751,15 @@ namespace Models
           shared_ptr<string> pixFmt_ {};
           // The codec profile.
           shared_ptr<string> profile_ {};
-          // The video rotation angle. Valid values: [0, 360).
+          // The rotation angle of the video. Value range: [0, 360).
           shared_ptr<string> rotate_ {};
           // The sample aspect ratio.
           shared_ptr<string> sar_ {};
-          // The start time. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+          // The start time. The time follows the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
           shared_ptr<string> startTime_ {};
           // The time base.
           shared_ptr<string> timebase_ {};
-          // The width of the video resolution.
+          // The width of the video.
           shared_ptr<string> width_ {};
         };
 
@@ -933,12 +933,12 @@ namespace Models
           shared_ptr<string> bitrate_ {};
           // The channel layout. Valid values:
           // 
-          // - **mono**: mono.
-          // - **stereo**: stereo.
+          // - **mono**: Mono.
+          // - **stereo**: Stereo.
           shared_ptr<string> channelLayout_ {};
           // The number of sound channels.
           shared_ptr<string> channels_ {};
-          // The full name of the codec.
+          // The long name of the codec.
           shared_ptr<string> codecLongName_ {};
           // The short name of the codec.
           shared_ptr<string> codecName_ {};
@@ -950,17 +950,17 @@ namespace Models
           shared_ptr<string> codecTimeBase_ {};
           // The duration.
           shared_ptr<string> duration_ {};
-          // The sequence number of the audio stream, which identifies the position of the audio stream in the overall media stream.
+          // The index of the audio stream, which indicates the position of the audio stream in all media streams.
           shared_ptr<string> index_ {};
           // The language.
           shared_ptr<string> lang_ {};
           // The total number of frames.
           shared_ptr<string> numFrames_ {};
-          // The sample format.
+          // The sampling format.
           shared_ptr<string> sampleFmt_ {};
           // The sample rate.
           shared_ptr<string> sampleRate_ {};
-          // The start time. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+          // The start time. The time follows the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
           shared_ptr<string> startTime_ {};
           // The time base.
           shared_ptr<string> timebase_ {};
@@ -1073,37 +1073,38 @@ namespace Models
 
 
       protected:
-        // The audio stream information.
+        // The information about the audio streams.
         shared_ptr<vector<MezzanineInfo::AudioStreamList>> audioStreamList_ {};
         // The bitrate of the file. Unit: Kbps.
         shared_ptr<string> bitrate_ {};
-        // The time when the file was created. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+        // The time when the file was created. The time follows the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
         shared_ptr<string> creationTime_ {};
         // The duration of the file. Unit: seconds.
         shared_ptr<string> duration_ {};
+        // The MD5 hash value of the source file.
         shared_ptr<string> fileMD5_ {};
         // The file name.
         shared_ptr<string> fileName_ {};
         // The URL of the source file.
         shared_ptr<string> fileURL_ {};
-        // The frame rate of the file, in frames per second.
+        // The frame rate of the file. Unit: frames per second.
         shared_ptr<string> fps_ {};
-        // The height of the file. Unit: px.
+        // The height of the file. Unit: pixels.
         shared_ptr<int64_t> height_ {};
         // The media asset ID.
         shared_ptr<string> mediaId_ {};
-        // The size of the file. Unit: bytes.
+        // The file size. Unit: bytes.
         shared_ptr<int64_t> size_ {};
         // The file status. Valid values:
         // 
         // - **Uploading**: The file is being uploaded. This is the initial status of the file.
         // - **Normal**: The file is uploaded.
-        // - **UploadFail**: The file failed to be uploaded.
+        // - **UploadFail**: The upload failed.
         // - **Deleted**: The file is deleted.
         shared_ptr<string> status_ {};
-        // The video stream information.
+        // The information about the video streams.
         shared_ptr<vector<MezzanineInfo::VideoStreamList>> videoStreamList_ {};
-        // The width of the file. Unit: px.
+        // The width of the file. Unit: pixels.
         shared_ptr<int64_t> width_ {};
       };
 
@@ -1318,62 +1319,62 @@ namespace Models
         shared_ptr<int64_t> cateId_ {};
         // The category name.
         shared_ptr<string> cateName_ {};
-        // The thumbnail URL of the audio/video file.
+        // The URL of the thumbnail for the audio or video file.
         shared_ptr<string> coverURL_ {};
-        // The time when the audio/video file was created. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+        // The time when the audio or video file was created. The time follows the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description of the audio/video file.
+        // The description of the audio or video file.
         shared_ptr<string> description_ {};
-        // The status of the offline download switch. After the offline download feature is enabled, mobile users can cache videos to their local devices for viewing by using ApsaraVideo Player. For more information, see [Offline download](https://help.aliyun.com/document_detail/86107.html). Valid values:
+        // The status of the offline download switch. After you enable the offline download feature, mobile users can use ApsaraVideo Player to cache videos to their local devices for offline viewing. For more information, see [Offline download](https://help.aliyun.com/document_detail/86107.html). Valid values:
         // 
-        // - **on**: Offline download is enabled.
-        // - **off**: Offline download is disabled.
+        // - **on**: The offline download feature is enabled.
+        // - **off**: The offline download feature is disabled.
         shared_ptr<string> downloadSwitch_ {};
         // The media asset ID.
         shared_ptr<string> mediaId_ {};
-        // The last time when the audio/video file was updated. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+        // The time when the audio or video file was last updated. The time follows the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
         shared_ptr<string> modificationTime_ {};
-        // The custom ID. Only lowercase letters, uppercase letters, digits, hyphens, and underscores are supported. The ID must be 6 to 64 characters in length and is unique at the user level.
+        // The custom ID. The ID must be 6 to 64 characters in length and can contain only lowercase letters, uppercase letters, digits, hyphens (-), and underscores (_). The ID must be unique within the user dimension.
         shared_ptr<string> referenceId_ {};
-        // The expiration time of the media asset restoration.
+        // The expiration time of the restored media asset.
         shared_ptr<string> restoreExpiration_ {};
         // The restoration status of the media asset. Valid values:
         // - **Processing**: The media asset is being restored.
         // - **Success**: The media asset is restored.
-        // - **Failed**: The media asset failed to be restored.
+        // - **Failed**: The restoration failed.
         shared_ptr<string> restoreStatus_ {};
-        // The video snapshot URL array.
+        // The array of video snapshot URLs.
         shared_ptr<vector<string>> snapshots_ {};
         // The video status. Valid values:
         // 
         // - **Uploading**: The video is being uploaded.
-        // - **UploadFail**: The video failed to be uploaded.
-        // - **UploadSucc**: The video has been uploaded.
+        // - **UploadFail**: The upload failed.
+        // - **UploadSucc**: The upload is complete.
         // - **Transcoding**: The video is being transcoded.
-        // - **TranscodeFail**: The video failed to be transcoded.
+        // - **TranscodeFail**: The transcoding failed.
         // - **Blocked**: The video is blocked.
-        // - **Normal**: The video is in a normal state.
+        // - **Normal**: The video is normal.
         shared_ptr<string> status_ {};
         // The storage class of the media asset. Valid values:
-        // - **Standard**: standard.
-        // - **IA**: Infrequent Access for media assets.
-        // - **Archive**: Archive for media assets.
-        // - **ColdArchive**: Cold Archive for media assets.
-        // - **SourceIA**: Infrequent Access for source files.
-        // - **SourceArchive**: Archive for source files.
-        // - **SourceColdArchive**: Cold Archive for source files.
+        // - **Standard**: Standard storage.
+        // - **IA**: Infrequent access storage for media assets.
+        // - **Archive**: Archive storage for media assets.
+        // - **ColdArchive**: Cold archive storage for media assets.
+        // - **SourceIA**: Infrequent access storage for source files.
+        // - **SourceArchive**: Archive storage for source files.
+        // - **SourceColdArchive**: Cold archive storage for source files.
         // - **Changing**: The storage class of the media asset is being changed.
         // - **SourceChanging**: The storage class of the source file is being changed.
         shared_ptr<string> storageClass_ {};
-        // The storage address of the audio/video file.
+        // The storage address of the audio or video file.
         shared_ptr<string> storageLocation_ {};
-        // The tags of the audio/video file. Multiple tags are separated by commas (,).
+        // The tags of the audio or video file. Separate multiple tags with commas (,).
         shared_ptr<string> tags_ {};
-        // The transcoding template group ID.
+        // The ID of the transcoding template group.
         shared_ptr<string> templateGroupId_ {};
-        // The title of the audio/video file.
+        // The title of the audio or video file.
         shared_ptr<string> title_ {};
-        // The custom parameter.
+        // The custom parameters.
         shared_ptr<string> userData_ {};
       };
 
@@ -1416,11 +1417,11 @@ namespace Models
     protected:
       // The media asset ID.
       shared_ptr<string> mediaId_ {};
-      // The basic information of the media asset.
+      // The basic information about the media asset.
       shared_ptr<MediaInfos::MediaInfo> mediaInfo_ {};
-      // The source file information.
+      // The information about the source file.
       shared_ptr<MediaInfos::MezzanineInfo> mezzanineInfo_ {};
-      // The playback information (stream information) of the audio/video file.
+      // The playback information of the audio and video streams.
       shared_ptr<vector<MediaInfos::PlayInfoList>> playInfoList_ {};
     };
 
@@ -1470,9 +1471,9 @@ namespace Models
 
 
   protected:
-    // The list of media asset IDs that are forbidden. This is typically because you do not have permissions for multi-application operations. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
+    // The list of media asset IDs for which operations are forbidden. This is typically caused by a lack of multi-application permissions. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
     shared_ptr<vector<string>> forbiddenMediaIds_ {};
-    // The media asset list.
+    // The list of media assets.
     shared_ptr<vector<BatchGetMediaInfosResponseBody::MediaInfos>> mediaInfos_ {};
     // The list of media asset IDs that do not exist.
     shared_ptr<vector<string>> nonExistMediaIds_ {};

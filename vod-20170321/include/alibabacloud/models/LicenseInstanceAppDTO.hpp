@@ -143,13 +143,21 @@ namespace Models
 
 
     protected:
+      // businessType
       shared_ptr<string> businessType_ {};
+      // featureIds
       shared_ptr<string> featureIds_ {};
+      // isTrial
       shared_ptr<bool> isTrial_ {};
+      // sdkId
       shared_ptr<int32_t> sdkId_ {};
+      // sdkName
       shared_ptr<string> sdkName_ {};
+      // subscription
       shared_ptr<string> subscription_ {};
+      // subscriptionImp
       shared_ptr<string> subscriptionImp_ {};
+      // subscriptionPkg
       shared_ptr<string> subscriptionPkg_ {};
     };
 
@@ -236,16 +244,27 @@ namespace Models
 
 
   protected:
+    // appId
     shared_ptr<string> appId_ {};
+    // beginOn
     shared_ptr<string> beginOn_ {};
+    // contractNo
     shared_ptr<string> contractNo_ {};
+    // creationTime
     shared_ptr<string> creationTime_ {};
+    // expiredOn
     shared_ptr<string> expiredOn_ {};
+    // instanceId
     shared_ptr<string> instanceId_ {};
+    // itemId
     shared_ptr<string> itemId_ {};
+    // LicenseConfigDTOS
     shared_ptr<vector<LicenseInstanceAppDTO::LicenseConfigs>> licenseConfigs_ {};
+    // modificationTime
     shared_ptr<string> modificationTime_ {};
+    // status
     shared_ptr<string> status_ {};
+    // userId
     shared_ptr<int64_t> userId_ {};
   };
 

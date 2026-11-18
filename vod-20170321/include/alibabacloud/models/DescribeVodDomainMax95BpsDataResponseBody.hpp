@@ -206,7 +206,7 @@ namespace Models
     shared_ptr<string> domainName_ {};
     // The 95th percentile bandwidth in the Chinese mainland.
     shared_ptr<string> domesticMax95Bps_ {};
-    // The end time of the data.
+    // The end time of the data. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
     shared_ptr<string> endTime_ {};
     // The 95th percentile bandwidth.
     shared_ptr<string> max95Bps_ {};
@@ -214,7 +214,7 @@ namespace Models
     shared_ptr<string> overseasMax95Bps_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the data.
+    // The start time of the data. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
     shared_ptr<string> startTime_ {};
   };
 

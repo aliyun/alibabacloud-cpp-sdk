@@ -253,32 +253,32 @@ namespace Models
         protected:
           // The list of audio streams.
           shared_ptr<string> audioStreamList_ {};
-          // The average bitrate of the transcoding output file. Unit: Kbps.
+          // The average bitrate of the transcoded output file. Unit: Kbps.
           shared_ptr<string> bitrate_ {};
-          // The duration of the transcoding output file. Unit: seconds.
+          // The duration of the transcoded output file. Unit: seconds.
           shared_ptr<string> duration_ {};
-          // The encryption configuration used for the transcoding output file. Valid values:
+          // The encryption configuration used for the transcoded output file. Valid values:
           // 
           // - **AliyunVoDEncryption**: Alibaba Cloud video encryption (proprietary encryption).
           // - **HLSEncryption**: HLS encryption.
           shared_ptr<string> encryption_ {};
-          // The size of the transcoding output file. Unit: bytes.
+          // The size of the transcoded output file. Unit: bytes.
           shared_ptr<int64_t> filesize_ {};
-          // The container format of the transcoding output file.
+          // The container format of the transcoded output file.
           shared_ptr<string> format_ {};
-          // The frame rate of the transcoding output file. Unit: frames per second.
+          // The frame rate of the transcoded output file. Unit: frames per second.
           shared_ptr<string> fps_ {};
-          // The height of the transcoding output video. Unit: px.
+          // The height of the video frame in the transcoded output file. Unit: px.
           shared_ptr<string> height_ {};
-          // The OSS URL of the transcoding output file.
+          // The OSS URL of the transcoded output file.
           shared_ptr<string> outputFileUrl_ {};
           // The list of subtitle streams.
           shared_ptr<string> subtitleStreamList_ {};
           // The list of video streams.
           shared_ptr<string> videoStreamList_ {};
-          // The list of watermark IDs used for the transcoding output file.
+          // The list of watermark IDs used for the transcoded output file.
           shared_ptr<vector<string>> watermarkIdList_ {};
-          // The width of the transcoding output video. Unit: px.
+          // The width of the video frame in the transcoded output file. Unit: px.
           shared_ptr<string> width_ {};
         };
 
@@ -373,43 +373,43 @@ namespace Models
 
 
       protected:
-        // The time when the transcoding job was completed. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+        // The time when the transcoding job was completed. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
         shared_ptr<string> completeTime_ {};
-        // The time when the transcoding job was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+        // The time when the transcoding job was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
         shared_ptr<string> creationTime_ {};
-        // The video definition. Valid values:
+        // The definition of the video. Valid values:
         // 
-        // - **LD**: fluent.
-        // - **SD**: standard definition.
-        // - **HD**: high definition.
-        // - **FHD**: ultra high definition.
-        // - **OD**: original quality.
-        // - **2K**: 2K.
-        // - **4K**: 4K.
-        // - **SQ**: standard sound quality.
-        // - **HQ**: high sound quality.
-        // - **AUTO**: adaptive bitrate streaming. This definition is available only when packaging is configured in the transcoding template. For more information, see [Transcoding template configuration - PackageSetting](https://help.aliyun.com/document_detail/52839.html).
+        // - **LD**: smooth
+        // - **SD**: standard definition
+        // - **HD**: high definition
+        // - **FHD**: ultra high definition
+        // - **OD**: original quality
+        // - **2K**: 2K
+        // - **4K**: 4K
+        // - **SQ**: standard audio quality
+        // - **HQ**: high audio quality
+        // - **AUTO**: Adaptive bitrate. This definition is output only when packaging is configured in the transcoding template. For more information, see [Transcoding template configuration - PackageSetting](https://help.aliyun.com/document_detail/52839.html).
         // 
-        // > This value is the definition label configured in the transcoding template and does not indicate the actual resolution range of the transcoded output file.
+        // > This value is the definition tag configured in the transcoding template and does not indicate the actual resolution range of the transcoded output file.
         shared_ptr<string> definition_ {};
-        // The error code returned when the transcoding job failed.
+        // The error code returned when transcoding fails.
         shared_ptr<string> errorCode_ {};
-        // The error message returned when the transcoding job failed.
+        // The error message returned when transcoding fails.
         shared_ptr<string> errorMessage_ {};
-        // The OSS URL of the transcoding source file.
+        // The OSS URL of the source file for transcoding.
         shared_ptr<string> inputFileUrl_ {};
-        // The information about the transcoding output file.
+        // The information about the transcoded output file.
         shared_ptr<TranscodeJobInfoList::OutputFile> outputFile_ {};
         // The priority of the transcoding task.
         shared_ptr<string> priority_ {};
-        // The transcoding job ID.
+        // The ID of the transcoding job.
         shared_ptr<string> transcodeJobId_ {};
         // The status of the transcoding job. Valid values:
-        // - **Transcoding**: transcoding in progress.
-        // - **TranscodeSuccess**: transcoding succeeded.
-        // - **TranscodeFail**: transcoding failed.
+        // - **Transcoding**: transcoding
+        // - **TranscodeSuccess**: transcoding succeeded
+        // - **TranscodeFail**: transcoding failed
         shared_ptr<string> transcodeJobStatus_ {};
-        // The transcoding job progress. Value range: `[0,100]`.
+        // The processing progress of the transcoding job. Valid values: `[0,100]`.
         shared_ptr<int64_t> transcodeProgress_ {};
         // The ID of the transcoding template used for transcoding.
         shared_ptr<string> transcodeTemplateId_ {};
@@ -477,30 +477,30 @@ namespace Models
 
 
     protected:
-      // The time when the transcoding task was completed. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The time when the transcoding task was completed. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
       shared_ptr<string> completeTime_ {};
-      // The time when the transcoding task was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The time when the transcoding task was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
       shared_ptr<string> creationTime_ {};
       // The status of the transcoding task. Valid values:
       // 
-      // - **Processing**: processing in progress.
-      // - **Partial**: partially completed.
-      // - **CompleteAllSucc**: all transcoding jobs are completed and succeeded.
-      // - **CompleteAllFail**: all transcoding jobs are completed but failed. If the source file has issues, no transcoding jobs are initiated and the entire transcoding task fails.
-      // - **CompletePartialSucc**: all transcoding jobs are completed but only some succeeded.
+      // - **Processing**: processing
+      // - **Partial**: partially transcoded
+      // - **CompleteAllSucc**: All processing is completed and all transcoding jobs succeeded.
+      // - **CompleteAllFail**: All processing is completed and all transcoding jobs failed. If the source file has issues, no transcoding jobs are initiated and the entire transcoding task fails.
+      // - **CompletePartialSucc**: All transcoding is completed but only some transcoding jobs succeeded.
       shared_ptr<string> taskStatus_ {};
       // The transcoding job information.
       shared_ptr<vector<TranscodeTask::TranscodeJobInfoList>> transcodeJobInfoList_ {};
-      // The transcoding task ID.
+      // The ID of the transcoding task.
       shared_ptr<string> transcodeTaskId_ {};
       // The ID of the transcoding template group used for transcoding.
       shared_ptr<string> transcodeTemplateGroupId_ {};
       // The trigger type. Valid values:
       // 
-      // - **Auto**: automatically triggered after a video is uploaded.
-      // - **Manual**: triggered by calling the SubmitTranscodeJobs operation.
+      // - **Auto**: Automatically triggered when a video is uploaded.
+      // - **Manual**: Triggered by the SubmitTranscodeJobs operation.
       shared_ptr<string> trigger_ {};
-      // The audio or video ID.
+      // The ID of the audio or video.
       shared_ptr<string> videoId_ {};
     };
 
@@ -688,24 +688,24 @@ namespace Models
       protected:
         // The list of audio streams.
         shared_ptr<string> audioStreamList_ {};
-        // The average bitrate of the transcoding output file. Unit: Kbps.
+        // The average bitrate of the transcoded output file. Unit: Kbps.
         shared_ptr<string> bitrate_ {};
-        // The duration of the transcoding output file. Unit: seconds.
+        // The duration of the transcoded output file. Unit: seconds.
         shared_ptr<string> duration_ {};
-        // The encryption configuration used for the transcoding output file. Valid values:
+        // The encryption configuration used for the transcoded output file. Valid values:
         // 
         // - **AliyunVoDEncryption**: Alibaba Cloud video encryption (proprietary encryption).
         // - **HLSEncryption**: HLS encryption.
         shared_ptr<string> encryption_ {};
-        // The size of the transcoding output file. Unit: bytes.
+        // The size of the transcoded output file. Unit: bytes.
         shared_ptr<int64_t> filesize_ {};
-        // The container format of the transcoding output file.
+        // The container format of the transcoded output file.
         shared_ptr<string> format_ {};
-        // The frame rate of the transcoding output file. Unit: frames per second.
+        // The frame rate of the transcoded output file. Unit: frames per second.
         shared_ptr<string> fps_ {};
-        // The height of the transcoding output video. Unit: px.
+        // The height of the video frame in the transcoded output file. Unit: px.
         shared_ptr<string> height_ {};
-        // The OSS URL of the transcoding output file.
+        // The OSS URL of the transcoded output file.
         shared_ptr<string> outputFileUrl_ {};
         // The list of subtitle streams.
         shared_ptr<string> subtitleStreamList_ {};
@@ -713,7 +713,7 @@ namespace Models
         shared_ptr<string> videoStreamList_ {};
         // The list of watermarks used for transcoding.
         shared_ptr<vector<string>> watermarkIdList_ {};
-        // The width of the transcoding output video. Unit: px.
+        // The width of the video frame in the transcoded output file. Unit: px.
         shared_ptr<string> width_ {};
       };
 
@@ -808,43 +808,43 @@ namespace Models
 
 
     protected:
-      // The time when the transcoding job was completed. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The time when the transcoding job was completed. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
       shared_ptr<string> completeTime_ {};
-      // The time when the transcoding job was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The time when the transcoding job was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
       shared_ptr<string> creationTime_ {};
-      // The video definition. Valid values:
+      // The definition of the video. Valid values:
       // 
-      // - **LD**: fluent.
-      // - **SD**: standard definition.
-      // - **HD**: high definition.
-      // - **FHD**: ultra high definition.
-      // - **OD**: original quality.
-      // - **2K**: 2K.
-      // - **4K**: 4K.
-      // - **SQ**: standard sound quality.
-      // - **HQ**: high sound quality.
-      // - **AUTO**: adaptive bitrate streaming. This definition is available only when packaging is configured in the transcoding template. For more information, see [Transcoding template configuration - PackageSetting](https://help.aliyun.com/document_detail/52839.html).
+      // - **LD**: smooth
+      // - **SD**: standard definition
+      // - **HD**: high definition
+      // - **FHD**: ultra high definition
+      // - **OD**: original quality
+      // - **2K**: 2K
+      // - **4K**: 4K
+      // - **SQ**: standard audio quality
+      // - **HQ**: high audio quality
+      // - **AUTO**: Adaptive bitrate. This definition is output only when packaging is configured in the transcoding template. For more information, see [Transcoding template configuration - PackageSetting](https://help.aliyun.com/document_detail/52839.html).
       // 
-      // > This value is the definition label configured in the transcoding template and does not indicate the actual resolution range of the transcoded output file.
+      // > This value is the definition tag configured in the transcoding template and does not indicate the actual resolution range of the transcoded output file.
       shared_ptr<string> definition_ {};
-      // The error code returned when the transcoding job failed.
+      // The error code returned when transcoding fails.
       shared_ptr<string> errorCode_ {};
-      // The error message returned when the transcoding job failed.
+      // The error message returned when transcoding fails.
       shared_ptr<string> errorMessage_ {};
-      // The OSS URL of the transcoding source file.
+      // The OSS URL of the source file for transcoding.
       shared_ptr<string> inputFileUrl_ {};
-      // The information about the transcoding output file.
+      // The information about the transcoded output file.
       shared_ptr<TranscodeJobInfoList::OutputFile> outputFile_ {};
       // The priority of the transcoding task.
       shared_ptr<string> priority_ {};
-      // The transcoding job ID.
+      // The ID of the transcoding job.
       shared_ptr<string> transcodeJobId_ {};
       // The status of the transcoding job. Valid values:
-      // - **Transcoding**: transcoding in progress.
-      // - **TranscodeSuccess**: transcoding succeeded.
-      // - **TranscodeFail**: transcoding failed.
+      // - **Transcoding**: transcoding
+      // - **TranscodeSuccess**: transcoding succeeded
+      // - **TranscodeFail**: transcoding failed
       shared_ptr<string> transcodeJobStatus_ {};
-      // The transcoding job progress. Value range: `[0,100]`.
+      // The processing progress of the transcoding job. Valid values: `[0,100]`.
       shared_ptr<int64_t> transcodeProgress_ {};
       // The ID of the transcoding template used for transcoding.
       shared_ptr<string> transcodeTemplateId_ {};
@@ -887,7 +887,7 @@ namespace Models
 
 
   protected:
-    // The IDs of transcoding jobs that do not exist.
+    // The IDs of the transcoding jobs that do not exist.
     shared_ptr<vector<string>> nonExistJobIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

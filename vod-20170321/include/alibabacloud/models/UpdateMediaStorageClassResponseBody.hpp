@@ -185,8 +185,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The task status. Valid values:
     // 
-    // - **Processing**: Processing.
-    // - **Failed**: Failed.
+    // - **Processing**: The task is being processed.
+    // - **Failed**: The task failed.
     shared_ptr<string> status_ {};
   };
 

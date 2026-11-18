@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The AI templatetype. Set the value to **AIMediaAudit** (automated review).
+    // The AI templatetype. Fixed value: **AIMediaAudit** (automated review).
     // 
     // This parameter is required.
     shared_ptr<string> templateType_ {};

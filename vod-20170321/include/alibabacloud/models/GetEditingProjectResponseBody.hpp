@@ -144,27 +144,27 @@ namespace Models
     protected:
       // The thumbnail URL of the online editing project.
       shared_ptr<string> coverURL_ {};
-      // The time when the online editing project was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The time when the online editing project was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> creationTime_ {};
       // The description of the online editing project.
       shared_ptr<string> description_ {};
-      // The time when the online editing project was last modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The time when the online editing project was last modified. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
       shared_ptr<string> modifiedTime_ {};
-      // The online editing project ID.
+      // The ID of the online editing project.
       shared_ptr<string> projectId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The status of the online editing project. Multiple statuses are separated by commas (,). By default, all online editing projects are returned. Valid values:
+      // The status of the online editing project. Multiple statuses are separated by commas (,). By default, all online editing projects are retrieved. Valid values:
       // 
-      // - **Normal**: draft.
-      // - **Producing**: being produced.
-      // - **Produced**: produced.
-      // - **ProduceFailed**: failed to be produced.
+      // - **Normal**: Draft.
+      // - **Producing**: Being produced.
+      // - **Produced**: Produced successfully.
+      // - **ProduceFailed**: Production failed.
       shared_ptr<string> status_ {};
       // The storage address.
       // > You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/?spm=a2c4g.11186623.2.15.6948257eaZ4m54#/vod/settings/censored) and choose **Configuration Management** > **Media Asset Management Configuration** > **Storage Management** to view the storage address.
       shared_ptr<string> storageLocation_ {};
-      // The timeline of the online editing project.
+      // The timeline of the online editing project. TimelineIn and TimelineOut indicate the in-point and out-point of a media clip on the timeline, in seconds, accurate to four decimal places.
       shared_ptr<string> timeline_ {};
       // The title of the online editing project.
       shared_ptr<string> title_ {};

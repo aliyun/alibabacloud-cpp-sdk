@@ -130,29 +130,29 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query based on CreationTime. Specify the time in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+    // The end time of the creation time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<string> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The current page number. Default value: **1**.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
+    // The number of entries per page. Default value: **10**. Maximum value: **100**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<string> resourceOwnerId_ {};
     // The sorting method of the results. Valid values:
     // 
-    // - **desc** (default): sorts the results in reverse chronological order based on creation time.
-    // - **asc**: sorts the results in chronological order based on creation time.
+    // - **desc** (default): Sorts the results by creation time in descending order.
+    // - **asc**: Sorts the results by creation time in ascending order.
     shared_ptr<string> sortBy_ {};
-    // The start of the time range to query based on CreationTime. Specify the time in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+    // The start time of the creation time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> startTime_ {};
-    // The status of the online editing project. Separate multiple statuses with commas (,). By default, all online editing projects are returned. Valid values:
+    // The status of the online editing project. Separate multiple values with commas (,). By default, all online editing projects are retrieved. Valid values:
     // 
     // - **Normal**: Draft.
-    // - **Producing**: Being produced.
+    // - **Producing**: Producing.
     // - **Produced**: Produced.
-    // - **ProduceFailed**: Failed to be produced.
+    // - **ProduceFailed**: Production failed.
     shared_ptr<string> status_ {};
     // The title of the online editing project.
     shared_ptr<string> title_ {};

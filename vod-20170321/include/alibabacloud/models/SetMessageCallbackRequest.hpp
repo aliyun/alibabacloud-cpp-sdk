@@ -112,29 +112,29 @@ namespace Models
 
 
   protected:
-    // The application ID. If this parameter is not specified, the ID of the default application is used, which is the fixed value: **app-1000000**.
+    // The application ID. If you do not specify this parameter, the ID of the default application is used, which is fixed at **app-1000000**.
     shared_ptr<string> appId_ {};
-    // The authentication key. The key can be up to 32 characters in length and must contain uppercase letters, lowercase letters, and digits. This parameter can be set when the callback method is **HTTP**.
+    // The authentication key. The key can be up to 32 characters in length and must contain both uppercase and lowercase letters and digits. You can set this parameter when the callback method is set to **HTTP**.
     shared_ptr<string> authKey_ {};
-    // The authentication switch for HTTP callbacks. This parameter takes effect only when the callback method is set to **HTTP**. Valid values:
-    // - **on**: enabled.
-    // - **off**: disabled.
+    // Specifies whether to enable authentication for HTTP callbacks. This parameter takes effect only when the callback method is set to **HTTP**. Valid values:
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> authSwitch_ {};
     // The callback method. Valid values:
     // - **HTTP**
-    // - **Simple Message Queue (formerly MNS)**
+    // - **Simple MSMQ (formerly MNS)**
     shared_ptr<string> callbackType_ {};
     // The callback URL. This parameter is required when the callback method is set to **HTTP**.
-    // The callback URL cannot exceed 256 bytes in length. Multiple callback URLs are not supported.
+    // The callback URL cannot exceed 256 bytes in length. You cannot specify multiple callback URLs.
     shared_ptr<string> callbackURL_ {};
-    // The event types for callbacks. If this parameter is left empty, all notifications are disabled. If this parameter is set to **ALL**, all notifications are enabled. You can also specify specific event types, separated by commas (,). For the valid event types, see [Event types](https://help.aliyun.com/document_detail/55627.html).
+    // The callback event types. If this parameter is left empty, all message notifications are disabled. If this parameter is set to **ALL**, all message notifications are enabled. You can also specify specific event types to enable. Separate multiple event types with commas (,). For more information about the valid values, see [Event types](https://help.aliyun.com/document_detail/55627.html).
     // 
     // <props="china">
-    // > All AI-related events such as AIMediaAuditComplete and AIMediaDNAComplete use the value **AIComplete**.
+    // > All AI-related events, such as AIMediaAuditComplete and AIMediaDNAComplete, use the value **AIComplete**.
     shared_ptr<string> eventTypeList_ {};
-    // The public endpoint of Simple Message Queue (formerly MNS). This parameter is required when the callback method is set to **Simple Message Queue (formerly MNS)**. Log on to the [Simple Message Queue (formerly MNS) console](https://account.aliyun.com/login/login.html) and click the **Get Endpoint** button in the upper-right corner to obtain the endpoint. For more information, see [Endpoint](https://help.aliyun.com/document_detail/27480.html).
+    // The public endpoint of the MSMQ. Settings for this parameter are required when the callback method is set to **Simple MSMQ (formerly MNS)**. You can logon to the [Message Service console](https://account.aliyun.com/login/login.html) and click the **Get Endpoint** button in the upper-right corner to obtain the endpoint. For more information, see [Endpoints](https://help.aliyun.com/document_detail/27480.html).
     shared_ptr<string> mnsEndpoint_ {};
-    // The name of the message queue. Log on to the [Simple Message Queue (formerly MNS) console](https://account.aliyun.com/login/login.html) and view the queue in the **Queue List**. This parameter is required when the callback method is set to **Simple Message Queue (formerly MNS)**.
+    // The name of the MSMQ. You can logon to the [Message Service console](https://account.aliyun.com/login/login.html) and view the name in the **Queue List**. Settings for this parameter are required when the callback method is set to **Simple MSMQ (formerly MNS)**.
     shared_ptr<string> mnsQueueName_ {};
     shared_ptr<string> ownerAccount_ {};
   };

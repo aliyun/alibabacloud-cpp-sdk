@@ -72,7 +72,7 @@ namespace Models
     protected:
       // The ID of the upload job.
       shared_ptr<string> jobId_ {};
-      // The source file URL of the upload job.
+      // The source file URL corresponding to the upload job.
       shared_ptr<string> sourceURL_ {};
     };
 

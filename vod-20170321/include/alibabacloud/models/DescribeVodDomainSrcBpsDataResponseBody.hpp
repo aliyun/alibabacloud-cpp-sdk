@@ -172,16 +172,16 @@ namespace Models
 
 
   protected:
-    // The time interval between consecutive data entries, which is the time granularity of the data. Unit: seconds.
+    // The time interval of each record, which is the time granularity of the data. Unit: seconds.
     shared_ptr<string> dataInterval_ {};
     // The accelerated domain name.
     shared_ptr<string> domainName_ {};
-    // The end of the time range for the returned data.
+    // The end time of the data. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
     shared_ptr<string> endTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeVodDomainSrcBpsDataResponseBody::SrcBpsDataPerInterval> srcBpsDataPerInterval_ {};
-    // The beginning of the time range for the returned data.
+    // The start time of the data. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
     shared_ptr<string> startTime_ {};
   };
 
