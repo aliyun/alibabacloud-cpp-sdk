@@ -12912,6 +12912,76 @@ DescribeAgenticDBComputeClustersResponse Client::describeAgenticDBComputeCluster
 }
 
 /**
+ * @summary Queries the performance of an AgenticDB instance.
+ *
+ * @description > This operation is applicable only to PolarDB for MySQL.
+ *
+ * @param request DescribeAgenticDBPerformanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgenticDBPerformanceResponse
+ */
+DescribeAgenticDBPerformanceResponse Client::describeAgenticDBPerformanceWithOptions(const DescribeAgenticDBPerformanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAggregate()) {
+    query["Aggregate"] = request.getAggregate();
+  }
+
+  if (!!request.hasBranchId()) {
+    query["BranchId"] = request.getBranchId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInterval()) {
+    query["Interval"] = request.getInterval();
+  }
+
+  if (!!request.hasKey()) {
+    query["Key"] = request.getKey();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgenticDBPerformance"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgenticDBPerformanceResponse>();
+}
+
+/**
+ * @summary Queries the performance of an AgenticDB instance.
+ *
+ * @description > This operation is applicable only to PolarDB for MySQL.
+ *
+ * @param request DescribeAgenticDBPerformanceRequest
+ * @return DescribeAgenticDBPerformanceResponse
+ */
+DescribeAgenticDBPerformanceResponse Client::describeAgenticDBPerformance(const DescribeAgenticDBPerformanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgenticDBPerformanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of an AgenticDB project.
  *
  * @param request DescribeAgenticDBProjectRequest
@@ -17448,7 +17518,7 @@ DescribeDBClustersZonalResponse Client::describeDBClustersZonal(const DescribeDB
 }
 
 /**
- * @summary Queries the supported character sets, collations, and other properties of a PolarDB database.
+ * @summary Queries the attributes supported by PolarDB databases, such as character sets and collations.
  *
  * @param request DescribeDBInitializeVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17495,7 +17565,7 @@ DescribeDBInitializeVariableResponse Client::describeDBInitializeVariableWithOpt
 }
 
 /**
- * @summary Queries the supported character sets, collations, and other properties of a PolarDB database.
+ * @summary Queries the attributes supported by PolarDB databases, such as character sets and collations.
  *
  * @param request DescribeDBInitializeVariableRequest
  * @return DescribeDBInitializeVariableResponse
@@ -17972,7 +18042,7 @@ DescribeDBNodePerformanceResponse Client::describeDBNodePerformance(const Descri
 }
 
 /**
- * @summary Queries the parameters for specified nodes in a cluster.
+ * @summary Queries the parameters of a specified node in a cluster.
  *
  * @param request DescribeDBNodesParametersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18023,7 +18093,7 @@ DescribeDBNodesParametersResponse Client::describeDBNodesParametersWithOptions(c
 }
 
 /**
- * @summary Queries the parameters for specified nodes in a cluster.
+ * @summary Queries the parameters of a specified node in a cluster.
  *
  * @param request DescribeDBNodesParametersRequest
  * @return DescribeDBNodesParametersResponse
@@ -26209,7 +26279,7 @@ ExecuteCrossCloudOpenAPIResponse Client::executeCrossCloudOpenAPI(const ExecuteC
 }
 
 /**
- * @summary Performs a manual primary/secondary switchover for a PolarDB cluster. You can specify a read-only node as the new primary node.
+ * @summary Performs a manual primary/secondary switchover for a PolarDB cluster, allowing you to specify a read-only node as the new primary node.
  *
  * @param request FailoverDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26272,7 +26342,7 @@ FailoverDBClusterResponse Client::failoverDBClusterWithOptions(const FailoverDBC
 }
 
 /**
- * @summary Performs a manual primary/secondary switchover for a PolarDB cluster. You can specify a read-only node as the new primary node.
+ * @summary Performs a manual primary/secondary switchover for a PolarDB cluster, allowing you to specify a read-only node as the new primary node.
  *
  * @param request FailoverDBClusterRequest
  * @return FailoverDBClusterResponse
@@ -26283,11 +26353,11 @@ FailoverDBClusterResponse Client::failoverDBCluster(const FailoverDBClusterReque
 }
 
 /**
- * @summary Performs a manual primary/secondary switchover for an edge cluster.
+ * @summary Performs a primary/secondary switchover.
  *
- * @description Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed through MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
+ * @description Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed by using MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
  * ## Before you begin
- * Complete the prerequisites, specify that this API applies only to edge clusters deployed through MyBase or ENS, indicate the path to obtain edge clusters, and specify that FailoverDBCluster should be used for standard clusters.
+ * Complete the prerequisites. Note that this API applies only to edge clusters deployed by using MyBase or ENS. Specify the method to obtain the edge cluster ID, and note that you must use FailoverDBCluster for standard clusters.
  *
  * @param request FailoverDBClusterZonalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26350,11 +26420,11 @@ FailoverDBClusterZonalResponse Client::failoverDBClusterZonalWithOptions(const F
 }
 
 /**
- * @summary Performs a manual primary/secondary switchover for an edge cluster.
+ * @summary Performs a primary/secondary switchover.
  *
- * @description Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed through MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
+ * @description Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed by using MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
  * ## Before you begin
- * Complete the prerequisites, specify that this API applies only to edge clusters deployed through MyBase or ENS, indicate the path to obtain edge clusters, and specify that FailoverDBCluster should be used for standard clusters.
+ * Complete the prerequisites. Note that this API applies only to edge clusters deployed by using MyBase or ENS. Specify the method to obtain the edge cluster ID, and note that you must use FailoverDBCluster for standard clusters.
  *
  * @param request FailoverDBClusterZonalRequest
  * @return FailoverDBClusterZonalResponse
@@ -31858,7 +31928,7 @@ ModifyDBNodeRouterWeightResponse Client::modifyDBNodeRouterWeight(const ModifyDB
 }
 
 /**
- * @summary Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
+ * @summary Modifies the SCC settings of a node.
  *
  * @param request ModifyDBNodeSccModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31913,7 +31983,7 @@ ModifyDBNodeSccModeResponse Client::modifyDBNodeSccModeWithOptions(const ModifyD
 }
 
 /**
- * @summary Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
+ * @summary Modifies the SCC settings of a node.
  *
  * @param request ModifyDBNodeSccModeRequest
  * @return ModifyDBNodeSccModeResponse
@@ -36336,7 +36406,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Temporarily changes the specifications of a cluster.
+ * @summary Temporarily modifies the configuration.
  *
  * @param request TempModifyDBNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -36411,7 +36481,7 @@ TempModifyDBNodeResponse Client::tempModifyDBNodeWithOptions(const TempModifyDBN
 }
 
 /**
- * @summary Temporarily changes the specifications of a cluster.
+ * @summary Temporarily modifies the configuration.
  *
  * @param request TempModifyDBNodeRequest
  * @return TempModifyDBNodeResponse

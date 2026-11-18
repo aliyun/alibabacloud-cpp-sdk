@@ -189,39 +189,39 @@ namespace Models
 
 
       protected:
-        // The valid values of the parameter.
+        // The value range of the parameter.
         shared_ptr<string> checkingCode_ {};
-        // The data type of the parameter. Valid values:
+        // The data type of the parameter value. Valid values:
         // 
-        // - **INT**: Integer
+        // - **INT**: integer
         // 
-        // - **STRING**: String
+        // - **STRING**: string
         // 
-        // - **B**: Byte
+        // - **B**: byte
         shared_ptr<string> dataType_ {};
         // The default value of the parameter.
         shared_ptr<string> defaultParameterValue_ {};
-        // The divisor. For integer and byte type parameters, the parameter value must be a multiple of this factor. The factor cannot be 0.
+        // The divisibility factor. For parameters of the integer and byte types, the parameter value must not only fall within the valid range but also be a multiple of the factor (which cannot be 0).
         shared_ptr<string> factor_ {};
-        // Indicates whether a restart is required for the parameter modification to take effect. Valid values:
+        // Specifies whether a restart is required for the parameter to take effect. Valid values:
         // 
-        // - **false**: No
+        // - **false**: no
         // 
-        // - **true**: Yes
+        // - **true**: yes
         shared_ptr<bool> forceRestart_ {};
-        // Indicates whether the parameter can be modified. Valid values:
+        // Specifies whether the parameter is modifiable. Valid values:
         // 
-        // - **false**: No
+        // - **false**: not modifiable
         // 
-        // - **true**: Yes
+        // - **true**: modifiable
         shared_ptr<bool> isModifiable_ {};
-        // Indicates whether the parameter is a global parameter. Valid values:
+        // Specifies whether the parameter is a global parameter. Valid values:
         // 
-        // - **0**: The parameter is a global parameter. Modifications to the parameter are applied to other nodes by default and cannot be canceled.
+        // - **0**: The parameter is a global parameter. Parameter modifications have a default application to other nodes and cannot be canceled.
         // 
-        // - **1**: The parameter is not a global parameter. You can specify the nodes to which you want to apply the parameter modifications.
+        // - **1**: The parameter is not a global parameter. You can specify the nodes to which modifications to this parameter are applied.
         shared_ptr<string> isNodeAvailable_ {};
-        // The dependency of the parameter.
+        // The parameter dependency.
         shared_ptr<string> paramRelyRule_ {};
         // The description of the parameter.
         shared_ptr<string> parameterDescription_ {};
@@ -229,9 +229,9 @@ namespace Models
         shared_ptr<string> parameterName_ {};
         // The status of the parameter. Valid values:
         // 
-        // - **normal**: Normal
-        // 
-        // - **modifying**: Modifying
+        // - **normal**: normal
+        //  
+        // - **modifying**: modifying
         shared_ptr<string> parameterStatus_ {};
         // The value of the parameter.
         shared_ptr<string> parameterValue_ {};
@@ -256,9 +256,9 @@ namespace Models
 
 
     protected:
-      // The ID of the node.
+      // The node ID.
       shared_ptr<string> DBNodeId_ {};
-      // The list of parameters that are running on the node.
+      // The list of running parameters for the current node.
       shared_ptr<vector<DBNodeIds::RunningParameters>> runningParameters_ {};
     };
 
@@ -304,9 +304,9 @@ namespace Models
   protected:
     // The list of node IDs.
     shared_ptr<vector<DescribeDBNodesParametersResponseBody::DBNodeIds>> DBNodeIds_ {};
-    // The type of the database. The value is fixed as **MySQL**.
+    // The database type. The value is fixed as **MySQL**.
     shared_ptr<string> DBType_ {};
-    // The version of the MySQL database. Valid values:
+    // The MySQL version. Valid values:
     // 
     // - **5.6**
     // 
@@ -314,9 +314,9 @@ namespace Models
     // 
     // - **8.0**
     shared_ptr<string> DBVersion_ {};
-    // The database engine of the cluster.
+    // The cluster engine.
     shared_ptr<string> engine_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

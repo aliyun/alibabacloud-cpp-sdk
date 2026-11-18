@@ -138,9 +138,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBNodeIds_ {};
-    // Specifies whether to execute the parameter modification and restart immediately or at a scheduled time. Valid values:
-    // - false: executes the task at a scheduled time. This is the default value.
-    // - true: executes the task immediately.
+    // Specifies whether to immediately execute or schedule the parameter modification and restart. Valid values:
+    // - false: schedules the task. This is the default value.
+    // - true: immediately executes the task.
     shared_ptr<bool> fromTimeService_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -148,9 +148,9 @@ namespace Models
     shared_ptr<string> parameterGroupId_ {};
     // The JSON string of parameters and their values. Only node-level parameters can be modified. You can call the DescribeDBClusterParameters operation and select parameters where IsNodeAvailable is set to 1 and IsModifiable is set to true. To modify cluster-level parameters, call the ModifyDBClusterParameters operation.
     shared_ptr<string> parameters_ {};
-    // The latest time to start the scheduled task. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+    // The latest time to start the scheduled task. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> plannedEndTime_ {};
-    // The earliest time to execute the scheduled kernel version upgrade task. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+    // The earliest time to start the scheduled kernel version upgrade task within the specified time window. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> plannedStartTime_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

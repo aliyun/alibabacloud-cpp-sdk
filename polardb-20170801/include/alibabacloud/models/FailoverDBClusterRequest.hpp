@@ -112,9 +112,9 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, and you must make sure that the value is unique among different requests. The token is case-sensitive and cannot exceed 64 ASCII characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, and you must ensure that the value is unique among different requests. The value is case-sensitive and can be up to 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
-    // The cluster ID.
+    // The ID of the database cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
@@ -124,17 +124,17 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to switch back to the original primary zone after a failover. Valid values:
     // 
-    // - true: Switch back to the original primary zone.
-    // - false: Do not switch back to the original primary zone.
+    // - true: Yes.
+    // - false: No.
     shared_ptr<bool> rollBackForDisaster_ {};
-    // The ID of the node that you want to promote to the primary node. If you leave this parameter empty, the system automatically elects a node. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query node IDs and other information.
+    // The ID of the node to be switched to the primary node. If you do not specify this parameter, the system automatically elects a primary node. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the node ID and other information.
     // 
-    // > - Automatic election of the primary node: The system identifies all read-only nodes that are eligible for election. The system selects one or more read-only nodes with the highest priority. If the switchover to the first node fails due to reasons such as network issues or abnormal replication status, the system attempts to switch to the next node until the switchover succeeds.
+    // > - Automatic primary node election: The system identifies all read-only nodes that can be elected. It selects one or more read-only nodes with the highest priority. If the switchover to the first node fails (for example, due to network issues or abnormal replication status), the system attempts to switch to the next node until the switchover succeeds.
     // >- This parameter is required when the cluster is a PolarDB for PostgreSQL (Compatible with Oracle) or PolarDB for PostgreSQL cluster. This parameter is optional when the cluster is a PolarDB for MySQL cluster.
     shared_ptr<string> targetDBNodeId_ {};
     // Specifies whether the primary/secondary switchover is performed within the primary zone. Valid values:
-    // - Primary: The primary/secondary switchover is performed within the primary zone.
-    // - Standby: The switchover is performed to the hot standby storage cluster.
+    // - Primary: primary/secondary switchover within the primary zone.
+    // - Standby: switchover to the hot standby storage cluster.
     shared_ptr<string> targetZoneType_ {};
   };
 

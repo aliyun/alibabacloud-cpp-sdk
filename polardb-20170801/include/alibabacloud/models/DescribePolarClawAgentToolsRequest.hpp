@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // Specifies whether to include plugin tools.
+    // Specifies whether to include plug-in tools.
     shared_ptr<bool> includePlugins_ {};
   };
 

@@ -552,6 +552,9 @@
 #include <alibabacloud/models/DescribeAgenticDBComputeClustersRequest.hpp>
 #include <alibabacloud/models/DescribeAgenticDBComputeClustersResponseBody.hpp>
 #include <alibabacloud/models/DescribeAgenticDBComputeClustersResponse.hpp>
+#include <alibabacloud/models/DescribeAgenticDBPerformanceRequest.hpp>
+#include <alibabacloud/models/DescribeAgenticDBPerformanceResponseBody.hpp>
+#include <alibabacloud/models/DescribeAgenticDBPerformanceResponse.hpp>
 #include <alibabacloud/models/DescribeAgenticDBProjectRequest.hpp>
 #include <alibabacloud/models/DescribeAgenticDBProjectResponseBody.hpp>
 #include <alibabacloud/models/DescribeAgenticDBProjectResponse.hpp>

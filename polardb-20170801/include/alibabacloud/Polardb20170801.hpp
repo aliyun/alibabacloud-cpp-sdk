@@ -3534,6 +3534,27 @@ namespace Polardb20170801
       Models::DescribeAgenticDBComputeClustersResponse describeAgenticDBComputeClusters(const Models::DescribeAgenticDBComputeClustersRequest &request);
 
       /**
+       * @summary Queries the performance of an AgenticDB instance.
+       *
+       * @description > This operation is applicable only to PolarDB for MySQL.
+       *
+       * @param request DescribeAgenticDBPerformanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgenticDBPerformanceResponse
+       */
+      Models::DescribeAgenticDBPerformanceResponse describeAgenticDBPerformanceWithOptions(const Models::DescribeAgenticDBPerformanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the performance of an AgenticDB instance.
+       *
+       * @description > This operation is applicable only to PolarDB for MySQL.
+       *
+       * @param request DescribeAgenticDBPerformanceRequest
+       * @return DescribeAgenticDBPerformanceResponse
+       */
+      Models::DescribeAgenticDBPerformanceResponse describeAgenticDBPerformance(const Models::DescribeAgenticDBPerformanceRequest &request);
+
+      /**
        * @summary Queries the details of an AgenticDB project.
        *
        * @param request DescribeAgenticDBProjectRequest
@@ -4760,7 +4781,7 @@ namespace Polardb20170801
       Models::DescribeDBClustersZonalResponse describeDBClustersZonal(const Models::DescribeDBClustersZonalRequest &request);
 
       /**
-       * @summary Queries the supported character sets, collations, and other properties of a PolarDB database.
+       * @summary Queries the attributes supported by PolarDB databases, such as character sets and collations.
        *
        * @param request DescribeDBInitializeVariableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4769,7 +4790,7 @@ namespace Polardb20170801
       Models::DescribeDBInitializeVariableResponse describeDBInitializeVariableWithOptions(const Models::DescribeDBInitializeVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the supported character sets, collations, and other properties of a PolarDB database.
+       * @summary Queries the attributes supported by PolarDB databases, such as character sets and collations.
        *
        * @param request DescribeDBInitializeVariableRequest
        * @return DescribeDBInitializeVariableResponse
@@ -4909,7 +4930,7 @@ namespace Polardb20170801
       Models::DescribeDBNodePerformanceResponse describeDBNodePerformance(const Models::DescribeDBNodePerformanceRequest &request);
 
       /**
-       * @summary Queries the parameters for specified nodes in a cluster.
+       * @summary Queries the parameters of a specified node in a cluster.
        *
        * @param request DescribeDBNodesParametersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4918,7 +4939,7 @@ namespace Polardb20170801
       Models::DescribeDBNodesParametersResponse describeDBNodesParametersWithOptions(const Models::DescribeDBNodesParametersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the parameters for specified nodes in a cluster.
+       * @summary Queries the parameters of a specified node in a cluster.
        *
        * @param request DescribeDBNodesParametersRequest
        * @return DescribeDBNodesParametersResponse
@@ -7323,7 +7344,7 @@ namespace Polardb20170801
       Models::ExecuteCrossCloudOpenAPIResponse executeCrossCloudOpenAPI(const Models::ExecuteCrossCloudOpenAPIRequest &request);
 
       /**
-       * @summary Performs a manual primary/secondary switchover for a PolarDB cluster. You can specify a read-only node as the new primary node.
+       * @summary Performs a manual primary/secondary switchover for a PolarDB cluster, allowing you to specify a read-only node as the new primary node.
        *
        * @param request FailoverDBClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7332,7 +7353,7 @@ namespace Polardb20170801
       Models::FailoverDBClusterResponse failoverDBClusterWithOptions(const Models::FailoverDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a manual primary/secondary switchover for a PolarDB cluster. You can specify a read-only node as the new primary node.
+       * @summary Performs a manual primary/secondary switchover for a PolarDB cluster, allowing you to specify a read-only node as the new primary node.
        *
        * @param request FailoverDBClusterRequest
        * @return FailoverDBClusterResponse
@@ -7340,11 +7361,11 @@ namespace Polardb20170801
       Models::FailoverDBClusterResponse failoverDBCluster(const Models::FailoverDBClusterRequest &request);
 
       /**
-       * @summary Performs a manual primary/secondary switchover for an edge cluster.
+       * @summary Performs a primary/secondary switchover.
        *
-       * @description Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed through MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
+       * @description Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed by using MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
        * ## Before you begin
-       * Complete the prerequisites, specify that this API applies only to edge clusters deployed through MyBase or ENS, indicate the path to obtain edge clusters, and specify that FailoverDBCluster should be used for standard clusters.
+       * Complete the prerequisites. Note that this API applies only to edge clusters deployed by using MyBase or ENS. Specify the method to obtain the edge cluster ID, and note that you must use FailoverDBCluster for standard clusters.
        *
        * @param request FailoverDBClusterZonalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7353,11 +7374,11 @@ namespace Polardb20170801
       Models::FailoverDBClusterZonalResponse failoverDBClusterZonalWithOptions(const Models::FailoverDBClusterZonalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a manual primary/secondary switchover for an edge cluster.
+       * @summary Performs a primary/secondary switchover.
        *
-       * @description Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed through MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
+       * @description Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed by using MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
        * ## Before you begin
-       * Complete the prerequisites, specify that this API applies only to edge clusters deployed through MyBase or ENS, indicate the path to obtain edge clusters, and specify that FailoverDBCluster should be used for standard clusters.
+       * Complete the prerequisites. Note that this API applies only to edge clusters deployed by using MyBase or ENS. Specify the method to obtain the edge cluster ID, and note that you must use FailoverDBCluster for standard clusters.
        *
        * @param request FailoverDBClusterZonalRequest
        * @return FailoverDBClusterZonalResponse
@@ -8791,7 +8812,7 @@ namespace Polardb20170801
       Models::ModifyDBNodeRouterWeightResponse modifyDBNodeRouterWeight(const Models::ModifyDBNodeRouterWeightRequest &request);
 
       /**
-       * @summary Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
+       * @summary Modifies the SCC settings of a node.
        *
        * @param request ModifyDBNodeSccModeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8800,7 +8821,7 @@ namespace Polardb20170801
       Models::ModifyDBNodeSccModeResponse modifyDBNodeSccModeWithOptions(const Models::ModifyDBNodeSccModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
+       * @summary Modifies the SCC settings of a node.
        *
        * @param request ModifyDBNodeSccModeRequest
        * @return ModifyDBNodeSccModeResponse
@@ -10048,7 +10069,7 @@ namespace Polardb20170801
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Temporarily changes the specifications of a cluster.
+       * @summary Temporarily modifies the configuration.
        *
        * @param request TempModifyDBNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10057,7 +10078,7 @@ namespace Polardb20170801
       Models::TempModifyDBNodeResponse tempModifyDBNodeWithOptions(const Models::TempModifyDBNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Temporarily changes the specifications of a cluster.
+       * @summary Temporarily modifies the configuration.
        *
        * @param request TempModifyDBNodeRequest
        * @return TempModifyDBNodeResponse

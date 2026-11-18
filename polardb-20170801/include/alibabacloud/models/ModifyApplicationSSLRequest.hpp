@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The ID of the application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
     // The server certificate chain in PEM format. This parameter is optional.
     shared_ptr<string> caPem_ {};
-    // The server certificate in PEM format. This parameter is provided when you use a bring-your-own (BYO) certificate. It must match KeyPem and override the instance connection domain name. This parameter is allowed only when CA SSL is enabled for the instance.
+    // The server certificate in PEM format. Provide this parameter when you bring your own (BYO) certificate. The certificate must match the KeyPem parameter and override the instance connection domain name. This parameter is allowed only when CA SSL is enabled for the instance.
     shared_ptr<string> certPem_ {};
     // The server private key in PEM format. PKCS#1, PKCS#8, and EC SEC1 formats are supported.
     shared_ptr<string> keyPem_ {};

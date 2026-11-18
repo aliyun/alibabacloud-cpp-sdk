@@ -229,7 +229,7 @@ namespace Models
       shared_ptr<string> id_ {};
       // The group name.
       shared_ptr<string> label_ {};
-      // The source, which is core or a plugin ID.
+      // The source: core or plug-in ID.
       shared_ptr<string> source_ {};
       // The list of tools.
       shared_ptr<vector<Groups::Tools>> tools_ {};

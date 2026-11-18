@@ -157,9 +157,7 @@ namespace Models
     // The database type. Valid values:
     // 
     // - Oracle
-    // 
     // - PostgreSQL
-    // 
     // - MySQL
     shared_ptr<string> DBType_ {};
     // The database version.
