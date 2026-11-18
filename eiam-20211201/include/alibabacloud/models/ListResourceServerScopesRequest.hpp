@@ -134,19 +134,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries per page in a paged query.
+    // The maximum number of entries to return per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token (NextToken) used to retrieve the next page of results. Set this parameter to the NextToken value returned in the previous API call. Leave this parameter empty for the first query.
+    // The pagination token for the next page. Set this parameter to the value of the NextToken parameter returned from the previous API call. Leave this parameter empty for the first query.
     shared_ptr<string> nextToken_ {};
-    // The pagination token for the previous page. Set this parameter to the PreviousToken value returned in the previous API call.
+    // The pagination token for the previous page. Set this parameter to the value of the PreviousToken parameter returned from the previous API call.
     shared_ptr<string> previousToken_ {};
     // The list of scope permission IDs.
     shared_ptr<vector<string>> resourceServerScopeIds_ {};
-    // The scope permission name.
+    // The name of the scope permission.
     shared_ptr<string> resourceServerScopeName_ {};
-    // The scope permission type.
+    // The type of the scope permission.
     shared_ptr<string> resourceServerScopeType_ {};
-    // The scope permission value.
+    // The value of the scope permission.
     shared_ptr<string> resourceServerScopeValue_ {};
   };
 

@@ -223,7 +223,7 @@ namespace Models
       shared_ptr<vector<CustomPrivacyPolicy::CustomPrivacyPolicyContents>> customPrivacyPolicyContents_ {};
       // The custom privacy policy ID.
       shared_ptr<string> customPrivacyPolicyId_ {};
-      // The custom privacy policy name.
+      // The name of the custom privacy policy.
       shared_ptr<string> customPrivacyPolicyName_ {};
       // The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
       shared_ptr<string> defaultLanguageCode_ {};

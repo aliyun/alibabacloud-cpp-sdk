@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // A client token to ensure the idempotence of the request. Generate a unique value from your client for this parameter. The client token can contain only ASCII characters and cannot be longer than 64 characters. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
+    // Ensures the idempotence of the request. You can generate a client token on your client to ensure that the value is unique across different requests. The ClientToken parameter can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     shared_ptr<string> clientToken_ {};
     // The instance ID.
     // 

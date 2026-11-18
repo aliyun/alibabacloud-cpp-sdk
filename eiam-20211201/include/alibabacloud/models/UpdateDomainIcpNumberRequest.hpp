@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // Domain ID.
+    // The domain name ID.
     // 
     // This parameter is required.
     shared_ptr<string> domainId_ {};
-    // The ICP filing number associated with the domain.
+    // The ICP filing number associated with the domain name.
     // 
     // This parameter is required.
     shared_ptr<string> icpNumber_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

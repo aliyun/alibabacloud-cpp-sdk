@@ -100,17 +100,17 @@ namespace Models
     shared_ptr<string> cloudAccountId_ {};
     // Filters resources by entity type. Valid values: ram_policy.
     shared_ptr<string> cloudAccountResourceEntityType_ {};
-    // The keyword used for fuzzy matching of the resource name. This is equivalent to LIKE \\"%value%\\".
+    // Fuzzy matches the resource name. This is equivalent to LIKE \\"%value%\\".
     shared_ptr<string> cloudAccountResourceNameContains_ {};
-    // The prefix of the resource name used for matching.
+    // Matches resources by the prefix of the resource name.
     shared_ptr<string> cloudAccountResourceNamePrefix_ {};
     // The ID of the IDaaS EIAM instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries to return per page during paging in a paged query. Default value: 20. Maximum value: 100.
+    // The maximum number of entries per page for paging in a paged query. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The query token. Set the value to the NextToken value returned by the previous API call.
+    // The pagination token. Set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
   };
 

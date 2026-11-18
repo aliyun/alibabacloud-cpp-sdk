@@ -98,10 +98,10 @@ namespace Models
 
 
     protected:
-      // The custom field identifier. Valid values:
+      // The extended field identifier. Valid values:
       // - agent_type: The agent type.
       shared_ptr<string> fieldName_ {};
-      // The custom field value.
+      // The extended field value.
       shared_ptr<string> fieldValue_ {};
     };
 
@@ -230,35 +230,35 @@ namespace Models
     shared_ptr<string> applicationCreationType_ {};
     // The application identity type. If this parameter is left empty, applications of the application type are queried by default. To query applications of all identity types, set this parameter to all.
     shared_ptr<string> applicationIdentityType_ {};
-    // The list of application IDs.
+    // The application IDs.
     shared_ptr<vector<string>> applicationIds_ {};
-    // The application name. Only left fuzzy match is supported.
+    // The application name. Only left-fuzzy matching is supported.
     shared_ptr<string> applicationName_ {};
     // The application template ID.
     shared_ptr<string> applicationTemplateId_ {};
-    // The application access authorization type. Valid values:
+    // The access authorization type of the application. Valid values:
     // - authorize_required: Explicit authorization is required for access.
     // - default_all: All members have access permissions by default.
     shared_ptr<string> authorizationType_ {};
-    // The list of custom fields.
+    // The extended fields.
     shared_ptr<vector<ListApplicationsRequest::CustomFields>> customFields_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether the M2M Client identity is enabled.
+    // Specifies whether the M2M client identity is enabled.
     shared_ptr<string> m2MClientStatus_ {};
-    // The ServiceCode of the cloud service that manages the application template.
+    // The service code of the cloud service that manages the application template.
     shared_ptr<string> managedServiceCode_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // Specifies whether the ResourceServer capability is enabled.
+    // Specifies whether the resource server capability is enabled.
     shared_ptr<string> resourceServerStatus_ {};
     // Specifies whether the application template is managed by a cloud service.
     shared_ptr<bool> serviceManaged_ {};
-    // The SSO type filter condition. Multiple types can be separated by commas. Example: oauth2/m2m,oidc+oauth2/m2m.
+    // The SSO type search condition. You can specify multiple types separated by commas (,). Example: oauth2/m2m,oidc+oauth2/m2m.
     shared_ptr<string> ssoType_ {};
     // The application status. Valid values:
     // - enabled: Enabled.

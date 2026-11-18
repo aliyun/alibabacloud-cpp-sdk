@@ -87,7 +87,7 @@ namespace Models
 
 
       protected:
-        // Application role ID.
+        // The application role ID.
         shared_ptr<string> applicationRoleId_ {};
       };
 
@@ -124,16 +124,16 @@ namespace Models
 
 
     protected:
-      // Application ID.
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // Application role list.
+      // The list of application roles. No roles are returned for SAML applications.
       shared_ptr<vector<Applications::ApplicationRoles>> applicationRoles_ {};
-      // Whether direct authorization exists. Valid values:
+      // Indicates whether direct authorization exists. Valid values:
       // 
-      // - true: A direct authorization relationship record exists between the application and the group.
-      // - false: No direct authorization relationship record exists between the application and the group.
+      // - true: A direct authorization record exists between the application and the group.
+      // - false: No direct authorization record exists between the application and the group.
       shared_ptr<bool> hasDirectAuthorization_ {};
-      // Whether inherited authorization exists.
+      // Indicates whether inherited authorization exists.
       shared_ptr<bool> hasInheritAuthorization_ {};
     };
 
@@ -163,11 +163,11 @@ namespace Models
 
 
   protected:
-    // List of applications authorized for access.
+    // The list of applications that the group is authorized to access.
     shared_ptr<vector<ListApplicationsForGroupResponseBody::Applications>> applications_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of entries.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

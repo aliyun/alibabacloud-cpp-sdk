@@ -239,7 +239,7 @@ namespace Models
       shared_ptr<int64_t> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The update time.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

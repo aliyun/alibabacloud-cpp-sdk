@@ -154,7 +154,7 @@ namespace Models
 
 
     protected:
-      // The time when the organizational unit was created. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the organizational unit was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description of the organizational unit.
       shared_ptr<string> description_ {};
@@ -162,27 +162,24 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // Indicates whether the organizational unit is a leaf node. A value of true indicates that the organizational unit has no child nodes. A value of false indicates that the organizational unit has child nodes.
       shared_ptr<bool> leaf_ {};
-      // The external ID of the organizational unit. This ID is used to map the data of the organizational unit to the data of an external system. By default, the value of this parameter is the organizational unit ID.
-      // 
-      // Note: The external ID must be unique within the same source type and source ID.
+      // The external ID of the organizational unit, which is used to map external data to IDaaS organizational units. Default value: the IDaaS organizational unit ID. Note: The external ID must be unique under the same source type and source ID.
       shared_ptr<string> organizationalUnitExternalId_ {};
-      // The organizational unit ID.
+      // The ID of the organizational unit.
       shared_ptr<string> organizationalUnitId_ {};
       // The name of the organizational unit.
       shared_ptr<string> organizationalUnitName_ {};
       // The source ID of the organizational unit.
       shared_ptr<string> organizationalUnitSourceId_ {};
       // The source type of the organizational unit. Valid values:
-      // 
-      // - build_in: The organizational unit is created in IDaaS.
-      // - ding_talk: The organizational unit is imported from DingTalk.
-      // - ad: The organizational unit is imported from Active Directory (AD).
-      // - ldap: The organizational unit is imported from a Lightweight Directory Access Protocol (LDAP) directory.
-      // - we_com: The organizational unit is imported from WeCom.
+      // - build_in: built-in.
+      // - ding_talk: imported from DingTalk.
+      // - ad: imported from AD.
+      // - ldap: imported from LDAP.
+      // - we_com: imported from WeCom.
       shared_ptr<string> organizationalUnitSourceType_ {};
       // The ID of the parent organizational unit.
       shared_ptr<string> parentId_ {};
-      // The time when the organizational unit was last updated. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the organizational unit was last updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -216,7 +213,7 @@ namespace Models
     shared_ptr<vector<ListOrganizationalUnitsResponseBody::OrganizationalUnits>> organizationalUnits_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that are returned. This value is the total number of matched entries. The maximum number of entries that can be returned in a single request is specified by PageSize.
+    // The total number of entries. This value indicates the total number of matched entries. The maximum number of entries returned per page is specified by the PageSize parameter.
     shared_ptr<int64_t> totalCount_ {};
   };
 

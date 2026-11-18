@@ -206,15 +206,15 @@ namespace Models
       shared_ptr<int64_t> createTime_ {};
       // The description of the application template.
       shared_ptr<string> description_ {};
-      // The help document URL of the application template.
+      // The URL of the help document for the application template.
       shared_ptr<string> helpDocumentUrl_ {};
-      // The logo URL of the application template.
+      // The URL of the application template logo.
       shared_ptr<string> logoUrl_ {};
       // The service code of the cloud service that manages the application template.
       shared_ptr<string> managedServiceCode_ {};
-      // The sale information of the application template.
+      // The sales information of the application template.
       shared_ptr<ApplicationTemplate::SaleInfo> saleInfo_ {};
-      // The console URL of the cloud service that manages the application template.
+      // The URL of the console for the cloud service that manages the application template.
       shared_ptr<string> serviceConsoleUrl_ {};
       // Indicates whether the application template is managed by a cloud service.
       shared_ptr<bool> serviceManaged_ {};

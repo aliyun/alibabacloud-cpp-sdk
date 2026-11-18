@@ -80,6 +80,9 @@ namespace Models
           DARABONBA_PTR_TO_JSON(M2mApplicationQuota, m2mApplicationQuota_);
           DARABONBA_PTR_TO_JSON(MimApplicationLicenseStatus, mimApplicationLicenseStatus_);
           DARABONBA_PTR_TO_JSON(NetworkAccessEndpointQuota, networkAccessEndpointQuota_);
+          DARABONBA_PTR_TO_JSON(PamActiveUserBaseQuota, pamActiveUserBaseQuota_);
+          DARABONBA_PTR_TO_JSON(PamActiveUserPurchasedQuota, pamActiveUserPurchasedQuota_);
+          DARABONBA_PTR_TO_JSON(PamElasticBillingEnabled, pamElasticBillingEnabled_);
           DARABONBA_PTR_TO_JSON(PamLicenseStatus, pamLicenseStatus_);
           DARABONBA_PTR_TO_JSON(PrepaidActiveUserNumber, prepaidActiveUserNumber_);
           DARABONBA_PTR_TO_JSON(UserQuota, userQuota_);
@@ -90,6 +93,9 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(M2mApplicationQuota, m2mApplicationQuota_);
           DARABONBA_PTR_FROM_JSON(MimApplicationLicenseStatus, mimApplicationLicenseStatus_);
           DARABONBA_PTR_FROM_JSON(NetworkAccessEndpointQuota, networkAccessEndpointQuota_);
+          DARABONBA_PTR_FROM_JSON(PamActiveUserBaseQuota, pamActiveUserBaseQuota_);
+          DARABONBA_PTR_FROM_JSON(PamActiveUserPurchasedQuota, pamActiveUserPurchasedQuota_);
+          DARABONBA_PTR_FROM_JSON(PamElasticBillingEnabled, pamElasticBillingEnabled_);
           DARABONBA_PTR_FROM_JSON(PamLicenseStatus, pamLicenseStatus_);
           DARABONBA_PTR_FROM_JSON(PrepaidActiveUserNumber, prepaidActiveUserNumber_);
           DARABONBA_PTR_FROM_JSON(UserQuota, userQuota_);
@@ -106,8 +112,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->conditionalAccessPolicyLicenseStatus_ == nullptr
-        && this->m2mApplicationLicenseStatus_ == nullptr && this->m2mApplicationQuota_ == nullptr && this->mimApplicationLicenseStatus_ == nullptr && this->networkAccessEndpointQuota_ == nullptr && this->pamLicenseStatus_ == nullptr
-        && this->prepaidActiveUserNumber_ == nullptr && this->userQuota_ == nullptr; };
+        && this->m2mApplicationLicenseStatus_ == nullptr && this->m2mApplicationQuota_ == nullptr && this->mimApplicationLicenseStatus_ == nullptr && this->networkAccessEndpointQuota_ == nullptr && this->pamActiveUserBaseQuota_ == nullptr
+        && this->pamActiveUserPurchasedQuota_ == nullptr && this->pamElasticBillingEnabled_ == nullptr && this->pamLicenseStatus_ == nullptr && this->prepaidActiveUserNumber_ == nullptr && this->userQuota_ == nullptr; };
         // conditionalAccessPolicyLicenseStatus Field Functions 
         bool hasConditionalAccessPolicyLicenseStatus() const { return this->conditionalAccessPolicyLicenseStatus_ != nullptr;};
         void deleteConditionalAccessPolicyLicenseStatus() { this->conditionalAccessPolicyLicenseStatus_ = nullptr;};
@@ -143,6 +149,27 @@ namespace Models
         inline InstanceLicenseDetail& setNetworkAccessEndpointQuota(int64_t networkAccessEndpointQuota) { DARABONBA_PTR_SET_VALUE(networkAccessEndpointQuota_, networkAccessEndpointQuota) };
 
 
+        // pamActiveUserBaseQuota Field Functions 
+        bool hasPamActiveUserBaseQuota() const { return this->pamActiveUserBaseQuota_ != nullptr;};
+        void deletePamActiveUserBaseQuota() { this->pamActiveUserBaseQuota_ = nullptr;};
+        inline int64_t getPamActiveUserBaseQuota() const { DARABONBA_PTR_GET_DEFAULT(pamActiveUserBaseQuota_, 0L) };
+        inline InstanceLicenseDetail& setPamActiveUserBaseQuota(int64_t pamActiveUserBaseQuota) { DARABONBA_PTR_SET_VALUE(pamActiveUserBaseQuota_, pamActiveUserBaseQuota) };
+
+
+        // pamActiveUserPurchasedQuota Field Functions 
+        bool hasPamActiveUserPurchasedQuota() const { return this->pamActiveUserPurchasedQuota_ != nullptr;};
+        void deletePamActiveUserPurchasedQuota() { this->pamActiveUserPurchasedQuota_ = nullptr;};
+        inline int64_t getPamActiveUserPurchasedQuota() const { DARABONBA_PTR_GET_DEFAULT(pamActiveUserPurchasedQuota_, 0L) };
+        inline InstanceLicenseDetail& setPamActiveUserPurchasedQuota(int64_t pamActiveUserPurchasedQuota) { DARABONBA_PTR_SET_VALUE(pamActiveUserPurchasedQuota_, pamActiveUserPurchasedQuota) };
+
+
+        // pamElasticBillingEnabled Field Functions 
+        bool hasPamElasticBillingEnabled() const { return this->pamElasticBillingEnabled_ != nullptr;};
+        void deletePamElasticBillingEnabled() { this->pamElasticBillingEnabled_ = nullptr;};
+        inline bool getPamElasticBillingEnabled() const { DARABONBA_PTR_GET_DEFAULT(pamElasticBillingEnabled_, false) };
+        inline InstanceLicenseDetail& setPamElasticBillingEnabled(bool pamElasticBillingEnabled) { DARABONBA_PTR_SET_VALUE(pamElasticBillingEnabled_, pamElasticBillingEnabled) };
+
+
         // pamLicenseStatus Field Functions 
         bool hasPamLicenseStatus() const { return this->pamLicenseStatus_ != nullptr;};
         void deletePamLicenseStatus() { this->pamLicenseStatus_ = nullptr;};
@@ -171,13 +198,19 @@ namespace Models
         shared_ptr<string> m2mApplicationLicenseStatus_ {};
         // The M2M application quota of the license.
         shared_ptr<int64_t> m2mApplicationQuota_ {};
-        // The machine identity license status.
+        // The machine identity status.
         shared_ptr<string> mimApplicationLicenseStatus_ {};
         // The network access endpoint quota of the license.
         shared_ptr<int64_t> networkAccessEndpointQuota_ {};
-        // The PAM privileged access management license status.
+        // The base quota of monthly active PAM users included in the plan, excluding additional purchases. The value is 0 if PAM is not activated.
+        shared_ptr<int64_t> pamActiveUserBaseQuota_ {};
+        // The number of additionally purchased monthly active PAM users. The value is 0 if no additional users are purchased or PAM is not activated.
+        shared_ptr<int64_t> pamActiveUserPurchasedQuota_ {};
+        // Specifies whether pay-as-you-go billing for monthly PAM overages is enabled. Returns false if PAM is not activated or elastic billing is disabled.
+        shared_ptr<bool> pamElasticBillingEnabled_ {};
+        // The Privileged Access Management (PAM) license status.
         shared_ptr<string> pamLicenseStatus_ {};
-        // The number of prepaid active users.
+        // The number of active subscription users.
         shared_ptr<int64_t> prepaidActiveUserNumber_ {};
         // The user quota of the license.
         shared_ptr<int64_t> userQuota_ {};
@@ -276,25 +309,25 @@ namespace Models
     protected:
       // The edition of the license.
       shared_ptr<string> edition_ {};
-      // The end date of the license validity period, in timestamp format.
+      // The end date of the license validity period. The value is a UNIX timestamp.
       shared_ptr<int64_t> endTime_ {};
       // The detailed license information of the instance.
       shared_ptr<License::InstanceLicenseDetail> instanceLicenseDetail_ {};
-      // The billing type of the license.
+      // The billing method of the license.
       shared_ptr<string> licenseChargeType_ {};
-      // The detailed license configuration as a JSON string.
+      // The JSON string of the detailed license configuration.
       shared_ptr<string> licenseConfigJson_ {};
-      // The creation time of the license, in timestamp format.
+      // The creation time of the license. The value is a UNIX timestamp.
       shared_ptr<int64_t> licenseCreateTime_ {};
       // The unique identifier of the license.
       shared_ptr<string> licenseId_ {};
-      // The status of the license.
+      // The license status.
       shared_ptr<string> licenseStatus_ {};
       // The purchase channel of the license.
       shared_ptr<string> purchaseChannel_ {};
-      // The unique identifier of the external commodity associated with the license.
+      // The unique identifier of the external product corresponding to the license.
       shared_ptr<string> purchaseInstanceId_ {};
-      // The start date of the license validity period, in timestamp format.
+      // The start date of the license validity period. The value is a UNIX timestamp.
       shared_ptr<int64_t> startTime_ {};
       // The user quota of the license.
       shared_ptr<int64_t> userQuota_ {};

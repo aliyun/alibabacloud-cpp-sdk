@@ -80,7 +80,7 @@ namespace Models
     protected:
       // The name of the filter condition.
       shared_ptr<string> name_ {};
-      // The values of the filter condition.
+      // The list of filter condition values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -128,15 +128,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The filter conditions.
+    // The list of filter conditions.
     shared_ptr<vector<ListApplicationRolesRequest::Filter>> filter_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page for paging in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to start the next query. Set this parameter to the value of NextToken that is returned in the last API call. Leave this parameter empty for the first query.
+    // The pagination token for the next page. Set this parameter to the NextToken value returned from the previous API call. Leave this parameter empty for the first call.
     shared_ptr<string> nextToken_ {};
   };
 

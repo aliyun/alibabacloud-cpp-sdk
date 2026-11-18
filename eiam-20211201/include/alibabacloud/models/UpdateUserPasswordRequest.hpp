@@ -82,20 +82,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The new password of the account. For more information about the password format, see the "Password Policies" topic.
+    // The new password for the account. The password format must comply with the password policy.
     // 
     // This parameter is required.
     shared_ptr<string> password_ {};
-    // Specifies whether to enable forcible password change upon first logon. Default value: disabled. Valid values:
-    // 
-    // *   enabled
-    // *   disabled
+    // The forced password update status. This feature is disabled by default. Valid values:
+    // - enabled: Enabled.
+    // - disabled: Disabled.
     shared_ptr<string> passwordForcedUpdateStatus_ {};
     // The account ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
-    // The methods for receiving password notifications.
+    // The list of password notification channels. Valid values:
+    // - email: Email.
+    // - sms: SMS.
     shared_ptr<vector<string>> userNotificationChannels_ {};
   };
 

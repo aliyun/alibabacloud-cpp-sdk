@@ -114,7 +114,7 @@ namespace Models
       shared_ptr<string> applicationId_ {};
       // The application account name.
       shared_ptr<string> applicationUsername_ {};
-      // The time when the account was created. The value is a UNIX timestamp in milliseconds.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The IDaaS EIAM instance ID.
       shared_ptr<string> instanceId_ {};
@@ -152,7 +152,7 @@ namespace Models
     shared_ptr<vector<ListApplicationAccountsForUserResponseBody::ApplicationAccounts>> applicationAccounts_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

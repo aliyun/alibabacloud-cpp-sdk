@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The download URL of the template.
+    // The template download URL.
     shared_ptr<string> fileDownloadUrl_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

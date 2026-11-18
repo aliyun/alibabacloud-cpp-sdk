@@ -101,9 +101,9 @@ namespace Models
 
 
       protected:
-        // The name of the custom privacy policy item.
+        // The name of the custom terms item.
         shared_ptr<string> customPrivacyPolicyItemName_ {};
-        // The access URL of the custom privacy policy item. The URL must start with https://.
+        // The URL of the custom terms item. The URL must start with https://.
         shared_ptr<string> customPrivacyPolicyItemUrl_ {};
       };
 
@@ -133,11 +133,11 @@ namespace Models
 
 
     protected:
-      // The items of the custom privacy policy.
+      // The items of the custom terms.
       shared_ptr<vector<CustomPrivacyPolicyContents::CustomPrivacyPolicyItems>> customPrivacyPolicyItems_ {};
-      // The tip for the custom privacy policy content.
+      // The prompt for the custom terms.
       shared_ptr<string> customPrivacyPolicyTip_ {};
-      // The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages API operation.
+      // The language of the custom terms. The value is returned by the LanguageCode parameter in the response of the ListLanguages operation.
       shared_ptr<string> languageCode_ {};
     };
 
@@ -188,21 +188,21 @@ namespace Models
 
 
   protected:
-    // The details of the custom privacy policy content.
+    // The details of the custom terms.
     shared_ptr<vector<UpdateCustomPrivacyPolicyRequest::CustomPrivacyPolicyContents>> customPrivacyPolicyContents_ {};
-    // The ID of the custom privacy policy.
+    // The ID of the custom terms.
     // 
     // This parameter is required.
     shared_ptr<string> customPrivacyPolicyId_ {};
-    // The name of the custom privacy policy.
+    // The name of the custom terms.
     shared_ptr<string> customPrivacyPolicyName_ {};
-    // The default language code for the privacy policy items. The value is the LanguageCode returned by the ListLanguages API operation.
+    // The default language code for the terms. The value is returned by the LanguageCode parameter in the response of the ListLanguages operation.
     shared_ptr<string> defaultLanguageCode_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The consent type for the custom privacy policy.
+    // The consent type for the custom terms.
     shared_ptr<string> userConsentType_ {};
   };
 

@@ -233,9 +233,9 @@ namespace Models
 
 
       protected:
-        // The root certificates.
+        // The root certificate.
         shared_ptr<vector<PrivateCaProviderConfig::Certificates>> certificates_ {};
-        // The method used to retrieve the root certificate.
+        // The method used to obtain the root certificate.
         shared_ptr<string> trustAnchorSource_ {};
         // The trust condition.
         shared_ptr<string> trustCondition_ {};
@@ -422,7 +422,7 @@ namespace Models
         shared_ptr<vector<Pkcs7ProviderConfig::Certificates>> certificates_ {};
         // The CMS verification mode.
         shared_ptr<string> cmsVerificationMode_ {};
-        // The signature effective time. The value indicates the duration for which the signature is valid, in seconds.
+        // The signature validity period. The value indicates the duration for which the signature is valid, in seconds.
         shared_ptr<int64_t> signatureEffectiveTime_ {};
         // The expression used to obtain the signing time.
         shared_ptr<string> signingTimeValueExpression_ {};
@@ -531,7 +531,7 @@ namespace Models
         shared_ptr<vector<string>> audiences_ {};
         // The dynamically obtained JWKS.
         shared_ptr<string> dynamicJwks_ {};
-        // The token issuer identifier (Issuer).
+        // The token issuer identifier.
         shared_ptr<string> issuer_ {};
         // The time when the JWKS was last obtained. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> jwksLastObtainedTime_ {};
@@ -758,15 +758,15 @@ namespace Models
   protected:
     // The list of federated credential providers.
     shared_ptr<vector<ListFederatedCredentialProvidersResponseBody::FederatedCredentialProviders>> federatedCredentialProviders_ {};
-    // The maximum number of entries per page for a paged query.
+    // The number of rows per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token (Token) value returned by this call.
+    // The pagination token returned by the current request.
     shared_ptr<string> nextToken_ {};
-    // The query token (Token) value returned by this call.
+    // The pagination token returned by the current request.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of items.
     shared_ptr<int32_t> totalCount_ {};
   };
 

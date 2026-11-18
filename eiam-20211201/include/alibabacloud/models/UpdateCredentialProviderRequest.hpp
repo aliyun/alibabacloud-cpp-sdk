@@ -176,19 +176,19 @@ namespace Models
         // - m2m: machine-to-machine.
         // - user_federation: user federation.
         shared_ptr<string> authorizationFlow_ {};
-        // The client_secret in the OAuth protocol.
+        // The client secret in the OAuth protocol.
         // 
-        // > The value cannot exceed 1024 characters in length.
+        // > The client secret can be up to 1,024 characters in length.
         shared_ptr<string> clientSecret_ {};
-        // The auto-discovery URL.
+        // The URL of the discovery document.
         shared_ptr<string> discoveryUrl_ {};
-        // The authorization server identifier URL.
+        // The URL of the authorization server identifier.
         shared_ptr<string> issuer_ {};
         // The PKCE challenge method. Valid values:
         // - S256.
         // - plain.
         shared_ptr<string> pkceChallengeMethod_ {};
-        // Specifies whether PKCE is enabled.
+        // Specifies whether to enable Proof Key for Code Exchange (PKCE).
         shared_ptr<bool> pkceEnabled_ {};
         // The vendor type. Valid values:
         // - custom: custom.
@@ -198,21 +198,21 @@ namespace Models
         // - microsoft: Microsoft.
         // - google: Google.
         shared_ptr<string> providerVendor_ {};
-        // The scope in the OAuth protocol, which specifies the permission scope.
+        // The scope in the OAuth protocol.
         // 
-        // > The Scope configuration on the credential provider serves as the fallback value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth Access Token, the Scope configuration on the credential provider is used for issuance.
+        // > The scope configuration of the OAuth credential provider serves as a fallback value. If the scope parameter is not specified when you call the Developer API to obtain an OAuth access token, the access token is issued based on the scope configuration of the credential provider.
         // 
-        // >Notice: Separate multiple Scope values with spaces. To clear the Scope configuration, pass an empty string.
+        // >Notice: Separate multiple scope values with spaces. To clear the scope configuration, enter an empty string.</notice>
         // 
-        // Restrictions on each individual Scope value:
-        // 1. Allowed characters: lowercase letters, digits, and special characters `|/:_-.`
-        // 2. Must contain at least one lowercase letter or digit.
-        // 3. Must start with a special character `.`, a lowercase letter, or a digit.
-        // 4. Cannot exceed 1024 characters in length.
+        // The limits on a single scope value are as follows:
+        // 1. Allowed characters: lowercase letters, digits, and the following special characters: `|/:_-.`
+        // 2. The value must contain at least one lowercase letter or digit.
+        // 3. The value must start with a period (`.`), a lowercase letter, or a digit.
+        // 4. The value can be up to 1,024 characters in length.
         shared_ptr<string> scope_ {};
         // The token endpoint of the OAuth protocol.
         // 
-        // > The value must start with `http://` or `https://` and cannot exceed 1024 characters in length.
+        // > The endpoint must start with `http://` or `https://` and can be up to 1,024 characters in length.
         shared_ptr<string> tokenEndpoint_ {};
       };
 
@@ -276,15 +276,15 @@ namespace Models
       protected:
         // The list of allowed JWT issuers.
         // 
-        // > The list cannot contain more than 200 entries.
+        // > The list can contain up to 200 issuers.
         // 
-        // >Notice: To clear the issuer list, pass an empty list or an empty string when calling the API.
+        // >Notice: To clear the issuer list, pass an empty list or an empty string when you call the operation.</notice>
         shared_ptr<vector<string>> allowedTokenIssuers_ {};
-        // Specifies whether the JWT derived short token feature is enabled.
+        // Specifies whether to enable the JWT derived short token capability.
         shared_ptr<bool> derivedShortTokenEnabled_ {};
-        // The validity period of the JWT, in seconds.
+        // The validity period of the JWT. Unit: seconds.
         shared_ptr<int32_t> expiration_ {};
-        // Specifies whether JWT expiration cleanup is enabled.
+        // Specifies whether to enable JWT expiration cleanup.
         shared_ptr<bool> expirationCleanupEnabled_ {};
       };
 
@@ -309,7 +309,7 @@ namespace Models
 
 
     protected:
-      // The configuration of the JWT credential provider.
+      // The configuration of the JSON Web Token (JWT) credential provider.
       shared_ptr<CredentialProviderConfig::JwtProviderConfig> jwtProviderConfig_ {};
       // The configuration of the OAuth credential provider.
       shared_ptr<CredentialProviderConfig::OAuthProviderConfig> OAuthProviderConfig_ {};
@@ -355,21 +355,21 @@ namespace Models
 
 
   protected:
-    // The idempotency token that ensures the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a unique parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // You can generate the parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The credential provider configuration.
+    // The configuration of the credential provider.
     shared_ptr<UpdateCredentialProviderRequest::CredentialProviderConfig> credentialProviderConfig_ {};
     // The credential provider ID.
     // 
     // This parameter is required.
     shared_ptr<string> credentialProviderId_ {};
-    // The credential provider name.
+    // The name of the credential provider.
     // 
-    // > The name cannot exceed 64 characters in length.
+    // > The name can be up to 64 characters in length.
     shared_ptr<string> credentialProviderName_ {};
     // The instance ID.
     // 

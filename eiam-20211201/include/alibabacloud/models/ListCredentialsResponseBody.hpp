@@ -136,7 +136,7 @@ namespace Models
 
 
         protected:
-          // The client ID of the OAuth protocol.
+          // The client ID in the OAuth protocol.
           shared_ptr<string> clientId_ {};
         };
 
@@ -151,7 +151,7 @@ namespace Models
 
 
       protected:
-        // The content of an OAuth client credential.
+        // The content of an OAuth client authentication credential.
         shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
       };
 
@@ -299,25 +299,25 @@ namespace Models
       // The credential name.
       shared_ptr<string> credentialName_ {};
       // The Scenarios label of the credential. Valid values:
-      // - llm: Large model.
+      // - llm: Large language model.
       // - saas: Third-party SaaS service.
       shared_ptr<string> credentialScenarioLabel_ {};
       // The credential sharing scope. Valid values:
-      // - common: General.
-      // - user_exclusive: Account-specific.
+      // - common: Common.
+      // - user_exclusive: Account-exclusive.
       shared_ptr<string> credentialSharingScope_ {};
       // The ID of the subject to which the credential belongs.
       shared_ptr<string> credentialSubjectId_ {};
-      // The subject type to which the credential belongs. Valid values:
+      // The subject type of the credential. Valid values:
       // - authentication_token_provider: Authentication token provider.
       shared_ptr<string> credentialSubjectType_ {};
       // The credential type. Valid values:
-      // - api_key: API key credential.
-      // - oauth_client: OAuth client credential.
+      // - api_key: API key authentication credential.
+      // - oauth_client: OAuth client authentication credential.
       shared_ptr<string> credentialType_ {};
       // The credential description.
       shared_ptr<string> description_ {};
-      // The ID of the exclusive user for the credential.
+      // The ID of the exclusive account for the credential.
       shared_ptr<string> exclusiveUserId_ {};
       // The EIAM instance ID.
       shared_ptr<string> instanceId_ {};
@@ -371,7 +371,7 @@ namespace Models
   protected:
     // The list of credentials.
     shared_ptr<vector<ListCredentialsResponseBody::Credentials>> credentials_ {};
-    // The number of entries per page for paging in a paged query.
+    // The maximum number of entries per page for paging in a paged query.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token returned by the current request.
     shared_ptr<string> nextToken_ {};

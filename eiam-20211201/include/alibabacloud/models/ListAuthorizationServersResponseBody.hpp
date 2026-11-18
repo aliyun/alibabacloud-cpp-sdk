@@ -170,7 +170,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The currently active issuer address.
+      // The currently effective issuer address.
       shared_ptr<string> issuer_ {};
       // The domain name used by the issuer.
       shared_ptr<string> issuerDomain_ {};
@@ -224,7 +224,7 @@ namespace Models
   protected:
     // The list of authorization servers.
     shared_ptr<vector<ListAuthorizationServersResponseBody::AuthorizationServers>> authorizationServers_ {};
-    // The number of entries to return per page in a paging query.
+    // The maximum number of entries to return per page for paging in a paged query.
     shared_ptr<int32_t> maxResults_ {};
     // The next token returned in the current call.
     shared_ptr<string> nextToken_ {};

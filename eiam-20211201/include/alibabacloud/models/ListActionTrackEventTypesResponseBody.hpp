@@ -121,15 +121,15 @@ namespace Models
   protected:
     // The list of event types.
     shared_ptr<vector<ListActionTrackEventTypesResponseBody::EventTypes>> eventTypes_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page for paging.
     shared_ptr<int64_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // The next token.
     shared_ptr<string> nextToken_ {};
-    // The token to retrieve the previous page of results.
+    // The previous token.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of items.
     shared_ptr<int64_t> totalCount_ {};
   };
 

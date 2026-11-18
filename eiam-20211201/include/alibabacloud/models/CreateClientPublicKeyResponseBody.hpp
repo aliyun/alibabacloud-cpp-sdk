@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the application ClientPublicKey.
+    // The ID of the ClientPublicKey for the application.
     shared_ptr<string> clientPublicKeyId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

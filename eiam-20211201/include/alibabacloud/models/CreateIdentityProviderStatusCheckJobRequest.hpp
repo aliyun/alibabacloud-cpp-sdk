@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the identity provider.
+    // The identity provider ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

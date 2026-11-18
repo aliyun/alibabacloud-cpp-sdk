@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The authorization server ID.
+    // The ID of the authorization server.
     // 
     // This parameter is required.
     shared_ptr<string> authorizationServerId_ {};
-    // The client token that is used to ensure the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique among different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, refer to References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // The client token that is used to ensure idempotence. You can generate a client token on your client and make sure that the token is unique across different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
     // The description of the authorization server.
     shared_ptr<string> description_ {};
-    // The instance ID.
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

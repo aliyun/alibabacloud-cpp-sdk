@@ -157,17 +157,17 @@ namespace Models
 
 
       protected:
-        // The list of private egress IP addresses of the backup network access endpoint.
+        // The egress private IP addresses of the backup network access endpoint.
         shared_ptr<vector<string>> backupEgressPrivateIpAddresses_ {};
-        // The public egress IP address ranges of the backup network access endpoint.
+        // The egress public IP CIDR blocks of the backup network access endpoint.
         shared_ptr<vector<string>> backupEgressPublicIpAddresses_ {};
         // The ID of the backup security group.
         shared_ptr<string> backupSecurityGroupId_ {};
-        // The list of backup vSwitches.
+        // The backup vSwitches.
         shared_ptr<vector<string>> backupVSwitchIds_ {};
         // The ID of the backup VPC.
         shared_ptr<string> backupVpcId_ {};
-        // The region of the backup VPC.
+        // The region ID of the backup VPC.
         shared_ptr<string> backupVpcRegionId_ {};
       };
 
@@ -284,22 +284,22 @@ namespace Models
     protected:
       // The backup VPC endpoint configuration.
       shared_ptr<NetworkAccessEndpoint::BackupVpcEndpoint> backupVpcEndpoint_ {};
-      // The time when the network access endpoint was created. The value is a UNIX timestamp in milliseconds.
+      // The time when the network access endpoint was created. The time is displayed as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The private egress IP address ranges of the dedicated network access endpoint. A value is returned only when NetworkEndpointType is set to private.
+      // The egress private IP CIDR blocks of the private network access endpoint. This parameter is returned only when the network access endpoint type is private.
       shared_ptr<vector<string>> egressPrivateIpAddresses_ {};
-      // The public egress IP address ranges of the shared network access endpoint. A value is returned only when NetworkEndpointType is set to shared.
+      // The egress public IP CIDR blocks of the shared network access endpoint. This parameter is returned only when the network access endpoint type is shared.
       shared_ptr<vector<string>> egressPublicIpAddresses_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The dedicated network access endpoint ID.
+      // The network access endpoint ID.
       shared_ptr<string> networkAccessEndpointId_ {};
       // The name of the network access endpoint.
       shared_ptr<string> networkAccessEndpointName_ {};
       // The type of the network access endpoint. Valid values:
       // 
       // - shared: Shared network access endpoint.
-      // - private: Dedicated network access endpoint.
+      // - private: Private network access endpoint.
       shared_ptr<string> networkAccessEndpointType_ {};
       // The ID of the security group used by the network access endpoint.
       shared_ptr<string> securityGroupId_ {};
@@ -310,13 +310,13 @@ namespace Models
       // - running: Running.
       // - deleting: Deleting.
       shared_ptr<string> status_ {};
-      // The time when the network access endpoint was last updated. The value is a UNIX timestamp in milliseconds.
+      // The time when the network access endpoint was last updated. The time is displayed as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The list of specified vSwitches to which the network access endpoint is connected.
+      // The specified vSwitches to which the network access endpoint is connected.
       shared_ptr<vector<string>> vSwitchIds_ {};
       // The ID of the VPC to which the network access endpoint is connected.
       shared_ptr<string> vpcId_ {};
-      // The region of the VPC to which the network access endpoint is connected.
+      // The region ID of the VPC to which the network access endpoint is connected.
       shared_ptr<string> vpcRegionId_ {};
     };
 
@@ -339,7 +339,7 @@ namespace Models
 
 
   protected:
-    // The network access endpoint information.
+    // The network access endpoint details.
     shared_ptr<GetNetworkAccessEndpointResponseBody::NetworkAccessEndpoint> networkAccessEndpoint_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

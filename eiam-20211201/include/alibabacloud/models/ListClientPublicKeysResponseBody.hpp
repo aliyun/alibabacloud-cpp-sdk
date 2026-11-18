@@ -144,7 +144,7 @@ namespace Models
       shared_ptr<string> algorithmType_ {};
       // The application ID.
       shared_ptr<string> applicationId_ {};
-      // The ID of the application ClientPublicKey.
+      // The ID of the ClientPublicKey.
       shared_ptr<string> clientPublicKeyId_ {};
       // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
@@ -152,7 +152,7 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The last used time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // Indicates whether this key is used with priority.
+      // Specifies whether the ClientPublicKey is prioritized.
       shared_ptr<bool> primary_ {};
       // The public key.
       shared_ptr<string> publicKey_ {};
@@ -202,13 +202,13 @@ namespace Models
   protected:
     // The list of ClientPublicKeys for the application.
     shared_ptr<vector<ListClientPublicKeysResponseBody::ClientPublicKeys>> clientPublicKeys_ {};
-    // The number of entries per page in a paged query.
+    // The number of entries to return per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by this call.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

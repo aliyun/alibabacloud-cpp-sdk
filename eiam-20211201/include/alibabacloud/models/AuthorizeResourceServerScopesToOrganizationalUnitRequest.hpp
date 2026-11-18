@@ -78,11 +78,11 @@ namespace Models
 
 
   protected:
-    // The application ID of the resource server.
+    // The ID of the resource server application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // Ensures the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // Ensures the idempotence of the request. Generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
@@ -94,7 +94,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> organizationalUnitId_ {};
-    // The IDs of the scope permissions under the resource server.
+    // The list of scope permission IDs under the resource server.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceServerScopeIds_ {};

@@ -93,7 +93,7 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The application role ID.
     shared_ptr<string> applicationRoleId_ {};
-    // The list of group IDs. You can specify up to 100 group IDs in a single operation.
+    // The list of group IDs. A single operation supports up to 100 group IDs.
     shared_ptr<vector<string>> groupIds_ {};
     // The instance ID.
     // 

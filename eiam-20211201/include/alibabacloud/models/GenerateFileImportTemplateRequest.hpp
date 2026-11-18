@@ -69,7 +69,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether field selection mode is enabled.
+    // Specifies whether the field selection mode is enabled.
     shared_ptr<bool> fieldSelectionEnabled_ {};
     // The instance ID.
     // 

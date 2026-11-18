@@ -131,35 +131,32 @@ namespace Models
     protected:
       // The list of effective authentication source IDs. Default value: ["ia_all"].
       // 
-      // - ia_all: All authentication sources. If this value is specified, no other values can be specified.
+      // - ia_all: All. If you specify this value, you cannot specify other values.
       // - ia_password: Account password logon.
       // - ia_otp_sms: SMS verification code logon.
       // - ia_webauthn: WebAuthn authenticator logon.
-      // - idp_xxx: Authentication method of a specific identity provider.
+      // - idp_xxx: A specific identity provider (IdP) authentication method.
       shared_ptr<vector<string>> effectiveAuthenticationSourceIds_ {};
-      // The action to take when a password expires. Valid values:
-      // 
-      // - forbid_login: Forbid logon.
-      // - force_update_password: Force password change.
-      // - remind_update_password: Remind password change.
+      // The password expiration action. Valid values:
+      // - forbid_login: Prohibits logon.
+      // - force_update_password: Forces a password change.
+      // - remind_update_password: Reminds the user to change the password.
       shared_ptr<string> passwordExpirationAction_ {};
       // The list of password expiration notification channels.
       shared_ptr<vector<string>> passwordExpirationNotificationChannels_ {};
-      // The advance notice period before password expiration. Unit: days.
+      // The password expiration notification period, in days.
       shared_ptr<int32_t> passwordExpirationNotificationDuration_ {};
-      // The status of password expiration notification. Valid values:
-      // 
+      // The password expiration notification status. Valid values:
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> passwordExpirationNotificationStatus_ {};
-      // The status of the password expiration configuration. Valid values:
-      // 
+      // The password expiration status. Valid values:
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> passwordExpirationStatus_ {};
-      // The grace period for forced password change after expiration. Unit: days.
+      // The forced password change period, in days.
       shared_ptr<int32_t> passwordForcedUpdateDuration_ {};
-      // The maximum validity period of a password. Unit: days.
+      // The password validity period, in days.
       shared_ptr<int32_t> passwordValidMaxDay_ {};
     };
 

@@ -130,9 +130,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of rows per page in a paged query.
+    // The number of entries per page for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. Set this parameter to the NextToken value returned in the previous API call.
+    // The query token for the next page. Set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     // The account ID.
     // 

@@ -76,13 +76,12 @@ namespace Models
 
 
     protected:
-      // The filter field name. Valid values:
-      // 
-      // - CloudAccountId: the cloud account ID.
+      // The name of the filter field. Valid values:
+      // - CloudAccountId: the ID of the cloud account.
       // - CloudAccountExternalId: the external unique identifier of the cloud account.
-      // - CloudAccountVendorType: the cloud account type.
+      // - CloudAccountVendorType: the type of the cloud account.
       shared_ptr<string> name_ {};
-      // The list of filter field values.
+      // The list of values for the filter field.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -125,15 +124,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of records per page.
-    // 
+    // The maximum number of entries per page.
     // - If this parameter is not specified, the default value is 20.
-    // 
     // - The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that identifies the start position of the next page.
-    // 
-    // - If this parameter is not specified, the query starts from the first page.
+    // The token that specifies the starting position of the next page.
+    // - If this parameter is not specified, the query starts from the first page by default.
     shared_ptr<string> nextToken_ {};
   };
 

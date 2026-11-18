@@ -103,14 +103,11 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The maximum number of results per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token.
+    // The next token.
     shared_ptr<string> nextToken_ {};
     // The origin filter.
     shared_ptr<string> origin_ {};
-    // The status filter. Valid values:
-    // 
-    // - Enabled: Enabled.
-    // - Disabled: Disabled.
+    // The status filter.
     shared_ptr<string> status_ {};
     // The name filter.
     shared_ptr<string> trustOriginName_ {};

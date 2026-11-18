@@ -116,9 +116,9 @@ namespace Models
       shared_ptr<string> applicationId_ {};
       // The application role ID.
       shared_ptr<string> applicationRoleId_ {};
-      // The name of the application role.
+      // The application role name.
       shared_ptr<string> applicationRoleName_ {};
-      // The value of the application role.
+      // The application role value.
       shared_ptr<string> applicationRoleValue_ {};
       // The description of the application role.
       shared_ptr<string> description_ {};
@@ -168,13 +168,13 @@ namespace Models
   protected:
     // The list of application roles.
     shared_ptr<vector<ListApplicationRolesResponseBody::ApplicationRoles>> applicationRoles_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page for paging in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to start the next query.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

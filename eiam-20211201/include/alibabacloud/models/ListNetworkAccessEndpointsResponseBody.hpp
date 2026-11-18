@@ -163,7 +163,7 @@ namespace Models
         shared_ptr<vector<string>> backupEgressPublicIpAddresses_ {};
         // The ID of the security group for the backup network access endpoint.
         shared_ptr<string> backupSecurityGroupId_ {};
-        // The IDs of the vSwitches for the backup network access endpoint.
+        // The vSwitches for the backup network access endpoint.
         shared_ptr<vector<string>> backupVSwitchIds_ {};
         // The ID of the VPC for the backup network access endpoint.
         shared_ptr<string> backupVpcId_ {};
@@ -266,31 +266,31 @@ namespace Models
     protected:
       // The VPC configurations of the backup network access endpoint.
       shared_ptr<NetworkAccessEndpoints::BackupVpcEndpoint> backupVpcEndpoint_ {};
-      // The time when the network access endpoint was created. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
+      // The time when the network access endpoint was created. The time is displayed as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The ID of the network access endpoint.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // The name of the network access endpoint, such as the xx business VPC access endpoint.
+      // The name of the network access endpoint, such as xx business VPC access endpoint.
       shared_ptr<string> networkAccessEndpointName_ {};
       // The type of the network access endpoint. Valid values:
       // 
-      // - shared: shared network access endpoint.
-      // - private: private network access endpoint.
+      // - shared: shared network access endpoint
+      // - private: private network access endpoint
       shared_ptr<string> networkAccessEndpointType_ {};
       // The ID of the security group used by the private network access endpoint.
       shared_ptr<string> securityGroupId_ {};
       // The status of the network access endpoint. Valid values:
       //  
-      // - pending: pending initialization.
-      // - creating: being created.
-      // - running: running.
-      // - deleting: being deleted.
+      // - pending: pending initialization
+      // - creating: being created
+      // - running: running
+      // - deleting: being deleted
       shared_ptr<string> status_ {};
-      // The time when the network access endpoint was last updated. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
+      // The time when the network access endpoint was last updated. The time is displayed as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The IDs of the vSwitches to which the private network access endpoint is connected.
+      // The vSwitches to which the private network access endpoint is connected.
       shared_ptr<vector<string>> vSwitchIds_ {};
       // The ID of the VPC to which the private network access endpoint is connected.
       shared_ptr<string> vpcId_ {};
@@ -335,7 +335,7 @@ namespace Models
     shared_ptr<vector<ListNetworkAccessEndpointsResponseBody::NetworkAccessEndpoints>> networkAccessEndpoints_ {};
     // The pagination token returned for the current call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};

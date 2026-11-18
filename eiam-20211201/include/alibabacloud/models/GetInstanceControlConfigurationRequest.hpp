@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The name of the instance control item.
+    // The name of the instance control element.
     shared_ptr<string> elementName_ {};
     // The instance ID.
     // 

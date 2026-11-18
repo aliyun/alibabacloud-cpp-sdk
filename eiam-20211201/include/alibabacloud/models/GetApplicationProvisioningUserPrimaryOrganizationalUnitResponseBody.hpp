@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The user primary organizational unit for application synchronization.
+    // The primary organizational unit of the user for application synchronization.
     shared_ptr<string> userPrimaryOrganizationalUnitId_ {};
   };
 

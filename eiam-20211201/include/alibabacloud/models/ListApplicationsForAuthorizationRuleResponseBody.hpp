@@ -194,9 +194,9 @@ namespace Models
   protected:
     // The list of applications.
     shared_ptr<vector<ListApplicationsForAuthorizationRuleResponseBody::Applications>> applications_ {};
-    // The number of entries per page in a paging query.
+    // The maximum number of entries per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned in the response, which is used to query the next page.
+    // The token returned in the current response for querying the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

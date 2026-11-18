@@ -88,7 +88,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cloudAccountId_ {};
-    // The resource entity type used for filtering. Valid values: ram_policy.
+    // Filters results by resource entity type. Valid values: ram_policy.
     shared_ptr<string> cloudAccountResourceEntityType_ {};
     // The ID of the permission template.
     // 
@@ -98,9 +98,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries per page in a paging query. Default value: 20. Maximum value: 100.
+    // The number of entries to return per page in a paging query. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The query token. Set the value to the NextToken value returned from the previous API call.
+    // The pagination token. Set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
   };
 

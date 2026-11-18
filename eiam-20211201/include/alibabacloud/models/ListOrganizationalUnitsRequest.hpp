@@ -101,15 +101,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The list of organizational unit IDs. The number of IDs in the list cannot exceed 100.
+    // The IDs of the organizational units. You can specify up to 100 IDs.
     shared_ptr<vector<string>> organizationalUnitIds_ {};
-    // The name of the organizational unit. An exact match is used for the query.
+    // The name of the organizational unit. The query uses exact match.
     shared_ptr<string> organizationalUnitName_ {};
-    // The prefix of the name of the organizational unit. A left-side match is used for the query.
+    // The prefix of the organizational unit name. The query uses prefix match.
     shared_ptr<string> organizationalUnitNameStartsWith_ {};
-    // The page number of the page to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: 20. Maximum value: 100.
+    // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the parent organizational unit.
     shared_ptr<string> parentId_ {};

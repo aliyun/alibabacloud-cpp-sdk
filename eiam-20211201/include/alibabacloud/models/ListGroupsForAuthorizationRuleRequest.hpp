@@ -80,7 +80,7 @@ namespace Models
     protected:
       // The name of the filter field. Valid values:
       // 
-      // - GroupId: the group ID
+      // - GroupId: the group ID.
       shared_ptr<string> name_ {};
       // The list of filter field values.
       shared_ptr<vector<string>> value_ {};
@@ -136,15 +136,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of records to return per page.
+    // The maximum number of entries to return per page.
     // 
-    // - If this parameter is not specified, the default value is 20.
+    // - Default value: 20.
     // 
-    // - The maximum value is 100.
+    // - Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to identify the starting position of the next page.
+    // The token that indicates the starting position for the next page.
     // 
-    // - If this parameter is not specified, the query starts from the first page by default.
+    // - If this parameter is not specified, the query starts from the first page.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // AAGUID.
+      // AAGUID
       shared_ptr<string> aaguid_ {};
-      // AAGUID name.
+      // The AAGUID name.
       shared_ptr<string> name_ {};
     };
 
@@ -122,17 +122,17 @@ namespace Models
 
 
   protected:
-    // List of AAGUIDs and their names.
+    // The list of AAGUIDs and their names.
     shared_ptr<vector<SetWebAuthnConfigurationRequest::Aaguids>> aaguids_ {};
-    // Enable AAGUID verification.
+    // Specifies whether AAGUID verification is enabled.
     shared_ptr<bool> enableAaguidVerification_ {};
-    // Enable WebAuthn authenticator MDS verification.
+    // Specifies whether MDS verification is enabled for WebAuthn authenticators.
     shared_ptr<bool> enableMetadataServiceVerification_ {};
-    // Allow user self-registration of WebAuthn authenticators.
+    // Specifies whether users are allowed to self-register WebAuthn authenticators.
     // 
     // This parameter is required.
     shared_ptr<bool> enableUserSelfRegistration_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

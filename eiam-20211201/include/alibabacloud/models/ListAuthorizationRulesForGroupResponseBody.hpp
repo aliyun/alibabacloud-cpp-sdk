@@ -101,9 +101,9 @@ namespace Models
 
 
       protected:
-        // The end time when the authorization expires. The value is a UNIX timestamp in milliseconds.
+        // The end time of the validity period. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> endTime_ {};
-        // The start time when the authorization takes effect. The value is a UNIX timestamp in milliseconds.
+        // The start time of the validity period. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -194,9 +194,9 @@ namespace Models
   protected:
     // The list of authorization rules.
     shared_ptr<vector<ListAuthorizationRulesForGroupResponseBody::AuthorizationRules>> authorizationRules_ {};
-    // The number of entries per page for paging.
+    // The maximum number of entries per page for paging in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by the current call for the next query.
+    // The token returned in the current response, which is used to query the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

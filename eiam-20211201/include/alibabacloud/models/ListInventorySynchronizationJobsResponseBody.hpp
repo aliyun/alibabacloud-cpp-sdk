@@ -424,13 +424,13 @@ namespace Models
 
 
         protected:
-          // The statistics of the creation result.
+          // The statistics on the creation results.
           shared_ptr<AssetStatistics::Created> created_ {};
-          // The statistics of the deletion result.
+          // The statistics on the deletion results.
           shared_ptr<AssetStatistics::Deleted> deleted_ {};
-          // The statistics of unchanged items.
+          // The statistics on the unchanged results.
           shared_ptr<AssetStatistics::Same> same_ {};
-          // The statistics of the update result.
+          // The statistics on the update results.
           shared_ptr<AssetStatistics::Updated> updated_ {};
         };
 
@@ -762,13 +762,13 @@ namespace Models
 
 
         protected:
-          // The statistics of the creation result.
+          // The statistics on the creation results.
           shared_ptr<AgentStatistics::Created> created_ {};
-          // The statistics of the deletion result.
+          // The statistics on the deletion results.
           shared_ptr<AgentStatistics::Deleted> deleted_ {};
-          // The statistics of unchanged items.
+          // The statistics on the unchanged results.
           shared_ptr<AgentStatistics::Same> same_ {};
-          // The statistics of the update result.
+          // The statistics on the update results.
           shared_ptr<AgentStatistics::Updated> updated_ {};
         };
 
@@ -807,9 +807,9 @@ namespace Models
 
 
       protected:
-        // The statistics of the agent synchronization result.
+        // The statistics on the agent synchronization results.
         shared_ptr<Result::AgentStatistics> agentStatistics_ {};
-        // The statistics of the asset synchronization result.
+        // The statistics on the asset synchronization results.
         shared_ptr<Result::AssetStatistics> assetStatistics_ {};
         // The error code of the synchronization result.
         shared_ptr<string> errorCode_ {};
@@ -881,7 +881,7 @@ namespace Models
     protected:
       // The description of the synchronization job.
       shared_ptr<string> description_ {};
-      // The end time of the synchronization job.
+      // The end time of the synchronization. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> endTime_ {};
       // The IDs of the synchronization targets.
       shared_ptr<string> inventorySourceId_ {};
@@ -889,11 +889,11 @@ namespace Models
       shared_ptr<string> inventorySynchronizationJobId_ {};
       // The task result of the synchronization node.
       shared_ptr<InventorySynchronizationJobs::Result> result_ {};
-      // The start time of the synchronization job.
+      // The start time of the synchronization. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> startTime_ {};
       // The status of the synchronization job.
       shared_ptr<string> status_ {};
-      // The trigger type of the synchronization job.
+      // The trigger type of the synchronization.
       shared_ptr<string> triggerType_ {};
     };
 
@@ -937,15 +937,15 @@ namespace Models
 
 
   protected:
-    // The inventory synchronization jobs.
+    // The synchronization jobs.
     shared_ptr<vector<ListInventorySynchronizationJobsResponseBody::InventorySynchronizationJobs>> inventorySynchronizationJobs_ {};
     // The maximum number of returned results.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by the current call for subsequent paged queries.
+    // The pagination token returned by the current call for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of items.
     shared_ptr<int32_t> totalCount_ {};
   };
 

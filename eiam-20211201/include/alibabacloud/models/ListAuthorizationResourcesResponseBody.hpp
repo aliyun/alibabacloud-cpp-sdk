@@ -120,7 +120,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether same-name identity accounts are supported.
+          // Specifies whether identity accounts with the same name are supported.
           shared_ptr<bool> allowSameNameIdentity_ {};
         };
 
@@ -135,7 +135,7 @@ namespace Models
 
 
       protected:
-        // The effective condition when used as a credential.
+        // The effective conditions when the authorization resource is used as a credential.
         shared_ptr<Condition::CredentialCondition> credentialCondition_ {};
       };
 
@@ -211,13 +211,14 @@ namespace Models
       // The ID of the resource entity associated with the authorization resource.
       shared_ptr<string> authorizationResourceEntityId_ {};
       // The type of the resource entity associated with the authorization resource. Valid values:
-      // - cloud_account_role: cloud role.
+      // 
+      // - cloud_account_role: cloud role
       shared_ptr<string> authorizationResourceEntityType_ {};
       // The authorization resource ID.
       shared_ptr<string> authorizationResourceId_ {};
       // The authorization rule ID.
       shared_ptr<string> authorizationRuleId_ {};
-      // The ID of the cloud account to which the resource entity associated with the authorization resource belongs.
+      // The ID of the Alibaba Cloud account to which the resource entity associated with the authorization resource belongs.
       shared_ptr<string> cloudAccountId_ {};
       // The effective conditions.
       shared_ptr<AuthorizationResources::Condition> condition_ {};
@@ -271,9 +272,9 @@ namespace Models
   protected:
     // The list of authorization resources.
     shared_ptr<vector<ListAuthorizationResourcesResponseBody::AuthorizationResources>> authorizationResources_ {};
-    // The maximum number of entries returned per page for paging in a paged query.
+    // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned in the current response for the next paged query.
+    // The next token returned in the current response for the next paged query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

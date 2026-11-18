@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud account.
+    // The cloud account ID.
     // 
     // This parameter is required.
     shared_ptr<string> cloudAccountId_ {};
-    // The ID of the permission template.
+    // The permission template ID.
     // 
     // This parameter is required.
     shared_ptr<string> cloudPermissionTemplateId_ {};

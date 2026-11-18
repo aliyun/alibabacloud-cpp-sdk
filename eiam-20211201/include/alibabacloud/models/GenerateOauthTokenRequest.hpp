@@ -122,7 +122,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The requested token type.
     shared_ptr<string> requestedTokenType_ {};
-    // The permission scope.
+    // The permission scopes.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> scopeValues_ {};

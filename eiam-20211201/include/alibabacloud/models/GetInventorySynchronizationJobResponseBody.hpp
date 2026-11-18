@@ -417,13 +417,13 @@ namespace Models
 
 
         protected:
-          // The creation statistics.
+          // The creation result statistics.
           shared_ptr<AssetStatistics::Created> created_ {};
-          // The deletion statistics.
+          // The deletion result statistics.
           shared_ptr<AssetStatistics::Deleted> deleted_ {};
-          // The statistics of unchanged assets.
+          // The unchanged result statistics.
           shared_ptr<AssetStatistics::Same> same_ {};
-          // The update statistics.
+          // The update result statistics.
           shared_ptr<AssetStatistics::Updated> updated_ {};
         };
 
@@ -755,13 +755,13 @@ namespace Models
 
 
         protected:
-          // The creation statistics.
+          // The creation result statistics.
           shared_ptr<AgentStatistics::Created> created_ {};
-          // The deletion statistics.
+          // The deletion result statistics.
           shared_ptr<AgentStatistics::Deleted> deleted_ {};
-          // The statistics of unchanged assets.
+          // The unchanged result statistics.
           shared_ptr<AgentStatistics::Same> same_ {};
-          // The update statistics.
+          // The update result statistics.
           shared_ptr<AgentStatistics::Updated> updated_ {};
         };
 
@@ -800,9 +800,9 @@ namespace Models
 
 
       protected:
-        // The agent synchronization statistics.
+        // The agent synchronization result statistics.
         shared_ptr<Result::AgentStatistics> agentStatistics_ {};
-        // The asset synchronization statistics.
+        // The asset synchronization result statistics.
         shared_ptr<Result::AssetStatistics> assetStatistics_ {};
         // The error code of the synchronization result.
         shared_ptr<string> errorCode_ {};
@@ -872,9 +872,9 @@ namespace Models
 
 
     protected:
-      // The description.
+      // The synchronization job description.
       shared_ptr<string> description_ {};
-      // The end time.
+      // The synchronization end time. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> endTime_ {};
       // The inventory source ID.
       shared_ptr<string> inventorySourceId_ {};
@@ -882,11 +882,11 @@ namespace Models
       shared_ptr<string> inventorySynchronizationJobId_ {};
       // The synchronization node task result.
       shared_ptr<InventorySynchronizationJob::Result> result_ {};
-      // The start time.
+      // The synchronization start time. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> startTime_ {};
-      // The status.
+      // The synchronization job status.
       shared_ptr<string> status_ {};
-      // The trigger type.
+      // The synchronization trigger type.
       shared_ptr<string> triggerType_ {};
     };
 

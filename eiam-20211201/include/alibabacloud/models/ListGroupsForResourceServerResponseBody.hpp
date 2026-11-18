@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // The ID of the scope.
+        // The scope ID.
         shared_ptr<string> resourceServerScopeId_ {};
-        // The name of the scope.
+        // The scope name.
         shared_ptr<string> resourceServerScopeName_ {};
       };
 
@@ -131,9 +131,9 @@ namespace Models
 
 
     protected:
-      // The ID of the group.
+      // The group ID.
       shared_ptr<string> groupId_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The list of authorized scopes.
       shared_ptr<vector<Groups::ResourceServerScopes>> resourceServerScopes_ {};
@@ -181,13 +181,13 @@ namespace Models
   protected:
     // The list of groups.
     shared_ptr<vector<ListGroupsForResourceServerResponseBody::Groups>> groups_ {};
-    // The number of entries returned on the current page.
+    // The number of entries returned per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. A null or empty value indicates that all results have been returned.
+    // The next token.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that meet the filter criteria.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the credential provider.
+    // The credential provider ID.
     // 
     // This parameter is required.
     shared_ptr<string> credentialProviderId_ {};
-    // A description of the credential provider.
+    // The description.
     // 
-    // > The description can be up to 128 characters long.
+    // > The length cannot exceed 128 characters.
     shared_ptr<string> description_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

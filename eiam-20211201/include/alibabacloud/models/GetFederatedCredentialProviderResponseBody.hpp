@@ -193,9 +193,9 @@ namespace Models
         protected:
           // The certificate metadata.
           shared_ptr<Certificates::CertificateMetadata> certificateMetadata_ {};
-          // The root certificate content.
+          // The content of the root certificate.
           shared_ptr<string> content_ {};
-          // The root certificate fingerprint.
+          // The fingerprint of the root certificate.
           shared_ptr<string> fingerprint_ {};
         };
 
@@ -227,9 +227,9 @@ namespace Models
       protected:
         // The root certificate.
         shared_ptr<vector<PrivateCaProviderConfig::Certificates>> certificates_ {};
-        // The method used to retrieve the root certificate.
+        // The method to obtain the root certificate.
         shared_ptr<string> trustAnchorSource_ {};
-        // The trust condition of the root certificate.
+        // The trust conditions for the root certificate.
         shared_ptr<string> trustCondition_ {};
       };
 
@@ -357,9 +357,9 @@ namespace Models
         protected:
           // The certificate metadata.
           shared_ptr<Certificates::CertificateMetadata> certificateMetadata_ {};
-          // The root certificate content.
+          // The content of the root certificate.
           shared_ptr<string> content_ {};
-          // The root certificate fingerprint.
+          // The fingerprint of the root certificate.
           shared_ptr<string> fingerprint_ {};
         };
 
@@ -410,15 +410,15 @@ namespace Models
 
 
       protected:
-        // The PKCS7 certificate list.
+        // The list of PKCS7 certificates.
         shared_ptr<vector<Pkcs7ProviderConfig::Certificates>> certificates_ {};
         // The CMS verification mode.
         shared_ptr<string> cmsVerificationMode_ {};
-        // The signature effective time. The value indicates the duration for which the signature is valid. Unit: seconds.
+        // The signature validity period. The value indicates the validity duration of the signature in seconds.
         shared_ptr<int64_t> signatureEffectiveTime_ {};
         // The signing time.
         shared_ptr<string> signingTimeValueExpression_ {};
-        // The certificate trust anchor source.
+        // The source of the certificate trust anchor.
         shared_ptr<string> trustAnchorSource_ {};
         // The trust condition.
         shared_ptr<string> trustCondition_ {};
@@ -519,11 +519,11 @@ namespace Models
 
 
       protected:
-        // The audience list of the OIDC credential.
+        // The list of audiences for the OIDC credential.
         shared_ptr<vector<string>> audiences_ {};
         // The dynamically obtained JWKS.
         shared_ptr<string> dynamicJwks_ {};
-        // The token issuer identifier (Issuer).
+        // The issuer identifier of the token.
         shared_ptr<string> issuer_ {};
         // The time when the JWKS was last obtained. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> jwksLastObtainedTime_ {};
@@ -565,7 +565,7 @@ namespace Models
 
 
       protected:
-        // The identity provider ID.
+        // The ID of the identity provider.
         shared_ptr<string> identityProviderId_ {};
       };
 
@@ -679,7 +679,7 @@ namespace Models
       shared_ptr<int64_t> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The federated trust source ID.
+      // The ID of the federated trust source.
       shared_ptr<string> federatedCredentialProviderId_ {};
       // The name of the federated credential provider.
       shared_ptr<string> federatedCredentialProviderName_ {};

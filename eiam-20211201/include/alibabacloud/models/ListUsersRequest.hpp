@@ -179,7 +179,7 @@ namespace Models
 
 
   protected:
-    // The prefix of the display name. A left-match query is performed.
+    // The display name prefix for a left-match query.
     shared_ptr<string> displayNameStartsWith_ {};
     // The email address of the account.
     shared_ptr<string> email_ {};
@@ -187,7 +187,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries per page for a paging query.
+    // The number of entries per page for paging.
     shared_ptr<int32_t> maxResults_ {};
     // The query token.
     shared_ptr<string> nextToken_ {};
@@ -197,13 +197,13 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The phone number of the account.
+    // The mobile phone number of the account.
     shared_ptr<string> phoneNumber_ {};
-    // The phone region code. Example: 86 for the Chinese mainland, without 00 or +.
+    // The region code of the mobile phone number. Example: 86 for the Chinese mainland, without 00 or +.
     shared_ptr<string> phoneRegion_ {};
     // The status of the account. Valid values:
-    // - enabled: Enabled.
-    // - disabled: Disabled.
+    // - enabled: enabled.
+    // - disabled: disabled.
     shared_ptr<string> status_ {};
     // The external ID, which is used to map external data to IDaaS accounts.
     // 
@@ -213,16 +213,16 @@ namespace Models
     shared_ptr<vector<string>> userIds_ {};
     // The source ID of the account.
     // 
-    // For the build-in type, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the source. For example, for the DingTalk source, the value is the corpId of the DingTalk enterprise.
+    // For the built-in type, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the source. For example, the DingTalk source corresponds to the corpId of the DingTalk enterprise.
     shared_ptr<string> userSourceId_ {};
     // The source type of the account. Valid values:
-    // - build_in: Built-in.
-    // - ding_talk: Imported from DingTalk.
-    // - ad: Imported from AD.
-    // - ldap: Imported from LDAP.
-    // - we_com: Imported from WeCom.
+    // - build_in: built-in.
+    // - ding_talk: imported from DingTalk.
+    // - ad: imported from AD.
+    // - ldap: imported from LDAP.
+    // - we_com: imported from WeCom.
     shared_ptr<string> userSourceType_ {};
-    // The prefix of the username. A left-match query is performed.
+    // The username prefix for a left-match query.
     shared_ptr<string> usernameStartsWith_ {};
   };
 

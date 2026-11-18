@@ -124,13 +124,13 @@ namespace Models
 
 
   protected:
-    // The IdPs under the network access endpoint.
+    // The collection of identity providers (IdPs) for the network access endpoint.
     shared_ptr<vector<ListIdentityProvidersForNetworkAccessEndpointResponseBody::IdentityProvidersForNetworkAccessEndpoint>> identityProvidersForNetworkAccessEndpoint_ {};
-    // The pagination token returned by this call.
+    // The next token returned in the response.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of results.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -133,9 +133,9 @@ namespace Models
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The IPv4 CIDR blocks of the network zone.
+      // The IPv4 network zone.
       shared_ptr<vector<string>> ipv4Cidrs_ {};
-      // The IPv6 CIDR blocks of the network zone.
+      // The IPv6 network zone.
       shared_ptr<vector<string>> ipv6Cidrs_ {};
       // The network zone ID.
       shared_ptr<string> networkZoneId_ {};

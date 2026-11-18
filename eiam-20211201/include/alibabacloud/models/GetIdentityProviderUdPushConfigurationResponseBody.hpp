@@ -103,9 +103,9 @@ namespace Models
 
 
       protected:
-        // Source nodes for synchronization
+        // The source synchronization node.
         shared_ptr<vector<string>> sourceScopes_ {};
-        // Target node for synchronization
+        // The target synchronization node.
         shared_ptr<string> targetScope_ {};
       };
 
@@ -158,11 +158,11 @@ namespace Models
 
 
       protected:
-        // Cron expression
+        // The cron expression.
         shared_ptr<string> periodicSyncCron_ {};
-        // Collection of time points
+        // The collection of time points.
         shared_ptr<vector<string>> periodicSyncTimes_ {};
-        // Type
+        // The type.
         shared_ptr<string> periodicSyncType_ {};
       };
 
@@ -231,15 +231,15 @@ namespace Models
 
 
       protected:
-        // Organization ObjectClass
+        // The organization object class.
         shared_ptr<string> organizationUnitObjectClass_ {};
-        // Organization RDN
+        // The organization RDN.
         shared_ptr<string> organizationalUnitRdn_ {};
-        // Password synchronization status
+        // Specifies whether to synchronize passwords.
         shared_ptr<string> passwordSyncStatus_ {};
-        // User ObjectClass
+        // The user object class.
         shared_ptr<string> userObjectClass_ {};
-        // User RDN
+        // The user RDN.
         shared_ptr<string> userRdn_ {};
       };
 
@@ -302,19 +302,19 @@ namespace Models
 
 
     protected:
-      // Identity provider ID
+      // The identity provider ID.
       shared_ptr<string> identityProviderId_ {};
-      // Incremental callback status. Indicates whether incremental callback data from the IdP is processed.
+      // Indicates whether to process incremental callback data from the IdP.
       shared_ptr<string> incrementalCallbackStatus_ {};
-      // Instance ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // LDAP synchronization-side configuration
+      // The LDAP synchronization configuration information.
       shared_ptr<UdPushConfiguration::LdapUdPushConfig> ldapUdPushConfig_ {};
-      // Periodic verification configuration
+      // The periodic verification configuration.
       shared_ptr<UdPushConfiguration::PeriodicSyncConfig> periodicSyncConfig_ {};
-      // Periodic verification status
+      // The periodic verification status.
       shared_ptr<string> periodicSyncStatus_ {};
-      // Outbound synchronization configuration details
+      // The outbound synchronization configuration information.
       shared_ptr<vector<UdPushConfiguration::UdSyncScopeConfigs>> udSyncScopeConfigs_ {};
     };
 
@@ -337,9 +337,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Outbound synchronization configuration
+    // The outbound synchronization configuration.
     shared_ptr<GetIdentityProviderUdPushConfigurationResponseBody::UdPushConfiguration> udPushConfiguration_ {};
   };
 

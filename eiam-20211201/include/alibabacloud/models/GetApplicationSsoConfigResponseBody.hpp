@@ -146,7 +146,7 @@ namespace Models
         protected:
           // The display name of the RelayState.
           shared_ptr<string> displayName_ {};
-          // The optional RelayState value. On the application card in the application portal, display names for multiple optional redirect URLs are shown. After a user clicks an option and completes SSO, the user is automatically redirected to the corresponding URL.
+          // The optional RelayState value. On the application card in the application portal, display names for multiple optional redirect URLs are shown. After the user clicks and completes SSO, they are automatically redirected to the corresponding URL.
           shared_ptr<string> relayState_ {};
         };
 
@@ -309,7 +309,7 @@ namespace Models
         shared_ptr<bool> assertionSigned_ {};
         // The additional user attribute configurations included in the SAML assertion.
         shared_ptr<vector<SamlSsoConfig::AttributeStatements>> attributeStatements_ {};
-        // The default RelayState value. When a user\\"s single sign-on (SSO) request is initiated by EIAM, the SAML response provided by EIAM sets the RelayState to this value.
+        // The default RelayState value. When a user\\"s single sign-on logon request is initiated by EIAM, the SAML response provided by EIAM specifies the RelayState as this value.
         shared_ptr<string> defaultRelayState_ {};
         // The entity ID that represents the identity provider (IdP) in the SAML protocol.
         shared_ptr<string> idPEntityId_ {};
@@ -321,7 +321,7 @@ namespace Models
         shared_ptr<string> nameIdFormat_ {};
         // The expression used to generate the actual value of the NameID for the SAML protocol.
         shared_ptr<string> nameIdValueExpression_ {};
-        // The optional RelayState values. On the application card in the application portal, display names for multiple optional redirect URLs are shown. After a user clicks an option and completes SSO, the user is automatically redirected to the corresponding URL. You must specify a default redirect URL before you can specify optional redirect URLs.
+        // The optional RelayState values. On the application card in the application portal, display names for multiple optional redirect URLs are shown. After the user clicks and completes SSO, they are automatically redirected to the corresponding URL. You must specify a default redirect URL before specifying optional ones.
         shared_ptr<vector<SamlSsoConfig::OptionalRelayStates>> optionalRelayStates_ {};
         // The current status of the SSO signature verification switch.
         shared_ptr<bool> requireAuthnRequestSigned_ {};
@@ -331,13 +331,13 @@ namespace Models
         shared_ptr<bool> responseSigned_ {};
         // The signature algorithm for the SAML assertion.
         shared_ptr<string> signatureAlgorithm_ {};
-        // The SAML entity ID of the application, which acts as the SP.
+        // The SAML entity ID of the application (service provider).
         shared_ptr<string> spEntityId_ {};
         // The array of configured SP signature verification certificates in PEM format. A maximum of two certificates can be returned for the console or API caller to read and display.
         shared_ptr<vector<string>> spSigningCertificates_ {};
-        // The configured single logout (SLO) response URL of the SP.
+        // The configured single logout (SLO) response URL for the service provider.
         shared_ptr<string> spSloResponseUrl_ {};
-        // The SAML assertion consumer service (ACS) URL of the application, which acts as the service provider (SP).
+        // The SAML assertion consumer service (ACS) URL of the application (service provider).
         shared_ptr<string> spSsoAcsUrl_ {};
       };
 
@@ -461,27 +461,27 @@ namespace Models
 
 
       protected:
-        // The OAuth 2.0 authorization endpoint. Returned only when the application SSO protocol is OIDC.
+        // The OAuth 2.0 authorization endpoint. This parameter is returned only when the SSO protocol of the application is OIDC.
         shared_ptr<string> oauth2AuthorizationEndpoint_ {};
-        // The OAuth 2.0 device authorization endpoint. Returned only when the application SSO protocol is OIDC.
+        // The OAuth 2.0 device authorization endpoint. This parameter is returned only when the SSO protocol of the application is OIDC.
         shared_ptr<string> oauth2DeviceAuthorizationEndpoint_ {};
-        // The OAuth 2.0 token revocation endpoint. Returned only when the application SSO protocol is OIDC.
+        // The OAuth 2.0 token revocation endpoint. This parameter is returned only when the SSO protocol of the application is OIDC.
         shared_ptr<string> oauth2RevokeEndpoint_ {};
-        // The OAuth 2.0 token endpoint. Returned only when the application SSO protocol is OIDC.
+        // The OAuth 2.0 token endpoint. This parameter is returned only when the SSO protocol of the application is OIDC.
         shared_ptr<string> oauth2TokenEndpoint_ {};
-        // The OIDC userinfo endpoint. Returned only when the application SSO protocol is OIDC.
+        // The OIDC userinfo endpoint. This parameter is returned only when the SSO protocol of the application is OIDC.
         shared_ptr<string> oauth2UserinfoEndpoint_ {};
-        // The OIDC issuer information. Returned only when the application SSO protocol is OIDC.
+        // The OIDC issuer information. This parameter is returned only when the SSO protocol of the application is OIDC.
         shared_ptr<string> oidcIssuer_ {};
-        // The OIDC JWKS URL. Returned only when the application SSO protocol is OIDC.
+        // The OIDC JSON Web Key Set (JWKS) URL. This parameter is returned only when the SSO protocol of the application is OIDC.
         shared_ptr<string> oidcJwksEndpoint_ {};
-        // The OIDC RP-initiated logout endpoint. Returned only when the application SSO protocol is OIDC.
+        // The OIDC RP-initiated logout endpoint. This parameter is returned only when the SSO protocol of the application is OIDC.
         shared_ptr<string> oidcLogoutEndpoint_ {};
-        // The metadata URL for the SAML protocol. Returned only when the application SSO protocol is SAML 2.0.
+        // The metadata URL for the SAML protocol. This parameter is returned only when the SSO protocol of the application is SAML 2.0.
         shared_ptr<string> samlMetaEndpoint_ {};
         // The SAML single logout (SLO) URL on the IdP side. The service provider (SP) redirects users to this URL to initiate single logout.
         shared_ptr<string> samlSloEndpoint_ {};
-        // The endpoint that accepts SAML AuthnRequest requests. Returned only when the application SSO protocol is SAML 2.0.
+        // The endpoint that receives SAML AuthnRequest requests. This parameter is returned only when the SSO protocol of the application is SAML 2.0.
         shared_ptr<string> samlSsoEndpoint_ {};
       };
 
@@ -711,15 +711,15 @@ namespace Models
       protected:
         // The validity period of the issued access token, in seconds. Default value: 1200 (20 minutes).
         shared_ptr<int64_t> accessTokenEffectiveTime_ {};
-        // Specifies whether the application is allowed to act as a public client to request the IDaaS EIAM authorization server. This is supported only when the authorization code mode and device mode are enabled. Default value: false.
+        // Specifies whether the application is allowed to act as a public client when requesting the IDaaS EIAM authorization server. This is supported only when the authorization code mode and device authorization mode are enabled. Default value: false.
         shared_ptr<string> allowedPublicClient_ {};
         // The validity period of the issued code, in seconds. Default value: 60 (1 minute).
         shared_ptr<int64_t> codeEffectiveTime_ {};
         // The custom user information included in the returned ID token.
         shared_ptr<vector<OidcSsoConfig::CustomClaims>> customClaims_ {};
-        // The standard scope parameter for the OIDC protocol, which specifies the range of user attributes that the userinfo endpoint or ID token can return.
+        // The standard OIDC scope parameter. It specifies the range of user attributes that the userinfo endpoint or ID token can return.
         shared_ptr<vector<string>> grantScopes_ {};
-        // The list of supported OIDC protocol grant types.
+        // The list of supported OIDC grant types.
         shared_ptr<vector<string>> grantTypes_ {};
         // The validity period of the issued ID token, in seconds. Default value: 300 (5 minutes).
         shared_ptr<int64_t> idTokenEffectiveTime_ {};
@@ -794,21 +794,21 @@ namespace Models
 
 
     protected:
-      // The initial single sign-on (SSO) method. Valid values:
-      // - only_app_init_sso: SSO is initiated only by the application. This is the default value for OIDC applications. If this method is specified for a SAML application, InitLoginUrl must be specified.
-      // - idaas_or_app_init_sso: SSO can be initiated by the IDaaS portal or the application. This is the default value for SAML applications. If this method is specified for an OIDC application, InitLoginUrl must be specified.
+      // The initial single sign-on (SSO) logon method. Valid values:
+      // - only_app_init_sso: SSO is initiated only by the application. This is the default value for applications using the OIDC protocol. If this value is specified for a SAML application, InitLoginUrl must be specified.
+      // - idaas_or_app_init_sso: SSO can be initiated by the IDaaS portal or the application. This is the default value for applications using the SAML protocol. If this value is specified for an application using the OIDC protocol, InitLoginUrl must be specified.
       shared_ptr<string> initLoginType_ {};
-      // The URL used to initiate single sign-on (SSO). This parameter is required when the InitLoginType of an OIDC application is set to idaas_or_app_init_sso, or when the InitLoginType of a SAML application is set to only_app_init_sso.
+      // The trigger URL for the initial single sign-on (SSO) logon. This parameter is required when the InitLoginType of an application using the OIDC protocol is set to idaas_or_app_init_sso, or when the InitLoginType of an application using the SAML protocol is set to only_app_init_sso.
       shared_ptr<string> initLoginUrl_ {};
-      // The application SSO attribute configuration parameters for the OpenID Connect (OIDC) protocol. This parameter is returned only when the application SSO protocol is OIDC.
+      // The SSO attribute configuration parameters for the OIDC protocol. Returned only when the application SSO protocol is OIDC.
       shared_ptr<ApplicationSsoConfig::OidcSsoConfig> oidcSsoConfig_ {};
       // The metadata endpoint configuration provided by the application.
       shared_ptr<ApplicationSsoConfig::ProtocolEndpointDomain> protocolEndpointDomain_ {};
-      // The application SSO attribute configuration parameters for the SAML protocol. This parameter is returned only when the application SSO protocol is SAML 2.0.
+      // The SSO attribute configuration parameters for the SAML protocol. Returned only when the application SSO protocol is SAML 2.0.
       shared_ptr<ApplicationSsoConfig::SamlSsoConfig> samlSsoConfig_ {};
-      // The enabling status of the application SSO feature. Valid values:
-      // - enabled: Enabled.
-      // - disabled: Disabled.
+      // The status of the SSO feature for the application. Valid values:
+      // - enabled: The feature is enabled.
+      // - disabled: The feature is disabled.
       shared_ptr<string> ssoStatus_ {};
     };
 

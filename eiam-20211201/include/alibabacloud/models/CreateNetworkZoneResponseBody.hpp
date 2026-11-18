@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Network zone ID.
+    // The network zone ID.
     shared_ptr<string> networkZoneId_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

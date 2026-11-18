@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the permission template.
+    // The permission template ID.
     shared_ptr<string> cloudPermissionTemplateId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -195,11 +195,11 @@ namespace Models
 
 
         protected:
-          // The K8s namespace.
+          // The Kubernetes namespace.
           shared_ptr<string> namespace_ {};
           // The pod name prefix.
           shared_ptr<string> podNamePrefix_ {};
-          // The name of the K8s service account.
+          // The name of the Kubernetes service account.
           shared_ptr<string> serviceAccountName_ {};
         };
 
@@ -619,15 +619,15 @@ namespace Models
   protected:
     // The list of application federated credentials.
     shared_ptr<vector<ListApplicationFederatedCredentialsForProviderResponseBody::ApplicationFederatedCredentials>> applicationFederatedCredentials_ {};
-    // The maximum number of rows per page in a paging query.
+    // The number of entries per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by the current call.
+    // The query token returned by the current call.
     shared_ptr<string> nextToken_ {};
-    // The pagination token returned by the current call.
+    // The query token returned by the current call.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of items.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The authorized resource ID.
+    // The authorization resource ID.
     // 
     // This parameter is required.
     shared_ptr<string> authorizationResourceId_ {};

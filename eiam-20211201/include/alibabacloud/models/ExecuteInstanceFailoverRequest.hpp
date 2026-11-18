@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The failover status. Valid values:
-    // - inactive: The primary instance is active.
-    // - active: The replica instance is active.
+    // The failover status.
     // 
     // This parameter is required.
     shared_ptr<string> instanceFailoverStatus_ {};

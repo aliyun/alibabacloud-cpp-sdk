@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The synchronization task ID.
+    // The synchronization job ID.
     // 
     // This parameter is required.
     shared_ptr<string> synchronizationJobId_ {};

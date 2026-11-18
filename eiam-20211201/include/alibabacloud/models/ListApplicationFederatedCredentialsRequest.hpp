@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The type of the application federated credential provider.
+    // The application federated credential provider type.
     shared_ptr<string> applicationFederatedCredentialType_ {};
     // The application ID.
     // 
@@ -94,11 +94,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of rows per page in a paged query.
+    // The number of entries per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page.
+    // The next token.
     shared_ptr<string> nextToken_ {};
-    // The pagination token for the previous page.
+    // The previous token.
     shared_ptr<string> previousToken_ {};
   };
 

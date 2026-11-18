@@ -94,7 +94,7 @@ namespace Models
     protected:
       // The name of the dynamic parameter.
       shared_ptr<string> key_ {};
-      // The value of the dynamic parameter.
+      // The values of the dynamic parameter.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -205,13 +205,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries per page for a paged query. Maximum value: 100.
+    // The maximum number of entries per page during paging in a paged query. Maximum value: 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The token used to query the next page. If no more pages exist, this parameter is not returned.
+    // The token used to query the next page. If no next page exists, this parameter is not returned.
     shared_ptr<string> nextToken_ {};
     // The page number. Pages start from 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: 100.
+    // The page size. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
     // The start time of the synchronization. The time is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
@@ -229,7 +229,7 @@ namespace Models
     shared_ptr<string> status_ {};
     // The list of synchronization target IDs. Example: [idp_111XXXX,idp_222XXXX].
     shared_ptr<vector<string>> targetIds_ {};
-    // The type of the synchronization target. Valid values:
+    // The synchronization target type. Valid values:
     // 
     // - identity_provider: identity provider
     // 

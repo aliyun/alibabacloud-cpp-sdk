@@ -105,7 +105,7 @@ namespace Models
       protected:
         // The name of the custom privacy policy item.
         shared_ptr<string> customPrivacyPolicyItemName_ {};
-        // The endpoint of the custom privacy policy item.
+        // The URL of the custom privacy policy item.
         shared_ptr<string> customPrivacyPolicyItemUrl_ {};
       };
 
@@ -135,11 +135,11 @@ namespace Models
 
 
     protected:
-      // The items of the custom privacy policy.
+      // The custom privacy policy items.
       shared_ptr<vector<CustomPrivacyPolicyContents::CustomPrivacyPolicyItems>> customPrivacyPolicyItems_ {};
-      // The prompt for the custom privacy policy.
+      // The custom privacy policy tip.
       shared_ptr<string> customPrivacyPolicyTip_ {};
-      // The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
+      // The language code of the custom privacy policy. The value is obtained from the LanguageCode parameter returned by the ListLanguages operation.
       shared_ptr<string> languageCode_ {};
     };
 
@@ -198,7 +198,7 @@ namespace Models
 
 
   protected:
-    // A client token used to ensure the idempotence of the request. The client generates this value to make sure that it is unique among different requests. The value can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The details of the custom privacy policy content.
     shared_ptr<vector<CreateCustomPrivacyPolicyRequest::CustomPrivacyPolicyContents>> customPrivacyPolicyContents_ {};
@@ -206,7 +206,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> customPrivacyPolicyName_ {};
-    // The default language of the privacy policy.
+    // The default language code of the custom privacy policy.
     shared_ptr<string> defaultLanguageCode_ {};
     // The instance ID.
     // 
@@ -214,7 +214,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The status of the custom privacy policy.
     shared_ptr<string> status_ {};
-    // The consent type for the privacy policy.
+    // The user consent type.
     shared_ptr<string> userConsentType_ {};
   };
 

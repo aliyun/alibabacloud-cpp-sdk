@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The list of organizational unit IDs. You can specify up to 100 organizational unit IDs in a single request.
+    // The list of organizational unit IDs. You can specify up to 100 organizational unit IDs in a single operation.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> organizationalUnitIds_ {};

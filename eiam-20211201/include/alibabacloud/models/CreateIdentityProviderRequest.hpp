@@ -138,17 +138,17 @@ namespace Models
 
 
     protected:
-      // The agentId of the WeCom self-built application.
+      // The AgentId of the custom WeCom application.
       shared_ptr<string> agentId_ {};
       // The authorization callback domain.
       shared_ptr<string> authorizeCallbackDomain_ {};
       // The WeCom contacts secret.
       shared_ptr<string> contactSecret_ {};
-      // The corpId of the WeCom self-built application.
+      // The CorpId of the custom WeCom application.
       shared_ptr<string> corpId_ {};
-      // The corpSecret of the WeCom self-built application.
+      // The CorpSecret of the custom WeCom application.
       shared_ptr<string> corpSecret_ {};
-      // The trusted domain name.
+      // The trusted domain.
       shared_ptr<string> trustableDomain_ {};
     };
 
@@ -217,9 +217,9 @@ namespace Models
 
 
       protected:
-        // The list of source nodes for synchronization.
+        // The list of source synchronization nodes.
         shared_ptr<vector<string>> sourceScopes_ {};
-        // The target node for synchronization.
+        // The target synchronization node.
         shared_ptr<string> targetScope_ {};
       };
 
@@ -274,7 +274,7 @@ namespace Models
       protected:
         // The cron expression.
         shared_ptr<string> periodicSyncCron_ {};
-        // The collection of execution time points.
+        // The set of execution time points.
         shared_ptr<vector<int32_t>> periodicSyncTimes_ {};
         // The type.
         shared_ptr<string> periodicSyncType_ {};
@@ -315,11 +315,11 @@ namespace Models
 
 
     protected:
-      // The incremental callback status. This field is not yet enabled. Ignore this field.
+      // Specifies whether to process incremental callback data from the identity provider (IdP). This field is not enabled. Ignore this field.
       shared_ptr<string> incrementalCallbackStatus_ {};
       // The periodic verification configuration.
       shared_ptr<UdPushConfig::PeriodicSyncConfig> periodicSyncConfig_ {};
-      // The periodic verification status. This field is not yet enabled. Ignore this field.
+      // Specifies whether to periodically verify data differences between EIAM and the identity provider. This field is not enabled. Ignore this field.
       shared_ptr<string> periodicSyncStatus_ {};
       // The outbound synchronization configuration.
       shared_ptr<vector<UdPushConfig::UdSyncScopeConfigs>> udSyncScopeConfigs_ {};
@@ -392,9 +392,9 @@ namespace Models
 
 
       protected:
-        // The list of source nodes for synchronization.
+        // The list of source synchronization nodes.
         shared_ptr<vector<string>> sourceScopes_ {};
-        // The target node for synchronization. Set this parameter to an IDaaS organization ID.
+        // The target synchronization node. Enter the IDaaS organization ID.
         shared_ptr<string> targetScope_ {};
       };
 
@@ -449,7 +449,7 @@ namespace Models
       protected:
         // The cron expression.
         shared_ptr<string> periodicSyncCron_ {};
-        // The collection of execution time points.
+        // The set of execution time points.
         shared_ptr<vector<int32_t>> periodicSyncTimes_ {};
         // The type.
         shared_ptr<string> periodicSyncType_ {};
@@ -497,24 +497,19 @@ namespace Models
 
 
     protected:
-      // Specifies whether group synchronization is supported. Default value: disabled. Valid values:
-      // 
-      // - disabled: Disabled.
-      // 
-      // - enabled: Enabled.
+      // Specifies whether to enable group synchronization. Default value: disabled. Valid values:
+      // - disabled: disabled
+      // - enabled: enabled
       shared_ptr<string> groupSyncStatus_ {};
       // Specifies whether to process incremental callback data from the IdP. Valid values:
-      // 
-      // - disabled: Disabled.
-      // 
-      // - enabled: Enabled.
+      // - disabled: disabled
+      // - enabled: enabled
       shared_ptr<string> incrementalCallbackStatus_ {};
       // The periodic verification configuration.
       shared_ptr<UdPullConfig::PeriodicSyncConfig> periodicSyncConfig_ {};
       // Specifies whether to periodically verify data differences between EIAM and the identity provider. Valid values:
-      // - disabled: Disabled.
-      // 
-      // - enabled: Enabled.
+      // - disabled: disabled
+      // - enabled: enabled
       shared_ptr<string> periodicSyncStatus_ {};
       // The synchronization scope configuration.
       shared_ptr<UdPullConfig::UdSyncScopeConfig> udSyncScopeConfig_ {};
@@ -649,7 +644,7 @@ namespace Models
     protected:
       // The binding type.
       shared_ptr<string> bindingMethod_ {};
-      // The list of IdP certificates.
+      // The list of certificates for the IdP.
       shared_ptr<vector<SamlConfig::Certificates>> certificates_ {};
       // The EntityId of the IdP.
       shared_ptr<string> idPEntityId_ {};
@@ -657,11 +652,11 @@ namespace Models
       shared_ptr<string> idPSsoUrl_ {};
       // The maximum clock skew.
       shared_ptr<int64_t> maxClockSkew_ {};
-      // Specifies whether requests must be signed.
+      // Specifies whether the request must be signed.
       shared_ptr<bool> requireRequestSigned_ {};
-      // Specifies whether the external IdP must sign assertions.
+      // Specifies whether the external IdP is required to sign the assertion.
       shared_ptr<bool> wantAssertionsSigned_ {};
-      // Specifies whether the external IdP must sign responses.
+      // Specifies whether the external IdP is required to sign the response.
       shared_ptr<bool> wantResponseSigned_ {};
     };
 
@@ -763,11 +758,11 @@ namespace Models
         shared_ptr<string> authorizationEndpoint_ {};
         // The OIDC issuer information.
         shared_ptr<string> issuer_ {};
-        // The OIDC JWKS URI.
+        // The OIDC JWKS URL.
         shared_ptr<string> jwksUri_ {};
         // The OIDC token endpoint.
         shared_ptr<string> tokenEndpoint_ {};
-        // The OIDC UserInfo endpoint.
+        // The OIDC userinfo endpoint.
         shared_ptr<string> userinfoEndpoint_ {};
       };
 
@@ -819,9 +814,7 @@ namespace Models
 
       protected:
         // The OIDC authentication method. Valid values:
-        // 
         // - client_secret_basic
-        // 
         // - client_secret_post
         shared_ptr<string> authnMethod_ {};
         // The OIDC client ID.
@@ -890,12 +883,10 @@ namespace Models
       // The OIDC grant type.
       shared_ptr<string> grantType_ {};
       // The PKCE algorithm. Valid values:
-      // 
       // - SHA256: S256
-      // 
-      // - plaintext: plain
+      // - Plaintext: plain
       shared_ptr<string> pkceChallengeMethod_ {};
-      // Specifies whether to use PKCE in AuthorizationCode grant mode.
+      // Specifies whether to use PKCE in authorization code mode.
       shared_ptr<bool> pkceRequired_ {};
     };
 
@@ -1088,20 +1079,19 @@ namespace Models
     protected:
       // The administrator password.
       shared_ptr<string> administratorPassword_ {};
-      // The administrator account.
+      // The administrator username.
       shared_ptr<string> administratorUsername_ {};
-      // Specifies whether certificate fingerprint verification is enabled. Valid values:
-      // 
-      // - disabled
-      // - enabled
+      // Specifies whether to verify the certificate fingerprint. Valid values:
+      // - disabled: Disabled.
+      // - enabled: Enabled.
       shared_ptr<string> certificateFingerprintStatus_ {};
       // The list of certificate fingerprints.
       shared_ptr<vector<string>> certificateFingerprints_ {};
       // The group member identifier.
       shared_ptr<string> groupMemberAttributeName_ {};
-      // The group ObjectClass.
+      // The group objectClass.
       shared_ptr<string> groupObjectClass_ {};
-      // The custom filter for groups.
+      // The custom group filter.
       shared_ptr<string> groupObjectClassCustomFilter_ {};
       // The communication protocol.
       shared_ptr<string> ldapProtocol_ {};
@@ -1109,21 +1099,21 @@ namespace Models
       shared_ptr<string> ldapServerHost_ {};
       // The AD/LDAP port number.
       shared_ptr<int32_t> ldapServerPort_ {};
-      // The organization ObjectClass.
+      // The organization objectClass.
       shared_ptr<string> organizationUnitObjectClass_ {};
       // The organization RDN.
       shared_ptr<string> organizationalUnitRdn_ {};
-      // The password synchronization switch.
+      // Specifies whether password synchronization is enabled.
       shared_ptr<string> passwordSyncStatus_ {};
       // Specifies whether StartTLS is enabled. Valid values:
-      // - disabled
-      // - enabled
+      // - disabled: Disabled.
+      // - enabled: Enabled.
       shared_ptr<string> startTlsStatus_ {};
       // The user logon identifier.
       shared_ptr<string> userLoginIdentifier_ {};
-      // The user ObjectClass.
+      // The user objectClass.
       shared_ptr<string> userObjectClass_ {};
-      // The custom filter for users.
+      // The custom user filter.
       shared_ptr<string> userObjectClassCustomFilter_ {};
       // The user RDN.
       shared_ptr<string> userRdn_ {};
@@ -1194,15 +1184,15 @@ namespace Models
 
 
     protected:
-      // The Lark application AppId.
+      // The AppId of the Lark application.
       shared_ptr<string> appId_ {};
-      // The Lark application Secret.
+      // The secret of the Lark application.
       shared_ptr<string> appSecret_ {};
-      // The encryptKey of the Lark custom application.
+      // The encryptKey of the custom Lark application.
       shared_ptr<string> encryptKey_ {};
-      // The Lark enterprise number.
+      // The Lark enterprise code.
       shared_ptr<string> enterpriseNumber_ {};
-      // The verificationToken of the Lark custom application.
+      // The verificationToken of the custom Lark application.
       shared_ptr<string> verificationToken_ {};
     };
 
@@ -1280,16 +1270,14 @@ namespace Models
 
 
     protected:
-      // The appKey of the DingTalk first-party application.
+      // The AppKey of the first-party DingTalk application.
       shared_ptr<string> appKey_ {};
-      // The appSecret of the DingTalk first-party application.
+      // The AppSecret of the first-party DingTalk application.
       shared_ptr<string> appSecret_ {};
-      // The corpId of the DingTalk first-party application.
+      // The CorpId of the first-party DingTalk application.
       shared_ptr<string> corpId_ {};
       // The DingTalk version. Valid values:
-      // 
       // - public_dingtalk: Standard DingTalk.
-      // 
       // - private_dingtalk: Dedicated DingTalk.
       shared_ptr<string> dingtalkVersion_ {};
       // The EncryptKey of the DingTalk application.
@@ -1378,16 +1366,14 @@ namespace Models
 
       protected:
         // The type of the expression. Valid values:
-        // 
-        // - field: Field.
-        // 
-        // - expression: Expression.
+        // - field: field
+        // - expression: expression
         shared_ptr<string> expressionMappingType_ {};
-        // The expression for the mapping attribute value.
+        // The expression for retrieving the source attribute value.
         shared_ptr<string> sourceValueExpression_ {};
-        // The name of the mapping target attribute.
+        // The name of the target attribute.
         shared_ptr<string> targetField_ {};
-        // The name of the mapping target attribute.
+        // The name of the target attribute.
         shared_ptr<string> targetFieldDescription_ {};
       };
 
@@ -1417,17 +1403,15 @@ namespace Models
 
 
     protected:
-      // The list of rules for automatically matching accounts.
+      // The list of rules for automatic account matching.
       shared_ptr<vector<BindingConfig::AutoMatchUserProfileExpressions>> autoMatchUserProfileExpressions_ {};
-      // Specifies whether automatic account matching is enabled. Valid values:
-      // 
-      // - disabled: Disabled.
-      // 
-      // - enabled: Enabled.
+      // Specifies whether to enable automatic account matching. Valid values:
+      // - disabled: disabled
+      // - enabled: enabled
       shared_ptr<string> autoMatchUserStatus_ {};
-      // Specifies whether the manual account binding feature is enabled for users. Valid values:
-      // - disabled
-      // - enabled
+      // Specifies whether manual account binding is enabled. Valid values:
+      // - disabled: Disabled.
+      // - enabled: Enabled.
       shared_ptr<string> mappingBindingStatus_ {};
     };
 
@@ -1459,10 +1443,9 @@ namespace Models
 
 
     protected:
-      // Specifies whether automatic account update is enabled. Valid values:
-      // - disabled: Disabled.
-      // 
-      // - enabled: Enabled.
+      // Specifies whether automatic user update is enabled. Valid values:
+      // - Disabled: disabled
+      // - Enabled: enabled
       shared_ptr<string> autoUpdateUserStatus_ {};
     };
 
@@ -1506,9 +1489,8 @@ namespace Models
 
 
     protected:
-      // Specifies whether automatic creation of accounts is enabled. Valid values:
+      // Specifies whether automatic account creation is enabled. Valid values:
       // - disabled: Disabled.
-      // 
       // - enabled: Enabled.
       shared_ptr<string> autoCreateUserStatus_ {};
       // The collection of target organizational unit IDs.
@@ -1554,14 +1536,12 @@ namespace Models
 
     protected:
       // Specifies whether the corresponding IdP supports authentication. Valid values:
-      // - disabled: Disabled.
-      // 
-      // - enabled: Enabled.
+      // - disabled: disabled
+      // - enabled: enabled
       shared_ptr<string> authnStatus_ {};
-      // Specifies whether automatic password update is supported. Valid values:
-      // - disabled: Disabled.
-      // 
-      // - enabled: Enabled.
+      // Specifies whether to support automatic password updates. Valid values:
+      // - disabled: disabled
+      // - enabled: enabled
       shared_ptr<string> autoUpdatePasswordStatus_ {};
     };
 
@@ -1723,37 +1703,29 @@ namespace Models
   protected:
     // The authentication configuration.
     shared_ptr<CreateIdentityProviderRequest::AuthnConfig> authnConfig_ {};
-    // The automatic creation rule configuration for accounts.
+    // The automatic account creation rule configuration.
     shared_ptr<CreateIdentityProviderRequest::AutoCreateUserConfig> autoCreateUserConfig_ {};
-    // The automatic account update rule configuration.
+    // The automatic user update rule configuration.
     shared_ptr<CreateIdentityProviderRequest::AutoUpdateUserConfig> autoUpdateUserConfig_ {};
     // The account binding rule configuration for the OIDC identity provider.
     shared_ptr<CreateIdentityProviderRequest::BindingConfig> bindingConfig_ {};
-    // The client token that is used to ensure the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique among different requests. ClientToken supports only ASCII characters. If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may vary for each API request.
+    // The client token that is used to ensure the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters. If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId of each API request may be different.
     shared_ptr<string> clientToken_ {};
     // The DingTalk configuration information.
     shared_ptr<CreateIdentityProviderRequest::DingtalkAppConfig> dingtalkAppConfig_ {};
-    // The identity provider name.
+    // The name of the identity provider.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderName_ {};
     // The synchronization type of the identity provider. Valid values:
-    // 
-    // - Inbound DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:pull
-    // 
-    // - Outbound DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:push
-    // 
-    // - Inbound WeCom: urn:alibaba:idaas:idp:tencent:wecom:pull
-    // 
-    // - Inbound Lark: urn:alibaba:idaas:idp:bytedance:lark:pull
-    // 
-    // - Inbound AD: urn:alibaba:idaas:idp:microsoft:ad:pull
-    // 
-    // - Inbound LDAP: urn:alibaba:idaas:idp:unknown:ldap:pull
-    // 
-    // - Standard OIDC: urn:alibaba:idaas:idp:standard:oidc
-    // 
-    // - SASE custom OIDC: urn:alibaba:idaas:idp:alibaba:sase
+    // - urn:alibaba:idaas:idp:alibaba:dingtalk:pull: inbound DingTalk
+    // - urn:alibaba:idaas:idp:alibaba:dingtalk:push: outbound DingTalk
+    // - urn:alibaba:idaas:idp:tencent:wecom:pull: inbound WeCom
+    // - urn:alibaba:idaas:idp:bytedance:lark:pull: inbound Lark
+    // - urn:alibaba:idaas:idp:microsoft:ad:pull: inbound AD
+    // - urn:alibaba:idaas:idp:unknown:ldap:pull: inbound LDAP
+    // - urn:alibaba:idaas:idp:standard:oidc: standard OIDC
+    // - urn:alibaba:idaas:idp:alibaba:sase: SASE custom OIDC
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderType_ {};
@@ -1765,9 +1737,9 @@ namespace Models
     shared_ptr<CreateIdentityProviderRequest::LarkConfig> larkConfig_ {};
     // The AD/LDAP configuration information.
     shared_ptr<CreateIdentityProviderRequest::LdapConfig> ldapConfig_ {};
-    // The application logo URL.
+    // The URL of the application logo.
     shared_ptr<string> logoUrl_ {};
-    // The network access endpoint ID.
+    // The network endpoint ID.
     shared_ptr<string> networkAccessEndpointId_ {};
     // The OIDC IdP configuration.
     shared_ptr<CreateIdentityProviderRequest::OidcConfig> oidcConfig_ {};

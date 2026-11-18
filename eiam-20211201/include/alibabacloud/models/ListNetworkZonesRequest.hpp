@@ -82,9 +82,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries to return per page for paging.
+    // The maximum number of entries to return per page when paging in a paged query.
     shared_ptr<int64_t> maxResults_ {};
-    // The network zone IDs.
+    // The IDs of the network zones.
     shared_ptr<vector<string>> networkZoneIds_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

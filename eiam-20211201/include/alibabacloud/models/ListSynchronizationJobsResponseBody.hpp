@@ -189,13 +189,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -255,13 +255,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -321,13 +321,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -387,13 +387,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -453,13 +453,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -519,13 +519,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -585,13 +585,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -662,19 +662,19 @@ namespace Models
 
 
         protected:
-          // The statistics of the binding result.
+          // The binding result statistics.
           shared_ptr<UserStatistics::Binded> binded_ {};
-          // The statistics of the creation result.
+          // The creation result statistics.
           shared_ptr<UserStatistics::Created> created_ {};
-          // The statistics of the deletion result.
+          // The deletion result statistics.
           shared_ptr<UserStatistics::Deleted> deleted_ {};
           // The export result statistics.
           shared_ptr<UserStatistics::Exported> exported_ {};
-          // The statistics of the push result.
+          // The push result statistics.
           shared_ptr<UserStatistics::Pushed> pushed_ {};
-          // The statistics of identical results.
+          // The unchanged result statistics.
           shared_ptr<UserStatistics::Same> same_ {};
-          // The statistics of the update result.
+          // The update result statistics.
           shared_ptr<UserStatistics::Updated> updated_ {};
         };
 
@@ -765,13 +765,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -831,13 +831,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -897,13 +897,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -963,13 +963,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1029,13 +1029,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1095,13 +1095,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1161,13 +1161,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1238,19 +1238,19 @@ namespace Models
 
 
         protected:
-          // The statistics of the binding result.
+          // The binding result statistics.
           shared_ptr<OrganizationalUnitStatistics::Binded> binded_ {};
-          // The statistics of the creation result.
+          // The creation result statistics.
           shared_ptr<OrganizationalUnitStatistics::Created> created_ {};
-          // The statistics of the deletion result.
+          // The deletion result statistics.
           shared_ptr<OrganizationalUnitStatistics::Deleted> deleted_ {};
           // The export result statistics.
           shared_ptr<OrganizationalUnitStatistics::Exported> exported_ {};
-          // The statistics of the push result.
+          // The push result statistics.
           shared_ptr<OrganizationalUnitStatistics::Pushed> pushed_ {};
-          // The statistics of identical results.
+          // The unchanged result statistics.
           shared_ptr<OrganizationalUnitStatistics::Same> same_ {};
-          // The statistics of the update result.
+          // The update result statistics.
           shared_ptr<OrganizationalUnitStatistics::Updated> updated_ {};
         };
 
@@ -1339,13 +1339,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1405,13 +1405,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1471,13 +1471,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1537,13 +1537,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1603,13 +1603,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1669,13 +1669,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1736,17 +1736,17 @@ namespace Models
 
 
         protected:
-          // The statistics of the binding result.
+          // The binding result statistics.
           shared_ptr<GroupStatistics::Binded> binded_ {};
-          // The statistics of the creation result.
+          // The creation result statistics.
           shared_ptr<GroupStatistics::Created> created_ {};
-          // The statistics of the deletion result.
+          // The deletion result statistics.
           shared_ptr<GroupStatistics::Deleted> deleted_ {};
-          // The statistics of the push result.
+          // The push result statistics.
           shared_ptr<GroupStatistics::Pushed> pushed_ {};
-          // The statistics of identical results.
+          // The unchanged result statistics.
           shared_ptr<GroupStatistics::Same> same_ {};
-          // The statistics of the update result.
+          // The update result statistics.
           shared_ptr<GroupStatistics::Updated> updated_ {};
         };
 
@@ -1835,13 +1835,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1901,13 +1901,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -1967,13 +1967,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -2033,13 +2033,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -2099,13 +2099,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -2165,13 +2165,13 @@ namespace Models
 
 
           protected:
-            // The number of failures.
+            // The number of failed items.
             shared_ptr<int64_t> failed_ {};
             // The number of skipped items.
             shared_ptr<int64_t> skipped_ {};
-            // The number of successes.
+            // The number of successful items.
             shared_ptr<int64_t> success_ {};
-            // The total count.
+            // The total number of items.
             shared_ptr<int64_t> total_ {};
           };
 
@@ -2232,17 +2232,17 @@ namespace Models
 
 
         protected:
-          // The statistics of the binding result.
+          // The binding result statistics.
           shared_ptr<GroupMemberStatistics::Binded> binded_ {};
-          // The statistics of the creation result.
+          // The creation result statistics.
           shared_ptr<GroupMemberStatistics::Created> created_ {};
-          // The statistics of the deletion result.
+          // The deletion result statistics.
           shared_ptr<GroupMemberStatistics::Deleted> deleted_ {};
-          // The statistics of the push result.
+          // The push result statistics.
           shared_ptr<GroupMemberStatistics::Pushed> pushed_ {};
-          // The statistics of identical results.
+          // The unchanged result statistics.
           shared_ptr<GroupMemberStatistics::Same> same_ {};
-          // The statistics of the update result.
+          // The update result statistics.
           shared_ptr<GroupMemberStatistics::Updated> updated_ {};
         };
 
@@ -2303,7 +2303,7 @@ namespace Models
         shared_ptr<string> errorCode_ {};
         // The error message of the synchronization result.
         shared_ptr<string> errorMessage_ {};
-        // The statistics of the group member synchronization result.
+        // The group member synchronization result statistics.
         shared_ptr<Result::GroupMemberStatistics> groupMemberStatistics_ {};
         // The group synchronization result statistics.
         shared_ptr<Result::GroupStatistics> groupStatistics_ {};
@@ -2419,13 +2419,13 @@ namespace Models
       shared_ptr<string> synchronizationJobId_ {};
       // The synchronization target ID.
       shared_ptr<string> targetId_ {};
-      // The type of the synchronization target. Valid values:
+      // The synchronization target type. Valid values:
       // 
       // - identity_provider: identity provider
       // 
       // - application: application
       shared_ptr<string> targetType_ {};
-      // The trigger type of the synchronization job. Valid values:
+      // The synchronization trigger type. Valid values:
       // 
       // - auto: Automatically triggered.
       // 
@@ -2466,13 +2466,13 @@ namespace Models
 
 
   protected:
-    // The query token returned by this call.
+    // The pagination token returned by the current request.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of synchronization jobs.
     shared_ptr<vector<ListSynchronizationJobsResponseBody::SynchronizationJobs>> synchronizationJobs_ {};
-    // The total number of entries in the list.
+    // The total number of items.
     shared_ptr<int64_t> totalCount_ {};
   };
 

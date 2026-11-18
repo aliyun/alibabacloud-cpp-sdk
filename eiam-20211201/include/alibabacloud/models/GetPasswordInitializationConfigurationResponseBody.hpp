@@ -90,20 +90,17 @@ namespace Models
 
 
     protected:
-      // The status of forced password update. Valid values:
-      // 
+      // The password forced update status. Valid values:
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> passwordForcedUpdateStatus_ {};
       // The list of password initialization notification channels.
       shared_ptr<vector<string>> passwordInitializationNotificationChannels_ {};
-      // The status of the password initialization configuration. Valid values:
-      // 
+      // The password initialization configuration status. Valid values:
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> passwordInitializationStatus_ {};
       // The password initialization method. Valid values:
-      // 
       // - random: Random.
       shared_ptr<string> passwordInitializationType_ {};
     };

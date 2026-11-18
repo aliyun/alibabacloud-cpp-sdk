@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The client token used to ensure idempotence.
+    // The idempotence token.
     shared_ptr<string> clientToken_ {};
     // The network zone description.
     // 

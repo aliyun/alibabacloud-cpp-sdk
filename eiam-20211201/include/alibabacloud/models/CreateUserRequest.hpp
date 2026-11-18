@@ -118,16 +118,16 @@ namespace Models
 
 
     protected:
-      // Specifies whether to force the user to change the password. By default, this feature is disabled. Valid values:
-      // - enabled: Enables the feature.
-      // - disabled: Disables the feature.
+      // Specifies whether to force the user to update the password. By default, this feature is disabled. Valid values:
+      // - enabled: enables the feature.
+      // - disabled: disables the feature.
       shared_ptr<string> passwordForcedUpdateStatus_ {};
       // The password initialization policy priority. By default, this parameter does not take effect. Valid values:
-      // - global: Global priority. The instance-level password initialization policy is used. The password initialization policy specified in the Settings is invalid. For more information, refer to the password initialization policy in the password-related policies.
-      // - custom: Custom priority. The password initialization policy defined in the Settings is used, including whether to force password changes, the password initialization method, and the notification channels.
+      // - global: global priority. The instance-level password initialization policy is used, and the password initialization Settings in this request are all invalid. For more information, see the password initialization Settings in the password policies.
+      // - custom: custom priority. The currently defined password initialization Settings prevail, including whether to force password updates, the password initialization method, and the notification channels.
       shared_ptr<string> passwordInitializationPolicyPriority_ {};
       // The password initialization method. Valid values:
-      // - random: Generates a random password.
+      // - random: generates a random password.
       shared_ptr<string> passwordInitializationType_ {};
       // The list of password notification channels.
       shared_ptr<vector<string>> userNotificationChannels_ {};
@@ -171,9 +171,9 @@ namespace Models
 
 
     protected:
-      // The identifier of the extended field. You must create the extended field in advance. For more information, refer to the Extended Fields module in the console.
+      // The identifier of the custom field. You must create the custom field in advance. For more information, see the Custom Fields module in the console.
       shared_ptr<string> fieldName_ {};
-      // The value of the extended field. The value must comply with the attribute limits of the corresponding extended field.
+      // The value of the custom field. The value must comply with the attribute limits of the corresponding custom field.
       shared_ptr<string> fieldValue_ {};
     };
 
@@ -300,15 +300,15 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must ensure that the parameter value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see the References: How to ensure idempotence.
+    // Ensures the idempotence of the request. You can generate a parameter value from your client to ensure that the parameter value is unique among different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References: How to ensure idempotence.
     shared_ptr<string> clientToken_ {};
-    // The list of extended fields.
+    // The list of custom fields.
     shared_ptr<vector<CreateUserRequest::CustomFields>> customFields_ {};
     // The description. The maximum length is 256 characters.
     shared_ptr<string> description_ {};
     // The display name of the account. The maximum length is 128 characters.
     shared_ptr<string> displayName_ {};
-    // The email address. The email prefix can contain uppercase letters, lowercase letters, digits, periods (.), underscores (_), and hyphens (-). The maximum length is 128 characters.
+    // The email address. The prefix can contain uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-). The maximum length is 128 characters.
     shared_ptr<string> email_ {};
     // Specifies whether the email address is verified and trusted. If the email address is specified, this parameter is required. If no special business requirements exist, set this parameter to true.
     shared_ptr<bool> emailVerified_ {};
@@ -318,7 +318,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The IDs of the organizational units to which the account belongs. An account can belong to multiple organizational units.
     shared_ptr<vector<string>> organizationalUnitIds_ {};
-    // The password. For specific format requirements, refer to the password policy.
+    // The password. For specific format requirements, see the password policy.
     shared_ptr<string> password_ {};
     // The password initialization configuration.
     shared_ptr<CreateUserRequest::PasswordInitializationConfig> passwordInitializationConfig_ {};
@@ -326,7 +326,7 @@ namespace Models
     shared_ptr<string> phoneNumber_ {};
     // Specifies whether the mobile phone number is verified and trusted. If the mobile phone number is specified, this parameter is required. If no special business requirements exist, set this parameter to true.
     shared_ptr<bool> phoneNumberVerified_ {};
-    // The country code for the mobile phone number. It must be 1 to 6 digits in length and cannot contain a plus sign (+).
+    // The region code of the mobile phone number. It must be 1 to 6 digits in length and cannot contain a plus sign (+). For example, the region code for the Chinese mainland is 86, without 00 or +. This parameter is required if the mobile phone number is specified.
     shared_ptr<string> phoneRegion_ {};
     // The ID of the primary organizational unit.
     // 

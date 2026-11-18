@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // The application role identifier.
+        // The application role ID.
         shared_ptr<string> applicationRoleId_ {};
       };
 
@@ -138,7 +138,7 @@ namespace Models
 
 
   protected:
-    // The list of applications that the organization is authorized to access.
+    // The list of authorized applications.
     shared_ptr<vector<ListApplicationsForOrganizationalUnitResponseBody::Applications>> applications_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

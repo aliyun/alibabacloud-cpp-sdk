@@ -69,7 +69,7 @@ namespace Models
 
 
   protected:
-    // The application ID of the ResourceServer.
+    // The application ID of the resource server.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
@@ -77,7 +77,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The list of Scope permission IDs under the ResourceServer.
+    // The IDs of the scope permissions under the resource server.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceServerScopeIds_ {};

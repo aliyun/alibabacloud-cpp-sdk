@@ -86,7 +86,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether same-name identity accounts are supported.
+        // Specifies whether to allow identity accounts with the same name.
         shared_ptr<bool> allowSameNameIdentity_ {};
       };
 
@@ -157,7 +157,6 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> authorizationResourceEntityId_ {};
     // The type of the resource entity associated with the authorization resource. Valid values:
-    // 
     // - cloud_account_role: cloud role
     // 
     // This parameter is required.
@@ -166,7 +165,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> authorizationRuleId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // The client token that is used to ensure the idempotence of the request. You can generate a parameter value on your client and ensure that the parameter value is unique across different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};

@@ -138,7 +138,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> authorizationRuleId_ {};
-    // Ensures the idempotence of the request. You can generate a parameter value from your client to ensure that the parameter value is unique among different requests. The ClientToken can contain only ASCII characters and cannot exceed 64 characters in length. References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // Ensures the idempotence of the request. You can generate a parameter value from your client to ensure that the parameter is unique among different requests. The ClientToken can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
@@ -146,11 +146,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
+    // The time range of the validity period. This parameter takes effect when **ValidityType** is set to **time_bound**.
     shared_ptr<UpdateAuthorizationRuleApplicationAttachmentRequest::ValidityPeriod> validityPeriod_ {};
     // The validity type of the relationship. Valid values:
-    // - permanent: permanent
-    // - time_bound: custom time range
+    // - permanent: Permanent.
+    // - time_bound: Custom time range.
     // 
     // This parameter is required.
     shared_ptr<string> validityType_ {};

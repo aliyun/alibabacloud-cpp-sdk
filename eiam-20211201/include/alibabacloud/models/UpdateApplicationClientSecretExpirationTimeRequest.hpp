@@ -78,7 +78,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The client secret ID.
+    // The client secret.
     // 
     // This parameter is required.
     shared_ptr<string> secretId_ {};

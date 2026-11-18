@@ -119,11 +119,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether direct authorization exists. Valid values:
-        // - true: Yes.
-        // - false: No.
+        // Indicates whether direct authorization exists.
         shared_ptr<bool> hasDirectAuthorization_ {};
-        // Indicates whether inherited authorization exists.
+        // Indicates whether inherited permissions exist.
         shared_ptr<bool> hasInheritAuthorization_ {};
         // The Scope permission ID.
         shared_ptr<string> resourceServerScopeId_ {};
@@ -214,9 +212,9 @@ namespace Models
 
 
   protected:
-    // The number of rows per page in a paged query.
+    // The number of entries per page for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page.
+    // The query token for the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

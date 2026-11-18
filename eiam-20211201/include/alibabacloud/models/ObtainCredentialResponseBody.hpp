@@ -175,7 +175,7 @@ namespace Models
 
 
         protected:
-          // The API key value.
+          // The content of the API key.
           shared_ptr<string> apiKey_ {};
         };
 
@@ -200,9 +200,9 @@ namespace Models
 
 
       protected:
-        // The content of the API key credential.
+        // The credential content for the API key credential type.
         shared_ptr<CredentialContent::ApiKeyContent> apiKeyContent_ {};
-        // The content of the OAuth client credential.
+        // The credential content for the OAuth client authentication credential type.
         shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
       };
 
@@ -333,13 +333,13 @@ namespace Models
 
 
     protected:
-      // The creation time, in UNIX timestamp format. Unit: milliseconds.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The content of the credential.
+      // The credential content.
       shared_ptr<Credential::CredentialContent> credentialContent_ {};
       // The creation type of the credential. Valid values:
       // - system_init: Created by the system.
-      // - user_custom: Created by the user.
+      // - user_custom: Created by a user.
       shared_ptr<string> credentialCreationType_ {};
       // The external unique identifier of the credential.
       shared_ptr<string> credentialExternalId_ {};
@@ -357,16 +357,16 @@ namespace Models
       shared_ptr<string> credentialSharingScope_ {};
       // The ID of the subject to which the credential belongs.
       shared_ptr<string> credentialSubjectId_ {};
-      // The type of the subject to which the credential belongs. Valid values:
+      // The subject type to which the credential belongs. Valid values:
       // - authentication_token_provider: Authentication token provider.
       shared_ptr<string> credentialSubjectType_ {};
       // The credential type. Valid values:
-      // - api_key: API key credential.
-      // - oauth_client: OAuth client credential.
+      // - api_key: API key authentication credential.
+      // - oauth_client: OAuth client authentication credential.
       shared_ptr<string> credentialType_ {};
       // The credential description.
       shared_ptr<string> description_ {};
-      // The ID of the account to which the credential is exclusively assigned.
+      // The ID of the exclusive user for the credential.
       shared_ptr<string> exclusiveUserId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -374,7 +374,7 @@ namespace Models
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> status_ {};
-      // The update time, in UNIX timestamp format. Unit: milliseconds.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

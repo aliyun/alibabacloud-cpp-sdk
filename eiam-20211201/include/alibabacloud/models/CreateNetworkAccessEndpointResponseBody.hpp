@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Network access endpoint ID.
+    // The network endpoint ID.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

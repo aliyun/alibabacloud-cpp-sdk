@@ -183,57 +183,51 @@ namespace Models
 
 
       protected:
-        // The authorization endpoint of the OAuth protocol.
+        // The authorization endpoint in the OAuth protocol.
         shared_ptr<string> authorizationEndpoint_ {};
         // The OAuth authorization flow type. Valid values:
-        // - m2m: Machine-to-machine.
-        // - user_federation: User federation.
+        // - m2m: Machine-to-machine
+        // - user_federation: User federation
         shared_ptr<string> authorizationFlow_ {};
-        // The client_id in the OAuth protocol, which is the client ID.
-        // 
-        // > The length cannot exceed 128 characters.
+        // The client ID in the OAuth protocol.
+        // > The client ID can be up to 128 characters in length.
         // 
         // This parameter is required.
         shared_ptr<string> clientId_ {};
-        // The client_secret in the OAuth protocol, which is the client secret.
-        // 
-        // > The length cannot exceed 1024 characters.
+        // The client secret in the OAuth protocol.
+        // > The client secret can be up to 1,024 characters in length.
         // 
         // This parameter is required.
         shared_ptr<string> clientSecret_ {};
-        // The URL of the OAuth Discovery document.
+        // The URL of the OAuth discovery document.
         shared_ptr<string> discoveryUrl_ {};
-        // The Issuer endpoint of the OAuth protocol.
+        // The issuer endpoint in the OAuth protocol.
         shared_ptr<string> issuer_ {};
-        // The algorithm used to calculate the Code Challenge in PKCE. Valid values:
-        // - S256.
-        // - plain.
+        // The algorithm used to calculate the code challenge in PKCE. Valid values:
+        // - S256
+        // - plain
         shared_ptr<string> pkceChallengeMethod_ {};
-        // Specifies whether to enable PKCE.
+        // Specifies whether to enable Proof Key for Code Exchange (PKCE).
         shared_ptr<bool> pkceEnabled_ {};
         // The OAuth provider vendor type. Valid values:
-        // - custom: Custom.
-        // - dingtalk: DingTalk.
-        // - feishu: Lark.
-        // - github: GitHub.
-        // - microsoft: Microsoft.
-        // - google: Google.
+        // - custom: Custom
+        // - dingtalk: DingTalk
+        // - feishu: Lark
+        // - github: GitHub
+        // - microsoft: Microsoft
+        // - google: Google
         shared_ptr<string> providerVendor_ {};
-        // The scope in the OAuth protocol, which specifies the permission scope.
-        // 
-        // > The Scope configuration on the credential provider serves as the default value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth Access Token, the Scope configuration on the credential provider is used for issuance.
-        // 
-        // >Notice: Separate multiple Scope values with spaces.
-        // 
-        // The following restrictions apply to each individual Scope value:
-        // 1. Allowed characters: lowercase letters, digits, and the special characters `|/:_-.`.
-        // 2. Must contain at least one lowercase letter or digit.
-        // 3. Must start with the special character `.`, a lowercase letter, or a digit.
-        // 4. The length cannot exceed 1024 characters.
+        // The scope in the OAuth protocol.
+        // > The scope configuration of the OAuth credential provider serves as a fallback value. If the scope parameter is not specified when you call the Developer API to obtain an OAuth access token, the scope configuration of the credential provider is used to issue the token.
+        // >Notice: Separate multiple scope values with spaces.</notice>
+        // Limits on a single scope value:
+        // 1. Valid characters: lowercase letters, digits, and the following special characters: `|/:_-.`.
+        // 2. The value must contain lowercase letters or digits.
+        // 3. The value must start with a period (`.`), a lowercase letter, or a digit.
+        // 4. The value can be up to 1,024 characters in length.
         shared_ptr<string> scope_ {};
-        // The token endpoint of the OAuth protocol.
-        // 
-        // > The value must start with `http://` or `https://`, and the length cannot exceed 1024 characters.
+        // The token endpoint in the OAuth protocol.
+        // > The endpoint must start with `http://` or `https://` and can be up to 1,024 characters in length.
         shared_ptr<string> tokenEndpoint_ {};
       };
 
@@ -296,14 +290,13 @@ namespace Models
 
       protected:
         // The list of allowed JWT issuers.
-        // 
-        // > The list cannot contain more than 200 entries.
+        // > The list can contain up to 200 items.
         shared_ptr<vector<string>> allowedTokenIssuers_ {};
-        // Specifies whether to enable the JWT derived short token feature.
+        // Specifies whether to enable the capability to derive short tokens from JWTs.
         shared_ptr<bool> derivedShortTokenEnabled_ {};
         // The validity period of the JWT, in seconds.
         shared_ptr<int32_t> expiration_ {};
-        // Specifies whether to enable JWT expiration cleanup.
+        // Specifies whether to enable cleanup of expired JWTs.
         shared_ptr<bool> expirationCleanupEnabled_ {};
       };
 
@@ -389,36 +382,32 @@ namespace Models
 
 
   protected:
-    // The idempotency token that ensures the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a unique parameter value from your client to ensure that different requests have unique values. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The configuration of the credential provider.
+    // The credential provider configuration.
     shared_ptr<CreateCredentialProviderRequest::CredentialProviderConfig> credentialProviderConfig_ {};
-    // The business identifier of the credential provider.
-    // 
-    // > Allowed characters include uppercase and lowercase letters, digits, and the special characters `.-_`. The length cannot exceed 64 characters.
+    // The credential provider identifier.
+    // > Valid characters: uppercase and lowercase letters, digits, and the following special characters: `.-_`. The identifier can be up to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> credentialProviderIdentifier_ {};
-    // The name of the credential provider.
-    // 
-    // > The length cannot exceed 64 characters.
+    // The credential provider name.
+    // > The name can be up to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> credentialProviderName_ {};
-    // The type of the credential provider. Valid values:
-    // 
-    // - oauth: OAuth credential provider.
-    // - jwt: JWT credential provider.
+    // The credential provider type. Valid values:
+    // - oauth: OAuth credential provider
+    // - jwt: JWT credential provider
     // 
     // This parameter is required.
     shared_ptr<string> credentialProviderType_ {};
     // The description.
-    // 
-    // > The length cannot exceed 128 characters.
+    // > The description can be up to 128 characters in length.
     shared_ptr<string> description_ {};
     // The instance ID.
     // 

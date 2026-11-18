@@ -110,9 +110,9 @@ namespace Models
 
 
       protected:
-        // The token endpoint of the authorization server.
+        // The OAuth2 token endpoint of the authorization server.
         shared_ptr<string> oauth2TokenEndpoint_ {};
-        // The JWKS endpoint of the authorization server.
+        // The OIDC JWKS endpoint of the authorization server.
         shared_ptr<string> oidcJwksEndpoint_ {};
       };
 
@@ -211,25 +211,25 @@ namespace Models
       shared_ptr<string> authorizationServerId_ {};
       // The authorization server name.
       shared_ptr<string> authorizationServerName_ {};
-      // The time when the authorization server was created. The value is a UNIX timestamp in milliseconds.
+      // The creation time of the authorization server. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The creation type.
       shared_ptr<string> creationType_ {};
-      // The authorization server description.
+      // The description of the authorization server.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The authorization token issuer.
+      // The issuer of the authorization token.
       shared_ptr<string> issuer_ {};
       // The domain name used by the issuer.
       shared_ptr<string> issuerDomain_ {};
       // The issuer mode.
       shared_ptr<string> issuerMode_ {};
-      // The time when the authorization server was last updated. The value is a UNIX timestamp in milliseconds.
+      // The last update time of the authorization server. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUpdateTime_ {};
-      // The authorization server endpoint configuration.
+      // The protocol endpoint configuration of the authorization server.
       shared_ptr<AuthorizationServer::ProtocolEndpoint> protocolEndpoint_ {};
-      // The authorization server status.
+      // The status of the authorization server.
       shared_ptr<string> status_ {};
     };
 

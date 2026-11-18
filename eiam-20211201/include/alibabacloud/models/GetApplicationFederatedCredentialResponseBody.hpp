@@ -189,11 +189,11 @@ namespace Models
 
 
         protected:
-          // The K8s namespace.
+          // The Kubernetes namespace.
           shared_ptr<string> namespace_ {};
           // The pod name prefix.
           shared_ptr<string> podNamePrefix_ {};
-          // The K8s service account name.
+          // The Kubernetes service account name.
           shared_ptr<string> serviceAccountName_ {};
         };
 
@@ -280,9 +280,9 @@ namespace Models
         protected:
           // The list of VM instance IDs.
           shared_ptr<vector<string>> instanceIds_ {};
-          // The GCP project ID to which the resource belongs.
+          // The GCP project ID.
           shared_ptr<string> projectId_ {};
-          // The sub claim that corresponds to the service account.
+          // The sub claim corresponding to the service account.
           shared_ptr<string> serviceAccountId_ {};
         };
 
@@ -344,9 +344,9 @@ namespace Models
 
 
         protected:
-          // The identity identifier.
+          // The principal ID.
           shared_ptr<string> principalId_ {};
-          // The Azure resource group name.
+          // The name of the Azure resource group.
           shared_ptr<string> resourceGroupName_ {};
           // The subscription ID.
           shared_ptr<string> subscriptionId_ {};

@@ -147,15 +147,15 @@ namespace Models
 
 
       protected:
-        // The JSON string of the Tencent Cloud CAM policy document. This parameter is returned only for Tencent Cloud accounts.
+        // The JSON document of the Tencent Cloud CAM policy. This is returned only for Tencent Cloud accounts.
         shared_ptr<string> camPolicyDocument_ {};
-        // The type of the Tencent Cloud CAM policy. Valid values: qcs and local. This parameter is returned only for Tencent Cloud accounts.
+        // The type of the Tencent Cloud CAM policy. Valid values: qcs and local. This is returned only for Tencent Cloud accounts.
         shared_ptr<string> camPolicyType_ {};
-        // The JSON string of the AWS IAM policy document. This parameter is returned only for AWS cloud accounts.
+        // The JSON document of the AWS IAM policy. This is returned only for AWS cloud accounts.
         shared_ptr<string> iamPolicyDocument_ {};
-        // The type of the AWS IAM policy. Valid values: aws and local. This parameter is returned only for AWS cloud accounts.
+        // The type of the AWS IAM policy. Valid values: aws and local. This is returned only for AWS cloud accounts.
         shared_ptr<string> iamPolicyType_ {};
-        // The JSON string of the RAM policy document. This parameter is returned only by the Get operation.
+        // The JSON document of the RAM policy. This is returned only by the Get API operation.
         shared_ptr<string> ramPolicyDocument_ {};
         // The type of the RAM policy. Valid values: system and custom.
         shared_ptr<string> ramPolicyType_ {};
@@ -232,9 +232,9 @@ namespace Models
     protected:
       // The ID of the cloud account to which the resource belongs.
       shared_ptr<string> cloudAccountId_ {};
-      // The unique remote identifier of the resource entity.
+      // The identifier of the resource entity, which is a unique remote identifier.
       shared_ptr<string> cloudAccountResourceEntityId_ {};
-      // The type of the resource entity. Valid values: ram_role.
+      // The resource entity type. Valid values: ram_role.
       shared_ptr<string> cloudAccountResourceEntityType_ {};
       // The identifier of the cloud account resource.
       shared_ptr<string> cloudAccountResourceId_ {};
@@ -292,9 +292,9 @@ namespace Models
   protected:
     // The list of cloud account resources.
     shared_ptr<vector<ListCloudAccountResourcesResponseBody::CloudAccountResources>> cloudAccountResources_ {};
-    // The maximum number of entries returned per page during paging in a paged query.
+    // The maximum number of entries per page for paging in a paged query.
     shared_ptr<int64_t> maxResults_ {};
-    // The query token returned by the current call for the next pagination query.
+    // The pagination token returned in the current call. You can use this token for the next paginated query.
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

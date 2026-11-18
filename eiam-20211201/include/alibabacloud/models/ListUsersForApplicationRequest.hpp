@@ -101,7 +101,7 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // The list of account IDs. You can specify up to 100 account IDs in a single operation.
+    // The list of user IDs. You can specify up to 100 user IDs in a single request.
     shared_ptr<vector<string>> userIds_ {};
   };
 

@@ -331,7 +331,7 @@ namespace Models
       shared_ptr<bool> unique_ {};
       // The last update time of the extended field. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The permissions on the user portal side.
+      // The user portal permissions.
       shared_ptr<string> userPermission_ {};
     };
 

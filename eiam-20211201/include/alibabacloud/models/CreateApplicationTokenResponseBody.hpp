@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // The application token.
+      // The application tokens.
       shared_ptr<string> applicationToken_ {};
       // The application token ID.
       shared_ptr<string> applicationTokenId_ {};
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The application token.
+    // The application tokens.
     shared_ptr<CreateApplicationTokenResponseBody::ApplicationTokens> applicationTokens_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

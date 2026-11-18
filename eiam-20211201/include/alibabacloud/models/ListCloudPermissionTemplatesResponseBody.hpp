@@ -265,13 +265,13 @@ namespace Models
 
 
       protected:
-        // The list of specified group IDs. This parameter has a value only when ScopeType is set to custom.
+        // The list of specified group IDs. This parameter is returned only when ScopeType is set to custom.
         shared_ptr<vector<string>> groupIds_ {};
-        // The list of specified organizational unit IDs. This parameter has a value only when ScopeType is set to custom.
+        // The list of specified organizational unit IDs. This parameter is returned only when ScopeType is set to custom.
         shared_ptr<vector<string>> organizationalUnitIds_ {};
-        // The type of the applicable scope. Valid values: global and custom.
+        // The type of the application scope. Valid values: global and custom.
         shared_ptr<string> scopeType_ {};
-        // The list of specified user IDs. This parameter has a value only when ScopeType is set to custom.
+        // The list of specified user IDs. This parameter is returned only when ScopeType is set to custom.
         shared_ptr<vector<string>> userIds_ {};
       };
 
@@ -420,11 +420,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether users are allowed to apply for the permission template.
+      // Specifies whether users are allowed to apply.
       shared_ptr<bool> allowRequest_ {};
-      // The applicable scope of the permission template.
+      // The application scope of the permission template.
       shared_ptr<CloudPermissionTemplates::ApplicableScope> applicableScope_ {};
-      // The ID of the cloud account to which the resource belongs.
+      // The ID of the associated cloud account.
       shared_ptr<string> cloudAccountId_ {};
       // The creator information of the permission template.
       shared_ptr<CloudPermissionTemplates::CloudPermissionTemplateCreator> cloudPermissionTemplateCreator_ {};
@@ -440,7 +440,7 @@ namespace Models
       shared_ptr<string> cloudPermissionTemplateOwnerType_ {};
       // The sharing mode of the permission template. Valid values: shared and exclusive.
       shared_ptr<string> cloudPermissionTemplateSharingMode_ {};
-      // The usage type of the permission template. Valid values: user (privilege escalation for human users) and application (privilege escalation for M2M applications).
+      // The usage type of the permission template. Valid values: user (privilege elevation for human users) and application (privilege elevation for M2M applications).
       shared_ptr<string> cloudPermissionTemplateUsageType_ {};
       // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
@@ -452,7 +452,7 @@ namespace Models
       shared_ptr<string> permissionEntityExternalId_ {};
       // The ID of the associated CloudAccountRole.
       shared_ptr<string> permissionEntityId_ {};
-      // The type of the permission entity. Fixed value: cloud_account_role.
+      // The type of the permission entity. Valid value: cloud_account_role.
       shared_ptr<string> permissionEntityType_ {};
       // The status of the permission template. Valid values: initializing, init_failed, enabled, and disabled.
       shared_ptr<string> status_ {};
@@ -500,15 +500,15 @@ namespace Models
 
 
   protected:
-    // The list of cloud permission templates.
+    // The list of permission templates.
     shared_ptr<vector<ListCloudPermissionTemplatesResponseBody::CloudPermissionTemplates>> cloudPermissionTemplates_ {};
-    // The maximum number of entries per page in a paging query.
+    // The maximum number of entries per page during paging in a paged query.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token returned by the current call for subsequent queries.
+    // The pagination token returned by the current request for subsequent queries.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of items.
     shared_ptr<int64_t> totalCount_ {};
   };
 

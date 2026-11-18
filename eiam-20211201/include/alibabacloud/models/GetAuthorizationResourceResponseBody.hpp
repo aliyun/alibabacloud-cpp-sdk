@@ -201,24 +201,24 @@ namespace Models
 
 
     protected:
-      // The resource entity ID associated with the authorization resource.
+      // The ID of the resource entity associated with the authorization resource.
       shared_ptr<string> authorizationResourceEntityId_ {};
-      // The resource entity type associated with the authorization resource. Valid values:
-      // - cloud_account_role: cloud role.
+      // The type of the resource entity associated with the authorization resource. Valid values:
+      // - cloud_account_role: Cloud role.
       shared_ptr<string> authorizationResourceEntityType_ {};
       // The authorization resource ID.
       shared_ptr<string> authorizationResourceId_ {};
       // The authorization rule ID.
       shared_ptr<string> authorizationRuleId_ {};
-      // The cloud account ID to which the resource entity associated with the authorization resource belongs.
+      // The ID of the cloud account to which the resource entity associated with the authorization resource belongs.
       shared_ptr<string> cloudAccountId_ {};
-      // The condition restriction.
+      // The condition restrictions.
       shared_ptr<AuthorizationResource::Condition> condition_ {};
-      // The creation time, in UNIX timestamp format. Unit: milliseconds.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The update time, in UNIX timestamp format. Unit: milliseconds.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

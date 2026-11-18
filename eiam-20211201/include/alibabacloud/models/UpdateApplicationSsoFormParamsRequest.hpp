@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The name of a parameter for creating the application template.
+      // The name of the application template creation parameter.
       shared_ptr<string> templateParamName_ {};
-      // The value of the parameter for creating the application template.
+      // The value of the application template creation parameter.
       shared_ptr<string> templateParamValue_ {};
     };
 
@@ -104,15 +104,15 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The parameters for creating the application template.
+    // The application template creation parameters.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateApplicationSsoFormParamsRequest::ApplicationTemplateParams>> applicationTemplateParams_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

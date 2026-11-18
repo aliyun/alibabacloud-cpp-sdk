@@ -99,7 +99,7 @@ namespace Models
 
 
   protected:
-    // The idempotence token.
+    // The client token used to ensure idempotence.
     shared_ptr<string> clientToken_ {};
     // The instance ID.
     // 

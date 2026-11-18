@@ -95,9 +95,9 @@ namespace Models
 
 
       protected:
-        // A list of IDs of the supported custom user fields.
+        // The list of supported user-defined field IDs.
         shared_ptr<vector<string>> supportedUserCustomFieldIds_ {};
-        // The namespace of the user extension fields.
+        // The namespace for user extension fields.
         shared_ptr<string> userCustomFieldNamespace_ {};
       };
 
@@ -129,9 +129,9 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> applicationId_ {};
-      // The ID of the IDaaS EIAM instance.
+      // The IDaaS EIAM instance ID.
       shared_ptr<string> instanceId_ {};
-      // The advanced configuration of the SCIM server.
+      // The SCIM server advanced configurations.
       shared_ptr<ApplicationAdvancedConfig::ScimServerAdvancedConfig> scimServerAdvancedConfig_ {};
     };
 
@@ -154,7 +154,7 @@ namespace Models
 
 
   protected:
-    // The advanced configuration of the application.
+    // The advanced application configurations.
     shared_ptr<GetApplicationAdvancedConfigResponseBody::ApplicationAdvancedConfig> applicationAdvancedConfig_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

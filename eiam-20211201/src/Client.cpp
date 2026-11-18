@@ -487,7 +487,7 @@ AddUsersToGroupResponse Client::addUsersToGroup(const AddUsersToGroupRequest &re
 }
 
 /**
- * @summary Grants multiple EIAM groups access to an application.
+ * @summary Grants multiple EIAM groups access to an application in batches.
  *
  * @param request AuthorizeApplicationToGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -530,7 +530,7 @@ AuthorizeApplicationToGroupsResponse Client::authorizeApplicationToGroupsWithOpt
 }
 
 /**
- * @summary Grants multiple EIAM groups access to an application.
+ * @summary Grants multiple EIAM groups access to an application in batches.
  *
  * @param request AuthorizeApplicationToGroupsRequest
  * @return AuthorizeApplicationToGroupsResponse
@@ -595,7 +595,7 @@ AuthorizeApplicationToOrganizationalUnitsResponse Client::authorizeApplicationTo
 }
 
 /**
- * @summary Grants multiple EIAM accounts access to an application in batches.
+ * @summary Grants multiple EIAM accounts access to an application.
  *
  * @param request AuthorizeApplicationToUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -638,7 +638,7 @@ AuthorizeApplicationToUsersResponse Client::authorizeApplicationToUsersWithOptio
 }
 
 /**
- * @summary Grants multiple EIAM accounts access to an application in batches.
+ * @summary Grants multiple EIAM accounts access to an application.
  *
  * @param request AuthorizeApplicationToUsersRequest
  * @return AuthorizeApplicationToUsersResponse
@@ -761,7 +761,7 @@ AuthorizeResourceServerScopesToGroupResponse Client::authorizeResourceServerScop
 }
 
 /**
- * @summary Grants the scope permissions of a specified resource server to an organizational unit.
+ * @summary Grants scope permissions of a specified resource server to an organization.
  *
  * @param request AuthorizeResourceServerScopesToOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -808,7 +808,7 @@ AuthorizeResourceServerScopesToOrganizationalUnitResponse Client::authorizeResou
 }
 
 /**
- * @summary Grants the scope permissions of a specified resource server to an organizational unit.
+ * @summary Grants scope permissions of a specified resource server to an organization.
  *
  * @param request AuthorizeResourceServerScopesToOrganizationalUnitRequest
  * @return AuthorizeResourceServerScopesToOrganizationalUnitResponse
@@ -819,7 +819,7 @@ AuthorizeResourceServerScopesToOrganizationalUnitResponse Client::authorizeResou
 }
 
 /**
- * @summary Grants scope permissions of a specified resource server to an account.
+ * @summary Grants scope permissions under a specified resource server to an account.
  *
  * @param request AuthorizeResourceServerScopesToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -866,7 +866,7 @@ AuthorizeResourceServerScopesToUserResponse Client::authorizeResourceServerScope
 }
 
 /**
- * @summary Grants scope permissions of a specified resource server to an account.
+ * @summary Grants scope permissions under a specified resource server to an account.
  *
  * @param request AuthorizeResourceServerScopesToUserRequest
  * @return AuthorizeResourceServerScopesToUserResponse
@@ -877,7 +877,7 @@ AuthorizeResourceServerScopesToUserResponse Client::authorizeResourceServerScope
 }
 
 /**
- * @summary Grants a specified ResourceServer to a Client application.
+ * @summary Authorizes a specified ResourceServer for a client application.
  *
  * @param request AuthorizeResourceServerToClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -916,7 +916,7 @@ AuthorizeResourceServerToClientResponse Client::authorizeResourceServerToClientW
 }
 
 /**
- * @summary Grants a specified ResourceServer to a Client application.
+ * @summary Authorizes a specified ResourceServer for a client application.
  *
  * @param request AuthorizeResourceServerToClientRequest
  * @return AuthorizeResourceServerToClientResponse
@@ -927,7 +927,7 @@ AuthorizeResourceServerToClientResponse Client::authorizeResourceServerToClient(
 }
 
 /**
- * @summary Associates a third-party logon account.
+ * @summary Binds a third-party logon account.
  *
  * @param request BindUserAuthnSourceMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -970,7 +970,7 @@ BindUserAuthnSourceMappingResponse Client::bindUserAuthnSourceMappingWithOptions
 }
 
 /**
- * @summary Associates a third-party logon account.
+ * @summary Binds a third-party logon account.
  *
  * @param request BindUserAuthnSourceMappingRequest
  * @return BindUserAuthnSourceMappingResponse
@@ -981,7 +981,7 @@ BindUserAuthnSourceMappingResponse Client::bindUserAuthnSourceMapping(const Bind
 }
 
 /**
- * @summary Checks whether the primary organization for application synchronization is within the application synchronization scope.
+ * @summary Checks whether the primary organizational unit for application synchronization is within the application synchronization scope.
  *
  * @param request CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1020,7 +1020,7 @@ CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::checkA
 }
 
 /**
- * @summary Checks whether the primary organization for application synchronization is within the application synchronization scope.
+ * @summary Checks whether the primary organizational unit for application synchronization is within the application synchronization scope.
  *
  * @param request CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
  * @return CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -1643,7 +1643,7 @@ CreateBrandResponse Client::createBrand(const CreateBrandRequest &request) {
 }
 
 /**
- * @summary Creates a ClientPublicKey for an application. When an M2M client uses the PRIVATE_KEY_JWT method to request the token endpoint, this public key is used by the M2M authorization server to verify the assertion carried in the client\\"s token endpoint request.
+ * @summary Creates a ClientPublicKey for an application. When a machine-to-machine (M2M) client uses the PRIVATE_KEY_JWT method to request the token endpoint, this public key is used by the M2M authorization server to verify the assertion carried in the request.
  *
  * @param request CreateClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1690,7 +1690,7 @@ CreateClientPublicKeyResponse Client::createClientPublicKeyWithOptions(const Cre
 }
 
 /**
- * @summary Creates a ClientPublicKey for an application. When an M2M client uses the PRIVATE_KEY_JWT method to request the token endpoint, this public key is used by the M2M authorization server to verify the assertion carried in the client\\"s token endpoint request.
+ * @summary Creates a ClientPublicKey for an application. When a machine-to-machine (M2M) client uses the PRIVATE_KEY_JWT method to request the token endpoint, this public key is used by the M2M authorization server to verify the assertion carried in the request.
  *
  * @param request CreateClientPublicKeyRequest
  * @return CreateClientPublicKeyResponse
@@ -1703,8 +1703,8 @@ CreateClientPublicKeyResponse Client::createClientPublicKey(const CreateClientPu
 /**
  * @summary Creates a cloud account resource under a specified EIAM instance.
  *
- * @description <props="china">**Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
- * <props="intl">**Before you call this operation, make sure that you fully understand the billing method of IDaaS EIAM.**
+ * @description <props="china">**Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+ * <props="intl">**Before calling this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
  *
  * @param request CreateCloudAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1765,8 +1765,8 @@ CreateCloudAccountResponse Client::createCloudAccountWithOptions(const CreateClo
 /**
  * @summary Creates a cloud account resource under a specified EIAM instance.
  *
- * @description <props="china">**Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
- * <props="intl">**Before you call this operation, make sure that you fully understand the billing method of IDaaS EIAM.**
+ * @description <props="china">**Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+ * <props="intl">**Before calling this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
  *
  * @param request CreateCloudAccountRequest
  * @return CreateCloudAccountResponse
@@ -1777,7 +1777,7 @@ CreateCloudAccountResponse Client::createCloudAccount(const CreateCloudAccountRe
 }
 
 /**
- * @summary Creates a cloud role resource under the specified cloud account resource.
+ * @summary Creates a cloud role resource under a specified cloud account resource.
  *
  * @param request CreateCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1828,7 +1828,7 @@ CreateCloudAccountRoleResponse Client::createCloudAccountRoleWithOptions(const C
 }
 
 /**
- * @summary Creates a cloud role resource under the specified cloud account resource.
+ * @summary Creates a cloud role resource under a specified cloud account resource.
  *
  * @param request CreateCloudAccountRoleRequest
  * @return CreateCloudAccountRoleResponse
@@ -2241,7 +2241,7 @@ CreateCustomFieldResponse Client::createCustomField(const CreateCustomFieldReque
 }
 
 /**
- * @summary You can create custom terms.
+ * @summary Creates a custom privacy policy.
  *
  * @param request CreateCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2296,7 +2296,7 @@ CreateCustomPrivacyPolicyResponse Client::createCustomPrivacyPolicyWithOptions(c
 }
 
 /**
- * @summary You can create custom terms.
+ * @summary Creates a custom privacy policy.
  *
  * @param request CreateCustomPrivacyPolicyRequest
  * @return CreateCustomPrivacyPolicyResponse
@@ -2641,7 +2641,7 @@ CreateIdentityProviderResponse Client::createIdentityProvider(const CreateIdenti
 }
 
 /**
- * @summary Creates a status check job for an identity provider.
+ * @summary Creates an IdP status check job.
  *
  * @param request CreateIdentityProviderStatusCheckJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2676,7 +2676,7 @@ CreateIdentityProviderStatusCheckJobResponse Client::createIdentityProviderStatu
 }
 
 /**
- * @summary Creates a status check job for an identity provider.
+ * @summary Creates an IdP status check job.
  *
  * @param request CreateIdentityProviderStatusCheckJobRequest
  * @return CreateIdentityProviderStatusCheckJobResponse
@@ -2733,7 +2733,7 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary Creates a trial License for an instance.
+ * @summary Creates a trial license for an instance.
  *
  * @param request CreateInstanceTrialLicenseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2764,7 +2764,7 @@ CreateInstanceTrialLicenseResponse Client::createInstanceTrialLicenseWithOptions
 }
 
 /**
- * @summary Creates a trial License for an instance.
+ * @summary Creates a trial license for an instance.
  *
  * @param request CreateInstanceTrialLicenseRequest
  * @return CreateInstanceTrialLicenseResponse
@@ -2775,7 +2775,7 @@ CreateInstanceTrialLicenseResponse Client::createInstanceTrialLicense(const Crea
 }
 
 /**
- * @summary Creates a network access endpoint.
+ * @summary Creates a dedicated network endpoint.
  *
  * @param request CreateNetworkAccessEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2826,7 +2826,7 @@ CreateNetworkAccessEndpointResponse Client::createNetworkAccessEndpointWithOptio
 }
 
 /**
- * @summary Creates a network access endpoint.
+ * @summary Creates a dedicated network endpoint.
  *
  * @param request CreateNetworkAccessEndpointRequest
  * @return CreateNetworkAccessEndpointResponse
@@ -2965,7 +2965,7 @@ CreateOrganizationalUnitResponse Client::createOrganizationalUnit(const CreateOr
 }
 
 /**
- * @summary Creates a scope permission for a specified resource server.
+ * @summary Creates a scope permission under the specified resource server.
  *
  * @param request CreateResourceServerScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3016,7 +3016,7 @@ CreateResourceServerScopeResponse Client::createResourceServerScopeWithOptions(c
 }
 
 /**
- * @summary Creates a scope permission for a specified resource server.
+ * @summary Creates a scope permission under the specified resource server.
  *
  * @param request CreateResourceServerScopeRequest
  * @return CreateResourceServerScopeResponse
@@ -3187,7 +3187,7 @@ CreateUserResponse Client::createUser(const CreateUserRequest &request) {
 }
 
 /**
- * @summary Removes privileged access for a cloud account.
+ * @summary Removes privileged access hosting for a cloud account.
  *
  * @param request DeactivateCloudAccountPrivilegeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3226,7 +3226,7 @@ DeactivateCloudAccountPrivilegeResponse Client::deactivateCloudAccountPrivilegeW
 }
 
 /**
- * @summary Removes privileged access for a cloud account.
+ * @summary Removes privileged access hosting for a cloud account.
  *
  * @param request DeactivateCloudAccountPrivilegeRequest
  * @return DeactivateCloudAccountPrivilegeResponse
@@ -3337,7 +3337,7 @@ DeleteApplicationClientSecretResponse Client::deleteApplicationClientSecret(cons
 }
 
 /**
- * @summary Deletes a federated identity credential of an application.
+ * @summary Deletes a federated identity credential for an application.
  *
  * @param request DeleteApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3376,7 +3376,7 @@ DeleteApplicationFederatedCredentialResponse Client::deleteApplicationFederatedC
 }
 
 /**
- * @summary Deletes a federated identity credential of an application.
+ * @summary Deletes a federated identity credential for an application.
  *
  * @param request DeleteApplicationFederatedCredentialRequest
  * @return DeleteApplicationFederatedCredentialResponse
@@ -3437,7 +3437,7 @@ DeleteApplicationRoleResponse Client::deleteApplicationRole(const DeleteApplicat
 }
 
 /**
- * @summary Deletes an ApplicationToken.
+ * @summary Deletes an application token.
  *
  * @param request DeleteApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3476,7 +3476,7 @@ DeleteApplicationTokenResponse Client::deleteApplicationTokenWithOptions(const D
 }
 
 /**
- * @summary Deletes an ApplicationToken.
+ * @summary Deletes an application token.
  *
  * @param request DeleteApplicationTokenRequest
  * @return DeleteApplicationTokenResponse
@@ -3487,7 +3487,7 @@ DeleteApplicationTokenResponse Client::deleteApplicationToken(const DeleteApplic
 }
 
 /**
- * @summary Deletes an authorized resource.
+ * @summary Deletes an authorization resource.
  *
  * @param request DeleteAuthorizationResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3526,7 +3526,7 @@ DeleteAuthorizationResourceResponse Client::deleteAuthorizationResourceWithOptio
 }
 
 /**
- * @summary Deletes an authorized resource.
+ * @summary Deletes an authorization resource.
  *
  * @param request DeleteAuthorizationResourceRequest
  * @return DeleteAuthorizationResourceResponse
@@ -3537,7 +3537,7 @@ DeleteAuthorizationResourceResponse Client::deleteAuthorizationResource(const De
 }
 
 /**
- * @summary Deletes an authorization rule. The authorization rule can be deleted only when it is in the disabled state.
+ * @summary Deletes an authorization rule. An authorization rule can be deleted only when it is disabled.
  *
  * @param request DeleteAuthorizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3572,7 +3572,7 @@ DeleteAuthorizationRuleResponse Client::deleteAuthorizationRuleWithOptions(const
 }
 
 /**
- * @summary Deletes an authorization rule. The authorization rule can be deleted only when it is in the disabled state.
+ * @summary Deletes an authorization rule. An authorization rule can be deleted only when it is disabled.
  *
  * @param request DeleteAuthorizationRuleRequest
  * @return DeleteAuthorizationRuleResponse
@@ -3583,7 +3583,7 @@ DeleteAuthorizationRuleResponse Client::deleteAuthorizationRule(const DeleteAuth
 }
 
 /**
- * @summary Delete Brand
+ * @summary Deletes a brand.
  *
  * @param request DeleteBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3618,7 +3618,7 @@ DeleteBrandResponse Client::deleteBrandWithOptions(const DeleteBrandRequest &req
 }
 
 /**
- * @summary Delete Brand
+ * @summary Deletes a brand.
  *
  * @param request DeleteBrandRequest
  * @return DeleteBrandResponse
@@ -3679,7 +3679,7 @@ DeleteClientPublicKeyResponse Client::deleteClientPublicKey(const DeleteClientPu
 }
 
 /**
- * @summary Deletes an Alibaba Cloud account resource.
+ * @summary Deletes a cloud account resource.
  *
  * @param request DeleteCloudAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3714,7 +3714,7 @@ DeleteCloudAccountResponse Client::deleteCloudAccountWithOptions(const DeleteClo
 }
 
 /**
- * @summary Deletes an Alibaba Cloud account resource.
+ * @summary Deletes a cloud account resource.
  *
  * @param request DeleteCloudAccountRequest
  * @return DeleteCloudAccountResponse
@@ -3725,9 +3725,9 @@ DeleteCloudAccountResponse Client::deleteCloudAccount(const DeleteCloudAccountRe
 }
 
 /**
- * @summary Deletes a cloud role from a specified Alibaba Cloud account.
+ * @summary Deletes a cloud role resource under a specified cloud account resource.
  *
- * @description You must disable the cloud role before you delete it. After you delete the role, all related data is also deleted and cannot be recovered.
+ * @description Before deleting a specified cloud role, ensure that the cloud role is disabled. After the cloud role is deleted, all data related to the cloud role is deleted and cannot be recovered.
  *
  * @param request DeleteCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3766,9 +3766,9 @@ DeleteCloudAccountRoleResponse Client::deleteCloudAccountRoleWithOptions(const D
 }
 
 /**
- * @summary Deletes a cloud role from a specified Alibaba Cloud account.
+ * @summary Deletes a cloud role resource under a specified cloud account resource.
  *
- * @description You must disable the cloud role before you delete it. After you delete the role, all related data is also deleted and cannot be recovered.
+ * @description Before deleting a specified cloud role, ensure that the cloud role is disabled. After the cloud role is deleted, all data related to the cloud role is deleted and cannot be recovered.
  *
  * @param request DeleteCloudAccountRoleRequest
  * @return DeleteCloudAccountRoleResponse
@@ -3971,7 +3971,7 @@ DeleteCredentialProviderResponse Client::deleteCredentialProvider(const DeleteCr
 }
 
 /**
- * @summary Deletes an extended character field.
+ * @summary Deletes an extension field.
  *
  * @param request DeleteCustomFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4006,7 +4006,7 @@ DeleteCustomFieldResponse Client::deleteCustomFieldWithOptions(const DeleteCusto
 }
 
 /**
- * @summary Deletes an extended character field.
+ * @summary Deletes an extension field.
  *
  * @param request DeleteCustomFieldRequest
  * @return DeleteCustomFieldResponse
@@ -4017,7 +4017,7 @@ DeleteCustomFieldResponse Client::deleteCustomField(const DeleteCustomFieldReque
 }
 
 /**
- * @summary Deletes a custom clause.
+ * @summary Deletes custom terms.
  *
  * @param request DeleteCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4052,7 +4052,7 @@ DeleteCustomPrivacyPolicyResponse Client::deleteCustomPrivacyPolicyWithOptions(c
 }
 
 /**
- * @summary Deletes a custom clause.
+ * @summary Deletes custom terms.
  *
  * @param request DeleteCustomPrivacyPolicyRequest
  * @return DeleteCustomPrivacyPolicyResponse
@@ -4159,7 +4159,7 @@ DeleteDomainProxyTokenResponse Client::deleteDomainProxyToken(const DeleteDomain
 }
 
 /**
- * @summary Deletes a federated credential provider.
+ * @summary Deletes a federated trust source.
  *
  * @param request DeleteFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4194,7 +4194,7 @@ DeleteFederatedCredentialProviderResponse Client::deleteFederatedCredentialProvi
 }
 
 /**
- * @summary Deletes a federated credential provider.
+ * @summary Deletes a federated trust source.
  *
  * @param request DeleteFederatedCredentialProviderRequest
  * @return DeleteFederatedCredentialProviderResponse
@@ -4527,7 +4527,7 @@ DeleteOrganizationalUnitChildrenResponse Client::deleteOrganizationalUnitChildre
 }
 
 /**
- * @summary Deletes a scope permission under a specified ResourceServer.
+ * @summary Deletes the scope permissions of a specified resource server.
  *
  * @param request DeleteResourceServerScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4566,7 +4566,7 @@ DeleteResourceServerScopeResponse Client::deleteResourceServerScopeWithOptions(c
 }
 
 /**
- * @summary Deletes a scope permission under a specified ResourceServer.
+ * @summary Deletes the scope permissions of a specified resource server.
  *
  * @param request DeleteResourceServerScopeRequest
  * @return DeleteResourceServerScopeResponse
@@ -4919,7 +4919,7 @@ DisableApplicationClientSecretResponse Client::disableApplicationClientSecret(co
 }
 
 /**
- * @summary Disables an application federated credential.
+ * @summary Disables a federated identity credential for an application.
  *
  * @param request DisableApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4958,7 +4958,7 @@ DisableApplicationFederatedCredentialResponse Client::disableApplicationFederate
 }
 
 /**
- * @summary Disables an application federated credential.
+ * @summary Disables a federated identity credential for an application.
  *
  * @param request DisableApplicationFederatedCredentialRequest
  * @return DisableApplicationFederatedCredentialResponse
@@ -4969,7 +4969,7 @@ DisableApplicationFederatedCredentialResponse Client::disableApplicationFederate
 }
 
 /**
- * @summary Disables the machine-to-machine (M2M) client feature for an application. This feature enables an application to act as an OAuth client and make calls to access resources.
+ * @summary Disables the machine-to-machine (M2M) client capability for an application. When this feature is enabled, the application can act as a caller (that is, an OAuth client) to initiate access to resources.
  *
  * @param request DisableApplicationM2MClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5004,7 +5004,7 @@ DisableApplicationM2MClientResponse Client::disableApplicationM2MClientWithOptio
 }
 
 /**
- * @summary Disables the machine-to-machine (M2M) client feature for an application. This feature enables an application to act as an OAuth client and make calls to access resources.
+ * @summary Disables the machine-to-machine (M2M) client capability for an application. When this feature is enabled, the application can act as a caller (that is, an OAuth client) to initiate access to resources.
  *
  * @param request DisableApplicationM2MClientRequest
  * @return DisableApplicationM2MClientResponse
@@ -5061,7 +5061,7 @@ DisableApplicationProvisioningResponse Client::disableApplicationProvisioning(co
 }
 
 /**
- * @summary Disables the ResourceServer capability of a specified application.
+ * @summary Disables the ResourceServer capability for a specified application.
  *
  * @param request DisableApplicationResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5096,7 +5096,7 @@ DisableApplicationResourceServerResponse Client::disableApplicationResourceServe
 }
 
 /**
- * @summary Disables the ResourceServer capability of a specified application.
+ * @summary Disables the ResourceServer capability for a specified application.
  *
  * @param request DisableApplicationResourceServerRequest
  * @return DisableApplicationResourceServerResponse
@@ -5155,7 +5155,7 @@ DisableApplicationSsoResponse Client::disableApplicationSso(const DisableApplica
 /**
  * @summary Disables an application token.
  *
- * @description When you disable an application, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the risks associated with this operation.
+ * @description When an application is disabled, all its features such as SSO and account synchronization become unavailable. Make sure that you are aware of the potential risks of this operation.
  *
  * @param request DisableApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5196,7 +5196,7 @@ DisableApplicationTokenResponse Client::disableApplicationTokenWithOptions(const
 /**
  * @summary Disables an application token.
  *
- * @description When you disable an application, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the risks associated with this operation.
+ * @description When an application is disabled, all its features such as SSO and account synchronization become unavailable. Make sure that you are aware of the potential risks of this operation.
  *
  * @param request DisableApplicationTokenRequest
  * @return DisableApplicationTokenResponse
@@ -5305,7 +5305,7 @@ DisableBrandResponse Client::disableBrand(const DisableBrandRequest &request) {
 }
 
 /**
- * @summary Disables a specified application ClientPublicKey.
+ * @summary Disables the specified application ClientPublicKey.
  *
  * @param request DisableClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5348,7 +5348,7 @@ DisableClientPublicKeyResponse Client::disableClientPublicKeyWithOptions(const D
 }
 
 /**
- * @summary Disables a specified application ClientPublicKey.
+ * @summary Disables the specified application ClientPublicKey.
  *
  * @param request DisableClientPublicKeyRequest
  * @return DisableClientPublicKeyResponse
@@ -5359,7 +5359,7 @@ DisableClientPublicKeyResponse Client::disableClientPublicKey(const DisableClien
 }
 
 /**
- * @summary Disables privileges for a cloud account.
+ * @summary Disables the privileges of a cloud account.
  *
  * @param request DisableCloudAccountPrivilegeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5398,7 +5398,7 @@ DisableCloudAccountPrivilegeResponse Client::disableCloudAccountPrivilegeWithOpt
 }
 
 /**
- * @summary Disables privileges for a cloud account.
+ * @summary Disables the privileges of a cloud account.
  *
  * @param request DisableCloudAccountPrivilegeRequest
  * @return DisableCloudAccountPrivilegeResponse
@@ -5705,7 +5705,7 @@ DisableCustomFieldResponse Client::disableCustomField(const DisableCustomFieldRe
 }
 
 /**
- * @summary Disables a custom term.
+ * @summary Disables custom terms.
  *
  * @param request DisableCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5740,7 +5740,7 @@ DisableCustomPrivacyPolicyResponse Client::disableCustomPrivacyPolicyWithOptions
 }
 
 /**
- * @summary Disables a custom term.
+ * @summary Disables custom terms.
  *
  * @param request DisableCustomPrivacyPolicyRequest
  * @return DisableCustomPrivacyPolicyResponse
@@ -5801,7 +5801,7 @@ DisableDomainProxyTokenResponse Client::disableDomainProxyToken(const DisableDom
 }
 
 /**
- * @summary Disables a federated trust source.
+ * @summary Disables a federated credential provider.
  *
  * @param request DisableFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5836,7 +5836,7 @@ DisableFederatedCredentialProviderResponse Client::disableFederatedCredentialPro
 }
 
 /**
- * @summary Disables a federated trust source.
+ * @summary Disables a federated credential provider.
  *
  * @param request DisableFederatedCredentialProviderRequest
  * @return DisableFederatedCredentialProviderResponse
@@ -5847,7 +5847,7 @@ DisableFederatedCredentialProviderResponse Client::disableFederatedCredentialPro
 }
 
 /**
- * @summary Disables the advanced configuration.
+ * @summary Disables advanced configuration.
  *
  * @param request DisableIdentityProviderAdvancedAbilityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5882,7 +5882,7 @@ DisableIdentityProviderAdvancedAbilityResponse Client::disableIdentityProviderAd
 }
 
 /**
- * @summary Disables the advanced configuration.
+ * @summary Disables advanced configuration.
  *
  * @param request DisableIdentityProviderAdvancedAbilityRequest
  * @return DisableIdentityProviderAdvancedAbilityResponse
@@ -5895,7 +5895,7 @@ DisableIdentityProviderAdvancedAbilityResponse Client::disableIdentityProviderAd
 /**
  * @summary Disables authentication.
  *
- * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that this operation may cause.
+ * @description When you change an application from the enabled state to the disabled state, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the potential risks of this operation.
  *
  * @param request DisableIdentityProviderAuthnRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5932,7 +5932,7 @@ DisableIdentityProviderAuthnResponse Client::disableIdentityProviderAuthnWithOpt
 /**
  * @summary Disables authentication.
  *
- * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that this operation may cause.
+ * @description When you change an application from the enabled state to the disabled state, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the potential risks of this operation.
  *
  * @param request DisableIdentityProviderAuthnRequest
  * @return DisableIdentityProviderAuthnResponse
@@ -6031,7 +6031,7 @@ DisableInitDomainAutoRedirectResponse Client::disableInitDomainAutoRedirect(cons
 }
 
 /**
- * @summary Disables the internal authentication source.
+ * @summary Disables an internal authentication source.
  *
  * @param request DisableInternalAuthenticationSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6066,7 +6066,7 @@ DisableInternalAuthenticationSourceResponse Client::disableInternalAuthenticatio
 }
 
 /**
- * @summary Disables the internal authentication source.
+ * @summary Disables an internal authentication source.
  *
  * @param request DisableInternalAuthenticationSourceRequest
  * @return DisableInternalAuthenticationSourceResponse
@@ -6077,7 +6077,7 @@ DisableInternalAuthenticationSourceResponse Client::disableInternalAuthenticatio
 }
 
 /**
- * @summary Disables the custom subject feature for a specified resource server.
+ * @summary Disables the custom subject capability of a specified resource server.
  *
  * @param request DisableResourceServerCustomSubjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6112,7 +6112,7 @@ DisableResourceServerCustomSubjectResponse Client::disableResourceServerCustomSu
 }
 
 /**
- * @summary Disables the custom subject feature for a specified resource server.
+ * @summary Disables the custom subject capability of a specified resource server.
  *
  * @param request DisableResourceServerCustomSubjectRequest
  * @return DisableResourceServerCustomSubjectResponse
@@ -6411,7 +6411,7 @@ EnableApplicationFederatedCredentialResponse Client::enableApplicationFederatedC
 }
 
 /**
- * @summary Enables the machine-to-machine (M2M) client feature for an application. This allows the application to act as a caller (an OAuth client) to access resources.
+ * @summary Enables the machine-to-machine (M2M) client capability for an application. After this feature is enabled, the application can act as a caller (an OAuth client) to access resources.
  *
  * @param request EnableApplicationM2MClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6446,7 +6446,7 @@ EnableApplicationM2MClientResponse Client::enableApplicationM2MClientWithOptions
 }
 
 /**
- * @summary Enables the machine-to-machine (M2M) client feature for an application. This allows the application to act as a caller (an OAuth client) to access resources.
+ * @summary Enables the machine-to-machine (M2M) client capability for an application. After this feature is enabled, the application can act as a caller (an OAuth client) to access resources.
  *
  * @param request EnableApplicationM2MClientRequest
  * @return EnableApplicationM2MClientResponse
@@ -6503,7 +6503,7 @@ EnableApplicationProvisioningResponse Client::enableApplicationProvisioning(cons
 }
 
 /**
- * @summary Enables the ResourceServer feature for a specified application.
+ * @summary Enables the ResourceServer capability for a specified application.
  *
  * @param request EnableApplicationResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6538,7 +6538,7 @@ EnableApplicationResourceServerResponse Client::enableApplicationResourceServerW
 }
 
 /**
- * @summary Enables the ResourceServer feature for a specified application.
+ * @summary Enables the ResourceServer capability for a specified application.
  *
  * @param request EnableApplicationResourceServerRequest
  * @return EnableApplicationResourceServerResponse
@@ -6847,7 +6847,7 @@ EnableCloudAccountPrivilegeResponse Client::enableCloudAccountPrivilege(const En
 }
 
 /**
- * @summary Enables a cloud role under a specified cloud account.
+ * @summary Enables a cloud role for a specified cloud account.
  *
  * @param request EnableCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6890,7 +6890,7 @@ EnableCloudAccountRoleResponse Client::enableCloudAccountRoleWithOptions(const E
 }
 
 /**
- * @summary Enables a cloud role under a specified cloud account.
+ * @summary Enables a cloud role for a specified cloud account.
  *
  * @param request EnableCloudAccountRoleRequest
  * @return EnableCloudAccountRoleResponse
@@ -7099,8 +7099,8 @@ EnableCredentialProviderResponse Client::enableCredentialProvider(const EnableCr
 /**
  * @summary Enables a field.
  *
- * @description <props="china">**Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
- * <props="intl">**Before using this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
+ * @description <props="china">**Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+ * <props="intl">**Before calling this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
  *
  * @param request EnableCustomFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7137,8 +7137,8 @@ EnableCustomFieldResponse Client::enableCustomFieldWithOptions(const EnableCusto
 /**
  * @summary Enables a field.
  *
- * @description <props="china">**Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
- * <props="intl">**Before using this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
+ * @description <props="china">**Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+ * <props="intl">**Before calling this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
  *
  * @param request EnableCustomFieldRequest
  * @return EnableCustomFieldResponse
@@ -7245,7 +7245,7 @@ EnableDomainProxyTokenResponse Client::enableDomainProxyToken(const EnableDomain
 }
 
 /**
- * @summary Enables a federated credential provider.
+ * @summary Enables a federated trust source.
  *
  * @param request EnableFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7280,7 +7280,7 @@ EnableFederatedCredentialProviderResponse Client::enableFederatedCredentialProvi
 }
 
 /**
- * @summary Enables a federated credential provider.
+ * @summary Enables a federated trust source.
  *
  * @param request EnableFederatedCredentialProviderRequest
  * @return EnableFederatedCredentialProviderResponse
@@ -7339,7 +7339,7 @@ EnableIdentityProviderAdvancedAbilityResponse Client::enableIdentityProviderAdva
 /**
  * @summary Enables authentication.
  *
- * @description When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the potential risks of this operation.
+ * @description When a conditional access policy is changed from the enabled state to the disabled state, the policy no longer blocks requests. Confirm that you are aware of the potential risks of this operation.
  *
  * @param request EnableIdentityProviderAuthnRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7376,7 +7376,7 @@ EnableIdentityProviderAuthnResponse Client::enableIdentityProviderAuthnWithOptio
 /**
  * @summary Enables authentication.
  *
- * @description When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the potential risks of this operation.
+ * @description When a conditional access policy is changed from the enabled state to the disabled state, the policy no longer blocks requests. Confirm that you are aware of the potential risks of this operation.
  *
  * @param request EnableIdentityProviderAuthnRequest
  * @return EnableIdentityProviderAuthnResponse
@@ -7521,7 +7521,7 @@ EnableInternalAuthenticationSourceResponse Client::enableInternalAuthenticationS
 }
 
 /**
- * @summary Enables the custom subject capability for a specified resource server. After the custom subject is enabled, the issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated identity credential for the application.
+ * @summary Enables the custom subject capability for a specified resource server. After the custom subject is enabled, the issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated credential for the application.
  *
  * @param request EnableResourceServerCustomSubjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7556,7 +7556,7 @@ EnableResourceServerCustomSubjectResponse Client::enableResourceServerCustomSubj
 }
 
 /**
- * @summary Enables the custom subject capability for a specified resource server. After the custom subject is enabled, the issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated identity credential for the application.
+ * @summary Enables the custom subject capability for a specified resource server. After the custom subject is enabled, the issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated credential for the application.
  *
  * @param request EnableResourceServerCustomSubjectRequest
  * @return EnableResourceServerCustomSubjectResponse
@@ -7767,7 +7767,7 @@ ExecuteInstanceFailoverResponse Client::executeInstanceFailover(const ExecuteIns
 }
 
 /**
- * @summary Generates a download URL for file import results.
+ * @summary Generates the download URL for the file import result.
  *
  * @param request GenerateDownloadUrlForSynchronizationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7802,7 +7802,7 @@ GenerateDownloadUrlForSynchronizationJobResponse Client::generateDownloadUrlForS
 }
 
 /**
- * @summary Generates a download URL for file import results.
+ * @summary Generates the download URL for the file import result.
  *
  * @param request GenerateDownloadUrlForSynchronizationJobRequest
  * @return GenerateDownloadUrlForSynchronizationJobResponse
@@ -7867,7 +7867,7 @@ GenerateFileImportTemplateResponse Client::generateFileImportTemplate(const Gene
 }
 
 /**
- * @summary Obtains an access token for accessing a resource server by using a specified application as the client identity.
+ * @summary Obtains an access token to access a resource server by using a specified application as the client identity.
  *
  * @param request GenerateOauthTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7926,7 +7926,7 @@ GenerateOauthTokenResponse Client::generateOauthTokenWithOptions(const GenerateO
 }
 
 /**
- * @summary Obtains an access token for accessing a resource server by using a specified application as the client identity.
+ * @summary Obtains an access token to access a resource server by using a specified application as the client identity.
  *
  * @param request GenerateOauthTokenRequest
  * @return GenerateOauthTokenResponse
@@ -7937,7 +7937,7 @@ GenerateOauthTokenResponse Client::generateOauthToken(const GenerateOauthTokenRe
 }
 
 /**
- * @summary Retrieves upload authentication.
+ * @summary Retrieves upload credentials.
  *
  * @param request GenerateUploadAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7976,7 +7976,7 @@ GenerateUploadAuthResponse Client::generateUploadAuthWithOptions(const GenerateU
 }
 
 /**
- * @summary Retrieves upload authentication.
+ * @summary Retrieves upload credentials.
  *
  * @param request GenerateUploadAuthRequest
  * @return GenerateUploadAuthResponse
@@ -7987,7 +7987,7 @@ GenerateUploadAuthResponse Client::generateUploadAuth(const GenerateUploadAuthRe
 }
 
 /**
- * @summary Generates a WebAuthn authenticator registration URL.
+ * @summary Generates the WebAuthn authenticator registration URL.
  *
  * @param request GenerateWebAuthnAuthenticatorRegistrationUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8026,7 +8026,7 @@ GenerateWebAuthnAuthenticatorRegistrationUrlResponse Client::generateWebAuthnAut
 }
 
 /**
- * @summary Generates a WebAuthn authenticator registration URL.
+ * @summary Generates the WebAuthn authenticator registration URL.
  *
  * @param request GenerateWebAuthnAuthenticatorRegistrationUrlRequest
  * @return GenerateWebAuthnAuthenticatorRegistrationUrlResponse
@@ -8087,7 +8087,7 @@ GetApplicationResponse Client::getApplication(const GetApplicationRequest &reque
 }
 
 /**
- * @summary Retrieves the advanced configuration of an application.
+ * @summary Retrieves the advanced configurations of an application.
  *
  * @param request GetApplicationAdvancedConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8122,7 +8122,7 @@ GetApplicationAdvancedConfigResponse Client::getApplicationAdvancedConfigWithOpt
 }
 
 /**
- * @summary Retrieves the advanced configuration of an application.
+ * @summary Retrieves the advanced configurations of an application.
  *
  * @param request GetApplicationAdvancedConfigRequest
  * @return GetApplicationAdvancedConfigResponse
@@ -8133,7 +8133,7 @@ GetApplicationAdvancedConfigResponse Client::getApplicationAdvancedConfig(const 
 }
 
 /**
- * @summary Retrieves the federated identity credential of an application.
+ * @summary Retrieves an application federated credential.
  *
  * @param request GetApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8172,7 +8172,7 @@ GetApplicationFederatedCredentialResponse Client::getApplicationFederatedCredent
 }
 
 /**
- * @summary Retrieves the federated identity credential of an application.
+ * @summary Retrieves an application federated credential.
  *
  * @param request GetApplicationFederatedCredentialRequest
  * @return GetApplicationFederatedCredentialResponse
@@ -8463,7 +8463,7 @@ GetApplicationSsoConfigResponse Client::getApplicationSsoConfig(const GetApplica
 }
 
 /**
- * @summary Retrieves application template information.
+ * @summary Retrieves the details of an application template.
  *
  * @param request GetApplicationTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8494,7 +8494,7 @@ GetApplicationTemplateResponse Client::getApplicationTemplateWithOptions(const G
 }
 
 /**
- * @summary Retrieves application template information.
+ * @summary Retrieves the details of an application template.
  *
  * @param request GetApplicationTemplateRequest
  * @return GetApplicationTemplateResponse
@@ -8505,7 +8505,7 @@ GetApplicationTemplateResponse Client::getApplicationTemplate(const GetApplicati
 }
 
 /**
- * @summary Queries the information about an authorization resource.
+ * @summary Queries the details of an authorization resource.
  *
  * @param request GetAuthorizationResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8544,7 +8544,7 @@ GetAuthorizationResourceResponse Client::getAuthorizationResourceWithOptions(con
 }
 
 /**
- * @summary Queries the information about an authorization resource.
+ * @summary Queries the details of an authorization resource.
  *
  * @param request GetAuthorizationResourceRequest
  * @return GetAuthorizationResourceResponse
@@ -8693,7 +8693,7 @@ GetBrandResponse Client::getBrand(const GetBrandRequest &request) {
 }
 
 /**
- * @summary Queries the ClientPublicKey of a specified application.
+ * @summary Queries the client public key of a specified application.
  *
  * @param request GetClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8732,7 +8732,7 @@ GetClientPublicKeyResponse Client::getClientPublicKeyWithOptions(const GetClient
 }
 
 /**
- * @summary Queries the ClientPublicKey of a specified application.
+ * @summary Queries the client public key of a specified application.
  *
  * @param request GetClientPublicKeyRequest
  * @return GetClientPublicKeyResponse
@@ -8789,7 +8789,7 @@ GetCloudAccountResponse Client::getCloudAccount(const GetCloudAccountRequest &re
 }
 
 /**
- * @summary Queries the details of a specified cloud account resource.
+ * @summary Retrieves the details of a specified cloud account resource.
  *
  * @param request GetCloudAccountResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8828,7 +8828,7 @@ GetCloudAccountResourceResponse Client::getCloudAccountResourceWithOptions(const
 }
 
 /**
- * @summary Queries the details of a specified cloud account resource.
+ * @summary Retrieves the details of a specified cloud account resource.
  *
  * @param request GetCloudAccountResourceRequest
  * @return GetCloudAccountResourceResponse
@@ -8839,7 +8839,7 @@ GetCloudAccountResourceResponse Client::getCloudAccountResource(const GetCloudAc
 }
 
 /**
- * @summary Queries the resource information of a cloud role.
+ * @summary Queries the information about a cloud role resource.
  *
  * @param request GetCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8878,7 +8878,7 @@ GetCloudAccountRoleResponse Client::getCloudAccountRoleWithOptions(const GetClou
 }
 
 /**
- * @summary Queries the resource information of a cloud role.
+ * @summary Queries the information about a cloud role resource.
  *
  * @param request GetCloudAccountRoleRequest
  * @return GetCloudAccountRoleResponse
@@ -8989,7 +8989,7 @@ GetConditionalAccessPolicyResponse Client::getConditionalAccessPolicy(const GetC
 }
 
 /**
- * @summary Queries the information about a credential resource.
+ * @summary Queries the details of a credential resource.
  *
  * @param request GetCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9024,7 +9024,7 @@ GetCredentialResponse Client::getCredentialWithOptions(const GetCredentialReques
 }
 
 /**
- * @summary Queries the information about a credential resource.
+ * @summary Queries the details of a credential resource.
  *
  * @param request GetCredentialRequest
  * @return GetCredentialResponse
@@ -9127,7 +9127,7 @@ GetCustomFieldResponse Client::getCustomField(const GetCustomFieldRequest &reque
 }
 
 /**
- * @summary Retrieves the custom privacy policy.
+ * @summary Retrieves a custom privacy policy.
  *
  * @param request GetCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9162,7 +9162,7 @@ GetCustomPrivacyPolicyResponse Client::getCustomPrivacyPolicyWithOptions(const G
 }
 
 /**
- * @summary Retrieves the custom privacy policy.
+ * @summary Retrieves a custom privacy policy.
  *
  * @param request GetCustomPrivacyPolicyRequest
  * @return GetCustomPrivacyPolicyResponse
@@ -9434,7 +9434,7 @@ GetGroupResponse Client::getGroup(const GetGroupRequest &request) {
 }
 
 /**
- * @summary Retrieves an identity provider.
+ * @summary Retrieves the identity provider.
  *
  * @param request GetIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9469,7 +9469,7 @@ GetIdentityProviderResponse Client::getIdentityProviderWithOptions(const GetIden
 }
 
 /**
- * @summary Retrieves an identity provider.
+ * @summary Retrieves the identity provider.
  *
  * @param request GetIdentityProviderRequest
  * @return GetIdentityProviderResponse
@@ -9622,7 +9622,7 @@ GetIdentityProviderUdPullConfigurationResponse Client::getIdentityProviderUdPull
 }
 
 /**
- * @summary Retrieve the IdP outbound synchronization configuration.
+ * @summary Retrieves the outbound synchronization configuration of an IdP.
  *
  * @param request GetIdentityProviderUdPushConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9657,7 +9657,7 @@ GetIdentityProviderUdPushConfigurationResponse Client::getIdentityProviderUdPush
 }
 
 /**
- * @summary Retrieve the IdP outbound synchronization configuration.
+ * @summary Retrieves the outbound synchronization configuration of an IdP.
  *
  * @param request GetIdentityProviderUdPushConfigurationRequest
  * @return GetIdentityProviderUdPushConfigurationResponse
@@ -9710,7 +9710,7 @@ GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
 }
 
 /**
- * @summary Queries instance control items.
+ * @summary Queries the instance control elements.
  *
  * @param request GetInstanceControlConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9745,7 +9745,7 @@ GetInstanceControlConfigurationResponse Client::getInstanceControlConfigurationW
 }
 
 /**
- * @summary Queries instance control items.
+ * @summary Queries the instance control elements.
  *
  * @param request GetInstanceControlConfigurationRequest
  * @return GetInstanceControlConfigurationResponse
@@ -9798,9 +9798,9 @@ GetInstanceGlobalizationConfigResponse Client::getInstanceGlobalizationConfig(co
 }
 
 /**
- * @summary Queries the license information that is currently effective for an instance.
+ * @summary Queries the active license information of an instance.
  *
- * @description Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+ * @description Ensure that your current instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
  *
  * @param request GetInstanceLicenseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9831,9 +9831,9 @@ GetInstanceLicenseResponse Client::getInstanceLicenseWithOptions(const GetInstan
 }
 
 /**
- * @summary Queries the license information that is currently effective for an instance.
+ * @summary Queries the active license information of an instance.
  *
- * @description Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+ * @description Ensure that your current instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
  *
  * @param request GetInstanceLicenseRequest
  * @return GetInstanceLicenseResponse
@@ -9890,7 +9890,7 @@ GetInstanceModuleInfoResponse Client::getInstanceModuleInfo(const GetInstanceMod
 }
 
 /**
- * @summary Retrieves the quota of a single type for an instance.
+ * @summary Retrieves a single type of quota for an instance.
  *
  * @param request GetInstanceQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9925,7 +9925,7 @@ GetInstanceQuotaResponse Client::getInstanceQuotaWithOptions(const GetInstanceQu
 }
 
 /**
- * @summary Retrieves the quota of a single type for an instance.
+ * @summary Retrieves a single type of quota for an instance.
  *
  * @param request GetInstanceQuotaRequest
  * @return GetInstanceQuotaResponse
@@ -9978,7 +9978,7 @@ GetInstanceTrialStatusResponse Client::getInstanceTrialStatus(const GetInstanceT
 }
 
 /**
- * @summary Queries a resource synchronization task.
+ * @summary Queries resource synchronization tasks.
  *
  * @param request GetInventorySynchronizationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10013,7 +10013,7 @@ GetInventorySynchronizationJobResponse Client::getInventorySynchronizationJobWit
 }
 
 /**
- * @summary Queries a resource synchronization task.
+ * @summary Queries resource synchronization tasks.
  *
  * @param request GetInventorySynchronizationJobRequest
  * @return GetInventorySynchronizationJobResponse
@@ -10070,7 +10070,7 @@ GetLoginRedirectApplicationForBrandResponse Client::getLoginRedirectApplicationF
 }
 
 /**
- * @summary Queries the details of a specified network endpoint.
+ * @summary Queries the details of a specified network access endpoint.
  *
  * @param request GetNetworkAccessEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10105,7 +10105,7 @@ GetNetworkAccessEndpointResponse Client::getNetworkAccessEndpointWithOptions(con
 }
 
 /**
- * @summary Queries the details of a specified network endpoint.
+ * @summary Queries the details of a specified network access endpoint.
  *
  * @param request GetNetworkAccessEndpointRequest
  * @return GetNetworkAccessEndpointResponse
@@ -10250,7 +10250,7 @@ GetPasswordComplexityConfigurationResponse Client::getPasswordComplexityConfigur
 }
 
 /**
- * @summary Queries the password expiration policy of a specified EIAM instance.
+ * @summary Queries the password expiration policy for a specified EIAM instance.
  *
  * @param request GetPasswordExpirationConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10281,7 +10281,7 @@ GetPasswordExpirationConfigurationResponse Client::getPasswordExpirationConfigur
 }
 
 /**
- * @summary Queries the password expiration policy of a specified EIAM instance.
+ * @summary Queries the password expiration policy for a specified EIAM instance.
  *
  * @param request GetPasswordExpirationConfigurationRequest
  * @return GetPasswordExpirationConfigurationResponse
@@ -10334,7 +10334,7 @@ GetPasswordHistoryConfigurationResponse Client::getPasswordHistoryConfiguration(
 }
 
 /**
- * @summary Queries the password initialization policy of Employee Identity and Access Management (EIAM).
+ * @summary Queries the EIAM password initialization policy.
  *
  * @param request GetPasswordInitializationConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10365,7 +10365,7 @@ GetPasswordInitializationConfigurationResponse Client::getPasswordInitialization
 }
 
 /**
- * @summary Queries the password initialization policy of Employee Identity and Access Management (EIAM).
+ * @summary Queries the EIAM password initialization policy.
  *
  * @param request GetPasswordInitializationConfigurationRequest
  * @return GetPasswordInitializationConfigurationResponse
@@ -10376,7 +10376,7 @@ GetPasswordInitializationConfigurationResponse Client::getPasswordInitialization
 }
 
 /**
- * @summary Queries the scope permissions under a specified ResourceServer.
+ * @summary Queries the scope permissions of a specified resource server.
  *
  * @param request GetResourceServerScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10415,7 +10415,7 @@ GetResourceServerScopeResponse Client::getResourceServerScopeWithOptions(const G
 }
 
 /**
- * @summary Queries the scope permissions under a specified ResourceServer.
+ * @summary Queries the scope permissions of a specified resource server.
  *
  * @param request GetResourceServerScopeRequest
  * @return GetResourceServerScopeResponse
@@ -10556,9 +10556,9 @@ GetSynchronizationJobResponse Client::getSynchronizationJob(const GetSynchroniza
 }
 
 /**
- * @summary Queries a trusted origin in a specified EIAM instance.
+ * @summary Queries the trusted origins in a specified EIAM instance.
  *
- * @description Queries a trusted origin in a specified EIAM instance.
+ * @description Queries the trusted origins in a specified EIAM instance.
  *
  * @param request GetTrustedOriginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10593,9 +10593,9 @@ GetTrustedOriginResponse Client::getTrustedOriginWithOptions(const GetTrustedOri
 }
 
 /**
- * @summary Queries a trusted origin in a specified EIAM instance.
+ * @summary Queries the trusted origins in a specified EIAM instance.
  *
- * @description Queries a trusted origin in a specified EIAM instance.
+ * @description Queries the trusted origins in a specified EIAM instance.
  *
  * @param request GetTrustedOriginRequest
  * @return GetTrustedOriginResponse
@@ -10652,7 +10652,7 @@ GetUserResponse Client::getUser(const GetUserRequest &request) {
 }
 
 /**
- * @summary View the list of invocation events.
+ * @summary Lists invocation events.
  *
  * @param request ListActionTrackEventTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10695,7 +10695,7 @@ ListActionTrackEventTypesResponse Client::listActionTrackEventTypesWithOptions(c
 }
 
 /**
- * @summary View the list of invocation events.
+ * @summary Lists invocation events.
  *
  * @param request ListActionTrackEventTypesRequest
  * @return ListActionTrackEventTypesResponse
@@ -10706,7 +10706,7 @@ ListActionTrackEventTypesResponse Client::listActionTrackEventTypes(const ListAc
 }
 
 /**
- * @summary Queries application accounts under an application by paging.
+ * @summary Queries the list of application accounts for an application by using paging.
  *
  * @param request ListApplicationAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10749,7 +10749,7 @@ ListApplicationAccountsResponse Client::listApplicationAccountsWithOptions(const
 }
 
 /**
- * @summary Queries application accounts under an application by paging.
+ * @summary Queries the list of application accounts for an application by using paging.
  *
  * @param request ListApplicationAccountsRequest
  * @return ListApplicationAccountsResponse
@@ -10760,9 +10760,9 @@ ListApplicationAccountsResponse Client::listApplicationAccounts(const ListApplic
 }
 
 /**
- * @summary Queries all accounts of a specified user in the current application.
+ * @summary Queries all accounts of a specified user under the current application.
  *
- * @description This operation queries only the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation queries only the direct permissions of the organization, which are the applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListApplicationAccountsForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10801,9 +10801,9 @@ ListApplicationAccountsForUserResponse Client::listApplicationAccountsForUserWit
 }
 
 /**
- * @summary Queries all accounts of a specified user in the current application.
+ * @summary Queries all accounts of a specified user under the current application.
  *
- * @description This operation queries only the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation queries only the direct permissions of the organization, which are the applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListApplicationAccountsForUserRequest
  * @return ListApplicationAccountsForUserResponse
@@ -10860,7 +10860,7 @@ ListApplicationClientSecretsResponse Client::listApplicationClientSecrets(const 
 }
 
 /**
- * @summary Queries a list of application federated identity credentials.
+ * @summary Queries the list of application federated credentials.
  *
  * @param request ListApplicationFederatedCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10911,7 +10911,7 @@ ListApplicationFederatedCredentialsResponse Client::listApplicationFederatedCred
 }
 
 /**
- * @summary Queries a list of application federated identity credentials.
+ * @summary Queries the list of application federated credentials.
  *
  * @param request ListApplicationFederatedCredentialsRequest
  * @return ListApplicationFederatedCredentialsResponse
@@ -10980,7 +10980,7 @@ ListApplicationFederatedCredentialsForProviderResponse Client::listApplicationFe
 }
 
 /**
- * @summary Retrieves a list of application roles using a cursor.
+ * @summary Queries a list of application roles by using a cursor.
  *
  * @param request ListApplicationRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11027,7 +11027,7 @@ ListApplicationRolesResponse Client::listApplicationRolesWithOptions(const ListA
 }
 
 /**
- * @summary Retrieves a list of application roles using a cursor.
+ * @summary Queries a list of application roles by using a cursor.
  *
  * @param request ListApplicationRolesRequest
  * @return ListApplicationRolesResponse
@@ -11038,7 +11038,7 @@ ListApplicationRolesResponse Client::listApplicationRoles(const ListApplicationR
 }
 
 /**
- * @summary Queries the list of account synchronization types supported by an application.
+ * @summary Queries the account synchronization types supported by an application.
  *
  * @param request ListApplicationSupportedProvisionProtocolTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11073,7 +11073,7 @@ ListApplicationSupportedProvisionProtocolTypesResponse Client::listApplicationSu
 }
 
 /**
- * @summary Queries the list of account synchronization types supported by an application.
+ * @summary Queries the account synchronization types supported by an application.
  *
  * @param request ListApplicationSupportedProvisionProtocolTypesRequest
  * @return ListApplicationSupportedProvisionProtocolTypesResponse
@@ -11084,7 +11084,7 @@ ListApplicationSupportedProvisionProtocolTypesResponse Client::listApplicationSu
 }
 
 /**
- * @summary Retrieves the list of application tokens.
+ * @summary Retrieves a list of application tokens.
  *
  * @param request ListApplicationTokensRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11123,7 +11123,7 @@ ListApplicationTokensResponse Client::listApplicationTokensWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves the list of application tokens.
+ * @summary Retrieves a list of application tokens.
  *
  * @param request ListApplicationTokensRequest
  * @return ListApplicationTokensResponse
@@ -11134,7 +11134,7 @@ ListApplicationTokensResponse Client::listApplicationTokens(const ListApplicatio
 }
 
 /**
- * @summary Queries information about one or more EIAM applications by using paging.
+ * @summary Queries the information of one or more EIAM applications by using paging.
  *
  * @param request ListApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11225,7 +11225,7 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 }
 
 /**
- * @summary Queries information about one or more EIAM applications by using paging.
+ * @summary Queries the information of one or more EIAM applications by using paging.
  *
  * @param request ListApplicationsRequest
  * @return ListApplicationsResponse
@@ -11294,7 +11294,7 @@ ListApplicationsForAuthorizationRuleResponse Client::listApplicationsForAuthoriz
 }
 
 /**
- * @summary Query the list of applications accessible to an EIAM group.
+ * @summary Queries the list of applications that an EIAM group can access.
  *
  * @param request ListApplicationsForGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11341,7 +11341,7 @@ ListApplicationsForGroupResponse Client::listApplicationsForGroupWithOptions(con
 }
 
 /**
- * @summary Query the list of applications accessible to an EIAM group.
+ * @summary Queries the list of applications that an EIAM group can access.
  *
  * @param request ListApplicationsForGroupRequest
  * @return ListApplicationsForGroupResponse
@@ -11352,7 +11352,7 @@ ListApplicationsForGroupResponse Client::listApplicationsForGroup(const ListAppl
 }
 
 /**
- * @summary Retrieves application information under a network access endpoint.
+ * @summary Retrieves the applications associated with a network access endpoint.
  *
  * @param request ListApplicationsForNetworkAccessEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11395,7 +11395,7 @@ ListApplicationsForNetworkAccessEndpointResponse Client::listApplicationsForNetw
 }
 
 /**
- * @summary Retrieves application information under a network access endpoint.
+ * @summary Retrieves the applications associated with a network access endpoint.
  *
  * @param request ListApplicationsForNetworkAccessEndpointRequest
  * @return ListApplicationsForNetworkAccessEndpointResponse
@@ -11464,9 +11464,9 @@ ListApplicationsForNetworkZoneResponse Client::listApplicationsForNetworkZone(co
 }
 
 /**
- * @summary Performs a paging query for the list of applications accessible to an EIAM organization. The returned results include application IDs. To obtain detailed application information, call the GetApplication operation.
+ * @summary Invokes the ListApplicationsForOrganizationalUnit operation to query a list of applications accessible to an EIAM organizational unit by using paging. The returned result includes application IDs. To obtain detailed application information, invoke the GetApplication operation.
  *
- * @description This operation queries only the direct permissions of the organization, which are applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
+ * @description This operation queries only the direct permissions of the organizational unit, which are the applications directly assigned to the organizational unit. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
  *
  * @param request ListApplicationsForOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11513,9 +11513,9 @@ ListApplicationsForOrganizationalUnitResponse Client::listApplicationsForOrganiz
 }
 
 /**
- * @summary Performs a paging query for the list of applications accessible to an EIAM organization. The returned results include application IDs. To obtain detailed application information, call the GetApplication operation.
+ * @summary Invokes the ListApplicationsForOrganizationalUnit operation to query a list of applications accessible to an EIAM organizational unit by using paging. The returned result includes application IDs. To obtain detailed application information, invoke the GetApplication operation.
  *
- * @description This operation queries only the direct permissions of the organization, which are applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
+ * @description This operation queries only the direct permissions of the organizational unit, which are the applications directly assigned to the organizational unit. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
  *
  * @param request ListApplicationsForOrganizationalUnitRequest
  * @return ListApplicationsForOrganizationalUnitResponse
@@ -11526,7 +11526,7 @@ ListApplicationsForOrganizationalUnitResponse Client::listApplicationsForOrganiz
 }
 
 /**
- * @summary Queries the applications that an EIAM account can access and returns a paginated list of application IDs. To retrieve detailed information about a specific application, call the GetApplication operation.
+ * @summary Calls the ListApplicationsForUser operation to perform a paging query on the list of applications accessible to an EIAM account. The response includes application IDs. To obtain detailed application information, call the GetApplication operation.
  *
  * @param request ListApplicationsForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11577,7 +11577,7 @@ ListApplicationsForUserResponse Client::listApplicationsForUserWithOptions(const
 }
 
 /**
- * @summary Queries the applications that an EIAM account can access and returns a paginated list of application IDs. To retrieve detailed information about a specific application, call the GetApplication operation.
+ * @summary Calls the ListApplicationsForUser operation to perform a paging query on the list of applications accessible to an EIAM account. The response includes application IDs. To obtain detailed application information, call the GetApplication operation.
  *
  * @param request ListApplicationsForUserRequest
  * @return ListApplicationsForUserResponse
@@ -11970,7 +11970,7 @@ ListBrandsResponse Client::listBrands(const ListBrandsRequest &request) {
 }
 
 /**
- * @summary Queries the list of ClientPublicKeys for a specified application by using a cursor.
+ * @summary Queries the ClientPublicKeys of a specified application by using a cursor.
  *
  * @param request ListClientPublicKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12013,7 +12013,7 @@ ListClientPublicKeysResponse Client::listClientPublicKeysWithOptions(const ListC
 }
 
 /**
- * @summary Queries the list of ClientPublicKeys for a specified application by using a cursor.
+ * @summary Queries the ClientPublicKeys of a specified application by using a cursor.
  *
  * @param request ListClientPublicKeysRequest
  * @return ListClientPublicKeysResponse
@@ -12024,7 +12024,7 @@ ListClientPublicKeysResponse Client::listClientPublicKeys(const ListClientPublic
 }
 
 /**
- * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources through paging.
+ * @summary Invokes ListCloudAccountResources to perform a paged query for cloud account resources with paging.
  *
  * @param request ListCloudAccountResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12079,7 +12079,7 @@ ListCloudAccountResourcesResponse Client::listCloudAccountResourcesWithOptions(c
 }
 
 /**
- * @summary Invokes ListCloudAccountResources to perform a paged query of cloud account resources through paging.
+ * @summary Invokes ListCloudAccountResources to perform a paged query for cloud account resources with paging.
  *
  * @param request ListCloudAccountResourcesRequest
  * @return ListCloudAccountResourcesResponse
@@ -12090,7 +12090,7 @@ ListCloudAccountResourcesResponse Client::listCloudAccountResources(const ListCl
 }
 
 /**
- * @summary Queries the list of cloud account resources associated with a specified cloud permission template by using paging.
+ * @summary Queries the list of cloud account resources associated with a specified cloud permission template by using a paging query.
  *
  * @param request ListCloudAccountResourcesForCloudPermissionTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12141,7 +12141,7 @@ ListCloudAccountResourcesForCloudPermissionTemplateResponse Client::listCloudAcc
 }
 
 /**
- * @summary Queries the list of cloud account resources associated with a specified cloud permission template by using paging.
+ * @summary Queries the list of cloud account resources associated with a specified cloud permission template by using a paging query.
  *
  * @param request ListCloudAccountResourcesForCloudPermissionTemplateRequest
  * @return ListCloudAccountResourcesForCloudPermissionTemplateResponse
@@ -12152,7 +12152,7 @@ ListCloudAccountResourcesForCloudPermissionTemplateResponse Client::listCloudAcc
 }
 
 /**
- * @summary Queries information about one or more cloud roles by using paging.
+ * @summary Queries the information of one or more cloud roles by using paging.
  *
  * @param request ListCloudAccountRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12199,7 +12199,7 @@ ListCloudAccountRolesResponse Client::listCloudAccountRolesWithOptions(const Lis
 }
 
 /**
- * @summary Queries information about one or more cloud roles by using paging.
+ * @summary Queries the information of one or more cloud roles by using paging.
  *
  * @param request ListCloudAccountRolesRequest
  * @return ListCloudAccountRolesResponse
@@ -12210,7 +12210,7 @@ ListCloudAccountRolesResponse Client::listCloudAccountRoles(const ListCloudAccou
 }
 
 /**
- * @summary Queries information about one or more cloud accounts by using paging.
+ * @summary Queries the information about one or more cloud accounts by using paging.
  *
  * @param request ListCloudAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12253,7 +12253,7 @@ ListCloudAccountsResponse Client::listCloudAccountsWithOptions(const ListCloudAc
 }
 
 /**
- * @summary Queries information about one or more cloud accounts by using paging.
+ * @summary Queries the information about one or more cloud accounts by using paging.
  *
  * @param request ListCloudAccountsRequest
  * @return ListCloudAccountsResponse
@@ -12264,7 +12264,7 @@ ListCloudAccountsResponse Client::listCloudAccounts(const ListCloudAccountsReque
 }
 
 /**
- * @summary Queries the information of one or more permission templates by using paging.
+ * @summary Performs a paged query to retrieve the information of one or more permission templates. This operation supports paging.
  *
  * @param request ListCloudPermissionTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12323,7 +12323,7 @@ ListCloudPermissionTemplatesResponse Client::listCloudPermissionTemplatesWithOpt
 }
 
 /**
- * @summary Queries the information of one or more permission templates by using paging.
+ * @summary Performs a paged query to retrieve the information of one or more permission templates. This operation supports paging.
  *
  * @param request ListCloudPermissionTemplatesRequest
  * @return ListCloudPermissionTemplatesResponse
@@ -12392,7 +12392,7 @@ ListConditionalAccessPoliciesResponse Client::listConditionalAccessPolicies(cons
 }
 
 /**
- * @summary Retrieves the list of conditional access policies associated with an application.
+ * @summary Retrieves the conditional access policies associated with an application.
  *
  * @param request ListConditionalAccessPoliciesForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12427,7 +12427,7 @@ ListConditionalAccessPoliciesForApplicationResponse Client::listConditionalAcces
 }
 
 /**
- * @summary Retrieves the list of conditional access policies associated with an application.
+ * @summary Retrieves the conditional access policies associated with an application.
  *
  * @param request ListConditionalAccessPoliciesForApplicationRequest
  * @return ListConditionalAccessPoliciesForApplicationResponse
@@ -12488,7 +12488,7 @@ ListConditionalAccessPoliciesForNetworkZoneResponse Client::listConditionalAcces
 }
 
 /**
- * @summary Retrieves the list of conditional access policies associated with a user.
+ * @summary Retrieves the conditional access policies associated with a user.
  *
  * @param request ListConditionalAccessPoliciesForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12523,7 +12523,7 @@ ListConditionalAccessPoliciesForUserResponse Client::listConditionalAccessPolici
 }
 
 /**
- * @summary Retrieves the list of conditional access policies associated with a user.
+ * @summary Retrieves the conditional access policies associated with a user.
  *
  * @param request ListConditionalAccessPoliciesForUserRequest
  * @return ListConditionalAccessPoliciesForUserResponse
@@ -12960,7 +12960,7 @@ ListEiamRegionsResponse Client::listEiamRegions() {
 }
 
 /**
- * @summary Lists events.
+ * @summary Queries the event list.
  *
  * @param request ListEventTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12995,7 +12995,7 @@ ListEventTypesResponse Client::listEventTypesWithOptions(const ListEventTypesReq
 }
 
 /**
- * @summary Lists events.
+ * @summary Queries the event list.
  *
  * @param request ListEventTypesRequest
  * @return ListEventTypesResponse
@@ -13006,7 +13006,7 @@ ListEventTypesResponse Client::listEventTypes(const ListEventTypesRequest &reque
 }
 
 /**
- * @summary Queries a list of federated trust sources.
+ * @summary Queries federated trust sources.
  *
  * @param request ListFederatedCredentialProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13057,7 +13057,7 @@ ListFederatedCredentialProvidersResponse Client::listFederatedCredentialProvider
 }
 
 /**
- * @summary Queries a list of federated trust sources.
+ * @summary Queries federated trust sources.
  *
  * @param request ListFederatedCredentialProvidersRequest
  * @return ListFederatedCredentialProvidersResponse
@@ -13134,7 +13134,7 @@ ListGroupsResponse Client::listGroups(const ListGroupsRequest &request) {
 }
 
 /**
- * @summary Performs a paged query on the list of groups with authorization to access an application. The response includes group IDs and supports paging. To obtain detailed group information, invoke the GetGroup operation.
+ * @summary Performs a paging query on the list of groups that are authorized to access an application. The response includes group IDs. To obtain detailed group information, call the GetGroup operation.
  *
  * @param request ListGroupsForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13185,7 +13185,7 @@ ListGroupsForApplicationResponse Client::listGroupsForApplicationWithOptions(con
 }
 
 /**
- * @summary Performs a paged query on the list of groups with authorization to access an application. The response includes group IDs and supports paging. To obtain detailed group information, invoke the GetGroup operation.
+ * @summary Performs a paging query on the list of groups that are authorized to access an application. The response includes group IDs. To obtain detailed group information, call the GetGroup operation.
  *
  * @param request ListGroupsForApplicationRequest
  * @return ListGroupsForApplicationResponse
@@ -13254,7 +13254,7 @@ ListGroupsForAuthorizationRuleResponse Client::listGroupsForAuthorizationRule(co
 }
 
 /**
- * @summary Lists the scopes authorized for groups on a specified resource server. This operation supports cursor-based pagination.
+ * @summary Queries the scopes authorized to groups for the current resource server by using a cursor.
  *
  * @param request ListGroupsForResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13305,7 +13305,7 @@ ListGroupsForResourceServerResponse Client::listGroupsForResourceServerWithOptio
 }
 
 /**
- * @summary Lists the scopes authorized for groups on a specified resource server. This operation supports cursor-based pagination.
+ * @summary Queries the scopes authorized to groups for the current resource server by using a cursor.
  *
  * @param request ListGroupsForResourceServerRequest
  * @return ListGroupsForResourceServerResponse
@@ -13424,7 +13424,7 @@ ListIdentityProvidersResponse Client::listIdentityProviders(const ListIdentityPr
 }
 
 /**
- * @summary Retrieves the IdP information for a network access endpoint.
+ * @summary Retrieves the identity provider (IdP) information for a network access endpoint.
  *
  * @param request ListIdentityProvidersForNetworkAccessEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13467,7 +13467,7 @@ ListIdentityProvidersForNetworkAccessEndpointResponse Client::listIdentityProvid
 }
 
 /**
- * @summary Retrieves the IdP information for a network access endpoint.
+ * @summary Retrieves the identity provider (IdP) information for a network access endpoint.
  *
  * @param request ListIdentityProvidersForNetworkAccessEndpointRequest
  * @return ListIdentityProvidersForNetworkAccessEndpointResponse
@@ -13551,9 +13551,9 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
  * @summary Queries resource synchronization tasks.
  *
  * @description You can use one of the following two methods to view the returned data:
- * - Method 1: When paged query the first page, set only MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value returned in the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
- * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
- * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
+ * - Method 1: When querying the first page during paging in a paged query, you only need to apply the Settings for MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and apply the Settings for MaxResults to limit the number of returned entries. If there are no more pages, NextToken is not returned. The maximum value of MaxResults is 100.
+ * - Method 2: Use the PageSize Settings to specify the number of entries returned per page during paging, and use the PageNumber Settings to specify the page number.
+ * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If the Settings for MaxResults or NextToken are applied, the PageSize and PageNumber request parameters become invalid.
  *
  * @param request ListInventorySynchronizationJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13611,9 +13611,9 @@ ListInventorySynchronizationJobsResponse Client::listInventorySynchronizationJob
  * @summary Queries resource synchronization tasks.
  *
  * @description You can use one of the following two methods to view the returned data:
- * - Method 1: When paged query the first page, set only MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value returned in the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
- * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
- * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
+ * - Method 1: When querying the first page during paging in a paged query, you only need to apply the Settings for MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and apply the Settings for MaxResults to limit the number of returned entries. If there are no more pages, NextToken is not returned. The maximum value of MaxResults is 100.
+ * - Method 2: Use the PageSize Settings to specify the number of entries returned per page during paging, and use the PageNumber Settings to specify the page number.
+ * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If the Settings for MaxResults or NextToken are applied, the PageSize and PageNumber request parameters become invalid.
  *
  * @param request ListInventorySynchronizationJobsRequest
  * @return ListInventorySynchronizationJobsResponse
@@ -13914,7 +13914,7 @@ ListOrganizationalUnitParentsResponse Client::listOrganizationalUnitParents(cons
 }
 
 /**
- * @summary Performs a paged query for EIAM organizational units.
+ * @summary Queries EIAM organizational units by using paging.
  *
  * @param request ListOrganizationalUnitsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13969,7 +13969,7 @@ ListOrganizationalUnitsResponse Client::listOrganizationalUnitsWithOptions(const
 }
 
 /**
- * @summary Performs a paged query for EIAM organizational units.
+ * @summary Queries EIAM organizational units by using paging.
  *
  * @param request ListOrganizationalUnitsRequest
  * @return ListOrganizationalUnitsResponse
@@ -13980,7 +13980,7 @@ ListOrganizationalUnitsResponse Client::listOrganizationalUnits(const ListOrgani
 }
 
 /**
- * @summary Performs a paging query for the list of organizational units that an application is authorized to access. The returned result includes the organizational unit IDs. To obtain detailed information about an organizational unit, call the GetOrganizationalUnit operation.
+ * @summary Calls the ListOrganizationalUnitsForApplication operation to query the list of organizational units that an application is authorized to access by using paging. The response includes organizational unit IDs. To obtain detailed information about an organizational unit, call the GetOrganizationalUnit operation.
  *
  * @param request ListOrganizationalUnitsForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14031,7 +14031,7 @@ ListOrganizationalUnitsForApplicationResponse Client::listOrganizationalUnitsFor
 }
 
 /**
- * @summary Performs a paging query for the list of organizational units that an application is authorized to access. The returned result includes the organizational unit IDs. To obtain detailed information about an organizational unit, call the GetOrganizationalUnit operation.
+ * @summary Calls the ListOrganizationalUnitsForApplication operation to query the list of organizational units that an application is authorized to access by using paging. The response includes organizational unit IDs. To obtain detailed information about an organizational unit, call the GetOrganizationalUnit operation.
  *
  * @param request ListOrganizationalUnitsForApplicationRequest
  * @return ListOrganizationalUnitsForApplicationResponse
@@ -14042,7 +14042,7 @@ ListOrganizationalUnitsForApplicationResponse Client::listOrganizationalUnitsFor
 }
 
 /**
- * @summary Queries the list of scope permissions that the current ResourceServer has authorized to organizational units by using a cursor-based pagination method.
+ * @summary Queries the list of scopes authorized by the current resource server to organizations by using a cursor.
  *
  * @param request ListOrganizationalUnitsForResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14093,7 +14093,7 @@ ListOrganizationalUnitsForResourceServerResponse Client::listOrganizationalUnits
 }
 
 /**
- * @summary Queries the list of scope permissions that the current ResourceServer has authorized to organizational units by using a cursor-based pagination method.
+ * @summary Queries the list of scopes authorized by the current resource server to organizations by using a cursor.
  *
  * @param request ListOrganizationalUnitsForResourceServerRequest
  * @return ListOrganizationalUnitsForResourceServerResponse
@@ -14136,7 +14136,7 @@ ListRegionsResponse Client::listRegions() {
 }
 
 /**
- * @summary Queries the list of scope permissions under a specified ResourceServer by using a cursor.
+ * @summary Queries the scope permissions of a specified resource server by using a cursor.
  *
  * @param request ListResourceServerScopesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14203,7 +14203,7 @@ ListResourceServerScopesResponse Client::listResourceServerScopesWithOptions(con
 }
 
 /**
- * @summary Queries the list of scope permissions under a specified ResourceServer by using a cursor.
+ * @summary Queries the scope permissions of a specified resource server by using a cursor.
  *
  * @param request ListResourceServerScopesRequest
  * @return ListResourceServerScopesResponse
@@ -14214,7 +14214,7 @@ ListResourceServerScopesResponse Client::listResourceServerScopes(const ListReso
 }
 
 /**
- * @summary Queries the list of ResourceServer and Scope permissions granted to the current account by using a cursor-based approach.
+ * @summary Queries the list of ResourceServer and Scope permissions granted to the current account by using a cursor.
  *
  * @param request ListResourceServersForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14261,7 +14261,7 @@ ListResourceServersForUserResponse Client::listResourceServersForUserWithOptions
 }
 
 /**
- * @summary Queries the list of ResourceServer and Scope permissions granted to the current account by using a cursor-based approach.
+ * @summary Queries the list of ResourceServer and Scope permissions granted to the current account by using a cursor.
  *
  * @param request ListResourceServersForUserRequest
  * @return ListResourceServersForUserResponse
@@ -14274,10 +14274,10 @@ ListResourceServersForUserResponse Client::listResourceServersForUser(const List
 /**
  * @summary Lists the details of synchronization tasks.
  *
- * @description You can view the returned data in one of the following ways:
- * - Method 1: When performing a paged query for the first page, specify only MaxResults to limit the number of entries to return. The NextToken value in the response is used as the token to query the next page. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response and specify MaxResults to limit the number of entries to return. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
- * - Method 2: Use PageSize to specify the number of entries to return per page, and use PageNumber to specify the page number.
- * You can use only one of the preceding methods. Method 1 is recommended when a large number of entries are returned. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters become invalid.
+ * @description You can use one of the following methods to view the returned data:
+ * - Method 1: When using paging in a paged query for the first page, you only need to configure the Settings for MaxResults to limit the number of returned entries. The NextToken in the response is used as the token for querying the next page. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response as the query token, and configure the Settings for MaxResults to limit the number of returned entries. If there is no next page, NextToken is not returned. The maximum value of MaxResults is 100.
+ * - Method 2: Specify the Settings for PageSize to determine the number of entries returned per page during paging, and specify the Settings for PageNumber to determine the page number.
+ * You can use only one of the two methods. When a large number of entries are returned, Method 1 is recommended. If the Settings for MaxResults or NextToken are configured, the PageSize and PageNumber request parameters become invalid.
  *
  * @param request ListSynchronizationJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14354,10 +14354,10 @@ ListSynchronizationJobsResponse Client::listSynchronizationJobsWithOptions(const
 /**
  * @summary Lists the details of synchronization tasks.
  *
- * @description You can view the returned data in one of the following ways:
- * - Method 1: When performing a paged query for the first page, specify only MaxResults to limit the number of entries to return. The NextToken value in the response is used as the token to query the next page. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response and specify MaxResults to limit the number of entries to return. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
- * - Method 2: Use PageSize to specify the number of entries to return per page, and use PageNumber to specify the page number.
- * You can use only one of the preceding methods. Method 1 is recommended when a large number of entries are returned. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters become invalid.
+ * @description You can use one of the following methods to view the returned data:
+ * - Method 1: When using paging in a paged query for the first page, you only need to configure the Settings for MaxResults to limit the number of returned entries. The NextToken in the response is used as the token for querying the next page. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response as the query token, and configure the Settings for MaxResults to limit the number of returned entries. If there is no next page, NextToken is not returned. The maximum value of MaxResults is 100.
+ * - Method 2: Specify the Settings for PageSize to determine the number of entries returned per page during paging, and specify the Settings for PageNumber to determine the page number.
+ * You can use only one of the two methods. When a large number of entries are returned, Method 1 is recommended. If the Settings for MaxResults or NextToken are configured, the PageSize and PageNumber request parameters become invalid.
  *
  * @param request ListSynchronizationJobsRequest
  * @return ListSynchronizationJobsResponse
@@ -14368,9 +14368,9 @@ ListSynchronizationJobsResponse Client::listSynchronizationJobs(const ListSynchr
 }
 
 /**
- * @summary Queries the list of trusted origins in a specified Employees Identity and Access Management (EIAM) instance.
+ * @summary Queries the trusted origins in a specified EIAM instance.
  *
- * @description Queries the list of trusted origins in a specified EIAM instance.
+ * @description Queries the trusted origins in a specified EIAM instance.
  *
  * @param request ListTrustedOriginsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14425,9 +14425,9 @@ ListTrustedOriginsResponse Client::listTrustedOriginsWithOptions(const ListTrust
 }
 
 /**
- * @summary Queries the list of trusted origins in a specified Employees Identity and Access Management (EIAM) instance.
+ * @summary Queries the trusted origins in a specified EIAM instance.
  *
- * @description Queries the list of trusted origins in a specified EIAM instance.
+ * @description Queries the trusted origins in a specified EIAM instance.
  *
  * @param request ListTrustedOriginsRequest
  * @return ListTrustedOriginsResponse
@@ -14438,7 +14438,7 @@ ListTrustedOriginsResponse Client::listTrustedOrigins(const ListTrustedOriginsRe
 }
 
 /**
- * @summary Queries the binding relationships of third-party logon accounts.
+ * @summary Queries the bindings of third-party logon accounts.
  *
  * @description This operation queries only the direct permissions of an organization, namely the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
  *
@@ -14495,7 +14495,7 @@ ListUserAuthnSourceMappingsResponse Client::listUserAuthnSourceMappingsWithOptio
 }
 
 /**
- * @summary Queries the binding relationships of third-party logon accounts.
+ * @summary Queries the bindings of third-party logon accounts.
  *
  * @description This operation queries only the direct permissions of an organization, namely the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
  *
@@ -14508,9 +14508,9 @@ ListUserAuthnSourceMappingsResponse Client::listUserAuthnSourceMappings(const Li
 }
 
 /**
- * @summary Performs a paging query of EIAM account information.
+ * @summary Queries EIAM account information by using paging.
  *
- * @description This operation queries only the direct permissions of an organization, which are the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
+ * @description This operation queries only the direct permissions of the organization, which are the applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14601,9 +14601,9 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
 }
 
 /**
- * @summary Performs a paging query of EIAM account information.
+ * @summary Queries EIAM account information by using paging.
  *
- * @description This operation queries only the direct permissions of an organization, which are the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
+ * @description This operation queries only the direct permissions of the organization, which are the applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListUsersRequest
  * @return ListUsersResponse
@@ -14614,7 +14614,7 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
- * @summary Performs a paging query to retrieve the list of accounts authorized to access an application. The response includes account IDs. To obtain detailed account information, call the GetUser operation.
+ * @summary Invokes the ListUsersForApplication operation to perform a paging query on the list of accounts authorized to access an application. The response includes account IDs. To obtain detailed account information, invoke the GetUser operation.
  *
  * @param request ListUsersForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14665,7 +14665,7 @@ ListUsersForApplicationResponse Client::listUsersForApplicationWithOptions(const
 }
 
 /**
- * @summary Performs a paging query to retrieve the list of accounts authorized to access an application. The response includes account IDs. To obtain detailed account information, call the GetUser operation.
+ * @summary Invokes the ListUsersForApplication operation to perform a paging query on the list of accounts authorized to access an application. The response includes account IDs. To obtain detailed account information, invoke the GetUser operation.
  *
  * @param request ListUsersForApplicationRequest
  * @return ListUsersForApplicationResponse
@@ -14734,7 +14734,7 @@ ListUsersForAuthorizationRuleResponse Client::listUsersForAuthorizationRule(cons
 }
 
 /**
- * @summary Lists the users in a specified EIAM account group.
+ * @summary Queries the accounts in a specified EIAM account group.
  *
  * @param request ListUsersForGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14781,7 +14781,7 @@ ListUsersForGroupResponse Client::listUsersForGroupWithOptions(const ListUsersFo
 }
 
 /**
- * @summary Lists the users in a specified EIAM account group.
+ * @summary Queries the accounts in a specified EIAM account group.
  *
  * @param request ListUsersForGroupRequest
  * @return ListUsersForGroupResponse
@@ -14792,7 +14792,7 @@ ListUsersForGroupResponse Client::listUsersForGroup(const ListUsersForGroupReque
 }
 
 /**
- * @summary Queries the list of scope permissions that the current ResourceServer has granted to accounts by using a cursor-based pagination method.
+ * @summary Queries the scopes authorized by the current resource server to accounts by using a cursor.
  *
  * @param request ListUsersForResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14843,7 +14843,7 @@ ListUsersForResourceServerResponse Client::listUsersForResourceServerWithOptions
 }
 
 /**
- * @summary Queries the list of scope permissions that the current ResourceServer has granted to accounts by using a cursor-based pagination method.
+ * @summary Queries the scopes authorized by the current resource server to accounts by using a cursor.
  *
  * @param request ListUsersForResourceServerRequest
  * @return ListUsersForResourceServerResponse
@@ -14904,9 +14904,9 @@ ObtainApplicationClientSecretResponse Client::obtainApplicationClientSecret(cons
 }
 
 /**
- * @summary Queries a specified application token.
+ * @summary Queries the specified application token.
  *
- * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may be caused by this operation.
+ * @description When an application is changed from the enabled state to the disabled state, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the potential risks of this operation.
  *
  * @param request ObtainApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14945,9 +14945,9 @@ ObtainApplicationTokenResponse Client::obtainApplicationTokenWithOptions(const O
 }
 
 /**
- * @summary Queries a specified application token.
+ * @summary Queries the specified application token.
  *
- * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may be caused by this operation.
+ * @description When an application is changed from the enabled state to the disabled state, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the potential risks of this operation.
  *
  * @param request ObtainApplicationTokenRequest
  * @return ObtainApplicationTokenResponse
@@ -15054,9 +15054,9 @@ ObtainDomainProxyTokenResponse Client::obtainDomainProxyToken(const ObtainDomain
 }
 
 /**
- * @summary Deletes an application account of a specified employee under the current application.
+ * @summary Deletes the application account of a specified employee under the current application.
  *
- * @description This operation only queries the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation retrieves only the direct permissions of the organization, which are the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
  *
  * @param request RemoveApplicationAccountFromUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15099,9 +15099,9 @@ RemoveApplicationAccountFromUserResponse Client::removeApplicationAccountFromUse
 }
 
 /**
- * @summary Deletes an application account of a specified employee under the current application.
+ * @summary Deletes the application account of a specified employee under the current application.
  *
- * @description This operation only queries the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation retrieves only the direct permissions of the organization, which are the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
  *
  * @param request RemoveApplicationAccountFromUserRequest
  * @return RemoveApplicationAccountFromUserResponse
@@ -15162,7 +15162,7 @@ RemoveApplicationFromAuthorizationRuleResponse Client::removeApplicationFromAuth
 }
 
 /**
- * @summary Removes custom terms associated with a brand.
+ * @summary Removes custom privacy policies associated with a brand.
  *
  * @param request RemoveCustomPrivacyPoliciesFromBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15201,7 +15201,7 @@ RemoveCustomPrivacyPoliciesFromBrandResponse Client::removeCustomPrivacyPolicies
 }
 
 /**
- * @summary Removes custom terms associated with a brand.
+ * @summary Removes custom privacy policies associated with a brand.
  *
  * @param request RemoveCustomPrivacyPoliciesFromBrandRequest
  * @return RemoveCustomPrivacyPoliciesFromBrandResponse
@@ -15412,7 +15412,7 @@ RemoveUsersFromGroupResponse Client::removeUsersFromGroup(const RemoveUsersFromG
 }
 
 /**
- * @summary Renews a Free Edition instance.
+ * @summary Renews the Free Edition.
  *
  * @param request RenewFreeLicenseEndTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15443,7 +15443,7 @@ RenewFreeLicenseEndTimeResponse Client::renewFreeLicenseEndTimeWithOptions(const
 }
 
 /**
- * @summary Renews a Free Edition instance.
+ * @summary Renews the Free Edition.
  *
  * @param request RenewFreeLicenseEndTimeRequest
  * @return RenewFreeLicenseEndTimeResponse
@@ -15454,7 +15454,7 @@ RenewFreeLicenseEndTimeResponse Client::renewFreeLicenseEndTime(const RenewFreeL
 }
 
 /**
- * @summary Revokes application access permissions for multiple EIAM groups.
+ * @summary Revokes access to an application for multiple EIAM groups in batches.
  *
  * @param request RevokeApplicationFromGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15497,7 +15497,7 @@ RevokeApplicationFromGroupsResponse Client::revokeApplicationFromGroupsWithOptio
 }
 
 /**
- * @summary Revokes application access permissions for multiple EIAM groups.
+ * @summary Revokes access to an application for multiple EIAM groups in batches.
  *
  * @param request RevokeApplicationFromGroupsRequest
  * @return RevokeApplicationFromGroupsResponse
@@ -15562,7 +15562,7 @@ RevokeApplicationFromOrganizationalUnitsResponse Client::revokeApplicationFromOr
 }
 
 /**
- * @summary Revokes access to an application for multiple EIAM accounts.
+ * @summary Revokes the access permissions of multiple EIAM accounts to an application.
  *
  * @param request RevokeApplicationFromUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15605,7 +15605,7 @@ RevokeApplicationFromUsersResponse Client::revokeApplicationFromUsersWithOptions
 }
 
 /**
- * @summary Revokes access to an application for multiple EIAM accounts.
+ * @summary Revokes the access permissions of multiple EIAM accounts to an application.
  *
  * @param request RevokeApplicationFromUsersRequest
  * @return RevokeApplicationFromUsersResponse
@@ -15616,7 +15616,7 @@ RevokeApplicationFromUsersResponse Client::revokeApplicationFromUsers(const Revo
 }
 
 /**
- * @summary Revokes the authorization granted by a specified ResourceServer to a Client application.
+ * @summary Revokes the authorization granted by a specified resource server to a client application.
  *
  * @param request RevokeResourceServerFromClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15655,7 +15655,7 @@ RevokeResourceServerFromClientResponse Client::revokeResourceServerFromClientWit
 }
 
 /**
- * @summary Revokes the authorization granted by a specified ResourceServer to a Client application.
+ * @summary Revokes the authorization granted by a specified resource server to a client application.
  *
  * @param request RevokeResourceServerFromClientRequest
  * @return RevokeResourceServerFromClientResponse
@@ -15666,7 +15666,7 @@ RevokeResourceServerFromClientResponse Client::revokeResourceServerFromClient(co
 }
 
 /**
- * @summary Revokes the Scope permissions of a specified ResourceServer from a Client application.
+ * @summary Revokes the authorization granted to a client application for scope permissions under a specified resource server.
  *
  * @param request RevokeResourceServerScopesFromClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15709,7 +15709,7 @@ RevokeResourceServerScopesFromClientResponse Client::revokeResourceServerScopesF
 }
 
 /**
- * @summary Revokes the Scope permissions of a specified ResourceServer from a Client application.
+ * @summary Revokes the authorization granted to a client application for scope permissions under a specified resource server.
  *
  * @param request RevokeResourceServerScopesFromClientRequest
  * @return RevokeResourceServerScopesFromClientResponse
@@ -15720,7 +15720,7 @@ RevokeResourceServerScopesFromClientResponse Client::revokeResourceServerScopesF
 }
 
 /**
- * @summary Revokes the authorization of Scope permissions under a specified ResourceServer from a group.
+ * @summary Revokes the authorization of scope permissions under a specified resource server for a group.
  *
  * @param request RevokeResourceServerScopesFromGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15763,7 +15763,7 @@ RevokeResourceServerScopesFromGroupResponse Client::revokeResourceServerScopesFr
 }
 
 /**
- * @summary Revokes the authorization of Scope permissions under a specified ResourceServer from a group.
+ * @summary Revokes the authorization of scope permissions under a specified resource server for a group.
  *
  * @param request RevokeResourceServerScopesFromGroupRequest
  * @return RevokeResourceServerScopesFromGroupResponse
@@ -15774,7 +15774,7 @@ RevokeResourceServerScopesFromGroupResponse Client::revokeResourceServerScopesFr
 }
 
 /**
- * @summary Revokes the authorization of Scope permissions under a specified ResourceServer from an organizational unit.
+ * @summary Revokes the authorization of scope permissions under a specified resource server for an organization.
  *
  * @param request RevokeResourceServerScopesFromOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15817,7 +15817,7 @@ RevokeResourceServerScopesFromOrganizationalUnitResponse Client::revokeResourceS
 }
 
 /**
- * @summary Revokes the authorization of Scope permissions under a specified ResourceServer from an organizational unit.
+ * @summary Revokes the authorization of scope permissions under a specified resource server for an organization.
  *
  * @param request RevokeResourceServerScopesFromOrganizationalUnitRequest
  * @return RevokeResourceServerScopesFromOrganizationalUnitResponse
@@ -15828,7 +15828,7 @@ RevokeResourceServerScopesFromOrganizationalUnitResponse Client::revokeResourceS
 }
 
 /**
- * @summary Revokes the Scope permissions under a specified ResourceServer from an account.
+ * @summary Revokes the authorization of scope permissions under a specified resource server for an account.
  *
  * @param request RevokeResourceServerScopesFromUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15871,7 +15871,7 @@ RevokeResourceServerScopesFromUserResponse Client::revokeResourceServerScopesFro
 }
 
 /**
- * @summary Revokes the Scope permissions under a specified ResourceServer from an account.
+ * @summary Revokes the authorization of scope permissions under a specified resource server for an account.
  *
  * @param request RevokeResourceServerScopesFromUserRequest
  * @return RevokeResourceServerScopesFromUserResponse
@@ -16176,7 +16176,7 @@ SetApplicationProvisioningScopeResponse Client::setApplicationProvisioningScope(
 }
 
 /**
- * @summary Sets the primary organizational unit for an application\\"s user provisioning.
+ * @summary Configures the primary organizational unit for application user synchronization.
  *
  * @param request SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16215,7 +16215,7 @@ SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::setAppli
 }
 
 /**
- * @summary Sets the primary organizational unit for an application\\"s user provisioning.
+ * @summary Configures the primary organizational unit for application user synchronization.
  *
  * @param request SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
  * @return SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -16226,7 +16226,7 @@ SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::setAppli
 }
 
 /**
- * @summary Sets the unique identifier for a resource server. This identifier is used as the aud (audience) claim in a JSON Web Token (JWT) to specify the service that is intended to accept the token.
+ * @summary Sets the unique identifier of the resource server. This field specifies the value of the aud (audience) claim in the payload of a JSON Web Token (JWT), which indicates the intended recipient or service of the JWT.
  *
  * @param request SetApplicationResourceServerIdentifierRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16269,7 +16269,7 @@ SetApplicationResourceServerIdentifierResponse Client::setApplicationResourceSer
 }
 
 /**
- * @summary Sets the unique identifier for a resource server. This identifier is used as the aud (audience) claim in a JSON Web Token (JWT) to specify the service that is intended to accept the token.
+ * @summary Sets the unique identifier of the resource server. This field specifies the value of the aud (audience) claim in the payload of a JSON Web Token (JWT), which indicates the intended recipient or service of the JWT.
  *
  * @param request SetApplicationResourceServerIdentifierRequest
  * @return SetApplicationResourceServerIdentifierResponse
@@ -16280,9 +16280,9 @@ SetApplicationResourceServerIdentifierResponse Client::setApplicationResourceSer
 }
 
 /**
- * @summary Sets the single sign-on (SSO) configuration properties of an EIAM application.
+ * @summary Configures the single sign-on (SSO) configuration properties for an EIAM application.
  *
- * @description In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed afterward. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
+ * @description In EIAM, application management supports adding applications with various single sign-on (SSO) logon protocols (SAML 2.0 and OIDC). However, an application can support only one SSO protocol, which cannot be changed after it is specified during creation. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
  *
  * @param request SetApplicationSsoConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16337,9 +16337,9 @@ SetApplicationSsoConfigResponse Client::setApplicationSsoConfigWithOptions(const
 }
 
 /**
- * @summary Sets the single sign-on (SSO) configuration properties of an EIAM application.
+ * @summary Configures the single sign-on (SSO) configuration properties for an EIAM application.
  *
- * @description In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed afterward. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
+ * @description In EIAM, application management supports adding applications with various single sign-on (SSO) logon protocols (SAML 2.0 and OIDC). However, an application can support only one SSO protocol, which cannot be changed after it is specified during creation. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
  *
  * @param request SetApplicationSsoConfigRequest
  * @return SetApplicationSsoConfigResponse
@@ -16446,7 +16446,7 @@ SetForgetPasswordConfigurationResponse Client::setForgetPasswordConfiguration(co
 }
 
 /**
- * @summary Modify Authentication Information
+ * @summary Modifies authentication information.
  *
  * @param request SetIdentityProviderAuthnConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16497,7 +16497,7 @@ SetIdentityProviderAuthnConfigurationResponse Client::setIdentityProviderAuthnCo
 }
 
 /**
- * @summary Modify Authentication Information
+ * @summary Modifies authentication information.
  *
  * @param request SetIdentityProviderAuthnConfigurationRequest
  * @return SetIdentityProviderAuthnConfigurationResponse
@@ -16582,7 +16582,7 @@ SetIdentityProviderUdPullConfigurationResponse Client::setIdentityProviderUdPull
 }
 
 /**
- * @summary Modifies the push configuration for an identity provider (IdP).
+ * @summary Modifies the outbound synchronization configuration of an IdP.
  *
  * @param request SetIdentityProviderUdPushConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16637,7 +16637,7 @@ SetIdentityProviderUdPushConfigurationResponse Client::setIdentityProviderUdPush
 }
 
 /**
- * @summary Modifies the push configuration for an identity provider (IdP).
+ * @summary Modifies the outbound synchronization configuration of an IdP.
  *
  * @param request SetIdentityProviderUdPushConfigurationRequest
  * @return SetIdentityProviderUdPushConfigurationResponse
@@ -16648,7 +16648,7 @@ SetIdentityProviderUdPushConfigurationResponse Client::setIdentityProviderUdPush
 }
 
 /**
- * @summary Sets the control elements of an instance.
+ * @summary Configures the control elements of an instance.
  *
  * @param request SetInstanceControlConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16683,7 +16683,7 @@ SetInstanceControlConfigurationResponse Client::setInstanceControlConfigurationW
 }
 
 /**
- * @summary Sets the control elements of an instance.
+ * @summary Configures the control elements of an instance.
  *
  * @param request SetInstanceControlConfigurationRequest
  * @return SetInstanceControlConfigurationResponse
@@ -16694,7 +16694,7 @@ SetInstanceControlConfigurationResponse Client::setInstanceControlConfiguration(
 }
 
 /**
- * @summary Sets the language and time zone information for an instance.
+ * @summary Sets the language and time zone of an instance.
  *
  * @param request SetInstanceGlobalizationConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16733,7 +16733,7 @@ SetInstanceGlobalizationConfigResponse Client::setInstanceGlobalizationConfigWit
 }
 
 /**
- * @summary Sets the language and time zone information for an instance.
+ * @summary Sets the language and time zone of an instance.
  *
  * @param request SetInstanceGlobalizationConfigRequest
  * @return SetInstanceGlobalizationConfigResponse
@@ -16744,7 +16744,7 @@ SetInstanceGlobalizationConfigResponse Client::setInstanceGlobalizationConfig(co
 }
 
 /**
- * @summary Set login redirect application for brand
+ * @summary Sets the post-logon redirect application for a brand.
  *
  * @param request SetLoginRedirectApplicationForBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16783,7 +16783,7 @@ SetLoginRedirectApplicationForBrandResponse Client::setLoginRedirectApplicationF
 }
 
 /**
- * @summary Set login redirect application for brand
+ * @summary Sets the post-logon redirect application for a brand.
  *
  * @param request SetLoginRedirectApplicationForBrandRequest
  * @return SetLoginRedirectApplicationForBrandResponse
@@ -16972,7 +16972,7 @@ SetPasswordHistoryConfigurationResponse Client::setPasswordHistoryConfiguration(
 }
 
 /**
- * @summary Configures the password initialization policy for a specified EIAM instance.
+ * @summary Sets the password initialization policy for a specified EIAM instance.
  *
  * @param request SetPasswordInitializationConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17019,7 +17019,7 @@ SetPasswordInitializationConfigurationResponse Client::setPasswordInitialization
 }
 
 /**
- * @summary Configures the password initialization policy for a specified EIAM instance.
+ * @summary Sets the password initialization policy for a specified EIAM instance.
  *
  * @param request SetPasswordInitializationConfigurationRequest
  * @return SetPasswordInitializationConfigurationResponse
@@ -17134,7 +17134,7 @@ SetUserPrimaryOrganizationalUnitResponse Client::setUserPrimaryOrganizationalUni
 }
 
 /**
- * @summary Sets the WebAuthn configuration.
+ * @summary Configures WebAuthn settings.
  *
  * @param request SetWebAuthnConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17181,7 +17181,7 @@ SetWebAuthnConfigurationResponse Client::setWebAuthnConfigurationWithOptions(con
 }
 
 /**
- * @summary Sets the WebAuthn configuration.
+ * @summary Configures WebAuthn settings.
  *
  * @param request SetWebAuthnConfigurationRequest
  * @return SetWebAuthnConfigurationResponse
@@ -17192,7 +17192,7 @@ SetWebAuthnConfigurationResponse Client::setWebAuthnConfiguration(const SetWebAu
 }
 
 /**
- * @summary Detaches the TOTP authenticator for a specified user.
+ * @summary Disassociates the TOTP from a specified user.
  *
  * @param request UnbindTotpAuthenticatorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17227,7 +17227,7 @@ UnbindTotpAuthenticatorResponse Client::unbindTotpAuthenticatorWithOptions(const
 }
 
 /**
- * @summary Detaches the TOTP authenticator for a specified user.
+ * @summary Disassociates the TOTP from a specified user.
  *
  * @param request UnbindTotpAuthenticatorRequest
  * @return UnbindTotpAuthenticatorResponse
@@ -17238,7 +17238,7 @@ UnbindTotpAuthenticatorResponse Client::unbindTotpAuthenticator(const UnbindTotp
 }
 
 /**
- * @summary Dissociates a third-party logon account.
+ * @summary Disassociates a third-party logon account.
  *
  * @param request UnbindUserAuthnSourceMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17281,7 +17281,7 @@ UnbindUserAuthnSourceMappingResponse Client::unbindUserAuthnSourceMappingWithOpt
 }
 
 /**
- * @summary Dissociates a third-party logon account.
+ * @summary Disassociates a third-party logon account.
  *
  * @param request UnbindUserAuthnSourceMappingRequest
  * @return UnbindUserAuthnSourceMappingResponse
@@ -17542,7 +17542,7 @@ UpdateApplicationDescriptionResponse Client::updateApplicationDescription(const 
 }
 
 /**
- * @summary Updates an application federated identity credential.
+ * @summary Updates an application federated credential.
  *
  * @param request UpdateApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17597,7 +17597,7 @@ UpdateApplicationFederatedCredentialResponse Client::updateApplicationFederatedC
 }
 
 /**
- * @summary Updates an application federated identity credential.
+ * @summary Updates an application federated credential.
  *
  * @param request UpdateApplicationFederatedCredentialRequest
  * @return UpdateApplicationFederatedCredentialResponse
@@ -17608,7 +17608,7 @@ UpdateApplicationFederatedCredentialResponse Client::updateApplicationFederatedC
 }
 
 /**
- * @summary Updates the description of a federated credential for an application.
+ * @summary Updates the description of an application federated credential.
  *
  * @param request UpdateApplicationFederatedCredentialDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17651,7 +17651,7 @@ UpdateApplicationFederatedCredentialDescriptionResponse Client::updateApplicatio
 }
 
 /**
- * @summary Updates the description of a federated credential for an application.
+ * @summary Updates the description of an application federated credential.
  *
  * @param request UpdateApplicationFederatedCredentialDescriptionRequest
  * @return UpdateApplicationFederatedCredentialDescriptionResponse
@@ -17732,7 +17732,7 @@ UpdateApplicationInfoResponse Client::updateApplicationInfo(const UpdateApplicat
 }
 
 /**
- * @summary Updates an application role.
+ * @summary Modifies an application role.
  *
  * @param request UpdateApplicationRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17779,7 +17779,7 @@ UpdateApplicationRoleResponse Client::updateApplicationRoleWithOptions(const Upd
 }
 
 /**
- * @summary Updates an application role.
+ * @summary Modifies an application role.
  *
  * @param request UpdateApplicationRoleRequest
  * @return UpdateApplicationRoleResponse
@@ -17844,9 +17844,9 @@ UpdateApplicationRoleDescriptionResponse Client::updateApplicationRoleDescriptio
 }
 
 /**
- * @summary Updates the SSO parameters for an application template.
+ * @summary Updates the single sign-on (SSO) parameters of a template application.
  *
- * @description Updates the single sign-on (SSO) parameters for an application template from the marketplace.
+ * @description Updates the single sign-on (SSO) parameters of an application template created in the marketplace.
  *
  * @param request UpdateApplicationSsoFormParamsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17885,9 +17885,9 @@ UpdateApplicationSsoFormParamsResponse Client::updateApplicationSsoFormParamsWit
 }
 
 /**
- * @summary Updates the SSO parameters for an application template.
+ * @summary Updates the single sign-on (SSO) parameters of a template application.
  *
- * @description Updates the single sign-on (SSO) parameters for an application template from the marketplace.
+ * @description Updates the single sign-on (SSO) parameters of an application template created in the marketplace.
  *
  * @param request UpdateApplicationSsoFormParamsRequest
  * @return UpdateApplicationSsoFormParamsResponse
@@ -17898,7 +17898,7 @@ UpdateApplicationSsoFormParamsResponse Client::updateApplicationSsoFormParams(co
 }
 
 /**
- * @summary Updates the expiration time of an ApplicationToken.
+ * @summary Updates the expiration time of an application token.
  *
  * @param request UpdateApplicationTokenExpirationTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17941,7 +17941,7 @@ UpdateApplicationTokenExpirationTimeResponse Client::updateApplicationTokenExpir
 }
 
 /**
- * @summary Updates the expiration time of an ApplicationToken.
+ * @summary Updates the expiration time of an application token.
  *
  * @param request UpdateApplicationTokenExpirationTimeRequest
  * @return UpdateApplicationTokenExpirationTimeResponse
@@ -18012,7 +18012,7 @@ UpdateAuthorizationRuleResponse Client::updateAuthorizationRule(const UpdateAuth
 }
 
 /**
- * @summary Updates the relationship properties between an authorization rule and an application.
+ * @summary Updates the relationship attributes between an authorization rule and an application.
  *
  * @param request UpdateAuthorizationRuleApplicationAttachmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18065,7 +18065,7 @@ UpdateAuthorizationRuleApplicationAttachmentResponse Client::updateAuthorization
 }
 
 /**
- * @summary Updates the relationship properties between an authorization rule and an application.
+ * @summary Updates the relationship attributes between an authorization rule and an application.
  *
  * @param request UpdateAuthorizationRuleApplicationAttachmentRequest
  * @return UpdateAuthorizationRuleApplicationAttachmentResponse
@@ -18260,7 +18260,7 @@ UpdateAuthorizationRuleUserAttachmentResponse Client::updateAuthorizationRuleUse
 }
 
 /**
- * @summary Updates the configuration of an authorization server.
+ * @summary Updates the authorization server configuration.
  *
  * @param request UpdateAuthorizationServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18313,7 +18313,7 @@ UpdateAuthorizationServerResponse Client::updateAuthorizationServerWithOptions(c
 }
 
 /**
- * @summary Updates the configuration of an authorization server.
+ * @summary Updates the authorization server configuration.
  *
  * @param request UpdateAuthorizationServerRequest
  * @return UpdateAuthorizationServerResponse
@@ -18324,7 +18324,7 @@ UpdateAuthorizationServerResponse Client::updateAuthorizationServer(const Update
 }
 
 /**
- * @summary Updates the description of an authorization server.
+ * @summary Update the description of an authorization server
  *
  * @param request UpdateAuthorizationServerDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18369,7 +18369,7 @@ UpdateAuthorizationServerDescriptionResponse Client::updateAuthorizationServerDe
 }
 
 /**
- * @summary Updates the description of an authorization server.
+ * @summary Update the description of an authorization server
  *
  * @param request UpdateAuthorizationServerDescriptionRequest
  * @return UpdateAuthorizationServerDescriptionResponse
@@ -18380,7 +18380,7 @@ UpdateAuthorizationServerDescriptionResponse Client::updateAuthorizationServerDe
 }
 
 /**
- * @summary Modifies a brand.
+ * @summary Updates a brand.
  *
  * @param request UpdateBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18419,7 +18419,7 @@ UpdateBrandResponse Client::updateBrandWithOptions(const UpdateBrandRequest &req
 }
 
 /**
- * @summary Modifies a brand.
+ * @summary Updates a brand.
  *
  * @param request UpdateBrandRequest
  * @return UpdateBrandResponse
@@ -18430,7 +18430,7 @@ UpdateBrandResponse Client::updateBrand(const UpdateBrandRequest &request) {
 }
 
 /**
- * @summary Updates the basic information of an Alibaba Cloud account.
+ * @summary Updates the basic information of a cloud account.
  *
  * @param request UpdateCloudAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18473,7 +18473,7 @@ UpdateCloudAccountResponse Client::updateCloudAccountWithOptions(const UpdateClo
 }
 
 /**
- * @summary Updates the basic information of an Alibaba Cloud account.
+ * @summary Updates the basic information of a cloud account.
  *
  * @param request UpdateCloudAccountRequest
  * @return UpdateCloudAccountResponse
@@ -18484,7 +18484,7 @@ UpdateCloudAccountResponse Client::updateCloudAccount(const UpdateCloudAccountRe
 }
 
 /**
- * @summary Updates the description of an Alibaba Cloud account.
+ * @summary Updates the description of a cloud account.
  *
  * @param request UpdateCloudAccountDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18527,7 +18527,7 @@ UpdateCloudAccountDescriptionResponse Client::updateCloudAccountDescriptionWithO
 }
 
 /**
- * @summary Updates the description of an Alibaba Cloud account.
+ * @summary Updates the description of a cloud account.
  *
  * @param request UpdateCloudAccountDescriptionRequest
  * @return UpdateCloudAccountDescriptionResponse
@@ -18976,7 +18976,7 @@ UpdateCredentialProviderResponse Client::updateCredentialProvider(const UpdateCr
 }
 
 /**
- * @summary Update the description of a credential provider.
+ * @summary Updates the description of a credential provider.
  *
  * @param request UpdateCredentialProviderDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19015,7 +19015,7 @@ UpdateCredentialProviderDescriptionResponse Client::updateCredentialProviderDesc
 }
 
 /**
- * @summary Update the description of a credential provider.
+ * @summary Updates the description of a credential provider.
  *
  * @param request UpdateCredentialProviderDescriptionRequest
  * @return UpdateCredentialProviderDescriptionResponse
@@ -19026,7 +19026,7 @@ UpdateCredentialProviderDescriptionResponse Client::updateCredentialProviderDesc
 }
 
 /**
- * @summary Updates a custom privacy policy.
+ * @summary Updates custom terms.
  *
  * @param request UpdateCustomPrivacyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19077,7 +19077,7 @@ UpdateCustomPrivacyPolicyResponse Client::updateCustomPrivacyPolicyWithOptions(c
 }
 
 /**
- * @summary Updates a custom privacy policy.
+ * @summary Updates custom terms.
  *
  * @param request UpdateCustomPrivacyPolicyRequest
  * @return UpdateCustomPrivacyPolicyResponse
@@ -19088,7 +19088,7 @@ UpdateCustomPrivacyPolicyResponse Client::updateCustomPrivacyPolicy(const Update
 }
 
 /**
- * @summary Updates the brand associated with a domain name.
+ * @summary Modifies the brand associated with a domain name.
  *
  * @param request UpdateDomainBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19127,7 +19127,7 @@ UpdateDomainBrandResponse Client::updateDomainBrandWithOptions(const UpdateDomai
 }
 
 /**
- * @summary Updates the brand associated with a domain name.
+ * @summary Modifies the brand associated with a domain name.
  *
  * @param request UpdateDomainBrandRequest
  * @return UpdateDomainBrandResponse
@@ -19138,7 +19138,7 @@ UpdateDomainBrandResponse Client::updateDomainBrand(const UpdateDomainBrandReque
 }
 
 /**
- * @summary Updates the ICP filing number of a domain.
+ * @summary Updates the ICP filing number of a domain name.
  *
  * @param request UpdateDomainIcpNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19177,7 +19177,7 @@ UpdateDomainIcpNumberResponse Client::updateDomainIcpNumberWithOptions(const Upd
 }
 
 /**
- * @summary Updates the ICP filing number of a domain.
+ * @summary Updates the ICP filing number of a domain name.
  *
  * @param request UpdateDomainIcpNumberRequest
  * @return UpdateDomainIcpNumberResponse
@@ -19860,7 +19860,7 @@ UpdateOrganizationalUnitParentIdResponse Client::updateOrganizationalUnitParentI
 }
 
 /**
- * @summary Updates a scope permission for a specified resource server.
+ * @summary Modifies the scope permissions of a specified resource server.
  *
  * @param request UpdateResourceServerScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19903,7 +19903,7 @@ UpdateResourceServerScopeResponse Client::updateResourceServerScopeWithOptions(c
 }
 
 /**
- * @summary Updates a scope permission for a specified resource server.
+ * @summary Modifies the scope permissions of a specified resource server.
  *
  * @param request UpdateResourceServerScopeRequest
  * @return UpdateResourceServerScopeResponse
@@ -20104,7 +20104,7 @@ UpdateUserDescriptionResponse Client::updateUserDescription(const UpdateUserDesc
 }
 
 /**
- * @summary Updates the password information of an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The password must meet the requirements of the password policies that are configured in the IDaaS console.
+ * @summary Updates the password of a specified EIAM account. The password must comply with the password policy configured in the console.
  *
  * @param request UpdateUserPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20151,7 +20151,7 @@ UpdateUserPasswordResponse Client::updateUserPasswordWithOptions(const UpdateUse
 }
 
 /**
- * @summary Updates the password information of an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The password must meet the requirements of the password policies that are configured in the IDaaS console.
+ * @summary Updates the password of a specified EIAM account. The password must comply with the password policy configured in the console.
  *
  * @param request UpdateUserPasswordRequest
  * @return UpdateUserPasswordResponse

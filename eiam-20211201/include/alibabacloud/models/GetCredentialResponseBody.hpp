@@ -144,7 +144,7 @@ namespace Models
 
 
       protected:
-        // The credential content of the OAuth client authentication credential type.
+        // The credential content for the OAuth client authentication credential type.
         shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
       };
 
@@ -275,7 +275,7 @@ namespace Models
 
 
     protected:
-      // The creation time, in UNIX timestamp format. Unit: milliseconds.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The credential content.
       shared_ptr<Credential::CredentialContent> credentialContent_ {};
@@ -295,9 +295,9 @@ namespace Models
       // - llm: Large language model.
       // - saas: Third-party SaaS service.
       shared_ptr<string> credentialScenarioLabel_ {};
-      // The credential sharing scope.
+      // The sharing scope of the credential.
       shared_ptr<string> credentialSharingScope_ {};
-      // The subject ID to which the credential belongs.
+      // The ID of the subject to which the credential belongs.
       shared_ptr<string> credentialSubjectId_ {};
       // The subject type to which the credential belongs. Valid values:
       // - authentication_token_provider: Authentication token provider.
@@ -308,7 +308,7 @@ namespace Models
       shared_ptr<string> credentialType_ {};
       // The credential description.
       shared_ptr<string> description_ {};
-      // The exclusive account ID of the credential.
+      // The ID of the exclusive user for the credential.
       shared_ptr<string> exclusiveUserId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -316,7 +316,7 @@ namespace Models
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> status_ {};
-      // The update time, in UNIX timestamp format. Unit: milliseconds.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

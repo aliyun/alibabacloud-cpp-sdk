@@ -106,11 +106,11 @@ namespace Models
 
 
       protected:
-        // The ID of the application role.
+        // The application role ID.
         shared_ptr<string> applicationRoleId_ {};
-        // Indicates whether the role is directly assigned to the user.
+        // Indicates whether direct authorization exists.
         shared_ptr<bool> hasDirectAuthorization_ {};
-        // Indicates whether the role is inherited from an organization or a group to which the user belongs.
+        // Indicates whether inherited authorization exists.
         shared_ptr<bool> hasInheritAuthorization_ {};
       };
 
@@ -149,19 +149,17 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> applicationId_ {};
-      // The list of application roles.
+      // The list of application roles. No roles are returned for SAML applications.
       shared_ptr<vector<Applications::ApplicationRoles>> applicationRoles_ {};
-      // Indicates whether a direct authorization exists. Valid values:
+      // Indicates whether direct authorization exists. Valid values:
       // 
       // - true: A direct authorization record exists between the application and the account.
-      // 
       // - false: No direct authorization record exists between the application and the account.
       shared_ptr<bool> hasDirectAuthorization_ {};
-      // Indicates whether an inherited authorization exists. Valid values:
+      // Indicates whether inherited authorization exists. Valid values:
       // 
-      // - true: A direct authorization record exists between the application and a parent organization or a group to which the account belongs.
-      // 
-      // - false: No direct authorization record exists between the application and any of the parent organizations or groups to which the account belongs.
+      // - true: A direct authorization record exists between the application and at least one parent organization of the account or a group to which the account belongs.
+      // - false: No direct authorization record exists between the application and any parent organization of the account or any group to which the account belongs.
       shared_ptr<bool> hasInheritAuthorization_ {};
     };
 

@@ -82,12 +82,12 @@ namespace Models
 
 
     protected:
-      // The filter condition name. Valid values:
+      // The filter name. Valid values:
       // 
-      // - CredentialProviderName: the credential provider name.
-      // - CredentialProviderIdentifier: the credential provider identifier.
+      // - CredentialProviderName: the credential provider name
+      // - CredentialProviderIdentifier: the credential provider identifier
       shared_ptr<string> name_ {};
-      // The list of filter condition values.
+      // The list of filter values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -156,15 +156,15 @@ namespace Models
     shared_ptr<vector<string>> credentialProviderIds_ {};
     // The list of credential provider types.
     shared_ptr<vector<string>> credentialProviderTypes_ {};
-    // The list of filter conditions.
+    // The list of filters.
     shared_ptr<vector<ListCredentialProvidersRequest::Filter>> filter_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries per page in a paged query.
+    // The maximum number of rows per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token.
+    // The next token.
     shared_ptr<string> nextToken_ {};
     // The list of credential provider statuses.
     shared_ptr<vector<string>> statuses_ {};

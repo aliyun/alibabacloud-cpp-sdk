@@ -136,7 +136,7 @@ namespace Models
       shared_ptr<string> smsGatewayId_ {};
       // The brand status.
       shared_ptr<string> status_ {};
-      // The enabling status of system notifications.
+      // The system notification status.
       shared_ptr<string> systemNotificationStatus_ {};
     };
 
@@ -189,7 +189,7 @@ namespace Models
   protected:
     // The list of brands.
     shared_ptr<vector<ListBrandsResponseBody::Brands>> brands_ {};
-    // The maximum number of entries per page in a paging query.
+    // The maximum number of results per page during paging in a paged query.
     shared_ptr<int64_t> maxResults_ {};
     // The next token returned by this call.
     shared_ptr<string> nextToken_ {};

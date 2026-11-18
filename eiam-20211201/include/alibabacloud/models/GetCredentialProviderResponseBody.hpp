@@ -214,23 +214,23 @@ namespace Models
 
 
         protected:
-          // The authorization endpoint of the OAuth protocol.
+          // The authorization endpoint in the OAuth protocol.
           shared_ptr<string> authorizationEndpoint_ {};
           // The OAuth authorization flow type. Valid values:
           // - m2m: Machine-to-machine.
           // - user_federation: User federation.
           shared_ptr<string> authorizationFlow_ {};
-          // The client_id in the OAuth protocol, which is the client ID.
+          // The client ID in the OAuth protocol.
           shared_ptr<string> clientId_ {};
           // The URL of the OAuth discovery document.
           shared_ptr<string> discoveryUrl_ {};
-          // The issuer endpoint of the OAuth protocol.
+          // The issuer endpoint in the OAuth protocol.
           shared_ptr<string> issuer_ {};
           // The algorithm used to calculate the code challenge in PKCE. Valid values:
-          // - S256.
-          // - plain.
+          // - S256: S256.
+          // - plain: plain.
           shared_ptr<string> pkceChallengeMethod_ {};
-          // Indicates whether Proof Key for Code Exchange (PKCE) is enabled.
+          // Specifies whether PKCE is enabled.
           shared_ptr<bool> pkceEnabled_ {};
           // The OAuth provider vendor type. Valid values:
           // - custom: Custom.
@@ -240,15 +240,15 @@ namespace Models
           // - microsoft: Microsoft.
           // - google: Google.
           shared_ptr<string> providerVendor_ {};
-          // The scope in the OAuth protocol, which specifies the permission scope.
+          // The scope in the OAuth protocol.
           // 
-          // > The scope configuration of the OAuth credential provider serves as the default value. If the scope parameter is not specified when you call the DeveloperAPI to obtain an OAuth access token, the scope configuration of the credential provider is used for token issuance.
+          // > The scope configuration of the OAuth credential provider serves as a fallback value. If the scope parameter is not specified when calling the Developer API to obtain an OAuth access token, the token is issued based on the scope configuration of the credential provider.
           // 
           // >Notice: Multiple scope values are separated by spaces.
           shared_ptr<string> scope_ {};
           // The system-generated redirect URI.
           shared_ptr<string> systemRedirectUri_ {};
-          // The token endpoint of the OAuth protocol.
+          // The token endpoint in the OAuth protocol.
           shared_ptr<string> tokenEndpoint_ {};
         };
 
@@ -330,15 +330,15 @@ namespace Models
         protected:
           // The list of allowed JWT issuers.
           shared_ptr<vector<string>> allowedTokenIssuers_ {};
-          // Indicates whether the JWT derived short token feature is enabled.
+          // Specifies whether the JWT derived short token capability is enabled.
           shared_ptr<bool> derivedShortTokenEnabled_ {};
-          // The validity period of the JWT. Unit: seconds.
+          // The validity period of the JWT, in seconds.
           shared_ptr<int32_t> expiration_ {};
-          // Indicates whether JWT expiration cleanup is enabled.
+          // Specifies whether JWT expiration cleanup is enabled.
           shared_ptr<bool> expirationCleanupEnabled_ {};
-          // JWT issuer。
+          // The JWT issuer.
           shared_ptr<string> issuer_ {};
-          // The JWKs endpoint URL.
+          // The JWKS endpoint address.
           shared_ptr<string> jwksEndpoint_ {};
         };
 
@@ -376,9 +376,9 @@ namespace Models
         shared_ptr<CredentialProviderConfig::JwtProviderConfig> jwtProviderConfig_ {};
         // The configuration of the OAuth credential provider.
         shared_ptr<CredentialProviderConfig::OAuthProviderConfig> OAuthProviderConfig_ {};
-        // The list of credential IDs that correspond to the sensitive configurations of the credential provider.
+        // The list of credential IDs for the sensitive configurations of the credential provider.
         // 
-        // > The system securely stores the sensitive configuration information of the credential provider in the form of credentials.
+        // > The system securely stores the sensitive configuration information of the credential provider as credentials.
         shared_ptr<vector<string>> providerCredentialIds_ {};
       };
 
@@ -467,29 +467,29 @@ namespace Models
     protected:
       // The creation time of the credential provider. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The configuration of the credential provider.
+      // The credential provider configuration.
       shared_ptr<CredentialProvider::CredentialProviderConfig> credentialProviderConfig_ {};
-      // The creation type of the credential provider. Valid values:
+      // The credential provider creation type. Valid values:
       // 
       // - system_init: Created by the system.
       // - user_custom: Created by the user.
       shared_ptr<string> credentialProviderCreationType_ {};
       // The credential provider ID.
       shared_ptr<string> credentialProviderId_ {};
-      // The business identifier of the credential provider.
+      // The credential provider identifier.
       shared_ptr<string> credentialProviderIdentifier_ {};
-      // The name of the credential provider.
+      // The credential provider name.
       shared_ptr<string> credentialProviderName_ {};
-      // The type of the credential provider. Valid values:
+      // The credential provider type. Valid values:
       // 
-      // - oauth: OAuth credential provider.
-      // - jwt: JWT credential provider.
+      // - oauth: OAuth credential provider
+      // - jwt: JWT credential provider
       shared_ptr<string> credentialProviderType_ {};
       // The description.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status of the credential provider. Valid values:
+      // The credential provider status. Valid values:
       // 
       // - enabled: Enabled.
       // - disabled: Disabled.

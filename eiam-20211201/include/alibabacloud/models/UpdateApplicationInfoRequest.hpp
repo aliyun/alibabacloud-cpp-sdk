@@ -91,11 +91,11 @@ namespace Models
 
 
     protected:
-      // The name of the application extension field.
+      // The name of the extended field for the application.
       shared_ptr<string> fieldName_ {};
-      // The value of the application extension field. If FieldName is set to agentType, valid values are bailian, pai, dify, and volcano. If FieldName is set to agentExternalId, enter the relevant value.
+      // The value of the extended field for the application. If FieldName is set to agentType, valid values are bailian, pai, dify, and volcano. If FieldName is set to agentExternalId, enter the relevant value.
       shared_ptr<string> fieldValue_ {};
-      // The operation type for the application extension field.
+      // The operation type for the extended field of the application.
       shared_ptr<string> operation_ {};
     };
 
@@ -141,7 +141,7 @@ namespace Models
 
 
     protected:
-      // The list of group IDs.
+      // The list of user group IDs.
       shared_ptr<vector<string>> groupIds_ {};
       // The list of user IDs.
       shared_ptr<vector<string>> userIds_ {};
@@ -219,13 +219,13 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The application name.
     shared_ptr<string> applicationName_ {};
-    // The application owner.
+    // The owner of the application.
     shared_ptr<UpdateApplicationInfoRequest::ApplicationOwner> applicationOwner_ {};
-    // The application visibility settings.
+    // The application visibility collection.
     shared_ptr<vector<string>> applicationVisibility_ {};
     // The idempotency token.
     shared_ptr<string> clientToken_ {};
-    // The list of application extension fields.
+    // The list of extended fields for the application.
     shared_ptr<vector<UpdateApplicationInfoRequest::CustomFields>> customFields_ {};
     // The instance ID.
     // 

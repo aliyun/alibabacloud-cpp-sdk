@@ -82,7 +82,7 @@ namespace Models
 
 
     protected:
-      // The source nodes for synchronization.
+      // The source node for synchronization.
       shared_ptr<vector<string>> sourceScopes_ {};
       // The target node for synchronization.
       shared_ptr<string> targetScope_ {};
@@ -139,9 +139,9 @@ namespace Models
     protected:
       // The cron expression.
       shared_ptr<string> periodicSyncCron_ {};
-      // A collection of time points.
+      // The collection of time points.
       shared_ptr<vector<int32_t>> periodicSyncTimes_ {};
-      // The type of periodic synchronization.
+      // The type.
       shared_ptr<string> periodicSyncType_ {};
     };
 
@@ -210,15 +210,15 @@ namespace Models
 
 
     protected:
-      // The object class for organizations.
+      // The organization object class.
       shared_ptr<string> organizationUnitObjectClass_ {};
-      // The RDN for organizations.
+      // The organization RDN.
       shared_ptr<string> organizationalUnitRdn_ {};
       // Specifies whether to synchronize passwords.
       shared_ptr<string> passwordSyncStatus_ {};
-      // The object class for users.
+      // The user object class.
       shared_ptr<string> userObjectClass_ {};
-      // The Relative Distinguished Name (RDN) for users.
+      // The user RDN.
       shared_ptr<string> userRdn_ {};
     };
 
@@ -281,7 +281,7 @@ namespace Models
 
 
   protected:
-    // The ID of the identity provider.
+    // The identity provider ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
@@ -293,13 +293,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The configurations for LDAP push synchronization.
+    // The configuration for LDAP synchronization.
     shared_ptr<SetIdentityProviderUdPushConfigurationRequest::LdapUdPushConfig> ldapUdPushConfig_ {};
-    // The configuration for periodic synchronization.
+    // The periodic check configuration.
     shared_ptr<SetIdentityProviderUdPushConfigurationRequest::PeriodicSyncConfig> periodicSyncConfig_ {};
-    // The status of periodic synchronization.
+    // The periodic check status.
     shared_ptr<string> periodicSyncStatus_ {};
-    // The push synchronization configurations.
+    // The outbound synchronization configuration.
     shared_ptr<vector<SetIdentityProviderUdPushConfigurationRequest::UdSyncScopeConfigs>> udSyncScopeConfigs_ {};
   };
 

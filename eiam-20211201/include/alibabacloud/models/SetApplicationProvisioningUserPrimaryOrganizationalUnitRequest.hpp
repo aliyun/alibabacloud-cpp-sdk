@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The organization ID.
+    // The organizational unit ID.
     // 
     // This parameter is required.
     shared_ptr<string> userPrimaryOrganizationalUnitId_ {};

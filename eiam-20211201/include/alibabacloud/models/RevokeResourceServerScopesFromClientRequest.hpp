@@ -69,7 +69,7 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the Client application.
+    // The client application ID.
     // 
     // This parameter is required.
     shared_ptr<string> clientApplicationId_ {};
@@ -77,11 +77,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The unique identifier of the ResourceServer application.
+    // The resource server application ID.
     // 
     // This parameter is required.
     shared_ptr<string> resourceServerApplicationId_ {};
-    // The list of Scope permission IDs under the ResourceServer.
+    // The IDs of the scope permissions under the resource server.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceServerScopeIds_ {};

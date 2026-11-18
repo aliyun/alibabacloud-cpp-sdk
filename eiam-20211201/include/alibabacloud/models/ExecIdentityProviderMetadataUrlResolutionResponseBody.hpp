@@ -134,11 +134,11 @@ namespace Models
 
 
       protected:
-        // The IdP certificate list.
+        // The list of IdP certificates.
         shared_ptr<vector<SamlMetadataConfiguration::Certificates>> certificates_ {};
         // The IdP entity ID.
         shared_ptr<string> idPEntityId_ {};
-        // The IdP logon URL.
+        // The IdP SSO URL.
         shared_ptr<string> idPSsoUrl_ {};
       };
 

@@ -195,11 +195,11 @@ namespace Models
 
 
         protected:
-          // The K8s namespace.
+          // The Kubernetes namespace.
           shared_ptr<string> namespace_ {};
           // The pod name prefix.
           shared_ptr<string> podNamePrefix_ {};
-          // The K8s service account name.
+          // The name of the Kubernetes service account.
           shared_ptr<string> serviceAccountName_ {};
         };
 
@@ -286,9 +286,9 @@ namespace Models
         protected:
           // The list of VM instance IDs.
           shared_ptr<vector<string>> instanceIds_ {};
-          // The GCP project ID to which the resource belongs.
+          // The ID of the GCP project to which the resource belongs.
           shared_ptr<string> projectId_ {};
-          // The subject (sub) that corresponds to the service account.
+          // The sub claim corresponding to the service account.
           shared_ptr<string> serviceAccountId_ {};
         };
 
@@ -352,7 +352,7 @@ namespace Models
         protected:
           // The principal ID.
           shared_ptr<string> principalId_ {};
-          // The Azure resource group name.
+          // The name of the Azure resource group.
           shared_ptr<string> resourceGroupName_ {};
           // The subscription ID.
           shared_ptr<string> subscriptionId_ {};
@@ -536,19 +536,19 @@ namespace Models
 
 
     protected:
-      // The application federated credential ID.
+      // The ID of the application federated credential.
       shared_ptr<string> applicationFederatedCredentialId_ {};
-      // The application federated credential name.
+      // The name of the application federated credential.
       shared_ptr<string> applicationFederatedCredentialName_ {};
-      // The application federated credential type.
+      // The type of the application federated credential.
       shared_ptr<string> applicationFederatedCredentialType_ {};
       // The application ID.
       shared_ptr<string> applicationId_ {};
       // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The application federated credential description.
+      // The description of the application federated credential.
       shared_ptr<string> description_ {};
-      // The federated trust source ID.
+      // The ID of the federated trust source.
       shared_ptr<string> federatedCredentialProviderId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -558,7 +558,7 @@ namespace Models
       shared_ptr<ApplicationFederatedCredentials::OidcVerificationConfig> oidcVerificationConfig_ {};
       // The PKCS#7 structured configuration.
       shared_ptr<ApplicationFederatedCredentials::Pkcs7VerificationConfig> pkcs7VerificationConfig_ {};
-      // The application federated credential status.
+      // The status of the application federated credential.
       shared_ptr<string> status_ {};
       // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
@@ -619,15 +619,15 @@ namespace Models
   protected:
     // The list of application federated credentials.
     shared_ptr<vector<ListApplicationFederatedCredentialsResponseBody::ApplicationFederatedCredentials>> applicationFederatedCredentials_ {};
-    // The maximum number of rows per page in a paged query.
+    // The maximum number of items per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by this call.
+    // The pagination token returned by the current call.
     shared_ptr<string> nextToken_ {};
-    // The pagination token returned by this call.
+    // The pagination token returned by the current call.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of items.
     shared_ptr<int64_t> totalCount_ {};
   };
 

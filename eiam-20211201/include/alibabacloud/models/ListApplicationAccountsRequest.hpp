@@ -76,7 +76,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
   };
 

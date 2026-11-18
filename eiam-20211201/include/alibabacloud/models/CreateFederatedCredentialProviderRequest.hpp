@@ -129,9 +129,9 @@ namespace Models
     protected:
       // The list of root certificates.
       shared_ptr<vector<PrivateCaProviderConfig::Certificates>> certificates_ {};
-      // The method used to retrieve the root certificate.
+      // The method to retrieve the root certificate.
       shared_ptr<string> trustAnchorSource_ {};
-      // The trust condition of the root certificate.
+      // The trust conditions for the root certificate.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -253,7 +253,7 @@ namespace Models
       shared_ptr<string> signingTimeValueExpression_ {};
       // The source of the certificate trust anchor.
       shared_ptr<string> trustAnchorSource_ {};
-      // The trust condition.
+      // The trust conditions.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -335,15 +335,15 @@ namespace Models
     protected:
       // The list of audiences.
       shared_ptr<vector<string>> audiences_ {};
-      // The token issuer identifier (Issuer).
+      // The identifier of the token issuer.
       shared_ptr<string> issuer_ {};
-      // The source of the JWKS.
+      // The JWKS source.
       shared_ptr<string> jwksSource_ {};
       // The JWKS endpoint.
       shared_ptr<string> jwksUri_ {};
       // The statically retrieved JWKS.
       shared_ptr<string> staticJwks_ {};
-      // The trust condition.
+      // The trust conditions.
       shared_ptr<string> trustCondition_ {};
     };
 

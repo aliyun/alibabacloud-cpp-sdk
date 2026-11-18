@@ -97,7 +97,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The organizational unit IDs. A maximum of 100 organizational unit IDs can be specified in a single operation.
+    // The organizational unit IDs. You can specify up to 100 organizational unit IDs in a single request.
     shared_ptr<vector<string>> organizationalUnitIds_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};

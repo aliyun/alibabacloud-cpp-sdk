@@ -133,7 +133,7 @@ namespace Models
 
 
   protected:
-    // The ResourceServer application ID.
+    // The ID of the resource server application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
@@ -143,11 +143,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of rows per page in a paged query.
+    // The number of entries to return per page for paging in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The query token for the next page. Set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The permission ID.
+    // The scope ID.
     shared_ptr<string> resourceServerScopeId_ {};
   };
 

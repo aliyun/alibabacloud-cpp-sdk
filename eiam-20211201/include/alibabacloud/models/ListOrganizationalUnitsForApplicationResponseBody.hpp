@@ -106,7 +106,7 @@ namespace Models
 
 
     protected:
-      // The application roles.
+      // The application roles. No roles are returned for SAML applications.
       shared_ptr<vector<OrganizationalUnits::ApplicationRoles>> applicationRoles_ {};
       // The organizational unit ID.
       shared_ptr<string> organizationalUnitId_ {};
@@ -138,7 +138,7 @@ namespace Models
 
 
   protected:
-    // The list of organizational unit IDs.
+    // The organizational units.
     shared_ptr<vector<ListOrganizationalUnitsForApplicationResponseBody::OrganizationalUnits>> organizationalUnits_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

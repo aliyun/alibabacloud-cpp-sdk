@@ -133,7 +133,7 @@ namespace Models
 
 
     protected:
-      // The creation time. The time is in RFC 3339 format and in the UTC time zone.
+      // The creation time. The time follows the RFC 3339 standard and is in the UTC time zone.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> createTime_ {};
@@ -149,7 +149,7 @@ namespace Models
       shared_ptr<string> trustedOriginId_ {};
       // The trusted origin scene.
       shared_ptr<vector<string>> trustedOriginScene_ {};
-      // The update time. The time is in RFC 3339 format and in the UTC time zone.
+      // The update time. The time follows the RFC 3339 standard and is in the UTC time zone.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> updateTime_ {};
@@ -195,13 +195,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of results per page that takes effect for this request.
+    // The actual maximum number of results per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page.
+    // The next token.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
     // The list of trusted origins.
     shared_ptr<vector<ListTrustedOriginsResponseBody::TrustedOrigins>> trustedOrigins_ {};

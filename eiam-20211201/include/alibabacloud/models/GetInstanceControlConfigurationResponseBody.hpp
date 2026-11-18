@@ -132,11 +132,11 @@ namespace Models
 
 
       protected:
-        // The name of the instance control item.
+        // The name of the instance control element.
         shared_ptr<string> elementName_ {};
-        // The Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) authentication configuration.
+        // The human-machine authentication configuration.
         shared_ptr<ControlElements::HumanVerificationConfig> humanVerificationConfig_ {};
-        // The status of the instance control item.
+        // The status of the instance control element.
         shared_ptr<string> status_ {};
       };
 
@@ -151,7 +151,7 @@ namespace Models
 
 
     protected:
-      // The instance control configuration.
+      // The instance control configuration items.
       shared_ptr<vector<InstanceControlConfiguration::ControlElements>> controlElements_ {};
     };
 
@@ -174,7 +174,7 @@ namespace Models
 
 
   protected:
-    // The instance control configuration.
+    // The instance control configuration items.
     shared_ptr<GetInstanceControlConfigurationResponseBody::InstanceControlConfiguration> instanceControlConfiguration_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
