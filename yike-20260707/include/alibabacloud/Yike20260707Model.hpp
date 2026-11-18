@@ -20,9 +20,15 @@
 #include <alibabacloud/models/CreateInfiniteCanvasRequest.hpp>
 #include <alibabacloud/models/CreateInfiniteCanvasResponseBody.hpp>
 #include <alibabacloud/models/CreateInfiniteCanvasResponse.hpp>
+#include <alibabacloud/models/CreateOssUploadRequest.hpp>
+#include <alibabacloud/models/CreateOssUploadResponseBody.hpp>
+#include <alibabacloud/models/CreateOssUploadResponse.hpp>
 #include <alibabacloud/models/CreateProjectRequest.hpp>
 #include <alibabacloud/models/CreateProjectResponseBody.hpp>
 #include <alibabacloud/models/CreateProjectResponse.hpp>
+#include <alibabacloud/models/CreateUploadMediaRequest.hpp>
+#include <alibabacloud/models/CreateUploadMediaResponseBody.hpp>
+#include <alibabacloud/models/CreateUploadMediaResponse.hpp>
 #include <alibabacloud/models/CreateWorkspaceRequest.hpp>
 #include <alibabacloud/models/CreateWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/CreateWorkspaceResponse.hpp>
@@ -101,6 +107,9 @@
 #include <alibabacloud/models/ListInfiniteCanvasesRequest.hpp>
 #include <alibabacloud/models/ListInfiniteCanvasesResponseBody.hpp>
 #include <alibabacloud/models/ListInfiniteCanvasesResponse.hpp>
+#include <alibabacloud/models/ListMediaFoldersRequest.hpp>
+#include <alibabacloud/models/ListMediaFoldersResponseBody.hpp>
+#include <alibabacloud/models/ListMediaFoldersResponse.hpp>
 #include <alibabacloud/models/ListProjectsRequest.hpp>
 #include <alibabacloud/models/ListProjectsResponseBody.hpp>
 #include <alibabacloud/models/ListProjectsResponse.hpp>

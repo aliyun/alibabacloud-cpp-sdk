@@ -353,6 +353,74 @@ CreateInfiniteCanvasResponse Client::createInfiniteCanvas(const CreateInfiniteCa
 }
 
 /**
+ * @summary Generates OSS upload credentials for client-side direct upload without registering media assets or creating media asset records.
+ *
+ * @description ## Request description
+ * - This API operation generates temporary OSS upload credentials so that clients can directly upload files to a specified OSS bucket.
+ * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
+ * - The `FileType` parameter is optional and defaults to `Media`. It affects the path segment in the returned `ObjectKey`.
+ *
+ * @param request CreateOssUploadRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOssUploadResponse
+ */
+CreateOssUploadResponse Client::createOssUploadWithOptions(const CreateOssUploadRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizConfig()) {
+    query["BizConfig"] = request.getBizConfig();
+  }
+
+  if (!!request.hasCredentialType()) {
+    query["CredentialType"] = request.getCredentialType();
+  }
+
+  if (!!request.hasFileExt()) {
+    query["FileExt"] = request.getFileExt();
+  }
+
+  if (!!request.hasFileType()) {
+    query["FileType"] = request.getFileType();
+  }
+
+  if (!!request.hasTargetBucket()) {
+    query["TargetBucket"] = request.getTargetBucket();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateOssUpload"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOssUploadResponse>();
+}
+
+/**
+ * @summary Generates OSS upload credentials for client-side direct upload without registering media assets or creating media asset records.
+ *
+ * @description ## Request description
+ * - This API operation generates temporary OSS upload credentials so that clients can directly upload files to a specified OSS bucket.
+ * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
+ * - The `FileType` parameter is optional and defaults to `Media`. It affects the path segment in the returned `ObjectKey`.
+ *
+ * @param request CreateOssUploadRequest
+ * @return CreateOssUploadResponse
+ */
+CreateOssUploadResponse Client::createOssUpload(const CreateOssUploadRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createOssUploadWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a project.
  *
  * @description Creates a project in a specified workspace and returns the project ID. If WorkspaceId is not specified, the default workspace of the current account is used. After the project is created, you can call GetProject to query the details or call ListProjects to list projects.
@@ -400,6 +468,92 @@ CreateProjectResponse Client::createProjectWithOptions(const CreateProjectReques
 CreateProjectResponse Client::createProject(const CreateProjectRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates or overwrites a media asset for upload and obtains upload credentials.
+ *
+ * @description ## Request description
+ * - This operation supports two modes: creating a new media asset and overwriting an existing media asset.
+ * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
+ * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
+ * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
+ *
+ * @param request CreateUploadMediaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateUploadMediaResponse
+ */
+CreateUploadMediaResponse Client::createUploadMediaWithOptions(const CreateUploadMediaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialType()) {
+    query["CredentialType"] = request.getCredentialType();
+  }
+
+  if (!!request.hasEntityId()) {
+    query["EntityId"] = request.getEntityId();
+  }
+
+  if (!!request.hasFileInfo()) {
+    query["FileInfo"] = request.getFileInfo();
+  }
+
+  if (!!request.hasMediaId()) {
+    query["MediaId"] = request.getMediaId();
+  }
+
+  if (!!request.hasMediaMetaData()) {
+    query["MediaMetaData"] = request.getMediaMetaData();
+  }
+
+  if (!!request.hasOverwrite()) {
+    query["Overwrite"] = request.getOverwrite();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasStorageLocation()) {
+    query["StorageLocation"] = request.getStorageLocation();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateUploadMedia"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateUploadMediaResponse>();
+}
+
+/**
+ * @summary Creates or overwrites a media asset for upload and obtains upload credentials.
+ *
+ * @description ## Request description
+ * - This operation supports two modes: creating a new media asset and overwriting an existing media asset.
+ * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
+ * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
+ * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
+ *
+ * @param request CreateUploadMediaRequest
+ * @return CreateUploadMediaResponse
+ */
+CreateUploadMediaResponse Client::createUploadMedia(const CreateUploadMediaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createUploadMediaWithOptions(request, runtime);
 }
 
 /**
@@ -1709,6 +1863,64 @@ ListInfiniteCanvasesResponse Client::listInfiniteCanvasesWithOptions(const ListI
 ListInfiniteCanvasesResponse Client::listInfiniteCanvases(const ListInfiniteCanvasesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listInfiniteCanvasesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a paginated list of media folders in a specified project.
+ *
+ * @description ## Request description
+ * - This operation retrieves a list of all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+ * - If `ProductionId` is not provided, the default project of the current account is used.
+ *
+ * @param request ListMediaFoldersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMediaFoldersResponse
+ */
+ListMediaFoldersResponse Client::listMediaFoldersWithOptions(const ListMediaFoldersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProductionId()) {
+    query["ProductionId"] = request.getProductionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMediaFolders"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMediaFoldersResponse>();
+}
+
+/**
+ * @summary Queries a paginated list of media folders in a specified project.
+ *
+ * @description ## Request description
+ * - This operation retrieves a list of all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+ * - If `ProductionId` is not provided, the default project of the current account is used.
+ *
+ * @param request ListMediaFoldersRequest
+ * @return ListMediaFoldersResponse
+ */
+ListMediaFoldersResponse Client::listMediaFolders(const ListMediaFoldersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMediaFoldersWithOptions(request, runtime);
 }
 
 /**

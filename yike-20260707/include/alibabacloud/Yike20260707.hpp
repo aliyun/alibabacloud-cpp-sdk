@@ -147,6 +147,33 @@ namespace Yike20260707
       Models::CreateInfiniteCanvasResponse createInfiniteCanvas(const Models::CreateInfiniteCanvasRequest &request);
 
       /**
+       * @summary Generates OSS upload credentials for client-side direct upload without registering media assets or creating media asset records.
+       *
+       * @description ## Request description
+       * - This API operation generates temporary OSS upload credentials so that clients can directly upload files to a specified OSS bucket.
+       * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
+       * - The `FileType` parameter is optional and defaults to `Media`. It affects the path segment in the returned `ObjectKey`.
+       *
+       * @param request CreateOssUploadRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOssUploadResponse
+       */
+      Models::CreateOssUploadResponse createOssUploadWithOptions(const Models::CreateOssUploadRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Generates OSS upload credentials for client-side direct upload without registering media assets or creating media asset records.
+       *
+       * @description ## Request description
+       * - This API operation generates temporary OSS upload credentials so that clients can directly upload files to a specified OSS bucket.
+       * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
+       * - The `FileType` parameter is optional and defaults to `Media`. It affects the path segment in the returned `ObjectKey`.
+       *
+       * @param request CreateOssUploadRequest
+       * @return CreateOssUploadResponse
+       */
+      Models::CreateOssUploadResponse createOssUpload(const Models::CreateOssUploadRequest &request);
+
+      /**
        * @summary Creates a project.
        *
        * @description Creates a project in a specified workspace and returns the project ID. If WorkspaceId is not specified, the default workspace of the current account is used. After the project is created, you can call GetProject to query the details or call ListProjects to list projects.
@@ -166,6 +193,35 @@ namespace Yike20260707
        * @return CreateProjectResponse
        */
       Models::CreateProjectResponse createProject(const Models::CreateProjectRequest &request);
+
+      /**
+       * @summary Creates or overwrites a media asset for upload and obtains upload credentials.
+       *
+       * @description ## Request description
+       * - This operation supports two modes: creating a new media asset and overwriting an existing media asset.
+       * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
+       * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
+       * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
+       *
+       * @param request CreateUploadMediaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateUploadMediaResponse
+       */
+      Models::CreateUploadMediaResponse createUploadMediaWithOptions(const Models::CreateUploadMediaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates or overwrites a media asset for upload and obtains upload credentials.
+       *
+       * @description ## Request description
+       * - This operation supports two modes: creating a new media asset and overwriting an existing media asset.
+       * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
+       * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
+       * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
+       *
+       * @param request CreateUploadMediaRequest
+       * @return CreateUploadMediaResponse
+       */
+      Models::CreateUploadMediaResponse createUploadMedia(const Models::CreateUploadMediaRequest &request);
 
       /**
        * @summary Creates a studio.
@@ -684,6 +740,31 @@ namespace Yike20260707
        * @return ListInfiniteCanvasesResponse
        */
       Models::ListInfiniteCanvasesResponse listInfiniteCanvases(const Models::ListInfiniteCanvasesRequest &request);
+
+      /**
+       * @summary Queries a paginated list of media folders in a specified project.
+       *
+       * @description ## Request description
+       * - This operation retrieves a list of all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+       * - If `ProductionId` is not provided, the default project of the current account is used.
+       *
+       * @param request ListMediaFoldersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMediaFoldersResponse
+       */
+      Models::ListMediaFoldersResponse listMediaFoldersWithOptions(const Models::ListMediaFoldersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a paginated list of media folders in a specified project.
+       *
+       * @description ## Request description
+       * - This operation retrieves a list of all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+       * - If `ProductionId` is not provided, the default project of the current account is used.
+       *
+       * @param request ListMediaFoldersRequest
+       * @return ListMediaFoldersResponse
+       */
+      Models::ListMediaFoldersResponse listMediaFolders(const Models::ListMediaFoldersRequest &request);
 
       /**
        * @summary Queries the list of projects.
