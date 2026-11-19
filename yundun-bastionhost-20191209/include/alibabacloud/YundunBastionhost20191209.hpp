@@ -378,6 +378,23 @@ namespace YundunBastionhost20191209
       Models::AttachReviewersToReviewRuleResponse attachReviewersToReviewRule(const Models::AttachReviewersToReviewRuleRequest &request);
 
       /**
+       * @summary Withdraws a submitted O&M request.
+       *
+       * @param request CancelOperationTicketRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelOperationTicketResponse
+       */
+      Models::CancelOperationTicketResponse cancelOperationTicketWithOptions(const Models::CancelOperationTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Withdraws a submitted O&M request.
+       *
+       * @param request CancelOperationTicketRequest
+       * @return CancelOperationTicketResponse
+       */
+      Models::CancelOperationTicketResponse cancelOperationTicket(const Models::CancelOperationTicketRequest &request);
+
+      /**
        * @summary Configures the security groups that control inbound and outbound network traffic for a Bastionhost instance.
        *
        * @param request ConfigInstanceSecurityGroupsRequest
@@ -1789,10 +1806,10 @@ namespace YundunBastionhost20191209
       Models::ImportKMSSecretsForHostResponse importKMSSecretsForHost(const Models::ImportKMSSecretsForHostRequest &request);
 
       /**
-       * @summary Retrieves the list of commands that require approval.
+       * @summary Queries a list of commands pending approval.
        *
-       * @description This operation allows administrators to retrieve the list of commands that require approval.
-       * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+       * @description This operation allows administrators to retrieve a list of commands pending approval.
+       * The queries per second (QPS) limit for a single user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request ListApproveCommandsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1801,10 +1818,10 @@ namespace YundunBastionhost20191209
       Models::ListApproveCommandsResponse listApproveCommandsWithOptions(const Models::ListApproveCommandsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of commands that require approval.
+       * @summary Queries a list of commands pending approval.
        *
-       * @description This operation allows administrators to retrieve the list of commands that require approval.
-       * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+       * @description This operation allows administrators to retrieve a list of commands pending approval.
+       * The queries per second (QPS) limit for a single user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request ListApproveCommandsRequest
        * @return ListApproveCommandsResponse
@@ -2271,10 +2288,10 @@ namespace YundunBastionhost20191209
       Models::ListOperationHostsResponse listOperationHosts(const Models::ListOperationHostsRequest &request);
 
       /**
-       * @summary Queries the list of O&M tickets pending approval.
+       * @summary Retrieves a list of O&M tickets pending approval.
        *
-       * @description This operation is used by administrators to query the list of O&M tickets pending approval.
-       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
+       * @description This API operation is used by administrators to retrieve a list of O&M tickets pending approval.
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
        *
        * @param request ListOperationTicketsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2283,10 +2300,10 @@ namespace YundunBastionhost20191209
       Models::ListOperationTicketsResponse listOperationTicketsWithOptions(const Models::ListOperationTicketsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of O&M tickets pending approval.
+       * @summary Retrieves a list of O&M tickets pending approval.
        *
-       * @description This operation is used by administrators to query the list of O&M tickets pending approval.
-       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
+       * @description This API operation is used by administrators to retrieve a list of O&M tickets pending approval.
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
        *
        * @param request ListOperationTicketsRequest
        * @return ListOperationTicketsResponse

@@ -164,32 +164,34 @@ namespace Models
 
 
     protected:
-      // The approval status. Valid values:
-      // - 1: Pending.
-      // - 2: Processed.
+      // The status of the approval request. Valid values:
+      // 
+      // - **1**: Pending approval.
+      // 
+      // - **2**: Approved.
       shared_ptr<int32_t> approvalStatus_ {};
       // The ID of the command pending approval.
       shared_ptr<string> approveCommandId_ {};
-      // The name of the asset account used for O&M.
+      // The name of the O&M asset account.
       shared_ptr<string> assetAccountName_ {};
-      // The IP address of the asset for O&M.
+      // The IP address of the O&M asset.
       shared_ptr<string> assetIp_ {};
-      // The name of the asset for O&M.
+      // The name of the O&M asset.
       shared_ptr<string> assetName_ {};
-      // The source IP address from which the application is submitted.
+      // The source IP address from which the request was submitted.
       shared_ptr<string> clientIp_ {};
-      // The Bastionhost user who submitted the application.
+      // The Bastionhost user who submitted the request.
       shared_ptr<string> clientUser_ {};
       // The command pending approval.
       shared_ptr<string> command_ {};
-      // The time when the application was submitted. Unit: seconds. The value is a UNIX timestamp.
+      // The time when the request was submitted. The value is a UNIX timestamp in seconds.
       shared_ptr<string> createTime_ {};
-      // The name of the protocol used for O&M.
+      // The name of the O&M protocol.
       shared_ptr<string> protocolName_ {};
       // The ID of the O&M session that triggered the approval.
       shared_ptr<string> sessionId_ {};
-      // The approval status. Valid values:
-      // - **Wait**: Pending.
+      // The approval status. Valid value:
+      // - **Wait**: Pending approval.
       shared_ptr<string> state_ {};
     };
 

@@ -1199,6 +1199,56 @@ AttachReviewersToReviewRuleResponse Client::attachReviewersToReviewRule(const At
 }
 
 /**
+ * @summary Withdraws a submitted O&M request.
+ *
+ * @param request CancelOperationTicketRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelOperationTicketResponse
+ */
+CancelOperationTicketResponse Client::cancelOperationTicketWithOptions(const CancelOperationTicketRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOperationTicketId()) {
+    query["OperationTicketId"] = request.getOperationTicketId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelOperationTicket"},
+    {"version" , "2019-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelOperationTicketResponse>();
+}
+
+/**
+ * @summary Withdraws a submitted O&M request.
+ *
+ * @param request CancelOperationTicketRequest
+ * @return CancelOperationTicketResponse
+ */
+CancelOperationTicketResponse Client::cancelOperationTicket(const CancelOperationTicketRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelOperationTicketWithOptions(request, runtime);
+}
+
+/**
  * @summary Configures the security groups that control inbound and outbound network traffic for a Bastionhost instance.
  *
  * @param request ConfigInstanceSecurityGroupsRequest
@@ -5805,10 +5855,10 @@ ImportKMSSecretsForHostResponse Client::importKMSSecretsForHost(const ImportKMSS
 }
 
 /**
- * @summary Retrieves the list of commands that require approval.
+ * @summary Queries a list of commands pending approval.
  *
- * @description This operation allows administrators to retrieve the list of commands that require approval.
- * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+ * @description This operation allows administrators to retrieve a list of commands pending approval.
+ * The queries per second (QPS) limit for a single user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request ListApproveCommandsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5863,10 +5913,10 @@ ListApproveCommandsResponse Client::listApproveCommandsWithOptions(const ListApp
 }
 
 /**
- * @summary Retrieves the list of commands that require approval.
+ * @summary Queries a list of commands pending approval.
  *
- * @description This operation allows administrators to retrieve the list of commands that require approval.
- * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+ * @description This operation allows administrators to retrieve a list of commands pending approval.
+ * The queries per second (QPS) limit for a single user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request ListApproveCommandsRequest
  * @return ListApproveCommandsResponse
@@ -7743,10 +7793,10 @@ ListOperationHostsResponse Client::listOperationHosts(const ListOperationHostsRe
 }
 
 /**
- * @summary Queries the list of O&M tickets pending approval.
+ * @summary Retrieves a list of O&M tickets pending approval.
  *
- * @description This operation is used by administrators to query the list of O&M tickets pending approval.
- * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
+ * @description This API operation is used by administrators to retrieve a list of O&M tickets pending approval.
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
  *
  * @param request ListOperationTicketsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7805,10 +7855,10 @@ ListOperationTicketsResponse Client::listOperationTicketsWithOptions(const ListO
 }
 
 /**
- * @summary Queries the list of O&M tickets pending approval.
+ * @summary Retrieves a list of O&M tickets pending approval.
  *
- * @description This operation is used by administrators to query the list of O&M tickets pending approval.
- * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
+ * @description This API operation is used by administrators to retrieve a list of O&M tickets pending approval.
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
  *
  * @param request ListOperationTicketsRequest
  * @return ListOperationTicketsResponse

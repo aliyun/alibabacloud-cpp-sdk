@@ -59,6 +59,9 @@
 #include <alibabacloud/models/AttachReviewersToReviewRuleRequest.hpp>
 #include <alibabacloud/models/AttachReviewersToReviewRuleResponseBody.hpp>
 #include <alibabacloud/models/AttachReviewersToReviewRuleResponse.hpp>
+#include <alibabacloud/models/CancelOperationTicketRequest.hpp>
+#include <alibabacloud/models/CancelOperationTicketResponseBody.hpp>
+#include <alibabacloud/models/CancelOperationTicketResponse.hpp>
 #include <alibabacloud/models/ConfigInstanceSecurityGroupsRequest.hpp>
 #include <alibabacloud/models/ConfigInstanceSecurityGroupsResponseBody.hpp>
 #include <alibabacloud/models/ConfigInstanceSecurityGroupsResponse.hpp>
