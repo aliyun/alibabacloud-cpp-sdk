@@ -202,7 +202,7 @@ namespace Models
       protected:
         // The currency.
         shared_ptr<string> currency_ {};
-        // The amount spent from the savings plan, which is the used commitment.
+        // The deducted amount of the savings plan, which represents the used commitment.
         shared_ptr<float> deductValue_ {};
         // The end time.
         shared_ptr<string> endPeriod_ {};
@@ -212,18 +212,19 @@ namespace Models
         shared_ptr<float> poolValue_ {};
         // The standard pay-as-you-go cost.
         shared_ptr<float> postpaidCost_ {};
-        // The net savings amount.
+        // The net savings.
         shared_ptr<float> savedCost_ {};
         // The start time.
         shared_ptr<string> startPeriod_ {};
         // The current status. Valid values:
-        // 
-        // - -1: overdue payment.
-        // - 1: active.
+        // - -1: overdue payment
+        // - 1: active
         shared_ptr<string> status_ {};
-        // The type of the savings plan, such as general-purpose or ECS compute.
+        // The type of the savings plan. Valid values:
+        // - general-purpose
+        // - ECS compute
         shared_ptr<string> type_ {};
-        // The usage percentage.
+        // The usage rate.
         shared_ptr<float> usagePercentage_ {};
         // The account ID.
         shared_ptr<int64_t> userId_ {};
@@ -313,7 +314,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

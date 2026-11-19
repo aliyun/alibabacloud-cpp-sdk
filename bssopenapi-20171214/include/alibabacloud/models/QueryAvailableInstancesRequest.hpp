@@ -153,11 +153,11 @@ namespace Models
     shared_ptr<string> createTimeEnd_ {};
     // The start time of the creation time range. Specify the time in the ISO 8601 standard in the UTC format.
     shared_ptr<string> createTimeStart_ {};
-    // The end time of the expiration time range. Specify the time in the ISO 8601 standard in the UTC format. Example: 2016-05-23T12:00:00Z.
+    // The end time of the end time range. Specify the time in the ISO 8601 standard in the UTC format. Example: 2016-05-23T12:00:00Z.
     shared_ptr<string> endTimeEnd_ {};
-    // The start time of the expiration time range. Specify the time in the ISO 8601 standard in the UTC format. Example: 2016-05-23T12:00:00Z.
+    // The start time of the end time range. Specify the time in the ISO 8601 standard in the UTC format. Example: 2016-05-23T12:00:00Z.
     shared_ptr<string> endTimeStart_ {};
-    // The instance IDs. Separate multiple IDs with commas. You can specify up to 100 IDs.
+    // The instance IDs. Separate multiple IDs with commas. Maximum number of IDs: 100.
     shared_ptr<string> instanceIDs_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
@@ -165,7 +165,8 @@ namespace Models
     // The number of entries per page. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> pageSize_ {};
     // The product code. You can call the **QueryProductList** operation to query product codes.
-    // > If the region is specified, this parameter cannot be empty.
+    // 
+    // > This parameter cannot be empty when the region is specified.
     shared_ptr<string> productCode_ {};
     // The product type.
     shared_ptr<string> productType_ {};
@@ -176,7 +177,7 @@ namespace Models
     // - ManualRenewal: manual renewal.
     // - NotRenewal: no renewal.
     shared_ptr<string> renewStatus_ {};
-    // The subscription type.
+    // The subscription type. Valid values:
     // - Subscription: subscription.
     // - PayAsYouGo: pay-as-you-go.
     shared_ptr<string> subscriptionType_ {};

@@ -111,21 +111,18 @@ namespace Models
 
 
     protected:
-      // The available credit.
+      // The available amount.
       shared_ptr<string> availableAmount_ {};
-      // The available cash balance.
+      // The cash balance.
       shared_ptr<string> availableCashAmount_ {};
       // The credit limit.
       shared_ptr<string> creditAmount_ {};
       // The currency. Valid values:
-      // 
-      // - CNY: Chinese Yuan
-      // 
-      // - USD: US Dollar
-      // 
-      // - JPY: Japanese Yen
+      // - CNY: Chinese yuan
+      // - USD: US dollar
+      // - JPY: Japanese yen
       shared_ptr<string> currency_ {};
-      // The credit limit granted by MYbank.
+      // The MYbank credit limit.
       shared_ptr<string> mybankCreditAmount_ {};
       // The quota limit for ecosystem customers.
       shared_ptr<string> quotaLimit_ {};
@@ -179,7 +176,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

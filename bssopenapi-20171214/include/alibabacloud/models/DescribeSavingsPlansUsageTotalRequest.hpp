@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // The tag code.
         shared_ptr<string> code_ {};
+        // The selection method for tag filtering.
         shared_ptr<string> selectType_ {};
+        // The list of tag filter values.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -162,8 +165,11 @@ namespace Models
 
 
       protected:
+        // The dimension code.
         shared_ptr<string> code_ {};
+        // The selection method for dimension filtering.
         shared_ptr<string> selectType_ {};
+        // The list of dimension filter values.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -188,7 +194,9 @@ namespace Models
 
 
     protected:
+      // The list of dimension filter conditions.
       shared_ptr<vector<FilterParam::Dimensions>> dimensions_ {};
+      // The list of tag filter conditions.
       shared_ptr<vector<FilterParam::Tags>> tags_ {};
     };
 
@@ -232,16 +240,17 @@ namespace Models
 
 
   protected:
-    // The ID of the resource ownership account. The resource ownership account is the account that actually uses the resources.
+    // The ID of the account with resource ownership, which is the account that actually uses the resources.
     shared_ptr<int64_t> billOwnerId_ {};
-    // The end of the time range to query. The end time is excluded from the time range. If you do not set this parameter, the end time is the current time. Format: yyyy-MM-dd HH:mm:ss.
+    // The end time of the time range to query. The end time is not included in the time range. If you do not specify this parameter, the end time is the current time. Specify the time in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> endPeriod_ {};
+    // The filter parameters.
     shared_ptr<DescribeSavingsPlansUsageTotalRequest::FilterParam> filterParam_ {};
-    // The time granularity of the usage summary. Valid values: MONTH, DAY, HOUR.
+    // The time granularity for querying the usage summary. Valid values: MONTH, DAY, and HOUR.
     // 
     // This parameter is required.
     shared_ptr<string> periodType_ {};
-    // The start of the time range to query. The start time is included in the time range. Format: yyyy-MM-dd HH:mm:ss.
+    // The start time of the time range to query. The start time is included in the time range. Specify the time in the yyyy-MM-dd HH:mm:ss format.
     // 
     // This parameter is required.
     shared_ptr<string> startPeriod_ {};

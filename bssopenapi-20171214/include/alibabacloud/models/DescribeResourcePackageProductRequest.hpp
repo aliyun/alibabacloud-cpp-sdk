@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The code of the service.
+    // The product type.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};

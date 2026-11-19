@@ -139,41 +139,34 @@ namespace Models
 
 
   protected:
-    // The filter for the amortization month.
-    // Maximum number of elements: 10.
+    // The filter for the amortization month. Maximum number of elements: 10.
     shared_ptr<vector<string>> amortizationPeriodFilter_ {};
-    // The filter for the ID of the resource owner.
-    // The resource owner is the account that actually uses the resource.
-    // Maximum number of elements: 10.
+    // The filter for the resource ownership account. The resource ownership account ID. The resource ownership account is the account that actually uses the resources. Maximum number of elements: 10.
     shared_ptr<vector<string>> billOwnerIdList_ {};
-    // The filter for the ID of the bill payer.
-    // This is the ID of a RAM user. If you specify this parameter, you can view the bills of the RAM user. If you leave this parameter empty, the bills of the current account and all its RAM users are returned.
-    // Maximum number of elements: 10.
+    // The filter for the bill purchaser ID, which is the RAM user ID. Specify this parameter to view the bills of RAM users. If you leave this parameter empty, the bills of the current account and all its RAM users are queried by default. Maximum number of elements: 10.
     shared_ptr<vector<string>> billUserIdList_ {};
-    // The billing cycle.
-    // Format: YYYY-MM.
+    // The billing cycle. Format: YYYY-MM.
     // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
-    // The code of the cost center.
+    // The code of the cost unit.
     shared_ptr<string> costUnitCode_ {};
-    // The filter for the instance ID.
-    // You can query multiple instances. If you leave this parameter empty, all instances are queried.
-    // Maximum number of elements: 10.
+    // The filter for the instance ID. You can query multiple instances. If you do not specify this parameter, all instances are queried by default. Maximum number of elements: 10.
     shared_ptr<vector<string>> instanceIdList_ {};
-    // The maximum number of data records to return in this call. Default value: 20. Maximum value: 300.
+    // The maximum number of data records to read in the current call. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results. You do not need to specify this parameter for the first request. You must set the value to the token that is returned in the previous call. If you leave this parameter empty, the query starts from the beginning.
+    // The token that specifies the position where the current call starts to read. The value must be empty or set to the NextToken value returned in the previous response. Otherwise, an error occurs. An empty value indicates that the read starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The product code.
-    // To obtain the value of this parameter, call QueryProductList to query product information, or call DescribeResourcePackageProduct to query information about a specific resource plan.
+    // The product code. You can obtain the value from the following operations:
+    // 
+    // - QueryProductList: queries product information.
+    // - DescribeResourcePackageProduct: queries information about a specific resource plan product.
     shared_ptr<string> productCode_ {};
-    // The details of the product.
+    // The product detail.
     shared_ptr<string> productDetail_ {};
     // The subscription type. Valid values:
     // 
     // - Subscription: subscription.
-    // 
     // - PayAsYouGo: pay-as-you-go.
     shared_ptr<string> subscriptionType_ {};
   };

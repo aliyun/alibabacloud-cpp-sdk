@@ -248,11 +248,11 @@ namespace Models
 
 
       protected:
-        // The creation time. The time is in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
+        // The creation time in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
         shared_ptr<string> createTime_ {};
-        // The end time. The time is in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
+        // The end time in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
         shared_ptr<string> endTime_ {};
-        // The expected release time. The time is in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
+        // The expected release time in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
         shared_ptr<string> expectedReleaseTime_ {};
         // The instance ID.
         shared_ptr<string> instanceID_ {};
@@ -264,16 +264,16 @@ namespace Models
         shared_ptr<string> productType_ {};
         // The region.
         shared_ptr<string> region_ {};
-        // The release time. The time is in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
+        // The release time in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
         shared_ptr<string> releaseTime_ {};
         // The renewal status. Valid values:
         // - AutoRenewal: auto-renewal.
         // - ManualRenewal: manual renewal.
         // - NotRenewal: no renewal.
         shared_ptr<string> renewStatus_ {};
-        // The number of auto-renewal epochs.
+        // The number of units for the auto-renewal cycle.
         shared_ptr<int32_t> renewalDuration_ {};
-        // The unit of the auto-renewal epoch. Valid values:
+        // The unit of the auto-renewal cycle. Valid values:
         // - M: month.
         // - Y: year.
         shared_ptr<string> renewalDurationUnit_ {};
@@ -283,7 +283,7 @@ namespace Models
         shared_ptr<int64_t> sellerId_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The stop time. The time is in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
+        // The stop time in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
         shared_ptr<string> stopTime_ {};
         // The sub-status.
         shared_ptr<string> subStatus_ {};
@@ -332,7 +332,7 @@ namespace Models
       shared_ptr<int32_t> pageNum_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 

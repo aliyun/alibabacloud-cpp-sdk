@@ -145,7 +145,7 @@ namespace Models
     shared_ptr<string> unit_ {};
     // The value type.
     shared_ptr<string> valueType_ {};
-    // The property value list.
+    // The list of property values.
     shared_ptr<vector<AttributeValueInfoDTO>> values_ {};
   };
 

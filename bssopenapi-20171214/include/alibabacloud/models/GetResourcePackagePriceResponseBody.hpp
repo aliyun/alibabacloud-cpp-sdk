@@ -180,14 +180,14 @@ namespace Models
 
 
     protected:
-      // The type of the currency.
+      // The currency.
       shared_ptr<string> currency_ {};
-      // The discounted amount. Unit: CNY.
+      // The discount price. Unit: CNY.
       shared_ptr<float> discountPrice_ {};
       // The original price. Unit: CNY.
       shared_ptr<float> originalPrice_ {};
       shared_ptr<Data::Promotions> promotions_ {};
-      // The price at which the transaction is made. Unit: CNY.
+      // The transaction price. Unit: CNY.
       shared_ptr<float> tradePrice_ {};
     };
 
@@ -233,11 +233,11 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<GetResourcePackagePriceResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

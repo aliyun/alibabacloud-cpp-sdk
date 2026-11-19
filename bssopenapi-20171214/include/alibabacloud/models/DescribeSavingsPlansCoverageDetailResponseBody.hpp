@@ -200,7 +200,7 @@ namespace Models
 
 
       protected:
-        // The coverage percentage.
+        // The coverage rate.
         shared_ptr<float> coveragePercentage_ {};
         // The currency.
         shared_ptr<string> currency_ {};
@@ -212,7 +212,7 @@ namespace Models
         shared_ptr<string> instanceId_ {};
         // The instance type.
         shared_ptr<string> instanceSpec_ {};
-        // The ID of the owner of the deducted commodity.
+        // The ID of the owner of the deducted product.
         shared_ptr<int64_t> ownerId_ {};
         // The pay-as-you-go cost.
         shared_ptr<float> postpaidCost_ {};
@@ -220,11 +220,11 @@ namespace Models
         shared_ptr<string> region_ {};
         // The start time.
         shared_ptr<string> startPeriod_ {};
-        // The total expenditure.
+        // The total amount.
         shared_ptr<float> totalAmount_ {};
         // The user ID.
         shared_ptr<int64_t> userId_ {};
-        // The username.
+        // The account username.
         shared_ptr<string> userName_ {};
       };
 
@@ -258,7 +258,7 @@ namespace Models
       shared_ptr<vector<Data::Items>> items_ {};
       // The token for the next page.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries.
+      // The total number of data entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -306,11 +306,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned query data.
     shared_ptr<DescribeSavingsPlansCoverageDetailResponseBody::Data> data_ {};
-    // The message returned for the API call.
+    // The API call message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call was successful.
+    // Indicates whether the API call is successful.
     shared_ptr<bool> success_ {};
   };
 

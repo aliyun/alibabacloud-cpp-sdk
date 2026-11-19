@@ -128,35 +128,28 @@ namespace Models
 
 
   protected:
-    // The IDs of resource owners. The resource owner is the account that uses the resources.
-    // You can specify a maximum of 10 IDs.
+    // The filter condition for the resource ownership account. The ID of the resource ownership account. The resource ownership account is the account that actually uses the resources. Maximum number of elements: 10.
     shared_ptr<vector<string>> billOwnerIdList_ {};
-    // The IDs of billable accounts. This parameter is used to filter bills by the RAM user who pays for the resources. If you specify this parameter, you can query the bills of the specified RAM user. If you leave this parameter empty, the bills of the current account and all its RAM users are queried.
-    // You can specify a maximum of 10 IDs.
+    // The filter condition for the bill purchaser ID. The ID of the RAM user. Specify this parameter to view the bills of RAM users in Finance Cloud. If you do not specify this parameter, the bills of the current caller account and all its RAM users are viewed by default. Maximum number of elements: 10.
     shared_ptr<vector<string>> billUserIdList_ {};
-    // The amortization month.
-    // Format: YYYY-MM.
+    // The amortization month. Format: YYYY-MM.
     // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
-    // The filter for billing cycle months.
-    // You can specify a maximum of 10 elements.
+    // The filter condition for the billing month. Maximum number of elements: 10.
     shared_ptr<vector<string>> consumePeriodFilter_ {};
-    // The code of the cost center.
+    // The code of the financial unit.
     shared_ptr<string> costUnitCode_ {};
-    // The maximum number of entries to return. Default value: 20. Maximum value: 300.
+    // The maximum number of data records to return in the current call. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the position to start the query. If you leave this parameter empty, the query starts from the beginning. Set this parameter to the value of NextToken that is returned in the last response to query the next page of results.
+    // The token that specifies the position from which the current call starts reading. The value must be empty or set to the NextToken value returned in the previous response. Otherwise, an error is reported. An empty value indicates that the reading starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The product code.
-    // For more information about how to obtain this parameter, see QueryProductList and DescribeResourcePackageProduct.
+    // The product code. Reference value sources: Call QueryProductList to query product information, or call DescribeResourcePackageProduct to query the information about a specific resource plan product.
     shared_ptr<string> productCode_ {};
-    // The details of the product.
+    // The product detail.
     shared_ptr<string> productDetail_ {};
     // The subscription type. Valid values:
-    // 
     // - Subscription: subscription.
-    // 
     // - PayAsYouGo: pay-as-you-go.
     shared_ptr<string> subscriptionType_ {};
   };

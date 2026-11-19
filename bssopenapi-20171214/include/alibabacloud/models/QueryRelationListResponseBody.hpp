@@ -178,21 +178,21 @@ namespace Models
         shared_ptr<int64_t> accountId_ {};
         // The logon name of the Alibaba Cloud account.
         shared_ptr<string> accountName_ {};
-        // The display name of the account.
+        // The display name of the user.
         shared_ptr<string> accountNickName_ {};
-        // The type of the financial account. Valid values: MASTER and MEMBER.
+        // The type of the enterprise financial account. Valid values: MASTER and MEMBER.
         shared_ptr<string> accountType_ {};
-        // The time when the relationship expires. If this parameter is empty, the relationship does not expire.
+        // The time when the relationship expires. An empty value indicates that the relationship does not expire.
         shared_ptr<string> endTime_ {};
         // The relationship ID.
         shared_ptr<int64_t> relationId_ {};
-        // The relationship type. `FinancialManagement` indicates Financial Management and `FinancialTrusteeship` indicates finance trusteeship.
+        // The relationship policy. A value of FinancialManagement indicates financial management, and a value of FinancialTrusteeship indicates finance trusteeship.
         shared_ptr<string> relationType_ {};
-        // The time when the relationship was established. The time is in UTC and follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
+        // The time when the relationship is established. The time follows the ISO 8601 standard in the UTC format. Example: 2016-05-23T12:00:00Z (which is 20:00:00 on May 23, 2016 in UTC+8).
         shared_ptr<string> setupTime_ {};
-        // The time when the relationship takes effect. The time is in UTC and follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
+        // The effective period of the relationship. The time follows the ISO 8601 standard in the UTC format. Example: 2016-05-23T12:00:00Z (which is 20:00:00 on May 23, 2016 in UTC+8).
         shared_ptr<string> startTime_ {};
-        // The status of the relationship. The value is an enumeration of RelationshipStatusEnum.
+        // The relationship status. Valid values are the enumerated values of RelationshipStatusEnum.
         shared_ptr<string> state_ {};
       };
 
@@ -281,13 +281,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The message body.
     shared_ptr<QueryRelationListResponseBody::Data> data_ {};
-    // The returned message.
+    // The message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The type of alert. This parameter is required. Set the value to quota_low_balance, which indicates a low quota alert.
+    // The alert type. Required. Valid values: quota_low_balance: Quota low-balance alert.
     shared_ptr<string> alarmType_ {};
     shared_ptr<int64_t> ownerId_ {};
   };

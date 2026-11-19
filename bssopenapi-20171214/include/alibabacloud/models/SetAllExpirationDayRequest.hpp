@@ -49,9 +49,9 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The expiration date. You can set an expiration date only for ECS instances that have not expired. The expiration date that you specify do not take effect on expired ECS instances. After the expiration date is set, the expiration date is used when you renew ECS instances.
+    // The current unified expiration date settings only support unexpired ECS instances. Expired instances cannot be aligned to the unified expiration date. After the settings are complete, you can align the renewal time with the configured unified expiration time.
     // 
-    // You can set the expiration date to a day from the 1st to the 28th of each month.
+    // Valid values: 1 to 28, representing the 1st to the 28th day of each month.
     // 
     // This parameter is required.
     shared_ptr<string> unifyExpireDay_ {};

@@ -219,7 +219,7 @@ namespace Models
 
 
     protected:
-      // The upper and lower bound values, used for bounded properties.
+      // The upper and lower bounds, used for bounded properties.
       shared_ptr<AttributeConfigs::BoundedValue> boundedValue_ {};
       // The property code.
       shared_ptr<string> code_ {};
@@ -253,7 +253,7 @@ namespace Models
 
 
   protected:
-    // The property configuration list.
+    // The list of property configurations.
     shared_ptr<vector<SelectedComponentConfigDTO::AttributeConfigs>> attributeConfigs_ {};
     // The component code.
     shared_ptr<string> code_ {};

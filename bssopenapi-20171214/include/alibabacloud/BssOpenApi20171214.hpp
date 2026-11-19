@@ -116,10 +116,9 @@ namespace BssOpenApi20171214
       Models::ChangeResellerConsumeAmountResponse changeResellerConsumeAmount(const Models::ChangeResellerConsumeAmountRequest &request);
 
       /**
-       * @summary Confirms an invitation initiated by the main account for a linked account.
+       * @summary Confirms a financial association invitation initiated by the primary account.
        *
-       * @description 1. Currently, only financial management linking is supported. The linked account needs to confirm the invitation only when the real-name verification information of the main account and the linked account is inconsistent.
-       * 2. The permissions to be confirmed must be exactly the same as the permissions specified in the invitation initiated by the main account for the confirmation to succeed.
+       * @description 1. Currently, secondary account confirmation is required only for financial management associations when the real-name verification information of the primary and secondary accounts is inconsistent. 2. To ensure a successful confirmation, the confirmed permissions must match the permissions specified in the invitation initiated by the primary account.
        *
        * @param request ConfirmRelationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -128,10 +127,9 @@ namespace BssOpenApi20171214
       Models::ConfirmRelationResponse confirmRelationWithOptions(const Models::ConfirmRelationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Confirms an invitation initiated by the main account for a linked account.
+       * @summary Confirms a financial association invitation initiated by the primary account.
        *
-       * @description 1. Currently, only financial management linking is supported. The linked account needs to confirm the invitation only when the real-name verification information of the main account and the linked account is inconsistent.
-       * 2. The permissions to be confirmed must be exactly the same as the permissions specified in the invitation initiated by the main account for the confirmation to succeed.
+       * @description 1. Currently, secondary account confirmation is required only for financial management associations when the real-name verification information of the primary and secondary accounts is inconsistent. 2. To ensure a successful confirmation, the confirmed permissions must match the permissions specified in the invitation initiated by the primary account.
        *
        * @param request ConfirmRelationRequest
        * @return ConfirmRelationResponse
@@ -156,9 +154,9 @@ namespace BssOpenApi20171214
       Models::ConvertChargeTypeResponse convertChargeType(const Models::ConvertChargeTypeRequest &request);
 
       /**
-       * @summary Creates an account linking relationship.
+       * @summary Creates a financial association.
        *
-       * @description Creates a master-member relationship for financial management.
+       * @description Creates a primary and secondary account relationship for finance trusteeship.
        *
        * @param request CreateAgAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -167,9 +165,9 @@ namespace BssOpenApi20171214
       Models::CreateAgAccountResponse createAgAccountWithOptions(const Models::CreateAgAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an account linking relationship.
+       * @summary Creates a financial association.
        *
-       * @description Creates a master-member relationship for financial management.
+       * @description Creates a primary and secondary account relationship for finance trusteeship.
        *
        * @param request CreateAgAccountRequest
        * @return CreateAgAccountResponse
@@ -300,14 +298,14 @@ namespace BssOpenApi20171214
       Models::DescribeCostBudgetsSummaryResponse describeCostBudgetsSummary(const Models::DescribeCostBudgetsSummaryRequest &request);
 
       /**
-       * @summary Queries the monthly amortized costs of instances for a specified amortization month.
+       * @summary Queries the monthly amortized costs of instances by amortization month.
        *
-       * @description - Amortized costs cannot be used for settlement or reconciliation. They are used to allocate your subscription and pay-as-you-go fees based on specified allocation rules.
-       * - The final data for a month is available after 12:00 on the sixth day of the following month. The reason for this delay is that scenarios such as delayed billing, refunds, bill adjustments, and overdue payment write-offs can occur during the month. The data for the current month does not include unsettled pay-as-you-go fees for which bills have not yet been generated.
-       * - Amortized cost data from the last 12 months is available.
-       * - Data for attached resources is reflected in the amortized costs 48 hours after the split bill is generated. To use this feature, you must first enable [split bills](https://usercenter2.aliyun.com/finance/split-bill). Data for items that are not attached resources is updated 48 hours after the detailed bill is generated.
-       * - For months before August 2021, amortized costs are not updated intra-month. They are updated only after 12:00 on the sixth day of the following month. Consequently, specific costs for attached resources, such as domain names, buckets, and EIPs, for products such as CDN, OSS, and Internet Shared Bandwidth are not available for these months.
-       * - Amortized cost data is available for querying 48 hours after you enable the [Amortized Cost](https://usercenter2.aliyun.com/finance/amortized-costs) feature.
+       * @description - Amortized costs are not used as the basis for settlement and reconciliation. Amortized costs provide the cost allocation capability, which allocates the expenses incurred on the cloud (including upfront and pay-as-you-go expenses) based on specified allocation rules.
+       * - The final data for the current month is available after 12:00 on the 6th day of the next month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, account adjustments, and overdue payment write-offs. The data for the current month does not include unsettled pay-as-you-go data (unbilled or being accumulated).
+       * - Amortized cost data is available for the last 12 months.
+       * - Data related to attached resources in amortized costs is updated 48 hours after the split bill data is generated. To use the costs of attached resources, activate the [split bill](https://usercenter2.aliyun.com/finance/split-bill) feature in advance. Data not related to attached resources is updated 48 hours after the detailed bill is generated.
+       * - Amortized costs before August 2021 (exclusive) are not updated during the month. They are updated uniformly only after 12:00 on the 6th day of the next amortization month. Specific costs for each attached resource (such as domain names, buckets, and EIPs) of split cloud services (such as CDN, OSS, and Internet Shared Bandwidth) are not provided.
+       * - Amortized cost data is available only after you activate the [amortized costs](https://usercenter2.aliyun.com/finance/amortized-costs) feature. The data is available 48 hours after activation.
        *
        * @param request DescribeInstanceAmortizedCostByAmortizationPeriodRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -316,14 +314,14 @@ namespace BssOpenApi20171214
       Models::DescribeInstanceAmortizedCostByAmortizationPeriodResponse describeInstanceAmortizedCostByAmortizationPeriodWithOptions(const Models::DescribeInstanceAmortizedCostByAmortizationPeriodRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the monthly amortized costs of instances for a specified amortization month.
+       * @summary Queries the monthly amortized costs of instances by amortization month.
        *
-       * @description - Amortized costs cannot be used for settlement or reconciliation. They are used to allocate your subscription and pay-as-you-go fees based on specified allocation rules.
-       * - The final data for a month is available after 12:00 on the sixth day of the following month. The reason for this delay is that scenarios such as delayed billing, refunds, bill adjustments, and overdue payment write-offs can occur during the month. The data for the current month does not include unsettled pay-as-you-go fees for which bills have not yet been generated.
-       * - Amortized cost data from the last 12 months is available.
-       * - Data for attached resources is reflected in the amortized costs 48 hours after the split bill is generated. To use this feature, you must first enable [split bills](https://usercenter2.aliyun.com/finance/split-bill). Data for items that are not attached resources is updated 48 hours after the detailed bill is generated.
-       * - For months before August 2021, amortized costs are not updated intra-month. They are updated only after 12:00 on the sixth day of the following month. Consequently, specific costs for attached resources, such as domain names, buckets, and EIPs, for products such as CDN, OSS, and Internet Shared Bandwidth are not available for these months.
-       * - Amortized cost data is available for querying 48 hours after you enable the [Amortized Cost](https://usercenter2.aliyun.com/finance/amortized-costs) feature.
+       * @description - Amortized costs are not used as the basis for settlement and reconciliation. Amortized costs provide the cost allocation capability, which allocates the expenses incurred on the cloud (including upfront and pay-as-you-go expenses) based on specified allocation rules.
+       * - The final data for the current month is available after 12:00 on the 6th day of the next month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, account adjustments, and overdue payment write-offs. The data for the current month does not include unsettled pay-as-you-go data (unbilled or being accumulated).
+       * - Amortized cost data is available for the last 12 months.
+       * - Data related to attached resources in amortized costs is updated 48 hours after the split bill data is generated. To use the costs of attached resources, activate the [split bill](https://usercenter2.aliyun.com/finance/split-bill) feature in advance. Data not related to attached resources is updated 48 hours after the detailed bill is generated.
+       * - Amortized costs before August 2021 (exclusive) are not updated during the month. They are updated uniformly only after 12:00 on the 6th day of the next amortization month. Specific costs for each attached resource (such as domain names, buckets, and EIPs) of split cloud services (such as CDN, OSS, and Internet Shared Bandwidth) are not provided.
+       * - Amortized cost data is available only after you activate the [amortized costs](https://usercenter2.aliyun.com/finance/amortized-costs) feature. The data is available 48 hours after activation.
        *
        * @param request DescribeInstanceAmortizedCostByAmortizationPeriodRequest
        * @return DescribeInstanceAmortizedCostByAmortizationPeriodResponse
@@ -348,14 +346,14 @@ namespace BssOpenApi20171214
       Models::DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse describeInstanceAmortizedCostByAmortizationPeriodDate(const Models::DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest &request);
 
       /**
-       * @summary Queries the monthly amortized cost of an instance by billing cycle.
+       * @summary Queries the monthly amortized costs of instances by billing cycle.
        *
-       * @description - Amortized costs are not used for settlement or reconciliation. They are used to allocate your cloud expenses, including both subscription and pay-as-you-go fees, based on specified allocation rules.
-       * - The final data for a month is available after 12:00 on the sixth day of the following month. This delay accounts for events such as delayed billing, refunds, bill adjustments, and overdue payment write-offs. Data for the current month does not include unsettled pay-as-you-go fees.
-       * - Amortized cost data is available for the past 12 months.
-       * - Data for attached resources in the amortized costs is updated 48 hours after the split bill is generated. To view the costs of attached resources, you must first enable [split bills](https://usercenter2.aliyun.com/finance/split-bill). Data for other resources is updated 48 hours after the detailed bill is generated.
-       * - For months before August 2021, amortized costs are not updated mid-month. They are updated only after 12:00 on the sixth day of the following month. In addition, specific costs for attached resources, such as domain names, buckets, and EIPs, of products such as CDN, OSS, and Internet Shared Bandwidth, are not provided for this period.
-       * - Amortized cost data is available only after you enable the [Amortized Costs](https://usercenter2.aliyun.com/finance/amortized-costs) feature. The data becomes available 48 hours after enablement.
+       * @description - Amortized costs are not used as the basis for settlement and reconciliation. Amortized costs provide the cost allocation capability, which allocates the costs incurred on the cloud (including subscription and pay-as-you-go costs) according to specified allocation rules.
+       * - The final data for the current month is available after 12:00 on the 6th day of the following month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, account adjustments, and overdue payment write-offs. The data for the current month does not include unsettled (unbilled or accumulating) pay-as-you-go data.
+       * - Amortized cost data is available for the last 12 months.
+       * - Data related to attached resources in amortized costs is updated 48 hours after the split bill data is generated. If you need to use split costs, activate [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) in advance. Data not related to attached resources is updated 48 hours after the detailed bill is generated.
+       * - Amortized costs before August 2021 (exclusive) are not updated during the month. They are updated uniformly after 12:00 on the 6th day of the month following the amortization month. Additionally, specific costs for each attached resource (such as domain names, buckets, and EIPs) of split cloud services (such as CDN, OSS, and Internet Shared Bandwidth) are not supported.
+       * - Amortized cost data is available only after you activate [Amortized Costs](https://usercenter2.aliyun.com/finance/amortized-costs). The data is available 48 hours after activation.
        *
        * @param request DescribeInstanceAmortizedCostByConsumePeriodRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -364,14 +362,14 @@ namespace BssOpenApi20171214
       Models::DescribeInstanceAmortizedCostByConsumePeriodResponse describeInstanceAmortizedCostByConsumePeriodWithOptions(const Models::DescribeInstanceAmortizedCostByConsumePeriodRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the monthly amortized cost of an instance by billing cycle.
+       * @summary Queries the monthly amortized costs of instances by billing cycle.
        *
-       * @description - Amortized costs are not used for settlement or reconciliation. They are used to allocate your cloud expenses, including both subscription and pay-as-you-go fees, based on specified allocation rules.
-       * - The final data for a month is available after 12:00 on the sixth day of the following month. This delay accounts for events such as delayed billing, refunds, bill adjustments, and overdue payment write-offs. Data for the current month does not include unsettled pay-as-you-go fees.
-       * - Amortized cost data is available for the past 12 months.
-       * - Data for attached resources in the amortized costs is updated 48 hours after the split bill is generated. To view the costs of attached resources, you must first enable [split bills](https://usercenter2.aliyun.com/finance/split-bill). Data for other resources is updated 48 hours after the detailed bill is generated.
-       * - For months before August 2021, amortized costs are not updated mid-month. They are updated only after 12:00 on the sixth day of the following month. In addition, specific costs for attached resources, such as domain names, buckets, and EIPs, of products such as CDN, OSS, and Internet Shared Bandwidth, are not provided for this period.
-       * - Amortized cost data is available only after you enable the [Amortized Costs](https://usercenter2.aliyun.com/finance/amortized-costs) feature. The data becomes available 48 hours after enablement.
+       * @description - Amortized costs are not used as the basis for settlement and reconciliation. Amortized costs provide the cost allocation capability, which allocates the costs incurred on the cloud (including subscription and pay-as-you-go costs) according to specified allocation rules.
+       * - The final data for the current month is available after 12:00 on the 6th day of the following month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, account adjustments, and overdue payment write-offs. The data for the current month does not include unsettled (unbilled or accumulating) pay-as-you-go data.
+       * - Amortized cost data is available for the last 12 months.
+       * - Data related to attached resources in amortized costs is updated 48 hours after the split bill data is generated. If you need to use split costs, activate [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) in advance. Data not related to attached resources is updated 48 hours after the detailed bill is generated.
+       * - Amortized costs before August 2021 (exclusive) are not updated during the month. They are updated uniformly after 12:00 on the 6th day of the month following the amortization month. Additionally, specific costs for each attached resource (such as domain names, buckets, and EIPs) of split cloud services (such as CDN, OSS, and Internet Shared Bandwidth) are not supported.
+       * - Amortized cost data is available only after you activate [Amortized Costs](https://usercenter2.aliyun.com/finance/amortized-costs). The data is available 48 hours after activation.
        *
        * @param request DescribeInstanceAmortizedCostByConsumePeriodRequest
        * @return DescribeInstanceAmortizedCostByConsumePeriodResponse
@@ -446,14 +444,14 @@ namespace BssOpenApi20171214
       Models::DescribePricingModuleResponse describePricingModule(const Models::DescribePricingModuleRequest &request);
 
       /**
-       * @summary Queries the monthly amortized cost of products for a specified month.
+       * @summary Queries the monthly amortized costs of products from the perspective of the amortization month.
        *
-       * @description - Amortized costs are for cost allocation purposes only and cannot be used for settlement or reconciliation. This feature allocates your cloud expenses, including both subscription and pay-as-you-go fees, based on specified allocation rules.
-       * - The final data for a month is available after 12:00 on the sixth day of the following month. Data for the current month is not final. This is because it does not include unsettled pay-as-you-go fees and may change due to events such as delayed billing, refunds, bill adjustments, and overdue payment write-offs.
-       * - Amortized cost data for the past 12 months is available.
-       * - Data for attached resources, which requires you to enable [split bills](https://usercenter2.aliyun.com/finance/split-bill), is updated 48 hours after the split bill is generated. Data for other resources is updated 48 hours after the detailed bill is generated.
-       * - For months before August 2021, amortized costs were not updated during the month. They were updated only after 12:00 on the sixth day of the following month. In addition, cost details for attached resources, such as domain names, buckets, and EIPs, for products such as CDN, OSS, and Internet Shared Bandwidth are not available for this period.
-       * - Amortized cost data becomes available 48 hours after you enable the [Amortized Cost](https://usercenter2.aliyun.com/finance/amortized-costs) feature.
+       * @description - Amortized costs are not used as the basis for settlement and reconciliation. Amortized costs provide the cost allocation capability, which allocates the costs incurred on the cloud (including prepaid and pay-as-you-go costs) based on specified allocation rules.
+       * - The final data for the current month is available after 12:00 on the 6th day of the next month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, account adjustments, and overdue payment write-offs. The data for the current month does not include unsettled pay-as-you-go data (unbilled or being accumulated).
+       * - Amortized cost data is available for the last 12 months.
+       * - Data related to attached resources in amortized costs is updated 48 hours after the split bill data is generated. If you need to use the costs of attached resources, activate [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) in advance. Data not related to attached resources is updated 48 hours after the detailed bill is generated.
+       * - Amortized costs before August 2021 (exclusive) are not updated during the month. They are updated uniformly only after 12:00 on the 6th day of the next amortization month. Specific costs for each attached resource (such as domain names, buckets, and EIPs) of cloud products that support split billing (such as CDN, OSS, and Internet Shared Bandwidth) are not supported.
+       * - Amortized cost data is available only after you activate [Amortized Costs](https://usercenter2.aliyun.com/finance/amortized-costs). The data is available 48 hours after activation.
        *
        * @param request DescribeProductAmortizedCostByAmortizationPeriodRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -462,14 +460,14 @@ namespace BssOpenApi20171214
       Models::DescribeProductAmortizedCostByAmortizationPeriodResponse describeProductAmortizedCostByAmortizationPeriodWithOptions(const Models::DescribeProductAmortizedCostByAmortizationPeriodRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the monthly amortized cost of products for a specified month.
+       * @summary Queries the monthly amortized costs of products from the perspective of the amortization month.
        *
-       * @description - Amortized costs are for cost allocation purposes only and cannot be used for settlement or reconciliation. This feature allocates your cloud expenses, including both subscription and pay-as-you-go fees, based on specified allocation rules.
-       * - The final data for a month is available after 12:00 on the sixth day of the following month. Data for the current month is not final. This is because it does not include unsettled pay-as-you-go fees and may change due to events such as delayed billing, refunds, bill adjustments, and overdue payment write-offs.
-       * - Amortized cost data for the past 12 months is available.
-       * - Data for attached resources, which requires you to enable [split bills](https://usercenter2.aliyun.com/finance/split-bill), is updated 48 hours after the split bill is generated. Data for other resources is updated 48 hours after the detailed bill is generated.
-       * - For months before August 2021, amortized costs were not updated during the month. They were updated only after 12:00 on the sixth day of the following month. In addition, cost details for attached resources, such as domain names, buckets, and EIPs, for products such as CDN, OSS, and Internet Shared Bandwidth are not available for this period.
-       * - Amortized cost data becomes available 48 hours after you enable the [Amortized Cost](https://usercenter2.aliyun.com/finance/amortized-costs) feature.
+       * @description - Amortized costs are not used as the basis for settlement and reconciliation. Amortized costs provide the cost allocation capability, which allocates the costs incurred on the cloud (including prepaid and pay-as-you-go costs) based on specified allocation rules.
+       * - The final data for the current month is available after 12:00 on the 6th day of the next month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, account adjustments, and overdue payment write-offs. The data for the current month does not include unsettled pay-as-you-go data (unbilled or being accumulated).
+       * - Amortized cost data is available for the last 12 months.
+       * - Data related to attached resources in amortized costs is updated 48 hours after the split bill data is generated. If you need to use the costs of attached resources, activate [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) in advance. Data not related to attached resources is updated 48 hours after the detailed bill is generated.
+       * - Amortized costs before August 2021 (exclusive) are not updated during the month. They are updated uniformly only after 12:00 on the 6th day of the next amortization month. Specific costs for each attached resource (such as domain names, buckets, and EIPs) of cloud products that support split billing (such as CDN, OSS, and Internet Shared Bandwidth) are not supported.
+       * - Amortized cost data is available only after you activate [Amortized Costs](https://usercenter2.aliyun.com/finance/amortized-costs). The data is available 48 hours after activation.
        *
        * @param request DescribeProductAmortizedCostByAmortizationPeriodRequest
        * @return DescribeProductAmortizedCostByAmortizationPeriodResponse
@@ -477,14 +475,14 @@ namespace BssOpenApi20171214
       Models::DescribeProductAmortizedCostByAmortizationPeriodResponse describeProductAmortizedCostByAmortizationPeriod(const Models::DescribeProductAmortizedCostByAmortizationPeriodRequest &request);
 
       /**
-       * @summary Queries the monthly amortized cost of a product for a specific billing cycle.
+       * @summary Queries the monthly amortized costs of products by billing cycle month.
        *
-       * @description - Amortized costs are used for cost allocation and cannot be used for settlement or reconciliation. This feature allocates your cloud expenses, including both subscription and pay-as-you-go fees, based on specified rules.
-       * - The final data for a given month is available after 12:00 on the sixth day of the following month. This delay ensures that potential mid-month events, such as delayed billing, refunds, bill adjustments, and overdue payment write-offs, are included. Data for the current month does not include unsettled pay-as-you-go fees that have not yet been billed or are still accumulating.
-       * - Amortized cost data for the past 12 months is available.
-       * - Data related to attached resources is updated in the amortized costs 48 hours after the corresponding split bill is generated. To view the costs of attached resources, you must first enable [split bills](https://usercenter2.aliyun.com/finance/split-bill). Data that is not related to attached resources is updated 48 hours after the detailed bill is generated.
-       * - For months before August 2021, amortized costs were not updated mid-month and were only updated after 12:00 on the sixth day of the following month. Additionally, for this period, specific costs for attached resources, such as domain names, buckets, and EIPs, for products such as CDN, OSS, and Internet Shared Bandwidth are not available.
-       * - Amortized cost data is provided only after you enable the [Amortized Cost](https://usercenter2.aliyun.com/finance/amortized-costs) feature. The data is available 48 hours after you enable it.
+       * @description - Amortized costs are not used as the basis for settlement and reconciliation. Amortized costs provide the cost allocation capability, which allocates the costs incurred on the cloud (including subscription and pay-as-you-go costs) based on specified allocation rules.
+       * - The final data for the current month is available after 12:00 on the 6th day of the following month (a few scenarios may occur during the month, including but not limited to delayed billing, refunds, adjustments, and overdue payment write-offs). The data for the current month does not include unsettled (unbilled or accumulating) pay-as-you-go data.
+       * - Amortized cost data is available for the last 12 months.
+       * - Data related to attached resources in amortized costs is updated 48 hours after the split bill data is generated (if you need to use split costs, enable [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) in advance). Data not related to attached resources is updated 48 hours after the detailed bill is generated.
+       * - Amortized cost data before August 2021 (exclusive) is not updated during the month. It is updated uniformly after 12:00 on the 6th day of the month following the amortization month. It also does not support providing specific costs for each attached resource (such as domain names, buckets, and EIPs) of split cloud services (such as CDN, OSS, and Internet Shared Bandwidth).
+       * - Amortized cost data is available only after you enable [Amortized Costs](https://usercenter2.aliyun.com/finance/amortized-costs). It takes 48 hours to take effect after you enable the feature.
        *
        * @param request DescribeProductAmortizedCostByConsumePeriodRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -493,14 +491,14 @@ namespace BssOpenApi20171214
       Models::DescribeProductAmortizedCostByConsumePeriodResponse describeProductAmortizedCostByConsumePeriodWithOptions(const Models::DescribeProductAmortizedCostByConsumePeriodRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the monthly amortized cost of a product for a specific billing cycle.
+       * @summary Queries the monthly amortized costs of products by billing cycle month.
        *
-       * @description - Amortized costs are used for cost allocation and cannot be used for settlement or reconciliation. This feature allocates your cloud expenses, including both subscription and pay-as-you-go fees, based on specified rules.
-       * - The final data for a given month is available after 12:00 on the sixth day of the following month. This delay ensures that potential mid-month events, such as delayed billing, refunds, bill adjustments, and overdue payment write-offs, are included. Data for the current month does not include unsettled pay-as-you-go fees that have not yet been billed or are still accumulating.
-       * - Amortized cost data for the past 12 months is available.
-       * - Data related to attached resources is updated in the amortized costs 48 hours after the corresponding split bill is generated. To view the costs of attached resources, you must first enable [split bills](https://usercenter2.aliyun.com/finance/split-bill). Data that is not related to attached resources is updated 48 hours after the detailed bill is generated.
-       * - For months before August 2021, amortized costs were not updated mid-month and were only updated after 12:00 on the sixth day of the following month. Additionally, for this period, specific costs for attached resources, such as domain names, buckets, and EIPs, for products such as CDN, OSS, and Internet Shared Bandwidth are not available.
-       * - Amortized cost data is provided only after you enable the [Amortized Cost](https://usercenter2.aliyun.com/finance/amortized-costs) feature. The data is available 48 hours after you enable it.
+       * @description - Amortized costs are not used as the basis for settlement and reconciliation. Amortized costs provide the cost allocation capability, which allocates the costs incurred on the cloud (including subscription and pay-as-you-go costs) based on specified allocation rules.
+       * - The final data for the current month is available after 12:00 on the 6th day of the following month (a few scenarios may occur during the month, including but not limited to delayed billing, refunds, adjustments, and overdue payment write-offs). The data for the current month does not include unsettled (unbilled or accumulating) pay-as-you-go data.
+       * - Amortized cost data is available for the last 12 months.
+       * - Data related to attached resources in amortized costs is updated 48 hours after the split bill data is generated (if you need to use split costs, enable [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) in advance). Data not related to attached resources is updated 48 hours after the detailed bill is generated.
+       * - Amortized cost data before August 2021 (exclusive) is not updated during the month. It is updated uniformly after 12:00 on the 6th day of the month following the amortization month. It also does not support providing specific costs for each attached resource (such as domain names, buckets, and EIPs) of split cloud services (such as CDN, OSS, and Internet Shared Bandwidth).
+       * - Amortized cost data is available only after you enable [Amortized Costs](https://usercenter2.aliyun.com/finance/amortized-costs). It takes 48 hours to take effect after you enable the feature.
        *
        * @param request DescribeProductAmortizedCostByConsumePeriodRequest
        * @return DescribeProductAmortizedCostByConsumePeriodResponse
@@ -556,7 +554,7 @@ namespace BssOpenApi20171214
       Models::DescribeResourceCoverageTotalResponse describeResourceCoverageTotal(const Models::DescribeResourceCoverageTotalRequest &request);
 
       /**
-       * @summary Queries the information about resource plans of an Alibaba Cloud service.
+       * @summary Queries the information about a specific resource plan product.
        *
        * @param request DescribeResourcePackageProductRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -565,7 +563,7 @@ namespace BssOpenApi20171214
       Models::DescribeResourcePackageProductResponse describeResourcePackageProductWithOptions(const Models::DescribeResourcePackageProductRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about resource plans of an Alibaba Cloud service.
+       * @summary Queries the information about a specific resource plan product.
        *
        * @param request DescribeResourcePackageProductRequest
        * @return DescribeResourcePackageProductResponse
@@ -607,7 +605,7 @@ namespace BssOpenApi20171214
       Models::DescribeResourceUsageTotalResponse describeResourceUsageTotal(const Models::DescribeResourceUsageTotalRequest &request);
 
       /**
-       * @summary Queries the coverage details of savings plans.
+       * @summary Queries the details of savings plan coverage.
        *
        * @param tmpReq DescribeSavingsPlansCoverageDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -616,7 +614,7 @@ namespace BssOpenApi20171214
       Models::DescribeSavingsPlansCoverageDetailResponse describeSavingsPlansCoverageDetailWithOptions(const Models::DescribeSavingsPlansCoverageDetailRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the coverage details of savings plans.
+       * @summary Queries the details of savings plan coverage.
        *
        * @param request DescribeSavingsPlansCoverageDetailRequest
        * @return DescribeSavingsPlansCoverageDetailResponse
@@ -624,7 +622,7 @@ namespace BssOpenApi20171214
       Models::DescribeSavingsPlansCoverageDetailResponse describeSavingsPlansCoverageDetail(const Models::DescribeSavingsPlansCoverageDetailRequest &request);
 
       /**
-       * @summary Queries the summary of savings plan coverage.
+       * @summary Queries the savings plan coverage summary.
        *
        * @param tmpReq DescribeSavingsPlansCoverageTotalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -633,7 +631,7 @@ namespace BssOpenApi20171214
       Models::DescribeSavingsPlansCoverageTotalResponse describeSavingsPlansCoverageTotalWithOptions(const Models::DescribeSavingsPlansCoverageTotalRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the summary of savings plan coverage.
+       * @summary Queries the savings plan coverage summary.
        *
        * @param request DescribeSavingsPlansCoverageTotalRequest
        * @return DescribeSavingsPlansCoverageTotalResponse
@@ -658,7 +656,7 @@ namespace BssOpenApi20171214
       Models::DescribeSavingsPlansUsageDetailResponse describeSavingsPlansUsageDetail(const Models::DescribeSavingsPlansUsageDetailRequest &request);
 
       /**
-       * @summary Queries the usage summary of savings plans.
+       * @summary Queries the savings plan usage summary.
        *
        * @param tmpReq DescribeSavingsPlansUsageTotalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -667,7 +665,7 @@ namespace BssOpenApi20171214
       Models::DescribeSavingsPlansUsageTotalResponse describeSavingsPlansUsageTotalWithOptions(const Models::DescribeSavingsPlansUsageTotalRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the usage summary of savings plans.
+       * @summary Queries the savings plan usage summary.
        *
        * @param request DescribeSavingsPlansUsageTotalRequest
        * @return DescribeSavingsPlansUsageTotalResponse
@@ -774,12 +772,12 @@ namespace BssOpenApi20171214
       Models::GetOrderDetailResponse getOrderDetail(const Models::GetOrderDetailRequest &request);
 
       /**
-       * @summary Queries the price of a pay-as-you-go product.
+       * @summary Queries the prices of pay-as-you-go products.
        *
-       * @description ### Operation description
+       * @description ### API description
        * 1. Call QueryProductList to obtain the product code. For more information, see [Query product information](https://help.aliyun.com/document_detail/95984.html).
-       * 2. Call the DescribePricingModule operation to obtain the configuration parameters of a product. For more information, see [Query pricing module information](https://help.aliyun.com/document_detail/96469.html).
-       * 3. Call this operation with the obtained product configuration parameters to query the price of a pay-as-you-go product.
+       * 2. Call the DescribePricingModule operation to retrieve the configuration parameters of the product. For more information, see [Query product module information](https://help.aliyun.com/document_detail/96469.html).
+       * 3. Call this operation to query the prices of pay-as-you-go products based on the retrieved configuration parameters.
        *
        * @param request GetPayAsYouGoPriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -788,12 +786,12 @@ namespace BssOpenApi20171214
       Models::GetPayAsYouGoPriceResponse getPayAsYouGoPriceWithOptions(const Models::GetPayAsYouGoPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the price of a pay-as-you-go product.
+       * @summary Queries the prices of pay-as-you-go products.
        *
-       * @description ### Operation description
+       * @description ### API description
        * 1. Call QueryProductList to obtain the product code. For more information, see [Query product information](https://help.aliyun.com/document_detail/95984.html).
-       * 2. Call the DescribePricingModule operation to obtain the configuration parameters of a product. For more information, see [Query pricing module information](https://help.aliyun.com/document_detail/96469.html).
-       * 3. Call this operation with the obtained product configuration parameters to query the price of a pay-as-you-go product.
+       * 2. Call the DescribePricingModule operation to retrieve the configuration parameters of the product. For more information, see [Query product module information](https://help.aliyun.com/document_detail/96469.html).
+       * 3. Call this operation to query the prices of pay-as-you-go products based on the retrieved configuration parameters.
        *
        * @param request GetPayAsYouGoPriceRequest
        * @return GetPayAsYouGoPriceResponse
@@ -938,7 +936,7 @@ namespace BssOpenApi20171214
       Models::PayOrderResponse payOrder(const Models::PayOrderRequest &request);
 
       /**
-       * @summary Queries the user\\"s account balance.
+       * @summary Queries the balance information of a user account.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryAccountBalanceResponse
@@ -946,7 +944,7 @@ namespace BssOpenApi20171214
       Models::QueryAccountBalanceResponse queryAccountBalanceWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the user\\"s account balance.
+       * @summary Queries the balance information of a user account.
        *
        * @return QueryAccountBalanceResponse
        */
@@ -1018,7 +1016,7 @@ namespace BssOpenApi20171214
       Models::QueryAccountTransactionsResponse queryAccountTransactions(const Models::QueryAccountTransactionsRequest &request);
 
       /**
-       * @summary Queries the list of available instances for the user.
+       * @summary Queries the list of available instances.
        *
        * @param request QueryAvailableInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1027,7 +1025,7 @@ namespace BssOpenApi20171214
       Models::QueryAvailableInstancesResponse queryAvailableInstancesWithOptions(const Models::QueryAvailableInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of available instances for the user.
+       * @summary Queries the list of available instances.
        *
        * @param request QueryAvailableInstancesRequest
        * @return QueryAvailableInstancesResponse
@@ -1176,7 +1174,7 @@ namespace BssOpenApi20171214
        * @summary Queries the usage of resource plans, including reserved instances (RIs) and storage capacity units (SCUs).
        *
        * @description Limits:
-       * - Only usage records from the past year are supported.
+       * - Only usage records for the last year are supported.
        *
        * @param request QueryDPUtilizationDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1188,7 +1186,7 @@ namespace BssOpenApi20171214
        * @summary Queries the usage of resource plans, including reserved instances (RIs) and storage capacity units (SCUs).
        *
        * @description Limits:
-       * - Only usage records from the past year are supported.
+       * - Only usage records for the last year are supported.
        *
        * @param request QueryDPUtilizationDetailRequest
        * @return QueryDPUtilizationDetailResponse
@@ -1388,7 +1386,7 @@ namespace BssOpenApi20171214
       Models::QueryPriceEntityListResponse queryPriceEntityList(const Models::QueryPriceEntityListRequest &request);
 
       /**
-       * @summary Queries the list of products available for the current account to order. The response includes the product code, product name, and subscription type (subscription or pay-as-you-go).
+       * @summary Queries the list of products available for subscription for the current account and returns information such as the product code, product name, and subscription mode (subscription or pay-as-you-go).
        *
        * @param request QueryProductListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1397,7 +1395,7 @@ namespace BssOpenApi20171214
       Models::QueryProductListResponse queryProductListWithOptions(const Models::QueryProductListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of products available for the current account to order. The response includes the product code, product name, and subscription type (subscription or pay-as-you-go).
+       * @summary Queries the list of products available for subscription for the current account and returns information such as the product code, product name, and subscription mode (subscription or pay-as-you-go).
        *
        * @param request QueryProductListRequest
        * @return QueryProductListResponse
@@ -1439,7 +1437,7 @@ namespace BssOpenApi20171214
       Models::QueryRedeemResponse queryRedeem(const Models::QueryRedeemRequest &request);
 
       /**
-       * @summary Queries a list of the relationships of member accounts.
+       * @summary Queries the list of member accounts relationships for accounts with master-member relationship permissions.
        *
        * @param request QueryRelationListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1448,7 +1446,7 @@ namespace BssOpenApi20171214
       Models::QueryRelationListResponse queryRelationListWithOptions(const Models::QueryRelationListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of the relationships of member accounts.
+       * @summary Queries the list of member accounts relationships for accounts with master-member relationship permissions.
        *
        * @param request QueryRelationListRequest
        * @return QueryRelationListResponse
@@ -1456,7 +1454,7 @@ namespace BssOpenApi20171214
       Models::QueryRelationListResponse queryRelationList(const Models::QueryRelationListRequest &request);
 
       /**
-       * @summary Queries the available quota for a user in a reseller payment scenario.
+       * @summary Queries the current available quota balance for a user in a consolidated billing scenario where a consumption quota is set.
        *
        * @param request QueryResellerAvailableQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1465,7 +1463,7 @@ namespace BssOpenApi20171214
       Models::QueryResellerAvailableQuotaResponse queryResellerAvailableQuotaWithOptions(const Models::QueryResellerAvailableQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the available quota for a user in a reseller payment scenario.
+       * @summary Queries the current available quota balance for a user in a consolidated billing scenario where a consumption quota is set.
        *
        * @param request QueryResellerAvailableQuotaRequest
        * @return QueryResellerAvailableQuotaResponse
@@ -1473,7 +1471,9 @@ namespace BssOpenApi20171214
       Models::QueryResellerAvailableQuotaResponse queryResellerAvailableQuota(const Models::QueryResellerAvailableQuotaRequest &request);
 
       /**
-       * @description Queries the alarm thresholds for low quotas.
+       * @summary Queries the low-balance alert rules for quotas.
+       *
+       * @description Queries the low-balance alert rules for quotas.
        *
        * @param request QueryResellerUserAlarmThresholdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1482,7 +1482,9 @@ namespace BssOpenApi20171214
       Models::QueryResellerUserAlarmThresholdResponse queryResellerUserAlarmThresholdWithOptions(const Models::QueryResellerUserAlarmThresholdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @description Queries the alarm thresholds for low quotas.
+       * @summary Queries the low-balance alert rules for quotas.
+       *
+       * @description Queries the low-balance alert rules for quotas.
        *
        * @param request QueryResellerUserAlarmThresholdRequest
        * @return QueryResellerUserAlarmThresholdResponse
@@ -1490,7 +1492,7 @@ namespace BssOpenApi20171214
       Models::QueryResellerUserAlarmThresholdResponse queryResellerUserAlarmThreshold(const Models::QueryResellerUserAlarmThresholdRequest &request);
 
       /**
-       * @summary Queries the instances of a specific resource plan for a user. Only valid resource plans are supported.
+       * @summary Queries the instances of a resource plan for a user. Only valid resource plans can be queried.
        *
        * @param request QueryResourcePackageInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1499,7 +1501,7 @@ namespace BssOpenApi20171214
       Models::QueryResourcePackageInstancesResponse queryResourcePackageInstancesWithOptions(const Models::QueryResourcePackageInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the instances of a specific resource plan for a user. Only valid resource plans are supported.
+       * @summary Queries the instances of a resource plan for a user. Only valid resource plans can be queried.
        *
        * @param request QueryResourcePackageInstancesRequest
        * @return QueryResourcePackageInstancesResponse
@@ -1558,13 +1560,13 @@ namespace BssOpenApi20171214
       Models::QuerySavingsPlansInstanceResponse querySavingsPlansInstance(const Models::QuerySavingsPlansInstanceRequest &request);
 
       /**
-       * @summary Queries the settlement bills of a user for a specific billing cycle. Supports domestic accounts with more than 50,000 bill entries.
+       * @summary Queries the settlement bills of a user within a specific billing cycle. Supports domestic accounts with more than 50,000 bill entries.
        *
-       * @description - The query results for the current month are for reference only and cannot be used for reconciliation. The final bill for the current month is available for viewing or export after 12:00 on the 2nd of the following month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, adjustments, and overdue payment write-offs.
-       * - Bill data is updated with a 5-hour delay relative to actual cost consumption.
-       * - For bills in the "Unsettled" state in historical billing cycles, the status is updated to settled 5 hours after payment. For bills in the "Unsettled" state in the current month, the status is updated to settled when the bill is generated at 12:00 on the 2nd of the following month.
-       * - This API supports graceful backoff with a request rate of 600/60(s).
-       * - The rate limit per user is 10 requests per second. If a timeout occurs, retry the request.
+       * @description - The query results for the current month are for reference only and cannot be used as the basis for reconciliation. The final bill for the current month can be viewed or exported after 12:00 on the 2nd day of the next month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, adjustments, and overdue payment write-offs.
+       * - Bill data is updated with a 5-hour delay compared to actual expense consumption.
+       * - For bills in the "Uncleared" status from historical billing cycles, the status is updated to "Cleared" 5 hours after repayment. For bills in the "Uncleared" status for the current month, the status is updated to "Cleared" when the bill is generated at 12:00 on the 2nd day of the next month after repayment.
+       * - This API supports graceful backoff. The request rate is 600 requests per 60 seconds.
+       * - The rate limit for a single user is 10 requests per second. If a timeout occurs, retry the request.
        *
        * @param request QuerySettleBillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1573,13 +1575,13 @@ namespace BssOpenApi20171214
       Models::QuerySettleBillResponse querySettleBillWithOptions(const Models::QuerySettleBillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the settlement bills of a user for a specific billing cycle. Supports domestic accounts with more than 50,000 bill entries.
+       * @summary Queries the settlement bills of a user within a specific billing cycle. Supports domestic accounts with more than 50,000 bill entries.
        *
-       * @description - The query results for the current month are for reference only and cannot be used for reconciliation. The final bill for the current month is available for viewing or export after 12:00 on the 2nd of the following month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, adjustments, and overdue payment write-offs.
-       * - Bill data is updated with a 5-hour delay relative to actual cost consumption.
-       * - For bills in the "Unsettled" state in historical billing cycles, the status is updated to settled 5 hours after payment. For bills in the "Unsettled" state in the current month, the status is updated to settled when the bill is generated at 12:00 on the 2nd of the following month.
-       * - This API supports graceful backoff with a request rate of 600/60(s).
-       * - The rate limit per user is 10 requests per second. If a timeout occurs, retry the request.
+       * @description - The query results for the current month are for reference only and cannot be used as the basis for reconciliation. The final bill for the current month can be viewed or exported after 12:00 on the 2nd day of the next month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, adjustments, and overdue payment write-offs.
+       * - Bill data is updated with a 5-hour delay compared to actual expense consumption.
+       * - For bills in the "Uncleared" status from historical billing cycles, the status is updated to "Cleared" 5 hours after repayment. For bills in the "Uncleared" status for the current month, the status is updated to "Cleared" when the bill is generated at 12:00 on the 2nd day of the next month after repayment.
+       * - This API supports graceful backoff. The request rate is 600 requests per 60 seconds.
+       * - The rate limit for a single user is 10 requests per second. If a timeout occurs, retry the request.
        *
        * @param request QuerySettleBillRequest
        * @return QuerySettleBillResponse
@@ -1631,13 +1633,7 @@ namespace BssOpenApi20171214
       Models::QuerySplitItemBillResponse querySplitItemBill(const Models::QuerySplitItemBillRequest &request);
 
       /**
-       * @summary Queries the metering records for the specified cloud service.
-       *
-       * @description ## API description
-       * - The specified cloud service parameter must be one of the following cloud service codes. The metering data types include hourly and daily.
-       * - The time format must comply with the ISO 8601 standard. Time specification constraints:
-       * 	-	Due to delays in data push, the data integrity of hourly metering data is guaranteed for the past 24 hours, and the data integrity of daily metering data is guaranteed for the past 2 days.
-       * 	-	The time span can cover the metering data of the most recent quarter.
+       * @summary 用户用量查询
        *
        * @param request QueryUserOmsDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1646,13 +1642,7 @@ namespace BssOpenApi20171214
       Models::QueryUserOmsDataResponse queryUserOmsDataWithOptions(const Models::QueryUserOmsDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the metering records for the specified cloud service.
-       *
-       * @description ## API description
-       * - The specified cloud service parameter must be one of the following cloud service codes. The metering data types include hourly and daily.
-       * - The time format must comply with the ISO 8601 standard. Time specification constraints:
-       * 	-	Due to delays in data push, the data integrity of hourly metering data is guaranteed for the past 24 hours, and the data integrity of daily metering data is guaranteed for the past 2 days.
-       * 	-	The time span can cover the metering data of the most recent quarter.
+       * @summary 用户用量查询
        *
        * @param request QueryUserOmsDataRequest
        * @return QueryUserOmsDataResponse
@@ -1685,6 +1675,27 @@ namespace BssOpenApi20171214
        * @return RefundInstanceResponse
        */
       Models::RefundInstanceResponse refundInstance(const Models::RefundInstanceRequest &request);
+
+      /**
+       * @summary Releases expired and stopped subscription instances.
+       *
+       * @description Releases **upfront** instances that have **expired and stopped**. After an instance expires and stops, you can use this operation to release it in advance instead of waiting for the automatic release by the system after the retention period. **The release operation is irreversible. Before you invoke this operation, confirm that you no longer need the instance data or underlying resources.**
+       *
+       * @param request ReleaseExpiredPrepaidInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReleaseExpiredPrepaidInstanceResponse
+       */
+      Models::ReleaseExpiredPrepaidInstanceResponse releaseExpiredPrepaidInstanceWithOptions(const Models::ReleaseExpiredPrepaidInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Releases expired and stopped subscription instances.
+       *
+       * @description Releases **upfront** instances that have **expired and stopped**. After an instance expires and stops, you can use this operation to release it in advance instead of waiting for the automatic release by the system after the retention period. **The release operation is irreversible. Before you invoke this operation, confirm that you no longer need the instance data or underlying resources.**
+       *
+       * @param request ReleaseExpiredPrepaidInstanceRequest
+       * @return ReleaseExpiredPrepaidInstanceResponse
+       */
+      Models::ReleaseExpiredPrepaidInstanceResponse releaseExpiredPrepaidInstance(const Models::ReleaseExpiredPrepaidInstanceRequest &request);
 
       /**
        * @summary Releases instances by Virtual Network Operators (VNOs).
@@ -1759,7 +1770,7 @@ namespace BssOpenApi20171214
       Models::RenewInstanceResponse renewInstance(const Models::RenewInstanceRequest &request);
 
       /**
-       * @summary Renews a resource package instance.
+       * @summary Renews a specified resource plan instance.
        *
        * @param request RenewResourcePackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1768,7 +1779,7 @@ namespace BssOpenApi20171214
       Models::RenewResourcePackageResponse renewResourcePackageWithOptions(const Models::RenewResourcePackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renews a resource package instance.
+       * @summary Renews a specified resource plan instance.
        *
        * @param request RenewResourcePackageRequest
        * @return RenewResourcePackageResponse
@@ -1776,7 +1787,7 @@ namespace BssOpenApi20171214
       Models::RenewResourcePackageResponse renewResourcePackage(const Models::RenewResourcePackageRequest &request);
 
       /**
-       * @summary Sets an expiration date for all Elastic Compute Service (ECS) instances.
+       * @summary Sets a unified expiration date for renewing ECS instances.
        *
        * @param request SetAllExpirationDayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1785,7 +1796,7 @@ namespace BssOpenApi20171214
       Models::SetAllExpirationDayResponse setAllExpirationDayWithOptions(const Models::SetAllExpirationDayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets an expiration date for all Elastic Compute Service (ECS) instances.
+       * @summary Sets a unified expiration date for renewing ECS instances.
        *
        * @param request SetAllExpirationDayRequest
        * @return SetAllExpirationDayResponse
@@ -1793,7 +1804,7 @@ namespace BssOpenApi20171214
       Models::SetAllExpirationDayResponse setAllExpirationDay(const Models::SetAllExpirationDayRequest &request);
 
       /**
-       * @summary Enables auto-renewal for an instance.
+       * @summary Sets the auto-renewal service for an instance.
        *
        * @param request SetRenewalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1802,7 +1813,7 @@ namespace BssOpenApi20171214
       Models::SetRenewalResponse setRenewalWithOptions(const Models::SetRenewalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables auto-renewal for an instance.
+       * @summary Sets the auto-renewal service for an instance.
        *
        * @param request SetRenewalRequest
        * @return SetRenewalResponse
@@ -1833,8 +1844,6 @@ namespace BssOpenApi20171214
       /**
        * @summary Modify the quota ledger and consumption ledger.
        *
-       * @description 设置用户配额账本的Quota额度
-       *
        * @param request SetResellerUserQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SetResellerUserQuotaResponse
@@ -1843,8 +1852,6 @@ namespace BssOpenApi20171214
 
       /**
        * @summary Modify the quota ledger and consumption ledger.
-       *
-       * @description 设置用户配额账本的Quota额度
        *
        * @param request SetResellerUserQuotaRequest
        * @return SetResellerUserQuotaResponse
@@ -1981,7 +1988,7 @@ namespace BssOpenApi20171214
       Models::SubscribeBillToOSSResponse subscribeBillToOSS(const Models::SubscribeBillToOSSRequest &request);
 
       /**
-       * @summary Adds tags to resources.
+       * @summary Adds tags to a resource.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1990,7 +1997,7 @@ namespace BssOpenApi20171214
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tags to resources.
+       * @summary Adds tags to a resource.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse

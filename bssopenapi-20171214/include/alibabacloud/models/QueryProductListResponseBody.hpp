@@ -193,7 +193,7 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of records displayed per page.
+      // The number of entries displayed per page.
       shared_ptr<int32_t> pageSize_ {};
       shared_ptr<Data::ProductList> productList_ {};
       // The total number of product records.
@@ -240,15 +240,15 @@ namespace Models
 
 
   protected:
-    // The response status code.
+    // The status code.
     shared_ptr<string> code_ {};
     // The Alibaba Cloud product information.
     shared_ptr<QueryProductListResponseBody::Data> data_ {};
-    // The response message.
+    // The message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

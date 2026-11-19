@@ -94,33 +94,15 @@ namespace Models
 
 
   protected:
-    // The data timestamp type of the metering data. Refer to the specific service documentation for details. Valid values:
-    // - Raw: hourly
-    // - Hour: hourly
-    // - Day: daily
-    // - Month: monthly
-    // 
     // This parameter is required.
     shared_ptr<string> dataType_ {};
-    // The end time of the request.
-    // 
-    // The date format must comply with the ISO 8601 standard and use UTC time. Format: yyyy-mm-ddThh:mm:ssZ.
-    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The marker that specifies the starting point for returning results in alphabetical order after the NextToken. By default, results are returned from the beginning.
     shared_ptr<string> marker_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of rows per page for paging in a paged query. Valid values: 1 to 200. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time of the request.
-    // 
-    // The date format must comply with the ISO 8601 standard and use UTC time. Format: yyyy-mm-ddThh:mm:ssZ.
-    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The product and detail information for the usage data, which is typically the ProductCode. Different services support multiple metering models.
-    // 
     // This parameter is required.
     shared_ptr<string> table_ {};
   };

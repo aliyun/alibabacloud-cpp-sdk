@@ -291,7 +291,7 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The HTTP status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<QueryRIUtilizationDetailResponseBody::Data> data_ {};

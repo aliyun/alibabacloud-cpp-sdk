@@ -142,18 +142,18 @@ namespace Models
   protected:
     // The ID of the resource ownership account. The resource ownership account is the account that actually uses the resource.
     shared_ptr<int64_t> billOwnerId_ {};
-    // The billing cycle, in the format of YYYY-MM.
+    // The billing cycle. Format: YYYY-MM.
     // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
     shared_ptr<bool> isDisplayLocalCurrency_ {};
-    // Specifies whether to filter based on whether the original price (PretaxGrossAmount) is 0. Default value: false (compatible with existing logic). Valid values:
-    // - true: Yes.
-    // - false: No.
+    // Specifies whether to filter out records whose original price (PretaxGrossAmount) is 0. Default value: false (for compatibility with existing logic). Valid values:
+    // - true: yes
+    // - false: no
     shared_ptr<bool> isHideZeroCharge_ {};
-    // The maximum number of data records to read in this request. Default value: 20. Maximum value: 300.
+    // The maximum number of data records to return in the current request. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the position from which the next query starts. Leave this parameter empty to start from the beginning.
+    // The token that specifies the position from which to start reading. If this parameter is left empty, the reading starts from the beginning.
     shared_ptr<string> nextToken_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The product code.
@@ -165,10 +165,10 @@ namespace Models
     // The subscription type. Valid values:
     // - Subscription: subscription
     // - PayAsYouGo: pay-as-you-go
-    // >  This parameter must be used together with the ProductCode parameter.
+    // > This parameter must be used together with the ProductCode parameter.
     shared_ptr<string> subscriptionType_ {};
     // The type. Valid values:
-    // - SubscriptionOrder: prepaid order
+    // - SubscriptionOrder: subscription order
     // - PayAsYouGoBill: pay-as-you-go bill
     // - Refund: refund bill
     // - Adjustment: adjustment bill

@@ -121,9 +121,9 @@ namespace Models
 
 
   protected:
-    // The end time of the creation time range. If not specified, the default value is the current time. Example: 2018-01-01T00:00:00Z.
+    // The end time of the creation time range. If you do not specify this parameter, the default value is the current time. Example: 2018-01-01T00:00:00Z.
     shared_ptr<string> createTimeEnd_ {};
-    // The start time of the creation time range. If not specified, the default value is one month before the current time. Example: 2018-01-01T00:00:00Z.
+    // The start time of the creation time range. If you do not specify this parameter, the default value is one month before the current time. Example: 2018-01-01T00:00:00Z.
     shared_ptr<string> createTimeStart_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
@@ -131,13 +131,13 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The order or bill number.
     shared_ptr<string> recordID_ {};
-    // The transaction channel. If you specify a transaction channel, the query returns results of the corresponding type. If no results exist, an empty result is returned. If you do not specify this parameter, all types are returned by default. Valid values:
-    // - AccountBalance: Account balance.
+    // The transaction channel. If you specify a transaction channel, the query returns results of the specified channel. If no results exist, an empty result is returned. If you do not specify this parameter, all channels are returned by default. Valid values:
+    // - AccountBalance: User balance.
     // - BankTransfer: Bank transfer.
     // - Alipay: Alipay.
     // - AntCreditPay: Ant Credit Pay.
     // - OfflineRemittance: Offline remittance.
-    // - RegularBankCreditRefund: Credit-based payment refund.
+    // - RegularBankCreditRefund: Credit limit refund.
     // - CreditCard: Credit card.
     // - MyBankCredit: MYbank Credit.
     // - HuaxiaBankCInstallment: Huaxia Bank installment.
@@ -145,13 +145,13 @@ namespace Models
     shared_ptr<string> transactionChannel_ {};
     // The payment reference No.
     shared_ptr<string> transactionChannelSN_ {};
-    // The income and expense type. If you specify an income and expense type, the query returns results of the corresponding type. If no results exist, an empty result is returned. If you do not specify this parameter, all types are returned by default. Valid values:
+    // The income and expense type. If you specify an income and expense type, the query returns results of the specified type. If no results exist, an empty result is returned. If you do not specify this parameter, all types are returned by default. Valid values:
     // - Income: Income.
     // - Expense: Expense.
     shared_ptr<string> transactionFlow_ {};
     // The transaction number.
     shared_ptr<string> transactionNumber_ {};
-    // The transaction type. If you specify a transaction type, the query returns results of the corresponding type. If no results exist, an empty result is returned. If you do not specify this parameter, all types are returned by default. Valid values:
+    // The transaction type. If you specify a transaction type, the query returns results of the specified type. If no results exist, an empty result is returned. If you do not specify this parameter, all types are returned by default. Valid values:
     // - Payment: Top-up.
     // - Withdraw: Withdrawal.
     // - Refund: Refund.

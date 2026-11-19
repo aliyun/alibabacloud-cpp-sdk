@@ -75,19 +75,20 @@ namespace Models
 
 
   protected:
-    // The ID of the resource ownership account. The resource ownership account is the account that actually uses the resource.
+    // The ID of the resource ownership account. The resource ownership account is the account that actually uses the resources.
     shared_ptr<int64_t> billOwnerId_ {};
-    // Format: yyyy-MM-dd HH:mm:ss. The query excludes this time. If this parameter is left empty, the query covers data up to the current time.
+    // The end time of the query. Format: yyyy-MM-dd HH:mm:ss. The specified end time is excluded from the query. If this parameter is left empty, the current time is used as the end time.
     shared_ptr<string> endPeriod_ {};
+    // The filter parameters.
     shared_ptr<string> filterParamShrink_ {};
-    // Valid values:
-    // - MONTH: month granularity.
-    // - DAY: day granularity.
-    // - HOUR: hour granularity.
+    // The time granularity. Valid values:
+    // - MONTH: month
+    // - DAY: day
+    // - HOUR: hour
     // 
     // This parameter is required.
     shared_ptr<string> periodType_ {};
-    // Format: yyyy-MM-dd HH:mm:ss. The query includes this time.
+    // The start time of the query. Format: yyyy-MM-dd HH:mm:ss. The specified start time is included in the query.
     // 
     // This parameter is required.
     shared_ptr<string> startPeriod_ {};

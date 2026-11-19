@@ -280,9 +280,9 @@ namespace Models
 
     protected:
       // The currency. Valid values:
-      // - CNY: Chinese Yuan.
-      // - USD: US Dollar.
-      // - JPY: Japanese Yen.
+      // - CNY: Chinese yuan.
+      // - USD: US dollar.
+      // - JPY: Japanese yen.
       shared_ptr<string> currency_ {};
       shared_ptr<Data::ModuleDetails> moduleDetails_ {};
       shared_ptr<Data::PromotionDetails> promotionDetails_ {};
@@ -336,7 +336,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

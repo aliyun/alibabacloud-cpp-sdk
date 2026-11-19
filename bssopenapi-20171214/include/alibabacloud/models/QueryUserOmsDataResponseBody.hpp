@@ -87,11 +87,8 @@ namespace Models
 
 
     protected:
-      // The host ID.
       shared_ptr<string> hostId_ {};
-      // The NextToken field for the start of the next page. If this field is empty or not present, it indicates that no more data is available.
       shared_ptr<string> marker_ {};
-      // The OMS data list.
       shared_ptr<vector<Darabonba::Json>> omsData_ {};
     };
 
@@ -135,15 +132,10 @@ namespace Models
 
 
   protected:
-    // The status code.
     shared_ptr<string> code_ {};
-    // The returned data.
     shared_ptr<QueryUserOmsDataResponseBody::Data> data_ {};
-    // The error message.
     shared_ptr<string> message_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

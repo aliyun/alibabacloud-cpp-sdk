@@ -93,13 +93,13 @@ namespace Models
 
 
     protected:
-      // The UID of the master account (MPK).
+      // The MPK (UID).
       shared_ptr<string> mpk_ {};
-      // The UID of the member account (PK) that is managed by the master account (MPK).
+      // The PK (UID) under the MPK.
       shared_ptr<string> pk_ {};
       // The name of the RAM role.
       shared_ptr<string> ramAdminRoleName_ {};
-      // The type of the account linking relationship.
+      // The type of the association.
       shared_ptr<string> type_ {};
     };
 
@@ -143,7 +143,7 @@ namespace Models
 
 
   protected:
-    // The level 2 relationship between the master account (MPK) and the member account (PK).
+    // The secondary relationship between the MPK and the PK.
     shared_ptr<CreateAgAccountResponseBody::AgRelationDto> agRelationDto_ {};
     // The status code.
     shared_ptr<string> code_ {};
@@ -151,7 +151,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

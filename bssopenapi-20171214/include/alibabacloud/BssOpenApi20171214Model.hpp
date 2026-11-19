@@ -262,6 +262,9 @@
 #include <alibabacloud/models/RefundInstanceRequest.hpp>
 #include <alibabacloud/models/RefundInstanceResponseBody.hpp>
 #include <alibabacloud/models/RefundInstanceResponse.hpp>
+#include <alibabacloud/models/ReleaseExpiredPrepaidInstanceRequest.hpp>
+#include <alibabacloud/models/ReleaseExpiredPrepaidInstanceResponseBody.hpp>
+#include <alibabacloud/models/ReleaseExpiredPrepaidInstanceResponse.hpp>
 #include <alibabacloud/models/ReleaseInstanceRequest.hpp>
 #include <alibabacloud/models/ReleaseInstanceResponseBody.hpp>
 #include <alibabacloud/models/ReleaseInstanceResponse.hpp>

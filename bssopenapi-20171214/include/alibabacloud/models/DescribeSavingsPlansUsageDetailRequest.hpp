@@ -112,8 +112,11 @@ namespace Models
 
 
       protected:
+        // The tag code.
         shared_ptr<string> code_ {};
+        // The selection method for the tag filter.
         shared_ptr<string> selectType_ {};
+        // The list of tag filter values.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -166,8 +169,11 @@ namespace Models
 
 
       protected:
+        // The dimension code.
         shared_ptr<string> code_ {};
+        // The selection method for the dimension filter.
         shared_ptr<string> selectType_ {};
+        // The list of dimension filter values.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -192,7 +198,9 @@ namespace Models
 
 
     protected:
+      // The list of dimension filter conditions.
       shared_ptr<vector<FilterParam::Dimensions>> dimensions_ {};
+      // The list of tag filter conditions.
       shared_ptr<vector<FilterParam::Tags>> tags_ {};
     };
 
@@ -251,26 +259,26 @@ namespace Models
 
 
   protected:
-    // The ID of the account. If this parameter is left empty, data of the current account and its trusteeship linked accounts is queried. You can specify a trusteeship linked account ID to query data of that account.
+    // The ID of the account whose data you want to query. If this parameter is left empty, the data of the current account and its trusteeship linked accounts is queried. You can specify the ID of a trusteeship linked account to query only the data of that account.
     shared_ptr<int64_t> billOwnerId_ {};
-    // The end time. Format: yyyy-MM-dd HH:mm:ss. The query excludes data at this time. If this parameter is left empty, the query covers data up to the current time.
+    // The end time of the query. Format: yyyy-MM-dd HH:mm:ss. The specified time is excluded from the query. If this parameter is left empty, the current time is used.
     shared_ptr<string> endPeriod_ {};
+    // The filter parameters.
     shared_ptr<DescribeSavingsPlansUsageDetailRequest::FilterParam> filterParam_ {};
-    // The maximum number of data records to return. Default value: 20. Maximum value: 300.
+    // The maximum number of data records to return in the current request. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> maxResults_ {};
-    // The time granularity for querying usage details. Valid values:
-    // 
-    // - MONTH: monthly granularity.
-    // - DAY: daily granularity.
-    // - HOUR: hourly granularity.
+    // The time granularity for querying the usage summary. Valid values:
+    // - MONTH: monthly
+    // - DAY: daily
+    // - HOUR: hourly
     // 
     // This parameter is required.
     shared_ptr<string> periodType_ {};
-    // The start time. Format: yyyy-MM-dd HH:mm:ss. The query includes data at this time.
+    // The start time of the query. Format: yyyy-MM-dd HH:mm:ss. The specified time is included in the query.
     // 
     // This parameter is required.
     shared_ptr<string> startPeriod_ {};
-    // The pagination token. Leave this parameter empty for the first page. The query result returns the token for the next page. If the returned token is empty, all data has been retrieved.
+    // The pagination token. Leave this parameter empty when you query the first page. The token for the next page is returned in the response. If the returned token is empty, all results are returned.
     shared_ptr<string> token_ {};
   };
 

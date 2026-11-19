@@ -130,16 +130,16 @@ namespace Models
 
 
   protected:
-    // The ID of the resource ownership account. The resource ownership account is the account that actually uses the resource.
+    // The ID of the account with resource ownership. The account with resource ownership is the account that actually uses the resource.
     shared_ptr<int64_t> billOwnerId_ {};
-    // The billing cycle, in the YYYY-MM format.
+    // The billing cycle. Format: YYYY-MM.
     // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
     shared_ptr<bool> isDisplayLocalCurrency_ {};
-    // Specifies whether to filter out bills with a original price (PretaxGrossAmount) of 0. Default value: false (compatible with existing logic). Valid values:
-    // - true: filters out zero-charge bills.
-    // - false: does not filter out zero-charge bills.
+    // Specifies whether to filter out bills whose original price (PretaxGrossAmount) is 0. Default value: false (for compatibility with existing logic). Valid values:
+    // - true: Yes.
+    // - false: No.
     shared_ptr<bool> isHideZeroCharge_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: 1.

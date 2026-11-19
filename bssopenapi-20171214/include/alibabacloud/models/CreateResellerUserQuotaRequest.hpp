@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The amount in CNY. This parameter is required to activate a quota.
+    // The amount. Unit: CNY or USD. This parameter is required for opening a quota account.
     // 
     // This parameter is required.
     shared_ptr<string> amount_ {};
-    // The currency.
+    // The currency name.
     // 
     // This parameter is required.
     shared_ptr<string> currency_ {};

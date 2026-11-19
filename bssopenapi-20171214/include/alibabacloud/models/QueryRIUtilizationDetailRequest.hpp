@@ -105,11 +105,11 @@ namespace Models
   protected:
     // The ID of the deducted instance. If this parameter is left empty, the details of all instances are returned.
     shared_ptr<string> deductedInstanceId_ {};
-    // The end time. Format: YYYY-MM-DD HH:mm:ss.
+    // The end time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The instance type corresponding to the reserved instance.
+    // The instance type of the reserved instance.
     shared_ptr<string> instanceSpec_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
@@ -117,13 +117,13 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // Valid values:
     // - ecsRi: ECS reserved instances. This is the default value.
-    // - scu_bag: Storage capacity unit (SCU) plans.
+    // - scu_bag: storage capacity units (SCUs).
     // 
     // This parameter is required.
     shared_ptr<string> RICommodityCode_ {};
     // The instance ID of the reserved instance for the filtered query. If this parameter is left empty, the details of all used reserved instances are returned.
     shared_ptr<string> RIInstanceId_ {};
-    // The start time. Format: YYYY-MM-DD HH:mm:ss.
+    // The start time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

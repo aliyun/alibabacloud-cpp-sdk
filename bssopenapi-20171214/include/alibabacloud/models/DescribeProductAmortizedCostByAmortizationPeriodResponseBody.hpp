@@ -537,112 +537,106 @@ namespace Models
 
 
       protected:
-        // The amount after a discount is applied.
+        // The amount after discount.
         shared_ptr<double> afterDiscountAmount_ {};
-        // The amortization month.
-        // Format: YYYYMM.
+        // The amortization month. Format: YYYYMM.
         shared_ptr<string> amortizationPeriod_ {};
         // The amortization status. Valid values:
-        // 
-        // - amortized: The cost is amortized.
-        // 
-        // - unAmortized: The cost is not amortized.
+        // - amortized: amortized.
+        // - unAmortized: unamortized.
         shared_ptr<string> amortizationStatus_ {};
         // The ID of the account to which the bill belongs.
         shared_ptr<int64_t> billAccountID_ {};
         // The name of the account to which the bill belongs.
         shared_ptr<string> billAccountName_ {};
-        // The ID of the resource owner.
+        // The resource ownership account ID.
         shared_ptr<int64_t> billOwnerID_ {};
-        // The name of the resource owner.
+        // The name of the account to which the resources belong.
         shared_ptr<string> billOwnerName_ {};
         // The business type.
         shared_ptr<string> bizType_ {};
-        // The billing cycle.
-        // Format: YYYYMM.
+        // The billing cycle. Format: YYYYMM.
         shared_ptr<string> consumePeriod_ {};
-        // The amount that is amortized in the current period, after a discount is applied.
+        // The current amortization amount after discount.
         shared_ptr<double> currentAmortizationAfterDiscountAmount_ {};
-        // The amount deducted by cash coupons that is amortized in the current period.
+        // The current amortization amount deducted by vouchers.
         shared_ptr<double> currentAmortizationDeductedByCashCoupons_ {};
-        // The amount deducted by coupons that is amortized in the current period.
+        // The current amortization amount deducted by coupons.
         shared_ptr<double> currentAmortizationDeductedByCoupons_ {};
-        // The amount paid by prepaid card that is amortized in the current period.
+        // The current amortization amount paid by prepaid cards.
         shared_ptr<double> currentAmortizationDeductedByPrepaidCard_ {};
-        // The expenditure amount that is amortized in the current period. This amount can be invoiced.
+        // The current amortization expenditure amount (invoiceable).
         shared_ptr<double> currentAmortizationExpenditureAmount_ {};
-        // The discount that is amortized in the current period.
+        // The current amortization invoice discount amount.
         shared_ptr<double> currentAmortizationInvoiceDiscount_ {};
-        // The pretax amount that is amortized in the current period.
+        // The current amortization pretax amount.
         shared_ptr<double> currentAmortizationPretaxAmount_ {};
-        // The pretax gross amount that is amortized in the current period.
+        // The current amortization pretax gross amount.
         shared_ptr<double> currentAmortizationPretaxGrossAmount_ {};
-        // The amount rounded down that is amortized in the current period.
+        // The current amortization round-down discount amount.
         shared_ptr<double> currentAmortizationRoundDownDiscount_ {};
-        // The amount deducted by cash coupons.
+        // The amount deducted by vouchers.
         shared_ptr<double> deductedByCashCoupons_ {};
         // The amount deducted by coupons.
         shared_ptr<double> deductedByCoupons_ {};
-        // The amount paid by prepaid card.
+        // The amount paid by prepaid cards.
         shared_ptr<double> deductedByPrepaidCard_ {};
-        // The expenditure amount. This amount can be invoiced.
+        // The expenditure amount (invoiceable).
         shared_ptr<double> expenditureAmount_ {};
-        // The discount.
+        // The invoice discount amount.
         shared_ptr<double> invoiceDiscount_ {};
         // The pretax amount.
         shared_ptr<double> pretaxAmount_ {};
         // The pretax gross amount.
         shared_ptr<double> pretaxGrossAmount_ {};
-        // The amount that was amortized before the beginning of the period, after a discount is applied.
+        // The previously amortized amount after discount.
         shared_ptr<double> previouslyAmortizedAfterDiscountAmount_ {};
-        // The amount deducted by cash coupons that was amortized before the beginning of the period.
+        // The previously amortized amount deducted by vouchers.
         shared_ptr<double> previouslyAmortizedDeductedByCashCoupons_ {};
-        // The amount deducted by coupons that was amortized before the beginning of the period.
+        // The previously amortized amount deducted by coupons.
         shared_ptr<double> previouslyAmortizedDeductedByCoupons_ {};
-        // The amount paid by prepaid card that was amortized before the beginning of the period.
+        // The previously amortized amount paid by prepaid cards.
         shared_ptr<double> previouslyAmortizedDeductedByPrepaidCard_ {};
-        // The expenditure amount that was amortized before the beginning of the period. This amount can be invoiced.
+        // The previously amortized expenditure amount (invoiceable).
         shared_ptr<double> previouslyAmortizedExpenditureAmount_ {};
-        // The discount that was amortized before the beginning of the period.
+        // The previously amortized invoice discount amount.
         shared_ptr<double> previouslyAmortizedInvoiceDiscount_ {};
-        // The pretax amount that was amortized before the beginning of the period.
+        // The previously amortized pretax amount.
         shared_ptr<double> previouslyAmortizedPretaxAmount_ {};
-        // The pretax gross amount that was amortized before the beginning of the period.
+        // The previously amortized pretax gross amount.
         shared_ptr<double> previouslyAmortizedPretaxGrossAmount_ {};
-        // The amount rounded down that was amortized before the beginning of the period.
+        // The previously amortized round-down discount amount.
         shared_ptr<double> previouslyAmortizedRoundDownDiscount_ {};
         // The product code.
         shared_ptr<string> productCode_ {};
-        // The details of the product.
+        // The product detail.
         shared_ptr<string> productDetail_ {};
-        // The code of the product details.
+        // The product detail code.
         shared_ptr<string> productDetailCode_ {};
         // The product name.
         shared_ptr<string> productName_ {};
-        // The unamortized amount at the end of the period, after a discount is applied.
+        // The remaining amortization amount after discount.
         shared_ptr<double> remainingAmortizationAfterDiscountAmount_ {};
-        // The unamortized amount deducted by cash coupons at the end of the period.
+        // The remaining amortization amount deducted by vouchers.
         shared_ptr<double> remainingAmortizationDeductedByCashCoupons_ {};
-        // The unamortized amount deducted by coupons at the end of the period.
+        // The remaining amortization amount deducted by coupons.
         shared_ptr<double> remainingAmortizationDeductedByCoupons_ {};
-        // The unamortized amount paid by prepaid card at the end of the period.
+        // The remaining amortization amount paid by prepaid cards.
         shared_ptr<double> remainingAmortizationDeductedByPrepaidCard_ {};
-        // The unamortized expenditure amount at the end of the period. This amount can be invoiced.
+        // The remaining amortization expenditure amount (invoiceable).
         shared_ptr<double> remainingAmortizationExpenditureAmount_ {};
-        // The unamortized discount at the end of the period.
+        // The remaining amortization invoice discount amount.
         shared_ptr<double> remainingAmortizationInvoiceDiscount_ {};
-        // The unamortized pretax amount at the end of the period.
+        // The remaining amortization pretax amount.
         shared_ptr<double> remainingAmortizationPretaxAmount_ {};
-        // The unamortized pretax gross amount at the end of the period.
+        // The remaining amortization pretax gross amount.
         shared_ptr<double> remainingAmortizationPretaxGrossAmount_ {};
-        // The unamortized amount rounded down at the end of the period.
+        // The remaining amortization round-down discount amount.
         shared_ptr<double> remainingAmortizationRoundDownDiscount_ {};
-        // The amount rounded down.
+        // The round-down discount amount.
         shared_ptr<double> roundDownDiscount_ {};
         // The subscription type. Valid values:
-        // 
         // - Subscription: subscription.
-        // 
         // - PayAsYouGo: pay-as-you-go.
         shared_ptr<string> subscriptionType_ {};
       };
@@ -694,17 +688,17 @@ namespace Models
 
 
     protected:
-      // The ID of the account.
+      // The account ID.
       shared_ptr<string> accountID_ {};
-      // The name of the account.
+      // The user account.
       shared_ptr<string> accountName_ {};
       // The data entries.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The maximum number of entries returned.
+      // The maximum number of records returned for the current request.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that is used to query the next page of results.
+      // The token that specifies the position from which the current call starts reading. The value must be empty or set to the NextToken value returned in the previous response. Otherwise, an error is reported. An empty value indicates that the reading starts from the beginning.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -750,13 +744,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeProductAmortizedCostByAmortizationPeriodResponseBody::Data> data_ {};
-    // The message returned.
+    // The message description.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

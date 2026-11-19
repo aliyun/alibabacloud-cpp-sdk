@@ -172,33 +172,33 @@ namespace Models
 
 
   protected:
-    // The property categories.
+    // The attribute categories.
     shared_ptr<vector<string>> attributeCategories_ {};
-    // The property source.
+    // The attribute source.
     shared_ptr<string> attributeSource_ {};
-    // The property type.
+    // The attribute type.
     shared_ptr<string> attributeType_ {};
-    // The property code.
+    // The attribute code.
     shared_ptr<string> code_ {};
-    // The composite properties (basic information).
+    // The composite attributes (basic information).
     shared_ptr<vector<BaseAttributeInfoDTO>> compositeAttributes_ {};
-    // The property description (translated).
+    // The attribute description (translated).
     shared_ptr<string> description_ {};
-    // The description properties (basic information).
+    // The description attributes (basic information).
     shared_ptr<vector<BaseAttributeInfoDTO>> descriptionAttributes_ {};
-    // The property name (translated).
+    // The attribute name (translated).
     shared_ptr<string> name_ {};
-    // The O&M property configuration.
+    // The O&M attribute configuration.
     shared_ptr<string> operationalAttributeConfig_ {};
-    // The O&M property type.
+    // The O&M attribute type.
     shared_ptr<string> operationalAttributeType_ {};
-    // The sub-properties (complete information).
+    // The sub-attributes (complete information).
     shared_ptr<vector<AttributeInfoDTO>> subAttributes_ {};
     // The unit.
     shared_ptr<string> unit_ {};
     // The value type.
     shared_ptr<string> valueType_ {};
-    // The property value list.
+    // The attribute value list.
     shared_ptr<vector<AttributeValueInfoDTO>> values_ {};
   };
 

@@ -87,26 +87,26 @@ namespace Models
 
 
     protected:
-      // The configuration of the Nth pricing module. The value of N ranges from 1 to 50. Format: "AA:aa,BB:bb", where AA and BB are the property codes of the pricing module, and aa and bb are the corresponding property values.
+      // The configuration of the Nth pricing module. Valid values of N: 1 to 50. Format: AA:aa,BB:bb, where AA and BB are the identifiers of the pricing module attributes, and aa and bb are the attribute values of the pricing module attributes.
       // 
-      // > You can call the [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html) operation to obtain the Module parameter.
+      // > You can call the [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html) operation to retrieve the Module parameter.
       // 
       // This parameter is required.
       shared_ptr<string> config_ {};
-      // The module code of the Nth pricing module.
+      // The identifier of the Nth pricing module.
       // 
       // 
-      // > You can call the [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html) operation to obtain the Module parameter.
+      // > You can call the [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html) operation to retrieve the Module parameter.
       // 
       // This parameter is required.
       shared_ptr<string> moduleCode_ {};
       // The price type of the Nth pricing module. Valid values:
       // - Hour: hourly price.
-      // - Usage: usage-based price.
+      // - Usage: usage.
       // - Month: monthly price.
       // - Year: yearly price.
       // 
-      // > You can call the [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html) operation to obtain the Module parameter.
+      // > You can call the [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html) operation to retrieve the Module parameter.
       // 
       // This parameter is required.
       shared_ptr<string> priceType_ {};
@@ -170,9 +170,9 @@ namespace Models
     shared_ptr<string> productCode_ {};
     // The product type.
     shared_ptr<string> productType_ {};
-    // The region ID of the instance.
+    // The region ID of the instance. If DescribePricingModule returns a region ID, this parameter is required.
     shared_ptr<string> region_ {};
-    // The subscription type. Valid values: PayAsYouGo.
+    // The subscription type. Valid values: PayAsYouGo (pay-as-you-go).
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionType_ {};

@@ -99,7 +99,7 @@ namespace Models
       protected:
         // The total coverage rate.
         shared_ptr<float> coveragePercentage_ {};
-        // The total offset amount.
+        // The total deducted amount.
         shared_ptr<float> deductAmount_ {};
       };
 
@@ -222,7 +222,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

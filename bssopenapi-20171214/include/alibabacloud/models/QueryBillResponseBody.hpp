@@ -507,9 +507,9 @@ namespace Models
     protected:
       // The account ID.
       shared_ptr<string> accountID_ {};
-      // The account name.
+      // The account.
       shared_ptr<string> accountName_ {};
-      // The billing cycle, in the YYYY-MM format.
+      // The billing cycle. Format: YYYY-MM.
       shared_ptr<string> billingCycle_ {};
       shared_ptr<Data::Items> items_ {};
       // The page number.
@@ -568,7 +568,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

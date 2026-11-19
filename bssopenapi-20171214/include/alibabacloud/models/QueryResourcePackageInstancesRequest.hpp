@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The expiration end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time of the expiration period. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> expiryTimeEnd_ {};
-    // The expiration start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time of the expiration period. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> expiryTimeStart_ {};
     // Specifies whether to include partners.
     shared_ptr<bool> includePartner_ {};
