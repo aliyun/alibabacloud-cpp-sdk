@@ -161,9 +161,9 @@ namespace Models
 
 
       protected:
-        // The relationship record property list.
+        // The property list of the relation record.
         shared_ptr<vector<RelationList::PropertyList>> propertyList_ {};
-        // The relationship type code.
+        // The relation type code.
         // 
         // This parameter is required.
         shared_ptr<string> relationType_ {};
@@ -188,7 +188,7 @@ namespace Models
 
 
     protected:
-      // The relationship list.
+      // The relation list.
       // 
       // This parameter is required.
       shared_ptr<vector<CreateCommand::RelationList>> relationList_ {};

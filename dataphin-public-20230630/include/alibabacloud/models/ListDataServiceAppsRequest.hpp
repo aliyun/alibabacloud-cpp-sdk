@@ -89,13 +89,13 @@ namespace Models
 
 
     protected:
-      // Application group ID.
+      // The application group ID.
       shared_ptr<int32_t> appGroupId_ {};
-      // Application name search keyword.
+      // The keyword used to search for application names.
       shared_ptr<string> keyword_ {};
-      // Page number. Default value: 1.
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
-      // Number of records per page. Default value: 20.
+      // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
     };
 
@@ -125,14 +125,15 @@ namespace Models
 
 
   protected:
-    // Query the list of all applications under the tenant.
+    // The query parameters for listing all applications under the tenant.
     // 
     // This parameter is required.
     shared_ptr<ListDataServiceAppsRequest::ListQuery> listQuery_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

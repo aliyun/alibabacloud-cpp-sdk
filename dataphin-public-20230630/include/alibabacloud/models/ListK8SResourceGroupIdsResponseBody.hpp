@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The ID of the custom Kubernetes resource group.
+      // The ID of the custom K8s resource group, which can be used to select the compute queue for real-time tasks.
       shared_ptr<string> id_ {};
-      // The name of the custom Kubernetes resource group.
+      // The name of the custom K8s resource group.
       shared_ptr<string> name_ {};
-      // The status of the resource group.
+      // The status of the resource group. NORMAL indicates that the resource group is available.
       shared_ptr<string> status_ {};
     };
 
@@ -144,11 +144,11 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The list of custom Kubernetes resource groups.
+    // The custom K8s resource groups used for Flink tasks under the tenant. The ListK8SResourceGroupIds operation returns only available resource groups.
     shared_ptr<vector<ListK8SResourceGroupIdsResponseBody::Data>> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend response error.
+    // The details of the backend response exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

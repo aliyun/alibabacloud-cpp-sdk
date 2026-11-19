@@ -80,11 +80,11 @@ namespace Models
 
 
     protected:
-      // The classification description.
+      // The description of the classification level.
       shared_ptr<string> description_ {};
-      // The classification order. If this parameter is not specified, the classification name is used for matching.
+      // The order of the classification level. If this parameter is not specified, the classification level is matched by name.
       shared_ptr<int64_t> index_ {};
-      // The classification name.
+      // The name of the classification level.
       shared_ptr<string> name_ {};
     };
 
@@ -118,8 +118,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The update instruction.
+    // The update command.
     // 
     // This parameter is required.
     shared_ptr<UpdateSecurityLevelRequest::UpdateCommand> updateCommand_ {};

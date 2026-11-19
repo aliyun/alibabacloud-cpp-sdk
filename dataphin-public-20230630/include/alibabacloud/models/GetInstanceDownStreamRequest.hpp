@@ -77,11 +77,11 @@ namespace Models
 
 
     protected:
-      // Instance ID.
+      // The instance ID.
       // 
       // This parameter is required.
       shared_ptr<string> instanceId_ {};
-      // Node type of the instance.
+      // The node type of the instance. Valid values:
       // - BBOX_LOGIC_TABLE_NODE
       // - BBOX_LOGIC_FIELD_NODE
       // - BBOX_LOGIC_FIELD_GROUP_NODE
@@ -141,24 +141,25 @@ namespace Models
 
 
   protected:
-    // Number of levels to expand downstream in the DAG query. Valid values: 1 to 6.
+    // The number of levels to expand the DAG downwards. Valid values: 1 to 6.
     // 
     // This parameter is required.
     shared_ptr<int32_t> downStreamDepth_ {};
-    // Environment identifier.
-    // - DEV: Development environment.
-    // - PROD (default): Production environment.
+    // The environment identifier. Valid values:
+    // - DEV: development environment. 
+    // - PROD: production environment. This is the default value.
     shared_ptr<string> env_ {};
-    // The request body.
+    // The get request.
     // 
     // This parameter is required.
     shared_ptr<GetInstanceDownStreamRequest::InstanceGet> instanceGet_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // Run status of the instance.
+    // The run status of the instance. Valid values:
     // - INIT
     // - WATING
     // - RUNNING

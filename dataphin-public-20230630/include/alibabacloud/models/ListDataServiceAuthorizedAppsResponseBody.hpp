@@ -152,9 +152,9 @@ namespace Models
 
 
         protected:
-          // The configuration item.
+          // The configuration key.
           shared_ptr<string> key_ {};
-          // The value of the configuration item.
+          // The configuration value.
           shared_ptr<string> value_ {};
         };
 
@@ -296,13 +296,13 @@ namespace Models
         shared_ptr<int32_t> appId_ {};
         // The name of the application.
         shared_ptr<string> appName_ {};
-        // The ID of the authorized account, which is the ID of the applicant.
+        // The ID of the privilege account, which is the ID of the applicant.
         shared_ptr<string> applyUserId_ {};
-        // The name of the authorized account, which is the name of the applicant.
+        // The name of the privilege account, which is the name of the applicant.
         shared_ptr<string> applyUserName_ {};
         // The expiration date. Format: yyyy-MM-dd.
         shared_ptr<string> expireDate_ {};
-        // The ID of the authorization request.
+        // The ID of the application request.
         shared_ptr<int32_t> id_ {};
         // Indicates whether the current user is a project manager.
         shared_ptr<bool> isProjectManager_ {};
@@ -310,32 +310,32 @@ namespace Models
         shared_ptr<string> owner_ {};
         // The name of the owner.
         shared_ptr<string> ownerUserName_ {};
-        // The authorized account type. Valid values:
+        // The privilege account type. Valid values:
         // - 0: Individual account.
         shared_ptr<int32_t> privilegeAccount_ {};
         // The permission type. Valid values:
-        // - 0: Usage permissions.
-        // - 1: Development permissions.
+        // - 0: Usage permission.
+        // - 1: Development permission.
         shared_ptr<int32_t> privilegeType_ {};
         // The project ID.
         shared_ptr<int32_t> projectId_ {};
         // The project name.
         shared_ptr<string> projectName_ {};
-        // Indicates whether the user actually has the owner permissions for the application. The user may not have the permissions due to expiration or other reasons.
+        // Indicates whether the user actually has the owner permission for the application. The user may not have the permission due to expiration or other reasons.
         shared_ptr<bool> realHasOwnerPrivilege_ {};
-        // Indicates whether the user actually has the permissions.
+        // Indicates whether the user actually has the permission.
         shared_ptr<bool> realHasPrivilege_ {};
         // The description used for troubleshooting.
         shared_ptr<vector<AuthorizedAppList::RemarkForDebugList>> remarkForDebugList_ {};
         // Indicates whether the permission can be returned or revoked.
         shared_ptr<bool> revocable_ {};
         // The detailed status of the revocation button. Valid values:
-        // - -1: Super administrators cannot relinquish the permission.
-        // - -2: Owners cannot relinquish the permission.
-        // - -3: Project managers without actual permissions (grayed out).
-        // - -4: Regular users without permissions cannot relinquish the permission.
-        // - 1: Project managers with actual permissions can relinquish the permission.
-        // - 2: Regular users with permissions can relinquish the permission.
+        // - -1: The super administrator cannot return the permission.
+        // - -2: The owner cannot return the permission.
+        // - -3: The project manager does not have actual permissions, and the button is grayed out.
+        // - -4: The regular user does not have permissions and cannot return the permission.
+        // - 1: The project manager has actual permissions and can return the permission.
+        // - 2: The regular user has permissions and can return the permission.
         shared_ptr<int32_t> revocableDetail_ {};
       };
 
@@ -360,7 +360,7 @@ namespace Models
     protected:
       // The paginated list of authorized applications.
       shared_ptr<vector<PageResult::AuthorizedAppList>> authorizedAppList_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 

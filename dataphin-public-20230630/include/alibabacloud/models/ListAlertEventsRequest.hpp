@@ -187,21 +187,21 @@ namespace Models
 
 
     protected:
-      // The end date of the alert.
+      // The alert end date.
       // 
       // This parameter is required.
       shared_ptr<string> alertEndTime_ {};
       // The list of alert object types.
       shared_ptr<vector<string>> alertObjectTypeList_ {};
-      // The list of alert reasons.
+      // The list of alert causes.
       shared_ptr<vector<string>> alertReasonList_ {};
-      // The start date of the alert.
+      // The alert start date.
       // 
       // This parameter is required.
       shared_ptr<string> alertStartTime_ {};
-      // The list of business units.
+      // The list of business unit names.
       shared_ptr<vector<string>> bizNameList_ {};
-      // The keyword for the query.
+      // The search keyword.
       shared_ptr<string> keyword_ {};
       // The list of monitored item IDs.
       shared_ptr<vector<string>> monitoredItemIdList_ {};
@@ -213,20 +213,17 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of projects.
+      // The list of project names.
       shared_ptr<vector<string>> projectNameList_ {};
       // The source system. Valid values:
-      // 
-      // - ALL: all
-      // - DQE: data quality
-      // - OS: data service
-      // - STREAM: real-time computing
-      // - VDM_BATCH: offline computing
-      // - SOP: O&M platform
-      // - REAL_TIME_PIPELINE: real-time integration
-      // - KGB: baseline monitoring
-      // 
-      // and more.
+      // - ALL: All.
+      // - DQE: Data quality.
+      // - OS: Data service.
+      // - STREAM: Real-time computing.
+      // - VDM_BATCH: Offline computing.
+      // - SOP: O&M platform.
+      // - REAL_TIME_PIPELINE: Real-time integration.
+      // - KGB: Baseline monitoring.
       // 
       // This parameter is required.
       shared_ptr<string> sourceSystem_ {};
@@ -270,6 +267,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

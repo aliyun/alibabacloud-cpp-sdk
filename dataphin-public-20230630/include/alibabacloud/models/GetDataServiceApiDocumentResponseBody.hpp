@@ -273,9 +273,7 @@ namespace Models
         shared_ptr<string> defaultValue_ {};
         // The parameter description.
         shared_ptr<string> description_ {};
-        // Indicates whether the request parameter is required. Valid values:
-        // - 1: required
-        // - 0: optional
+        // Indicates whether the request parameter is required. Valid values: 1: required, 0: optional.
         shared_ptr<bool> isRequired_ {};
         // The frontend parameter name.
         shared_ptr<string> name_ {};
@@ -352,9 +350,7 @@ namespace Models
       protected:
         // The parameter description.
         shared_ptr<string> description_ {};
-        // Indicates whether the request parameter is required. Valid values:
-        // - 1: required
-        // - 0: optional
+        // Indicates whether the request parameter is required. Valid values: 1: required, 0: optional.
         shared_ptr<bool> isRequired_ {};
         // The frontend parameter name.
         shared_ptr<string> name_ {};
@@ -466,24 +462,15 @@ namespace Models
 
 
       protected:
-        // The authentication method of the API data source. Valid values:
-        // - 1: BearToken.
-        // - 2: ApiKey.
-        // - 3: None.
-        // - 4: AppKeyAuth.
-        // - 5: BasicAuth.
+        // The authentication method of the API data source. Valid values: 1 (BearToken), 2 (ApiKey), 3 (None), 4 (AppKeyAuth), and 5 (BasicAuth).
         shared_ptr<string> authType_ {};
         // The ID of the API data source.
         shared_ptr<string> datasourceId_ {};
         // The name of the API data source.
         shared_ptr<string> datasourceName_ {};
-        // The HTTP method of the registered API. Valid values:
-        // - 1: GET.
-        // - 2: POST.
+        // The request method of the registered API. Valid values: 1 (GET) and 2 (POST).
         shared_ptr<int32_t> httpMethod_ {};
-        // The mode. Valid values:
-        // - 0: basic
-        // - 1: dev_prod
+        // The mode. Valid values: 0: basic, 1: dev_prod.
         shared_ptr<int32_t> mode_ {};
         // The path of the service.
         shared_ptr<string> path_ {};
@@ -770,24 +757,19 @@ namespace Models
       shared_ptr<Data::ApiRegisterInfo> apiRegisterInfo_ {};
       // The timeout period for the direct API, in seconds.
       shared_ptr<int32_t> apiTimeout_ {};
-      // The business unit name. This value is available only for logical tables.
+      // The business unit name, which is available only for logical tables.
       shared_ptr<string> bizUnitName_ {};
       // The cache duration, in seconds.
       shared_ptr<string> cacheTime_ {};
-      // The creation type. Valid values:
-      // - 0: custom mode
-      // - 1: wizard mode
-      // - 2: direct API connection
+      // The creation type. Valid values: 0: custom mode, 1: wizard mode, 2: direct API connection.
       shared_ptr<int32_t> createType_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The data source ID of the direct API.
+      // The ID of the data source for the direct API.
       shared_ptr<int64_t> directDatasourceId_ {};
-      // The data source name of the direct API.
+      // The name of the data source for the direct API.
       shared_ptr<string> directDatasourceName_ {};
-      // The environment. Valid values:
-      // - 0: dev
-      // - 1: prod
+      // The environment. Valid values: 0: dev, 1: prod.
       shared_ptr<int32_t> env_ {};
       // The API group ID.
       shared_ptr<int32_t> groupId_ {};
@@ -795,38 +777,25 @@ namespace Models
       shared_ptr<string> groupName_ {};
       // Indicates whether the table is a logical table.
       shared_ptr<bool> isLogicalTable_ {};
-      // Specifies whether the query is a paged query. Valid values:
-      // - 1: yes.
-      // - 0: no.
+      // Specifies whether the query is a paged query. Valid values: 1 (yes) and 0 (no).
       shared_ptr<bool> isPagedQuery_ {};
-      // Indicates whether the SQL is special. Valid values:
-      // - 0: no
-      // - 1: yes
+      // Indicates whether the SQL statement is special. Valid values: 0: no, 1: yes.
       shared_ptr<bool> isSpecialSql_ {};
-      // The mode. Valid values:
-      // - 0: basic
-      // - 1: dev_prod
+      // The mode. Valid values: 0: basic, 1: dev_prod.
       shared_ptr<int32_t> mode_ {};
       // The API name.
       shared_ptr<string> name_ {};
-      // Specifies whether the cache is enabled. Valid values:
-      // - 0: disabled.
-      // - 1: enabled.
+      // Specifies whether the cache is enabled. Valid values: 0 (disabled) and 1 (enabled).
       shared_ptr<bool> openCache_ {};
       // The ID of the data service project.
       shared_ptr<int32_t> projectId_ {};
       // The name of the data service project.
       shared_ptr<string> projectName_ {};
-      // The protocol. Valid values:
-      // - 1: https
-      // - 2: http
-      // - 3: http and https
+      // The protocol. Valid values: 1: HTTPS, 2: HTTP, 3: both HTTP and HTTPS.
       shared_ptr<int32_t> protocol_ {};
       // The common parameter list.
       shared_ptr<vector<Data::PublicParamList>> publicParamList_ {};
-      // The request method. Valid values:
-      // - 1: get
-      // - 2: list
+      // The request method. Valid values: 1: get, 2: list.
       shared_ptr<int32_t> requestMethod_ {};
       // The request parameter list.
       shared_ptr<vector<Data::RequestParamList>> requestParamList_ {};
@@ -840,27 +809,19 @@ namespace Models
       shared_ptr<string> resultSample_ {};
       // The maximum number of records returned by the direct API.
       shared_ptr<int32_t> returnLimit_ {};
-      // The return data type. Valid values:
-      // - 1: JSON
+      // The return data type. Valid values: 1: JSON.
       shared_ptr<int32_t> returnType_ {};
-      // The script type. Valid values:
-      // - NORMAL_SQL: basic SQL.
-      // - MYBATIS_SQL: advanced SQL.
-      // - AVIATOR: Aviator expression.
+      // The script type. Valid values: NORMAL_SQL (basic SQL), MYBATIS_SQL (advanced SQL), and AVIATOR (Aviator expression).
       shared_ptr<string> scriptType_ {};
       // The SQL statement.
       shared_ptr<string> sql_ {};
-      // The logical table name. This value is available only for logical tables.
+      // The logical table name, which is available only for logical tables.
       shared_ptr<string> tableName_ {};
       // The timeout period, in seconds.
       shared_ptr<string> timeout_ {};
-      // The update frequency. Valid values:
-      // - 0: custom
-      // - 1: daily
-      // - 2: hourly
-      // - 3: every minute
+      // The update frequency. Valid values: 0: custom, 1: daily, 2: hourly, 3: every minute.
       shared_ptr<int32_t> updateRate_ {};
-      // The version.
+      // The version ID.
       shared_ptr<string> version_ {};
     };
 

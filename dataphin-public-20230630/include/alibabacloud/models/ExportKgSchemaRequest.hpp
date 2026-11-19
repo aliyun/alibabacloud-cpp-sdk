@@ -79,10 +79,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The format of the exported content. Valid values: json and yaml. Default value: yaml.
     shared_ptr<string> outputFormat_ {};
-    // The version number. If this parameter is empty or set to -1, the model metadata in draft state is returned. If this parameter is set to 0, the model metadata of the latest version is returned.
+    // The version ID. An empty value or -1 indicates the draft model metadata. 0 indicates the latest model metadata.
     shared_ptr<int32_t> versionId_ {};
     // The workspace ID.
     // 

@@ -186,9 +186,9 @@ namespace Models
       shared_ptr<string> description_ {};
       // The storage folder.
       shared_ptr<string> directory_ {};
-      // The creation time, in the yyyy-MM-dd HH:mm:ss format.
+      // The time when the resource was created. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> gmtCreate_ {};
-      // The update time, in the yyyy-MM-dd HH:mm:ss format.
+      // The time when the resource was updated. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> gmtModified_ {};
       // The resource ID.
       shared_ptr<int64_t> id_ {};
@@ -200,7 +200,7 @@ namespace Models
       shared_ptr<int64_t> projectId_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The size of the resource, in bytes.
+      // The size of the resource. Unit: bytes.
       shared_ptr<int64_t> size_ {};
       // The storage address of the resource.
       shared_ptr<string> storageAddress_ {};
@@ -257,13 +257,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The details of the resource file.
+    // The resource file details.
     shared_ptr<GetResourceByVersionResponseBody::ResourceInfo> resourceInfo_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

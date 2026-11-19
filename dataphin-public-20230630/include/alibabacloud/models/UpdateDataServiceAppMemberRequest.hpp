@@ -126,7 +126,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int32_t> appId_ {};
-      // The list of members.
+      // The member list.
       // 
       // This parameter is required.
       shared_ptr<vector<UpdateCommand::MemberList>> memberList_ {};
@@ -162,8 +162,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
-    // The command to update regular members of a data service application.
+    // Updates the regular members of a data service application.
     // 
     // This parameter is required.
     shared_ptr<UpdateDataServiceAppMemberRequest::UpdateCommand> updateCommand_ {};

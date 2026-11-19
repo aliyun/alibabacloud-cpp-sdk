@@ -190,7 +190,7 @@ namespace Models
       shared_ptr<string> storageType_ {};
       // The tenant ID.
       shared_ptr<int64_t> tenantId_ {};
-      // The dataset types. If this parameter is left empty, all types are queried.
+      // The dataset type. If this parameter is left empty, all types are queried.
       shared_ptr<vector<string>> typeList_ {};
     };
 
@@ -226,7 +226,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The operator ID.
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

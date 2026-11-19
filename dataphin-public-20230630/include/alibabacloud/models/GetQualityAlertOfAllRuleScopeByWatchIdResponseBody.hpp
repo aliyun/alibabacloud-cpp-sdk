@@ -153,9 +153,9 @@ namespace Models
 
 
       protected:
-        // The alert duty roster ID.
+        // The on-call schedule ID.
         shared_ptr<string> id_ {};
-        // The alert duty roster name.
+        // The on-call schedule name.
         shared_ptr<string> name_ {};
       };
 
@@ -222,9 +222,9 @@ namespace Models
 
 
     protected:
-      // The duty roster alert channels.
+      // The on-call schedule alert channels.
       shared_ptr<vector<string>> alertDutyChannelList_ {};
-      // The duty roster alert list.
+      // The on-call schedule alert list.
       shared_ptr<vector<QualityAlertInfo::AlertDutyList>> alertDutyList_ {};
       // The quality owner alert channels.
       shared_ptr<vector<string>> alertQualityOwnerChannelList_ {};
@@ -232,7 +232,7 @@ namespace Models
       shared_ptr<vector<string>> alertUserChannelList_ {};
       // The user alert list.
       shared_ptr<vector<QualityAlertInfo::AlertUserList>> alertUserList_ {};
-      // Indicates whether alerting is enabled for the quality owner.
+      // Indicates whether alerting for quality owners is enabled.
       shared_ptr<bool> enableAlertQualityOwner_ {};
       // The monitored object ID.
       shared_ptr<int64_t> watchId_ {};
@@ -289,13 +289,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
-    // The alert settings details.
+    // The alert configuration details.
     shared_ptr<GetQualityAlertOfAllRuleScopeByWatchIdResponseBody::QualityAlertInfo> qualityAlertInfo_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

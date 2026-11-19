@@ -100,7 +100,7 @@ namespace Models
 
 
       protected:
-        // The department ID (unique identifier of the department).
+        // The unique identifier of the department.
         // 
         // This parameter is required.
         shared_ptr<string> departmentId_ {};
@@ -108,7 +108,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> departmentName_ {};
-        // The parent department ID (unique identifier of the parent department). Set to null if no parent department exists.
+        // The unique identifier of the parent department. If the department has no parent, the value is null.
         shared_ptr<string> parentDepartmentId_ {};
       };
 
@@ -159,6 +159,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The request command.
     // 

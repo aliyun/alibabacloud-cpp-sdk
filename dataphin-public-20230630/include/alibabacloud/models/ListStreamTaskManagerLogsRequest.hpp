@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The ID of the Flink deployment instance.
+    // The deployment instance ID. Set this parameter to the deploymentInstanceId value returned in the operation record or historical running instance.
     // 
     // This parameter is required.
     shared_ptr<string> deploymentInstanceId_ {};
-    // The ID of the operating tenant. The gateway verifies that the current identity has access to the tenant and then injects the TenantId into the backend.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The optional ID of the operator. This parameter follows the gateway identity verification rules and is not directly bound to the backend UserId.
+    // The user ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The project ID.
+    // The ID of the Dataphin project to which the node belongs. This parameter is used for permission verification in the production environment.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The TaskManager ID. This parameter can be omitted when retrieving log content. If omitted, the JobManager logs are returned.
+    // The identifier of the TaskManager. Set this parameter to the taskmanagerId value returned by the ListStreamTaskManagers operation.
     // 
     // This parameter is required.
     shared_ptr<string> taskmanagerId_ {};

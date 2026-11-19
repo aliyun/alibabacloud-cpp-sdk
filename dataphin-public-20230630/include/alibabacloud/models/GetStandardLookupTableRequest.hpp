@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The ID of the lookup table.
+    // The lookup table ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Specifies whether to allow a null value to be returned if the lookup table does not exist. If this parameter is set to false, an exception is thrown. Default value: true.
+    // Specifies whether to allow a null value to be returned when the lookup table does not exist. If this parameter is set to false, an exception is thrown. Default value: true.
     shared_ptr<bool> nullable_ {};
     // The tenant ID.
     // 

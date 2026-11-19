@@ -204,23 +204,23 @@ namespace Models
         shared_ptr<int64_t> bizUnitId_ {};
         // The description of the business object.
         shared_ptr<string> description_ {};
-        // The display name of the data domain.
+        // The display name.
         shared_ptr<string> displayName_ {};
         // The creation time.
         shared_ptr<string> gmtCreate_ {};
         // The update time.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the data domain.
+        // The data domain ID.
         shared_ptr<int64_t> id_ {};
-        // The ID of the user who last modified the data domain.
+        // The user ID of the last modifier.
         shared_ptr<string> lastModifier_ {};
-        // The name of the user who last modified the data domain.
+        // The name of the last modifier.
         shared_ptr<string> lastModifierName_ {};
-        // The name of the data domain.
+        // The name.
         shared_ptr<string> name_ {};
-        // The ID of the owner of the business object.
+        // The user ID of the business object owner.
         shared_ptr<string> ownerName_ {};
-        // The ID of the owner of the business object.
+        // The user ID of the business object owner.
         shared_ptr<string> ownerUserId_ {};
         // The IDs of the parent data domains.
         shared_ptr<int64_t> parentId_ {};
@@ -237,7 +237,7 @@ namespace Models
 
 
     protected:
-      // The details of the data domains.
+      // The data domain details.
       shared_ptr<vector<Data::DataDomainList>> dataDomainList_ {};
     };
 
@@ -288,7 +288,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The query result.
     shared_ptr<ListDataDomainsResponseBody::Data> data_ {};
@@ -298,7 +298,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

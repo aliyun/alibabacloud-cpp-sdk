@@ -67,7 +67,7 @@ namespace Models
 
 
     protected:
-      // The ID of the task directory tree node.
+      // The ID of the node in the task directory tree.
       shared_ptr<int64_t> fileId_ {};
     };
 
@@ -118,7 +118,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request is successful.
+    // The error code. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};

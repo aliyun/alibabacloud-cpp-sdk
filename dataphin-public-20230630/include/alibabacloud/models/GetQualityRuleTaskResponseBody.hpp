@@ -224,41 +224,41 @@ namespace Models
 
 
     protected:
-      // The business date. The format is YYYY-MM-DD.
+      // The business date in the YYYY-MM-DD format.
       shared_ptr<string> bizDate_ {};
-      // The format of the business date.
+      // The business date format.
       shared_ptr<string> bizDateFormat_ {};
-      // The creation time. The format is YYYY-MM-DD HH:mm:ss.
+      // The creation time in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The creator.
       shared_ptr<string> creator_ {};
-      // The end time. The format is YYYY-MM-DD HH:mm:ss.
+      // The end time in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> endTime_ {};
       // The rule task ID.
       shared_ptr<int64_t> id_ {};
-      // The ID of the user who last updated the task.
+      // The ID of the last updater.
       shared_ptr<string> modifier_ {};
-      // The update time. The format is YYYY-MM-DD HH:mm:ss.
+      // The update time in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> modifyTime_ {};
       // The rule ID.
       shared_ptr<int64_t> ruleId_ {};
-      // The start time. The format is YYYY-MM-DD HH:mm:ss.
+      // The start time in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> startTime_ {};
       // The task status.
       shared_ptr<string> status_ {};
       // The template ID.
       shared_ptr<int64_t> templateId_ {};
-      // The name of the validated object.
+      // The name of the checked object.
       shared_ptr<string> validateObjectName_ {};
-      // The validated object type.
+      // The checked object type.
       shared_ptr<string> validateObjectType_ {};
-      // The validated partition.
+      // The checked partition.
       shared_ptr<string> validatePartition_ {};
-      // Indicates whether the validation is successful.
+      // Indicates whether the check is successful.
       shared_ptr<bool> validateSuccess_ {};
-      // The watch ID.
+      // The associated monitoring ID.
       shared_ptr<int64_t> watchId_ {};
-      // The watch task ID. This ID is empty for rule tasks in a trial run.
+      // The monitoring task ID. This ID is empty for trial-run rule tasks.
       shared_ptr<int64_t> watchTaskId_ {};
     };
 

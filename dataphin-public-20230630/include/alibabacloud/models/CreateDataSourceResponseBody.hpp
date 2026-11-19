@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // Development environment data source ID
+      // The ID of the development environment data source.
       shared_ptr<int64_t> devDataSourceId_ {};
-      // Production environment data source ID
+      // The ID of the production environment data source.
       shared_ptr<int64_t> prodDataSourceId_ {};
     };
 
@@ -130,17 +130,17 @@ namespace Models
 
 
   protected:
-    // Error code. OK indicates that the request is successful.
+    // The error code. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
-    // Data source creation result
+    // The result of creating the data source.
     shared_ptr<CreateDataSourceResponseBody::CreateResult> createResult_ {};
-    // HTTP status code returned by the backend
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

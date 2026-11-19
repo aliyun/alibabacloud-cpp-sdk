@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The paged query for the listed asset catalog.
+    // The paging query for the list of listed asset catalogs.
     // 
     // This parameter is required.
     shared_ptr<string> getCatalogAssetDetailsQueryShrink_ {};
@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

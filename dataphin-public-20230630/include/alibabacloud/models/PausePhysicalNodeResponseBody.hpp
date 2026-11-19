@@ -142,17 +142,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code of the request. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned by the backend.
+    // The HTTP status code of the backend response.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message of the request.
     shared_ptr<string> message_ {};
-    // The results of the pause scheduling operations on the nodes.
+    // The results of pausing node scheduling.
     shared_ptr<vector<PausePhysicalNodeResponseBody::NodeOperateResultList>> nodeOperateResultList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

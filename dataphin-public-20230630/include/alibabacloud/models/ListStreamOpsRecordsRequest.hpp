@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The ID of the real-time task file. The value is a string representing a positive integer.
+    // The ID of the task file. Set this parameter to the fileId value returned by the GetStreamTask operation. The value must be a positive integer. Do not set this parameter to nodeId or taskId.
     // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
-    // The ID of the operation tenant. The gateway verifies that the current identity has access to the tenant and then injects the tenant ID into the backend.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The optional ID of the operator user. This parameter follows the gateway identity verification rules and is not directly bound to the backend user ID.
+    // The ID of the operator user.
     shared_ptr<string> opUserId_ {};
-    // The project ID.
+    // The ID of the Dataphin project to which the task belongs. This parameter is used for permission verification in the production environment.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};

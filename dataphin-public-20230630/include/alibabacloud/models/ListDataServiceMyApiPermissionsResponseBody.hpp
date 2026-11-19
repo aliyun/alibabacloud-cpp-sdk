@@ -181,27 +181,29 @@ namespace Models
 
 
       protected:
-        // API ID.
+        // The API ID.
         shared_ptr<int64_t> apiId_ {};
-        // API name.
+        // The API name.
         shared_ptr<string> apiName_ {};
-        // Creator name.
+        // The name of the creator.
         shared_ptr<string> createUserName_ {};
-        // Creator ID.
+        // The ID of the creator.
         shared_ptr<string> creator_ {};
-        // Owner ID.
+        // The ID of the owner.
         shared_ptr<string> owner_ {};
-        // Owner name.
+        // The name of the owner.
         shared_ptr<string> ownerUserName_ {};
-        // The user to whom the privilege belongs.
+        // The owner of the permission.
         shared_ptr<string> privilegeBelongTo_ {};
-        // Authorization source. Valid value: 0, which indicates the owner.
+        // The authorization source. Valid values:
+        // - 0: Owner.
         shared_ptr<int32_t> privilegeFrom_ {};
-        // Project ID.
+        // The project ID.
         shared_ptr<int32_t> projectId_ {};
-        // Project name.
+        // The project name.
         shared_ptr<string> projectName_ {};
-        // Role. Valid value: 0, which indicates the owner.
+        // The role. Valid values:
+        // - 0: Owner.
         shared_ptr<int32_t> role_ {};
       };
 
@@ -224,9 +226,9 @@ namespace Models
 
 
     protected:
-      // Paginated permission list.
+      // The paged permission list.
       shared_ptr<vector<PageResult::PermissionList>> permissionList_ {};
-      // Total number of records.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -277,17 +279,17 @@ namespace Models
 
 
   protected:
-    // Backend response code.
+    // The backend response code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Backend response exception details.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
-    // Paginated query result.
+    // The paged query result.
     shared_ptr<ListDataServiceMyApiPermissionsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the request is successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

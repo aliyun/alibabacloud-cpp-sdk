@@ -135,17 +135,17 @@ namespace Models
 
 
       protected:
-        // The ID of the archived table. This ID is used when you update, switch to active, or delete the archived table.
+        // The ID of the archived table. This ID is used when you modify, activate, or delete the archived table.
         shared_ptr<int64_t> archiveTableId_ {};
-        // The full table name in the format of project_name.table_name.
+        // The full table name, in the format of project name.table name.
         shared_ptr<string> archiveTableName_ {};
-        // The DDL statement for creating the archived table, which includes dataphin_quality_* system fields and the dataphin_quality_validate_date partition field definition.
+        // The DDL statement for creating the archived table, including the definitions of the dataphin_quality_* system fields and the dataphin_quality_validate_date partition field.
         shared_ptr<string> ddl_ {};
-        // Indicates whether this is the active archived table. At least one active archived table must exist under the same monitored object.
+        // Indicates whether the archived table is active. At least one archived table must be active under the same monitored object.
         shared_ptr<bool> isDefault_ {};
-        // The lifecycle in days. An empty value indicates no lifecycle is configured.
+        // The lifecycle in days. An empty value indicates that no lifecycle is configured.
         shared_ptr<int32_t> lifecycle_ {};
-        // The maximum number of records to archive per validation. A value of -1 indicates full archiving.
+        // The maximum number of archived records per check. A value of -1 indicates full archiving.
         shared_ptr<int64_t> maxArchiveCount_ {};
       };
 
@@ -168,9 +168,9 @@ namespace Models
 
 
     protected:
-      // The list of anomaly archived tables.
+      // The list of exception archived tables.
       shared_ptr<vector<Data::ArchiveTableList>> archiveTableList_ {};
-      // The number of custom anomaly archived tables.
+      // The number of custom exception archived tables.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -223,7 +223,7 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The result of querying the anomaly archived table list.
+    // The query result for the exception archived table list.
     shared_ptr<ListQualityArchiveTablesResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -231,7 +231,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

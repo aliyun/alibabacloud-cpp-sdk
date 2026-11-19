@@ -182,15 +182,15 @@ namespace Models
       shared_ptr<vector<string>> channelTypeList_ {};
       // The list of custom message channel IDs.
       shared_ptr<vector<string>> customChannelIdList_ {};
-      // The keyword for the query.
+      // The search keyword.
       shared_ptr<string> keyword_ {};
       // The list of monitored item IDs.
       shared_ptr<vector<string>> monitoredItemIdList_ {};
-      // The end time of the push.
+      // The push end time.
       // 
       // This parameter is required.
       shared_ptr<string> notifyEndTime_ {};
-      // The start time of the push.
+      // The push start time.
       // 
       // This parameter is required.
       shared_ptr<string> notifyStartTime_ {};
@@ -198,22 +198,20 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int32_t> page_ {};
-      // The number of records per page.
+      // The number of entries per page.
       // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
       // The source system. Valid values:
-      // 
-      // - ALL: all.
-      // - DQE: data quality.
-      // - OS: data service.
-      // - STREAM: real-time computing.
-      // - VDM_BATCH: offline computing.
+      // - ALL: All.
+      // - DQE: Data quality.
+      // - OS: Data service.
+      // - STREAM: Real-time computing.
+      // - VDM_BATCH: Offline computing.
       // - SOP: O&M platform.
-      // - REAL_TIME_PIPELINE: real-time integration.
-      // - KGB: baseline monitoring.
-      // 
-      // And more.
+      // - REAL_TIME_PIPELINE: Real-time integration.
+      // - KGB: Baseline monitoring.
+      // etc.
       // 
       // This parameter is required.
       shared_ptr<string> sourceSystem_ {};
@@ -255,6 +253,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

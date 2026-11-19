@@ -294,19 +294,19 @@ namespace Models
       shared_ptr<string> code_ {};
       // The creation time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
-      // The ID of the user who created the lookup table.
+      // The ID of the creator.
       shared_ptr<string> creator_ {};
-      // The username of the user who created the lookup table.
+      // The username of the creator.
       shared_ptr<string> creatorName_ {};
       // The description of the lookup table.
       shared_ptr<string> description_ {};
       // The parent folder.
       shared_ptr<LookupTableInfo::DirectoryReference> directoryReference_ {};
-      // The ID of the lookup table.
+      // The lookup table ID.
       shared_ptr<int64_t> id_ {};
-      // The ID of the user who last modified the lookup table.
+      // The ID of the last modifier.
       shared_ptr<string> lastModifier_ {};
-      // The username of the user who last modified the lookup table.
+      // The username of the last modifier.
       shared_ptr<string> lastModifierName_ {};
       // The list of lookup table values.
       shared_ptr<vector<LookupTableInfo::LookupTableValueList>> lookupTableValueList_ {};
@@ -373,7 +373,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The lookup table details.
     shared_ptr<GetStandardLookupTableResponseBody::LookupTableInfo> lookupTableInfo_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

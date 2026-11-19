@@ -166,9 +166,9 @@ namespace Models
 
 
         protected:
-          // The ID of the on-duty alert schedule.
+          // The ID of the on-call schedule.
           shared_ptr<string> id_ {};
-          // The name of the on-duty alert schedule.
+          // The name of the on-call schedule.
           shared_ptr<string> name_ {};
         };
 
@@ -227,17 +227,17 @@ namespace Models
 
 
       protected:
-        // The alert channels for on-duty schedules.
+        // The alert channels for on-call schedules.
         shared_ptr<vector<string>> alertDutyChannelList_ {};
-        // The list of on-duty schedules for alerts.
+        // The list of on-call schedules to be alerted.
         shared_ptr<vector<QualityAlertInfo::AlertDutyList>> alertDutyList_ {};
         // The alert channels for the quality owner.
         shared_ptr<vector<string>> alertQualityOwnerChannelList_ {};
         // The alert channels for users.
         shared_ptr<vector<string>> alertUserChannelList_ {};
-        // The list of users to receive alerts.
+        // The list of users to be alerted.
         shared_ptr<vector<QualityAlertInfo::AlertUserList>> alertUserList_ {};
-        // Specifies whether to enable alerts for the quality owner.
+        // Specifies whether to enable alerting for the quality owner.
         shared_ptr<bool> enableAlertQualityOwner_ {};
       };
 
@@ -260,7 +260,7 @@ namespace Models
 
 
     protected:
-      // The alert configuration details.
+      // The details of the alert settings.
       // 
       // This parameter is required.
       shared_ptr<UpsertCommand::QualityAlertInfo> qualityAlertInfo_ {};
@@ -300,8 +300,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The update instruction.
+    // The update command.
     // 
     // This parameter is required.
     shared_ptr<UpsertQualityWatchAlertRequest::UpsertCommand> upsertCommand_ {};

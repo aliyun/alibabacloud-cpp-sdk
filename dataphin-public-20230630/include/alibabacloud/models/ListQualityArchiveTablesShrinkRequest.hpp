@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The input parameters for querying the anomaly archived table list.
+    // The query parameters for the exception archived table list.
     // 
     // This parameter is required.
     shared_ptr<string> listQueryShrink_ {};
@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

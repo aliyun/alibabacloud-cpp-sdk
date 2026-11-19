@@ -58,10 +58,12 @@ namespace Models
       class EntityList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const EntityList& obj) { 
+          DARABONBA_PTR_TO_JSON(BizId, bizId_);
           DARABONBA_PTR_TO_JSON(EntityType, entityType_);
           DARABONBA_PTR_TO_JSON(PropertyList, propertyList_);
         };
         friend void from_json(const Darabonba::Json& j, EntityList& obj) { 
+          DARABONBA_PTR_FROM_JSON(BizId, bizId_);
           DARABONBA_PTR_FROM_JSON(EntityType, entityType_);
           DARABONBA_PTR_FROM_JSON(PropertyList, propertyList_);
         };
@@ -124,8 +126,15 @@ namespace Models
           shared_ptr<string> value_ {};
         };
 
-        virtual bool empty() const override { return this->entityType_ == nullptr
-        && this->propertyList_ == nullptr; };
+        virtual bool empty() const override { return this->bizId_ == nullptr
+        && this->entityType_ == nullptr && this->propertyList_ == nullptr; };
+        // bizId Field Functions 
+        bool hasBizId() const { return this->bizId_ != nullptr;};
+        void deleteBizId() { this->bizId_ = nullptr;};
+        inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+        inline EntityList& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
         // entityType Field Functions 
         bool hasEntityType() const { return this->entityType_ != nullptr;};
         void deleteEntityType() { this->entityType_ = nullptr;};
@@ -143,6 +152,8 @@ namespace Models
 
 
       protected:
+        // The business ID of the entity record.
+        shared_ptr<string> bizId_ {};
         // The entity type code.
         // 
         // This parameter is required.

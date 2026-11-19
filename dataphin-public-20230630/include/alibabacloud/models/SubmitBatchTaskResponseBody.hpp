@@ -130,15 +130,15 @@ namespace Models
 
 
   protected:
-    // The error code returned for the request. A value of OK indicates that the request is normal.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned for the request.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The edit result.
+    // The submission result.
     shared_ptr<SubmitBatchTaskResponseBody::SubmitResult> submitResult_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

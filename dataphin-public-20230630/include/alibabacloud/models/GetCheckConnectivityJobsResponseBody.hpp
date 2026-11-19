@@ -126,17 +126,17 @@ namespace Models
     protected:
       // The data source ID.
       shared_ptr<string> dataSourceId_ {};
-      // The error message that provides a detailed description when a task fails.
+      // The error message, which provides a detailed description when the task fails.
       shared_ptr<string> errorMsg_ {};
       // The task ID.
       shared_ptr<string> jobId_ {};
-      // The task type (application-level or cluster-level).
+      // The task type, which can be application-level or cluster-level.
       shared_ptr<string> jobType_ {};
       // The task status.
       shared_ptr<string> status_ {};
       // The tenant ID.
       shared_ptr<string> tenantId_ {};
-      // The Voldemort task ID used to associate the underlying execution task.
+      // The Voldemort task ID, which is used to associate the underlying execution task.
       shared_ptr<string> voldemortTaskId_ {};
     };
 
@@ -193,7 +193,7 @@ namespace Models
     shared_ptr<vector<GetCheckConnectivityJobsResponseBody::Data>> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend response error.
+    // The details of the backend response exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

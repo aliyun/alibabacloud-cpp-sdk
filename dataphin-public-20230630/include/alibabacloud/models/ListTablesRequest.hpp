@@ -110,7 +110,7 @@ namespace Models
 
 
     protected:
-      // The asset catalog: project name and business unit name.
+      // The asset catalog: project name, business unit name, or data source ID. If this parameter is not specified, all table assets are queried.
       shared_ptr<string> catalog_ {};
       // The supported keyword: table name.
       shared_ptr<string> keyword_ {};
@@ -120,7 +120,7 @@ namespace Models
       shared_ptr<int32_t> pageNo_ {};
       // The number of entries per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
-      // The table types. If you do not specify this parameter or pass an empty list, all table types are queried. Valid values:
+      // The table types. If this parameter is not specified or an empty list is passed, all table types are queried. Valid values:
       // - PHYSICAL_TABLE: Physical table of the compute source.
       // - PHYSICAL_VIEW: View of the compute source.
       // - PHYSICAL_MATERIALIZED_VIEW: Materialized view of the compute source.
@@ -162,7 +162,7 @@ namespace Models
 
 
   protected:
-    // The paged query conditions.
+    // The paging query conditions.
     shared_ptr<ListTablesRequest::ListQuery> listQuery_ {};
     // The tenant ID.
     // 

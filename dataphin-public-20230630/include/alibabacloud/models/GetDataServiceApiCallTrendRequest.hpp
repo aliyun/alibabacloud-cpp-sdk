@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The end time in the format of yyyy-MM-dd HH:mm:ss.
+    // The end time. Format: yyyy-MM-dd HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -83,12 +83,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The data service project ID.
     // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
-    // The start time in the format of yyyy-MM-dd HH:mm:ss.
+    // The start time. Format: yyyy-MM-dd HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

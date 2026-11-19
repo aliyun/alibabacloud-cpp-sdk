@@ -71,11 +71,11 @@ namespace Models
 
 
     protected:
-      // The GUID of the owning asset.
+      // The GUID of the parent asset.
       // 
       // This parameter is required.
       shared_ptr<string> belongGuid_ {};
-      // The type of the mapping relationship. Valid values: VALID (mapped) and INVALID (invalid mapping).
+      // The mapping relationship type. Valid values: VALID for mapped, INVALID for invalid mapping.
       shared_ptr<string> relationType_ {};
     };
 

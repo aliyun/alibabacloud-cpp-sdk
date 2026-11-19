@@ -101,17 +101,17 @@ namespace Models
 
 
     protected:
-      // The entity type codes used for filtering. If this parameter is not specified, all entity types are searched.
+      // The entity type code filter. If this parameter is not specified, all entity types are searched.
       shared_ptr<vector<string>> entityTypeCodes_ {};
-      // The minimum similarity threshold. Valid values: 0.0 to 1.0. Default value: 0.0 (no filtering). This parameter takes effect only for the semantic search path.
+      // The minimum similarity threshold. Valid values: 0.0 to 1.0. Default value: 0.0, which indicates no filtering. This parameter takes effect only for semantic search paths.
       shared_ptr<float> minSimilarity_ {};
       // The property code for semantic search. If this parameter is not specified, all properties with semantic search enabled are searched.
       shared_ptr<string> propertyCode_ {};
-      // The natural language query text. The value can be 0 to 500 characters in length.
+      // The natural language query text. The maximum length is 500 characters.
       // 
       // This parameter is required.
       shared_ptr<string> queryText_ {};
-      // The maximum number of results to return. Default value: 20. Valid values: 1 to 100.
+      // The maximum number of returned results. Default value: 20. Valid values: 1 to 100.
       shared_ptr<int32_t> topK_ {};
     };
 

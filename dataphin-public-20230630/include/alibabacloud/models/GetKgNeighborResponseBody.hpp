@@ -131,11 +131,17 @@ namespace Models
 
 
         protected:
-          // The property code.
+          // The code of the property.
           shared_ptr<string> code_ {};
-          // The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (float), BOOLEAN (Boolean), DATE (date), LIST (list), and others.
+          // The data type of the property. Valid values:
+          // - STRING: String.
+          // - INTEGER: Integer.
+          // - FLOAT: Floating-point number.
+          // - BOOLEAN: Boolean.
+          // - DATE: Date.
+          // - LIST: List.
           shared_ptr<string> dataType_ {};
-          // The property value.
+          // The value of the property.
           shared_ptr<string> value_ {};
         };
 
@@ -165,11 +171,11 @@ namespace Models
 
 
       protected:
-        // The entity record ID.
+        // The ID of the entity record.
         shared_ptr<string> entityId_ {};
-        // The entity type code.
+        // The code of the entity type.
         shared_ptr<string> entityType_ {};
-        // The entity record property list.
+        // The list of properties for the entity record.
         shared_ptr<vector<NodeList::PropertyList>> propertyList_ {};
       };
 
@@ -247,11 +253,17 @@ namespace Models
 
 
         protected:
-          // The property code.
+          // The code of the property.
           shared_ptr<string> code_ {};
-          // The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (float), BOOLEAN (Boolean), DATE (date), LIST (list), and others.
+          // The data type of the property. Valid values:
+          // - STRING: String.
+          // - INTEGER: Integer.
+          // - FLOAT: Floating-point number.
+          // - BOOLEAN: Boolean.
+          // - DATE: Date.
+          // - LIST: List.
           shared_ptr<string> dataType_ {};
-          // The property value.
+          // The value of the property.
           shared_ptr<string> value_ {};
         };
 
@@ -295,15 +307,15 @@ namespace Models
 
 
       protected:
-        // The relation record property list.
+        // The list of properties for the relation record.
         shared_ptr<vector<EdgeList::PropertyList>> propertyList_ {};
-        // The relation record ID.
+        // The ID of the relation record.
         shared_ptr<string> relationId_ {};
-        // The relation type code.
+        // The code of the relation type.
         shared_ptr<string> relationType_ {};
-        // The source entity ID.
+        // The ID of the source entity.
         shared_ptr<string> sourceEntityId_ {};
-        // The target entity ID.
+        // The ID of the target entity.
         shared_ptr<string> targetEntityId_ {};
       };
 
@@ -328,9 +340,9 @@ namespace Models
 
 
     protected:
-      // The edge list.
+      // The list of edges.
       shared_ptr<vector<Data::EdgeList>> edgeList_ {};
-      // The node list.
+      // The list of nodes.
       shared_ptr<vector<Data::NodeList>> nodeList_ {};
     };
 
@@ -391,7 +403,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

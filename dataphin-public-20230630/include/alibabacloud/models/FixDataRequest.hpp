@@ -105,7 +105,7 @@ namespace Models
 
 
       protected:
-        // The field IDs. This parameter is available when the node is a logical table instance ID. If you do not specify this parameter, the full table is used by default.
+        // The field instance IDs. This parameter is applicable when the node is a logical table instance. If you do not specify this parameter, the entire table is used by default.
         shared_ptr<vector<string>> fieldInstanceIdList_ {};
         // The instance ID.
         // 
@@ -208,17 +208,17 @@ namespace Models
 
 
     protected:
-      // Specifies whether to rerun the root instance. If you do not specify this parameter, the default value is true.
+      // Specifies whether to rerun the root instance. Default value: true.
       shared_ptr<bool> containRootInstance_ {};
-      // The downstream instances. If you have specified a downstream range, you do not need to specify this parameter. Otherwise, you must specify the list of downstream instances.
+      // The downstream instances. If a downstream range is selected, you do not need to specify this parameter. Otherwise, you must provide a list of downstream instances.
       shared_ptr<vector<FixDataCommand::DownStreamInstanceIdList>> downStreamInstanceIdList_ {};
       // The downstream range. Valid values:
-      // - ALL_FAILED_INSTANCE: all failed instances.
-      // - ALL_INSTANCE: all instances.
-      // - ALL_FINAL_INSTANCE: all desired state instances.
-      // - If you do not specify this parameter, the rerun is performed based on the specified downstream instances.
+      // - ALL_FAILED_INSTANCE: all failed instances
+      // - ALL_INSTANCE: all instances
+      // - ALL_FINAL_INSTANCE: all instances in the desired state
+      // If you do not specify this parameter, the rerun is performed based on the specified downstream instances.
       shared_ptr<string> downstreamRange_ {};
-      // Specifies whether to force a rerun.
+      // Specifies whether to force the rerun.
       shared_ptr<bool> forceRerun_ {};
       // The project ID.
       // 
@@ -264,10 +264,10 @@ namespace Models
 
   protected:
     // The environment identifier. Valid values:
-    // - DEV: development environment. 
-    // - PROD (default): production environment.
+    // - DEV: development environment 
+    // - PROD: production environment (default)
     shared_ptr<string> env_ {};
-    // The command to rerun downstream nodes to fix data link issues. You can choose to force a rerun.
+    // Reruns downstream nodes to repair pipeline data and allows you to force the rerun.
     // 
     // This parameter is required.
     shared_ptr<FixDataRequest::FixDataCommand> fixDataCommand_ {};
@@ -275,6 +275,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

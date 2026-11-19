@@ -154,7 +154,7 @@ namespace Models
       shared_ptr<string> abbreviation_ {};
       // The creation time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
-      // The user ID of the creator.
+      // The ID of the creator.
       shared_ptr<string> creator_ {};
       // The username of the creator.
       shared_ptr<string> creatorName_ {};
@@ -162,7 +162,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The full name of the word root.
       shared_ptr<string> fullName_ {};
-      // The user ID of the last modifier.
+      // The ID of the last modifier.
       shared_ptr<string> lastModifier_ {};
       // The username of the last modifier.
       shared_ptr<string> lastModifierName_ {};
@@ -223,13 +223,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The backend exception details.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The word root details.
+    // The details of the word root.
     shared_ptr<GetStandardWordRootResponseBody::WordRootInfo> wordRootInfo_ {};
   };
 

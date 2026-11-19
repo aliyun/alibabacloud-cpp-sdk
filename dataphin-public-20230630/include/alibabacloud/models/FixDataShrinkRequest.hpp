@@ -67,10 +67,10 @@ namespace Models
 
   protected:
     // The environment identifier. Valid values:
-    // - DEV: development environment. 
-    // - PROD (default): production environment.
+    // - DEV: development environment 
+    // - PROD: production environment (default)
     shared_ptr<string> env_ {};
-    // The command to rerun downstream nodes to fix data link issues. You can choose to force a rerun.
+    // Reruns downstream nodes to repair pipeline data and allows you to force the rerun.
     // 
     // This parameter is required.
     shared_ptr<string> fixDataCommandShrink_ {};
@@ -78,6 +78,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

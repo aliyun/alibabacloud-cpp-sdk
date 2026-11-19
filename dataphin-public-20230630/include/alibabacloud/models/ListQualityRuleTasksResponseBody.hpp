@@ -246,29 +246,29 @@ namespace Models
 
 
       protected:
-        // The business date.
+        // The business date. Format: YYYY-MM-DD.
         shared_ptr<string> bizDate_ {};
         // The business date format.
         shared_ptr<string> bizDateFormat_ {};
-        // The creation time.
+        // The creation time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> createTime_ {};
         // The creator.
         shared_ptr<string> creator_ {};
-        // The end time.
+        // The end time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> endTime_ {};
-        // The rule task ID.
+        // The ID of the rule task.
         shared_ptr<int64_t> id_ {};
-        // The ID of the user who last modified the task.
+        // The ID of the user who last updated the task.
         shared_ptr<string> modifier_ {};
-        // The modification time.
+        // The update time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> modifyTime_ {};
-        // The rule ID.
+        // The ID of the rule.
         shared_ptr<int64_t> ruleId_ {};
-        // The start time.
+        // The start time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> startTime_ {};
-        // The task status.
+        // The status of the task.
         shared_ptr<string> status_ {};
-        // The template ID.
+        // The ID of the template.
         shared_ptr<int64_t> templateId_ {};
         // The name of the validated object.
         shared_ptr<string> validateObjectName_ {};
@@ -278,9 +278,9 @@ namespace Models
         shared_ptr<string> validatePartition_ {};
         // Indicates whether the validation is successful.
         shared_ptr<bool> validateSuccess_ {};
-        // The watch ID.
+        // The ID of the associated quality watchtask.
         shared_ptr<int64_t> watchId_ {};
-        // The watch task ID. This ID is empty for trial run tasks.
+        // The ID of the watchtask. This ID is empty for trial rule tasks.
         shared_ptr<int64_t> watchTaskId_ {};
       };
 
@@ -303,7 +303,7 @@ namespace Models
 
 
     protected:
-      // The paged quality rule task list.
+      // The paged list of quality rule tasks.
       shared_ptr<vector<PageResult::QualityRuleTaskList>> qualityRuleTaskList_ {};
       // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
@@ -362,7 +362,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The backend exception details.
     shared_ptr<string> message_ {};
-    // The paged query result.
+    // The paged query results.
     shared_ptr<ListQualityRuleTasksResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

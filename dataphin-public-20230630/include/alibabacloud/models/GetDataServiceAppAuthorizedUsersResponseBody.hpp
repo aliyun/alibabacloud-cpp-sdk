@@ -135,13 +135,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error details of the backend response.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The user list.
+    // The list of users.
     shared_ptr<vector<GetDataServiceAppAuthorizedUsersResponseBody::UserList>> userList_ {};
   };
 

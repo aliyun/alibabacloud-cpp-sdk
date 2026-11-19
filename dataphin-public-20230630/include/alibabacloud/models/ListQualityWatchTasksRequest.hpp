@@ -234,63 +234,39 @@ namespace Models
 
 
     protected:
-      // The business date filter.
+      // The business date filter. The format is YYYY-MM-DD.
       shared_ptr<string> bizDate_ {};
-      // The name of the business unit to which the object belongs.
+      // The business unit names.
       shared_ptr<vector<string>> bizUnitNameList_ {};
-      // Specifies whether to query only the watchtask objects owned by the current user.
+      // The monitoring task objects (nodes) for which the current user is responsible.
       shared_ptr<bool> currentUserOwned_ {};
-      // The data source ID.
+      // The data source IDs.
       shared_ptr<vector<string>> dataSourceIdList_ {};
-      // The data source owner.
+      // The data source owners.
       shared_ptr<vector<string>> dataSourceOwnerList_ {};
-      // The data source scope. Valid values:
-      // - STREAMING: real-time only.
-      // - OFFLINE: offline only.
-      // - ALL: real-time and offline.
+      // The data source scope. Valid values: STREAMING (real-time only), OFFLINE (offline only), and ALL (real-time and offline).
       shared_ptr<vector<string>> dataSourceScopeList_ {};
-      // The data source type, such as MAX_COMPUTE, HADOOP, or MYSQL.
+      // The data source types, such as MAX_COMPUTE, HADOOP, and MYSQL.
       shared_ptr<vector<string>> dataSourceTypeList_ {};
-      // The rule exception type. Valid values:
-      // - STRONG: strong.
-      // - WEAK: weak.
+      // The rule exception type. Valid values: STRONG (strong) and WEAK (weak).
       shared_ptr<vector<string>> errorRuleStrengthList_ {};
-      // The search keyword. This parameter specifies the name of the monitored table.
+      // The search keyword, such as the name of the monitored table.
       shared_ptr<string> keyword_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
       // The number of entries per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
-      // The name of the project to which the object belongs.
+      // The project names.
       shared_ptr<vector<string>> projectNameList_ {};
-      // The quality owner.
+      // The quality owners.
       shared_ptr<vector<string>> qualityOwnerList_ {};
-      // The task status. Valid values:
-      // - NOT_RUN: not executed.
-      // - WAITING: waiting.
-      // - RUNNING: running.
-      // - SUCCESS: succeeded.
-      // - FAILED: failed.
-      // - CANCEL: canceled.
-      // - TIMEOUT: timed out.
-      // - OFFLINE: offline.
+      // The task status. Valid values: NOT_RUN (not run), WAITING (waiting), RUNNING (running), SUCCESS (successful), FAILED (failed), CANCEL (canceled), TIMEOUT (timed out), and OFFLINE (offline).
       shared_ptr<vector<string>> statusList_ {};
-      // The table owner.
+      // The table owners.
       shared_ptr<vector<string>> tableOwnerList_ {};
-      // The table type. Valid values:
-      // - LOGIC_DIM_TABLE: logical dimension table.
-      // - LOGIC_FACT_TABLE: logical fact table.
-      // - LOGIC_SUM_TABLE: logical aggregate table.
-      // - LOGIC_LABEL_TABLE: logical label table.
-      // - PHYSICAL_TABLE: physical table.
-      // - REALTIME_LOGICAL_TABLE: real-time meta table.
+      // The table type. Valid values: LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_LABEL_TABLE (logical label table), PHYSICAL_TABLE (physical table), and REALTIME_LOGICAL_TABLE (real-time metatable).
       shared_ptr<vector<string>> tableTypeList_ {};
-      // The monitored object type. Valid values:
-      // - TABLE: Dataphin table.
-      // - DATASOURCE_TABLE: global domain table.
-      // - DATASOURCE: data source.
-      // - INDEX: metric.
-      // - REALTIME_LOGICAL_TABLE: real-time meta table.
+      // The monitored object type. Valid values: TABLE (Dataphin table), DATASOURCE_TABLE (global table), DATASOURCE (data source), INDEX (metric), and REALTIME_LOGICAL_TABLE (real-time metatable).
       shared_ptr<vector<string>> watchTypeList_ {};
     };
 
@@ -320,13 +296,13 @@ namespace Models
 
 
   protected:
-    // The paged query conditions.
+    // The paging conditions for the paged query.
     shared_ptr<ListQualityWatchTasksRequest::ListQuery> listQuery_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator.
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

@@ -98,21 +98,21 @@ namespace Models
 
 
     protected:
-      // The abbreviation of the root word.
+      // The abbreviation of the word root.
       // 
       // This parameter is required.
       shared_ptr<string> abbreviation_ {};
-      // The description of the root word.
+      // The description of the word root.
       shared_ptr<string> description_ {};
-      // The full name of the root word.
+      // The full name of the word root.
       // 
       // This parameter is required.
       shared_ptr<string> fullName_ {};
-      // The name of the root word.
+      // The name of the word root.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The name of the root word before the update.
+      // The original name of the word root.
       // 
       // This parameter is required.
       shared_ptr<string> oldName_ {};
@@ -148,8 +148,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The update instruction.
+    // The update command.
     // 
     // This parameter is required.
     shared_ptr<UpdateStandardWordRootRequest::UpdateCommand> updateCommand_ {};

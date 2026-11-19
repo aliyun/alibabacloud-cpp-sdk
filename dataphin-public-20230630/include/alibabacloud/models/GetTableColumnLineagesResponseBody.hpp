@@ -264,7 +264,7 @@ namespace Models
     protected:
       // The ID of the business unit to which the input table belongs.
       shared_ptr<int64_t> inputBizUnitId_ {};
-      // The GUID of the input column. Format: TableGuid.ColumnName.
+      // The GUID of the input column. Format: table GUID.column name.
       shared_ptr<string> inputColumnGuid_ {};
       // The name of the input column.
       shared_ptr<string> inputColumnName_ {};
@@ -274,21 +274,21 @@ namespace Models
       shared_ptr<string> inputDataSourceType_ {};
       // The ID of the project to which the input table belongs.
       shared_ptr<int64_t> inputProjectId_ {};
-      // Indicates whether the input table has been deleted.
+      // Indicates whether the input table is deleted.
       shared_ptr<bool> inputTableDeleted_ {};
-      // The environment of the input table. Valid values: dev and prod.
+      // The environment to which the input table belongs. Valid values: dev and prod.
       shared_ptr<string> inputTableEnv_ {};
-      // The GUID of the input table. Each asset has a unique identifier.
+      // The GUID of the input table, which uniquely identifies the asset.
       shared_ptr<string> inputTableGuid_ {};
       // The name of the input table.
       shared_ptr<string> inputTableName_ {};
-      // The environment of the node. Valid values: dev and prod.
+      // The environment to which the node belongs. Valid values: dev and prod.
       shared_ptr<string> nodeEnv_ {};
-      // The node ID associated with the lineage.
+      // The ID of the node corresponding to the lineage.
       shared_ptr<string> nodeId_ {};
       // The ID of the business unit to which the output table belongs.
       shared_ptr<int64_t> outputBizUnitId_ {};
-      // The GUID of the output column. Format: TableId.ColumnName.
+      // The GUID of the output column. Format: table ID.column name.
       shared_ptr<string> outputColumnGuid_ {};
       // The name of the output column.
       shared_ptr<string> outputColumnName_ {};
@@ -298,11 +298,11 @@ namespace Models
       shared_ptr<string> outputDataSourceType_ {};
       // The ID of the project to which the output table belongs.
       shared_ptr<int64_t> outputProjectId_ {};
-      // Indicates whether the output table has been deleted.
+      // Indicates whether the output table is deleted.
       shared_ptr<bool> outputTableDeleted_ {};
-      // The environment of the output table. Valid values: dev and prod.
+      // The environment to which the output table belongs. Valid values: dev and prod.
       shared_ptr<string> outputTableEnv_ {};
-      // The GUID of the output table. Each asset has a unique identifier.
+      // The GUID of the output table, which uniquely identifies the asset.
       shared_ptr<string> outputTableGuid_ {};
       // The name of the output table.
       shared_ptr<string> outputTableName_ {};
@@ -363,9 +363,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The list of table column lineage records.
+    // The list of table column lineage.
     shared_ptr<vector<GetTableColumnLineagesResponseBody::TableColumnLineageList>> tableColumnLineageList_ {};
   };
 

@@ -97,15 +97,13 @@ namespace Models
       // This parameter is required.
       shared_ptr<vector<string>> assetGuidList_ {};
       // The processing policy for invalid mappings when importing mapping relationships. Valid values:
-      // - SET_INVALID_TO_VALID: sets invalid mappings to valid mappings.
-      // - KEEP_INVALID_AND_SKIP: retains invalid mappings and skips them.
-      // 
+      // - SET_INVALID_TO_VALID: Changes invalid mappings to valid mappings.
+      // - KEEP_INVALID_AND_SKIP: Retains invalid mappings and skips them.
       // Default value: SET_INVALID_TO_VALID.
       shared_ptr<string> invalidMappingRelationOperationType_ {};
       // The mapping relationship type. Valid values:
-      // - VALID: valid mapping.
-      // - INVALID: invalid mapping.
-      // 
+      // - VALID: Valid mapping.
+      // - INVALID: Invalid mapping.
       // Default value: VALID.
       shared_ptr<string> relationType_ {};
       // The standard ID.
@@ -140,7 +138,7 @@ namespace Models
 
 
   protected:
-    // The create command.
+    // The creation command.
     // 
     // This parameter is required.
     shared_ptr<CreateStandardMappingRequest::CreateCommand> createCommand_ {};
@@ -148,6 +146,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

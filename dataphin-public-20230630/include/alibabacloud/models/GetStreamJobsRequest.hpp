@@ -66,9 +66,7 @@ namespace Models
 
 
   protected:
-    // The Dataphin environment. Valid values:
-    // - DEV
-    // - PROD.
+    // The Dataphin environment. Valid values: DEV and PROD.
     // 
     // This parameter is required.
     shared_ptr<string> env_ {};
@@ -76,6 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The Dataphin project ID.
     // 

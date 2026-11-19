@@ -128,7 +128,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> entityType_ {};
-      // The entity record property list.
+      // The property list of the entity record.
       // 
       // This parameter is required.
       shared_ptr<vector<CreateCommand::PropertyList>> propertyList_ {};
@@ -167,7 +167,7 @@ namespace Models
 
 
   protected:
-    // The create command.
+    // The creation command.
     // 
     // This parameter is required.
     shared_ptr<CreateKgEntityRequest::CreateCommand> createCommand_ {};
@@ -175,6 +175,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The workspace ID.
     // 

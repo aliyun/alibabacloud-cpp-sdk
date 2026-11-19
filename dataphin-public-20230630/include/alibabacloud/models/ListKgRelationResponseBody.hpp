@@ -137,7 +137,7 @@ namespace Models
         protected:
           // The property code.
           shared_ptr<string> code_ {};
-          // The data type of the property. Valid values: STRING (string), INTEGER (integer), FLOAT (floating-point number), BOOLEAN (Boolean), DATE (date), and LIST (list).
+          // The data type of the property, such as STRING, INTEGER, FLOAT, BOOLEAN, DATE, or LIST.
           shared_ptr<string> dataType_ {};
           // The property value.
           shared_ptr<string> value_ {};
@@ -183,11 +183,11 @@ namespace Models
 
 
       protected:
-        // The list of properties for the relationship record.
+        // The list of properties for the relation record.
         shared_ptr<vector<RelationList::PropertyList>> propertyList_ {};
-        // The relationship record ID.
+        // The relation record ID.
         shared_ptr<string> relationId_ {};
-        // The relationship type code.
+        // The relation type code.
         shared_ptr<string> relationType_ {};
         // The source entity ID.
         shared_ptr<string> sourceEntityId_ {};
@@ -214,7 +214,7 @@ namespace Models
 
 
     protected:
-      // The list of paged relationship records.
+      // The paged list of relation records.
       shared_ptr<vector<PageResult::RelationList>> relationList_ {};
       // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
@@ -277,7 +277,7 @@ namespace Models
     shared_ptr<ListKgRelationResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

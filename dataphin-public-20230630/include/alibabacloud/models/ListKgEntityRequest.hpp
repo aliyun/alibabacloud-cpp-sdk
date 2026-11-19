@@ -110,15 +110,7 @@ namespace Models
 
 
       protected:
-        // The operator. Valid values:
-        // - eq: equal to.
-        // - neq: not equal to.
-        // - contains: contains.
-        // - gt: greater than.
-        // - gte: greater than or equal to.
-        // - lt: less than.
-        // - lte: less than or equal to.
-        // - like: fuzzy match.
+        // The operator. Valid values: eq (equal to), neq (not equal to), contains (contains), gt (greater than), gte (greater than or equal to), lt (less than), lte (less than or equal to), and like (fuzzy match).
         // 
         // This parameter is required.
         shared_ptr<string> op_ {};
@@ -126,7 +118,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> propertyCode_ {};
-        // The property match value.
+        // The property value.
         // 
         // This parameter is required.
         shared_ptr<string> value_ {};
@@ -167,7 +159,7 @@ namespace Models
     protected:
       // The property filter conditions.
       shared_ptr<vector<ListQuery::FilterList>> filterList_ {};
-      // The keyword for searching display properties.
+      // The keyword search for displayed properties.
       shared_ptr<string> keyword_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNum_ {};
@@ -217,12 +209,13 @@ namespace Models
   protected:
     // The entity type code.
     shared_ptr<string> entityType_ {};
-    // The paged query filter conditions.
+    // The paged search filter conditions.
     shared_ptr<ListKgEntityRequest::ListQuery> listQuery_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
     // The workspace ID.
     // 

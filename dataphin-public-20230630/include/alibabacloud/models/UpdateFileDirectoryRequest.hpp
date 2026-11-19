@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The updated file folder after the move.
+    // The new directory of the file.
     // 
     // This parameter is required.
     shared_ptr<string> directory_ {};
@@ -87,6 +87,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The project ID.
     // 

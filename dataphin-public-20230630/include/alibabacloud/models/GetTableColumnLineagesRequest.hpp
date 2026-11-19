@@ -109,9 +109,9 @@ namespace Models
       shared_ptr<bool> needNotExistObject_ {};
       // Specifies whether to query upstream lineage. Default value: true.
       shared_ptr<bool> needUpstream_ {};
-      // The environment of the nodes to query. Valid values: dev and prod.
+      // The environment of the node to query. Valid values: dev and prod.
       shared_ptr<string> nodeEnv_ {};
-      // The list of node IDs to filter.
+      // The list of node IDs to query.
       shared_ptr<vector<string>> nodeIdList_ {};
     };
 
@@ -154,8 +154,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The GUID of the table, which is the unique identifier of the asset.
+    // The GUID of the table, which uniquely identifies the asset.
     // 
     // This parameter is required.
     shared_ptr<string> tableGuid_ {};

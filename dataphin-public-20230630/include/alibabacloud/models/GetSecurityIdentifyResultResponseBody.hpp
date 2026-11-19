@@ -399,21 +399,21 @@ namespace Models
 
 
     protected:
-      // The business date. Format: YYYY-MM-DD.
+      // The business date in the YYYY-MM-DD format.
       shared_ptr<string> bizDate_ {};
-      // The Chinese name of the business unit.
+      // The Chinese display name of the business unit.
       shared_ptr<string> bizUnitDisplayName_ {};
       // The ID of the business unit.
       shared_ptr<int64_t> bizUnitId_ {};
       // The name of the business unit.
       shared_ptr<string> bizUnitName_ {};
-      // The classification abbreviation.
+      // The abbreviation of the classification.
       shared_ptr<string> classifyAbbreviation_ {};
-      // The classification ID.
+      // The ID of the classification.
       shared_ptr<int64_t> classifyId_ {};
-      // The classification name.
+      // The name of the classification.
       shared_ptr<string> classifyName_ {};
-      // The creation time. Format: YYYY-MM-DD HH:mm:ss.
+      // The creation time in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The creator.
       shared_ptr<string> creator_ {};
@@ -421,35 +421,35 @@ namespace Models
       shared_ptr<int64_t> datasourceId_ {};
       // The name of the data source.
       shared_ptr<string> datasourceName_ {};
-      // The field description.
+      // The description of the field.
       shared_ptr<string> fieldDescription_ {};
       // The ID of the field.
       shared_ptr<string> fieldId_ {};
       // The name of the field.
       shared_ptr<string> fieldName_ {};
-      // Indicates whether a better match is available.
+      // Indicates whether a better matched result exists.
       shared_ptr<bool> hasBetterRule_ {};
-      // The recognition result ID.
+      // The ID of the recognition result.
       shared_ptr<int64_t> id_ {};
       // The ID of the identification record.
       shared_ptr<int64_t> identifyRecordId_ {};
-      // Indicates whether a custom identification rule is used.
+      // Indicates whether a custom tagging rule is used.
       shared_ptr<bool> isCustomIdentify_ {};
       // Indicates whether the item is locked.
       shared_ptr<bool> isLocked_ {};
-      // The abbreviation of the classification level.
+      // The abbreviation of the level.
       shared_ptr<string> levelAbbreviation_ {};
-      // The color of the classification level.
+      // The color of the level.
       shared_ptr<int64_t> levelColor_ {};
-      // The classification level.
+      // The grading level.
       shared_ptr<int64_t> levelIndex_ {};
-      // The name of the classification level.
+      // The name of the level.
       shared_ptr<string> levelName_ {};
       // The modifier.
       shared_ptr<string> modifier_ {};
       // The modification time in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> modifyTime_ {};
-      // The Chinese name of the project.
+      // The Chinese display name of the project.
       shared_ptr<string> projectDisplayName_ {};
       // The ID of the project.
       shared_ptr<int64_t> projectId_ {};
@@ -459,11 +459,11 @@ namespace Models
       shared_ptr<int64_t> scanTaskId_ {};
       // The status. Valid values: ENABLE (enabled) and DISABLE (disabled).
       shared_ptr<string> status_ {};
-      // The table catalog.
+      // The catalog of the table.
       shared_ptr<string> tableCatalog_ {};
-      // The table description.
+      // The description of the table.
       shared_ptr<string> tableDescription_ {};
-      // The table environment.
+      // The environment of the table.
       shared_ptr<string> tableEnv_ {};
       // The ID of the table.
       shared_ptr<string> tableId_ {};
@@ -471,15 +471,7 @@ namespace Models
       shared_ptr<string> tableName_ {};
       // The ID of the table identification task.
       shared_ptr<int64_t> tableTaskId_ {};
-      // The table type. Valid values:
-      // - LOGIC_TABLE: logical table
-      // - LOGIC_DIM_TABLE: logical dimension table
-      // - LOGIC_FACT_TABLE: logical fact table
-      // - LOGIC_SUM_TABLE: logical aggregate table
-      // - LOGIC_ODM_SOURCE: source table
-      // - LOGIC_LABEL_TABLE: logical label table
-      // - PHYSICAL_TABLE: physical table
-      // - REAL_TIME_LOGIC_TABLE: real-time configured logical table
+      // The type of the table. Valid values: LOGIC_TABLE (logical table), LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_ODM_SOURCE (source table), LOGIC_LABEL_TABLE (logical label table), PHYSICAL_TABLE (physical table), and REAL_TIME_LOGIC_TABLE (real-time configured logical table).
       shared_ptr<string> tableType_ {};
     };
 

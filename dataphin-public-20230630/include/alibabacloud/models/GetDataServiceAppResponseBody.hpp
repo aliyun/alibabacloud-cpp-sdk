@@ -200,7 +200,7 @@ namespace Models
       shared_ptr<string> appSecret_ {};
       // The IP address whitelist. Separate IP addresses or CIDR blocks with semicolons. For CIDR blocks, use a forward slash (/) to separate the IP address and the prefix length, which ranges from 1 to 32. Example: 192.168.3.12/24.
       shared_ptr<string> ipWhitelist_ {};
-      // Indicates whether the IP address whitelist is enabled. Valid values:
+      // Specifies whether the IP address whitelist is enabled. Valid values:
       // - true: Enabled.
       // - false: Disabled.
       shared_ptr<bool> ipWhitelistStatus_ {};
@@ -263,7 +263,7 @@ namespace Models
     shared_ptr<GetDataServiceAppResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

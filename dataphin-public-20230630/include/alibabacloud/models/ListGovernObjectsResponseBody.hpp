@@ -186,15 +186,15 @@ namespace Models
 
 
         protected:
-          // The cause of the issue.
+          // The cause of the problem.
           shared_ptr<string> cause_ {};
           // The description.
           shared_ptr<string> desc_ {};
-          // The knowledge entry ID.
+          // The knowledge ID.
           shared_ptr<int64_t> knowledgeId_ {};
           // The owner.
           shared_ptr<string> owner_ {};
-          // The name of the owner.
+          // The owner name.
           shared_ptr<string> ownerName_ {};
           // The Solutions.
           shared_ptr<string> solution_ {};
@@ -319,21 +319,21 @@ namespace Models
           shared_ptr<string> objectId_ {};
           // The ID of the parent object.
           shared_ptr<string> parentObjectId_ {};
-          // The contact email for the governance issue.
+          // The contact email for governance issues.
           shared_ptr<string> problemContactMail_ {};
-          // The other contact information for the governance issue.
+          // Other contact information for the governance problem.
           shared_ptr<string> problemContactOther_ {};
-          // The contact phone number for the governance issue.
+          // The contact phone number for the governance problem.
           shared_ptr<string> problemContactPhone_ {};
-          // The description of the governance issue.
+          // The description of the governance problem.
           shared_ptr<string> problemDesc_ {};
-          // The submission type of the issue.
+          // The submission method of the problem.
           shared_ptr<string> problemSubmitType_ {};
-          // The user who submitted the issue.
+          // The user who submitted the problem.
           shared_ptr<string> problemSubmitter_ {};
-          // The username of the issue submitter.
+          // The username of the user who submitted the problem.
           shared_ptr<string> problemSubmitterUserName_ {};
-          // The types of the governance issue.
+          // The type of the governance problem.
           shared_ptr<vector<string>> problemTypes_ {};
         };
 
@@ -478,7 +478,7 @@ namespace Models
 
 
       protected:
-        // The time when the record was reported.
+        // The submission time.
         shared_ptr<string> commitTime_ {};
         // The governance object ID.
         shared_ptr<int64_t> governItemId_ {};
@@ -488,17 +488,17 @@ namespace Models
         shared_ptr<bool> isRectify_ {};
         // The list of owners.
         shared_ptr<vector<Data::Owners>> owners_ {};
-        // The governance issue object.
+        // The governance problem object.
         shared_ptr<Data::Problem> problem_ {};
         // The property values.
         Darabonba::Json properties_ {};
         // The rectification ID.
         shared_ptr<int64_t> rectifyId_ {};
-        // The name of the rectification.
+        // The rectification name.
         shared_ptr<string> rectifyName_ {};
         // The rectification status.
         shared_ptr<string> rectifyStatus_ {};
-        // The related knowledge base entries.
+        // The related knowledge base.
         shared_ptr<vector<Data::RelatedKnowledge>> relatedKnowledge_ {};
         // The status of the governance object.
         shared_ptr<string> status_ {};
@@ -578,15 +578,15 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The HTTP status code.
+    // The HTTP response code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The backend exception details.
+    // The backend response exception details.
     shared_ptr<string> message_ {};
     // The paged query result.
     shared_ptr<ListGovernObjectsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

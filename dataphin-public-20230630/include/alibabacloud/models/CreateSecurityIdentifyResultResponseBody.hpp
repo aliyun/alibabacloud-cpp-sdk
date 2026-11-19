@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code returned by the backend. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
-    // The identification result ID.
+    // The ID of the identification result.
     shared_ptr<int64_t> data_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message returned for the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

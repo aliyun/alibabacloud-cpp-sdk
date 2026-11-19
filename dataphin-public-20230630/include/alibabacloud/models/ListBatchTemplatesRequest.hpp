@@ -93,11 +93,11 @@ namespace Models
 
 
     protected:
-      // The keyword in the template name.
+      // The keyword for the template name.
       shared_ptr<string> keyword_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of records per page. Default value: 20.
+      // The number of entries per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
       // The template ID. The query is based on the template ID.
       shared_ptr<int64_t> templateId_ {};

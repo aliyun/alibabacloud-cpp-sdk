@@ -133,7 +133,7 @@ namespace Models
 
 
     protected:
-      // The list of relationship record properties.
+      // The relationship record property list.
       shared_ptr<vector<UpdateCommand::PropertyList>> propertyList_ {};
       // The relationship record ID.
       // 
@@ -182,6 +182,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
     // The update command.
     // 

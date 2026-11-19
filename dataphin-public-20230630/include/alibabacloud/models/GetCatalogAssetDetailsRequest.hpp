@@ -84,13 +84,15 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> guid_ {};
-      // Specifies whether to include the field list. Default value: false. Valid values:
-      // - false: Not included.
+      // Specifies whether to include the column list. Valid values:
       // - true: Included.
+      // - false: Not included.
+      // Default value: false.
       shared_ptr<bool> includeColumns_ {};
-      // Specifies whether to include detailed data. Default value: false. Valid values:
-      // - false: Not included.
+      // Specifies whether to include detailed data. Valid values:
       // - true: Included.
+      // - false: Not included.
+      // Default value: false.
       shared_ptr<bool> includeDetailedAttributes_ {};
     };
 
@@ -120,7 +122,7 @@ namespace Models
 
 
   protected:
-    // The paged query for the listed asset catalog.
+    // The paging query for the list of listed asset catalogs.
     // 
     // This parameter is required.
     shared_ptr<GetCatalogAssetDetailsRequest::GetCatalogAssetDetailsQuery> getCatalogAssetDetailsQuery_ {};
@@ -128,7 +130,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

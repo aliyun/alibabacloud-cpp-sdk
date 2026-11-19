@@ -350,9 +350,9 @@ namespace Models
         protected:
           // The Chinese name of the business unit.
           shared_ptr<string> bizUnitDisplayName_ {};
-          // The business unit ID.
+          // The ID of the business unit.
           shared_ptr<string> bizUnitId_ {};
-          // The business unit name.
+          // The name of the business unit.
           shared_ptr<string> bizUnitName_ {};
         };
 
@@ -424,19 +424,19 @@ namespace Models
       protected:
         // The business unit to which the node belongs.
         shared_ptr<SimpleNodeInfos::BizUnit> bizUnit_ {};
-        // The environment to which the node belongs. Valid values: DEV and PROD.
+        // The environment. Valid values: DEV and PROD.
         shared_ptr<string> env_ {};
         // The ID of the physical node.
         shared_ptr<string> nodeId_ {};
         // The name of the node.
         shared_ptr<string> nodeName_ {};
-        // The scheduling type of the node. Valid values: NORMAL (periodic scheduling) and MANUAL (manual scheduling).
+        // The scheduling type. Valid values: NORMAL (periodic scheduling) and MANUAL (manual scheduling).
         shared_ptr<string> nodeScheduleType_ {};
-        // The O&M owners of the node.
+        // The O&M owners.
         shared_ptr<vector<SimpleNodeInfos::Owners>> owners_ {};
         // The project to which the node belongs.
         shared_ptr<SimpleNodeInfos::Project> project_ {};
-        // The type of the node. Valid values: DLINK (offline integration) and PYTHON37 (Python computing node).
+        // The node type. Valid values: DLINK (offline integration) and PYTHON37 (Python compute node).
         shared_ptr<string> subBizType_ {};
       };
 
@@ -520,9 +520,9 @@ namespace Models
         shared_ptr<string> gmtCreate_ {};
         // The update time.
         shared_ptr<string> gmtModified_ {};
-        // The creator ID.
+        // The ID of the creator.
         shared_ptr<string> ownerId_ {};
-        // The creator nickname.
+        // The nickname of the creator.
         shared_ptr<string> ownerNickName_ {};
         // The title.
         shared_ptr<string> title_ {};
@@ -787,29 +787,29 @@ namespace Models
     protected:
       // The asset inventory tags.
       shared_ptr<vector<string>> assetTags_ {};
-      // The business unit ID.
+      // The ID of the business unit.
       shared_ptr<int64_t> bizUnitId_ {};
-      // The business unit name.
+      // The name of the business unit.
       shared_ptr<string> bizUnitName_ {};
-      // The table comment.
+      // The comment of the table.
       shared_ptr<string> comment_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
-      // The creator ID.
+      // The ID of the creator.
       shared_ptr<string> creator_ {};
-      // The data domain ID.
+      // The ID of the data domain.
       shared_ptr<int64_t> dataDomainId_ {};
-      // The subject domain name.
+      // The name of the subject domain.
       shared_ptr<string> dataDomainName_ {};
-      // The data source ID.
+      // The ID of the data source.
       shared_ptr<int64_t> dataSourceId_ {};
-      // The table display name.
+      // The display name of the table.
       shared_ptr<string> displayName_ {};
-      // The environment. Valid values: dev and prod.
+      // The environment to which the table belongs. Valid values: dev and prod.
       shared_ptr<string> env_ {};
-      // The file ID, which is used to redirect to the ODM model.
+      // The ID of the file, which is used to navigate to the ODM model.
       shared_ptr<string> fileId_ {};
-      // The table GUID.
+      // The GUID of the table.
       shared_ptr<string> guid_ {};
       // The list of usage instructions.
       shared_ptr<vector<Data::Instructions>> instructions_ {};
@@ -817,37 +817,37 @@ namespace Models
       shared_ptr<bool> isBasicMode_ {};
       // Indicates whether the table is a partitioned table.
       shared_ptr<bool> isPartitionTable_ {};
-      // The time when the table DDL was last modified.
+      // The time when the DDL of the table was last modified.
       shared_ptr<string> lastDdlTime_ {};
       // The time when the table data was last updated.
       shared_ptr<string> lastDmlTime_ {};
-      // The time when the data was last viewed.
+      // The time when the data was last queried.
       shared_ptr<string> lastQueryTime_ {};
       // The lifecycle of the table, in days.
       shared_ptr<int64_t> lifeCycle_ {};
-      // The table name.
+      // The name of the table.
       shared_ptr<string> name_ {};
       // The list of associated node IDs.
       shared_ptr<vector<string>> nodeIds_ {};
       // The user ID of the table owner in Dataphin. This parameter may be empty if the owner is not bound.
       shared_ptr<string> owner_ {};
-      // The parent model ID, which is used to redirect to the ODM model.
+      // The ID of the parent model, which is used to navigate to the ODM model.
       shared_ptr<string> parentModelId_ {};
-      // The logical project ID.
+      // The ID of the logical project.
       shared_ptr<int64_t> projectId_ {};
-      // The logical project name.
+      // The name of the logical project.
       shared_ptr<string> projectName_ {};
       // The security classification.
       shared_ptr<int64_t> securityLevel_ {};
       // The abbreviation of the security classification name.
       shared_ptr<string> securityLevelAbbreviation_ {};
-      // The name of the security classification.
+      // The security classification name.
       shared_ptr<string> securityLevelName_ {};
-      // The list of output nodes.
+      // The list of output node information.
       shared_ptr<vector<Data::SimpleNodeInfos>> simpleNodeInfos_ {};
       // The storage type. Valid values: HIVE and MAX_COMPUTE.
       shared_ptr<string> storageType_ {};
-      // The dynamic properties of the real-time metatable.
+      // The dynamic properties of the real-time metatable class.
       shared_ptr<vector<Data::StreamTableConfig>> streamTableConfig_ {};
       // The total storage size of the table, in bytes.
       shared_ptr<int64_t> tableSizeInBytes_ {};
@@ -908,7 +908,7 @@ namespace Models
     shared_ptr<GetTableResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend response exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

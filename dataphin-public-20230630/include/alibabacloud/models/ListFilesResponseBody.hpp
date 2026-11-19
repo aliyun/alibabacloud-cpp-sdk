@@ -160,27 +160,27 @@ namespace Models
 
 
     protected:
-      // File category
+      // The file category.
       shared_ptr<string> category_ {};
-      // File content
+      // The file content.
       shared_ptr<string> content_ {};
-      // Creator
+      // The creator.
       shared_ptr<string> creator_ {};
-      // File directory
+      // The file directory.
       shared_ptr<string> directory_ {};
-      // File type, such as directory
+      // The file type, such as directory.
       shared_ptr<string> fileType_ {};
-      // Creation time
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Modification time
+      // The last modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // File ID
+      // The file ID.
       shared_ptr<int64_t> id_ {};
-      // Last modifier
+      // The last modifier.
       shared_ptr<string> lastModifier_ {};
-      // File name
+      // The file name.
       shared_ptr<string> name_ {};
-      // Project ID
+      // The project ID.
       shared_ptr<int64_t> projectId_ {};
     };
 
@@ -231,17 +231,17 @@ namespace Models
 
 
   protected:
-    // Request error code. OK indicates a normal request.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // File list
+    // The list of files.
     shared_ptr<vector<ListFilesResponseBody::FileList>> fileList_ {};
-    // Backend response HTTP code
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Request error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the request was successful
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

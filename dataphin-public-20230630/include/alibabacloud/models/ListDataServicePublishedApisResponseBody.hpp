@@ -178,14 +178,14 @@ namespace Models
 
 
         protected:
-          // Application ID.
+          // The application ID.
           shared_ptr<int32_t> appId_ {};
-          // Application key.
-          // >Notice: Deprecated. Use AppKeyStr instead.
+          // The application key. **[Deprecated]** Use AppKeyStr instead.
+          // >Notice: **[Deprecated]** Use AppKeyStr instead.</notice>
           shared_ptr<int64_t> appKey_ {};
-          // Application key.
+          // The application key.
           shared_ptr<string> appKeyStr_ {};
-          // Application name.
+          // The application name.
           shared_ptr<string> appName_ {};
         };
 
@@ -352,49 +352,63 @@ namespace Models
 
 
       protected:
-        // API ID.
+        // The API code.
         shared_ptr<int64_t> apiId_ {};
-        // API name.
+        // The API name.
         shared_ptr<string> apiName_ {};
-        // Number of bound applications.
+        // The number of bound applications.
         shared_ptr<int32_t> appCount_ {};
-        // List of referenced application information.
+        // The list of referenced applications.
         shared_ptr<vector<ApiList::AppInfoList>> appInfoList_ {};
-        // Application status. Valid values: 0 (not all applied), 1 (applied), 2 (no app, need to apply for an app first).
+        // The application status. Valid values:
+        // - 0: Not fully applied.
+        // - 1: Applied.
+        // - 2: No application. You must apply for an application first.
         shared_ptr<int32_t> applyStatus_ {};
-        // Number of calls.
+        // The number of calls.
         shared_ptr<int32_t> callCount_ {};
-        // Creation type. Valid values: 0 (custom mode), 1 (wizard mode), 2 (direct connection API).
+        // The creation type. Valid values:
+        // - 0: Custom mode.
+        // - 1: Wizard mode.
+        // - 2: Direct API connection.
         shared_ptr<int32_t> createType_ {};
-        // Custom update frequency content.
+        // The custom content for the update frequency.
         shared_ptr<string> customUpdateRate_ {};
-        // Publish time. Time format: yyyy-MM-dd HH:mm:ss.
+        // The publish time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> deployTime_ {};
-        // API description.
+        // The API description.
         shared_ptr<string> description_ {};
-        // Call type. Valid values: 1 (synchronous), 2 (asynchronous).
+        // The execution mode. Valid values:
+        // - 1: Synchronous.
+        // - 2: Asynchronous.
         shared_ptr<int32_t> executeMode_ {};
-        // Group ID.
+        // The group ID.
         shared_ptr<int32_t> groupId_ {};
-        // API group name.
+        // The API group name.
         shared_ptr<string> groupName_ {};
-        // Service unit number.
+        // The service unit number.
         shared_ptr<int64_t> logicUnitNo_ {};
-        // Mode. Valid values: 0 (basic), 1 (dev_prod).
+        // The mode. Valid values:
+        // - 0: basic.
+        // - 1: dev_prod.
         shared_ptr<int32_t> mode_ {};
-        // Owner ID.
+        // The owner ID.
         shared_ptr<string> owner_ {};
-        // Owner name.
+        // The owner.
         shared_ptr<string> ownerUserName_ {};
-        // Data service project ID.
+        // The data service project ID.
         shared_ptr<int32_t> projectId_ {};
-        // Service project name.
+        // The service project name.
         shared_ptr<string> projectName_ {};
-        // Update frequency. Valid values: 0 (custom), 1 (daily), 2 (hourly), 3 (per minute).
+        // The update frequency. Valid values:
+        // - 0: Custom.
+        // - 1: Daily.
+        // - 2: Hourly.
+        // - 3: Every minute.
         shared_ptr<int32_t> updateRate_ {};
-        // Modification time. Time format: yyyy-MM-dd HH:mm:ss.
+        // The update time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> updateTime_ {};
-        // API version.
+        // The API version.
         shared_ptr<string> version_ {};
       };
 
@@ -417,9 +431,9 @@ namespace Models
 
 
     protected:
-      // Paginated API list.
+      // The paged API list.
       shared_ptr<vector<PageResult::ApiList>> apiList_ {};
-      // Total number of records.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -470,17 +484,17 @@ namespace Models
 
 
   protected:
-    // Backend response code.
+    // The backend response code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP response code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Backend exception details.
+    // The backend exception details.
     shared_ptr<string> message_ {};
-    // Paginated query result.
+    // The paged query results.
     shared_ptr<ListDataServicePublishedApisResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

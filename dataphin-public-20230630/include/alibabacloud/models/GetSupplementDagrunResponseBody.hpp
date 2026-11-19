@@ -124,28 +124,27 @@ namespace Models
 
 
     protected:
-      // The business date. The time format must conform to the partition format specified by the business unit.
+      // The business date. The time format must comply with the partition format specified by the business unit.
       shared_ptr<string> bizDate_ {};
       // The runtime duration, in seconds.
       shared_ptr<string> duration_ {};
-      // The execution end timestamp.
+      // The end execution timestamp.
       shared_ptr<int64_t> endExecuteTime_ {};
       // Dagrun ID
       shared_ptr<string> id_ {};
-      // The execution start timestamp.
+      // The start execution timestamp.
       shared_ptr<int64_t> startExecuteTime_ {};
-      // The status of the data backfill instance workflow. Valid values:
-      // 
-      // - INIT: dagrun init.
-      // - CREATE_FAILED: dagrun creation failed.
-      // - CREATED: dagrun created.
-      // - READY: dagrun ready for exec.
-      // - RUNNING: dagrun running.
-      // - KILLED: dagrun stopped.
-      // - FAILED: dagrun failed.
-      // - SUCCESS: dagrun succeeded.
+      // The status of the data backfill workflow. Valid values:
+      // - INIT: The dagrun is initialized.
+      // - CREATE_FAILED: The dagrun fails to be created.
+      // - CREATED: The dagrun is created.
+      // - READY: The dagrun is ready for execution.
+      // - RUNNING: The dagrun is running.
+      // - KILLED: The dagrun is stopped.
+      // - FAILED: The dagrun fails.
+      // - SUCCESS: The dagrun succeeds.
       shared_ptr<string> status_ {};
-      // The ID of the data backfill instance workflow.
+      // The ID of the data backfill workflow.
       shared_ptr<string> supplementId_ {};
     };
 
@@ -196,9 +195,9 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // The list of dagruns.
+    // The dagrun list.
     shared_ptr<vector<GetSupplementDagrunResponseBody::DagrunList>> dagrunList_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -206,7 +205,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

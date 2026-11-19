@@ -113,7 +113,7 @@ namespace Models
 
 
       protected:
-        // The role identifier, such as SUPER_ADMIN or COMMON_USER.
+        // The role key, such as SUPER_ADMIN or COMMON_USER.
         shared_ptr<string> roleKey_ {};
         // The role name.
         shared_ptr<string> roleName_ {};
@@ -192,22 +192,19 @@ namespace Models
       shared_ptr<string> displayName_ {};
       // The Dataphin user ID.
       shared_ptr<string> id_ {};
-      // The email address of the user.
+      // The email address.
       shared_ptr<string> mail_ {};
       // The nickname of the user.
       shared_ptr<string> nickName_ {};
-      // The account source type, such as ALIYUN_OAUTH2, PUBLICCLOUD_OAUTH2, BUC, or APSARA.
+      // The source type of the account, such as ALIYUN_OAUTH2, PUBLICCLOUD_OAUTH2, BUC, or APSARA.
       shared_ptr<string> sourceType_ {};
-      // The source account ID of the user during SSO integration.
+      // The source account ID of the user when SSO is integrated.
       shared_ptr<string> sourceUserId_ {};
-      // The tenant member status. Valid values:
-      // - NORMAL: Normal.
-      // - DEACTIVATE: Deactivated.
-      // - DELETE: Deleted.
+      // The status of the tenant member. Valid values: NORMAL, DEACTIVATE, and DELETE.
       shared_ptr<string> status_ {};
-      // The list of tenant-level roles assigned to the AK/SK owner in the current tenant.
+      // The list of tenant-level roles. These are the roles of the user to whom the AccessKey ID and AccessKey secret belong in the current tenant.
       shared_ptr<vector<UserInfo::TenantRoles>> tenantRoles_ {};
-      // The username of the account.
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -258,15 +255,15 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned for the request.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The user information.
     shared_ptr<GetUserByAccessKeyResponseBody::UserInfo> userInfo_ {};

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The request for creating an API.
+    // The request to create an API.
     // 
     // This parameter is required.
     shared_ptr<string> createCommandShrink_ {};
@@ -65,6 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operation user.
     shared_ptr<string> opUserId_ {};
   };
 

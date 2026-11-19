@@ -170,9 +170,9 @@ namespace Models
       protected:
         // The control mode.
         shared_ptr<string> clusterSafetyAuthType_ {};
-        // The list of whitelist user group IDs.
+        // The list of whitelisted user group IDs.
         shared_ptr<vector<string>> userGroupIds_ {};
-        // The list of whitelist user IDs.
+        // The list of whitelisted user IDs.
         shared_ptr<vector<string>> userIds_ {};
       };
 
@@ -256,7 +256,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // 时区名称，例如 Asia/Shanghai。更新时不传则保留原值。
+      // The time zone name, such as Asia/Shanghai. If this parameter is not specified during an update, the original value is retained.
       shared_ptr<string> timeZone_ {};
       // The cluster type.
       // 
@@ -311,7 +311,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

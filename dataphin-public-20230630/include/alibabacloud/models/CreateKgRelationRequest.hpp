@@ -142,7 +142,7 @@ namespace Models
 
 
     protected:
-      // The relationship record property list.
+      // The property list of the relationship record.
       shared_ptr<vector<CreateCommand::PropertyList>> propertyList_ {};
       // The relationship type code.
       // 
@@ -191,7 +191,7 @@ namespace Models
 
 
   protected:
-    // The create command.
+    // The creation command.
     // 
     // This parameter is required.
     shared_ptr<CreateKgRelationRequest::CreateCommand> createCommand_ {};
@@ -199,6 +199,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
     // The workspace ID.
     // 

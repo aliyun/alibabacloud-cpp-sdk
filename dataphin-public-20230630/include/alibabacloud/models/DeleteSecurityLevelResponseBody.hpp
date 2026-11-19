@@ -91,9 +91,9 @@ namespace Models
     protected:
       // The error code.
       shared_ptr<string> errorCode_ {};
-      // The list of data classification IDs that are associated with the current classification level. This parameter is returned only when this error is triggered.
+      // The list of data classification IDs that are bound to the current data classification level. This parameter is returned only when this error is triggered.
       shared_ptr<vector<int64_t>> relatedClassifyIdList_ {};
-      // Indicates whether the deletion was successful.
+      // Indicates whether the deletion is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -154,7 +154,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

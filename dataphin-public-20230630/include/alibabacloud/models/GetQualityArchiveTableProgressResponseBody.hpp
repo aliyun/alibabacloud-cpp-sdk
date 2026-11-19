@@ -95,17 +95,17 @@ namespace Models
 
 
     protected:
-      // The archived table ID. This parameter is returned after the task succeeds and can be used to switch the active table.
+      // The ID of the archive table. This parameter is returned after the task succeeds and can be used to switch the active table later.
       shared_ptr<int64_t> archiveTableId_ {};
-      // The full name of the archived table. This parameter is returned after the task succeeds. When creating a table, the name includes the automatically appended _exception_data suffix.
+      // The full name of the archive table. This parameter is returned after the task succeeds. When a table is created, the _exception_data suffix is automatically appended to the name.
       shared_ptr<string> archiveTableName_ {};
-      // The reason for the task failure. This parameter is returned only when Status is FAILED.
+      // The cause of the task failure. This parameter is returned only when Status is FAILED.
       shared_ptr<string> errorMessage_ {};
       // The task status. Valid values:
-      // - PROGRESS: In progress.
-      // - SUCCESS: Succeeded.
-      // - FAILED: Failed.
-      // - CANCEL: Canceled.
+      // - PROGRESS: The task is in progress.
+      // - SUCCESS: The task is successful.
+      // - FAILED: The task failed.
+      // - CANCEL: The task is canceled.
       shared_ptr<string> status_ {};
     };
 
@@ -158,15 +158,15 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The asynchronous task progress details.
+    // The progress details of the asynchronous task.
     shared_ptr<GetQualityArchiveTableProgressResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The backend exception details.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

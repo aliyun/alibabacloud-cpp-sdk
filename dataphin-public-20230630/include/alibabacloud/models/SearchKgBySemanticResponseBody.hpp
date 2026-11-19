@@ -130,11 +130,11 @@ namespace Models
         shared_ptr<string> itemId_ {};
         // The entity type code.
         shared_ptr<string> itemTypeCode_ {};
-        // The property code that matched the semantic search.
+        // The code of the matched semantic search property.
         shared_ptr<string> matchedPropertyCode_ {};
         // The actual value of the matched property.
         shared_ptr<string> matchedPropertyValue_ {};
-        // The similarity score ranging from 0.0 to 1.0, based on cosine similarity.
+        // The similarity score based on cosine similarity. Valid values: 0.0 to 1.0.
         shared_ptr<float> similarityScore_ {};
       };
 
@@ -220,7 +220,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

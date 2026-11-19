@@ -187,11 +187,11 @@ namespace Models
 
 
           protected:
-            // The number of rules that failed to be executed.
+            // The number of failed rules.
             shared_ptr<int64_t> errorRuleCount_ {};
-            // The number of rules that have been executed.
+            // The number of completed rules.
             shared_ptr<int64_t> finishedRuleCount_ {};
-            // The number of rules that were successfully executed.
+            // The number of successful rules.
             shared_ptr<int64_t> successRuleCount_ {};
             // The total number of rules.
             shared_ptr<int64_t> totalRuleCount_ {};
@@ -253,11 +253,11 @@ namespace Models
 
 
           protected:
-            // The number of rules that failed to be executed.
+            // The number of failed rules.
             shared_ptr<int64_t> errorRuleCount_ {};
-            // The number of rules that have been executed.
+            // The number of completed rules.
             shared_ptr<int64_t> finishedRuleCount_ {};
-            // The number of rules that were successfully executed.
+            // The number of successful rules.
             shared_ptr<int64_t> successRuleCount_ {};
             // The total number of rules.
             shared_ptr<int64_t> totalRuleCount_ {};
@@ -319,11 +319,11 @@ namespace Models
 
 
           protected:
-            // The number of rules that failed to be executed.
+            // The number of failed rules.
             shared_ptr<int64_t> errorRuleCount_ {};
-            // The number of rules that have been executed.
+            // The number of completed rules.
             shared_ptr<int64_t> finishedRuleCount_ {};
-            // The number of rules that were successfully executed.
+            // The number of successful rules.
             shared_ptr<int64_t> successRuleCount_ {};
             // The total number of rules.
             shared_ptr<int64_t> totalRuleCount_ {};
@@ -359,11 +359,11 @@ namespace Models
 
 
         protected:
-          // The strong rule count information.
+          // The strong rule count.
           shared_ptr<RuleCountInfo::StrongRuleCount> strongRuleCount_ {};
-          // The validation rule count information.
+          // The validation rule count.
           shared_ptr<RuleCountInfo::ValidateRuleCount> validateRuleCount_ {};
-          // The weak rule count information.
+          // The weak rule count.
           shared_ptr<RuleCountInfo::WeakRuleCount> weakRuleCount_ {};
         };
 
@@ -481,11 +481,11 @@ namespace Models
 
 
       protected:
-        // The business date.
+        // The business date. Format: YYYY-MM-DD.
         shared_ptr<string> bizDate_ {};
         // The business date format.
         shared_ptr<string> bizDateFormat_ {};
-        // The creation time.
+        // The creation time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> createTime_ {};
         // The creator.
         shared_ptr<string> creator_ {};
@@ -495,27 +495,19 @@ namespace Models
         shared_ptr<int64_t> id_ {};
         // The user ID of the last modifier.
         shared_ptr<string> modifier_ {};
-        // The modification time.
+        // The update time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> modifyTime_ {};
         // The user ID of the quality owner.
         shared_ptr<string> qualityOwner_ {};
         // The name of the quality owner.
         shared_ptr<string> qualityOwnerName_ {};
-        // The quality rule count information.
+        // The quality rule count.
         shared_ptr<QualityWatchTaskList::RuleCountInfo> ruleCountInfo_ {};
-        // The list of quality rule IDs.
+        // The IDs of the quality rules.
         shared_ptr<vector<int64_t>> ruleIdList_ {};
         // The start time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> startTime_ {};
-        // The task status. Valid values:
-        // - NOT_RUN: not executed.
-        // - WAITING: waiting.
-        // - RUNNING: running.
-        // - SUCCESS: succeeded.
-        // - FAILED: failed.
-        // - CANCEL: canceled.
-        // - TIMEOUT: timed out.
-        // - OFFLINE: offline.
+        // The task status. Valid values: NOT_RUN (not run), WAITING (waiting), RUNNING (running), SUCCESS (successful), FAILED (failed), CANCEL (canceled), TIMEOUT (timed out), and OFFLINE (offline).
         shared_ptr<string> status_ {};
         // The ID of the monitored object.
         shared_ptr<int64_t> watchId_ {};
@@ -540,7 +532,7 @@ namespace Models
 
 
     protected:
-      // The list of quality watchtasks.
+      // The paged quality template list.
       shared_ptr<vector<PageResult::QualityWatchTaskList>> qualityWatchTaskList_ {};
       // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
@@ -603,7 +595,7 @@ namespace Models
     shared_ptr<ListQualityWatchTasksResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

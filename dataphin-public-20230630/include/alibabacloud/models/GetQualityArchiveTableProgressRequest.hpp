@@ -61,9 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator.
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
-    // The asynchronous task progress ID returned by the UpsertQualityArchiveTable operation.
+    // The progress ID of the asynchronous task, which is returned by the UpsertQualityArchiveTable operation.
     // 
     // This parameter is required.
     shared_ptr<string> progressId_ {};

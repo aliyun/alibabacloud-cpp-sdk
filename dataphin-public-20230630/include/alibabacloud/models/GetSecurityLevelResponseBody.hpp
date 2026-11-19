@@ -107,15 +107,15 @@ namespace Models
 
 
     protected:
-      // The abbreviated name of the data classification level.
+      // The abbreviation of the data classification level.
       shared_ptr<string> abbreviation_ {};
       // The description of the data classification level.
       shared_ptr<string> description_ {};
-      // The sensitivity level of the data classification.
+      // The sensitivity of the data classification level.
       shared_ptr<int64_t> index_ {};
       // The name of the data classification level.
       shared_ptr<string> name_ {};
-      // The list of data categorization IDs associated with the current data classification level.
+      // The list of data category IDs associated with the current data classification level.
       shared_ptr<vector<int64_t>> relatedClassifyIdList_ {};
     };
 
@@ -170,13 +170,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend response exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The data classification level details.
+    // The details of the data classification level.
     shared_ptr<GetSecurityLevelResponseBody::SecurityLevelInfo> securityLevelInfo_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

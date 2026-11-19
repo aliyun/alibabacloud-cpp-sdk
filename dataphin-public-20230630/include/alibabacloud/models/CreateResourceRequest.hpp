@@ -126,22 +126,19 @@ namespace Models
 
 
     protected:
-      // The commit remarks.
+      // The submission comment.
       // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
-      // The compute engine type. Valid values:
-      // - MAX_COMPUTE
-      // - HADOOP
-      // - NONE.
+      // The compute engine type. Valid values: MAX_COMPUTE, HADOOP, and NONE.
       // 
       // This parameter is required.
       shared_ptr<string> computeEngineType_ {};
-      // The description of the resource file.
+      // The resource description.
       // 
       // This parameter is required.
       shared_ptr<string> description_ {};
-      // The folder in which the resource file is stored.
+      // The storage folder.
       // 
       // This parameter is required.
       shared_ptr<string> directory_ {};
@@ -153,15 +150,11 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // The type of the resource file. Valid values:
-      // - FILE: common file.
-      // - JAR: JAR file.
-      // - PYTHON: Python file.
-      // - OTHERS: other type of file.
+      // The resource type. Valid values: FILE: common file, JAR: JAR file, PYTHON: Python file, and OTHERS: other types of files.
       // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
-      // The storage address of the resource file.
+      // The storage address of the resource.
       // 
       // This parameter is required.
       shared_ptr<string> storageAddress_ {};
@@ -201,6 +194,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

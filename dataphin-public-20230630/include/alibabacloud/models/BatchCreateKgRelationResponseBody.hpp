@@ -68,10 +68,14 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const SuccessRelationList& obj) { 
           DARABONBA_PTR_TO_JSON(RelationId, relationId_);
           DARABONBA_PTR_TO_JSON(RelationType, relationType_);
+          DARABONBA_PTR_TO_JSON(SourceEntityId, sourceEntityId_);
+          DARABONBA_PTR_TO_JSON(TargetEntityId, targetEntityId_);
         };
         friend void from_json(const Darabonba::Json& j, SuccessRelationList& obj) { 
           DARABONBA_PTR_FROM_JSON(RelationId, relationId_);
           DARABONBA_PTR_FROM_JSON(RelationType, relationType_);
+          DARABONBA_PTR_FROM_JSON(SourceEntityId, sourceEntityId_);
+          DARABONBA_PTR_FROM_JSON(TargetEntityId, targetEntityId_);
         };
         SuccessRelationList() = default ;
         SuccessRelationList(const SuccessRelationList &) = default ;
@@ -85,7 +89,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->relationId_ == nullptr
-        && this->relationType_ == nullptr; };
+        && this->relationType_ == nullptr && this->sourceEntityId_ == nullptr && this->targetEntityId_ == nullptr; };
         // relationId Field Functions 
         bool hasRelationId() const { return this->relationId_ != nullptr;};
         void deleteRelationId() { this->relationId_ = nullptr;};
@@ -100,11 +104,29 @@ namespace Models
         inline SuccessRelationList& setRelationType(string relationType) { DARABONBA_PTR_SET_VALUE(relationType_, relationType) };
 
 
+        // sourceEntityId Field Functions 
+        bool hasSourceEntityId() const { return this->sourceEntityId_ != nullptr;};
+        void deleteSourceEntityId() { this->sourceEntityId_ = nullptr;};
+        inline string getSourceEntityId() const { DARABONBA_PTR_GET_DEFAULT(sourceEntityId_, "") };
+        inline SuccessRelationList& setSourceEntityId(string sourceEntityId) { DARABONBA_PTR_SET_VALUE(sourceEntityId_, sourceEntityId) };
+
+
+        // targetEntityId Field Functions 
+        bool hasTargetEntityId() const { return this->targetEntityId_ != nullptr;};
+        void deleteTargetEntityId() { this->targetEntityId_ = nullptr;};
+        inline string getTargetEntityId() const { DARABONBA_PTR_GET_DEFAULT(targetEntityId_, "") };
+        inline SuccessRelationList& setTargetEntityId(string targetEntityId) { DARABONBA_PTR_SET_VALUE(targetEntityId_, targetEntityId) };
+
+
       protected:
-        // The relationship record ID.
+        // The relation record ID.
         shared_ptr<string> relationId_ {};
-        // The relationship type code.
+        // The relation type code.
         shared_ptr<string> relationType_ {};
+        // The source entity ID.
+        shared_ptr<string> sourceEntityId_ {};
+        // The target entity ID.
+        shared_ptr<string> targetEntityId_ {};
       };
 
       virtual bool empty() const override { return this->failCount_ == nullptr
@@ -133,11 +155,11 @@ namespace Models
 
 
     protected:
-      // The number of failed records.
+      // The number of failed creations.
       shared_ptr<int32_t> failCount_ {};
-      // The number of successfully created records.
+      // The number of successful creations.
       shared_ptr<int32_t> successCount_ {};
-      // The list of successfully created entity records.
+      // The list of successfully created relation records.
       shared_ptr<vector<CreateResult::SuccessRelationList>> successRelationList_ {};
     };
 
@@ -190,7 +212,7 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The result of creating relationship records in batches.
+    // The result of creating relation records in batches.
     shared_ptr<BatchCreateKgRelationResponseBody::CreateResult> createResult_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

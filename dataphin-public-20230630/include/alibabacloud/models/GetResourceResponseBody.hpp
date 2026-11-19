@@ -178,17 +178,17 @@ namespace Models
 
 
     protected:
-      // The compute engine type.
+      // The compute engine source type.
       shared_ptr<string> computeEngineType_ {};
       // The creator.
       shared_ptr<string> creator_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The directory where the resource is stored.
+      // The storage directory.
       shared_ptr<string> directory_ {};
-      // The creation time, in the yyyy-MM-dd HH:mm:ss format.
+      // The time when the resource was created. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> gmtCreate_ {};
-      // The last modification time, in the yyyy-MM-dd HH:mm:ss format.
+      // The time when the resource was updated. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> gmtModified_ {};
       // The resource ID.
       shared_ptr<int64_t> id_ {};
@@ -261,9 +261,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The resource file details.
+    // The details of the resource file.
     shared_ptr<GetResourceResponseBody::ResourceInfo> resourceInfo_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

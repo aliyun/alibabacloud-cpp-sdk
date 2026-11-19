@@ -133,30 +133,21 @@ namespace Models
 
 
     protected:
-      // The environment identifier. Valid values:
-      // - DEV: development.
-      // - PROD: production.
+      // The environment identifier. Valid values: DEV for development and PROD for production.
       shared_ptr<string> env_ {};
-      // The mapping ID of the real-time node.
+      // The mapping ID of the real-time task.
       shared_ptr<int64_t> id_ {};
-      // The name of the real-time node.
+      // The name of the real-time task.
       shared_ptr<string> jobName_ {};
-      // The ID of the user who last modified the node.
+      // The ID of the last modifier.
       shared_ptr<string> modifierId_ {};
       // The ID of the creator.
       shared_ptr<string> ownerId_ {};
       // The Dataphin project ID.
       shared_ptr<string> projectId_ {};
-      // The node status. Valid values:
-      // - 0: draft.
-      // - 1: submitting.
-      // - 2: submitted.
-      // - 3: published.
-      // - 100: in development.
+      // The task status. Valid values: 0 (Draft), 1 (Submitting), 2 (Submitted), 3 (Published), and 100 (Developing).
       shared_ptr<string> status_ {};
-      // The node type. Valid values:
-      // - FLINK_SQL
-      // - FLINK_DATASTREAM.
+      // The task type. Valid values: FLINK_SQL and FLINK_DATASTREAM.
       shared_ptr<string> type_ {};
     };
 
@@ -207,17 +198,17 @@ namespace Models
 
 
   protected:
-    // The backend response code.
+    // The backend status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<vector<GetStreamJobsResponseBody::Data>> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

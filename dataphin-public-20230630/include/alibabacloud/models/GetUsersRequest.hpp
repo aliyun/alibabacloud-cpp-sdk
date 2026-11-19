@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The operator tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The operator user ID.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The list of user IDs.
     // 

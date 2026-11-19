@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The catalog of the asset table, which is the name of the business unit or project workspace.
+    // The catalog of the asset table, which is the name of the business unit or project space.
     shared_ptr<string> catalog_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator.
+    // The ID of the operating user.
     shared_ptr<string> opUserId_ {};
-    // The GUID of the table. If this parameter is specified, it takes precedence in the query, and the Catalog and TableName parameters are ignored even if they are provided.
+    // The GUID of the table. If this parameter is specified, it is used for priority query, and the Catalog and TableName parameters are not required and will be ignored even if specified.
     shared_ptr<string> tableGuid_ {};
-    // The name of the table.
+    // The table name.
     shared_ptr<string> tableName_ {};
   };
 

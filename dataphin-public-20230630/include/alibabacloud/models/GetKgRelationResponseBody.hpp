@@ -116,7 +116,7 @@ namespace Models
       protected:
         // The property code.
         shared_ptr<string> code_ {};
-        // The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (floating-point number), BOOLEAN (Boolean), DATE (date), and LIST (list).
+        // The property data type. Valid values include STRING, INTEGER, FLOAT, BOOLEAN, DATE, and LIST.
         shared_ptr<string> dataType_ {};
         // The property value.
         shared_ptr<string> value_ {};

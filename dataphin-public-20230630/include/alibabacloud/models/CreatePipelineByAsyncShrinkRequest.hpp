@@ -66,18 +66,19 @@ namespace Models
 
 
   protected:
-    // Request context information
+    // The request context information.
     // 
     // This parameter is required.
     shared_ptr<string> contextShrink_ {};
-    // Create pipeline/workflow task configuration
+    // The configuration for creating a pipeline or workflow task.
     // 
     // This parameter is required.
     shared_ptr<string> createCommandShrink_ {};
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
   };
 

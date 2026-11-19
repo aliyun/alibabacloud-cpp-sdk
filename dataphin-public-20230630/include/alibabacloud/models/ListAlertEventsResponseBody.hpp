@@ -310,10 +310,10 @@ namespace Models
           shared_ptr<vector<string>> customAlertChannelIdList_ {};
           // The name of the on-call schedule.
           shared_ptr<string> onCallTableName_ {};
-          // The type of the alert receiver. Valid values:
-          // - ON_CALL_TABLE: on-call schedule
-          // - USER_DEFINED: custom user
-          // - OWNER: owner.
+          // The type of the alert recipient. Valid values:
+          // - ON_CALL_TABLE: On-call schedule.
+          // - USER_DEFINED: Custom user.
+          // - OWNER: Owner.
           shared_ptr<string> type_ {};
           // The list of alert users.
           shared_ptr<vector<AlertReceiverList::UserList>> userList_ {};
@@ -382,9 +382,9 @@ namespace Models
 
 
           protected:
-            // The name of the alert reason parameter.
+            // The name of the alert cause parameter.
             shared_ptr<string> key_ {};
-            // The value of the alert reason parameter.
+            // The value of the alert cause parameter.
             shared_ptr<string> value_ {};
           };
 
@@ -421,47 +421,45 @@ namespace Models
 
 
         protected:
-          // The list of alert reason parameters.
+          // The list of alert cause parameters.
           shared_ptr<vector<AlertReason::AlertReasonParamList>> alertReasonParamList_ {};
           // The business date.
           shared_ptr<string> bizDate_ {};
-          // The alert reason type. Valid values:
-          // - DQE_COLUMN: field rule exception
-          // - DQE_DATA_SOURCE: data source rule exception
-          // - DQE_CUSTOMIZE: custom rule exception
-          // - DQE_TABLE: table rule exception
-          // - DQE_REALTIME_TABLE: real-time table rule exception
-          // - DQE_INDEX: metric rule exception
-          // - OS_AVG_RESPONSE: average response time exception
-          // - OS_CALL_TIMES: call count exception
-          // - OS_ERROR_RATE: error rate exception
-          // - OS_OFFLINE: Offline percentage exception
-          // - STREAM_BIZ_DELAY: business delay too high
-          // - STREAM_DATA_RETENTION: data retention exceeds configuration
-          // - STREAM_MORE_THAN_FAILURE: failure frequency exceeds configuration
-          // - STREAM_TPS_OUT_RANGE: TPS out of range
-          // - STREAM_CHECKPOINT_FAILURE: checkpoint failures exceed configuration
-          // - STREAM_BACKPRESSURE: backpressure duration exceeds configuration
-          // - STREAM_JOB_FAILURE: job failure
-          // - VDM_BATCH_ERROR: error
-          // - VDM_BATCH_FINISH: completed
-          // - VDM_BATCH_TIME_OUT: execution timeout
-          // - VDM_BATCH_UNDONE: incomplete
-          // - VDM_BATCH_LOGIC_DATA_DELAY: data delay
-          // - QD_DECISION_CALL_TIMES: decision call count exception
-          // - QD_DECISION_MAX_RESPONSE: maximum response time exception
-          // - QD_DECISION_ERROR_RATE: error rate exception
-          // - QD_DECISION_PARAM_COUNT: decision parameter count exception
-          // - QD_DECISION_PARAM_PERCENTAGE: decision parameter percentage exception
-          // - QD_DECISION_PARAM_SUM: decision parameter sum exception
-          // - QD_DECISION_PARAM_AVG: decision parameter average exception
-          // - LOGICAL_INSTANCE_GENERATION: logical instance generation monitoring
-          // - KGB_TASK_ERROR: baseline task error
-          // - KGB_TASK_SLOW_DOWN: baseline task slowdown
-          // - KGB_EARLY_WARNING: baseline early warning
-          // - KGB_BROKEN_LINE: baseline breach
-          // 
-          // and more.
+          // The alert cause. Valid values:
+          // - DQE_COLUMN: Field rule exception.
+          // - DQE_DATA_SOURCE: Data source rule exception.
+          // - DQE_CUSTOMIZE: Custom rule exception.
+          // - DQE_TABLE: Table rule exception.
+          // - DQE_REALTIME_TABLE: Real-time table rule exception.
+          // - DQE_INDEX: Metric rule exception.
+          // - OS_AVG_RESPONSE: Average response time exception.
+          // - OS_CALL_TIMES: Call count exception.
+          // - OS_ERROR_RATE: Error rate exception.
+          // - OS_OFFLINE: Offline percentage exception.
+          // - STREAM_BIZ_DELAY: High business delay.
+          // - STREAM_DATA_RETENTION: Data retention exceeds configuration.
+          // - STREAM_MORE_THAN_FAILURE: Failure frequency exceeds configuration.
+          // - STREAM_TPS_OUT_RANGE: TPS out of range.
+          // - STREAM_CHECKPOINT_FAILURE: Checkpoint failures exceed configuration.
+          // - STREAM_BACKPRESSURE: Backpressure duration exceeds configuration.
+          // - STREAM_JOB_FAILURE: Run failure.
+          // - VDM_BATCH_ERROR: Error.
+          // - VDM_BATCH_FINISH: Completed.
+          // - VDM_BATCH_TIME_OUT: Run timeout.
+          // - VDM_BATCH_UNDONE: Uncompleted.
+          // - VDM_BATCH_LOGIC_DATA_DELAY: Data delay.
+          // - QD_DECISION_CALL_TIMES: Decision call count exception.
+          // - QD_DECISION_MAX_RESPONSE: Maximum response time exception.
+          // - QD_DECISION_ERROR_RATE: Error rate exception.
+          // - QD_DECISION_PARAM_COUNT: Decision parameter count exception.
+          // - QD_DECISION_PARAM_PERCENTAGE: Decision parameter percentage exception.
+          // - QD_DECISION_PARAM_SUM: Decision parameter sum exception.
+          // - QD_DECISION_PARAM_AVG: Decision parameter average exception.
+          // - LOGICAL_INSTANCE_GENERATION: Logical instance generation monitoring.
+          // - KGB_TASK_ERROR: Baseline task error.
+          // - KGB_TASK_SLOW_DOWN: Baseline task slowdown.
+          // - KGB_EARLY_WARNING: Baseline early warning.
+          // - KGB_BROKEN_LINE: Baseline breach.
           shared_ptr<string> type_ {};
           // The unique identifier.
           shared_ptr<string> uniqueKey_ {};
@@ -517,47 +515,42 @@ namespace Models
           // The name of the alert object.
           shared_ptr<string> name_ {};
           // The source system. Valid values:
-          // 
-          // - ALL: all
-          // - DQE: data quality
-          // - OS: data service
-          // - STREAM: real-time computing
-          // - VDM_BATCH: offline computing
-          // - SOP: O&M platform
-          // - REAL_TIME_PIPELINE: real-time integration
-          // - KGB: baseline monitoring
-          // 
-          // and more.
+          // - ALL: All.
+          // - DQE: Data quality.
+          // - OS: Data service.
+          // - STREAM: Real-time computing.
+          // - VDM_BATCH: Offline computing.
+          // - SOP: O&M platform.
+          // - REAL_TIME_PIPELINE: Real-time integration.
+          // - KGB: Baseline monitoring.
           shared_ptr<string> sourceSystemType_ {};
           // The alert object type. Valid values:
-          // - OS_API: API operation
-          // - OS_APPLICATION_SERVICE: service application
-          // - STREAM_TASK: real-time computing
-          // - REAL_TIME_PIPELINE_TASK: real-time integration
-          // - VDM_BATCH_SHELL: SHELL
-          // - VDM_BATCH_PYTHON: PYTHON
-          // - VDM_BATCH_DATAX: DATAX
-          // - VDM_BATCH_DLINK: DLINK
-          // - VDM_BATCH_VIRTUAL: VIRTUAL
-          // - VDM_BATCH_PYTHON37: PYTHON37
-          // - VDM_BATCH_PYTHON311: PYTHON311
-          // - VDM_BATCH_MAX_COMPUTE_SQL: MAXCOMPUTE_SQL
-          // - VDM_BATCH_MAX_COMPUTE_MR: MAXCOMPUTE_MR
-          // - VDM_BATCH_SPARK_JAR_ON_MAX_COMPUTE: SPARK_JAR_ON_MAX_COMPUTE
-          // - VDM_BATCH_HIVE_SQL: HIVE_SQL
-          // - VDM_BATCH_HADOOP_MR: HADOOP_MR
-          // - VDM_BATCH_SPARK_JAR_ON_HIVE: SPARK_JAR_ON_HIVE
-          // - VDM_BATCH_SPARK_SQL_ON_HIVE: SPARK_SQL_ON_HIVE
-          // - VDM_BATCH_SPARK_SQL: VDM_BATCH_SPARK_SQL
-          // - DQE_LOGICAL_TABLE: logical table
-          // - DQE_PHYSICAL_TABLE: physical table
-          // - DQE_REALTIME_TABLE: real-time metadata table
-          // - DQE_DATA_SOURCE: data source
-          // - DQE_INDEX: metric
-          // - QD_DECISION_INVOKE: QD decision invocation
-          // - BASELINE: baseline
-          // 
-          // and more.
+          // - OS_API: API operation.
+          // - OS_APPLICATION_SERVICE: Service application.
+          // - STREAM_TASK: Real-time computing.
+          // - REAL_TIME_PIPELINE_TASK: Real-time integration.
+          // - VDM_BATCH_SHELL: SHELL.
+          // - VDM_BATCH_PYTHON: PYTHON.
+          // - VDM_BATCH_DATAX: DATAX.
+          // - VDM_BATCH_DLINK: DLINK.
+          // - VDM_BATCH_VIRTUAL: VIRTUAL.
+          // - VDM_BATCH_PYTHON37: PYTHON37.
+          // - VDM_BATCH_PYTHON311: PYTHON311.
+          // - VDM_BATCH_MAX_COMPUTE_SQL: MAXCOMPUTE_SQL.
+          // - VDM_BATCH_MAX_COMPUTE_MR: MAXCOMPUTE_MR.
+          // - VDM_BATCH_SPARK_JAR_ON_MAX_COMPUTE: SPARK_JAR_ON_MAX_COMPUTE.
+          // - VDM_BATCH_HIVE_SQL: HIVE_SQL.
+          // - VDM_BATCH_HADOOP_MR: HADOOP_MR.
+          // - VDM_BATCH_SPARK_JAR_ON_HIVE: SPARK_JAR_ON_HIVE.
+          // - VDM_BATCH_SPARK_SQL_ON_HIVE: SPARK_SQL_ON_HIVE.
+          // - VDM_BATCH_SPARK_SQL: VDM_BATCH_SPARK_SQL.
+          // - DQE_LOGICAL_TABLE: Logical table.
+          // - DQE_PHYSICAL_TABLE: Physical table.
+          // - DQE_REALTIME_TABLE: Real-time metadata table.
+          // - DQE_DATA_SOURCE: Data source.
+          // - DQE_INDEX: Metric.
+          // - QD_DECISION_INVOKE: QD decision invocation.
+          // - BASELINE: Baseline.
           shared_ptr<string> type_ {};
         };
 
@@ -661,32 +654,32 @@ namespace Models
 
       protected:
         // The alert frequency. Valid values:
-        // - ONCE: instant alert
-        // - PERIOD: periodic alert. Format: 1HOUR, 1MINUTE, 1SECOND.
+        // - ONCE: Immediate alert.
+        // - PERIOD: Periodic alert. Format: 1HOUR, 1MINUTE, 1SECOND.
         shared_ptr<string> alertFrequency_ {};
         // The alert object.
         shared_ptr<Data::AlertObject> alertObject_ {};
-        // The alert reason.
+        // The alert cause.
         shared_ptr<Data::AlertReason> alertReason_ {};
-        // The list of alert receivers.
+        // The list of alert recipients.
         shared_ptr<vector<Data::AlertReceiverList>> alertReceiverList_ {};
-        // The project to which the alert belongs.
+        // The project.
         shared_ptr<Data::BelongProject> belongProject_ {};
-        // The expiration time of the do-not-disturb period.
+        // The expiration time of the do-not-disturb mode.
         shared_ptr<string> doNotDisturbEndTime_ {};
-        // The time of the first alert.
+        // The first alert time.
         shared_ptr<string> firstAlertTime_ {};
         // The alert event ID.
         shared_ptr<string> id_ {};
-        // The time of the latest alert.
+        // The latest alert time.
         shared_ptr<string> latestAlertTime_ {};
         // The alert status. Valid values:
-        // - ALERTING: alerting
-        // - DO_NOT_DISTURB: do not disturb
-        // - SILENCING: alerting (cool-down period)
-        // - FINISH: completed.
+        // - ALERTING: Alerting.
+        // - DO_NOT_DISTURB: Do not disturb.
+        // - SILENCING: Alerting (silenced).
+        // - FINISH: Completed.
         shared_ptr<string> status_ {};
-        // The total number of alert occurrences.
+        // The total number of alerts.
         shared_ptr<int64_t> totalAlertTimes_ {};
         // The URL information.
         shared_ptr<Data::UrlConfig> urlConfig_ {};
@@ -711,9 +704,9 @@ namespace Models
 
 
     protected:
-      // The alert event query results.
+      // The alert event query result.
       shared_ptr<vector<ListResult::Data>> data_ {};
-      // The total number of entries.
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -764,7 +757,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -774,7 +767,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

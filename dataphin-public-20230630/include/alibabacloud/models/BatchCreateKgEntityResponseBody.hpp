@@ -66,10 +66,12 @@ namespace Models
       class SuccessEntityList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const SuccessEntityList& obj) { 
+          DARABONBA_PTR_TO_JSON(BizId, bizId_);
           DARABONBA_PTR_TO_JSON(EntityId, entityId_);
           DARABONBA_PTR_TO_JSON(EntityType, entityType_);
         };
         friend void from_json(const Darabonba::Json& j, SuccessEntityList& obj) { 
+          DARABONBA_PTR_FROM_JSON(BizId, bizId_);
           DARABONBA_PTR_FROM_JSON(EntityId, entityId_);
           DARABONBA_PTR_FROM_JSON(EntityType, entityType_);
         };
@@ -84,8 +86,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->entityId_ == nullptr
-        && this->entityType_ == nullptr; };
+        virtual bool empty() const override { return this->bizId_ == nullptr
+        && this->entityId_ == nullptr && this->entityType_ == nullptr; };
+        // bizId Field Functions 
+        bool hasBizId() const { return this->bizId_ != nullptr;};
+        void deleteBizId() { this->bizId_ = nullptr;};
+        inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+        inline SuccessEntityList& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
         // entityId Field Functions 
         bool hasEntityId() const { return this->entityId_ != nullptr;};
         void deleteEntityId() { this->entityId_ = nullptr;};
@@ -101,6 +110,8 @@ namespace Models
 
 
       protected:
+        // The business ID of the entity record.
+        shared_ptr<string> bizId_ {};
         // The ID of the entity record.
         shared_ptr<string> entityId_ {};
         // The entity type code.
@@ -133,11 +144,11 @@ namespace Models
 
 
     protected:
-      // The number of failed records.
+      // The number of failed creations.
       shared_ptr<int32_t> failCount_ {};
-      // The number of successfully created records.
+      // The number of successful creations.
       shared_ptr<int32_t> successCount_ {};
-      // The list of IDs of successfully created entity records.
+      // The list of IDs for successfully created entity records.
       shared_ptr<vector<CreateResult::SuccessEntityList>> successEntityList_ {};
     };
 
@@ -194,11 +205,11 @@ namespace Models
     shared_ptr<BatchCreateKgEntityResponseBody::CreateResult> createResult_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

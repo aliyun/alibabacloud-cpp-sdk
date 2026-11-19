@@ -118,7 +118,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> mappingColumnName_ {};
-        // The GUID of the table.
+        // The table GUID.
         // 
         // This parameter is required.
         shared_ptr<string> resourceId_ {};
@@ -322,7 +322,7 @@ namespace Models
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
-          // The expression operation values.
+          // The expression operand value.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -375,7 +375,7 @@ namespace Models
 
 
       protected:
-        // The rule expressions.
+        // The rule expression.
         // 
         // This parameter is required.
         shared_ptr<vector<Rules::Expressions>> expressions_ {};
@@ -555,6 +555,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
     // The request command.
     // 

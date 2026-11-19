@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The custom Cypher query instruction.
+    // The custom Cypher query command.
     // 
     // This parameter is required.
     shared_ptr<string> execCommandShrink_ {};
@@ -74,6 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operating user.
     shared_ptr<string> opUserId_ {};
     // The model ID.
     // 

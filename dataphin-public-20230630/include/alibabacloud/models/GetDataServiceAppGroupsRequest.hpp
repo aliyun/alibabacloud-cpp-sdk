@@ -61,9 +61,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operating user ID.
     shared_ptr<string> opUserId_ {};
     // The data service project ID.
-    // >Notice: This field is deprecated.</notice>.
+    // >Notice: This field is deprecated.
     shared_ptr<int32_t> projectId_ {};
   };
 

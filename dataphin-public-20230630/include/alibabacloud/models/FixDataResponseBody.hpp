@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -92,9 +92,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The submit ID of this submission.
+    // The submit ID of the current submission. If downstreamRange is set to a shortcut mode, this field returns the submit ID. You can call the [QueryOperationSubmitJobStatus] operation to query the submit status of the current submission. You can ignore this field if you manually select downstream instances.
     shared_ptr<string> submitId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

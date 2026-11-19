@@ -139,32 +139,27 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> classifyId_ {};
-      // The deduplication strategy. Valid values:
-      // - COVER_ALL: overwrites all online tags.
-      // - COVER_UNLOCKED: overwrites only unlocked online tags.
+      // The conflict strategy. Valid values: COVER_ALL (overwrites all online tags) and COVER_UNLOCKED (overwrites only unlocked online tags).
       // 
       // This parameter is required.
       shared_ptr<string> conflictStrategy_ {};
-      // The datasource environment identifier. This parameter is required only for datasource tables.
+      // The environment identifier of the datasource. This parameter is required only for datasource tables.
       shared_ptr<string> datasourceEnv_ {};
-      // The datasource name. This parameter is required only for datasource tables.
+      // The name of the datasource. This parameter is required only for datasource tables.
       shared_ptr<string> datasourceName_ {};
-      // Specifies whether to enable the result. Valid values:
-      // - true: Enabled.
-      // - false: Disabled.
-      // Default value: true.
+      // The enabled status. Valid values: true (enabled) and false (disabled). Default value: true.
       shared_ptr<bool> enable_ {};
-      // The field name.
+      // The name of the field.
       // 
       // This parameter is required.
       shared_ptr<string> fieldName_ {};
       // Specifies whether the table is a datasource table. Default value: false (treated as a Dataphin table).
       shared_ptr<bool> isDatasourceTable_ {};
-      // The table catalog. For a datasource table, specify the database or schema name. For a Dataphin physical table, specify the project name in English. For a Dataphin logical table, specify the business unit name in English.
+      // The catalog of the table. For a datasource table, specify the name of the database or schema to which the table belongs. For a Dataphin physical table, specify the English name of the project. For a Dataphin logical table, specify the English name of the business unit.
       // 
       // This parameter is required.
       shared_ptr<string> tableCatalog_ {};
-      // The table name.
+      // The name of the table.
       // 
       // This parameter is required.
       shared_ptr<string> tableName_ {};
@@ -196,7 +191,7 @@ namespace Models
 
 
   protected:
-    // The create request.
+    // The creation request.
     // 
     // This parameter is required.
     shared_ptr<CreateSecurityIdentifyResultRequest::CreateCommand> createCommand_ {};
@@ -204,6 +199,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

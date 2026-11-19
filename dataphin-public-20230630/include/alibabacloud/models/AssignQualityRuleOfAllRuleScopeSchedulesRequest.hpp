@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // The rule ID.
+      // The rule IDs.
       // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> ruleIdList_ {};
-      // The schedule ID.
+      // The schedule IDs.
       // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> scheduleIdList_ {};
@@ -125,7 +125,7 @@ namespace Models
 
 
   protected:
-    // The assignment binding command.
+    // The binding assignment command.
     // 
     // This parameter is required.
     shared_ptr<AssignQualityRuleOfAllRuleScopeSchedulesRequest::AssignCommand> assignCommand_ {};
@@ -133,7 +133,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

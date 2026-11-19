@@ -101,24 +101,19 @@ namespace Models
 
 
     protected:
-      // The name of the classification folder.
+      // The name of the classification catalog.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The list of administrator IDs. This parameter takes effect only when the parent folder is the root folder.
+      // The list of administrator IDs. This parameter is valid only when the parent catalog is the root catalog.
       shared_ptr<vector<string>> ownerList_ {};
-      // The full path of the parent classification folder. Default value: /.
+      // The full path of the parent classification catalog. Default value: /.
       shared_ptr<string> parentPath_ {};
-      // The original full path of the folder.
+      // The original full path of the catalog.
       // 
       // This parameter is required.
       shared_ptr<string> path_ {};
-      // The visibility scope of the classification. Valid values:
-      // 
-      // - PUBLIC: visible to all users.
-      // - PRIVATE: visible only to administrators.
-      // 
-      // Default value: PUBLIC. This parameter takes effect only when the parent folder is the root folder.
+      // The classification visibility scope. Valid values: PUBLIC (public) and PRIVATE (visible only to administrators). Default value: PUBLIC. This parameter is valid only when the parent catalog is the root catalog.
       shared_ptr<string> visibleType_ {};
     };
 
@@ -152,8 +147,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The update instruction.
+    // The update command.
     // 
     // This parameter is required.
     shared_ptr<UpdateSecurityClassifyCatalogRequest::UpdateCommand> updateCommand_ {};

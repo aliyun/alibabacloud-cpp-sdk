@@ -135,11 +135,11 @@ namespace Models
 
 
     protected:
-      // The list of operations.
+      // The operation list.
       shared_ptr<vector<string>> operateList_ {};
-      // The reason for revoking the authorization.
+      // The revocation reason.
       shared_ptr<string> reason_ {};
-      // The list of resources.
+      // The resources.
       // 
       // This parameter is required.
       shared_ptr<vector<RevokeCommand::ResourceList>> resourceList_ {};
@@ -183,6 +183,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The authorization revocation request.
     // 

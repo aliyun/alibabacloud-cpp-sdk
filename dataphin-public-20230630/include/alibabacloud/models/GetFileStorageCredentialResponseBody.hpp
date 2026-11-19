@@ -145,7 +145,7 @@ namespace Models
       shared_ptr<string> accessId_ {};
       // The temporary AccessKey ID.
       shared_ptr<string> accessKey_ {};
-      // The file storage bucket.
+      // The bucket for file storage.
       shared_ptr<string> bucket_ {};
       // The endpoint.
       shared_ptr<string> endpoint_ {};
@@ -155,9 +155,9 @@ namespace Models
       shared_ptr<string> objectName_ {};
       // region
       shared_ptr<string> region_ {};
-      // The security token.
+      // The temporary security token.
       shared_ptr<string> securityToken_ {};
-      // The type of the storage cluster. Valid values: oss and ceph.
+      // The type of the storage cluster, such as oss or ceph.
       shared_ptr<string> storageType_ {};
     };
 

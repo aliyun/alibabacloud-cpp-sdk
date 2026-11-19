@@ -131,14 +131,7 @@ namespace Models
 
 
     protected:
-      // The governance item type. Valid values:
-      // 
-      // - TABLE
-      // - DATASOURCE_TABLE
-      // - DATASOURCE
-      // - INDEX
-      // - REALTIME_LOGICAL_TABLE
-      // - QD_FEATURE
+      // The governance item type. Valid values: TABLE, DATASOURCE_TABLE, DATASOURCE, INDEX, REALTIME_LOGICAL_TABLE, and QD_FEATURE.
       // 
       // This parameter is required.
       shared_ptr<string> governItemType_ {};
@@ -150,20 +143,11 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of project names used to filter results.
+      // The list of project names used for filtering.
       shared_ptr<vector<string>> projectNames_ {};
-      // The list of governance object statuses. Valid values:
-      // 
-      // - NEW
-      // - VERIFY
-      // - FINISHED
-      // - IGNORE
+      // The list of governance object statuses. Valid values: NEW, VERIFY, FINISHED, and IGNORE.
       shared_ptr<vector<string>> statusList_ {};
-      // The view type. Valid values:
-      // 
-      // - ALL
-      // - OWNER
-      // - PROJECT
+      // The view type. Valid values: ALL, OWNER, and PROJECT.
       shared_ptr<string> viewType_ {};
     };
 
@@ -201,7 +185,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

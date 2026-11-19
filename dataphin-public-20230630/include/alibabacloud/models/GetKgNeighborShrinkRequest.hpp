@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The entity record data ID.
+    // The data ID of the entity record.
     // 
     // This parameter is required.
     shared_ptr<string> entityDataId_ {};
@@ -92,12 +92,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> entityType_ {};
-    // The entity record neighbor node query instruction.
+    // The neighbor node query instruction for entity records.
     shared_ptr<string> neighborsQueryShrink_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The model ID.
     // 

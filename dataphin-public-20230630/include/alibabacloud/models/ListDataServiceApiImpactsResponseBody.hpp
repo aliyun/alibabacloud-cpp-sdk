@@ -222,25 +222,25 @@ namespace Models
         shared_ptr<int64_t> apiId_ {};
         // appKey
         shared_ptr<int64_t> appKey_ {};
-        // The application name.
+        // The name of the application.
         shared_ptr<string> appName_ {};
         // The number of calls.
         shared_ptr<int64_t> callCount_ {};
         // The number of client failures.
         shared_ptr<int64_t> clientFailCount_ {};
-        // The source IP address of the access request.
+        // The IP address of the client.
         shared_ptr<string> clientIp_ {};
-        // The number of abnormal API calls.
+        // The number of API call exceptions.
         shared_ptr<int64_t> errorApiCount_ {};
-        // The number of errors.
+        // The number of exceptions.
         shared_ptr<int64_t> errorCount_ {};
         // The error rate.
         shared_ptr<string> errorRate_ {};
-        // The most recent call time. Format: yyyy-MM-dd HH:mm:ss.
+        // The time of the last call. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> lastCallTime_ {};
-        // The gateway statistics time. Format: yyyy_MMdd_HHmm.
+        // The time when the gateway statistics are collected. Format: yyyy_MMdd_HHmm.
         shared_ptr<string> minute_ {};
-        // The number of offline instances.
+        // The offline count.
         shared_ptr<int64_t> offlineCount_ {};
         // The total time consumed by successful calls.
         shared_ptr<string> successTimeCost_ {};
@@ -332,7 +332,7 @@ namespace Models
     shared_ptr<ListDataServiceApiImpactsResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

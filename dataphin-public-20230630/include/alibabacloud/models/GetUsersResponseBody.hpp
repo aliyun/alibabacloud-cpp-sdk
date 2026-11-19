@@ -240,7 +240,7 @@ namespace Models
       shared_ptr<string> dingNumber_ {};
       // The display name of the user.
       shared_ptr<string> displayName_ {};
-      // The display name of the user without the status.
+      // The display name of the user, excluding the status.
       shared_ptr<string> displayNameWithoutStatus_ {};
       // Indicates whether the IP whitelist is enabled.
       shared_ptr<string> enableWhiteIp_ {};
@@ -248,7 +248,7 @@ namespace Models
       shared_ptr<string> feiShuRobot_ {};
       // The time when the user was created.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The last modification time.
+      // The time when the user was modified.
       shared_ptr<int64_t> gmtModified_ {};
       // The user ID.
       shared_ptr<string> id_ {};
@@ -260,17 +260,17 @@ namespace Models
       shared_ptr<string> name_ {};
       // The nickname of the user.
       shared_ptr<string> nickName_ {};
-      // The ID of the Alibaba Cloud account to which the user belongs.
+      // The ID of the primary account to which the user belongs.
       shared_ptr<string> parentId_ {};
       // The real name of the user.
       shared_ptr<string> realName_ {};
-      // The ID of the user source.
+      // The source ID of the user.
       shared_ptr<string> sourceId_ {};
       // The source of the user.
       shared_ptr<string> sourceType_ {};
       // The WeCom bot.
       shared_ptr<string> weChatRobot_ {};
-      // The whitelist.
+      // The IP address whitelist.
       shared_ptr<string> whiteIp_ {};
     };
 
@@ -321,11 +321,11 @@ namespace Models
 
 
   protected:
-    // The error code. OK indicates that the request is successful.
+    // The error code of the request. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message of the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

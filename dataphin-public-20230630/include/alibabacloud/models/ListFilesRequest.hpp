@@ -98,38 +98,38 @@ namespace Models
 
 
     protected:
-      // Menu tree category
-      // - Ad hoc query: tempCode
-      // - Code task: codeManage
-      // - Offline pipeline: offlinePipeline
-      // - Pipeline custom component: offlinePipelineCustomPlugin
-      // - Sync task: dataX
-      // - Real-time meta table: streamMeta
-      // - Real-time custom source: streamCustomDataSource
-      // - Real-time computing template: streamTemplate
-      // - Resource management: resourceManage
-      // - Offline function: udfResource
-      // - Real-time function: streamFunction
+      // The menu tree category. Valid values:
+      // - tempCode: Ad hoc query.
+      // - codeManage: Code task.
+      // - offlinePipeline: Offline pipeline.
+      // - offlinePipelineCustomPlugin: Custom pipeline component.
+      // - dataX: Synchronization task.
+      // - streamMeta: Real-time metatable.
+      // - streamCustomDataSource: Real-time custom data source.
+      // - streamTemplate: Real-time computing template.
+      // - resourceManage: Resource management.
+      // - udfResource: Offline function.
+      // - streamFunction: Real-time function.
       // 
       // This parameter is required.
       shared_ptr<string> category_ {};
-      // File directory
+      // The file directory.
       // 
       // This parameter is required.
       shared_ptr<string> directory_ {};
-      // Environment identifier
+      // The environment identifier. Valid values:
       // - DEV
       // - PROD
       // 
       // This parameter is required.
       shared_ptr<string> env_ {};
-      // Project ID
+      // The project ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // Whether to recursively traverse and query
-      // - true: Yes, returns all nodes under the directory
-      // - false: No, returns only the first-level nodes under the directory
+      // Specifies whether to recursively traverse and query the directory. Valid values:
+      // - true: Yes. Returns all nodes under the directory.
+      // - false: No. Returns only the first-level nodes under the directory.
       // 
       // This parameter is required.
       shared_ptr<bool> recursive_ {};
@@ -161,14 +161,15 @@ namespace Models
 
 
   protected:
-    // Query conditions
+    // The query conditions.
     // 
     // This parameter is required.
     shared_ptr<ListFilesRequest::ListQuery> listQuery_ {};
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

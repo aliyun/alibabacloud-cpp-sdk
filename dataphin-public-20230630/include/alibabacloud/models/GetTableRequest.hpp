@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The operator user ID.
+    // The ID of the operating user.
     shared_ptr<string> opUserId_ {};
     // The GUID of the table asset.
     shared_ptr<string> tableGuid_ {};

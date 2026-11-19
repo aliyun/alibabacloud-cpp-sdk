@@ -94,7 +94,7 @@ namespace Models
     protected:
       // Specifies whether to enable the user group.
       shared_ptr<bool> active_ {};
-      // The user IDs of the user group administrators.
+      // The IDs of the administrator users in the user group.
       shared_ptr<vector<string>> adminUserIdList_ {};
       // The description of the user group.
       shared_ptr<string> description_ {};
@@ -134,6 +134,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

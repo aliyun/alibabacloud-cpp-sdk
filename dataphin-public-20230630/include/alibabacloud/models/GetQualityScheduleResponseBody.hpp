@@ -231,59 +231,37 @@ namespace Models
     protected:
       // The creation time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
-      // The ID of the creator.
+      // The user ID of the creator.
       shared_ptr<string> creator_ {};
       // The cron expression for timed scheduling.
       shared_ptr<string> cronExpression_ {};
-      // The ID of the scheduling object.
+      // The ID of the schedule object.
       shared_ptr<int64_t> id_ {};
-      // Indicates whether the scheduling object is referenced by a rule.
+      // Indicates whether the object is referenced by a rule.
       shared_ptr<bool> isRefByRule_ {};
-      // The ID of the last modifier.
+      // The user ID of the last modifier.
       shared_ptr<string> modifier_ {};
-      // The modification time. The format is YYYY-MM-DD HH:mm:ss.
+      // The update time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> modifyTime_ {};
-      // The name of the scheduling object.
+      // The name of the schedule object.
       shared_ptr<string> name_ {};
       // The custom partition expression.
       shared_ptr<string> partitionExpression_ {};
-      // The partition type. Valid values:
-      // - EVERY_DAY: Every day.
-      // - PRE_DAY: Previous day.
-      // - TODAY: Current day.
-      // - FIRST_DAY_OF_WEEK: First day of the week (Sunday).
-      // - CUSTOM: Custom.
+      // The partition type. Valid values: EVERY_DAY for daily, PRE_DAY for previous day, TODAY for current day, FIRST_DAY_OF_WEEK for first day of the week (Sunday), and CUSTOM for custom.
       shared_ptr<string> partitionType_ {};
-      // The scheduling epoch type for timed scheduling. Valid values:
-      // - DAILY: Daily.
-      // - WEEKLY: Weekly.
-      // - MONTHLY: Monthly.
-      // - HOURLY: Hourly.
-      // - MINUTELY: Minutely.
+      // The schedule cycle type for timed scheduling. Valid values: DAILY for day, WEEKLY for week, MONTHLY for month, HOURLY for hour, and MINUTELY for minute.
       shared_ptr<string> periodScheduleIntervalType_ {};
-      // The scheduling epoch values for timed scheduling.
+      // The schedule cycle values for timed scheduling.
       shared_ptr<vector<string>> periodScheduleParamList_ {};
-      // The trigger method for fixed task triggers. Valid values:
-      // - ALL_TASKS_FINISHED: All tasks finished.
-      // - ONE_TASKS_FINISHED: One task finished.
-      // - PRE_ONE_TASKS_START: Previous task started.
+      // The trigger method for static task trigger. Valid values: ALL_TASKS_FINISHED, ONE_TASKS_FINISHED, and PRE_ONE_TASKS_START.
       shared_ptr<string> staticTaskTriggerType_ {};
       // The list of trigger tasks for trigger scheduling.
       shared_ptr<vector<string>> triggerNodeList_ {};
-      // The trigger method for trigger scheduling. Valid values:
-      // - STATIC_TASK_TRIGGER: Fixed task trigger.
-      // - CODE_CHECK_TRIGGER: Code check trigger.
+      // The trigger method for trigger scheduling. Valid values: STATIC_TASK_TRIGGER for static task trigger and CODE_CHECK_TRIGGER for code check trigger.
       shared_ptr<string> triggerType_ {};
-      // The scheduling type. Valid values:
-      // - PERIOD_SCHEDULE: Timed scheduling.
-      // - MANUAL_SCHEDULE: Manual trigger.
-      // - CODE_CHECK_TRIGGER: Code check trigger.
-      // - STATIC_TASK_TRIGGER: Fixed node trigger.
-      // - DEPENDENCY_SCHEDULE: Dependency scheduling.
+      // The schedule type. Valid values: PERIOD_SCHEDULE for timed scheduling, MANUAL_SCHEDULE for manual trigger, CODE_CHECK_TRIGGER for code check trigger, STATIC_TASK_TRIGGER for static task trigger, and DEPENDENCY_SCHEDULE for dependency scheduling.
       shared_ptr<string> type_ {};
-      // The validation scope. Valid values:
-      // - TASK_REFERRED_PARTITION: Task updated partition.
-      // - USER_DEFINED_PARTITION: User-defined partition.
+      // The validation scope. Valid values: TASK_REFERRED_PARTITION for task updated partition and USER_DEFINED_PARTITION for custom partition.
       shared_ptr<string> validatePartitionType_ {};
       // The ID of the monitored object.
       shared_ptr<int64_t> watchId_ {};
@@ -342,7 +320,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The backend exception details.
     shared_ptr<string> message_ {};
-    // The details of the scheduling object.
+    // The schedule object details.
     shared_ptr<GetQualityScheduleResponseBody::QualityScheduleInfo> qualityScheduleInfo_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

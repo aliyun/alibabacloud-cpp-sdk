@@ -155,7 +155,7 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The dependency records.
+    // The reference records.
     shared_ptr<vector<GetDataSourceDependenciesResponseBody::DependencyList>> dependencyList_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -163,7 +163,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

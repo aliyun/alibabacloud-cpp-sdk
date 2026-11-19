@@ -110,9 +110,9 @@ namespace Models
       protected:
         // The number of calls.
         shared_ptr<int64_t> callCount_ {};
-        // The number of call errors.
+        // The number of call exceptions.
         shared_ptr<int64_t> errorCount_ {};
-        // The minute in the format of yyyy_MMdd_HHmm.
+        // The minute. Format: yyyy_MMdd_HHmm.
         shared_ptr<string> minute_ {};
       };
 
@@ -176,11 +176,11 @@ namespace Models
       protected:
         // The API IDs.
         shared_ptr<vector<int64_t>> apiIdList_ {};
-        // The number of APIs with call errors.
+        // The number of APIs with call exceptions.
         shared_ptr<int32_t> errorApiCount_ {};
         // The number of affected applications.
         shared_ptr<int32_t> errorAppCount_ {};
-        // The time scale in minutes, in the format of yyyy-MM-dd HH:mm.
+        // The time scale in minutes. Format: yyyy-MM-dd HH:mm.
         shared_ptr<string> minute_ {};
       };
 
@@ -205,9 +205,9 @@ namespace Models
 
 
     protected:
-      // The call error impact trends, sorted by minute in ascending order.
+      // The call exception impact trends in ascending order by minute.
       shared_ptr<vector<Data::CallErrorImpactTrendList>> callErrorImpactTrendList_ {};
-      // The call error trends, sorted by minute in ascending order.
+      // The call exception trends in ascending order by minute.
       shared_ptr<vector<Data::CallErrorTrendList>> callErrorTrendList_ {};
     };
 
@@ -260,15 +260,15 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The access trend data.
+    // The access trends.
     shared_ptr<GetDataServiceApiCallTrendResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

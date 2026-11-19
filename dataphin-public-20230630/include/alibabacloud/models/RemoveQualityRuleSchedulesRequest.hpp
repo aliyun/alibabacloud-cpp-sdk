@@ -91,7 +91,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> scheduleIdList_ {};
-      // The ID of the monitored object.
+      // The monitored object ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> watchId_ {};
@@ -127,8 +127,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
-    // The unbinding instruction.
+    // The unbind command.
     // 
     // This parameter is required.
     shared_ptr<RemoveQualityRuleSchedulesRequest::RemoveCommand> removeCommand_ {};

@@ -233,17 +233,17 @@ namespace Models
       shared_ptr<string> inputDataSourceType_ {};
       // The ID of the project to which the input table belongs.
       shared_ptr<int64_t> inputProjectId_ {};
-      // Indicates whether the input table has been deleted.
+      // Indicates whether the input table is deleted.
       shared_ptr<bool> inputTableDeleted_ {};
       // The environment to which the input table belongs. Valid values: dev and prod.
       shared_ptr<string> inputTableEnv_ {};
-      // The GUID of the input table. Each asset has a unique identifier.
+      // The GUID of the input table, which is the unique identifier of each asset.
       shared_ptr<string> inputTableGuid_ {};
       // The name of the input table.
       shared_ptr<string> inputTableName_ {};
-      // The environment to which the task belongs. Valid values: dev and prod.
+      // The environment to which the node belongs. Valid values: dev and prod.
       shared_ptr<string> nodeEnv_ {};
-      // The task ID associated with the lineage.
+      // The ID of the node corresponding to the lineage.
       shared_ptr<string> nodeId_ {};
       // The ID of the business unit to which the output table belongs.
       shared_ptr<int64_t> outputBizUnitId_ {};
@@ -253,11 +253,11 @@ namespace Models
       shared_ptr<string> outputDataSourceType_ {};
       // The ID of the project to which the output table belongs.
       shared_ptr<int64_t> outputProjectId_ {};
-      // Indicates whether the output table has been deleted.
+      // Indicates whether the output table is deleted.
       shared_ptr<bool> outputTableDeleted_ {};
       // The environment to which the output table belongs. Valid values: dev and prod.
       shared_ptr<string> outputTableEnv_ {};
-      // The GUID of the output table. Each asset has a unique identifier.
+      // The GUID of the output table, which is the unique identifier of each asset.
       shared_ptr<string> outputTableGuid_ {};
       // The name of the output table.
       shared_ptr<string> outputTableName_ {};
@@ -310,15 +310,15 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The backend response code.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The table lineage list.
     shared_ptr<vector<GetTableLineagesResponseBody::TableLineageList>> tableLineageList_ {};

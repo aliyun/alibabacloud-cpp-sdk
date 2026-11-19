@@ -151,7 +151,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The backend exception details.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // The list of projects.
     shared_ptr<vector<GetDataServiceAuthorizedProjectsResponseBody::ProjectList>> projectList_ {};

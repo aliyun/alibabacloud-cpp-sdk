@@ -61,8 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
-    // The command to edit the user group.
+    // The update user group command.
     shared_ptr<string> updateCommandShrink_ {};
   };
 

@@ -121,11 +121,11 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> abbreviation_ {};
-      // The ID of the data board.
+      // The business unit ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> bizUnitId_ {};
-      // The ID of the data domain.
+      // The data domain ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> dataDomainId_ {};
@@ -135,7 +135,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> displayName_ {};
-      // The code of the data domain.
+      // The data domain code.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
@@ -173,6 +173,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The update request.
     // 

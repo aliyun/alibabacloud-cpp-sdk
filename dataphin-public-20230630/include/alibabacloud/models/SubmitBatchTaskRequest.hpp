@@ -190,10 +190,10 @@ namespace Models
           // The period offset. This parameter is required when dependencyPeriodType is set to LAST_N_PERIOD.
           shared_ptr<int32_t> periodOffset_ {};
           // The dependency period type. Valid values:
-          // - CURRENT_PERIOD: Current period.
-          // - LAST_PERIOD: Last period.
-          // - LAST_N_PERIOD: Last N days.
-          // - LAST_24_HOUR: Last 24 hours.
+          // - CURRENT_PERIOD: current period
+          // - LAST_PERIOD: last period
+          // - LAST_N_PERIOD: last N days
+          // - LAST_24_HOUR: last 24 hours
           // 
           // This parameter is required.
           shared_ptr<string> periodType_ {};
@@ -273,18 +273,18 @@ namespace Models
         // The dependency period.
         shared_ptr<UpStreamList::DependPeriod> dependPeriod_ {};
         // The dependency strategy. Valid values:
-        // - ALL: All.
-        // - FIRST: First.
-        // - LAST: Last.
-        // - NEAR: Nearest.
+        // - ALL: all
+        // - FIRST: first
+        // - LAST: last
+        // - NEAR: nearest
         shared_ptr<string> dependStrategy_ {};
         // The dependent logical table fields.
         shared_ptr<vector<string>> fieldList_ {};
         // The upstream dependency node type. Valid values:
-        // - PHYSICAL: Physical node.
-        // - LOGICAL: Logical table dependency.
+        // - PHYSICAL: physical node
+        // - LOGICAL: logical table dependency
         shared_ptr<string> nodeType_ {};
-        // The period difference. A value of 0 indicates a dependency on the same period. A positive number indicates a dependency on the previous N periods.
+        // The period difference. A value of 0 indicates a dependency on the same period. A positive value indicates a dependency on the previous N periods.
         // 
         // This parameter is required.
         shared_ptr<int32_t> periodDiff_ {};
@@ -360,7 +360,7 @@ namespace Models
 
 
       protected:
-        // 基础调度模板ID，必须为正数
+        // The ID of the basic scheduling template. The value must be a positive number.
         shared_ptr<int64_t> templateId_ {};
       };
 
@@ -402,11 +402,11 @@ namespace Models
 
 
       protected:
-        // The name of the parameter.
+        // The parameter name.
         // 
         // This parameter is required.
         shared_ptr<string> key_ {};
-        // The value of the parameter.
+        // The parameter value.
         // 
         // This parameter is required.
         shared_ptr<string> value_ {};
@@ -468,13 +468,13 @@ namespace Models
 
 
       protected:
-        // The description of the parameter.
+        // The parameter description.
         shared_ptr<string> description_ {};
         // Specifies whether encryption is enabled.
         shared_ptr<bool> encryptEnabled_ {};
-        // The key of the parameter.
+        // The parameter key.
         shared_ptr<string> key_ {};
-        // The value of the parameter.
+        // The parameter value.
         shared_ptr<string> value_ {};
       };
 
@@ -516,9 +516,9 @@ namespace Models
 
 
       protected:
-        // 自定义超时时间。
+        // The custom timeout period.
         shared_ptr<string> customValues_ {};
-        // 是否跟随系统配置。
+        // Specifies whether to follow the system configuration.
         shared_ptr<bool> followSystem_ {};
       };
 
@@ -569,11 +569,11 @@ namespace Models
 
 
       protected:
-        // 自定义失败重试间隔。
+        // The custom retry interval for failures.
         shared_ptr<string> customRerunInterval_ {};
-        // 自定义失败重试次数。
+        // The custom number of retries for failures.
         shared_ptr<string> customRerunTimes_ {};
-        // 是否跟随系统配置。
+        // Specifies whether to follow the system configuration.
         shared_ptr<bool> followSystem_ {};
       };
 
@@ -651,12 +651,12 @@ namespace Models
         // This parameter is required.
         shared_ptr<int32_t> interval_ {};
         // The interval unit. Valid values:
-        // - MINUTE: Minute.
-        // - HOUR: Hour.
+        // - MINUTE: Minutes.
+        // - HOUR: Hours.
         // 
         // This parameter is required.
         shared_ptr<string> intervalUnit_ {};
-        // The schedule period. Valid values:
+        // The scheduling period. Valid values:
         // - YEARLY: Yearly.
         // - MONTHLY: Monthly.
         // - WEEKLY: Weekly.
@@ -779,19 +779,22 @@ namespace Models
 
 
         protected:
-          // 条件名称
+          // The condition name.
           shared_ptr<string> conditionName_ {};
-          // 命中后的cron表达式
+          // The cron expression used after a condition is matched.
           shared_ptr<string> cronExpression_ {};
-          // 是否启用该条件
+          // Specifies whether to enable the condition.
           shared_ptr<bool> enable_ {};
-          // 是否跟随主调度参数
+          // Specifies whether to follow the primary scheduling parameters.
           shared_ptr<bool> followScheduleParam_ {};
-          // 命中后的调度状态：1正常，2暂停，3空跑
+          // The scheduling status used after a condition is matched. Valid values:
+          // - 1: Normal.
+          // - 2: Paused.
+          // - 3: Dry run.
           shared_ptr<int32_t> nodeStatus_ {};
-          // 条件表达式树JSON字符串，内部键名使用小驼峰
+          // The JSON character string of the conditional expression tree. Internal key names use lower camel case.
           shared_ptr<string> scheduleConditionJson_ {};
-          // 命中后的调度时间
+          // The scheduling time used after a condition is matched.
           shared_ptr<string> scheduleTime_ {};
         };
 
@@ -821,11 +824,11 @@ namespace Models
 
 
       protected:
-        // 是否启用条件调度。传入ConditionScheduleConfig对象时必须提供，由后端校验；false关闭并清除旧配置。
+        // Specifies whether to enable conditional scheduling. This parameter is required when the ConditionScheduleConfig object is passed and is verified by the backend. If this parameter is set to false, conditional scheduling is disabled and the previous configuration is cleared.
         shared_ptr<bool> enable_ {};
-        // 自定义条件列表；与TemplateId互斥，空列表清除旧条件
+        // The list of custom conditions. This parameter is mutually exclusive with TemplateId. An empty list clears the previous conditions.
         shared_ptr<vector<ConditionScheduleConfig::ParamList>> paramList_ {};
-        // 条件调度模板ID，与ParamList互斥
+        // The ID of the conditional scheduling template. This parameter is mutually exclusive with ParamList.
         shared_ptr<int64_t> templateId_ {};
       };
 
@@ -1080,87 +1083,87 @@ namespace Models
 
 
     protected:
-      // The code of the task.
+      // The task code.
       // 
       // This parameter is required.
       shared_ptr<string> code_ {};
-      // The version number of the code template.
+      // The code template version number.
       shared_ptr<int32_t> codeTemplateVersion_ {};
       // The comment for the submit operation.
       // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
-      // 条件调度；不传保留，Enable=false关闭并清除原条件，仅周期任务支持
+      // The conditional scheduling configuration. If this parameter is not specified, the current configuration is retained. If Enable is set to false, conditional scheduling is disabled and the original conditions are cleared. This parameter is supported only for periodic tasks.
       shared_ptr<SubmitCommand::ConditionScheduleConfig> conditionScheduleConfig_ {};
-      // 不传时保留任务当前配置。
+      // The amount of CPU resources. If this parameter is not specified, the current configuration of the task is retained.
       shared_ptr<string> cpuResource_ {};
       // The cron expression for automatic scheduling. You can refer to Linux cron expressions.
       shared_ptr<string> cronExpression_ {};
-      // The custom schedule interval configuration.
+      // The custom scheduling interval configuration.
       shared_ptr<SubmitCommand::CustomScheduleConfig> customScheduleConfig_ {};
-      // The execution engine of the task. Valid values for Python tasks:
+      // The task execution engine. For Python tasks, valid values:
       // - PYTHON2_7
       // - PYTHON3_7
       // - PYTHON3_11
       shared_ptr<string> engine_ {};
-      // 失败重试配置。不传时保留任务当前配置。传入时整体替换该配置对象。
+      // The failure retry configuration. If this parameter is not specified, the current configuration of the task is retained. If this parameter is specified, the entire configuration object is replaced.
       shared_ptr<SubmitCommand::ExecuteRerunConfig> executeRerunConfig_ {};
-      // 执行超时配置。不传时保留任务当前配置。传入时整体替换该配置对象。
+      // The execution timeout configuration. If this parameter is not specified, the current configuration of the task is retained. If this parameter is specified, the entire configuration object is replaced.
       shared_ptr<SubmitCommand::ExecuteTimeOutConfig> executeTimeOutConfig_ {};
       // The ID of the node in the task directory tree.
       // 
       // This parameter is required.
       shared_ptr<int64_t> fileId_ {};
-      // 不传时保留任务当前配置。
+      // The amount of CPU resources. If this parameter is not specified, the current configuration of the task is retained.
       shared_ptr<string> memoryResource_ {};
       // The name of the offline task.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The description of the task.
+      // The task description.
       shared_ptr<string> nodeDescription_ {};
       // The list of node output names.
       shared_ptr<vector<string>> nodeOutputNameList_ {};
-      // The status of the node. Valid values:
+      // The node status. Valid values:
       // - 1: Normal.
       // - 2: Paused.
       // - 3: Dry run.
       shared_ptr<int32_t> nodeStatus_ {};
       // The ID of the offline code template.
       shared_ptr<string> offlineCodeTemplateId_ {};
-      // The list of parameters for the offline code template.
+      // The list of offline code template parameters.
       shared_ptr<vector<SubmitCommand::OfflineCodeTemplateParams>> offlineCodeTemplateParams_ {};
       // The list of custom parameters.
       shared_ptr<vector<SubmitCommand::ParamList>> paramList_ {};
-      // The scheduling priority of the task. Valid values: 1 to 9. A larger value indicates a lower priority.
+      // The task scheduling priority. Valid values: 1 to 9. A larger value indicates a lower priority.
       shared_ptr<int32_t> priority_ {};
-      // The ID of the project to which the task belongs.
+      // The ID of the project to which the node belongs.
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // The Python third-party packages required by the task.
+      // The list of Python third-party packages on which the node depends.
       shared_ptr<vector<string>> pythonModuleList_ {};
-      // 资源引用列表，元素为资源名称。不传时使用原有任务的资源引用；传入列表时整体替换，空列表表示清空引用。
+      // The list of referenced resources. Each element is a resource name. If this parameter is not specified, the resource references of the original node are used. If a list is specified, the existing references are completely replaced. An empty list clears all references.
       shared_ptr<vector<string>> resourceReferenceList_ {};
-      // 超时重试开关。不传时保留任务当前配置。显式传入false时关闭。
+      // Specifies whether to enable retry on timeout. If this parameter is not specified, the current configuration of the node is retained. If this parameter is explicitly set to false, the feature is disabled.
       shared_ptr<bool> retryOnTimeoutEnable_ {};
-      // The schedule period. Valid values:
-      // - YEARLY: Yearly.
-      // - MONTHLY: Monthly.
-      // - WEEKLY: Weekly.
-      // - DAILY: Daily.
-      // - HOURLY: Hourly.
-      // - MINUTELY: Minutely.
+      // The scheduling period. Valid values:
+      // - YEARLY: yearly
+      // - MONTHLY: monthly
+      // - WEEKLY: weekly
+      // - DAILY: daily
+      // - HOURLY: hourly
+      // - MINUTELY: minutely
       shared_ptr<string> schedulePeriod_ {};
-      // 基础调度模板；不传保留，空对象解除绑定，仅周期任务支持
+      // The basic scheduling template. If this parameter is not specified, the current template is retained. An empty object unbinds the template. This parameter is supported only for periodic nodes.
       shared_ptr<SubmitCommand::ScheduleTemplate> scheduleTemplate_ {};
       // The Spark client.
       shared_ptr<SubmitCommand::SparkClientInfo> sparkClientInfo_ {};
-      // 不传时保留任务当前配置。显式传入false时关闭。
+      // Specifies whether to enable dynamic resources for Spark. If this parameter is not specified, the current configuration of the node is retained. If this parameter is explicitly set to false, the feature is disabled.
       shared_ptr<bool> sparkDynamicResourceSwitch_ {};
-      // ONLY_PROD表示仅生产环境，PROD_AND_DEV表示生产和开发环境。不传时保留任务当前配置。
+      // The effective scope of the Spark resource configuration. ONLY_PROD indicates the production environment only. PROD_AND_DEV indicates both the production and development environments. If this parameter is not specified, the current configuration of the node is retained.
       shared_ptr<string> sparkResourceEffectScope_ {};
-      // Spark SQL资源配置，键为配置项名称，值为字符串。不传时保留任务当前配置。传入空Map时清空配置。
+      // The Spark SQL resource configurations. The key is the configuration item name, and the value is a string. If this parameter is not specified, the current configurations of the node are retained. An empty map clears all configurations.
       shared_ptr<map<string, string>> sparkSqlResourceConfigMap_ {};
       // The upstream dependencies.
       shared_ptr<vector<SubmitCommand::UpStreamList>> upStreamList_ {};
@@ -1196,7 +1199,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The operator user ID.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The edit request.
     // 

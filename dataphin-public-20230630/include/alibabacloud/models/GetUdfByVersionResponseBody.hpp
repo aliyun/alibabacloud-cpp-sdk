@@ -169,39 +169,29 @@ namespace Models
 
 
     protected:
-      // The category. Valid values:
-      // - 1: Window function.
-      // - 2: Statistical function.
-      // - 3: Numerical function.
-      // - 4: String function.
-      // - 5: Time function.
-      // - 6: IP address helper function.
-      // - 7: URL-related function.
-      // - 8: Encoding and decoding function.
-      // - 9: Business-related function.
-      // - 10: Other.
+      // The category of the function. Valid values: 1: Window function. 2: Aggregate function. 3: Numeric function. 4: String function. 5: Time function. 6: IP address helper function. 7: URL-related function. 8: Encoding and decoding function. 9: Business-related function. 10: Other.
       shared_ptr<int32_t> category_ {};
-      // The registered class name.
+      // The name of the registered class.
       shared_ptr<string> className_ {};
       // The command help information.
       shared_ptr<string> commandHelp_ {};
       // The compute engine. Valid values: HADOOP, MAX_COMPUTE, and FLINK.
       shared_ptr<string> computeEngineType_ {};
-      // The creator.
+      // The creator of the function.
       shared_ptr<string> creator_ {};
-      // The description.
+      // The description of the function.
       shared_ptr<string> description_ {};
-      // The storage directory.
+      // The directory where the function is stored.
       shared_ptr<string> directory_ {};
-      // The creation time. Format: yyyy-MM-d HH:mm:ss.
+      // The time when the function was created. Format: yyyy-MM-d HH:mm:ss.
       shared_ptr<string> gmtCreate_ {};
-      // The update time. Format: yyyy-MM-d HH:mm:ss.
+      // The time when the function was last updated. Format: yyyy-MM-d HH:mm:ss.
       shared_ptr<string> gmtModified_ {};
-      // The custom function ID.
+      // The ID of the custom function.
       shared_ptr<int64_t> id_ {};
-      // The last modifier.
+      // The user who last modified the function.
       shared_ptr<string> lastModifier_ {};
-      // The function name.
+      // The name of the function.
       shared_ptr<string> name_ {};
     };
 
@@ -262,7 +252,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The custom function details.
+    // The details of the custom function.
     shared_ptr<GetUdfByVersionResponseBody::UdfInfo> udfInfo_ {};
   };
 

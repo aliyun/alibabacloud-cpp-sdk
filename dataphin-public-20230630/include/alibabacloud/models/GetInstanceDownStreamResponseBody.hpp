@@ -118,11 +118,11 @@ namespace Models
 
 
       protected:
-        // Instance ID.
+        // The instance ID.
         shared_ptr<string> id_ {};
-        // Instance name.
+        // The instance name.
         shared_ptr<string> name_ {};
-        // Node type.
+        // The node type.
         shared_ptr<string> type_ {};
       };
 
@@ -173,11 +173,11 @@ namespace Models
 
 
       protected:
-        // Field instance ID.
+        // The field instance ID.
         shared_ptr<string> fieldInstanceId_ {};
-        // Run status.
+        // The run status.
         shared_ptr<string> runStatus_ {};
-        // Selection status of the instance.
+        // The selection status of the instance.
         shared_ptr<string> selectStatus_ {};
       };
 
@@ -238,23 +238,23 @@ namespace Models
 
 
     protected:
-      // Depth level.
+      // The level.
       shared_ptr<int32_t> downStreamDepth_ {};
-      // Extended information of the node instance.
+      // The extended information of the node instance.
       shared_ptr<string> extendInfo_ {};
-      // Field instance list.
+      // The list of field instances.
       shared_ptr<vector<InstanceRelationList::FieldInstanceList>> fieldInstanceList_ {};
-      // Instance information.
+      // The instance information.
       shared_ptr<InstanceRelationList::InstanceInfo> instanceInfo_ {};
-      // Run status of the instance.
+      // The run status of the instance.
       shared_ptr<string> runStatus_ {};
-      // Selection status of the instance, primarily used for logical fields.
-      // - OPTIONAL: Optional.
-      // - SELECTED: Required.
-      // - DISABLE: Not selectable.
-      // - GROUP_SELECTED: Select all or deselect all.
+      // The selection status of the instance. This is mainly used for logical fields. Valid values:
+      // - OPTIONAL: optional.
+      // - SELECTED: required.
+      // - DISABLE: unavailable.
+      // - GROUP_SELECTED: all selected or all unselected.
       shared_ptr<string> selectStatus_ {};
-      // Reason why the instance is selected.
+      // The reason why the instance is selected. Valid values:
       // - PK_CHANGE
       // - LOGIC_CHANGE
       // - RELATION
@@ -317,17 +317,17 @@ namespace Models
 
 
   protected:
-    // Error code. OK indicates a successful request.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // HTTP status code returned by the backend.
+    // The HTTP status code of the backend response.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Downstream instances and dependency relationships.
+    // The downstream and dependency relationships.
     shared_ptr<vector<GetInstanceDownStreamResponseBody::InstanceRelationList>> instanceRelationList_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

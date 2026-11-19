@@ -198,9 +198,9 @@ namespace Models
       shared_ptr<string> lastModifierName_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The ID of the business object owner.
+      // The ID of the owner of the business object.
       shared_ptr<string> ownerName_ {};
-      // The ID of the business object owner.
+      // The ID of the owner of the business object.
       shared_ptr<string> ownerUserId_ {};
       // The ID of the parent data domain.
       shared_ptr<int64_t> parentId_ {};
@@ -253,7 +253,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The data domain details.
     shared_ptr<GetDataDomainInfoResponseBody::DataDomainInfo> dataDomainInfo_ {};
@@ -263,7 +263,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

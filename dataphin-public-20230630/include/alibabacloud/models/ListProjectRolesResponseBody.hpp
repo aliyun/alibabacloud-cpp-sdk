@@ -170,7 +170,7 @@ namespace Models
 
 
     protected:
-      // The JSON string of the permission set.
+      // The JSON string of permission points.
       shared_ptr<string> authJson_ {};
       // The user ID of the creator.
       shared_ptr<string> creator_ {};
@@ -243,7 +243,7 @@ namespace Models
 
 
   protected:
-    // The error code. OK indicates that the request is successful.
+    // The error code. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};

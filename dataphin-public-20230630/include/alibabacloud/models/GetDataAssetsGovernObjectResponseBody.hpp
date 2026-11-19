@@ -177,7 +177,7 @@ namespace Models
         shared_ptr<string> cause_ {};
         // The description.
         shared_ptr<string> desc_ {};
-        // The ID of the knowledge entry.
+        // The knowledge ID.
         shared_ptr<int64_t> knowledgeId_ {};
         // The owner.
         shared_ptr<string> owner_ {};
@@ -304,23 +304,23 @@ namespace Models
       protected:
         // The object ID.
         shared_ptr<string> objectId_ {};
-        // The ID of the parent object.
+        // The parent object ID.
         shared_ptr<string> parentObjectId_ {};
         // The contact email for the governance issue.
         shared_ptr<string> problemContactMail_ {};
-        // The other contact information for the governance issue.
+        // Other contact information for the governance issue.
         shared_ptr<string> problemContactOther_ {};
         // The contact phone number for the governance issue.
         shared_ptr<string> problemContactPhone_ {};
         // The description of the governance issue.
         shared_ptr<string> problemDesc_ {};
-        // The submission method of the issue.
+        // The submission method for the issue.
         shared_ptr<string> problemSubmitType_ {};
         // The user who submitted the issue.
         shared_ptr<string> problemSubmitter_ {};
         // The username of the user who submitted the issue.
         shared_ptr<string> problemSubmitterUserName_ {};
-        // The types of the governance issue.
+        // The type of the governance issue.
         shared_ptr<vector<string>> problemTypes_ {};
       };
 
@@ -493,7 +493,7 @@ namespace Models
 
 
     protected:
-      // The time when the governance object was reported.
+      // The submission time.
       shared_ptr<string> commitTime_ {};
       // The governance object ID.
       shared_ptr<int64_t> governItemId_ {};
@@ -507,13 +507,13 @@ namespace Models
       shared_ptr<GovernObjectInfo::Problem> problem_ {};
       // The properties.
       Darabonba::Json properties_ {};
-      // The ID of the rectification.
+      // The rectification ID.
       shared_ptr<int64_t> rectifyId_ {};
-      // The name of the rectification.
+      // The rectification name.
       shared_ptr<string> rectifyName_ {};
       // The rectification status.
       shared_ptr<string> rectifyStatus_ {};
-      // The ID of the user who performs the rectification.
+      // The ID of the rectification user.
       shared_ptr<string> rectifyUser_ {};
       // The display name of the rectification user.
       shared_ptr<string> rectifyUserName_ {};
@@ -574,17 +574,17 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The backend response code.
     shared_ptr<string> code_ {};
     // The governance object details.
     shared_ptr<GetDataAssetsGovernObjectResponseBody::GovernObjectInfo> governObjectInfo_ {};
-    // The HTTP status code.
+    // The HTTP response code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The backend response exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

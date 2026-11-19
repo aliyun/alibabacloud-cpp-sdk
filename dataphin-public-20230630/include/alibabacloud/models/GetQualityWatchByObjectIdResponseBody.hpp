@@ -269,15 +269,15 @@ namespace Models
         shared_ptr<bool> isPartitionTable_ {};
         // The table name.
         shared_ptr<string> name_ {};
-        // The user ID of the owner.
+        // The owner ID.
         shared_ptr<string> owner_ {};
-        // The username of the owner.
+        // The owner name.
         shared_ptr<string> ownerName_ {};
         // The project ID.
         shared_ptr<int64_t> projectId_ {};
         // The project name.
         shared_ptr<string> projectName_ {};
-        // The type. Valid values: LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_LABEL_TABLE (logical tag table), PHYSICAL_TABLE (physical table), and REALTIME_LOGICAL_TABLE (real-time metadata table).
+        // The type. Valid values: LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_LABEL_TABLE (logical tag table), PHYSICAL_TABLE (physical table), and REALTIME_LOGICAL_TABLE (real-time metatable).
         shared_ptr<string> type_ {};
       };
 
@@ -472,15 +472,15 @@ namespace Models
         shared_ptr<string> bizUnitName_ {};
         // The metric catalog.
         shared_ptr<string> catalog_ {};
-        // The name of the cell summary logical table.
+        // The unit aggregate table name.
         shared_ptr<string> cellSumLogicTableName_ {};
-        // The compute type of the metric. Valid values: AUTO, CUSTOM, MOUNT, and COMBINE.
+        // The metric computation type. Valid values: AUTO, CUSTOM, MOUNT, and COMBINE.
         shared_ptr<string> computeType_ {};
-        // The data type of the metric.
+        // The metric data type.
         shared_ptr<string> dateType_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // The display name of the metric.
+        // The metric display name.
         shared_ptr<string> displayName_ {};
         // The statistical granularity name.
         shared_ptr<string> granularityDisplayName_ {};
@@ -492,9 +492,9 @@ namespace Models
         shared_ptr<string> id_ {};
         // The metric name.
         shared_ptr<string> name_ {};
-        // The user ID of the owner.
+        // The owner ID.
         shared_ptr<string> owner_ {};
-        // The username of the owner.
+        // The owner name.
         shared_ptr<string> ownerName_ {};
         // The project ID.
         shared_ptr<int64_t> projectId_ {};
@@ -615,7 +615,7 @@ namespace Models
 
 
       protected:
-        // The creation time.
+        // The creation time in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> createTime_ {};
         // The creator.
         shared_ptr<string> creator_ {};
@@ -625,13 +625,13 @@ namespace Models
         shared_ptr<string> env_ {};
         // The data source ID.
         shared_ptr<string> id_ {};
-        // The update time.
+        // The update time in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> modifyTime_ {};
         // The data source name.
         shared_ptr<string> name_ {};
-        // The user ID of the owner.
+        // The owner ID.
         shared_ptr<string> owner_ {};
-        // The username of the owner.
+        // The owner name.
         shared_ptr<string> ownerName_ {};
         // The data source type. Valid values: MAX_COMPUTE and HADOOP.
         shared_ptr<string> type_ {};
@@ -775,7 +775,7 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The creator.
       shared_ptr<string> creator_ {};
@@ -795,7 +795,7 @@ namespace Models
       shared_ptr<string> latestWatchTaskStatus_ {};
       // The user ID of the last modifier.
       shared_ptr<string> modifier_ {};
-      // The update time.
+      // The update time in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> modifyTime_ {};
       // The monitor name.
       shared_ptr<string> name_ {};
@@ -809,7 +809,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The monitored table object.
       shared_ptr<QualityWatchInfo::TableInfo> tableInfo_ {};
-      // The monitored object type. Valid values: TABLE (Dataphin table), DATASOURCE_TABLE (global table), DATASOURCE (data source), INDEX (metric), and REALTIME_LOGICAL_TABLE (real-time metadata table).
+      // The monitored object type. Valid values: TABLE (Dataphin table), DATASOURCE_TABLE (global table), DATASOURCE (data source), INDEX (metric), and REALTIME_LOGICAL_TABLE (real-time metatable).
       shared_ptr<string> type_ {};
     };
 

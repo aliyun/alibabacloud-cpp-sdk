@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The log file name. This name can be used as the logName input parameter for the logContent operation.
+      // The original name of the log file. This value corresponds to the LogName request parameter of the GetStreamLogContent operation. Pass this value as is.
       shared_ptr<string> logName_ {};
-      // The last modified time in milliseconds.
+      // The last modified time of the log file. The value is a timestamp in milliseconds since the UNIX epoch.
       shared_ptr<int64_t> mtime_ {};
-      // The file size in bytes.
+      // The size of the log file. Unit: bytes.
       shared_ptr<int64_t> size_ {};
     };
 
@@ -144,15 +144,15 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The list of log files for the specified TaskManager.
+    // The log file entries for the JobManager or TaskManager. You can use the LogName field to retrieve the log content.
     shared_ptr<vector<ListStreamTaskManagerLogsResponseBody::Data>> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The backend exception details.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

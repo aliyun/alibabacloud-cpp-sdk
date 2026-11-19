@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The paged query conditions.
+    // The paging query conditions.
     shared_ptr<string> listQueryShrink_ {};
     // The tenant ID.
     // 

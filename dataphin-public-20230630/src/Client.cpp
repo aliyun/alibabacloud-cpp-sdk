@@ -2,11 +2,13 @@
 #include <alibabacloud/DataphinPublic20230630.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace DataphinPublic20230630
 {
 
 AlibabaCloud::DataphinPublic20230630::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "dataphin-public";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("dataphin-public", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -630,8 +635,7 @@ ApplyResourcePermissionResponse Client::applyResourcePermission(const ApplyResou
 }
 
 /**
- * @summary Binds specified quality rules to schedule settings.
- * Release version: v5.4.2.
+ * @summary Binds quality rules to scheduling settings. Available since v5.4.2.
  *
  * @param tmpReq AssignQualityRuleOfAllRuleScopeSchedulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -678,8 +682,7 @@ AssignQualityRuleOfAllRuleScopeSchedulesResponse Client::assignQualityRuleOfAllR
 }
 
 /**
- * @summary Binds specified quality rules to schedule settings.
- * Release version: v5.4.2.
+ * @summary Binds quality rules to scheduling settings. Available since v5.4.2.
  *
  * @param request AssignQualityRuleOfAllRuleScopeSchedulesRequest
  * @return AssignQualityRuleOfAllRuleScopeSchedulesResponse
@@ -690,7 +693,7 @@ AssignQualityRuleOfAllRuleScopeSchedulesResponse Client::assignQualityRuleOfAllR
 }
 
 /**
- * @summary Creates knowledge graph entity records in batches. Released in version v6.1.1.
+ * @summary Creates knowledge graph entity records in batches. Available since version v6.1.1.
  *
  * @param tmpReq BatchCreateKgEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -741,7 +744,7 @@ BatchCreateKgEntityResponse Client::batchCreateKgEntityWithOptions(const BatchCr
 }
 
 /**
- * @summary Creates knowledge graph entity records in batches. Released in version v6.1.1.
+ * @summary Creates knowledge graph entity records in batches. Available since version v6.1.1.
  *
  * @param request BatchCreateKgEntityRequest
  * @return BatchCreateKgEntityResponse
@@ -752,7 +755,7 @@ BatchCreateKgEntityResponse Client::batchCreateKgEntity(const BatchCreateKgEntit
 }
 
 /**
- * @summary Creates knowledge graph relationship records in batches. Released in version v6.1.1.
+ * @summary Creates knowledge graph relation records in batches. Available since version v6.1.1.
  *
  * @param tmpReq BatchCreateKgRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -803,7 +806,7 @@ BatchCreateKgRelationResponse Client::batchCreateKgRelationWithOptions(const Bat
 }
 
 /**
- * @summary Creates knowledge graph relationship records in batches. Released in version v6.1.1.
+ * @summary Creates knowledge graph relation records in batches. Available since version v6.1.1.
  *
  * @param request BatchCreateKgRelationRequest
  * @return BatchCreateKgRelationResponse
@@ -1660,7 +1663,7 @@ CreateBizMetricResponse Client::createBizMetric(const CreateBizMetricRequest &re
 }
 
 /**
- * @summary Creates a data domain.
+ * @summary Creates a business unit.
  *
  * @param tmpReq CreateBizUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1707,7 +1710,7 @@ CreateBizUnitResponse Client::createBizUnitWithOptions(const CreateBizUnitReques
 }
 
 /**
- * @summary Creates a data domain.
+ * @summary Creates a business unit.
  *
  * @param request CreateBizUnitRequest
  * @return CreateBizUnitResponse
@@ -1892,7 +1895,7 @@ CreateDataDomainResponse Client::createDataDomain(const CreateDataDomainRequest 
 }
 
 /**
- * @summary Creates a data service API and submits it.
+ * @summary Creates and submits a new data service API.
  *
  * @param tmpReq CreateDataServiceApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1939,7 +1942,7 @@ CreateDataServiceApiResponse Client::createDataServiceApiWithOptions(const Creat
 }
 
 /**
- * @summary Creates a data service API and submits it.
+ * @summary Creates and submits a new data service API.
  *
  * @param request CreateDataServiceApiRequest
  * @return CreateDataServiceApiResponse
@@ -2062,7 +2065,7 @@ CreateDataServiceAppGroupResponse Client::createDataServiceAppGroup(const Create
 }
 
 /**
- * @summary Create Data Source: Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permission to perform this operation.
+ * @summary Creates a data source. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators are authorized to perform this operation.
  *
  * @param tmpReq CreateDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2109,7 +2112,7 @@ CreateDataSourceResponse Client::createDataSourceWithOptions(const CreateDataSou
 }
 
 /**
- * @summary Create Data Source: Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permission to perform this operation.
+ * @summary Creates a data source. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators are authorized to perform this operation.
  *
  * @param request CreateDataSourceRequest
  * @return CreateDataSourceResponse
@@ -2258,7 +2261,7 @@ CreateDevProdProjectResponse Client::createDevProdProject(const CreateDevProdPro
 }
 
 /**
- * @summary Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
+ * @summary Creates a menu tree directory to support features such as compute tasks, data integration, and synchronization tasks.
  *
  * @param tmpReq CreateDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2305,7 +2308,7 @@ CreateDirectoryResponse Client::createDirectoryWithOptions(const CreateDirectory
 }
 
 /**
- * @summary Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
+ * @summary Creates a menu tree directory to support features such as compute tasks, data integration, and synchronization tasks.
  *
  * @param request CreateDirectoryRequest
  * @return CreateDirectoryResponse
@@ -2316,7 +2319,7 @@ CreateDirectoryResponse Client::createDirectory(const CreateDirectoryRequest &re
 }
 
 /**
- * @summary Creates a knowledge graph entity record. Online version: v6.1.1.
+ * @summary Creates a knowledge graph entity record. Released in version v6.1.1.
  *
  * @param tmpReq CreateKgEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2367,7 +2370,7 @@ CreateKgEntityResponse Client::createKgEntityWithOptions(const CreateKgEntityReq
 }
 
 /**
- * @summary Creates a knowledge graph entity record. Online version: v6.1.1.
+ * @summary Creates a knowledge graph entity record. Released in version v6.1.1.
  *
  * @param request CreateKgEntityRequest
  * @return CreateKgEntityResponse
@@ -2378,7 +2381,7 @@ CreateKgEntityResponse Client::createKgEntity(const CreateKgEntityRequest &reque
 }
 
 /**
- * @summary Creates a knowledge graph relationship record. Online version: v6.1.1.
+ * @summary Creates a knowledge graph relationship record. Available since v6.1.1.
  *
  * @param tmpReq CreateKgRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2429,7 +2432,7 @@ CreateKgRelationResponse Client::createKgRelationWithOptions(const CreateKgRelat
 }
 
 /**
- * @summary Creates a knowledge graph relationship record. Online version: v6.1.1.
+ * @summary Creates a knowledge graph relationship record. Available since v6.1.1.
  *
  * @param request CreateKgRelationRequest
  * @return CreateKgRelationResponse
@@ -2568,7 +2571,7 @@ CreatePipelineResponse Client::createPipeline(const CreatePipelineRequest &reque
 }
 
 /**
- * @summary Asynchronously create a pipeline/unstructured workflow.
+ * @summary Asynchronously creates a pipeline or unstructured workflow.
  *
  * @param tmpReq CreatePipelineByAsyncRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2623,7 +2626,7 @@ CreatePipelineByAsyncResponse Client::createPipelineByAsyncWithOptions(const Cre
 }
 
 /**
- * @summary Asynchronously create a pipeline/unstructured workflow.
+ * @summary Asynchronously creates a pipeline or unstructured workflow.
  *
  * @param request CreatePipelineByAsyncRequest
  * @return CreatePipelineByAsyncResponse
@@ -3044,8 +3047,7 @@ CreateSecurityClassifyCatalogResponse Client::createSecurityClassifyCatalog(cons
 }
 
 /**
- * @summary Creates a security identification result.
- * Release version: v5.4.2.
+ * @summary Creates a security identification result. Available since version 5.4.2.
  *
  * @param tmpReq CreateSecurityIdentifyResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3092,8 +3094,7 @@ CreateSecurityIdentifyResultResponse Client::createSecurityIdentifyResultWithOpt
 }
 
 /**
- * @summary Creates a security identification result.
- * Release version: v5.4.2.
+ * @summary Creates a security identification result. Available since version 5.4.2.
  *
  * @param request CreateSecurityIdentifyResultRequest
  * @return CreateSecurityIdentifyResultResponse
@@ -3278,8 +3279,7 @@ CreateStandardLookupTableResponse Client::createStandardLookupTable(const Create
 }
 
 /**
- * @summary Creates standard mapping relationships, including valid mappings and invalid mappings.
- * Release version: v5.4.2.
+ * @summary Creates standard mapping relationships, including valid and invalid mappings. Release version: v5.4.2.
  *
  * @param tmpReq CreateStandardMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3326,8 +3326,7 @@ CreateStandardMappingResponse Client::createStandardMappingWithOptions(const Cre
 }
 
 /**
- * @summary Creates standard mapping relationships, including valid mappings and invalid mappings.
- * Release version: v5.4.2.
+ * @summary Creates standard mapping relationships, including valid and invalid mappings. Release version: v5.4.2.
  *
  * @param request CreateStandardMappingRequest
  * @return CreateStandardMappingResponse
@@ -3338,8 +3337,7 @@ CreateStandardMappingResponse Client::createStandardMapping(const CreateStandard
 }
 
 /**
- * @summary Creates a standard association relationship.
- * Online version: v5.4.2.
+ * @summary Creates a standard association. Release version: v5.4.2.
  *
  * @param tmpReq CreateStandardRelationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3386,8 +3384,7 @@ CreateStandardRelationsResponse Client::createStandardRelationsWithOptions(const
 }
 
 /**
- * @summary Creates a standard association relationship.
- * Online version: v5.4.2.
+ * @summary Creates a standard association. Release version: v5.4.2.
  *
  * @param request CreateStandardRelationsRequest
  * @return CreateStandardRelationsResponse
@@ -3398,8 +3395,7 @@ CreateStandardRelationsResponse Client::createStandardRelations(const CreateStan
 }
 
 /**
- * @summary Creates a standard set.
- * Available since: v5.4.2.
+ * @summary Creates a standard set. Released in version 5.4.2.
  *
  * @param tmpReq CreateStandardSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3446,8 +3442,7 @@ CreateStandardSetResponse Client::createStandardSetWithOptions(const CreateStand
 }
 
 /**
- * @summary Creates a standard set.
- * Available since: v5.4.2.
+ * @summary Creates a standard set. Released in version 5.4.2.
  *
  * @param request CreateStandardSetRequest
  * @return CreateStandardSetResponse
@@ -3632,7 +3627,7 @@ CreateStreamBatchJobMappingResponse Client::createStreamBatchJobMapping(const Cr
 }
 
 /**
- * @summary Creates a user-defined function.
+ * @summary Creates a custom function.
  *
  * @param tmpReq CreateUdfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3679,7 +3674,7 @@ CreateUdfResponse Client::createUdfWithOptions(const CreateUdfRequest &tmpReq, c
 }
 
 /**
- * @summary Creates a user-defined function.
+ * @summary Creates a custom function.
  *
  * @param request CreateUdfRequest
  * @return CreateUdfResponse
@@ -3814,7 +3809,7 @@ CreateWorkFlowByJsonResponse Client::createWorkFlowByJson(const CreateWorkFlowBy
 }
 
 /**
- * @summary Deletes an ad hoc query file from the menu tree.
+ * @summary Deletes the ad hoc query file in the menu tree.
  *
  * @param request DeleteAdHocFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3857,7 +3852,7 @@ DeleteAdHocFileResponse Client::deleteAdHocFileWithOptions(const DeleteAdHocFile
 }
 
 /**
- * @summary Deletes an ad hoc query file from the menu tree.
+ * @summary Deletes the ad hoc query file in the menu tree.
  *
  * @param request DeleteAdHocFileRequest
  * @return DeleteAdHocFileResponse
@@ -3984,8 +3979,7 @@ DeleteBizEntityResponse Client::deleteBizEntity(const DeleteBizEntityRequest &re
 }
 
 /**
- * @summary Deletes a business metric.
- * Release version: v5.5.0.
+ * @summary Deletes a business metric. Release version: v5.5.0.
  *
  * @param tmpReq DeleteBizMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4032,8 +4026,7 @@ DeleteBizMetricResponse Client::deleteBizMetricWithOptions(const DeleteBizMetric
 }
 
 /**
- * @summary Deletes a business metric.
- * Release version: v5.5.0.
+ * @summary Deletes a business metric. Release version: v5.5.0.
  *
  * @param request DeleteBizMetricRequest
  * @return DeleteBizMetricResponse
@@ -4044,7 +4037,7 @@ DeleteBizMetricResponse Client::deleteBizMetric(const DeleteBizMetricRequest &re
 }
 
 /**
- * @summary Deletes a data domain.
+ * @summary Deletes a data block.
  *
  * @param request DeleteBizUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4083,7 +4076,7 @@ DeleteBizUnitResponse Client::deleteBizUnitWithOptions(const DeleteBizUnitReques
 }
 
 /**
- * @summary Deletes a data domain.
+ * @summary Deletes a data block.
  *
  * @param request DeleteBizUnitRequest
  * @return DeleteBizUnitResponse
@@ -4194,7 +4187,7 @@ DeleteComputeSourceResponse Client::deleteComputeSource(const DeleteComputeSourc
 }
 
 /**
- * @summary Deletes a subject domain.
+ * @summary Deletes a subject area.
  *
  * @param request DeleteDataDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4237,7 +4230,7 @@ DeleteDataDomainResponse Client::deleteDataDomainWithOptions(const DeleteDataDom
 }
 
 /**
- * @summary Deletes a subject domain.
+ * @summary Deletes a subject area.
  *
  * @param request DeleteDataDomainRequest
  * @return DeleteDataDomainResponse
@@ -4248,8 +4241,7 @@ DeleteDataDomainResponse Client::deleteDataDomain(const DeleteDataDomainRequest 
 }
 
 /**
- * @summary Deletes a data service application. Only superusers, system administrators, or application owners can perform this operation.
- * Online version: v6.0.0.
+ * @summary Deletes a data service application. Only super administrators, system administrators, or application owners can perform this operation. Release version: v6.0.0.
  *
  * @param request DeleteDataServiceAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4288,8 +4280,7 @@ DeleteDataServiceAppResponse Client::deleteDataServiceAppWithOptions(const Delet
 }
 
 /**
- * @summary Deletes a data service application. Only superusers, system administrators, or application owners can perform this operation.
- * Online version: v6.0.0.
+ * @summary Deletes a data service application. Only super administrators, system administrators, or application owners can perform this operation. Release version: v6.0.0.
  *
  * @param request DeleteDataServiceAppRequest
  * @return DeleteDataServiceAppResponse
@@ -4300,8 +4291,7 @@ DeleteDataServiceAppResponse Client::deleteDataServiceApp(const DeleteDataServic
 }
 
 /**
- * @summary Deletes a data service application group. Only superusers and system administrators can perform this operation.
- * Online version: v6.0.0.
+ * @summary Deletes a data service application group. Only super administrators and system administrators can perform this operation. Online version: v6.0.0.
  *
  * @param request DeleteDataServiceAppGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4340,8 +4330,7 @@ DeleteDataServiceAppGroupResponse Client::deleteDataServiceAppGroupWithOptions(c
 }
 
 /**
- * @summary Deletes a data service application group. Only superusers and system administrators can perform this operation.
- * Online version: v6.0.0.
+ * @summary Deletes a data service application group. Only super administrators and system administrators can perform this operation. Online version: v6.0.0.
  *
  * @param request DeleteDataServiceAppGroupRequest
  * @return DeleteDataServiceAppGroupResponse
@@ -4464,7 +4453,7 @@ DeleteDatasetResponse Client::deleteDataset(const DeleteDatasetRequest &request)
 }
 
 /**
- * @summary Deletes a file directory from the menu tree.
+ * @summary Deletes a folder in the menu tree.
  *
  * @param request DeleteDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4507,7 +4496,7 @@ DeleteDirectoryResponse Client::deleteDirectoryWithOptions(const DeleteDirectory
 }
 
 /**
- * @summary Deletes a file directory from the menu tree.
+ * @summary Deletes a folder in the menu tree.
  *
  * @param request DeleteDirectoryRequest
  * @return DeleteDirectoryResponse
@@ -4518,7 +4507,7 @@ DeleteDirectoryResponse Client::deleteDirectory(const DeleteDirectoryRequest &re
 }
 
 /**
- * @summary Deletes an entity record. Online version: v6.1.1.
+ * @summary Deletes an entity record. Available since version 6.1.1.
  *
  * @param request DeleteKgEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4565,7 +4554,7 @@ DeleteKgEntityResponse Client::deleteKgEntityWithOptions(const DeleteKgEntityReq
 }
 
 /**
- * @summary Deletes an entity record. Online version: v6.1.1.
+ * @summary Deletes an entity record. Available since version 6.1.1.
  *
  * @param request DeleteKgEntityRequest
  * @return DeleteKgEntityResponse
@@ -4916,7 +4905,7 @@ DeleteQualityWatchesResponse Client::deleteQualityWatches(const DeleteQualityWat
 }
 
 /**
- * @summary Deletes registered data lineage. Available since v5.4.0.
+ * @summary Deletes registered lineage. Available since version 5.4.0.
  *
  * @param tmpReq DeleteRegisterLineageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4963,7 +4952,7 @@ DeleteRegisterLineageResponse Client::deleteRegisterLineageWithOptions(const Del
 }
 
 /**
- * @summary Deletes registered data lineage. Available since v5.4.0.
+ * @summary Deletes registered lineage. Available since version 5.4.0.
  *
  * @param request DeleteRegisterLineageRequest
  * @return DeleteRegisterLineageResponse
@@ -5264,7 +5253,7 @@ DeleteSecurityIdentifyResultsResponse Client::deleteSecurityIdentifyResults(cons
 }
 
 /**
- * @summary Deletes a data classification level. Available since v5.4.2.
+ * @summary Deletes a data classification level. Released in version 5.4.2.
  *
  * @param tmpReq DeleteSecurityLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5311,7 +5300,7 @@ DeleteSecurityLevelResponse Client::deleteSecurityLevelWithOptions(const DeleteS
 }
 
 /**
- * @summary Deletes a data classification level. Available since v5.4.2.
+ * @summary Deletes a data classification level. Released in version 5.4.2.
  *
  * @param request DeleteSecurityLevelRequest
  * @return DeleteSecurityLevelResponse
@@ -5546,8 +5535,7 @@ DeleteStandardRelationsResponse Client::deleteStandardRelations(const DeleteStan
 }
 
 /**
- * @summary Deletes a standard set.
- * Online version: v5.4.2.
+ * @summary Deletes a standard set. Release version: v5.4.2.
  *
  * @param request DeleteStandardSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5586,8 +5574,7 @@ DeleteStandardSetResponse Client::deleteStandardSetWithOptions(const DeleteStand
 }
 
 /**
- * @summary Deletes a standard set.
- * Online version: v5.4.2.
+ * @summary Deletes a standard set. Release version: v5.4.2.
  *
  * @param request DeleteStandardSetRequest
  * @return DeleteStandardSetResponse
@@ -5656,8 +5643,7 @@ DeleteStandardValidMappingResponse Client::deleteStandardValidMapping(const Dele
 }
 
 /**
- * @summary Deletes a data standard root word.
- * Online version: v5.4.2.
+ * @summary Deletes a data standard word root. Release version: v5.4.2.
  *
  * @param request DeleteStandardWordRootRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5696,8 +5682,7 @@ DeleteStandardWordRootResponse Client::deleteStandardWordRootWithOptions(const D
 }
 
 /**
- * @summary Deletes a data standard root word.
- * Online version: v5.4.2.
+ * @summary Deletes a data standard word root. Release version: v5.4.2.
  *
  * @param request DeleteStandardWordRootRequest
  * @return DeleteStandardWordRootResponse
@@ -5816,7 +5801,7 @@ DeleteUserGroupResponse Client::deleteUserGroup(const DeleteUserGroupRequest &re
 }
 
 /**
- * @summary Executes a custom Cypher query. Online version: v6.2.0.
+ * @summary Executes a custom Cypher query. Available since v6.2.0.
  *
  * @param tmpReq ExecKgCypherRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5867,7 +5852,7 @@ ExecKgCypherResponse Client::execKgCypherWithOptions(const ExecKgCypherRequest &
 }
 
 /**
- * @summary Executes a custom Cypher query. Online version: v6.2.0.
+ * @summary Executes a custom Cypher query. Available since v6.2.0.
  *
  * @param request ExecKgCypherRequest
  * @return ExecKgCypherResponse
@@ -6188,7 +6173,7 @@ ExecuteTriggerNodeResponse Client::executeTriggerNode(const ExecuteTriggerNodeRe
 }
 
 /**
- * @summary Exports knowledge graph metadata definitions. Online version: v6.1.1.
+ * @summary Exports the metadata definition of a knowledge graph. Release version: v6.1.1.
  *
  * @param request ExportKgSchemaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6235,7 +6220,7 @@ ExportKgSchemaResponse Client::exportKgSchemaWithOptions(const ExportKgSchemaReq
 }
 
 /**
- * @summary Exports knowledge graph metadata definitions. Online version: v6.1.1.
+ * @summary Exports the metadata definition of a knowledge graph. Release version: v6.1.1.
  *
  * @param request ExportKgSchemaRequest
  * @return ExportKgSchemaResponse
@@ -6246,7 +6231,7 @@ ExportKgSchemaResponse Client::exportKgSchema(const ExportKgSchemaRequest &reque
 }
 
 /**
- * @summary Reruns downstream nodes to fix data link issues. Supports forced rerun of downstream nodes. Impact: incurs compute costs and affects data output.
+ * @summary Reruns downstream nodes to repair pipeline data. Supports forced reruns. Impact: incurs computing costs and affects data output.
  *
  * @param tmpReq FixDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6297,7 +6282,7 @@ FixDataResponse Client::fixDataWithOptions(const FixDataRequest &tmpReq, const D
 }
 
 /**
- * @summary Reruns downstream nodes to fix data link issues. Supports forced rerun of downstream nodes. Impact: incurs compute costs and affects data output.
+ * @summary Reruns downstream nodes to repair pipeline data. Supports forced reruns. Impact: incurs computing costs and affects data output.
  *
  * @param request FixDataRequest
  * @return FixDataResponse
@@ -6366,7 +6351,7 @@ GetAccountByRowPermissionIdResponse Client::getAccountByRowPermissionId(const Ge
 }
 
 /**
- * @summary Queries a custom query file in the directory tree.
+ * @summary Queries ad hoc query files in the directory tree.
  *
  * @param request GetAdHocFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6409,7 +6394,7 @@ GetAdHocFileResponse Client::getAdHocFileWithOptions(const GetAdHocFileRequest &
 }
 
 /**
- * @summary Queries a custom query file in the directory tree.
+ * @summary Queries ad hoc query files in the directory tree.
  *
  * @param request GetAdHocFileRequest
  * @return GetAdHocFileResponse
@@ -6698,7 +6683,7 @@ GetAssetAttributesResponse Client::getAssetAttributes(const GetAssetAttributesRe
 }
 
 /**
- * @summary Queries the mapping relationships based on the asset object GUID. Released in version 5.4.2.
+ * @summary Queries the mapping relationships based on the asset object GUID. Release version: v5.4.2.
  *
  * @param tmpReq GetAssetMappingRelationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6745,7 +6730,7 @@ GetAssetMappingRelationsResponse Client::getAssetMappingRelationsWithOptions(con
 }
 
 /**
- * @summary Queries the mapping relationships based on the asset object GUID. Released in version 5.4.2.
+ * @summary Queries the mapping relationships based on the asset object GUID. Release version: v5.4.2.
  *
  * @param request GetAssetMappingRelationsRequest
  * @return GetAssetMappingRelationsResponse
@@ -7034,7 +7019,7 @@ GetBatchTaskVersionsResponse Client::getBatchTaskVersions(const GetBatchTaskVers
 }
 
 /**
- * @summary Retrieves the versions of a specified offline template. Available since v6.2.0.
+ * @summary Retrieves the version list for a specified offline template ID. Available since version: v6.2.0.
  *
  * @param request GetBatchTemplateVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7081,7 +7066,7 @@ GetBatchTemplateVersionsResponse Client::getBatchTemplateVersionsWithOptions(con
 }
 
 /**
- * @summary Retrieves the versions of a specified offline template. Available since v6.2.0.
+ * @summary Retrieves the version list for a specified offline template ID. Available since version: v6.2.0.
  *
  * @param request GetBatchTemplateVersionsRequest
  * @return GetBatchTemplateVersionsResponse
@@ -7092,7 +7077,7 @@ GetBatchTemplateVersionsResponse Client::getBatchTemplateVersions(const GetBatch
 }
 
 /**
- * @summary Queries the mapping relationships based on the GUID of the owning asset. Released in v5.4.2.
+ * @summary Queries the mapping relationships based on the GUID of the parent asset. Released in version 5.4.2.
  *
  * @param tmpReq GetBelongAssetMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7139,7 +7124,7 @@ GetBelongAssetMappingResponse Client::getBelongAssetMappingWithOptions(const Get
 }
 
 /**
- * @summary Queries the mapping relationships based on the GUID of the owning asset. Released in v5.4.2.
+ * @summary Queries the mapping relationships based on the GUID of the parent asset. Released in version 5.4.2.
  *
  * @param request GetBelongAssetMappingRequest
  * @return GetBelongAssetMappingResponse
@@ -7204,7 +7189,7 @@ GetBizEntityInfoResponse Client::getBizEntityInfo(const GetBizEntityInfoRequest 
 }
 
 /**
- * @summary Queries the details of a business entity of a specified version.
+ * @summary Queries the details of a specific version of a business entity.
  *
  * @param request GetBizEntityInfoByVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7251,7 +7236,7 @@ GetBizEntityInfoByVersionResponse Client::getBizEntityInfoByVersionWithOptions(c
 }
 
 /**
- * @summary Queries the details of a business entity of a specified version.
+ * @summary Queries the details of a specific version of a business entity.
  *
  * @param request GetBizEntityInfoByVersionRequest
  * @return GetBizEntityInfoByVersionResponse
@@ -7370,7 +7355,7 @@ GetBizUnitInfoResponse Client::getBizUnitInfo(const GetBizUnitInfoRequest &reque
 }
 
 /**
- * @summary Queries asset details. Online version: v6.1.0.
+ * @summary Queries asset details. Release version: v6.1.0.
  *
  * @param tmpReq GetCatalogAssetDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7417,7 +7402,7 @@ GetCatalogAssetDetailsResponse Client::getCatalogAssetDetailsWithOptions(const G
 }
 
 /**
- * @summary Queries asset details. Online version: v6.1.0.
+ * @summary Queries asset details. Release version: v6.1.0.
  *
  * @param request GetCatalogAssetDetailsRequest
  * @return GetCatalogAssetDetailsResponse
@@ -7428,9 +7413,9 @@ GetCatalogAssetDetailsResponse Client::getCatalogAssetDetails(const GetCatalogAs
 }
 
 /**
- * @summary Queries a data source connectivity check task by task ID. Available since version 6.3.2.
+ * @summary Queries a data source connectivity check task by task ID. Release version: v6.3.2.
  *
- * @description Queries the latest status and error message of a data source connectivity check task by task ID. This operation is used to poll the asynchronous task returned by CheckDataSourceConnectivityOnResourceGroup. If the task does not exist, Data is empty.
+ * @description Queries the latest status and fault message of a data source connectivity check node by node ID. This operation is used to poll the asynchronous task returned by CheckDataSourceConnectivityOnResourceGroup. If the node does not exist, Data is empty.
  *
  * @param request GetCheckConnectivityJobByJobIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7469,9 +7454,9 @@ GetCheckConnectivityJobByJobIdResponse Client::getCheckConnectivityJobByJobIdWit
 }
 
 /**
- * @summary Queries a data source connectivity check task by task ID. Available since version 6.3.2.
+ * @summary Queries a data source connectivity check task by task ID. Release version: v6.3.2.
  *
- * @description Queries the latest status and error message of a data source connectivity check task by task ID. This operation is used to poll the asynchronous task returned by CheckDataSourceConnectivityOnResourceGroup. If the task does not exist, Data is empty.
+ * @description Queries the latest status and fault message of a data source connectivity check node by node ID. This operation is used to poll the asynchronous task returned by CheckDataSourceConnectivityOnResourceGroup. If the node does not exist, Data is empty.
  *
  * @param request GetCheckConnectivityJobByJobIdRequest
  * @return GetCheckConnectivityJobByJobIdResponse
@@ -7482,9 +7467,9 @@ GetCheckConnectivityJobByJobIdResponse Client::getCheckConnectivityJobByJobId(co
 }
 
 /**
- * @summary Queries a list of connectivity check tasks based on the specified data source ID, including null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
+ * @summary Queries the connectivity check tasks for a specified data source ID. Includes null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
  *
- * @description Queries the details of tested connectivity tasks based on the data source ID.
+ * @description Queries the details of tested connectivity tasks for a data source ID.
  *
  * @param request GetCheckConnectivityJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7523,9 +7508,9 @@ GetCheckConnectivityJobsResponse Client::getCheckConnectivityJobsWithOptions(con
 }
 
 /**
- * @summary Queries a list of connectivity check tasks based on the specified data source ID, including null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
+ * @summary Queries the connectivity check tasks for a specified data source ID. Includes null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
  *
- * @description Queries the details of tested connectivity tasks based on the data source ID.
+ * @description Queries the details of tested connectivity tasks for a data source ID.
  *
  * @param request GetCheckConnectivityJobsRequest
  * @return GetCheckConnectivityJobsResponse
@@ -7594,9 +7579,9 @@ GetClusterQueueInfoByEnvResponse Client::getClusterQueueInfoByEnv(const GetClust
 }
 
 /**
- * @summary Queries cluster details. Available since v6.3.0.
+ * @summary Queries the details of a cluster. Available since version 6.3.0.
  *
- * @description Queries the details of a tested connectivity task based on the datasource ID.
+ * @description Queries the details of tested connectivity tasks based on the data source ID.
  *
  * @param request GetComputeClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7635,9 +7620,9 @@ GetComputeClusterResponse Client::getComputeClusterWithOptions(const GetComputeC
 }
 
 /**
- * @summary Queries cluster details. Available since v6.3.0.
+ * @summary Queries the details of a cluster. Available since version 6.3.0.
  *
- * @description Queries the details of a tested connectivity task based on the datasource ID.
+ * @description Queries the details of tested connectivity tasks based on the data source ID.
  *
  * @param request GetComputeClusterRequest
  * @return GetComputeClusterResponse
@@ -7698,9 +7683,9 @@ GetComputeSourceResponse Client::getComputeSource(const GetComputeSourceRequest 
 }
 
 /**
- * @summary Retrieves the details of a specified quality watchtask by governance item ID. Online version: v6.3.0.
+ * @summary Retrieves the details of a specified issue checklist object based on the governance item ID. Available since v6.3.0.
  *
- * @description Retrieves the details of a Query Governance object by governance item ID.
+ * @description Queries the details of a governance object based on the Query Governance project ID.
  *
  * @param tmpReq GetDataAssetsGovernObjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7747,9 +7732,9 @@ GetDataAssetsGovernObjectResponse Client::getDataAssetsGovernObjectWithOptions(c
 }
 
 /**
- * @summary Retrieves the details of a specified quality watchtask by governance item ID. Online version: v6.3.0.
+ * @summary Retrieves the details of a specified issue checklist object based on the governance item ID. Available since v6.3.0.
  *
- * @description Retrieves the details of a Query Governance object by governance item ID.
+ * @description Queries the details of a governance object based on the Query Governance project ID.
  *
  * @param request GetDataAssetsGovernObjectRequest
  * @return GetDataAssetsGovernObjectResponse
@@ -7868,7 +7853,7 @@ GetDataServiceApiCallSummaryResponse Client::getDataServiceApiCallSummary(const 
 }
 
 /**
- * @summary Service Monitoring: Analyzes API access trends.
+ * @summary Queries the API access trend analysis for Service Monitoring.
  *
  * @param request GetDataServiceApiCallTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7915,7 +7900,7 @@ GetDataServiceApiCallTrendResponse Client::getDataServiceApiCallTrendWithOptions
 }
 
 /**
- * @summary Service Monitoring: Analyzes API access trends.
+ * @summary Queries the API access trend analysis for Service Monitoring.
  *
  * @param request GetDataServiceApiCallTrendRequest
  * @return GetDataServiceApiCallTrendResponse
@@ -8038,7 +8023,7 @@ GetDataServiceApiErrorImpactResponse Client::getDataServiceApiErrorImpact(const 
 }
 
 /**
- * @summary Queries the list of API groups in Data Service.
+ * @summary Queries the list of data service API groups.
  *
  * @param request GetDataServiceApiGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8077,7 +8062,7 @@ GetDataServiceApiGroupsResponse Client::getDataServiceApiGroupsWithOptions(const
 }
 
 /**
- * @summary Queries the list of API groups in Data Service.
+ * @summary Queries the list of data service API groups.
  *
  * @param request GetDataServiceApiGroupsRequest
  * @return GetDataServiceApiGroupsResponse
@@ -8192,7 +8177,7 @@ GetDataServiceAppAuthorizedUsersResponse Client::getDataServiceAppAuthorizedUser
 }
 
 /**
- * @summary Queries the list of application groups for a data service project.
+ * @summary Queries the list of application groups in a data service project.
  *
  * @param request GetDataServiceAppGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8231,7 +8216,7 @@ GetDataServiceAppGroupsResponse Client::getDataServiceAppGroupsWithOptions(const
 }
 
 /**
- * @summary Queries the list of application groups for a data service project.
+ * @summary Queries the list of application groups in a data service project.
  *
  * @param request GetDataServiceAppGroupsRequest
  * @return GetDataServiceAppGroupsResponse
@@ -8242,8 +8227,7 @@ GetDataServiceAppGroupsResponse Client::getDataServiceAppGroups(const GetDataSer
 }
 
 /**
- * @summary Queries the member list of a data service application, including regular members and owners. Only application owners can call this operation.
- * Online version: v6.0.0.
+ * @summary Queries the members of a data service application, including regular members and owners. Only application owners can perform this query. Available since v6.0.0.
  *
  * @param request GetDataServiceAppMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8282,8 +8266,7 @@ GetDataServiceAppMembersResponse Client::getDataServiceAppMembersWithOptions(con
 }
 
 /**
- * @summary Queries the member list of a data service application, including regular members and owners. Only application owners can call this operation.
- * Online version: v6.0.0.
+ * @summary Queries the members of a data service application, including regular members and owners. Only application owners can perform this query. Available since v6.0.0.
  *
  * @param request GetDataServiceAppMembersRequest
  * @return GetDataServiceAppMembersResponse
@@ -8348,7 +8331,7 @@ GetDataServiceAppsByGroupIdResponse Client::getDataServiceAppsByGroupId(const Ge
 }
 
 /**
- * @summary Queries the list of applications that the account has permissions to access based on the app group ID.
+ * @summary Queries the applications that the account has permissions to access based on the application group ID.
  *
  * @param request GetDataServiceAuthorizedAppsByGroupIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8391,7 +8374,7 @@ GetDataServiceAuthorizedAppsByGroupIdResponse Client::getDataServiceAuthorizedAp
 }
 
 /**
- * @summary Queries the list of applications that the account has permissions to access based on the app group ID.
+ * @summary Queries the applications that the account has permissions to access based on the application group ID.
  *
  * @param request GetDataServiceAuthorizedAppsByGroupIdRequest
  * @return GetDataServiceAuthorizedAppsByGroupIdResponse
@@ -8402,7 +8385,7 @@ GetDataServiceAuthorizedAppsByGroupIdResponse Client::getDataServiceAuthorizedAp
 }
 
 /**
- * @summary Queries the list of projects that the user has access to.
+ * @summary Queries the list of projects that the user is authorized to access.
  *
  * @param request GetDataServiceAuthorizedProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8437,7 +8420,7 @@ GetDataServiceAuthorizedProjectsResponse Client::getDataServiceAuthorizedProject
 }
 
 /**
- * @summary Queries the list of projects that the user has access to.
+ * @summary Queries the list of projects that the user is authorized to access.
  *
  * @param request GetDataServiceAuthorizedProjectsRequest
  * @return GetDataServiceAuthorizedProjectsResponse
@@ -8448,7 +8431,7 @@ GetDataServiceAuthorizedProjectsResponse Client::getDataServiceAuthorizedProject
 }
 
 /**
- * @summary Retrieves the list of projects for which the current user is the owner.
+ * @summary Retrieves the list of projects where the current user is the owner.
  *
  * @param request GetDataServiceMyProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8483,7 +8466,7 @@ GetDataServiceMyProjectsResponse Client::getDataServiceMyProjectsWithOptions(con
 }
 
 /**
- * @summary Retrieves the list of projects for which the current user is the owner.
+ * @summary Retrieves the list of projects where the current user is the owner.
  *
  * @param request GetDataServiceMyProjectsRequest
  * @return GetDataServiceMyProjectsResponse
@@ -8596,7 +8579,7 @@ GetDataSourceDependenciesResponse Client::getDataSourceDependencies(const GetDat
 /**
  * @summary Retrieves a dataset. Release version: v6.2.0.
  *
- * @description Queries the details of a tested connectivity task based on the data source ID.
+ * @description Queries the details of tested connectivity tasks based on the data source ID.
  *
  * @param request GetDatasetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8641,7 +8624,7 @@ GetDatasetResponse Client::getDatasetWithOptions(const GetDatasetRequest &reques
 /**
  * @summary Retrieves a dataset. Release version: v6.2.0.
  *
- * @description Queries the details of a tested connectivity task based on the data source ID.
+ * @description Queries the details of tested connectivity tasks based on the data source ID.
  *
  * @param request GetDatasetRequest
  * @return GetDatasetResponse
@@ -8768,7 +8751,7 @@ GetDirectoryTreeResponse Client::getDirectoryTree(const GetDirectoryTreeRequest 
 }
 
 /**
- * @summary Retrieves temporary read and write authorization for file storage.
+ * @summary Obtains temporary read and write authorization for file storage.
  *
  * @param request GetFileStorageCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8815,7 +8798,7 @@ GetFileStorageCredentialResponse Client::getFileStorageCredentialWithOptions(con
 }
 
 /**
- * @summary Retrieves temporary read and write authorization for file storage.
+ * @summary Obtains temporary read and write authorization for file storage.
  *
  * @param request GetFileStorageCredentialRequest
  * @return GetFileStorageCredentialResponse
@@ -8892,7 +8875,7 @@ GetGranularityBySummaryIdResponse Client::getGranularityBySummaryId(const GetGra
 }
 
 /**
- * @summary Queries the downstream instances of a specified instance.
+ * @summary Queries the downstream instances of a specified starting instance.
  *
  * @param tmpReq GetInstanceDownStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8951,7 +8934,7 @@ GetInstanceDownStreamResponse Client::getInstanceDownStreamWithOptions(const Get
 }
 
 /**
- * @summary Queries the downstream instances of a specified instance.
+ * @summary Queries the downstream instances of a specified starting instance.
  *
  * @param request GetInstanceDownStreamRequest
  * @return GetInstanceDownStreamResponse
@@ -9140,7 +9123,7 @@ GetKgEntityResponse Client::getKgEntity(const GetKgEntityRequest &request) {
 }
 
 /**
- * @summary Retrieves neighbor nodes of a graph model entity. Online version: v6.2.0.
+ * @summary Retrieves the neighbor nodes of a graph model. Available since version v6.2.0.
  *
  * @param tmpReq GetKgNeighborRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9199,7 +9182,7 @@ GetKgNeighborResponse Client::getKgNeighborWithOptions(const GetKgNeighborReques
 }
 
 /**
- * @summary Retrieves neighbor nodes of a graph model entity. Online version: v6.2.0.
+ * @summary Retrieves the neighbor nodes of a graph model. Available since version v6.2.0.
  *
  * @param request GetKgNeighborRequest
  * @return GetKgNeighborResponse
@@ -9210,7 +9193,7 @@ GetKgNeighborResponse Client::getKgNeighbor(const GetKgNeighborRequest &request)
 }
 
 /**
- * @summary Retrieves the details of a knowledge graph relation record. Released in version v6.1.1.
+ * @summary Retrieves the details of a knowledge graph relation record. Available since version 6.1.1.
  *
  * @param request GetKgRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9257,7 +9240,7 @@ GetKgRelationResponse Client::getKgRelationWithOptions(const GetKgRelationReques
 }
 
 /**
- * @summary Retrieves the details of a knowledge graph relation record. Released in version v6.1.1.
+ * @summary Retrieves the details of a knowledge graph relation record. Available since version 6.1.1.
  *
  * @param request GetKgRelationRequest
  * @return GetKgRelationResponse
@@ -9380,7 +9363,7 @@ GetLatestSubmitDetailResponse Client::getLatestSubmitDetail(const GetLatestSubmi
 }
 
 /**
- * @summary Queries a specific large language model service provider and available models by name. Online version: v6.3.0.
+ * @summary Queries specific large model service providers and available models by name. Release version: v6.3.0.
  *
  * @param request GetLlmModelProviderByNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9419,7 +9402,7 @@ GetLlmModelProviderByNameResponse Client::getLlmModelProviderByNameWithOptions(c
 }
 
 /**
- * @summary Queries a specific large language model service provider and available models by name. Online version: v6.3.0.
+ * @summary Queries specific large model service providers and available models by name. Release version: v6.3.0.
  *
  * @param request GetLlmModelProviderByNameRequest
  * @return GetLlmModelProviderByNameResponse
@@ -10546,7 +10529,7 @@ GetProjectWhiteListsResponse Client::getProjectWhiteLists(const GetProjectWhiteL
 }
 
 /**
- * @summary Retrieves alert settings by monitored object ID. Release version: v5.4.2.
+ * @summary Retrieves the alert configuration by monitored object ID. Available in version 5.4.2.
  *
  * @param request GetQualityAlertOfAllRuleScopeByWatchIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10585,7 +10568,7 @@ GetQualityAlertOfAllRuleScopeByWatchIdResponse Client::getQualityAlertOfAllRuleS
 }
 
 /**
- * @summary Retrieves alert settings by monitored object ID. Release version: v5.4.2.
+ * @summary Retrieves the alert configuration by monitored object ID. Available in version 5.4.2.
  *
  * @param request GetQualityAlertOfAllRuleScopeByWatchIdRequest
  * @return GetQualityAlertOfAllRuleScopeByWatchIdResponse
@@ -10596,7 +10579,7 @@ GetQualityAlertOfAllRuleScopeByWatchIdResponse Client::getQualityAlertOfAllRuleS
 }
 
 /**
- * @summary Queries the execution progress and result of an asynchronous task for creating or updating an archived table by progress ID. Available since v6.3.0.
+ * @summary Queries the execution progress and results of an asynchronous task for creating or modifying an exception archive table based on the progress ID. Release version: v6.3.0.
  *
  * @param request GetQualityArchiveTableProgressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10635,7 +10618,7 @@ GetQualityArchiveTableProgressResponse Client::getQualityArchiveTableProgressWit
 }
 
 /**
- * @summary Queries the execution progress and result of an asynchronous task for creating or updating an archived table by progress ID. Available since v6.3.0.
+ * @summary Queries the execution progress and results of an asynchronous task for creating or modifying an exception archive table based on the progress ID. Release version: v6.3.0.
  *
  * @param request GetQualityArchiveTableProgressRequest
  * @return GetQualityArchiveTableProgressResponse
@@ -10646,7 +10629,7 @@ GetQualityArchiveTableProgressResponse Client::getQualityArchiveTableProgress(co
 }
 
 /**
- * @summary Retrieves the quality rule object. Release version: v5.4.2.
+ * @summary Retrieves a quality rule object. Released in version v5.4.2.
  *
  * @param request GetQualityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10685,7 +10668,7 @@ GetQualityRuleResponse Client::getQualityRuleWithOptions(const GetQualityRuleReq
 }
 
 /**
- * @summary Retrieves the quality rule object. Release version: v5.4.2.
+ * @summary Retrieves a quality rule object. Released in version v5.4.2.
  *
  * @param request GetQualityRuleRequest
  * @return GetQualityRuleResponse
@@ -10696,7 +10679,7 @@ GetQualityRuleResponse Client::getQualityRule(const GetQualityRuleRequest &reque
 }
 
 /**
- * @summary Retrieves the details of a quality task object. Released in version 5.4.2.
+ * @summary Retrieves the details of a quality task object. Released in v5.4.2.
  *
  * @param request GetQualityRuleTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10735,7 +10718,7 @@ GetQualityRuleTaskResponse Client::getQualityRuleTaskWithOptions(const GetQualit
 }
 
 /**
- * @summary Retrieves the details of a quality task object. Released in version 5.4.2.
+ * @summary Retrieves the details of a quality task object. Released in v5.4.2.
  *
  * @param request GetQualityRuleTaskRequest
  * @return GetQualityRuleTaskResponse
@@ -10746,8 +10729,7 @@ GetQualityRuleTaskResponse Client::getQualityRuleTask(const GetQualityRuleTaskRe
 }
 
 /**
- * @summary Retrieves the log content of a quality node task object.
- * Online version: v5.4.2.
+ * @summary Retrieves the log content of a quality task object. Released in v5.4.2.
  *
  * @param request GetQualityRuleTaskLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10786,8 +10768,7 @@ GetQualityRuleTaskLogResponse Client::getQualityRuleTaskLogWithOptions(const Get
 }
 
 /**
- * @summary Retrieves the log content of a quality node task object.
- * Online version: v5.4.2.
+ * @summary Retrieves the log content of a quality task object. Released in v5.4.2.
  *
  * @param request GetQualityRuleTaskLogRequest
  * @return GetQualityRuleTaskLogResponse
@@ -10798,7 +10779,7 @@ GetQualityRuleTaskLogResponse Client::getQualityRuleTaskLog(const GetQualityRule
 }
 
 /**
- * @summary Retrieves the quality scheduling object. Available since v5.4.2.
+ * @summary Retrieves a quality schedule object. Released in version 5.4.2.
  *
  * @param request GetQualityScheduleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10837,7 +10818,7 @@ GetQualityScheduleResponse Client::getQualityScheduleWithOptions(const GetQualit
 }
 
 /**
- * @summary Retrieves the quality scheduling object. Available since v5.4.2.
+ * @summary Retrieves a quality schedule object. Released in version 5.4.2.
  *
  * @param request GetQualityScheduleRequest
  * @return GetQualityScheduleResponse
@@ -10848,7 +10829,7 @@ GetQualityScheduleResponse Client::getQualitySchedule(const GetQualityScheduleRe
 }
 
 /**
- * @summary Retrieves a list of scheduling settings by monitored object ID. Available since v5.4.2.
+ * @summary Retrieves the list of scheduling settings by monitored object ID. Release version: v5.4.2.
  *
  * @param request GetQualitySchedulesByWatchIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10887,7 +10868,7 @@ GetQualitySchedulesByWatchIdResponse Client::getQualitySchedulesByWatchIdWithOpt
 }
 
 /**
- * @summary Retrieves a list of scheduling settings by monitored object ID. Available since v5.4.2.
+ * @summary Retrieves the list of scheduling settings by monitored object ID. Release version: v5.4.2.
  *
  * @param request GetQualitySchedulesByWatchIdRequest
  * @return GetQualitySchedulesByWatchIdResponse
@@ -10898,7 +10879,7 @@ GetQualitySchedulesByWatchIdResponse Client::getQualitySchedulesByWatchId(const 
 }
 
 /**
- * @summary Retrieves a quality template object. Released in version 5.4.2.
+ * @summary Retrieves a quality template object. Released in version v5.4.2.
  *
  * @param request GetQualityTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10937,7 +10918,7 @@ GetQualityTemplateResponse Client::getQualityTemplateWithOptions(const GetQualit
 }
 
 /**
- * @summary Retrieves a quality template object. Released in version 5.4.2.
+ * @summary Retrieves a quality template object. Released in version v5.4.2.
  *
  * @param request GetQualityTemplateRequest
  * @return GetQualityTemplateResponse
@@ -11000,7 +10981,7 @@ GetQualityWatchResponse Client::getQualityWatch(const GetQualityWatchRequest &re
 }
 
 /**
- * @summary Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a data source, table, or metric. Release version: v5.4.2.
+ * @summary Retrieves quality watchtask records by the original ID of the monitored object, such as a data source ID, table ID, or metric ID. Released in version v5.4.2.
  *
  * @param request GetQualityWatchByObjectIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11043,7 +11024,7 @@ GetQualityWatchByObjectIdResponse Client::getQualityWatchByObjectIdWithOptions(c
 }
 
 /**
- * @summary Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a data source, table, or metric. Release version: v5.4.2.
+ * @summary Retrieves quality watchtask records by the original ID of the monitored object, such as a data source ID, table ID, or metric ID. Released in version v5.4.2.
  *
  * @param request GetQualityWatchByObjectIdRequest
  * @return GetQualityWatchByObjectIdResponse
@@ -11104,8 +11085,7 @@ GetQualityWatchTaskResponse Client::getQualityWatchTask(const GetQualityWatchTas
 }
 
 /**
- * @summary Retrieves the log content of a monitoring task object.
- * Online version: v5.4.2.
+ * @summary Retrieves the log content of the monitoring task object. Released in v5.4.2.
  *
  * @param request GetQualityWatchTaskLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11144,8 +11124,7 @@ GetQualityWatchTaskLogResponse Client::getQualityWatchTaskLogWithOptions(const G
 }
 
 /**
- * @summary Retrieves the log content of a monitoring task object.
- * Online version: v5.4.2.
+ * @summary Retrieves the log content of the monitoring task object. Released in v5.4.2.
  *
  * @param request GetQualityWatchTaskLogRequest
  * @return GetQualityWatchTaskLogResponse
@@ -11450,7 +11429,7 @@ GetRowPermissionByTableGuidsResponse Client::getRowPermissionByTableGuids(const 
 }
 
 /**
- * @summary Retrieves the details of a data classification. Release version: v5.4.2.
+ * @summary Queries the details of a data classification. Release version: v5.4.2.
  *
  * @param request GetSecurityClassifyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11489,7 +11468,7 @@ GetSecurityClassifyResponse Client::getSecurityClassifyWithOptions(const GetSecu
 }
 
 /**
- * @summary Retrieves the details of a data classification. Release version: v5.4.2.
+ * @summary Queries the details of a data classification. Release version: v5.4.2.
  *
  * @param request GetSecurityClassifyRequest
  * @return GetSecurityClassifyResponse
@@ -11500,7 +11479,7 @@ GetSecurityClassifyResponse Client::getSecurityClassify(const GetSecurityClassif
 }
 
 /**
- * @summary Retrieves the details of a recognition result. Release version: v5.4.2.
+ * @summary Retrieves the details of the recognition result. Release version: v5.4.2.
  *
  * @param request GetSecurityIdentifyResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11539,7 +11518,7 @@ GetSecurityIdentifyResultResponse Client::getSecurityIdentifyResultWithOptions(c
 }
 
 /**
- * @summary Retrieves the details of a recognition result. Release version: v5.4.2.
+ * @summary Retrieves the details of the recognition result. Release version: v5.4.2.
  *
  * @param request GetSecurityIdentifyResultRequest
  * @return GetSecurityIdentifyResultResponse
@@ -11550,7 +11529,7 @@ GetSecurityIdentifyResultResponse Client::getSecurityIdentifyResult(const GetSec
 }
 
 /**
- * @summary Retrieves the details of a data classification level. Available since v5.4.2.
+ * @summary Retrieves the details of a data classification level. Release version: v5.4.2.
  *
  * @param request GetSecurityLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11589,7 +11568,7 @@ GetSecurityLevelResponse Client::getSecurityLevelWithOptions(const GetSecurityLe
 }
 
 /**
- * @summary Retrieves the details of a data classification level. Available since v5.4.2.
+ * @summary Retrieves the details of a data classification level. Release version: v5.4.2.
  *
  * @param request GetSecurityLevelRequest
  * @return GetSecurityLevelResponse
@@ -11600,7 +11579,7 @@ GetSecurityLevelResponse Client::getSecurityLevel(const GetSecurityLevelRequest 
 }
 
 /**
- * @summary Retrieves a key value by key name. Online version: v5.4.2.
+ * @summary Retrieves the value of a key by its name. Available since v5.4.2.
  *
  * @param request GetSecuritySecretKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11639,7 +11618,7 @@ GetSecuritySecretKeyResponse Client::getSecuritySecretKeyWithOptions(const GetSe
 }
 
 /**
- * @summary Retrieves a key value by key name. Online version: v5.4.2.
+ * @summary Retrieves the value of a key by its name. Available since v5.4.2.
  *
  * @param request GetSecuritySecretKeyRequest
  * @return GetSecuritySecretKeyResponse
@@ -11882,7 +11861,7 @@ GetStandardResponse Client::getStandard(const GetStandardRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a data standard lookup table. Released in version 5.4.2.
+ * @summary Retrieves the details of a data standard lookup table. Available in v5.4.2 and later.
  *
  * @param request GetStandardLookupTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11925,7 +11904,7 @@ GetStandardLookupTableResponse Client::getStandardLookupTableWithOptions(const G
 }
 
 /**
- * @summary Retrieves the details of a data standard lookup table. Released in version 5.4.2.
+ * @summary Retrieves the details of a data standard lookup table. Available in v5.4.2 and later.
  *
  * @param request GetStandardLookupTableRequest
  * @return GetStandardLookupTableResponse
@@ -12116,7 +12095,7 @@ GetStandardTemplateResponse Client::getStandardTemplate(const GetStandardTemplat
 }
 
 /**
- * @summary Queries the details of a data standard word root. Release version: v5.4.2.
+ * @summary Retrieves the details of a data standard word root. Released in v5.4.2.
  *
  * @param request GetStandardWordRootRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12159,7 +12138,7 @@ GetStandardWordRootResponse Client::getStandardWordRootWithOptions(const GetStan
 }
 
 /**
- * @summary Queries the details of a data standard word root. Release version: v5.4.2.
+ * @summary Retrieves the details of a data standard word root. Released in v5.4.2.
  *
  * @param request GetStandardWordRootRequest
  * @return GetStandardWordRootResponse
@@ -12170,7 +12149,7 @@ GetStandardWordRootResponse Client::getStandardWordRoot(const GetStandardWordRoo
 }
 
 /**
- * @summary Retrieves the list of real-time development nodes.
+ * @summary Queries a list of real-time development tasks.
  *
  * @param request GetStreamJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12213,7 +12192,7 @@ GetStreamJobsResponse Client::getStreamJobsWithOptions(const GetStreamJobsReques
 }
 
 /**
- * @summary Retrieves the list of real-time development nodes.
+ * @summary Queries a list of real-time development tasks.
  *
  * @param request GetStreamJobsRequest
  * @return GetStreamJobsResponse
@@ -12410,7 +12389,7 @@ GetStreamTaskResponse Client::getStreamTask(const GetStreamTaskRequest &request)
 }
 
 /**
- * @summary Retrieves dagrun information for all business dates of a data backfill instance workflow.
+ * @summary Retrieves the dagrun information for all business dates of a data backfill workflow.
  *
  * @param request GetSupplementDagrunRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12453,7 +12432,7 @@ GetSupplementDagrunResponse Client::getSupplementDagrunWithOptions(const GetSupp
 }
 
 /**
- * @summary Retrieves dagrun information for all business dates of a data backfill instance workflow.
+ * @summary Retrieves the dagrun information for all business dates of a data backfill workflow.
  *
  * @param request GetSupplementDagrunRequest
  * @return GetSupplementDagrunResponse
@@ -12518,7 +12497,7 @@ GetSupplementDagrunInstanceResponse Client::getSupplementDagrunInstance(const Ge
 }
 
 /**
- * @summary Queries the details of a table asset inventory. Release version: v6.3.2.
+ * @summary Queries the details of the table asset inventory. Released in version 6.3.2.
  *
  * @param request GetTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12557,7 +12536,7 @@ GetTableResponse Client::getTableWithOptions(const GetTableRequest &request, con
 }
 
 /**
- * @summary Queries the details of a table asset inventory. Release version: v6.3.2.
+ * @summary Queries the details of the table asset inventory. Released in version 6.3.2.
  *
  * @param request GetTableRequest
  * @return GetTableResponse
@@ -12568,7 +12547,7 @@ GetTableResponse Client::getTable(const GetTableRequest &request) {
 }
 
 /**
- * @summary Queries table column lineage information.
+ * @summary Queries the column lineage information of tables.
  *
  * @param tmpReq GetTableColumnLineageByTaskIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12615,7 +12594,7 @@ GetTableColumnLineageByTaskIdResponse Client::getTableColumnLineageByTaskIdWithO
 }
 
 /**
- * @summary Queries table column lineage information.
+ * @summary Queries the column lineage information of tables.
  *
  * @param request GetTableColumnLineageByTaskIdRequest
  * @return GetTableColumnLineageByTaskIdResponse
@@ -12626,8 +12605,7 @@ GetTableColumnLineageByTaskIdResponse Client::getTableColumnLineageByTaskId(cons
 }
 
 /**
- * @summary Queries the column-level data lineage of an asset table.
- * Online version: v5.4.2.
+ * @summary Queries the lineage information of asset table fields. Release version: v5.4.2.
  *
  * @param tmpReq GetTableColumnLineagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12678,8 +12656,7 @@ GetTableColumnLineagesResponse Client::getTableColumnLineagesWithOptions(const G
 }
 
 /**
- * @summary Queries the column-level data lineage of an asset table.
- * Online version: v5.4.2.
+ * @summary Queries the lineage information of asset table fields. Release version: v5.4.2.
  *
  * @param request GetTableColumnLineagesRequest
  * @return GetTableColumnLineagesResponse
@@ -12806,8 +12783,7 @@ GetTableLineageByTaskIdResponse Client::getTableLineageByTaskId(const GetTableLi
 }
 
 /**
- * @summary Queries lineage information of an asset table.
- * Release version: v5.4.2.
+ * @summary Queries the lineage information of asset tables. Available since v5.4.2.
  *
  * @param tmpReq GetTableLineagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12858,8 +12834,7 @@ GetTableLineagesResponse Client::getTableLineagesWithOptions(const GetTableLinea
 }
 
 /**
- * @summary Queries lineage information of an asset table.
- * Release version: v5.4.2.
+ * @summary Queries the lineage information of asset tables. Available since v5.4.2.
  *
  * @param request GetTableLineagesRequest
  * @return GetTableLineagesResponse
@@ -12870,7 +12845,7 @@ GetTableLineagesResponse Client::getTableLineages(const GetTableLineagesRequest 
 }
 
 /**
- * @summary Queries the progress of a transfer task by transfer task ID.
+ * @summary Queries the progress of a transfer task based on the transfer task ID.
  *
  * @param request GetTransferInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12909,7 +12884,7 @@ GetTransferInfoResponse Client::getTransferInfoWithOptions(const GetTransferInfo
 }
 
 /**
- * @summary Queries the progress of a transfer task by transfer task ID.
+ * @summary Queries the progress of a transfer task based on the transfer task ID.
  *
  * @param request GetTransferInfoRequest
  * @return GetTransferInfoResponse
@@ -12920,7 +12895,7 @@ GetTransferInfoResponse Client::getTransferInfo(const GetTransferInfoRequest &re
 }
 
 /**
- * @summary Retrieves the details of a user-defined function.
+ * @summary Retrieves the details of a custom function.
  *
  * @param request GetUdfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12963,7 +12938,7 @@ GetUdfResponse Client::getUdfWithOptions(const GetUdfRequest &request, const Dar
 }
 
 /**
- * @summary Retrieves the details of a user-defined function.
+ * @summary Retrieves the details of a custom function.
  *
  * @param request GetUdfRequest
  * @return GetUdfResponse
@@ -13032,7 +13007,7 @@ GetUdfByVersionResponse Client::getUdfByVersion(const GetUdfByVersionRequest &re
 }
 
 /**
- * @summary Retrieves the current user information based on the AK/SK used for request signing. Available since version v6.3.0.
+ * @summary Retrieves the current user information based on the AccessKey ID and AccessKey secret used for request signing. Released in version 6.3.0.
  *
  * @param request GetUserByAccessKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13067,7 +13042,7 @@ GetUserByAccessKeyResponse Client::getUserByAccessKeyWithOptions(const GetUserBy
 }
 
 /**
- * @summary Retrieves the current user information based on the AK/SK used for request signing. Available since version v6.3.0.
+ * @summary Retrieves the current user information based on the AccessKey ID and AccessKey secret used for request signing. Released in version 6.3.0.
  *
  * @param request GetUserByAccessKeyRequest
  * @return GetUserByAccessKeyResponse
@@ -13182,7 +13157,7 @@ GetUserGroupResponse Client::getUserGroup(const GetUserGroupRequest &request) {
 }
 
 /**
- * @summary Retrieves user information in batches by user ID.
+ * @summary Retrieves user information in batches based on user IDs.
  *
  * @param tmpReq GetUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13229,7 +13204,7 @@ GetUsersResponse Client::getUsersWithOptions(const GetUsersRequest &tmpReq, cons
 }
 
 /**
- * @summary Retrieves user information in batches by user ID.
+ * @summary Retrieves user information in batches based on user IDs.
  *
  * @param request GetUsersRequest
  * @return GetUsersResponse
@@ -13526,7 +13501,7 @@ ListAddableUsersResponse Client::listAddableUsers(const ListAddableUsersRequest 
 }
 
 /**
- * @summary Performs a conditional query to list multiple alerting events.
+ * @summary Queries multiple alerting events based on a conditional query.
  *
  * @param tmpReq ListAlertEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13573,7 +13548,7 @@ ListAlertEventsResponse Client::listAlertEventsWithOptions(const ListAlertEvents
 }
 
 /**
- * @summary Performs a conditional query to list multiple alerting events.
+ * @summary Queries multiple alerting events based on a conditional query.
  *
  * @param request ListAlertEventsRequest
  * @return ListAlertEventsResponse
@@ -13584,7 +13559,7 @@ ListAlertEventsResponse Client::listAlertEvents(const ListAlertEventsRequest &re
 }
 
 /**
- * @summary Performs a conditional query to list multiple push records.
+ * @summary Queries multiple push records based on conditions.
  *
  * @param tmpReq ListAlertNotificationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13631,7 +13606,7 @@ ListAlertNotificationsResponse Client::listAlertNotificationsWithOptions(const L
 }
 
 /**
- * @summary Performs a conditional query to list multiple push records.
+ * @summary Queries multiple push records based on conditions.
  *
  * @param request ListAlertNotificationsRequest
  * @return ListAlertNotificationsResponse
@@ -14000,7 +13975,7 @@ ListBatchTasksResponse Client::listBatchTasks(const ListBatchTasksRequest &reque
 }
 
 /**
- * @summary Performs a paging query on offline computing templates. Released in version v6.2.0.
+ * @summary Queries offline computing templates by paging. Online version: v6.2.0.
  *
  * @param tmpReq ListBatchTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14055,7 +14030,7 @@ ListBatchTemplatesResponse Client::listBatchTemplatesWithOptions(const ListBatch
 }
 
 /**
- * @summary Performs a paging query on offline computing templates. Released in version v6.2.0.
+ * @summary Queries offline computing templates by paging. Online version: v6.2.0.
  *
  * @param request ListBatchTemplatesRequest
  * @return ListBatchTemplatesResponse
@@ -14298,7 +14273,7 @@ ListComputeClustersResponse Client::listComputeClusters(const ListComputeCluster
 }
 
 /**
- * @summary Query the list of compute sources.
+ * @summary Queries a list of compute sources.
  *
  * @param tmpReq ListComputeSourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14345,7 +14320,7 @@ ListComputeSourcesResponse Client::listComputeSourcesWithOptions(const ListCompu
 }
 
 /**
- * @summary Query the list of compute sources.
+ * @summary Queries a list of compute sources.
  *
  * @param request ListComputeSourcesRequest
  * @return ListComputeSourcesResponse
@@ -14356,7 +14331,7 @@ ListComputeSourcesResponse Client::listComputeSources(const ListComputeSourcesRe
 }
 
 /**
- * @summary Retrieves a list of data domains.
+ * @summary Queries the list of data domains.
  *
  * @param tmpReq ListDataDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14403,7 +14378,7 @@ ListDataDomainsResponse Client::listDataDomainsWithOptions(const ListDataDomains
 }
 
 /**
- * @summary Retrieves a list of data domains.
+ * @summary Queries the list of data domains.
  *
  * @param request ListDataDomainsRequest
  * @return ListDataDomainsResponse
@@ -14538,7 +14513,7 @@ ListDataServiceApiCallsResponse Client::listDataServiceApiCalls(const ListDataSe
 }
 
 /**
- * @summary Operations analysis: analyzes the impact of abnormal API calls.
+ * @summary Analyzes the impact of API call exceptions for operations and maintenance.
  *
  * @param tmpReq ListDataServiceApiImpactsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14589,7 +14564,7 @@ ListDataServiceApiImpactsResponse Client::listDataServiceApiImpactsWithOptions(c
 }
 
 /**
- * @summary Operations analysis: analyzes the impact of abnormal API calls.
+ * @summary Analyzes the impact of API call exceptions for operations and maintenance.
  *
  * @param request ListDataServiceApiImpactsRequest
  * @return ListDataServiceApiImpactsResponse
@@ -14600,8 +14575,7 @@ ListDataServiceApiImpactsResponse Client::listDataServiceApiImpacts(const ListDa
 }
 
 /**
- * @summary Queries the list of all applications under a data service tenant. All tenant members can perform this operation.
- * Release version: v6.0.0.
+ * @summary Queries all applications under a data service tenant. All tenant members can perform this operation. Available since v6.0.0.
  *
  * @param tmpReq ListDataServiceAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14648,8 +14622,7 @@ ListDataServiceAppsResponse Client::listDataServiceAppsWithOptions(const ListDat
 }
 
 /**
- * @summary Queries the list of all applications under a data service tenant. All tenant members can perform this operation.
- * Release version: v6.0.0.
+ * @summary Queries all applications under a data service tenant. All tenant members can perform this operation. Available since v6.0.0.
  *
  * @param request ListDataServiceAppsRequest
  * @return ListDataServiceAppsResponse
@@ -14660,7 +14633,7 @@ ListDataServiceAppsResponse Client::listDataServiceApps(const ListDataServiceApp
 }
 
 /**
- * @summary Queries the list of applications that the current user has permissions to access.
+ * @summary Queries the applications that the current user is authorized to access.
  *
  * @param tmpReq ListDataServiceAuthorizedAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14711,7 +14684,7 @@ ListDataServiceAuthorizedAppsResponse Client::listDataServiceAuthorizedAppsWithO
 }
 
 /**
- * @summary Queries the list of applications that the current user has permissions to access.
+ * @summary Queries the applications that the current user is authorized to access.
  *
  * @param request ListDataServiceAuthorizedAppsRequest
  * @return ListDataServiceAuthorizedAppsResponse
@@ -14722,7 +14695,7 @@ ListDataServiceAuthorizedAppsResponse Client::listDataServiceAuthorizedApps(cons
 }
 
 /**
- * @summary Obtain the list of API permissions managed by me.
+ * @summary Retrieves the list of API permissions managed by the current user.
  *
  * @param tmpReq ListDataServiceMyApiPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14773,7 +14746,7 @@ ListDataServiceMyApiPermissionsResponse Client::listDataServiceMyApiPermissionsW
 }
 
 /**
- * @summary Obtain the list of API permissions managed by me.
+ * @summary Retrieves the list of API permissions managed by the current user.
  *
  * @param request ListDataServiceMyApiPermissionsRequest
  * @return ListDataServiceMyApiPermissionsResponse
@@ -14846,7 +14819,7 @@ ListDataServiceMyAppPermissionsResponse Client::listDataServiceMyAppPermissions(
 }
 
 /**
- * @summary Queries the list of published APIs by page.
+ * @summary Performs a paging query on the list of published APIs.
  *
  * @param tmpReq ListDataServicePublishedApisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14897,7 +14870,7 @@ ListDataServicePublishedApisResponse Client::listDataServicePublishedApisWithOpt
 }
 
 /**
- * @summary Queries the list of published APIs by page.
+ * @summary Performs a paging query on the list of published APIs.
  *
  * @param request ListDataServicePublishedApisRequest
  * @return ListDataServicePublishedApisResponse
@@ -14966,10 +14939,10 @@ ListDataSourceWithConfigResponse Client::listDataSourceWithConfig(const ListData
 }
 
 /**
- * @summary Performs a conditional query to retrieve a list of datasets in a project. Online version: v6.2.0.
+ * @summary Performs a conditional query to retrieve the list of datasets in a project. Online version: v6.2.0.
  *
  * @description ## Request description
- * This API allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query, and the returned packet includes the basic information of the datasets and their version details. Note that ProjectId is required, while other parameters are options that you can configure in Settings as needed to filter the results.
+ * This API allows you to retrieve dataset information in a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query. The returned data packets include the basic information of the datasets and their version details. Note that `ProjectId` is required, while other parameters are options, and you can configure the Settings as needed to filter the results.
  *
  * @param tmpReq ListDatasetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15016,10 +14989,10 @@ ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &
 }
 
 /**
- * @summary Performs a conditional query to retrieve a list of datasets in a project. Online version: v6.2.0.
+ * @summary Performs a conditional query to retrieve the list of datasets in a project. Online version: v6.2.0.
  *
  * @description ## Request description
- * This API allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query, and the returned packet includes the basic information of the datasets and their version details. Note that ProjectId is required, while other parameters are options that you can configure in Settings as needed to filter the results.
+ * This API allows you to retrieve dataset information in a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query. The returned data packets include the basic information of the datasets and their version details. Note that `ProjectId` is required, while other parameters are options, and you can configure the Settings as needed to filter the results.
  *
  * @param request ListDatasetsRequest
  * @return ListDatasetsResponse
@@ -15030,7 +15003,7 @@ ListDatasetsResponse Client::listDatasets(const ListDatasetsRequest &request) {
 }
 
 /**
- * @summary Query the directory tree file list.
+ * @summary Queries the list of files in a directory tree.
  *
  * @param tmpReq ListFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15077,7 +15050,7 @@ ListFilesResponse Client::listFilesWithOptions(const ListFilesRequest &tmpReq, c
 }
 
 /**
- * @summary Query the directory tree file list.
+ * @summary Queries the list of files in a directory tree.
  *
  * @param request ListFilesRequest
  * @return ListFilesResponse
@@ -15088,10 +15061,10 @@ ListFilesResponse Client::listFiles(const ListFilesRequest &request) {
 }
 
 /**
- * @summary Queries the list of governance objects based on governance type and filter conditions. Released in v6.3.0.
+ * @summary Queries the issue list based on governance types and filter conditions. Available since v6.3.0.
  *
- * @description ## Operation description
- * This API operation allows you to retrieve dataset information under a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. Note that `ProjectId` is required, while other parameters are options that can be configured as needed to filter results.
+ * @description ## Request description
+ * This API operation allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other options such as keywords and type lists. It supports paging and paged query. The returned data packet includes the basic information and version details of the datasets. Note that `ProjectId` is required. Other parameters are options and can be configured in Settings to filter the results as needed.
  *
  * @param tmpReq ListGovernObjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15138,10 +15111,10 @@ ListGovernObjectsResponse Client::listGovernObjectsWithOptions(const ListGovernO
 }
 
 /**
- * @summary Queries the list of governance objects based on governance type and filter conditions. Released in v6.3.0.
+ * @summary Queries the issue list based on governance types and filter conditions. Available since v6.3.0.
  *
- * @description ## Operation description
- * This API operation allows you to retrieve dataset information under a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. Note that `ProjectId` is required, while other parameters are options that can be configured as needed to filter results.
+ * @description ## Request description
+ * This API operation allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other options such as keywords and type lists. It supports paging and paged query. The returned data packet includes the basic information and version details of the datasets. Note that `ProjectId` is required. Other parameters are options and can be configured in Settings to filter the results as needed.
  *
  * @param request ListGovernObjectsRequest
  * @return ListGovernObjectsResponse
@@ -15214,7 +15187,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Retrieves the list of custom Kubernetes resource groups under a tenant. Released in version 6.4.0.
+ * @summary Retrieves the list of custom K8s resource groups under a tenant. Available since v6.4.0.
  *
  * @param request ListK8SResourceGroupIdsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15249,7 +15222,7 @@ ListK8SResourceGroupIdsResponse Client::listK8SResourceGroupIdsWithOptions(const
 }
 
 /**
- * @summary Retrieves the list of custom Kubernetes resource groups under a tenant. Released in version 6.4.0.
+ * @summary Retrieves the list of custom K8s resource groups under a tenant. Available since v6.4.0.
  *
  * @param request ListK8SResourceGroupIdsRequest
  * @return ListK8SResourceGroupIdsResponse
@@ -15260,7 +15233,7 @@ ListK8SResourceGroupIdsResponse Client::listK8SResourceGroupIds(const ListK8SRes
 }
 
 /**
- * @summary Queries knowledge graph entity records with paging. Online version: v6.1.1.
+ * @summary Queries knowledge graph entity records by paging. Online version: v6.1.1.
  *
  * @param tmpReq ListKgEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15315,7 +15288,7 @@ ListKgEntityResponse Client::listKgEntityWithOptions(const ListKgEntityRequest &
 }
 
 /**
- * @summary Queries knowledge graph entity records with paging. Online version: v6.1.1.
+ * @summary Queries knowledge graph entity records by paging. Online version: v6.1.1.
  *
  * @param request ListKgEntityRequest
  * @return ListKgEntityResponse
@@ -15326,7 +15299,7 @@ ListKgEntityResponse Client::listKgEntity(const ListKgEntityRequest &request) {
 }
 
 /**
- * @summary Queries knowledge graph relationship records by paging. Online version: v6.1.1.
+ * @summary Performs a paged query on knowledge graph relation records. Paging is available online in version v6.1.1.
  *
  * @param tmpReq ListKgRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15381,7 +15354,7 @@ ListKgRelationResponse Client::listKgRelationWithOptions(const ListKgRelationReq
 }
 
 /**
- * @summary Queries knowledge graph relationship records by paging. Online version: v6.1.1.
+ * @summary Performs a paged query on knowledge graph relation records. Paging is available online in version v6.1.1.
  *
  * @param request ListKgRelationRequest
  * @return ListKgRelationResponse
@@ -15704,14 +15677,10 @@ ListProjectMembersResponse Client::listProjectMembers(const ListProjectMembersRe
 /**
  * @summary Retrieves a list of project roles. Release version: v6.3.2.
  *
- * @description Retrieves the list of project roles for a specified project type under a tenant. The roleType field in the returned role list indicates the role type:
- * - BUILD_IN: built-in role.
- * - CUSTOM: custom role.
- * The ProjectType request parameter is required. Valid values:
- * - BASIC: basic mode project.
- * - DEV: development environment project.
- * - PROD: production environment project.
- * - TAG: tag platform project.
+ * @description Retrieves a list of project roles under a specified project type for a tenant. The roleType field in the returned role list identifies the role type:
+ * - BUILD_IN: built-in role
+ * - CUSTOM: custom role
+ * The ProjectType request parameter is required. Valid values: BASIC (basic mode project), DEV (development environment project), PROD (production environment project), and TAG (tag platform project).
  *
  * @param request ListProjectRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15752,14 +15721,10 @@ ListProjectRolesResponse Client::listProjectRolesWithOptions(const ListProjectRo
 /**
  * @summary Retrieves a list of project roles. Release version: v6.3.2.
  *
- * @description Retrieves the list of project roles for a specified project type under a tenant. The roleType field in the returned role list indicates the role type:
- * - BUILD_IN: built-in role.
- * - CUSTOM: custom role.
- * The ProjectType request parameter is required. Valid values:
- * - BASIC: basic mode project.
- * - DEV: development environment project.
- * - PROD: production environment project.
- * - TAG: tag platform project.
+ * @description Retrieves a list of project roles under a specified project type for a tenant. The roleType field in the returned role list identifies the role type:
+ * - BUILD_IN: built-in role
+ * - CUSTOM: custom role
+ * The ProjectType request parameter is required. Valid values: BASIC (basic mode project), DEV (development environment project), PROD (production environment project), and TAG (tag platform project).
  *
  * @param request ListProjectRolesRequest
  * @return ListProjectRolesResponse
@@ -15944,7 +15909,7 @@ ListPythonModulesResponse Client::listPythonModules(const ListPythonModulesReque
 }
 
 /**
- * @summary Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
+ * @summary Queries the list of exception archived tables for a specified monitored object. Release version: v6.3.0.
  *
  * @param tmpReq ListQualityArchiveTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15991,7 +15956,7 @@ ListQualityArchiveTablesResponse Client::listQualityArchiveTablesWithOptions(con
 }
 
 /**
- * @summary Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
+ * @summary Queries the list of exception archived tables for a specified monitored object. Release version: v6.3.0.
  *
  * @param request ListQualityArchiveTablesRequest
  * @return ListQualityArchiveTablesResponse
@@ -16002,7 +15967,7 @@ ListQualityArchiveTablesResponse Client::listQualityArchiveTables(const ListQual
 }
 
 /**
- * @summary Performs a paging query of quality rule nodes. Online version: v5.4.2.
+ * @summary Performs a paged query on quality rule nodes with paging. Online version: v5.4.2.
  *
  * @param tmpReq ListQualityRuleTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16049,7 +16014,7 @@ ListQualityRuleTasksResponse Client::listQualityRuleTasksWithOptions(const ListQ
 }
 
 /**
- * @summary Performs a paging query of quality rule nodes. Online version: v5.4.2.
+ * @summary Performs a paged query on quality rule nodes with paging. Online version: v5.4.2.
  *
  * @param request ListQualityRuleTasksRequest
  * @return ListQualityRuleTasksResponse
@@ -16176,8 +16141,7 @@ ListQualityTemplatesResponse Client::listQualityTemplates(const ListQualityTempl
 }
 
 /**
- * @summary Queries quality monitoring nodes by paging.
- * Online version: v5.4.2.
+ * @summary Performs a paged query on quality monitoring nodes with paging. Online version: v5.4.2.
  *
  * @param tmpReq ListQualityWatchTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16224,8 +16188,7 @@ ListQualityWatchTasksResponse Client::listQualityWatchTasksWithOptions(const Lis
 }
 
 /**
- * @summary Queries quality monitoring nodes by paging.
- * Online version: v5.4.2.
+ * @summary Performs a paged query on quality monitoring nodes with paging. Online version: v5.4.2.
  *
  * @param request ListQualityWatchTasksRequest
  * @return ListQualityWatchTasksResponse
@@ -17038,9 +17001,9 @@ ListStreamJobManagerLogsResponse Client::listStreamJobManagerLogs(const ListStre
 }
 
 /**
- * @summary Queries the start and stop operation records of real-time tasks. Available since v6.4.0.
+ * @summary Retrieves a list of start and stop operation records for real-time tasks. Available since version 6.4.0.
  *
- * @description Retrieves the start and stop operation records of real-time tasks in the production environment.
+ * @description Retrieves a list of start and stop operation records for real-time tasks in the production environment.
  *
  * @param request ListStreamOpsRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17083,9 +17046,9 @@ ListStreamOpsRecordsResponse Client::listStreamOpsRecordsWithOptions(const ListS
 }
 
 /**
- * @summary Queries the start and stop operation records of real-time tasks. Available since v6.4.0.
+ * @summary Retrieves a list of start and stop operation records for real-time tasks. Available since version 6.4.0.
  *
- * @description Retrieves the start and stop operation records of real-time tasks in the production environment.
+ * @description Retrieves a list of start and stop operation records for real-time tasks in the production environment.
  *
  * @param request ListStreamOpsRecordsRequest
  * @return ListStreamOpsRecordsResponse
@@ -17274,8 +17237,7 @@ ListSubmitRecordsResponse Client::listSubmitRecords(const ListSubmitRecordsReque
 }
 
 /**
- * @summary Queries the metadata of asset tables by page.
- * Available in version v5.4.2.
+ * @summary Queries the metadata of asset tables through paging. Online version: v5.4.2.
  *
  * @param tmpReq ListTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17322,8 +17284,7 @@ ListTablesResponse Client::listTablesWithOptions(const ListTablesRequest &tmpReq
 }
 
 /**
- * @summary Queries the metadata of asset tables by page.
- * Available in version v5.4.2.
+ * @summary Queries the metadata of asset tables through paging. Online version: v5.4.2.
  *
  * @param request ListTablesRequest
  * @return ListTablesResponse
@@ -17392,11 +17353,11 @@ ListTenantMembersResponse Client::listTenantMembers(const ListTenantMembersReque
 }
 
 /**
- * @summary Retrieves the list of tenant roles. Release version: v6.3.2.
+ * @summary Retrieves the list of tenant roles. Available since version v6.3.2.
  *
  * @description Retrieves the list of tenant roles. The roleType field in the returned role list indicates the role type:
- * - BUILD_IN: built-in role
- * - CUSTOM: custom role (created by the tenant)
+ * - BUILD_IN: built-in role.
+ * - CUSTOM: custom role (created by the tenant).
  * This operation does not require additional business request parameters. The tenantId parameter is automatically injected by the POP gateway context.
  *
  * @param request ListTenantRolesRequest
@@ -17432,11 +17393,11 @@ ListTenantRolesResponse Client::listTenantRolesWithOptions(const ListTenantRoles
 }
 
 /**
- * @summary Retrieves the list of tenant roles. Release version: v6.3.2.
+ * @summary Retrieves the list of tenant roles. Available since version v6.3.2.
  *
  * @description Retrieves the list of tenant roles. The roleType field in the returned role list indicates the role type:
- * - BUILD_IN: built-in role
- * - CUSTOM: custom role (created by the tenant)
+ * - BUILD_IN: built-in role.
+ * - CUSTOM: custom role (created by the tenant).
  * This operation does not require additional business request parameters. The tenantId parameter is automatically injected by the POP gateway context.
  *
  * @param request ListTenantRolesRequest
@@ -17738,7 +17699,7 @@ OfflineBatchTaskResponse Client::offlineBatchTask(const OfflineBatchTaskRequest 
 }
 
 /**
- * @summary Offline a business entity.
+ * @summary Takes a business entity offline.
  *
  * @param tmpReq OfflineBizEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17785,7 +17746,7 @@ OfflineBizEntityResponse Client::offlineBizEntityWithOptions(const OfflineBizEnt
 }
 
 /**
- * @summary Offline a business entity.
+ * @summary Takes a business entity offline.
  *
  * @param request OfflineBizEntityRequest
  * @return OfflineBizEntityResponse
@@ -18106,7 +18067,7 @@ OperateInstanceResponse Client::operateInstance(const OperateInstanceRequest &re
 }
 
 /**
- * @summary Parses the logical table dependencies of an offline compute node. The parsing result may contain self-dependent nodes in the upstream dependency information, where the upstream node ID is the same as the node ID of the parsed code. You must handle such cases on your own.
+ * @summary Parses the logical table dependencies of a batch task. Note that the upstream dependency information in the parsing result may contain self-dependent nodes (where the upstream node ID is the same as the node ID of the parsed code), which you must handle manually.
  *
  * @param tmpReq ParseBatchTaskDependencyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18153,7 +18114,7 @@ ParseBatchTaskDependencyResponse Client::parseBatchTaskDependencyWithOptions(con
 }
 
 /**
- * @summary Parses the logical table dependencies of an offline compute node. The parsing result may contain self-dependent nodes in the upstream dependency information, where the upstream node ID is the same as the node ID of the parsed code. You must handle such cases on your own.
+ * @summary Parses the logical table dependencies of a batch task. Note that the upstream dependency information in the parsing result may contain self-dependent nodes (where the upstream node ID is the same as the node ID of the parsed code), which you must handle manually.
  *
  * @param request ParseBatchTaskDependencyRequest
  * @return ParseBatchTaskDependencyResponse
@@ -18164,7 +18125,7 @@ ParseBatchTaskDependencyResponse Client::parseBatchTaskDependency(const ParseBat
 }
 
 /**
- * @summary Pauses the scheduling of physical nodes. This stops the scheduling of nodes, and downstream nodes cannot be triggered. Currently, only offline code nodes and integration nodes are supported.
+ * @summary Pauses the scheduling of physical nodes. This pauses node scheduling and prevents downstream nodes from being triggered. Currently, only offline code nodes and integration nodes are supported.
  *
  * @param tmpReq PausePhysicalNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18215,7 +18176,7 @@ PausePhysicalNodeResponse Client::pausePhysicalNodeWithOptions(const PausePhysic
 }
 
 /**
- * @summary Pauses the scheduling of physical nodes. This stops the scheduling of nodes, and downstream nodes cannot be triggered. Currently, only offline code nodes and integration nodes are supported.
+ * @summary Pauses the scheduling of physical nodes. This pauses node scheduling and prevents downstream nodes from being triggered. Currently, only offline code nodes and integration nodes are supported.
  *
  * @param request PausePhysicalNodeRequest
  * @return PausePhysicalNodeResponse
@@ -18404,8 +18365,7 @@ PublishObjectListResponse Client::publishObjectList(const PublishObjectListReque
 }
 
 /**
- * @summary Publishes a standard.
- * Release version: v5.4.2.
+ * @summary Publishes a standard. Release version: v5.4.2.
  *
  * @param tmpReq PublishStandardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18452,8 +18412,7 @@ PublishStandardResponse Client::publishStandardWithOptions(const PublishStandard
 }
 
 /**
- * @summary Publishes a standard.
- * Release version: v5.4.2.
+ * @summary Publishes a standard. Release version: v5.4.2.
  *
  * @param request PublishStandardRequest
  * @return PublishStandardResponse
@@ -18526,8 +18485,7 @@ QueryPipelineSubmitResultResponse Client::queryPipelineSubmitResult(const QueryP
 }
 
 /**
- * @summary Remove regular members from a data service application. Only the application owner can perform this operation.
- * Released version: v6.0.0.
+ * @summary Deletes a regular member from a data service application. Only the application owner can perform this operation. Available since v6.0.0.
  *
  * @param tmpReq RemoveDataServiceAppMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18574,8 +18532,7 @@ RemoveDataServiceAppMemberResponse Client::removeDataServiceAppMemberWithOptions
 }
 
 /**
- * @summary Remove regular members from a data service application. Only the application owner can perform this operation.
- * Released version: v6.0.0.
+ * @summary Deletes a regular member from a data service application. Only the application owner can perform this operation. Available since v6.0.0.
  *
  * @param request RemoveDataServiceAppMemberRequest
  * @return RemoveDataServiceAppMemberResponse
@@ -18648,8 +18605,7 @@ RemoveProjectMemberResponse Client::removeProjectMember(const RemoveProjectMembe
 }
 
 /**
- * @summary Deletes the bindings between quality rules and schedules in batches.
- * Release version: v5.4.2.
+ * @summary Deletes the bindings between quality rules and schedules in batches. Released in v5.4.2.
  *
  * @param tmpReq RemoveQualityRuleSchedulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18696,8 +18652,7 @@ RemoveQualityRuleSchedulesResponse Client::removeQualityRuleSchedulesWithOptions
 }
 
 /**
- * @summary Deletes the bindings between quality rules and schedules in batches.
- * Release version: v5.4.2.
+ * @summary Deletes the bindings between quality rules and schedules in batches. Released in v5.4.2.
  *
  * @param request RemoveQualityRuleSchedulesRequest
  * @return RemoveQualityRuleSchedulesResponse
@@ -18882,7 +18837,7 @@ RemoveUserGroupMemberResponse Client::removeUserGroupMember(const RemoveUserGrou
 }
 
 /**
- * @summary Updates the whitelist of a project.
+ * @summary Updates the project whitelist.
  *
  * @param tmpReq ReplaceProjectWhiteListsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18933,7 +18888,7 @@ ReplaceProjectWhiteListsResponse Client::replaceProjectWhiteListsWithOptions(con
 }
 
 /**
- * @summary Updates the whitelist of a project.
+ * @summary Updates the project whitelist.
  *
  * @param request ReplaceProjectWhiteListsRequest
  * @return ReplaceProjectWhiteListsResponse
@@ -19242,7 +19197,7 @@ RevokeDataServiceApiResponse Client::revokeDataServiceApi(const RevokeDataServic
 }
 
 /**
- * @summary Revokes resource authorization from a user.
+ * @summary Revokes resource authorization for a user.
  *
  * @param tmpReq RevokeResourcePermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19289,7 +19244,7 @@ RevokeResourcePermissionResponse Client::revokeResourcePermissionWithOptions(con
 }
 
 /**
- * @summary Revokes resource authorization from a user.
+ * @summary Revokes resource authorization for a user.
  *
  * @param request RevokeResourcePermissionRequest
  * @return RevokeResourcePermissionResponse
@@ -20084,7 +20039,7 @@ SubmitRectifyFlowForReviewResponse Client::submitRectifyFlowForReview(const Subm
 /**
  * @summary Synchronizes department information.
  *
- * @description Queries the details of a published API operation by AppKey.
+ * @description Queries the details of published APIs based on the appKey.
  *
  * @param tmpReq SyncDepartmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20133,7 +20088,7 @@ SyncDepartmentResponse Client::syncDepartmentWithOptions(const SyncDepartmentReq
 /**
  * @summary Synchronizes department information.
  *
- * @description Queries the details of a published API operation by AppKey.
+ * @description Queries the details of published APIs based on the appKey.
  *
  * @param request SyncDepartmentRequest
  * @return SyncDepartmentResponse
@@ -20504,7 +20459,7 @@ UpdateBatchTaskResponse Client::updateBatchTask(const UpdateBatchTaskRequest &re
 }
 
 /**
- * @summary Edits the custom data lineage of a batch task.
+ * @summary Updates the custom lineage of an offline computing task.
  *
  * @param tmpReq UpdateBatchTaskUdfLineagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20551,7 +20506,7 @@ UpdateBatchTaskUdfLineagesResponse Client::updateBatchTaskUdfLineagesWithOptions
 }
 
 /**
- * @summary Edits the custom data lineage of a batch task.
+ * @summary Updates the custom lineage of an offline computing task.
  *
  * @param request UpdateBatchTaskUdfLineagesRequest
  * @return UpdateBatchTaskUdfLineagesResponse
@@ -20798,7 +20753,7 @@ UpdateBizUnitResponse Client::updateBizUnit(const UpdateBizUnitRequest &request)
 }
 
 /**
- * @summary Modifies a cluster. Online version: v6.3.0.
+ * @summary Modifies a cluster. Available in v6.3.0 and later.
  *
  * @param tmpReq UpdateComputeClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20849,7 +20804,7 @@ UpdateComputeClusterResponse Client::updateComputeClusterWithOptions(const Updat
 }
 
 /**
- * @summary Modifies a cluster. Online version: v6.3.0.
+ * @summary Modifies a cluster. Available in v6.3.0 and later.
  *
  * @param request UpdateComputeClusterRequest
  * @return UpdateComputeClusterResponse
@@ -21040,8 +20995,7 @@ UpdateDataDomainResponse Client::updateDataDomain(const UpdateDataDomainRequest 
 }
 
 /**
- * @summary Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation.
- * Release version: v6.0.0.
+ * @summary Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation. Released in version: v6.0.0.
  *
  * @param tmpReq UpdateDataServiceAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21088,8 +21042,7 @@ UpdateDataServiceAppResponse Client::updateDataServiceAppWithOptions(const Updat
 }
 
 /**
- * @summary Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation.
- * Release version: v6.0.0.
+ * @summary Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation. Released in version: v6.0.0.
  *
  * @param request UpdateDataServiceAppRequest
  * @return UpdateDataServiceAppResponse
@@ -21158,8 +21111,7 @@ UpdateDataServiceAppGroupResponse Client::updateDataServiceAppGroup(const Update
 }
 
 /**
- * @summary Updates the regular members of a data service application. Only the application owner can perform this operation.
- * Online version: v6.0.0.
+ * @summary Updates the regular members of a data service application. Only the application owner can perform this operation. Release version: v6.0.0.
  *
  * @param tmpReq UpdateDataServiceAppMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21206,8 +21158,7 @@ UpdateDataServiceAppMemberResponse Client::updateDataServiceAppMemberWithOptions
 }
 
 /**
- * @summary Updates the regular members of a data service application. Only the application owner can perform this operation.
- * Online version: v6.0.0.
+ * @summary Updates the regular members of a data service application. Only the application owner can perform this operation. Release version: v6.0.0.
  *
  * @param request UpdateDataServiceAppMemberRequest
  * @return UpdateDataServiceAppMemberResponse
@@ -21218,7 +21169,7 @@ UpdateDataServiceAppMemberResponse Client::updateDataServiceAppMember(const Upda
 }
 
 /**
- * @summary Edits the basic information of a data source. Tenant administrators, data administrators, business segment administrators, project administrators, and operations administrators have permissions to perform this operation.
+ * @summary Modifies the basic information of a data source. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators can perform this operation.
  *
  * @param tmpReq UpdateDataSourceBasicInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21265,7 +21216,7 @@ UpdateDataSourceBasicInfoResponse Client::updateDataSourceBasicInfoWithOptions(c
 }
 
 /**
- * @summary Edits the basic information of a data source. Tenant administrators, data administrators, business segment administrators, project administrators, and operations administrators have permissions to perform this operation.
+ * @summary Modifies the basic information of a data source. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators can perform this operation.
  *
  * @param request UpdateDataSourceBasicInfoRequest
  * @return UpdateDataSourceBasicInfoResponse
@@ -21470,7 +21421,7 @@ UpdateDevProdProjectResponse Client::updateDevProdProject(const UpdateDevProdPro
 }
 
 /**
- * @summary Moves the file position in the menu tree.
+ * @summary Moves a menu tree file to a new location.
  *
  * @param request UpdateFileDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21517,7 +21468,7 @@ UpdateFileDirectoryResponse Client::updateFileDirectoryWithOptions(const UpdateF
 }
 
 /**
- * @summary Moves the file position in the menu tree.
+ * @summary Moves a menu tree file to a new location.
  *
  * @param request UpdateFileDirectoryRequest
  * @return UpdateFileDirectoryResponse
@@ -21528,7 +21479,7 @@ UpdateFileDirectoryResponse Client::updateFileDirectory(const UpdateFileDirector
 }
 
 /**
- * @summary Updates a file name.
+ * @summary Updates the file name.
  *
  * @param request UpdateFileNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21575,7 +21526,7 @@ UpdateFileNameResponse Client::updateFileNameWithOptions(const UpdateFileNameReq
 }
 
 /**
- * @summary Updates a file name.
+ * @summary Updates the file name.
  *
  * @param request UpdateFileNameRequest
  * @return UpdateFileNameResponse
@@ -21586,7 +21537,7 @@ UpdateFileNameResponse Client::updateFileName(const UpdateFileNameRequest &reque
 }
 
 /**
- * @summary Edits a knowledge graph entity record. Online version: v6.1.1.
+ * @summary Edits a knowledge graph entity record. Available since v6.1.1.
  *
  * @param tmpReq UpdateKgEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21637,7 +21588,7 @@ UpdateKgEntityResponse Client::updateKgEntityWithOptions(const UpdateKgEntityReq
 }
 
 /**
- * @summary Edits a knowledge graph entity record. Online version: v6.1.1.
+ * @summary Edits a knowledge graph entity record. Available since v6.1.1.
  *
  * @param request UpdateKgEntityRequest
  * @return UpdateKgEntityResponse
@@ -21648,7 +21599,7 @@ UpdateKgEntityResponse Client::updateKgEntity(const UpdateKgEntityRequest &reque
 }
 
 /**
- * @summary Edits a knowledge graph relationship record. Online version: v6.1.1.
+ * @summary Updates a knowledge graph relationship record. Release version: v6.1.1.
  *
  * @param tmpReq UpdateKgRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21699,7 +21650,7 @@ UpdateKgRelationResponse Client::updateKgRelationWithOptions(const UpdateKgRelat
 }
 
 /**
- * @summary Edits a knowledge graph relationship record. Online version: v6.1.1.
+ * @summary Updates a knowledge graph relationship record. Release version: v6.1.1.
  *
  * @param request UpdateKgRelationRequest
  * @return UpdateKgRelationResponse
@@ -22252,8 +22203,7 @@ UpdateScheduleMonitorResponse Client::updateScheduleMonitor(const UpdateSchedule
 }
 
 /**
- * @summary Updates a data classification.
- * Release version: v5.4.2.
+ * @summary Updates a data classification. Release version: v5.4.2.
  *
  * @param tmpReq UpdateSecurityClassifyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22300,8 +22250,7 @@ UpdateSecurityClassifyResponse Client::updateSecurityClassifyWithOptions(const U
 }
 
 /**
- * @summary Updates a data classification.
- * Release version: v5.4.2.
+ * @summary Updates a data classification. Release version: v5.4.2.
  *
  * @param request UpdateSecurityClassifyRequest
  * @return UpdateSecurityClassifyResponse
@@ -22312,7 +22261,7 @@ UpdateSecurityClassifyResponse Client::updateSecurityClassify(const UpdateSecuri
 }
 
 /**
- * @summary Updates a data classification folder. Release version: v5.4.2.
+ * @summary Updates the data classification catalog. Released in version 5.4.2.
  *
  * @param tmpReq UpdateSecurityClassifyCatalogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22359,7 +22308,7 @@ UpdateSecurityClassifyCatalogResponse Client::updateSecurityClassifyCatalogWithO
 }
 
 /**
- * @summary Updates a data classification folder. Release version: v5.4.2.
+ * @summary Updates the data classification catalog. Released in version 5.4.2.
  *
  * @param request UpdateSecurityClassifyCatalogRequest
  * @return UpdateSecurityClassifyCatalogResponse
@@ -22428,8 +22377,7 @@ UpdateSecurityIdentifyResultStatusResponse Client::updateSecurityIdentifyResultS
 }
 
 /**
- * @summary Updates data classification.
- * Online version: v5.4.2.
+ * @summary Updates the data classification level. Released in version 5.4.2.
  *
  * @param tmpReq UpdateSecurityLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22476,8 +22424,7 @@ UpdateSecurityLevelResponse Client::updateSecurityLevelWithOptions(const UpdateS
 }
 
 /**
- * @summary Updates data classification.
- * Online version: v5.4.2.
+ * @summary Updates the data classification level. Released in version 5.4.2.
  *
  * @param request UpdateSecurityLevelRequest
  * @return UpdateSecurityLevelResponse
@@ -22662,8 +22609,7 @@ UpdateStandardMappingToInvalidResponse Client::updateStandardMappingToInvalid(co
 }
 
 /**
- * @summary Update standard set.
- * Release version: v5.4.2.
+ * @summary Updates a standard set. Release version: v5.4.2.
  *
  * @param tmpReq UpdateStandardSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22710,8 +22656,7 @@ UpdateStandardSetResponse Client::updateStandardSetWithOptions(const UpdateStand
 }
 
 /**
- * @summary Update standard set.
- * Release version: v5.4.2.
+ * @summary Updates a standard set. Release version: v5.4.2.
  *
  * @param request UpdateStandardSetRequest
  * @return UpdateStandardSetResponse
@@ -22722,8 +22667,7 @@ UpdateStandardSetResponse Client::updateStandardSet(const UpdateStandardSetReque
 }
 
 /**
- * @summary Updates a data standard template.
- * Release version: v5.4.2.
+ * @summary Updates a data standard template. Release version: v5.4.2.
  *
  * @param tmpReq UpdateStandardTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22770,8 +22714,7 @@ UpdateStandardTemplateResponse Client::updateStandardTemplateWithOptions(const U
 }
 
 /**
- * @summary Updates a data standard template.
- * Release version: v5.4.2.
+ * @summary Updates a data standard template. Release version: v5.4.2.
  *
  * @param request UpdateStandardTemplateRequest
  * @return UpdateStandardTemplateResponse
@@ -22782,8 +22725,7 @@ UpdateStandardTemplateResponse Client::updateStandardTemplate(const UpdateStanda
 }
 
 /**
- * @summary Updates a data standard root word.
- * Online version: v5.4.2.
+ * @summary Updates a data standard word root. Release version: v5.4.2.
  *
  * @param tmpReq UpdateStandardWordRootRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22830,8 +22772,7 @@ UpdateStandardWordRootResponse Client::updateStandardWordRootWithOptions(const U
 }
 
 /**
- * @summary Updates a data standard root word.
- * Online version: v5.4.2.
+ * @summary Updates a data standard word root. Release version: v5.4.2.
  *
  * @param request UpdateStandardWordRootRequest
  * @return UpdateStandardWordRootResponse
@@ -22958,7 +22899,7 @@ UpdateTenantMemberResponse Client::updateTenantMember(const UpdateTenantMemberRe
 }
 
 /**
- * @summary Edits a user-defined function.
+ * @summary Modifies a custom function.
  *
  * @param tmpReq UpdateUdfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23005,7 +22946,7 @@ UpdateUdfResponse Client::updateUdfWithOptions(const UpdateUdfRequest &tmpReq, c
 }
 
 /**
- * @summary Edits a user-defined function.
+ * @summary Modifies a custom function.
  *
  * @param request UpdateUdfRequest
  * @return UpdateUdfResponse
@@ -23016,7 +22957,7 @@ UpdateUdfResponse Client::updateUdf(const UpdateUdfRequest &request) {
 }
 
 /**
- * @summary Edits a user group.
+ * @summary Updates a user group.
  *
  * @param tmpReq UpdateUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23063,7 +23004,7 @@ UpdateUserGroupResponse Client::updateUserGroupWithOptions(const UpdateUserGroup
 }
 
 /**
- * @summary Edits a user group.
+ * @summary Updates a user group.
  *
  * @param request UpdateUserGroupRequest
  * @return UpdateUserGroupResponse
@@ -23478,8 +23419,7 @@ UpsertQualityWatchResponse Client::upsertQualityWatch(const UpsertQualityWatchRe
 }
 
 /**
- * @summary Creates or updates alert settings for a monitored object.
- * Release version: v5.4.2.
+ * @summary Creates or modifies the alert settings for a monitored object. Released in version 5.4.2.
  *
  * @param tmpReq UpsertQualityWatchAlertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23526,8 +23466,7 @@ UpsertQualityWatchAlertResponse Client::upsertQualityWatchAlertWithOptions(const
 }
 
 /**
- * @summary Creates or updates alert settings for a monitored object.
- * Release version: v5.4.2.
+ * @summary Creates or modifies the alert settings for a monitored object. Released in version 5.4.2.
  *
  * @param request UpsertQualityWatchAlertRequest
  * @return UpsertQualityWatchAlertResponse

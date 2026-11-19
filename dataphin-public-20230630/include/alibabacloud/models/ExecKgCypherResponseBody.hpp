@@ -139,7 +139,7 @@ namespace Models
 
 
       protected:
-        // The list of columns in the row.
+        // The list of columns.
         shared_ptr<vector<RowList::Columns>> columns_ {};
       };
 
@@ -240,7 +240,7 @@ namespace Models
         shared_ptr<string> dataId_ {};
         // The entity type.
         shared_ptr<string> entityType_ {};
-        // The list of entity record properties.
+        // The list of properties for the entity record.
         shared_ptr<vector<NodeList::Properties>> properties_ {};
       };
 
@@ -376,7 +376,7 @@ namespace Models
       protected:
         // The data ID of the relationship record.
         shared_ptr<string> dataId_ {};
-        // The list of relationship record properties.
+        // The list of properties for the relationship record.
         shared_ptr<vector<EdgeList::Properties>> properties_ {};
         // The relationship type.
         shared_ptr<string> relationType_ {};
@@ -429,7 +429,7 @@ namespace Models
     protected:
       // The list of edges.
       shared_ptr<vector<Data::EdgeList>> edgeList_ {};
-      // The transformed execution statement.
+      // The converted execution statement.
       shared_ptr<string> executeCypher_ {};
       // The list of nodes.
       shared_ptr<vector<Data::NodeList>> nodeList_ {};
@@ -494,7 +494,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -140,9 +140,9 @@ namespace Models
 
 
     protected:
-      // The maximum number of records to return.
+      // The limit on the number of returned records.
       shared_ptr<int32_t> limit_ {};
-      // The input parameters of the query statement.
+      // The input parameters for the query statement.
       shared_ptr<vector<ExecCommand::Params>> params_ {};
       // The custom Cypher query statement.
       shared_ptr<string> query_ {};
@@ -181,7 +181,7 @@ namespace Models
 
 
   protected:
-    // The custom Cypher query instruction.
+    // The custom Cypher query command.
     // 
     // This parameter is required.
     shared_ptr<ExecKgCypherRequest::ExecCommand> execCommand_ {};
@@ -189,6 +189,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operating user.
     shared_ptr<string> opUserId_ {};
     // The model ID.
     // 

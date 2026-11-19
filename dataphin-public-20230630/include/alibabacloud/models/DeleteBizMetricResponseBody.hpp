@@ -77,11 +77,9 @@ namespace Models
 
 
     protected:
-      // The exception information.
+      // The exception message.
       shared_ptr<string> message_ {};
-      // Indicates whether the deletion was successful. Valid values:
-      // - true: Succeeded.
-      // - false: Failed.
+      // Indicates whether the deletion is successful. A value of true indicates that the deletion is successful. A value of false indicates that the deletion failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -132,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The deletion result.
     shared_ptr<DeleteBizMetricResponseBody::Data> data_ {};
@@ -142,7 +140,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -147,23 +147,33 @@ namespace Models
 
 
     protected:
-      // The UDF category identifier. Valid values: 1: window function. 2: statistical function. 3: numerical function. 4: string function. 5: time function. 6: IP address utility function. 7: URL-related function. 8: encoding and decoding function. 9: business-related function. 10: other.
+      // The category identifier of the user-defined function (UDF). Valid values:
+      // - 1: window function
+      // - 2: statistical function
+      // - 3: numerical function
+      // - 4: string function
+      // - 5: time function
+      // - 6: IP address helper function
+      // - 7: URL-related function
+      // - 8: encoding and decoding function
+      // - 9: business-related function
+      // - 10: other
       // 
       // This parameter is required.
       shared_ptr<int32_t> category_ {};
-      // The class name that implements the function in the resource.
+      // The name of the class that implements the function in the resource.
       // 
       // This parameter is required.
       shared_ptr<string> className_ {};
-      // The command format for function calling invoke.
+      // The command format for function invocation.
       // 
       // This parameter is required.
       shared_ptr<string> commandHelp_ {};
-      // The commit remarks.
+      // The submission comment.
       // 
       // This parameter is required.
       shared_ptr<string> comment_ {};
-      // The compute engine type. Valid values: MAX_COMPUTE, HADOOP.
+      // The compute engine type. Valid values: MAX_COMPUTE and HADOOP.
       // 
       // This parameter is required.
       shared_ptr<string> computeEngineType_ {};
@@ -171,7 +181,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> description_ {};
-      // The directory in which the function is stored.
+      // The storage directory. Default value: /.
       shared_ptr<string> directory_ {};
       // The function name.
       // 
@@ -181,7 +191,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // The IDs of referenced resources.
+      // The IDs of the referenced resources.
       // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> refResourceIdList_ {};
@@ -221,6 +231,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

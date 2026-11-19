@@ -77,12 +77,13 @@ namespace Models
   protected:
     // The entity type code.
     shared_ptr<string> entityType_ {};
-    // The paged query filter conditions.
+    // The paged search filter conditions.
     shared_ptr<string> listQueryShrink_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
     // The workspace ID.
     // 

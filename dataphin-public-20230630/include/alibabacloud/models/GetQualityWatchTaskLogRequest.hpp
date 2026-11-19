@@ -61,8 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
-    // The ID of the quality watchtask.
+    // The watch task ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> watchTaskId_ {};

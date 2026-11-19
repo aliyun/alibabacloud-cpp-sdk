@@ -91,13 +91,13 @@ namespace Models
 
 
     protected:
-      // API name.
+      // The API name.
       shared_ptr<string> apiName_ {};
-      // Group ID.
+      // The group ID.
       shared_ptr<int32_t> groupId_ {};
-      // Page number. Default value: 1.
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
-      // Number of records per page. Default value: 20.
+      // The number of entries per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
     };
 
@@ -134,14 +134,15 @@ namespace Models
 
 
   protected:
-    // Search conditions.
+    // The query conditions.
     shared_ptr<ListDataServicePublishedApisRequest::ListQuery> listQuery_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // Data service project ID.
+    // The ID of the Data Service project.
     shared_ptr<int32_t> projectId_ {};
   };
 

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The standard set ID.
+    // The ID of the standard set.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
@@ -65,6 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
     shared_ptr<string> opUserId_ {};
   };
 

@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The paged query conditions.
+    // The paging conditions for the paged query.
     shared_ptr<string> listQueryShrink_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator.
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
   };
 

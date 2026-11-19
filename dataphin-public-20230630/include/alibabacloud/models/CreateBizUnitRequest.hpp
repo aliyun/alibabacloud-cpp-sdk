@@ -144,7 +144,7 @@ namespace Models
 
 
     protected:
-      // The list of data domain architects.
+      // The business unit architects.
       // 
       // This parameter is required.
       shared_ptr<vector<CreateCommand::BizUnitAccountList>> bizUnitAccountList_ {};
@@ -163,8 +163,8 @@ namespace Models
       // - icon-entertainment: Entertainment.
       // - icon-traffic: Travel.
       // - icon-health: Health.
-      // - icon-social-contact: Social and communication.
-      // - con-dining: Dining.
+      // - icon-social-contact: Social and communications.
+      // - con-dining: Catering.
       // - icon-education: Education.
       // - icon-environment: Environment.
       // 
@@ -172,9 +172,9 @@ namespace Models
       shared_ptr<string> icon_ {};
       // The production mode. Valid values:
       // - BASIC: single-environment mode.
-      // - DEV_PROD: development/production dual-environment mode.
+      // - DEV_PROD: development and production dual-environment mode.
       shared_ptr<string> mode_ {};
-      // The code name of the business object. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For ADB_PG engines, the code name can be up to 40 characters in length.
+      // The code name of the business object. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For the ADB_PG engine, the code name can be up to 40 characters in length.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
@@ -206,7 +206,7 @@ namespace Models
 
 
   protected:
-    // The create request.
+    // The creation request.
     // 
     // This parameter is required.
     shared_ptr<CreateBizUnitRequest::CreateCommand> createCommand_ {};
@@ -214,6 +214,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
   };
 

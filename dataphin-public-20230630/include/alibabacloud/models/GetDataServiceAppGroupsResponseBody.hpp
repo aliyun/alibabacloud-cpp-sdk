@@ -131,17 +131,17 @@ namespace Models
 
 
   protected:
-    // The list of application groups.
+    // The application group list.
     shared_ptr<vector<GetDataServiceAppGroupsResponseBody::AppGroupList>> appGroupList_ {};
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The HTTP status code.
+    // The HTTP response code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend error details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

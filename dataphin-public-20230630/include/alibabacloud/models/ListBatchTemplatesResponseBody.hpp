@@ -200,15 +200,21 @@ namespace Models
 
 
         protected:
-          // The ID of the Python third-party package.
+          // The ID of the third-party Python package.
           shared_ptr<int64_t> id_ {};
           // The installation time.
           shared_ptr<string> installTime_ {};
-          // The name of the Python third-party package.
+          // The name of the third-party Python package.
           shared_ptr<string> name_ {};
           // The Python version. Valid values: PYTHON_2_7, PYTHON_3_7, and PYTHON_3_11.
           shared_ptr<string> pythonVersion_ {};
-          // The status of the third-party package. Valid values: INSTALL_SUCCESS (installed successfully), INSTALL_FAILED (installation failed), INSTALLING (installing), UPGRADE_SUCCESS (upgraded successfully), UPGRADE_FAILED (upgrade failed), and UPGRADING (upgrading).
+          // The status of the third-party package. Valid values:
+          // - INSTALL_SUCCESS: Installation succeeded.
+          // - INSTALL_FAILED: Installation failed.
+          // - INSTALLING: Installation in progress.
+          // - UPGRADE_SUCCESS: Upgrade succeeded.
+          // - UPGRADE_FAILED: Upgrade failed.
+          // - UPGRADING: Upgrade in progress.
           shared_ptr<string> status_ {};
           // The version of the third-party package.
           shared_ptr<string> version_ {};
@@ -342,7 +348,7 @@ namespace Models
           shared_ptr<string> dsId_ {};
           // The schema of the data source for the database SQL template.
           shared_ptr<string> schema_ {};
-          // The data source type of the database SQL template. Valid values: MYSQL, ORACLE, ADB_FOR_PG, OUSHUDB, PRESTO, POSTGRE_SQL, STARROCKS, CLICKHOUSE, ANALYTICDB, ADB_FOR_MYSQL_V3, GAUSSDB, SELECTDB, DORIS, SQL_SERVER, HOLOGRES, OPENGAUSS, DAMENG, OCEANBASE, TRINO, POLARDB_X2, LINDORM, EMR_SPARK_SERVERLESS, TDSQL_FOR_PG, TDSQL_FOR_MYSQL, GBASE_8A, and TDENGINE.
+          // The type of the data source for the database SQL template. Valid values: MYSQL, ORACLE, ADB_FOR_PG, OUSHUDB, PRESTO, POSTGRE_SQL, STARROCKS, CLICKHOUSE, ANALYTICDB, ADB_FOR_MYSQL_V3, GAUSSDB, SELECTDB, DORIS, SQL_SERVER, HOLOGRES, OPENGAUSS, DAMENG, OCEANBASE, TRINO, POLARDB_X2, LINDORM, EMR_SPARK_SERVERLESS, TDSQL_FOR_PG, TDSQL_FOR_MYSQL, GBASE_8A, and TDENGINE.
           shared_ptr<string> type_ {};
         };
 
@@ -527,13 +533,13 @@ namespace Models
 
 
       protected:
-        // The template submission comment.
+        // The submission comment for the template.
         shared_ptr<string> comment_ {};
         // The template content.
         shared_ptr<string> content_ {};
-        // The latest version.
+        // The current latest version.
         shared_ptr<int64_t> currentVersion_ {};
-        // The datasource config of the database SQL template.
+        // The datasource config for the database SQL template.
         shared_ptr<TemplateList::DataSourceConfig> dataSourceConfig_ {};
         // The template description.
         shared_ptr<string> description_ {};
@@ -547,25 +553,25 @@ namespace Models
         shared_ptr<string> gmtCreate_ {};
         // The time when the template was updated. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the template. This ID is the same as the menu tree node ID.
+        // The template ID, which is the same as the menu tree node ID.
         shared_ptr<int64_t> id_ {};
         // The user who last updated the template.
         shared_ptr<string> modifier_ {};
         // The ID of the user who last updated the template.
         shared_ptr<string> modifierId_ {};
-        // The name of the template.
+        // The template name.
         shared_ptr<string> name_ {};
-        // The type of the node. Valid values: 10 (Shell) and 21 (Python).
+        // The node type. Valid values: 10 (Shell) and 21 (Python).
         shared_ptr<int32_t> operatorType_ {};
-        // The owner of the template.
+        // The template owner.
         shared_ptr<string> owner_ {};
         // The ID of the template owner.
         shared_ptr<string> ownerId_ {};
         // The list of template parameters.
         shared_ptr<vector<TemplateList::Params>> params_ {};
-        // The ID of the project.
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
-        // The list of dependent Python third-party packages.
+        // The list of dependent third-party Python packages.
         shared_ptr<vector<TemplateList::PythonModuleList>> pythonModuleList_ {};
         // The ID of the resource group in the production environment.
         shared_ptr<string> resourceGroupId_ {};
@@ -573,7 +579,7 @@ namespace Models
         shared_ptr<string> resourceGroupName_ {};
         // Indicates whether runtime resources are shared.
         shared_ptr<bool> shareRuntimeResource_ {};
-        // The status of the template. Valid values: 0 (draft), 2 (submitted), and 100 (in development).
+        // The template status. Valid values: 0 (Draft), 2 (Submitted), and 100 (In development).
         shared_ptr<string> status_ {};
       };
 
@@ -596,7 +602,7 @@ namespace Models
 
 
     protected:
-      // The paginated template record list.
+      // The list of paged template records.
       shared_ptr<vector<PageResult::TemplateList>> templateList_ {};
       // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
@@ -655,7 +661,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The backend exception details.
     shared_ptr<string> message_ {};
-    // The paging query result.
+    // The paged query result.
     shared_ptr<ListBatchTemplatesResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

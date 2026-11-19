@@ -123,15 +123,15 @@ namespace Models
 
 
     protected:
-      // The ID of the data source. This parameter is empty if the check is performed before creation.
+      // The ID of the data source. This field is empty when the check is performed before creation.
       shared_ptr<string> dataSourceId_ {};
       // The error message returned when the check fails.
       shared_ptr<string> errorMsg_ {};
       // The ID of the connectivity check task.
       shared_ptr<string> jobId_ {};
-      // The job type.
+      // The type of the task.
       shared_ptr<string> jobType_ {};
-      // The job status. Valid values: NEW, IN_PROCESS, SUCCESS, and FAILED.
+      // The status of the task. Valid values: NEW, IN_PROCESS, SUCCESS, and FAILED.
       shared_ptr<string> status_ {};
       // The ID of the tenant to which the check task belongs.
       shared_ptr<string> tenantId_ {};

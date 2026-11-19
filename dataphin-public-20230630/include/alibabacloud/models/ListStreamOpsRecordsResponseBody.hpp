@@ -124,19 +124,19 @@ namespace Models
 
 
     protected:
-      // deploymentId
+      // The deployment ID of the task. This ID is used to identify the deployment and is different from the specific running instance ID deploymentInstanceId.
       shared_ptr<string> deploymentId_ {};
-      // deploymentInstanceId
+      // The deployment instance ID associated with this operation. This ID corresponds to the DeploymentInstanceId request parameter in the log and TaskManager query operations.
       shared_ptr<string> deploymentInstanceId_ {};
-      // The end time.
+      // The end time of the operation. The time is in the yyyy-MM-dd HH:mm:ss format. If the operation has not ended, the value may be null.
       shared_ptr<string> endTime_ {};
-      // The log content.
+      // The operation logs. In the ListStreamOpsRecords response, this field may contain a log storage identity. After you invoke the GetStreamOpsRecord operation, the log content or operation information is returned.
       shared_ptr<string> logContent_ {};
-      // The instance status. Valid values: START, PAUSE, RESUME, and STOP. Displayed as Start, Pause, Recover, or Stop.
+      // The type of the operation. Valid values: START, PAUSE, RESUME, and STOP. This field does not represent the running status of the task.
       shared_ptr<string> operate_ {};
-      // opsRecordId
+      // The ID of the operation record. This ID corresponds to the OpsRecordId request parameter of the GetStreamOpsRecord operation.
       shared_ptr<string> opsRecordId_ {};
-      // The start time.
+      // The start time of the operation. The time is in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> startTime_ {};
     };
 
@@ -189,7 +189,7 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The start and stop operation records of real-time tasks.
+    // The start and stop operation records for real-time tasks. You can use the log storage identifiers in the list to query the log content by calling the GetStreamOpsRecord operation.
     shared_ptr<vector<ListStreamOpsRecordsResponseBody::Data>> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

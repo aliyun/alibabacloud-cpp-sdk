@@ -66,12 +66,13 @@ namespace Models
 
 
   protected:
-    // The app group ID.
+    // The application group ID.
     shared_ptr<int32_t> groupId_ {};
     // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
     // The data service project ID.
     // 

@@ -70,12 +70,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
     // The data service project ID.
     // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};
-    // The revoke instruction.
+    // The authorization command.
     // 
     // This parameter is required.
     shared_ptr<string> revokeCommandShrink_ {};

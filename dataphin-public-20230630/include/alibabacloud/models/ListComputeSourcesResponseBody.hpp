@@ -209,33 +209,33 @@ namespace Models
 
 
       protected:
-        // Indicates whether the compute source is bound to a project.
+        // Specifies whether the compute source is bound to a project.
         shared_ptr<bool> bindProject_ {};
         // The ID of the bound project.
         shared_ptr<int64_t> bindProjectId_ {};
         // The name of the bound project.
         shared_ptr<string> bindProjectName_ {};
-        // The ID of the creator.
+        // The creator.
         shared_ptr<string> creator_ {};
-        // The name of the creator.
+        // The creator.
         shared_ptr<string> creatorName_ {};
-        // The description of the compute source.
+        // The description.
         shared_ptr<string> description_ {};
-        // The display name of the compute source.
+        // The display name.
         shared_ptr<string> displayName_ {};
-        // The time when the compute source was created, in the yyyy-MM-dd HH:mm:ss format.
+        // The creation time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the compute source was last modified, in the yyyy-MM-dd HH:mm:ss format.
+        // The update time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtModified_ {};
         // The ID of the compute source.
         shared_ptr<int64_t> id_ {};
         // The name of the compute source.
         shared_ptr<string> name_ {};
-        // The ID of the compute source owner.
+        // The owner of the compute source.
         shared_ptr<string> owner_ {};
-        // The name of the compute source owner.
+        // The owner of the compute source.
         shared_ptr<string> ownerName_ {};
-        // The type of the compute source.
+        // The compute source type.
         shared_ptr<string> type_ {};
       };
 
@@ -260,7 +260,7 @@ namespace Models
     protected:
       // The paginated list of compute sources.
       shared_ptr<vector<PageResult::ComputeSourceList>> computeSourceList_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -311,17 +311,17 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The backend response code.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned if the request failed.
+    // The backend exception details.
     shared_ptr<string> message_ {};
-    // The paginated query result.
+    // The paging query result.
     shared_ptr<ListComputeSourcesResponseBody::PageResult> pageResult_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

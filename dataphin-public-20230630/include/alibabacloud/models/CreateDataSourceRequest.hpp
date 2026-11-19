@@ -120,11 +120,11 @@ namespace Models
 
 
         protected:
-          // Configuration item. For the key values required by different databases, see the supplementary description at the bottom of the document.
+          // The configuration item key. For the key values required by different databases, refer to the supplementary instructions below.
           // 
           // This parameter is required.
           shared_ptr<string> key_ {};
-          // Configuration item value
+          // The value of the configuration item.
           // 
           // This parameter is required.
           shared_ptr<string> value_ {};
@@ -170,19 +170,19 @@ namespace Models
 
 
       protected:
-        // Whether to check connectivity
+        // Specifies whether to check the connectivity.
         shared_ptr<bool> checkActivity_ {};
-        // List of connection configuration items
+        // The list of connection configuration items.
         // 
         // This parameter is required.
         shared_ptr<vector<ProdDataSourceCreate::ConfigItemList>> configItemList_ {};
-        // Data source description
+        // The description of the data source.
         shared_ptr<string> description_ {};
-        // Data source name
+        // The name of the data source.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // Data source type:
+        // The data source type. Valid values:
         // - MAX_COMPUTE
         // - HDFS
         // - LOG_HUB
@@ -205,7 +205,7 @@ namespace Models
         // - ORACLE
         // - VERTICA
         // - DB2
-        // - TERA_DATA, etc.
+        // - TERA_DATA
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -297,11 +297,11 @@ namespace Models
 
 
           protected:
-            // Configuration item. For the key values required by different databases, see the supplementary description at the bottom of the document.
+            // The configuration item key. For the key values required by different databases, refer to the supplementary instructions below.
             // 
             // This parameter is required.
             shared_ptr<string> key_ {};
-            // Configuration item value
+            // The value of the configuration item.
             // 
             // This parameter is required.
             shared_ptr<string> value_ {};
@@ -347,19 +347,19 @@ namespace Models
 
 
         protected:
-          // Whether to check connectivity
+          // Specifies whether to check the connectivity.
           shared_ptr<bool> checkActivity_ {};
-          // List of connection configuration items
+          // The list of connection configuration items.
           // 
           // This parameter is required.
           shared_ptr<vector<DataSourceCreate::ConfigItemList>> configItemList_ {};
-          // Description
+          // The description.
           shared_ptr<string> description_ {};
-          // Data source name
+          // The name of the data source.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // Data source type
+          // The data source type.
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
@@ -384,9 +384,9 @@ namespace Models
 
 
       protected:
-        // Development environment data source
+        // The development environment data source.
         shared_ptr<DevDataSourceCreate::DataSourceCreate> dataSourceCreate_ {};
-        // Associated production environment data source ID. This parameter cannot be empty when only creating a development environment compute source.
+        // The ID of the associated production environment data source. This parameter is required if you only create a compute source for the development environment.
         shared_ptr<int64_t> prodDataSourceId_ {};
       };
 
@@ -411,9 +411,9 @@ namespace Models
 
 
     protected:
-      // Development environment data source
+      // The development environment data source.
       shared_ptr<CreateCommand::DevDataSourceCreate> devDataSourceCreate_ {};
-      // Production environment data source
+      // The production environment data source.
       shared_ptr<CreateCommand::ProdDataSourceCreate> prodDataSourceCreate_ {};
     };
 
@@ -443,12 +443,13 @@ namespace Models
 
 
   protected:
-    // Request object
+    // The request object.
     shared_ptr<CreateDataSourceRequest::CreateCommand> createCommand_ {};
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

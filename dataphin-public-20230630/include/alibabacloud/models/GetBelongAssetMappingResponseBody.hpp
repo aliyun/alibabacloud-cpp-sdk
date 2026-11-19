@@ -160,7 +160,7 @@ namespace Models
 
 
     protected:
-      // The asset type. Valid values: COLUMN (field) and INDEX (metric).
+      // The asset type. Valid values: COLUMN for field, INDEX for metric.
       shared_ptr<string> assetType_ {};
       // The GUID of the asset.
       shared_ptr<string> guid_ {};

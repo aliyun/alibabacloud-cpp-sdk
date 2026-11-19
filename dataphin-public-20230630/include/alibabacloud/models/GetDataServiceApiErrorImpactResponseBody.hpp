@@ -121,9 +121,9 @@ namespace Models
         shared_ptr<int32_t> appId_ {};
         // appKey
         shared_ptr<int64_t> appKey_ {};
-        // The app name.
+        // The name of the application.
         shared_ptr<string> appName_ {};
-        // The number of exceptions for the app.
+        // The number of exceptions for the application.
         shared_ptr<int64_t> errorCount_ {};
       };
 
@@ -174,9 +174,9 @@ namespace Models
 
 
       protected:
-        // The API name.
+        // The name of the API.
         shared_ptr<string> apiName_ {};
-        // The API ID.
+        // The ID of the API.
         shared_ptr<int64_t> appId_ {};
         // The number of exceptions for the API.
         shared_ptr<int64_t> errorCount_ {};
@@ -203,9 +203,9 @@ namespace Models
 
 
     protected:
-      // The list of APIs affected by exceptions.
+      // The APIs affected by the exceptions.
       shared_ptr<vector<Data::ErrorApiList>> errorApiList_ {};
-      // The list of apps affected by exceptions.
+      // The applications affected by the exceptions.
       shared_ptr<vector<Data::ErrorAppList>> errorAppList_ {};
     };
 
@@ -258,7 +258,7 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The summary of call exception impacts.
+    // The summary of API exception impacts.
     shared_ptr<GetDataServiceApiErrorImpactResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -266,7 +266,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

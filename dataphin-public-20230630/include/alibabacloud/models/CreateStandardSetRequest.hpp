@@ -115,10 +115,7 @@ namespace Models
       protected:
         // The list of specified users who can view the standard set. This parameter takes effect only when the visibility type is set to SPECIFIED.
         shared_ptr<vector<string>> specifiedUserList_ {};
-        // The visibility type. Valid values:
-        // - PUBLIC: visible to all users.
-        // - PRIVATE: visible only to standard set members and administrators.
-        // - SPECIFIED: visible only to specified users.
+        // The visibility type. Valid values: PUBLIC: Public. PRIVATE: Private, visible only to standard set members and administrators. SPECIFIED: Visible to specified users.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -180,9 +177,7 @@ namespace Models
 
 
       protected:
-        // The approval process type. Valid values:
-        // - BY_DEFAULT: the default approval type.
-        // - BY_TEMPLATE: approval based on an approval template.
+        // The approval flow type. Valid values: BY_DEFAULT: Default approval type. BY_TEMPLATE: Based on an approval template.
         // 
         // This parameter is required.
         shared_ptr<string> approvalType_ {};
@@ -194,7 +189,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<bool> isSubmitInBatch_ {};
-        // The ID of the approval template. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
+        // The ID of the approval template. This parameter takes effect only when the approval flow type is set to BY_TEMPLATE.
         shared_ptr<int64_t> templateId_ {};
       };
 
@@ -226,7 +221,7 @@ namespace Models
 
 
       protected:
-        // The directory to which the standard set belongs.
+        // The folder.
         // 
         // This parameter is required.
         shared_ptr<string> directory_ {};
@@ -288,9 +283,7 @@ namespace Models
 
 
       protected:
-        // The approval process type. Valid values:
-        // - BY_DEFAULT: the default approval type.
-        // - BY_TEMPLATE: approval based on an approval template.
+        // The approval flow type. Valid values: BY_DEFAULT: Default approval type. BY_TEMPLATE: Based on an approval template.
         // 
         // This parameter is required.
         shared_ptr<string> approvalType_ {};
@@ -302,7 +295,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<bool> isSubmitInBatch_ {};
-        // The ID of the approval template. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
+        // The ID of the approval template. This parameter takes effect only when the approval flow type is set to BY_TEMPLATE.
         shared_ptr<int64_t> templateId_ {};
       };
 
@@ -401,7 +394,7 @@ namespace Models
 
 
     protected:
-      // The approval configuration for going online.
+      // The online approval configuration.
       shared_ptr<CreateCommand::ApprovalConfig> approvalConfig_ {};
       // The code of the standard set.
       // 
@@ -411,19 +404,19 @@ namespace Models
       shared_ptr<int64_t> defaultStandardTemplateId_ {};
       // The description of the standard set.
       shared_ptr<string> description_ {};
-      // The directory to which the standard set belongs.
+      // The parent folder.
       shared_ptr<CreateCommand::DirectoryReference> directoryReference_ {};
-      // The list of maintainers.
+      // The maintainers.
       shared_ptr<vector<string>> maintainerList_ {};
-      // The list of member groups.
+      // The member group list.
       shared_ptr<vector<string>> memberGroupList_ {};
-      // The list of members.
+      // The member list.
       shared_ptr<vector<string>> memberList_ {};
       // The name of the standard set.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The approval configuration for going offline.
+      // The offline approval configuration.
       shared_ptr<CreateCommand::OfflineApprovalConfig> offlineApprovalConfig_ {};
       // The visibility configuration.
       shared_ptr<CreateCommand::VisibilityConfig> visibilityConfig_ {};
@@ -455,7 +448,7 @@ namespace Models
 
 
   protected:
-    // The create instruction.
+    // The create command.
     // 
     // This parameter is required.
     shared_ptr<CreateStandardSetRequest::CreateCommand> createCommand_ {};
@@ -463,6 +456,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

@@ -130,15 +130,15 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> code_ {};
-      // The catalog for a database SQL node. This parameter takes effect only for data source types that require a catalog, such as Presto.
+      // The data source catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
       shared_ptr<string> dataSourceCatalog_ {};
-      // The data source ID for a database SQL node.
+      // The data source ID for database SQL nodes.
       shared_ptr<int64_t> dataSourceId_ {};
-      // The schema for a database SQL node. This parameter takes effect only for data source types that require a schema, such as Oracle.
+      // The data source schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
       shared_ptr<string> dataSourceSchema_ {};
-      // Specifies whether to include dependency information for input tables that have no corresponding nodes. Default value: false.
+      // Specifies whether to include dependency information for input tables that do not have corresponding nodes. Default value: false.
       shared_ptr<bool> includeAllInputTables_ {};
-      // Specifies whether to query data lineage when querying upstream dependencies. Default value: false.
+      // Specifies whether to query lineage data when querying upstream dependencies. Default value: false.
       shared_ptr<bool> needQueryLineages_ {};
       // The node type, such as MAX_COMPUTE_SQL.
       // 
@@ -180,8 +180,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
-    // The parse request.
+    // The parsing request.
     // 
     // This parameter is required.
     shared_ptr<ParseBatchTaskDependencyRequest::ParseCommand> parseCommand_ {};

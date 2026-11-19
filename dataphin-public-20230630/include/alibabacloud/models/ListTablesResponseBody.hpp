@@ -449,7 +449,7 @@ namespace Models
         shared_ptr<string> lastDmlTime_ {};
         // The time when the data was last viewed.
         shared_ptr<string> lastQueryTime_ {};
-        // The lifecycle of the table, in days.
+        // The lifecycle of the table in days.
         shared_ptr<int64_t> lifeCycle_ {};
         // The table name.
         shared_ptr<string> name_ {};
@@ -471,7 +471,7 @@ namespace Models
         shared_ptr<string> storageType_ {};
         // The dynamic properties of the real-time metatable.
         shared_ptr<vector<TableList::StreamTableConfig>> streamTableConfig_ {};
-        // The total storage size of the table, in bytes.
+        // The total storage size of the table in bytes.
         shared_ptr<int64_t> tableSizeInBytes_ {};
         // The number of visits in the last 30 days.
         shared_ptr<int64_t> visitCount30d_ {};
@@ -551,11 +551,11 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The HTTP response code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The backend exception details.
     shared_ptr<string> message_ {};
-    // The paged query result.
+    // The paging query result.
     shared_ptr<ListTablesResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

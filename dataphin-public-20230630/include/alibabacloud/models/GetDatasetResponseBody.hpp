@@ -305,7 +305,7 @@ namespace Models
 
 
                 protected:
-                  // The embedding dimension.
+                  // The vector dimension.
                   // 
                   // This parameter is required.
                   shared_ptr<int64_t> dimension_ {};
@@ -313,7 +313,7 @@ namespace Models
                   // 
                   // This parameter is required.
                   shared_ptr<string> embeddingModel_ {};
-                  // The index building parameters.
+                  // The index construction parameters.
                   Darabonba::Json indexParams_ {};
                   // The index type.
                   // 
@@ -422,7 +422,7 @@ namespace Models
 
 
             protected:
-              // The column list.
+              // The list of columns.
               shared_ptr<vector<TableSchema::Columns>> columns_ {};
             };
 
@@ -459,19 +459,19 @@ namespace Models
 
 
           protected:
-            // The data source type of the meta table. Only KAFKA is supported in the current phase.
+            // The data source type of the metadata table. Only KAFKA is available in the current phase.
             // 
             // This parameter is required.
             shared_ptr<string> datasourceType_ {};
-            // The meta table name.
+            // The metadata table name.
             // 
             // This parameter is required.
             shared_ptr<string> metaTableName_ {};
-            // The ID of the project to which the meta table belongs. Cross-project access is supported.
+            // The ID of the project to which the metadata table belongs. Cross-project access is supported.
             // 
             // This parameter is required.
             shared_ptr<int64_t> projectId_ {};
-            // The table schema configuration. This configuration reuses MetadataStorageConfigDTO.TableSchemaDTO.
+            // The table schema configuration. Reuses MetadataStorageConfigDTO.TableSchemaDTO.
             shared_ptr<RealtimeMetaTableConfig::TableSchema> tableSchema_ {};
           };
 
@@ -627,7 +627,7 @@ namespace Models
 
 
                 protected:
-                  // The embedding dimension.
+                  // The vector dimension.
                   // 
                   // This parameter is required.
                   shared_ptr<int64_t> dimension_ {};
@@ -635,7 +635,7 @@ namespace Models
                   // 
                   // This parameter is required.
                   shared_ptr<string> embeddingModel_ {};
-                  // The index building parameters. Specify different parameters based on the index type. For example, HNSW requires {M:30, efConstruction:360}, and IVF_FLAT requires {nlist:128}.
+                  // The index build parameters. Specify different parameters based on the index type. For example, HNSW requires {M:30, efConstruction:360}, and IVF_FLAT requires {nlist:128}.
                   Darabonba::Json indexParams_ {};
                   // The index type. PostgreSQL supports IVFFlat and HNSW. Milvus supports all types.
                   // 
@@ -711,9 +711,9 @@ namespace Models
               protected:
                 // The column description.
                 shared_ptr<string> comment_ {};
-                // The subtype of the array element. This parameter is valid only when the type is ARRAY.
+                // The subtype of the array element. Valid only when the type is ARRAY.
                 shared_ptr<string> elementType_ {};
-                // The maximum capacity of the array. This parameter is valid only when the type is ARRAY. Default value: 4096.
+                // The maximum capacity of the array. Valid only when the type is ARRAY. Default value: 4096.
                 shared_ptr<int32_t> maxCapacity_ {};
                 // The column name.
                 // 
@@ -744,7 +744,7 @@ namespace Models
 
 
             protected:
-              // The column list.
+              // The list of columns.
               shared_ptr<vector<TableSchema::Columns>> columns_ {};
             };
 
@@ -814,11 +814,11 @@ namespace Models
             // 
             // This parameter is required.
             shared_ptr<string> dataSourceId_ {};
-            // The name of the data source.
+            // The data source name.
             shared_ptr<string> dataSourceName_ {};
             // The development database or schema.
             shared_ptr<string> devSchema_ {};
-            // The storage destination, which can be a new table or an existing table.
+            // The storage destination (new table or existing table).
             // 
             // This parameter is required.
             shared_ptr<string> metadataStorageMode_ {};
@@ -905,7 +905,7 @@ namespace Models
             // 
             // This parameter is required.
             shared_ptr<string> dataSourceId_ {};
-            // The name of the data source.
+            // The data source name.
             shared_ptr<string> dataSourceName_ {};
             // The development path. This parameter is not required for basic projects.
             shared_ptr<string> devPath_ {};
@@ -960,7 +960,7 @@ namespace Models
           shared_ptr<DataVersionConfig::FileStorageConfig> fileStorageConfig_ {};
           // The metastore configuration.
           shared_ptr<DataVersionConfig::MetadataStorageConfig> metadataStorageConfig_ {};
-          // The real-time meta table configuration. This configuration takes effect only when metadataStorageType is set to REALTIME_META_TABLE.
+          // The real-time metadata table configuration. Valid only when metadataStorageType is REALTIME_META_TABLE.
           shared_ptr<DataVersionConfig::RealtimeMetaTableConfig> realtimeMetaTableConfig_ {};
           // The version description.
           shared_ptr<string> versionDescription_ {};
@@ -1419,11 +1419,11 @@ namespace Models
           // 
           // This parameter is required.
           shared_ptr<int32_t> requestMethod_ {};
-          // The request parameter list.
+          // The list of request parameters.
           // 
           // This parameter is required.
           shared_ptr<vector<ApiInfo::RequestParamList>> requestParamList_ {};
-          // The response parameter list.
+          // The list of response parameters.
           shared_ptr<vector<ApiInfo::ResponseParamList>> responseParamList_ {};
           // The timeout period in seconds.
           // 
@@ -1495,7 +1495,7 @@ namespace Models
 
 
       protected:
-        // The API information for the online dataset.
+        // The API information of the online dataset.
         shared_ptr<VersionList::ApiInfo> apiInfo_ {};
         // The ID of the creator.
         shared_ptr<string> creator_ {};
@@ -1735,9 +1735,9 @@ namespace Models
       shared_ptr<string> creator_ {};
       // The name of the creator.
       shared_ptr<string> creatorName_ {};
-      // The subject domain ID.
+      // The subject area ID.
       shared_ptr<string> dataCellId_ {};
-      // The name of the subject domain.
+      // The subject area name.
       shared_ptr<string> dataCellName_ {};
       // The description.
       shared_ptr<string> description_ {};
@@ -1749,7 +1749,7 @@ namespace Models
       shared_ptr<string> gmtCreate_ {};
       // The time when the dataset was updated.
       shared_ptr<string> gmtModified_ {};
-      // The dataset ID, which serves as the business primary key.
+      // The dataset ID, which is the business primary key.
       shared_ptr<int64_t> id_ {};
       // The ID of the development owner.
       shared_ptr<string> lockOwner_ {};

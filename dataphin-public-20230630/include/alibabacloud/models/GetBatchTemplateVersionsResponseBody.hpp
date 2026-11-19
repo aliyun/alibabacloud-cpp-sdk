@@ -198,15 +198,15 @@ namespace Models
 
 
         protected:
-          // The ID of the Python third-party package.
+          // The ID of the third-party Python package.
           shared_ptr<int64_t> id_ {};
           // The installation time.
           shared_ptr<string> installTime_ {};
-          // The name of the Python third-party package.
+          // The name of the third-party Python package.
           shared_ptr<string> name_ {};
           // The Python version. Valid values: PYTHON_2_7, PYTHON_3_7, and PYTHON_3_11.
           shared_ptr<string> pythonVersion_ {};
-          // The status of the third-party package. Valid values: INSTALL_SUCCESS (installed), INSTALL_FAILED (installation failed), INSTALLING (installing), UPGRADE_SUCCESS (upgraded), UPGRADE_FAILED (upgrade failed), and UPGRADING (upgrading).
+          // The status of the third-party package. Valid values: INSTALL_SUCCESS (installation succeeded), INSTALL_FAILED (installation failed), INSTALLING (installing), UPGRADE_SUCCESS (upgrade succeeded), UPGRADE_FAILED (upgrade failed), and UPGRADING (upgrading).
           shared_ptr<string> status_ {};
           // The version of the third-party package.
           shared_ptr<string> version_ {};
@@ -270,9 +270,9 @@ namespace Models
         protected:
           // The parameter description.
           shared_ptr<string> description_ {};
-          // Indicates whether encryption is enabled for the parameter.
+          // Specifies whether encryption is enabled for the parameter.
           shared_ptr<bool> encryptEnabled_ {};
-          // The key of the parameter.
+          // The parameter key.
           shared_ptr<string> key_ {};
           // The default value of the parameter.
           shared_ptr<string> value_ {};
@@ -340,7 +340,7 @@ namespace Models
           shared_ptr<string> dsId_ {};
           // The schema of the data source for the database SQL template.
           shared_ptr<string> schema_ {};
-          // The data source type of the database SQL template. Valid values: MYSQL, ORACLE, ADB_FOR_PG, OUSHUDB, PRESTO, POSTGRE_SQL, STARROCKS, CLICKHOUSE, ANALYTICDB, ADB_FOR_MYSQL_V3, GAUSSDB, SELECTDB, DORIS, SQL_SERVER, HOLOGRES, OPENGAUSS, DAMENG, OCEANBASE, TRINO, POLARDB_X2, LINDORM, EMR_SPARK_SERVERLESS, TDSQL_FOR_PG, TDSQL_FOR_MYSQL, GBASE_8A, and TDENGINE.
+          // The type of the data source for the database SQL template. Valid values: MYSQL, ORACLE, ADB_FOR_PG, OUSHUDB, PRESTO, POSTGRE_SQL, STARROCKS, CLICKHOUSE, ANALYTICDB, ADB_FOR_MYSQL_V3, GAUSSDB, SELECTDB, DORIS, SQL_SERVER, HOLOGRES, OPENGAUSS, DAMENG, OCEANBASE, TRINO, POLARDB_X2, LINDORM, EMR_SPARK_SERVERLESS, TDSQL_FOR_PG, TDSQL_FOR_MYSQL, GBASE_8A, and TDENGINE.
           shared_ptr<string> type_ {};
         };
 
@@ -525,11 +525,11 @@ namespace Models
 
 
       protected:
-        // The template submission comment.
+        // The comment for the template submission.
         shared_ptr<string> comment_ {};
         // The template content.
         shared_ptr<string> content_ {};
-        // The data source configuration of the database SQL template.
+        // The datasource config for the database SQL template.
         shared_ptr<TemplateVersionList::DataSourceConfig> dataSourceConfig_ {};
         // The template description.
         shared_ptr<string> description_ {};
@@ -537,39 +537,39 @@ namespace Models
         shared_ptr<string> devResourceGroupId_ {};
         // The name of the resource group in the development environment.
         shared_ptr<string> devResourceGroupName_ {};
-        // The version of the compute engine. Valid values: Python 2.7 and Python 3.7.
+        // The version of the compute engine. Currently, Python 2.7 and Python 3.7 are supported.
         shared_ptr<string> engine_ {};
         // The time when the template was created. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtCreate_ {};
         // The time when the template was updated. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the template, which is the same as the menu tree node ID.
+        // The template ID, which is the same as the menu tree node ID.
         shared_ptr<int64_t> id_ {};
-        // The last user who updated the template.
+        // The user who last updated the template.
         shared_ptr<string> modifier_ {};
-        // The ID of the last user who updated the template.
+        // The ID of the user who last updated the template.
         shared_ptr<string> modifierId_ {};
-        // The name of the template.
+        // The template name.
         shared_ptr<string> name_ {};
         // The node type. Valid values: 10 (Shell) and 21 (Python).
         shared_ptr<int32_t> operatorType_ {};
-        // The owner of the template.
+        // The template owner.
         shared_ptr<string> owner_ {};
         // The ID of the template owner.
         shared_ptr<string> ownerId_ {};
         // The list of template parameters.
         shared_ptr<vector<TemplateVersionList::Params>> params_ {};
-        // The ID of the project.
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
-        // The list of dependent Python third-party packages.
+        // The list of dependent third-party Python packages.
         shared_ptr<vector<TemplateVersionList::PythonModuleList>> pythonModuleList_ {};
         // The ID of the resource group in the production environment.
         shared_ptr<string> resourceGroupId_ {};
         // The name of the resource group in the production environment.
         shared_ptr<string> resourceGroupName_ {};
-        // Indicates whether runtime resources are shared.
+        // Specifies whether runtime resources are shared.
         shared_ptr<bool> shareRuntimeResource_ {};
-        // The status of the template. Valid values: 0 (draft), 2 (submitted), and 100 (in development).
+        // The template status. Valid values: 0 (Draft), 2 (Submitted), and 100 (In development).
         shared_ptr<string> status_ {};
         // The version number.
         shared_ptr<int64_t> version_ {};
@@ -643,7 +643,7 @@ namespace Models
     shared_ptr<GetBatchTemplateVersionsResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

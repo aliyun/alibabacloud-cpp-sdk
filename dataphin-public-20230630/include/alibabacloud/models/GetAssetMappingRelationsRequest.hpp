@@ -80,7 +80,7 @@ namespace Models
 
 
     protected:
-      // The asset object type. Valid values: COLUMN (field) and INDEX (metric).
+      // The asset object type. Valid values: COLUMN: field. INDEX: metric.
       // 
       // This parameter is required.
       shared_ptr<string> assetType_ {};
@@ -88,7 +88,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> guid_ {};
-      // The mapping relationship type. Valid values: VALID (mapped) and INVALID (invalid mapping).
+      // The mapping relationship type. Valid values: VALID: mapped. INVALID: invalid mapping.
       // 
       // This parameter is required.
       shared_ptr<string> relationType_ {};

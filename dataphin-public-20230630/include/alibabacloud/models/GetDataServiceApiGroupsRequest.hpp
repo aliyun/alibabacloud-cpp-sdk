@@ -61,8 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
-    // The Data Service project ID.
+    // The data service project ID.
     // 
     // This parameter is required.
     shared_ptr<int32_t> projectId_ {};

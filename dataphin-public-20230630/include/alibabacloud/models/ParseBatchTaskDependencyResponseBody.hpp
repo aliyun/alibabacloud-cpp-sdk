@@ -168,15 +168,15 @@ namespace Models
         protected:
           // The list of fields. This parameter applies only to logical table dependencies.
           shared_ptr<vector<string>> fieldList_ {};
-          // The node ID. A value of -1 is returned if no node is found for the corresponding input table.
+          // The node ID. The value is -1 when the node corresponding to the input table is not found.
           shared_ptr<string> nodeId_ {};
-          // The node name. This parameter is empty if no node is found for the corresponding input table.
+          // The node name. This parameter is empty when the node corresponding to the input table is not found.
           shared_ptr<string> nodeName_ {};
           // The output name of the node.
           shared_ptr<string> outputName_ {};
-          // The owner of the node. This parameter is empty if no node is found for the corresponding input table.
+          // The owner of the node. This parameter is empty when the node corresponding to the input table is not found.
           shared_ptr<string> ownerName_ {};
-          // The owner of the node. This parameter is empty if no node is found for the corresponding input table.
+          // The owner of the node. This parameter is empty when the node corresponding to the input table is not found.
           shared_ptr<string> ownerUserId_ {};
           // The output table name of the node.
           shared_ptr<string> tableName_ {};
@@ -201,9 +201,9 @@ namespace Models
 
 
       protected:
-        // The input/output type. Valid values: input (dependent node) and output (node output name).
+        // The input and output type. Valid values: input (dependent node) and output (node output name).
         shared_ptr<string> nodeIoType_ {};
-        // The list of schedule nodes.
+        // The list of scheduled nodes.
         shared_ptr<vector<DependNodeList::ScheduleNodeInfoList>> scheduleNodeInfoList_ {};
       };
 
@@ -218,7 +218,7 @@ namespace Models
 
 
     protected:
-      // The list of dependent nodes.
+      // The dependent nodes.
       shared_ptr<vector<ParseResult::DependNodeList>> dependNodeList_ {};
     };
 
@@ -269,7 +269,7 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -279,7 +279,7 @@ namespace Models
     shared_ptr<ParseBatchTaskDependencyResponseBody::ParseResult> parseResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

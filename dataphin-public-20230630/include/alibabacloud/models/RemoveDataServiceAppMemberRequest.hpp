@@ -74,11 +74,11 @@ namespace Models
 
 
     protected:
-      // Application ID
+      // The application ID.
       // 
       // This parameter is required.
       shared_ptr<int32_t> appId_ {};
-      // List of application member IDs
+      // The IDs of the application members.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> memberIds_ {};
@@ -110,12 +110,13 @@ namespace Models
 
 
   protected:
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // Remove regular members from a data service application
+    // Deletes a regular member from a data service application.
     // 
     // This parameter is required.
     shared_ptr<RemoveDataServiceAppMemberRequest::RemoveCommand> removeCommand_ {};

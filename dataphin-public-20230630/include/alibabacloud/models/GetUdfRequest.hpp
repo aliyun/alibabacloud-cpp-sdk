@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The user-defined function ID.
+    // The ID of the custom function.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
@@ -74,7 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The project ID.
     // 

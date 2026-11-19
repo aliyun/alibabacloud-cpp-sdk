@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The operator user ID.
+    // The operator ID.
     shared_ptr<string> opUserId_ {};
     // The relation record ID.
     // 

@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The communication address or machine information.
+      // The communication address or host machine information of the TaskManager returned by the engine. This is not the log download URL.
       shared_ptr<string> path_ {};
-      // taskmanagerId
+      // The identifier of the TaskManager. This corresponds to the TaskmanagerId input parameter of ListStreamTaskManagerLogs and GetStreamLogContent.
       shared_ptr<string> taskmanagerId_ {};
     };
 
@@ -133,11 +133,11 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The list of TaskManagers for the real-time task.
+    // The TaskManager information retrieved in real time. You can use the taskmanagerId to query the logs of the TaskManager.
     shared_ptr<vector<ListStreamTaskManagersResponseBody::Data>> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend response exception.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

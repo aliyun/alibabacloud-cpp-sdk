@@ -82,9 +82,9 @@ namespace Models
     protected:
       // Specifies whether to return tables that do not exist in the asset inventory. If this parameter is not specified, non-existent tables are not returned.
       shared_ptr<bool> needNotExistObject_ {};
-      // Environment of the task to query: DEV or PROD.
+      // The environment to which the node belongs, such as DEV or PROD.
       shared_ptr<string> taskEnv_ {};
-      // Task (node) ID used to filter the query.
+      // The ID of the node used to filter the query.
       // 
       // This parameter is required.
       shared_ptr<string> taskId_ {};
@@ -116,12 +116,13 @@ namespace Models
 
 
   protected:
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // Data structure for querying table column lineage.
+    // The data structure used to query table column lineage.
     // 
     // This parameter is required.
     shared_ptr<GetTableColumnLineageByTaskIdRequest::TableColumnLineageByTaskIdQuery> tableColumnLineageByTaskIdQuery_ {};
