@@ -83,19 +83,21 @@ namespace Models
 
 
     protected:
-      // Deprecated. Use Endpoint.EndpointType instead.
+      // **[Deprecated]** This field is deprecated. Use Endpoint.EndpointType instead.
       shared_ptr<string> endpointType_ {};
-      // Deprecated. Use Endpoint.EndpointValue instead.
+      // **[Deprecated]** This field is deprecated. Use Endpoint.EndpointValue instead.
       shared_ptr<string> endpointValue_ {};
     };
 
     class Endpoint : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Endpoint& obj) { 
+        DARABONBA_PTR_TO_JSON(EndpointRoleName, endpointRoleName_);
         DARABONBA_PTR_TO_JSON(EndpointType, endpointType_);
         DARABONBA_PTR_TO_JSON(EndpointValue, endpointValue_);
       };
       friend void from_json(const Darabonba::Json& j, Endpoint& obj) { 
+        DARABONBA_PTR_FROM_JSON(EndpointRoleName, endpointRoleName_);
         DARABONBA_PTR_FROM_JSON(EndpointType, endpointType_);
         DARABONBA_PTR_FROM_JSON(EndpointValue, endpointValue_);
       };
@@ -110,8 +112,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->endpointType_ == nullptr
-        && this->endpointValue_ == nullptr; };
+      virtual bool empty() const override { return this->endpointRoleName_ == nullptr
+        && this->endpointType_ == nullptr && this->endpointValue_ == nullptr; };
+      // endpointRoleName Field Functions 
+      bool hasEndpointRoleName() const { return this->endpointRoleName_ != nullptr;};
+      void deleteEndpointRoleName() { this->endpointRoleName_ = nullptr;};
+      inline string getEndpointRoleName() const { DARABONBA_PTR_GET_DEFAULT(endpointRoleName_, "") };
+      inline Endpoint& setEndpointRoleName(string endpointRoleName) { DARABONBA_PTR_SET_VALUE(endpointRoleName_, endpointRoleName) };
+
+
       // endpointType Field Functions 
       bool hasEndpointType() const { return this->endpointType_ != nullptr;};
       void deleteEndpointType() { this->endpointType_ = nullptr;};
@@ -127,13 +136,14 @@ namespace Models
 
 
     protected:
+      // The ARN of the role for cross-account delivery. This parameter is required when EndpointType is set to queue and EndpointValue is set to the ARN of a cross-account queue, which means the account that owns the queue is different from the current account. Format: acs:ram::<UID of the account that owns the queue>:role/<Role name>. The role must be created by the account that owns the queue. The trust policy must allow the delivery account to assume the role, and the role must be granted permissions to send messages to the destination queue.
+      shared_ptr<string> endpointRoleName_ {};
       // The endpoint type. Valid values:
       // 
-      // - **topic**: The endpoint is a topic. A topic can deliver messages to multiple subscribers. You can add or remove subscribers later.
-      // 
-      // - **queue**: The endpoint is a queue. Messages are delivered directly to the queue. This simplifies the delivery path, but you cannot add new subscribers later.
+      // - **topic**: Topic type. Topics support delivery to multiple subscription endpoints. You can add or remove subscription endpoints later.
+      // - **queue**: Queue type. Messages are delivered directly to the queue. This reduces the routing path, but you cannot add new subscription endpoints later.
       shared_ptr<string> endpointType_ {};
-      // The value of the endpoint.
+      // The actual value of the endpoint. If EndpointType is set to topic, this parameter specifies the topic name. If EndpointType is set to queue, this parameter specifies the queue name.
       shared_ptr<string> endpointValue_ {};
     };
 
@@ -205,29 +215,27 @@ namespace Models
 
 
   protected:
-    // A client token to ensure the idempotence of the request.
-    // 
-    // Generate a unique value for this parameter from your client for each request.
+    // The client token that is used to ensure the idempotence of the request. You can generate a value for this parameter on the client side and ensure that the value is unique across different requests.
     shared_ptr<string> clientToken_ {};
-    // This parameter is deprecated.
+    // **[Deprecated]** This field is deprecated.
     shared_ptr<string> deliveryMode_ {};
     // The endpoint that receives messages for this subscription.
     shared_ptr<CreateEventRuleRequest::Endpoint> endpoint_ {};
-    // This parameter is deprecated. Use Endpoint instead.
+    // **[Deprecated]** This field is deprecated. Use the Endpoint parameter instead.
     shared_ptr<vector<CreateEventRuleRequest::Endpoints>> endpoints_ {};
-    // A list of event types.
+    // The list of event types. Valid values depend on the selected cloud service. For example, if OSS is selected, common values include ObjectCreated:PutObject and ObjectRemoved:DeleteObject. For more information, see the event notification documentation for each cloud service.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> eventTypes_ {};
-    // A list of matching rules. The logical relationship between the rules is OR.
+    // The list of matching rules. A maximum of 10 rules can be specified at the outer level. The rules are connected by the OR operator.
     // 
     // This parameter is required.
     shared_ptr<vector<vector<EventMatchRule>>> matchRules_ {};
-    // The name of the Alibaba Cloud product for which you want to receive event notifications.
+    // The name of the cloud service for event notification. Currently, only OSS is supported.
     // 
     // This parameter is required.
     shared_ptr<string> productName_ {};
-    // The name of the event rule.
+    // The name of the event notification rule. This parameter is required.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};

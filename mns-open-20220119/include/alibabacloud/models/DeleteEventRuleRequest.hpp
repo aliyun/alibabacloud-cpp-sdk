@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The name of the cloud service for the event notification.
+    // The name of the cloud service for event notifications.
     // 
     // This parameter is required.
     shared_ptr<string> productName_ {};
-    // The name of the event rule.
+    // The name of the event notification rule.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};

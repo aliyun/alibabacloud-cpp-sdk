@@ -60,19 +60,19 @@ namespace Models
 
 
   protected:
-    // The access control list (ACL) policy. Valid value:
+    // The ACL policy. Valid values:
     // 
-    // - **allow**: A CIDR whitelist. Only allow is supported.
+    // - **allow**: CIDR whitelist. Currently, only allow is supported.
     // 
     // This parameter is required.
     shared_ptr<string> aclStrategy_ {};
-    // A list of CIDR blocks.
+    // The list of CIDR blocks. You must specify at least one CIDR block. Example: 192.168.1.0/24.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> cidrList_ {};
-    // The type of the endpoint. Valid value:
+    // The access point type. Valid values:
     // 
-    // - **public**: An internet endpoint. Only public is supported.
+    // - **public**: Internet-facing access point. Currently, only public is supported.
     // 
     // This parameter is required.
     shared_ptr<string> endpointType_ {};

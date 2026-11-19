@@ -112,25 +112,21 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated. Use PageSize for paged queries.
+    // **[Deprecated]** Use PageSize for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // This parameter is deprecated. Use PageNum for paged queries.
+    // **[Deprecated]** Use PageNum for paging.
     shared_ptr<string> nextToken_ {};
-    // The page number of the results to return.
-    // Valid values: 1 to 100000.
-    // If you set this parameter to a value less than 1, the system uses 1. If you set this parameter to a value greater than 100000, the system uses 100000.
+    // The page number of the returned results. Valid values: 1 to 100000. If the specified value is less than 1, the system defaults to 1. If the specified value is greater than 100000, the system defaults to 100000.
     shared_ptr<int64_t> pageNum_ {};
-    // The number of entries to return on each page.
-    // Valid values: 10 to 50.
-    // If you set this parameter to a value less than 10, the system uses 10. If you set this parameter to a value greater than 50, the system uses 50.
+    // The number of entries to return on each page. Valid values: 10 to 50. If the specified value is less than 10, the system defaults to 10. If the specified value is greater than 50, the system defaults to 50.
     shared_ptr<int64_t> pageSize_ {};
-    // The name of the Alibaba Cloud service for which event notifications are configured.
+    // The name of the cloud service for event notifications.
     shared_ptr<string> productName_ {};
-    // The resource name in the matching rule. This parameter is used to filter rules. For example, for Object Storage Service (OSS), this is the bucket name.
+    // The resource name in the matching rules, used to filter rules. For example, in OSS, this is the OSS bucket name.
     shared_ptr<string> resourceName_ {};
-    // The name of the rule.
+    // The filter condition for the rule name.
     shared_ptr<string> ruleName_ {};
-    // The subscriber.
+    // The subscription endpoint.
     shared_ptr<string> subscriptionShrink_ {};
     // The name of the topic.
     shared_ptr<string> topicName_ {};

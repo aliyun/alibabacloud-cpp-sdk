@@ -21,7 +21,7 @@ namespace MnsOpen20220119
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds one or more Access Control List (ACL) rules to an endpoint of a specified type.
+       * @summary Creates one or more ACL rules for an access point of a specified type.
        *
        * @param tmpReq AuthorizeEndpointAclRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace MnsOpen20220119
       Models::AuthorizeEndpointAclResponse authorizeEndpointAclWithOptions(const Models::AuthorizeEndpointAclRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds one or more Access Control List (ACL) rules to an endpoint of a specified type.
+       * @summary Creates one or more ACL rules for an access point of a specified type.
        *
        * @param request AuthorizeEndpointAclRequest
        * @return AuthorizeEndpointAclResponse
@@ -55,7 +55,7 @@ namespace MnsOpen20220119
       Models::CreateEventRuleResponse createEventRule(const Models::CreateEventRuleRequest &request);
 
       /**
-       * @summary Calls the CreateQueue operation to create a queue.
+       * @summary Creates a queue.
        *
        * @param tmpReq CreateQueueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace MnsOpen20220119
       Models::CreateQueueResponse createQueueWithOptions(const Models::CreateQueueRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the CreateQueue operation to create a queue.
+       * @summary Creates a queue.
        *
        * @param request CreateQueueRequest
        * @return CreateQueueResponse
@@ -72,7 +72,7 @@ namespace MnsOpen20220119
       Models::CreateQueueResponse createQueue(const Models::CreateQueueRequest &request);
 
       /**
-       * @summary Calls the CreateTopic operation to create a topic.
+       * @summary Creates a topic by calling the CreateTopic operation.
        *
        * @param request CreateTopicRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace MnsOpen20220119
       Models::CreateTopicResponse createTopicWithOptions(const Models::CreateTopicRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the CreateTopic operation to create a topic.
+       * @summary Creates a topic by calling the CreateTopic operation.
        *
        * @param request CreateTopicRequest
        * @return CreateTopicResponse
@@ -106,7 +106,7 @@ namespace MnsOpen20220119
       Models::DeleteEventRuleResponse deleteEventRule(const Models::DeleteEventRuleRequest &request);
 
       /**
-       * @summary Calls the DeleteQueue operation to delete a created queue.
+       * @summary Deletes a queue.
        *
        * @param request DeleteQueueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace MnsOpen20220119
       Models::DeleteQueueResponse deleteQueueWithOptions(const Models::DeleteQueueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the DeleteQueue operation to delete a created queue.
+       * @summary Deletes a queue.
        *
        * @param request DeleteQueueRequest
        * @return DeleteQueueResponse
@@ -123,7 +123,7 @@ namespace MnsOpen20220119
       Models::DeleteQueueResponse deleteQueue(const Models::DeleteQueueRequest &request);
 
       /**
-       * @summary Calls the DeleteTopic operation to delete a topic.
+       * @summary Deletes a topic.
        *
        * @param request DeleteTopicRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace MnsOpen20220119
       Models::DeleteTopicResponse deleteTopicWithOptions(const Models::DeleteTopicRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the DeleteTopic operation to delete a topic.
+       * @summary Deletes a topic.
        *
        * @param request DeleteTopicRequest
        * @return DeleteTopicResponse
@@ -140,7 +140,7 @@ namespace MnsOpen20220119
       Models::DeleteTopicResponse deleteTopic(const Models::DeleteTopicRequest &request);
 
       /**
-       * @summary This operation disables an endpoint of a specified type, blocking all subsequent requests from the endpoint and returning an error.
+       * @summary Disables access points of a specified type. After the access points are disabled, all requests originating from the corresponding access points are intercepted and an error is returned.
        *
        * @param request DisableEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +149,7 @@ namespace MnsOpen20220119
       Models::DisableEndpointResponse disableEndpointWithOptions(const Models::DisableEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation disables an endpoint of a specified type, blocking all subsequent requests from the endpoint and returning an error.
+       * @summary Disables access points of a specified type. After the access points are disabled, all requests originating from the corresponding access points are intercepted and an error is returned.
        *
        * @param request DisableEndpointRequest
        * @return DisableEndpointResponse
@@ -157,7 +157,7 @@ namespace MnsOpen20220119
       Models::DisableEndpointResponse disableEndpoint(const Models::DisableEndpointRequest &request);
 
       /**
-       * @summary This operation enables an endpoint of a specified type. After the endpoint is enabled, requests that originate from the endpoint and are on the Access Control List (ACL) whitelist are not blocked.
+       * @summary Enables an access point of a specified type. After the access point is enabled, requests from the corresponding access point that are in the ACL whitelist are not blocked.
        *
        * @param request EnableEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace MnsOpen20220119
       Models::EnableEndpointResponse enableEndpointWithOptions(const Models::EnableEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation enables an endpoint of a specified type. After the endpoint is enabled, requests that originate from the endpoint and are on the Access Control List (ACL) whitelist are not blocked.
+       * @summary Enables an access point of a specified type. After the access point is enabled, requests from the corresponding access point that are in the ACL whitelist are not blocked.
        *
        * @param request EnableEndpointRequest
        * @return EnableEndpointResponse
@@ -174,7 +174,7 @@ namespace MnsOpen20220119
       Models::EnableEndpointResponse enableEndpoint(const Models::EnableEndpointRequest &request);
 
       /**
-       * @summary Retrieves the log configuration of a user.
+       * @summary Retrieves the user log configuration.
        *
        * @param request GetAccountAttributesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace MnsOpen20220119
       Models::GetAccountAttributesResponse getAccountAttributesWithOptions(const Models::GetAccountAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the log configuration of a user.
+       * @summary Retrieves the user log configuration.
        *
        * @param request GetAccountAttributesRequest
        * @return GetAccountAttributesResponse
@@ -208,7 +208,7 @@ namespace MnsOpen20220119
       Models::GetEndpointAttributeResponse getEndpointAttribute(const Models::GetEndpointAttributeRequest &request);
 
       /**
-       * @summary Retrieves an event notification rule.
+       * @summary Retrieves event notification rules.
        *
        * @param request GetEventRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +217,7 @@ namespace MnsOpen20220119
       Models::GetEventRuleResponse getEventRuleWithOptions(const Models::GetEventRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves an event notification rule.
+       * @summary Retrieves event notification rules.
        *
        * @param request GetEventRuleRequest
        * @return GetEventRuleResponse
@@ -314,7 +314,7 @@ namespace MnsOpen20220119
       Models::GetTopicAttributesResponse getTopicAttributes(const Models::GetTopicAttributesRequest &request);
 
       /**
-       * @summary Queries a list of event notification rules.
+       * @summary Queries the list of event notifications.
        *
        * @param tmpReq ListEventRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -323,7 +323,7 @@ namespace MnsOpen20220119
       Models::ListEventRulesResponse listEventRulesWithOptions(const Models::ListEventRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of event notification rules.
+       * @summary Queries the list of event notifications.
        *
        * @param request ListEventRulesRequest
        * @return ListEventRulesResponse
@@ -348,7 +348,7 @@ namespace MnsOpen20220119
       Models::ListQueueResponse listQueue(const Models::ListQueueRequest &request);
 
       /**
-       * @summary You can call the ListSubscriptionByTopic operation to retrieve a paginated list of subscriptions for a topic.
+       * @summary Queries a paginated list of subscriptions under a specific topic.
        *
        * @param request ListSubscriptionByTopicRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -357,7 +357,7 @@ namespace MnsOpen20220119
       Models::ListSubscriptionByTopicResponse listSubscriptionByTopicWithOptions(const Models::ListSubscriptionByTopicRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the ListSubscriptionByTopic operation to retrieve a paginated list of subscriptions for a topic.
+       * @summary Queries a paginated list of subscriptions under a specific topic.
        *
        * @param request ListSubscriptionByTopicRequest
        * @return ListSubscriptionByTopicResponse
@@ -382,7 +382,7 @@ namespace MnsOpen20220119
       Models::ListTopicResponse listTopic(const Models::ListTopicRequest &request);
 
       /**
-       * @summary Revokes one or more Access Control List (ACL) rules for a specified endpoint type.
+       * @summary Deletes one or more ACL rules for an endpoint of a specified type.
        *
        * @param tmpReq RevokeEndpointAclRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -391,7 +391,7 @@ namespace MnsOpen20220119
       Models::RevokeEndpointAclResponse revokeEndpointAclWithOptions(const Models::RevokeEndpointAclRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes one or more Access Control List (ACL) rules for a specified endpoint type.
+       * @summary Deletes one or more ACL rules for an endpoint of a specified type.
        *
        * @param request RevokeEndpointAclRequest
        * @return RevokeEndpointAclResponse
@@ -399,7 +399,7 @@ namespace MnsOpen20220119
       Models::RevokeEndpointAclResponse revokeEndpointAcl(const Models::RevokeEndpointAclRequest &request);
 
       /**
-       * @summary Sets the user log configuration.
+       * @summary Configures user log settings.
        *
        * @param request SetAccountAttributesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -408,7 +408,7 @@ namespace MnsOpen20220119
       Models::SetAccountAttributesResponse setAccountAttributesWithOptions(const Models::SetAccountAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the user log configuration.
+       * @summary Configures user log settings.
        *
        * @param request SetAccountAttributesRequest
        * @return SetAccountAttributesResponse
@@ -433,7 +433,7 @@ namespace MnsOpen20220119
       Models::SetQueueAttributesResponse setQueueAttributes(const Models::SetQueueAttributesRequest &request);
 
       /**
-       * @summary Call the SetSubscriptionAttributes operation to modify a subscription\\"s attributes.
+       * @summary Modifies the attributes of a subscription.
        *
        * @param tmpReq SetSubscriptionAttributesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -442,7 +442,7 @@ namespace MnsOpen20220119
       Models::SetSubscriptionAttributesResponse setSubscriptionAttributesWithOptions(const Models::SetSubscriptionAttributesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the SetSubscriptionAttributes operation to modify a subscription\\"s attributes.
+       * @summary Modifies the attributes of a subscription.
        *
        * @param request SetSubscriptionAttributesRequest
        * @return SetSubscriptionAttributesResponse
@@ -450,7 +450,7 @@ namespace MnsOpen20220119
       Models::SetSubscriptionAttributesResponse setSubscriptionAttributes(const Models::SetSubscriptionAttributesRequest &request);
 
       /**
-       * @summary Calls the SetTopicAttributes operation to modify the attributes of a topic.
+       * @summary Modifies the attributes of a topic.
        *
        * @param request SetTopicAttributesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -459,7 +459,7 @@ namespace MnsOpen20220119
       Models::SetTopicAttributesResponse setTopicAttributesWithOptions(const Models::SetTopicAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the SetTopicAttributes operation to modify the attributes of a topic.
+       * @summary Modifies the attributes of a topic.
        *
        * @param request SetTopicAttributesRequest
        * @return SetTopicAttributesResponse
@@ -467,7 +467,7 @@ namespace MnsOpen20220119
       Models::SetTopicAttributesResponse setTopicAttributes(const Models::SetTopicAttributesRequest &request);
 
       /**
-       * @summary Calls the Subscribe operation to create a subscription for a topic.
+       * @summary Creates a subscription for a topic.
        *
        * @param tmpReq SubscribeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -476,7 +476,7 @@ namespace MnsOpen20220119
       Models::SubscribeResponse subscribeWithOptions(const Models::SubscribeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the Subscribe operation to create a subscription for a topic.
+       * @summary Creates a subscription for a topic.
        *
        * @param request SubscribeRequest
        * @return SubscribeResponse
@@ -484,7 +484,7 @@ namespace MnsOpen20220119
       Models::SubscribeResponse subscribe(const Models::SubscribeRequest &request);
 
       /**
-       * @summary You can call Unsubscribe to cancel an existing subscription.
+       * @summary Cancels an existing subscription.
        *
        * @param request UnsubscribeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -493,7 +493,7 @@ namespace MnsOpen20220119
       Models::UnsubscribeResponse unsubscribeWithOptions(const Models::UnsubscribeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call Unsubscribe to cancel an existing subscription.
+       * @summary Cancels an existing subscription.
        *
        * @param request UnsubscribeRequest
        * @return UnsubscribeResponse

@@ -99,7 +99,7 @@ namespace Models
       shared_ptr<bool> logEnabled_ {};
       // The name of the Simple Log Service Logstore.
       shared_ptr<string> logStoreName_ {};
-      // Indicates whether the message trace feature is enabled.
+      // Indicates whether the message tracing feature is enabled.
       shared_ptr<bool> messageTraceEnabled_ {};
       // The name of the Simple Log Service project.
       shared_ptr<string> projectName_ {};
@@ -158,7 +158,7 @@ namespace Models
     shared_ptr<GetAccountAttributesResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The response status.
     shared_ptr<string> status_ {};

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The name of the Alibaba Cloud product that triggers the event notification.
+    // The name of the cloud service for event notifications.
     // 
     // This parameter is required.
     shared_ptr<string> productName_ {};

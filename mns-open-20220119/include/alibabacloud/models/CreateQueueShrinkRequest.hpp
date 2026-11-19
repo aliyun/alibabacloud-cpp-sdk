@@ -96,9 +96,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -214,9 +214,7 @@ namespace Models
 
 
   protected:
-    // The delay period for all messages sent to the queue. A message sent to the queue can be consumed only after the delay period specified by this parameter elapses.
-    // Valid values: 0 to 604800. Unit: seconds.
-    // Default value: 0.
+    // The delay time for all messages sent to the queue. A message can be consumed only after the specified delay time elapses from the time it is sent to the queue. Valid values: 0 to 604800. Unit: seconds. Default value: 0.
     shared_ptr<int64_t> delaySeconds_ {};
     // The dead-letter policy.
     shared_ptr<string> dlqPolicyShrink_ {};
@@ -228,37 +226,33 @@ namespace Models
     // 
     // Default value: false.
     shared_ptr<bool> enableLogging_ {};
+    // Specifies whether log broker encryption is enabled. Valid values: true and false.
     shared_ptr<bool> enableSSE_ {};
+    // The KMS key ID. This parameter is required only when SseType is set to KMS.
     shared_ptr<string> kmsKeyId_ {};
-    // The maximum size of a message body that can be sent to the queue.
-    // Valid values: 1024 to 65536. Unit: bytes.
-    // Default value: 65536.
+    // The maximum size of a message body that can be sent to the queue. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
     shared_ptr<int64_t> maximumMessageSize_ {};
-    // The maximum duration for which a message is retained in the queue. After the specified duration elapses since a message is sent to the queue, the message is deleted regardless of whether it has been consumed.
-    // Valid values: 60 to 604800. Unit: seconds.
-    // Default value: 345600.
+    // The maximum retention period of a message in the queue. After the specified period elapses from the time the message is sent to the queue, the message is deleted regardless of whether it has been received. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
     shared_ptr<int64_t> messageRetentionPeriod_ {};
-    // The maximum duration for which a ReceiveMessage request waits when the queue has no messages.
-    // Valid values: 0 to 30. Unit: seconds.
-    // Default value: 0.
+    // The maximum wait time for a ReceiveMessage request when no messages are available in the queue. Valid values: 0 to 30. Unit: seconds. Default value: 0.
     shared_ptr<int64_t> pollingWaitSeconds_ {};
     // The name of the queue.
     // 
     // This parameter is required.
     shared_ptr<string> queueName_ {};
     // The type of the queue. Valid values:
-    //    * normal: standard queue.
+    //    * normal: Standard queue.
     //    * fifo: FIFO queue.
     shared_ptr<string> queueType_ {};
+    // The storage encryption algorithm. AES-256-GCM is supported. If you do not specify this parameter, the default algorithm is used.
     shared_ptr<string> sseAlgorithm_ {};
+    // The storage encryption method. Valid values: SMQ and KMS.
     shared_ptr<string> sseType_ {};
     // The list of resource tags.
     shared_ptr<vector<CreateQueueShrinkRequest::Tag>> tag_ {};
     // The throttling policy.
     shared_ptr<string> tenantRateLimitPolicyShrink_ {};
-    // The duration for which a message stays in the Inactive state after it is consumed from the queue and changes from the Active state to the Inactive state.
-    // Valid values: 1 to 43200. Unit: seconds.
-    // Default value: 30.
+    // The duration for which a message remains in the inactive state after it is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
     shared_ptr<int64_t> visibilityTimeout_ {};
   };
 

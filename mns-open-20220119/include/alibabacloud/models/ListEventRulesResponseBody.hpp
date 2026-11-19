@@ -145,7 +145,7 @@ namespace Models
         protected:
           // The endpoint type.
           shared_ptr<string> endpointType_ {};
-          // The actual value of the endpoint.
+          // The actual value of the receiving endpoint.
           shared_ptr<string> endpointValue_ {};
         };
 
@@ -188,12 +188,10 @@ namespace Models
 
         protected:
           // The endpoint type. Valid values:
-          // 
-          // - **topic**: A topic can deliver messages to multiple subscribers. You can add or remove subscribers later.
-          // 
-          // - **queue**: Messages are delivered directly to a queue. This simplifies the delivery path, but you cannot add new subscribers later.
+          // - **topic**: The topic type. A topic supports delivery to multiple subscription endpoints. You can add or remove subscription endpoints later.
+          // - **queue**: The queue type. Messages are delivered directly to a queue. This reduces the link path, but you cannot add new subscription endpoints later.
           shared_ptr<string> endpointType_ {};
-          // The actual value of the endpoint.
+          // The actual value of the receiving endpoint.
           shared_ptr<string> endpointValue_ {};
         };
 
@@ -258,17 +256,17 @@ namespace Models
 
 
       protected:
-        // This parameter is deprecated.
+        // **[Deprecated]**
         shared_ptr<string> deliveryMode_ {};
-        // The endpoint of the subscription.
+        // The endpoint address of the subscription.
         shared_ptr<PageData::Endpoint> endpoint_ {};
         // The list of event types.
         shared_ptr<vector<string>> eventTypes_ {};
-        // The event matching rules. The rules have an OR relationship.
+        // The event matching rules with an OR relationship.
         shared_ptr<vector<vector<EventMatchRule>>> matchRules_ {};
         // The name of the event notification rule.
         shared_ptr<string> ruleName_ {};
-        // The subscribers. A maximum of 20 entries are returned. If there are more subscribers, see [List Subscriptions](https://help.aliyun.com/document_detail/2804757.html).
+        // The subscription endpoints. A maximum of 20 entries are returned. If the number exceeds 20, use the [subscription list](https://help.aliyun.com/document_detail/2804757.html) to query.
         shared_ptr<vector<PageData::Subscriptions>> subscriptions_ {};
         // The name of the topic.
         shared_ptr<string> topicName_ {};
@@ -336,19 +334,19 @@ namespace Models
 
 
     protected:
-      // This parameter is deprecated. The maximum number of entries is based on Total.
+      // **[Deprecated]** Use Total for the maximum number of entries in paged queries.
       shared_ptr<int32_t> maxResults_ {};
-      // This parameter is deprecated. Paged queries are based on PageNum.
+      // **[Deprecated]** Use PageNum for paging.
       shared_ptr<string> nextToken_ {};
       // The data entries.
       shared_ptr<vector<Data::PageData>> pageData_ {};
       // The page number of the returned results.
       shared_ptr<int64_t> pageNum_ {};
-      // The number of entries returned per page.
+      // The number of entries returned on each page.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of pages.
       shared_ptr<int64_t> pages_ {};
-      // The number of entries on the current page.
+      // The number of entries returned on the current page.
       shared_ptr<int64_t> size_ {};
       // The total number of entries.
       shared_ptr<int64_t> total_ {};
@@ -407,11 +405,11 @@ namespace Models
     shared_ptr<ListEventRulesResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status of the response.
+    // The response status.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

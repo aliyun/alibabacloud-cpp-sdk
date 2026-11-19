@@ -144,7 +144,7 @@ namespace Models
 
 
         protected:
-          // The destination queue for dead-letter messages.
+          // The destination queue for dead-letter message delivery.
           shared_ptr<string> deadLetterTargetQueue_ {};
           // Indicates whether dead-letter message delivery is enabled.
           shared_ptr<bool> enabled_ {};
@@ -226,18 +226,17 @@ namespace Models
 
 
       protected:
-        // The time when the subscription was created, in Unix time format.
+        // The time when the subscription was created. The value is a UNIX timestamp representing the number of seconds that have elapsed since 00:00:00 on January 1, 1970.
         shared_ptr<int64_t> createTime_ {};
-        // The dead-letter queue policy.
+        // The dead-letter policy.
         shared_ptr<PageData::DlqPolicy> dlqPolicy_ {};
-        // The endpoint of the subscription.
+        // The endpoint address of the subscription.
         shared_ptr<string> endpoint_ {};
-        // The tag for message filtering in the subscription. Only messages with the same tag are pushed.
+        // The tag used to filter messages in the subscription. Only messages with matching tags are pushed.
         shared_ptr<string> filterTag_ {};
-        // The time when the subscription properties were last modified. This value is a UNIX timestamp.
+        // The time when the subscription attributes were last modified. The value is a UNIX timestamp representing the number of seconds that have elapsed since 00:00:00 on January 1, 1970.
         shared_ptr<int64_t> lastModifyTime_ {};
-        // The format of the message content pushed to the endpoint.
-        // Valid values:
+        // The format of the message content pushed to the endpoint. Valid values:
         // 
         // - XML
         // 
@@ -245,17 +244,17 @@ namespace Models
         // 
         // - SIMPLIFIED
         shared_ptr<string> notifyContentFormat_ {};
-        // The retry policy for message push failures to the endpoint. Valid values:
+        // The retry strategy used when a message fails to be pushed to the endpoint. Valid values:
         // 
-        // - BACKOFF_RETRY: backoff retry.
+        // - BACKOFF_RETRY: backoff retry
         // 
-        // - EXPONENTIAL_DECAY_RETRY: exponential decay retry.
+        // - EXPONENTIAL_DECAY_RETRY: exponential decay retry
         shared_ptr<string> notifyStrategy_ {};
-        // The subscription name.
+        // The name of the subscription.
         shared_ptr<string> subscriptionName_ {};
         // The name of the topic to which the subscription belongs.
         shared_ptr<string> topicName_ {};
-        // The AccountId of the owner of the topic to which the subscription belongs.
+        // The account ID of the topic owner to which the subscription belongs.
         shared_ptr<string> topicOwner_ {};
       };
 
@@ -306,15 +305,15 @@ namespace Models
 
 
     protected:
-      // The entries on the current page.
+      // The results returned on the current page.
       shared_ptr<vector<Data::PageData>> pageData_ {};
-      // The page number of the returned page.
+      // The page number of the returned results.
       shared_ptr<int64_t> pageNum_ {};
       // The number of entries returned per page.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of pages.
       shared_ptr<int64_t> pages_ {};
-      // The number of entries on the current page.
+      // The number of entries returned on the current page.
       shared_ptr<int64_t> size_ {};
       // The total number of entries.
       shared_ptr<int64_t> total_ {};
@@ -373,11 +372,11 @@ namespace Models
     shared_ptr<ListSubscriptionByTopicResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The response status.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

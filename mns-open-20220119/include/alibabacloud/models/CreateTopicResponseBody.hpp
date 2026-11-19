@@ -86,7 +86,7 @@ namespace Models
 
 
     protected:
-      // The response code.
+      // The HTTP status code of the response.
       shared_ptr<int64_t> code_ {};
       // The response message.
       shared_ptr<string> message_ {};
@@ -141,15 +141,15 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The HTTP status code of the response.
     shared_ptr<int64_t> code_ {};
     // The response data.
     shared_ptr<CreateTopicResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The response status.
+    // The status of the response.
     shared_ptr<string> status_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

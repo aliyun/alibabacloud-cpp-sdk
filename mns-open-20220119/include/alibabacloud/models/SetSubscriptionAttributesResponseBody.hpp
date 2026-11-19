@@ -90,7 +90,7 @@ namespace Models
       shared_ptr<int64_t> code_ {};
       // The response message.
       shared_ptr<string> message_ {};
-      // Whether the request succeeded.
+      // Indicates whether the request is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -147,11 +147,11 @@ namespace Models
     shared_ptr<SetSubscriptionAttributesResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The response status.
+    // The status of the response.
     shared_ptr<string> status_ {};
-    // Whether the request succeeded.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -84,19 +84,17 @@ namespace Models
 
 
   protected:
+    // The type of the subscription endpoint used to filter results. For queue push, set the value to queue.
     shared_ptr<string> endpointType_ {};
+    // The address of the subscription endpoint used to filter results. For queue push, specify the queue name.
     shared_ptr<string> endpointValue_ {};
-    // The page number of the results to return.
-    // Valid values: 1 to 100000000.
-    // If the value is less than 1, the system uses 1. If the value is greater than 100000000, the system uses 100000000.
+    // The page number of the returned results. Valid values: 1 to 100000000. If the specified value is less than 1, the system defaults to 1. If the specified value is greater than 100000000, the system defaults to 100000000.
     shared_ptr<int64_t> pageNum_ {};
-    // The number of entries to return on each page.
-    // Valid values: 10 to 50.
-    // If the value is less than 10, the system uses 10. If the value is greater than 50, the system uses 50.
+    // The number of entries to return on each page. Valid values: 10 to 50. If the specified value is less than 10, the system defaults to 10. If the specified value is greater than 50, the system defaults to 50.
     shared_ptr<int64_t> pageSize_ {};
-    // The subscription name.
+    // The name of the subscription.
     shared_ptr<string> subscriptionName_ {};
-    // The topic name.
+    // The name of the topic.
     shared_ptr<string> topicName_ {};
   };
 

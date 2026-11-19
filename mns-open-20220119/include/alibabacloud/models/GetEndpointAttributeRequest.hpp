@@ -40,7 +40,7 @@ namespace Models
   protected:
     // The endpoint type. Valid values:
     // 
-    // - **public**: Internet endpoint. Currently, only public is supported.
+    // - **public**: Internet-facing endpoint. Currently, only public is supported.
     // 
     // This parameter is required.
     shared_ptr<string> endpointType_ {};

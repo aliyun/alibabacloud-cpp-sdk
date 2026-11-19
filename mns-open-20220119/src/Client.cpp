@@ -2,11 +2,13 @@
 #include <alibabacloud/MnsOpen20220119.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace MnsOpen20220119
 {
 
 AlibabaCloud::MnsOpen20220119::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Mns-open";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("mns-open", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -36,7 +41,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds one or more Access Control List (ACL) rules to an endpoint of a specified type.
+ * @summary Creates one or more ACL rules for an access point of a specified type.
  *
  * @param tmpReq AuthorizeEndpointAclRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +86,7 @@ AuthorizeEndpointAclResponse Client::authorizeEndpointAclWithOptions(const Autho
 }
 
 /**
- * @summary Adds one or more Access Control List (ACL) rules to an endpoint of a specified type.
+ * @summary Creates one or more ACL rules for an access point of a specified type.
  *
  * @param request AuthorizeEndpointAclRequest
  * @return AuthorizeEndpointAclResponse
@@ -180,7 +185,7 @@ CreateEventRuleResponse Client::createEventRule(const CreateEventRuleRequest &re
 }
 
 /**
- * @summary Calls the CreateQueue operation to create a queue.
+ * @summary Creates a queue.
  *
  * @param tmpReq CreateQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -277,7 +282,7 @@ CreateQueueResponse Client::createQueueWithOptions(const CreateQueueRequest &tmp
 }
 
 /**
- * @summary Calls the CreateQueue operation to create a queue.
+ * @summary Creates a queue.
  *
  * @param request CreateQueueRequest
  * @return CreateQueueResponse
@@ -288,7 +293,7 @@ CreateQueueResponse Client::createQueue(const CreateQueueRequest &request) {
 }
 
 /**
- * @summary Calls the CreateTopic operation to create a topic.
+ * @summary Creates a topic by calling the CreateTopic operation.
  *
  * @param request CreateTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +358,7 @@ CreateTopicResponse Client::createTopicWithOptions(const CreateTopicRequest &req
 }
 
 /**
- * @summary Calls the CreateTopic operation to create a topic.
+ * @summary Creates a topic by calling the CreateTopic operation.
  *
  * @param request CreateTopicRequest
  * @return CreateTopicResponse
@@ -410,7 +415,7 @@ DeleteEventRuleResponse Client::deleteEventRule(const DeleteEventRuleRequest &re
 }
 
 /**
- * @summary Calls the DeleteQueue operation to delete a created queue.
+ * @summary Deletes a queue.
  *
  * @param request DeleteQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -441,7 +446,7 @@ DeleteQueueResponse Client::deleteQueueWithOptions(const DeleteQueueRequest &req
 }
 
 /**
- * @summary Calls the DeleteQueue operation to delete a created queue.
+ * @summary Deletes a queue.
  *
  * @param request DeleteQueueRequest
  * @return DeleteQueueResponse
@@ -452,7 +457,7 @@ DeleteQueueResponse Client::deleteQueue(const DeleteQueueRequest &request) {
 }
 
 /**
- * @summary Calls the DeleteTopic operation to delete a topic.
+ * @summary Deletes a topic.
  *
  * @param request DeleteTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -483,7 +488,7 @@ DeleteTopicResponse Client::deleteTopicWithOptions(const DeleteTopicRequest &req
 }
 
 /**
- * @summary Calls the DeleteTopic operation to delete a topic.
+ * @summary Deletes a topic.
  *
  * @param request DeleteTopicRequest
  * @return DeleteTopicResponse
@@ -494,7 +499,7 @@ DeleteTopicResponse Client::deleteTopic(const DeleteTopicRequest &request) {
 }
 
 /**
- * @summary This operation disables an endpoint of a specified type, blocking all subsequent requests from the endpoint and returning an error.
+ * @summary Disables access points of a specified type. After the access points are disabled, all requests originating from the corresponding access points are intercepted and an error is returned.
  *
  * @param request DisableEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -525,7 +530,7 @@ DisableEndpointResponse Client::disableEndpointWithOptions(const DisableEndpoint
 }
 
 /**
- * @summary This operation disables an endpoint of a specified type, blocking all subsequent requests from the endpoint and returning an error.
+ * @summary Disables access points of a specified type. After the access points are disabled, all requests originating from the corresponding access points are intercepted and an error is returned.
  *
  * @param request DisableEndpointRequest
  * @return DisableEndpointResponse
@@ -536,7 +541,7 @@ DisableEndpointResponse Client::disableEndpoint(const DisableEndpointRequest &re
 }
 
 /**
- * @summary This operation enables an endpoint of a specified type. After the endpoint is enabled, requests that originate from the endpoint and are on the Access Control List (ACL) whitelist are not blocked.
+ * @summary Enables an access point of a specified type. After the access point is enabled, requests from the corresponding access point that are in the ACL whitelist are not blocked.
  *
  * @param request EnableEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -567,7 +572,7 @@ EnableEndpointResponse Client::enableEndpointWithOptions(const EnableEndpointReq
 }
 
 /**
- * @summary This operation enables an endpoint of a specified type. After the endpoint is enabled, requests that originate from the endpoint and are on the Access Control List (ACL) whitelist are not blocked.
+ * @summary Enables an access point of a specified type. After the access point is enabled, requests from the corresponding access point that are in the ACL whitelist are not blocked.
  *
  * @param request EnableEndpointRequest
  * @return EnableEndpointResponse
@@ -578,7 +583,7 @@ EnableEndpointResponse Client::enableEndpoint(const EnableEndpointRequest &reque
 }
 
 /**
- * @summary Retrieves the log configuration of a user.
+ * @summary Retrieves the user log configuration.
  *
  * @param request GetAccountAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -602,7 +607,7 @@ GetAccountAttributesResponse Client::getAccountAttributesWithOptions(const GetAc
 }
 
 /**
- * @summary Retrieves the log configuration of a user.
+ * @summary Retrieves the user log configuration.
  *
  * @param request GetAccountAttributesRequest
  * @return GetAccountAttributesResponse
@@ -655,7 +660,7 @@ GetEndpointAttributeResponse Client::getEndpointAttribute(const GetEndpointAttri
 }
 
 /**
- * @summary Retrieves an event notification rule.
+ * @summary Retrieves event notification rules.
  *
  * @param request GetEventRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -690,7 +695,7 @@ GetEventRuleResponse Client::getEventRuleWithOptions(const GetEventRuleRequest &
 }
 
 /**
- * @summary Retrieves an event notification rule.
+ * @summary Retrieves event notification rules.
  *
  * @param request GetEventRuleRequest
  * @return GetEventRuleResponse
@@ -877,7 +882,7 @@ GetTopicAttributesResponse Client::getTopicAttributes(const GetTopicAttributesRe
 }
 
 /**
- * @summary Queries a list of event notification rules.
+ * @summary Queries the list of event notifications.
  *
  * @param tmpReq ListEventRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -946,7 +951,7 @@ ListEventRulesResponse Client::listEventRulesWithOptions(const ListEventRulesReq
 }
 
 /**
- * @summary Queries a list of event notification rules.
+ * @summary Queries the list of event notifications.
  *
  * @param request ListEventRulesRequest
  * @return ListEventRulesResponse
@@ -1015,7 +1020,7 @@ ListQueueResponse Client::listQueue(const ListQueueRequest &request) {
 }
 
 /**
- * @summary You can call the ListSubscriptionByTopic operation to retrieve a paginated list of subscriptions for a topic.
+ * @summary Queries a paginated list of subscriptions under a specific topic.
  *
  * @param request ListSubscriptionByTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1066,7 +1071,7 @@ ListSubscriptionByTopicResponse Client::listSubscriptionByTopicWithOptions(const
 }
 
 /**
- * @summary You can call the ListSubscriptionByTopic operation to retrieve a paginated list of subscriptions for a topic.
+ * @summary Queries a paginated list of subscriptions under a specific topic.
  *
  * @param request ListSubscriptionByTopicRequest
  * @return ListSubscriptionByTopicResponse
@@ -1135,7 +1140,7 @@ ListTopicResponse Client::listTopic(const ListTopicRequest &request) {
 }
 
 /**
- * @summary Revokes one or more Access Control List (ACL) rules for a specified endpoint type.
+ * @summary Deletes one or more ACL rules for an endpoint of a specified type.
  *
  * @param tmpReq RevokeEndpointAclRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1180,7 +1185,7 @@ RevokeEndpointAclResponse Client::revokeEndpointAclWithOptions(const RevokeEndpo
 }
 
 /**
- * @summary Revokes one or more Access Control List (ACL) rules for a specified endpoint type.
+ * @summary Deletes one or more ACL rules for an endpoint of a specified type.
  *
  * @param request RevokeEndpointAclRequest
  * @return RevokeEndpointAclResponse
@@ -1191,7 +1196,7 @@ RevokeEndpointAclResponse Client::revokeEndpointAcl(const RevokeEndpointAclReque
 }
 
 /**
- * @summary Sets the user log configuration.
+ * @summary Configures user log settings.
  *
  * @param request SetAccountAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1238,7 +1243,7 @@ SetAccountAttributesResponse Client::setAccountAttributesWithOptions(const SetAc
 }
 
 /**
- * @summary Sets the user log configuration.
+ * @summary Configures user log settings.
  *
  * @param request SetAccountAttributesRequest
  * @return SetAccountAttributesResponse
@@ -1349,7 +1354,7 @@ SetQueueAttributesResponse Client::setQueueAttributes(const SetQueueAttributesRe
 }
 
 /**
- * @summary Call the SetSubscriptionAttributes operation to modify a subscription\\"s attributes.
+ * @summary Modifies the attributes of a subscription.
  *
  * @param tmpReq SetSubscriptionAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1410,7 +1415,7 @@ SetSubscriptionAttributesResponse Client::setSubscriptionAttributesWithOptions(c
 }
 
 /**
- * @summary Call the SetSubscriptionAttributes operation to modify a subscription\\"s attributes.
+ * @summary Modifies the attributes of a subscription.
  *
  * @param request SetSubscriptionAttributesRequest
  * @return SetSubscriptionAttributesResponse
@@ -1421,7 +1426,7 @@ SetSubscriptionAttributesResponse Client::setSubscriptionAttributes(const SetSub
 }
 
 /**
- * @summary Calls the SetTopicAttributes operation to modify the attributes of a topic.
+ * @summary Modifies the attributes of a topic.
  *
  * @param request SetTopicAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1476,7 +1481,7 @@ SetTopicAttributesResponse Client::setTopicAttributesWithOptions(const SetTopicA
 }
 
 /**
- * @summary Calls the SetTopicAttributes operation to modify the attributes of a topic.
+ * @summary Modifies the attributes of a topic.
  *
  * @param request SetTopicAttributesRequest
  * @return SetTopicAttributesResponse
@@ -1487,7 +1492,7 @@ SetTopicAttributesResponse Client::setTopicAttributes(const SetTopicAttributesRe
 }
 
 /**
- * @summary Calls the Subscribe operation to create a subscription for a topic.
+ * @summary Creates a subscription for a topic.
  *
  * @param tmpReq SubscribeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1588,7 +1593,7 @@ SubscribeResponse Client::subscribeWithOptions(const SubscribeRequest &tmpReq, c
 }
 
 /**
- * @summary Calls the Subscribe operation to create a subscription for a topic.
+ * @summary Creates a subscription for a topic.
  *
  * @param request SubscribeRequest
  * @return SubscribeResponse
@@ -1599,7 +1604,7 @@ SubscribeResponse Client::subscribe(const SubscribeRequest &request) {
 }
 
 /**
- * @summary You can call Unsubscribe to cancel an existing subscription.
+ * @summary Cancels an existing subscription.
  *
  * @param request UnsubscribeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1634,7 +1639,7 @@ UnsubscribeResponse Client::unsubscribeWithOptions(const UnsubscribeRequest &req
 }
 
 /**
- * @summary You can call Unsubscribe to cancel an existing subscription.
+ * @summary Cancels an existing subscription.
  *
  * @param request UnsubscribeRequest
  * @return UnsubscribeResponse

@@ -86,12 +86,13 @@ namespace Models
   protected:
     // The dead-letter queue policy.
     shared_ptr<string> dlqPolicyShrink_ {};
-    // The retry policy for message delivery failures to the endpoint. Valid values:
+    // The retry policy used when an error occurs while pushing messages to the endpoint. Valid values:
     // 
-    // - BACKOFF_RETRY: backoff retry.
+    // - BACKOFF_RETRY: backoff retry
     // 
-    // - EXPONENTIAL_DECAY_RETRY: exponential decay retry.
+    // - EXPONENTIAL_DECAY_RETRY: exponential decay retry
     shared_ptr<string> notifyStrategy_ {};
+    // The STS role ARN.
     shared_ptr<string> stsRoleArn_ {};
     // The name of the subscription.
     // 
