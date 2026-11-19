@@ -158,19 +158,33 @@ namespace Models
 
 
   protected:
+    // The alias.
     shared_ptr<string> aliasTitle_ {};
+    // The barcode.
     shared_ptr<string> barCode_ {};
+    // The maximum acceptable credit period.
     shared_ptr<int32_t> creditPeriod_ {};
+    // The consignment supply price.
     shared_ptr<int64_t> dxPrice_ {};
+    // Specifies whether credit periods are supported.
     shared_ptr<bool> hasCredit_ {};
+    // Specifies whether invoicing is supported.
     shared_ptr<bool> hasInvoice_ {};
+    // The distribution supply price.
     shared_ptr<int64_t> jxPrice_ {};
+    // The image.
     shared_ptr<string> picUrl_ {};
+    // The inventory.
     shared_ptr<int32_t> quantity_ {};
+    // sku id
     shared_ptr<string> skuId_ {};
+    // The status.
     shared_ptr<string> skuStatus_ {};
+    // The tax code.
     shared_ptr<string> taxCode_ {};
+    // The tax rate.
     shared_ptr<int32_t> taxRate_ {};
+    // The name.
     shared_ptr<string> title_ {};
   };
 

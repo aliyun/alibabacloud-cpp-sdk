@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The LM shop ID.
     shared_ptr<string> lmShopId_ {};
+    // The product ID.
     shared_ptr<string> productId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The submission time.
     shared_ptr<string> requestTime_ {};
+    // The submitter.
     shared_ptr<string> requestUser_ {};
   };
 

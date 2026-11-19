@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The store ID.
     shared_ptr<string> shopId_ {};
+    // The store status.
     shared_ptr<string> shopStatus_ {};
   };
 

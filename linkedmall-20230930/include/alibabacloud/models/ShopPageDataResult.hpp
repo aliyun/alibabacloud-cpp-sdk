@@ -107,21 +107,21 @@ namespace Models
 
 
   protected:
-    // Partner shops
+    // The partner shops.
     shared_ptr<vector<CooperationShop>> cooperationShops_ {};
-    // End time
+    // The end time.
     shared_ptr<string> endDate_ {};
-    // Purchaser ID
+    // The purchaser ID.
     shared_ptr<string> purchaserId_ {};
-    // Shop ID
+    // The shop ID.
     shared_ptr<string> shopId_ {};
-    // Shop name
+    // The shop name.
     shared_ptr<string> shopName_ {};
-    // Shop type
+    // The shop type.
     shared_ptr<string> shopType_ {};
-    // Start time
+    // The start time.
     shared_ptr<string> startDate_ {};
-    // Shop status
+    // The shop status.
     shared_ptr<string> status_ {};
   };
 

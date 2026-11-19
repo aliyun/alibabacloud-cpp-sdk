@@ -15,6 +15,7 @@ namespace Models
   class ProductPageResult : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ProductPageResult& obj) { 
+      DARABONBA_PTR_TO_JSON(nextCursor, nextCursor_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(products, products_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(total, total_);
     };
     friend void from_json(const Darabonba::Json& j, ProductPageResult& obj) { 
+      DARABONBA_PTR_FROM_JSON(nextCursor, nextCursor_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(products, products_);
@@ -39,8 +41,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->products_ == nullptr && this->requestId_ == nullptr && this->total_ == nullptr; };
+    virtual bool empty() const override { return this->nextCursor_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->products_ == nullptr && this->requestId_ == nullptr && this->total_ == nullptr; };
+    // nextCursor Field Functions 
+    bool hasNextCursor() const { return this->nextCursor_ != nullptr;};
+    void deleteNextCursor() { this->nextCursor_ = nullptr;};
+    inline string getNextCursor() const { DARABONBA_PTR_GET_DEFAULT(nextCursor_, "") };
+    inline ProductPageResult& setNextCursor(string nextCursor) { DARABONBA_PTR_SET_VALUE(nextCursor_, nextCursor) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -79,19 +88,21 @@ namespace Models
 
 
   protected:
-    // Current page number
+    // The cursor value for the next page.
+    shared_ptr<string> nextCursor_ {};
+    // The current page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size
+    // The page size.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Collection of products
+    // The product collection.
     shared_ptr<vector<Product>> products_ {};
-    // Request ID for the API call
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total count
+    // The total count.
     // 
     // This parameter is required.
     shared_ptr<int32_t> total_ {};

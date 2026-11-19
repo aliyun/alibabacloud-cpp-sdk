@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // Creates a purchase order.
+    // The request body for creating a purchase order.
     // 
     // This parameter is required.
     shared_ptr<PurchaseOrderCreateCmd> body_ {};

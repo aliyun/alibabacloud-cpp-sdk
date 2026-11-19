@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // Indicates whether the item can be sold.
+    // Indicates whether the item is sellable.
     shared_ptr<bool> canSell_ {};
     // The fulfillment information.
     shared_ptr<vector<DeliveryInfo>> deliveryInfoList_ {};
     // The extension information.
     Darabonba::Json extInfo_ {};
-    // The reason why the item is unavailable.
+    // The unsellable reason.
     shared_ptr<string> message_ {};
-    // The list of products.
+    // The product collection.
     shared_ptr<vector<OrderProductResult>> productList_ {};
   };
 

@@ -140,29 +140,29 @@ namespace Models
 
 
   protected:
-    // Reason for not being sellable
+    // The unsellable reason.
     shared_ptr<string> canNotSellReason_ {};
-    // Indicates whether the SKU is sellable
+    // The sellable status of the SKU.
     shared_ptr<bool> canSell_ {};
-    // Area code
+    // The division code.
     shared_ptr<string> divisionCode_ {};
-    // Blur inventory availability
+    // The fuzzy available inventory.
     shared_ptr<string> fuzzyQuantity_ {};
-    // Strikethrough price, in cents
+    // The strikethrough price in cents.
     shared_ptr<int64_t> markPrice_ {};
-    // Distributor purchase price, in cents
+    // The distributor purchase price in cents.
     shared_ptr<int64_t> price_ {};
-    // Product ID
+    // The product ID.
     shared_ptr<string> productId_ {};
-    // Available inventory
+    // The available inventory.
     shared_ptr<int64_t> quantity_ {};
-    // Shop ID
+    // The store ID.
     shared_ptr<string> shopId_ {};
     // skuId
     shared_ptr<string> skuId_ {};
-    // SKU control status
+    // The control status of the SKU.
     shared_ptr<string> skuStatus_ {};
-    // SKU title
+    // The SKU title.
     shared_ptr<string> title_ {};
   };
 

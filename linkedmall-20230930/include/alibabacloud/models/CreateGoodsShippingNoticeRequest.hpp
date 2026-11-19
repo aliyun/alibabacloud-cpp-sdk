@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // Submit shipping notice information.
+    // Submits the waybill information.
     // 
     // This parameter is required.
     shared_ptr<GoodsShippingNoticeCreateCmd> body_ {};

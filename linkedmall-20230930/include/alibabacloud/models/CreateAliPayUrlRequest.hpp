@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the applied shop.
+    // 
     // This parameter is required.
     shared_ptr<string> shopId_ {};
   };

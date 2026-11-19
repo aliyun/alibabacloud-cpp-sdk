@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // Create a return order
+    // Creates a reverse ticket.
     // 
     // This parameter is required.
     shared_ptr<RefundOrderCmd> body_ {};

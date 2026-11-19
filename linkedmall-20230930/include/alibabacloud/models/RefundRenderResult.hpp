@@ -82,14 +82,15 @@ namespace Models
 
 
   protected:
-    // The return methods supported for the order.
+    // The supported order return methods.
     shared_ptr<int32_t> bizClaimType_ {};
+    // The refund fee.
     shared_ptr<DistributionMaxRefundFee> maxRefundFeeData_ {};
-    // The ID of the sub-distribution order.
+    // The sub-distribution order ID.
     shared_ptr<string> orderLineId_ {};
-    // A collection of refund reasons.
+    // The refund reason list.
     shared_ptr<vector<RefundReason>> refundReasonList_ {};
-    // The ID of the request.
+    // The API request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -61,15 +61,14 @@ namespace Models
 
 
   protected:
-    // Region code. Use a five-level administrative division code, such as a town or subdistrict code.
+    // The division code. A level-5 township or sub-district address code is recommended.
     shared_ptr<string> divisionCode_ {};
-    // Purchaser ID
+    // The purchaser ID.
     // 
     // This parameter is required.
     shared_ptr<string> purchaserId_ {};
-    // Product query parameters
-    // 
-    // > You can query up to 20 SKUs per request.
+    // The product query parameters.
+    // > The maximum number of SKUs that can be queried in a single request is 20.
     // 
     // This parameter is required.
     shared_ptr<vector<SkuQueryParam>> skuQueryParams_ {};

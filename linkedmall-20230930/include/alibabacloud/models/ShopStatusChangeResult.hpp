@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Indicates whether the operation is successful.
     shared_ptr<bool> operate_ {};
   };
 

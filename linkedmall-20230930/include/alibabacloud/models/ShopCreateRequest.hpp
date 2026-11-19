@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // The after-sales DingTalk ID.
     shared_ptr<string> afterSaleDingTalkId_ {};
+    // The shop description.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The operations DingTalk ID.
+    // 
     // This parameter is required.
     shared_ptr<string> operatorDingTalkId_ {};
+    // The pre-sales DingTalk ID.
     shared_ptr<string> preSaleDingTalkId_ {};
+    // The shop name.
+    // 
     // This parameter is required.
     shared_ptr<string> shopName_ {};
   };

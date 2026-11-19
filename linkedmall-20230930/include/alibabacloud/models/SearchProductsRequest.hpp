@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(categoryIds, categoryIds_);
       DARABONBA_PTR_TO_JSON(createEndTime, createEndTime_);
       DARABONBA_PTR_TO_JSON(createStartTime, createStartTime_);
+      DARABONBA_PTR_TO_JSON(cursor, cursor_);
       DARABONBA_PTR_TO_JSON(distributionHighPrice, distributionHighPrice_);
       DARABONBA_PTR_TO_JSON(distributionHighPriceRatio, distributionHighPriceRatio_);
       DARABONBA_PTR_TO_JSON(distributionLowPrice, distributionLowPrice_);
@@ -50,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(categoryIds, categoryIds_);
       DARABONBA_PTR_FROM_JSON(createEndTime, createEndTime_);
       DARABONBA_PTR_FROM_JSON(createStartTime, createStartTime_);
+      DARABONBA_PTR_FROM_JSON(cursor, cursor_);
       DARABONBA_PTR_FROM_JSON(distributionHighPrice, distributionHighPrice_);
       DARABONBA_PTR_FROM_JSON(distributionHighPriceRatio, distributionHighPriceRatio_);
       DARABONBA_PTR_FROM_JSON(distributionLowPrice, distributionLowPrice_);
@@ -89,12 +91,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->brandName_ == nullptr
-        && this->categoryIds_ == nullptr && this->createEndTime_ == nullptr && this->createStartTime_ == nullptr && this->distributionHighPrice_ == nullptr && this->distributionHighPriceRatio_ == nullptr
-        && this->distributionLowPrice_ == nullptr && this->distributionLowPriceRatio_ == nullptr && this->highMarkPrice_ == nullptr && this->highPrice_ == nullptr && this->inGroup_ == nullptr
-        && this->inGroupEndTime_ == nullptr && this->inGroupStartTime_ == nullptr && this->inventoryRiskLevel_ == nullptr && this->lmItemId_ == nullptr && this->lowMarkPrice_ == nullptr
-        && this->lowPrice_ == nullptr && this->modifyEndTime_ == nullptr && this->modifyStartTime_ == nullptr && this->orderBy_ == nullptr && this->orderDirection_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->platform_ == nullptr && this->productId_ == nullptr && this->productName_ == nullptr
-        && this->productStatus_ == nullptr && this->purchaserId_ == nullptr && this->taxRate_ == nullptr && this->tradeModeAndCredit_ == nullptr; };
+        && this->categoryIds_ == nullptr && this->createEndTime_ == nullptr && this->createStartTime_ == nullptr && this->cursor_ == nullptr && this->distributionHighPrice_ == nullptr
+        && this->distributionHighPriceRatio_ == nullptr && this->distributionLowPrice_ == nullptr && this->distributionLowPriceRatio_ == nullptr && this->highMarkPrice_ == nullptr && this->highPrice_ == nullptr
+        && this->inGroup_ == nullptr && this->inGroupEndTime_ == nullptr && this->inGroupStartTime_ == nullptr && this->inventoryRiskLevel_ == nullptr && this->lmItemId_ == nullptr
+        && this->lowMarkPrice_ == nullptr && this->lowPrice_ == nullptr && this->modifyEndTime_ == nullptr && this->modifyStartTime_ == nullptr && this->orderBy_ == nullptr
+        && this->orderDirection_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->platform_ == nullptr && this->productId_ == nullptr
+        && this->productName_ == nullptr && this->productStatus_ == nullptr && this->purchaserId_ == nullptr && this->taxRate_ == nullptr && this->tradeModeAndCredit_ == nullptr; };
     // brandName Field Functions 
     bool hasBrandName() const { return this->brandName_ != nullptr;};
     void deleteBrandName() { this->brandName_ = nullptr;};
@@ -123,6 +125,13 @@ namespace Models
     void deleteCreateStartTime() { this->createStartTime_ = nullptr;};
     inline string getCreateStartTime() const { DARABONBA_PTR_GET_DEFAULT(createStartTime_, "") };
     inline SearchProductsRequest& setCreateStartTime(string createStartTime) { DARABONBA_PTR_SET_VALUE(createStartTime_, createStartTime) };
+
+
+    // cursor Field Functions 
+    bool hasCursor() const { return this->cursor_ != nullptr;};
+    void deleteCursor() { this->cursor_ = nullptr;};
+    inline string getCursor() const { DARABONBA_PTR_GET_DEFAULT(cursor_, "") };
+    inline SearchProductsRequest& setCursor(string cursor) { DARABONBA_PTR_SET_VALUE(cursor_, cursor) };
 
 
     // distributionHighPrice Field Functions 
@@ -308,81 +317,82 @@ namespace Models
 
 
   protected:
-    // Brand name
+    // The brand name.
     shared_ptr<string> brandName_ {};
-    // Collection of category IDs
+    // The list of category IDs.
     shared_ptr<vector<string>> categoryIds_ {};
-    // Creation end time
+    // The end time of the creation. The format is yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> createEndTime_ {};
-    // Creation start time
+    // The start time of the creation. The format is yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> createStartTime_ {};
-    // Upper limit of distribution purchase price
+    // The cursor.
+    shared_ptr<string> cursor_ {};
+    // The maximum distribution purchase price, in cents.
     shared_ptr<int64_t> distributionHighPrice_ {};
-    // Upper limit of distribution premium rate
+    // The maximum distribution premium rate. A value of 244 indicates 2.44%.
     shared_ptr<int64_t> distributionHighPriceRatio_ {};
-    // Lower limit of distribution purchase price
+    // The minimum distribution purchase price, in cents.
     shared_ptr<int64_t> distributionLowPrice_ {};
-    // Lower limit of distribution premium rate
+    // The minimum distribution premium rate. A value of 133 indicates 1.33%.
     shared_ptr<int64_t> distributionLowPriceRatio_ {};
-    // Upper limit of strikethrough price
+    // The maximum strikethrough price, in cents.
     shared_ptr<int64_t> highMarkPrice_ {};
-    // Upper limit of suggested retail price
+    // The maximum suggested retail price, in cents.
     shared_ptr<int64_t> highPrice_ {};
-    // Whether the product is in inventory
+    // Specifies whether the product is added to the inventory.
     shared_ptr<bool> inGroup_ {};
-    // End time of the product’s entry period.
+    // The end time when the product was added to the inventory. The format is yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> inGroupEndTime_ {};
-    // Inventory start time
+    // The start time when the product was added to the inventory. The format is yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> inGroupStartTime_ {};
-    // Inventory risk level
+    // The inventory risk level.
     shared_ptr<string> inventoryRiskLevel_ {};
-    // LM product ID
+    // The LM product ID.
     shared_ptr<string> lmItemId_ {};
-    // Lower limit of strikethrough price
+    // The minimum strikethrough price, in cents.
     shared_ptr<int64_t> lowMarkPrice_ {};
-    // Lower limit of suggested retail price
+    // The minimum suggested retail price, in cents.
     shared_ptr<int64_t> lowPrice_ {};
-    // Modification end time
+    // The end time of the modification. The format is yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> modifyEndTime_ {};
-    // Modification start time
+    // The start time of the modification. The format is yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> modifyStartTime_ {};
-    // Sort field
-    // 
-    // > - Used in combination with the sort direction field
+    // The sort field.
+    // > 
+    // > - This parameter must be used in combination with the sort direction parameter.
     shared_ptr<string> orderBy_ {};
-    // Sort direction
-    // 
-    // > - Used in combination with the sort field
+    // The sort direction.
+    // > 
+    // > - This parameter must be used in combination with the sort field parameter.
     shared_ptr<string> orderDirection_ {};
-    // Page number
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size
-    // 
-    // > - Maximum of 20 items per page
+    // The number of items per page.
+    // > 
+    // > - Maximum value: 20.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Source platform
+    // The source platform.
     shared_ptr<string> platform_ {};
-    // Product ID
+    // The product ID.
     shared_ptr<string> productId_ {};
-    // Product name
+    // The product name.
     shared_ptr<string> productName_ {};
-    // Product status
+    // The product status.
     shared_ptr<string> productStatus_ {};
-    // Purchaser ID
+    // The ID of the purchaser.
     // 
     // This parameter is required.
     shared_ptr<string> purchaserId_ {};
-    // Tax rate
-    // 
-    // > - Supports combining multiple tax rate enumeration values as request parameters. Use commas to separate them, for example: Rate0,Rate1.
-    // >
-    // > - HasRate cannot be combined with other enumeration values as request parameters.
+    // The tax rate.
+    // > 
+    // > - You can combine multiple tax rate enum values. Separate the values with commas (,). Example: Rate0,Rate1.
+    // > - HasRate cannot be combined with other enum values.
     shared_ptr<string> taxRate_ {};
-    // Sales pattern
+    // The sales mode.
     shared_ptr<string> tradeModeAndCredit_ {};
   };
 

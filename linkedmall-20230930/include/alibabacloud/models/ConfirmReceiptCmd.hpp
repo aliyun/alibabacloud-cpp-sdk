@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The refund dispute ID.
     shared_ptr<string> disputeId_ {};
   };
 

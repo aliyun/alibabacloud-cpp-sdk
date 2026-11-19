@@ -84,6 +84,8 @@
 #include <alibabacloud/models/SkuQueryParam.hpp>
 #include <alibabacloud/models/SkuSaleInfoListQuery.hpp>
 #include <alibabacloud/models/SkuSaleInfoListResult.hpp>
+#include <alibabacloud/models/StopDistributionChannelCommand.hpp>
+#include <alibabacloud/models/StopDistributionChannelResult.hpp>
 #include <alibabacloud/models/StopDistributionCommand.hpp>
 #include <alibabacloud/models/StopDistributionResult.hpp>
 #include <alibabacloud/models/CancelRefundOrderResponse.hpp>

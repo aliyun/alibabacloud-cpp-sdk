@@ -2,12 +2,14 @@
 #include <alibabacloud/Linkedmall20230930.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -18,6 +20,9 @@ namespace Linkedmall20230930
 {
 
 AlibabaCloud::Linkedmall20230930::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "linkedmall";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-hangzhou" , "linkedmall.aliyuncs.com"},
@@ -93,9 +98,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Cancels a refund order.
+ * @summary Cancels an after-sales ticket.
  *
- * @description Cancel a refund order.
+ * @description Cancels an after-sales ticket.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -120,9 +125,9 @@ CancelRefundOrderResponse Client::cancelRefundOrderWithOptions(const string &dis
 }
 
 /**
- * @summary Cancels a refund order.
+ * @summary Cancels an after-sales ticket.
  *
- * @description Cancel a refund order.
+ * @description Cancels an after-sales ticket.
  *
  * @return CancelRefundOrderResponse
  */
@@ -133,9 +138,9 @@ CancelRefundOrderResponse Client::cancelRefundOrder(const string &disputeId) {
 }
 
 /**
- * @summary Confirms the receipt of goods.
+ * @summary Confirms receipt.
  *
- * @description Confirms the receipt of goods.
+ * @description Confirms receipt.
  *
  * @param request ConfirmDisburseRequest
  * @param headers map
@@ -163,9 +168,9 @@ ConfirmDisburseResponse Client::confirmDisburseWithOptions(const ConfirmDisburse
 }
 
 /**
- * @summary Confirms the receipt of goods.
+ * @summary Confirms receipt.
  *
- * @description Confirms the receipt of goods.
+ * @description Confirms receipt.
  *
  * @param request ConfirmDisburseRequest
  * @return ConfirmDisburseResponse
@@ -177,9 +182,9 @@ ConfirmDisburseResponse Client::confirmDisburse(const ConfirmDisburseRequest &re
 }
 
 /**
- * @summary Backfill shipping notice information.
+ * @summary Backfills the waybill information.
  *
- * @description Backfill shipping notice information.
+ * @description Backfills the waybill information.
  *
  * @param request CreateGoodsShippingNoticeRequest
  * @param headers map
@@ -207,9 +212,9 @@ CreateGoodsShippingNoticeResponse Client::createGoodsShippingNoticeWithOptions(c
 }
 
 /**
- * @summary Backfill shipping notice information.
+ * @summary Backfills the waybill information.
  *
- * @description Backfill shipping notice information.
+ * @description Backfills the waybill information.
  *
  * @param request CreateGoodsShippingNoticeRequest
  * @return CreateGoodsShippingNoticeResponse
@@ -221,11 +226,11 @@ CreateGoodsShippingNoticeResponse Client::createGoodsShippingNotice(const Create
 }
 
 /**
- * @summary Creates a purchase order and returns the purchase order ID. The specific result of order creation is communicated through messages. After the order is created, you can query the order details associated with the purchase order using the order API.
+ * @summary Creates a purchase order and returns the purchase order ID. The order creation result is notified through messages. After the order is created, you can query the orders associated with the purchase order by calling the order API.
  *
- * @description Creates a purchase order and returns the purchase order ID. Messages communicate the specific result of order creation. After the order is created, you can query the order details associated with the purchase order using the order API.
- * >Warning: Note: Purchase order creation is an asynchronous task. If a distributor calls this API and receives an abnormal status (such as error code 503), do not immediately process customer refunds. Distributors must wait for and consume the PurchaseOrderCreate message (the purchase order creation result message) to determine the order status—for example, by consuming the order status synchronization message—before proceeding with business logic. This prevents financial losses.
- * >Notice: Note: If you do not receive the PurchaseOrderCreate message (the purchase order creation result message) after calling the purchase order creation API, submit a ticket to the technical support team to inquire about the cause.
+ * @description Creates a purchase order and returns the purchase order ID. The order creation result is notified through messages. After the order is created, you can query the orders associated with the purchase order by calling the order API.
+ * >Warning: Because purchase order creation is an asynchronous task, if an error (such as a 503 error code) is returned when a distributor calls this API, do not immediately process consumer refunds on the business side. Wait for and consume the PurchaseOrderCreate message (the purchase order creation result message) to check the order status (for example, consume the order status synchronization message to check the order status) before you process business logic to prevent financial losses.
+ * >Notice: If you do not receive the PurchaseOrderCreate message (the purchase order creation result message) after you call the purchase order creation API, submit a ticket in the technical integration group to check the cause.
  *
  * @param request CreatePurchaseOrderRequest
  * @param headers map
@@ -253,11 +258,11 @@ CreatePurchaseOrderResponse Client::createPurchaseOrderWithOptions(const CreateP
 }
 
 /**
- * @summary Creates a purchase order and returns the purchase order ID. The specific result of order creation is communicated through messages. After the order is created, you can query the order details associated with the purchase order using the order API.
+ * @summary Creates a purchase order and returns the purchase order ID. The order creation result is notified through messages. After the order is created, you can query the orders associated with the purchase order by calling the order API.
  *
- * @description Creates a purchase order and returns the purchase order ID. Messages communicate the specific result of order creation. After the order is created, you can query the order details associated with the purchase order using the order API.
- * >Warning: Note: Purchase order creation is an asynchronous task. If a distributor calls this API and receives an abnormal status (such as error code 503), do not immediately process customer refunds. Distributors must wait for and consume the PurchaseOrderCreate message (the purchase order creation result message) to determine the order status—for example, by consuming the order status synchronization message—before proceeding with business logic. This prevents financial losses.
- * >Notice: Note: If you do not receive the PurchaseOrderCreate message (the purchase order creation result message) after calling the purchase order creation API, submit a ticket to the technical support team to inquire about the cause.
+ * @description Creates a purchase order and returns the purchase order ID. The order creation result is notified through messages. After the order is created, you can query the orders associated with the purchase order by calling the order API.
+ * >Warning: Because purchase order creation is an asynchronous task, if an error (such as a 503 error code) is returned when a distributor calls this API, do not immediately process consumer refunds on the business side. Wait for and consume the PurchaseOrderCreate message (the purchase order creation result message) to check the order status (for example, consume the order status synchronization message to check the order status) before you process business logic to prevent financial losses.
+ * >Notice: If you do not receive the PurchaseOrderCreate message (the purchase order creation result message) after you call the purchase order creation API, submit a ticket in the technical integration group to check the cause.
  *
  * @param request CreatePurchaseOrderRequest
  * @return CreatePurchaseOrderResponse
@@ -269,9 +274,9 @@ CreatePurchaseOrderResponse Client::createPurchaseOrder(const CreatePurchaseOrde
 }
 
 /**
- * @summary Create a support ticket.
+ * @summary Creates an after-sales ticket.
  *
- * @description Creates a refund order.
+ * @description Creates an after-sales ticket.
  *
  * @param request CreateRefundOrderRequest
  * @param headers map
@@ -299,9 +304,9 @@ CreateRefundOrderResponse Client::createRefundOrderWithOptions(const CreateRefun
 }
 
 /**
- * @summary Create a support ticket.
+ * @summary Creates an after-sales ticket.
  *
- * @description Creates a refund order.
+ * @description Creates an after-sales ticket.
  *
  * @param request CreateRefundOrderRequest
  * @return CreateRefundOrderResponse
@@ -313,7 +318,7 @@ CreateRefundOrderResponse Client::createRefundOrder(const CreateRefundOrderReque
 }
 
 /**
- * @summary Queries the details of an order.
+ * @summary Queries the details of the main order.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -338,7 +343,7 @@ GetOrderResponse Client::getOrderWithOptions(const string &orderId, const map<st
 }
 
 /**
- * @summary Queries the details of an order.
+ * @summary Queries the details of the main order.
  *
  * @return GetOrderResponse
  */
@@ -349,9 +354,9 @@ GetOrderResponse Client::getOrder(const string &orderId) {
 }
 
 /**
- * @summary Retrieve the purchase order status.
+ * @summary Retrieves the status of a purchase order.
  *
- * @description Retrieve the transaction order status.
+ * @description Retrieves the status of a transaction order.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -376,9 +381,9 @@ GetPurchaseOrderStatusResponse Client::getPurchaseOrderStatusWithOptions(const s
 }
 
 /**
- * @summary Retrieve the purchase order status.
+ * @summary Retrieves the status of a purchase order.
  *
- * @description Retrieve the transaction order status.
+ * @description Retrieves the status of a transaction order.
  *
  * @return GetPurchaseOrderStatusResponse
  */
@@ -389,9 +394,9 @@ GetPurchaseOrderStatusResponse Client::getPurchaseOrderStatus(const string &purc
 }
 
 /**
- * @summary Retrieves the purchaser\\"s shop.
+ * @summary Retrieves the purchaser store.
  *
- * @description Retrieves the purchaser\\"s shop.
+ * @description Retrieves the purchaser store.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -416,9 +421,9 @@ GetPurchaserShopResponse Client::getPurchaserShopWithOptions(const string &purch
 }
 
 /**
- * @summary Retrieves the purchaser\\"s shop.
+ * @summary Retrieves the purchaser store.
  *
- * @description Retrieves the purchaser\\"s shop.
+ * @description Retrieves the purchaser store.
  *
  * @return GetPurchaserShopResponse
  */
@@ -429,9 +434,9 @@ GetPurchaserShopResponse Client::getPurchaserShop(const string &purchaserId) {
 }
 
 /**
- * @summary Retrieve details of an after-sales order.
+ * @summary Retrieves the details of an after-sales ticket.
  *
- * @description Retrieve after-sales order details
+ * @description Retrieves the details of an after-sales ticket.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -456,9 +461,9 @@ GetRefundOrderResponse Client::getRefundOrderWithOptions(const string &disputeId
 }
 
 /**
- * @summary Retrieve details of an after-sales order.
+ * @summary Retrieves the details of an after-sales ticket.
  *
- * @description Retrieve after-sales order details
+ * @description Retrieves the details of an after-sales ticket.
  *
  * @return GetRefundOrderResponse
  */
@@ -469,9 +474,9 @@ GetRefundOrderResponse Client::getRefundOrder(const string &disputeId) {
 }
 
 /**
- * @summary Query the details of a product in the selection pool.
+ * @summary Queries the details of products in the selection pool.
  *
- * @description Retrieve product details from the selection pool using the product ID. You can also specify a region code to check regional inventory.
+ * @description Queries the details of products in the selection pool by product ID. You can specify a division code to query the regional inventory of the product.
  *
  * @param request GetSelectionProductRequest
  * @param headers map
@@ -508,9 +513,9 @@ GetSelectionProductResponse Client::getSelectionProductWithOptions(const string 
 }
 
 /**
- * @summary Query the details of a product in the selection pool.
+ * @summary Queries the details of products in the selection pool.
  *
- * @description Retrieve product details from the selection pool using the product ID. You can also specify a region code to check regional inventory.
+ * @description Queries the details of products in the selection pool by product ID. You can specify a division code to query the regional inventory of the product.
  *
  * @param request GetSelectionProductRequest
  * @return GetSelectionProductResponse
@@ -522,9 +527,9 @@ GetSelectionProductResponse Client::getSelectionProduct(const string &productId,
 }
 
 /**
- * @summary Queries sales information for products in the selection pool.
+ * @summary Queries the sales information of products in the selection pool.
  *
- * @description Queries sales information for products in the selection pool. Distributors can call this operation to check product sales details, such as product status. Use the divisionCode input parameter to check whether a product is available for sale in a specific region. We recommend using a five-level administrative division code (township or subdistrict level).
+ * @description Queries the sales information of products in the selection pool. Distributors can call this operation to query product sales information, such as product status. Pass the divisionCode parameter (a level-5 address code for a town or sub-district is recommended) to check whether the product is available for sale in the specified region.
  *
  * @param request GetSelectionProductSaleInfoRequest
  * @param headers map
@@ -561,9 +566,9 @@ GetSelectionProductSaleInfoResponse Client::getSelectionProductSaleInfoWithOptio
 }
 
 /**
- * @summary Queries sales information for products in the selection pool.
+ * @summary Queries the sales information of products in the selection pool.
  *
- * @description Queries sales information for products in the selection pool. Distributors can call this operation to check product sales details, such as product status. Use the divisionCode input parameter to check whether a product is available for sale in a specific region. We recommend using a five-level administrative division code (township or subdistrict level).
+ * @description Queries the sales information of products in the selection pool. Distributors can call this operation to query product sales information, such as product status. Pass the divisionCode parameter (a level-5 address code for a town or sub-district is recommended) to check whether the product is available for sale in the specified region.
  *
  * @param request GetSelectionProductSaleInfoRequest
  * @return GetSelectionProductSaleInfoResponse
@@ -575,10 +580,9 @@ GetSelectionProductSaleInfoResponse Client::getSelectionProductSaleInfo(const st
 }
 
 /**
- * @summary Lists categories.
+ * @summary Queries a list of categories.
  *
- * @description Retrieves all subcategories for a parent category ID, or the details for a specific category ID.
- * If the parent category ID (parentCategoryId) is 0, the API returns the top-level categories under the root category.
+ * @description Queries all subcategories based on a parent category ID, or queries category details based on a category ID. If the parent category ID (parentCategoryId) is set to 0, the first-level categories under the root category are returned.
  *
  * @param request ListCategoriesRequest
  * @param headers map
@@ -606,10 +610,9 @@ ListCategoriesResponse Client::listCategoriesWithOptions(const ListCategoriesReq
 }
 
 /**
- * @summary Lists categories.
+ * @summary Queries a list of categories.
  *
- * @description Retrieves all subcategories for a parent category ID, or the details for a specific category ID.
- * If the parent category ID (parentCategoryId) is 0, the API returns the top-level categories under the root category.
+ * @description Queries all subcategories based on a parent category ID, or queries category details based on a category ID. If the parent category ID (parentCategoryId) is set to 0, the first-level categories under the root category are returned.
  *
  * @param request ListCategoriesRequest
  * @return ListCategoriesResponse
@@ -621,9 +624,9 @@ ListCategoriesResponse Client::listCategories(const ListCategoriesRequest &reque
 }
 
 /**
- * @summary Query logistics information for an order.
+ * @summary Queries the logistics information of an order.
  *
- * @description Retrieves logistics information for an order.
+ * @description Queries the logistics information of an order.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -648,9 +651,9 @@ ListLogisticsOrdersResponse Client::listLogisticsOrdersWithOptions(const string 
 }
 
 /**
- * @summary Query logistics information for an order.
+ * @summary Queries the logistics information of an order.
  *
- * @description Retrieves logistics information for an order.
+ * @description Queries the logistics information of an order.
  *
  * @return ListLogisticsOrdersResponse
  */
@@ -661,9 +664,9 @@ ListLogisticsOrdersResponse Client::listLogisticsOrders(const string &orderId) {
 }
 
 /**
- * @summary Lists purchaser shops.
+ * @summary Retrieves a list of purchaser shops.
  *
- * @description Lists purchaser shops.
+ * @description Retrieves a list of purchaser shops.
  *
  * @param request ListPurchaserShopsRequest
  * @param headers map
@@ -700,9 +703,9 @@ ListPurchaserShopsResponse Client::listPurchaserShopsWithOptions(const ListPurch
 }
 
 /**
- * @summary Lists purchaser shops.
+ * @summary Retrieves a list of purchaser shops.
  *
- * @description Lists purchaser shops.
+ * @description Retrieves a list of purchaser shops.
  *
  * @param request ListPurchaserShopsRequest
  * @return ListPurchaserShopsResponse
@@ -714,9 +717,9 @@ ListPurchaserShopsResponse Client::listPurchaserShops(const ListPurchaserShopsRe
 }
 
 /**
- * @summary Query product sales information for the selection pool in batches.
+ * @summary Queries the sales information of products in the selection pool in batches.
  *
- * @description You can query product sales information for the selection pool in batches. Distributors can call this operation to retrieve product sales details, such as product status. Use the divisionCode input parameter to check whether products are available for sale in a specific region. We recommend that you pass a five-level address code (town or street level).
+ * @description Queries the sales information of products in the selection pool in batches. Distributors can call this operation to batch query product sales information, such as product status. You can use the divisionCode parameter (we recommend passing a level-5 address code for a town or sub-district) to batch query whether a product is available for sale in a specific region.
  *
  * @param request ListSelectionProductSaleInfosRequest
  * @param headers map
@@ -744,9 +747,9 @@ ListSelectionProductSaleInfosResponse Client::listSelectionProductSaleInfosWithO
 }
 
 /**
- * @summary Query product sales information for the selection pool in batches.
+ * @summary Queries the sales information of products in the selection pool in batches.
  *
- * @description You can query product sales information for the selection pool in batches. Distributors can call this operation to retrieve product sales details, such as product status. Use the divisionCode input parameter to check whether products are available for sale in a specific region. We recommend that you pass a five-level address code (town or street level).
+ * @description Queries the sales information of products in the selection pool in batches. Distributors can call this operation to batch query product sales information, such as product status. You can use the divisionCode parameter (we recommend passing a level-5 address code for a town or sub-district) to batch query whether a product is available for sale in a specific region.
  *
  * @param request ListSelectionProductSaleInfosRequest
  * @return ListSelectionProductSaleInfosResponse
@@ -758,7 +761,7 @@ ListSelectionProductSaleInfosResponse Client::listSelectionProductSaleInfos(cons
 }
 
 /**
- * @summary Retrieves a list of products from a product selection pool.
+ * @summary Queries the list of products in the product selection pool.
  *
  * @param request ListSelectionProductsRequest
  * @param headers map
@@ -768,6 +771,10 @@ ListSelectionProductSaleInfosResponse Client::listSelectionProductSaleInfos(cons
 ListSelectionProductsResponse Client::listSelectionProductsWithOptions(const ListSelectionProductsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCursor()) {
+    query["cursor"] = request.getCursor();
+  }
+
   if (!!request.hasPageNumber()) {
     query["pageNumber"] = request.getPageNumber();
   }
@@ -799,7 +806,7 @@ ListSelectionProductsResponse Client::listSelectionProductsWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves a list of products from a product selection pool.
+ * @summary Queries the list of products in the product selection pool.
  *
  * @param request ListSelectionProductsRequest
  * @return ListSelectionProductsResponse
@@ -811,9 +818,9 @@ ListSelectionProductsResponse Client::listSelectionProducts(const ListSelectionP
 }
 
 /**
- * @summary Query SKU sales information for items in the selection pool in batch.
+ * @summary Queries the sales information of SKUs in a selection pool in batches.
  *
- * @description Query SKU sales information for items in the selection pool in batch. Distributors can call this API to retrieve batch details about SKU sales status and other attributes. To determine whether SKUs are sellable in a specific region, use the divisionCode parameter—preferably a five-level administrative division code for townships or subdistricts.
+ * @description Batch query of SKU sales information in a selection pool: Distributors can call this operation to query SKU sales information in batches, such as SKU status. You can use the divisionCode parameter to query whether SKUs are available for sale in a specific region in batches. We recommend that you specify a level-5 division code, such as a town or sub-district code.
  *
  * @param request ListSelectionSkuSaleInfosRequest
  * @param headers map
@@ -841,9 +848,9 @@ ListSelectionSkuSaleInfosResponse Client::listSelectionSkuSaleInfosWithOptions(c
 }
 
 /**
- * @summary Query SKU sales information for items in the selection pool in batch.
+ * @summary Queries the sales information of SKUs in a selection pool in batches.
  *
- * @description Query SKU sales information for items in the selection pool in batch. Distributors can call this API to retrieve batch details about SKU sales status and other attributes. To determine whether SKUs are sellable in a specific region, use the divisionCode parameter—preferably a five-level administrative division code for townships or subdistricts.
+ * @description Batch query of SKU sales information in a selection pool: Distributors can call this operation to query SKU sales information in batches, such as SKU status. You can use the divisionCode parameter to query whether SKUs are available for sale in a specific region in batches. We recommend that you specify a level-5 division code, such as a town or sub-district code.
  *
  * @param request ListSelectionSkuSaleInfosRequest
  * @return ListSelectionSkuSaleInfosResponse
@@ -855,9 +862,9 @@ ListSelectionSkuSaleInfosResponse Client::listSelectionSkuSaleInfos(const ListSe
 }
 
 /**
- * @summary Queries child division codes.
+ * @summary Queries the sub-region codes.
  *
- * @description Queries child division codes.
+ * @description Queries the sub-region codes.
  *
  * @param request QueryChildDivisionCodeRequest
  * @param headers map
@@ -885,9 +892,9 @@ QueryChildDivisionCodeResponse Client::queryChildDivisionCodeWithOptions(const Q
 }
 
 /**
- * @summary Queries child division codes.
+ * @summary Queries the sub-region codes.
  *
- * @description Queries child division codes.
+ * @description Queries the sub-region codes.
  *
  * @param request QueryChildDivisionCodeRequest
  * @return QueryChildDivisionCodeResponse
@@ -989,9 +996,9 @@ RenderPurchaseOrderResponse Client::renderPurchaseOrder(const RenderPurchaseOrde
 }
 
 /**
- * @summary Reverse Single Rendering
+ * @summary Renders a reverse order.
  *
- * @description Renders a refund order.
+ * @description Renders an after-sales order.
  *
  * @param request RenderRefundOrderRequest
  * @param headers map
@@ -1019,9 +1026,9 @@ RenderRefundOrderResponse Client::renderRefundOrderWithOptions(const RenderRefun
 }
 
 /**
- * @summary Reverse Single Rendering
+ * @summary Renders a reverse order.
  *
- * @description Renders a refund order.
+ * @description Renders an after-sales order.
  *
  * @param request RenderRefundOrderRequest
  * @return RenderRefundOrderResponse
@@ -1033,7 +1040,9 @@ RenderRefundOrderResponse Client::renderRefundOrder(const RenderRefundOrderReque
 }
 
 /**
- * @summary The product search API is a paginated interface for searching products based on various criteria.
+ * @summary Queries products based on various conditions and returns paginated results.
+ *
+ * @description Performs a paged query on the product list based on the page number and paging size.
  *
  * @param request SearchProductsRequest
  * @param headers map
@@ -1057,6 +1066,10 @@ SearchProductsResponse Client::searchProductsWithOptions(const SearchProductsReq
 
   if (!!request.hasCreateStartTime()) {
     body["createStartTime"] = request.getCreateStartTime();
+  }
+
+  if (!!request.hasCursor()) {
+    body["cursor"] = request.getCursor();
   }
 
   if (!!request.hasDistributionHighPrice()) {
@@ -1182,7 +1195,9 @@ SearchProductsResponse Client::searchProductsWithOptions(const SearchProductsReq
 }
 
 /**
- * @summary The product search API is a paginated interface for searching products based on various criteria.
+ * @summary Queries products based on various conditions and returns paginated results.
+ *
+ * @description Performs a paged query on the product list based on the page number and paging size.
  *
  * @param request SearchProductsRequest
  * @return SearchProductsResponse
@@ -1194,10 +1209,10 @@ SearchProductsResponse Client::searchProducts(const SearchProductsRequest &reque
 }
 
 /**
- * @summary The distributor takes delivery of goods.
+ * @summary Adds products to the selection pool for a distributor.
  *
- * @description Distributors use this API to add products to their selection group.
- * > We recommend that distributors who onboard on or after January 1, 2025 use this API. For more information about adding products and the related impact, see the [product best practices](https://help.aliyun.com/zh/linkedmall/user-guide/product-interface-best-practices?spm=a2c4g.11186623.help-menu-88587.d_2_2_0_8_0.58122056oN3crP\\&scm=20140722.H_2869668._.OR_help-T_cn~zh-V_1#lFENl).
+ * @description Distributors can use this API operation to add products to the selection pool.
+ * > Integrate this API operation if you are a distributor customer who registered on or after January 1, 2025. For details about the import operations and their impacts, refer to [Product best practices](https://www.alibabacloud.com/help/en/linkedmall/user-guide/product-interface-best-practices#lFENl).
  *
  * @param request SelectionGroupAddProductRequest
  * @param headers map
@@ -1234,10 +1249,10 @@ SelectionGroupAddProductResponse Client::selectionGroupAddProductWithOptions(con
 }
 
 /**
- * @summary The distributor takes delivery of goods.
+ * @summary Adds products to the selection pool for a distributor.
  *
- * @description Distributors use this API to add products to their selection group.
- * > We recommend that distributors who onboard on or after January 1, 2025 use this API. For more information about adding products and the related impact, see the [product best practices](https://help.aliyun.com/zh/linkedmall/user-guide/product-interface-best-practices?spm=a2c4g.11186623.help-menu-88587.d_2_2_0_8_0.58122056oN3crP\\&scm=20140722.H_2869668._.OR_help-T_cn~zh-V_1#lFENl).
+ * @description Distributors can use this API operation to add products to the selection pool.
+ * > Integrate this API operation if you are a distributor customer who registered on or after January 1, 2025. For details about the import operations and their impacts, refer to [Product best practices](https://www.alibabacloud.com/help/en/linkedmall/user-guide/product-interface-best-practices#lFENl).
  *
  * @param request SelectionGroupAddProductRequest
  * @return SelectionGroupAddProductResponse
@@ -1249,9 +1264,9 @@ SelectionGroupAddProductResponse Client::selectionGroupAddProduct(const Selectio
 }
 
 /**
- * @summary Removes products from a distributor\\"s stock.
+ * @summary Dispatches products for a distributor.
  *
- * @description Distributors use this API to remove products from their stock.
+ * @description Allows a distributor to dispatch products.
  *
  * @param request SelectionGroupRemoveProductRequest
  * @param headers map
@@ -1288,9 +1303,9 @@ SelectionGroupRemoveProductResponse Client::selectionGroupRemoveProductWithOptio
 }
 
 /**
- * @summary Removes products from a distributor\\"s stock.
+ * @summary Dispatches products for a distributor.
  *
- * @description Distributors use this API to remove products from their stock.
+ * @description Allows a distributor to dispatch products.
  *
  * @param request SelectionGroupRemoveProductRequest
  * @return SelectionGroupRemoveProductResponse

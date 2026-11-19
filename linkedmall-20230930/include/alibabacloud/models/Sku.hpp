@@ -217,45 +217,45 @@ namespace Models
 
 
   protected:
-    // 69 barcode
+    // The barcode.
     shared_ptr<string> barcode_ {};
-    // Indicates whether the SKU is available for sale
+    // Indicates whether the SKU is available for sale.
     shared_ptr<bool> canSell_ {};
-    // Reserved field
+    // The reserved field.
     shared_ptr<int64_t> discountRetailPrice_ {};
-    // Region code
+    // The region code.
     shared_ptr<string> divisionCode_ {};
-    // Fuzzy inventory availability
+    // The fuzzy available inventory.
     shared_ptr<string> fuzzyQuantity_ {};
-    // Strikethrough price, in cents
+    // The list price in cents.
     shared_ptr<int64_t> markPrice_ {};
-    // SKU image URL
+    // The SKU image.
     shared_ptr<string> picUrl_ {};
-    // Suggested retail price, in cents
+    // The suggested retail price in cents.
     shared_ptr<int64_t> platformPrice_ {};
-    // Distributor purchase price, in cents
+    // The distributor purchase price in cents.
     shared_ptr<int64_t> price_ {};
-    // Product ID
+    // The product ID.
     shared_ptr<string> productId_ {};
-    // Available inventory. Note: This field is currently set to -1 for all SKUs and has no practical meaning.
+    // The available inventory. <notice>Currently, the value of this field is uniformly set to -1 and has no practical significance.</notice>
     shared_ptr<int64_t> quantity_ {};
-    // SKU sort order
+    // The SKU sort order.
     shared_ptr<int64_t> rankValue_ {};
-    // Shop ID
+    // The shop ID.
     shared_ptr<string> shopId_ {};
-    // SKU note
+    // The SKU remark.
     shared_ptr<string> skuAlias_ {};
-    // SKU ID
+    // skuId
     shared_ptr<string> skuId_ {};
-    // SKU specifications
+    // sku
     shared_ptr<vector<SkuSpec>> skuSpecs_ {};
-    // SKU sales specification code. Used by the frontend to filter SKUs
+    // The SKU sales specifications used to assist frontend filtering.
     shared_ptr<string> skuSpecsCode_ {};
-    // SKU control status
+    // The SKU control status.
     shared_ptr<string> skuStatus_ {};
-    // Reserved field
+    // The reserved field.
     shared_ptr<int64_t> suggestedRetailPrice_ {};
-    // SKU title. Note: We recommend that distributors build the customer-facing SKU title by concatenating the value or valueAlias field from the SkuSpec struct (use `valueAlias` if it is present). Do not use this field directly as the customer-facing SKU title.
+    // The SKU title. <notice>Distributors should concatenate the value or valueAlias (if available) from the SkuSpec struct to form the SKU title for customer display. Do not use this field directly as the SKU title for customer display.</notice>
     shared_ptr<string> title_ {};
   };
 

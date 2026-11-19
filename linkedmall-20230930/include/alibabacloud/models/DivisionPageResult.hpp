@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // Collection of regions
+    // The list of divisions.
     shared_ptr<vector<Division>> divisionList_ {};
-    // API request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The request body for confirming the receipt of goods.
+    // The request parameters for confirming receipt.
     // 
     // This parameter is required.
     shared_ptr<ConfirmDisburseCmd> body_ {};

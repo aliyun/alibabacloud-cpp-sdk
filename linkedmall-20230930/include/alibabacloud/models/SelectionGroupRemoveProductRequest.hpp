@@ -51,13 +51,13 @@ namespace Models
 
 
   protected:
-    // A list of IDs for the products to be removed from stock.
-    // 
+    // The list of product IDs to be dispatched.
+    // > 
     // > - A single call supports a maximum of 30 products.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> productIds_ {};
-    // The ID of the purchaser.
+    // The purchaser ID.
     // 
     // This parameter is required.
     shared_ptr<string> purchaserId_ {};

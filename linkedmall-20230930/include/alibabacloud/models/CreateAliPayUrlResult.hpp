@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The LM account ID.
     shared_ptr<string> accountId_ {};
+    // The LM member ID.
     shared_ptr<string> memberId_ {};
+    // The Alipay auto-debit signing URL.
     shared_ptr<string> zftWithholdSignUrl_ {};
   };
 

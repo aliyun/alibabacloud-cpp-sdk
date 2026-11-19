@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The signed and bound Alipay auto-debit account (masked).
     shared_ptr<vector<string>> accountNo_ {};
+    // The store ID.
     shared_ptr<string> shopId_ {};
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The shop ID.
+    // 
     // This parameter is required.
     shared_ptr<string> shopId_ {};
+    // The shop status.
+    // 
     // This parameter is required.
     shared_ptr<string> shopStatus_ {};
   };

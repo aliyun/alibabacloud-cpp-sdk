@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The LM shop ID.
     shared_ptr<string> lmShopId_ {};
+    // The distributed products.
     shared_ptr<vector<DistributionProduct>> products_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The submission time.
     shared_ptr<string> requestTime_ {};
+    // The submitter.
     shared_ptr<string> requestUser_ {};
   };
 

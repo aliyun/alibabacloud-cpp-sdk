@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // Quantity
+    // The quantity.
     shared_ptr<int32_t> buyAmount_ {};
-    // Product ID
+    // The commodity ID.
     // 
     // This parameter is required.
     shared_ptr<string> productId_ {};

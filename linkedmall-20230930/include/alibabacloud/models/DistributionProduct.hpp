@@ -144,17 +144,29 @@ namespace Models
 
 
   protected:
+    // The category chain name.
     shared_ptr<string> categoryChain_ {};
+    // The leaf category ID.
     shared_ptr<int64_t> categoryLeafId_ {};
+    // The leaf category name.
     shared_ptr<string> categoryLeafName_ {};
+    // The channel ID.
     shared_ptr<string> channelCode_ {};
+    // The distribution status.
     shared_ptr<string> distributeStatus_ {};
+    // The main image.
     shared_ptr<string> picUrl_ {};
+    // The product ID.
     shared_ptr<string> productId_ {};
+    // The seller ID.
     shared_ptr<string> sellerId_ {};
+    // The short product title.
     shared_ptr<string> shortTitle_ {};
+    // The SKU list.
     shared_ptr<vector<DistributionSku>> skus_ {};
+    // The long product title.
     shared_ptr<string> title_ {};
+    // The white background image.
     shared_ptr<string> whiteBackgroundPicUrl_ {};
   };
 

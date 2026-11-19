@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<string> code_ {};
+    // The return message.
     shared_ptr<string> message_ {};
+    // The product information.
     shared_ptr<vector<DistributionProduct>> products_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

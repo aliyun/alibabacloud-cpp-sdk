@@ -84,27 +84,23 @@ namespace Models
 
 
   protected:
-    // User ID in the distributor\\"s business, customized by the distributor.
-    // 
-    // >Notice: 
-    // 
-    // Allocate different buyer IDs for different buyers.
+    // The user ID in the distributor business, which is defined by the distributor.
+    // >Notice: Assign different buyerIds to different buyers.</notice>
     // 
     // This parameter is required.
     shared_ptr<string> buyerId_ {};
-    // Address information.
+    // The address information.
     // 
     // This parameter is required.
     shared_ptr<AddressInfo> deliveryAddress_ {};
-    // Extension information.
+    // The extended information.
     Darabonba::Json extInfo_ {};
-    // Order ID in the distributor\\"s business, customized by the distributor.
+    // The order ID in the distributor business, which is defined by the distributor.
     // 
     // This parameter is required.
     shared_ptr<string> outerPurchaseOrderId_ {};
-    // Product collection.
-    // 
-    // > Maximum number of SKUs per purchase order: 20.
+    // The product list.
+    // > Maximum number of SKUs per purchase order: 20
     // 
     // This parameter is required.
     shared_ptr<vector<ProductDTO>> productList_ {};

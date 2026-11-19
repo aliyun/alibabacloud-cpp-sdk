@@ -303,29 +303,29 @@ namespace Models
   protected:
     // The brand name.
     shared_ptr<string> brandName_ {};
-    // Indicates whether the product is available for sale. This is a calculated value.
+    // The calculated value indicating whether the product is available for sale.
     shared_ptr<bool> canSell_ {};
     // The category chain.
     shared_ptr<vector<Category>> categoryChain_ {};
     // The leaf category ID.
     shared_ptr<int64_t> categoryLeafId_ {};
-    // The product description URL.
+    // The product details URL.
     shared_ptr<string> descPath_ {};
-    // The region code.
+    // The division code.
     shared_ptr<string> divisionCode_ {};
-    // The product\\"s extended properties.
+    // The extended product properties.
     shared_ptr<vector<ProductExtendProperty>> extendProperties_ {};
-    // The stock status.
+    // The approximate inventory.
     shared_ptr<string> fuzzyQuantity_ {};
-    // The product images.
+    // images
     shared_ptr<vector<string>> images_ {};
-    // The warehousing status.
+    // The warehousing status of the product.
     shared_ptr<bool> inGroup_ {};
     // The purchase limit rules.
     shared_ptr<vector<LimitRule>> limitRules_ {};
     // The LM product ID.
     shared_ptr<string> lmItemId_ {};
-    // The main product image URL.
+    // The product main image.
     shared_ptr<string> picUrl_ {};
     // The product ID.
     shared_ptr<string> productId_ {};
@@ -335,27 +335,27 @@ namespace Models
     shared_ptr<string> productStatus_ {};
     // The product type.
     shared_ptr<string> productType_ {};
-    // The product attributes.
+    // The product properties.
     shared_ptr<vector<ProductProperty>> properties_ {};
     // The inventory.
-    // 
-    // > - This parameter is fixed at -1 and can be ignored.
+    // > 
+    // > - This field is currently a fixed value of -1 and can be ignored.
     shared_ptr<int64_t> quantity_ {};
-    // The request ID.
+    // The API request ID.
     shared_ptr<string> requestId_ {};
-    // The service promises.>Notice:  Suppliers maintain all service promises. If a supplier fails to update this information in a timely manner, the service promise labels for some products may be inaccurate. Distributors should display this information to their customers with caution.
+    // The service commitments.<notice>Service commitments are maintained by suppliers. If suppliers fail to maintain or update them promptly, the service commitment labels for some products may be inaccurate. Distributors should display these commitments to their customers with caution.</notice>
     shared_ptr<vector<string>> servicePromises_ {};
-    // The channel shop ID.
+    // The channel store ID.
     shared_ptr<string> shopId_ {};
-    // The product SKUs.
+    // skus
     shared_ptr<vector<Sku>> skus_ {};
-    // The quantity sold.
+    // The sales volume.
     shared_ptr<string> soldQuantity_ {};
     // The tax code.
     shared_ptr<string> taxCode_ {};
     // The tax rate.
     shared_ptr<int32_t> taxRate_ {};
-    // The product title.
+    // The title.
     shared_ptr<string> title_ {};
   };
 

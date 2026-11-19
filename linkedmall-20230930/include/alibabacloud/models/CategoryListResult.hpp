@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // category collection
+    // The category collection.
     shared_ptr<vector<Category>> categories_ {};
-    // request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // List of product IDs successfully added
+    // The IDs of the products that are successfully added to the selection pool.
     shared_ptr<vector<string>> productIds_ {};
   };
 

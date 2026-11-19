@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The parameters for querying child division codes.
+    // The sub-region code.
     // 
     // This parameter is required.
     shared_ptr<DivisionQuery> body_ {};

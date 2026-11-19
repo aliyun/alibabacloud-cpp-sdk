@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // API request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Shop collection
+    // The shop list.
     shared_ptr<vector<ShopPageDataResult>> shopList_ {};
-    // Total count
+    // The total count.
     shared_ptr<int32_t> total_ {};
   };
 

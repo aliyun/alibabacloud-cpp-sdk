@@ -21,9 +21,9 @@ namespace Linkedmall20230930
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Cancels a refund order.
+       * @summary Cancels an after-sales ticket.
        *
-       * @description Cancel a refund order.
+       * @description Cancels an after-sales ticket.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -32,18 +32,18 @@ namespace Linkedmall20230930
       Models::CancelRefundOrderResponse cancelRefundOrderWithOptions(const string &disputeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels a refund order.
+       * @summary Cancels an after-sales ticket.
        *
-       * @description Cancel a refund order.
+       * @description Cancels an after-sales ticket.
        *
        * @return CancelRefundOrderResponse
        */
       Models::CancelRefundOrderResponse cancelRefundOrder(const string &disputeId);
 
       /**
-       * @summary Confirms the receipt of goods.
+       * @summary Confirms receipt.
        *
-       * @description Confirms the receipt of goods.
+       * @description Confirms receipt.
        *
        * @param request ConfirmDisburseRequest
        * @param headers map
@@ -53,9 +53,9 @@ namespace Linkedmall20230930
       Models::ConfirmDisburseResponse confirmDisburseWithOptions(const Models::ConfirmDisburseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Confirms the receipt of goods.
+       * @summary Confirms receipt.
        *
-       * @description Confirms the receipt of goods.
+       * @description Confirms receipt.
        *
        * @param request ConfirmDisburseRequest
        * @return ConfirmDisburseResponse
@@ -63,9 +63,9 @@ namespace Linkedmall20230930
       Models::ConfirmDisburseResponse confirmDisburse(const Models::ConfirmDisburseRequest &request);
 
       /**
-       * @summary Backfill shipping notice information.
+       * @summary Backfills the waybill information.
        *
-       * @description Backfill shipping notice information.
+       * @description Backfills the waybill information.
        *
        * @param request CreateGoodsShippingNoticeRequest
        * @param headers map
@@ -75,9 +75,9 @@ namespace Linkedmall20230930
       Models::CreateGoodsShippingNoticeResponse createGoodsShippingNoticeWithOptions(const Models::CreateGoodsShippingNoticeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Backfill shipping notice information.
+       * @summary Backfills the waybill information.
        *
-       * @description Backfill shipping notice information.
+       * @description Backfills the waybill information.
        *
        * @param request CreateGoodsShippingNoticeRequest
        * @return CreateGoodsShippingNoticeResponse
@@ -85,11 +85,11 @@ namespace Linkedmall20230930
       Models::CreateGoodsShippingNoticeResponse createGoodsShippingNotice(const Models::CreateGoodsShippingNoticeRequest &request);
 
       /**
-       * @summary Creates a purchase order and returns the purchase order ID. The specific result of order creation is communicated through messages. After the order is created, you can query the order details associated with the purchase order using the order API.
+       * @summary Creates a purchase order and returns the purchase order ID. The order creation result is notified through messages. After the order is created, you can query the orders associated with the purchase order by calling the order API.
        *
-       * @description Creates a purchase order and returns the purchase order ID. Messages communicate the specific result of order creation. After the order is created, you can query the order details associated with the purchase order using the order API.
-       * >Warning: Note: Purchase order creation is an asynchronous task. If a distributor calls this API and receives an abnormal status (such as error code 503), do not immediately process customer refunds. Distributors must wait for and consume the PurchaseOrderCreate message (the purchase order creation result message) to determine the order status—for example, by consuming the order status synchronization message—before proceeding with business logic. This prevents financial losses.
-       * >Notice: Note: If you do not receive the PurchaseOrderCreate message (the purchase order creation result message) after calling the purchase order creation API, submit a ticket to the technical support team to inquire about the cause.
+       * @description Creates a purchase order and returns the purchase order ID. The order creation result is notified through messages. After the order is created, you can query the orders associated with the purchase order by calling the order API.
+       * >Warning: Because purchase order creation is an asynchronous task, if an error (such as a 503 error code) is returned when a distributor calls this API, do not immediately process consumer refunds on the business side. Wait for and consume the PurchaseOrderCreate message (the purchase order creation result message) to check the order status (for example, consume the order status synchronization message to check the order status) before you process business logic to prevent financial losses.
+       * >Notice: If you do not receive the PurchaseOrderCreate message (the purchase order creation result message) after you call the purchase order creation API, submit a ticket in the technical integration group to check the cause.
        *
        * @param request CreatePurchaseOrderRequest
        * @param headers map
@@ -99,11 +99,11 @@ namespace Linkedmall20230930
       Models::CreatePurchaseOrderResponse createPurchaseOrderWithOptions(const Models::CreatePurchaseOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a purchase order and returns the purchase order ID. The specific result of order creation is communicated through messages. After the order is created, you can query the order details associated with the purchase order using the order API.
+       * @summary Creates a purchase order and returns the purchase order ID. The order creation result is notified through messages. After the order is created, you can query the orders associated with the purchase order by calling the order API.
        *
-       * @description Creates a purchase order and returns the purchase order ID. Messages communicate the specific result of order creation. After the order is created, you can query the order details associated with the purchase order using the order API.
-       * >Warning: Note: Purchase order creation is an asynchronous task. If a distributor calls this API and receives an abnormal status (such as error code 503), do not immediately process customer refunds. Distributors must wait for and consume the PurchaseOrderCreate message (the purchase order creation result message) to determine the order status—for example, by consuming the order status synchronization message—before proceeding with business logic. This prevents financial losses.
-       * >Notice: Note: If you do not receive the PurchaseOrderCreate message (the purchase order creation result message) after calling the purchase order creation API, submit a ticket to the technical support team to inquire about the cause.
+       * @description Creates a purchase order and returns the purchase order ID. The order creation result is notified through messages. After the order is created, you can query the orders associated with the purchase order by calling the order API.
+       * >Warning: Because purchase order creation is an asynchronous task, if an error (such as a 503 error code) is returned when a distributor calls this API, do not immediately process consumer refunds on the business side. Wait for and consume the PurchaseOrderCreate message (the purchase order creation result message) to check the order status (for example, consume the order status synchronization message to check the order status) before you process business logic to prevent financial losses.
+       * >Notice: If you do not receive the PurchaseOrderCreate message (the purchase order creation result message) after you call the purchase order creation API, submit a ticket in the technical integration group to check the cause.
        *
        * @param request CreatePurchaseOrderRequest
        * @return CreatePurchaseOrderResponse
@@ -111,9 +111,9 @@ namespace Linkedmall20230930
       Models::CreatePurchaseOrderResponse createPurchaseOrder(const Models::CreatePurchaseOrderRequest &request);
 
       /**
-       * @summary Create a support ticket.
+       * @summary Creates an after-sales ticket.
        *
-       * @description Creates a refund order.
+       * @description Creates an after-sales ticket.
        *
        * @param request CreateRefundOrderRequest
        * @param headers map
@@ -123,9 +123,9 @@ namespace Linkedmall20230930
       Models::CreateRefundOrderResponse createRefundOrderWithOptions(const Models::CreateRefundOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a support ticket.
+       * @summary Creates an after-sales ticket.
        *
-       * @description Creates a refund order.
+       * @description Creates an after-sales ticket.
        *
        * @param request CreateRefundOrderRequest
        * @return CreateRefundOrderResponse
@@ -133,7 +133,7 @@ namespace Linkedmall20230930
       Models::CreateRefundOrderResponse createRefundOrder(const Models::CreateRefundOrderRequest &request);
 
       /**
-       * @summary Queries the details of an order.
+       * @summary Queries the details of the main order.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -142,16 +142,16 @@ namespace Linkedmall20230930
       Models::GetOrderResponse getOrderWithOptions(const string &orderId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an order.
+       * @summary Queries the details of the main order.
        *
        * @return GetOrderResponse
        */
       Models::GetOrderResponse getOrder(const string &orderId);
 
       /**
-       * @summary Retrieve the purchase order status.
+       * @summary Retrieves the status of a purchase order.
        *
-       * @description Retrieve the transaction order status.
+       * @description Retrieves the status of a transaction order.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -160,18 +160,18 @@ namespace Linkedmall20230930
       Models::GetPurchaseOrderStatusResponse getPurchaseOrderStatusWithOptions(const string &purchaseOrderId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve the purchase order status.
+       * @summary Retrieves the status of a purchase order.
        *
-       * @description Retrieve the transaction order status.
+       * @description Retrieves the status of a transaction order.
        *
        * @return GetPurchaseOrderStatusResponse
        */
       Models::GetPurchaseOrderStatusResponse getPurchaseOrderStatus(const string &purchaseOrderId);
 
       /**
-       * @summary Retrieves the purchaser\\"s shop.
+       * @summary Retrieves the purchaser store.
        *
-       * @description Retrieves the purchaser\\"s shop.
+       * @description Retrieves the purchaser store.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -180,18 +180,18 @@ namespace Linkedmall20230930
       Models::GetPurchaserShopResponse getPurchaserShopWithOptions(const string &purchaserId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the purchaser\\"s shop.
+       * @summary Retrieves the purchaser store.
        *
-       * @description Retrieves the purchaser\\"s shop.
+       * @description Retrieves the purchaser store.
        *
        * @return GetPurchaserShopResponse
        */
       Models::GetPurchaserShopResponse getPurchaserShop(const string &purchaserId);
 
       /**
-       * @summary Retrieve details of an after-sales order.
+       * @summary Retrieves the details of an after-sales ticket.
        *
-       * @description Retrieve after-sales order details
+       * @description Retrieves the details of an after-sales ticket.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,18 +200,18 @@ namespace Linkedmall20230930
       Models::GetRefundOrderResponse getRefundOrderWithOptions(const string &disputeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve details of an after-sales order.
+       * @summary Retrieves the details of an after-sales ticket.
        *
-       * @description Retrieve after-sales order details
+       * @description Retrieves the details of an after-sales ticket.
        *
        * @return GetRefundOrderResponse
        */
       Models::GetRefundOrderResponse getRefundOrder(const string &disputeId);
 
       /**
-       * @summary Query the details of a product in the selection pool.
+       * @summary Queries the details of products in the selection pool.
        *
-       * @description Retrieve product details from the selection pool using the product ID. You can also specify a region code to check regional inventory.
+       * @description Queries the details of products in the selection pool by product ID. You can specify a division code to query the regional inventory of the product.
        *
        * @param request GetSelectionProductRequest
        * @param headers map
@@ -221,9 +221,9 @@ namespace Linkedmall20230930
       Models::GetSelectionProductResponse getSelectionProductWithOptions(const string &productId, const Models::GetSelectionProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the details of a product in the selection pool.
+       * @summary Queries the details of products in the selection pool.
        *
-       * @description Retrieve product details from the selection pool using the product ID. You can also specify a region code to check regional inventory.
+       * @description Queries the details of products in the selection pool by product ID. You can specify a division code to query the regional inventory of the product.
        *
        * @param request GetSelectionProductRequest
        * @return GetSelectionProductResponse
@@ -231,9 +231,9 @@ namespace Linkedmall20230930
       Models::GetSelectionProductResponse getSelectionProduct(const string &productId, const Models::GetSelectionProductRequest &request);
 
       /**
-       * @summary Queries sales information for products in the selection pool.
+       * @summary Queries the sales information of products in the selection pool.
        *
-       * @description Queries sales information for products in the selection pool. Distributors can call this operation to check product sales details, such as product status. Use the divisionCode input parameter to check whether a product is available for sale in a specific region. We recommend using a five-level administrative division code (township or subdistrict level).
+       * @description Queries the sales information of products in the selection pool. Distributors can call this operation to query product sales information, such as product status. Pass the divisionCode parameter (a level-5 address code for a town or sub-district is recommended) to check whether the product is available for sale in the specified region.
        *
        * @param request GetSelectionProductSaleInfoRequest
        * @param headers map
@@ -243,9 +243,9 @@ namespace Linkedmall20230930
       Models::GetSelectionProductSaleInfoResponse getSelectionProductSaleInfoWithOptions(const string &productId, const Models::GetSelectionProductSaleInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries sales information for products in the selection pool.
+       * @summary Queries the sales information of products in the selection pool.
        *
-       * @description Queries sales information for products in the selection pool. Distributors can call this operation to check product sales details, such as product status. Use the divisionCode input parameter to check whether a product is available for sale in a specific region. We recommend using a five-level administrative division code (township or subdistrict level).
+       * @description Queries the sales information of products in the selection pool. Distributors can call this operation to query product sales information, such as product status. Pass the divisionCode parameter (a level-5 address code for a town or sub-district is recommended) to check whether the product is available for sale in the specified region.
        *
        * @param request GetSelectionProductSaleInfoRequest
        * @return GetSelectionProductSaleInfoResponse
@@ -253,10 +253,9 @@ namespace Linkedmall20230930
       Models::GetSelectionProductSaleInfoResponse getSelectionProductSaleInfo(const string &productId, const Models::GetSelectionProductSaleInfoRequest &request);
 
       /**
-       * @summary Lists categories.
+       * @summary Queries a list of categories.
        *
-       * @description Retrieves all subcategories for a parent category ID, or the details for a specific category ID.
-       * If the parent category ID (parentCategoryId) is 0, the API returns the top-level categories under the root category.
+       * @description Queries all subcategories based on a parent category ID, or queries category details based on a category ID. If the parent category ID (parentCategoryId) is set to 0, the first-level categories under the root category are returned.
        *
        * @param request ListCategoriesRequest
        * @param headers map
@@ -266,10 +265,9 @@ namespace Linkedmall20230930
       Models::ListCategoriesResponse listCategoriesWithOptions(const Models::ListCategoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists categories.
+       * @summary Queries a list of categories.
        *
-       * @description Retrieves all subcategories for a parent category ID, or the details for a specific category ID.
-       * If the parent category ID (parentCategoryId) is 0, the API returns the top-level categories under the root category.
+       * @description Queries all subcategories based on a parent category ID, or queries category details based on a category ID. If the parent category ID (parentCategoryId) is set to 0, the first-level categories under the root category are returned.
        *
        * @param request ListCategoriesRequest
        * @return ListCategoriesResponse
@@ -277,9 +275,9 @@ namespace Linkedmall20230930
       Models::ListCategoriesResponse listCategories(const Models::ListCategoriesRequest &request);
 
       /**
-       * @summary Query logistics information for an order.
+       * @summary Queries the logistics information of an order.
        *
-       * @description Retrieves logistics information for an order.
+       * @description Queries the logistics information of an order.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -288,18 +286,18 @@ namespace Linkedmall20230930
       Models::ListLogisticsOrdersResponse listLogisticsOrdersWithOptions(const string &orderId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query logistics information for an order.
+       * @summary Queries the logistics information of an order.
        *
-       * @description Retrieves logistics information for an order.
+       * @description Queries the logistics information of an order.
        *
        * @return ListLogisticsOrdersResponse
        */
       Models::ListLogisticsOrdersResponse listLogisticsOrders(const string &orderId);
 
       /**
-       * @summary Lists purchaser shops.
+       * @summary Retrieves a list of purchaser shops.
        *
-       * @description Lists purchaser shops.
+       * @description Retrieves a list of purchaser shops.
        *
        * @param request ListPurchaserShopsRequest
        * @param headers map
@@ -309,9 +307,9 @@ namespace Linkedmall20230930
       Models::ListPurchaserShopsResponse listPurchaserShopsWithOptions(const Models::ListPurchaserShopsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists purchaser shops.
+       * @summary Retrieves a list of purchaser shops.
        *
-       * @description Lists purchaser shops.
+       * @description Retrieves a list of purchaser shops.
        *
        * @param request ListPurchaserShopsRequest
        * @return ListPurchaserShopsResponse
@@ -319,9 +317,9 @@ namespace Linkedmall20230930
       Models::ListPurchaserShopsResponse listPurchaserShops(const Models::ListPurchaserShopsRequest &request);
 
       /**
-       * @summary Query product sales information for the selection pool in batches.
+       * @summary Queries the sales information of products in the selection pool in batches.
        *
-       * @description You can query product sales information for the selection pool in batches. Distributors can call this operation to retrieve product sales details, such as product status. Use the divisionCode input parameter to check whether products are available for sale in a specific region. We recommend that you pass a five-level address code (town or street level).
+       * @description Queries the sales information of products in the selection pool in batches. Distributors can call this operation to batch query product sales information, such as product status. You can use the divisionCode parameter (we recommend passing a level-5 address code for a town or sub-district) to batch query whether a product is available for sale in a specific region.
        *
        * @param request ListSelectionProductSaleInfosRequest
        * @param headers map
@@ -331,9 +329,9 @@ namespace Linkedmall20230930
       Models::ListSelectionProductSaleInfosResponse listSelectionProductSaleInfosWithOptions(const Models::ListSelectionProductSaleInfosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query product sales information for the selection pool in batches.
+       * @summary Queries the sales information of products in the selection pool in batches.
        *
-       * @description You can query product sales information for the selection pool in batches. Distributors can call this operation to retrieve product sales details, such as product status. Use the divisionCode input parameter to check whether products are available for sale in a specific region. We recommend that you pass a five-level address code (town or street level).
+       * @description Queries the sales information of products in the selection pool in batches. Distributors can call this operation to batch query product sales information, such as product status. You can use the divisionCode parameter (we recommend passing a level-5 address code for a town or sub-district) to batch query whether a product is available for sale in a specific region.
        *
        * @param request ListSelectionProductSaleInfosRequest
        * @return ListSelectionProductSaleInfosResponse
@@ -341,7 +339,7 @@ namespace Linkedmall20230930
       Models::ListSelectionProductSaleInfosResponse listSelectionProductSaleInfos(const Models::ListSelectionProductSaleInfosRequest &request);
 
       /**
-       * @summary Retrieves a list of products from a product selection pool.
+       * @summary Queries the list of products in the product selection pool.
        *
        * @param request ListSelectionProductsRequest
        * @param headers map
@@ -351,7 +349,7 @@ namespace Linkedmall20230930
       Models::ListSelectionProductsResponse listSelectionProductsWithOptions(const Models::ListSelectionProductsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of products from a product selection pool.
+       * @summary Queries the list of products in the product selection pool.
        *
        * @param request ListSelectionProductsRequest
        * @return ListSelectionProductsResponse
@@ -359,9 +357,9 @@ namespace Linkedmall20230930
       Models::ListSelectionProductsResponse listSelectionProducts(const Models::ListSelectionProductsRequest &request);
 
       /**
-       * @summary Query SKU sales information for items in the selection pool in batch.
+       * @summary Queries the sales information of SKUs in a selection pool in batches.
        *
-       * @description Query SKU sales information for items in the selection pool in batch. Distributors can call this API to retrieve batch details about SKU sales status and other attributes. To determine whether SKUs are sellable in a specific region, use the divisionCode parameter—preferably a five-level administrative division code for townships or subdistricts.
+       * @description Batch query of SKU sales information in a selection pool: Distributors can call this operation to query SKU sales information in batches, such as SKU status. You can use the divisionCode parameter to query whether SKUs are available for sale in a specific region in batches. We recommend that you specify a level-5 division code, such as a town or sub-district code.
        *
        * @param request ListSelectionSkuSaleInfosRequest
        * @param headers map
@@ -371,9 +369,9 @@ namespace Linkedmall20230930
       Models::ListSelectionSkuSaleInfosResponse listSelectionSkuSaleInfosWithOptions(const Models::ListSelectionSkuSaleInfosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query SKU sales information for items in the selection pool in batch.
+       * @summary Queries the sales information of SKUs in a selection pool in batches.
        *
-       * @description Query SKU sales information for items in the selection pool in batch. Distributors can call this API to retrieve batch details about SKU sales status and other attributes. To determine whether SKUs are sellable in a specific region, use the divisionCode parameter—preferably a five-level administrative division code for townships or subdistricts.
+       * @description Batch query of SKU sales information in a selection pool: Distributors can call this operation to query SKU sales information in batches, such as SKU status. You can use the divisionCode parameter to query whether SKUs are available for sale in a specific region in batches. We recommend that you specify a level-5 division code, such as a town or sub-district code.
        *
        * @param request ListSelectionSkuSaleInfosRequest
        * @return ListSelectionSkuSaleInfosResponse
@@ -381,9 +379,9 @@ namespace Linkedmall20230930
       Models::ListSelectionSkuSaleInfosResponse listSelectionSkuSaleInfos(const Models::ListSelectionSkuSaleInfosRequest &request);
 
       /**
-       * @summary Queries child division codes.
+       * @summary Queries the sub-region codes.
        *
-       * @description Queries child division codes.
+       * @description Queries the sub-region codes.
        *
        * @param request QueryChildDivisionCodeRequest
        * @param headers map
@@ -393,9 +391,9 @@ namespace Linkedmall20230930
       Models::QueryChildDivisionCodeResponse queryChildDivisionCodeWithOptions(const Models::QueryChildDivisionCodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries child division codes.
+       * @summary Queries the sub-region codes.
        *
-       * @description Queries child division codes.
+       * @description Queries the sub-region codes.
        *
        * @param request QueryChildDivisionCodeRequest
        * @return QueryChildDivisionCodeResponse
@@ -449,9 +447,9 @@ namespace Linkedmall20230930
       Models::RenderPurchaseOrderResponse renderPurchaseOrder(const Models::RenderPurchaseOrderRequest &request);
 
       /**
-       * @summary Reverse Single Rendering
+       * @summary Renders a reverse order.
        *
-       * @description Renders a refund order.
+       * @description Renders an after-sales order.
        *
        * @param request RenderRefundOrderRequest
        * @param headers map
@@ -461,9 +459,9 @@ namespace Linkedmall20230930
       Models::RenderRefundOrderResponse renderRefundOrderWithOptions(const Models::RenderRefundOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reverse Single Rendering
+       * @summary Renders a reverse order.
        *
-       * @description Renders a refund order.
+       * @description Renders an after-sales order.
        *
        * @param request RenderRefundOrderRequest
        * @return RenderRefundOrderResponse
@@ -471,7 +469,9 @@ namespace Linkedmall20230930
       Models::RenderRefundOrderResponse renderRefundOrder(const Models::RenderRefundOrderRequest &request);
 
       /**
-       * @summary The product search API is a paginated interface for searching products based on various criteria.
+       * @summary Queries products based on various conditions and returns paginated results.
+       *
+       * @description Performs a paged query on the product list based on the page number and paging size.
        *
        * @param request SearchProductsRequest
        * @param headers map
@@ -481,7 +481,9 @@ namespace Linkedmall20230930
       Models::SearchProductsResponse searchProductsWithOptions(const Models::SearchProductsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The product search API is a paginated interface for searching products based on various criteria.
+       * @summary Queries products based on various conditions and returns paginated results.
+       *
+       * @description Performs a paged query on the product list based on the page number and paging size.
        *
        * @param request SearchProductsRequest
        * @return SearchProductsResponse
@@ -489,10 +491,10 @@ namespace Linkedmall20230930
       Models::SearchProductsResponse searchProducts(const Models::SearchProductsRequest &request);
 
       /**
-       * @summary The distributor takes delivery of goods.
+       * @summary Adds products to the selection pool for a distributor.
        *
-       * @description Distributors use this API to add products to their selection group.
-       * > We recommend that distributors who onboard on or after January 1, 2025 use this API. For more information about adding products and the related impact, see the [product best practices](https://help.aliyun.com/zh/linkedmall/user-guide/product-interface-best-practices?spm=a2c4g.11186623.help-menu-88587.d_2_2_0_8_0.58122056oN3crP\\&scm=20140722.H_2869668._.OR_help-T_cn~zh-V_1#lFENl).
+       * @description Distributors can use this API operation to add products to the selection pool.
+       * > Integrate this API operation if you are a distributor customer who registered on or after January 1, 2025. For details about the import operations and their impacts, refer to [Product best practices](https://www.alibabacloud.com/help/en/linkedmall/user-guide/product-interface-best-practices#lFENl).
        *
        * @param request SelectionGroupAddProductRequest
        * @param headers map
@@ -502,10 +504,10 @@ namespace Linkedmall20230930
       Models::SelectionGroupAddProductResponse selectionGroupAddProductWithOptions(const Models::SelectionGroupAddProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The distributor takes delivery of goods.
+       * @summary Adds products to the selection pool for a distributor.
        *
-       * @description Distributors use this API to add products to their selection group.
-       * > We recommend that distributors who onboard on or after January 1, 2025 use this API. For more information about adding products and the related impact, see the [product best practices](https://help.aliyun.com/zh/linkedmall/user-guide/product-interface-best-practices?spm=a2c4g.11186623.help-menu-88587.d_2_2_0_8_0.58122056oN3crP\\&scm=20140722.H_2869668._.OR_help-T_cn~zh-V_1#lFENl).
+       * @description Distributors can use this API operation to add products to the selection pool.
+       * > Integrate this API operation if you are a distributor customer who registered on or after January 1, 2025. For details about the import operations and their impacts, refer to [Product best practices](https://www.alibabacloud.com/help/en/linkedmall/user-guide/product-interface-best-practices#lFENl).
        *
        * @param request SelectionGroupAddProductRequest
        * @return SelectionGroupAddProductResponse
@@ -513,9 +515,9 @@ namespace Linkedmall20230930
       Models::SelectionGroupAddProductResponse selectionGroupAddProduct(const Models::SelectionGroupAddProductRequest &request);
 
       /**
-       * @summary Removes products from a distributor\\"s stock.
+       * @summary Dispatches products for a distributor.
        *
-       * @description Distributors use this API to remove products from their stock.
+       * @description Allows a distributor to dispatch products.
        *
        * @param request SelectionGroupRemoveProductRequest
        * @param headers map
@@ -525,9 +527,9 @@ namespace Linkedmall20230930
       Models::SelectionGroupRemoveProductResponse selectionGroupRemoveProductWithOptions(const Models::SelectionGroupRemoveProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes products from a distributor\\"s stock.
+       * @summary Dispatches products for a distributor.
        *
-       * @description Distributors use this API to remove products from their stock.
+       * @description Allows a distributor to dispatch products.
        *
        * @param request SelectionGroupRemoveProductRequest
        * @return SelectionGroupRemoveProductResponse

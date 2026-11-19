@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The text of the property.
+    // The attribute text.
     shared_ptr<string> text_ {};
-    // A collection of property values.
+    // The attribute value set.
     shared_ptr<vector<string>> values_ {};
   };
 

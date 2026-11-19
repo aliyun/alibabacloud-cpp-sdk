@@ -14,10 +14,12 @@ namespace Models
   class SearchProductsResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SearchProductsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(nextCursor, nextCursor_);
       DARABONBA_PTR_TO_JSON(products, products_);
       DARABONBA_PTR_TO_JSON(total, total_);
     };
     friend void from_json(const Darabonba::Json& j, SearchProductsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(nextCursor, nextCursor_);
       DARABONBA_PTR_FROM_JSON(products, products_);
       DARABONBA_PTR_FROM_JSON(total, total_);
     };
@@ -166,15 +168,15 @@ namespace Models
 
 
       protected:
-        // Category ID
+        // The category ID.
         shared_ptr<int64_t> categoryId_ {};
-        // Is leaf node
+        // Indicates whether the node is a leaf node.
         shared_ptr<bool> isLeaf_ {};
-        // Level
+        // The level.
         shared_ptr<int32_t> level_ {};
-        // Category name
+        // The category name.
         shared_ptr<string> name_ {};
-        // Parent class ID
+        // The parent category ID.
         shared_ptr<int64_t> parentId_ {};
       };
 
@@ -371,62 +373,69 @@ namespace Models
 
 
     protected:
-      // Brand name
+      // The brand name.
       shared_ptr<string> bandName_ {};
-      // Reason for unsellable status
+      // The reason why the product is unavailable for sale.
       shared_ptr<string> canNotSellReason_ {};
-      // Whether the product is sellable (calculated value)
+      // Indicates whether the product is available for sale. This is a calculated value.
       shared_ptr<bool> canSell_ {};
-      // Category
+      // The category chain.
       shared_ptr<vector<Products::CategoryChain>> categoryChain_ {};
-      // Billing cycle
+      // The billing cycle.
       shared_ptr<vector<string>> credit_ {};
-      // Price difference range
+      // The price difference range.
       shared_ptr<string> diffPrice_ {};
-      // Distribution purchase price range
+      // The distribution purchase price range.
       shared_ptr<string> distributionPrice_ {};
-      // Distribution premium rate range
+      // The distribution premium rate range.
       shared_ptr<string> distributionPriceRatio_ {};
-      // Source platform
+      // The source platform.
       shared_ptr<string> externalPlatformType_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // Last modified time.
+      // The last modification time.
       shared_ptr<string> gmtModified_ {};
-      // Whether the product is in inventory
+      // Specifies whether the product is added to the inventory.
       shared_ptr<bool> inGroup_ {};
-      // Inventory time
+      // The time when the product was added to the inventory. The format is yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> inGroupTime_ {};
-      // Inventory risk level
+      // The inventory risk level.
       shared_ptr<string> inventoryRiskLevel_ {};
-      // Invoice type
+      // The invoice type.
       shared_ptr<string> invoiceType_ {};
-      // LM product ID
+      // The LM product ID.
       shared_ptr<string> lmItemId_ {};
-      // Product main image URL
+      // The main image URL of the product.
       shared_ptr<string> picUrl_ {};
-      // Suggested retail price range
+      // The suggested retail price range.
       shared_ptr<string> platformPrice_ {};
-      // Strikethrough price range
+      // The strikethrough price range.
       shared_ptr<string> platformReservePrice_ {};
-      // Product ID
+      // The product ID.
       shared_ptr<string> productId_ {};
-      // Product name
+      // The product name.
       shared_ptr<string> productName_ {};
-      // Channel store name
+      // The channel store name.
       shared_ptr<string> shopName_ {};
-      // Accumulated sales volume
+      // The cumulative sales volume.
       shared_ptr<string> soldQuantity_ {};
-      // Tax code
+      // The tax code.
       shared_ptr<string> taxCode_ {};
-      // Tax rate
+      // The tax rate.
       shared_ptr<int64_t> taxRate_ {};
-      // Sales pattern
+      // The sales mode.
       shared_ptr<string> tradeMode_ {};
     };
 
-    virtual bool empty() const override { return this->products_ == nullptr
-        && this->total_ == nullptr; };
+    virtual bool empty() const override { return this->nextCursor_ == nullptr
+        && this->products_ == nullptr && this->total_ == nullptr; };
+    // nextCursor Field Functions 
+    bool hasNextCursor() const { return this->nextCursor_ != nullptr;};
+    void deleteNextCursor() { this->nextCursor_ = nullptr;};
+    inline string getNextCursor() const { DARABONBA_PTR_GET_DEFAULT(nextCursor_, "") };
+    inline SearchProductsResponseBody& setNextCursor(string nextCursor) { DARABONBA_PTR_SET_VALUE(nextCursor_, nextCursor) };
+
+
     // products Field Functions 
     bool hasProducts() const { return this->products_ != nullptr;};
     void deleteProducts() { this->products_ = nullptr;};
@@ -444,9 +453,11 @@ namespace Models
 
 
   protected:
-    // Product collection
+    // The cursor for the next page.
+    shared_ptr<string> nextCursor_ {};
+    // The product collection.
     shared_ptr<vector<SearchProductsResponseBody::Products>> products_ {};
-    // Total quantity
+    // The total number of items.
     shared_ptr<int32_t> total_ {};
   };
 
