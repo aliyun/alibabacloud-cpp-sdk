@@ -127,11 +127,11 @@ namespace Models
 
 
         protected:
-          // Alias of the LLM cube resource.
+          // The alias of the data query resource.
           shared_ptr<string> alias_ {};
-          // Nickname of the creator.
+          // The nickname of the creator.
           shared_ptr<string> createUser_ {};
-          // LlmCube resource ID.
+          // The ID of the data query resource.
           shared_ptr<string> llmCubeId_ {};
         };
 
@@ -168,13 +168,13 @@ namespace Models
 
 
       protected:
-        // Array of LlmCube resources.
+        // The array of data query resources.
         shared_ptr<vector<ApiCopilotThemeModels::ApiCopilotLlmCubeModels>> apiCopilotLlmCubeModels_ {};
-        // Nickname of the creator.
+        // The nickname of the creator.
         shared_ptr<string> createUser_ {};
-        // Analysis theme ID.
+        // The ID of the analysis theme.
         shared_ptr<string> themeId_ {};
-        // Nickname of the analysis theme.
+        // The nickname of the analysis theme.
         shared_ptr<string> themeName_ {};
       };
 
@@ -225,11 +225,11 @@ namespace Models
 
 
       protected:
-        // Alias of the LlmCube resource.
+        // The alias of the data query resource.
         shared_ptr<string> alias_ {};
-        // Nickname of the creator.
+        // The nickname of the creator.
         shared_ptr<string> createUser_ {};
-        // LlmCube resource ID.
+        // The ID of the data query resource.
         shared_ptr<string> llmCubeId_ {};
       };
 
@@ -254,9 +254,9 @@ namespace Models
 
 
     protected:
-      // Array of LlmCube resources.
+      // The array of data query resources.
       shared_ptr<vector<Result::ApiCopilotLlmCubeModels>> apiCopilotLlmCubeModels_ {};
-      // Array of analysis themes.
+      // The array of analysis themes.
       shared_ptr<vector<Result::ApiCopilotThemeModels>> apiCopilotThemeModels_ {};
     };
 
@@ -286,13 +286,13 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Data range object.
+    // The data scope object.
     shared_ptr<QueryDataRangeResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Possible values:
-    // - true: The request was successful.
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

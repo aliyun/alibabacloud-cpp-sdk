@@ -140,6 +140,9 @@
 #include <alibabacloud/models/GetMailTaskStatusRequest.hpp>
 #include <alibabacloud/models/GetMailTaskStatusResponseBody.hpp>
 #include <alibabacloud/models/GetMailTaskStatusResponse.hpp>
+#include <alibabacloud/models/GetPersonalICodeRequest.hpp>
+#include <alibabacloud/models/GetPersonalICodeResponseBody.hpp>
+#include <alibabacloud/models/GetPersonalICodeResponse.hpp>
 #include <alibabacloud/models/GetUserGroupInfoRequest.hpp>
 #include <alibabacloud/models/GetUserGroupInfoResponseBody.hpp>
 #include <alibabacloud/models/GetUserGroupInfoResponse.hpp>
@@ -407,6 +410,9 @@
 #include <alibabacloud/models/UpdateEmbeddedStatusRequest.hpp>
 #include <alibabacloud/models/UpdateEmbeddedStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateEmbeddedStatusResponse.hpp>
+#include <alibabacloud/models/UpdatePersonalICodeRequest.hpp>
+#include <alibabacloud/models/UpdatePersonalICodeResponseBody.hpp>
+#include <alibabacloud/models/UpdatePersonalICodeResponse.hpp>
 #include <alibabacloud/models/UpdateTicketNumRequest.hpp>
 #include <alibabacloud/models/UpdateTicketNumResponseBody.hpp>
 #include <alibabacloud/models/UpdateTicketNumResponse.hpp>

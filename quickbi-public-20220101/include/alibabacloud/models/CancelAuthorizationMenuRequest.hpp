@@ -70,20 +70,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dataPortalId_ {};
-    // The leaf node menu IDs of the data portal.
+    // The IDs of the leaf node menus in the data portal.
     // 
-    // - Supports batch parameters, with IDs separated by commas (,). The maximum number for batch modification is 100.
+    // - You can specify multiple IDs. Separate multiple IDs with commas (,). A maximum of 100 IDs can be specified at a time.
     // 
     // This parameter is required.
     shared_ptr<string> menuIds_ {};
-    // List of user group IDs.
+    // The IDs of the user groups.
     // 
-    // - Supports batch parameters, with IDs separated by commas (,). The maximum number for batch modification is 200.
-    // - UserGroupIds and UserIds cannot both be empty.
+    // - You can specify multiple IDs. Separate multiple IDs with commas (,). A maximum of 200 IDs can be specified at a time.
+    // - UserGroupIds and UserIds cannot be empty at the same time.
     shared_ptr<string> userGroupIds_ {};
-    // List of user IDs. These are Quick BI UserIDs, not Alibaba Cloud UIDs.
+    // The IDs of the users. These are Quick BI user IDs, not Alibaba Cloud UIDs.
     // 
-    // - Supports batch parameters, with IDs separated by commas (,). The maximum number for batch modification is 200.
+    // - You can specify multiple IDs. Separate multiple IDs with commas (,). A maximum of 200 IDs can be specified at a time.
     shared_ptr<string> userIds_ {};
   };
 

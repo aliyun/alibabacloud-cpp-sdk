@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the user groups. Separate the IDs with commas (,). Example: aGroupId,bGroupId,cGroupIds
+    // The IDs of the user groups, separated by commas. Example: aGroupId,bGroupId,cGroupIds.
     // 
     // This parameter is required.
     shared_ptr<string> userGroupIds_ {};
-    // The user ID of the Quick BI.
+    // The user ID in Quick BI.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

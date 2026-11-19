@@ -229,38 +229,38 @@ namespace Models
 
 
       protected:
-        // Applicant\\"s user ID, qbi user ID.
+        // The QBI user ID of the applicant.
         shared_ptr<string> applicantId_ {};
-        // Applicant\\"s nickname.
+        // The nickname of the applicant.
         shared_ptr<string> applicantName_ {};
-        // Application ID.
+        // The ID of the application.
         shared_ptr<string> applicationId_ {};
-        // Application reason.
+        // The reason for the application.
         shared_ptr<string> applyReason_ {};
-        // Approver\\"s user ID, qbi user ID.
+        // The QBI user ID of the approver.
         shared_ptr<string> approverId_ {};
-        // Approver\\"s nickname.
+        // The nickname of the approver.
         shared_ptr<string> approverName_ {};
-        // Whether the resource has been deleted:
-        // - true: Deleted
-        // - false: Not deleted
+        // Indicates whether the resource has been deleted. Valid values:
+        // - true: The resource has been deleted.
+        // - false: The resource has not been deleted.
         shared_ptr<bool> deleteFlag_ {};
-        // Permission expiration date, timestamp.
+        // The expiration time of the permission.
         shared_ptr<int64_t> expireDate_ {};
-        // Permission approval status:
-        // - 0: Under review, corresponding to 0 in the request parameters
-        // - 1: Approved, corresponding to 1 in the request parameters
-        // - 2: Rejected, corresponding to 1 in the request parameters
+        // The approval status of the permission. Valid values:
+        // - 0: Pending approval, which corresponds to 0 in the request parameters.
+        // - 1: Approved, which corresponds to 1 in the request parameters.
+        // - 2: Rejected, which corresponds to 1 in the request parameters.
         shared_ptr<int32_t> flagStatus_ {};
-        // Application creation time, timestamp.
+        // The time when the application was created.
         shared_ptr<int64_t> gmtCreate_ {};
-        // Application modification time, timestamp.
+        // The time when the application was modified.
         shared_ptr<int64_t> gmtModified_ {};
-        // Handling reason.
+        // The reason for handling the application.
         shared_ptr<string> handleReason_ {};
-        // The ID of the resource for which permission is requested.
+        // The ID of the resource for which permissions are requested.
         shared_ptr<string> resourceId_ {};
-        // The name of the resource for which permission is requested (e.g., report name, space name...).
+        // The name of the resource for which permissions are requested, such as the report name or workspace name.
         shared_ptr<string> resourceName_ {};
         // The type of the resource.
         shared_ptr<string> resourceType_ {};
@@ -315,15 +315,15 @@ namespace Models
 
 
     protected:
-      // Array of approval flow information.
+      // The array of approval flow information.
       shared_ptr<vector<Result::Data>> data_ {};
       // The current page number.
       shared_ptr<int32_t> page_ {};
-      // The number of records requested per page.
+      // The number of records on the current page.
       shared_ptr<int32_t> pageSize_ {};
-      // The starting position of the current page.
+      // The start position of the current page.
       shared_ptr<int32_t> start_ {};
-      // The total number of items.
+      // The total number of records.
       shared_ptr<int32_t> total_ {};
       // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
@@ -355,13 +355,13 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return the result of the interface execution.
+    // The result of the API operation.
     shared_ptr<QueryApprovalInfoResponseBody::Result> result_ {};
-    // Indicates whether the API call was successful. Possible values are:
-    // - true: success
-    // - false: failure
+    // Indicates whether the API operation is successful. Valid values:
+    // - true: The operation is successful.
+    // - false: The operation fails.
     shared_ptr<bool> success_ {};
   };
 

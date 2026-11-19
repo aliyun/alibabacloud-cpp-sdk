@@ -57,15 +57,14 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the data source.
+    // The data source ID.
     shared_ptr<string> result_ {};
-    // Indicates whether the request succeeded. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - `true`: The request succeeded.
-    // 
-    // - `false`: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The value of the bill.
+    // The ticket value.
     // 
     // This parameter is required.
     shared_ptr<string> ticket_ {};

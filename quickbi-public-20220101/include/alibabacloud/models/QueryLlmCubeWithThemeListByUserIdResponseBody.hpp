@@ -76,14 +76,13 @@ namespace Models
 
 
     protected:
-      // Dataset map.
-      // 
-      // - key - Dataset ID
-      // - value - Dataset name
+      // The dataset map.
+      // - key: The dataset ID.
+      // - value: The dataset name.
       shared_ptr<map<string, string>> cubeIds_ {};
-      // Analysis theme map.
-      // - key - Analysis theme ID 
-      // - value - Analysis theme name
+      // The analysis theme map.
+      // - key: The analysis theme ID. 
+      // - value: The analysis theme name.
       shared_ptr<map<string, string>> themeIds_ {};
     };
 
@@ -113,14 +112,14 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of datasets and analysis themes.
+    // The list of datasets and analysis themes.
     shared_ptr<QueryLlmCubeWithThemeListByUserIdResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Possible values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - true: The request was successful
-    // - false: The request failed
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // User ID.
+    // The user ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

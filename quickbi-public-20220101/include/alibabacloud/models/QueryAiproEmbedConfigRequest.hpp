@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The keyword used for fuzzy search by showName.
     shared_ptr<string> keyword_ {};
   };
 

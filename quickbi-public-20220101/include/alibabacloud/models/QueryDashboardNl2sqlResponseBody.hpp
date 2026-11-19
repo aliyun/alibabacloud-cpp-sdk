@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // If this parameter has a value and includes "READ", it indicates that the user has read permission for the dashboard question resource.
+      // The permissions on the dashboard NL2SQL resource. If this parameter has a value and contains READ, it indicates that the user has NL2SQL permissions on the dashboard NL2SQL resource.
       shared_ptr<vector<string>> authorities_ {};
-      // Dashboard name
+      // The name of the dashboard.
       shared_ptr<string> dashboardName_ {};
-      // Dashboard question resource ID
+      // The NL2SQL resource ID of the dashboard.
       shared_ptr<string> dashboardNl2sqlId_ {};
-      // UserID of the dashboard creator
+      // The user ID of the dashboard creator.
       shared_ptr<string> ownerId_ {};
     };
 
@@ -128,17 +128,17 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Result of the API execution. Possible values:
+    // The execution result of the API operation. Valid values:
     // 
-    // - true: Request succeeded
-    // - false: Request failed
+    // - true: The request succeeded.
+    // - false: The request failed.
     shared_ptr<vector<QueryDashboardNl2sqlResponseBody::Result>> result_ {};
-    // Indicates whether the request was successful. Possible values: 
+    // Specifies whether the request is successful. Valid values: 
     // 
-    // - true: Request succeeded
-    // - false: Request failed
+    // - true: The request succeeded.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

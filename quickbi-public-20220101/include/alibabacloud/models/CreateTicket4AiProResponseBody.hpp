@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The embedding ticket.
     shared_ptr<string> result_ {};
+    // Indicates whether the request is successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

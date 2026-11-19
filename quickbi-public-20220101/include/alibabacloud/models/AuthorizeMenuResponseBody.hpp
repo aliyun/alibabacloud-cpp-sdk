@@ -59,12 +59,12 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of authorized menus.
+    // The number of menus that are successfully authorized.
     shared_ptr<int32_t> result_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

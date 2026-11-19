@@ -129,35 +129,35 @@ namespace Models
 
 
     protected:
-      // The array of permissions granted.
+      // The array of owned permissions.
       shared_ptr<vector<string>> authorities_ {};
       // The ID of the authorized user.
       shared_ptr<string> authorizedId_ {};
       // The name of the authorized user.
       shared_ptr<string> authorizedName_ {};
-      // The expiration time. This value is a UNIX timestamp in milliseconds.
+      // The expiration time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> expireDate_ {};
-      // The time when the permission record was created, in the yyyy-MM-dd mm:hh:ss format.
+      // The creation time of the permission record. The format is yyyy-MM-dd mm:hh:ss.
       shared_ptr<string> gmtCreate_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};
       // The resource type. Valid values:
       // 
-      // - dashboard: dashboard
-      // - screen: data screen
-      // - report: electron
-      // - ANALYSIS: ad hoc analysis
-      // - dashboardOfflineQuery: self-service data retrieval
-      // - dataForm: data form
-      // - cube: dataset
-      // - datasource: data source
+      // - dashboard: Dashboard.
+      // - screen: Data screen.
+      // - report: Workbook.
+      // - ANALYSIS: Ad hoc analysis.
+      // - dashboardOfflineQuery: Self-service data retrieval.
+      // - dataForm: Data entry.
+      // - cube: Dataset.
+      // - datasource: Data source.
       shared_ptr<string> resourceType_ {};
       // The authorization scope. Valid values:
       // 
-      // - 0: user
-      // - 1: user group
-      // - 2: organization
-      // - 3: workspace
+      // - 0: User.
+      // - 1: User group.
+      // - 2: Organization.
+      // - 3: Workspace.
       shared_ptr<int32_t> scope_ {};
     };
 
@@ -191,7 +191,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The collection of authorization details.
     shared_ptr<vector<ListAuthConfigByResourceResponseBody::Result>> result_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

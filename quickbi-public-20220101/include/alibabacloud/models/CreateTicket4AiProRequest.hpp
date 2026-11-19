@@ -103,14 +103,28 @@ namespace Models
 
 
   protected:
+    // The account of the access user to bind. Use this parameter together with AccountType when QuickBIUserId is not specified.
     shared_ptr<string> accountName_ {};
+    // The account type of the user. Valid values:
+    // - 1: Alibaba Cloud account.
+    // - 3: Quick BI custom account.
+    // - 4: DingTalk.
+    // - 5: RAM user.
+    // - 9: WeCom.
     shared_ptr<int32_t> accountType_ {};
+    // The ID of the AIPro embedding configuration. The configuration must exist, belong to the current organization, and have a status of 1.
+    // 
     // This parameter is required.
     shared_ptr<string> aiProId_ {};
+    // The custom pass-through parameter. If specified, it must be a valid JSON string.
     shared_ptr<string> customParam_ {};
+    // The validity period of the ticket, in minutes. Default value: 240. The value must be greater than 0.
     shared_ptr<int32_t> expireTime_ {};
+    // The QuickBI user ID of the access user to bind. Specify either this parameter or the combination of AccountName and AccountType.
     shared_ptr<string> quickBIUserId_ {};
+    // The custom system identifier. The length must be less than 150 characters.
     shared_ptr<string> systemUid_ {};
+    // The number of times the ticket can be used. Default value: 1. Valid values: 1 to 99999.
     shared_ptr<int32_t> ticketNum_ {};
   };
 

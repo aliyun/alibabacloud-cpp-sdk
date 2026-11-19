@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The description.
     shared_ptr<string> description_ {};
+    // The data source ID.
+    // 
     // This parameter is required.
     shared_ptr<string> dsId_ {};
+    // The owner of the data source. Set this parameter to the user ID in Quick BI.
     shared_ptr<string> quickBIOwnerId_ {};
+    // The display name of the data source.
     shared_ptr<string> showName_ {};
   };
 

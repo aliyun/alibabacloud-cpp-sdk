@@ -73,7 +73,7 @@ namespace Models
     protected:
       // The Quick BI user ID of the bound account.
       shared_ptr<string> boundUserId_ {};
-      // The mobile account name.
+      // The name of the mobile account.
       shared_ptr<string> thirdAccountName_ {};
     };
 
@@ -107,10 +107,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The user information bound to the third-party account.
     shared_ptr<QueryUserByMobileAccountResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

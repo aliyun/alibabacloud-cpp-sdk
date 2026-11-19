@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // Data service name.
+    // The service name.
     shared_ptr<string> name_ {};
-    // Page number. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNo_ {};
-    // Number of items per page in a paginated query:
+    // The number of entries per page for a paged query.
     // 
     // - Default value: 10
     // - Maximum value: 1000
     shared_ptr<int32_t> pageSize_ {};
-    // User ID.
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

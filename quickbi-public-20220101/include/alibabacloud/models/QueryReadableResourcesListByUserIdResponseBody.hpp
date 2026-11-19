@@ -141,9 +141,9 @@ namespace Models
         shared_ptr<string> id_ {};
         // The name of the directory.
         shared_ptr<string> name_ {};
-        // The hierarchical structure of the directory ID, which is separated with \\"/\\".
+        // The hierarchical structure of directory IDs, separated by forward slashes (/).
         shared_ptr<string> pathId_ {};
-        // The hierarchical structure of the directory name, which is separated with \\"/\\".
+        // The hierarchical structure of directory names, separated by forward slashes (/).
         shared_ptr<string> pathName_ {};
       };
 
@@ -259,52 +259,53 @@ namespace Models
 
 
     protected:
-      // The timestamp of the creation time in milliseconds.
+      // The millisecond timestamp of the creation time.
       shared_ptr<string> createTime_ {};
-      // Remarks on the work.
+      // The description of the work.
       shared_ptr<string> description_ {};
-      // The directory structure in which the work is located.
+      // The directory structure where the work is located.
       shared_ptr<Result::Directory> directory_ {};
-      // The name of the Alibaba Cloud account to which the modifier belongs.
+      // The Alibaba Cloud account name of the user who last modified the work.
       shared_ptr<string> modifyName_ {};
-      // The timestamp of the modification time in milliseconds.
+      // The millisecond timestamp of the last modification time.
       shared_ptr<string> modifyTime_ {};
-      // The Quick BI UserID of the work owner.
+      // The Quick BI user ID of the work owner.
       shared_ptr<string> ownerId_ {};
-      // The Alibaba Cloud account name of the owner.
+      // The Alibaba Cloud account name of the work owner.
       shared_ptr<string> ownerName_ {};
-      // Security policies for collaborative authorization of works. Valid values:
+      // The security policy for collaborative authorization of the work. Valid values:
+      // - 0: private
+      // - 12: authorized to specified members
+      // - 1 or 11: authorized to all workspace members
       // 
-      // *   0: private
-      // *   12: Authorize specified members
-      // *   1 or 11: Authorize all workspace members
-      // 
-      // > 
-      // 
-      // *   If you use legacy permissions, the return value is 1.
-      // 
-      // *   If you use the new permissions, the return value is 11.
+      // > - If you use the legacy permission model, the value 1 is returned.
+      // > - If you use the new permission model, the value 11 is returned.
       shared_ptr<string> securityLevel_ {};
       // The status of the report. Valid values:
       // 
-      // *   0: unpublished
-      // *   1: published
-      // *   2: modified but not published
-      // *   3: unpublished
+      // - 0: unpublished
+      // - 1: published
+      // - 2: modified but unpublished
+      // - 3: offline
       shared_ptr<int32_t> status_ {};
-      // Third-party embedding status. Valid values:
+      // The third-party embedding status. Valid values:
       // 
-      // *   0: The embed service is not enabled.
-      // *   1: Embed is enabled.
+      // - 0: Embedding is not enabled.
+      // - 1: Embedding is enabled.
       shared_ptr<int32_t> thirdPartAuthFlag_ {};
       // The name of the work.
       shared_ptr<string> workName_ {};
       // The type of the work. Valid values:
       // 
-      // *   DATAPRODUCT: BI portal
-      // *   PAGE: Dashboard
-      // *   FULLPAGE: full-screen dashboards
-      // *   REPORT: workbook
+      // - DATAPRODUCT: Data portal
+      // - PAGE: Dashboard (legacy)
+      // - FULLPAGE: Full-screen dashboard
+      // - REPORT: Workbook
+      // - DASHBOARD: Dashboard (new)
+      // - DATAFORM: Data entry form
+      // - dashboardOfflineQuery: Ad hoc query
+      // - ANALYSIS: Ad hoc analysis
+      // - SCREEN: Data screen
       shared_ptr<string> workType_ {};
       // The ID of the work.
       shared_ptr<string> worksId_ {};
@@ -340,14 +341,14 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of works that the user has permission to view.
     shared_ptr<vector<QueryReadableResourcesListByUserIdResponseBody::Result>> result_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

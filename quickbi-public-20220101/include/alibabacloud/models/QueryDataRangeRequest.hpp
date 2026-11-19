@@ -48,11 +48,10 @@ namespace Models
 
 
   protected:
-    // Name, for fuzzy search.
+    // The name. Fuzzy search is supported.
     shared_ptr<string> keyword_ {};
-    // Data range type:
-    // 
-    // - llmCube: LlmCube resource.
+    // The data scope type. Valid values:
+    // - llmCube: Data query resource.
     // - llmCubeTheme: Analysis theme.
     // 
     // This parameter is required.

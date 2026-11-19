@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Queries information about a specified dataset.
+    // The unique ID of the dataset.
     // 
     // This parameter is required.
     shared_ptr<string> datasetId_ {};

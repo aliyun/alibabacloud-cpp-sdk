@@ -131,22 +131,21 @@ namespace Models
 
 
       protected:
-        // Aggregation operator. Only present for measure fields, such as SUM, AVG, and MAX.
+        // The aggregation operator. This parameter is returned only for measure fields, such as SUM, AVG, and MAX.
         shared_ptr<string> aggregator_ {};
-        // Field name, corresponding to the physical table field name.
+        // The name of the field, which corresponds to the field name in the physical table.
         shared_ptr<string> column_ {};
-        // The data type of the field. Common types include number, string, date, datetime, time, and geographic.
+        // The data type of the field. Common values include number, string, date, datetime, time, and geographic.
         shared_ptr<string> dataType_ {};
-        // The granularity of the dimension field.
-        // This field is returned only when the requested field is a date or geographic dimension, with the following possible values:
+        // The granularity of the dimension field. This parameter is returned only when the requested field is a date dimension or geographic dimension field. Valid values:
         // 
-        // - Date granularity: yearRegion (year), monthRegion (month), weekRegion (week), dayRegion (day), hourRegion (hour), minRegion (minute), secRegion (second)
+        // - Date granularity: yearRegion (year), monthRegion (month), weekRegion (week), dayRegion (day), hourRegion (hour), minRegion (minute), and secRegion (second).
         // 
-        // - Geographic granularity: COUNTRY (country level), PROVINCE (province level), CITY (city level), XIAN (district/county level), REGION (region)
+        // - Geographic information granularity: COUNTRY (country level), PROVINCE (province level), CITY (city level), XIAN (district or county level), and REGION (region level).
         shared_ptr<string> granularity_ {};
-        // Alias for the field, serving as the key in the map data row of the values parameter.
+        // The alias of the field, which is the key of the map data row in the Values response parameter.
         shared_ptr<string> label_ {};
-        // Field type, used to distinguish between dimension and measure fields.
+        // The type of the field, which is used to distinguish whether the field is a dimension or a measure.
         shared_ptr<string> type_ {};
       };
 
@@ -178,11 +177,11 @@ namespace Models
 
 
     protected:
-      // Column headers.
+      // The column headers.
       shared_ptr<vector<Result::Headers>> headers_ {};
-      // The SQL of the query request.
+      // The SQL statement of the query request.
       shared_ptr<string> sql_ {};
-      // The queried results returned.
+      // The returned query results.
       shared_ptr<vector<Darabonba::Json>> values_ {};
     };
 
@@ -212,15 +211,15 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Returns the result of the interface query.
+    // The query result returned by the API.
     shared_ptr<QueryDataServiceResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Possible values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - true: The request was successful
+    // - true: The request is successful.
     // 
-    // - false: The request failed
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

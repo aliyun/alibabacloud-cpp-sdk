@@ -80,17 +80,17 @@ namespace Models
 
 
     protected:
-      // Dataset ID.
+      // The dataset ID.
       shared_ptr<string> cubeId_ {};
-      // Status of the column-level field permission switch. Possible values:
+      // The status of the column-level field permission switch. Valid values:
       // 
-      // - 1: Enabled
-      // - 0: Disabled
+      // - 1: Enabled.
+      // - 0: Disabled.
       shared_ptr<int32_t> isOpenColumnLevelPermission_ {};
-      // Status of the row-level permission switch.
+      // The status of the row-level permission switch. Valid values:
       // 
-      // - 1: Enabled
-      // - 0: Disabled
+      // - 1: Enabled.
+      // - 0: Disabled.
       shared_ptr<int32_t> isOpenRowLevelPermission_ {};
     };
 
@@ -120,14 +120,14 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details of the dataset\\"s row and column permission switches.
+    // The details of the row- and column-level permission switches for the dataset.
     shared_ptr<QueryDatasetSwitchInfoResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Possible values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - true: The request was successful.
-    // - false: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

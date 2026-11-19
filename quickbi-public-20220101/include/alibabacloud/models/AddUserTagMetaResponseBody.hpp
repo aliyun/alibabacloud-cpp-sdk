@@ -57,13 +57,14 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returns the ID of the successfully added tag.
+    // The ID of the successfully added tag.
     shared_ptr<string> result_ {};
-    // Indicates whether the request was successful. Value range:
-    // - true: The request succeeded 
-    // - false: The request failed
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

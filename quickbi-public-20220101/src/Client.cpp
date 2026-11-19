@@ -2,11 +2,13 @@
 #include <alibabacloud/QuickbiPublic20220101.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace QuickbiPublic20220101
 {
 
 AlibabaCloud::QuickbiPublic20220101::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "quickbi-public";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("quickbi-public", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -36,9 +41,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds specified users and user groups to a row-level permission rule.
+ * @summary Adds selected users and user groups to a specific row-column permission rule.
  *
- * @description > This API operation supports only the new row-level permission model in Quick BI. If you are using the previous row-level permission model, you must migrate to the new model before you call this operation. To migrate, go to Organization Management > Security Settings > Upgrade Row-level Permissions, and then click **One-click Upgrade**.
+ * @description > Note: This operation supports only the new row-column permission model of Quick BI. If you are still using the legacy row-column permissions, migrate to the new row-column permission model before you call this operation. To migrate to the new row-column permission model, go to **Organization Management** > **Security Configuration** > **Row-Column Permission Upgrade**, and click **One-Click Upgrade** to upgrade to the new row-level permissions.
  *
  * @param request AddDataLevelPermissionRuleUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -69,9 +74,9 @@ AddDataLevelPermissionRuleUsersResponse Client::addDataLevelPermissionRuleUsersW
 }
 
 /**
- * @summary Adds specified users and user groups to a row-level permission rule.
+ * @summary Adds selected users and user groups to a specific row-column permission rule.
  *
- * @description > This API operation supports only the new row-level permission model in Quick BI. If you are using the previous row-level permission model, you must migrate to the new model before you call this operation. To migrate, go to Organization Management > Security Settings > Upgrade Row-level Permissions, and then click **One-click Upgrade**.
+ * @description > Note: This operation supports only the new row-column permission model of Quick BI. If you are still using the legacy row-column permissions, migrate to the new row-column permission model before you call this operation. To migrate to the new row-column permission model, go to **Organization Management** > **Security Configuration** > **Row-Column Permission Upgrade**, and click **One-Click Upgrade** to upgrade to the new row-level permissions.
  *
  * @param request AddDataLevelPermissionRuleUsersRequest
  * @return AddDataLevelPermissionRuleUsersResponse
@@ -82,9 +87,9 @@ AddDataLevelPermissionRuleUsersResponse Client::addDataLevelPermissionRuleUsers(
 }
 
 /**
- * @summary Modifies the whitelist for row-level and column-level permissions of a specified dataset.
+ * @summary Modifies the whitelist for row and column permissions of a specified dataset.
  *
- * @description > This API operation supports only the new permission model for row-level and column-level permissions in Quick BI. If you are using the old permission model, you must migrate to the new one before you call this operation. To perform a one-click migration, you can go to Organization Management > Security Configuration > Upgrade to New Row-level and Column-level Permissions and click **One-click Upgrade**.
+ * @description > : This operation only supports the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, perform a one-click migration to the new row and column permission model before calling this operation. To perform a one-click migration to the new row and column permission model, go to **Organization management** > **Security configuration** > **Row and column permission upgrade**, and click **One-click upgrade** to upgrade to the new row-level permissions.
  *
  * @param request AddDataLevelPermissionWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -131,9 +136,9 @@ AddDataLevelPermissionWhiteListResponse Client::addDataLevelPermissionWhiteListW
 }
 
 /**
- * @summary Modifies the whitelist for row-level and column-level permissions of a specified dataset.
+ * @summary Modifies the whitelist for row and column permissions of a specified dataset.
  *
- * @description > This API operation supports only the new permission model for row-level and column-level permissions in Quick BI. If you are using the old permission model, you must migrate to the new one before you call this operation. To perform a one-click migration, you can go to Organization Management > Security Configuration > Upgrade to New Row-level and Column-level Permissions and click **One-click Upgrade**.
+ * @description > : This operation only supports the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, perform a one-click migration to the new row and column permission model before calling this operation. To perform a one-click migration to the new row and column permission model, go to **Organization management** > **Security configuration** > **Row and column permission upgrade**, and click **One-click upgrade** to upgrade to the new row-level permissions.
  *
  * @param request AddDataLevelPermissionWhiteListRequest
  * @return AddDataLevelPermissionWhiteListResponse
@@ -144,7 +149,7 @@ AddDataLevelPermissionWhiteListResponse Client::addDataLevelPermissionWhiteList(
 }
 
 /**
- * @summary Adds a data source.
+ * @summary Creates a data source connection.
  *
  * @param request AddDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -175,7 +180,7 @@ AddDataSourceResponse Client::addDataSourceWithOptions(const AddDataSourceReques
 }
 
 /**
- * @summary Adds a data source.
+ * @summary Creates a data source connection.
  *
  * @param request AddDataSourceRequest
  * @return AddDataSourceResponse
@@ -316,7 +321,7 @@ AddUserResponse Client::addUser(const AddUserRequest &request) {
 }
 
 /**
- * @summary Adds an organization member to a specified user group.
+ * @summary Adds organization members to a specified user group.
  *
  * @param request AddUserGroupMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -351,7 +356,7 @@ AddUserGroupMemberResponse Client::addUserGroupMemberWithOptions(const AddUserGr
 }
 
 /**
- * @summary Adds an organization member to a specified user group.
+ * @summary Adds organization members to a specified user group.
  *
  * @param request AddUserGroupMemberRequest
  * @return AddUserGroupMemberResponse
@@ -362,7 +367,7 @@ AddUserGroupMemberResponse Client::addUserGroupMember(const AddUserGroupMemberRe
 }
 
 /**
- * @summary Add users to a specified user group at a time.
+ * @summary Adds multiple users to a specified user group.
  *
  * @param request AddUserGroupMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -397,7 +402,7 @@ AddUserGroupMembersResponse Client::addUserGroupMembersWithOptions(const AddUser
 }
 
 /**
- * @summary Add users to a specified user group at a time.
+ * @summary Adds multiple users to a specified user group.
  *
  * @param request AddUserGroupMembersRequest
  * @return AddUserGroupMembersResponse
@@ -408,7 +413,7 @@ AddUserGroupMembersResponse Client::addUserGroupMembers(const AddUserGroupMember
 }
 
 /**
- * @summary Add organization member tag metadata.
+ * @summary Creates metadata for an organization member tag.
  *
  * @param request AddUserTagMetaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -443,7 +448,7 @@ AddUserTagMetaResponse Client::addUserTagMetaWithOptions(const AddUserTagMetaReq
 }
 
 /**
- * @summary Add organization member tag metadata.
+ * @summary Creates metadata for an organization member tag.
  *
  * @param request AddUserTagMetaRequest
  * @return AddUserTagMetaResponse
@@ -504,7 +509,7 @@ AddUserToWorkspaceResponse Client::addUserToWorkspace(const AddUserToWorkspaceRe
 }
 
 /**
- * @summary Adds an authorization for a work.
+ * @summary Creates a collaborative authorization record for a resource.
  *
  * @param request AddWorksAuthorizationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -555,7 +560,7 @@ AddWorksAuthorizationResponse Client::addWorksAuthorizationWithOptions(const Add
 }
 
 /**
- * @summary Adds an authorization for a work.
+ * @summary Creates a collaborative authorization record for a resource.
  *
  * @param request AddWorksAuthorizationRequest
  * @return AddWorksAuthorizationResponse
@@ -616,7 +621,7 @@ AddWorkspaceUsersResponse Client::addWorkspaceUsers(const AddWorkspaceUsersReque
 }
 
 /**
- * @summary Trigger the collection acceleration of the Quick engine for datasets.
+ * @summary Triggers the extraction acceleration of the Quick engine for a dataset.
  *
  * @param request AllotDatasetAccelerationTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -647,7 +652,7 @@ AllotDatasetAccelerationTaskResponse Client::allotDatasetAccelerationTaskWithOpt
 }
 
 /**
- * @summary Trigger the collection acceleration of the Quick engine for datasets.
+ * @summary Triggers the extraction acceleration of the Quick engine for a dataset.
  *
  * @param request AllotDatasetAccelerationTaskRequest
  * @return AllotDatasetAccelerationTaskResponse
@@ -658,7 +663,7 @@ AllotDatasetAccelerationTaskResponse Client::allotDatasetAccelerationTask(const 
 }
 
 /**
- * @summary Batch authorization of BI portal menu will be skipped automatically.
+ * @summary Grants batch permissions for data portal menus. Already authorized menus are automatically skipped.
  *
  * @param request AuthorizeMenuRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -705,7 +710,7 @@ AuthorizeMenuResponse Client::authorizeMenuWithOptions(const AuthorizeMenuReques
 }
 
 /**
- * @summary Batch authorization of BI portal menu will be skipped automatically.
+ * @summary Grants batch permissions for data portal menus. Already authorized menus are automatically skipped.
  *
  * @param request AuthorizeMenuRequest
  * @return AuthorizeMenuResponse
@@ -718,7 +723,7 @@ AuthorizeMenuResponse Client::authorizeMenu(const AuthorizeMenuRequest &request)
 /**
  * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
  *
- * @summary Adds Lark users in batches.
+ * @summary Adds multiple Lark users.
  *
  * @param request BatchAddFeishuUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -767,7 +772,7 @@ BatchAddFeishuUsersResponse Client::batchAddFeishuUsersWithOptions(const BatchAd
 /**
  * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
  *
- * @summary Adds Lark users in batches.
+ * @summary Adds multiple Lark users.
  *
  * @param request BatchAddFeishuUsersRequest
  * @return BatchAddFeishuUsersResponse
@@ -778,7 +783,7 @@ BatchAddFeishuUsersResponse Client::batchAddFeishuUsers(const BatchAddFeishuUser
 }
 
 /**
- * @summary Cancel the authorization records for specified users and user groups based on the portal menu ID.
+ * @summary Revokes authorization records for specified users and user groups based on portal menu IDs.
  *
  * @param request CancelAuthorizationMenuRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -821,7 +826,7 @@ CancelAuthorizationMenuResponse Client::cancelAuthorizationMenuWithOptions(const
 }
 
 /**
- * @summary Cancel the authorization records for specified users and user groups based on the portal menu ID.
+ * @summary Revokes authorization records for specified users and user groups based on portal menu IDs.
  *
  * @param request CancelAuthorizationMenuRequest
  * @return CancelAuthorizationMenuResponse
@@ -832,7 +837,7 @@ CancelAuthorizationMenuResponse Client::cancelAuthorizationMenu(const CancelAuth
 }
 
 /**
- * @summary Cancel the data works from the user\\"s collection.
+ * @summary Removes a data work from a user\\"s favorites.
  *
  * @param request CancelCollectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -867,7 +872,7 @@ CancelCollectionResponse Client::cancelCollectionWithOptions(const CancelCollect
 }
 
 /**
- * @summary Cancel the data works from the user\\"s collection.
+ * @summary Removes a data work from a user\\"s favorites.
  *
  * @param request CancelCollectionRequest
  * @return CancelCollectionResponse
@@ -878,7 +883,7 @@ CancelCollectionResponse Client::cancelCollection(const CancelCollectionRequest 
 }
 
 /**
- * @summary Delete a share authorization for a data work.
+ * @summary Deletes a sharing authorization for a data work.
  *
  * @param request CancelReportShareRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -917,7 +922,7 @@ CancelReportShareResponse Client::cancelReportShareWithOptions(const CancelRepor
 }
 
 /**
- * @summary Delete a share authorization for a data work.
+ * @summary Deletes a sharing authorization for a data work.
  *
  * @param request CancelReportShareRequest
  * @return CancelReportShareResponse
@@ -928,7 +933,7 @@ CancelReportShareResponse Client::cancelReportShare(const CancelReportShareReque
 }
 
 /**
- * @summary Modifies the visibility mode of the BI portal menu and whether the menu is only authorized to be visible.
+ * @summary Modifies the visibility of data portal menus and specifies whether the menus are visible only to authorized users.
  *
  * @param request ChangeVisibilityModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -967,7 +972,7 @@ ChangeVisibilityModelResponse Client::changeVisibilityModelWithOptions(const Cha
 }
 
 /**
- * @summary Modifies the visibility mode of the BI portal menu and whether the menu is only authorized to be visible.
+ * @summary Modifies the visibility of data portal menus and specifies whether the menus are visible only to authorized users.
  *
  * @param request ChangeVisibilityModelRequest
  * @return ChangeVisibilityModelResponse
@@ -1020,7 +1025,7 @@ CheckDatasetExistedResponse Client::checkDatasetExisted(const CheckDatasetExiste
 }
 
 /**
- * @summary Checks if a user is a member of an organization.
+ * @summary Checks whether a user belongs to an organization.
  *
  * @param request CheckOrganizationMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1051,7 +1056,7 @@ CheckOrganizationMemberResponse Client::checkOrganizationMemberWithOptions(const
 }
 
 /**
- * @summary Checks if a user is a member of an organization.
+ * @summary Checks whether a user belongs to an organization.
  *
  * @param request CheckOrganizationMemberRequest
  * @return CheckOrganizationMemberResponse
@@ -1108,7 +1113,7 @@ CheckReadableResponse Client::checkReadable(const CheckReadableRequest &request)
 }
 
 /**
- * @summary Deletes the cached tag value for a single configuration.
+ * @summary Deletes the tag value cache for a single configuration.
  *
  * @param request ClearDynamicTagCacheRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1139,7 +1144,7 @@ ClearDynamicTagCacheResponse Client::clearDynamicTagCacheWithOptions(const Clear
 }
 
 /**
- * @summary Deletes the cached tag value for a single configuration.
+ * @summary Deletes the tag value cache for a single configuration.
  *
  * @param request ClearDynamicTagCacheRequest
  * @return ClearDynamicTagCacheResponse
@@ -1356,7 +1361,7 @@ CreateTicketResponse Client::createTicket(const CreateTicketRequest &request) {
 }
 
 /**
- * @summary 生成AIPro超级框嵌入ticket
+ * @summary Generates an AIPro Super Box embedding ticket.
  *
  * @param request CreateTicket4AiProRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1415,7 +1420,7 @@ CreateTicket4AiProResponse Client::createTicket4AiProWithOptions(const CreateTic
 }
 
 /**
- * @summary 生成AIPro超级框嵌入ticket
+ * @summary Generates an AIPro Super Box embedding ticket.
  *
  * @param request CreateTicket4AiProRequest
  * @return CreateTicket4AiProResponse
@@ -2406,6 +2411,48 @@ GetMailTaskStatusResponse Client::getMailTaskStatus(const GetMailTaskStatusReque
 }
 
 /**
+ * @summary Retrieves or generates a personal identification number for a user.
+ *
+ * @param request GetPersonalICodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPersonalICodeResponse
+ */
+GetPersonalICodeResponse Client::getPersonalICodeWithOptions(const GetPersonalICodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQuickBIUserId()) {
+    query["QuickBIUserId"] = request.getQuickBIUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPersonalICode"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPersonalICodeResponse>();
+}
+
+/**
+ * @summary Retrieves or generates a personal identification number for a user.
+ *
+ * @param request GetPersonalICodeRequest
+ * @return GetPersonalICodeResponse
+ */
+GetPersonalICodeResponse Client::getPersonalICode(const GetPersonalICodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPersonalICodeWithOptions(request, runtime);
+}
+
+/**
  * @summary Searches for user group information by user group name keyword.
  *
  * @param request GetUserGroupInfoRequest
@@ -2668,7 +2715,7 @@ ListApiDatasourceResponse Client::listApiDatasource(const ListApiDatasourceReque
 }
 
 /**
- * @summary Queries the collaborative authorization records of a resource.
+ * @summary Queries the list of collaborative authorization records for a resource.
  *
  * @param request ListAuthConfigByResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2715,7 +2762,7 @@ ListAuthConfigByResourceResponse Client::listAuthConfigByResourceWithOptions(con
 }
 
 /**
- * @summary Queries the collaborative authorization records of a resource.
+ * @summary Queries the list of collaborative authorization records for a resource.
  *
  * @param request ListAuthConfigByResourceRequest
  * @return ListAuthConfigByResourceResponse
@@ -3603,7 +3650,7 @@ ManualRunMailTaskResponse Client::manualRunMailTask(const ManualRunMailTaskReque
 }
 
 /**
- * @summary 修改AI Pro嵌入配置
+ * @summary Creates or updates an AIPro embedding configuration.
  *
  * @param request ModifyAiproEmbedConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3658,7 +3705,7 @@ ModifyAiproEmbedConfigResponse Client::modifyAiproEmbedConfigWithOptions(const M
 }
 
 /**
- * @summary 修改AI Pro嵌入配置
+ * @summary Creates or updates an AIPro embedding configuration.
  *
  * @param request ModifyAiproEmbedConfigRequest
  * @return ModifyAiproEmbedConfigResponse
@@ -3881,7 +3928,7 @@ QueryAccelerationLogByCubeIdResponse Client::queryAccelerationLogByCubeId(const 
 }
 
 /**
- * @summary 概述
+ * @summary Retrieves a list of AIPro embed configurations.
  *
  * @param request QueryAiproEmbedConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3912,7 +3959,7 @@ QueryAiproEmbedConfigResponse Client::queryAiproEmbedConfigWithOptions(const Que
 }
 
 /**
- * @summary 概述
+ * @summary Retrieves a list of AIPro embed configurations.
  *
  * @param request QueryAiproEmbedConfigRequest
  * @return QueryAiproEmbedConfigResponse
@@ -3923,7 +3970,7 @@ QueryAiproEmbedConfigResponse Client::queryAiproEmbedConfig(const QueryAiproEmbe
 }
 
 /**
- * @summary Get approval flow information based on the approver.
+ * @summary Retrieves the approval flow information based on the approver.
  *
  * @param request QueryApprovalInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3966,7 +4013,7 @@ QueryApprovalInfoResponse Client::queryApprovalInfoWithOptions(const QueryApprov
 }
 
 /**
- * @summary Get approval flow information based on the approver.
+ * @summary Retrieves the approval flow information based on the approver.
  *
  * @param request QueryApprovalInfoRequest
  * @return QueryApprovalInfoResponse
@@ -4117,7 +4164,7 @@ QueryComponentPerformanceResponse Client::queryComponentPerformance(const QueryC
 }
 
 /**
- * @summary Get the List of Configurations for Activating XiaoQ Embedding
+ * @summary Retrieves the list of configurations for Xiao Q embedding.
  *
  * @param request QueryCopilotEmbedConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4148,7 +4195,7 @@ QueryCopilotEmbedConfigResponse Client::queryCopilotEmbedConfigWithOptions(const
 }
 
 /**
- * @summary Get the List of Configurations for Activating XiaoQ Embedding
+ * @summary Retrieves the list of configurations for Xiao Q embedding.
  *
  * @param request QueryCopilotEmbedConfigRequest
  * @return QueryCopilotEmbedConfigResponse
@@ -4263,7 +4310,7 @@ QueryCubePerformanceResponse Client::queryCubePerformance(const QueryCubePerform
 }
 
 /**
- * @summary Query Dashboard\\"s Question Resource Information
+ * @summary Queries the NL2SQL resource information of a dashboard.
  *
  * @param request QueryDashboardNl2sqlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4298,7 +4345,7 @@ QueryDashboardNl2sqlResponse Client::queryDashboardNl2sqlWithOptions(const Query
 }
 
 /**
- * @summary Query Dashboard\\"s Question Resource Information
+ * @summary Queries the NL2SQL resource information of a dashboard.
  *
  * @param request QueryDashboardNl2sqlRequest
  * @return QueryDashboardNl2sqlResponse
@@ -4309,14 +4356,14 @@ QueryDashboardNl2sqlResponse Client::queryDashboardNl2sql(const QueryDashboardNl
 }
 
 /**
- * @summary Calls a DataService Studio API to query data.
+ * @summary Calls an API created in Data Service.
  *
- * @description ### Prerequisites
- * Create an API in [DataService Studio](https://help.aliyun.com/document_detail/144980.html) before calling this operation.
+ * @description ### Before you begin
+ * You must first create an API in the Data Service of Quick BI. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
  * ### Limits
- * - Requires Quick BI Professional Edition.
- * - API call timeout: 60s. QPS limit per API: 10.
- * - Row-level permissions on the referenced dataset also apply to API calls.
+ * * The Data Service feature is available only to Professional Edition users.
+ * * For Data Service API calls, the timeout period is 60 seconds, and the queries per second (QPS) limit for a single API is 10.
+ * * If row-level permissions are enabled for the dataset referenced by a Data Service API, the row-level access policy also intercepts the request when you make the API call.
  *
  * @param request QueryDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4359,14 +4406,14 @@ QueryDataResponse Client::queryDataWithOptions(const QueryDataRequest &request, 
 }
 
 /**
- * @summary Calls a DataService Studio API to query data.
+ * @summary Calls an API created in Data Service.
  *
- * @description ### Prerequisites
- * Create an API in [DataService Studio](https://help.aliyun.com/document_detail/144980.html) before calling this operation.
+ * @description ### Before you begin
+ * You must first create an API in the Data Service of Quick BI. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
  * ### Limits
- * - Requires Quick BI Professional Edition.
- * - API call timeout: 60s. QPS limit per API: 10.
- * - Row-level permissions on the referenced dataset also apply to API calls.
+ * * The Data Service feature is available only to Professional Edition users.
+ * * For Data Service API calls, the timeout period is 60 seconds, and the queries per second (QPS) limit for a single API is 10.
+ * * If row-level permissions are enabled for the dataset referenced by a Data Service API, the row-level access policy also intercepts the request when you make the API call.
  *
  * @param request QueryDataRequest
  * @return QueryDataResponse
@@ -4377,7 +4424,7 @@ QueryDataResponse Client::queryData(const QueryDataRequest &request) {
 }
 
 /**
- * @summary Get Data Range Catalog List
+ * @summary Retrieves the list of data scope directories for the embedded configuration page.
  *
  * @param request QueryDataRangeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4412,7 +4459,7 @@ QueryDataRangeResponse Client::queryDataRangeWithOptions(const QueryDataRangeReq
 }
 
 /**
- * @summary Get Data Range Catalog List
+ * @summary Retrieves the list of data scope directories for the embedded configuration page.
  *
  * @param request QueryDataRangeRequest
  * @return QueryDataRangeResponse
@@ -4425,14 +4472,14 @@ QueryDataRangeResponse Client::queryDataRange(const QueryDataRangeRequest &reque
 /**
  * @deprecated OpenAPI QueryDataService is deprecated, please use quickbi-public::2022-01-01::QueryData instead.
  *
- * @summary Invoke an already created API in the data service.
+ * @summary Calls an API created in Data Service.
  *
- * @description #### Prerequisites
- * You create the data service API through Quick BI\\"s data service. For more details, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
- * #### Usage Restrictions
- * * The data service feature is only available to professional edition customers. 
- * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
- * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call may be intercepted by the row-level permission policy.
+ * @description #### Before you begin
+ * You have created an API in Data Service of Quick BI. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
+ * #### Limits
+ * * The Data Service feature is available only to Quick BI Professional Edition users. 
+ * * When you invoke a Data Service API, the timeout period is 60 seconds, and the queries per second (QPS) limit for a single API is 10.
+ * * If row-level permissions are enabled for the dataset referenced by a Data Service API, the invocation may be blocked by the row-level access policy.
  *
  * @param request QueryDataServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4473,14 +4520,14 @@ QueryDataServiceResponse Client::queryDataServiceWithOptions(const QueryDataServ
 /**
  * @deprecated OpenAPI QueryDataService is deprecated, please use quickbi-public::2022-01-01::QueryData instead.
  *
- * @summary Invoke an already created API in the data service.
+ * @summary Calls an API created in Data Service.
  *
- * @description #### Prerequisites
- * You create the data service API through Quick BI\\"s data service. For more details, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
- * #### Usage Restrictions
- * * The data service feature is only available to professional edition customers. 
- * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
- * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call may be intercepted by the row-level permission policy.
+ * @description #### Before you begin
+ * You have created an API in Data Service of Quick BI. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
+ * #### Limits
+ * * The Data Service feature is available only to Quick BI Professional Edition users. 
+ * * When you invoke a Data Service API, the timeout period is 60 seconds, and the queries per second (QPS) limit for a single API is 10.
+ * * If row-level permissions are enabled for the dataset referenced by a Data Service API, the invocation may be blocked by the row-level access policy.
  *
  * @param request QueryDataServiceRequest
  * @return QueryDataServiceResponse
@@ -4491,7 +4538,7 @@ QueryDataServiceResponse Client::queryDataService(const QueryDataServiceRequest 
 }
 
 /**
- * @summary Query Data Service API List
+ * @summary Queries the list of data service APIs.
  *
  * @param request QueryDataServiceListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4534,7 +4581,7 @@ QueryDataServiceListResponse Client::queryDataServiceListWithOptions(const Query
 }
 
 /**
- * @summary Query Data Service API List
+ * @summary Queries the list of data service APIs.
  *
  * @param request QueryDataServiceListRequest
  * @return QueryDataServiceListResponse
@@ -4545,9 +4592,9 @@ QueryDataServiceListResponse Client::queryDataServiceList(const QueryDataService
 }
 
 /**
- * @summary Retrieves the details of a specified dataset, including its data source, directory, and dataset model.
+ * @summary Queries the details of a specified dataset, including the associated data source, folder, and dataset model.
  *
- * @description The response includes the data source, directory, and a dataset model containing dimensions, measures, physical fields, custom SQL text, and relationships.
+ * @description The details include the associated data source, folder, and dataset model, which contains information such as dimensions, measures, physical fields, custom SQL text, and associations.
  *
  * @param request QueryDatasetDetailInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4578,9 +4625,9 @@ QueryDatasetDetailInfoResponse Client::queryDatasetDetailInfoWithOptions(const Q
 }
 
 /**
- * @summary Retrieves the details of a specified dataset, including its data source, directory, and dataset model.
+ * @summary Queries the details of a specified dataset, including the associated data source, folder, and dataset model.
  *
- * @description The response includes the data source, directory, and a dataset model containing dimensions, measures, physical fields, custom SQL text, and relationships.
+ * @description The details include the associated data source, folder, and dataset model, which contains information such as dimensions, measures, physical fields, custom SQL text, and associations.
  *
  * @param request QueryDatasetDetailInfoRequest
  * @return QueryDatasetDetailInfoResponse
@@ -4591,9 +4638,7 @@ QueryDatasetDetailInfoResponse Client::queryDatasetDetailInfo(const QueryDataset
 }
 
 /**
- * @summary Indicates whether the table is a custom SQL table. Valid values:
- * \\\\*   true: custom SQL table
- * \\\\*   false: non-custom SQL table
+ * @summary Queries the information of a specified dataset.
  *
  * @param request QueryDatasetInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4624,9 +4669,7 @@ QueryDatasetInfoResponse Client::queryDatasetInfoWithOptions(const QueryDatasetI
 }
 
 /**
- * @summary Indicates whether the table is a custom SQL table. Valid values:
- * \\\\*   true: custom SQL table
- * \\\\*   false: non-custom SQL table
+ * @summary Queries the information of a specified dataset.
  *
  * @param request QueryDatasetInfoRequest
  * @return QueryDatasetInfoResponse
@@ -4741,9 +4784,9 @@ QueryDatasetSmartqStatusResponse Client::queryDatasetSmartqStatus(const QueryDat
 }
 
 /**
- * @summary Get the row-level permission switch status for a specified dataset.
+ * @summary Retrieves the status of the row-level permission switch for a specified dataset.
  *
- * @description > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+ * @description > : This operation supports only the new row- and column-level permission model of Quick BI. If you are still using the legacy row- and column-level permissions, migrate to the new row- and column-level permission model before you call this operation. To migrate to the new model, go to **Organization management** > **Security settings** > **Upgrade row- and column-level permissions to new version**, and click **One-click upgrade**.
  *
  * @param request QueryDatasetSwitchInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4774,9 +4817,9 @@ QueryDatasetSwitchInfoResponse Client::queryDatasetSwitchInfoWithOptions(const Q
 }
 
 /**
- * @summary Get the row-level permission switch status for a specified dataset.
+ * @summary Retrieves the status of the row-level permission switch for a specified dataset.
  *
- * @description > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+ * @description > : This operation supports only the new row- and column-level permission model of Quick BI. If you are still using the legacy row- and column-level permissions, migrate to the new row- and column-level permission model before you call this operation. To migrate to the new model, go to **Organization management** > **Security settings** > **Upgrade row- and column-level permissions to new version**, and click **One-click upgrade**.
  *
  * @param request QueryDatasetSwitchInfoRequest
  * @return QueryDatasetSwitchInfoResponse
@@ -4903,7 +4946,7 @@ QueryLastAccelerationEngineJobResponse Client::queryLastAccelerationEngineJob(co
 }
 
 /**
- * @summary Check which datasets and analysis themes the user has question authorization for
+ * @summary Queries the smart query authorizations for datasets and analysis themes of a user.
  *
  * @param request QueryLlmCubeWithThemeListByUserIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4934,7 +4977,7 @@ QueryLlmCubeWithThemeListByUserIdResponse Client::queryLlmCubeWithThemeListByUse
 }
 
 /**
- * @summary Check which datasets and analysis themes the user has question authorization for
+ * @summary Queries the smart query authorizations for datasets and analysis themes of a user.
  *
  * @param request QueryLlmCubeWithThemeListByUserIdRequest
  * @return QueryLlmCubeWithThemeListByUserIdResponse
@@ -5043,7 +5086,7 @@ QueryOrganizationWorkspaceListResponse Client::queryOrganizationWorkspaceList(co
 /**
  * @deprecated OpenAPI QueryReadableResourcesListByUserId is deprecated, please use quickbi-public::2022-01-01::QueryReadableResourcesListByUserIdV2 instead.
  *
- * @summary Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
+ * @summary Queries the list of works that a user has permission to view, including reports in workspaces and those shared through authorization.
  *
  * @param request QueryReadableResourcesListByUserIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5076,7 +5119,7 @@ QueryReadableResourcesListByUserIdResponse Client::queryReadableResourcesListByU
 /**
  * @deprecated OpenAPI QueryReadableResourcesListByUserId is deprecated, please use quickbi-public::2022-01-01::QueryReadableResourcesListByUserIdV2 instead.
  *
- * @summary Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
+ * @summary Queries the list of works that a user has permission to view, including reports in workspaces and those shared through authorization.
  *
  * @param request QueryReadableResourcesListByUserIdRequest
  * @return QueryReadableResourcesListByUserIdResponse
@@ -5333,7 +5376,7 @@ QuerySmartqPermissionByCubeIdResponse Client::querySmartqPermissionByCubeId(cons
 }
 
 /**
- * @summary Obtains the details of a specified ticket for a report that is not embedded in the report.
+ * @summary Retrieves the details of a specified ticket for logon-free embedded reports.
  *
  * @param request QueryTicketInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5364,7 +5407,7 @@ QueryTicketInfoResponse Client::queryTicketInfoWithOptions(const QueryTicketInfo
 }
 
 /**
- * @summary Obtains the details of a specified ticket for a report that is not embedded in the report.
+ * @summary Retrieves the details of a specified ticket for logon-free embedded reports.
  *
  * @param request QueryTicketInfoRequest
  * @return QueryTicketInfoResponse
@@ -5375,7 +5418,7 @@ QueryTicketInfoResponse Client::queryTicketInfo(const QueryTicketInfoRequest &re
 }
 
 /**
- * @summary Queries a UserId by the bound third-party account ID.
+ * @summary Queries the user ID based on the bound third-party account ID.
  *
  * @param request QueryUserByMobileAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5410,7 +5453,7 @@ QueryUserByMobileAccountResponse Client::queryUserByMobileAccountWithOptions(con
 }
 
 /**
- * @summary Queries a UserId by the bound third-party account ID.
+ * @summary Queries the user ID based on the bound third-party account ID.
  *
  * @param request QueryUserByMobileAccountRequest
  * @return QueryUserByMobileAccountResponse
@@ -5463,7 +5506,7 @@ QueryUserGroupListByParentIdResponse Client::queryUserGroupListByParentId(const 
 }
 
 /**
- * @summary Retrieve the list of members under a user group.
+ * @summary Retrieves the list of members in a user group.
  *
  * @param request QueryUserGroupMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5498,7 +5541,7 @@ QueryUserGroupMemberResponse Client::queryUserGroupMemberWithOptions(const Query
 }
 
 /**
- * @summary Retrieve the list of members under a user group.
+ * @summary Retrieves the list of members in a user group.
  *
  * @param request QueryUserGroupMemberRequest
  * @return QueryUserGroupMemberResponse
@@ -5681,7 +5724,7 @@ QueryUserRoleInfoInWorkspaceResponse Client::queryUserRoleInfoInWorkspace(const 
 }
 
 /**
- * @summary Queries the metadata list of member tags in an organization.
+ * @summary Queries the list of member tag metadata in an organization.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryUserTagMetaListResponse
@@ -5703,7 +5746,7 @@ QueryUserTagMetaListResponse Client::queryUserTagMetaListWithOptions(const Darab
 }
 
 /**
- * @summary Queries the metadata list of member tags in an organization.
+ * @summary Queries the list of member tag metadata in an organization.
  *
  * @return QueryUserTagMetaListResponse
  */
@@ -5793,7 +5836,7 @@ QueryWorksResponse Client::queryWorks(const QueryWorksRequest &request) {
 }
 
 /**
- * @summary Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
+ * @summary Retrieves the lineage of a data work, including the datasets referenced by each component and the query field information. Currently, only dashboards, workbooks, and ad hoc queries are supported.
  *
  * @param request QueryWorksBloodRelationshipRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5824,7 +5867,7 @@ QueryWorksBloodRelationshipResponse Client::queryWorksBloodRelationshipWithOptio
 }
 
 /**
- * @summary Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
+ * @summary Retrieves the lineage of a data work, including the datasets referenced by each component and the query field information. Currently, only dashboards, workbooks, and ad hoc queries are supported.
  *
  * @param request QueryWorksBloodRelationshipRequest
  * @return QueryWorksBloodRelationshipResponse
@@ -6721,7 +6764,7 @@ UpdateDataSourceResponse Client::updateDataSource(const UpdateDataSourceRequest 
 }
 
 /**
- * @summary 更新数据源基础属性
+ * @summary Updates the basic properties of a data source.
  *
  * @param request UpdateDataSourcePropertiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6764,7 +6807,7 @@ UpdateDataSourcePropertiesResponse Client::updateDataSourcePropertiesWithOptions
 }
 
 /**
- * @summary 更新数据源基础属性
+ * @summary Updates the basic properties of a data source.
  *
  * @param request UpdateDataSourcePropertiesRequest
  * @return UpdateDataSourcePropertiesResponse
@@ -6818,6 +6861,48 @@ UpdateEmbeddedStatusResponse Client::updateEmbeddedStatusWithOptions(const Updat
 UpdateEmbeddedStatusResponse Client::updateEmbeddedStatus(const UpdateEmbeddedStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateEmbeddedStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the personal identification number of a user.
+ *
+ * @param request UpdatePersonalICodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePersonalICodeResponse
+ */
+UpdatePersonalICodeResponse Client::updatePersonalICodeWithOptions(const UpdatePersonalICodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQuickBIUserId()) {
+    query["QuickBIUserId"] = request.getQuickBIUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdatePersonalICode"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePersonalICodeResponse>();
+}
+
+/**
+ * @summary Updates the personal identification number of a user.
+ *
+ * @param request UpdatePersonalICodeRequest
+ * @return UpdatePersonalICodeResponse
+ */
+UpdatePersonalICodeResponse Client::updatePersonalICode(const UpdatePersonalICodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePersonalICodeWithOptions(request, runtime);
 }
 
 /**
@@ -6987,7 +7072,7 @@ UpdateUserGroupResponse Client::updateUserGroup(const UpdateUserGroupRequest &re
 }
 
 /**
- * @summary Used for updating the metadata of organization member tags
+ * @summary Updates the metadata of an organization member tag.
  *
  * @param request UpdateUserTagMetaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7026,7 +7111,7 @@ UpdateUserTagMetaResponse Client::updateUserTagMetaWithOptions(const UpdateUserT
 }
 
 /**
- * @summary Used for updating the metadata of organization member tags
+ * @summary Updates the metadata of an organization member tag.
  *
  * @param request UpdateUserTagMetaRequest
  * @return UpdateUserTagMetaResponse

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Name of the embedded configuration module, supports fuzzy search.
+    // The name of the embedding configuration module. Fuzzy search is supported.
     shared_ptr<string> keyword_ {};
   };
 

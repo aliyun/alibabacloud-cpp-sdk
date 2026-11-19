@@ -153,27 +153,27 @@ namespace Models
 
 
     protected:
-      // Notes.
+      // The ticket.
       shared_ptr<string> accessTicket_ {};
-      // The ID of the component in the report.
+      // The component ID in the report.
       shared_ptr<string> cmptId_ {};
-      // Global parameters.
+      // The global parameters.
       shared_ptr<string> globalParam_ {};
-      // Expiration time of the note.
+      // The expiration time of the ticket.
       shared_ptr<string> invalidTime_ {};
-      // The maximum number of supported bills.
+      // The maximum number of supported tickets.
       shared_ptr<int32_t> maxTicketNum_ {};
-      // The ID of the organization.
+      // The organization ID.
       shared_ptr<string> organizationId_ {};
       // The registration time of the ticket.
       shared_ptr<string> registerTime_ {};
-      // The number of bills that have been consumed.
+      // The number of consumed tickets.
       shared_ptr<int32_t> usedTicketNum_ {};
-      // The user ID of the Quick BI.
+      // The Quick BI user ID.
       shared_ptr<string> userId_ {};
-      // Set the watermarking parameters.
+      // The watermark parameters.
       shared_ptr<string> watermarkParam_ {};
-      // The ID of the operations report.
+      // The report ID.
       shared_ptr<string> worksId_ {};
     };
 
@@ -203,15 +203,13 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The details of the generated ticket.
     shared_ptr<QueryTicketInfoResponseBody::Result> result_ {};
     // Indicates whether the request is successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

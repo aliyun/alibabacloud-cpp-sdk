@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // Page number, default is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> page_ {};
-    // Number of rows per page, default is 1000.
+    // The number of entries per page. Default value: 1000.
     shared_ptr<int32_t> pageSize_ {};
-    // Approval status:
-    // - 0: Pending
-    // - 1: Processed
+    // The approval status. Valid values:
+    // - 0: Pending.
+    // - 1: Processed.
     // 
     // This parameter is required.
     shared_ptr<int32_t> status_ {};
-    // Current approver user ID, qbi user ID.
+    // The QBI user ID of the current approver.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

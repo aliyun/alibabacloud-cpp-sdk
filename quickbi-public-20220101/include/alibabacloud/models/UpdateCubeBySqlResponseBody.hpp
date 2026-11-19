@@ -60,12 +60,12 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The execution result of the operation. Valid values:
-    // - true: The request was successful.
+    // - true: The request succeeded.
     // - false: The request failed.
     shared_ptr<bool> result_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - true: The request was successful.
+    // - true: The request succeeded.
     // - false: The request failed.
     shared_ptr<bool> success_ {};
   };

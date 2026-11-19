@@ -158,30 +158,31 @@ namespace Models
 
 
       protected:
-        // The ID of the owning location.
+        // The ID of the area.
         shared_ptr<string> areaId_ {};
-        // The name of the owning location.
+        // The name of the area.
         shared_ptr<string> areaName_ {};
-        // The display name of the field.
+        // The original name of the field.
         shared_ptr<string> caption_ {};
-        // The type of the field. Valid values:
+        // The field type. Valid values:
         // 
-        // *   string: string type
-        // *   date: a date type that contains only the year, month, and day parts
-        // *   datetime: a common date type
-        // *   time: a date type that contains only hours, minutes, and seconds.
-        // *   number: numeric
-        // *   boolean: Boolean type
-        // *   geographical: geographical location
-        // *   url: string type
-        // *   imageUrl: the type of the image link.
-        // *   multivalue: a multi-value column
+        // - string: String type.
+        // - date: Date type that includes only the year, month, and day.
+        // - datetime: General date type.
+        // - time: Time type that includes only the hour, minute, and second.
+        // - number: Numeric type.
+        // - boolean: Boolean type.
+        // - geographic: Geographic location.
+        // - url: URL string type.
+        // - imageUrl: Image URL type.
+        // - multivalue: Multi-value column.
         shared_ptr<string> dataType_ {};
-        // Calculate field expression.
+        // The expression of the calculated field.
         shared_ptr<string> expression_ {};
-        // Indices whether the metric. Valid values:
+        // Indicates whether the field is a measure. Valid values:
         // 
-        // true false
+        // - true: Yes.
+        // - false: No.
         shared_ptr<bool> isMeasure_ {};
         // The globally unique PathId.
         shared_ptr<string> pathId_ {};
@@ -244,19 +245,19 @@ namespace Models
 
 
     protected:
-      // The ID of the component that you want to modify.
+      // The component ID.
       shared_ptr<string> componentId_ {};
-      // The name of the component.
+      // The component name.
       shared_ptr<string> componentName_ {};
-      // The type of the image component.
+      // The component type.
       shared_ptr<int32_t> componentType_ {};
-      // Chinese name of the component type
+      // The Chinese name of the component type.
       shared_ptr<string> componentTypeCnName_ {};
-      // The name of the component type.
+      // The component type name.
       shared_ptr<string> componentTypeName_ {};
-      // The ID of the training dataset that you want to remove from the specified custom linguistic model.
+      // The dataset ID.
       shared_ptr<string> datasetId_ {};
-      // A list of query parameter reference columns.
+      // The list of columns referenced by query parameters.
       shared_ptr<vector<Result::QueryParams>> queryParams_ {};
     };
 
@@ -286,14 +287,14 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of work blood information.
+    // The list of data work lineage information.
     shared_ptr<vector<QueryWorksBloodRelationshipResponseBody::Result>> result_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

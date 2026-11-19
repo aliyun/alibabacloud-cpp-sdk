@@ -57,17 +57,17 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The execution result of the interface is returned. Valid values:
+    // The execution result of the API operation. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request fails.
+    // - true: The execution succeeded.
+    // - false: The execution failed.
     shared_ptr<bool> result_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

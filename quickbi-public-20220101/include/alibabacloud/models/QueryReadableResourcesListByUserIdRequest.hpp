@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Quick BI the user ID.
+    // The Quick BI user ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

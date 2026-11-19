@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Keyword for the username or nickname of the user group member.
+    // The keyword used to search for the username or nickname of a user group member.
     shared_ptr<string> keyword_ {};
-    // User group ID.
+    // The ID of the user group.
     // 
     // This parameter is required.
     shared_ptr<string> userGroupId_ {};

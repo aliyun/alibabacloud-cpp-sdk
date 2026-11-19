@@ -59,9 +59,8 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the cache is purged.
-    // 
-    // - true: The cache is purged.
+    // Indicates whether the cache is cleared successfully. Valid values:
+    // - true: The cache is cleared successfully.
     // - false: No cache exists.
     shared_ptr<bool> result_ {};
     // Indicates whether the request is successful.

@@ -77,25 +77,25 @@ namespace Models
   protected:
     // The information about the users to be added.
     shared_ptr<string> feishuUsers_ {};
-    // Specifies whether the user is an admin user. Valid values:
-    // - true
-    // - false
+    // Specifies whether the user is an administrator. Valid values:
+    // - true: Yes.
+    // - false: No.
     // 
     // Default value: false.
     shared_ptr<bool> isAdmin_ {};
     // Specifies whether the user is a permission management administrator. Valid values:
     // 
-    // - true
-    // - false
+    // - true: Yes.
+    // - false: No.
     // 
     // Default value: false.
     shared_ptr<bool> isAuthAdmin_ {};
-    // The user groups to which the users belong.
+    // The IDs of the user groups to which the users belong.
     shared_ptr<string> userGroupIds_ {};
     // The user type. Valid values:
-    // - 1: developer
-    // - 2: visitor
-    // - 3: analyst
+    // - 1: Developer.
+    // - 2: Visitor.
+    // - 3: Analyst.
     shared_ptr<int32_t> userType_ {};
   };
 

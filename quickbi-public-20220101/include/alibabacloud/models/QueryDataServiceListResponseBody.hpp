@@ -248,31 +248,31 @@ namespace Models
 
 
             protected:
-              // Display name in the cube model (can be in Chinese or English).
+              // The display name in the cube model, which can be in Chinese or English.
               shared_ptr<string> caption_ {};
               // The corresponding physical field name.
               shared_ptr<string> column_ {};
-              // Data type.
+              // The data type.
               // 
-              // - number: numeric
-              // - string: string
-              // - date: date
-              // - datetime: datetime
-              // - time: time
-              // - geographic: geographic
-              // - boolean: boolean
-              // - url: URL
+              // - number: Number.
+              // - string: String.
+              // - date: Date.
+              // - datetime: Datetime.
+              // - time: Time.
+              // - geographic: Geographic.
+              // - boolean: Boolean.
+              // - url: URL.
               shared_ptr<string> dataType_ {};
-              // Unique identifier for the original field.
+              // The unique ID of the original field.
               shared_ptr<string> fid_ {};
-              // This attribute is included for date and geographic dimensions, indicating the supported granularity.
+              // The supported granularity. This property is included in date and geographic dimensions.
               shared_ptr<string> granularity_ {};
-              // Unique name of the cube field, mainly used for unique positioning in the returned result.
+              // The unique name of the cube field, which is primarily used to uniquely locate the returned result.
               shared_ptr<string> name_ {};
-              // Type.
+              // The type.
               // 
-              // - Dimension: Dimension
-              // - Measure: Measure
+              // - Dimension: Dimension.
+              // - Measure: Measure.
               shared_ptr<string> type_ {};
             };
 
@@ -316,19 +316,19 @@ namespace Models
 
 
           protected:
-            // Aggregation operator. For example, SUM, AVG, and MAX.
+            // The aggregate operation (aggregation), such as SUM, AVG, and MAX.
             shared_ptr<string> aggregator_ {};
-            // Field parameter name.
+            // The field parameter name.
             shared_ptr<string> alias_ {};
-            // Remark for the returned field.
+            // The description of the returned field.
             shared_ptr<string> desc_ {};
-            // Corresponding cube field information.
+            // The corresponding cube field information.
             shared_ptr<ReturnFields::Field> field_ {};
-            // Sorting.
+            // The sort order.
             // 
-            // - asc: Ascending
-            // - desc: Descending
-            // - no: No sorting
+            // - asc: Ascending.
+            // - desc: Descending.
+            // - no: Unsorted.
             shared_ptr<string> orderby_ {};
           };
 
@@ -381,17 +381,17 @@ namespace Models
 
 
           protected:
-            // Combined conditions.
+            // The combined conditions.
             shared_ptr<vector<Darabonba::Json>> filters_ {};
-            // Logical relationship between multiple SQL text keywords.
+            // The logical relationship between multiple SQL text keywords.
             // 
-            // - **or**: or
-            // - **and**: and
+            // - **or**: OR.
+            // - **and**: AND.
             shared_ptr<string> logicalOperator_ {};
-            // Type.
+            // The type.
             // 
-            // - basic: basic
-            // - combined: complex
+            // - basic: Basic.
+            // - combined: Complex.
             shared_ptr<string> type_ {};
           };
 
@@ -437,15 +437,15 @@ namespace Models
 
 
         protected:
-          // Cube identifier ID.
+          // The cube ID.
           shared_ptr<string> cubeId_ {};
-          // Dataset name.
+          // The name of the dataset.
           shared_ptr<string> cubeName_ {};
-          // Detail or Summary
+          // The detail or aggregate type.
           shared_ptr<bool> detail_ {};
-          // Request parameter information.
+          // The request parameter information.
           shared_ptr<Content::Filter> filter_ {};
-          // Return information.
+          // The returned information.
           shared_ptr<vector<Content::ReturnFields>> returnFields_ {};
         };
 
@@ -570,35 +570,35 @@ namespace Models
       protected:
         // The model of the data service in JSON format.
         shared_ptr<Data::Content> content_ {};
-        // Creator ID.
+        // The ID of the creator.
         shared_ptr<string> creatorId_ {};
-        // Creator\\"s name.
+        // The name of the creator.
         shared_ptr<string> creatorName_ {};
-        // Cube identifier ID.
+        // The cube ID.
         shared_ptr<string> cubeId_ {};
-        // Dataset name.
+        // The name of the dataset.
         shared_ptr<string> cubeName_ {};
-        // Description
+        // The description.
         shared_ptr<string> desc_ {};
-        // Creation time.
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // Modification time.
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // Modifier\\"s userId.
+        // The user ID of the modifier.
         shared_ptr<string> modifierId_ {};
-        // Modifier\\"s name
+        // The name of the modifier.
         shared_ptr<string> modifierName_ {};
-        // Data service name.
+        // The service name.
         shared_ptr<string> name_ {};
-        // Owner ID
+        // The ID of the owner.
         shared_ptr<string> ownerId_ {};
-        // Owner\\"s name
+        // The name of the owner.
         shared_ptr<string> ownerName_ {};
-        // Unique ID of the data service.
+        // The unique ID of the data service.
         shared_ptr<string> sid_ {};
-        // Workspace ID.
+        // The workspace ID.
         shared_ptr<string> workspaceId_ {};
-        // Workspace name.
+        // The name of the workspace.
         shared_ptr<string> workspaceName_ {};
       };
 
@@ -642,15 +642,15 @@ namespace Models
 
 
     protected:
-      // Data service information.
+      // The data service information.
       shared_ptr<vector<Result::Data>> data_ {};
-      // Page number.
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // Number of records per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of rows.
+      // The total number of rows.
       shared_ptr<int32_t> totalNum_ {};
-      // Total number of pages.
+      // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
     };
 
@@ -680,13 +680,14 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return result.
+    // The returned result.
     shared_ptr<QueryDataServiceListResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Value range:
-    // - true: The request was successful 
-    // - false: The request failed
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

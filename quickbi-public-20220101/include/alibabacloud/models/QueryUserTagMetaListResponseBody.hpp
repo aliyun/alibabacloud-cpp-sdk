@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The description of the tag.
+      // The tag description.
       shared_ptr<string> tagDescription_ {};
-      // The ID of the label.
+      // The tag ID.
       shared_ptr<string> tagId_ {};
-      // The name of the tag.
+      // The tag name.
       shared_ptr<string> tagName_ {};
     };
 
@@ -115,14 +115,14 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returns a list of user tags in an organization.
+    // The list of user tags in the organization.
     shared_ptr<vector<QueryUserTagMetaListResponseBody::Result>> result_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

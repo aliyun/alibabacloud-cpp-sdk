@@ -99,18 +99,18 @@ namespace Models
 
 
     protected:
-      // ID of the user group or the user group member.
+      // The ID of the user group or the user group member.
       shared_ptr<string> id_ {};
-      // Indicates whether it is a user group. Possible values:
+      // Indicates whether the item is a user group. Valid values:
       // 
-      // - true: It is a user group.
-      // - false: It is a user.
+      // - true: The item is a user group.
+      // - false: The item is a user.
       shared_ptr<bool> isUserGroup_ {};
-      // Name or nickname of the user group or its member.
+      // The name of the user group or the nickname of the user group member.
       shared_ptr<string> name_ {};
-      // ID of the parent user group.
+      // The ID of the parent user group.
       shared_ptr<string> parentUserGroupId_ {};
-      // Name of the parent user group.
+      // The name of the parent user group.
       shared_ptr<string> parentUserGroupName_ {};
     };
 
@@ -140,11 +140,11 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The result of the request for the user group member list.
+    // The query result of the user group member list.
     shared_ptr<vector<QueryUserGroupMemberResponseBody::Result>> result_ {};
-    // Indicates whether the request was successful. Possible values:
+    // Indicates whether the request was successful. Valid values:
     // 
     // - true: The request was successful.
     // - false: The request failed.

@@ -40,11 +40,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Headers, headers_);
         DARABONBA_PTR_TO_JSON(Sql, sql_);
         DARABONBA_PTR_TO_JSON(Values, values_);
+        DARABONBA_PTR_TO_JSON(ValuesV2, valuesV2_);
       };
       friend void from_json(const Darabonba::Json& j, Result& obj) { 
         DARABONBA_PTR_FROM_JSON(Headers, headers_);
         DARABONBA_PTR_FROM_JSON(Sql, sql_);
         DARABONBA_PTR_FROM_JSON(Values, values_);
+        DARABONBA_PTR_FROM_JSON(ValuesV2, valuesV2_);
       };
       Result() = default ;
       Result(const Result &) = default ;
@@ -57,6 +59,95 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ValuesV2 : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ValuesV2& obj) { 
+          DARABONBA_PTR_TO_JSON(RowValue, rowValue_);
+        };
+        friend void from_json(const Darabonba::Json& j, ValuesV2& obj) { 
+          DARABONBA_PTR_FROM_JSON(RowValue, rowValue_);
+        };
+        ValuesV2() = default ;
+        ValuesV2(const ValuesV2 &) = default ;
+        ValuesV2(ValuesV2 &&) = default ;
+        ValuesV2(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ValuesV2() = default ;
+        ValuesV2& operator=(const ValuesV2 &) = default ;
+        ValuesV2& operator=(ValuesV2 &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class RowValue : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const RowValue& obj) { 
+            DARABONBA_PTR_TO_JSON(L, l_);
+            DARABONBA_PTR_TO_JSON(R, r_);
+            DARABONBA_PTR_TO_JSON(V, v_);
+          };
+          friend void from_json(const Darabonba::Json& j, RowValue& obj) { 
+            DARABONBA_PTR_FROM_JSON(L, l_);
+            DARABONBA_PTR_FROM_JSON(R, r_);
+            DARABONBA_PTR_FROM_JSON(V, v_);
+          };
+          RowValue() = default ;
+          RowValue(const RowValue &) = default ;
+          RowValue(RowValue &&) = default ;
+          RowValue(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~RowValue() = default ;
+          RowValue& operator=(const RowValue &) = default ;
+          RowValue& operator=(RowValue &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->l_ == nullptr
+        && this->r_ == nullptr && this->v_ == nullptr; };
+          // l Field Functions 
+          bool hasL() const { return this->l_ != nullptr;};
+          void deleteL() { this->l_ = nullptr;};
+          inline string getL() const { DARABONBA_PTR_GET_DEFAULT(l_, "") };
+          inline RowValue& setL(string l) { DARABONBA_PTR_SET_VALUE(l_, l) };
+
+
+          // r Field Functions 
+          bool hasR() const { return this->r_ != nullptr;};
+          void deleteR() { this->r_ = nullptr;};
+          inline string getR() const { DARABONBA_PTR_GET_DEFAULT(r_, "") };
+          inline RowValue& setR(string r) { DARABONBA_PTR_SET_VALUE(r_, r) };
+
+
+          // v Field Functions 
+          bool hasV() const { return this->v_ != nullptr;};
+          void deleteV() { this->v_ = nullptr;};
+          inline string getV() const { DARABONBA_PTR_GET_DEFAULT(v_, "") };
+          inline RowValue& setV(string v) { DARABONBA_PTR_SET_VALUE(v_, v) };
+
+
+        protected:
+          // The field alias set in Data Service.
+          shared_ptr<string> l_ {};
+          // The original value.
+          shared_ptr<string> r_ {};
+          // The display value.
+          shared_ptr<string> v_ {};
+        };
+
+        virtual bool empty() const override { return this->rowValue_ == nullptr; };
+        // rowValue Field Functions 
+        bool hasRowValue() const { return this->rowValue_ != nullptr;};
+        void deleteRowValue() { this->rowValue_ = nullptr;};
+        inline const vector<ValuesV2::RowValue> & getRowValue() const { DARABONBA_PTR_GET_CONST(rowValue_, vector<ValuesV2::RowValue>) };
+        inline vector<ValuesV2::RowValue> getRowValue() { DARABONBA_PTR_GET(rowValue_, vector<ValuesV2::RowValue>) };
+        inline ValuesV2& setRowValue(const vector<ValuesV2::RowValue> & rowValue) { DARABONBA_PTR_SET_VALUE(rowValue_, rowValue) };
+        inline ValuesV2& setRowValue(vector<ValuesV2::RowValue> && rowValue) { DARABONBA_PTR_SET_RVALUE(rowValue_, rowValue) };
+
+
+      protected:
+        // The row values.
+        shared_ptr<vector<ValuesV2::RowValue>> rowValue_ {};
+      };
+
       class Headers : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Headers& obj) { 
@@ -141,62 +232,45 @@ namespace Models
 
 
       protected:
-        // The aggregate operator. Returned only for measure fields.
-        // 
-        // - SUM: The sum.
-        // 
-        // - MAX: The maximum value.
-        // 
-        // - MIN: The minimum value.
-        // 
-        // - AVG: The average value.
-        // 
-        // - COUNT: The count.
-        // 
-        // - COUNTD: The count of unique values.
-        // 
-        // - STDDEV_POP: The population standard deviation.
-        // 
-        // - STDDEV_SAMP: The sample standard deviation.
-        // 
-        // - VAR_POP: The population variance.
-        // 
-        // - VAR_SAMP: The sample variance.
+        // The aggregation operator. This field is available only for measure fields, such as SUM, AVG, and MAX. Valid values:
+        // - SUM: Sum.
+        // - MAX: Maximum value.
+        // - MIN: Minimum value.
+        // - AVG: Average value.
+        // - COUNT: Count.
+        // - COUNTD: Deduplicate count.
+        // - STDDEV_POP: Population standard deviation.
+        // - STDDEV_SAMP: Sample standard deviation.
+        // - VAR_POP: Population variance.
+        // - VAR_SAMP: Sample variance.
         shared_ptr<string> aggregator_ {};
-        // The physical table field name.
+        // The name of the field, which corresponds to the field name in the physical table.
         shared_ptr<string> column_ {};
-        // The field data type. Common types:
-        // 
-        // - number
-        // 
-        // - string
-        // 
-        // - date
-        // 
-        // - time
-        // 
-        // - datetime
+        // The data type of the field. Valid values:
+        // - number: Numeric.
+        // - string: String.
+        // - date: Date.
+        // - time: Time.
+        // - datetime: Date and time.
         shared_ptr<string> dataType_ {};
-        // The dimension granularity. Returned only for date or geographic dimensions. Valid values:
+        // The granularity of the dimension field. This field is returned only when the requested field is a date dimension or a geographic dimension. Valid values:
         // 
-        // - Date granularity: yearRegion (year), monthRegion (month), weekRegion (week), dayRegion (day), hourRegion (hour), minRegion (minute), secRegion (second)
+        // - Date granularity: yearRegion (year), monthRegion (month), weekRegion (week), dayRegion (day), hourRegion (hour), minRegion (minute), and secRegion (second).
         // 
-        // - Geographic granularity: COUNTRY (country), PROVINCE (province), CITY (city), XIAN (county/district), REGION (region)
+        // - Geographic granularity: COUNTRY (country), PROVINCE (province), CITY (city), XIAN (district/county), and REGION (region).
         shared_ptr<string> granularity_ {};
-        // The field alias. Used as the key in each Values map entry.
+        // The alias of the field, which is the key of the map data row in the values result parameter.
         shared_ptr<string> label_ {};
-        // The original field name in the dataset.
+        // The original name of the corresponding field in the dataset.
         shared_ptr<string> originalColumn_ {};
-        // Whether the field is a dimension or measure.
-        // 
-        // - Dimension
-        // 
-        // - Measure
+        // The type of the field, which is used to distinguish whether the field is a dimension or a measure. Valid values:
+        // - Dimension: Dimension.
+        // - Measure: Measure.
         shared_ptr<string> type_ {};
       };
 
       virtual bool empty() const override { return this->headers_ == nullptr
-        && this->sql_ == nullptr && this->values_ == nullptr; };
+        && this->sql_ == nullptr && this->values_ == nullptr && this->valuesV2_ == nullptr; };
       // headers Field Functions 
       bool hasHeaders() const { return this->headers_ != nullptr;};
       void deleteHeaders() { this->headers_ = nullptr;};
@@ -222,15 +296,25 @@ namespace Models
       inline Result& setValues(vector<Darabonba::Json> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
 
 
+      // valuesV2 Field Functions 
+      bool hasValuesV2() const { return this->valuesV2_ != nullptr;};
+      void deleteValuesV2() { this->valuesV2_ = nullptr;};
+      inline const vector<Result::ValuesV2> & getValuesV2() const { DARABONBA_PTR_GET_CONST(valuesV2_, vector<Result::ValuesV2>) };
+      inline vector<Result::ValuesV2> getValuesV2() { DARABONBA_PTR_GET(valuesV2_, vector<Result::ValuesV2>) };
+      inline Result& setValuesV2(const vector<Result::ValuesV2> & valuesV2) { DARABONBA_PTR_SET_VALUE(valuesV2_, valuesV2) };
+      inline Result& setValuesV2(vector<Result::ValuesV2> && valuesV2) { DARABONBA_PTR_SET_RVALUE(valuesV2_, valuesV2) };
+
+
     protected:
       // The column headers.
       shared_ptr<vector<Result::Headers>> headers_ {};
-      // The SQL statement for the query.
-      // 
-      // > The returned SQL includes both the filter conditions from this call and any row-level or column-level permission rules.
+      // The SQL statement of the query.
+      // > In addition to the parameter conditions of the current API, the filter conditions in the returned SQL statement also include the row-level and column-level permission configurations.
       shared_ptr<string> sql_ {};
-      // The query results.
+      // The returned query results.
       shared_ptr<vector<Darabonba::Json>> values_ {};
+      // The returned query results, including the original value fields.
+      shared_ptr<vector<Result::ValuesV2>> valuesV2_ {};
     };
 
     virtual bool empty() const override { return this->requestId_ == nullptr
@@ -259,19 +343,17 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The result of the API call. Valid values:
+    // The execution result of the API. Valid values:
     // 
-    // - true: The call was successful.
-    // 
-    // - false: The call failed.
+    // - true: The execution is successful.
+    // - false: The execution fails.
     shared_ptr<QueryDataResponseBody::Result> result_ {};
-    // Whether the request succeeded. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

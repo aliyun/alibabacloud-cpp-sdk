@@ -59,15 +59,17 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The result of adding members to a user group is returned. Valid values:
+    // Indicates whether the members were added to the user group. Valid values:
     // 
-    // *   true: The task is added.
-    // *   false: The tag failed to be added.
+    // - true: The members were added.
+    // 
+    // - false: The members were not added.
     shared_ptr<bool> result_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

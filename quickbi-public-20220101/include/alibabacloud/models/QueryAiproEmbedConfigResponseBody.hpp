@@ -127,13 +127,33 @@ namespace Models
 
 
     protected:
+      // The agent nickname.
       shared_ptr<string> agentName_ {};
+      // The embed configuration ID, which is used for CreateTicket4AiPro.
       shared_ptr<string> aiProId_ {};
+      // Indicates whether chat history is displayed. Valid values:
+      // 
+      // - 1: Displayed.
+      // - 0: Not displayed.
       shared_ptr<int32_t> chatHistoryStatus_ {};
+      // The JSON string of the embed appearance configuration.
       shared_ptr<string> config_ {};
+      // Specifies whether memory is enabled. Valid values:
+      // 
+      // - 1: Enabled.
+      // - 0: Disabled.
       shared_ptr<int32_t> memoryEnabled_ {};
+      // The configuration name.
       shared_ptr<string> showName_ {};
+      // The status. Valid values:
+      // 
+      // - 1: Enabled.
+      // - 0: Disabled.
       shared_ptr<int32_t> status_ {};
+      // Specifies whether file upload is allowed. Valid values:
+      // 
+      // - 1: Allowed.
+      // - 0: Not allowed.
       shared_ptr<int32_t> uploadEnabled_ {};
     };
 
@@ -163,8 +183,14 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The array of AIPro configurations.
     shared_ptr<vector<QueryAiproEmbedConfigResponseBody::Result>> result_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - true: The request is successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

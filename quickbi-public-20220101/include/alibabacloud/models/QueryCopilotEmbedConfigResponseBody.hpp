@@ -127,13 +127,13 @@ namespace Models
 
 
       protected:
-        // Whether all question resources are selected.
+        // Indicates whether all data query resources are selected.
         shared_ptr<bool> allCube_ {};
-        // Whether all analysis themes are selected.
+        // Indicates whether all analysis topics are selected.
         shared_ptr<bool> allTheme_ {};
-        // Collection of question resource IDs.
+        // The set of data query resource IDs.
         shared_ptr<vector<string>> llmCubes_ {};
-        // Collection of analysis theme IDs.
+        // The set of analysis topic IDs.
         shared_ptr<vector<string>> themes_ {};
       };
 
@@ -199,21 +199,21 @@ namespace Models
 
 
     protected:
-      // Robot\\"s nickname.
+      // The nickname of the chatbot.
       shared_ptr<string> agentName_ {};
-      // Embedding ID.
+      // The embedding ID.
       shared_ptr<string> copilotId_ {};
-      // ID of the creator.
+      // The user ID of the creator.
       shared_ptr<string> createUser_ {};
-      // Nickname of the creator.
+      // The nickname of the creator.
       shared_ptr<string> createUserName_ {};
-      // Data range (analysis themes and question resources).
+      // The data scope, including analysis topics and data query resources.
       shared_ptr<Result::DataRange> dataRange_ {};
-      // ID of the modifier.
+      // The user ID of the modifier.
       shared_ptr<string> modifyUser_ {};
-      // Module name.
+      // The module name.
       shared_ptr<string> moduleName_ {};
-      // Name of the embedded module.
+      // The name of the embedding module.
       shared_ptr<string> showName_ {};
     };
 
@@ -243,14 +243,14 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of embedded configurations.
+    // The list of embedding configurations.
     shared_ptr<vector<QueryCopilotEmbedConfigResponseBody::Result>> result_ {};
-    // Indicates whether the request was successful. Possible values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - true: The request was successful.
-    // - false: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

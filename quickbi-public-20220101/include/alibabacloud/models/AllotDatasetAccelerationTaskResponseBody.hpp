@@ -59,15 +59,14 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the IP address whitelist is updated. Valid values:
-    // 
-    // *   true: The task is triggered.
-    // *   false: The task fails to be triggered.
+    // The execution result. Valid values:
+    // - true: The task is triggered successfully.
+    // - false: The task fails to be triggered.
     shared_ptr<bool> result_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -189,30 +189,30 @@ namespace Models
 
 
       protected:
-        // The actual physical field.
+        // The display name of the measure.
         shared_ptr<string> caption_ {};
-        // A list of all measures for the dataset.
+        // The data type. Valid values:
+        // 
+        // - string: String.
+        // - number: Number.
+        // - datetime: Datetime.
         shared_ptr<string> dataType_ {};
-        // Data type; value:
-        // 
-        // *   string: character
-        // *   number: a number
-        // *   datetime: time
+        // The expression for the calculated measure. This parameter is valid only for calculated measures.
         shared_ptr<string> expression_ {};
-        // Expression for flattened computation metrics.
+        // The flattened expression for the calculated measure.
         shared_ptr<string> expressionV2_ {};
-        // The type of the measure. Valid values:
-        // 
-        // *   standard_measure: General Metrics
-        // *   calculate_measure: Calculating Measures
+        // The actual physical field.
         shared_ptr<string> factColumn_ {};
-        // The description of the field.
+        // The field description.
         shared_ptr<string> fieldDescription_ {};
-        // An expression that calculates a measure; valid only for calculated measures.
+        // The metric type. Valid values:
+        // 
+        // - standard_measure: Standard measure.
+        // - calculate_measure: Calculated measure.
         shared_ptr<string> measureType_ {};
-        // The display name of the metric.
+        // The unique ID of the table to which the dimension belongs. This corresponds to the UniqueId in CubeTypeList.
         shared_ptr<string> tableUniqueId_ {};
-        // The unique ID of the table to which the table belongs, which corresponds to the UniqueId of the CubeTypeList.
+        // The unique ID of the measure.
         shared_ptr<string> uid_ {};
       };
 
@@ -272,13 +272,13 @@ namespace Models
 
 
       protected:
-        // Test directory
+        // The folder ID.
         shared_ptr<string> id_ {};
-        // Test directory
+        // The folder name.
         shared_ptr<string> name_ {};
-        // The information about the directory to which the dataset belongs.
+        // The path of the folder ID, such as aa/bb/cc/dd.
         shared_ptr<string> pathId_ {};
-        // The path of the directory ID, for example, aa/bb/cc/dd.
+        // The path name of the folder ID, such as Level 1 folder/Level 2 folder.
         shared_ptr<string> pathName_ {};
       };
 
@@ -402,35 +402,35 @@ namespace Models
 
 
       protected:
-        // The unique ID of the field that is referenced by the group measure. Non-NULL if and only if the metric is a grouping metric.
-        shared_ptr<string> caption_ {};
-        // A list of all dimensions in the dataset.
-        shared_ptr<string> dataType_ {};
-        // The actual physical field.
-        shared_ptr<string> dimensionType_ {};
-        // Data type; value:
-        // 
-        // *   string: character
-        // *   number: a number
-        // *   datetime: time
-        shared_ptr<string> expression_ {};
-        // Expression for the flattened calculation dimensions.
-        shared_ptr<string> expressionV2_ {};
-        // Expression for a calculated dimension; valid only for calculated dimensions.
-        shared_ptr<string> factColumn_ {};
-        // The description of the field.
-        shared_ptr<string> fieldDescription_ {};
-        // The type of the dimension. Valid values:
-        // 
-        // *   standard_dimension: General Dimension
-        // *   calculate_dimension: calculating dimensions
-        // *   group_dimension: grouping dimensions
-        shared_ptr<string> granularity_ {};
-        // The granularity.
-        shared_ptr<string> refUid_ {};
-        // The ARN.
-        shared_ptr<string> tableUniqueId_ {};
         // The display name of the dimension.
+        shared_ptr<string> caption_ {};
+        // The data type. Valid values:
+        // 
+        // - string: String.
+        // - number: Number.
+        // - datetime: Datetime.
+        shared_ptr<string> dataType_ {};
+        // The dimension type. Valid values:
+        // 
+        // - standard_dimension: Standard dimension.
+        // - calculate_dimension: Calculated dimension.
+        // - group_dimension: Grouped dimension.
+        shared_ptr<string> dimensionType_ {};
+        // The expression for the calculated dimension. This parameter is valid only for calculated dimensions.
+        shared_ptr<string> expression_ {};
+        // The flattened expression for the calculated dimension.
+        shared_ptr<string> expressionV2_ {};
+        // The actual physical field.
+        shared_ptr<string> factColumn_ {};
+        // The field description.
+        shared_ptr<string> fieldDescription_ {};
+        // The granularity.
+        shared_ptr<string> granularity_ {};
+        // The unique ID of the referenced field for a grouped measure. This parameter is not null only when the measure is a grouped measure.
+        shared_ptr<string> refUid_ {};
+        // The unique ID of the table to which the dimension belongs. This corresponds to the UniqueId in CubeTypeList.
+        shared_ptr<string> tableUniqueId_ {};
+        // The unique ID.
         shared_ptr<string> uid_ {};
       };
 
@@ -562,13 +562,21 @@ namespace Models
 
 
         protected:
+          // The display name.
           shared_ptr<string> caption_ {};
+          // Specifies whether the table is a custom dataset.
           shared_ptr<bool> customsql_ {};
+          // The data source ID.
           shared_ptr<string> datasourceId_ {};
+          // The data source type.
           shared_ptr<string> dsType_ {};
+          // Specifies whether the table is the primary table.
           shared_ptr<bool> factTable_ {};
+          // The SQL statement for the custom SQL dataset.
           shared_ptr<string> sql_ {};
+          // The physical table name.
           shared_ptr<string> tableName_ {};
+          // The unique ID.
           shared_ptr<string> uniqueId_ {};
         };
 
@@ -641,33 +649,34 @@ namespace Models
 
 
       protected:
-        // Indicates whether the data source table is valid. Valid values:
-        // 
-        // *   true: data source table
-        // *   false: custom table
-        shared_ptr<string> caption_ {};
-        shared_ptr<vector<CubeTableList::ChildTables>> childTables_ {};
         // The display name of the table.
+        shared_ptr<string> caption_ {};
+        // The actual physical tables used by the merged table.
+        shared_ptr<vector<CubeTableList::ChildTables>> childTables_ {};
+        // Specifies whether the table is a custom SQL table. Valid values:
+        // 
+        // - true: The table is a custom SQL table.
+        // - false: The table is not a custom SQL table.
         shared_ptr<bool> customsql_ {};
-        // The name of the table.
+        // The data source ID.
         shared_ptr<string> datasourceId_ {};
-        // The ID of the data source.
+        // The data source type. Valid values:
+        // 
+        // - mysql
+        // - odps
+        // - oracle
+        // - Other data source types supported by Quick BI.
         shared_ptr<string> dsType_ {};
-        // The unique ID of the table.
+        // Specifies whether the table is a data source table. Valid values:
+        // 
+        // - true: The table is a data source table.
+        // - false: The table is a custom table.
         shared_ptr<bool> factTable_ {};
-        // Indicates whether the table is a custom SQL table. Valid values:
-        // 
-        // *   true: custom SQL table
-        // *   false: non-custom SQL table
+        // The specific SQL statement when the table is a custom SQL table.
         shared_ptr<string> sql_ {};
-        // The list of tables used by the dataset.
+        // The table name.
         shared_ptr<string> tableName_ {};
-        // The type of the data source. Valid values:
-        // 
-        // *   mysql
-        // *   odps
-        // *   oracle
-        // *   ... and other data source types supported by Quick BI
+        // The unique ID of the table.
         shared_ptr<string> uniqueId_ {};
       };
 
@@ -811,55 +820,55 @@ namespace Models
 
 
     protected:
-      // The unique ID of the dataset.
+      // The list of tables used by the dataset.
       shared_ptr<vector<Result::CubeTableList>> cubeTableList_ {};
-      // The unique ID of the workspace to which the dataset belongs.
+      // Specifies whether custom SQL is used. Valid values:
+      // 
+      // - true: Yes.
+      // - false: No.
       shared_ptr<bool> custimzeSql_ {};
-      // The type of the data source. Valid values:
-      // 
-      // *   mysql
-      // *   odps
-      // *   oracle
-      // *   ... Data source types supported by Quick BI such as
+      // The unique ID of the dataset.
       shared_ptr<string> datasetId_ {};
-      // The user ID of the dataset owner in the Quick BI.
+      // The dataset name.
       shared_ptr<string> datasetName_ {};
-      // A list of all dimensions in the dataset.
+      // The list of all dimensions in the dataset.
       shared_ptr<vector<Result::DimensionList>> dimensionList_ {};
-      // The unique ID of the metric.
+      // The folder information of the dataset.
       shared_ptr<Result::Directory> directory_ {};
-      // The name of the data source.
-      shared_ptr<string> dsId_ {};
-      // The time when the dataset was last modified.
-      shared_ptr<string> dsName_ {};
-      // The point in time when the training dataset was created.
-      shared_ptr<string> dsType_ {};
-      // Indicates whether to customize SQL statements. Valid values:
-      // 
-      // *   true
-      // *   false
-      shared_ptr<string> gmtCreate_ {};
-      // The information about the dataset.
-      shared_ptr<string> gmtModify_ {};
-      // A list of all measures for the dataset.
-      shared_ptr<vector<Result::MeasureList>> measureList_ {};
-      // Whether to enable extraction acceleration. Valid values:
-      // 
-      // *   true
-      // *   false
-      shared_ptr<bool> openOfflineAcceleration_ {};
-      // Test Space
-      shared_ptr<string> ownerId_ {};
       // The unique ID of the data source.
-      shared_ptr<string> ownerName_ {};
-      // The name of the training dataset.
-      shared_ptr<bool> rowLevel_ {};
-      // Whether row-level permissions are enabled. Valid values:
+      shared_ptr<string> dsId_ {};
+      // The data source name.
+      shared_ptr<string> dsName_ {};
+      // The data source type. Valid values:
       // 
-      // *   true: The VIP Netty channel is enabled.
-      // *   false: The VIP Netty channel is disabled.
+      // - mysql
+      // - odps
+      // - oracle
+      // - Other data source types supported by Quick BI.
+      shared_ptr<string> dsType_ {};
+      // The time when the dataset was created.
+      shared_ptr<string> gmtCreate_ {};
+      // The time when the dataset was last modified.
+      shared_ptr<string> gmtModify_ {};
+      // The list of all measures in the dataset.
+      shared_ptr<vector<Result::MeasureList>> measureList_ {};
+      // Specifies whether extract acceleration is enabled. Valid values:
+      // 
+      // - true: Enabled.
+      // - false: Disabled.
+      shared_ptr<bool> openOfflineAcceleration_ {};
+      // The user ID of the dataset owner in Quick BI.
+      shared_ptr<string> ownerId_ {};
+      // The name of the dataset owner.
+      shared_ptr<string> ownerName_ {};
+      // Specifies whether row-level permissions are enabled. Valid values:
+      // 
+      // - true: Enabled.
+      // - false: Disabled.
+      shared_ptr<bool> rowLevel_ {};
+      // The unique ID of the workspace to which the dataset belongs.
       shared_ptr<string> workspaceId_ {};
-      // Big Baby
+      // The name of the workspace to which the dataset belongs.
       shared_ptr<string> workspaceName_ {};
     };
 
@@ -889,14 +898,14 @@ namespace Models
 
 
   protected:
-    // Whether the operation is successfully returned. Valid values:
-    // 
-    // *   true: The call is successful.
-    // *   false: The call fails.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The dataset information.
     shared_ptr<QueryDatasetInfoResponseBody::Result> result_ {};
-    // The unique ID of the dataset.
+    // Specifies whether the request is successful. Valid values:
+    // 
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
   };
 
