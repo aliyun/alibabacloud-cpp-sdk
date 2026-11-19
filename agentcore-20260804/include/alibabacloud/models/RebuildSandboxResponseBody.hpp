@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The target instance incarnation for this rebuild. The rebuild increases the incarnation. The returned value only indicates that the request is accepted, not that the new instance is ready.
+      // The target instance generation for this rebuild. A rebuild increases the generation. The return of this value only indicates that the request is accepted, not that the new instance is ready.
       shared_ptr<int64_t> incarnation_ {};
-      // The initial rebuild task ID. Use the operationId returned by RebuildSandbox. Always use this ID to query the overall result. You do not need to switch to the IDs of subsequently created tasks.
+      // The ID of the initial rebuild task. Use the operationId returned by RebuildSandbox. Always use this ID to query the overall result subsequently. You do not need to switch to the IDs of subsequently created tasks.
       shared_ptr<string> operationId_ {};
       // The logical sandbox ID corresponding to this rebuild. The logical ID remains unchanged after the rebuild.
       shared_ptr<string> sandboxId_ {};
@@ -141,17 +141,17 @@ namespace Models
 
 
   protected:
-    // Task result code of this API request. A successful request returns SUCCESS. Query task result of the asynchronous task separately.
+    // Task result code of the API request. A successful request returns SUCCESS. Query task result of the asynchronous task separately.
     shared_ptr<string> code_ {};
     // The acceptance result of the rebuild request.
     shared_ptr<RebuildSandboxResponseBody::Data> data_ {};
-    // The HTTP status code corresponding to this API request.
+    // The HTTP status code corresponding to the API request.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The result description of this API request. This does not indicate that the asynchronous rebuild task is complete.
+    // The result description of the API request. This does not indicate that the asynchronous rebuild task is complete.
     shared_ptr<string> message_ {};
-    // The request ID used to trace this API call.
+    // The request ID, which is used to trace the API call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether this API request is successful. A value of true does not indicate that the sandbox rebuild is complete.
+    // Indicates whether the API request is successful. A value of true does not indicate that the sandbox rebuild is complete.
     shared_ptr<bool> success_ {};
   };
 

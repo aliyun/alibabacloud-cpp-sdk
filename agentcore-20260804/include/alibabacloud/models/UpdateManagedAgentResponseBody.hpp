@@ -49,10 +49,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(agentId, agentId_);
         DARABONBA_PTR_TO_JSON(agenticFsMounts, agenticFsMounts_);
         DARABONBA_PTR_TO_JSON(configuredSkills, configuredSkills_);
+        DARABONBA_PTR_TO_JSON(contextConfiguration, contextConfiguration_);
         DARABONBA_PTR_TO_JSON(createMode, createMode_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(deployType, deployType_);
         DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(effectiveContextConfiguration, effectiveContextConfiguration_);
         DARABONBA_PTR_TO_JSON(environment, environment_);
         DARABONBA_PTR_TO_JSON(harness, harness_);
         DARABONBA_PTR_TO_JSON(instruction, instruction_);
@@ -80,10 +82,12 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(agentId, agentId_);
         DARABONBA_PTR_FROM_JSON(agenticFsMounts, agenticFsMounts_);
         DARABONBA_PTR_FROM_JSON(configuredSkills, configuredSkills_);
+        DARABONBA_PTR_FROM_JSON(contextConfiguration, contextConfiguration_);
         DARABONBA_PTR_FROM_JSON(createMode, createMode_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(deployType, deployType_);
         DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(effectiveContextConfiguration, effectiveContextConfiguration_);
         DARABONBA_PTR_FROM_JSON(environment, environment_);
         DARABONBA_PTR_FROM_JSON(harness, harness_);
         DARABONBA_PTR_FROM_JSON(instruction, instruction_);
@@ -154,11 +158,11 @@ namespace Models
 
 
       protected:
-        // The name of the tool.
+        // The tool name.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The type of the tool.
+        // The tool type.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -221,11 +225,11 @@ namespace Models
 
 
         protected:
-          // The name of the template in the AI registry.
+          // The name of the template in the AI Registry.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The version of the template in the AI registry.
+          // The version of the template in the AI Registry.
           shared_ptr<string> version_ {};
         };
 
@@ -240,7 +244,7 @@ namespace Models
 
 
       protected:
-        // The AI registry template configuration.
+        // The AI Registry template configuration.
         shared_ptr<Template::AiRegistry> aiRegistry_ {};
       };
 
@@ -345,7 +349,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The sub-agent skill list.
+        // The list of sub-agent skills.
         shared_ptr<vector<SubAgents::Skills>> skills_ {};
       };
 
@@ -418,9 +422,9 @@ namespace Models
 
 
         protected:
-          // The version selector type. LABEL selects by tag. VERSION selects by specific version.
+          // The version selector type.
           shared_ptr<string> type_ {};
-          // The selector value. For LABEL, it is the tag name (such as latest). For VERSION, it is the specific version number.
+          // The selector value. When the type is LABEL, this is the tag name, such as latest. When the type is VERSION, this is the specific version number.
           shared_ptr<string> value_ {};
         };
 
@@ -481,17 +485,17 @@ namespace Models
       protected:
         // The effective version at runtime. This field is read-only.
         shared_ptr<string> appliedVersion_ {};
-        // Specifies whether the skill is from a fixed template. This field is read-only. Template items cannot be removed.
+        // Indicates whether the skill is from a fixed template. This field is read-only. Template items cannot be removed.
         shared_ptr<bool> fromTemplate_ {};
         // The skill name.
         shared_ptr<string> name_ {};
         // The current target version. This field is read-only.
         shared_ptr<string> resolvedVersion_ {};
-        // The skill source type. REFERENCE references the AI Registry. STATIC is statically provided with the package.
+        // The skill source type.
         shared_ptr<string> sourceType_ {};
-        // The current target version for compatibility with legacy clients. New clients use resolvedVersion and determine the effective runtime version based on appliedVersion.
+        // The current target version for compatibility with legacy clients. New clients use resolvedVersion and rely on appliedVersion to determine the effective runtime version.
         shared_ptr<string> version_ {};
-        // The skill reference version selector. Supports LABEL for tags and VERSION for specific versions. Defaults to LABEL/latest when omitted. Selectors are not provided for STATIC sources.
+        // The skill reference version selector. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
         shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
@@ -556,7 +560,7 @@ namespace Models
 
 
         protected:
-          // The name of the HTTP header used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
+          // The HTTP header name used for session affinity. This field takes effect when sessionPolicy.type is ISOLATED_HEADER_FIELD.
           shared_ptr<string> headerName_ {};
           // The session policy type.
           // 
@@ -629,7 +633,7 @@ namespace Models
 
 
         protected:
-          // Indicates whether elastic scaling is enabled in the current configuration.
+          // Indicates whether elastic auto-scaling is enabled in the current configuration.
           shared_ptr<bool> enabled_ {};
           // The maximum number of concurrent sessions per instance in the current configuration.
           shared_ptr<int32_t> maxConcurrentSessionsPerSandbox_ {};
@@ -637,7 +641,7 @@ namespace Models
           shared_ptr<int32_t> maxSandboxCount_ {};
           // The minimum number of instances in the current configuration.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The maximum idle time for a session in the current configuration, in seconds.
+          // The maximum session idle time in the current configuration, in seconds.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -669,7 +673,7 @@ namespace Models
 
 
         protected:
-          // The compute specifications.
+          // The compute specification.
           // 
           // This parameter is required.
           shared_ptr<string> computeClass_ {};
@@ -709,7 +713,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<Runtime::Compute> compute_ {};
-        // The automatic scaling and session configurations for the sandbox.
+        // The sandbox auto-scaling and session configuration.
         shared_ptr<Runtime::Hpa> hpa_ {};
         // The session policy configuration.
         // 
@@ -766,9 +770,9 @@ namespace Models
       protected:
         // The default value.
         shared_ptr<string> defaultValue_ {};
-        // The description of the variable.
+        // The variable description.
         shared_ptr<string> description_ {};
-        // The name of the variable.
+        // The variable name.
         shared_ptr<string> name_ {};
       };
 
@@ -828,13 +832,13 @@ namespace Models
 
 
       protected:
-        // The OSS bucket name. Required and validated by the backend for each mount item.
+        // The name of the OSS bucket. This field is required and validated by the backend for each mount item.
         shared_ptr<string> bucketName_ {};
-        // The absolute mount path in the container, such as `/data/train`. Mount targets cannot be duplicated or form parent-child overwrites, and must avoid platform reserved directories.
+        // The absolute mount path within the container, such as /data/train. Mount targets must not be duplicated or form parent-child overrides, and must avoid platform reserved directories.
         shared_ptr<string> mountPath_ {};
         // The non-empty relative directory prefix in the currently configured bucket.
         shared_ptr<string> path_ {};
-        // Specifies whether to mount as read-only. Defaults to false if not specified.
+        // Specifies whether the mount is read-only. Default value: false.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -887,7 +891,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow access to the VPC.
+          // Specifies whether to allow VPC access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -919,7 +923,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow access to the Internet.
+          // Specifies whether to allow Internet access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -1059,7 +1063,7 @@ namespace Models
 
 
         protected:
-          // Indicates whether the quota is enabled. This field is not returned if no quota is configured.
+          // Indicates whether the quota is enabled. This field is not returned when no quota is configured.
           shared_ptr<bool> enabled_ {};
           // The quota limit type. Currently, only token is supported.
           shared_ptr<string> limitType_ {};
@@ -1067,7 +1071,7 @@ namespace Models
           shared_ptr<bool> overLimit_ {};
           // The quota statistical period. A value of day indicates daily, and a value of month indicates monthly.
           shared_ptr<string> periodType_ {};
-          // The status of the gateway quota rule. This field is read-only and returned by the backend.
+          // The gateway quota rule status. This field is read-only and returned by the backend.
           shared_ptr<string> ruleStatus_ {};
           // The maximum number of tokens allowed to be consumed in a single cycle.
           shared_ptr<int64_t> usageLimit_ {};
@@ -1110,11 +1114,11 @@ namespace Models
       protected:
         // The model connection ID.
         shared_ptr<string> modelConnectionId_ {};
-        // The name of the upstream model.
+        // The upstream model name.
         shared_ptr<string> modelName_ {};
-        // The model token quota configuration and quota usage status for the current cycle. The value is empty if no quota is configured.
+        // The model token quota configuration and the quota usage status for the current cycle. This field is empty when no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
-        // The thinking level. If not configured, the value defaults to default. Empty strings, null values, or omitted fields are processed based on the default behavior of the model and Harness. Valid values: off, low, medium, high, xhigh, and max. If this parameter is not specified or is null during creation, default is used. When you update the model configuration, if the thinking level is not specified or is null, it reverts to default. Except for off, which is converted to none, the value is passed to the runtime framework as-is. The system does not validate model support or automatically downgrade the level. If the model does not support the specified level, adjust the level.
+        // The thinking level. When not configured, the value is default. An empty string, null, or omitted value is processed according to the default behavior of the model and Harness. Valid values: off, low, medium, high, xhigh, and max. If this parameter is not passed or is null during creation, default is used. When updating and submitting the model configuration, if the thinking level is not passed or is null, it is restored to default. Except for off which is converted to none, the value is passed to the runtime framework as-is without verifying model support or automatically downgrading. If the model does not support the level, adjust the level.
         shared_ptr<string> thinkingLevel_ {};
       };
 
@@ -1181,7 +1185,7 @@ namespace Models
 
 
         protected:
-          // The record ID of the connector account key bound to qodercli, not the original service account key.
+          // The ID of the connector account key record bound to qodercli, not the original service account key.
           shared_ptr<string> connectorServiceAccountKey_ {};
           // The name of the connector account bound to qodercli.
           shared_ptr<string> connectorServiceAccountName_ {};
@@ -1220,13 +1224,13 @@ namespace Models
 
 
       protected:
-        // The runtime harness configuration.
+        // The runtime framework configuration.
         shared_ptr<Harness::Configuration> configuration_ {};
-        // Returned only in query responses. The server calculates this based on the complete instance distribution, which is not affected by pagination and filtering of the instance list. The value is empty and not equivalent to 0 when the image tag is missing, pagination is incomplete, or it cannot be confirmed.
+        // Returned only in queries. The server calculates this based on the full instance distribution, which is not affected by the pagination and filtering of the instance list. It is empty when the image tag is missing, pagination is incomplete, or it cannot be confirmed, which is not equivalent to 0.
         shared_ptr<int64_t> outdatedInstanceCount_ {};
         // The type of the runtime framework.
         shared_ptr<string> type_ {};
-        // Returned only in query responses. Currently returns the tag of the pool target image. The value is empty if it cannot be parsed, and cannot be replaced by the agent configuration version.
+        // Returned only in queries. Currently returns the tag of the pool target image. It is empty when it cannot be parsed, and cannot be replaced by the agent configuration version.
         shared_ptr<string> version_ {};
       };
 
@@ -1354,10 +1358,190 @@ namespace Models
 
 
       protected:
-        // The credential reference list.
+        // The list of credential references.
         shared_ptr<vector<Environment::CredentialReferences>> credentialReferences_ {};
-        // The environment variable list.
+        // The list of environment variables.
         shared_ptr<vector<Environment::Variables>> variables_ {};
+      };
+
+      class EffectiveContextConfiguration : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const EffectiveContextConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(bindings, bindings_);
+          DARABONBA_PTR_TO_JSON(enabled, enabled_);
+        };
+        friend void from_json(const Darabonba::Json& j, EffectiveContextConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(bindings, bindings_);
+          DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+        };
+        EffectiveContextConfiguration() = default ;
+        EffectiveContextConfiguration(const EffectiveContextConfiguration &) = default ;
+        EffectiveContextConfiguration(EffectiveContextConfiguration &&) = default ;
+        EffectiveContextConfiguration(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~EffectiveContextConfiguration() = default ;
+        EffectiveContextConfiguration& operator=(const EffectiveContextConfiguration &) = default ;
+        EffectiveContextConfiguration& operator=(EffectiveContextConfiguration &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Bindings : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Bindings& obj) { 
+            DARABONBA_PTR_TO_JSON(resourceId, resourceId_);
+            DARABONBA_PTR_TO_JSON(type, type_);
+          };
+          friend void from_json(const Darabonba::Json& j, Bindings& obj) { 
+            DARABONBA_PTR_FROM_JSON(resourceId, resourceId_);
+            DARABONBA_PTR_FROM_JSON(type, type_);
+          };
+          Bindings() = default ;
+          Bindings(const Bindings &) = default ;
+          Bindings(Bindings &&) = default ;
+          Bindings(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Bindings() = default ;
+          Bindings& operator=(const Bindings &) = default ;
+          Bindings& operator=(Bindings &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->resourceId_ == nullptr
+        && this->type_ == nullptr; };
+          // resourceId Field Functions 
+          bool hasResourceId() const { return this->resourceId_ != nullptr;};
+          void deleteResourceId() { this->resourceId_ = nullptr;};
+          inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+          inline Bindings& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
+
+
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline Bindings& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+        protected:
+          // The ID of the context resource in the current workspace.
+          shared_ptr<string> resourceId_ {};
+          // Read-only string. Currently known types are KNOWLEDGE_BASE (knowledge base) and DATA_CONNECTOR (data connector). The response may include new types. The client should retain unknown values and must not fail to parse the entire response due to unknown types. New request types are subject to the actual support scope of the server.
+          shared_ptr<string> type_ {};
+        };
+
+        virtual bool empty() const override { return this->bindings_ == nullptr
+        && this->enabled_ == nullptr; };
+        // bindings Field Functions 
+        bool hasBindings() const { return this->bindings_ != nullptr;};
+        void deleteBindings() { this->bindings_ = nullptr;};
+        inline const vector<EffectiveContextConfiguration::Bindings> & getBindings() const { DARABONBA_PTR_GET_CONST(bindings_, vector<EffectiveContextConfiguration::Bindings>) };
+        inline vector<EffectiveContextConfiguration::Bindings> getBindings() { DARABONBA_PTR_GET(bindings_, vector<EffectiveContextConfiguration::Bindings>) };
+        inline EffectiveContextConfiguration& setBindings(const vector<EffectiveContextConfiguration::Bindings> & bindings) { DARABONBA_PTR_SET_VALUE(bindings_, bindings) };
+        inline EffectiveContextConfiguration& setBindings(vector<EffectiveContextConfiguration::Bindings> && bindings) { DARABONBA_PTR_SET_RVALUE(bindings_, bindings) };
+
+
+        // enabled Field Functions 
+        bool hasEnabled() const { return this->enabled_ != nullptr;};
+        void deleteEnabled() { this->enabled_ = nullptr;};
+        inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+        inline EffectiveContextConfiguration& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+      protected:
+        // Read-only resource references. This field may be omitted when no selection is made. A disabled configuration can still retain a non-empty selection. You cannot determine whether the configuration is enabled solely based on whether the array is empty.
+        shared_ptr<vector<EffectiveContextConfiguration::Bindings>> bindings_ {};
+        // Read-only. Indicates the enabled status of the configuration when the configuration object is returned. A value of false indicates that the configuration is disabled. The absence of the entire configuration object indicates that the response does not provide the configuration, which cannot be treated as false.
+        shared_ptr<bool> enabled_ {};
+      };
+
+      class ContextConfiguration : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ContextConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(bindings, bindings_);
+          DARABONBA_PTR_TO_JSON(enabled, enabled_);
+        };
+        friend void from_json(const Darabonba::Json& j, ContextConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(bindings, bindings_);
+          DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+        };
+        ContextConfiguration() = default ;
+        ContextConfiguration(const ContextConfiguration &) = default ;
+        ContextConfiguration(ContextConfiguration &&) = default ;
+        ContextConfiguration(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ContextConfiguration() = default ;
+        ContextConfiguration& operator=(const ContextConfiguration &) = default ;
+        ContextConfiguration& operator=(ContextConfiguration &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Bindings : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Bindings& obj) { 
+            DARABONBA_PTR_TO_JSON(resourceId, resourceId_);
+            DARABONBA_PTR_TO_JSON(type, type_);
+          };
+          friend void from_json(const Darabonba::Json& j, Bindings& obj) { 
+            DARABONBA_PTR_FROM_JSON(resourceId, resourceId_);
+            DARABONBA_PTR_FROM_JSON(type, type_);
+          };
+          Bindings() = default ;
+          Bindings(const Bindings &) = default ;
+          Bindings(Bindings &&) = default ;
+          Bindings(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Bindings() = default ;
+          Bindings& operator=(const Bindings &) = default ;
+          Bindings& operator=(Bindings &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->resourceId_ == nullptr
+        && this->type_ == nullptr; };
+          // resourceId Field Functions 
+          bool hasResourceId() const { return this->resourceId_ != nullptr;};
+          void deleteResourceId() { this->resourceId_ = nullptr;};
+          inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+          inline Bindings& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
+
+
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline Bindings& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+        protected:
+          // The ID of the context resource in the current workspace.
+          shared_ptr<string> resourceId_ {};
+          // Read-only string. Currently known types are KNOWLEDGE_BASE (knowledge base) and DATA_CONNECTOR (data connector). The response may include new types. The client should retain unknown values and must not fail to parse the entire response due to unknown types. New request types are subject to the actual support scope of the server.
+          shared_ptr<string> type_ {};
+        };
+
+        virtual bool empty() const override { return this->bindings_ == nullptr
+        && this->enabled_ == nullptr; };
+        // bindings Field Functions 
+        bool hasBindings() const { return this->bindings_ != nullptr;};
+        void deleteBindings() { this->bindings_ = nullptr;};
+        inline const vector<ContextConfiguration::Bindings> & getBindings() const { DARABONBA_PTR_GET_CONST(bindings_, vector<ContextConfiguration::Bindings>) };
+        inline vector<ContextConfiguration::Bindings> getBindings() { DARABONBA_PTR_GET(bindings_, vector<ContextConfiguration::Bindings>) };
+        inline ContextConfiguration& setBindings(const vector<ContextConfiguration::Bindings> & bindings) { DARABONBA_PTR_SET_VALUE(bindings_, bindings) };
+        inline ContextConfiguration& setBindings(vector<ContextConfiguration::Bindings> && bindings) { DARABONBA_PTR_SET_RVALUE(bindings_, bindings) };
+
+
+        // enabled Field Functions 
+        bool hasEnabled() const { return this->enabled_ != nullptr;};
+        void deleteEnabled() { this->enabled_ = nullptr;};
+        inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+        inline ContextConfiguration& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+      protected:
+        // Read-only resource references. This field may be omitted when no selection is made. A disabled configuration can still retain a non-empty selection. You cannot determine whether the configuration is enabled solely based on whether the array is empty.
+        shared_ptr<vector<ContextConfiguration::Bindings>> bindings_ {};
+        // Read-only. Indicates the enabled status of the configuration when the configuration object is returned. A value of false indicates that the configuration is disabled. The absence of the entire configuration object indicates that the response does not provide the configuration, which cannot be treated as false.
+        shared_ptr<bool> enabled_ {};
       };
 
       class ConfiguredSkills : public Darabonba::Model {
@@ -1423,9 +1607,9 @@ namespace Models
 
 
         protected:
-          // The version selector type. LABEL selects by tag. VERSION selects by specific version.
+          // The version selector type.
           shared_ptr<string> type_ {};
-          // The selector value. For LABEL, it is the tag name (such as latest). For VERSION, it is the specific version number.
+          // The selector value. When the type is LABEL, this is the tag name, such as latest. When the type is VERSION, this is the specific version number.
           shared_ptr<string> value_ {};
         };
 
@@ -1466,11 +1650,11 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The skill source type. REFERENCE references the AI Registry. STATIC is statically provided with the package.
+        // The skill source type.
         shared_ptr<string> sourceType_ {};
-        // The legacy compatibility field. Use sourceType and versionSelector for new requests.
+        // The legacy compatibility field. New requests use sourceType and versionSelector.
         shared_ptr<string> version_ {};
-        // The skill reference version selector. Supports LABEL for tags and VERSION for specific versions. Defaults to LABEL/latest when omitted. Selectors are not provided for STATIC sources.
+        // The skill reference version selector. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
         shared_ptr<ConfiguredSkills::VersionSelector> versionSelector_ {};
       };
 
@@ -1530,23 +1714,23 @@ namespace Models
 
 
       protected:
-        // The absolute mount path in the container, such as `/data/train`. Mount targets cannot be duplicated or form parent-child overwrites, and must avoid platform reserved directories.
+        // The absolute mount path within the container, such as /data/train. Mount targets must not be duplicated or form parent-child overrides, and must avoid platform reserved directories.
         shared_ptr<string> mountPath_ {};
-        // An existing non-empty relative directory under the access point. This field is required and validated by the backend for each mount item. Root directories, absolute paths, and parent directory segments are not allowed.
+        // An existing non-empty relative directory under the AccessPoint. Required and validated by the backend for each mount item. Root directories, absolute paths, or parent directory segments are not allowed.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. If omitted, the default value is `false`. This is not a RAM role read-only policy.
+        // Specifies whether to mount as read-only. The default value is false if omitted. This is not a RAM role read-only policy.
         shared_ptr<bool> readOnly_ {};
-        // The domain name of the access point. This field is required and validated by the backend for each mount item. It must not contain a protocol, port, or path. Use the DomainName value from the NAS ListAccessPoints response.
+        // The AccessPoint domain name. Required and validated by the backend for each mount item. It does not contain a protocol, port, or path, and uses the DomainName from the NAS ListAccessPoints response.
         shared_ptr<string> server_ {};
       };
 
       virtual bool empty() const override { return this->accessMode_ == nullptr
-        && this->accessScope_ == nullptr && this->agentId_ == nullptr && this->agenticFsMounts_ == nullptr && this->configuredSkills_ == nullptr && this->createMode_ == nullptr
-        && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->environment_ == nullptr && this->harness_ == nullptr
-        && this->instruction_ == nullptr && this->latestSpecVersion_ == nullptr && this->latestVersionStatus_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
-        && this->network_ == nullptr && this->ossMounts_ == nullptr && this->promptVariables_ == nullptr && this->regionId_ == nullptr && this->runtime_ == nullptr
-        && this->sandboxPhaseCounts_ == nullptr && this->skills_ == nullptr && this->status_ == nullptr && this->subAgents_ == nullptr && this->template_ == nullptr
-        && this->tools_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->accessScope_ == nullptr && this->agentId_ == nullptr && this->agenticFsMounts_ == nullptr && this->configuredSkills_ == nullptr && this->contextConfiguration_ == nullptr
+        && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->effectiveContextConfiguration_ == nullptr
+        && this->environment_ == nullptr && this->harness_ == nullptr && this->instruction_ == nullptr && this->latestSpecVersion_ == nullptr && this->latestVersionStatus_ == nullptr
+        && this->model_ == nullptr && this->name_ == nullptr && this->network_ == nullptr && this->ossMounts_ == nullptr && this->promptVariables_ == nullptr
+        && this->regionId_ == nullptr && this->runtime_ == nullptr && this->sandboxPhaseCounts_ == nullptr && this->skills_ == nullptr && this->status_ == nullptr
+        && this->subAgents_ == nullptr && this->template_ == nullptr && this->tools_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
       // accessMode Field Functions 
       bool hasAccessMode() const { return this->accessMode_ != nullptr;};
       void deleteAccessMode() { this->accessMode_ = nullptr;};
@@ -1586,6 +1770,15 @@ namespace Models
       inline Data& setConfiguredSkills(vector<Data::ConfiguredSkills> && configuredSkills) { DARABONBA_PTR_SET_RVALUE(configuredSkills_, configuredSkills) };
 
 
+      // contextConfiguration Field Functions 
+      bool hasContextConfiguration() const { return this->contextConfiguration_ != nullptr;};
+      void deleteContextConfiguration() { this->contextConfiguration_ = nullptr;};
+      inline const Data::ContextConfiguration & getContextConfiguration() const { DARABONBA_PTR_GET_CONST(contextConfiguration_, Data::ContextConfiguration) };
+      inline Data::ContextConfiguration getContextConfiguration() { DARABONBA_PTR_GET(contextConfiguration_, Data::ContextConfiguration) };
+      inline Data& setContextConfiguration(const Data::ContextConfiguration & contextConfiguration) { DARABONBA_PTR_SET_VALUE(contextConfiguration_, contextConfiguration) };
+      inline Data& setContextConfiguration(Data::ContextConfiguration && contextConfiguration) { DARABONBA_PTR_SET_RVALUE(contextConfiguration_, contextConfiguration) };
+
+
       // createMode Field Functions 
       bool hasCreateMode() const { return this->createMode_ != nullptr;};
       void deleteCreateMode() { this->createMode_ = nullptr;};
@@ -1612,6 +1805,15 @@ namespace Models
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline Data& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // effectiveContextConfiguration Field Functions 
+      bool hasEffectiveContextConfiguration() const { return this->effectiveContextConfiguration_ != nullptr;};
+      void deleteEffectiveContextConfiguration() { this->effectiveContextConfiguration_ = nullptr;};
+      inline const Data::EffectiveContextConfiguration & getEffectiveContextConfiguration() const { DARABONBA_PTR_GET_CONST(effectiveContextConfiguration_, Data::EffectiveContextConfiguration) };
+      inline Data::EffectiveContextConfiguration getEffectiveContextConfiguration() { DARABONBA_PTR_GET(effectiveContextConfiguration_, Data::EffectiveContextConfiguration) };
+      inline Data& setEffectiveContextConfiguration(const Data::EffectiveContextConfiguration & effectiveContextConfiguration) { DARABONBA_PTR_SET_VALUE(effectiveContextConfiguration_, effectiveContextConfiguration) };
+      inline Data& setEffectiveContextConfiguration(Data::EffectiveContextConfiguration && effectiveContextConfiguration) { DARABONBA_PTR_SET_RVALUE(effectiveContextConfiguration_, effectiveContextConfiguration) };
 
 
       // environment Field Functions 
@@ -1785,10 +1987,12 @@ namespace Models
       shared_ptr<string> accessScope_ {};
       // The ID of the managed Harness agent.
       shared_ptr<string> agentId_ {};
-      // The NAS storage mount configuration. Currently, only the AgenticFS type is supported, which is used to mount file directories in access points to agent runtime instances. The total number of NAS mounts and ossMounts cannot exceed 10.
+      // The NAS storage mount configuration. Currently, the AgenticFS type is supported, which is used to mount file directories in access points to agent runtime instances. A maximum of 10 NAS mounts are allowed in total with ossMounts.
       shared_ptr<vector<Data::AgenticFsMounts>> agenticFsMounts_ {};
       // The explicitly configured skills.
       shared_ptr<vector<Data::ConfiguredSkills>> configuredSkills_ {};
+      // The target configuration accepted by the managed agent, which does not necessarily mean it has taken effect at runtime. This field is used in the detail responses of CreateManagedAgent, UpdateManagedAgent, and GetManagedAgent. In the configuration of a fixed version, it represents the configuration snapshot saved for that version. A returned object with enabled:false indicates that the configuration is disabled. The absence of the entire object indicates that the response does not provide the configuration.
+      shared_ptr<Data::ContextConfiguration> contextConfiguration_ {};
       // The creation mode.
       shared_ptr<string> createMode_ {};
       // The creation time in RFC 3339 format.
@@ -1797,11 +2001,13 @@ namespace Models
       shared_ptr<string> deployType_ {};
       // The description of the managed Harness agent.
       shared_ptr<string> description_ {};
+      // Read-only. Provided only by GetManagedAgent when an effective version exists, corresponding to the configuration snapshot of effectiveSpecVersion. It remains the original effective configuration when a new version is being prepared or fails to be published. It is not returned before the first time it takes effect, or in CreateManagedAgent, UpdateManagedAgent, and the configuration of a fixed version. Omission does not indicate that it is disabled, and the client must not automatically fill it with enabled:false.
+      shared_ptr<Data::EffectiveContextConfiguration> effectiveContextConfiguration_ {};
       // The environment configuration information.
       shared_ptr<Data::Environment> environment_ {};
       // The agent runtime framework.
       shared_ptr<Data::Harness> harness_ {};
-      // The agent instruction, which is used to guide the behavior of the agent.
+      // The agent instructions used to guide the behavior of the agent.
       shared_ptr<string> instruction_ {};
       // The latest specification version number.
       shared_ptr<int64_t> latestSpecVersion_ {};
@@ -1813,7 +2019,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network configuration information.
       shared_ptr<Data::Network> network_ {};
-      // The list of OSS mounts. A maximum of 10 items are allowed.
+      // The list of OSS mounts. A maximum of 10 items are supported.
       shared_ptr<vector<Data::OssMounts>> ossMounts_ {};
       // The prompt variable declarations.
       shared_ptr<vector<Data::PromptVariables>> promptVariables_ {};
@@ -1821,13 +2027,13 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The runtime configuration information.
       shared_ptr<Data::Runtime> runtime_ {};
-      // The number of managed Harness agent instances by sandbox phase. Current keys: PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed at runtime). Only phases that actually occur are returned, and missing keys are treated as 0. This field is a dynamic mapping and new keys may be added in the future. The frontend can use FAILED > 0 to determine whether abnormal instances exist.
+      // The number of managed Harness Agent instances by sandbox phase. Current keys: PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed at runtime). Only phases that actually occur are returned, and missing keys are treated as 0. This field is a dynamic map and new keys may be added in the future. The frontend can use FAILED > 0 to determine whether abnormal instances exist.
       shared_ptr<map<string, int64_t>> sandboxPhaseCounts_ {};
-      // The skill configuration list.
+      // The list of skill configurations.
       shared_ptr<vector<Data::Skills>> skills_ {};
       // The status of the managed Harness agent.
       shared_ptr<string> status_ {};
-      // The sub-agent configuration list.
+      // The list of sub-agent configurations.
       shared_ptr<vector<Data::SubAgents>> subAgents_ {};
       // The template configuration information.
       shared_ptr<Data::Template> template_ {};

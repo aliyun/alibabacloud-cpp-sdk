@@ -50,6 +50,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(loginCallbackUrl, loginCallbackUrl_);
         DARABONBA_PTR_TO_JSON(loginEnabled, loginEnabled_);
         DARABONBA_PTR_TO_JSON(metadata, metadata_);
+        DARABONBA_PTR_TO_JSON(oidc, oidc_);
+        DARABONBA_PTR_TO_JSON(oidcConfiguration, oidcConfiguration_);
         DARABONBA_PTR_TO_JSON(protocol, protocol_);
         DARABONBA_PTR_TO_JSON(saml, saml_);
         DARABONBA_PTR_TO_JSON(status, status_);
@@ -66,6 +68,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(loginCallbackUrl, loginCallbackUrl_);
         DARABONBA_PTR_FROM_JSON(loginEnabled, loginEnabled_);
         DARABONBA_PTR_FROM_JSON(metadata, metadata_);
+        DARABONBA_PTR_FROM_JSON(oidc, oidc_);
+        DARABONBA_PTR_FROM_JSON(oidcConfiguration, oidcConfiguration_);
         DARABONBA_PTR_FROM_JSON(protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(saml, saml_);
         DARABONBA_PTR_FROM_JSON(status, status_);
@@ -125,12 +129,9 @@ namespace Models
 
 
       protected:
-        // When the mode is SelectedDepartments, this list must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this field.
+        // When the mode is SelectedDepartments, this list must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
         shared_ptr<vector<string>> departmentIds_ {};
-        // The scope mode. Valid values:
-        // - AllAuthorized: All authorized scopes, subject to the authorization limits of the application address book.
-        // - SelectedDepartments: The selected departments and all their sub-departments.
-        // When explicitly submitting syncScope, you must provide a valid mode, which is validated by the backend.
+        // The scope mode. Valid values: AllAuthorized (all authorized scopes, limited by application address book authorization) and SelectedDepartments (selected departments and all their sub-departments). A valid mode must be provided when explicitly submitting syncScope and is verified by the backend.
         shared_ptr<string> mode_ {};
       };
 
@@ -192,14 +193,340 @@ namespace Models
 
 
       protected:
-        // HTTP-Redirect or HTTP-POST. Required when manually filled in. Queries return the short name.
+        // The SAML binding type. Valid values: HTTP-Redirect and HTTP-POST. This parameter is required when manually filled in. Queries return short names.
         shared_ptr<string> bindingType_ {};
-        // Required when manually filled in. It must be non-empty and no more than 2,048 characters. Existing configurations do not support replacement. This is different from our Entity ID queried by the SP.
+        // This parameter is required when manually filled in. It must be non-empty and contain a maximum of 2,048 characters. Existing configurations do not support replacement. It is different from the Entity ID queried by the service provider (SP).
         shared_ptr<string> entityId_ {};
-        // Required when manually filled in. It must be an absolute HTTPS URL and must not contain user credentials or fragments.
+        // This parameter is required when manually filled in. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
-        // Required when manually filled in. It must be a non-empty array using PEM X.509 certificate text. The current validity period is validated, and a maximum of two certificates are retained after deduplication.
+        // When manually filled in, a non-empty array is required, using PEM X.509 certificate text. The current validity period is verified, and a maximum of two certificates are allowed after deduplication.
         shared_ptr<vector<string>> x509Certificates_ {};
+      };
+
+      class OidcConfiguration : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const OidcConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(authorizationEndpoint, authorizationEndpoint_);
+          DARABONBA_PTR_TO_JSON(clientAuthMethod, clientAuthMethod_);
+          DARABONBA_PTR_TO_JSON(clientId, clientId_);
+          DARABONBA_PTR_TO_JSON(discoveryEndpoint, discoveryEndpoint_);
+          DARABONBA_PTR_TO_JSON(hasClientPrivateKey, hasClientPrivateKey_);
+          DARABONBA_PTR_TO_JSON(hasClientSecret, hasClientSecret_);
+          DARABONBA_PTR_TO_JSON(issuer, issuer_);
+          DARABONBA_PTR_TO_JSON(jwksUri, jwksUri_);
+          DARABONBA_PTR_TO_JSON(pkceRequired, pkceRequired_);
+          DARABONBA_PTR_TO_JSON(scopes, scopes_);
+          DARABONBA_PTR_TO_JSON(ssoMappingClaim, ssoMappingClaim_);
+          DARABONBA_PTR_TO_JSON(ssoStatus, ssoStatus_);
+          DARABONBA_PTR_TO_JSON(tokenEndpoint, tokenEndpoint_);
+          DARABONBA_PTR_TO_JSON(userinfoEndpoint, userinfoEndpoint_);
+        };
+        friend void from_json(const Darabonba::Json& j, OidcConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(authorizationEndpoint, authorizationEndpoint_);
+          DARABONBA_PTR_FROM_JSON(clientAuthMethod, clientAuthMethod_);
+          DARABONBA_PTR_FROM_JSON(clientId, clientId_);
+          DARABONBA_PTR_FROM_JSON(discoveryEndpoint, discoveryEndpoint_);
+          DARABONBA_PTR_FROM_JSON(hasClientPrivateKey, hasClientPrivateKey_);
+          DARABONBA_PTR_FROM_JSON(hasClientSecret, hasClientSecret_);
+          DARABONBA_PTR_FROM_JSON(issuer, issuer_);
+          DARABONBA_PTR_FROM_JSON(jwksUri, jwksUri_);
+          DARABONBA_PTR_FROM_JSON(pkceRequired, pkceRequired_);
+          DARABONBA_PTR_FROM_JSON(scopes, scopes_);
+          DARABONBA_PTR_FROM_JSON(ssoMappingClaim, ssoMappingClaim_);
+          DARABONBA_PTR_FROM_JSON(ssoStatus, ssoStatus_);
+          DARABONBA_PTR_FROM_JSON(tokenEndpoint, tokenEndpoint_);
+          DARABONBA_PTR_FROM_JSON(userinfoEndpoint, userinfoEndpoint_);
+        };
+        OidcConfiguration() = default ;
+        OidcConfiguration(const OidcConfiguration &) = default ;
+        OidcConfiguration(OidcConfiguration &&) = default ;
+        OidcConfiguration(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~OidcConfiguration() = default ;
+        OidcConfiguration& operator=(const OidcConfiguration &) = default ;
+        OidcConfiguration& operator=(OidcConfiguration &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->authorizationEndpoint_ == nullptr
+        && this->clientAuthMethod_ == nullptr && this->clientId_ == nullptr && this->discoveryEndpoint_ == nullptr && this->hasClientPrivateKey_ == nullptr && this->hasClientSecret_ == nullptr
+        && this->issuer_ == nullptr && this->jwksUri_ == nullptr && this->pkceRequired_ == nullptr && this->scopes_ == nullptr && this->ssoMappingClaim_ == nullptr
+        && this->ssoStatus_ == nullptr && this->tokenEndpoint_ == nullptr && this->userinfoEndpoint_ == nullptr; };
+        // authorizationEndpoint Field Functions 
+        bool hasAuthorizationEndpoint() const { return this->authorizationEndpoint_ != nullptr;};
+        void deleteAuthorizationEndpoint() { this->authorizationEndpoint_ = nullptr;};
+        inline string getAuthorizationEndpoint() const { DARABONBA_PTR_GET_DEFAULT(authorizationEndpoint_, "") };
+        inline OidcConfiguration& setAuthorizationEndpoint(string authorizationEndpoint) { DARABONBA_PTR_SET_VALUE(authorizationEndpoint_, authorizationEndpoint) };
+
+
+        // clientAuthMethod Field Functions 
+        bool hasClientAuthMethod() const { return this->clientAuthMethod_ != nullptr;};
+        void deleteClientAuthMethod() { this->clientAuthMethod_ = nullptr;};
+        inline string getClientAuthMethod() const { DARABONBA_PTR_GET_DEFAULT(clientAuthMethod_, "") };
+        inline OidcConfiguration& setClientAuthMethod(string clientAuthMethod) { DARABONBA_PTR_SET_VALUE(clientAuthMethod_, clientAuthMethod) };
+
+
+        // clientId Field Functions 
+        bool hasClientId() const { return this->clientId_ != nullptr;};
+        void deleteClientId() { this->clientId_ = nullptr;};
+        inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+        inline OidcConfiguration& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
+        // discoveryEndpoint Field Functions 
+        bool hasDiscoveryEndpoint() const { return this->discoveryEndpoint_ != nullptr;};
+        void deleteDiscoveryEndpoint() { this->discoveryEndpoint_ = nullptr;};
+        inline string getDiscoveryEndpoint() const { DARABONBA_PTR_GET_DEFAULT(discoveryEndpoint_, "") };
+        inline OidcConfiguration& setDiscoveryEndpoint(string discoveryEndpoint) { DARABONBA_PTR_SET_VALUE(discoveryEndpoint_, discoveryEndpoint) };
+
+
+        // hasClientPrivateKey Field Functions 
+        bool hasHasClientPrivateKey() const { return this->hasClientPrivateKey_ != nullptr;};
+        void deleteHasClientPrivateKey() { this->hasClientPrivateKey_ = nullptr;};
+        inline bool getHasClientPrivateKey() const { DARABONBA_PTR_GET_DEFAULT(hasClientPrivateKey_, false) };
+        inline OidcConfiguration& setHasClientPrivateKey(bool hasClientPrivateKey) { DARABONBA_PTR_SET_VALUE(hasClientPrivateKey_, hasClientPrivateKey) };
+
+
+        // hasClientSecret Field Functions 
+        bool hasHasClientSecret() const { return this->hasClientSecret_ != nullptr;};
+        void deleteHasClientSecret() { this->hasClientSecret_ = nullptr;};
+        inline bool getHasClientSecret() const { DARABONBA_PTR_GET_DEFAULT(hasClientSecret_, false) };
+        inline OidcConfiguration& setHasClientSecret(bool hasClientSecret) { DARABONBA_PTR_SET_VALUE(hasClientSecret_, hasClientSecret) };
+
+
+        // issuer Field Functions 
+        bool hasIssuer() const { return this->issuer_ != nullptr;};
+        void deleteIssuer() { this->issuer_ = nullptr;};
+        inline string getIssuer() const { DARABONBA_PTR_GET_DEFAULT(issuer_, "") };
+        inline OidcConfiguration& setIssuer(string issuer) { DARABONBA_PTR_SET_VALUE(issuer_, issuer) };
+
+
+        // jwksUri Field Functions 
+        bool hasJwksUri() const { return this->jwksUri_ != nullptr;};
+        void deleteJwksUri() { this->jwksUri_ = nullptr;};
+        inline string getJwksUri() const { DARABONBA_PTR_GET_DEFAULT(jwksUri_, "") };
+        inline OidcConfiguration& setJwksUri(string jwksUri) { DARABONBA_PTR_SET_VALUE(jwksUri_, jwksUri) };
+
+
+        // pkceRequired Field Functions 
+        bool hasPkceRequired() const { return this->pkceRequired_ != nullptr;};
+        void deletePkceRequired() { this->pkceRequired_ = nullptr;};
+        inline bool getPkceRequired() const { DARABONBA_PTR_GET_DEFAULT(pkceRequired_, false) };
+        inline OidcConfiguration& setPkceRequired(bool pkceRequired) { DARABONBA_PTR_SET_VALUE(pkceRequired_, pkceRequired) };
+
+
+        // scopes Field Functions 
+        bool hasScopes() const { return this->scopes_ != nullptr;};
+        void deleteScopes() { this->scopes_ = nullptr;};
+        inline const vector<string> & getScopes() const { DARABONBA_PTR_GET_CONST(scopes_, vector<string>) };
+        inline vector<string> getScopes() { DARABONBA_PTR_GET(scopes_, vector<string>) };
+        inline OidcConfiguration& setScopes(const vector<string> & scopes) { DARABONBA_PTR_SET_VALUE(scopes_, scopes) };
+        inline OidcConfiguration& setScopes(vector<string> && scopes) { DARABONBA_PTR_SET_RVALUE(scopes_, scopes) };
+
+
+        // ssoMappingClaim Field Functions 
+        bool hasSsoMappingClaim() const { return this->ssoMappingClaim_ != nullptr;};
+        void deleteSsoMappingClaim() { this->ssoMappingClaim_ = nullptr;};
+        inline string getSsoMappingClaim() const { DARABONBA_PTR_GET_DEFAULT(ssoMappingClaim_, "") };
+        inline OidcConfiguration& setSsoMappingClaim(string ssoMappingClaim) { DARABONBA_PTR_SET_VALUE(ssoMappingClaim_, ssoMappingClaim) };
+
+
+        // ssoStatus Field Functions 
+        bool hasSsoStatus() const { return this->ssoStatus_ != nullptr;};
+        void deleteSsoStatus() { this->ssoStatus_ = nullptr;};
+        inline string getSsoStatus() const { DARABONBA_PTR_GET_DEFAULT(ssoStatus_, "") };
+        inline OidcConfiguration& setSsoStatus(string ssoStatus) { DARABONBA_PTR_SET_VALUE(ssoStatus_, ssoStatus) };
+
+
+        // tokenEndpoint Field Functions 
+        bool hasTokenEndpoint() const { return this->tokenEndpoint_ != nullptr;};
+        void deleteTokenEndpoint() { this->tokenEndpoint_ = nullptr;};
+        inline string getTokenEndpoint() const { DARABONBA_PTR_GET_DEFAULT(tokenEndpoint_, "") };
+        inline OidcConfiguration& setTokenEndpoint(string tokenEndpoint) { DARABONBA_PTR_SET_VALUE(tokenEndpoint_, tokenEndpoint) };
+
+
+        // userinfoEndpoint Field Functions 
+        bool hasUserinfoEndpoint() const { return this->userinfoEndpoint_ != nullptr;};
+        void deleteUserinfoEndpoint() { this->userinfoEndpoint_ = nullptr;};
+        inline string getUserinfoEndpoint() const { DARABONBA_PTR_GET_DEFAULT(userinfoEndpoint_, "") };
+        inline OidcConfiguration& setUserinfoEndpoint(string userinfoEndpoint) { DARABONBA_PTR_SET_VALUE(userinfoEndpoint_, userinfoEndpoint) };
+
+
+      protected:
+        // The absolute HTTPS URL required in manual mode. Do not specify this parameter in discovery mode.
+        shared_ptr<string> authorizationEndpoint_ {};
+        // The default value is client_secret_post. If the value is none, PKCE must be enabled.
+        shared_ptr<string> clientAuthMethod_ {};
+        // The client identifier registered in the external IdP, which is different from the Matrix client. In-place replacement is not supported after configuration.
+        shared_ptr<string> clientId_ {};
+        // The absolute HTTPS discovery endpoint. It is mutually exclusive with manually entered endpoints.
+        shared_ptr<string> discoveryEndpoint_ {};
+        // Indicates whether the client secret is saved. Only the existence status is returned, not the plaintext.
+        shared_ptr<bool> hasClientPrivateKey_ {};
+        // Indicates whether the client secret is saved. Only the existence status is returned, not the plaintext.
+        shared_ptr<bool> hasClientSecret_ {};
+        // The absolute HTTPS issuer of the external IdP. In-place replacement is not supported after configuration.
+        shared_ptr<string> issuer_ {};
+        // The absolute HTTPS URL required in manual mode. Do not specify this parameter in discovery mode.
+        shared_ptr<string> jwksUri_ {};
+        // Specifies whether PKCE is enabled. Default value: true. It must be set to true when no client authentication is used.
+        shared_ptr<bool> pkceRequired_ {};
+        // An array of strings that must contain openid. The default values are openid, profile, and email.
+        shared_ptr<vector<string>> scopes_ {};
+        // The claim name in the ID token used to match the SCIM externalId. If omitted during initial creation, the default value sub is used. If omitted during an update, the saved value is retained. For Azure, you can enter oid. The value must be non-empty and cannot contain whitespace characters. When you query oidc, the saved value is returned. When you query oidcConfiguration, the actual upstream value is returned, which may be empty.
+        shared_ptr<string> ssoMappingClaim_ {};
+        // The current upstream logon switch, which is Enabled or Disabled.
+        shared_ptr<string> ssoStatus_ {};
+        // The absolute HTTPS URL required in manual mode. Do not specify this parameter in discovery mode.
+        shared_ptr<string> tokenEndpoint_ {};
+        // The optional absolute HTTPS URL in manual mode. Do not specify this parameter in discovery mode.
+        shared_ptr<string> userinfoEndpoint_ {};
+      };
+
+      class Oidc : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Oidc& obj) { 
+          DARABONBA_PTR_TO_JSON(authorizationEndpoint, authorizationEndpoint_);
+          DARABONBA_PTR_TO_JSON(clientAuthMethod, clientAuthMethod_);
+          DARABONBA_PTR_TO_JSON(clientId, clientId_);
+          DARABONBA_PTR_TO_JSON(discoveryEndpoint, discoveryEndpoint_);
+          DARABONBA_PTR_TO_JSON(issuer, issuer_);
+          DARABONBA_PTR_TO_JSON(jwksUri, jwksUri_);
+          DARABONBA_PTR_TO_JSON(pkceRequired, pkceRequired_);
+          DARABONBA_PTR_TO_JSON(scopes, scopes_);
+          DARABONBA_PTR_TO_JSON(ssoMappingClaim, ssoMappingClaim_);
+          DARABONBA_PTR_TO_JSON(tokenEndpoint, tokenEndpoint_);
+          DARABONBA_PTR_TO_JSON(userinfoEndpoint, userinfoEndpoint_);
+        };
+        friend void from_json(const Darabonba::Json& j, Oidc& obj) { 
+          DARABONBA_PTR_FROM_JSON(authorizationEndpoint, authorizationEndpoint_);
+          DARABONBA_PTR_FROM_JSON(clientAuthMethod, clientAuthMethod_);
+          DARABONBA_PTR_FROM_JSON(clientId, clientId_);
+          DARABONBA_PTR_FROM_JSON(discoveryEndpoint, discoveryEndpoint_);
+          DARABONBA_PTR_FROM_JSON(issuer, issuer_);
+          DARABONBA_PTR_FROM_JSON(jwksUri, jwksUri_);
+          DARABONBA_PTR_FROM_JSON(pkceRequired, pkceRequired_);
+          DARABONBA_PTR_FROM_JSON(scopes, scopes_);
+          DARABONBA_PTR_FROM_JSON(ssoMappingClaim, ssoMappingClaim_);
+          DARABONBA_PTR_FROM_JSON(tokenEndpoint, tokenEndpoint_);
+          DARABONBA_PTR_FROM_JSON(userinfoEndpoint, userinfoEndpoint_);
+        };
+        Oidc() = default ;
+        Oidc(const Oidc &) = default ;
+        Oidc(Oidc &&) = default ;
+        Oidc(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Oidc() = default ;
+        Oidc& operator=(const Oidc &) = default ;
+        Oidc& operator=(Oidc &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->authorizationEndpoint_ == nullptr
+        && this->clientAuthMethod_ == nullptr && this->clientId_ == nullptr && this->discoveryEndpoint_ == nullptr && this->issuer_ == nullptr && this->jwksUri_ == nullptr
+        && this->pkceRequired_ == nullptr && this->scopes_ == nullptr && this->ssoMappingClaim_ == nullptr && this->tokenEndpoint_ == nullptr && this->userinfoEndpoint_ == nullptr; };
+        // authorizationEndpoint Field Functions 
+        bool hasAuthorizationEndpoint() const { return this->authorizationEndpoint_ != nullptr;};
+        void deleteAuthorizationEndpoint() { this->authorizationEndpoint_ = nullptr;};
+        inline string getAuthorizationEndpoint() const { DARABONBA_PTR_GET_DEFAULT(authorizationEndpoint_, "") };
+        inline Oidc& setAuthorizationEndpoint(string authorizationEndpoint) { DARABONBA_PTR_SET_VALUE(authorizationEndpoint_, authorizationEndpoint) };
+
+
+        // clientAuthMethod Field Functions 
+        bool hasClientAuthMethod() const { return this->clientAuthMethod_ != nullptr;};
+        void deleteClientAuthMethod() { this->clientAuthMethod_ = nullptr;};
+        inline string getClientAuthMethod() const { DARABONBA_PTR_GET_DEFAULT(clientAuthMethod_, "") };
+        inline Oidc& setClientAuthMethod(string clientAuthMethod) { DARABONBA_PTR_SET_VALUE(clientAuthMethod_, clientAuthMethod) };
+
+
+        // clientId Field Functions 
+        bool hasClientId() const { return this->clientId_ != nullptr;};
+        void deleteClientId() { this->clientId_ = nullptr;};
+        inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+        inline Oidc& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
+        // discoveryEndpoint Field Functions 
+        bool hasDiscoveryEndpoint() const { return this->discoveryEndpoint_ != nullptr;};
+        void deleteDiscoveryEndpoint() { this->discoveryEndpoint_ = nullptr;};
+        inline string getDiscoveryEndpoint() const { DARABONBA_PTR_GET_DEFAULT(discoveryEndpoint_, "") };
+        inline Oidc& setDiscoveryEndpoint(string discoveryEndpoint) { DARABONBA_PTR_SET_VALUE(discoveryEndpoint_, discoveryEndpoint) };
+
+
+        // issuer Field Functions 
+        bool hasIssuer() const { return this->issuer_ != nullptr;};
+        void deleteIssuer() { this->issuer_ = nullptr;};
+        inline string getIssuer() const { DARABONBA_PTR_GET_DEFAULT(issuer_, "") };
+        inline Oidc& setIssuer(string issuer) { DARABONBA_PTR_SET_VALUE(issuer_, issuer) };
+
+
+        // jwksUri Field Functions 
+        bool hasJwksUri() const { return this->jwksUri_ != nullptr;};
+        void deleteJwksUri() { this->jwksUri_ = nullptr;};
+        inline string getJwksUri() const { DARABONBA_PTR_GET_DEFAULT(jwksUri_, "") };
+        inline Oidc& setJwksUri(string jwksUri) { DARABONBA_PTR_SET_VALUE(jwksUri_, jwksUri) };
+
+
+        // pkceRequired Field Functions 
+        bool hasPkceRequired() const { return this->pkceRequired_ != nullptr;};
+        void deletePkceRequired() { this->pkceRequired_ = nullptr;};
+        inline bool getPkceRequired() const { DARABONBA_PTR_GET_DEFAULT(pkceRequired_, false) };
+        inline Oidc& setPkceRequired(bool pkceRequired) { DARABONBA_PTR_SET_VALUE(pkceRequired_, pkceRequired) };
+
+
+        // scopes Field Functions 
+        bool hasScopes() const { return this->scopes_ != nullptr;};
+        void deleteScopes() { this->scopes_ = nullptr;};
+        inline const vector<string> & getScopes() const { DARABONBA_PTR_GET_CONST(scopes_, vector<string>) };
+        inline vector<string> getScopes() { DARABONBA_PTR_GET(scopes_, vector<string>) };
+        inline Oidc& setScopes(const vector<string> & scopes) { DARABONBA_PTR_SET_VALUE(scopes_, scopes) };
+        inline Oidc& setScopes(vector<string> && scopes) { DARABONBA_PTR_SET_RVALUE(scopes_, scopes) };
+
+
+        // ssoMappingClaim Field Functions 
+        bool hasSsoMappingClaim() const { return this->ssoMappingClaim_ != nullptr;};
+        void deleteSsoMappingClaim() { this->ssoMappingClaim_ = nullptr;};
+        inline string getSsoMappingClaim() const { DARABONBA_PTR_GET_DEFAULT(ssoMappingClaim_, "") };
+        inline Oidc& setSsoMappingClaim(string ssoMappingClaim) { DARABONBA_PTR_SET_VALUE(ssoMappingClaim_, ssoMappingClaim) };
+
+
+        // tokenEndpoint Field Functions 
+        bool hasTokenEndpoint() const { return this->tokenEndpoint_ != nullptr;};
+        void deleteTokenEndpoint() { this->tokenEndpoint_ = nullptr;};
+        inline string getTokenEndpoint() const { DARABONBA_PTR_GET_DEFAULT(tokenEndpoint_, "") };
+        inline Oidc& setTokenEndpoint(string tokenEndpoint) { DARABONBA_PTR_SET_VALUE(tokenEndpoint_, tokenEndpoint) };
+
+
+        // userinfoEndpoint Field Functions 
+        bool hasUserinfoEndpoint() const { return this->userinfoEndpoint_ != nullptr;};
+        void deleteUserinfoEndpoint() { this->userinfoEndpoint_ = nullptr;};
+        inline string getUserinfoEndpoint() const { DARABONBA_PTR_GET_DEFAULT(userinfoEndpoint_, "") };
+        inline Oidc& setUserinfoEndpoint(string userinfoEndpoint) { DARABONBA_PTR_SET_VALUE(userinfoEndpoint_, userinfoEndpoint) };
+
+
+      protected:
+        // The absolute HTTPS URL required in manual mode. Do not specify this parameter in discovery mode.
+        shared_ptr<string> authorizationEndpoint_ {};
+        // The default value is client_secret_post. If the value is none, PKCE must be enabled.
+        shared_ptr<string> clientAuthMethod_ {};
+        // The client identifier registered in the external IdP, which is different from the Matrix client. In-place replacement is not supported after configuration.
+        shared_ptr<string> clientId_ {};
+        // The absolute HTTPS discovery endpoint. It is mutually exclusive with manually entered endpoints.
+        shared_ptr<string> discoveryEndpoint_ {};
+        // The absolute HTTPS issuer of the external IdP. In-place replacement is not supported after configuration.
+        shared_ptr<string> issuer_ {};
+        // The absolute HTTPS URL required in manual mode. Do not specify this parameter in discovery mode.
+        shared_ptr<string> jwksUri_ {};
+        // Specifies whether PKCE is enabled. Default value: true. It must be set to true when no client authentication is used.
+        shared_ptr<bool> pkceRequired_ {};
+        // An array of strings that must contain openid. The default values are openid, profile, and email.
+        shared_ptr<vector<string>> scopes_ {};
+        // The claim name in the ID token used to match the SCIM externalId. If omitted during initial creation, the default value sub is used. If omitted during an update, the saved value is retained. For Azure, you can enter oid. The value must be non-empty and cannot contain whitespace characters. When you query oidc, the saved value is returned. When you query oidcConfiguration, the actual upstream value is returned, which may be empty.
+        shared_ptr<string> ssoMappingClaim_ {};
+        // The absolute HTTPS URL required in manual mode. Do not specify this parameter in discovery mode.
+        shared_ptr<string> tokenEndpoint_ {};
+        // The optional absolute HTTPS URL in manual mode. Do not specify this parameter in discovery mode.
+        shared_ptr<string> userinfoEndpoint_ {};
       };
 
       class Metadata : public Darabonba::Model {
@@ -286,19 +613,19 @@ namespace Models
 
 
       protected:
-        // The App ID of the Lark application. Required when the binding type is Feishu.
+        // The App ID of the Lark application. This parameter is required when the binding type is Feishu.
         shared_ptr<string> appId_ {};
-        // The AppKey of the DingTalk application. Required when the binding type is DingTalk.
+        // The AppKey of the DingTalk application. This parameter is required when the binding type is DingTalk.
         shared_ptr<string> appKey_ {};
         // The SAML Binding URI in the historical metadata snapshot. For CustomSSO updates, use saml.bindingType.
         shared_ptr<string> binding_ {};
         // The certificate string in the historical metadata snapshot. To edit the configuration, use saml.x509Certificates and do not submit the old metadata.
         shared_ptr<string> certificates_ {};
-        // The CorpId of the DingTalk enterprise. Required when the binding type is DingTalk.
+        // The CorpId of the DingTalk enterprise. This parameter is required when the binding type is DingTalk.
         shared_ptr<string> corpId_ {};
-        // Required when manually filled in. It must be non-empty and no more than 2,048 characters. Existing configurations do not support replacement. This is different from our Entity ID queried by the SP.
+        // This parameter is required when manually filled in. It must be non-empty and contain a maximum of 2,048 characters. Existing configurations do not support replacement. It is different from the Entity ID queried by the service provider (SP).
         shared_ptr<string> entityId_ {};
-        // Required when manually filled in. It must be an absolute HTTPS URL and must not contain user credentials or fragments.
+        // This parameter is required when manually filled in. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
       };
 
@@ -358,20 +685,20 @@ namespace Models
 
 
       protected:
-        // HTTP-Redirect or HTTP-POST. Required when manually filled in. Queries return the short name.
+        // The SAML binding type. Valid values: HTTP-Redirect and HTTP-POST. This parameter is required when manually filled in. Queries return short names.
         shared_ptr<string> bindingType_ {};
-        // Required when manually filled in. It must be non-empty and no more than 2,048 characters. Existing configurations do not support replacement. This is different from our Entity ID queried by the SP.
+        // This parameter is required when manually filled in. It must be non-empty and contain a maximum of 2,048 characters. Existing configurations do not support replacement. It is different from the Entity ID queried by the service provider (SP).
         shared_ptr<string> entityId_ {};
-        // Required when manually filled in. It must be an absolute HTTPS URL and must not contain user credentials or fragments.
+        // This parameter is required when manually filled in. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
-        // The actual switch value, which is Enabled or Disabled. This is not equivalent to the expected loginEnabled value saved in AC.
+        // The actual switch value is Enabled or Disabled, which is not equivalent to the expected loginEnabled value saved in AC.
         shared_ptr<string> ssoStatus_ {};
       };
 
       virtual bool empty() const override { return this->configuration_ == nullptr
         && this->createdAt_ == nullptr && this->eventSubscriptionCallbackUrl_ == nullptr && this->identityProviderType_ == nullptr && this->loginCallbackUrl_ == nullptr && this->loginEnabled_ == nullptr
-        && this->metadata_ == nullptr && this->protocol_ == nullptr && this->saml_ == nullptr && this->status_ == nullptr && this->syncEnabled_ == nullptr
-        && this->syncScope_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->metadata_ == nullptr && this->oidc_ == nullptr && this->oidcConfiguration_ == nullptr && this->protocol_ == nullptr && this->saml_ == nullptr
+        && this->status_ == nullptr && this->syncEnabled_ == nullptr && this->syncScope_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
       // configuration Field Functions 
       bool hasConfiguration() const { return this->configuration_ != nullptr;};
       void deleteConfiguration() { this->configuration_ = nullptr;};
@@ -423,6 +750,24 @@ namespace Models
       inline Data::Metadata getMetadata() { DARABONBA_PTR_GET(metadata_, Data::Metadata) };
       inline Data& setMetadata(const Data::Metadata & metadata) { DARABONBA_PTR_SET_VALUE(metadata_, metadata) };
       inline Data& setMetadata(Data::Metadata && metadata) { DARABONBA_PTR_SET_RVALUE(metadata_, metadata) };
+
+
+      // oidc Field Functions 
+      bool hasOidc() const { return this->oidc_ != nullptr;};
+      void deleteOidc() { this->oidc_ = nullptr;};
+      inline const Data::Oidc & getOidc() const { DARABONBA_PTR_GET_CONST(oidc_, Data::Oidc) };
+      inline Data::Oidc getOidc() { DARABONBA_PTR_GET(oidc_, Data::Oidc) };
+      inline Data& setOidc(const Data::Oidc & oidc) { DARABONBA_PTR_SET_VALUE(oidc_, oidc) };
+      inline Data& setOidc(Data::Oidc && oidc) { DARABONBA_PTR_SET_RVALUE(oidc_, oidc) };
+
+
+      // oidcConfiguration Field Functions 
+      bool hasOidcConfiguration() const { return this->oidcConfiguration_ != nullptr;};
+      void deleteOidcConfiguration() { this->oidcConfiguration_ = nullptr;};
+      inline const Data::OidcConfiguration & getOidcConfiguration() const { DARABONBA_PTR_GET_CONST(oidcConfiguration_, Data::OidcConfiguration) };
+      inline Data::OidcConfiguration getOidcConfiguration() { DARABONBA_PTR_GET(oidcConfiguration_, Data::OidcConfiguration) };
+      inline Data& setOidcConfiguration(const Data::OidcConfiguration & oidcConfiguration) { DARABONBA_PTR_SET_VALUE(oidcConfiguration_, oidcConfiguration) };
+      inline Data& setOidcConfiguration(Data::OidcConfiguration && oidcConfiguration) { DARABONBA_PTR_SET_RVALUE(oidcConfiguration_, oidcConfiguration) };
 
 
       // protocol Field Functions 
@@ -479,38 +824,42 @@ namespace Models
 
 
     protected:
-      // The actual SAML configuration is read back on demand only by GetIdentityProvider. SCIM queries and preparations return the actual received status and URLs.
+      // The actual SAML configuration is read back on demand only in GetIdentityProvider. SCIM queries and preparations return the actual received status and URLs.
       shared_ptr<Data::Configuration> configuration_ {};
       // The creation time in UTC format based on RFC 3339.
       shared_ptr<string> createdAt_ {};
-      // The event subscription callback URL. You must configure this URL in the application of the external identity provider to receive organization change events. An empty string is returned if the user pool is not yet activated.
+      // The event subscription callback URL. You must configure this URL in the application of the external identity provider to receive organization change events. An empty string is returned when the user pool is not yet activated.
       shared_ptr<string> eventSubscriptionCallbackUrl_ {};
-      // The external identity provider type. Valid values: DingTalk and Feishu.
+      // The type of the external identity provider. Valid values: DingTalk and Feishu.
       shared_ptr<string> identityProviderType_ {};
-      // The login callback URL. You must configure this URL in the application of the external identity provider. An empty string is returned if the user pool is not yet activated.
+      // The logon callback URL. You must configure this URL in the application of the external identity provider. An empty string is returned when the user pool is not yet activated.
       shared_ptr<string> loginCallbackUrl_ {};
-      // Specifies whether workspace users are allowed to log on through this external identity provider.
+      // Indicates whether workspace users are allowed to log on through this external identity provider.
       shared_ptr<bool> loginEnabled_ {};
       // The application configuration of the external identity provider. Application secret configurations are not returned.
       shared_ptr<Data::Metadata> metadata_ {};
-      // Currently, only SAML is supported. This field may not be returned if no valid configuration is saved. Placeholder initialization with OIDC is not supported.
+      // The security summary of the expected configuration. It does not contain credentials. The original SAML fields and meanings are retained.
+      shared_ptr<Data::Oidc> oidc_ {};
+      // The security summary queried in real time from AgentIdentity. It does not contain secrets, private keys, or JIT fields. It can be empty when it is not configured or during unbinding.
+      shared_ptr<Data::OidcConfiguration> oidcConfiguration_ {};
+      // Currently, only SAML is supported. This parameter may not be returned when no valid configuration is saved. Placeholder initialization with OIDC is not supported.
       shared_ptr<string> protocol_ {};
-      // The input supports either XML or complete manual entry. Queries return the standardized configuration and do not echo the original XML. This field can be omitted if not configured.
+      // The input supports either XML or complete manual entry. Queries return standardized configurations and do not echo the original XML. This parameter can be omitted when not configured.
       shared_ptr<Data::Saml> saml_ {};
       // The status. Valid values:
       // - CONFIGURED: The configuration is accepted and waiting for the user pool to be activated.
       // - SYNCING: Organization members are being synchronized.
-      // - SYNCED: Organization member synchronization is complete.
+      // - SYNCED: The synchronization of organization members is complete.
       // - READY: The binding is in effect.
-      // - SYNC_FAILED: Organization member synchronization failed.
+      // - SYNC_FAILED: The synchronization of organization members failed.
       // - UPDATING: The configuration is being updated.
       // - UPDATE_FAILED: The configuration update failed.
       // - DISCONNECTING: The binding is being disconnected.
       // - DISCONNECT_FAILED: The disconnection failed.
       shared_ptr<string> status_ {};
-      // Specifies whether organization member synchronization is enabled. If enabled, organization members are synchronized as workspace users by this external identity provider.
+      // Indicates whether organization member synchronization is enabled. When enabled, organization members are synchronized as workspace users by this external identity provider.
       shared_ptr<bool> syncEnabled_ {};
-      // Follows the department-based synchronization scope definition. If omitted during creation, the default value is AllAuthorized, and the first vendor synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically trigger a full synchronization.
+      // The synchronization scope defined by department. If omitted during creation, the default value is AllAuthorized, and the first vendor synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically trigger a full synchronization.
       shared_ptr<Data::SyncScope> syncScope_ {};
       // The time of the last modification in UTC format based on RFC 3339.
       shared_ptr<string> updatedAt_ {};
@@ -571,7 +920,7 @@ namespace Models
     shared_ptr<GetIdentityProviderResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. Returns an error description if the request fails.
+    // The response message. Returns an error description when the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTMEMORYSESSIONSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTMEMORYSESSIONSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(success, success_);
+      DARABONBA_PTR_TO_JSON(totalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, ListMemorySessionsResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
@@ -32,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(success, success_);
+      DARABONBA_PTR_FROM_JSON(totalCount, totalCount_);
     };
     ListMemorySessionsResponseBody() = default ;
     ListMemorySessionsResponseBody(const ListMemorySessionsResponseBody &) = default ;
@@ -48,12 +51,20 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
         DARABONBA_PTR_TO_JSON(agentId, agentId_);
+        DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
+        DARABONBA_PTR_TO_JSON(metadata, metadata_);
         DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
+        DARABONBA_PTR_TO_JSON(teamId, teamId_);
+        DARABONBA_PTR_TO_JSON(title, title_);
         DARABONBA_PTR_TO_JSON(userId, userId_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(agentId, agentId_);
+        DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
+        DARABONBA_PTR_FROM_JSON(metadata, metadata_);
         DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
+        DARABONBA_PTR_FROM_JSON(teamId, teamId_);
+        DARABONBA_PTR_FROM_JSON(title, title_);
         DARABONBA_PTR_FROM_JSON(userId, userId_);
       };
       Items() = default ;
@@ -68,7 +79,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->sessionId_ == nullptr && this->userId_ == nullptr; };
+        && this->createdAt_ == nullptr && this->metadata_ == nullptr && this->sessionId_ == nullptr && this->teamId_ == nullptr && this->title_ == nullptr
+        && this->userId_ == nullptr; };
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -76,11 +88,41 @@ namespace Models
       inline Items& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
 
 
+      // createdAt Field Functions 
+      bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
+      void deleteCreatedAt() { this->createdAt_ = nullptr;};
+      inline string getCreatedAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
+      inline Items& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
+
+
+      // metadata Field Functions 
+      bool hasMetadata() const { return this->metadata_ != nullptr;};
+      void deleteMetadata() { this->metadata_ = nullptr;};
+      inline const map<string, string> & getMetadata() const { DARABONBA_PTR_GET_CONST(metadata_, map<string, string>) };
+      inline map<string, string> getMetadata() { DARABONBA_PTR_GET(metadata_, map<string, string>) };
+      inline Items& setMetadata(const map<string, string> & metadata) { DARABONBA_PTR_SET_VALUE(metadata_, metadata) };
+      inline Items& setMetadata(map<string, string> && metadata) { DARABONBA_PTR_SET_RVALUE(metadata_, metadata) };
+
+
       // sessionId Field Functions 
       bool hasSessionId() const { return this->sessionId_ != nullptr;};
       void deleteSessionId() { this->sessionId_ = nullptr;};
       inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
       inline Items& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
+
+
+      // teamId Field Functions 
+      bool hasTeamId() const { return this->teamId_ != nullptr;};
+      void deleteTeamId() { this->teamId_ = nullptr;};
+      inline string getTeamId() const { DARABONBA_PTR_GET_DEFAULT(teamId_, "") };
+      inline Items& setTeamId(string teamId) { DARABONBA_PTR_SET_VALUE(teamId_, teamId) };
+
+
+      // title Field Functions 
+      bool hasTitle() const { return this->title_ != nullptr;};
+      void deleteTitle() { this->title_ = nullptr;};
+      inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+      inline Items& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
       // userId Field Functions 
@@ -93,15 +135,23 @@ namespace Models
     protected:
       // The agent ID. This field is not returned if the session is not associated with an agent ID.
       shared_ptr<string> agentId_ {};
+      // The creation time in RFC 3339 format with time zone.
+      shared_ptr<string> createdAt_ {};
+      // The string key-value tags set by the caller. A maximum of 16 tags are supported. A key can be up to 64 Unicode characters in length, and a value can be up to 1,024 Unicode characters in length. Empty strings are allowed. Nested objects or arrays are not supported.
+      shared_ptr<map<string, string>> metadata_ {};
       // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The business team ID defined by the caller. If specified, the value cannot be empty and can be up to 128 UTF-8 bytes in length.
+      shared_ptr<string> teamId_ {};
+      // The session title.
+      shared_ptr<string> title_ {};
       // The user ID. This field is not returned if the session is not associated with a user ID.
       shared_ptr<string> userId_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
         && this->httpStatusCode_ == nullptr && this->items_ == nullptr && this->maxResults_ == nullptr && this->message_ == nullptr && this->nextToken_ == nullptr
-        && this->requestId_ == nullptr && this->success_ == nullptr; };
+        && this->requestId_ == nullptr && this->success_ == nullptr && this->totalCount_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -160,6 +210,13 @@ namespace Models
     inline ListMemorySessionsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline ListMemorySessionsResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
@@ -177,6 +234,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // The total number of records.
+    shared_ptr<int64_t> totalCount_ {};
   };
 
   } // namespace Models

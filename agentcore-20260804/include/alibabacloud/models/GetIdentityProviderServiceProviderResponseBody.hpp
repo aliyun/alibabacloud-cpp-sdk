@@ -46,12 +46,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(entityId, entityId_);
         DARABONBA_PTR_TO_JSON(metadataXml, metadataXml_);
         DARABONBA_PTR_TO_JSON(protocol, protocol_);
+        DARABONBA_PTR_TO_JSON(redirectUri, redirectUri_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(acsUrl, acsUrl_);
         DARABONBA_PTR_FROM_JSON(entityId, entityId_);
         DARABONBA_PTR_FROM_JSON(metadataXml, metadataXml_);
         DARABONBA_PTR_FROM_JSON(protocol, protocol_);
+        DARABONBA_PTR_FROM_JSON(redirectUri, redirectUri_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -65,7 +67,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->acsUrl_ == nullptr
-        && this->entityId_ == nullptr && this->metadataXml_ == nullptr && this->protocol_ == nullptr; };
+        && this->entityId_ == nullptr && this->metadataXml_ == nullptr && this->protocol_ == nullptr && this->redirectUri_ == nullptr; };
       // acsUrl Field Functions 
       bool hasAcsUrl() const { return this->acsUrl_ != nullptr;};
       void deleteAcsUrl() { this->acsUrl_ = nullptr;};
@@ -94,15 +96,24 @@ namespace Models
       inline Data& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
+      // redirectUri Field Functions 
+      bool hasRedirectUri() const { return this->redirectUri_ != nullptr;};
+      void deleteRedirectUri() { this->redirectUri_ = nullptr;};
+      inline string getRedirectUri() const { DARABONBA_PTR_GET_DEFAULT(redirectUri_, "") };
+      inline Data& setRedirectUri(string redirectUri) { DARABONBA_PTR_SET_VALUE(redirectUri_, redirectUri) };
+
+
     protected:
-      // The SAML assertion consumer URL of the local SP. Configure it in the external IdP.
+      // The SAML assertion consumer URL of the local SP. Configure this value in the external IdP.
       shared_ptr<string> acsUrl_ {};
-      // The entity identifier of the local SP. Configure it in the external IdP. This is not the Entity ID of the external IdP.
+      // The entity identifier of the local SP. Configure this value in the external IdP. This is not the Entity ID of the external IdP.
       shared_ptr<string> entityId_ {};
-      // The SP metadata XML of the local SP. Use it for import in the external IdP. Do not submit it as the IdP XML for SAML configuration.
+      // The SP metadata XML of the local SP. Use this file for import in the external IdP. Do not submit this file as the IdP XML for SAML configuration.
       shared_ptr<string> metadataXml_ {};
       // Required. The query parameter. Only the exact value SAML is supported. The response returns SAML.
       shared_ptr<string> protocol_ {};
+      // The valid URL returned when protocol is set to OIDC. Configure this value as the callback URL in the external IdP. This field is empty or not returned when SAML is used. The meanings of the original SAML fields remain unchanged.
+      shared_ptr<string> redirectUri_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
@@ -152,15 +163,15 @@ namespace Models
 
 
   protected:
-    // The business result code. If the request fails, handle the error based on the HTTP status code and the message.
+    // The business result code. If the request fails, troubleshoot the issue based on the HTTP status code and the message.
     shared_ptr<string> code_ {};
-    // The SP information. For the result structure, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, which does not guarantee that the background task is complete.
+    // The SP information. For the result structure, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not guarantee that the background task is complete.
     shared_ptr<GetIdentityProviderServiceProviderResponseBody::Data> data_ {};
-    // The processing status of the current request. This status is not equivalent to the final result of the background task.
+    // The processing status of the current request. This status does not indicate the final result of the background task.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message about request acceptance or errors. Check the asynchronous task result by calling the corresponding query operation.
+    // The request acceptance or error message. For asynchronous task results, check them by calling the corresponding query operation.
     shared_ptr<string> message_ {};
-    // The ID of the request. You can use the ID to associate the call with troubleshooting. Keep the ID if the request fails.
+    // The ID of the request. You can use this ID to associate the current call with troubleshooting. Keep this ID if the request fails.
     shared_ptr<string> requestId_ {};
     // Indicates whether the current request is successful. A value of true indicates that the request is processed successfully. For asynchronous write operations, you must continue to query the task results.
     shared_ptr<bool> success_ {};

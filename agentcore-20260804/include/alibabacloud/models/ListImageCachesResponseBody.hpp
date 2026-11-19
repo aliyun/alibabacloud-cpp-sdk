@@ -248,7 +248,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> acrInstanceId_ {};
-      // The number of agents using the cache.
+      // The number of agents that use the cache.
       // 
       // This parameter is required.
       shared_ptr<int64_t> agentCount_ {};
@@ -260,7 +260,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<bool> canDelete_ {};
-      // The resource creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+      // The resource creation time. The time follows the RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
       // 
       // This parameter is required.
       shared_ptr<string> createdAt_ {};
@@ -379,11 +379,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The records on the current page. An empty array is returned if no matching items are found.
+    // The records on the current page. This is an empty array if no matching items are found.
     // 
     // This parameter is required.
     shared_ptr<vector<ListImageCachesResponseBody::Items>> items_ {};
-    // The actual page size used for this request, which is not the number of items on the current page.
+    // The actual page size used for this request, not the number of items on this page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> maxResults_ {};
@@ -395,7 +395,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};
-    // The request ID, which is used for troubleshooting.
+    // The request ID used for troubleshooting.
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
@@ -403,7 +403,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<bool> success_ {};
-    // The total number of records under the current filter conditions. Do not use this value to determine whether the traversal is complete.
+    // The total number of records that match the current filter conditions. This value is not used to determine whether the traversal is complete.
     // 
     // This parameter is required.
     shared_ptr<int64_t> totalCount_ {};

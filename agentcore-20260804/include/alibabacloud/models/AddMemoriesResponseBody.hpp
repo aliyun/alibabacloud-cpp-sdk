@@ -45,10 +45,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(memories, memories_);
         DARABONBA_PTR_TO_JSON(taskId, taskId_);
+        DARABONBA_PTR_TO_JSON(taskIds, taskIds_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(memories, memories_);
         DARABONBA_PTR_FROM_JSON(taskId, taskId_);
+        DARABONBA_PTR_FROM_JSON(taskIds, taskIds_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -90,11 +92,13 @@ namespace Models
 
       protected:
         // The long-term memory ID.
+        // 
+        // This parameter is required.
         shared_ptr<string> memoryId_ {};
       };
 
       virtual bool empty() const override { return this->memories_ == nullptr
-        && this->taskId_ == nullptr; };
+        && this->taskId_ == nullptr && this->taskIds_ == nullptr; };
       // memories Field Functions 
       bool hasMemories() const { return this->memories_ != nullptr;};
       void deleteMemories() { this->memories_ = nullptr;};
@@ -111,11 +115,22 @@ namespace Models
       inline Data& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
+      // taskIds Field Functions 
+      bool hasTaskIds() const { return this->taskIds_ != nullptr;};
+      void deleteTaskIds() { this->taskIds_ = nullptr;};
+      inline const vector<string> & getTaskIds() const { DARABONBA_PTR_GET_CONST(taskIds_, vector<string>) };
+      inline vector<string> getTaskIds() { DARABONBA_PTR_GET(taskIds_, vector<string>) };
+      inline Data& setTaskIds(const vector<string> & taskIds) { DARABONBA_PTR_SET_VALUE(taskIds_, taskIds) };
+      inline Data& setTaskIds(vector<string> && taskIds) { DARABONBA_PTR_SET_RVALUE(taskIds_, taskIds) };
+
+
     protected:
-      // The memory references. This parameter is returned only when sync is set to true, and an empty array is allowed. It is not returned together with taskId.
+      // The memory references returned only when sync is set to true. An empty array is allowed. It is not returned together with taskId.
       shared_ptr<vector<Data::Memories>> memories_ {};
-      // The task ID. This parameter is returned only when sync is set to false. It is not returned together with memories.
+      // The task ID returned only when sync is set to false. It is not returned together with memories.
       shared_ptr<string> taskId_ {};
+      // The list of extraction task IDs. Multiple tasks may be returned when multiple rules are enabled. It is not returned for direct writes.
+      shared_ptr<vector<string>> taskIds_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr

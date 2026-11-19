@@ -97,7 +97,7 @@ namespace Models
       shared_ptr<string> channelType_ {};
       // The unique identifier of the active session.
       shared_ptr<string> sessionId_ {};
-      // The source type of the session. A value of API indicates an API call, CONSOLE_DEBUG indicates console debugging, EXTERNAL_CHANNEL indicates an external channel, and UNKNOWN indicates an unknown source.
+      // The source type of the session. A value of API indicates an API call. A value of CONSOLE_DEBUG indicates console debugging. A value of EXTERNAL_CHANNEL indicates an external channel. A value of UNKNOWN indicates an unknown source.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -184,7 +184,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. A value of true indicates success, and a value of false indicates failure.
+    // Indicates whether the request is successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
     // The total number of records that meet the query conditions.
     shared_ptr<int64_t> totalCount_ {};

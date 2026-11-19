@@ -125,7 +125,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> namespace_ {};
-      // The name of the repository under the namespace. Do not repeat the namespace in this field.
+      // The name of the repository under the namespace. Do not include the namespace in the repository name.
       // 
       // This parameter is required.
       shared_ptr<string> repository_ {};
@@ -172,11 +172,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<CreateImageCacheRequest::Body> body_ {};
-    // The non-empty request identifier passed as a query parameter. The current implementation does not guarantee deduplication based on this identifier or recovery of the original acceptance result.
+    // The non-empty request identifier passed as a query parameter. The current implementation does not guarantee deduplication by this identifier or recovery of the original acceptance result.
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The product entry region. This parameter is passed as a query parameter and must match the selected region endpoint and the workspace region.
+    // The product entry region, passed as a query parameter. It must match the selected region endpoint and the workspace region.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

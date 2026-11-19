@@ -111,7 +111,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<CreateMemoryStoreRequest::Body> body_ {};
-    // The client request token.
+    // The client token.
     shared_ptr<string> clientToken_ {};
   };
 

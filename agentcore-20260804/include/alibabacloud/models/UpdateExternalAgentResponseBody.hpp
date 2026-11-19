@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(deployType, deployType_);
         DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(environment, environment_);
         DARABONBA_PTR_TO_JSON(externalAgentStatus, externalAgentStatus_);
         DARABONBA_PTR_TO_JSON(instruction, instruction_);
         DARABONBA_PTR_TO_JSON(latestSpecVersion, latestSpecVersion_);
@@ -72,6 +73,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(deployType, deployType_);
         DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(environment, environment_);
         DARABONBA_PTR_FROM_JSON(externalAgentStatus, externalAgentStatus_);
         DARABONBA_PTR_FROM_JSON(instruction, instruction_);
         DARABONBA_PTR_FROM_JSON(latestSpecVersion, latestSpecVersion_);
@@ -141,8 +143,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The tool type. Valid values:
-        // - MCP: MCP tool.
+        // The tool type. Valid values: MCP (MCP tool).
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -299,9 +300,7 @@ namespace Models
 
 
         protected:
-          // The version selector type. Valid values:
-          // - LABEL: Selects by tag.
-          // - VERSION: Selects by specific version.
+          // The version selector type. Valid values: LABEL (by tag) and VERSION (by specific version).
           shared_ptr<string> type_ {};
           // The selector value. When the type is LABEL, the value is the tag name, such as latest. When the type is VERSION, the value is the specific version number.
           shared_ptr<string> value_ {};
@@ -362,21 +361,19 @@ namespace Models
 
 
       protected:
-        // The effective version at runtime. This field is read-only.
+        // The effective version applied at runtime. This field is read-only.
         shared_ptr<string> appliedVersion_ {};
-        // Indicates whether the skill is from a fixed template. This field is read-only. Template items cannot be removed.
+        // Indicates whether the skill is from a fixed template. This field is read-only, and template items cannot be removed.
         shared_ptr<bool> fromTemplate_ {};
         // The skill name.
         shared_ptr<string> name_ {};
         // The current target version. This field is read-only.
         shared_ptr<string> resolvedVersion_ {};
-        // The skill source type. Valid values:
-        // - REFERENCE: References AI Registry assets.
-        // - STATIC: Statically provided with deployment artifacts.
+        // The skill source type. Valid values: REFERENCE (references AI Registry) and STATIC (statically provided with the package).
         shared_ptr<string> sourceType_ {};
         // The current target version for compatibility with legacy clients. New clients use resolvedVersion and determine the effective runtime version based on appliedVersion.
         shared_ptr<string> version_ {};
-        // The skill reference version selector, which supports LABEL tags and VERSION specific versions. If this parameter is omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
+        // The skill reference version selector, which supports LABEL tags and VERSION specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
         shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
@@ -491,15 +488,15 @@ namespace Models
           shared_ptr<bool> enabled_ {};
           // The quota limit type. Currently, only token is supported.
           shared_ptr<string> limitType_ {};
-          // Indicates whether the quota is exceeded in the current cycle. This field is read-only and returned by the backend.
+          // Indicates whether the quota is exceeded in the current period. This field is read-only and returned by the backend.
           shared_ptr<bool> overLimit_ {};
           // The quota statistical period. A value of day indicates daily, and a value of month indicates monthly.
           shared_ptr<string> periodType_ {};
           // The gateway quota rule status. This field is read-only and returned by the backend.
           shared_ptr<string> ruleStatus_ {};
-          // The maximum number of tokens allowed to be consumed in a single cycle.
+          // The maximum number of tokens allowed to be consumed in a single period.
           shared_ptr<int64_t> usageLimit_ {};
-          // The number of tokens consumed in the current cycle. This field is read-only and returned by the backend.
+          // The number of tokens consumed in the current period. This field is read-only and returned by the backend.
           shared_ptr<int64_t> usedAmount_ {};
         };
 
@@ -533,7 +530,7 @@ namespace Models
         shared_ptr<string> modelConnectionId_ {};
         // The upstream model name.
         shared_ptr<string> modelName_ {};
-        // The model token quota configuration and the quota usage status for the current cycle. This field is empty if no quota is configured.
+        // The model token quota configuration and usage status for the current period. This field is empty if no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
       };
 
@@ -602,7 +599,10 @@ namespace Models
 
 
       protected:
-        // The heartbeat status. ONLINE indicates that the most recent heartbeat did not exceed the configured timeout threshold. STALE indicates that the heartbeat has timed out. UNKNOWN indicates that the heartbeat is missing or the format is invalid. Valid values: ONLINE (online), STALE (heartbeat expired), and UNKNOWN (unknown).
+        // The heartbeat status. ONLINE indicates that the most recent heartbeat did not exceed the configured timeout threshold. STALE indicates that the heartbeat has timed out. UNKNOWN indicates that the heartbeat is missing or the format is invalid. Valid values:
+        // - ONLINE: Online.
+        // - STALE: Heartbeat expired.
+        // - UNKNOWN: Unknown.
         shared_ptr<string> heartbeatStatus_ {};
         // The time when the managed agent was last active, in RFC 3339 format.
         shared_ptr<string> lastActiveAt_ {};
@@ -612,6 +612,72 @@ namespace Models
         shared_ptr<string> localIP_ {};
         // The runtime type reported by the managed agent.
         shared_ptr<string> runtime_ {};
+      };
+
+      class Environment : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Environment& obj) { 
+          DARABONBA_PTR_TO_JSON(credentialReferences, credentialReferences_);
+        };
+        friend void from_json(const Darabonba::Json& j, Environment& obj) { 
+          DARABONBA_PTR_FROM_JSON(credentialReferences, credentialReferences_);
+        };
+        Environment() = default ;
+        Environment(const Environment &) = default ;
+        Environment(Environment &&) = default ;
+        Environment(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Environment() = default ;
+        Environment& operator=(const Environment &) = default ;
+        Environment& operator=(Environment &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class CredentialReferences : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CredentialReferences& obj) { 
+            DARABONBA_PTR_TO_JSON(credentialId, credentialId_);
+          };
+          friend void from_json(const Darabonba::Json& j, CredentialReferences& obj) { 
+            DARABONBA_PTR_FROM_JSON(credentialId, credentialId_);
+          };
+          CredentialReferences() = default ;
+          CredentialReferences(const CredentialReferences &) = default ;
+          CredentialReferences(CredentialReferences &&) = default ;
+          CredentialReferences(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CredentialReferences() = default ;
+          CredentialReferences& operator=(const CredentialReferences &) = default ;
+          CredentialReferences& operator=(CredentialReferences &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->credentialId_ == nullptr; };
+          // credentialId Field Functions 
+          bool hasCredentialId() const { return this->credentialId_ != nullptr;};
+          void deleteCredentialId() { this->credentialId_ = nullptr;};
+          inline string getCredentialId() const { DARABONBA_PTR_GET_DEFAULT(credentialId_, "") };
+          inline CredentialReferences& setCredentialId(string credentialId) { DARABONBA_PTR_SET_VALUE(credentialId_, credentialId) };
+
+
+        protected:
+          // The credential ID. This parameter is required when passing a credential reference item and is verified by the backend.
+          shared_ptr<string> credentialId_ {};
+        };
+
+        virtual bool empty() const override { return this->credentialReferences_ == nullptr; };
+        // credentialReferences Field Functions 
+        bool hasCredentialReferences() const { return this->credentialReferences_ != nullptr;};
+        void deleteCredentialReferences() { this->credentialReferences_ = nullptr;};
+        inline const vector<Environment::CredentialReferences> & getCredentialReferences() const { DARABONBA_PTR_GET_CONST(credentialReferences_, vector<Environment::CredentialReferences>) };
+        inline vector<Environment::CredentialReferences> getCredentialReferences() { DARABONBA_PTR_GET(credentialReferences_, vector<Environment::CredentialReferences>) };
+        inline Environment& setCredentialReferences(const vector<Environment::CredentialReferences> & credentialReferences) { DARABONBA_PTR_SET_VALUE(credentialReferences_, credentialReferences) };
+        inline Environment& setCredentialReferences(vector<Environment::CredentialReferences> && credentialReferences) { DARABONBA_PTR_SET_RVALUE(credentialReferences_, credentialReferences) };
+
+
+      protected:
+        // The list of credential references. You must explicitly provide this list when passing the environment object, and it cannot be null. The list is replaced in its entirety. If you do not pass environment during an update, the original binding is retained. If you pass an empty list or set environment to null, the binding is cleared. Pass only the credential ID, not the actual key.
+        shared_ptr<vector<Environment::CredentialReferences>> credentialReferences_ {};
       };
 
       class ConfiguredSkills : public Darabonba::Model {
@@ -677,9 +743,7 @@ namespace Models
 
 
         protected:
-          // The version selector type. Valid values:
-          // - LABEL: Selects by tag.
-          // - VERSION: Selects by specific version.
+          // The version selector type. Valid values: LABEL (by tag) and VERSION (by specific version).
           shared_ptr<string> type_ {};
           // The selector value. When the type is LABEL, the value is the tag name, such as latest. When the type is VERSION, the value is the specific version number.
           shared_ptr<string> value_ {};
@@ -722,21 +786,20 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The skill source type. Valid values:
-        // - REFERENCE: References AI Registry assets.
-        // - STATIC: Statically provided with deployment artifacts.
+        // The skill source type. Valid values: REFERENCE (references AI Registry) and STATIC (statically provided with the package).
         shared_ptr<string> sourceType_ {};
-        // The legacy compatibility field. Use sourceType and versionSelector for new requests.
+        // The legacy compatibility field. For new requests, use sourceType and versionSelector.
         shared_ptr<string> version_ {};
-        // The skill reference version selector, which supports LABEL tags and VERSION specific versions. If this parameter is omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
+        // The skill reference version selector, which supports LABEL tags and VERSION specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
         shared_ptr<ConfiguredSkills::VersionSelector> versionSelector_ {};
       };
 
       virtual bool empty() const override { return this->agentId_ == nullptr
         && this->configuredSkills_ == nullptr && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr
-        && this->externalAgentStatus_ == nullptr && this->instruction_ == nullptr && this->latestSpecVersion_ == nullptr && this->latestVersionStatus_ == nullptr && this->model_ == nullptr
-        && this->modelSource_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->runtime_ == nullptr && this->skills_ == nullptr
-        && this->status_ == nullptr && this->template_ == nullptr && this->tools_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->environment_ == nullptr && this->externalAgentStatus_ == nullptr && this->instruction_ == nullptr && this->latestSpecVersion_ == nullptr && this->latestVersionStatus_ == nullptr
+        && this->model_ == nullptr && this->modelSource_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->runtime_ == nullptr
+        && this->skills_ == nullptr && this->status_ == nullptr && this->template_ == nullptr && this->tools_ == nullptr && this->updatedAt_ == nullptr
+        && this->workspaceId_ == nullptr; };
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -779,6 +842,15 @@ namespace Models
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline Data& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // environment Field Functions 
+      bool hasEnvironment() const { return this->environment_ != nullptr;};
+      void deleteEnvironment() { this->environment_ = nullptr;};
+      inline const Data::Environment & getEnvironment() const { DARABONBA_PTR_GET_CONST(environment_, Data::Environment) };
+      inline Data::Environment getEnvironment() { DARABONBA_PTR_GET(environment_, Data::Environment) };
+      inline Data& setEnvironment(const Data::Environment & environment) { DARABONBA_PTR_SET_VALUE(environment_, environment) };
+      inline Data& setEnvironment(Data::Environment && environment) { DARABONBA_PTR_SET_RVALUE(environment_, environment) };
 
 
       // externalAgentStatus Field Functions 
@@ -909,6 +981,8 @@ namespace Models
       shared_ptr<string> deployType_ {};
       // The description of the managed agent.
       shared_ptr<string> description_ {};
+      // The credential binding configuration.
+      shared_ptr<Data::Environment> environment_ {};
       // The runtime status information reported by the managed agent.
       shared_ptr<Data::ExternalAgentStatus> externalAgentStatus_ {};
       // The agent instruction, which is used to guide the behavior of the agent.
@@ -919,9 +993,7 @@ namespace Models
       shared_ptr<string> latestVersionStatus_ {};
       // The model configuration. This parameter is available only when modelSource is set to PLATFORM.
       shared_ptr<Data::Model> model_ {};
-      // The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model independently, and the model parameter cannot be passed at the same time. Valid values:
-      // - PLATFORM: Platform model.
-      // - RUNTIME: Runtime model.
+      // The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model itself, and the model parameter cannot be passed at the same time. Valid values: PLATFORM (platform model) and RUNTIME (runtime model).
       shared_ptr<string> modelSource_ {};
       // The name of the managed agent.
       shared_ptr<string> name_ {};
@@ -990,11 +1062,11 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of SUCCESS indicates success.
+    // The business status code. The value is SUCCESS for a successful request.
     shared_ptr<string> code_ {};
     // The details of the updated managed agent.
     shared_ptr<UpdateExternalAgentResponseBody::Data> data_ {};
-    // The HTTP status code. A value of 200 indicates success.
+    // The HTTP status code. The value is 200 for a successful request.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request processing result message.
     shared_ptr<string> message_ {};

@@ -36,6 +36,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Body& obj) { 
         DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(environment, environment_);
         DARABONBA_PTR_TO_JSON(instruction, instruction_);
         DARABONBA_PTR_TO_JSON(model, model_);
         DARABONBA_PTR_TO_JSON(modelSource, modelSource_);
@@ -46,6 +47,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
         DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(environment, environment_);
         DARABONBA_PTR_FROM_JSON(instruction, instruction_);
         DARABONBA_PTR_FROM_JSON(model, model_);
         DARABONBA_PTR_FROM_JSON(modelSource, modelSource_);
@@ -170,11 +172,11 @@ namespace Models
 
 
         protected:
-          // The name of the template in AI Registry.
+          // The name of the template in the AI Registry.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The version of the template in AI Registry.
+          // The version of the template in the AI Registry.
           // 
           // This parameter is required.
           shared_ptr<string> version_ {};
@@ -258,7 +260,7 @@ namespace Models
 
 
         protected:
-          // The version selector type. LABEL selects by tag, and VERSION selects by specific version.
+          // The version selector type. LABEL selects by tag. VERSION selects by specific version.
           shared_ptr<string> type_ {};
           // The selector value. For LABEL, it is the tag name (such as latest). For VERSION, it is the specific version number.
           shared_ptr<string> value_ {};
@@ -301,11 +303,11 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The skill source type. REFERENCE references AI Registry, and STATIC is statically provided with the package.
+        // The skill source type. REFERENCE references the AI Registry. STATIC is statically provided with the deployment package.
         shared_ptr<string> sourceType_ {};
-        // The skill version field for compatibility with legacy requests. For new requests, use sourceType and versionSelector. Do not submit this field in combination with sourceType.
+        // The skill version field for compatibility with legacy requests. Use sourceType and versionSelector for new requests. Do not submit it in combination with sourceType.
         shared_ptr<string> version_ {};
-        // The skill reference version selector, which supports LABEL tags and VERSION specific versions. If omitted, LABEL/latest is used. STATIC sources do not provide a selector.
+        // The skill reference version selector. Supports LABEL tags and VERSION specific versions. Defaults to LABEL/latest if omitted. Selectors are not provided for STATIC sources.
         shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
@@ -388,7 +390,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable the token quota. Default value: true. If set to false, the quota is disabled and existing quota rules are deleted.
+          // Specifies whether to enable the token quota. Defaults to true if not specified. Passing false disables and deletes existing quota rules.
           shared_ptr<bool> enabled_ {};
           // The quota limit type. Required and validated by the backend when the quota is enabled. Fixed value: token.
           shared_ptr<string> limitType_ {};
@@ -436,14 +438,89 @@ namespace Models
         shared_ptr<Model::Quota> quota_ {};
       };
 
+      class Environment : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Environment& obj) { 
+          DARABONBA_PTR_TO_JSON(credentialReferences, credentialReferences_);
+        };
+        friend void from_json(const Darabonba::Json& j, Environment& obj) { 
+          DARABONBA_PTR_FROM_JSON(credentialReferences, credentialReferences_);
+        };
+        Environment() = default ;
+        Environment(const Environment &) = default ;
+        Environment(Environment &&) = default ;
+        Environment(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Environment() = default ;
+        Environment& operator=(const Environment &) = default ;
+        Environment& operator=(Environment &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class CredentialReferences : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CredentialReferences& obj) { 
+            DARABONBA_PTR_TO_JSON(credentialId, credentialId_);
+          };
+          friend void from_json(const Darabonba::Json& j, CredentialReferences& obj) { 
+            DARABONBA_PTR_FROM_JSON(credentialId, credentialId_);
+          };
+          CredentialReferences() = default ;
+          CredentialReferences(const CredentialReferences &) = default ;
+          CredentialReferences(CredentialReferences &&) = default ;
+          CredentialReferences(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CredentialReferences() = default ;
+          CredentialReferences& operator=(const CredentialReferences &) = default ;
+          CredentialReferences& operator=(CredentialReferences &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->credentialId_ == nullptr; };
+          // credentialId Field Functions 
+          bool hasCredentialId() const { return this->credentialId_ != nullptr;};
+          void deleteCredentialId() { this->credentialId_ = nullptr;};
+          inline string getCredentialId() const { DARABONBA_PTR_GET_DEFAULT(credentialId_, "") };
+          inline CredentialReferences& setCredentialId(string credentialId) { DARABONBA_PTR_SET_VALUE(credentialId_, credentialId) };
+
+
+        protected:
+          // Required when a credential reference item is passed. Validated by the backend.
+          shared_ptr<string> credentialId_ {};
+        };
+
+        virtual bool empty() const override { return this->credentialReferences_ == nullptr; };
+        // credentialReferences Field Functions 
+        bool hasCredentialReferences() const { return this->credentialReferences_ != nullptr;};
+        void deleteCredentialReferences() { this->credentialReferences_ = nullptr;};
+        inline const vector<Environment::CredentialReferences> & getCredentialReferences() const { DARABONBA_PTR_GET_CONST(credentialReferences_, vector<Environment::CredentialReferences>) };
+        inline vector<Environment::CredentialReferences> getCredentialReferences() { DARABONBA_PTR_GET(credentialReferences_, vector<Environment::CredentialReferences>) };
+        inline Environment& setCredentialReferences(const vector<Environment::CredentialReferences> & credentialReferences) { DARABONBA_PTR_SET_VALUE(credentialReferences_, credentialReferences) };
+        inline Environment& setCredentialReferences(vector<Environment::CredentialReferences> && credentialReferences) { DARABONBA_PTR_SET_RVALUE(credentialReferences_, credentialReferences) };
+
+
+      protected:
+        // This list must be explicitly provided and cannot be null when the environment object is passed. The list is replaced as a whole. If environment is not passed during an update, the original binding is retained. If an empty list is passed or environment is null, the binding is cleared. Only the credential ID is passed, not the actual secret key.
+        shared_ptr<vector<Environment::CredentialReferences>> credentialReferences_ {};
+      };
+
       virtual bool empty() const override { return this->description_ == nullptr
-        && this->instruction_ == nullptr && this->model_ == nullptr && this->modelSource_ == nullptr && this->name_ == nullptr && this->skills_ == nullptr
-        && this->template_ == nullptr && this->tools_ == nullptr; };
+        && this->environment_ == nullptr && this->instruction_ == nullptr && this->model_ == nullptr && this->modelSource_ == nullptr && this->name_ == nullptr
+        && this->skills_ == nullptr && this->template_ == nullptr && this->tools_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline Body& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // environment Field Functions 
+      bool hasEnvironment() const { return this->environment_ != nullptr;};
+      void deleteEnvironment() { this->environment_ = nullptr;};
+      inline const Body::Environment & getEnvironment() const { DARABONBA_PTR_GET_CONST(environment_, Body::Environment) };
+      inline Body::Environment getEnvironment() { DARABONBA_PTR_GET(environment_, Body::Environment) };
+      inline Body& setEnvironment(const Body::Environment & environment) { DARABONBA_PTR_SET_VALUE(environment_, environment) };
+      inline Body& setEnvironment(Body::Environment && environment) { DARABONBA_PTR_SET_RVALUE(environment_, environment) };
 
 
       // instruction Field Functions 
@@ -506,11 +583,13 @@ namespace Models
     protected:
       // The description of the managed agent.
       shared_ptr<string> description_ {};
-      // The agent instructions, which are used to guide the behavior of the agent.
+      // Optional. Credentials can be bound to both PLATFORM and RUNTIME model sources. When passing the object, you must explicitly provide a non-null credentialReferences list. Common environment variables are not supported.
+      shared_ptr<Body::Environment> environment_ {};
+      // The agent instruction, used to guide the behavior of the agent.
       shared_ptr<string> instruction_ {};
       // The model configuration. Available only when modelSource is PLATFORM.
       shared_ptr<Body::Model> model_ {};
-      // The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model, and the model parameter cannot be passed at the same time. Valid values: PLATFORM (platform model) and RUNTIME (runtime model).
+      // The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model itself, and the model parameter cannot be passed at the same time. Valid values: PLATFORM (platform model) and RUNTIME (runtime model).
       shared_ptr<string> modelSource_ {};
       // The name of the managed agent.
       // 
@@ -545,7 +624,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<CreateExternalAgentRequest::Body> body_ {};
-    // The reserved query parameter. Currently, the backend does not provide idempotency guarantees for deduplication or restoring the original acceptance result based on this identifier.
+    // The reserved query parameter. The backend does not provide idempotency guarantees for deduplication or restoring the original acceptance result based on this identifier at this time.
     shared_ptr<string> clientToken_ {};
   };
 

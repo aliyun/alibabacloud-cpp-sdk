@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Submit business parameters as described in this operation. The body parameters of public APIs are mapped to backend wrappers by the gateway. Do not mix them with direct backend body wrappers.
+    // Submit business parameters as described in this operation. For public API operations, body parameters are mapped to backend wrappers by the gateway. Do not mix them with direct backend body wrappers.
     // 
     // This parameter is required.
     shared_ptr<string> bodyShrink_ {};

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The memory write request.
+    // The write memory request.
     // 
     // This parameter is required.
     shared_ptr<string> bodyShrink_ {};

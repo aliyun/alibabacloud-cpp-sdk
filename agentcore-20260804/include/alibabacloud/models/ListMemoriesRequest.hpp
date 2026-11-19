@@ -17,14 +17,26 @@ namespace Models
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
+      DARABONBA_PTR_TO_JSON(source, source_);
+      DARABONBA_PTR_TO_JSON(teamId, teamId_);
+      DARABONBA_PTR_TO_JSON(types, types_);
+      DARABONBA_PTR_TO_JSON(updatedAtFrom, updatedAtFrom_);
+      DARABONBA_PTR_TO_JSON(updatedAtTo, updatedAtTo_);
       DARABONBA_PTR_TO_JSON(userId, userId_);
+      DARABONBA_PTR_TO_JSON(valid, valid_);
     };
     friend void from_json(const Darabonba::Json& j, ListMemoriesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(agentId, agentId_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
+      DARABONBA_PTR_FROM_JSON(source, source_);
+      DARABONBA_PTR_FROM_JSON(teamId, teamId_);
+      DARABONBA_PTR_FROM_JSON(types, types_);
+      DARABONBA_PTR_FROM_JSON(updatedAtFrom, updatedAtFrom_);
+      DARABONBA_PTR_FROM_JSON(updatedAtTo, updatedAtTo_);
       DARABONBA_PTR_FROM_JSON(userId, userId_);
+      DARABONBA_PTR_FROM_JSON(valid, valid_);
     };
     ListMemoriesRequest() = default ;
     ListMemoriesRequest(const ListMemoriesRequest &) = default ;
@@ -38,7 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->sessionId_ == nullptr && this->userId_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->sessionId_ == nullptr && this->source_ == nullptr && this->teamId_ == nullptr
+        && this->types_ == nullptr && this->updatedAtFrom_ == nullptr && this->updatedAtTo_ == nullptr && this->userId_ == nullptr && this->valid_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -67,6 +80,41 @@ namespace Models
     inline ListMemoriesRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
+    // source Field Functions 
+    bool hasSource() const { return this->source_ != nullptr;};
+    void deleteSource() { this->source_ = nullptr;};
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline ListMemoriesRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
+    // teamId Field Functions 
+    bool hasTeamId() const { return this->teamId_ != nullptr;};
+    void deleteTeamId() { this->teamId_ = nullptr;};
+    inline string getTeamId() const { DARABONBA_PTR_GET_DEFAULT(teamId_, "") };
+    inline ListMemoriesRequest& setTeamId(string teamId) { DARABONBA_PTR_SET_VALUE(teamId_, teamId) };
+
+
+    // types Field Functions 
+    bool hasTypes() const { return this->types_ != nullptr;};
+    void deleteTypes() { this->types_ = nullptr;};
+    inline string getTypes() const { DARABONBA_PTR_GET_DEFAULT(types_, "") };
+    inline ListMemoriesRequest& setTypes(string types) { DARABONBA_PTR_SET_VALUE(types_, types) };
+
+
+    // updatedAtFrom Field Functions 
+    bool hasUpdatedAtFrom() const { return this->updatedAtFrom_ != nullptr;};
+    void deleteUpdatedAtFrom() { this->updatedAtFrom_ = nullptr;};
+    inline string getUpdatedAtFrom() const { DARABONBA_PTR_GET_DEFAULT(updatedAtFrom_, "") };
+    inline ListMemoriesRequest& setUpdatedAtFrom(string updatedAtFrom) { DARABONBA_PTR_SET_VALUE(updatedAtFrom_, updatedAtFrom) };
+
+
+    // updatedAtTo Field Functions 
+    bool hasUpdatedAtTo() const { return this->updatedAtTo_ != nullptr;};
+    void deleteUpdatedAtTo() { this->updatedAtTo_ = nullptr;};
+    inline string getUpdatedAtTo() const { DARABONBA_PTR_GET_DEFAULT(updatedAtTo_, "") };
+    inline ListMemoriesRequest& setUpdatedAtTo(string updatedAtTo) { DARABONBA_PTR_SET_VALUE(updatedAtTo_, updatedAtTo) };
+
+
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
@@ -74,17 +122,39 @@ namespace Models
     inline ListMemoriesRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
+    // valid Field Functions 
+    bool hasValid() const { return this->valid_ != nullptr;};
+    void deleteValid() { this->valid_ = nullptr;};
+    inline bool getValid() const { DARABONBA_PTR_GET_DEFAULT(valid_, false) };
+    inline ListMemoriesRequest& setValid(bool valid) { DARABONBA_PTR_SET_VALUE(valid_, valid) };
+
+
   protected:
-    // The agent ID. If you do not specify this parameter, all agents are matched. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*).
+    // The agent ID. If not specified, all agents are matched. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
     shared_ptr<string> agentId_ {};
     // The maximum number of records per page. Default value: 50. Valid values: 1 to 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The session ID. If you do not specify this parameter, all sessions are matched. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*).
+    // The session ID. If not specified, all sessions are matched. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
     shared_ptr<string> sessionId_ {};
-    // The user ID. If you do not specify this parameter, all users are matched. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*).
+    // The source of the memory. Valid values:
+    // - session_extraction: Extracted from session events.
+    // - content_extraction: Extracted from text or messages.
+    // - direct: Written directly.
+    shared_ptr<string> source_ {};
+    // The business team ID defined by the caller.
+    shared_ptr<string> teamId_ {};
+    // The memory content types. Specify the value as a JSON array string, such as ["skill"]. Valid values: semantic, skill, user_profile, and session_summary. If this parameter is omitted or set to [], all types are queried. The value auto is not supported. Keep the filter conditions consistent when you retrieve subsequent pages.
+    shared_ptr<string> types_ {};
+    // The start time for filtering by update time. The time must be in RFC 3339 format with a time zone.
+    shared_ptr<string> updatedAtFrom_ {};
+    // The end time for filtering by update time. The time must be in RFC 3339 format with a time zone.
+    shared_ptr<string> updatedAtTo_ {};
+    // The user ID. If not specified, all users are matched. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
     shared_ptr<string> userId_ {};
+    // Specifies whether the memory is valid. Default value: true. If this parameter is omitted, only valid records are returned. If set to false, revoked records are returned.
+    shared_ptr<bool> valid_ {};
   };
 
   } // namespace Models

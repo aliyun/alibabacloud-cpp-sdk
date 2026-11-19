@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SEARCHMEMORIESREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,6 +41,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(query, query_);
         DARABONBA_PTR_TO_JSON(scope, scope_);
         DARABONBA_PTR_TO_JSON(topK, topK_);
+        DARABONBA_PTR_TO_JSON(types, types_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
         DARABONBA_PTR_FROM_JSON(enableRerank, enableRerank_);
@@ -49,6 +51,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(query, query_);
         DARABONBA_PTR_FROM_JSON(scope, scope_);
         DARABONBA_PTR_FROM_JSON(topK, topK_);
+        DARABONBA_PTR_FROM_JSON(types, types_);
       };
       Body() = default ;
       Body(const Body &) = default ;
@@ -66,11 +69,13 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Scope& obj) { 
           DARABONBA_PTR_TO_JSON(agentId, agentId_);
           DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
+          DARABONBA_PTR_TO_JSON(teamId, teamId_);
           DARABONBA_PTR_TO_JSON(userId, userId_);
         };
         friend void from_json(const Darabonba::Json& j, Scope& obj) { 
           DARABONBA_PTR_FROM_JSON(agentId, agentId_);
           DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
+          DARABONBA_PTR_FROM_JSON(teamId, teamId_);
           DARABONBA_PTR_FROM_JSON(userId, userId_);
         };
         Scope() = default ;
@@ -85,7 +90,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->sessionId_ == nullptr && this->userId_ == nullptr; };
+        && this->sessionId_ == nullptr && this->teamId_ == nullptr && this->userId_ == nullptr; };
         // agentId Field Functions 
         bool hasAgentId() const { return this->agentId_ != nullptr;};
         void deleteAgentId() { this->agentId_ = nullptr;};
@@ -100,6 +105,13 @@ namespace Models
         inline Scope& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
+        // teamId Field Functions 
+        bool hasTeamId() const { return this->teamId_ != nullptr;};
+        void deleteTeamId() { this->teamId_ = nullptr;};
+        inline string getTeamId() const { DARABONBA_PTR_GET_DEFAULT(teamId_, "") };
+        inline Scope& setTeamId(string teamId) { DARABONBA_PTR_SET_VALUE(teamId_, teamId) };
+
+
         // userId Field Functions 
         bool hasUserId() const { return this->userId_ != nullptr;};
         void deleteUserId() { this->userId_ = nullptr;};
@@ -112,13 +124,15 @@ namespace Models
         shared_ptr<string> agentId_ {};
         // The session ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a session ID.
         shared_ptr<string> sessionId_ {};
+        // The business team ID defined by the caller. If provided, it cannot be empty and can be up to 128 UTF-8 bytes in length.
+        shared_ptr<string> teamId_ {};
         // The user ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a user ID.
         shared_ptr<string> userId_ {};
       };
 
       virtual bool empty() const override { return this->enableRerank_ == nullptr
         && this->metadata_ == nullptr && this->minScore_ == nullptr && this->minSimilarity_ == nullptr && this->query_ == nullptr && this->scope_ == nullptr
-        && this->topK_ == nullptr; };
+        && this->topK_ == nullptr && this->types_ == nullptr; };
       // enableRerank Field Functions 
       bool hasEnableRerank() const { return this->enableRerank_ != nullptr;};
       void deleteEnableRerank() { this->enableRerank_ = nullptr;};
@@ -172,23 +186,34 @@ namespace Models
       inline Body& setTopK(int32_t topK) { DARABONBA_PTR_SET_VALUE(topK_, topK) };
 
 
+      // types Field Functions 
+      bool hasTypes() const { return this->types_ != nullptr;};
+      void deleteTypes() { this->types_ = nullptr;};
+      inline const vector<string> & getTypes() const { DARABONBA_PTR_GET_CONST(types_, vector<string>) };
+      inline vector<string> getTypes() { DARABONBA_PTR_GET(types_, vector<string>) };
+      inline Body& setTypes(const vector<string> & types) { DARABONBA_PTR_SET_VALUE(types_, types) };
+      inline Body& setTypes(vector<string> && types) { DARABONBA_PTR_SET_RVALUE(types_, types) };
+
+
     protected:
       // Specifies whether to enable reranking. Default value: true.
       shared_ptr<bool> enableRerank_ {};
-      // The string key-value metadata for exact matching. You can specify up to 16 keys. The maximum length of a key is 64 characters, and the maximum length of a value is 1,024 characters.
+      // The string key-value metadata for exact matching. A maximum of 16 keys are supported. Each key can be up to 64 characters in length, and each value can be up to 1,024 characters in length.
       shared_ptr<map<string, string>> metadata_ {};
-      // The minimum relevance score. Valid values: 0 to 1. Default value: 0.2. If both minScore and minSimilarity are specified, the AND logic is applied for filtering.
+      // The minimum relevance score. Default value: 0.2. Valid values: 0 to 1. If both minScore and minSimilarity are specified, the results are filtered based on the AND logic.
       shared_ptr<float> minScore_ {};
-      // The minimum similarity. Valid values: 0 to 1. Default value: 0.3. If both minSimilarity and minScore are specified, the AND logic is applied for filtering.
+      // The minimum similarity score. Default value: 0.3. Valid values: 0 to 1. If both minSimilarity and minScore are specified, the results are filtered based on the AND logic.
       shared_ptr<float> minSimilarity_ {};
-      // The query text. The maximum length is 8,192 characters.
+      // The query text for retrieval, up to 8,192 characters.
       // 
       // This parameter is required.
       shared_ptr<string> query_ {};
-      // The search scope. UserId, AgentId, and SessionId are all optional.
+      // The retrieval scope. UserId, AgentId, and SessionId are all optional.
       shared_ptr<Body::Scope> scope_ {};
       // The number of results to return.
       shared_ptr<int32_t> topK_ {};
+      // The list of memory content types. Supported types include semantic, skill, user_profile, and session_summary. If omitted or left as an empty array, no type restriction is applied.
+      shared_ptr<vector<string>> types_ {};
     };
 
     virtual bool empty() const override { return this->body_ == nullptr; };
@@ -202,7 +227,7 @@ namespace Models
 
 
   protected:
-    // The semantic search request.
+    // The semantic retrieval request.
     // 
     // This parameter is required.
     shared_ptr<SearchMemoriesRequest::Body> body_ {};

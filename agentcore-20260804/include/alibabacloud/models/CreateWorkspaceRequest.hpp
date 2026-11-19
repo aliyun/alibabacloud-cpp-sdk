@@ -39,6 +39,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(cmsWorkspace, cmsWorkspace_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
+        DARABONBA_PTR_TO_JSON(scanPolicy, scanPolicy_);
         DARABONBA_PTR_TO_JSON(storageType, storageType_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
@@ -46,6 +47,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(cmsWorkspace, cmsWorkspace_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
+        DARABONBA_PTR_FROM_JSON(scanPolicy, scanPolicy_);
         DARABONBA_PTR_FROM_JSON(storageType, storageType_);
       };
       Body() = default ;
@@ -165,16 +167,16 @@ namespace Models
 
 
       protected:
-        // Specifies whether to allow public egress access through the platform. If not specified, this feature is enabled by default. This parameter only controls whether the latest versions of managed and custom agents use the platform public egress. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+        // Specifies whether to allow public egress access from the platform. Default value: true. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
         shared_ptr<bool> publicEgressEnabled_ {};
-        // Specifies whether to allow public ingress access. If not specified, this feature is enabled by default. If disabled, the public ingress endpoints of all agent endpoints in the workspace are closed. If re-enabled, the original public ingress endpoints are restored. INNER_DIRECT and user VPC ingress endpoints are not affected. Collaboration and Element Web ingress endpoints are not controlled by this parameter.
+        // Specifies whether to allow public ingress access. Default value: true. If set to false, the public ingress for all agent endpoints in the workspace is disabled. If set back to true, the original public ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this parameter. If this parameter is set to false, the workspace VPC must be enabled.
         shared_ptr<bool> publicIngressEnabled_ {};
-        // The network configuration of the user VPC.
+        // The VPC network configuration of the user.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
       virtual bool empty() const override { return this->agentSpace_ == nullptr
-        && this->cmsWorkspace_ == nullptr && this->name_ == nullptr && this->networkConfiguration_ == nullptr && this->storageType_ == nullptr; };
+        && this->cmsWorkspace_ == nullptr && this->name_ == nullptr && this->networkConfiguration_ == nullptr && this->scanPolicy_ == nullptr && this->storageType_ == nullptr; };
       // agentSpace Field Functions 
       bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
       void deleteAgentSpace() { this->agentSpace_ = nullptr;};
@@ -205,6 +207,13 @@ namespace Models
       inline Body& setNetworkConfiguration(Body::NetworkConfiguration && networkConfiguration) { DARABONBA_PTR_SET_RVALUE(networkConfiguration_, networkConfiguration) };
 
 
+      // scanPolicy Field Functions 
+      bool hasScanPolicy() const { return this->scanPolicy_ != nullptr;};
+      void deleteScanPolicy() { this->scanPolicy_ = nullptr;};
+      inline string getScanPolicy() const { DARABONBA_PTR_GET_DEFAULT(scanPolicy_, "") };
+      inline Body& setScanPolicy(string scanPolicy) { DARABONBA_PTR_SET_VALUE(scanPolicy_, scanPolicy) };
+
+
       // storageType Field Functions 
       bool hasStorageType() const { return this->storageType_ != nullptr;};
       void deleteStorageType() { this->storageType_ = nullptr;};
@@ -213,9 +222,9 @@ namespace Models
 
 
     protected:
-      // If specified, the workspace is directly bound to this AgentSpace, and a new one is not created. The CMS workspace to which it belongs is determined by the server reverse lookup result, and CmsWorkspace validation is not required. When the workspace is deleted, it is only unbound, and the AgentSpace is not deleted. The value must match the current account and region, and the reverse lookup must return the associated CMS workspace. Otherwise, InvalidParameter is returned.
+      // If specified, the workspace is directly bound to this AgentSpace, and a new one is not created. The CMS workspace to which it belongs is determined by the server reverse lookup result, and CmsWorkspace does not need to be verified. When the workspace is deleted, it is only unbound, and the AgentSpace is not deleted. It must match the current account and region, and the associated CMS workspace must be found through reverse lookup. Otherwise, InvalidParameter is returned.
       shared_ptr<string> agentSpace_ {};
-      // If specified, the workspace is bound to this CMS workspace, and the platform does not create a new one. When the workspace is deleted, it is only unbound, and the CMS workspace is not deleted. The value must match the current account and region. Otherwise, InvalidParameter is returned.
+      // If specified, the workspace is bound to this CMS workspace, and the platform does not create a new one. When the workspace is deleted, it is only unbound, and the CMS workspace is not deleted. The CMS workspace must match the current account and region. Otherwise, InvalidParameter is returned.
       shared_ptr<string> cmsWorkspace_ {};
       // The name of the workspace.
       // 
@@ -223,7 +232,9 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network configuration of the workspace.
       shared_ptr<Body::NetworkConfiguration> networkConfiguration_ {};
-      // The storage type of the workspace. PLATFORM indicates platform-managed storage, and PRIVATE indicates user private OSS storage.
+      // The optional JSON string for the workspace skill security scan policy. If omitted, the existing compatibility behavior is maintained.
+      shared_ptr<string> scanPolicy_ {};
+      // The storage type of the workspace. PLATFORM indicates platform-managed storage. PRIVATE indicates user private OSS storage.
       shared_ptr<string> storageType_ {};
     };
 

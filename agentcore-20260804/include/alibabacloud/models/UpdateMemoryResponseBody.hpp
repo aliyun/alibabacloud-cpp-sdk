@@ -48,7 +48,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(memoryId, memoryId_);
         DARABONBA_PTR_TO_JSON(metadata, metadata_);
         DARABONBA_PTR_TO_JSON(scope, scope_);
+        DARABONBA_PTR_TO_JSON(source, source_);
+        DARABONBA_PTR_TO_JSON(type, type_);
         DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
+        DARABONBA_PTR_TO_JSON(valid, valid_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(content, content_);
@@ -56,7 +59,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(memoryId, memoryId_);
         DARABONBA_PTR_FROM_JSON(metadata, metadata_);
         DARABONBA_PTR_FROM_JSON(scope, scope_);
+        DARABONBA_PTR_FROM_JSON(source, source_);
+        DARABONBA_PTR_FROM_JSON(type, type_);
         DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
+        DARABONBA_PTR_FROM_JSON(valid, valid_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -74,11 +80,13 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Scope& obj) { 
           DARABONBA_PTR_TO_JSON(agentId, agentId_);
           DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
+          DARABONBA_PTR_TO_JSON(teamId, teamId_);
           DARABONBA_PTR_TO_JSON(userId, userId_);
         };
         friend void from_json(const Darabonba::Json& j, Scope& obj) { 
           DARABONBA_PTR_FROM_JSON(agentId, agentId_);
           DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
+          DARABONBA_PTR_FROM_JSON(teamId, teamId_);
           DARABONBA_PTR_FROM_JSON(userId, userId_);
         };
         Scope() = default ;
@@ -93,7 +101,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->sessionId_ == nullptr && this->userId_ == nullptr; };
+        && this->sessionId_ == nullptr && this->teamId_ == nullptr && this->userId_ == nullptr; };
         // agentId Field Functions 
         bool hasAgentId() const { return this->agentId_ != nullptr;};
         void deleteAgentId() { this->agentId_ = nullptr;};
@@ -108,6 +116,13 @@ namespace Models
         inline Scope& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
+        // teamId Field Functions 
+        bool hasTeamId() const { return this->teamId_ != nullptr;};
+        void deleteTeamId() { this->teamId_ = nullptr;};
+        inline string getTeamId() const { DARABONBA_PTR_GET_DEFAULT(teamId_, "") };
+        inline Scope& setTeamId(string teamId) { DARABONBA_PTR_SET_VALUE(teamId_, teamId) };
+
+
         // userId Field Functions 
         bool hasUserId() const { return this->userId_ != nullptr;};
         void deleteUserId() { this->userId_ = nullptr;};
@@ -120,6 +135,8 @@ namespace Models
         shared_ptr<string> agentId_ {};
         // The session ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a session ID.
         shared_ptr<string> sessionId_ {};
+        // The business team ID defined by the caller. It cannot be empty when provided and can be up to 128 UTF-8 bytes in length.
+        shared_ptr<string> teamId_ {};
         // The user ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a user ID.
         shared_ptr<string> userId_ {};
       };
@@ -153,11 +170,14 @@ namespace Models
 
       protected:
         // The memory text.
+        // 
+        // This parameter is required.
         shared_ptr<string> text_ {};
       };
 
       virtual bool empty() const override { return this->content_ == nullptr
-        && this->createdAt_ == nullptr && this->memoryId_ == nullptr && this->metadata_ == nullptr && this->scope_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->createdAt_ == nullptr && this->memoryId_ == nullptr && this->metadata_ == nullptr && this->scope_ == nullptr && this->source_ == nullptr
+        && this->type_ == nullptr && this->updatedAt_ == nullptr && this->valid_ == nullptr; };
       // content Field Functions 
       bool hasContent() const { return this->content_ != nullptr;};
       void deleteContent() { this->content_ = nullptr;};
@@ -199,6 +219,20 @@ namespace Models
       inline Data& setScope(Data::Scope && scope) { DARABONBA_PTR_SET_RVALUE(scope_, scope) };
 
 
+      // source Field Functions 
+      bool hasSource() const { return this->source_ != nullptr;};
+      void deleteSource() { this->source_ = nullptr;};
+      inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+      inline Data& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Data& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
       // updatedAt Field Functions 
       bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
       void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
@@ -206,19 +240,32 @@ namespace Models
       inline Data& setUpdatedAt(string updatedAt) { DARABONBA_PTR_SET_VALUE(updatedAt_, updatedAt) };
 
 
+      // valid Field Functions 
+      bool hasValid() const { return this->valid_ != nullptr;};
+      void deleteValid() { this->valid_ = nullptr;};
+      inline bool getValid() const { DARABONBA_PTR_GET_DEFAULT(valid_, false) };
+      inline Data& setValid(bool valid) { DARABONBA_PTR_SET_VALUE(valid_, valid) };
+
+
     protected:
       // The memory content.
       shared_ptr<Data::Content> content_ {};
       // The creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
       shared_ptr<string> createdAt_ {};
-      // The long-term memory ID.
+      // The ID of the long-term memory.
       shared_ptr<string> memoryId_ {};
       // The memory metadata.
       shared_ptr<map<string, string>> metadata_ {};
       // The memory scope.
       shared_ptr<Data::Scope> scope_ {};
-      // The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+      // The memory source. Valid values: session_extraction: Extracted from session events. content_extraction: Extracted from text or messages. direct: Written directly.
+      shared_ptr<string> source_ {};
+      // The memory content type. Valid values: semantic: Semantic memory. skill: Skill. user_profile: User preference. session_summary: Session summary.
+      shared_ptr<string> type_ {};
+      // The last updated time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
       shared_ptr<string> updatedAt_ {};
+      // Indicates whether the memory is valid. A value of false indicates that the memory is revoked and is not included in valid memory retrieval.
+      shared_ptr<bool> valid_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr

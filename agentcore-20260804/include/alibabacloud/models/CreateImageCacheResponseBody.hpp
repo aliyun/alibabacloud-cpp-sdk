@@ -253,7 +253,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<bool> canDelete_ {};
-      // The time when the resource was created. The time follows the RFC 3339 format. The trailing Z in the example indicates the UTC time zone.
+      // The time when the resource was created. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
       // 
       // This parameter is required.
       shared_ptr<string> createdAt_ {};
@@ -277,7 +277,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> registry_ {};
-      // The repository path of the source image.
+      // The path of the source image repository.
       // 
       // This parameter is required.
       shared_ptr<string> repository_ {};
@@ -362,7 +362,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. A successful request does not mean that the cache creation is complete.
+    // Indicates whether the request is successful. This does not mean that the cache creation is complete.
     // 
     // This parameter is required.
     shared_ptr<bool> success_ {};

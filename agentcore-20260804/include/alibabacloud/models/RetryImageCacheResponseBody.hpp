@@ -237,27 +237,27 @@ namespace Models
 
 
     protected:
-      // The ID of the source ACR instance.
+      // The source ACR instance ID.
       // 
       // This parameter is required.
       shared_ptr<string> acrInstanceId_ {};
-      // The number of agents that use the cache.
+      // The number of agents using the cache.
       // 
       // This parameter is required.
       shared_ptr<int64_t> agentCount_ {};
-      // The size of the cache in bytes.
+      // The cache size in bytes.
       // 
       // This parameter is required.
       shared_ptr<int64_t> cacheSizeBytes_ {};
-      // Indicates whether the cache can be deleted.
+      // Indicates whether deletion is allowed.
       // 
       // This parameter is required.
       shared_ptr<bool> canDelete_ {};
-      // The time when the resource was created. The time follows the RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+      // The resource creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
       // 
       // This parameter is required.
       shared_ptr<string> createdAt_ {};
-      // The reason why the cache cannot be deleted.
+      // The reason why deletion is blocked.
       // 
       // This parameter is required.
       shared_ptr<string> deleteBlockReason_ {};
@@ -273,19 +273,19 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> imageId_ {};
-      // The domain name of the source image.
+      // The source image domain name.
       // 
       // This parameter is required.
       shared_ptr<string> registry_ {};
-      // The path of the source image repository.
+      // The source image repository path.
       // 
       // This parameter is required.
       shared_ptr<string> repository_ {};
-      // The cache status.
+      // The image cache status.
       // 
       // This parameter is required.
       shared_ptr<string> status_ {};
-      // The tag of the source image.
+      // The source image tag.
       // 
       // This parameter is required.
       shared_ptr<string> tag_ {};
@@ -346,7 +346,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};
-    // The result of retrying image cache creation.
+    // The retry image cache result.
     // 
     // This parameter is required.
     shared_ptr<RetryImageCacheResponseBody::Data> data_ {};
@@ -362,7 +362,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. A successful request does not mean that the cache creation is complete.
+    // Indicates whether the request is successful. This does not mean that the cache creation is complete.
     // 
     // This parameter is required.
     shared_ptr<bool> success_ {};

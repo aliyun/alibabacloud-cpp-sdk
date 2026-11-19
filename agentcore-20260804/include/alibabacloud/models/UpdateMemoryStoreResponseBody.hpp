@@ -44,7 +44,9 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(eventCount, eventCount_);
         DARABONBA_PTR_TO_JSON(extractInstructions, extractInstructions_);
+        DARABONBA_PTR_TO_JSON(memoryCount, memoryCount_);
         DARABONBA_PTR_TO_JSON(memoryStoreId, memoryStoreId_);
         DARABONBA_PTR_TO_JSON(memoryStoreName, memoryStoreName_);
         DARABONBA_PTR_TO_JSON(status, status_);
@@ -54,7 +56,9 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(eventCount, eventCount_);
         DARABONBA_PTR_FROM_JSON(extractInstructions, extractInstructions_);
+        DARABONBA_PTR_FROM_JSON(memoryCount, memoryCount_);
         DARABONBA_PTR_FROM_JSON(memoryStoreId, memoryStoreId_);
         DARABONBA_PTR_FROM_JSON(memoryStoreName, memoryStoreName_);
         DARABONBA_PTR_FROM_JSON(status, status_);
@@ -73,8 +77,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->description_ == nullptr && this->extractInstructions_ == nullptr && this->memoryStoreId_ == nullptr && this->memoryStoreName_ == nullptr && this->status_ == nullptr
-        && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->description_ == nullptr && this->eventCount_ == nullptr && this->extractInstructions_ == nullptr && this->memoryCount_ == nullptr && this->memoryStoreId_ == nullptr
+        && this->memoryStoreName_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
       // createdAt Field Functions 
       bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
       void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -89,11 +93,25 @@ namespace Models
       inline Data& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // eventCount Field Functions 
+      bool hasEventCount() const { return this->eventCount_ != nullptr;};
+      void deleteEventCount() { this->eventCount_ = nullptr;};
+      inline int64_t getEventCount() const { DARABONBA_PTR_GET_DEFAULT(eventCount_, 0L) };
+      inline Data& setEventCount(int64_t eventCount) { DARABONBA_PTR_SET_VALUE(eventCount_, eventCount) };
+
+
       // extractInstructions Field Functions 
       bool hasExtractInstructions() const { return this->extractInstructions_ != nullptr;};
       void deleteExtractInstructions() { this->extractInstructions_ = nullptr;};
       inline string getExtractInstructions() const { DARABONBA_PTR_GET_DEFAULT(extractInstructions_, "") };
       inline Data& setExtractInstructions(string extractInstructions) { DARABONBA_PTR_SET_VALUE(extractInstructions_, extractInstructions) };
+
+
+      // memoryCount Field Functions 
+      bool hasMemoryCount() const { return this->memoryCount_ != nullptr;};
+      void deleteMemoryCount() { this->memoryCount_ = nullptr;};
+      inline int64_t getMemoryCount() const { DARABONBA_PTR_GET_DEFAULT(memoryCount_, 0L) };
+      inline Data& setMemoryCount(int64_t memoryCount) { DARABONBA_PTR_SET_VALUE(memoryCount_, memoryCount) };
 
 
       // memoryStoreId Field Functions 
@@ -136,8 +154,12 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // The description of the memory store.
       shared_ptr<string> description_ {};
+      // The number of events. You can query this value by calling the GetMemoryStore operation.
+      shared_ptr<int64_t> eventCount_ {};
       // The custom extraction instructions.
       shared_ptr<string> extractInstructions_ {};
+      // The number of valid memories. You can query this value by calling the GetMemoryStore operation.
+      shared_ptr<int64_t> memoryCount_ {};
       // The memory store ID.
       shared_ptr<string> memoryStoreId_ {};
       // The name of the memory store. It cannot be modified after creation.

@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(agentId, agentId_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(teamId, teamId_);
       DARABONBA_PTR_TO_JSON(userId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, ListMemorySessionsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(agentId, agentId_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(teamId, teamId_);
       DARABONBA_PTR_FROM_JSON(userId, userId_);
     };
     ListMemorySessionsRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->userId_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->teamId_ == nullptr && this->userId_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline ListMemorySessionsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // teamId Field Functions 
+    bool hasTeamId() const { return this->teamId_ != nullptr;};
+    void deleteTeamId() { this->teamId_ = nullptr;};
+    inline string getTeamId() const { DARABONBA_PTR_GET_DEFAULT(teamId_, "") };
+    inline ListMemorySessionsRequest& setTeamId(string teamId) { DARABONBA_PTR_SET_VALUE(teamId_, teamId) };
+
+
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
@@ -66,13 +75,15 @@ namespace Models
 
 
   protected:
-    // The agent ID. If you do not specify this parameter, all agents are matched. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
+    // The agent ID. If you do not specify this parameter, all agents are matched. The value must be 1 to 128 UTF-8 bytes in length and cannot contain a forward slash (/) or an asterisk (*).
     shared_ptr<string> agentId_ {};
     // The maximum number of records per page. Default value: 100. Valid values: 1 to 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The user ID. If you do not specify this parameter, all users are matched. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
+    // The business team ID defined by the caller.
+    shared_ptr<string> teamId_ {};
+    // The user ID. If you do not specify this parameter, all users are matched. The value must be 1 to 128 UTF-8 bytes in length and cannot contain a forward slash (/) or an asterisk (*).
     shared_ptr<string> userId_ {};
   };
 

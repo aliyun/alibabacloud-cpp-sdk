@@ -2,8 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_ADDMEMORIESREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_ADDMEMORIESREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
 #include <map>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,6 +34,8 @@ namespace Models
     class Body : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Body& obj) { 
+        DARABONBA_PTR_TO_JSON(extract, extract_);
+        DARABONBA_PTR_TO_JSON(memories, memories_);
         DARABONBA_PTR_TO_JSON(messages, messages_);
         DARABONBA_PTR_TO_JSON(metadata, metadata_);
         DARABONBA_PTR_TO_JSON(referenceTime, referenceTime_);
@@ -42,6 +44,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(text, text_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
+        DARABONBA_PTR_FROM_JSON(extract, extract_);
+        DARABONBA_PTR_FROM_JSON(memories, memories_);
         DARABONBA_PTR_FROM_JSON(messages, messages_);
         DARABONBA_PTR_FROM_JSON(metadata, metadata_);
         DARABONBA_PTR_FROM_JSON(referenceTime, referenceTime_);
@@ -65,11 +69,13 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Scope& obj) { 
           DARABONBA_PTR_TO_JSON(agentId, agentId_);
           DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
+          DARABONBA_PTR_TO_JSON(teamId, teamId_);
           DARABONBA_PTR_TO_JSON(userId, userId_);
         };
         friend void from_json(const Darabonba::Json& j, Scope& obj) { 
           DARABONBA_PTR_FROM_JSON(agentId, agentId_);
           DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
+          DARABONBA_PTR_FROM_JSON(teamId, teamId_);
           DARABONBA_PTR_FROM_JSON(userId, userId_);
         };
         Scope() = default ;
@@ -84,7 +90,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->sessionId_ == nullptr && this->userId_ == nullptr; };
+        && this->sessionId_ == nullptr && this->teamId_ == nullptr && this->userId_ == nullptr; };
         // agentId Field Functions 
         bool hasAgentId() const { return this->agentId_ != nullptr;};
         void deleteAgentId() { this->agentId_ = nullptr;};
@@ -99,6 +105,13 @@ namespace Models
         inline Scope& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
+        // teamId Field Functions 
+        bool hasTeamId() const { return this->teamId_ != nullptr;};
+        void deleteTeamId() { this->teamId_ = nullptr;};
+        inline string getTeamId() const { DARABONBA_PTR_GET_DEFAULT(teamId_, "") };
+        inline Scope& setTeamId(string teamId) { DARABONBA_PTR_SET_VALUE(teamId_, teamId) };
+
+
         // userId Field Functions 
         bool hasUserId() const { return this->userId_ != nullptr;};
         void deleteUserId() { this->userId_ = nullptr;};
@@ -107,11 +120,13 @@ namespace Models
 
 
       protected:
-        // The agent ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
+        // The agent ID. The length is limited to 1 to 128 UTF-8 bytes. It cannot contain a forward slash (/) or an asterisk (*).
         shared_ptr<string> agentId_ {};
-        // The session ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
+        // The session ID. The length is limited to 1 to 128 UTF-8 bytes. It cannot contain a forward slash (/) or an asterisk (*).
         shared_ptr<string> sessionId_ {};
-        // The user ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
+        // The business team ID defined by the caller. It cannot be empty when provided and can be up to 128 UTF-8 bytes in length.
+        shared_ptr<string> teamId_ {};
+        // The user ID. The length is limited to 1 to 128 UTF-8 bytes. It cannot contain a forward slash (/) or an asterisk (*).
         shared_ptr<string> userId_ {};
       };
 
@@ -119,10 +134,12 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Messages& obj) { 
           DARABONBA_PTR_TO_JSON(content, content_);
+          DARABONBA_PTR_TO_JSON(referenceTime, referenceTime_);
           DARABONBA_PTR_TO_JSON(role, role_);
         };
         friend void from_json(const Darabonba::Json& j, Messages& obj) { 
           DARABONBA_PTR_FROM_JSON(content, content_);
+          DARABONBA_PTR_FROM_JSON(referenceTime, referenceTime_);
           DARABONBA_PTR_FROM_JSON(role, role_);
         };
         Messages() = default ;
@@ -137,12 +154,19 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->content_ == nullptr
-        && this->role_ == nullptr; };
+        && this->referenceTime_ == nullptr && this->role_ == nullptr; };
         // content Field Functions 
         bool hasContent() const { return this->content_ != nullptr;};
         void deleteContent() { this->content_ = nullptr;};
         inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
         inline Messages& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+        // referenceTime Field Functions 
+        bool hasReferenceTime() const { return this->referenceTime_ != nullptr;};
+        void deleteReferenceTime() { this->referenceTime_ = nullptr;};
+        inline string getReferenceTime() const { DARABONBA_PTR_GET_DEFAULT(referenceTime_, "") };
+        inline Messages& setReferenceTime(string referenceTime) { DARABONBA_PTR_SET_VALUE(referenceTime_, referenceTime) };
 
 
         // role Field Functions 
@@ -153,18 +177,94 @@ namespace Models
 
 
       protected:
-        // The message content.
+        // The content of the message.
         // 
         // This parameter is required.
         shared_ptr<string> content_ {};
-        // The message role.
+        // The reference time of the message in RFC 3339 format with a time zone. If omitted, the request-level referenceTime is used. If both are omitted, the time of the current request is used.
+        shared_ptr<string> referenceTime_ {};
+        // The role of the message.
         // 
         // This parameter is required.
         shared_ptr<string> role_ {};
       };
 
-      virtual bool empty() const override { return this->messages_ == nullptr
-        && this->metadata_ == nullptr && this->referenceTime_ == nullptr && this->scope_ == nullptr && this->sync_ == nullptr && this->text_ == nullptr; };
+      class Memories : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Memories& obj) { 
+          DARABONBA_PTR_TO_JSON(metadata, metadata_);
+          DARABONBA_PTR_TO_JSON(text, text_);
+          DARABONBA_PTR_TO_JSON(type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, Memories& obj) { 
+          DARABONBA_PTR_FROM_JSON(metadata, metadata_);
+          DARABONBA_PTR_FROM_JSON(text, text_);
+          DARABONBA_PTR_FROM_JSON(type, type_);
+        };
+        Memories() = default ;
+        Memories(const Memories &) = default ;
+        Memories(Memories &&) = default ;
+        Memories(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Memories() = default ;
+        Memories& operator=(const Memories &) = default ;
+        Memories& operator=(Memories &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->metadata_ == nullptr
+        && this->text_ == nullptr && this->type_ == nullptr; };
+        // metadata Field Functions 
+        bool hasMetadata() const { return this->metadata_ != nullptr;};
+        void deleteMetadata() { this->metadata_ = nullptr;};
+        inline const map<string, string> & getMetadata() const { DARABONBA_PTR_GET_CONST(metadata_, map<string, string>) };
+        inline map<string, string> getMetadata() { DARABONBA_PTR_GET(metadata_, map<string, string>) };
+        inline Memories& setMetadata(const map<string, string> & metadata) { DARABONBA_PTR_SET_VALUE(metadata_, metadata) };
+        inline Memories& setMetadata(map<string, string> && metadata) { DARABONBA_PTR_SET_RVALUE(metadata_, metadata) };
+
+
+        // text Field Functions 
+        bool hasText() const { return this->text_ != nullptr;};
+        void deleteText() { this->text_ = nullptr;};
+        inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+        inline Memories& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline Memories& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        // The string key-value tags set by the caller. A maximum of 16 tags are supported. A key can be up to 64 Unicode characters in length, and a value can be up to 1,024 Unicode characters in length. Empty strings are allowed. Nested objects or arrays are not supported.
+        shared_ptr<map<string, string>> metadata_ {};
+        // The content of the memory to be directly written. It cannot be empty and can be up to 32,000 UTF-8 bytes in length.
+        shared_ptr<string> text_ {};
+        // The content type of the memory. Valid values: semantic for semantic memory, skill for skill, user_profile for user preference, and session_summary for session summary.
+        shared_ptr<string> type_ {};
+      };
+
+      virtual bool empty() const override { return this->extract_ == nullptr
+        && this->memories_ == nullptr && this->messages_ == nullptr && this->metadata_ == nullptr && this->referenceTime_ == nullptr && this->scope_ == nullptr
+        && this->sync_ == nullptr && this->text_ == nullptr; };
+      // extract Field Functions 
+      bool hasExtract() const { return this->extract_ != nullptr;};
+      void deleteExtract() { this->extract_ = nullptr;};
+      inline bool getExtract() const { DARABONBA_PTR_GET_DEFAULT(extract_, false) };
+      inline Body& setExtract(bool extract) { DARABONBA_PTR_SET_VALUE(extract_, extract) };
+
+
+      // memories Field Functions 
+      bool hasMemories() const { return this->memories_ != nullptr;};
+      void deleteMemories() { this->memories_ = nullptr;};
+      inline const vector<Body::Memories> & getMemories() const { DARABONBA_PTR_GET_CONST(memories_, vector<Body::Memories>) };
+      inline vector<Body::Memories> getMemories() { DARABONBA_PTR_GET(memories_, vector<Body::Memories>) };
+      inline Body& setMemories(const vector<Body::Memories> & memories) { DARABONBA_PTR_SET_VALUE(memories_, memories) };
+      inline Body& setMemories(vector<Body::Memories> && memories) { DARABONBA_PTR_SET_RVALUE(memories_, memories) };
+
+
       // messages Field Functions 
       bool hasMessages() const { return this->messages_ != nullptr;};
       void deleteMessages() { this->messages_ = nullptr;};
@@ -214,17 +314,21 @@ namespace Models
 
 
     protected:
-      // The message list. You must provide either this parameter or Text, but not both. The list can contain 1 to 20 messages, and the total size of Content cannot exceed 32,000 UTF-8 bytes.
+      // Specifies whether to extract memories. If omitted or set to true, memories are extracted from text or messages. If set to false, memories are directly written.
+      shared_ptr<bool> extract_ {};
+      // The list of memories to be directly written when extract is set to false. The list can contain 1 to 100 memories. You cannot provide text, messages, referenceTime, or request-level metadata at the same time.
+      shared_ptr<vector<Body::Memories>> memories_ {};
+      // The list of messages. You must provide either text or messages, but not both. The list can contain 1 to 20 messages, and the total length of the content cannot exceed 32,000 UTF-8 bytes.
       shared_ptr<vector<Body::Messages>> messages_ {};
-      // The string key-value metadata. You can specify up to 16 keys. The maximum length of a key is 64 characters, and the maximum length of a value is 1,024 characters.
+      // The string key-value metadata. A maximum of 16 keys are supported. A key can be up to 64 characters in length, and a value can be up to 1,024 characters in length.
       shared_ptr<map<string, string>> metadata_ {};
-      // The time reference point for this batch of messages or text. The time must be in RFC 3339 format with a time zone and support fractional seconds.
+      // The time reference point for the batch of messages or text. It uses the RFC 3339 format with a time zone and supports fractional seconds.
       shared_ptr<string> referenceTime_ {};
       // The write scope. UserId, AgentId, and SessionId are all optional.
       shared_ptr<Body::Scope> scope_ {};
-      // Specifies whether to synchronously wait for memory extraction to complete. Default value: true.
+      // Specifies whether to synchronously wait for the memory extraction to complete. Default value: true.
       shared_ptr<bool> sync_ {};
-      // The text to write directly. You must provide either this parameter or Messages, but not both. The size cannot exceed 32,000 UTF-8 bytes.
+      // The text to be directly written. You must provide either text or messages, but not both. The text cannot exceed 32,000 UTF-8 bytes.
       shared_ptr<string> text_ {};
     };
 
@@ -239,7 +343,7 @@ namespace Models
 
 
   protected:
-    // The memory write request.
+    // The write memory request.
     // 
     // This parameter is required.
     shared_ptr<AddMemoriesRequest::Body> body_ {};

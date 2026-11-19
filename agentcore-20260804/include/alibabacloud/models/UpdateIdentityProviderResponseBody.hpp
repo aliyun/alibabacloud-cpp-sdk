@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(configuration, configuration_);
         DARABONBA_PTR_TO_JSON(identityProviderType, identityProviderType_);
         DARABONBA_PTR_TO_JSON(loginEnabled, loginEnabled_);
+        DARABONBA_PTR_TO_JSON(oidc, oidc_);
         DARABONBA_PTR_TO_JSON(protocol, protocol_);
         DARABONBA_PTR_TO_JSON(saml, saml_);
         DARABONBA_PTR_TO_JSON(status, status_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(configuration, configuration_);
         DARABONBA_PTR_FROM_JSON(identityProviderType, identityProviderType_);
         DARABONBA_PTR_FROM_JSON(loginEnabled, loginEnabled_);
+        DARABONBA_PTR_FROM_JSON(oidc, oidc_);
         DARABONBA_PTR_FROM_JSON(protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(saml, saml_);
         DARABONBA_PTR_FROM_JSON(status, status_);
@@ -115,9 +117,9 @@ namespace Models
 
 
       protected:
-        // For SelectedDepartments, it must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. For AllAuthorized, pass an empty array or omit it.
+        // When set to SelectedDepartments, it must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When set to AllAuthorized, pass an empty array or omit this parameter.
         shared_ptr<vector<string>> departmentIds_ {};
-        // AllAuthorized: All authorized scopes, subject to application directory authorization restrictions. SelectedDepartments: Selected departments and all sub-departments. When explicitly submitting syncScope, a valid mode must be provided and verified by the backend.
+        // AllAuthorized: the full authorization scope, subject to the application address book authorization limits. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, a valid mode must be provided and verified by the backend.
         shared_ptr<string> mode_ {};
       };
 
@@ -181,12 +183,158 @@ namespace Models
       protected:
         // HTTP-Redirect or HTTP-POST. Required for manual entry. The query returns the short name.
         shared_ptr<string> bindingType_ {};
-        // Required for manual entry. It must be non-empty and contain up to 2,048 characters. The existing configuration cannot be replaced. It is different from the local entity ID queried by the SP.
+        // Required for manual entry. It must be non-empty and contain up to 2,048 characters. The existing configuration does not support replacement. It is different from the local entity ID returned by the SP query.
         shared_ptr<string> entityId_ {};
-        // Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+        // Required for manual entry. It must be an absolute HTTPS URL and must not contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
         // Required for manual entry. It must be a non-empty array using PEM X.509 certificate text. The current validity period is verified. Up to two certificates are allowed after deduplication.
         shared_ptr<vector<string>> x509Certificates_ {};
+      };
+
+      class Oidc : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Oidc& obj) { 
+          DARABONBA_PTR_TO_JSON(authorizationEndpoint, authorizationEndpoint_);
+          DARABONBA_PTR_TO_JSON(clientAuthMethod, clientAuthMethod_);
+          DARABONBA_PTR_TO_JSON(clientId, clientId_);
+          DARABONBA_PTR_TO_JSON(discoveryEndpoint, discoveryEndpoint_);
+          DARABONBA_PTR_TO_JSON(issuer, issuer_);
+          DARABONBA_PTR_TO_JSON(jwksUri, jwksUri_);
+          DARABONBA_PTR_TO_JSON(pkceRequired, pkceRequired_);
+          DARABONBA_PTR_TO_JSON(scopes, scopes_);
+          DARABONBA_PTR_TO_JSON(ssoMappingClaim, ssoMappingClaim_);
+          DARABONBA_PTR_TO_JSON(tokenEndpoint, tokenEndpoint_);
+          DARABONBA_PTR_TO_JSON(userinfoEndpoint, userinfoEndpoint_);
+        };
+        friend void from_json(const Darabonba::Json& j, Oidc& obj) { 
+          DARABONBA_PTR_FROM_JSON(authorizationEndpoint, authorizationEndpoint_);
+          DARABONBA_PTR_FROM_JSON(clientAuthMethod, clientAuthMethod_);
+          DARABONBA_PTR_FROM_JSON(clientId, clientId_);
+          DARABONBA_PTR_FROM_JSON(discoveryEndpoint, discoveryEndpoint_);
+          DARABONBA_PTR_FROM_JSON(issuer, issuer_);
+          DARABONBA_PTR_FROM_JSON(jwksUri, jwksUri_);
+          DARABONBA_PTR_FROM_JSON(pkceRequired, pkceRequired_);
+          DARABONBA_PTR_FROM_JSON(scopes, scopes_);
+          DARABONBA_PTR_FROM_JSON(ssoMappingClaim, ssoMappingClaim_);
+          DARABONBA_PTR_FROM_JSON(tokenEndpoint, tokenEndpoint_);
+          DARABONBA_PTR_FROM_JSON(userinfoEndpoint, userinfoEndpoint_);
+        };
+        Oidc() = default ;
+        Oidc(const Oidc &) = default ;
+        Oidc(Oidc &&) = default ;
+        Oidc(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Oidc() = default ;
+        Oidc& operator=(const Oidc &) = default ;
+        Oidc& operator=(Oidc &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->authorizationEndpoint_ == nullptr
+        && this->clientAuthMethod_ == nullptr && this->clientId_ == nullptr && this->discoveryEndpoint_ == nullptr && this->issuer_ == nullptr && this->jwksUri_ == nullptr
+        && this->pkceRequired_ == nullptr && this->scopes_ == nullptr && this->ssoMappingClaim_ == nullptr && this->tokenEndpoint_ == nullptr && this->userinfoEndpoint_ == nullptr; };
+        // authorizationEndpoint Field Functions 
+        bool hasAuthorizationEndpoint() const { return this->authorizationEndpoint_ != nullptr;};
+        void deleteAuthorizationEndpoint() { this->authorizationEndpoint_ = nullptr;};
+        inline string getAuthorizationEndpoint() const { DARABONBA_PTR_GET_DEFAULT(authorizationEndpoint_, "") };
+        inline Oidc& setAuthorizationEndpoint(string authorizationEndpoint) { DARABONBA_PTR_SET_VALUE(authorizationEndpoint_, authorizationEndpoint) };
+
+
+        // clientAuthMethod Field Functions 
+        bool hasClientAuthMethod() const { return this->clientAuthMethod_ != nullptr;};
+        void deleteClientAuthMethod() { this->clientAuthMethod_ = nullptr;};
+        inline string getClientAuthMethod() const { DARABONBA_PTR_GET_DEFAULT(clientAuthMethod_, "") };
+        inline Oidc& setClientAuthMethod(string clientAuthMethod) { DARABONBA_PTR_SET_VALUE(clientAuthMethod_, clientAuthMethod) };
+
+
+        // clientId Field Functions 
+        bool hasClientId() const { return this->clientId_ != nullptr;};
+        void deleteClientId() { this->clientId_ = nullptr;};
+        inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+        inline Oidc& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
+        // discoveryEndpoint Field Functions 
+        bool hasDiscoveryEndpoint() const { return this->discoveryEndpoint_ != nullptr;};
+        void deleteDiscoveryEndpoint() { this->discoveryEndpoint_ = nullptr;};
+        inline string getDiscoveryEndpoint() const { DARABONBA_PTR_GET_DEFAULT(discoveryEndpoint_, "") };
+        inline Oidc& setDiscoveryEndpoint(string discoveryEndpoint) { DARABONBA_PTR_SET_VALUE(discoveryEndpoint_, discoveryEndpoint) };
+
+
+        // issuer Field Functions 
+        bool hasIssuer() const { return this->issuer_ != nullptr;};
+        void deleteIssuer() { this->issuer_ = nullptr;};
+        inline string getIssuer() const { DARABONBA_PTR_GET_DEFAULT(issuer_, "") };
+        inline Oidc& setIssuer(string issuer) { DARABONBA_PTR_SET_VALUE(issuer_, issuer) };
+
+
+        // jwksUri Field Functions 
+        bool hasJwksUri() const { return this->jwksUri_ != nullptr;};
+        void deleteJwksUri() { this->jwksUri_ = nullptr;};
+        inline string getJwksUri() const { DARABONBA_PTR_GET_DEFAULT(jwksUri_, "") };
+        inline Oidc& setJwksUri(string jwksUri) { DARABONBA_PTR_SET_VALUE(jwksUri_, jwksUri) };
+
+
+        // pkceRequired Field Functions 
+        bool hasPkceRequired() const { return this->pkceRequired_ != nullptr;};
+        void deletePkceRequired() { this->pkceRequired_ = nullptr;};
+        inline bool getPkceRequired() const { DARABONBA_PTR_GET_DEFAULT(pkceRequired_, false) };
+        inline Oidc& setPkceRequired(bool pkceRequired) { DARABONBA_PTR_SET_VALUE(pkceRequired_, pkceRequired) };
+
+
+        // scopes Field Functions 
+        bool hasScopes() const { return this->scopes_ != nullptr;};
+        void deleteScopes() { this->scopes_ = nullptr;};
+        inline const vector<string> & getScopes() const { DARABONBA_PTR_GET_CONST(scopes_, vector<string>) };
+        inline vector<string> getScopes() { DARABONBA_PTR_GET(scopes_, vector<string>) };
+        inline Oidc& setScopes(const vector<string> & scopes) { DARABONBA_PTR_SET_VALUE(scopes_, scopes) };
+        inline Oidc& setScopes(vector<string> && scopes) { DARABONBA_PTR_SET_RVALUE(scopes_, scopes) };
+
+
+        // ssoMappingClaim Field Functions 
+        bool hasSsoMappingClaim() const { return this->ssoMappingClaim_ != nullptr;};
+        void deleteSsoMappingClaim() { this->ssoMappingClaim_ = nullptr;};
+        inline string getSsoMappingClaim() const { DARABONBA_PTR_GET_DEFAULT(ssoMappingClaim_, "") };
+        inline Oidc& setSsoMappingClaim(string ssoMappingClaim) { DARABONBA_PTR_SET_VALUE(ssoMappingClaim_, ssoMappingClaim) };
+
+
+        // tokenEndpoint Field Functions 
+        bool hasTokenEndpoint() const { return this->tokenEndpoint_ != nullptr;};
+        void deleteTokenEndpoint() { this->tokenEndpoint_ = nullptr;};
+        inline string getTokenEndpoint() const { DARABONBA_PTR_GET_DEFAULT(tokenEndpoint_, "") };
+        inline Oidc& setTokenEndpoint(string tokenEndpoint) { DARABONBA_PTR_SET_VALUE(tokenEndpoint_, tokenEndpoint) };
+
+
+        // userinfoEndpoint Field Functions 
+        bool hasUserinfoEndpoint() const { return this->userinfoEndpoint_ != nullptr;};
+        void deleteUserinfoEndpoint() { this->userinfoEndpoint_ = nullptr;};
+        inline string getUserinfoEndpoint() const { DARABONBA_PTR_GET_DEFAULT(userinfoEndpoint_, "") };
+        inline Oidc& setUserinfoEndpoint(string userinfoEndpoint) { DARABONBA_PTR_SET_VALUE(userinfoEndpoint_, userinfoEndpoint) };
+
+
+      protected:
+        // The absolute HTTPS URL required in manual mode. Do not specify this parameter in discovery mode.
+        shared_ptr<string> authorizationEndpoint_ {};
+        // The default value is client_secret_post. If the value is none, PKCE must be enabled.
+        shared_ptr<string> clientAuthMethod_ {};
+        // The client identifier registered in the external IdP, which is different from the Matrix client. This value cannot be changed in place after it is configured.
+        shared_ptr<string> clientId_ {};
+        // The absolute HTTPS discovery endpoint URL. This parameter is mutually exclusive with manually specified endpoints.
+        shared_ptr<string> discoveryEndpoint_ {};
+        // The absolute HTTPS issuer URL of the external IdP. This value cannot be changed in place after it is configured.
+        shared_ptr<string> issuer_ {};
+        // The absolute HTTPS URL required in manual mode. Do not specify this parameter in discovery mode.
+        shared_ptr<string> jwksUri_ {};
+        // Specifies whether PKCE is enabled. Default value: true. This parameter must be set to true when no client authentication is used.
+        shared_ptr<bool> pkceRequired_ {};
+        // The array of scope strings. It must include openid. Default values: openid, profile, and email.
+        shared_ptr<vector<string>> scopes_ {};
+        // The name of the claim in the ID token used to match the SCIM externalId. If omitted during the initial configuration, the default value is sub. If omitted during an update, the saved value is retained. For Azure, you can specify oid. The value must be non-empty and cannot contain whitespace characters. When queried, oidc returns the saved value, while oidcConfiguration returns the actual upstream value, which may be empty.
+        shared_ptr<string> ssoMappingClaim_ {};
+        // The absolute HTTPS URL required in manual mode. Do not specify this parameter in discovery mode.
+        shared_ptr<string> tokenEndpoint_ {};
+        // The optional absolute HTTPS URL in manual mode. Do not specify this parameter in discovery mode.
+        shared_ptr<string> userinfoEndpoint_ {};
       };
 
       class Configuration : public Darabonba::Model {
@@ -247,17 +395,17 @@ namespace Models
       protected:
         // HTTP-Redirect or HTTP-POST. Required for manual entry. The query returns the short name.
         shared_ptr<string> bindingType_ {};
-        // Required for manual entry. It must be non-empty and contain up to 2,048 characters. The existing configuration cannot be replaced. It is different from the local entity ID queried by the SP.
+        // Required for manual entry. It must be non-empty and contain up to 2,048 characters. The existing configuration does not support replacement. It is different from the local entity ID returned by the SP query.
         shared_ptr<string> entityId_ {};
-        // Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+        // Required for manual entry. It must be an absolute HTTPS URL and must not contain user credentials or fragments.
         shared_ptr<string> loginUrl_ {};
-        // The actual SSO logon status. The actual switch value is Enabled or Disabled, which is not equivalent to the expected loginEnabled value saved in AC.
+        // The actual switch value, which is Enabled or Disabled. This is not equivalent to the expected loginEnabled value saved in AC.
         shared_ptr<string> ssoStatus_ {};
       };
 
       virtual bool empty() const override { return this->configuration_ == nullptr
-        && this->identityProviderType_ == nullptr && this->loginEnabled_ == nullptr && this->protocol_ == nullptr && this->saml_ == nullptr && this->status_ == nullptr
-        && this->syncEnabled_ == nullptr && this->syncScope_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->identityProviderType_ == nullptr && this->loginEnabled_ == nullptr && this->oidc_ == nullptr && this->protocol_ == nullptr && this->saml_ == nullptr
+        && this->status_ == nullptr && this->syncEnabled_ == nullptr && this->syncScope_ == nullptr && this->workspaceId_ == nullptr; };
       // configuration Field Functions 
       bool hasConfiguration() const { return this->configuration_ != nullptr;};
       void deleteConfiguration() { this->configuration_ = nullptr;};
@@ -279,6 +427,15 @@ namespace Models
       void deleteLoginEnabled() { this->loginEnabled_ = nullptr;};
       inline bool getLoginEnabled() const { DARABONBA_PTR_GET_DEFAULT(loginEnabled_, false) };
       inline Data& setLoginEnabled(bool loginEnabled) { DARABONBA_PTR_SET_VALUE(loginEnabled_, loginEnabled) };
+
+
+      // oidc Field Functions 
+      bool hasOidc() const { return this->oidc_ != nullptr;};
+      void deleteOidc() { this->oidc_ = nullptr;};
+      inline const Data::Oidc & getOidc() const { DARABONBA_PTR_GET_CONST(oidc_, Data::Oidc) };
+      inline Data::Oidc getOidc() { DARABONBA_PTR_GET(oidc_, Data::Oidc) };
+      inline Data& setOidc(const Data::Oidc & oidc) { DARABONBA_PTR_SET_VALUE(oidc_, oidc) };
+      inline Data& setOidc(Data::Oidc && oidc) { DARABONBA_PTR_SET_RVALUE(oidc_, oidc) };
 
 
       // protocol Field Functions 
@@ -328,21 +485,23 @@ namespace Models
 
 
     protected:
-      // The actual upstream configuration. The actual SAML configuration is read on demand only when you call the GetIdentityProvider operation. SCIM queries and preparations return the actual receiving status and URL.
+      // The actual upstream configuration. The actual SAML configuration is read on demand only in GetIdentityProvider. SCIM queries and preparations return the actual reception status and URL.
       shared_ptr<Data::Configuration> configuration_ {};
-      // General CRUD operations support DingTalk, Lark, and CustomSSO. SP queries support only CustomSSO. The SCIM path uses the CustomSSO shared pool.
+      // General CRUD operations support DingTalk, Feishu, and CustomSSO. SP queries support only CustomSSO. The SCIM path uses the CustomSSO shared pool.
       shared_ptr<string> identityProviderType_ {};
-      // Do not pass true during CustomSSO initialization. A valid SAML configuration must be saved before enabling. Disabling does not delete the configuration. In case of asynchronous failure, this expected value does not mean that it has taken effect upstream.
+      // Do not pass true during CustomSSO initialization. A valid SAML configuration must be saved before enabling. Disabling does not delete the configuration. If an asynchronous failure occurs, this expected value does not indicate that it has taken effect upstream.
       shared_ptr<bool> loginEnabled_ {};
-      // The logon protocol for CustomSSO. Only SAML is supported. You can pass SAML when saving the SAML configuration. You can omit this field if you only modify loginEnabled. DingTalk and Lark do not accept this field.
+      // The expected security summary of the configuration. This does not include credentials. The original SAML fields and meanings are retained.
+      shared_ptr<Data::Oidc> oidc_ {};
+      // The login protocol for CustomSSO. Currently, only SAML is supported. You can pass SAML when saving the SAML configuration. You can omit this parameter if you only modify loginEnabled. DingTalk and Feishu do not accept this field.
       shared_ptr<string> protocol_ {};
-      // The SAML configuration for CustomSSO. Choose either metadataXml or the four manual entry fields: entityId, loginUrl, bindingType, and x509Certificates. If not submitted, the existing configuration is retained. DingTalk and Lark do not accept this field.
+      // The SAML configuration for CustomSSO. Choose either metadataXml or the four manually entered fields: entityId, loginUrl, bindingType, and x509Certificates. If not submitted, the existing configuration is retained. DingTalk and Feishu do not accept this field.
       shared_ptr<Data::Saml> saml_ {};
-      // The status of the identity source resource and logon configuration. For CustomSSO, a shared pool status of READY does not mean that SAML is configured. For SCIM, query operationStatus independently for the operation result.
+      // The status of the identity source resource and logon configuration. A READY status in the CustomSSO shared pool does not mean that SAML is configured. Query operationStatus independently for SCIM operation results.
       shared_ptr<string> status_ {};
-      // Specifies whether synchronization is enabled. Do not pass true when initializing CustomSSO. You can update this parameter only by calling the UpdateIdentityProviderSCIM operation. Determine the result in combination with operationStatus.
+      // Specifies whether synchronization is enabled. Do not set this parameter to true during CustomSSO initialization. You can only update this parameter later by calling UpdateIdentityProviderSCIM. Evaluate the result in combination with operationStatus.
       shared_ptr<bool> syncEnabled_ {};
-      // Follows the definition of the department-based synchronization scope. If omitted during creation, the default is AllAuthorized. The initial provider synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically execute a full synchronization.
+      // Follows the definition of the department-based synchronization scope. If omitted during creation, the default value is AllAuthorized. The initial provider synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Saving the scope during an update does not automatically trigger a full synchronization.
       shared_ptr<Data::SyncScope> syncScope_ {};
       // Required. The ID of the destination workspace. The region of the request must be the same as the region of the destination workspace.
       shared_ptr<string> workspaceId_ {};
@@ -395,17 +554,17 @@ namespace Models
 
 
   protected:
-    // The business result code. If the request fails, use this code in combination with the HTTP status code and the message for troubleshooting.
+    // The business result code. If the request fails, use this code along with the HTTP status code and message for troubleshooting.
     shared_ptr<string> code_ {};
-    // The business result. For the result structure, see the response parameters of this API operation. For asynchronous write operations, the response indicates that the request is accepted, but does not guarantee that the background task is completed.
+    // The business result. For the result structure, refer to the response fields of this operation. For asynchronous write operations, the response indicates that the request is accepted, but does not guarantee that the background task is completed.
     shared_ptr<UpdateIdentityProviderResponseBody::Data> data_ {};
-    // The HTTP status code of the current request. This status code indicates the processing status of the request and does not represent the final result of the background task.
+    // The processing status of the current request. This does not indicate the final result of the background task.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Task result message. It indicates whether the request is accepted or returns an error message. For asynchronous tasks, check task results by calling the corresponding query API operation.
+    // The request acceptance or error message. For asynchronous tasks, verify the task result by calling the corresponding query operation.
     shared_ptr<string> message_ {};
-    // The request ID. Retain this ID for troubleshooting and to correlate with the current API call if the request fails.
+    // The request ID. Retain this ID to correlate the current call and troubleshoot failures.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the current request is successful. A value of true indicates that the request is processed successfully. For asynchronous write operations, you must continue to query the task result.
+    // Indicates whether the current request is processed successfully. A value of true indicates success. For asynchronous write operations, you must still query the task result.
     shared_ptr<bool> success_ {};
   };
 

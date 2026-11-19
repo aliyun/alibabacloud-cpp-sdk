@@ -63,18 +63,24 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ownerId, ownerId_);
           DARABONBA_PTR_TO_JSON(ownerType, ownerType_);
           DARABONBA_PTR_TO_JSON(ownerVersion, ownerVersion_);
+          DARABONBA_PTR_TO_JSON(refType, refType_);
           DARABONBA_PTR_TO_JSON(selectorType, selectorType_);
           DARABONBA_PTR_TO_JSON(selectorValue, selectorValue_);
           DARABONBA_PTR_TO_JSON(skillName, skillName_);
+          DARABONBA_PTR_TO_JSON(sourceId, sourceId_);
+          DARABONBA_PTR_TO_JSON(sourceName, sourceName_);
           DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
         };
         friend void from_json(const Darabonba::Json& j, PageItems& obj) { 
           DARABONBA_PTR_FROM_JSON(ownerId, ownerId_);
           DARABONBA_PTR_FROM_JSON(ownerType, ownerType_);
           DARABONBA_PTR_FROM_JSON(ownerVersion, ownerVersion_);
+          DARABONBA_PTR_FROM_JSON(refType, refType_);
           DARABONBA_PTR_FROM_JSON(selectorType, selectorType_);
           DARABONBA_PTR_FROM_JSON(selectorValue, selectorValue_);
           DARABONBA_PTR_FROM_JSON(skillName, skillName_);
+          DARABONBA_PTR_FROM_JSON(sourceId, sourceId_);
+          DARABONBA_PTR_FROM_JSON(sourceName, sourceName_);
           DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
         };
         PageItems() = default ;
@@ -89,8 +95,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->ownerId_ == nullptr
-        && this->ownerType_ == nullptr && this->ownerVersion_ == nullptr && this->selectorType_ == nullptr && this->selectorValue_ == nullptr && this->skillName_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->ownerType_ == nullptr && this->ownerVersion_ == nullptr && this->refType_ == nullptr && this->selectorType_ == nullptr && this->selectorValue_ == nullptr
+        && this->skillName_ == nullptr && this->sourceId_ == nullptr && this->sourceName_ == nullptr && this->workspaceId_ == nullptr; };
         // ownerId Field Functions 
         bool hasOwnerId() const { return this->ownerId_ != nullptr;};
         void deleteOwnerId() { this->ownerId_ = nullptr;};
@@ -110,6 +116,13 @@ namespace Models
         void deleteOwnerVersion() { this->ownerVersion_ = nullptr;};
         inline string getOwnerVersion() const { DARABONBA_PTR_GET_DEFAULT(ownerVersion_, "") };
         inline PageItems& setOwnerVersion(string ownerVersion) { DARABONBA_PTR_SET_VALUE(ownerVersion_, ownerVersion) };
+
+
+        // refType Field Functions 
+        bool hasRefType() const { return this->refType_ != nullptr;};
+        void deleteRefType() { this->refType_ = nullptr;};
+        inline string getRefType() const { DARABONBA_PTR_GET_DEFAULT(refType_, "") };
+        inline PageItems& setRefType(string refType) { DARABONBA_PTR_SET_VALUE(refType_, refType) };
 
 
         // selectorType Field Functions 
@@ -133,6 +146,20 @@ namespace Models
         inline PageItems& setSkillName(string skillName) { DARABONBA_PTR_SET_VALUE(skillName_, skillName) };
 
 
+        // sourceId Field Functions 
+        bool hasSourceId() const { return this->sourceId_ != nullptr;};
+        void deleteSourceId() { this->sourceId_ = nullptr;};
+        inline string getSourceId() const { DARABONBA_PTR_GET_DEFAULT(sourceId_, "") };
+        inline PageItems& setSourceId(string sourceId) { DARABONBA_PTR_SET_VALUE(sourceId_, sourceId) };
+
+
+        // sourceName Field Functions 
+        bool hasSourceName() const { return this->sourceName_ != nullptr;};
+        void deleteSourceName() { this->sourceName_ = nullptr;};
+        inline string getSourceName() const { DARABONBA_PTR_GET_DEFAULT(sourceName_, "") };
+        inline PageItems& setSourceName(string sourceName) { DARABONBA_PTR_SET_VALUE(sourceName_, sourceName) };
+
+
         // workspaceId Field Functions 
         bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
         void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -141,19 +168,25 @@ namespace Models
 
 
       protected:
-        // The ID of the referencing entity, which identifies the agent or AgentSpec.
+        // The ID of the referencing entity, which is the identifier of the agent or agent spec.
         shared_ptr<string> ownerId_ {};
-        // The type of the referencing entity. Valid values: AGENT and AGENTSPEC.
+        // The type of the referencing entity. Valid values: AGENT, AGENTSPEC.
         shared_ptr<string> ownerType_ {};
         // The version of the referencing entity.
         shared_ptr<string> ownerVersion_ {};
-        // The reference selector type. Valid values: LABEL and VERSION.
+        // The reference strength. Valid values: STRONG, WEAK. For legacy data, STRONG is returned.
+        shared_ptr<string> refType_ {};
+        // The reference selector type. Valid values: LABEL, VERSION.
         shared_ptr<string> selectorType_ {};
         // The reference selector value. Valid values: latest, a named label, HEAD, or a specific version.
         shared_ptr<string> selectorValue_ {};
         // The name of the referenced skill.
         shared_ptr<string> skillName_ {};
-        // The ID of the workspace to which the reference belongs.
+        // The reference source identifier. For legacy data, agentcore is returned.
+        shared_ptr<string> sourceId_ {};
+        // The display name of the reference source. If no name is registered, the source identifier is returned.
+        shared_ptr<string> sourceName_ {};
+        // The workspace ID to which the reference belongs.
         shared_ptr<string> workspaceId_ {};
       };
 
@@ -194,9 +227,9 @@ namespace Models
       shared_ptr<vector<Data::PageItems>> pageItems_ {};
       // The current page number, starting from 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // The total number of pages.
+      // The total number of available pages.
       shared_ptr<int32_t> pagesAvailable_ {};
-      // The total number of reference relationships that meet the filter conditions.
+      // The total number of reference relationships that meet the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -219,9 +252,9 @@ namespace Models
 
 
   protected:
-    // The skill reference relationships returned in the paging query.
+    // The skill reference relationship data returned by the paged query.
     shared_ptr<ListSkillReferencesResponseBody::Data> data_ {};
-    // The request ID, which is used for troubleshooting.
+    // The request ID, used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

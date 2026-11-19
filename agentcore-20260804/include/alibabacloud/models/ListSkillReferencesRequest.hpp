@@ -15,14 +15,18 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListSkillReferencesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(pageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(refType, refType_);
       DARABONBA_PTR_TO_JSON(selectorType, selectorType_);
       DARABONBA_PTR_TO_JSON(selectorValue, selectorValue_);
+      DARABONBA_PTR_TO_JSON(sourceId, sourceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListSkillReferencesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(pageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(refType, refType_);
       DARABONBA_PTR_FROM_JSON(selectorType, selectorType_);
       DARABONBA_PTR_FROM_JSON(selectorValue, selectorValue_);
+      DARABONBA_PTR_FROM_JSON(sourceId, sourceId_);
     };
     ListSkillReferencesRequest() = default ;
     ListSkillReferencesRequest(const ListSkillReferencesRequest &) = default ;
@@ -36,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNo_ == nullptr
-        && this->pageSize_ == nullptr && this->selectorType_ == nullptr && this->selectorValue_ == nullptr; };
+        && this->pageSize_ == nullptr && this->refType_ == nullptr && this->selectorType_ == nullptr && this->selectorValue_ == nullptr && this->sourceId_ == nullptr; };
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
@@ -49,6 +53,13 @@ namespace Models
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListSkillReferencesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // refType Field Functions 
+    bool hasRefType() const { return this->refType_ != nullptr;};
+    void deleteRefType() { this->refType_ = nullptr;};
+    inline string getRefType() const { DARABONBA_PTR_GET_DEFAULT(refType_, "") };
+    inline ListSkillReferencesRequest& setRefType(string refType) { DARABONBA_PTR_SET_VALUE(refType_, refType) };
 
 
     // selectorType Field Functions 
@@ -65,15 +76,26 @@ namespace Models
     inline ListSkillReferencesRequest& setSelectorValue(string selectorValue) { DARABONBA_PTR_SET_VALUE(selectorValue_, selectorValue) };
 
 
+    // sourceId Field Functions 
+    bool hasSourceId() const { return this->sourceId_ != nullptr;};
+    void deleteSourceId() { this->sourceId_ = nullptr;};
+    inline string getSourceId() const { DARABONBA_PTR_GET_DEFAULT(sourceId_, "") };
+    inline ListSkillReferencesRequest& setSourceId(string sourceId) { DARABONBA_PTR_SET_VALUE(sourceId_, sourceId) };
+
+
   protected:
-    // The page number. Pages start from 1. Default value: 1.
+    // The page number, starting from 1. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. If omitted, the server default value is used.
+    // The number of entries per page. If not specified, the server default value is used.
     shared_ptr<int32_t> pageSize_ {};
-    // The reference selector type used for filtering. Valid values: LABEL and VERSION.
+    // Filters by reference strength. Valid values: STRONG, WEAK.
+    shared_ptr<string> refType_ {};
+    // Filters by reference selector type. Valid values: LABEL, VERSION.
     shared_ptr<string> selectorType_ {};
-    // The reference selector value used for filtering. Valid values: latest, a named label, HEAD, or a specific version.
+    // Filters by reference selector value. Valid values: latest, a named label, HEAD, or a specific version.
     shared_ptr<string> selectorValue_ {};
+    // Filters by reference source identifier. The value must be agentcore or a configured source.
+    shared_ptr<string> sourceId_ {};
   };
 
   } // namespace Models
