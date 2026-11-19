@@ -118,13 +118,13 @@ namespace Models
     shared_ptr<string> filterShrink_ {};
     // The time granularity.
     shared_ptr<string> granularity_ {};
-    // The list of grouping conditions. Currently, you must specify exactly one grouping dimension.
+    // The list of grouping conditions. Currently, exactly one grouping dimension must be specified.
     shared_ptr<string> groupByShrink_ {};
     // The language of the response. Default value: en-US.
     shared_ptr<string> locale_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The query time range, which includes the start and end times. Both the start and end times are included in the query range. The time format must be consistent with the granularity, and the start time cannot be later than the end time.
+    // The query time range, which includes start and end. Both the start time and end time are included in the query range. The time format must be consistent with granularity, and start cannot be later than end.
     shared_ptr<string> timePeriodShrink_ {};
     // The number of groups to return. Valid values: 1 to 20. Default value: 20.
     shared_ptr<int32_t> topNum_ {};

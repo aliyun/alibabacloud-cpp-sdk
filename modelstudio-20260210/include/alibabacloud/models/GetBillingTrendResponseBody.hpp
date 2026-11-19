@@ -144,7 +144,7 @@ namespace Models
         protected:
           // The total cost amount of the current period.
           shared_ptr<string> amount_ {};
-          // The currency of the amount in the current period.
+          // The currency of the amount for the current period.
           shared_ptr<string> currency_ {};
           // The pretax amount of the current period.
           shared_ptr<string> pretaxAmount_ {};
@@ -226,17 +226,17 @@ namespace Models
 
 
         protected:
-          // The amount of the group in the current period.
+          // The amount of the group within the current period.
           shared_ptr<string> amount_ {};
-          // The dimension value of the group. For data other than the top N items, DIMENSION_GROUP_OTHERS_VALUE is used.
+          // The dimension value of the group. Data other than the top N uses DIMENSION_GROUP_OTHERS_VALUE.
           shared_ptr<string> key_ {};
           // The display name of the group, which is affected by the locale input parameter.
           shared_ptr<string> name_ {};
-          // The ratio of the current group amount to the total amount of the current period.
+          // The proportion of the current group amount to the total amount of the current period.
           shared_ptr<string> percentage_ {};
-          // The pretax amount of the group in the current period.
+          // The pretax amount of the group within the current period.
           shared_ptr<string> pretaxAmount_ {};
-          // The tax amount of the group in the current period.
+          // The tax amount of the group within the current period.
           shared_ptr<string> taxAmount_ {};
         };
 
@@ -272,7 +272,7 @@ namespace Models
         shared_ptr<string> period_ {};
         // The cost groups that actually exist in the current period.
         shared_ptr<vector<ResultByTime::PeriodDetails>> periodDetails_ {};
-        // The total costs of the current period.
+        // The total cost of the current period.
         shared_ptr<ResultByTime::Total> total_ {};
       };
 
@@ -464,11 +464,11 @@ namespace Models
           protected:
             // The amount of the current group.
             shared_ptr<string> amount_ {};
-            // The dimension value of the group. If the value is null, DIMENSION_FILTER_NULL_VALUE is returned.
+            // The dimension value of the group. A null value returns DIMENSION_FILTER_NULL_VALUE.
             shared_ptr<string> key_ {};
-            // The display name of the group, which is affected by the locale parameter. If the value is null, a hyphen (-) is displayed.
+            // The display name of the group, which is affected by the locale parameter. A null value is displayed as a hyphen (-).
             shared_ptr<string> name_ {};
-            // The percentage of the group amount.
+            // The proportion of the group amount.
             shared_ptr<string> percentage_ {};
             // The total pretax amount.
             shared_ptr<string> pretaxAmount_ {};
@@ -508,7 +508,7 @@ namespace Models
           shared_ptr<string> period_ {};
           // The cost groups that actually exist in the current period.
           shared_ptr<vector<ResultByTime::PeriodDetails>> periodDetails_ {};
-          // The total costs of the current period.
+          // The total cost of the current period.
           shared_ptr<ResultByTime::Total> total_ {};
         };
 
@@ -579,9 +579,9 @@ namespace Models
         protected:
           // The total amount of the current group.
           shared_ptr<string> amount_ {};
-          // The dimension value of the group. If the value is null, DIMENSION_FILTER_NULL_VALUE is returned.
+          // The dimension value of the group. A null value returns DIMENSION_FILTER_NULL_VALUE.
           shared_ptr<string> key_ {};
-          // The display name of the group, which is affected by the locale parameter. If the value is null, a hyphen (-) is displayed.
+          // The display name of the group, which is affected by the locale parameter. A null value is displayed as a hyphen (-).
           shared_ptr<string> name_ {};
           // The total pretax amount.
           shared_ptr<string> pretaxAmount_ {};
@@ -685,9 +685,9 @@ namespace Models
 
 
       protected:
-        // The total costs within the historical range, including the top N items and Other.
+        // The total cost within the historical range, including the top N groups and Others.
         shared_ptr<HistoryPeriod::CostTotals> costTotals_ {};
-        // The total costs of the top N groups and the optional Other group within the historical period.
+        // The total cost of the top N groups and the optional Others group within the historical period.
         shared_ptr<vector<HistoryPeriod::GroupByTotal>> groupByTotal_ {};
         // The list of cost trends sorted in ascending order by time.
         shared_ptr<vector<HistoryPeriod::ResultByTime>> resultByTime_ {};
@@ -875,9 +875,9 @@ namespace Models
 
 
     protected:
-      // The total costs within the entire query time range, including the top N items and Other.
+      // The total cost within the entire query time range, including the top N groups and Others.
       shared_ptr<Data::CostTotals> costTotals_ {};
-      // The total costs of the top N groups and the optional Other group within the period.
+      // The total cost of the top N groups and the optional Others group within the period.
       shared_ptr<vector<Data::GroupByTotal>> groupByTotal_ {};
       // The historical period data, which is returned when the includeHistoryPeriod input parameter is set to true.
       shared_ptr<Data::HistoryPeriod> historyPeriod_ {};
@@ -925,11 +925,11 @@ namespace Models
 
 
   protected:
-    // The request result code.
+    // The result code of the request.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetBillingTrendResponseBody::Data> data_ {};
-    // The description of the request result.
+    // The result message of the request.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

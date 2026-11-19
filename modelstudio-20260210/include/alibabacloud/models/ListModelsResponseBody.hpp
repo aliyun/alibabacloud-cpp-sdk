@@ -160,16 +160,16 @@ namespace Models
 
 
         protected:
-          // The price. The currency unit depends on the account type: ￥ for accounts in the Chinese mainland and $ for international accounts.
+          // The price. The currency depends on the account type: CNY (￥) for accounts in the Chinese mainland and USD ($) for international accounts.
           shared_ptr<string> price_ {};
           // The price type.
           shared_ptr<string> priceName_ {};
-          // The billing method.
+          // The pricing unit.
           shared_ptr<string> priceUnit_ {};
           // The time band. Valid values:
           // - peak: Peak hours.
           // - offpeak: Off-peak hours.
-          // - standard: No time-based tiering.
+          // - standard: No time band distinction.
           shared_ptr<string> timeBand_ {};
         };
 
@@ -194,7 +194,7 @@ namespace Models
       protected:
         // The model pricing.
         shared_ptr<vector<Prices::PricesItem>> prices_ {};
-        // The tier name. If tiered pricing is not used, the value is Default.
+        // The name of the pricing tier. If tiered pricing is not used, the value is Default.
         shared_ptr<string> rangeName_ {};
       };
 
@@ -509,9 +509,9 @@ namespace Models
 
 
   protected:
-    // The error code. This field is empty when the call is successful.
+    // The error code. This field is empty if the call is successful.
     shared_ptr<string> code_ {};
-    // The error message. This field is empty when the call is successful.
+    // The error message. This field is empty if the call is successful.
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};

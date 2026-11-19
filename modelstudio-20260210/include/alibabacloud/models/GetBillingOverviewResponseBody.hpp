@@ -136,9 +136,9 @@ namespace Models
         shared_ptr<string> amount_ {};
         // The list of commodity codes involved in the current group.
         shared_ptr<vector<string>> articleCodes_ {};
-        // The value of the grouping dimension. If the value is null, DIMENSION_FILTER_NULL_VALUE is returned.
+        // The value of the grouping dimension. If the value is empty, DIMENSION_FILTER_NULL_VALUE is returned.
         shared_ptr<string> key_ {};
-        // The display name of the group, which is affected by the locale parameter. If the value is null, a hyphen (-) is displayed.
+        // The display name of the group, which is affected by the locale parameter. If the value is empty, a hyphen (-) is displayed.
         shared_ptr<string> name_ {};
         // The proportion of the group amount to the total amount of the top N groups.
         shared_ptr<string> percentage_ {};
@@ -240,7 +240,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The billing overview data.
     shared_ptr<GetBillingOverviewResponseBody::Data> data_ {};
-    // The description of the request result.
+    // The result message of the request.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -86,7 +86,7 @@ namespace Models
 
 
     protected:
-      // API Key ID。
+      // The API key ID.
       shared_ptr<int64_t> apiKeyId_ {};
       // The value of the API key.
       shared_ptr<string> apiKeyValue_ {};
@@ -151,9 +151,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // - true: The request was successful.
-    // - false: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

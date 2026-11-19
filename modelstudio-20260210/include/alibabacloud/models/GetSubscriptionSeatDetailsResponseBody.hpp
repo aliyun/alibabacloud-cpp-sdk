@@ -186,7 +186,7 @@ namespace Models
         protected:
           // The end time of the current cycle, in milliseconds.
           shared_ptr<int64_t> cycleEndTime_ {};
-          // The entitlement code (subscription code). Consumption is not required in the credits scenario.
+          // The entitlement code. This is the subscription code and is not required for consumption in the credits scenario.
           shared_ptr<string> cycleInstanceId_ {};
           // The start time of the current cycle, in milliseconds.
           shared_ptr<int64_t> cycleStartTime_ {};
@@ -285,18 +285,18 @@ namespace Models
       protected:
         // The mailbox of the member accounts.
         shared_ptr<string> accountEmail_ {};
-        // The ID of the attached member accounts.
+        // The ID of the member accounts to attach.
         shared_ptr<string> accountId_ {};
         // The name of the member accounts.
         shared_ptr<string> accountName_ {};
         // The assignment status. Valid values:
         // 
-        // - ASSIGNED
-        // - UNASSIGNED
+        // - ASSIGNED: Assigned.
+        // - UNASSIGNED: Unassigned.
         shared_ptr<string> assignedStatus_ {};
         // The expiration time of the seat.
         shared_ptr<int64_t> endTime_ {};
-        // The active entitlement instances. For the TokenPlan product, this list contains only one active entitlement instance.
+        // The currently active entitlement instances. For the TokenPlan product, this list contains only one active entitlement instance.
         shared_ptr<vector<Items::EquityList>> equityList_ {};
         // The instance code of the seat.
         shared_ptr<string> instanceCode_ {};
@@ -304,20 +304,20 @@ namespace Models
         shared_ptr<string> seatId_ {};
         // The seat type. Valid values: 
         // 
-        // - standard: standard seat
-        // - pro: advanced seat
-        // - max: premium seat
+        // - standard: Standard seat.
+        // - pro: Pro seat.
+        // - max: Premium seat.
         shared_ptr<string> specType_ {};
         // The start time of the seat.
         shared_ptr<int64_t> startTime_ {};
         // The seat status. Valid values:
         // 
-        // - CREATING: creating
-        // - NORMAL: valid
-        // - LIMIT: restricted due to overdue payment
-        // - RELEASE: released upon expiration
-        // - STOP: stopped upon expiration
-        // - REFUNDED: refunded
+        // - CREATING: Creating.
+        // - NORMAL: Valid.
+        // - LIMIT: Restricted due to overdue payment.
+        // - RELEASE: Released upon expiration.
+        // - STOP: Stopped upon expiration.
+        // - REFUNDED: Refunded.
         shared_ptr<string> status_ {};
       };
 
@@ -403,10 +403,10 @@ namespace Models
     shared_ptr<GetSubscriptionSeatDetailsResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the API call is successful. Valid values:
     // 
-    // - true: successful
-    // - false: failed
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

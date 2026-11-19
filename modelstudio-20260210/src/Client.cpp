@@ -2,12 +2,14 @@
 #include <alibabacloud/ModelStudio20260210.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -18,6 +20,9 @@ namespace ModelStudio20260210
 {
 
 AlibabaCloud::ModelStudio20260210::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "ModelStudio";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("modelstudio", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -198,7 +203,7 @@ BatchRevokeSeatsResponse Client::batchRevokeSeats(const BatchRevokeSeatsRequest 
 }
 
 /**
- * @summary Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
+ * @summary Creates an API key as an authentication credential before you use large models or applications in Alibaba Cloud Model Studio.
  *
  * @param request CreateApiKeyRequest
  * @param headers map
@@ -241,7 +246,7 @@ CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &
 }
 
 /**
- * @summary Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
+ * @summary Creates an API key as an authentication credential before you use large models or applications in Alibaba Cloud Model Studio.
  *
  * @param request CreateApiKeyRequest
  * @return CreateApiKeyResponse
@@ -714,7 +719,7 @@ GetBillingOverviewResponse Client::getBillingOverview(const GetBillingOverviewRe
 }
 
 /**
- * @summary Queries the billing trends.
+ * @summary Queries billing trends.
  *
  * @param tmpReq GetBillingTrendRequest
  * @param headers map
@@ -793,7 +798,7 @@ GetBillingTrendResponse Client::getBillingTrendWithOptions(const GetBillingTrend
 }
 
 /**
- * @summary Queries the billing trends.
+ * @summary Queries billing trends.
  *
  * @param request GetBillingTrendRequest
  * @return GetBillingTrendResponse
@@ -887,7 +892,7 @@ GetOrganizationMemberSeatStatsResponse Client::getOrganizationMemberSeatStats(co
 }
 
 /**
- * @summary Performs a paging query on seat details.
+ * @summary Performs a paged query on seat details with paging.
  *
  * @param request GetSubscriptionSeatDetailsRequest
  * @param headers map
@@ -897,6 +902,10 @@ GetOrganizationMemberSeatStatsResponse Client::getOrganizationMemberSeatStats(co
 GetSubscriptionSeatDetailsResponse Client::getSubscriptionSeatDetailsWithOptions(const GetSubscriptionSeatDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasInstanceCode()) {
+    query["InstanceCode"] = request.getInstanceCode();
+  }
+
   if (!!request.hasPageNo()) {
     query["PageNo"] = request.getPageNo();
   }
@@ -940,7 +949,7 @@ GetSubscriptionSeatDetailsResponse Client::getSubscriptionSeatDetailsWithOptions
 }
 
 /**
- * @summary Performs a paging query on seat details.
+ * @summary Performs a paged query on seat details with paging.
  *
  * @param request GetSubscriptionSeatDetailsRequest
  * @return GetSubscriptionSeatDetailsResponse
@@ -1189,7 +1198,7 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
 }
 
 /**
- * @summary Queries model throttling for a workspace.
+ * @summary Queries the model throttling configurations for a workspace.
  *
  * @param request ListModelLimitsRequest
  * @param headers map
@@ -1238,7 +1247,7 @@ ListModelLimitsResponse Client::listModelLimitsWithOptions(const ListModelLimits
 }
 
 /**
- * @summary Queries model throttling for a workspace.
+ * @summary Queries the model throttling configurations for a workspace.
  *
  * @param request ListModelLimitsRequest
  * @return ListModelLimitsResponse
@@ -1644,7 +1653,7 @@ RemoveOrganizationMemberResponse Client::removeOrganizationMember(const RemoveOr
 /**
  * @summary Resets an API key.
  *
- * @description Only the API key value changes. The API key ID remains unchanged.
+ * @description Only the API key changes. The API key ID remains unchanged.
  *
  * @param request ResetApiKeyRequest
  * @param headers map
@@ -1673,7 +1682,7 @@ ResetApiKeyResponse Client::resetApiKeyWithOptions(const string &apiKeyId, const
 /**
  * @summary Resets an API key.
  *
- * @description Only the API key value changes. The API key ID remains unchanged.
+ * @description Only the API key changes. The API key ID remains unchanged.
  *
  * @param request ResetApiKeyRequest
  * @return ResetApiKeyResponse
@@ -1724,7 +1733,7 @@ RevokeTokenPlanInviteLinkResponse Client::revokeTokenPlanInviteLink(const Revoke
 }
 
 /**
- * @summary Resets a UAC API key.
+ * @summary Resets the UAC API key.
  *
  * @description Only the API key changes. The API key ID remains unchanged.
  *
@@ -1759,7 +1768,7 @@ RotateTokenPlanKeyResponse Client::rotateTokenPlanKeyWithOptions(const RotateTok
 }
 
 /**
- * @summary Resets a UAC API key.
+ * @summary Resets the UAC API key.
  *
  * @description Only the API key changes. The API key ID remains unchanged.
  *

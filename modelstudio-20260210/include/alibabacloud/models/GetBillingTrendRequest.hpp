@@ -118,7 +118,7 @@ namespace Models
 
 
     protected:
-      // The grouping dimension code. For more information, see the "Additional notes" section below.
+      // The code of the grouping dimension. For more information, see the "Additional notes" section below.
       shared_ptr<string> code_ {};
     };
 
@@ -190,7 +190,7 @@ namespace Models
 
 
       protected:
-        // The filter dimension code. For more information, see the "Additional notes" section below.
+        // The code of the filter dimension. For more information, see the "Additional notes" section below.
         shared_ptr<string> code_ {};
         // The filtering method.
         shared_ptr<string> selectType_ {};
@@ -286,7 +286,7 @@ namespace Models
 
 
   protected:
-    // The dimension filter condition.
+    // The dimension filter conditions.
     shared_ptr<GetBillingTrendRequest::Filter> filter_ {};
     // The query granularity. This parameter is required.
     shared_ptr<string> granularity_ {};
@@ -298,7 +298,7 @@ namespace Models
     shared_ptr<string> locale_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The time range to query, including the start time and end time. This parameter is required.
+    // The time range for the query, which includes the start time and end time. This parameter is required.
     shared_ptr<GetBillingTrendRequest::TimePeriod> timePeriod_ {};
     // The number of groups to return. Valid values: 1 to 20. Default value: 20. The remaining groups are merged into "Other".
     shared_ptr<int32_t> topNum_ {};

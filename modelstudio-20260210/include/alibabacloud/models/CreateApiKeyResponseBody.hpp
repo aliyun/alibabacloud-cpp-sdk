@@ -116,7 +116,7 @@ namespace Models
       // The API key ID.
       shared_ptr<int64_t> apiKeyId_ {};
       // The value of the API key.
-      // >Notice: Copy your API key immediately. Keep it secure. Anyone who obtains this key can initiate service requests and incur charges on your behalf. If the key is lost, you can reset it or create a new one.
+      // >Notice: Copy your API key immediately and keep it secure. Anyone who obtains this key can initiate service requests and incur charges on your behalf. If the key is lost, you can reset it or create a new one.
       shared_ptr<string> apiKeyValue_ {};
       // The creator.
       shared_ptr<string> createdBy_ {};
@@ -185,7 +185,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request is successful.
     // - true: The request is successful.
     // - false: The request fails.
     shared_ptr<bool> success_ {};

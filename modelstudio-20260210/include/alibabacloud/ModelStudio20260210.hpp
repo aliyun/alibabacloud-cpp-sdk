@@ -75,7 +75,7 @@ namespace ModelStudio20260210
       Models::BatchRevokeSeatsResponse batchRevokeSeats(const Models::BatchRevokeSeatsRequest &request);
 
       /**
-       * @summary Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
+       * @summary Creates an API key as an authentication credential before you use large models or applications in Alibaba Cloud Model Studio.
        *
        * @param request CreateApiKeyRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace ModelStudio20260210
       Models::CreateApiKeyResponse createApiKeyWithOptions(const Models::CreateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
+       * @summary Creates an API key as an authentication credential before you use large models or applications in Alibaba Cloud Model Studio.
        *
        * @param request CreateApiKeyRequest
        * @return CreateApiKeyResponse
@@ -285,7 +285,7 @@ namespace ModelStudio20260210
       Models::GetBillingOverviewResponse getBillingOverview(const Models::GetBillingOverviewRequest &request);
 
       /**
-       * @summary Queries the billing trends.
+       * @summary Queries billing trends.
        *
        * @param tmpReq GetBillingTrendRequest
        * @param headers map
@@ -295,7 +295,7 @@ namespace ModelStudio20260210
       Models::GetBillingTrendResponse getBillingTrendWithOptions(const Models::GetBillingTrendRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the billing trends.
+       * @summary Queries billing trends.
        *
        * @param request GetBillingTrendRequest
        * @return GetBillingTrendResponse
@@ -343,7 +343,7 @@ namespace ModelStudio20260210
       Models::GetOrganizationMemberSeatStatsResponse getOrganizationMemberSeatStats(const Models::GetOrganizationMemberSeatStatsRequest &request);
 
       /**
-       * @summary Performs a paging query on seat details.
+       * @summary Performs a paged query on seat details with paging.
        *
        * @param request GetSubscriptionSeatDetailsRequest
        * @param headers map
@@ -353,7 +353,7 @@ namespace ModelStudio20260210
       Models::GetSubscriptionSeatDetailsResponse getSubscriptionSeatDetailsWithOptions(const Models::GetSubscriptionSeatDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paging query on seat details.
+       * @summary Performs a paged query on seat details with paging.
        *
        * @param request GetSubscriptionSeatDetailsRequest
        * @return GetSubscriptionSeatDetailsResponse
@@ -463,7 +463,7 @@ namespace ModelStudio20260210
       Models::ListApiKeysResponse listApiKeys(const Models::ListApiKeysRequest &request);
 
       /**
-       * @summary Queries model throttling for a workspace.
+       * @summary Queries the model throttling configurations for a workspace.
        *
        * @param request ListModelLimitsRequest
        * @param headers map
@@ -473,7 +473,7 @@ namespace ModelStudio20260210
       Models::ListModelLimitsResponse listModelLimitsWithOptions(const Models::ListModelLimitsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries model throttling for a workspace.
+       * @summary Queries the model throttling configurations for a workspace.
        *
        * @param request ListModelLimitsRequest
        * @return ListModelLimitsResponse
@@ -607,7 +607,7 @@ namespace ModelStudio20260210
       /**
        * @summary Resets an API key.
        *
-       * @description Only the API key value changes. The API key ID remains unchanged.
+       * @description Only the API key changes. The API key ID remains unchanged.
        *
        * @param request ResetApiKeyRequest
        * @param headers map
@@ -619,7 +619,7 @@ namespace ModelStudio20260210
       /**
        * @summary Resets an API key.
        *
-       * @description Only the API key value changes. The API key ID remains unchanged.
+       * @description Only the API key changes. The API key ID remains unchanged.
        *
        * @param request ResetApiKeyRequest
        * @return ResetApiKeyResponse
@@ -645,7 +645,7 @@ namespace ModelStudio20260210
       Models::RevokeTokenPlanInviteLinkResponse revokeTokenPlanInviteLink(const Models::RevokeTokenPlanInviteLinkRequest &request);
 
       /**
-       * @summary Resets a UAC API key.
+       * @summary Resets the UAC API key.
        *
        * @description Only the API key changes. The API key ID remains unchanged.
        *
@@ -657,7 +657,7 @@ namespace ModelStudio20260210
       Models::RotateTokenPlanKeyResponse rotateTokenPlanKeyWithOptions(const Models::RotateTokenPlanKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets a UAC API key.
+       * @summary Resets the UAC API key.
        *
        * @description Only the API key changes. The API key ID remains unchanged.
        *

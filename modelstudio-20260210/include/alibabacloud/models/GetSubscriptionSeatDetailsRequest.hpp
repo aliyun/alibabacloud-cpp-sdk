@@ -14,6 +14,7 @@ namespace Models
   class GetSubscriptionSeatDetailsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetSubscriptionSeatDetailsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(InstanceCode, instanceCode_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(QueryAssigned, queryAssigned_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StatusList, statusList_);
     };
     friend void from_json(const Darabonba::Json& j, GetSubscriptionSeatDetailsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(InstanceCode, instanceCode_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(QueryAssigned, queryAssigned_);
@@ -40,8 +42,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->pageNo_ == nullptr
-        && this->pageSize_ == nullptr && this->queryAssigned_ == nullptr && this->seatId_ == nullptr && this->seatType_ == nullptr && this->statusList_ == nullptr; };
+    virtual bool empty() const override { return this->instanceCode_ == nullptr
+        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->queryAssigned_ == nullptr && this->seatId_ == nullptr && this->seatType_ == nullptr
+        && this->statusList_ == nullptr; };
+    // instanceCode Field Functions 
+    bool hasInstanceCode() const { return this->instanceCode_ != nullptr;};
+    void deleteInstanceCode() { this->instanceCode_ = nullptr;};
+    inline string getInstanceCode() const { DARABONBA_PTR_GET_DEFAULT(instanceCode_, "") };
+    inline GetSubscriptionSeatDetailsRequest& setInstanceCode(string instanceCode) { DARABONBA_PTR_SET_VALUE(instanceCode_, instanceCode) };
+
+
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
@@ -87,23 +97,25 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 1. Valid values: positive integers.
+    // The instance code of the seat.
+    shared_ptr<string> instanceCode_ {};
+    // The page number. Default value: 1. Valid values: a positive integer.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The filter for the seat assignment status. Valid values:
+    // Specifies whether to filter by seat assignment status. Valid values:
     // 
-    // - true: assigned
-    // - false: unassigned
-    // - null: all
+    // - true: Assigned.
+    // - false: Unassigned.
+    // - null: All.
     shared_ptr<bool> queryAssigned_ {};
     // The seat ID.
     shared_ptr<string> seatId_ {};
-    // The seat type (specType). Valid values:
+    // The seat type. Valid values:
     // 
-    // - standard: standard seat
-    // - pro: advanced seat
-    // - max: premium seat
+    // - standard: Standard seat.
+    // - pro: Pro seat.
+    // - max: Premium seat.
     shared_ptr<string> seatType_ {};
     // The list of seat statuses for filtering.
     shared_ptr<vector<string>> statusList_ {};

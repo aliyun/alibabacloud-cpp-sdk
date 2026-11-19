@@ -157,19 +157,19 @@ namespace Models
 
 
       protected:
-        // The maximum number of concurrent requests.
+        // The maximum concurrency.
         shared_ptr<int64_t> asyncUserConcurrencyLimit_ {};
-        // The number of queued requests.
+        // The queue limit.
         shared_ptr<int64_t> asyncUserQueueLimit_ {};
-        // The request throttling value.
+        // The request throttling limit.
         shared_ptr<int64_t> requestLimit_ {};
-        // The time period for request throttling. Unit: seconds.
+        // The time period for request throttling, in seconds.
         shared_ptr<int32_t> requestLimitPeriod_ {};
-        // The usage throttling value.
+        // The usage throttling limit.
         shared_ptr<int64_t> usageLimit_ {};
-        // The usage throttling unit.
+        // The unit for usage throttling.
         shared_ptr<string> usageLimitField_ {};
-        // The time period for usage throttling. Unit: seconds.
+        // The time period for usage throttling, in seconds.
         shared_ptr<int32_t> usageLimitPeriod_ {};
       };
 
@@ -257,19 +257,19 @@ namespace Models
 
 
       protected:
-        // The maximum number of concurrent requests.
+        // The maximum concurrency.
         shared_ptr<int64_t> asyncUserConcurrencyLimit_ {};
-        // The number of queued requests.
+        // The queue limit.
         shared_ptr<int64_t> asyncUserQueueLimit_ {};
-        // The request throttling value.
+        // The request throttling limit.
         shared_ptr<int64_t> requestLimit_ {};
-        // The time period for request throttling. Unit: seconds.
+        // The time period for request throttling, in seconds.
         shared_ptr<int32_t> requestLimitPeriod_ {};
-        // The usage throttling value.
+        // The usage throttling limit.
         shared_ptr<int64_t> usageLimit_ {};
-        // The usage throttling unit.
+        // The unit for usage throttling.
         shared_ptr<string> usageLimitField_ {};
-        // The time period for usage throttling. Unit: seconds.
+        // The time period for usage throttling, in seconds.
         shared_ptr<int32_t> usageLimitPeriod_ {};
       };
 
@@ -317,13 +317,13 @@ namespace Models
     protected:
       // The model.
       shared_ptr<string> model_ {};
-      // The model throttling for the current user account.
+      // The model throttling configurations for the current user account.
       shared_ptr<Limits::ModelLimit> modelLimit_ {};
       // The model name.
       shared_ptr<string> name_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
-      // The custom model throttling for the current workspace.
+      // The custom model throttling configurations for the current workspace.
       shared_ptr<Limits::WorkspaceLimit> workspaceLimit_ {};
     };
 
@@ -410,7 +410,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call succeeded.
+    // Indicates whether the API call is successful.
     shared_ptr<bool> success_ {};
     // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
