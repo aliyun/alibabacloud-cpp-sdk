@@ -2,11 +2,13 @@
 #include <alibabacloud/MPaaS20201028.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::MPaaS20201028::Models;
@@ -17,6 +19,9 @@ namespace MPaaS20201028
 {
 
 AlibabaCloud::MPaaS20201028::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "mPaaS";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-hangzhou" , "mpaas.aliyuncs.com"},
@@ -6672,6 +6677,10 @@ PushSimpleResponse Client::pushSimpleWithOptions(const PushSimpleRequest &tmpReq
     body["TargetMsgkey"] = request.getTargetMsgkey();
   }
 
+  if (!!request.hasTargetVendorTemplate()) {
+    body["TargetVendorTemplate"] = request.getTargetVendorTemplate();
+  }
+
   if (!!request.hasTaskName()) {
     body["TaskName"] = request.getTaskName();
   }
@@ -6700,8 +6709,16 @@ PushSimpleResponse Client::pushSimpleWithOptions(const PushSimpleRequest &tmpReq
     body["Uri"] = request.getUri();
   }
 
+  if (!!request.hasUseVoip()) {
+    body["UseVoip"] = request.getUseVoip();
+  }
+
   if (!!request.hasVendorTemplate()) {
     body["VendorTemplate"] = request.getVendorTemplate();
+  }
+
+  if (!!request.hasVoipMap()) {
+    body["VoipMap"] = request.getVoipMap();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -6838,6 +6855,10 @@ PushTemplateResponse Client::pushTemplateWithOptions(const PushTemplateRequest &
     body["TargetMsgkey"] = request.getTargetMsgkey();
   }
 
+  if (!!request.hasTargetVendorTemplate()) {
+    body["TargetVendorTemplate"] = request.getTargetVendorTemplate();
+  }
+
   if (!!request.hasTaskName()) {
     body["TaskName"] = request.getTaskName();
   }
@@ -6866,8 +6887,16 @@ PushTemplateResponse Client::pushTemplateWithOptions(const PushTemplateRequest &
     body["TransparentMessageUrgency"] = request.getTransparentMessageUrgency();
   }
 
+  if (!!request.hasUseVoip()) {
+    body["UseVoip"] = request.getUseVoip();
+  }
+
   if (!!request.hasVendorTemplate()) {
     body["VendorTemplate"] = request.getVendorTemplate();
+  }
+
+  if (!!request.hasVoipMap()) {
+    body["VoipMap"] = request.getVoipMap();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -8758,6 +8787,64 @@ StartUserAppAsyncEnhanceInMsaResponse Client::startUserAppAsyncEnhanceInMsaWithO
 StartUserAppAsyncEnhanceInMsaResponse Client::startUserAppAsyncEnhanceInMsa(const StartUserAppAsyncEnhanceInMsaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return startUserAppAsyncEnhanceInMsaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 同步小游戏实际上线状态
+ *
+ * @param request SyncMiniGameOnlineStatusByAppRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SyncMiniGameOnlineStatusByAppResponse
+ */
+SyncMiniGameOnlineStatusByAppResponse Client::syncMiniGameOnlineStatusByAppWithOptions(const SyncMiniGameOnlineStatusByAppRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasMiniProgramCode()) {
+    body["MiniProgramCode"] = request.getMiniProgramCode();
+  }
+
+  if (!!request.hasOnlineStatus()) {
+    body["OnlineStatus"] = request.getOnlineStatus();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SyncMiniGameOnlineStatusByApp"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SyncMiniGameOnlineStatusByAppResponse>();
+}
+
+/**
+ * @summary 同步小游戏实际上线状态
+ *
+ * @param request SyncMiniGameOnlineStatusByAppRequest
+ * @return SyncMiniGameOnlineStatusByAppResponse
+ */
+SyncMiniGameOnlineStatusByAppResponse Client::syncMiniGameOnlineStatusByApp(const SyncMiniGameOnlineStatusByAppRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return syncMiniGameOnlineStatusByAppWithOptions(request, runtime);
 }
 
 /**

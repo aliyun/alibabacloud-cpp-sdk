@@ -401,6 +401,9 @@
 #include <alibabacloud/models/StartUserAppAsyncEnhanceInMsaRequest.hpp>
 #include <alibabacloud/models/StartUserAppAsyncEnhanceInMsaResponseBody.hpp>
 #include <alibabacloud/models/StartUserAppAsyncEnhanceInMsaResponse.hpp>
+#include <alibabacloud/models/SyncMiniGameOnlineStatusByAppRequest.hpp>
+#include <alibabacloud/models/SyncMiniGameOnlineStatusByAppResponseBody.hpp>
+#include <alibabacloud/models/SyncMiniGameOnlineStatusByAppResponse.hpp>
 #include <alibabacloud/models/UpdateGatewayApiRequest.hpp>
 #include <alibabacloud/models/UpdateGatewayApiShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateGatewayApiResponseBody.hpp>

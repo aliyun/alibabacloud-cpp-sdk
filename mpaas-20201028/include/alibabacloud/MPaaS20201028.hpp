@@ -1872,6 +1872,23 @@ namespace MPaaS20201028
       Models::StartUserAppAsyncEnhanceInMsaResponse startUserAppAsyncEnhanceInMsa(const Models::StartUserAppAsyncEnhanceInMsaRequest &request);
 
       /**
+       * @summary 同步小游戏实际上线状态
+       *
+       * @param request SyncMiniGameOnlineStatusByAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SyncMiniGameOnlineStatusByAppResponse
+       */
+      Models::SyncMiniGameOnlineStatusByAppResponse syncMiniGameOnlineStatusByAppWithOptions(const Models::SyncMiniGameOnlineStatusByAppRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 同步小游戏实际上线状态
+       *
+       * @param request SyncMiniGameOnlineStatusByAppRequest
+       * @return SyncMiniGameOnlineStatusByAppResponse
+       */
+      Models::SyncMiniGameOnlineStatusByAppResponse syncMiniGameOnlineStatusByApp(const Models::SyncMiniGameOnlineStatusByAppRequest &request);
+
+      /**
        * @summary 更新网关 API
        *
        * @param tmpReq UpdateGatewayApiRequest
