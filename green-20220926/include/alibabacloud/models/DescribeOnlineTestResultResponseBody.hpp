@@ -113,7 +113,7 @@ namespace Models
       shared_ptr<string> riskLevel_ {};
       // The risk level summary.
       shared_ptr<map<string, int64_t>> riskLevelSummary_ {};
-      // The number of shards.
+      // The number of slices.
       shared_ptr<int32_t> sliceCount_ {};
     };
 

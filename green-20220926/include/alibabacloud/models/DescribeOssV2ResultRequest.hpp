@@ -94,13 +94,13 @@ namespace Models
 
 
   protected:
-    // The OSS bucket.
+    // The OSS bucket of the file server.
     shared_ptr<string> bucket_ {};
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
     // The end time. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The risk level.
     shared_ptr<string> riskLevel_ {};

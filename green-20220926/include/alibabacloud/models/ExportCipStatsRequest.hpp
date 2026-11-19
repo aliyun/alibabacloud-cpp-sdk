@@ -134,7 +134,7 @@ namespace Models
     // - **true**: Supported.
     // - **false**: Not supported.
     shared_ptr<bool> byMonth_ {};
-    // The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
+    // The end time of the query, in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> endDate_ {};
     // The export type. Valid values:
     // - **level**: Export by risk level.
@@ -142,7 +142,7 @@ namespace Models
     shared_ptr<string> exportType_ {};
     // The task label to export.
     shared_ptr<string> label_ {};
-    // The query condition.
+    // The query conditions.
     shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -150,16 +150,16 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The service code.
     shared_ptr<string> serviceCode_ {};
-    // The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
+    // The start time of the query, in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> startDate_ {};
     // The UID of the RAM user.
     shared_ptr<string> subUid_ {};
     // The type. Valid values:
-    // - **cip**: Content Moderation invoke volume statistics.
+    // - **cip**: Content Moderation usage statistics.
     // - **risk_level**: Content Moderation security risk level statistics.
-    // - **content_moderation**: AI Safety Guardrail content compliance risk level and tag statistics.
-    // - **sensitive_data**: AI Safety Guardrail sensitive data risk level and tag statistics.
-    // - **prompt_attack**: AI Safety Guardrail prompt risk level and tag statistics.
+    // - **content_moderation**: AI security guardrail content compliance risk level and tag statistics.
+    // - **sensitive_data**: AI security guardrail sensitive data risk level and tag statistics.
+    // - **prompt_attack**: AI security guardrail prompt risk level and tag statistics.
     shared_ptr<string> type_ {};
   };
 

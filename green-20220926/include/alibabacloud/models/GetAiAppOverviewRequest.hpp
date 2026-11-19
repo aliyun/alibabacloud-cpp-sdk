@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The end time. Format: YYYY-MM-DD HH:mm:ss.
+    // The end time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> endTime_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start time. Format: YYYY-MM-DD HH:mm:ss.
+    // The start time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> startTime_ {};
   };
 

@@ -216,7 +216,7 @@ namespace Models
     protected:
       // The incremental content object.
       shared_ptr<Choices::Delta> delta_ {};
-      // During streaming output, this value is null while content is being generated. When generation is complete, the value is stop if the generation ended due to a stop token.
+      // For streaming output, this parameter is null during generation. If the generation ends due to a stop token, the value is stop.
       shared_ptr<string> finishReason_ {};
       // The stream sequence number.
       shared_ptr<int64_t> index_ {};
@@ -299,9 +299,9 @@ namespace Models
     shared_ptr<vector<LlmStreamChatResponseBody::Choices>> choices_ {};
     // The timestamp when the session was created.
     shared_ptr<int64_t> created_ {};
-    // The fault information content in the streaming response.
+    // The fault message content in the streaming response.
     shared_ptr<LlmStreamChatResponseBody::Error> error_ {};
-    // The unique ID of this session.
+    // The unique ID of the current session.
     shared_ptr<string> id_ {};
     // The model identifier.
     shared_ptr<string> model_ {};
@@ -311,7 +311,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The system fingerprint.
     shared_ptr<string> systemFingerprint_ {};
-    // The token usage information.
+    // The token usage.
     shared_ptr<string> usage_ {};
   };
 

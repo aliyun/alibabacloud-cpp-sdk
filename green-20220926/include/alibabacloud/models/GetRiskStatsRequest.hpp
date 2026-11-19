@@ -13,6 +13,7 @@ namespace Models
   class GetRiskStatsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetRiskStatsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Channel, channel_);
       DARABONBA_PTR_TO_JSON(Classify, classify_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, GetRiskStatsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Channel, channel_);
       DARABONBA_PTR_FROM_JSON(Classify, classify_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->classify_ == nullptr
-        && this->endTime_ == nullptr && this->regionId_ == nullptr && this->startTime_ == nullptr && this->type_ == nullptr; };
+    virtual bool empty() const override { return this->channel_ == nullptr
+        && this->classify_ == nullptr && this->endTime_ == nullptr && this->regionId_ == nullptr && this->startTime_ == nullptr && this->type_ == nullptr; };
+    // channel Field Functions 
+    bool hasChannel() const { return this->channel_ != nullptr;};
+    void deleteChannel() { this->channel_ = nullptr;};
+    inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+    inline GetRiskStatsRequest& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
+
+
     // classify Field Functions 
     bool hasClassify() const { return this->classify_ != nullptr;};
     void deleteClassify() { this->classify_ = nullptr;};
@@ -75,7 +84,9 @@ namespace Models
 
 
   protected:
-    // The classification.
+    // The channel identifier.
+    shared_ptr<string> channel_ {};
+    // The category.
     shared_ptr<string> classify_ {};
     // The end time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endTime_ {};

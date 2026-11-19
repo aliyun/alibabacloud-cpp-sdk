@@ -78,15 +78,14 @@ namespace Models
     // The keywords. Separate multiple keywords with 
     // .
     shared_ptr<string> keywords_ {};
-    // The keyword file name.
+    // The name of the keyword file.
     shared_ptr<string> keywordsObject_ {};
-    // The keyword library ID.
+    // The ID of the keyword library.
     shared_ptr<string> libId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The library code.
-    // 
-    // - desensitize: masking library
+    // The code of the keyword library.
+    // - desensitize: desensitization keyword library.
     shared_ptr<string> tenantCode_ {};
   };
 

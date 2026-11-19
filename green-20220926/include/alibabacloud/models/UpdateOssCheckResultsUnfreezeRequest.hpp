@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The end time. Format: YYYY-MM-DD HH:mm:ss.
+    // The end time. The format is YYYY-MM-DD HH:mm:ss. Note: This parameter is actually required. If it is not provided, the service returns a 400 error.
     shared_ptr<string> endDate_ {};
-    // The frozen items.
+    // The freeze items. Note: This parameter is actually required. If it is not provided, the service returns a 400 error.
     shared_ptr<string> freezeItems_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start time. Format: YYYY-MM-DD HH:mm:ss.
+    // The start time. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startDate_ {};
-    // The task ID.
+    // The task ID. Note: This parameter is actually required. If it is not provided, the service returns a 400 error.
     shared_ptr<string> taskId_ {};
   };
 

@@ -16,18 +16,24 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetAiAppDetailResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
+      DARABONBA_PTR_TO_JSON(Channel, channel_);
       DARABONBA_PTR_TO_JSON(Chart, chart_);
+      DARABONBA_PTR_TO_JSON(Property, property_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(RiskEvents, riskEvents_);
+      DARABONBA_PTR_TO_JSON(RiskStats, riskStats_);
       DARABONBA_PTR_TO_JSON(Score, score_);
       DARABONBA_PTR_TO_JSON(Uid, uid_);
     };
     friend void from_json(const Darabonba::Json& j, GetAiAppDetailResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
+      DARABONBA_PTR_FROM_JSON(Channel, channel_);
       DARABONBA_PTR_FROM_JSON(Chart, chart_);
+      DARABONBA_PTR_FROM_JSON(Property, property_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(RiskEvents, riskEvents_);
+      DARABONBA_PTR_FROM_JSON(RiskStats, riskStats_);
       DARABONBA_PTR_FROM_JSON(Score, score_);
       DARABONBA_PTR_FROM_JSON(Uid, uid_);
     };
@@ -42,6 +48,61 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class RiskStats : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const RiskStats& obj) { 
+        DARABONBA_PTR_TO_JSON(RequestCount, requestCount_);
+        DARABONBA_PTR_TO_JSON(RiskCount, riskCount_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, RiskStats& obj) { 
+        DARABONBA_PTR_FROM_JSON(RequestCount, requestCount_);
+        DARABONBA_PTR_FROM_JSON(RiskCount, riskCount_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+      };
+      RiskStats() = default ;
+      RiskStats(const RiskStats &) = default ;
+      RiskStats(RiskStats &&) = default ;
+      RiskStats(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~RiskStats() = default ;
+      RiskStats& operator=(const RiskStats &) = default ;
+      RiskStats& operator=(RiskStats &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->requestCount_ == nullptr
+        && this->riskCount_ == nullptr && this->type_ == nullptr; };
+      // requestCount Field Functions 
+      bool hasRequestCount() const { return this->requestCount_ != nullptr;};
+      void deleteRequestCount() { this->requestCount_ = nullptr;};
+      inline int64_t getRequestCount() const { DARABONBA_PTR_GET_DEFAULT(requestCount_, 0L) };
+      inline RiskStats& setRequestCount(int64_t requestCount) { DARABONBA_PTR_SET_VALUE(requestCount_, requestCount) };
+
+
+      // riskCount Field Functions 
+      bool hasRiskCount() const { return this->riskCount_ != nullptr;};
+      void deleteRiskCount() { this->riskCount_ = nullptr;};
+      inline int64_t getRiskCount() const { DARABONBA_PTR_GET_DEFAULT(riskCount_, 0L) };
+      inline RiskStats& setRiskCount(int64_t riskCount) { DARABONBA_PTR_SET_VALUE(riskCount_, riskCount) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline RiskStats& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      // The number of requests.
+      shared_ptr<int64_t> requestCount_ {};
+      // The number of risks.
+      shared_ptr<int64_t> riskCount_ {};
+      // The risk statistics type.
+      shared_ptr<string> type_ {};
+    };
+
     class RiskEvents : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const RiskEvents& obj) { 
@@ -175,20 +236,86 @@ namespace Models
 
 
     protected:
-      // The risk event code.
+      // The code of the risk event.
       shared_ptr<string> eventCode_ {};
       // The number of events.
       shared_ptr<int64_t> eventCount_ {};
       // The list of risk event IDs.
       shared_ptr<vector<string>> eventIds_ {};
-      // The risk event name.
+      // The name of the risk event.
       shared_ptr<string> eventName_ {};
       // The event status. Valid values:
-      // - **unhandled**: Not handled.
-      // - **resolved**: Handled.
+      // - **unhandled**: unhandled
+      // - **resolved**: resolved
       shared_ptr<string> eventStatus_ {};
       // The labels.
       shared_ptr<vector<RiskEvents::Labels>> labels_ {};
+    };
+
+    class Property : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Property& obj) { 
+        DARABONBA_PTR_TO_JSON(Email, email_);
+        DARABONBA_PTR_TO_JSON(Hostname, hostname_);
+        DARABONBA_PTR_TO_JSON(Ip, ip_);
+        DARABONBA_PTR_TO_JSON(Mac, mac_);
+      };
+      friend void from_json(const Darabonba::Json& j, Property& obj) { 
+        DARABONBA_PTR_FROM_JSON(Email, email_);
+        DARABONBA_PTR_FROM_JSON(Hostname, hostname_);
+        DARABONBA_PTR_FROM_JSON(Ip, ip_);
+        DARABONBA_PTR_FROM_JSON(Mac, mac_);
+      };
+      Property() = default ;
+      Property(const Property &) = default ;
+      Property(Property &&) = default ;
+      Property(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Property() = default ;
+      Property& operator=(const Property &) = default ;
+      Property& operator=(Property &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->email_ == nullptr
+        && this->hostname_ == nullptr && this->ip_ == nullptr && this->mac_ == nullptr; };
+      // email Field Functions 
+      bool hasEmail() const { return this->email_ != nullptr;};
+      void deleteEmail() { this->email_ = nullptr;};
+      inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+      inline Property& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
+
+
+      // hostname Field Functions 
+      bool hasHostname() const { return this->hostname_ != nullptr;};
+      void deleteHostname() { this->hostname_ = nullptr;};
+      inline string getHostname() const { DARABONBA_PTR_GET_DEFAULT(hostname_, "") };
+      inline Property& setHostname(string hostname) { DARABONBA_PTR_SET_VALUE(hostname_, hostname) };
+
+
+      // ip Field Functions 
+      bool hasIp() const { return this->ip_ != nullptr;};
+      void deleteIp() { this->ip_ = nullptr;};
+      inline string getIp() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
+      inline Property& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
+
+
+      // mac Field Functions 
+      bool hasMac() const { return this->mac_ != nullptr;};
+      void deleteMac() { this->mac_ = nullptr;};
+      inline string getMac() const { DARABONBA_PTR_GET_DEFAULT(mac_, "") };
+      inline Property& setMac(string mac) { DARABONBA_PTR_SET_VALUE(mac_, mac) };
+
+
+    protected:
+      // The email address.
+      shared_ptr<string> email_ {};
+      // The hostname.
+      shared_ptr<string> hostname_ {};
+      // The IP address.
+      shared_ptr<string> ip_ {};
+      // The MAC address.
+      shared_ptr<string> mac_ {};
     };
 
     class Chart : public Darabonba::Model {
@@ -279,15 +406,15 @@ namespace Models
 
 
     protected:
-      // The X value of the coordinate point.
+      // The X-coordinate of the data point.
       shared_ptr<vector<string>> x_ {};
-      // The Y value of the coordinate point.
+      // The Y-coordinate of the data point.
       shared_ptr<vector<Chart::Y>> y_ {};
     };
 
     virtual bool empty() const override { return this->appId_ == nullptr
-        && this->appName_ == nullptr && this->chart_ == nullptr && this->requestId_ == nullptr && this->riskEvents_ == nullptr && this->score_ == nullptr
-        && this->uid_ == nullptr; };
+        && this->appName_ == nullptr && this->channel_ == nullptr && this->chart_ == nullptr && this->property_ == nullptr && this->requestId_ == nullptr
+        && this->riskEvents_ == nullptr && this->riskStats_ == nullptr && this->score_ == nullptr && this->uid_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -302,6 +429,13 @@ namespace Models
     inline GetAiAppDetailResponseBody& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
+    // channel Field Functions 
+    bool hasChannel() const { return this->channel_ != nullptr;};
+    void deleteChannel() { this->channel_ = nullptr;};
+    inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+    inline GetAiAppDetailResponseBody& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
+
+
     // chart Field Functions 
     bool hasChart() const { return this->chart_ != nullptr;};
     void deleteChart() { this->chart_ = nullptr;};
@@ -309,6 +443,15 @@ namespace Models
     inline GetAiAppDetailResponseBody::Chart getChart() { DARABONBA_PTR_GET(chart_, GetAiAppDetailResponseBody::Chart) };
     inline GetAiAppDetailResponseBody& setChart(const GetAiAppDetailResponseBody::Chart & chart) { DARABONBA_PTR_SET_VALUE(chart_, chart) };
     inline GetAiAppDetailResponseBody& setChart(GetAiAppDetailResponseBody::Chart && chart) { DARABONBA_PTR_SET_RVALUE(chart_, chart) };
+
+
+    // property Field Functions 
+    bool hasProperty() const { return this->property_ != nullptr;};
+    void deleteProperty() { this->property_ = nullptr;};
+    inline const GetAiAppDetailResponseBody::Property & getProperty() const { DARABONBA_PTR_GET_CONST(property_, GetAiAppDetailResponseBody::Property) };
+    inline GetAiAppDetailResponseBody::Property getProperty() { DARABONBA_PTR_GET(property_, GetAiAppDetailResponseBody::Property) };
+    inline GetAiAppDetailResponseBody& setProperty(const GetAiAppDetailResponseBody::Property & property) { DARABONBA_PTR_SET_VALUE(property_, property) };
+    inline GetAiAppDetailResponseBody& setProperty(GetAiAppDetailResponseBody::Property && property) { DARABONBA_PTR_SET_RVALUE(property_, property) };
 
 
     // requestId Field Functions 
@@ -327,6 +470,15 @@ namespace Models
     inline GetAiAppDetailResponseBody& setRiskEvents(vector<GetAiAppDetailResponseBody::RiskEvents> && riskEvents) { DARABONBA_PTR_SET_RVALUE(riskEvents_, riskEvents) };
 
 
+    // riskStats Field Functions 
+    bool hasRiskStats() const { return this->riskStats_ != nullptr;};
+    void deleteRiskStats() { this->riskStats_ = nullptr;};
+    inline const vector<GetAiAppDetailResponseBody::RiskStats> & getRiskStats() const { DARABONBA_PTR_GET_CONST(riskStats_, vector<GetAiAppDetailResponseBody::RiskStats>) };
+    inline vector<GetAiAppDetailResponseBody::RiskStats> getRiskStats() { DARABONBA_PTR_GET(riskStats_, vector<GetAiAppDetailResponseBody::RiskStats>) };
+    inline GetAiAppDetailResponseBody& setRiskStats(const vector<GetAiAppDetailResponseBody::RiskStats> & riskStats) { DARABONBA_PTR_SET_VALUE(riskStats_, riskStats) };
+    inline GetAiAppDetailResponseBody& setRiskStats(vector<GetAiAppDetailResponseBody::RiskStats> && riskStats) { DARABONBA_PTR_SET_RVALUE(riskStats_, riskStats) };
+
+
     // score Field Functions 
     bool hasScore() const { return this->score_ != nullptr;};
     void deleteScore() { this->score_ = nullptr;};
@@ -342,19 +494,25 @@ namespace Models
 
 
   protected:
-    // appId。
+    // The AI application ID.
     shared_ptr<string> appId_ {};
-    // The application name.
+    // The name of the application.
     shared_ptr<string> appName_ {};
+    // The channel information.
+    shared_ptr<string> channel_ {};
     // The chart.
     shared_ptr<GetAiAppDetailResponseBody::Chart> chart_ {};
+    // The properties.
+    shared_ptr<GetAiAppDetailResponseBody::Property> property_ {};
     // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The risk events.
     shared_ptr<vector<GetAiAppDetailResponseBody::RiskEvents>> riskEvents_ {};
+    // The risk statistics information.
+    shared_ptr<vector<GetAiAppDetailResponseBody::RiskStats>> riskStats_ {};
     // The score.
     shared_ptr<int32_t> score_ {};
-    // UID。
+    // The UID of the user.
     shared_ptr<string> uid_ {};
   };
 

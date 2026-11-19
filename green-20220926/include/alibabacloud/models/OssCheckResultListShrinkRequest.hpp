@@ -114,19 +114,19 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The end time. Format: YYYY-MM-DD HH:mm:ss.
+    // The end time. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // The number of completed items.
+    // The number of completed tasks.
     shared_ptr<int64_t> finishNum_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The query condition.
+    // The query conditions. Note: This parameter is required. You must specify a valid JSON string that contains at least one key-value pair, such as {"Labels":"porn"}. The scan results cannot be filtered properly without query conditions.
     shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The sort field.
     shared_ptr<string> sortShrink_ {};
-    // The start time. Format: YYYY-MM-DD HH:mm:ss.
+    // The start time. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startDate_ {};
     // The task status.
     shared_ptr<int32_t> status_ {};

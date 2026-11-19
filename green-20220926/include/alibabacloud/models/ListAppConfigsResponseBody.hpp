@@ -156,17 +156,17 @@ namespace Models
 
 
     protected:
-      // App ID。
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The classification.
+      // The category.
       shared_ptr<string> classify_ {};
       // The configuration details.
       Darabonba::Json customConfig_ {};
-      // The sort number.
+      // The sort order.
       shared_ptr<int32_t> customOrderNum_ {};
       // The publish status.
       shared_ptr<string> deployStatus_ {};
-      // The last modified time.
+      // The last modification time.
       shared_ptr<string> gmtModified_ {};
       // The name.
       shared_ptr<string> name_ {};

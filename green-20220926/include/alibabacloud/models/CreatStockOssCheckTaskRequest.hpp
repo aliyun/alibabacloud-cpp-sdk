@@ -296,37 +296,37 @@ namespace Models
 
 
   protected:
-    // The filter configuration for each bucket. The value can be parsed as a JSON map. The key is the bucket name, and the value is the filter configuration, which includes prefix/suffix filters and a list of filter strings.
+    // The filter configuration for each bucket, which can be parsed as a JSON map. The key is the bucket name, and the value is the filter configuration, including prefix and suffix filters and the list of filter characters.
     shared_ptr<string> bucketPrefixFilterConfig_ {};
-    // The storage buckets.
+    // The buckets. The specified buckets must be registered and authorized for the Content Moderation service. You can call the GetBucketsList operation to obtain the list of available buckets. If you specify an unauthorized or non-existent bucket, the bucket.not.found error is returned.
     shared_ptr<string> buckets_ {};
-    // The notification callback ID.
+    // The message notification ID.
     shared_ptr<string> callbackId_ {};
-    // Specifies whether to deduplicate against historically scanned tasks.
+    // Specifies whether to deduplicate historical scanned tasks. Note: This parameter is actually required. If it is not provided, the service returns a 400 error (distinctHistoryTasks may not be null).
     shared_ptr<bool> distinctHistoryTasks_ {};
-    // The task end time. Format: `YYYY-MM-DD HH:mm:ss`.
+    // The end time of the task. Format: `YYYY-MM-DD HH:mm:ss`.
     shared_ptr<string> endTime_ {};
-    // The execution date of the scheduled task. The value is in integer format.
+    // The execution date of the scheduled task. The value is an integer.
     shared_ptr<int32_t> executeDate_ {};
-    // The expected execution time of the scheduled task. Format: `HH:mm:ss-HH:mm:ss`.
+    // The estimated execution time of the scheduled task. Format: `HH:mm:ss-HH:mm:ss`.
     shared_ptr<string> executeTime_ {};
     // Specifies whether to freeze files.
     shared_ptr<bool> freeze_ {};
     // Specifies whether to freeze high-risk images.
     shared_ptr<bool> freezeHighRisk1_ {};
-    // Specifies whether to freeze high-risk audio and text.
+    // Specifies whether to freeze high-risk audio and text files.
     shared_ptr<bool> freezeHighRisk2_ {};
     // Specifies whether to freeze medium-risk images.
     shared_ptr<bool> freezeMediumRisk1_ {};
-    // Specifies whether to freeze medium-risk audio and text.
+    // Specifies whether to freeze medium-risk audio and text files.
     shared_ptr<bool> freezeMediumRisk2_ {};
-    // The path to which frozen files are transferred.
+    // The transfer path.
     shared_ptr<string> freezeRestorePath_ {};
     // The freeze type.
     shared_ptr<string> freezeType_ {};
     // Specifies whether the task is a scheduled scan task.
     shared_ptr<bool> isInc_ {};
-    // The media asset type.
+    // The media type.
     shared_ptr<int32_t> mediaType_ {};
     // The prefix filter type.
     shared_ptr<string> prefixFilterType_ {};
@@ -334,19 +334,19 @@ namespace Models
     shared_ptr<string> prefixFilters_ {};
     // The priority.
     shared_ptr<int32_t> priority_ {};
-    // Referer。
+    // The referer.
     shared_ptr<string> referer_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The maximum number of files to scan.
+    // The scan limit.
     shared_ptr<int64_t> scanLimit_ {};
-    // Specifies whether to scan images without file extensions.
+    // Specifies whether to scan images without file name extensions.
     shared_ptr<bool> scanNoFileType_ {};
     // The type of files to scan.
     shared_ptr<string> scanResourceType_ {};
-    // The scan service code.
+    // The code of the scan service.
     shared_ptr<string> scanService_ {};
-    // The task start time. Format: `YYYY-MM-DD HH:mm:ss`.
+    // The start time of the task. Format: `YYYY-MM-DD HH:mm:ss`.
     shared_ptr<string> startTime_ {};
     // The scheduling cycle.
     shared_ptr<int32_t> taskCycle_ {};

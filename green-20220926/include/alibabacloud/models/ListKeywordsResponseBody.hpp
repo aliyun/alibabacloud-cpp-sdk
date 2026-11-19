@@ -187,9 +187,9 @@ namespace Models
         shared_ptr<string> gmtModified_ {};
         // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // The keyword library ID.
+        // The ID of the keyword library.
         shared_ptr<string> keywordLibId_ {};
-        // The keyword data ID.
+        // The ID of the keyword data.
         shared_ptr<int64_t> keywordMd5Id_ {};
         // The properties.
         shared_ptr<Items::Properties> properties_ {};
@@ -284,11 +284,11 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<ListKeywordsResponseBody::Data> data_ {};
-    // The description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
     // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The success flag.
     shared_ptr<bool> success_ {};
   };
 

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // Queries data under the OSS detection task.
+    // Specifies whether to query data for OSS check tasks.
     shared_ptr<bool> checkForOss_ {};
     // The primary key ID.
     // 

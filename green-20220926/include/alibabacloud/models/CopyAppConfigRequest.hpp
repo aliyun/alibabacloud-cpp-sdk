@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The ID of the source App to copy from.
+    // The ID of the source app.
     shared_ptr<string> appId_ {};
-    // The name of the new App to be created from the copy.
+    // The name of the new app.
     shared_ptr<string> name_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

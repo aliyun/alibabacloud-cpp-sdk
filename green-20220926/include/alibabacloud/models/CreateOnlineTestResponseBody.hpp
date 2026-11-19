@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> taskId_ {};
     // The detection status.
     shared_ptr<string> taskStatus_ {};
-    // The URL to be detected.
+    // The detection URL.
     shared_ptr<string> url_ {};
   };
 

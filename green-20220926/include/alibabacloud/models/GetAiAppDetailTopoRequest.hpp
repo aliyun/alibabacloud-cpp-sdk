@@ -114,7 +114,7 @@ namespace Models
 
 
   protected:
-    // The application ID that identifies a specific AI application.
+    // The ID of the AI application.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};

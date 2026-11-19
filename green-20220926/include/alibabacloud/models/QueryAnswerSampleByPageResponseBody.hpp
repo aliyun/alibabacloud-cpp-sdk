@@ -109,9 +109,9 @@ namespace Models
       shared_ptr<string> gmtCreate_ {};
       // The primary key ID.
       shared_ptr<int64_t> id_ {};
-      // The ID of the proxy answer library.
+      // The ID of the fallback answer library.
       shared_ptr<string> libId_ {};
-      // UID。
+      // The UID of the user.
       shared_ptr<string> uid_ {};
     };
 

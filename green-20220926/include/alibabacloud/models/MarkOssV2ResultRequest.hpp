@@ -84,22 +84,21 @@ namespace Models
 
 
   protected:
-    // The end time. The time format is YYYY-MM-DD HH:mm:ss.
+    // The end time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> endDate_ {};
     // The freeze type. This parameter is required when Operation is set to freeze. Valid values:
-    // - ACL: Modify file permissions.
-    // - COPY: Move the file directory. Description of the destination directory: 1. The file directory selected when the task was created takes priority. 2. If automatic freezing was not enabled during creation, or ACL freezing was configured, the directory selected during freezing in the console is used. 3. The default directory is alicip_riskfile_backup/.
+    // - ACL: Modifies file permissions.
+    // - COPY: Moves the file directory. Destination directory rules: 1. The file directory selected during task creation takes precedence. 2. If automatic freezing is not enabled during creation, or if ACL freezing is configured, the directory selected in the console during freezing is used. 3. The default directory is alicip_riskfile_backup/.
     shared_ptr<string> freezeType_ {};
-    // The processing operation. Valid values:
-    // 
-    // - freeze: Freeze.
-    // - unfreeze: Unfreeze.
-    // - misreport: Non-violation false positive.
-    // - missOut: Violation missed.
+    // The handling operation. Valid values:
+    // - freeze: Freezes the object.
+    // - unfreeze: Unfreezes the object.
+    // - misreport: Reports a false positive.
+    // - missOut: Reports a missed violation.
     shared_ptr<string> operation_ {};
-    // The request ID.
+    // The request IDs.
     shared_ptr<string> requestIds_ {};
-    // The start time. The time format is YYYY-MM-DD HH:mm:ss.
+    // The start time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> startDate_ {};
     // The task name.
     shared_ptr<string> taskName_ {};

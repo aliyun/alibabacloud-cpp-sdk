@@ -394,27 +394,25 @@ namespace Models
 
 
     protected:
-      // The OSS bucket.
+      // The bucket.
       shared_ptr<string> bucket_ {};
       // The error code, which is consistent with the HTTP status code.
       shared_ptr<string> code_ {};
-      // The audio or video scan type.
+      // The audio and video detection type.
       shared_ptr<string> contentType_ {};
       // The primary service.
       shared_ptr<string> copyFrom_ {};
-      // The feedback. Valid values:
-      // - misreport: False positive (not a violation).
-      // - missOut: Missed violation.
+      // The feedback.
       shared_ptr<string> feedback_ {};
-      // Indicates whether the object is frozen.
+      // Indicates whether the item is frozen.
       shared_ptr<bool> freeze_ {};
-      // The freeze status.
+      // The freezing status.
       shared_ptr<string> freezeStatus_ {};
-      // The freeze type.
+      // The freezing type.
       shared_ptr<string> freezeType_ {};
       // The URL of the image.
       shared_ptr<string> imageUrl_ {};
-      // Indicates whether the task is copied.
+      // Indicates whether the item is copied.
       shared_ptr<bool> isCopy_ {};
       // The task name.
       shared_ptr<string> jobName_ {};
@@ -424,13 +422,11 @@ namespace Models
       shared_ptr<vector<string>> labels_ {};
       // The text labels.
       shared_ptr<vector<string>> labels2_ {};
-      // The manual action status. Valid values:
-      // - FREEZE: Frozen.
-      // - UNFREEZE: Unfrozen.
+      // The manual disposal status.
       shared_ptr<string> manualFreezeAction_ {};
-      // The action time. Format: YYYY-MM-DD HH:mm:ss.
+      // The disposal time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> manualOperateTime_ {};
-      // The operator who performed the action.
+      // The operator.
       shared_ptr<string> manualOperator_ {};
       // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
@@ -446,22 +442,17 @@ namespace Models
       shared_ptr<string> riskLevel0_ {};
       // The text risk level.
       shared_ptr<string> riskLevel2_ {};
-      // The scan result details.
+      // The result details.
       shared_ptr<string> scanResult_ {};
       // The service code.
       shared_ptr<string> serviceCode_ {};
       // The service name.
       shared_ptr<string> serviceName_ {};
-      // The system action status. Valid values:
-      // - FREEZING: Freezing in progress.
-      // - FREEZED: Frozen.
-      // - UNFREEZED: Unfrozen.
-      // - NONE: No action taken.
-      // - UNFREEZING: Unfreezing in progress.
+      // The system disposal status.
       shared_ptr<string> sysDisposalStatus_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The task URL.
+      // The URL of the task.
       shared_ptr<string> url_ {};
     };
 
@@ -511,7 +502,7 @@ namespace Models
     shared_ptr<vector<GetOssCheckFreezeResultResponseBody::Items>> items_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID of the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

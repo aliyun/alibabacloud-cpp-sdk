@@ -105,19 +105,19 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The end time. Format: YYYY-MM-DD HH:mm:ss.
+    // The end time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> endDate_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The search condition.
+    // The search conditions.
     shared_ptr<string> queryShrink_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The resource type.
+    // The resource type. Note: This parameter is required. If it is not specified, the API returns ScanResultQueryFailed (HTTP 400). Valid value: image.
     shared_ptr<string> resourceType_ {};
     // The sort field.
     shared_ptr<string> sortShrink_ {};
-    // The start time. Format: YYYY-MM-DD HH:mm:ss.
+    // The start time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> startDate_ {};
   };
 

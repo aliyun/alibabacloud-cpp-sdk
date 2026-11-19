@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The image URL.
+    // The URL of the image. This value must be the Key field returned by GetUploadInfo, in the format of image/upload/<hash>. Passing an external image URL returns a 400 image.url.invalid error.
     shared_ptr<string> imgUrl_ {};
-    // The image library ID.
+    // The ID of the image library.
     shared_ptr<string> libId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

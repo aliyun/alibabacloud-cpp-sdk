@@ -149,9 +149,9 @@ namespace Models
 
 
     protected:
-      // App ID。
+      // The app ID.
       shared_ptr<string> appId_ {};
-      // **[Deprecated]** The categorization.
+      // **[Deprecated]** The category.
       shared_ptr<string> classify_ {};
       // **[Deprecated]** The configuration details.
       Darabonba::Json customConfig_ {};
@@ -286,9 +286,9 @@ namespace Models
 
 
     protected:
-      // App ID。
+      // The app ID.
       shared_ptr<string> appId_ {};
-      // **[Deprecated]** The categorization.
+      // **[Deprecated]** The category.
       shared_ptr<string> classify_ {};
       // **[Deprecated]** The configuration details.
       Darabonba::Json customConfig_ {};
@@ -340,7 +340,7 @@ namespace Models
     shared_ptr<vector<ListAppConfigHistoryResponseBody::History>> history_ {};
     // The published versions.
     shared_ptr<vector<ListAppConfigHistoryResponseBody::Publish>> publish_ {};
-    // The ID assigned by the backend to uniquely identify a request. It can be used to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -180,7 +180,7 @@ namespace Models
       protected:
         // The internationalization key.
         shared_ptr<string> i18nKey_ {};
-        // The list of keywords with invalid length.
+        // The list of keywords that are too long or too short.
         shared_ptr<vector<string>> illegalLengthKeywords_ {};
         // The number of invalid keywords.
         shared_ptr<int32_t> invalidCount_ {};
@@ -194,7 +194,7 @@ namespace Models
         shared_ptr<vector<string>> repeatKeywords_ {};
         // The number of successful keywords.
         shared_ptr<int32_t> successCount_ {};
-        // The prompt information.
+        // The prompt message.
         shared_ptr<string> tips_ {};
         // The total count.
         shared_ptr<int32_t> totalCount_ {};
@@ -226,7 +226,7 @@ namespace Models
 
 
     protected:
-      // The result.
+      // The results.
       shared_ptr<Data::KeywordsResult> keywordsResult_ {};
       // The ID of the keyword library.
       shared_ptr<string> libId_ {};
@@ -278,11 +278,11 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<AddKeywordLibResponseBody::Data> data_ {};
-    // The description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The success identifier.
     shared_ptr<bool> success_ {};
   };
 

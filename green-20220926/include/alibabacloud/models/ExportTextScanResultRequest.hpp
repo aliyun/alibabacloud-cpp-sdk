@@ -71,7 +71,7 @@ namespace Models
   protected:
     // The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // The query condition.
+    // The query conditions.
     shared_ptr<map<string, string>> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

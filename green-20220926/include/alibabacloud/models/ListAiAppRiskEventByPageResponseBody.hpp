@@ -212,33 +212,33 @@ namespace Models
       shared_ptr<string> appId_ {};
       // The name of the AI application.
       shared_ptr<string> appName_ {};
-      // The channel source.
+      // The source channel.
       shared_ptr<string> channel_ {};
-      // The time when the event was resolved. Format: YYYY-MM-DD HH:mm:ss.
+      // The time when the event processing was completed. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> endTime_ {};
-      // The event code that identifies the type or category of the event.
+      // The code of the event, which identifies the type or category of the event.
       shared_ptr<string> eventCode_ {};
-      // The detailed description of the risk event.
+      // The description of the event, which details the content of the risk event.
       shared_ptr<string> eventDesc_ {};
-      // The detailed description of the risk event in English.
+      // The English description of the event, which details the content of the risk event.
       shared_ptr<string> eventDescEn_ {};
-      // The event ID that uniquely identifies a risk event.
+      // The ID of the event, which uniquely identifies a risk event.
       shared_ptr<string> eventId_ {};
-      // The name that briefly describes the risk event.
+      // The name of the event, which provides a brief description of the risk event.
       shared_ptr<string> eventName_ {};
-      // The time when the event was handled. Format: YYYY-MM-DD HH:mm:ss.
+      // The time when the event was processed. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> handleTime_ {};
-      // The label used to tag or categorize the event.
+      // The label used to mark or classify the event.
       shared_ptr<string> label_ {};
-      // The detailed description of the label.
+      // The description of the label, which provides detailed information about the label.
       shared_ptr<string> labelDesc_ {};
-      // The risk level that indicates the severity of the event, such as high, medium, or low.
+      // The risk level, which indicates the severity of the event, such as high, medium, or low.
       shared_ptr<string> level_ {};
-      // The time when the event occurred. Format: YYYY-MM-DD HH:mm:ss.
+      // The time when the event started. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> startTime_ {};
-      // The event status that indicates the current processing state, such as pending or resolved.
+      // The status of the event, which indicates the processing status of the current event, such as pending or processed.
       shared_ptr<string> status_ {};
-      // The event type that indicates the category of the risk event, such as security or performance.
+      // The event type, which indicates the category of the risk event, such as security or performance.
       shared_ptr<string> type_ {};
     };
 
@@ -303,9 +303,9 @@ namespace Models
     shared_ptr<vector<ListAiAppRiskEventByPageResponseBody::Items>> items_ {};
     // The maximum number of results returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page. An empty value indicates that no more pages exist.
+    // The token for the next page. An empty value indicates that there are no more pages.
     shared_ptr<string> nextToken_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};

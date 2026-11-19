@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
+    // The end time of the query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> endDate_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
@@ -117,7 +117,7 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The sort field.
     shared_ptr<string> sortShrink_ {};
-    // The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
+    // The start time of the query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> startDate_ {};
   };
 

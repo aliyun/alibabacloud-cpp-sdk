@@ -235,7 +235,7 @@ namespace Models
     protected:
       // The label usage chart.
       shared_ptr<vector<Data::LabelStatChart>> labelStatChart_ {};
-      // The total count categorized statistics.
+      // The total count statistics by category.
       shared_ptr<map<string, DataTotalStatValue>> totalStat_ {};
       // The X value of the coordinate point.
       shared_ptr<vector<string>> x_ {};

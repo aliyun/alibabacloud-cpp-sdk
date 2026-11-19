@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The resource type.
+    // The resource type. Note: This parameter is required. If it is not provided, the service returns a 400 error with the message \\"resourceType may not be empty\\".
     shared_ptr<string> resourceType_ {};
     // The service code.
     shared_ptr<string> serviceCode_ {};

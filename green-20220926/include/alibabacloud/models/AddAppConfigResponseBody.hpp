@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // App ID。
+      // The application ID.
       shared_ptr<string> appId_ {};
     };
 

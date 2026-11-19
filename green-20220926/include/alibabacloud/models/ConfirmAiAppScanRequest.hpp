@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> commodityCode_ {};
-    // The ID of the region where the application resides.
+    // The ID of the region to which the application belongs.
     shared_ptr<string> regionId_ {};
   };
 

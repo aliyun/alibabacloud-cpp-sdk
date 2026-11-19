@@ -76,7 +76,7 @@ namespace Models
     protected:
       // The status. Valid values:
       // - enabled: Running.
-      // - disabled: Not accessed.
+      // - disabled: Not connected.
       shared_ptr<string> status_ {};
       // The type.
       shared_ptr<string> type_ {};
@@ -122,7 +122,7 @@ namespace Models
     protected:
       // The status. Valid values:
       // - enabled: Running.
-      // - disabled: Not accessed.
+      // - disabled: Not connected.
       shared_ptr<string> status_ {};
       // The type.
       shared_ptr<string> type_ {};
@@ -168,7 +168,7 @@ namespace Models
     protected:
       // The status. Valid values:
       // - enabled: Running.
-      // - disabled: Not accessed.
+      // - disabled: Not connected.
       shared_ptr<string> status_ {};
       // The type.
       shared_ptr<string> type_ {};
@@ -211,13 +211,13 @@ namespace Models
 
 
   protected:
-    // The list of log scan statistics.
+    // The list of statistics related to log scanning.
     shared_ptr<vector<GetGuardStatusResponseBody::LogScanStatus>> logScanStatus_ {};
-    // The list of protection status statistics.
+    // The list of statistics related to protection status.
     shared_ptr<vector<GetGuardStatusResponseBody::ProtectionStatus>> protectionStatus_ {};
-    // The list of real-time protection statistics.
+    // The list of statistics related to real-time protection.
     shared_ptr<vector<GetGuardStatusResponseBody::RealTimeStatus>> realTimeStatus_ {};
-    // The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

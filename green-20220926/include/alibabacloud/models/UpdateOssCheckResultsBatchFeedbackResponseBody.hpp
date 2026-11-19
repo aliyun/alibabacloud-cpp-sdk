@@ -88,11 +88,11 @@ namespace Models
     shared_ptr<int32_t> invalidCount_ {};
     // The number of duplicate items.
     shared_ptr<int32_t> repeatCount_ {};
-    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The number of successful items.
     shared_ptr<int32_t> successCount_ {};
-    // The prompt information.
+    // The prompt message.
     shared_ptr<string> tips_ {};
     // The total count.
     shared_ptr<int32_t> totalCount_ {};

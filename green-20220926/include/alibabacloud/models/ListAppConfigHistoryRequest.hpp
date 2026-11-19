@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // App ID。
+    // The app ID.
     shared_ptr<string> appId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

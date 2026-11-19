@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // App ID。
+    // The app ID. Note: This parameter is actually required. If it is not provided, the service returns a 400 error (appId may not be empty).
     shared_ptr<string> appId_ {};
-    // The sort number.
+    // The custom order number.
     shared_ptr<int32_t> customOrderNum_ {};
-    // The app name.
+    // The name of the app.
     shared_ptr<string> name_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The resource type.
+    // The resource type. Note: This parameter is actually required. If it is not provided, the service returns a 400 error (resourceType may not be empty).
     shared_ptr<string> resourceType_ {};
   };
 

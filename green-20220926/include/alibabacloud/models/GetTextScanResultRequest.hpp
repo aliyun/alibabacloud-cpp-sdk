@@ -101,17 +101,17 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The end time. Format: YYYY-MM-DD HH:mm:ss.
+    // The end time. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endDate_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The search condition.
+    // The search conditions.
     shared_ptr<map<string, string>> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The sort field.
     shared_ptr<map<string, string>> sort_ {};
-    // The start time. Format: YYYY-MM-DD HH:mm:ss.
+    // The start time. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startDate_ {};
   };
 

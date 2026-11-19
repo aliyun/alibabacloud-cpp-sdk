@@ -68,9 +68,9 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The query condition.
+    // The query conditions.
     shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

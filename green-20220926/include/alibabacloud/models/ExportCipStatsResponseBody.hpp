@@ -92,9 +92,9 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The detailed description of the error code.
     shared_ptr<string> msg_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID of the request, which is used to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

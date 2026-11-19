@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Agent ID。
+    // The agent ID.
     shared_ptr<string> agentId_ {};
-    // App ID。
+    // The application ID.
     shared_ptr<string> appId_ {};
     // The application version number.
     shared_ptr<int64_t> appVersion_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The resource type.
+    // The resource type. This parameter is required. If it is not provided, the service returns a 400 error.
     shared_ptr<string> resourceType_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID assigned by the backend to uniquely identify a request. You can use this ID for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

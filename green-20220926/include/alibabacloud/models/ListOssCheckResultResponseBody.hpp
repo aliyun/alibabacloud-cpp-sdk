@@ -143,7 +143,7 @@ namespace Models
       protected:
         // The description of the label.
         shared_ptr<string> description_ {};
-        // The label hit by the audio.
+        // The matched label for audio.
         shared_ptr<string> label_ {};
       };
 
@@ -187,7 +187,7 @@ namespace Models
       protected:
         // The description of the label.
         shared_ptr<string> description_ {};
-        // The label hit by the video frame.
+        // The matched label for video frames.
         shared_ptr<string> label_ {};
       };
 
@@ -374,11 +374,11 @@ namespace Models
 
 
     protected:
-      // The OSS bucket.
+      // The bucket.
       shared_ptr<string> bucket_ {};
       // The error code, which is consistent with the HTTP status code.
       shared_ptr<string> code_ {};
-      // The audio and video detection type.
+      // The audio and video moderation type.
       shared_ptr<string> contentType_ {};
       // The primary service.
       shared_ptr<string> copyFrom_ {};
@@ -386,15 +386,15 @@ namespace Models
       shared_ptr<string> freezeStatus_ {};
       // The freeze type.
       shared_ptr<string> freezeType_ {};
-      // The URL of the image.
+      // The image URL.
       shared_ptr<string> imageUrl_ {};
-      // Indicates whether the task is copied.
+      // Indicates whether the item is copied.
       shared_ptr<bool> isCopy_ {};
       // The task name.
       shared_ptr<string> jobName_ {};
-      // The list of labels hit by video frames.
+      // The list of matched labels for video frames.
       shared_ptr<vector<Items::LabelDetails>> labelDetails_ {};
-      // The list of labels hit by video audio.
+      // The list of matched labels for video audio.
       shared_ptr<vector<Items::LabelDetails2>> labelDetails2_ {};
       // The image labels.
       shared_ptr<vector<string>> labels_ {};
@@ -402,7 +402,7 @@ namespace Models
       shared_ptr<vector<string>> labels2_ {};
       // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
-      // The description of the error code.
+      // The detailed description of the error code.
       shared_ptr<string> msg_ {};
       // The object name.
       shared_ptr<string> object_ {};
@@ -470,7 +470,7 @@ namespace Models
     shared_ptr<vector<ListOssCheckResultResponseBody::Items>> items_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int64_t> totalCount_ {};

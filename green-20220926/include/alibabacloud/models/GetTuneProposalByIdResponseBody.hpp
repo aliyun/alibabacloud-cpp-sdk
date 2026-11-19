@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The response data in JSON format.
+      // The returned data in JSON format.
       shared_ptr<string> jsonContent_ {};
     };
 
@@ -102,9 +102,9 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned data.
     shared_ptr<GetTuneProposalByIdResponseBody::Data> data_ {};
-    // The description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

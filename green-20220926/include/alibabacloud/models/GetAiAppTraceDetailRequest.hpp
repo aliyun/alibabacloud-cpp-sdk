@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The AI application ID, which identifies a specific AI application instance.
+    // The ID of the AI application.
     shared_ptr<string> appId_ {};
-    // The end time of the query. Format: YYYY-MM-DD HH:mm:ss.
+    // The end time of the query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> endTime_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start time of the query. Format: YYYY-MM-DD HH:mm:ss.
+    // The start time of the query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> startTime_ {};
-    // The trace ID, which is used to track and correlate a specific request chain.
+    // The trace ID.
     // 
     // This parameter is required.
     shared_ptr<string> traceId_ {};

@@ -2,11 +2,13 @@
 #include <alibabacloud/Green20220926.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -18,6 +20,9 @@ namespace Green20220926
 {
 
 AlibabaCloud::Green20220926::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "Green";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"ap-northeast-1" , "green.ap-southeast-1.aliyuncs.com"},
@@ -62,7 +67,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds a proxy answer.
+ * @summary Adds fallback answers.
  *
  * @param request AddAnswerSampleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -105,7 +110,7 @@ AddAnswerSampleResponse Client::addAnswerSampleWithOptions(const AddAnswerSample
 }
 
 /**
- * @summary Adds a proxy answer.
+ * @summary Adds fallback answers.
  *
  * @param request AddAnswerSampleRequest
  * @return AddAnswerSampleResponse
@@ -116,7 +121,7 @@ AddAnswerSampleResponse Client::addAnswerSample(const AddAnswerSampleRequest &re
 }
 
 /**
- * @summary Adds an agent configuration to an app.
+ * @summary Adds agent configurations to an application.
  *
  * @param request AddAppAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -167,7 +172,7 @@ AddAppAgentResponse Client::addAppAgentWithOptions(const AddAppAgentRequest &req
 }
 
 /**
- * @summary Adds an agent configuration to an app.
+ * @summary Adds agent configurations to an application.
  *
  * @param request AddAppAgentRequest
  * @return AddAppAgentResponse
@@ -178,7 +183,7 @@ AddAppAgentResponse Client::addAppAgent(const AddAppAgentRequest &request) {
 }
 
 /**
- * @summary Creates an app configuration.
+ * @summary Creates an application configuration.
  *
  * @param request AddAppConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -229,7 +234,7 @@ AddAppConfigResponse Client::addAppConfigWithOptions(const AddAppConfigRequest &
 }
 
 /**
- * @summary Creates an app configuration.
+ * @summary Creates an application configuration.
  *
  * @param request AddAppConfigRequest
  * @return AddAppConfigResponse
@@ -292,7 +297,9 @@ AddImageLibResponse Client::addImageLib(const AddImageLibRequest &request) {
 }
 
 /**
- * @summary Adds images in batches.
+ * @summary Adds multiple images to an image library.
+ *
+ * @description Adds multiple images to an image library. Before calling this operation, call GetUploadInfo to obtain the Object Storage Service (OSS) upload credentials (Host, Policy, Signature, SecurityToken, and Key). Use the credentials to upload images to the returned Host. Finally, pass the Key value returned by GetUploadInfo as the ImgUrl parameter to this operation.
  *
  * @param request AddImages2LibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -333,7 +340,9 @@ AddImages2LibResponse Client::addImages2LibWithOptions(const AddImages2LibReques
 }
 
 /**
- * @summary Adds images in batches.
+ * @summary Adds multiple images to an image library.
+ *
+ * @description Adds multiple images to an image library. Before calling this operation, call GetUploadInfo to obtain the Object Storage Service (OSS) upload credentials (Host, Policy, Signature, SecurityToken, and Key). Use the credentials to upload images to the returned Host. Finally, pass the Key value returned by GetUploadInfo as the ImgUrl parameter to this operation.
  *
  * @param request AddImages2LibRequest
  * @return AddImages2LibResponse
@@ -624,7 +633,7 @@ ConfirmAiAppScanResponse Client::confirmAiAppScan(const ConfirmAiAppScanRequest 
 }
 
 /**
- * @summary Copies an App configuration.
+ * @summary Copies the app configuration.
  *
  * @param request CopyAppConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -667,7 +676,7 @@ CopyAppConfigResponse Client::copyAppConfigWithOptions(const CopyAppConfigReques
 }
 
 /**
- * @summary Copies an App configuration.
+ * @summary Copies the app configuration.
  *
  * @param request CopyAppConfigRequest
  * @return CopyAppConfigResponse
@@ -892,7 +901,7 @@ CreatStockOssCheckTaskResponse Client::creatStockOssCheckTask(const CreatStockOs
 }
 
 /**
- * @summary Creates a proxy answer library.
+ * @summary Creates a fallback answer library.
  *
  * @param request CreateAnswerLibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -941,7 +950,7 @@ CreateAnswerLibResponse Client::createAnswerLibWithOptions(const CreateAnswerLib
 }
 
 /**
- * @summary Creates a proxy answer library.
+ * @summary Creates a fallback answer library.
  *
  * @param request CreateAnswerLibRequest
  * @return CreateAnswerLibResponse
@@ -1072,10 +1081,10 @@ CreateCallbackResponse Client::createCallback(const CreateCallbackRequest &reque
 /**
  * @summary Creates an image library.
  *
- * @description Before using this operation, complete the following steps:
- * 1. [Activate Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
- * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
- * 3. For more information about API operations and parameters, see [API reference](https://help.aliyun.com/document_detail/467829.html).
+ * @description Before you call this operation, make sure that the following conditions are met:
+ * 1. You have activated [Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+ * 2. You fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
+ * 3. For more information about how to use the API operation and its parameters, refer to the [API reference](https://help.aliyun.com/document_detail/467829.html).
  *
  * @param request CreateImageLibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1118,10 +1127,10 @@ CreateImageLibResponse Client::createImageLibWithOptions(const CreateImageLibReq
 /**
  * @summary Creates an image library.
  *
- * @description Before using this operation, complete the following steps:
- * 1. [Activate Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
- * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
- * 3. For more information about API operations and parameters, see [API reference](https://help.aliyun.com/document_detail/467829.html).
+ * @description Before you call this operation, make sure that the following conditions are met:
+ * 1. You have activated [Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+ * 2. You fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
+ * 3. For more information about how to use the API operation and its parameters, refer to the [API reference](https://help.aliyun.com/document_detail/467829.html).
  *
  * @param request CreateImageLibRequest
  * @return CreateImageLibResponse
@@ -1186,7 +1195,7 @@ CreateOnlineTestResponse Client::createOnlineTest(const CreateOnlineTestRequest 
 }
 
 /**
- * @summary Performs a pre-check before creating an OSS scan task.
+ * @summary Performs pre-checks before creating an OSS scan task.
  *
  * @param request CreatePreCheckRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1275,7 +1284,7 @@ CreatePreCheckResponse Client::createPreCheckWithOptions(const CreatePreCheckReq
 }
 
 /**
- * @summary Performs a pre-check before creating an OSS scan task.
+ * @summary Performs pre-checks before creating an OSS scan task.
  *
  * @param request CreatePreCheckRequest
  * @return CreatePreCheckResponse
@@ -1384,7 +1393,7 @@ DeleteAnswerSampleResponse Client::deleteAnswerSample(const DeleteAnswerSampleRe
 }
 
 /**
- * @summary Deletes an agent configuration.
+ * @summary Deletes the agent configuration.
  *
  * @param request DeleteAppAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1427,7 +1436,7 @@ DeleteAppAgentResponse Client::deleteAppAgentWithOptions(const DeleteAppAgentReq
 }
 
 /**
- * @summary Deletes an agent configuration.
+ * @summary Deletes the agent configuration.
  *
  * @param request DeleteAppAgentRequest
  * @return DeleteAppAgentResponse
@@ -1756,7 +1765,7 @@ DeleteOnlineTestResponse Client::deleteOnlineTest(const DeleteOnlineTestRequest 
 }
 
 /**
- * @summary Queries the detection results of online moderation.
+ * @summary Queries the online detection results.
  *
  * @param request DescribeOnlineTestResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1795,7 +1804,7 @@ DescribeOnlineTestResultResponse Client::describeOnlineTestResultWithOptions(con
 }
 
 /**
- * @summary Queries the detection results of online moderation.
+ * @summary Queries the online detection results.
  *
  * @param request DescribeOnlineTestResultRequest
  * @return DescribeOnlineTestResultResponse
@@ -1806,9 +1815,9 @@ DescribeOnlineTestResultResponse Client::describeOnlineTestResult(const Describe
 }
 
 /**
- * @summary Retrieves OSS moderation results v2.
+ * @summary Retrieves OSS results v2.
  *
- * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation details. API operation is free of charge.
+ * @description This API operation must be used in conjunction with the Image Moderation Enhanced Edition API. After calling the Image Moderation Enhanced Edition API, you can call this operation to obtain more detection information. This API operation is free of charge.
  *
  * @param request DescribeOssV2ResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1863,9 +1872,9 @@ DescribeOssV2ResultResponse Client::describeOssV2ResultWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves OSS moderation results v2.
+ * @summary Retrieves OSS results v2.
  *
- * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation details. API operation is free of charge.
+ * @description This API operation must be used in conjunction with the Image Moderation Enhanced Edition API. After calling the Image Moderation Enhanced Edition API, you can call this operation to obtain more detection information. This API operation is free of charge.
  *
  * @param request DescribeOssV2ResultRequest
  * @return DescribeOssV2ResultResponse
@@ -1924,7 +1933,7 @@ ExportAnswerSampleResponse Client::exportAnswerSample(const ExportAnswerSampleRe
 }
 
 /**
- * @summary Exports call volume.
+ * @summary Exports the usage data.
  *
  * @param request ExportCipStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1997,7 +2006,7 @@ ExportCipStatsResponse Client::exportCipStatsWithOptions(const ExportCipStatsReq
 }
 
 /**
- * @summary Exports call volume.
+ * @summary Exports the usage data.
  *
  * @param request ExportCipStatsRequest
  * @return ExportCipStatsResponse
@@ -2120,7 +2129,7 @@ ExportOssCheckStatResponse Client::exportOssCheckStat(const ExportOssCheckStatRe
 }
 
 /**
- * @summary Exports OSS scan results.
+ * @summary Exports the OSS scan results.
  *
  * @param tmpReq ExportResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2187,7 +2196,7 @@ ExportResultResponse Client::exportResultWithOptions(const ExportResultRequest &
 }
 
 /**
- * @summary Exports OSS scan results.
+ * @summary Exports the OSS scan results.
  *
  * @param request ExportResultRequest
  * @return ExportResultResponse
@@ -2198,7 +2207,7 @@ ExportResultResponse Client::exportResult(const ExportResultRequest &request) {
 }
 
 /**
- * @summary Exports call results as an Excel file.
+ * @summary Exports the call results to an Excel file.
  *
  * @param tmpReq ExportScanResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2269,7 +2278,7 @@ ExportScanResultResponse Client::exportScanResultWithOptions(const ExportScanRes
 }
 
 /**
- * @summary Exports call results as an Excel file.
+ * @summary Exports the call results to an Excel file.
  *
  * @param request ExportScanResultRequest
  * @return ExportScanResultResponse
@@ -2280,7 +2289,7 @@ ExportScanResultResponse Client::exportScanResult(const ExportScanResultRequest 
 }
 
 /**
- * @summary Exports call results as an Excel file.
+ * @summary Exports call results to an Excel file.
  *
  * @param tmpReq ExportTextScanResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2331,7 +2340,7 @@ ExportTextScanResultResponse Client::exportTextScanResultWithOptions(const Expor
 }
 
 /**
- * @summary Exports call results as an Excel file.
+ * @summary Exports call results to an Excel file.
  *
  * @param request ExportTextScanResultRequest
  * @return ExportTextScanResultResponse
@@ -2355,8 +2364,16 @@ GetAiAppDetailResponse Client::getAiAppDetailWithOptions(const GetAiAppDetailReq
     query["AppId"] = request.getAppId();
   }
 
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2388,7 +2405,7 @@ GetAiAppDetailResponse Client::getAiAppDetail(const GetAiAppDetailRequest &reque
 }
 
 /**
- * @summary Retrieves statistics for the details of an AI application.
+ * @summary Retrieves the statistics of an AI application.
  *
  * @param request GetAiAppDetailStatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2431,7 +2448,7 @@ GetAiAppDetailStatResponse Client::getAiAppDetailStatWithOptions(const GetAiAppD
 }
 
 /**
- * @summary Retrieves statistics for the details of an AI application.
+ * @summary Retrieves the statistics of an AI application.
  *
  * @param request GetAiAppDetailStatRequest
  * @return GetAiAppDetailStatResponse
@@ -2498,7 +2515,9 @@ GetAiAppDetailTopoResponse Client::getAiAppDetailTopo(const GetAiAppDetailTopoRe
 }
 
 /**
- * @summary Retrieves the details of an application node in the agent topology.
+ * @summary Retrieves the details of an app node.
+ *
+ * @description AI applications must be created through the Model Studio or Dify platform. Call chain: ListAiAppByPage (to obtain the AppId) → GetAiAppDetailTopo (to obtain the NodeId, NodeName, and NodeType) → GetAiAppNodeDetail.
  *
  * @param request GetAiAppNodeDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2553,7 +2572,9 @@ GetAiAppNodeDetailResponse Client::getAiAppNodeDetailWithOptions(const GetAiAppN
 }
 
 /**
- * @summary Retrieves the details of an application node in the agent topology.
+ * @summary Retrieves the details of an app node.
+ *
+ * @description AI applications must be created through the Model Studio or Dify platform. Call chain: ListAiAppByPage (to obtain the AppId) → GetAiAppDetailTopo (to obtain the NodeId, NodeName, and NodeType) → GetAiAppNodeDetail.
  *
  * @param request GetAiAppNodeDetailRequest
  * @return GetAiAppNodeDetailResponse
@@ -2564,7 +2585,7 @@ GetAiAppNodeDetailResponse Client::getAiAppNodeDetail(const GetAiAppNodeDetailRe
 }
 
 /**
- * @summary Retrieves the overview information of AI applications.
+ * @summary Retrieves the overview of AI applications.
  *
  * @param request GetAiAppOverviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2603,7 +2624,7 @@ GetAiAppOverviewResponse Client::getAiAppOverviewWithOptions(const GetAiAppOverv
 }
 
 /**
- * @summary Retrieves the overview information of AI applications.
+ * @summary Retrieves the overview of AI applications.
  *
  * @param request GetAiAppOverviewRequest
  * @return GetAiAppOverviewResponse
@@ -2614,7 +2635,7 @@ GetAiAppOverviewResponse Client::getAiAppOverview(const GetAiAppOverviewRequest 
 }
 
 /**
- * @summary Retrieves statistics for AI application risk reports.
+ * @summary Retrieves statistical data for AI applications.
  *
  * @param request GetAiAppStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2665,7 +2686,7 @@ GetAiAppStatsResponse Client::getAiAppStatsWithOptions(const GetAiAppStatsReques
 }
 
 /**
- * @summary Retrieves statistics for AI application risk reports.
+ * @summary Retrieves statistical data for AI applications.
  *
  * @param request GetAiAppStatsRequest
  * @return GetAiAppStatsResponse
@@ -2676,7 +2697,7 @@ GetAiAppStatsResponse Client::getAiAppStats(const GetAiAppStatsRequest &request)
 }
 
 /**
- * @summary Retrieves the details of an app alert.
+ * @summary Retrieves the details of an application alert.
  *
  * @param request GetAiAppTraceDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2723,7 +2744,7 @@ GetAiAppTraceDetailResponse Client::getAiAppTraceDetailWithOptions(const GetAiAp
 }
 
 /**
- * @summary Retrieves the details of an app alert.
+ * @summary Retrieves the details of an application alert.
  *
  * @param request GetAiAppTraceDetailRequest
  * @return GetAiAppTraceDetailResponse
@@ -2734,7 +2755,7 @@ GetAiAppTraceDetailResponse Client::getAiAppTraceDetail(const GetAiAppTraceDetai
 }
 
 /**
- * @summary Retrieves the import progress of proxy answer samples.
+ * @summary Retrieves the import progress of fallback answer samples.
  *
  * @param request GetAnswerImportProgressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2769,7 +2790,7 @@ GetAnswerImportProgressResponse Client::getAnswerImportProgressWithOptions(const
 }
 
 /**
- * @summary Retrieves the import progress of proxy answer samples.
+ * @summary Retrieves the import progress of fallback answer samples.
  *
  * @param request GetAnswerImportProgressRequest
  * @return GetAnswerImportProgressResponse
@@ -2780,7 +2801,7 @@ GetAnswerImportProgressResponse Client::getAnswerImportProgress(const GetAnswerI
 }
 
 /**
- * @summary Queries the details of an App configuration.
+ * @summary Queries the details of an application configuration.
  *
  * @param request GetAppConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2827,7 +2848,7 @@ GetAppConfigResponse Client::getAppConfigWithOptions(const GetAppConfigRequest &
 }
 
 /**
- * @summary Queries the details of an App configuration.
+ * @summary Queries the details of an application configuration.
  *
  * @param request GetAppConfigRequest
  * @return GetAppConfigResponse
@@ -3014,7 +3035,7 @@ GetBucketsListResponse Client::getBucketsList(const GetBucketsListRequest &reque
 }
 
 /**
- * @summary Queries the call volume statistics.
+ * @summary Queries the call volume.
  *
  * @param request GetCipStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3083,7 +3104,7 @@ GetCipStatsResponse Client::getCipStatsWithOptions(const GetCipStatsRequest &req
 }
 
 /**
- * @summary Queries the call volume statistics.
+ * @summary Queries the call volume.
  *
  * @param request GetCipStatsRequest
  * @return GetCipStatsResponse
@@ -3196,7 +3217,7 @@ GetFeatureConfigResponse Client::getFeatureConfig(const GetFeatureConfigRequest 
 }
 
 /**
- * @summary Retrieves log statistics for AI security guardrails.
+ * @summary Retrieves the statistics of AI security guardrail logs.
  *
  * @param request GetGuardLogStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3227,7 +3248,7 @@ GetGuardLogStatsResponse Client::getGuardLogStatsWithOptions(const GetGuardLogSt
 }
 
 /**
- * @summary Retrieves log statistics for AI security guardrails.
+ * @summary Retrieves the statistics of AI security guardrail logs.
  *
  * @param request GetGuardLogStatsRequest
  * @return GetGuardLogStatsResponse
@@ -3238,7 +3259,7 @@ GetGuardLogStatsResponse Client::getGuardLogStats(const GetGuardLogStatsRequest 
 }
 
 /**
- * @summary Retrieves statistics information on AI application protection data.
+ * @summary Retrieves the statistics information on AI application protection data.
  *
  * @param request GetGuardStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3273,7 +3294,7 @@ GetGuardStatusResponse Client::getGuardStatusWithOptions(const GetGuardStatusReq
 }
 
 /**
- * @summary Retrieves statistics information on AI application protection data.
+ * @summary Retrieves the statistics information on AI application protection data.
  *
  * @param request GetGuardStatusRequest
  * @return GetGuardStatusResponse
@@ -3436,7 +3457,7 @@ GetJobNameListResponse Client::getJobNameList(const GetJobNameListRequest &reque
 }
 
 /**
- * @summary Queries the result of a keyword import task.
+ * @summary Queries the keyword import results.
  *
  * @param request GetKeywordImportResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3473,7 +3494,7 @@ GetKeywordImportResultResponse Client::getKeywordImportResultWithOptions(const G
 }
 
 /**
- * @summary Queries the result of a keyword import task.
+ * @summary Queries the keyword import results.
  *
  * @param request GetKeywordImportResultRequest
  * @return GetKeywordImportResultResponse
@@ -3540,7 +3561,10 @@ GetKeywordLibResponse Client::getKeywordLib(const GetKeywordLibRequest &request)
 }
 
 /**
- * @summary Queries the results of OSS scan and freeze operations.
+ * @summary Queries the freezing results of OSS detection.
+ *
+ * @description Queries the freezing disposal results of OSS detection tasks.
+ * Prerequisites: Before calling this operation, you must call CreatStockOssCheckTask to create an OSS inventory detection task and generate freezing results. Then, call GetStockOssCheckTasksList to obtain an available TaskId and pass it as a query parameter to this operation.
  *
  * @param tmpReq GetOssCheckFreezeResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3609,7 +3633,10 @@ GetOssCheckFreezeResultResponse Client::getOssCheckFreezeResultWithOptions(const
 }
 
 /**
- * @summary Queries the results of OSS scan and freeze operations.
+ * @summary Queries the freezing results of OSS detection.
+ *
+ * @description Queries the freezing disposal results of OSS detection tasks.
+ * Prerequisites: Before calling this operation, you must call CreatStockOssCheckTask to create an OSS inventory detection task and generate freezing results. Then, call GetStockOssCheckTasksList to obtain an available TaskId and pass it as a query parameter to this operation.
  *
  * @param request GetOssCheckFreezeResultRequest
  * @return GetOssCheckFreezeResultResponse
@@ -3620,7 +3647,7 @@ GetOssCheckFreezeResultResponse Client::getOssCheckFreezeResult(const GetOssChec
 }
 
 /**
- * @summary Retrieves the detailed information of OSS check results.
+ * @summary Retrieves the details of OSS inspection results.
  *
  * @param request GetOssCheckResultDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3675,7 +3702,7 @@ GetOssCheckResultDetailResponse Client::getOssCheckResultDetailWithOptions(const
 }
 
 /**
- * @summary Retrieves the detailed information of OSS check results.
+ * @summary Retrieves the details of OSS inspection results.
  *
  * @param request GetOssCheckResultDetailRequest
  * @return GetOssCheckResultDetailResponse
@@ -3686,7 +3713,7 @@ GetOssCheckResultDetailResponse Client::getOssCheckResultDetail(const GetOssChec
 }
 
 /**
- * @summary Queries OSS usage statistics.
+ * @summary Queries the usage statistics of OSS.
  *
  * @param request GetOssCheckStatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3735,7 +3762,7 @@ GetOssCheckStatResponse Client::getOssCheckStatWithOptions(const GetOssCheckStat
 }
 
 /**
- * @summary Queries OSS usage statistics.
+ * @summary Queries the usage statistics of OSS.
  *
  * @param request GetOssCheckStatRequest
  * @return GetOssCheckStatResponse
@@ -3830,7 +3857,7 @@ GetOssCheckTaskInfoResponse Client::getOssCheckTaskInfo(const GetOssCheckTaskInf
 }
 
 /**
- * @summary Tests the attribute configuration.
+ * @summary Tests the feature configuration.
  *
  * @param request GetPromptTestResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3877,7 +3904,7 @@ GetPromptTestResultResponse Client::getPromptTestResultWithOptions(const GetProm
 }
 
 /**
- * @summary Tests the attribute configuration.
+ * @summary Tests the feature configuration.
  *
  * @param request GetPromptTestResultRequest
  * @return GetPromptTestResultResponse
@@ -3888,7 +3915,7 @@ GetPromptTestResultResponse Client::getPromptTestResult(const GetPromptTestResul
 }
 
 /**
- * @summary Queries QPS statistics information.
+ * @summary Queries the queries per second (QPS) statistics information.
  *
  * @param request GetQpsStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3923,7 +3950,7 @@ GetQpsStatsResponse Client::getQpsStatsWithOptions(const GetQpsStatsRequest &req
 }
 
 /**
- * @summary Queries QPS statistics information.
+ * @summary Queries the queries per second (QPS) statistics information.
  *
  * @param request GetQpsStatsRequest
  * @return GetQpsStatsResponse
@@ -3934,7 +3961,7 @@ GetQpsStatsResponse Client::getQpsStats(const GetQpsStatsRequest &request) {
 }
 
 /**
- * @summary Queries risk posture statistics.
+ * @summary Retrieves risk posture statistics.
  *
  * @param request GetRiskStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3943,6 +3970,10 @@ GetQpsStatsResponse Client::getQpsStats(const GetQpsStatsRequest &request) {
 GetRiskStatsResponse Client::getRiskStatsWithOptions(const GetRiskStatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasChannel()) {
+    query["Channel"] = request.getChannel();
+  }
+
   if (!!request.hasClassify()) {
     query["Classify"] = request.getClassify();
   }
@@ -3981,7 +4012,7 @@ GetRiskStatsResponse Client::getRiskStatsWithOptions(const GetRiskStatsRequest &
 }
 
 /**
- * @summary Queries risk posture statistics.
+ * @summary Retrieves risk posture statistics.
  *
  * @param request GetRiskStatsRequest
  * @return GetRiskStatsResponse
@@ -3992,7 +4023,7 @@ GetRiskStatsResponse Client::getRiskStats(const GetRiskStatsRequest &request) {
 }
 
 /**
- * @summary Queries the information about files pending detection for a user.
+ * @summary Retrieves the pending detection information of the user.
  *
  * @param request GetScanNumRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4031,7 +4062,7 @@ GetScanNumResponse Client::getScanNumWithOptions(const GetScanNumRequest &reques
 }
 
 /**
- * @summary Queries the information about files pending detection for a user.
+ * @summary Retrieves the pending detection information of the user.
  *
  * @param request GetScanNumRequest
  * @return GetScanNumResponse
@@ -4042,7 +4073,7 @@ GetScanNumResponse Client::getScanNum(const GetScanNumRequest &request) {
 }
 
 /**
- * @summary Queries the detection results.
+ * @summary Queries the call results.
  *
  * @param tmpReq GetScanResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4113,7 +4144,7 @@ GetScanResultResponse Client::getScanResultWithOptions(const GetScanResultReques
 }
 
 /**
- * @summary Queries the detection results.
+ * @summary Queries the call results.
  *
  * @param request GetScanResultRequest
  * @return GetScanResultResponse
@@ -4370,7 +4401,7 @@ GetStockOssCheckTasksListResponse Client::getStockOssCheckTasksList(const GetSto
 }
 
 /**
- * @summary Queries the call results.
+ * @summary Queries the invocation results.
  *
  * @param tmpReq GetTextScanResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4437,7 +4468,7 @@ GetTextScanResultResponse Client::getTextScanResultWithOptions(const GetTextScan
 }
 
 /**
- * @summary Queries the call results.
+ * @summary Queries the invocation results.
  *
  * @param request GetTextScanResultRequest
  * @return GetTextScanResultResponse
@@ -4448,9 +4479,9 @@ GetTextScanResultResponse Client::getTextScanResult(const GetTextScanResultReque
 }
 
 /**
- * @summary Retrieves tuning suggestions for switch configurations.
+ * @summary Retrieves tuning recommendations for switch configurations.
  *
- * @description API operation is used together with the enhanced image moderation API. After you call the enhanced image moderation API, call API operation to retrieve additional detection information. API operation is free of charge.
+ * @description API operation must be used in conjunction with the enhanced image moderation API. After you call the enhanced image moderation API, you can call API operation to retrieve additional detection information. API operation is free of charge.
  *
  * @param request GetTuneProposalByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4481,9 +4512,9 @@ GetTuneProposalByIdResponse Client::getTuneProposalByIdWithOptions(const GetTune
 }
 
 /**
- * @summary Retrieves tuning suggestions for switch configurations.
+ * @summary Retrieves tuning recommendations for switch configurations.
  *
- * @description API operation is used together with the enhanced image moderation API. After you call the enhanced image moderation API, call API operation to retrieve additional detection information. API operation is free of charge.
+ * @description API operation must be used in conjunction with the enhanced image moderation API. After you call the enhanced image moderation API, you can call API operation to retrieve additional detection information. API operation is free of charge.
  *
  * @param request GetTuneProposalByIdRequest
  * @return GetTuneProposalByIdResponse
@@ -4536,7 +4567,7 @@ GetUploadContentResponse Client::getUploadContent(const GetUploadContentRequest 
 }
 
 /**
- * @summary Retrieves the relevant information for file upload.
+ * @summary Retrieves the information required for file upload.
  *
  * @param request GetUploadInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4577,7 +4608,7 @@ GetUploadInfoResponse Client::getUploadInfoWithOptions(const GetUploadInfoReques
 }
 
 /**
- * @summary Retrieves the relevant information for file upload.
+ * @summary Retrieves the information required for file upload.
  *
  * @param request GetUploadInfoRequest
  * @return GetUploadInfoResponse
@@ -4728,7 +4759,7 @@ InitAiAppScanResponse Client::initAiAppScan(const InitAiAppScanRequest &request)
 }
 
 /**
- * @summary Retrieves a paginated list of AI applications.
+ * @summary Queries a paginated list of AI applications.
  *
  * @param request ListAiAppByPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4771,7 +4802,7 @@ ListAiAppByPageResponse Client::listAiAppByPageWithOptions(const ListAiAppByPage
 }
 
 /**
- * @summary Retrieves a paginated list of AI applications.
+ * @summary Queries a paginated list of AI applications.
  *
  * @param request ListAiAppByPageRequest
  * @return ListAiAppByPageResponse
@@ -4782,7 +4813,7 @@ ListAiAppByPageResponse Client::listAiAppByPage(const ListAiAppByPageRequest &re
 }
 
 /**
- * @summary Retrieves the list of risk events for an AI application.
+ * @summary Retrieves a list of risk events for AI applications.
  *
  * @param request ListAiAppRiskEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4825,7 +4856,7 @@ ListAiAppRiskEventResponse Client::listAiAppRiskEventWithOptions(const ListAiApp
 }
 
 /**
- * @summary Retrieves the list of risk events for an AI application.
+ * @summary Retrieves a list of risk events for AI applications.
  *
  * @param request ListAiAppRiskEventRequest
  * @return ListAiAppRiskEventResponse
@@ -4836,7 +4867,7 @@ ListAiAppRiskEventResponse Client::listAiAppRiskEvent(const ListAiAppRiskEventRe
 }
 
 /**
- * @summary Retrieves a paginated list of risk events for AI applications.
+ * @summary Queries a paginated list of risk events for AI applications.
  *
  * @param request ListAiAppRiskEventByPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4887,7 +4918,7 @@ ListAiAppRiskEventByPageResponse Client::listAiAppRiskEventByPageWithOptions(con
 }
 
 /**
- * @summary Retrieves a paginated list of risk events for AI applications.
+ * @summary Queries a paginated list of risk events for AI applications.
  *
  * @param request ListAiAppRiskEventByPageRequest
  * @return ListAiAppRiskEventByPageResponse
@@ -4898,7 +4929,7 @@ ListAiAppRiskEventByPageResponse Client::listAiAppRiskEventByPage(const ListAiAp
 }
 
 /**
- * @summary Queries the alert list of an application with pagination.
+ * @summary Retrieves a paginated list of application alerts.
  *
  * @param request ListAiAppWarningByPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4945,7 +4976,7 @@ ListAiAppWarningByPageResponse Client::listAiAppWarningByPageWithOptions(const L
 }
 
 /**
- * @summary Queries the alert list of an application with pagination.
+ * @summary Retrieves a paginated list of application alerts.
  *
  * @param request ListAiAppWarningByPageRequest
  * @return ListAiAppWarningByPageResponse
@@ -5048,7 +5079,7 @@ ListAppConfigHistoryResponse Client::listAppConfigHistory(const ListAppConfigHis
 }
 
 /**
- * @summary Retrieves the list of app configurations.
+ * @summary Retrieves a list of application configurations.
  *
  * @param request ListAppConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5087,7 +5118,7 @@ ListAppConfigsResponse Client::listAppConfigsWithOptions(const ListAppConfigsReq
 }
 
 /**
- * @summary Retrieves the list of app configurations.
+ * @summary Retrieves a list of application configurations.
  *
  * @param request ListAppConfigsRequest
  * @return ListAppConfigsResponse
@@ -5140,7 +5171,7 @@ ListCallbackResponse Client::listCallback(const ListCallbackRequest &request) {
 }
 
 /**
- * @summary Queries the list of image libraries.
+ * @summary Queries a list of image libraries.
  *
  * @param request ListImageLibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5177,7 +5208,7 @@ ListImageLibResponse Client::listImageLibWithOptions(const ListImageLibRequest &
 }
 
 /**
- * @summary Queries the list of image libraries.
+ * @summary Queries a list of image libraries.
  *
  * @param request ListImageLibRequest
  * @return ListImageLibResponse
@@ -5390,7 +5421,7 @@ ListKeywordsResponse Client::listKeywords(const ListKeywordsRequest &request) {
 }
 
 /**
- * @summary Queries OSS scan results.
+ * @summary Queries the OSS scan results.
  *
  * @param tmpReq ListOssCheckResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5459,7 +5490,7 @@ ListOssCheckResultResponse Client::listOssCheckResultWithOptions(const ListOssCh
 }
 
 /**
- * @summary Queries OSS scan results.
+ * @summary Queries the OSS scan results.
  *
  * @param request ListOssCheckResultRequest
  * @return ListOssCheckResultResponse
@@ -5470,7 +5501,7 @@ ListOssCheckResultResponse Client::listOssCheckResult(const ListOssCheckResultRe
 }
 
 /**
- * @summary Retrieves the service list.
+ * @summary Retrieves a list of services.
  *
  * @param request ListServiceConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5519,7 +5550,7 @@ ListServiceConfigsResponse Client::listServiceConfigsWithOptions(const ListServi
 }
 
 /**
- * @summary Retrieves the service list.
+ * @summary Retrieves a list of services.
  *
  * @param request ListServiceConfigsRequest
  * @return ListServiceConfigsResponse
@@ -5530,7 +5561,7 @@ ListServiceConfigsResponse Client::listServiceConfigs(const ListServiceConfigsRe
 }
 
 /**
- * @summary Calls a large language model in streaming mode using the SSE interface.
+ * @summary Invokes a large language model in streaming mode by using the Server-Sent Events (SSE) API.
  *
  * @param request LlmStreamChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5591,7 +5622,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Calls a large language model in streaming mode using the SSE interface.
+ * @summary Invokes a large language model in streaming mode by using the Server-Sent Events (SSE) API.
  *
  * @param request LlmStreamChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5638,7 +5669,7 @@ LlmStreamChatResponse Client::llmStreamChatWithOptions(const LlmStreamChatReques
 }
 
 /**
- * @summary Calls a large language model in streaming mode using the SSE interface.
+ * @summary Invokes a large language model in streaming mode by using the Server-Sent Events (SSE) API.
  *
  * @param request LlmStreamChatRequest
  * @return LlmStreamChatResponse
@@ -5651,7 +5682,7 @@ LlmStreamChatResponse Client::llmStreamChat(const LlmStreamChatRequest &request)
 /**
  * @summary Provides feedback on OSS detection results.
  *
- * @description This operation is free of charge. Set the query interval to 30 seconds (that is, query results 30 seconds after you submit an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, the results are automatically deleted.
+ * @description This API operation is free of charge. Set the query interval to 30 seconds (that is, query the results 30 seconds after submitting the asynchronous detection task). The maximum interval must not exceed 24 hours. Otherwise, the results are automatically deleted.
  *
  * @param request MarkOssV2ResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5704,7 +5735,7 @@ MarkOssV2ResultResponse Client::markOssV2ResultWithOptions(const MarkOssV2Result
 /**
  * @summary Provides feedback on OSS detection results.
  *
- * @description This operation is free of charge. Set the query interval to 30 seconds (that is, query results 30 seconds after you submit an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, the results are automatically deleted.
+ * @description This API operation is free of charge. Set the query interval to 30 seconds (that is, query the results 30 seconds after submitting the asynchronous detection task). The maximum interval must not exceed 24 hours. Otherwise, the results are automatically deleted.
  *
  * @param request MarkOssV2ResultRequest
  * @return MarkOssV2ResultResponse
@@ -5715,7 +5746,7 @@ MarkOssV2ResultResponse Client::markOssV2Result(const MarkOssV2ResultRequest &re
 }
 
 /**
- * @summary Updates a proxy response library.
+ * @summary Updates a fallback library.
  *
  * @param request ModifyAnswerLibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5754,7 +5785,7 @@ ModifyAnswerLibResponse Client::modifyAnswerLibWithOptions(const ModifyAnswerLib
 }
 
 /**
- * @summary Updates a proxy response library.
+ * @summary Updates a fallback library.
  *
  * @param request ModifyAnswerLibRequest
  * @return ModifyAnswerLibResponse
@@ -5765,7 +5796,7 @@ ModifyAnswerLibResponse Client::modifyAnswerLib(const ModifyAnswerLibRequest &re
 }
 
 /**
- * @summary Modifies the agent configuration.
+ * @summary Modifies the configuration of an agent.
  *
  * @param request ModifyAppAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5820,7 +5851,7 @@ ModifyAppAgentResponse Client::modifyAppAgentWithOptions(const ModifyAppAgentReq
 }
 
 /**
- * @summary Modifies the agent configuration.
+ * @summary Modifies the configuration of an agent.
  *
  * @param request ModifyAppAgentRequest
  * @return ModifyAppAgentResponse
@@ -5831,7 +5862,7 @@ ModifyAppAgentResponse Client::modifyAppAgent(const ModifyAppAgentRequest &reque
 }
 
 /**
- * @summary Modifies app information.
+ * @summary Modifies the information of an app.
  *
  * @param request ModifyAppInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5878,7 +5909,7 @@ ModifyAppInfoResponse Client::modifyAppInfoWithOptions(const ModifyAppInfoReques
 }
 
 /**
- * @summary Modifies app information.
+ * @summary Modifies the information of an app.
  *
  * @param request ModifyAppInfoRequest
  * @return ModifyAppInfoResponse
@@ -5889,7 +5920,7 @@ ModifyAppInfoResponse Client::modifyAppInfo(const ModifyAppInfoRequest &request)
 }
 
 /**
- * @summary Modifies a message notification.
+ * @summary Updates message notifications.
  *
  * @param request ModifyCallbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5942,7 +5973,7 @@ ModifyCallbackResponse Client::modifyCallbackWithOptions(const ModifyCallbackReq
 }
 
 /**
- * @summary Modifies a message notification.
+ * @summary Updates message notifications.
  *
  * @param request ModifyCallbackRequest
  * @return ModifyCallbackResponse
@@ -5953,7 +5984,9 @@ ModifyCallbackResponse Client::modifyCallback(const ModifyCallbackRequest &reque
 }
 
 /**
- * @summary Saves an attribute configuration.
+ * @summary Saves the feature configuration.
+ *
+ * @description Prerequisites: Before calling ModifyFeatureConfig, call GetFeatureConfig to query valid Type/Field combinations and their corresponding Config structures. Submit modifications based on the query results to avoid configuration update failures caused by invalid combinations.
  *
  * @param request ModifyFeatureConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6010,7 +6043,9 @@ ModifyFeatureConfigResponse Client::modifyFeatureConfigWithOptions(const ModifyF
 }
 
 /**
- * @summary Saves an attribute configuration.
+ * @summary Saves the feature configuration.
+ *
+ * @description Prerequisites: Before calling ModifyFeatureConfig, call GetFeatureConfig to query valid Type/Field combinations and their corresponding Config structures. Submit modifications based on the query results to avoid configuration update failures caused by invalid combinations.
  *
  * @param request ModifyFeatureConfigRequest
  * @return ModifyFeatureConfigResponse
@@ -6021,7 +6056,7 @@ ModifyFeatureConfigResponse Client::modifyFeatureConfig(const ModifyFeatureConfi
 }
 
 /**
- * @summary Edits a service.
+ * @summary Modifies a service.
  *
  * @param request ModifyServiceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6070,7 +6105,7 @@ ModifyServiceInfoResponse Client::modifyServiceInfoWithOptions(const ModifyServi
 }
 
 /**
- * @summary Edits a service.
+ * @summary Modifies a service.
  *
  * @param request ModifyServiceInfoRequest
  * @return ModifyServiceInfoResponse
@@ -6081,7 +6116,7 @@ ModifyServiceInfoResponse Client::modifyServiceInfo(const ModifyServiceInfoReque
 }
 
 /**
- * @summary Retrieves the list of OSS detection results.
+ * @summary Retrieves a list of OSS scan results.
  *
  * @param tmpReq OssCheckResultListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6150,7 +6185,7 @@ OssCheckResultListResponse Client::ossCheckResultListWithOptions(const OssCheckR
 }
 
 /**
- * @summary Retrieves the list of OSS detection results.
+ * @summary Retrieves a list of OSS scan results.
  *
  * @param request OssCheckResultListRequest
  * @return OssCheckResultListResponse
@@ -6161,7 +6196,7 @@ OssCheckResultListResponse Client::ossCheckResultList(const OssCheckResultListRe
 }
 
 /**
- * @summary Saves and publishes app configurations.
+ * @summary Saves and publishes the application configuration.
  *
  * @param request PublishAppConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6216,7 +6251,7 @@ PublishAppConfigResponse Client::publishAppConfigWithOptions(const PublishAppCon
 }
 
 /**
- * @summary Saves and publishes app configurations.
+ * @summary Saves and publishes the application configuration.
  *
  * @param request PublishAppConfigRequest
  * @return PublishAppConfigResponse
@@ -6227,7 +6262,7 @@ PublishAppConfigResponse Client::publishAppConfig(const PublishAppConfigRequest 
 }
 
 /**
- * @summary Queries proxy answer samples by paging.
+ * @summary Performs a paged query for fallback answer samples with paging.
  *
  * @param tmpReq QueryAnswerSampleByPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6284,7 +6319,7 @@ QueryAnswerSampleByPageResponse Client::queryAnswerSampleByPageWithOptions(const
 }
 
 /**
- * @summary Queries proxy answer samples by paging.
+ * @summary Performs a paged query for fallback answer samples with paging.
  *
  * @param request QueryAnswerSampleByPageRequest
  * @return QueryAnswerSampleByPageResponse
@@ -6295,7 +6330,7 @@ QueryAnswerSampleByPageResponse Client::queryAnswerSampleByPage(const QueryAnswe
 }
 
 /**
- * @summary Queries a single callback configuration.
+ * @summary Queries a callback configuration.
  *
  * @param request QueryCallbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6336,7 +6371,7 @@ QueryCallbackResponse Client::queryCallbackWithOptions(const QueryCallbackReques
 }
 
 /**
- * @summary Queries a single callback configuration.
+ * @summary Queries a callback configuration.
  *
  * @param request QueryCallbackRequest
  * @return QueryCallbackResponse
@@ -6347,7 +6382,7 @@ QueryCallbackResponse Client::queryCallback(const QueryCallbackRequest &request)
 }
 
 /**
- * @summary Queries the list of message notifications by paging.
+ * @summary Queries the message notification list with paging.
  *
  * @param request QueryCallbackByPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6388,7 +6423,7 @@ QueryCallbackByPageResponse Client::queryCallbackByPageWithOptions(const QueryCa
 }
 
 /**
- * @summary Queries the list of message notifications by paging.
+ * @summary Queries the message notification list with paging.
  *
  * @param request QueryCallbackByPageRequest
  * @return QueryCallbackByPageResponse
@@ -6399,7 +6434,7 @@ QueryCallbackByPageResponse Client::queryCallbackByPage(const QueryCallbackByPag
 }
 
 /**
- * @summary Queries label configurations.
+ * @summary Queries the tag configuration.
  *
  * @param request QueryLabelConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6446,7 +6481,7 @@ QueryLabelConfigResponse Client::queryLabelConfigWithOptions(const QueryLabelCon
 }
 
 /**
- * @summary Queries label configurations.
+ * @summary Queries the tag configuration.
  *
  * @param request QueryLabelConfigRequest
  * @return QueryLabelConfigResponse
@@ -6457,7 +6492,7 @@ QueryLabelConfigResponse Client::queryLabelConfig(const QueryLabelConfigRequest 
 }
 
 /**
- * @summary Reverts an app to a historical version.
+ * @summary Restores an app to a historical version.
  *
  * @param request RecoverAppConfigHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6500,7 +6535,7 @@ RecoverAppConfigHistoryResponse Client::recoverAppConfigHistoryWithOptions(const
 }
 
 /**
- * @summary Reverts an app to a historical version.
+ * @summary Restores an app to a historical version.
  *
  * @param request RecoverAppConfigHistoryRequest
  * @return RecoverAppConfigHistoryResponse
@@ -6561,7 +6596,7 @@ StopOnlineTestResponse Client::stopOnlineTest(const StopOnlineTestRequest &reque
 }
 
 /**
- * @summary Updates the scan status of AI applications.
+ * @summary Updates the scan status of an AI application.
  *
  * @param request UpdateAiAppScanStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6600,7 +6635,7 @@ UpdateAiAppScanStatusResponse Client::updateAiAppScanStatusWithOptions(const Upd
 }
 
 /**
- * @summary Updates the scan status of AI applications.
+ * @summary Updates the scan status of an AI application.
  *
  * @param request UpdateAiAppScanStatusRequest
  * @return UpdateAiAppScanStatusResponse
@@ -6665,7 +6700,7 @@ UpdateBackupConfigResponse Client::updateBackupConfig(const UpdateBackupConfigRe
 }
 
 /**
- * @summary Updates the status of risk events.
+ * @summary Updates the handling status of risk events for a specified application.
  *
  * @param tmpReq UpdateEventStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6722,7 +6757,7 @@ UpdateEventStatusResponse Client::updateEventStatusWithOptions(const UpdateEvent
 }
 
 /**
- * @summary Updates the status of risk events.
+ * @summary Updates the handling status of risk events for a specified application.
  *
  * @param request UpdateEventStatusRequest
  * @return UpdateEventStatusResponse
@@ -6733,7 +6768,7 @@ UpdateEventStatusResponse Client::updateEventStatus(const UpdateEventStatusReque
 }
 
 /**
- * @summary Edits an image library.
+ * @summary Modifies an image library.
  *
  * @param request UpdateImageLibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6782,7 +6817,7 @@ UpdateImageLibResponse Client::updateImageLibWithOptions(const UpdateImageLibReq
 }
 
 /**
- * @summary Edits an image library.
+ * @summary Modifies an image library.
  *
  * @param request UpdateImageLibRequest
  * @return UpdateImageLibResponse
@@ -6793,7 +6828,7 @@ UpdateImageLibResponse Client::updateImageLib(const UpdateImageLibRequest &reque
 }
 
 /**
- * @summary Edits the inspection-exempt configuration of an image library.
+ * @summary Modifies the inspection exemption configuration for an image library.
  *
  * @param tmpReq UpdateImageLibFreeInspectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6840,7 +6875,7 @@ UpdateImageLibFreeInspectionResponse Client::updateImageLibFreeInspectionWithOpt
 }
 
 /**
- * @summary Edits the inspection-exempt configuration of an image library.
+ * @summary Modifies the inspection exemption configuration for an image library.
  *
  * @param request UpdateImageLibFreeInspectionRequest
  * @return UpdateImageLibFreeInspectionResponse
@@ -6907,7 +6942,7 @@ UpdateKeywordLibResponse Client::updateKeywordLib(const UpdateKeywordLibRequest 
 }
 
 /**
- * @summary Updates Meta log information.
+ * @summary Updates the metadata log information.
  *
  * @param request UpdateMetaLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6950,7 +6985,7 @@ UpdateMetaLogResponse Client::updateMetaLogWithOptions(const UpdateMetaLogReques
 }
 
 /**
- * @summary Updates Meta log information.
+ * @summary Updates the metadata log information.
  *
  * @param request UpdateMetaLogRequest
  * @return UpdateMetaLogResponse
@@ -6961,7 +6996,7 @@ UpdateMetaLogResponse Client::updateMetaLog(const UpdateMetaLogRequest &request)
 }
 
 /**
- * @summary Updates OSS detection result feedback in batches.
+ * @summary Updates feedback for OSS detection results in batches.
  *
  * @param request UpdateOssCheckResultsBatchFeedbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7000,7 +7035,7 @@ UpdateOssCheckResultsBatchFeedbackResponse Client::updateOssCheckResultsBatchFee
 }
 
 /**
- * @summary Updates OSS detection result feedback in batches.
+ * @summary Updates feedback for OSS detection results in batches.
  *
  * @param request UpdateOssCheckResultsBatchFeedbackRequest
  * @return UpdateOssCheckResultsBatchFeedbackResponse

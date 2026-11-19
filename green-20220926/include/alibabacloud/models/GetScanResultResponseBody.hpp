@@ -245,7 +245,7 @@ namespace Models
 
 
         protected:
-          // The confidence score, ranging from 0 to 100, rounded to two decimal places.
+          // The confidence score. The value ranges from 0 to 100 and is rounded to two decimal places.
           shared_ptr<string> confidence_ {};
           // The description of the Label field.
           shared_ptr<string> description_ {};
@@ -691,11 +691,11 @@ namespace Models
 
 
       protected:
-        // The AccountId input parameter from the customer.
+        // The AccountId parameter provided by the customer.
         shared_ptr<string> accountId_ {};
         // The machine-assisted moderation labels.
         shared_ptr<string> apiLabels_ {};
-        // The machine-assisted moderation time. The value is a Unix/POSIX timestamp in milliseconds.
+        // The machine-assisted moderation time. The value is a UNIX/POSIX timestamp in milliseconds.
         shared_ptr<string> apiRequestTime_ {};
         // The machine-assisted moderation risk level.
         shared_ptr<string> apiRiskLevel_ {};
@@ -703,25 +703,21 @@ namespace Models
         shared_ptr<string> apiService_ {};
         // The machine-assisted moderation task ID.
         shared_ptr<string> apiTaskId_ {};
-        // appId
+        // The application ID.
         shared_ptr<string> appId_ {};
-        // The attack level, returned based on the configured risk score thresholds. Valid values:
-        // 
-        // - high: high risk.
-        // 
-        // - medium: medium risk.
-        //  
-        // - low: low risk.
-        // 
-        // - none: no risk detected.
+        // The attack level. The value is returned based on the configured high and low risk scores. Valid values:
+        // - high: High risk.
+        // - medium: Medium risk.
+        // - low: Low risk.
+        // - none: No risk detected.
         shared_ptr<string> attackLevel_ {};
-        // The Bailian request ID.
+        // The Model Studio request ID.
         shared_ptr<string> bailianRequestId_ {};
         // The content.
         shared_ptr<string> content_ {};
-        // dataId
+        // The data ID.
         shared_ptr<string> dataId_ {};
-        // The segment end time, in seconds.
+        // The end time of the segment, in seconds.
         shared_ptr<string> endTime_ {};
         // The extended information.
         shared_ptr<string> ext_ {};
@@ -729,9 +725,9 @@ namespace Models
         shared_ptr<string> extFeedback_ {};
         // The reserved parameter.
         Darabonba::Json extra_ {};
-        // The frame count.
+        // The number of frames.
         shared_ptr<int64_t> frameCount_ {};
-        // The creation time. Format: YYYY-MM-DD HH:mm:ss.
+        // The creation time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> gmtCreate_ {};
         // The multimodal file URLs.
         shared_ptr<vector<string>> guardFileUrls_ {};
@@ -741,19 +737,19 @@ namespace Models
         shared_ptr<vector<Darabonba::Json>> imageLabels_ {};
         // The image service.
         shared_ptr<string> imageService_ {};
-        // url
+        // The image URL.
         shared_ptr<string> imageUrl_ {};
-        // imageUrls
+        // The list of image URLs.
         shared_ptr<vector<string>> imageUrls_ {};
         // The labels.
         shared_ptr<string> labels_ {};
-        // The LiveId input parameter from the customer.
+        // The LiveId parameter provided by the customer.
         shared_ptr<string> liveId_ {};
         // The risk level of the malicious file.
         shared_ptr<string> maliciousFileLevel_ {};
         // The risk level of the malicious URL.
         shared_ptr<string> maliciousUrlLevel_ {};
-        // Indicates whether only manual review is used.
+        // Specifies whether the task is exclusively manually reviewed.
         shared_ptr<bool> manualOnly_ {};
         // No labels.
         shared_ptr<vector<string>> noLabels_ {};
@@ -765,50 +761,46 @@ namespace Models
         shared_ptr<string> requestFrom_ {};
         // The request ID.
         shared_ptr<string> requestId_ {};
-        // The request time. Format: YYYY-MM-DD HH:mm:ss.
+        // The request time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> requestTime_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};
-        // The result set.
+        // The returned collection.
         shared_ptr<vector<Items::Result>> result_ {};
         // The review labels.
         shared_ptr<string> reviewLabels_ {};
         // The review status.
         shared_ptr<string> reviewRiskLevel_ {};
-        // The review time. The value is a Unix/POSIX timestamp in milliseconds.
+        // The review time. The value is a UNIX/POSIX timestamp in milliseconds.
         shared_ptr<string> reviewTime_ {};
         // The reviewer.
         shared_ptr<string> reviewUid_ {};
-        // Indicates whether the content has been reviewed.
+        // Specifies whether the task has been reviewed.
         shared_ptr<bool> reviewed_ {};
-        // The risk level, returned based on the configured risk score thresholds. Valid values:
-        // 
-        // - high: high risk.
-        // 
-        // - medium: medium risk.
-        //  
-        // - low: low risk.
-        // 
-        // - none: no risk detected.
+        // The risk level. The value is returned based on the configured high and low risk scores. Valid values:
+        // - high: High risk.
+        // - medium: Medium risk.
+        // - low: Low risk.
+        // - none: No risk detected.
         shared_ptr<string> riskLevel_ {};
-        // The details of the matched risk.
+        // The details of the hit risk.
         shared_ptr<string> riskTips_ {};
-        // The matched risk keywords.
+        // The hit risk keywords.
         shared_ptr<string> riskWords_ {};
         // The result details.
         shared_ptr<string> scanResult_ {};
         // The score.
         shared_ptr<float> score_ {};
-        // The sensitivity level, returned based on the configured risk score thresholds. Valid values:
+        // The sensitivity level. The value is returned based on the configured sensitivity scores. Valid values:
         // - **S1**: Low sensitivity.
         // - **S2**: Medium sensitivity.
-        // - **S3**: Moderately high sensitivity.
+        // - **S3**: Relatively high sensitivity.
         // - **S4**: High sensitivity.
-        // - **S0**: Not sensitive.
+        // - **S0**: Non-sensitive.
         shared_ptr<string> sensitiveLevel_ {};
         // The service code.
         shared_ptr<string> serviceCode_ {};
-        // The segment start time, in seconds.
+        // The start time of the segment, in seconds.
         shared_ptr<string> startTime_ {};
         // The suggestion.
         shared_ptr<string> suggestion_ {};
@@ -824,7 +816,7 @@ namespace Models
         shared_ptr<string> url_ {};
         // The audio labels.
         shared_ptr<vector<Darabonba::Json>> voiceLabels_ {};
-        // Indicates whether audio detection is enabled.
+        // Specifies whether audio detection is enabled.
         shared_ptr<bool> voiceScanOpened_ {};
         // The audio service.
         shared_ptr<string> voiceService_ {};
@@ -926,9 +918,9 @@ namespace Models
     shared_ptr<GetScanResultResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The further description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
-    // The ID assigned by the backend that uniquely identifies a request. You can use this ID for troubleshooting.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The success flag.
     shared_ptr<bool> success_ {};

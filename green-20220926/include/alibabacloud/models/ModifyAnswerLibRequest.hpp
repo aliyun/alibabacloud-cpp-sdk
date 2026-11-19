@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the proxy response library.
+    // The ID of the fallback library.
     shared_ptr<string> libId_ {};
     // The name of the library.
     shared_ptr<string> libName_ {};

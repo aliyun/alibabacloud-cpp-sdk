@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> authToken_ {};
     // The private domain name.
     shared_ptr<string> privateDomain_ {};
-    // The project space.
+    // The project workspace.
     shared_ptr<string> project_ {};
     // The public domain name.
     shared_ptr<string> publicDomain_ {};

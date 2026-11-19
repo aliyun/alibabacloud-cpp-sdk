@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The classification.
+    // The category.
     shared_ptr<string> classify_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The resource type.
+    // The resource type. Note: This parameter is actually required. If it is not provided, the API returns a 400 error (Code: 400, Message: resourceType may not be empty). Valid values: agent_text | agent_text_image | agent_image.
     shared_ptr<string> resourceType_ {};
   };
 

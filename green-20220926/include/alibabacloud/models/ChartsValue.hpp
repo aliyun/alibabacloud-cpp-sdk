@@ -74,7 +74,7 @@ namespace Models
     protected:
       // The name.
       shared_ptr<string> name_ {};
-      // The QPS at the point in time.
+      // The QPS at each time point.
       shared_ptr<vector<int64_t>> data_ {};
     };
 

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The remarks.
+    // The remark.
     shared_ptr<string> comment_ {};
     // The name of the image library.
     shared_ptr<string> libName_ {};

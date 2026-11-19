@@ -128,17 +128,17 @@ namespace Models
     protected:
       // The remarks.
       shared_ptr<string> comment_ {};
-      // The review-free configuration.
+      // The moderation exemption configuration.
       shared_ptr<int32_t> freeInspection_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
-      // The number of images in the library.
+      // The number of images in the image library.
       shared_ptr<int64_t> imageNum_ {};
-      // The image library ID.
+      // The ID of the image library.
       shared_ptr<string> libId_ {};
-      // The image library name.
+      // The name of the image library.
       shared_ptr<string> libName_ {};
     };
 
@@ -203,11 +203,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of image library information.
     shared_ptr<vector<ListImageLibResponseBody::LibList>> libList_ {};
-    // The maximum number of libraries supported.
+    // The maximum number of supported image libraries.
     shared_ptr<int32_t> maxLibCount_ {};
-    // The further description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
-    // The backend-assigned ID that uniquely identifies a request. This ID can be used for troubleshooting.
+    // The request ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The success flag.
     shared_ptr<bool> success_ {};

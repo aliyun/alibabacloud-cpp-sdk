@@ -77,13 +77,13 @@ namespace Models
   protected:
     // Specifies whether to query by month.
     shared_ptr<bool> byMonth_ {};
-    // The end time. Format: YYYY-MM-DD HH:mm:ss.
+    // The end time. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // The parent task ID.
+    // The ID of the parent task.
     shared_ptr<string> parentTaskId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start time. Format: YYYY-MM-DD HH:mm:ss.
+    // The start time. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startDate_ {};
   };
 

@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The ID of the application.
     shared_ptr<string> appId_ {};
-    // The average duration of model calls.
+    // The average duration of model invocations.
     shared_ptr<float> avgModelDuration_ {};
-    // The day-over-day change ratio of average model call duration.
+    // The day-over-day comparison of the average duration of model invocations.
     shared_ptr<float> avgModelDurationDau_ {};
-    // The number of model calls.
+    // The number of model invocations.
     shared_ptr<int64_t> modelCount_ {};
-    // The day-over-day change ratio of model call count.
+    // The day-over-day comparison of the number of model invocations.
     shared_ptr<float> modelCountDau_ {};
-    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+    // The request ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The number of risk events.
     shared_ptr<int64_t> riskEventCount_ {};
     // The number of tokens consumed.
     shared_ptr<int64_t> tokenCount_ {};
-    // The day-over-day change ratio of token consumption count.
+    // The day-over-day comparison of the number of tokens consumed.
     shared_ptr<float> tokenCountDau_ {};
   };
 

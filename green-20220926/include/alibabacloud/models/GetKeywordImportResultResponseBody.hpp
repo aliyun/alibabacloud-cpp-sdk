@@ -168,7 +168,7 @@ namespace Models
       shared_ptr<string> i18nKey_ {};
       // The list of keywords that are too long or too short.
       shared_ptr<vector<string>> illegalLengthKeywords_ {};
-      // The number of invalid keywords.
+      // The invalid count.
       shared_ptr<int32_t> invalidCount_ {};
       // The list of invalid keywords.
       shared_ptr<vector<string>> invalidKeywords_ {};
@@ -176,13 +176,13 @@ namespace Models
       shared_ptr<string> libId_ {};
       // The task progress percentage.
       shared_ptr<int32_t> progress_ {};
-      // The number of duplicate keywords.
+      // The duplicate count.
       shared_ptr<int32_t> repeatCount_ {};
       // The list of duplicate keywords.
       shared_ptr<vector<string>> repeatKeywords_ {};
-      // The number of successfully imported keywords.
+      // The success count.
       shared_ptr<int32_t> successCount_ {};
-      // The prompt information.
+      // The prompt message.
       shared_ptr<string> tips_ {};
       // The total count.
       shared_ptr<int32_t> totalCount_ {};
@@ -232,11 +232,11 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<GetKeywordImportResultResponseBody::Data> data_ {};
-    // The description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The request ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The success indicator.
     shared_ptr<bool> success_ {};
   };
 

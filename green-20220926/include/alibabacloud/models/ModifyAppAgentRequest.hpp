@@ -94,11 +94,11 @@ namespace Models
 
 
   protected:
-    // Agent ID。
+    // The agent ID, which is the unique identifier of the agent and is returned in the response of the AddAppAgent operation.
     shared_ptr<string> agentId_ {};
-    // The agent name.
+    // The name of the agent.
     shared_ptr<string> agentName_ {};
-    // App ID。
+    // The app ID, which is the unique identifier of the application and is returned in the response of the AddAppConfig operation. Note: This parameter is actually required. If it is not provided, the API returns a 400 error with the message "appId may not be empty".
     shared_ptr<string> appId_ {};
     // The configuration details.
     shared_ptr<string> config_ {};
@@ -108,7 +108,7 @@ namespace Models
     shared_ptr<bool> enable_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The resource type.
+    // The resource type. Note: This parameter is actually required. If it is not provided, the API returns a 400 error with the message "resourceType may not be empty".
     shared_ptr<string> resourceType_ {};
   };
 

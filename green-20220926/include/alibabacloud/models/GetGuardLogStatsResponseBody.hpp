@@ -167,27 +167,26 @@ namespace Models
       // The delivery region.
       shared_ptr<string> deliveryRegion_ {};
       // Indicates whether the feature is enabled. Valid values:
-      // 
       // - **true**: Enabled.
       // - **false**: Disabled.
       shared_ptr<bool> enable_ {};
       // The log analysis configuration.
       Darabonba::Json logAnalysisConfig_ {};
-      // The name of the Simple Log Service Logstore.
+      // The name of the Logstore in Simple Log Service.
       shared_ptr<string> logStoreName_ {};
       // The remaining storage space. Unit: TB.
       shared_ptr<int64_t> pendingStorage_ {};
       // The reserved storage. Unit: bytes.
       shared_ptr<int64_t> preserveStorage_ {};
-      // The project space.
+      // The workspace.
       shared_ptr<string> project_ {};
       // The total storage space. Unit: TB.
       shared_ptr<int64_t> totalStorage_ {};
-      // The number of days for which data is retained.
+      // The data retention period in days.
       shared_ptr<int64_t> ttl_ {};
       // The type.
       shared_ptr<string> type_ {};
-      // UID。
+      // The user ID.
       shared_ptr<string> uid_ {};
       // The used storage. Unit: bytes.
       shared_ptr<int64_t> usedStorage_ {};
@@ -214,7 +213,7 @@ namespace Models
   protected:
     // The data.
     shared_ptr<vector<GetGuardLogStatsResponseBody::Data>> data_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

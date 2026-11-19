@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The configuration item.
+    // The configuration item. Note: This parameter is actually required. If it is not provided, the service returns a 400 error (config may not be empty).
     shared_ptr<string> config_ {};
-    // The resource type.
+    // The resource type. Note: This parameter is actually required. If it is not provided, the service returns a 400 error (resourceType may not be empty).
     shared_ptr<string> resourceType_ {};
-    // The service code.
+    // The service code. Note: This parameter is actually required. If it is not provided, the service returns a 400 error (serviceCode may not be empty).
     shared_ptr<string> serviceCode_ {};
-    // The text content.
+    // The text content. Note: This parameter is actually required. If it is not provided, the service returns a 400 error.
     shared_ptr<string> text_ {};
-    // The business type.
+    // The business type. Note: This parameter is actually required. If it is not provided, the service returns a 400 error.
     shared_ptr<string> type_ {};
   };
 

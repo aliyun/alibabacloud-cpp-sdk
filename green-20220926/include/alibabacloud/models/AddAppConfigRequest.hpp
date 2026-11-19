@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};
-    // appId
+    // The system application ID.
     shared_ptr<string> sysAppId_ {};
     // The type.
     shared_ptr<string> type_ {};

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<bool> data_ {};
-    // The ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request, which can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

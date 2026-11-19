@@ -95,9 +95,8 @@ namespace Models
     shared_ptr<string> properties_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The library code.
-    // 
-    // - desensitize: desensitization library
+    // The code of the keyword library.
+    // - desensitize: desensitization keyword library.
     shared_ptr<string> tenantCode_ {};
   };
 

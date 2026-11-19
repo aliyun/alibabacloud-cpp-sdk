@@ -153,13 +153,13 @@ namespace Models
     protected:
       // The internationalization key.
       shared_ptr<string> i18nKey_ {};
-      // The collection of samples whose length is too long or too short.
+      // The collection of samples that are too long or too short.
       shared_ptr<vector<string>> illegalLengthSamples_ {};
       // The number of invalid records.
       shared_ptr<int32_t> invalidCount_ {};
-      // The ID of the proxy answer library.
+      // The ID of the fallback answer library.
       shared_ptr<string> libId_ {};
-      // The progress. For example, 90 indicates 90%.
+      // The progress. A value of 90 indicates 90%.
       shared_ptr<int32_t> progress_ {};
       // The number of duplicate records.
       shared_ptr<int32_t> repeatCount_ {};
@@ -206,9 +206,9 @@ namespace Models
 
 
   protected:
-    // The ID of the proxy answer library.
+    // The ID of the fallback answer library.
     shared_ptr<string> libId_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The result.
     shared_ptr<AddAnswerSampleResponseBody::Result> result_ {};

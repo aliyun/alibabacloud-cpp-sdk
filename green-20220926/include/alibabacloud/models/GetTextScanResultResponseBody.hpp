@@ -161,7 +161,7 @@ namespace Models
 
 
         protected:
-          // The confidence score, ranging from 0 to 100 and rounded to two decimal places.
+          // The confidence score. Valid values: 0 to 100. The score is accurate to two decimal places.
           shared_ptr<float> confidence_ {};
           // The description.
           shared_ptr<string> description_ {};
@@ -298,17 +298,17 @@ namespace Models
 
 
       protected:
-        // The AccountId passed in by the customer.
+        // The AccountId parameter passed by the customer.
         shared_ptr<string> accountId_ {};
-        // The Bailian request ID.
+        // The Model Studio request ID.
         shared_ptr<string> bailianRequestId_ {};
         // The content.
         shared_ptr<string> content_ {};
-        // The DataId passed in by the customer.
+        // The DataId parameter passed by the customer.
         shared_ptr<string> dataId_ {};
         // The feedback information.
         shared_ptr<string> extFeedback_ {};
-        // The reserved parameter.
+        // The extra parameters.
         Darabonba::Json extra_ {};
         // The creation time.
         shared_ptr<string> gmtCreate_ {};
@@ -316,19 +316,15 @@ namespace Models
         shared_ptr<string> labels_ {};
         // The request ID.
         shared_ptr<string> requestId_ {};
-        // The request time. Format: YYYY-MM-DD HH:mm:ss.
+        // The request time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> requestTime_ {};
-        // The detection results.
+        // The moderation result.
         shared_ptr<vector<Items::Result>> result_ {};
-        // The risk level, which is returned based on the configured high and low risk score thresholds. Valid values:
-        // 
-        // - high: high risk.
-        // 
-        // - medium: medium risk.
-        //  
-        // - low: low risk.
-        // 
-        // - none: no risk detected.
+        // The risk level. The value is returned based on the configured high and low risk scores. Valid values:
+        // - high: High risk.
+        // - medium: Medium risk.
+        // - low: Low risk.
+        // - none: No risk detected.
         shared_ptr<string> riskLevel_ {};
         // The result details.
         shared_ptr<string> scanResult_ {};
@@ -336,7 +332,7 @@ namespace Models
         shared_ptr<float> score_ {};
         // The service code.
         shared_ptr<string> serviceCode_ {};
-        // The suggested action.
+        // The suggestion.
         shared_ptr<string> suggestion_ {};
         // The task ID.
         shared_ptr<string> taskId_ {};
@@ -429,11 +425,11 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<GetTextScanResultResponseBody::Data> data_ {};
-    // The description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
     // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

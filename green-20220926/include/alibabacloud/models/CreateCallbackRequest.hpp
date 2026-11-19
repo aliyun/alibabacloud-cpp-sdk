@@ -77,11 +77,11 @@ namespace Models
   protected:
     // The encryption algorithm.
     shared_ptr<string> cryptType_ {};
-    // The name of the scheme.
+    // The scheme name.
     shared_ptr<string> name_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The moderation result.
+    // The moderation results.
     shared_ptr<string> scope_ {};
     // The callback URL.
     shared_ptr<string> url_ {};

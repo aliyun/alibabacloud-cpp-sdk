@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The remarks of the image library.
     shared_ptr<string> comment_ {};
-    // The review-free configuration.
+    // The moderation-free configuration.
     shared_ptr<int32_t> freeInspection_ {};
     // The ID of the image library.
     shared_ptr<string> libId_ {};

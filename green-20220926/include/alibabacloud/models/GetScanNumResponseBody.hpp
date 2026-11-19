@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The upper limit on the number.
+    // The upper limit.
     shared_ptr<int64_t> limitNumber_ {};
     // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};

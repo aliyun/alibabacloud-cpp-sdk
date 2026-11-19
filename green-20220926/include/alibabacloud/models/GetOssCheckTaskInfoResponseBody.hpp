@@ -231,7 +231,7 @@ namespace Models
       protected:
         // The primary service.
         shared_ptr<string> copyFrom_ {};
-        // Indicates whether the service is copied.
+        // Specifies whether to copy.
         shared_ptr<bool> isCopy_ {};
         // The service code.
         shared_ptr<string> serviceCode_ {};
@@ -431,27 +431,27 @@ namespace Models
 
 
     protected:
-      // The filter configuration for each bucket. The key is the bucket name, and the value is the filter configuration, which includes prefix/suffix filters and filter character lists.
+      // The filter configuration for each bucket. The key is the bucket name, and the value is the filter configuration, which includes prefix and suffix filters and a list of filtered characters.
       shared_ptr<map<string, ConfigBucketPrefixFilterConfigValue>> bucketPrefixFilterConfig_ {};
       // The callback notification ID.
       shared_ptr<int64_t> callbackId_ {};
-      // Indicates whether to deduplicate previously scanned tasks.
+      // Specifies whether to deduplicate historically scanned tasks.
       shared_ptr<bool> distinctHistoryTasks_ {};
       // The end time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> endTime_ {};
-      // The execution date of the scheduled task. The value is an integer in the format of a single digit, such as 1.
+      // The execution date of the scheduled task. The value is an integer, such as 1.
       shared_ptr<int32_t> executeDate_ {};
       // The expected execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> executeTime_ {};
-      // Indicates whether to freeze.
+      // Specifies whether to freeze.
       shared_ptr<bool> freeze_ {};
       // Specifies whether to freeze high-risk images.
       shared_ptr<bool> freezeHighRisk1_ {};
-      // Specifies whether to freeze high-risk audio and text.
+      // Specifies whether to freeze high-risk audio and text files.
       shared_ptr<bool> freezeHighRisk2_ {};
       // Specifies whether to freeze medium-risk images.
       shared_ptr<bool> freezeMediumRisk1_ {};
-      // Specifies whether to freeze medium-risk audio and text.
+      // Specifies whether to freeze medium-risk audio and text files.
       shared_ptr<bool> freezeMediumRisk2_ {};
       // The transfer path.
       shared_ptr<string> freezeRestorePath_ {};
@@ -463,21 +463,21 @@ namespace Models
       shared_ptr<vector<string>> prefixFilters_ {};
       // The priority.
       shared_ptr<int32_t> priority_ {};
-      // Referer。
+      // The Referer, which indicates the source site of the request.
       shared_ptr<string> referer_ {};
-      // The scan limit quantity.
+      // The limit on the number of items to scan.
       shared_ptr<int64_t> scanLimit_ {};
-      // Indicates whether to scan images without file extensions.
+      // Specifies whether to scan images without file name extensions.
       shared_ptr<bool> scanNoFileType_ {};
-      // The file type to scan.
+      // The type of files to scan.
       shared_ptr<int32_t> scanResourceType_ {};
-      // The scan service code.
+      // The code of the scan service.
       shared_ptr<vector<string>> scanService_ {};
       // The scan service information.
       shared_ptr<vector<Config::ScanServiceInfos>> scanServiceInfos_ {};
       // The start time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> startTime_ {};
-      // The scheduling date.
+      // The scheduling cycle.
       shared_ptr<int32_t> taskCycle_ {};
       // The user freeze configuration.
       shared_ptr<Config::UserFreezeConfig> userFreezeConfig_ {};
@@ -602,21 +602,21 @@ namespace Models
 
 
   protected:
-    // The storage buckets.
+    // The buckets.
     shared_ptr<string> buckets_ {};
-    // The configuration item.
+    // The configuration.
     shared_ptr<GetOssCheckTaskInfoResponseBody::Config> config_ {};
     // The end time. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endTime_ {};
-    // The number of completed tasks.
+    // The number of completed items.
     shared_ptr<int64_t> finishNum_ {};
-    // Indicates whether this is a scheduled scan task.
+    // Specifies whether the task is a scheduled scan task.
     shared_ptr<bool> isInc_ {};
-    // The next execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
+    // The last execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> lastExecuteDate_ {};
     // The media asset type.
     shared_ptr<int32_t> mediaType_ {};
-    // The last execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
+    // The next execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> nextExecuteDate_ {};
     // The total number of files in the bucket.
     shared_ptr<int64_t> objectNum_ {};
@@ -626,13 +626,13 @@ namespace Models
     shared_ptr<int64_t> searchNum_ {};
     // The start time. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startTime_ {};
-    // The task status.
+    // The status of the task.
     shared_ptr<int32_t> status_ {};
-    // The task ID.
+    // The ID of the task.
     shared_ptr<string> taskId_ {};
-    // The task name.
+    // The name of the task.
     shared_ptr<string> taskName_ {};
-    // The task type.
+    // The type of the task.
     shared_ptr<string> taskType_ {};
   };
 

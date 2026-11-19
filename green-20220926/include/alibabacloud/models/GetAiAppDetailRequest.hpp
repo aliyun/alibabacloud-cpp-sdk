@@ -14,11 +14,15 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetAiAppDetailRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppId, appId_);
+      DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, GetAiAppDetailRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
+      DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
     };
     GetAiAppDetailRequest() = default ;
     GetAiAppDetailRequest(const GetAiAppDetailRequest &) = default ;
@@ -32,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->endTime_ == nullptr && this->regionId_ == nullptr && this->startTime_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
     inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline GetAiAppDetailRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+    // endTime Field Functions 
+    bool hasEndTime() const { return this->endTime_ != nullptr;};
+    void deleteEndTime() { this->endTime_ = nullptr;};
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline GetAiAppDetailRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // regionId Field Functions 
@@ -47,13 +58,24 @@ namespace Models
     inline GetAiAppDetailRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // startTime Field Functions 
+    bool hasStartTime() const { return this->startTime_ != nullptr;};
+    void deleteStartTime() { this->startTime_ = nullptr;};
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline GetAiAppDetailRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
   protected:
-    // The ID of the AI application. This parameter is required.
+    // The AI application ID. This parameter is required. The AppId is derived from AI applications on integrated external AI platforms, such as Model Studio and Dify. Before calling this API, you must call InitAiAppScan to initiate the activation and then call ConfirmAiAppScan to confirm the activation of the AI application detection service. To obtain a valid AppId, you can call ListAiAppByPage to query the list of integrated applications.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The end time.
+    shared_ptr<string> endTime_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
+    // The start time.
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

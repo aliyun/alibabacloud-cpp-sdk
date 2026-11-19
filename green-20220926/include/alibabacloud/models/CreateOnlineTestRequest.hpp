@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The data ID.
     shared_ptr<string> dataId_ {};
-    // The resource type.
+    // The resource type. Valid values: voice (audio), image (image), file (document), text (text), and video (video).
     shared_ptr<string> resourceType_ {};
-    // The service code.
+    // The service code. Specify a valid service code. The valid service code for online video testing is videoDetection. VideoModeration is not a valid value and returns a 406 online.test.failed error.
     shared_ptr<string> serviceCode_ {};
-    // The URL to be detected.
+    // The detection URL.
     shared_ptr<string> url_ {};
   };
 

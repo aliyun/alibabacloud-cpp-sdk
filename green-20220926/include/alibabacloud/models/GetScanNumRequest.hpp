@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The storage space.
+    // The buckets. Note: This parameter is required. If it is not provided, the service returns a 400 error.
     shared_ptr<string> buckets_ {};
     // The media asset type.
     shared_ptr<int32_t> mediaType_ {};

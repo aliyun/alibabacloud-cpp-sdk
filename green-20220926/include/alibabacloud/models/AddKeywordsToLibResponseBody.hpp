@@ -174,13 +174,13 @@ namespace Models
       protected:
         // The internationalization key.
         shared_ptr<string> i18nKey_ {};
-        // The list of keywords with illegal length (too long or too short).
+        // The list of keywords that are too long or too short.
         shared_ptr<vector<string>> illegalLengthKeywords_ {};
         // The number of invalid keywords.
         shared_ptr<int32_t> invalidCount_ {};
         // The list of invalid keywords.
         shared_ptr<vector<string>> invalidKeywords_ {};
-        // The keyword library ID.
+        // The ID of the keyword library.
         shared_ptr<string> libId_ {};
         // The task progress percentage.
         shared_ptr<int32_t> progress_ {};
@@ -222,7 +222,7 @@ namespace Models
     protected:
       // The result.
       shared_ptr<Data::KeywordsResult> keywordsResult_ {};
-      // The keyword library ID.
+      // The ID of the keyword library.
       shared_ptr<string> libId_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};

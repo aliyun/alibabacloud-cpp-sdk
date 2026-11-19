@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The classification. Separate multiple values with commas.
+    // The category. Separate multiple values with commas.
     shared_ptr<string> classify_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

@@ -231,7 +231,7 @@ namespace Models
         protected:
           // The image moderation rule.
           shared_ptr<Rules::ImageScanRule> imageScanRule_ {};
-          // The ordinal number.
+          // The sequence number.
           shared_ptr<int32_t> index_ {};
           // The text moderation rule.
           shared_ptr<Rules::TextScanRule> textScanRule_ {};
@@ -296,13 +296,13 @@ namespace Models
         shared_ptr<string> audioService_ {};
         // The image service.
         shared_ptr<vector<string>> imageService_ {};
-        // The ignored keyword library.
+        // The ignored keyword libraries.
         shared_ptr<vector<string>> keywordFilterLibs_ {};
-        // The hit keyword library.
+        // The matched keyword libraries.
         shared_ptr<vector<string>> keywordHitLibs_ {};
         // The service rules.
         shared_ptr<vector<CustomServiceConf::Rules>> rules_ {};
-        // The hit similar text library.
+        // The matched similar text libraries.
         shared_ptr<vector<string>> similarTextHitLibs_ {};
       };
 
@@ -406,7 +406,7 @@ namespace Models
 
 
     protected:
-      // The classification.
+      // The category.
       shared_ptr<string> classify_ {};
       // The primary service.
       shared_ptr<string> copyFrom_ {};
@@ -419,10 +419,8 @@ namespace Models
       // The resource type.
       shared_ptr<string> resourceType_ {};
       // The scene type. Valid values:
-      // 
-      // - recommended_scene: recommended scenario.
-      // 
-      // - all_scene: all scenarios.
+      // - recommended_scene: recommended scene
+      // - all_scene: all scenes
       shared_ptr<string> sceneType_ {};
       // The service code.
       shared_ptr<string> serviceCode_ {};
@@ -432,7 +430,7 @@ namespace Models
       shared_ptr<string> serviceName_ {};
       // The service type.
       shared_ptr<string> serviceType_ {};
-      // UID。
+      // The user UID.
       shared_ptr<string> uid_ {};
       // The usage status.
       shared_ptr<string> useStatus_ {};
@@ -482,11 +480,11 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<vector<ListServiceConfigsResponseBody::Data>> data_ {};
-    // The description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
-    // The request ID assigned by the backend, which uniquely identifies the request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

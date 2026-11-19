@@ -91,7 +91,7 @@ namespace Models
     shared_ptr<string> answer_ {};
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The ID of the proxy answer library.
+    // The ID of the fallback answer library. Note: This parameter is required. If you do not specify this parameter, the API returns a 400 error with the message "libId may not be empty".
     shared_ptr<string> libId_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

@@ -64,7 +64,7 @@ namespace Models
     shared_ptr<map<string, int32_t>> config_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The selected service identifier.
+    // The identifier of the selected service.
     shared_ptr<string> serviceCode_ {};
   };
 

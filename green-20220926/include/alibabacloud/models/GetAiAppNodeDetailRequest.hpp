@@ -98,7 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
+    // The end time of the query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> endTime_ {};
     // The node ID. This parameter is required.
     // 
@@ -114,7 +114,7 @@ namespace Models
     shared_ptr<string> nodeType_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
+    // The start time of the query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> startTime_ {};
   };
 

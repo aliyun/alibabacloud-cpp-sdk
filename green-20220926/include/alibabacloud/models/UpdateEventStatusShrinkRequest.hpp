@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The application ID that identifies the application to which the operation belongs.
+    // The ID of the application.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
@@ -94,11 +94,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> operationCode_ {};
-    // The operation parameters that contain additional parameter information required to execute the operation.
+    // The operation parameters that contain additional information required to perform the operation.
     shared_ptr<string> operationParams_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The operation source that identifies the source system or module that triggered this status update request.
+    // The source of the operation, which identifies the system or module that triggered this status update request.
     shared_ptr<string> source_ {};
   };
 

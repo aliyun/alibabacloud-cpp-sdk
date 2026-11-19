@@ -117,19 +117,19 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The end time. Format: YYYY-MM-DD HH:mm:ss.
+    // The end time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> endDate_ {};
-    // The number of completed tasks.
+    // The number of completed items.
     shared_ptr<int64_t> finishNum_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The query condition.
+    // The query conditions. Note: This parameter is actually required. You must provide a JSON string that contains the TaskId field, such as {"TaskId":"P_XXX"}. If this parameter is not provided, the API returns a 400 error (oss.check.task.not.exists).
     shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The sort field.
     shared_ptr<map<string, string>> sort_ {};
-    // The start time. Format: YYYY-MM-DD HH:mm:ss.
+    // The start time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> startDate_ {};
     // The task status.
     shared_ptr<int32_t> status_ {};

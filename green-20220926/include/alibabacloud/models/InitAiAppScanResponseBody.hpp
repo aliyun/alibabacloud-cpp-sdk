@@ -101,7 +101,7 @@ namespace Models
       shared_ptr<string> authToken_ {};
       // The private domain name.
       shared_ptr<string> privateDomain_ {};
-      // The project space.
+      // The project workspace.
       shared_ptr<string> project_ {};
       // The public domain name.
       shared_ptr<string> publicDomain_ {};
@@ -156,7 +156,7 @@ namespace Models
 
 
   protected:
-    // The access entry information.
+    // The access endpoint information.
     shared_ptr<InitAiAppScanResponseBody::AuthInfo> authInfo_ {};
     // The access information.
     shared_ptr<map<string, AuthInfoConfigValue>> authInfoConfig_ {};
@@ -166,7 +166,7 @@ namespace Models
     shared_ptr<string> openStatus_ {};
     // The ready status.
     shared_ptr<string> readyStatus_ {};
-    // The ID assigned by the backend to uniquely identify a request. You can use this ID for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. You can use it to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

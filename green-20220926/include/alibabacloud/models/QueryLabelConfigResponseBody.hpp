@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The content moderation configuration.
+    // The content compliance.
     shared_ptr<vector<Darabonba::Json>> contentModeration_ {};
     // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};

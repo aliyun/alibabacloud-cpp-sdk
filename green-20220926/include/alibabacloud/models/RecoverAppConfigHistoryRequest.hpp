@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // App ID。
+    // The app ID.
     shared_ptr<string> appId_ {};
     // The version number.
     shared_ptr<int64_t> appVersion_ {};

@@ -57,16 +57,15 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The application IDs.
     // 
     // This parameter is required.
     shared_ptr<string> appIds_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The status. Valid values:
-    // 
-    // - enable: enabled
-    // - disable: disabled
+    // - enable: Enabled.
+    // - disable: Disabled.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

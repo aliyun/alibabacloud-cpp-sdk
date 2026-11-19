@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(LastTraceTime, lastTraceTime_);
         DARABONBA_PTR_TO_JSON(RiskEvents, riskEvents_);
         DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
+        DARABONBA_PTR_TO_JSON(RiskStats, riskStats_);
         DARABONBA_PTR_TO_JSON(TraceStatus, traceStatus_);
         DARABONBA_PTR_TO_JSON(Uid, uid_);
         DARABONBA_PTR_TO_JSON(WarningCount, warningCount_);
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(LastTraceTime, lastTraceTime_);
         DARABONBA_PTR_FROM_JSON(RiskEvents, riskEvents_);
         DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
+        DARABONBA_PTR_FROM_JSON(RiskStats, riskStats_);
         DARABONBA_PTR_FROM_JSON(TraceStatus, traceStatus_);
         DARABONBA_PTR_FROM_JSON(Uid, uid_);
         DARABONBA_PTR_FROM_JSON(WarningCount, warningCount_);
@@ -75,6 +77,61 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class RiskStats : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const RiskStats& obj) { 
+          DARABONBA_PTR_TO_JSON(RequestCount, requestCount_);
+          DARABONBA_PTR_TO_JSON(RiskCount, riskCount_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, RiskStats& obj) { 
+          DARABONBA_PTR_FROM_JSON(RequestCount, requestCount_);
+          DARABONBA_PTR_FROM_JSON(RiskCount, riskCount_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
+        };
+        RiskStats() = default ;
+        RiskStats(const RiskStats &) = default ;
+        RiskStats(RiskStats &&) = default ;
+        RiskStats(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~RiskStats() = default ;
+        RiskStats& operator=(const RiskStats &) = default ;
+        RiskStats& operator=(RiskStats &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->requestCount_ == nullptr
+        && this->riskCount_ == nullptr && this->type_ == nullptr; };
+        // requestCount Field Functions 
+        bool hasRequestCount() const { return this->requestCount_ != nullptr;};
+        void deleteRequestCount() { this->requestCount_ = nullptr;};
+        inline int64_t getRequestCount() const { DARABONBA_PTR_GET_DEFAULT(requestCount_, 0L) };
+        inline RiskStats& setRequestCount(int64_t requestCount) { DARABONBA_PTR_SET_VALUE(requestCount_, requestCount) };
+
+
+        // riskCount Field Functions 
+        bool hasRiskCount() const { return this->riskCount_ != nullptr;};
+        void deleteRiskCount() { this->riskCount_ = nullptr;};
+        inline int64_t getRiskCount() const { DARABONBA_PTR_GET_DEFAULT(riskCount_, 0L) };
+        inline RiskStats& setRiskCount(int64_t riskCount) { DARABONBA_PTR_SET_VALUE(riskCount_, riskCount) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline RiskStats& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        // The number of requests.
+        shared_ptr<int64_t> requestCount_ {};
+        // The number of risks.
+        shared_ptr<int64_t> riskCount_ {};
+        // The type.
+        shared_ptr<string> type_ {};
+      };
+
       class RiskEvents : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const RiskEvents& obj) { 
@@ -220,7 +277,7 @@ namespace Models
 
 
       protected:
-        // The risk event code.
+        // The code of the risk event.
         shared_ptr<string> eventCode_ {};
         // The number of events.
         shared_ptr<int64_t> eventCount_ {};
@@ -228,7 +285,7 @@ namespace Models
         shared_ptr<vector<string>> eventDescs_ {};
         // The list of risk event IDs.
         shared_ptr<vector<string>> eventIds_ {};
-        // The risk event name.
+        // The name of the risk event.
         shared_ptr<string> eventName_ {};
         // The event status. Valid values:
         // - **unhandled**: Unhandled.
@@ -240,7 +297,7 @@ namespace Models
 
       virtual bool empty() const override { return this->appId_ == nullptr
         && this->appName_ == nullptr && this->appStatus_ == nullptr && this->channel_ == nullptr && this->lastTraceTime_ == nullptr && this->riskEvents_ == nullptr
-        && this->riskLevel_ == nullptr && this->traceStatus_ == nullptr && this->uid_ == nullptr && this->warningCount_ == nullptr; };
+        && this->riskLevel_ == nullptr && this->riskStats_ == nullptr && this->traceStatus_ == nullptr && this->uid_ == nullptr && this->warningCount_ == nullptr; };
       // appId Field Functions 
       bool hasAppId() const { return this->appId_ != nullptr;};
       void deleteAppId() { this->appId_ = nullptr;};
@@ -292,6 +349,15 @@ namespace Models
       inline Items& setRiskLevel(string riskLevel) { DARABONBA_PTR_SET_VALUE(riskLevel_, riskLevel) };
 
 
+      // riskStats Field Functions 
+      bool hasRiskStats() const { return this->riskStats_ != nullptr;};
+      void deleteRiskStats() { this->riskStats_ = nullptr;};
+      inline const vector<Items::RiskStats> & getRiskStats() const { DARABONBA_PTR_GET_CONST(riskStats_, vector<Items::RiskStats>) };
+      inline vector<Items::RiskStats> getRiskStats() { DARABONBA_PTR_GET(riskStats_, vector<Items::RiskStats>) };
+      inline Items& setRiskStats(const vector<Items::RiskStats> & riskStats) { DARABONBA_PTR_SET_VALUE(riskStats_, riskStats) };
+      inline Items& setRiskStats(vector<Items::RiskStats> && riskStats) { DARABONBA_PTR_SET_RVALUE(riskStats_, riskStats) };
+
+
       // traceStatus Field Functions 
       bool hasTraceStatus() const { return this->traceStatus_ != nullptr;};
       void deleteTraceStatus() { this->traceStatus_ = nullptr;};
@@ -314,23 +380,25 @@ namespace Models
 
 
     protected:
-      // appId。
+      // The ID of the AI application.
       shared_ptr<string> appId_ {};
-      // The application name.
+      // The name of the application.
       shared_ptr<string> appName_ {};
       // The application status.
       shared_ptr<string> appStatus_ {};
       // The channel.
       shared_ptr<string> channel_ {};
-      // The last active time. Format: YYYY-MM-DD HH:mm:ss.
+      // The last active time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> lastTraceTime_ {};
       // The risk events.
       shared_ptr<vector<Items::RiskEvents>> riskEvents_ {};
       // The risk level.
       shared_ptr<string> riskLevel_ {};
+      // The risk statistics.
+      shared_ptr<vector<Items::RiskStats>> riskStats_ {};
       // The Tracing Analysis status.
       shared_ptr<string> traceStatus_ {};
-      // UID。
+      // The UID of the user.
       shared_ptr<string> uid_ {};
       // The number of alerts.
       shared_ptr<int32_t> warningCount_ {};
@@ -380,9 +448,9 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The data on the current page.
     shared_ptr<vector<ListAiAppByPageResponseBody::Items>> items_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID of the request, which is assigned by the backend to uniquely identify the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

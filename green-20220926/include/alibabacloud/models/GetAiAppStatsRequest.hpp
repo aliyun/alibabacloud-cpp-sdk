@@ -88,7 +88,7 @@ namespace Models
     shared_ptr<bool> byMonth_ {};
     // The end date of the query. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // The query condition.
+    // The query conditions.
     shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

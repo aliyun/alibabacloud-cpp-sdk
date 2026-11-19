@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The parent task ID.
+    // The ID of the parent task.
     shared_ptr<string> parentTaskId_ {};
   };
 

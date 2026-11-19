@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<int32_t> code_ {};
-    // The export result.
+    // The export results.
     shared_ptr<string> data_ {};
-    // The description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The success indicator.
     shared_ptr<bool> success_ {};
   };
 

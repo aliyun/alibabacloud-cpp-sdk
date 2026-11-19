@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // Agent ID。
+    // The agent ID.
     shared_ptr<string> agentId_ {};
-    // App ID。
+    // The app ID.
     shared_ptr<string> appId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

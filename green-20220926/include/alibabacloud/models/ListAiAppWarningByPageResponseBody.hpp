@@ -129,9 +129,9 @@ namespace Models
       protected:
         // The count.
         shared_ptr<int64_t> count_ {};
-        // The label name.
+        // The name of the label.
         shared_ptr<string> label_ {};
-        // The label description.
+        // The description of the label.
         shared_ptr<string> labelDesc_ {};
         // The type.
         shared_ptr<string> type_ {};
@@ -192,19 +192,19 @@ namespace Models
 
 
     protected:
-      // appId。
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The application name.
+      // The name of the application.
       shared_ptr<string> appName_ {};
       // The list of labels.
       shared_ptr<vector<Items::Labels>> labels_ {};
       // The service code.
       shared_ptr<string> serviceCode_ {};
-      // The trace ID used to correlate and trace alert events.
+      // The trace ID used to associate and trace alert events.
       shared_ptr<string> traceId_ {};
       // The number of alerts.
       shared_ptr<int64_t> warningCount_ {};
-      // The alert time in the format of YYYY-MM-DD HH:mm:ss.
+      // The time when the alert was triggered. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> warningTime_ {};
     };
 
@@ -238,7 +238,7 @@ namespace Models
 
 
     protected:
-      // The option.
+      // The options.
       Darabonba::Json option_ {};
     };
 
@@ -293,15 +293,15 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The extension field.
+    // The extended fields.
     shared_ptr<ListAiAppWarningByPageResponseBody::Ext> ext_ {};
-    // The data on the current page.
+    // The entries on the current page.
     shared_ptr<vector<ListAiAppWarningByPageResponseBody::Items>> items_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+    // The ID of the request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

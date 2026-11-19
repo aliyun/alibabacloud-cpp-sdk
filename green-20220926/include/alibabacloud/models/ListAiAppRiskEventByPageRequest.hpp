@@ -90,9 +90,9 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The query parameter.
+    // The query parameters.
     shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

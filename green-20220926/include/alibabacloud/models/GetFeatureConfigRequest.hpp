@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The query condition.
+    // The query conditions.
     shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The service code.
     shared_ptr<string> serviceCode_ {};
-    // The type.
+    // The type. Note: This parameter is actually required. If it is not provided, the API returns a 400 error (type may not be empty).
     shared_ptr<string> type_ {};
   };
 

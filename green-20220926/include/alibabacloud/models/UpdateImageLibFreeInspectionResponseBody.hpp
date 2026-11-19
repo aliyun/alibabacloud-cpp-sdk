@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The error code, which is the same as the HTTP status code.
+    // The error code, which is consistent with the HTTP status code.
     shared_ptr<int32_t> code_ {};
     // The returned result.
     shared_ptr<bool> data_ {};
@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> msg_ {};
     // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The success flag.
     shared_ptr<bool> success_ {};
   };
 

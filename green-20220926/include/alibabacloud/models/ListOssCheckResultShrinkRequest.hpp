@@ -116,11 +116,11 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The end time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // The number of completed tasks.
+    // The number of completed items.
     shared_ptr<int64_t> finishNum_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The search condition.
+    // The search conditions. This parameter is required. You must pass a JSON string that contains a valid TaskId, such as {"TaskId":"P_11TL5T"}. You can obtain the TaskId by calling the GetStockOssCheckTasksList operation. If this parameter is not provided, the API returns a 400 error with the error code oss.check.task.not.exists.
     shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

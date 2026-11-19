@@ -48,9 +48,8 @@ namespace Models
 
 
   protected:
-    // The query condition. The value is a string in JSON format.
-    // 
-    // >Different query conditions return different protected objects. For more information, see **Query parameter description**.
+    // The query conditions in JSON format.
+    // > The protected objects returned vary based on the query conditions. For more information, see **Query parameter description**.
     shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

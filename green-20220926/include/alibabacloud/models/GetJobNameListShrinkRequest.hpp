@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The end time. Format: `YYYY-MM-DD HH:mm:ss`.
+    // The end time in the `YYYY-MM-DD HH:mm:ss` format.
     shared_ptr<string> endDate_ {};
-    // The query condition.
+    // The query conditions. This parameter is required and must be a valid JSON query condition, such as {"TaskId":"P_11TL5T"}. Before calling this operation, call GetStockOssCheckTasksList to obtain an available TaskId. If this parameter is not provided, the API returns a 400 error.
     shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The sort field.
     shared_ptr<string> sortShrink_ {};
-    // The start time. Format: `YYYY-MM-DD HH:mm:ss`.
+    // The start time in the `YYYY-MM-DD HH:mm:ss` format.
     shared_ptr<string> startDate_ {};
   };
 

@@ -115,7 +115,7 @@ namespace Models
       shared_ptr<string> serviceCode_ {};
       // The type.
       shared_ptr<string> type_ {};
-      // UID。
+      // The user UID.
       shared_ptr<string> uid_ {};
     };
 
@@ -172,11 +172,11 @@ namespace Models
     shared_ptr<GetFeatureConfigResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message for this request.
+    // The response message for the request.
     shared_ptr<string> msg_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

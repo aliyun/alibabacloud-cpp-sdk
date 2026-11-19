@@ -88,10 +88,9 @@ namespace Models
     shared_ptr<string> agentId_ {};
     // The agent name.
     shared_ptr<string> agentName_ {};
-    // App ID。
+    // The app ID.
     shared_ptr<string> appId_ {};
     // Specifies whether to enable the agent. Valid values:
-    // 
     // - **true**: Enabled.
     // - **false**: Disabled.
     shared_ptr<bool> enable_ {};

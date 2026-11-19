@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The selected service identifier.
+    // The service identifier.
     shared_ptr<string> serviceCode_ {};
   };
 

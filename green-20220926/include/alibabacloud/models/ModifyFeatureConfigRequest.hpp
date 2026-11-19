@@ -96,9 +96,9 @@ namespace Models
   protected:
     // The configuration in JSON format.
     shared_ptr<string> config_ {};
-    // The description of the label.
+    // The tag description.
     shared_ptr<string> description_ {};
-    // The label value. This value is user-defined.
+    // The custom tag value. Valid values for Field must be obtained by calling the GetFeatureConfig API, such as labels and __option__.
     shared_ptr<string> field_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The service code.
     shared_ptr<string> serviceCode_ {};
-    // The type.
+    // The type. This parameter is actually required. If it is not provided, the API returns the error \\"type may not be empty\\".
     shared_ptr<string> type_ {};
   };
 

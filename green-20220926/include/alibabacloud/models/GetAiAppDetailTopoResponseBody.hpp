@@ -116,7 +116,7 @@ namespace Models
 
 
     protected:
-      // The node category.
+      // The node category. Valid values:
       // 
       // - LLM
       // 
@@ -126,21 +126,21 @@ namespace Models
       // 
       // - Others
       shared_ptr<string> nodeCategory_ {};
-      // The node ID.
+      // The ID of the node.
       shared_ptr<string> nodeId_ {};
-      // The node name.
+      // The name of the node.
       shared_ptr<string> nodeName_ {};
       // The node type. Valid values:
       // 
-      // - **APP**: end-to-end agent.
-      // - **MODEL**: large language model.
-      // - **TOOL**: tool.
+      // - **APP**: The full agent trace.
+      // - **MODEL**: The large language model.
+      // - **TOOL**: The tool.
       shared_ptr<string> nodeType_ {};
-      // The request count.
+      // The number of requests.
       shared_ptr<int64_t> requestCount_ {};
       // The risk level.
       shared_ptr<string> riskLevel_ {};
-      // The alert count.
+      // The number of alerts.
       shared_ptr<int32_t> warningCount_ {};
     };
 

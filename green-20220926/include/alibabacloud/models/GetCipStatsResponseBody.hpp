@@ -545,9 +545,9 @@ namespace Models
         shared_ptr<vector<LabelStatChart::TreeChart>> treeChart_ {};
         // The audio tree chart.
         shared_ptr<vector<LabelStatChart::VoiceTreeChart>> voiceTreeChart_ {};
-        // The X value of the coordinate point.
+        // The X-axis value of the coordinate point.
         shared_ptr<vector<string>> x_ {};
-        // The Y value of the coordinate point.
+        // The Y-axis value of the coordinate point.
         shared_ptr<vector<LabelStatChart::Y>> y_ {};
       };
 
@@ -610,13 +610,13 @@ namespace Models
     protected:
       // The label usage chart.
       shared_ptr<vector<Data::LabelStatChart>> labelStatChart_ {};
-      // The total count by category.
+      // The categorized statistics of the total count.
       shared_ptr<map<string, Darabonba::Json>> totalStat_ {};
       // The list of UIDs.
       shared_ptr<vector<string>> uids_ {};
-      // The X value of the coordinate point.
+      // The X-axis value of the coordinate point.
       shared_ptr<vector<string>> x_ {};
-      // The Y value of the coordinate point.
+      // The Y-axis value of the coordinate point.
       shared_ptr<vector<Data::Y>> y_ {};
       // The hit data.
       shared_ptr<vector<Data::Z>> z_ {};
@@ -675,11 +675,11 @@ namespace Models
     shared_ptr<GetCipStatsResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The further description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The success flag.
     shared_ptr<bool> success_ {};
   };
 

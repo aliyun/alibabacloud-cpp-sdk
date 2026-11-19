@@ -64,7 +64,7 @@ namespace Models
   protected:
     // The list of request IDs for failed operations.
     shared_ptr<vector<string>> failureRequestIds_ {};
-    // The request ID assigned by the backend to uniquely identify a request. You can use this ID for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The list of request IDs for successful operations.
     shared_ptr<vector<string>> successRequestIds_ {};

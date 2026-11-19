@@ -71,19 +71,16 @@ namespace Models
 
 
   protected:
-    // The list of application IDs that failed.
+    // The list of failed application IDs.
     shared_ptr<vector<string>> failedAppIds_ {};
     // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The status. Valid values:
-    // 
-    // - SUCCESS: Succeeded.
-    // 
-    // - PARTIAL_SUCCESS: Partially succeeded.
-    // 
-    // - FAILED: Failed.
+    // - SUCCESS: Success.
+    // - PARTIAL_SUCCESS: Partial success.
+    // - FAILED: Failure.
     shared_ptr<string> status_ {};
-    // The list of application IDs that succeeded.
+    // The list of successful application IDs.
     shared_ptr<vector<string>> successAppIds_ {};
   };
 

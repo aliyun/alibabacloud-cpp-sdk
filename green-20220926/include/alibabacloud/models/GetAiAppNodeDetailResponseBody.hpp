@@ -187,15 +187,15 @@ namespace Models
     protected:
       // The channel.
       shared_ptr<string> channel_ {};
-      // The list of labels.
+      // The label list.
       shared_ptr<vector<EventData::Labels>> labels_ {};
       // The name.
       shared_ptr<string> name_ {};
       // The risk level.
       shared_ptr<string> riskLevel_ {};
-      // The time when the event occurred. Format: yyyy-MM-dd HH:mm:ss.
+      // The time when the event occurred. Specify the time in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> time_ {};
-      // The trace ID, which is used to query the exact call information.
+      // The trace ID, which is used to precisely query trace information.
       shared_ptr<string> traceId_ {};
       // The event type.
       shared_ptr<string> type_ {};
@@ -267,7 +267,7 @@ namespace Models
     shared_ptr<string> appId_ {};
     // The channel information.
     shared_ptr<string> channel_ {};
-    // The list of event data.
+    // The event data list.
     shared_ptr<vector<GetAiAppNodeDetailResponseBody::EventData>> eventData_ {};
     // The node ID.
     shared_ptr<string> nodeId_ {};
@@ -275,7 +275,7 @@ namespace Models
     shared_ptr<string> nodeName_ {};
     // The node type.
     shared_ptr<string> nodeType_ {};
-    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+    // The request ID, which is assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The risk level.
     shared_ptr<string> riskLevel_ {};

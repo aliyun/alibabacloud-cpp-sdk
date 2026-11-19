@@ -134,7 +134,7 @@ namespace Models
 
 
   protected:
-    // App ID。
+    // The application ID.
     shared_ptr<string> appId_ {};
     // The category.
     shared_ptr<string> classify_ {};
@@ -148,7 +148,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The preset options.
     Darabonba::Json option_ {};
-    // The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};

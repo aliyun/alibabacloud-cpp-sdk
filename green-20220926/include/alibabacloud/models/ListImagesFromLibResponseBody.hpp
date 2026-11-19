@@ -189,13 +189,13 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The data on the current page.
     shared_ptr<vector<ListImagesFromLibResponseBody::Items>> items_ {};
-    // The further description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The backend-assigned ID that uniquely identifies a request. This ID can be used for troubleshooting.
+    // The request ID, which uniquely identifies the request and can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The success flag.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total number of images.
     shared_ptr<int32_t> totalCount_ {};

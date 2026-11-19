@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. It can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The service code.
     shared_ptr<string> serviceCode_ {};

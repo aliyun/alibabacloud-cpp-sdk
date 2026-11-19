@@ -54,7 +54,7 @@ namespace Models
   protected:
     // The chart configurations.
     shared_ptr<map<string, ChartsValue>> charts_ {};
-    // The ID assigned by the backend to uniquely identify a request. It can be used to troubleshoot issues.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

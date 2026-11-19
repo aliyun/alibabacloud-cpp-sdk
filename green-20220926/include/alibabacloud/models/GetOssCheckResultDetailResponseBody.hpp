@@ -224,11 +224,11 @@ namespace Models
 
 
       protected:
-        // The confidence score, ranging from 0 to 100, rounded to two decimal places.
+        // The confidence score, which ranges from 0 to 100 and is rounded to two decimal places.
         shared_ptr<float> confidence_ {};
         // The label description.
         shared_ptr<string> description_ {};
-        // The labels.
+        // The label details.
         shared_ptr<string> label_ {};
       };
 
@@ -279,11 +279,11 @@ namespace Models
 
 
       protected:
-        // The confidence score, ranging from 0 to 100, rounded to two decimal places.
+        // The confidence score, which ranges from 0 to 100 and is rounded to two decimal places.
         shared_ptr<float> confidence_ {};
         // The label description.
         shared_ptr<string> description_ {};
-        // The labels.
+        // The label details.
         shared_ptr<string> label_ {};
       };
 
@@ -501,7 +501,7 @@ namespace Models
 
 
     protected:
-      // The storage bucket.
+      // The bucket.
       shared_ptr<string> bucket_ {};
       // The error code, which is consistent with the HTTP status code.
       shared_ptr<string> code_ {};
@@ -517,25 +517,25 @@ namespace Models
       shared_ptr<string> imageUrl_ {};
       // Indicates whether the content is copied.
       shared_ptr<bool> isCopy_ {};
-      // The task name.
+      // The job name.
       shared_ptr<string> jobName_ {};
-      // The labels.
+      // The label details.
       shared_ptr<vector<Data::LabelDetails>> labelDetails_ {};
-      // The labels.
+      // The label details.
       shared_ptr<vector<Data::LabelDetails2>> labelDetails2_ {};
       // The image labels.
       shared_ptr<vector<string>> labels_ {};
       // The text labels.
       shared_ptr<vector<string>> labels2_ {};
-      // The manual disposition status.
+      // The manual action status.
       shared_ptr<string> manualFreezeAction_ {};
-      // The disposition time. The format is YYYY-MM-DD HH:mm:ss.
+      // The action time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> manualOperateTime_ {};
-      // The operator who performed the disposition.
+      // The operator.
       shared_ptr<string> manualOperator_ {};
       // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
-      // The further description of the error code.
+      // The detailed description of the error code.
       shared_ptr<string> msg_ {};
       // The object name.
       shared_ptr<string> object_ {};
@@ -601,13 +601,13 @@ namespace Models
   protected:
     // The error code, which is consistent with the HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // The details data.
+    // The detailed data.
     shared_ptr<GetOssCheckResultDetailResponseBody::Data> data_ {};
-    // The further description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
-    // The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The success flag.
     shared_ptr<bool> success_ {};
   };
 

@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> configShrink_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The selected service identifier.
+    // The identifier of the selected service.
     shared_ptr<string> serviceCode_ {};
   };
 

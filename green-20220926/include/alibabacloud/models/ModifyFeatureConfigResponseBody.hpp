@@ -90,9 +90,9 @@ namespace Models
     shared_ptr<bool> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message.
+    // The response message for the request.
     shared_ptr<string> msg_ {};
-    // The request ID. You can use this ID to locate issues.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

@@ -102,9 +102,9 @@ namespace Models
     protected:
       // The count.
       shared_ptr<int64_t> count_ {};
-      // The label name.
+      // The name of the label.
       shared_ptr<string> label_ {};
-      // The label description.
+      // The description of the label.
       shared_ptr<string> labelDesc_ {};
       // The type.
       shared_ptr<string> type_ {};
@@ -176,17 +176,17 @@ namespace Models
     shared_ptr<string> analysis_ {};
     // The application ID.
     shared_ptr<string> appId_ {};
-    // The application name.
+    // The name of the application.
     shared_ptr<string> appName_ {};
-    // The application channel.
+    // The channel of the application.
     shared_ptr<string> channel_ {};
     // The list of labels.
     shared_ptr<vector<GetAiAppTraceDetailResponseBody::Labels>> labels_ {};
-    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The trace ID, which is used to correlate and track alert events.
+    // The trace ID.
     shared_ptr<string> traceId_ {};
-    // The alert time. Format: YYYY-MM-DD HH:mm:ss.
+    // The time when the alert was triggered. The time is in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> warningTime_ {};
   };
 

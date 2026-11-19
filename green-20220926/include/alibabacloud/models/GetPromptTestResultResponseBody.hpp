@@ -106,7 +106,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The labels.
         shared_ptr<string> label_ {};
-        // The reason why the model determined this risk level for the text.
+        // The reason why the model determines this risk level for the text.
         shared_ptr<string> reason_ {};
       };
 
@@ -140,7 +140,7 @@ namespace Models
       shared_ptr<string> content_ {};
       // The labels.
       shared_ptr<vector<Result::LabelDetails>> labelDetails_ {};
-      // The risk level, which is returned based on the configured high and low risk scores. Valid values:
+      // The risk level. The value is returned based on the configured high and low risk scores. Valid values:
       // 
       // - high: High risk.
       // 
@@ -148,7 +148,7 @@ namespace Models
       //  
       // - low: Low risk.
       // 
-      //  - none: No risk detected.
+      // - none: No risk detected.
       shared_ptr<string> riskLevel_ {};
     };
 

@@ -252,7 +252,7 @@ namespace Models
         protected:
           // The primary service.
           shared_ptr<string> copyFrom_ {};
-          // Indicates whether the service is copied.
+          // Specifies whether to copy.
           shared_ptr<bool> isCopy_ {};
           // The service code.
           shared_ptr<string> serviceCode_ {};
@@ -449,19 +449,19 @@ namespace Models
         shared_ptr<bool> distinctHistoryTasks_ {};
         // The end time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> endTime_ {};
-        // The scheduled execution date of the task. An integer value, such as 1.
+        // The execution date of the scheduled task. The value is an integer, such as 1.
         shared_ptr<int32_t> executeDate_ {};
-        // The scheduled execution time of the task. Format: HH:mm:ss.
+        // The expected execution time of the scheduled task. Format: HH:mm:ss.
         shared_ptr<string> executeTime_ {};
         // Specifies whether to freeze.
         shared_ptr<bool> freeze_ {};
         // Specifies whether to freeze high-risk images.
         shared_ptr<bool> freezeHighRisk1_ {};
-        // Specifies whether to freeze high-risk audio and text.
+        // Specifies whether to freeze high-risk audio and text files.
         shared_ptr<bool> freezeHighRisk2_ {};
         // Specifies whether to freeze medium-risk images.
         shared_ptr<bool> freezeMediumRisk1_ {};
-        // Specifies whether to freeze medium-risk audio and text.
+        // Specifies whether to freeze medium-risk audio and text files.
         shared_ptr<bool> freezeMediumRisk2_ {};
         // The transfer path.
         shared_ptr<string> freezeRestorePath_ {};
@@ -469,25 +469,25 @@ namespace Models
         shared_ptr<string> freezeType_ {};
         // The prefix filter type.
         shared_ptr<string> prefixFilterType_ {};
-        // The prefix.
+        // The prefixes.
         shared_ptr<vector<string>> prefixFilters_ {};
         // The priority.
         shared_ptr<int32_t> priority_ {};
-        // Referer。
+        // The Referer header for hotlink protection.
         shared_ptr<string> referer_ {};
         // The scan limit.
         shared_ptr<int64_t> scanLimit_ {};
-        // Specifies whether to scan images without file extensions.
+        // Specifies whether to scan images without file name extensions.
         shared_ptr<bool> scanNoFileType_ {};
         // The type of files to scan.
         shared_ptr<int32_t> scanResourceType_ {};
-        // The scan service code.
+        // The code of the scan service.
         shared_ptr<vector<string>> scanService_ {};
         // The scan service information.
         shared_ptr<vector<Config::ScanServiceInfos>> scanServiceInfos_ {};
         // The start time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> startTime_ {};
-        // The scheduling cycle. An integer value, such as 1.
+        // The scheduling date. The value is an integer, such as 1.
         shared_ptr<int32_t> taskCycle_ {};
         // The manual freeze configuration.
         shared_ptr<Config::UserFreezeConfig> userFreezeConfig_ {};
@@ -605,15 +605,15 @@ namespace Models
 
 
     protected:
-      // The storage space.
+      // The buckets.
       shared_ptr<string> buckets_ {};
-      // The configuration item.
+      // The configuration.
       shared_ptr<Items::Config> config_ {};
       // The end time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> endTime_ {};
-      // The number of completed tasks.
+      // The number of completed items.
       shared_ptr<int64_t> finishNum_ {};
-      // Indicates whether the task is a scheduled scan task.
+      // Specifies whether the task is a scheduled scan task.
       shared_ptr<bool> isInc_ {};
       // The next execution time of the scheduled task. Format: HH:mm:ss.
       shared_ptr<string> lastExecuteDate_ {};

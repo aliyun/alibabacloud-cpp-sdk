@@ -152,9 +152,9 @@ namespace Models
       shared_ptr<string> name_ {};
       // The result scope.
       shared_ptr<string> scope_ {};
-      // Seed。
+      // The seed.
       shared_ptr<string> seed_ {};
-      // UID。
+      // The UID.
       shared_ptr<string> uid_ {};
       // The callback URL.
       shared_ptr<string> url_ {};
@@ -202,13 +202,13 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The data on the current page.
+    // The entries on the current page.
     shared_ptr<vector<QueryCallbackByPageResponseBody::Items>> items_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

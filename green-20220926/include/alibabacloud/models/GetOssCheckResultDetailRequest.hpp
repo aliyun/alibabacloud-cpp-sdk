@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The storage bucket.
+    // The bucket. Note: This parameter is actually required. If it is not provided, the API returns a 400 error.
     shared_ptr<string> bucket_ {};
-    // The media asset type.
+    // The media asset type. Note: This parameter is actually required. If it is not provided, the API returns a 400 error.
     shared_ptr<int32_t> mediaType_ {};
-    // The object name.
+    // The object name. Note: This parameter is actually required. If it is not provided, the API returns a 400 error.
     shared_ptr<string> object_ {};
     // The parent task ID.
     shared_ptr<string> parentTaskId_ {};
-    // The request ID of the query.
+    // The request ID of the query. Note: This parameter is actually required. If it is not provided, the API returns a 400 error.
     shared_ptr<string> queryRequestId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The service code.
+    // The service code. Note: This parameter is actually required. If it is not provided, the API returns a 400 error.
     shared_ptr<string> serviceCode_ {};
   };
 

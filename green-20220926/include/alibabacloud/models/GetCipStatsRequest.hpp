@@ -121,15 +121,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether monthly indexing is supported. Valid values:
-    // - true: Supported.
-    // - false: Not supported.
+    // Specifies whether monthly indexing is supported. Valid values: true: Supported. false: Not supported.
     shared_ptr<bool> byMonth_ {};
-    // The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
+    // The end time of the query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> endDate_ {};
     // The label.
     shared_ptr<string> label_ {};
-    // The query condition.
+    // The query conditions.
     shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -137,11 +135,11 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The service code.
     shared_ptr<string> serviceCode_ {};
-    // The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
+    // The start time of the query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> startDate_ {};
     // The UID of the RAM user.
     shared_ptr<string> subUid_ {};
-    // The type. Valid values: **cip**: Content Moderation invoke volume statistics. **risk_level**: Content Moderation risk level statistics. **content_moderation**: AI security guardrail content compliance risk level and tag statistics. **sensitive_data**: AI security guardrail sensitive data risk level and tag statistics. **prompt_attack**: AI security guardrail prompt risk level and tag statistics.
+    // The type. Valid values: **cip**: Content Moderation invoke usage statistics. **risk_level**: Content Moderation security risk level statistics. **content_moderation**: content compliance risk level and label statistics for AI security guardrails. **sensitive_data**: sensitive data risk level and label statistics for AI security guardrails. **prompt_attack**: prompt risk level and label statistics for AI security guardrails.
     shared_ptr<string> type_ {};
   };
 
