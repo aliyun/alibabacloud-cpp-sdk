@@ -79,17 +79,16 @@ namespace Models
 
 
     protected:
-      // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the latest available regions.
+      // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the zone.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
-      // The name of the zone.
+      // The zone name.
       // 
-      // The return value of the ZoneName parameter is in the language that is specified by the **AcceptLanguage** parameter. For example, if the value of the ZoneId parameter in the response is **cn-hangzhou-h**, the following values are returned for the ZoneName parameter:
+      // The returned language is determined by the **AcceptLanguage** parameter. Take the **cn-hangzhou-h** zone as an example:
       // 
-      // - If the value of the **AcceptLanguage** parameter is **zh**, **H** is returned for the ZoneName parameter.
-      // 
-      // - If the value of the **AcceptLanguage** parameter is **en**, **Hangzhou Zone H** is returned for the ZoneName parameter.
+      // - If **AcceptLanguage** is set to **zh**: 杭州 可用区H
+      // - If **AcceptLanguage** is set to **en**: Hangzhou Zone H
       shared_ptr<string> zoneName_ {};
     };
 
@@ -112,9 +111,9 @@ namespace Models
 
 
   protected:
-    // The details of the zones in which you can create ApsaraDB for MongoDB instances.
+    // The details of the zones where resources are available for purchase.
     shared_ptr<vector<DescribeAvailabilityZonesResponseBody::AvailableZones>> availableZones_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

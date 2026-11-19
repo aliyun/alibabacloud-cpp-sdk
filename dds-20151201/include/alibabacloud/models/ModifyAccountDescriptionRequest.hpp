@@ -113,31 +113,26 @@ namespace Models
 
   protected:
     // The description of the account.
-    // 
-    // - The description must start with a letter and cannot start with http\\:// or https\\://.
-    // 
-    // - The description must be 2 to 256 characters in length, and can contain letters, digits, underscores (_), and hyphens (-).
+    // - It cannot start with http:// or https://.
+    // - It must start with a letter or a Chinese character.
+    // - It can contain letters, Chinese characters, underscores (_), hyphens (-), and digits, and must be 2 to 256 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> accountDescription_ {};
-    // The name of the account whose description is to be modified.
+    // The name of the account whose description you want to modify.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The type of the account whose description you can modify. Valid values:
-    // 
+    // The type of the account whose description you want to modify. Valid values:
     // - **db**: shard account
-    // 
-    // - **cs**: ConfigServer account
-    // 
-    // - **normal** (default): replica set account (available)
-    // 
-    // > You can set this parameter only to **normal**.
+    // - **cs**: config server account
+    // - **normal**: replica set account (default)
     shared_ptr<string> characterType_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The database to which the account belongs.
     shared_ptr<string> DBName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CouponNo, couponNo_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(NodeClass, nodeClass_);
       DARABONBA_PTR_TO_JSON(NodeStorage, nodeStorage_);
       DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CouponNo, couponNo_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(NodeClass, nodeClass_);
       DARABONBA_PTR_FROM_JSON(NodeStorage, nodeStorage_);
       DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
@@ -67,9 +69,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
         && this->accountPassword_ == nullptr && this->autoPay_ == nullptr && this->businessInfo_ == nullptr && this->clientToken_ == nullptr && this->couponNo_ == nullptr
-        && this->DBInstanceId_ == nullptr && this->nodeClass_ == nullptr && this->nodeStorage_ == nullptr && this->nodeType_ == nullptr && this->ownerAccount_ == nullptr
-        && this->ownerId_ == nullptr && this->readonlyReplicas_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->searchDBInstanceClass_ == nullptr
-        && this->searchNodeCount_ == nullptr && this->searchStorage_ == nullptr && this->shardDirect_ == nullptr; };
+        && this->DBInstanceId_ == nullptr && this->dryRun_ == nullptr && this->nodeClass_ == nullptr && this->nodeStorage_ == nullptr && this->nodeType_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->readonlyReplicas_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->searchDBInstanceClass_ == nullptr && this->searchNodeCount_ == nullptr && this->searchStorage_ == nullptr && this->shardDirect_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -117,6 +119,13 @@ namespace Models
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
     inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline CreateNodeRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateNodeRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // nodeClass Field Functions 
@@ -210,37 +219,41 @@ namespace Models
     // - The username can contain lowercase letters, digits, and underscores (_).
     // - The username must be 4 to 16 characters in length.
     // 
-    // > - ApsaraDB for MongoDB does not support using keywords as usernames.
+    // > - ApsaraDB for MongoDB does not support keywords as usernames.
     // > - The permissions of the account are fixed to read-only.
     // > - When you apply for a direct connection endpoint for the shard node for the first time, you must set the username and password. You do not need to set them again for subsequent applications.
     shared_ptr<string> accountName_ {};
-    // The password of the account. Valid values:
+    // The password. Valid values:
     // - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
     // - Special characters include !@#$%^&*()_+-=.
     // - The password must be 8 to 32 characters in length.
     // 
-    // > ApsaraDB for MongoDB does not support resetting the password of the account for the shard node.
+    // > ApsaraDB for MongoDB does not support resetting the password for the shard node account.
     shared_ptr<string> accountPassword_ {};
     // Specifies whether to enable automatic payment. Valid values:
-    // - **true**: enables automatic payment. This is the default value. Make sure that your account has sufficient balance.
+    // - **true** (default): enables automatic payment. Make sure that your account has sufficient balance.
     // <props="china">- **false**: disables automatic payment. You can log on to the ApsaraDB for MongoDB console, choose **Expenses** > **Expenses and Costs** in the upper-right corner, choose **Subscription Orders** > **My Orders** in the left-side navigation pane, and then pay for the order on the **Orders** tab.
     // <props="intl">- **false**: disables automatic payment. You can log on to the ApsaraDB for MongoDB console, choose **Expenses** > **Expenses and Costs** in the upper-right corner, click **Order Management** in the left-side navigation pane, and then pay for the order on the **Orders** page.
     // 
     // > This parameter is required when the billing method is subscription.
     shared_ptr<bool> autoPay_ {};
-    // The additional parameter that contains business information.
+    // The additional parameter for business information.
     shared_ptr<string> businessInfo_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The value can contain a maximum of 64 ASCII characters and cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to use a coupon. Valid values:
-    // - **default** or **null**: uses a coupon. This is the default value.
+    // - **default** or **null** (default): uses a coupon.
     // - **youhuiquan_promotion_option_id_for_blank**: does not use a coupon.
     shared_ptr<string> couponNo_ {};
     // The instance ID of the sharded cluster instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The instance type of the shard node or mongos node. For more information about instance types, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+    // Specifies whether to perform a dry run on the request. Valid values:
+    // - true: performs a dry run without calling the operation. The system checks the request parameters, request format, service limits, and available resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+    // - false (default): sends the request. If the request passes the dry run, the operation is performed.
+    shared_ptr<bool> dryRun_ {};
+    // The instance type of the shard or mongos node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
     // 
     // This parameter is required.
     shared_ptr<string> nodeClass_ {};
@@ -248,7 +261,7 @@ namespace Models
     // 
     // The valid values vary based on the storage type. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
     // 
-    // > This parameter is required when the node type is **Shard**.
+    // > This parameter is required when the node type is **shard**.
     shared_ptr<int32_t> nodeStorage_ {};
     // The node type. Valid values:
     // - **shard**: shard node.
@@ -261,17 +274,20 @@ namespace Models
     // The number of read-only nodes in the shard node.
     // 
     // Valid values: **0** to **5**. Default value: **0**.
-    // > This parameter is supported only on the Alibaba Cloud China site.
+    // > This parameter is supported only on the China site.
     shared_ptr<int32_t> readonlyReplicas_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The instance type of the search node to be added.
     shared_ptr<string> searchDBInstanceClass_ {};
+    // The number of search nodes to be added.
     shared_ptr<int32_t> searchNodeCount_ {};
+    // The storage capacity of the search node to be added.
     shared_ptr<int32_t> searchStorage_ {};
     // Specifies whether to apply for a direct connection endpoint for the shard node. Valid values:
     // 
     // - **true**: applies for a direct connection endpoint for the shard node.
-    // - **false**: does not apply for a direct connection endpoint for the shard node. This is the default value.
+    // - **false** (default): does not apply for a direct connection endpoint for the shard node.
     shared_ptr<bool> shardDirect_ {};
   };
 

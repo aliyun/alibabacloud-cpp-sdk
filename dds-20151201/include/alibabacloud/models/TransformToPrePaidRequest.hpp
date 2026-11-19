@@ -16,7 +16,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(BusinessInfo, businessInfo_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CouponNo, couponNo_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -28,7 +30,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(BusinessInfo, businessInfo_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CouponNo, couponNo_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -48,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && this->autoRenew_ == nullptr && this->businessInfo_ == nullptr && this->couponNo_ == nullptr && this->instanceId_ == nullptr && this->ownerAccount_ == nullptr
-        && this->ownerId_ == nullptr && this->period_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->businessInfo_ == nullptr && this->clientToken_ == nullptr && this->couponNo_ == nullptr && this->dryRun_ == nullptr
+        && this->instanceId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->period_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -71,11 +76,25 @@ namespace Models
     inline TransformToPrePaidRequest& setBusinessInfo(string businessInfo) { DARABONBA_PTR_SET_VALUE(businessInfo_, businessInfo) };
 
 
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline TransformToPrePaidRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // couponNo Field Functions 
     bool hasCouponNo() const { return this->couponNo_ != nullptr;};
     void deleteCouponNo() { this->couponNo_ = nullptr;};
     inline string getCouponNo() const { DARABONBA_PTR_GET_DEFAULT(couponNo_, "") };
     inline TransformToPrePaidRequest& setCouponNo(string couponNo) { DARABONBA_PTR_SET_VALUE(couponNo_, couponNo) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline TransformToPrePaidRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // instanceId Field Functions 
@@ -121,33 +140,39 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable automatic payment. Valid values:
+    // Specifies whether automatic payment is enabled for the order. Valid values:
     // 
-    // - **true**: enables automatic payment.
-    // 
-    // - **false**: disables automatic payment. For more information, see [Renew an ApsaraDB for MongoDB subscription instance](https://help.aliyun.com/document_detail/85052.html).
+    // - **true**: enables automatic payment for the order.
+    // - **false**: disables automatic payment for the order. For details, see [Manual renewal of a subscription instance](https://help.aliyun.com/document_detail/85052.html).
     // 
     // > Default value: **true**.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal for the instance. Valid values:
+    // Specifies whether to enable auto-renewal upon expiration. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: enables auto-renewal.
+    // - **false**: disables auto-renewal.
     // 
     // > Default value: **false**.
     shared_ptr<string> autoRenew_ {};
-    // The business information. This is an additional parameter.
+    // The additional parameter for business information.
     shared_ptr<string> businessInfo_ {};
-    // The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. The value is generated by the client and must be unique across different requests. It can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
+    shared_ptr<string> clientToken_ {};
+    // Specifies whether to use a coupon. Valid values:
+    // - **default** or **null**: uses a coupon. This is the default value.
+    // - **youhuiquan_promotion_option_id_for_blank**: does not use a coupon.
     shared_ptr<string> couponNo_ {};
-    // The ID of the instance.
+    // Specifies whether to perform a dry run on the request. Valid values:
+    // - true: performs a dry run without calling the operation. The system checks items such as request parameters, request format, service limits, and available resources. If the request fails the dry run, the system returns an error. If the request passes the dry run, the system returns the DryRunOperation error code.
+    // - false: sends the request and performs the operation if the request passes the check. This is the default value.
+    shared_ptr<bool> dryRun_ {};
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The subscription duration of the instance. Unit: months. Valid values: **1**, **2**, **3**, **4**, **5**, **6**, **7**, **8**, **9**, **12**, **24**, and **36**.
+    // The subscription duration. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
     // 
     // This parameter is required.
     shared_ptr<int64_t> period_ {};

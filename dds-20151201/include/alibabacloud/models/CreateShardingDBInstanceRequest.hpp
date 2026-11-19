@@ -22,12 +22,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ConfigServer, configServer_);
       DARABONBA_PTR_TO_JSON(DBInstanceDescription, DBInstanceDescription_);
       DARABONBA_PTR_TO_JSON(DestRegion, destRegion_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Encrypted, encrypted_);
       DARABONBA_PTR_TO_JSON(EncryptionKey, encryptionKey_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_TO_JSON(GlobalSecurityGroupIds, globalSecurityGroupIds_);
       DARABONBA_PTR_TO_JSON(HiddenZoneId, hiddenZoneId_);
+      DARABONBA_PTR_TO_JSON(MaintainEndTime, maintainEndTime_);
+      DARABONBA_PTR_TO_JSON(MaintainStartTime, maintainStartTime_);
       DARABONBA_PTR_TO_JSON(Mongos, mongos_);
       DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
@@ -48,6 +51,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SrcRegion, srcRegion_);
       DARABONBA_PTR_TO_JSON(StorageEngine, storageEngine_);
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
+      DARABONBA_PTR_TO_JSON(TTLEnabled, TTLEnabled_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -62,12 +66,15 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ConfigServer, configServer_);
       DARABONBA_PTR_FROM_JSON(DBInstanceDescription, DBInstanceDescription_);
       DARABONBA_PTR_FROM_JSON(DestRegion, destRegion_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Encrypted, encrypted_);
       DARABONBA_PTR_FROM_JSON(EncryptionKey, encryptionKey_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_FROM_JSON(GlobalSecurityGroupIds, globalSecurityGroupIds_);
       DARABONBA_PTR_FROM_JSON(HiddenZoneId, hiddenZoneId_);
+      DARABONBA_PTR_FROM_JSON(MaintainEndTime, maintainEndTime_);
+      DARABONBA_PTR_FROM_JSON(MaintainStartTime, maintainStartTime_);
       DARABONBA_PTR_FROM_JSON(Mongos, mongos_);
       DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
@@ -88,6 +95,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SrcRegion, srcRegion_);
       DARABONBA_PTR_FROM_JSON(StorageEngine, storageEngine_);
       DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
+      DARABONBA_PTR_FROM_JSON(TTLEnabled, TTLEnabled_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -142,11 +150,11 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
-      // > - **N** in the parameter name specifies the sequence number of the tag. For example, **Tag.1.Key** specifies the key of the first tag, and **Tag.2.Key** specifies the key of the second tag.
+      // The tag key.
+      // > **N** in the parameter name specifies the Nth tag. For example, **Tag.1.Key** specifies the key of the first tag, and **Tag.2.Key** specifies the key of the second tag.
       shared_ptr<string> key_ {};
-      // The value of the tag.
-      // > **N** in the parameter name specifies the sequence number of the tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
+      // The tag value.
+      // > **N** in the parameter name specifies the Nth tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
       shared_ptr<string> value_ {};
     };
 
@@ -199,7 +207,7 @@ namespace Models
     protected:
       // The specifications of the shard node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
       // 
-      // > - **N** in the parameter name specifies the sequence number of the shard node. For example, **ReplicaSet.2.Class** specifies the specifications of the second shard node.
+      // > - **N** in the parameter name specifies the Nth shard node. For example, **ReplicaSet.2.Class** specifies the specifications of the second shard node.
       // > - Valid values of **N**: **2** to **32**.
       // 
       // This parameter is required.
@@ -207,12 +215,12 @@ namespace Models
       // The number of read-only nodes in the shard node.
       // 
       // Valid values: **0** to **5**. Default value: **0**.
-      // > **N** in the parameter name specifies the sequence number of the shard node. For example, **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard node.
+      // > **N** in the parameter name specifies the Nth shard node. For example, **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard node.
       shared_ptr<int32_t> readonlyReplicas_ {};
       // The storage capacity of the shard node. Unit: GB.
       // 
       // > - The valid values are subject to the instance specifications. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
-      // > - **N** in the parameter name specifies the sequence number of the shard node. For example, **ReplicaSet.2.Storage** specifies the storage capacity of the second shard node.
+      // > - **N** in the parameter name specifies the Nth shard node. For example, **ReplicaSet.2.Storage** specifies the storage capacity of the second shard node.
       // 
       // This parameter is required.
       shared_ptr<int32_t> storage_ {};
@@ -248,7 +256,7 @@ namespace Models
     protected:
       // The specifications of the mongos node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
       // 
-      // > - **N** in the parameter name specifies the sequence number of the mongos node. For example, **Mongos.2.Class** specifies the specifications of the second mongos node.
+      // > - **N** in the parameter name specifies the Nth mongos node. For example, **Mongos.2.Class** specifies the specifications of the second mongos node.
       // > - Valid values of **N**: **2** to **32**.
       // 
       // This parameter is required.
@@ -293,13 +301,13 @@ namespace Models
 
 
     protected:
-      // The specifications of the ConfigServer node. Valid values:
-      // - **mdb.shard.2x.xlarge.d**: 4 cores, 8 GB (dedicated). This specification is supported only for instances of version 4.4 and later.
-      // - **dds.cs.mid**: 1 core, 2 GB (general-purpose). This specification is supported only for instances of version 4.2 and earlier.
+      // The specifications of the Configserver node. Valid values:
+      // - **mdb.shard.2x.xlarge.d**: 4 cores, 8 GB (dedicated). This specification is supported only by instances of version 4.4 or later.
+      // - **dds.cs.mid**: 1 core, 2 GB (general-purpose). This specification is supported only by instances of version 4.2 or earlier.
       // 
       // This parameter is required.
       shared_ptr<string> class_ {};
-      // The storage capacity of the ConfigServer node. Unit: GB.
+      // The storage capacity of the Configserver node. Unit: GB.
       // 
       // > The valid values are subject to the instance specifications. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
       // 
@@ -309,13 +317,14 @@ namespace Models
 
     virtual bool empty() const override { return this->accountPassword_ == nullptr
         && this->autoRenew_ == nullptr && this->backupId_ == nullptr && this->chargeType_ == nullptr && this->clientToken_ == nullptr && this->configServer_ == nullptr
-        && this->DBInstanceDescription_ == nullptr && this->destRegion_ == nullptr && this->encrypted_ == nullptr && this->encryptionKey_ == nullptr && this->engine_ == nullptr
-        && this->engineVersion_ == nullptr && this->globalSecurityGroupIds_ == nullptr && this->hiddenZoneId_ == nullptr && this->mongos_ == nullptr && this->networkType_ == nullptr
-        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->period_ == nullptr && this->protocolType_ == nullptr && this->provisionedIops_ == nullptr
-        && this->regionId_ == nullptr && this->replicaSet_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->restoreTime_ == nullptr && this->restoreType_ == nullptr && this->secondaryZoneId_ == nullptr && this->securityIPList_ == nullptr && this->srcDBInstanceId_ == nullptr
-        && this->srcRegion_ == nullptr && this->storageEngine_ == nullptr && this->storageType_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->DBInstanceDescription_ == nullptr && this->destRegion_ == nullptr && this->dryRun_ == nullptr && this->encrypted_ == nullptr && this->encryptionKey_ == nullptr
+        && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->globalSecurityGroupIds_ == nullptr && this->hiddenZoneId_ == nullptr && this->maintainEndTime_ == nullptr
+        && this->maintainStartTime_ == nullptr && this->mongos_ == nullptr && this->networkType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->period_ == nullptr && this->protocolType_ == nullptr && this->provisionedIops_ == nullptr && this->regionId_ == nullptr && this->replicaSet_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->restoreTime_ == nullptr && this->restoreType_ == nullptr
+        && this->secondaryZoneId_ == nullptr && this->securityIPList_ == nullptr && this->srcDBInstanceId_ == nullptr && this->srcRegion_ == nullptr && this->storageEngine_ == nullptr
+        && this->storageType_ == nullptr && this->TTLEnabled_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // accountPassword Field Functions 
     bool hasAccountPassword() const { return this->accountPassword_ != nullptr;};
     void deleteAccountPassword() { this->accountPassword_ = nullptr;};
@@ -374,6 +383,13 @@ namespace Models
     inline CreateShardingDBInstanceRequest& setDestRegion(string destRegion) { DARABONBA_PTR_SET_VALUE(destRegion_, destRegion) };
 
 
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateShardingDBInstanceRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // encrypted Field Functions 
     bool hasEncrypted() const { return this->encrypted_ != nullptr;};
     void deleteEncrypted() { this->encrypted_ = nullptr;};
@@ -414,6 +430,20 @@ namespace Models
     void deleteHiddenZoneId() { this->hiddenZoneId_ = nullptr;};
     inline string getHiddenZoneId() const { DARABONBA_PTR_GET_DEFAULT(hiddenZoneId_, "") };
     inline CreateShardingDBInstanceRequest& setHiddenZoneId(string hiddenZoneId) { DARABONBA_PTR_SET_VALUE(hiddenZoneId_, hiddenZoneId) };
+
+
+    // maintainEndTime Field Functions 
+    bool hasMaintainEndTime() const { return this->maintainEndTime_ != nullptr;};
+    void deleteMaintainEndTime() { this->maintainEndTime_ = nullptr;};
+    inline string getMaintainEndTime() const { DARABONBA_PTR_GET_DEFAULT(maintainEndTime_, "") };
+    inline CreateShardingDBInstanceRequest& setMaintainEndTime(string maintainEndTime) { DARABONBA_PTR_SET_VALUE(maintainEndTime_, maintainEndTime) };
+
+
+    // maintainStartTime Field Functions 
+    bool hasMaintainStartTime() const { return this->maintainStartTime_ != nullptr;};
+    void deleteMaintainStartTime() { this->maintainStartTime_ = nullptr;};
+    inline string getMaintainStartTime() const { DARABONBA_PTR_GET_DEFAULT(maintainStartTime_, "") };
+    inline CreateShardingDBInstanceRequest& setMaintainStartTime(string maintainStartTime) { DARABONBA_PTR_SET_VALUE(maintainStartTime_, maintainStartTime) };
 
 
     // mongos Field Functions 
@@ -560,6 +590,13 @@ namespace Models
     inline CreateShardingDBInstanceRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
+    // TTLEnabled Field Functions 
+    bool hasTTLEnabled() const { return this->TTLEnabled_ != nullptr;};
+    void deleteTTLEnabled() { this->TTLEnabled_ = nullptr;};
+    inline bool getTTLEnabled() const { DARABONBA_PTR_GET_DEFAULT(TTLEnabled_, false) };
+    inline CreateShardingDBInstanceRequest& setTTLEnabled(bool TTLEnabled) { DARABONBA_PTR_SET_VALUE(TTLEnabled_, TTLEnabled) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -596,49 +633,52 @@ namespace Models
     // - Special characters include !@#$%^&*()_+-=.
     // - It must be 8 to 32 characters in length.
     // 
-    // > For more information about how to troubleshoot connection failures caused by special characters in database connection string, see [What do I do if database connection to an ApsaraDB for MongoDB instance fails because the username or password in database connection string contains special characters?](https://help.aliyun.com/document_detail/471568.html).
+    // > For more information about how to troubleshoot connection failures caused by special characters in database connection string, see [What do I do if a connection failure occurs because the username or password in database connection string contains special characters?](https://help.aliyun.com/document_detail/471568.html).
     shared_ptr<string> accountPassword_ {};
     // Specifies whether to enable auto-renewal for the instance. Valid values:
     // 
-    // - **true**: Enables auto-renewal.
-    // - **false**: Disables auto-renewal. You must manually renew the instance. This is the default value.
+    // - **true**: enables auto-renewal.
+    // - **false**: disables auto-renewal. In this case, you must manually renew the instance. This is the default value.
     // 
-    // > This parameter is available and optional only when the **ChargeType** parameter is set to **PrePaid**.
+    // > This parameter is valid and optional only when the **ChargeType** parameter is set to **PrePaid**.
     shared_ptr<string> autoRenew_ {};
-    // The ID of the cluster backup.
-    // 
+    // The cluster backup ID.
     // 
     // > - This parameter is required only when RestoreType is set to 2 or 3.
     shared_ptr<string> backupId_ {};
     // The billing method of the instance. Valid values:
     // 
-    // - **PostPaid**: Pay-as-you-go. This is the default value.
-    // - **PrePaid**: Subscription.
+    // - **PostPaid**: pay-as-you-go. This is the default value.
+    // - **PrePaid**: subscription.
     // 
     // > If you set this parameter to **PrePaid**, you must also specify the **Period** parameter.
     shared_ptr<string> chargeType_ {};
-    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the token, but you must ensure that the token is unique among different requests. The token can contain a maximum of 64 ASCII characters and cannot contain non-ASCII characters.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The information about the ConfigServer nodes.
+    // The information about the Configserver node.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateShardingDBInstanceRequest::ConfigServer>> configServer_ {};
-    // The name of the instance. The name must meet the following requirements:
-    // - It must start with a letter or a Chinese character.
-    // - It can contain digits, letters, Chinese characters, underscores (_), periods (.), and hyphens (-).
+    // The instance name. The name must meet the following requirements:
+    // - It must start with a letter.
+    // - It can contain digits, letters, underscores (_), periods (.), and hyphens (-).
     // - It must be 2 to 256 characters in length.
     shared_ptr<string> DBInstanceDescription_ {};
-    // The region where the cross-region backup is stored.
+    // The region of the geo-redundant backup.
     shared_ptr<string> destRegion_ {};
+    // Specifies whether to perform a dry run on the request. Valid values:
+    // - true: performs a dry run without executing the actual request. The system checks the request parameters, request format, service limits, and available resources. If the request fails the dry run, the system returns an error. If the request passes the dry run, the system returns the DryRunOperation error code.
+    // - false: sends a normal request and executes the operation after the request passes the dry run. This is the default value.
+    shared_ptr<bool> dryRun_ {};
     // Specifies whether to enable cloud disk encryption.
     shared_ptr<bool> encrypted_ {};
-    // The ID of the custom key.
+    // The custom key ID.
     shared_ptr<string> encryptionKey_ {};
     // The database engine. Set the value to **MongoDB**.
     // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
-    // The database version number. Valid values:
+    // The database version. Valid values:
     // - **8.0**
     // - **7.0**
     // - **6.0**
@@ -652,7 +692,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
-    // The global IP address whitelist templates of the instance. Separate multiple templates with commas (,). Duplicate templates are not supported.
+    // The global IP address whitelist templates of the instance. Separate multiple templates with commas (,). Each template must be unique.
     shared_ptr<string> globalSecurityGroupIds_ {};
     // The secondary zone 2 for multi-zone deployment. Valid values:
     // - **cn-hangzhou-g**: Hangzhou Zone G.
@@ -674,26 +714,30 @@ namespace Models
     // - **eu-central-1b**: Frankfurt Zone B.
     // - **eu-central-1c**: Frankfurt Zone C.
     // 
-    // > - This parameter is available only when the instance uses cloud disks.
+    // > - This parameter is valid only when the instance uses cloud disks.
     // > - The value of this parameter cannot be the same as the value of **ZoneId** or **SecondaryZoneId**.
     // > - For more information about the multi-zone deployment policy for sharded cluster instances, see [Create a multi-zone sharded cluster instance](https://help.aliyun.com/document_detail/117865.html).
     shared_ptr<string> hiddenZoneId_ {};
+    // The maintenance end time.
+    shared_ptr<string> maintainEndTime_ {};
+    // The maintenance start time.
+    shared_ptr<string> maintainStartTime_ {};
     // The information about the mongos nodes.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateShardingDBInstanceRequest::Mongos>> mongos_ {};
     // The network type of the instance. Valid values:
     // 
-    // - **VPC**: VPC.
+    // **VPC**: VPC.
     shared_ptr<string> networkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The subscription duration of the instance. Unit: months.
     // 
     // Valid values: **1** to **9**, **12**, **24**, **36**, and **60**.
-    // > This parameter is required and takes effect only when the **ChargeType** parameter is set to **PrePaid**.
+    // > This parameter is required and valid only when the **ChargeType** parameter is set to **PrePaid**.
     shared_ptr<int32_t> period_ {};
-    // The type of the access protocol. Valid values:
+    // The access protocol type. Valid values:
     // - **mongodb**: MongoDB protocol.
     // - **dynamodb**: DynamoDB protocol.
     shared_ptr<string> protocolType_ {};
@@ -711,13 +755,13 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The point in time to which you want to restore the instance. You can specify any point in time within the last seven days. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
-    // > This parameter is required only when you call this operation to clone an instance. You must also specify the **SrcDBInstanceId** parameter.
+    // > You must specify this parameter only when you call this operation to clone an instance. You must also specify the **SrcDBInstanceId** parameter.
     shared_ptr<string> restoreTime_ {};
     // The backup restoration type. Valid values:
     // 
-    // - 1: Restore the instance to a specified point in time.
-    // - 2: Restore a released instance to a specified backup set.
-    // - 3: Restore the instance to a specified cross-region backup set.
+    // - 1: restore the instance to a specified point in time.
+    // - 2: restore a released instance to a specified backup set.
+    // - 3: restore the instance to a specified geo-redundant backup set.
     shared_ptr<string> restoreType_ {};
     // The secondary zone 1 for multi-zone deployment. Valid values:
     // - **cn-hangzhou-g**: Hangzhou Zone G.
@@ -738,25 +782,25 @@ namespace Models
     // - **eu-central-1a**: Frankfurt Zone A.
     // - **eu-central-1b**: Frankfurt Zone B.
     // - **eu-central-1c**: Frankfurt Zone C.
-    // >- This parameter is available only when the instance uses cloud disks.
-    // >- The value of this parameter cannot be the same as the value of **ZoneId** or **HiddenZoneId**.
-    // >- For more information about the multi-zone deployment policy for sharded cluster instances, see [Create a multi-zone sharded cluster instance](https://help.aliyun.com/document_detail/117865.html).
+    // > - This parameter is valid only when the instance uses cloud disks.
+    // > - The value of this parameter cannot be the same as the value of **ZoneId** or **HiddenZoneId**.
+    // > - For more information about the multi-zone deployment policy for sharded cluster instances, see [Create a multi-zone sharded cluster instance](https://help.aliyun.com/document_detail/117865.html).
     shared_ptr<string> secondaryZoneId_ {};
-    // The IP address whitelist of the instance. Separate multiple IP addresses with commas (,). Duplicate IP addresses are not supported. The following formats are supported:
+    // The IP address whitelist of the instance. Separate multiple IP addresses with commas (,). Each IP address must be unique. The following formats are supported:
     // - 0.0.0.0/0
     // - IP addresses, such as 10.23.12.24.
     // - CIDR blocks, such as 10.23.12.0/24. 24 indicates the length of the prefix in the CIDR block, and the prefix length ranges from 1 to 32.
     // 
-    // > - You can add up to 1,000 IP addresses or CIDR blocks to the whitelist of an instance. The total number of IP addresses or CIDR blocks in all whitelist groups cannot exceed 1,000.
-    // > - 0.0.0.0/0 indicates that all IP addresses can access the instance. This is a high-risk setting. Configure this parameter with caution.
+    // > - You can add up to 1,000 IP addresses or CIDR blocks to the whitelist of an instance. The total number of IP addresses and CIDR blocks in all whitelist groups cannot exceed 1,000.
+    // > - 0.0.0.0/0 indicates that all IP addresses can access the databases of the instance. This is a high-risk setting. Configure this setting with caution.
     shared_ptr<string> securityIPList_ {};
-    // The source instance ID.
-    // > This parameter is required only when you call this operation to clone an instance. You must also specify the **RestoreTime** parameter.
+    // The ID of the source instance.
+    // > You must specify this parameter only when you call this operation to clone an instance. You must also specify the **RestoreTime** parameter.
     shared_ptr<string> srcDBInstanceId_ {};
-    // The region where the source instance is located.
+    // The region of the source instance.
     // 
-    // >- This parameter is required when the backup restoration type is rebuilding a deleted instance.
-    // >- This parameter is required when the backup restoration type is cross-region backup cloning.
+    // > - This parameter is required when the backup restoration type is rebuilding a deleted instance.
+    // > - This parameter is required when the backup restoration type is cloning from a geo-redundant backup.
     shared_ptr<string> srcRegion_ {};
     // The storage engine of the instance. Set the value to **WiredTiger**.
     // 
@@ -768,11 +812,13 @@ namespace Models
     // - **cloud_essd1**: PL1 ESSD.
     // - **cloud_essd2**: PL2 ESSD.
     // - **cloud_essd3**: PL3 ESSD.
-    // - **local_ssd**: local SSD.
+    // - **local_ssd**: Local SSD.
     // 
-    // > - Instances of version 4.4 and later support only cloud disks. If you do not specify this parameter, **cloud_essd1** is selected by default.
-    // > - Instances of version 4.2 and earlier support only local disks. If you do not specify this parameter, **local_ssd** is selected by default.
+    // > - Instances of version 4.4 or later support only cloud disks. If you do not specify this parameter, **cloud_essd1** is selected by default.
+    // > - Instances of version 4.2 or earlier support only local disks. If you do not specify this parameter, **local_ssd** is selected by default.
     shared_ptr<string> storageType_ {};
+    // Specifies whether to enable TTL index cleanup for the restored instance. A value of true or an empty value indicates that cleanup is enabled.
+    shared_ptr<bool> TTLEnabled_ {};
     // The custom tags.
     shared_ptr<vector<CreateShardingDBInstanceRequest::Tag>> tag_ {};
     // The vSwitch ID.

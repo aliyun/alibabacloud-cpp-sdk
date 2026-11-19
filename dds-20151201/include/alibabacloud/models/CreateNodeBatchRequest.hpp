@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CouponNo, couponNo_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(FromApp, fromApp_);
       DARABONBA_PTR_TO_JSON(NodesInfo, nodesInfo_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CouponNo, couponNo_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(FromApp, fromApp_);
       DARABONBA_PTR_FROM_JSON(NodesInfo, nodesInfo_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
@@ -57,8 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
         && this->accountPassword_ == nullptr && this->autoPay_ == nullptr && this->businessInfo_ == nullptr && this->clientToken_ == nullptr && this->couponNo_ == nullptr
-        && this->DBInstanceId_ == nullptr && this->fromApp_ == nullptr && this->nodesInfo_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->shardDirect_ == nullptr; };
+        && this->DBInstanceId_ == nullptr && this->dryRun_ == nullptr && this->fromApp_ == nullptr && this->nodesInfo_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->shardDirect_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -106,6 +108,13 @@ namespace Models
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
     inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline CreateNodeBatchRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateNodeBatchRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // fromApp Field Functions 
@@ -158,7 +167,7 @@ namespace Models
 
 
   protected:
-    // The name of the account. Valid values:
+    // The username of the account. The name must meet the following requirements:
     // 
     // - The name must start with a lowercase letter.
     // - The name can contain lowercase letters, digits, and underscores (_).
@@ -168,7 +177,7 @@ namespace Models
     // > - The permissions of the account are fixed to read-only.
     // > - When you apply for a direct connection endpoint for a shard node for the first time, you must set the account name and password. You do not need to set them again for subsequent applications.
     shared_ptr<string> accountName_ {};
-    // The password of the account. Valid values:
+    // The password of the account. The password must meet the following requirements:
     // - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
     // - Special characters include !@#$%^&*()_+-=.
     // - The password must be 8 to 32 characters in length.
@@ -177,24 +186,28 @@ namespace Models
     shared_ptr<string> accountPassword_ {};
     // Specifies whether to enable automatic payment. Valid values:
     // 
-    // - **true**: (Default) Automatic payment is enabled. Make sure that your account has sufficient balance.
-    // - **false**: Manual payment is enabled. For more information, see [Manually renew a subscription instance](https://help.aliyun.com/document_detail/85052.html).
+    // - **true**: Enables automatic payment. Make sure that your account has sufficient balance. This is the default value.
+    // - **false**: Disables automatic payment. You must manually pay the order. For more information, see [Manually renew a subscription instance](https://help.aliyun.com/document_detail/85052.html).
     shared_ptr<bool> autoPay_ {};
     // The business information.
     shared_ptr<string> businessInfo_ {};
-    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. It cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to use a coupon. Valid values:
-    // - **default** or **null**: (Default) A coupon is used.
-    // - **youhuiquan_promotion_option_id_for_blank**: No coupon is used.
+    // - **default** or **null**: Uses a coupon. This is the default value.
+    // - **youhuiquan_promotion_option_id_for_blank**: Does not use a coupon.
     shared_ptr<string> couponNo_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // Specifies whether to perform a dry run on the request. Valid values:
+    // - true: Performs a dry run without calling the operation. The system checks items such as request parameters, request format, service limits, and inventory. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
+    // - false: Sends the request. If the check succeeds, the operation is performed. This is the default value.
+    shared_ptr<bool> dryRun_ {};
     // The source of the request. Valid values:
-    // - **OpenApi**: OpenAPI.
-    // - **mongo_buy**: The console.
+    // - **OpenApi**: The request is sent from OpenAPI Explorer.
+    // - **mongo_buy**: The request is sent from the console.
     shared_ptr<string> fromApp_ {};
     // The specifications of the Mongos or shard nodes to be added. For more information about the specifications, see [Instance specifications](https://help.aliyun.com/document_detail/57141.html).
     // 
@@ -209,7 +222,7 @@ namespace Models
     // Specifies whether to apply for a direct connection endpoint for the shard node. Valid values:
     // 
     // - **true**: Applies for a direct connection endpoint for the shard node.
-    // - **false**: (Default) Does not apply for a direct connection endpoint for the shard node.
+    // - **false**: Does not apply for a direct connection endpoint for the shard node. This is the default value.
     shared_ptr<bool> shardDirect_ {};
   };
 

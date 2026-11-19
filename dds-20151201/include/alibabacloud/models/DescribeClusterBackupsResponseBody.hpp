@@ -109,7 +109,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether the backup set was migrated from a historical backup. A value of **1** indicates that the backup was migrated.
+        // Indicates whether the backup set is migrated from a historical backup set. A value of **1** indicates that the backup set is migrated from a historical backup set.
         shared_ptr<string> registryFromHistory_ {};
       };
 
@@ -208,13 +208,13 @@ namespace Models
 
 
         protected:
-          // The specifications of the node.
+          // The node specifications.
           shared_ptr<string> instanceClass_ {};
-          // The ID of the node.
+          // The node ID.
           shared_ptr<string> nodeId_ {};
-          // The type of the node.
+          // The node type.
           shared_ptr<string> nodeType_ {};
-          // The storage space of the node, in MB.
+          // The storage space of the node. Unit: MB.
           shared_ptr<string> storageSize_ {};
         };
 
@@ -301,35 +301,31 @@ namespace Models
 
 
       protected:
-        // The public URL from which you can download the backup file. If the backup file is unavailable for download, an empty string is returned.
+        // The public endpoint used to download the backup file. If the backup file cannot be downloaded, an empty string is returned.
         shared_ptr<string> backupDownloadURL_ {};
-        // The time when the backup finished. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
+        // The end time of the backup. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
         shared_ptr<string> backupEndTime_ {};
-        // The ID of the backup.
+        // The backup ID.
         shared_ptr<string> backupId_ {};
-        // The internal URL from which you can download the backup file. If the backup file is unavailable for download, an empty string is returned.
+        // The internal endpoint used to download the backup file. If the backup file cannot be downloaded, a null value is returned.
         shared_ptr<string> backupIntranetDownloadURL_ {};
-        // The name of the backup.
+        // The backup name.
         shared_ptr<string> backupName_ {};
-        // The size of the backup file, in bytes.
+        // The size of the backup file. Unit: bytes.
         shared_ptr<string> backupSize_ {};
-        // The time when the backup started. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
+        // The start time of the backup. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
         shared_ptr<string> backupStartTime_ {};
         // The backup status. Valid values:
-        // 
         // - **Success**: The backup is successful.
-        // 
-        // - **Failed**: The backup failed.
+        // - **Failed**: The backup fails.
         shared_ptr<string> backupStatus_ {};
-        // The information about the instance node that is associated with the backup.
+        // The information about the instance node associated with the backup.
         shared_ptr<Backups::ExtraInfo> extraInfo_ {};
-        // The name of the shard in the MongoDB cluster.
+        // The name of the MongoDB shard.
         shared_ptr<string> instanceName_ {};
         // Indicates whether the backup set is available. Valid values:
-        // 
-        // - **0**: unavailable.
-        // 
-        // - **1**: available.
+        // * **0**: unavailable.
+        // * **1**: available.
         shared_ptr<string> isAvail_ {};
       };
 
@@ -434,65 +430,51 @@ namespace Models
 
     protected:
       // The status of the attached log backup. Valid values:
-      // 
-      // - **Init**: initialization.
-      // 
-      // - **No_Need**: No attached log backup is available.
-      // 
+      // - **Init**: The attached log backup is being initialized.
+      // - **No_Need**: No attached log backup is required.
       // - **Running**: The attached log backup is in progress.
-      // 
       // - **Ready**: The attached log backup is complete.
+      // - **Failed**: The attached log backup fails.
       // 
-      // - **Failed**: The attached log backup failed.
-      // 
-      // > If the value of the **ClusterBackupStatus** parameter is OK, it only indicates that the full backup was successful. For a cluster instance for which log backup is enabled, the attached log backup must be complete before you can perform a point-in-time restore or ensure data consistency.
+      // > When the **ClusterBackupStatus** parameter is set to OK, it only indicates that the full backup phase is successful. For cluster instances with log backup enabled, the attached log backup must be complete to perform point-in-time recovery or achieve consistent recovery.
       shared_ptr<string> attachLogStatus_ {};
-      // The time when the backup expires. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
+      // The expire time of the backup. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       // 
-      // >Notice: 
       // 
-      // A value of "9999-01-01T00:00:00Z" indicates that the backup is permanently retained.
+      // >Notice: A value of "9999-01-01T00:00:00Z" indicates long-term retention (LTR).</notice>
       shared_ptr<string> backupExpireTime_ {};
-      // The backup sets of each child node in the cluster backup.
+      // The backup sets of child nodes in a single cluster backup set.
       shared_ptr<vector<ClusterBackups::Backups>> backups_ {};
-      // The time when the cluster backup finished.
+      // The end time of the cluster backup. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> clusterBackupEndTime_ {};
-      // The ID of the cluster backup.
+      // The cluster backup set ID.
       shared_ptr<string> clusterBackupId_ {};
-      // The mode of the cluster backup.
+      // The cluster backup mode.
       shared_ptr<string> clusterBackupMode_ {};
-      // The size of the cluster backup set, in bytes.
+      // The size of the cluster backup set. Unit: bytes.
       shared_ptr<string> clusterBackupSize_ {};
-      // The time when the cluster backup started.
+      // The start time of the cluster backup. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> clusterBackupStartTime_ {};
-      // The status of the cluster backup.
+      // The status of the cluster backup set.
       shared_ptr<string> clusterBackupStatus_ {};
-      // The database engine version of the instance when the backup was created. Valid values:
+      // The instance version at the time of backup. Valid values:
       // 
       // - **7.0**
-      // 
       // - **6.0**
-      // 
       // - **5.0**
-      // 
       // - **4.4**
-      // 
       // - **4.2**
-      // 
       // - **4.0**
-      // 
       // - **3.4**
       shared_ptr<string> engineVersion_ {};
-      // The supplementary information. The value is a JSON-formatted string.
+      // The supplementary information in JSON format.
       shared_ptr<ClusterBackups::ExtraInfo> extraInfo_ {};
       // Indicates whether the cluster backup set is valid. Valid values:
-      // 
       // - **1**: The cluster backup set is valid.
-      // 
-      // - **0**: The backup sets of child nodes are not complete or have failed.
+      // - **0**: The backup sets of the child nodes are incomplete or failed.
       shared_ptr<int32_t> isAvail_ {};
-      // The backup progress in percentage.
-      // This parameter is returned only for backups that are in progress.
+      // The backup progress. Unit: %.
+      // The progress is displayed only for running backups.
       shared_ptr<string> progress_ {};
     };
 
@@ -536,13 +518,13 @@ namespace Models
 
 
   protected:
-    // The details of the cluster backup sets. A cluster backup contains the backup sets of all nodes.
+    // The cluster backup sets. A cluster backup set contains the backup sets of all nodes.
     shared_ptr<vector<DescribeClusterBackupsResponseBody::ClusterBackups>> clusterBackups_ {};
-    // The maximum number of entries returned in this request.
+    // The maximum number of entries returned for the request.
     shared_ptr<int32_t> maxResults_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

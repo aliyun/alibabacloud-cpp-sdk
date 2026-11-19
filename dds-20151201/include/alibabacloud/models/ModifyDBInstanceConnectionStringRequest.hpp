@@ -148,8 +148,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // Specifies whether to forcibly modify the suffix of the connection string. If a suffix conflict occurs:
+    // - true: Forcibly modifies the suffix.
+    // - false or not specified: Uses the default validation logic.
     shared_ptr<bool> forceModifySuffix_ {};
-    // The network type of the connection string when only the port number is modified.
+    // The network type of the connection string when only port numbers are modified.
     shared_ptr<string> networkType_ {};
     // The new endpoint. The endpoint must meet the following requirements:
     // - It must start with a lowercase letter.
@@ -157,9 +160,9 @@ namespace Models
     // - It can contain only lowercase letters, digits, and hyphens (-).
     // - It must be 8 to 63 characters in length.
     // 
-    // > Specify only the prefix of the endpoint. The remaining part cannot be modified.
+    // > You only need to specify the prefix of the endpoint. The suffix cannot be modified.
     shared_ptr<string> newConnectionString_ {};
-    // The new port. Valid values: 1000 to 65535.
+    // The new port number. Valid values: 1000 to 65535.
     // > This parameter is active only when the **DBInstanceId** parameter is set to a cloud disk instance ID.
     shared_ptr<int32_t> newPort_ {};
     // Instance ID of the Mongos node in the sharded cluster instance. You can specify only one Mongos node ID in each call.
@@ -168,7 +171,7 @@ namespace Models
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Specifies whether to modify only port numbers. If you modify only port numbers, batch modification is supported.
+    // Specifies whether to modify only port numbers. Batch modification is supported when only port numbers are modified.
     shared_ptr<bool> portModifyOnly_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

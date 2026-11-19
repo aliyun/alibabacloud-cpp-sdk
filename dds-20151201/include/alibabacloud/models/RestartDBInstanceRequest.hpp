@@ -112,24 +112,28 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The instance ID. Before calling this operation, ensure that the instance is in the Running state. You can check the current status of the instance by checking the DBInstanceStatus field returned by the DescribeDBInstanceAttribute operation.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The ID of the shard or mongos node in the sharded cluster instance.
     // 
-    // > If you do not specify this parameter for a sharded cluster instance, the entire sharded cluster instance is restarted.
+    // > If the instance is a sharded cluster instance and this parameter is not specified, the entire sharded cluster instance is restarted.
     shared_ptr<string> nodeId_ {};
+    // The type of the node to be restarted in the sharded cluster instance. Valid values:
+    // - **db**: shard node.
+    // - **mongos**: mongos node.
+    // - **cs**: Configserver node.
     shared_ptr<string> nodeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Specifies whether to restart mongos nodes in parallel. This parameter takes effect only when you restart multiple mongos nodes at a time.
+    // Specifies whether to restart mongos nodes in parallel. This parameter takes effect only when multiple mongos nodes are restarted in a batch.
     shared_ptr<bool> parallelRestartMongos_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The time when the instance is restarted. Valid values:
-    // - 0: Immediately.
-    // - 1: Within the O&M window.
+    // - 0: Restarts the instance immediately.
+    // - 1: Restarts the instance within the O&M window.
     shared_ptr<string> switchMode_ {};
   };
 

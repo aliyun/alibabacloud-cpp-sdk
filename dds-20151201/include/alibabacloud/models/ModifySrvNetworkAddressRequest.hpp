@@ -94,11 +94,9 @@ namespace Models
 
 
   protected:
-    // The type of the SRV connection address to modify. Valid values:
-    // 
-    // - **VPC**: virtual private cloud (VPC)
-    // 
-    // - **Public**: Internet connection
+    // The type of the SRV endpoint to be modified. Valid values:
+    // - **VPC**: VPC
+    // - **Public**: public network connection
     // 
     // This parameter is required.
     shared_ptr<string> connectionType_ {};
@@ -106,17 +104,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The new connection address. The address must meet the following requirements:
+    // The new endpoint. The endpoint must meet the following requirements:
+    // - Start with a lowercase letter.
+    // - End with a lowercase letter or a digit.
+    // - Contain only lowercase letters, digits, and hyphens (-).
+    // - Be 8 to 63 characters in length.
     // 
-    // - Starts with a lowercase letter.
-    // 
-    // - Ends with a lowercase letter or a digit.
-    // 
-    // - Contains only lowercase letters, digits, and hyphens (-).
-    // 
-    // - Is 8 to 63 characters in length.
-    // 
-    // > You only need to specify the prefix of the connection address. The rest of the address cannot be modified.
+    // > Specify only the prefix of the endpoint. The remaining part cannot be modified.
     // 
     // This parameter is required.
     shared_ptr<string> newConnectionString_ {};

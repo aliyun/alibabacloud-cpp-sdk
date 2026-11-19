@@ -79,12 +79,12 @@ namespace Models
 
 
     protected:
-      // The beginning of the restorable time range.
+      // The start time of the restorable time range. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC time).
       shared_ptr<string> restoreBeginTime_ {};
-      // The end of the restorable time range.
+      // The end time of the restorable time range. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC time).
       shared_ptr<string> restoreEndTime_ {};
       // The restoration method. Valid values:
-      // * PointInTime (default): point-in-time restoration.
+      // * PointInTime: point-in-time recovery. This is the default value.
       shared_ptr<string> restoreType_ {};
     };
 
@@ -109,7 +109,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of restorable time ranges. This list contains all time ranges available for point-in-time restoration.
+    // The list of restorable time ranges. This list includes all time ranges available for point-in-time recovery.
     shared_ptr<vector<DescribeInstanceRecoverTimeResponseBody::RestoreRanges>> restoreRanges_ {};
   };
 

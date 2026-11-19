@@ -62,6 +62,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ConnectionPort, connectionPort_);
           DARABONBA_PTR_TO_JSON(ConnectionType, connectionType_);
           DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
+          DARABONBA_PTR_TO_JSON(IPAddress, IPAddress_);
           DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
           DARABONBA_PTR_TO_JSON(ReplicaSetRole, replicaSetRole_);
           DARABONBA_PTR_TO_JSON(RoleId, roleId_);
@@ -71,6 +72,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ConnectionPort, connectionPort_);
           DARABONBA_PTR_FROM_JSON(ConnectionType, connectionType_);
           DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
+          DARABONBA_PTR_FROM_JSON(IPAddress, IPAddress_);
           DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
           DARABONBA_PTR_FROM_JSON(ReplicaSetRole, replicaSetRole_);
           DARABONBA_PTR_FROM_JSON(RoleId, roleId_);
@@ -87,8 +89,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->connectionDomain_ == nullptr
-        && this->connectionPort_ == nullptr && this->connectionType_ == nullptr && this->expiredTime_ == nullptr && this->networkType_ == nullptr && this->replicaSetRole_ == nullptr
-        && this->roleId_ == nullptr; };
+        && this->connectionPort_ == nullptr && this->connectionType_ == nullptr && this->expiredTime_ == nullptr && this->IPAddress_ == nullptr && this->networkType_ == nullptr
+        && this->replicaSetRole_ == nullptr && this->roleId_ == nullptr; };
         // connectionDomain Field Functions 
         bool hasConnectionDomain() const { return this->connectionDomain_ != nullptr;};
         void deleteConnectionDomain() { this->connectionDomain_ = nullptr;};
@@ -117,6 +119,13 @@ namespace Models
         inline ReplicaSet& setExpiredTime(string expiredTime) { DARABONBA_PTR_SET_VALUE(expiredTime_, expiredTime) };
 
 
+        // IPAddress Field Functions 
+        bool hasIPAddress() const { return this->IPAddress_ != nullptr;};
+        void deleteIPAddress() { this->IPAddress_ = nullptr;};
+        inline string getIPAddress() const { DARABONBA_PTR_GET_DEFAULT(IPAddress_, "") };
+        inline ReplicaSet& setIPAddress(string IPAddress) { DARABONBA_PTR_SET_VALUE(IPAddress_, IPAddress) };
+
+
         // networkType Field Functions 
         bool hasNetworkType() const { return this->networkType_ != nullptr;};
         void deleteNetworkType() { this->networkType_ = nullptr;};
@@ -143,6 +152,7 @@ namespace Models
         shared_ptr<string> connectionPort_ {};
         shared_ptr<string> connectionType_ {};
         shared_ptr<string> expiredTime_ {};
+        shared_ptr<string> IPAddress_ {};
         shared_ptr<string> networkType_ {};
         shared_ptr<string> replicaSetRole_ {};
         shared_ptr<string> roleId_ {};
@@ -195,11 +205,10 @@ namespace Models
 
 
   protected:
-    // The domain name suffix for the connection string.
+    // The domain name suffix of the connection string.
     shared_ptr<string> connectionStringSuffix_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // Details of the replica set.
     shared_ptr<DescribeReplicaSetRoleResponseBody::ReplicaSets> replicaSets_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

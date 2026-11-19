@@ -79,9 +79,9 @@ namespace Models
 
 
     protected:
-      // The beginning of the restorable time range.
+      // The start time of the restorable time range. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> restoreBeginTime_ {};
-      // The end of the restorable time range.
+      // The end time of the restorable time range. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> restoreEndTime_ {};
       // The restoration method. Valid values:
       // * **PointInTime** (default): point-in-time restoration.
@@ -109,7 +109,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of cluster backup sets. A cluster backup contains the backup set of each node.
+    // The list of cluster backup sets. A cluster backup contains the backup sets of each node.
     shared_ptr<vector<DescribeClusterRecoverTimeResponseBody::RestoreRanges>> restoreRanges_ {};
   };
 

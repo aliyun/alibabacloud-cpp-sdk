@@ -187,73 +187,58 @@ namespace Models
 
   protected:
     // The billing method of the instance. Valid values:
-    // 
-    // - **PrePaid**: subscription
-    // 
-    // - **PostPaid**: pay-as-you-go
+    // - **PrePaid**: subscription.
+    // - **PostPaid**: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
     // The database engine version of the instance. Valid values: **5.0**, **4.4**, **4.2**, **4.0**, and **3.4**.
     shared_ptr<string> engineVersion_ {};
-    // The instance type. For more information about the instance types available for different instance architectures, see:
+    // The instance type. For more information about the instance types of different architectures, see the following topics:
     // 
     // - [Standalone instance types](https://help.aliyun.com/document_detail/311407.html)
-    // 
     // - [Replica set instance types](https://help.aliyun.com/document_detail/311410.html)
-    // 
     // - [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html)
     // 
     // <props="china">
-    // 
-    // > This parameter is not required for Serverless instances.
+    // > You do not need to specify this parameter for serverless instances.
     shared_ptr<string> instanceClass_ {};
-    // The ID of the instance whose overview you want to query.
+    // The IDs of the instances whose overview information you want to query.
     // 
-    // > - If you do not specify this parameter, an overview of all instances in your Alibaba Cloud account is returned.
-    // >
-    // > - You can specify multiple instance IDs. Separate the IDs with commas (,).
+    // > - If you do not specify this parameter, the overview information of all instances within the current Alibaba Cloud account is queried by default.
+    // > - You can specify multiple instance IDs. Separate multiple instance IDs with commas (,).
     shared_ptr<string> instanceIds_ {};
-    // The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
+    // The status of the instance. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/63870.html).
     shared_ptr<string> instanceStatus_ {};
-    // The instance architecture. Valid values:
-    // 
-    // - **sharding**: sharded cluster instance
-    // 
-    // - **replicate**: replica set or standalone instance
-    // 
+    // The architecture of the instance. Valid values: 
+    // - **sharding**: sharded cluster instance.
+    // - **replicate**: replica set or standalone instance.
     // <props="china">
-    // 
-    // - **serverless**: Serverless instance
-    // 
+    // - **serverless**: serverless instance.
     // 
     // 
-    // 
-    // > * Set this parameter as needed. For example, to query the overview of a sharded cluster instance, set this parameter to **sharding**.
-    // >
-    // > * If you do not specify this parameter, an overview of all instances is returned.
+    // > - Specify this parameter based on your business requirements. For example, if you want to query the overview information of sharded cluster instances, set this parameter to **sharding**.
+    // > - If you do not specify this parameter, the overview information of all instances is queried by default.
     shared_ptr<string> instanceType_ {};
     // The network type of the instance. Valid values:
-    // 
-    // - **Classic**: classic network
-    // 
-    // - **VPC**: virtual private cloud (VPC)
+    // - **Classic**: classic network.
+    // - **VPC**: VPC.
     shared_ptr<string> networkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) to query the latest region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. For more information about resource groups, see [View basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The ID of the resource group. For more information, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to return instance tags. The default value is false.
+    // Specifies whether the instance tag label is displayed. Default value: false.
     shared_ptr<bool> showTags_ {};
     // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC.
+    // The ID of the virtual private cloud (VPC).
     shared_ptr<string> vpcId_ {};
-    // The ID of the zone.
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

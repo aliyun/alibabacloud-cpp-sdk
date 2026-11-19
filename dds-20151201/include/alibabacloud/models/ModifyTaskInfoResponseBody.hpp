@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The error code for the failed task. It is the same as that of the ModifyTaskInfo operation.
+    // The error code for the failure. This is the same as the API error code.
     shared_ptr<string> errorCode_ {};
-    // The ID of the failed task. The operation returns results after a task fails.
+    // The ID of the failed task. The ID is returned when a failure occurs.
     shared_ptr<string> errorTaskId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of successful tasks.
+    // The number of successful records.
     shared_ptr<string> successCount_ {};
   };
 

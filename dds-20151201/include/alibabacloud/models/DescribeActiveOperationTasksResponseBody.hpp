@@ -308,91 +308,77 @@ namespace Models
 
 
     protected:
-      // Indicates whether the task can be canceled.
-      // 
+      // Specifies whether the task can be canceled. Valid values:
       // - **1**: The task can be canceled.
-      // 
       // - **0**: The task cannot be canceled.
       shared_ptr<string> allowCancel_ {};
-      // Indicates whether the time can be changed.
-      // 
-      // - **1**: The time can be changed.
-      // 
-      // - **0**: The time cannot be changed.
+      // Specifies whether the execution time can be modified. Valid values:
+      // - **1**: The execution time can be modified.
+      // - **0**: The execution time cannot be modified.
       shared_ptr<string> allowChange_ {};
-      // The code of the event level.
-      // 
-      // - **S1**: system O\\&M.
-      // 
-      // - **S0**: threat fixing.
+      // The event level code. Valid values:
+      // - **S1**: system O&M
+      // - **S0**: risk remediation
       shared_ptr<string> changeLevel_ {};
       // The event level in English.
       shared_ptr<string> changeLevelEn_ {};
       // The event level in Chinese.
       shared_ptr<string> changeLevelZh_ {};
-      // The time when the task was created. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The creation time. The time follows the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> createdTime_ {};
       // The current zone.
       shared_ptr<string> currentAVZ_ {};
-      // The database engine type.
+      // The type of the database engine.
       shared_ptr<string> dbType_ {};
-      // The database engine version number.
+      // The database DPI engine version number.
       shared_ptr<string> dbVersion_ {};
-      // The latest time to which the task execution time can be postponed. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The deadline for adjusting the task execution time. The time follows the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> deadline_ {};
       // The task ID.
       shared_ptr<int32_t> id_ {};
-      // The impact of the event in English.
+      // The event impact in English.
       shared_ptr<string> impactEn_ {};
-      // The impact of the event in Chinese.
+      // The event impact in Chinese.
       shared_ptr<string> impactZh_ {};
       // The alias or description of the instance.
       shared_ptr<string> insComment_ {};
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> insName_ {};
-      // The time when the task was modified. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The modification time. The time follows the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> modifiedTime_ {};
-      // The preparation time required between the start time of the O\\&M task and the switchover time. The time is in the *HH:mm:ss* format.
+      // The preparation time required between the start time of the O&M task and the switchover time. The time follows the <i>HH:mm:ss</i> format.
       shared_ptr<string> prepareInterval_ {};
-      // The ID of the region where the pending event is located.
+      // The ID of the region to which the pending event belongs.
       shared_ptr<string> region_ {};
-      // The information about the execution result.
+      // The execution result information.
       shared_ptr<string> resultInfo_ {};
-      // The time when the task was executed. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the backend executes the task. The time follows the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> startTime_ {};
-      // The task status.
+      // The task status. Valid values:
       // 
-      // - **3**: pending.
-      // 
-      // - **4**: running.
-      // 
-      // - **5**: successful.
-      // 
-      // - **6**: failed.
-      // 
-      // - **7**: canceled.
+      // - **3**: pending tasks
+      // - **4**: in-progress tasks
+      // - **5**: successfully completed tasks
+      // - **6**: failed tasks
+      // - **7**: canceled tasks
       shared_ptr<int32_t> status_ {};
-      // The list of child instances.
+      // The child instances.
       shared_ptr<vector<string>> subInsNames_ {};
-      // The time when the switchover was initiated. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the backend initiates the switchover. The time follows the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> switchTime_ {};
       // The task parameters.
       shared_ptr<string> taskParams_ {};
       // The task type. Valid values:
       // 
-      // - **rds_apsaradb_ha**: primary-secondary node switchover.
-      // 
-      // - **rds_apsaradb_transfer**: instance migration.
-      // 
-      // - **rds_apsaradb_upgrade**: minor version upgrade.
-      // 
-      // - **rds_apsaradb_maxscale**: proxy minor version upgrade.
-      // 
-      // - **all**: all task types.
+      // - **rds_apsaradb_ha**: primary/secondary node switch
+      // - **rds_apsaradb_transfer**: instance migration
+      // - **rds_apsaradb_upgrade**: minor version upgrade
+      // - **rds_apsaradb_maxscale**: proxy minor version upgrade
+      // - **all**: all task types
       shared_ptr<string> taskType_ {};
-      // The reason for the task in English.
+      // The task reason in English.
       shared_ptr<string> taskTypeEn_ {};
-      // The reason for the task in Chinese.
+      // The task reason in Chinese.
       shared_ptr<string> taskTypeZh_ {};
     };
 
@@ -436,7 +422,7 @@ namespace Models
 
 
   protected:
-    // The list of O\\&M tasks.
+    // The O&M tasks.
     shared_ptr<vector<DescribeActiveOperationTasksResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -444,7 +430,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of returned task records.
+    // The total number of returned task records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

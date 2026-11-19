@@ -96,25 +96,21 @@ namespace Models
 
 
     protected:
-      // The ID of the replica set instance or the ID of the node on which a primary/secondary switchover is performed.
+      // Instance ID of the instance if the instance is a replica set instance, or instance ID of the switched node if the instance is a sharded cluster instance.
       shared_ptr<string> nodeId_ {};
-      // The code that indicates the reason of a primary/secondary switchover. Valid values:
-      // 
-      // - USER_CONSOLE_OPERATION: The switchover is manually performed.
-      // 
-      // - OPERATION_AND_MAINTENANCE: Potential risks exist.
-      // 
-      // - MACHINE_DOWNTIME: The host is offline.
-      // 
-      // - PRIMARY_UNHEALTHY: An exception occurs on the primary node of the instance.
-      // 
-      // - SECONDARY_UNHEALTHY: An exception occurs on the secondary node of the instance.
-      // 
-      // - MULTIPLE_NODE_FAILURES: An exception occurs on multiple nodes of the instance.
+      // The cause code of the switchover. Valid values:
+      // - USER_CONSOLE_OPERATION: manual operation
+      // - OPERATION_AND_MAINTENANCE: potential risk
+      // - MACHINE_DOWNTIME: host offline
+      // - PRIMARY_UNHEALTHY: instance failures
+      // - SECONDARY_UNHEALTHY: instance failures
+      // - MULTIPLE_NODE_FAILURES: instance failures
       shared_ptr<string> switchCode_ {};
-      // The switchover status. Valid values: **1** and **0**. The value 1 indicates a successful primary/secondary switchover and the value 0 indicates a failed primary/secondary switchover.
+      // The switchover status. Valid values:
+      // - **1**: The switchover is successful.
+      // - **0**: The switchover failed.
       shared_ptr<string> switchStatus_ {};
-      // The point in time when a primary/secondary switchover was performed. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The switchover time. The time is in the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format (UTC).
       shared_ptr<string> switchTime_ {};
     };
 
@@ -167,15 +163,15 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The primary/secondary switchover logs.
+    // The list of primary/secondary switchover logs.
     shared_ptr<vector<DescribeDBInstanceSwitchLogResponseBody::LogItems>> logItems_ {};
-    // The page number returned.
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of primary/secondary switching entries.
+    // The total number of primary/secondary switchover records returned in the query.
     shared_ptr<int64_t> totalCount_ {};
   };
 

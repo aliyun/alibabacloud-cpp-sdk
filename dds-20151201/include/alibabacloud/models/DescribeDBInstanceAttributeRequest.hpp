@@ -119,13 +119,13 @@ namespace Models
     // The database engine. Set the value to **MongoDB**.
     shared_ptr<string> engine_ {};
     // Specifies whether the instance is deleted. Valid values: 
-    // - **false**: The instance is running. Queries the information of a running instance.
-    // - **true**: The instance is deleted. Queries the information of a deleted instance.
+    // - **false**: The instance is running. Queries the information of running instances.
+    // - **true**: The instance is deleted. Queries the information of deleted instances.
     shared_ptr<bool> isDelete_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The resource group ID. For more information about resource groups, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
-    // >This parameter is supported only on the China site.
+    // The resource group ID. For more information about resource groups, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // > This parameter is supported only on the Alibaba Cloud China site.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

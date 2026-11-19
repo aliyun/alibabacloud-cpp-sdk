@@ -114,23 +114,24 @@ namespace Models
   protected:
     // The UID of the key creator.
     shared_ptr<string> creator_ {};
-    // The scheduled deletion time of the instance key. If this value is empty, the key is not automatically deleted.
+    // The expected deletion time of the instance key, in the yyyy-MM-ddTHH:mm:ssZ format (UTC). If this value is empty, the key is not automatically deleted.
     shared_ptr<string> deleteDate_ {};
     // The description of the instance key.
     shared_ptr<string> description_ {};
     // The instance key.
     shared_ptr<string> encryptionKey_ {};
-    // The status of the instance key. Valid values:
+    // The status of the instance key.
+    // 
     // - **Enabled**: The instance key is available.
     // - **Disabled**: The instance key is unavailable.
     shared_ptr<string> encryptionKeyStatus_ {};
-    // The purpose of the instance key.
+    // The usage of the instance key.
     shared_ptr<string> keyUsage_ {};
     // The expiration time of the key (UTC). If this value is empty, the key does not expire.
     shared_ptr<string> materialExpireTime_ {};
     // The source of the instance key.
     shared_ptr<string> origin_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

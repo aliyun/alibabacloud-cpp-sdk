@@ -97,27 +97,21 @@ namespace Models
 
 
     protected:
-      // The status of the backup job.
-      // 
-      // - **Scheduled**: The backup job is scheduled. This includes regular backup jobs that have not started.
-      // 
-      // - **Checking**: The instance is being checked before the backup.
-      // 
-      // - **Backuping**: The backup is in progress.
-      // 
-      // - **Finished**: The backup is complete.
+      // The backup job status. Valid values:
+      // * **Scheduled**: The backup task is scheduled, including routine backup tasks that have not started.
+      // * **Checking**: The instance is being checked before the backup.
+      // * **Backuping**: The backup is in progress.
+      // * **Finished**: The backup is completed.
       shared_ptr<string> backupSetStatus_ {};
-      // The start time of the backup.
+      // The backup start time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> backupStartTime_ {};
       // The backup job ID.
       shared_ptr<string> backupjobId_ {};
-      // The backup mode. Valid values:
-      // 
-      // - **Automated**: automatic backup.
-      // 
-      // - **Manual**: manual backup.
+      // The backup pattern. Valid values:
+      // * **Automated**: Automatic backup.
+      // * **Manual**: Manual backup.
       shared_ptr<string> jobMode_ {};
-      // The backup progress in percentage. The progress is displayed only for running backup jobs.
+      // The backup progress in percentage. The progress is displayed only for running backups.
       shared_ptr<string> progress_ {};
     };
 
@@ -140,7 +134,7 @@ namespace Models
 
 
   protected:
-    // The details of the backup jobs.
+    // The backup job details.
     shared_ptr<vector<DescribeBackupTasksResponseBody::BackupJobs>> backupJobs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

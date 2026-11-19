@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The modified endpoint of the instance.
     shared_ptr<string> modifiedConnectionString_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

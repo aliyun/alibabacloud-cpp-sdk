@@ -59,6 +59,9 @@
 #include <alibabacloud/models/DeleteNodeRequest.hpp>
 #include <alibabacloud/models/DeleteNodeResponseBody.hpp>
 #include <alibabacloud/models/DeleteNodeResponse.hpp>
+#include <alibabacloud/models/DescribeAccountRolesRequest.hpp>
+#include <alibabacloud/models/DescribeAccountRolesResponseBody.hpp>
+#include <alibabacloud/models/DescribeAccountRolesResponse.hpp>
 #include <alibabacloud/models/DescribeAccountsRequest.hpp>
 #include <alibabacloud/models/DescribeAccountsResponseBody.hpp>
 #include <alibabacloud/models/DescribeAccountsResponse.hpp>
@@ -158,6 +161,9 @@
 #include <alibabacloud/models/DescribeDBInstancesOverviewRequest.hpp>
 #include <alibabacloud/models/DescribeDBInstancesOverviewResponseBody.hpp>
 #include <alibabacloud/models/DescribeDBInstancesOverviewResponse.hpp>
+#include <alibabacloud/models/DescribeDatabasesRequest.hpp>
+#include <alibabacloud/models/DescribeDatabasesResponseBody.hpp>
+#include <alibabacloud/models/DescribeDatabasesResponse.hpp>
 #include <alibabacloud/models/DescribeErrorLogRecordsRequest.hpp>
 #include <alibabacloud/models/DescribeErrorLogRecordsResponseBody.hpp>
 #include <alibabacloud/models/DescribeErrorLogRecordsResponse.hpp>

@@ -116,10 +116,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The region where the geo-redundancy backup set resides.
+    // The region where the geo-redundancy backup set is stored.
     // > 
-    // > - This parameter is required when you query a geo-redundancy backup.
+    // > - This parameter is required when you query geo-redundancy backups.
     shared_ptr<string> destRegion_ {};
+    // Specifies whether to query only the restorable time ranges that support database and table restoration. Valid values:
+    // - **true**: returns only the restorable time ranges that support database and table restoration.
+    // - **false** (default): returns all restorable time ranges.
     shared_ptr<bool> onlyDbTableRecovery_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -127,9 +130,9 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The region where the source instance of the geo-redundancy backup resides.
+    // The region of the source instance for geo-redundancy backups.
     // > 
-    // > - This parameter is required when you query a geo-redundancy backup.
+    // > - This parameter is required when you query geo-redundancy backups.
     shared_ptr<string> srcRegion_ {};
   };
 
