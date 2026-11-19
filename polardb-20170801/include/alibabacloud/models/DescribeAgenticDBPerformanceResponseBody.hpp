@@ -257,7 +257,7 @@ namespace Models
     shared_ptr<DescribeAgenticDBPerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+    // The start time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and in UTC.
     shared_ptr<string> startTime_ {};
   };
 

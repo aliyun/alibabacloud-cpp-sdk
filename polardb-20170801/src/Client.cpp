@@ -6193,7 +6193,7 @@ CreateKnowledgeBaseResponse Client::createKnowledgeBase(const CreateKnowledgeBas
 /**
  * @summary Creates a knowledge space.
  *
- * @description Prerequisites: Before you call this operation, you must activate the PrivateLink service in your current account. If the service is not activated, the API returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare the VpcId, VSwitchId, SecurityGroupId, and OSSBucket parameters. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
+ * @description Prerequisites: You must activate the PrivateLink service in your current account before calling this operation. If the service is not activated, the operation returns the PrivateLinkService.NotOpen (400) error. You can check the service activation status in the PrivateLink console. Before creating a knowledge space, you must also prepare a VpcId, VSwitchId, SecurityGroupId, and OSSBucket. You can query VPCs and vSwitches by calling the VPC DescribeVpcs and DescribeVSwitches operations, query security groups by calling the ECS DescribeSecurityGroups operation, and query buckets by calling the OSS ListBuckets operation. If the resources do not exist, create them in the corresponding services first.
  *
  * @param request CreateKnowledgeSpaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6202,12 +6202,20 @@ CreateKnowledgeBaseResponse Client::createKnowledgeBase(const CreateKnowledgeBas
 CreateKnowledgeSpaceResponse Client::createKnowledgeSpaceWithOptions(const CreateKnowledgeSpaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoCreateMcpInstance()) {
+    query["AutoCreateMcpInstance"] = request.getAutoCreateMcpInstance();
+  }
+
   if (!!request.hasDBType()) {
     query["DBType"] = request.getDBType();
   }
 
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEmbeddingDimension()) {
@@ -6294,7 +6302,7 @@ CreateKnowledgeSpaceResponse Client::createKnowledgeSpaceWithOptions(const Creat
 /**
  * @summary Creates a knowledge space.
  *
- * @description Prerequisites: Before you call this operation, you must activate the PrivateLink service in your current account. If the service is not activated, the API returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare the VpcId, VSwitchId, SecurityGroupId, and OSSBucket parameters. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
+ * @description Prerequisites: You must activate the PrivateLink service in your current account before calling this operation. If the service is not activated, the operation returns the PrivateLinkService.NotOpen (400) error. You can check the service activation status in the PrivateLink console. Before creating a knowledge space, you must also prepare a VpcId, VSwitchId, SecurityGroupId, and OSSBucket. You can query VPCs and vSwitches by calling the VPC DescribeVpcs and DescribeVSwitches operations, query security groups by calling the ECS DescribeSecurityGroups operation, and query buckets by calling the OSS ListBuckets operation. If the resources do not exist, create them in the corresponding services first.
  *
  * @param request CreateKnowledgeSpaceRequest
  * @return CreateKnowledgeSpaceResponse

@@ -96,13 +96,13 @@ namespace Models
   protected:
     // The statistical method for alerts. Valid values for different monitoring items:
     // 
-    // - Value: the value of the HTTP status code.
-    // - Average: the average HTTP wait time.
-    // - Value: the value of the TELNET status code.
-    // - TelnetLatency: the average TELNET wait time.
-    // - Average: the average PING packet loss rate.
+    // - Value: The value of the HTTP status code.
+    // - Average: The average HTTP wait time.
+    // - Value: The value of the TELNET status code.
+    // - TelnetLatency: The average TELNET wait time.
+    // - Average: The average PING packet loss rate.
     shared_ptr<bool> aggregate_ {};
-    // The ID of the anchor branch. If you do not specify this parameter, the main branch of the project is used by default.
+    // The anchor branch ID. If this parameter is not specified, the main branch of the project is used by default.
     shared_ptr<string> branchId_ {};
     // The cluster ID.
     // 
@@ -112,7 +112,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The granularity of performance data. Valid values:
+    // The data granularity of performance data. Valid values:
     // 
     // - 5
     // - 30

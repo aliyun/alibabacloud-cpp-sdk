@@ -13,8 +13,10 @@ namespace Models
   class CreateKnowledgeSpaceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateKnowledgeSpaceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoCreateMcpInstance, autoCreateMcpInstance_);
       DARABONBA_PTR_TO_JSON(DBType, DBType_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EmbeddingDimension, embeddingDimension_);
       DARABONBA_PTR_TO_JSON(EmbeddingModel, embeddingModel_);
       DARABONBA_PTR_TO_JSON(EnforceAcl, enforceAcl_);
@@ -33,8 +35,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateKnowledgeSpaceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoCreateMcpInstance, autoCreateMcpInstance_);
       DARABONBA_PTR_FROM_JSON(DBType, DBType_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EmbeddingDimension, embeddingDimension_);
       DARABONBA_PTR_FROM_JSON(EmbeddingModel, embeddingModel_);
       DARABONBA_PTR_FROM_JSON(EnforceAcl, enforceAcl_);
@@ -63,11 +67,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DBType_ == nullptr
-        && this->description_ == nullptr && this->embeddingDimension_ == nullptr && this->embeddingModel_ == nullptr && this->enforceAcl_ == nullptr && this->LLMModel_ == nullptr
-        && this->name_ == nullptr && this->OSSAccessKey_ == nullptr && this->OSSBucket_ == nullptr && this->OSSSecretKey_ == nullptr && this->regionId_ == nullptr
-        && this->rerankModel_ == nullptr && this->securityGroupId_ == nullptr && this->shardingSize_ == nullptr && this->shardingStrategy_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+    virtual bool empty() const override { return this->autoCreateMcpInstance_ == nullptr
+        && this->DBType_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->embeddingDimension_ == nullptr && this->embeddingModel_ == nullptr
+        && this->enforceAcl_ == nullptr && this->LLMModel_ == nullptr && this->name_ == nullptr && this->OSSAccessKey_ == nullptr && this->OSSBucket_ == nullptr
+        && this->OSSSecretKey_ == nullptr && this->regionId_ == nullptr && this->rerankModel_ == nullptr && this->securityGroupId_ == nullptr && this->shardingSize_ == nullptr
+        && this->shardingStrategy_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+    // autoCreateMcpInstance Field Functions 
+    bool hasAutoCreateMcpInstance() const { return this->autoCreateMcpInstance_ != nullptr;};
+    void deleteAutoCreateMcpInstance() { this->autoCreateMcpInstance_ = nullptr;};
+    inline bool getAutoCreateMcpInstance() const { DARABONBA_PTR_GET_DEFAULT(autoCreateMcpInstance_, false) };
+    inline CreateKnowledgeSpaceRequest& setAutoCreateMcpInstance(bool autoCreateMcpInstance) { DARABONBA_PTR_SET_VALUE(autoCreateMcpInstance_, autoCreateMcpInstance) };
+
+
     // DBType Field Functions 
     bool hasDBType() const { return this->DBType_ != nullptr;};
     void deleteDBType() { this->DBType_ = nullptr;};
@@ -80,6 +91,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateKnowledgeSpaceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateKnowledgeSpaceRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // embeddingDimension Field Functions 
@@ -195,10 +213,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically activate MCP. The specifications are fixed to polar.app.g2.medium with 2 nodes and the pay-as-you-go billing method. If you set this parameter to true, you must also explicitly set EnforceAcl to true.
+    shared_ptr<bool> autoCreateMcpInstance_ {};
     // The type of the database engine.
     shared_ptr<string> DBType_ {};
     // The description of the knowledge space. The description can be up to 512 characters in length.
     shared_ptr<string> description_ {};
+    // Specifies whether to only validate the creation request without placing an order or creating resources.
+    shared_ptr<bool> dryRun_ {};
     // The vector dimensions.
     // 
     // This parameter is required.
@@ -207,7 +229,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> embeddingModel_ {};
-    // Specifies whether to enforce access control list (ACL) authentication for the knowledge space.
+    // Specifies whether to enforce ACL authentication for the knowledge space.
     shared_ptr<bool> enforceAcl_ {};
     // The name of the large language model.
     shared_ptr<string> LLMModel_ {};
@@ -231,31 +253,31 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the rerank model.
+    // The name of the reranking model.
     shared_ptr<string> rerankModel_ {};
     // The ID of the security group.
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};
-    // The shard size, in tokens.
+    // The shard size in tokens.
     // 
     // This parameter is required.
     shared_ptr<int32_t> shardingSize_ {};
     // The sharding strategy. Valid values:
-    // - hierarchical: hierarchical sharding. This is the default value.
-    // - hybrid: hybrid sharding.
+    // - hierarchical: The default value.
+    // - hybrid.
     // 
     // This parameter is required.
     shared_ptr<string> shardingStrategy_ {};
-    // The vSwitch for automatic creation of the database.
+    // The ID of the vSwitch for the automatic creation of the database.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
-    // The VPC for automatic creation of the database.
+    // The ID of the VPC for the automatic creation of the database.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The active zone for automatic creation of the database.
+    // The active zone for the automatic creation of the database.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};
