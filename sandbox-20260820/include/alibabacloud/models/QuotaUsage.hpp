@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(cpuCores, cpuCores_);
       DARABONBA_PTR_TO_JSON(instanceCount, instanceCount_);
       DARABONBA_PTR_TO_JSON(memoryGB, memoryGB_);
+      DARABONBA_PTR_TO_JSON(scalingCpuCoresPerMinute, scalingCpuCoresPerMinute_);
     };
     friend void from_json(const Darabonba::Json& j, QuotaUsage& obj) { 
       DARABONBA_PTR_FROM_JSON(cpuCores, cpuCores_);
       DARABONBA_PTR_FROM_JSON(instanceCount, instanceCount_);
       DARABONBA_PTR_FROM_JSON(memoryGB, memoryGB_);
+      DARABONBA_PTR_FROM_JSON(scalingCpuCoresPerMinute, scalingCpuCoresPerMinute_);
     };
     QuotaUsage() = default ;
     QuotaUsage(const QuotaUsage &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cpuCores_ == nullptr
-        && this->instanceCount_ == nullptr && this->memoryGB_ == nullptr; };
+        && this->instanceCount_ == nullptr && this->memoryGB_ == nullptr && this->scalingCpuCoresPerMinute_ == nullptr; };
     // cpuCores Field Functions 
     bool hasCpuCores() const { return this->cpuCores_ != nullptr;};
     void deleteCpuCores() { this->cpuCores_ = nullptr;};
@@ -56,13 +58,22 @@ namespace Models
     inline QuotaUsage& setMemoryGB(double memoryGB) { DARABONBA_PTR_SET_VALUE(memoryGB_, memoryGB) };
 
 
+    // scalingCpuCoresPerMinute Field Functions 
+    bool hasScalingCpuCoresPerMinute() const { return this->scalingCpuCoresPerMinute_ != nullptr;};
+    void deleteScalingCpuCoresPerMinute() { this->scalingCpuCoresPerMinute_ = nullptr;};
+    inline double getScalingCpuCoresPerMinute() const { DARABONBA_PTR_GET_DEFAULT(scalingCpuCoresPerMinute_, 0.0) };
+    inline QuotaUsage& setScalingCpuCoresPerMinute(double scalingCpuCoresPerMinute) { DARABONBA_PTR_SET_VALUE(scalingCpuCoresPerMinute_, scalingCpuCoresPerMinute) };
+
+
   protected:
-    // The consumed CPU quota in vCPUs, not the CPU utilization.
+    // The consumed CPU quota in vCPUs, which does not represent CPU utilization.
     shared_ptr<double> cpuCores_ {};
     // The number of unreleased instance authorizations.
     shared_ptr<int64_t> instanceCount_ {};
-    // The consumed memory quota in GB, not the actual memory used by processes.
+    // The consumed memory quota in GB, which does not represent the actual memory used by processes.
     shared_ptr<double> memoryGB_ {};
+    // The number of cores consumed from the team\\"s exclusive CPU creation quota that have not yet been naturally replenished. This is not the cumulative creation volume over the last minute. This field is omitted when no valid exclusive bucket snapshot is available, and actual zeros and decimals are retained.
+    shared_ptr<double> scalingCpuCoresPerMinute_ {};
   };
 
   } // namespace Models

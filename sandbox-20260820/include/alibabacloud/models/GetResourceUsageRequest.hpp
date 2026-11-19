@@ -108,15 +108,18 @@ namespace Models
 
 
   protected:
-    // The end time of the query. This time is exclusive. Specify the time on the hour in UTC. The latest allowed end time is the start of the current hour. You can query data for a maximum of 7 days at a time. The end time must be later than the start time.
+    // The end time of the query. This time is exclusive. Specify the time on the hour in UTC. The latest allowed time is the start of the current hour. You can query data for a maximum of 7 days at a time. The end time must be later than the start time.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The granularity at which usage data is aggregated. Set this parameter to All to view the cumulative usage over the entire query interval, to Hour to view the hourly usage, or to Day to aggregate the usage every 24 hours from the start time. The last interval can be less than 24 hours.
+    // The granularity at which usage data is aggregated. Valid values:
+    // - All: Aggregates the cumulative usage over the entire query period.
+    // - Hour: Aggregates the usage by hour.
+    // - Day: Aggregates the usage every 24 hours starting from the startTime. The last period may be less than 24 hours.
     // 
     // This parameter is required.
     shared_ptr<string> granularity_ {};
-    // The grouping keys. You can group the results by any combination of teamID, templateID, and sandboxPlan. Each key can be specified only once. If you do not specify this parameter, the results are aggregated over the entire query scope.
+    // The keys used to group the results. You can specify any combination of teamID, templateID, and sandboxPlan. Each key can be specified only once. If you do not specify this parameter, the results are aggregated over the entire query scope.
     shared_ptr<vector<string>> groupBy_ {};
     // The sandbox edition to query. Valid values: eco, std, pro, and ent.
     shared_ptr<string> sandboxPlan_ {};
@@ -128,7 +131,7 @@ namespace Models
     shared_ptr<string> teamID_ {};
     // The ID of the template to query. You must also specify the teamID to which the template belongs.
     shared_ptr<string> templateID_ {};
-    // The usage items to query. You can query 1 to 6 different usage items at a time. CPU usage items include cpuActive and cpuIdle. Memory usage items include memoryActive and memoryIdle. Disk usage items include disk and diskDeepSleep. The disk item includes the usage of disks in deep sleep mode.
+    // The usage items to query. You can specify 1 to 6 different usage items in a single request. CPU usage items include cpuActive and cpuIdle. Memory usage items include memoryActive and memoryIdle. Disk usage items include disk and diskDeepSleep. The disk item includes the usage of deep sleep disks.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> usageNames_ {};

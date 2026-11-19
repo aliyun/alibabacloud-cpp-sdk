@@ -69,9 +69,9 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 indicates success. If the request fails, the corresponding error code is returned.
+    // The response code. A value of 200 indicates success. If the request fails, the corresponding error code is returned.
     shared_ptr<string> code_ {};
-    // The message returned for the request.
+    // The description of the request result.
     shared_ptr<string> message_ {};
     // The query results of each metric, along with the corresponding time and grouping information.
     shared_ptr<MetricData> metricData_ {};

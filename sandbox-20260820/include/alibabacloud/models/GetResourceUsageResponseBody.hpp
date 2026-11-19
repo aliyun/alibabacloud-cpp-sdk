@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 200 indicates success. Other values indicate specific error codes.
+    // The response code. The value is 200 if the request is successful. If the request fails, the value is the corresponding error code.
     shared_ptr<string> code_ {};
     // The message that describes the result of the request.
     shared_ptr<string> message_ {};
     // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
-    // The usage results for the query interval and each group.
+    // The usage results for the query period and each group.
     shared_ptr<ResourceUsage> resourceUsage_ {};
   };
 

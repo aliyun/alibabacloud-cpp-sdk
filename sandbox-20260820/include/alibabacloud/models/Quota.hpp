@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(cpuCores, cpuCores_);
       DARABONBA_PTR_TO_JSON(instanceCount, instanceCount_);
       DARABONBA_PTR_TO_JSON(memoryGB, memoryGB_);
+      DARABONBA_PTR_TO_JSON(scalingCpuCoresPerMinute, scalingCpuCoresPerMinute_);
       DARABONBA_PTR_TO_JSON(tagValue, tagValue_);
     };
     friend void from_json(const Darabonba::Json& j, Quota& obj) { 
       DARABONBA_PTR_FROM_JSON(cpuCores, cpuCores_);
       DARABONBA_PTR_FROM_JSON(instanceCount, instanceCount_);
       DARABONBA_PTR_FROM_JSON(memoryGB, memoryGB_);
+      DARABONBA_PTR_FROM_JSON(scalingCpuCoresPerMinute, scalingCpuCoresPerMinute_);
       DARABONBA_PTR_FROM_JSON(tagValue, tagValue_);
     };
     Quota() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cpuCores_ == nullptr
-        && this->instanceCount_ == nullptr && this->memoryGB_ == nullptr && this->tagValue_ == nullptr; };
+        && this->instanceCount_ == nullptr && this->memoryGB_ == nullptr && this->scalingCpuCoresPerMinute_ == nullptr && this->tagValue_ == nullptr; };
     // cpuCores Field Functions 
     bool hasCpuCores() const { return this->cpuCores_ != nullptr;};
     void deleteCpuCores() { this->cpuCores_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline Quota& setMemoryGB(int32_t memoryGB) { DARABONBA_PTR_SET_VALUE(memoryGB_, memoryGB) };
 
 
+    // scalingCpuCoresPerMinute Field Functions 
+    bool hasScalingCpuCoresPerMinute() const { return this->scalingCpuCoresPerMinute_ != nullptr;};
+    void deleteScalingCpuCoresPerMinute() { this->scalingCpuCoresPerMinute_ = nullptr;};
+    inline int64_t getScalingCpuCoresPerMinute() const { DARABONBA_PTR_GET_DEFAULT(scalingCpuCoresPerMinute_, 0L) };
+    inline Quota& setScalingCpuCoresPerMinute(int64_t scalingCpuCoresPerMinute) { DARABONBA_PTR_SET_VALUE(scalingCpuCoresPerMinute_, scalingCpuCoresPerMinute) };
+
+
     // tagValue Field Functions 
     bool hasTagValue() const { return this->tagValue_ != nullptr;};
     void deleteTagValue() { this->tagValue_ = nullptr;};
@@ -66,12 +75,14 @@ namespace Models
 
 
   protected:
-    // The vCPU quota. Unit: cores.
+    // The vCPU quota, in cores.
     shared_ptr<int32_t> cpuCores_ {};
-    // The quota for the number of running instances.
+    // The quota for the number of active instances.
     shared_ptr<int32_t> instanceCount_ {};
-    // The memory quota. Unit: GB.
+    // The memory quota, in GB.
     shared_ptr<int32_t> memoryGB_ {};
+    // The team CPU creation rate in cores per minute. To retain the original configuration during an update, omit this parameter or set it to null. A positive integer sets an exclusive rate. A value of 0 prevents adding new CPU capacity. A value of -1 clears the exclusive rate and restores the remaining shared account rate. When queried, this parameter is omitted if it is not configured, an explicit 0 is retained, and -1 is not returned.
+    shared_ptr<int64_t> scalingCpuCoresPerMinute_ {};
     // The quota tag value, which is set to the team ID. Quotas are independently calculated based on this dimension.
     shared_ptr<string> tagValue_ {};
   };
