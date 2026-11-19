@@ -85,12 +85,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(MsgKey, msgKey_);
         DARABONBA_PTR_TO_JSON(Target, target_);
         DARABONBA_PTR_TO_JSON(TemplateKeyValue, templateKeyValue_);
+        DARABONBA_PTR_TO_JSON(VendorTemplate, vendorTemplate_);
       };
       friend void from_json(const Darabonba::Json& j, TargetMsg& obj) { 
         DARABONBA_PTR_FROM_JSON(ExtendedParams, extendedParams_);
         DARABONBA_PTR_FROM_JSON(MsgKey, msgKey_);
         DARABONBA_PTR_FROM_JSON(Target, target_);
         DARABONBA_PTR_FROM_JSON(TemplateKeyValue, templateKeyValue_);
+        DARABONBA_PTR_FROM_JSON(VendorTemplate, vendorTemplate_);
       };
       TargetMsg() = default ;
       TargetMsg(const TargetMsg &) = default ;
@@ -104,7 +106,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->extendedParams_ == nullptr
-        && this->msgKey_ == nullptr && this->target_ == nullptr && this->templateKeyValue_ == nullptr; };
+        && this->msgKey_ == nullptr && this->target_ == nullptr && this->templateKeyValue_ == nullptr && this->vendorTemplate_ == nullptr; };
       // extendedParams Field Functions 
       bool hasExtendedParams() const { return this->extendedParams_ != nullptr;};
       void deleteExtendedParams() { this->extendedParams_ = nullptr;};
@@ -133,6 +135,13 @@ namespace Models
       inline TargetMsg& setTemplateKeyValue(string templateKeyValue) { DARABONBA_PTR_SET_VALUE(templateKeyValue_, templateKeyValue) };
 
 
+      // vendorTemplate Field Functions 
+      bool hasVendorTemplate() const { return this->vendorTemplate_ != nullptr;};
+      void deleteVendorTemplate() { this->vendorTemplate_ = nullptr;};
+      inline string getVendorTemplate() const { DARABONBA_PTR_GET_DEFAULT(vendorTemplate_, "") };
+      inline TargetMsg& setVendorTemplate(string vendorTemplate) { DARABONBA_PTR_SET_VALUE(vendorTemplate_, vendorTemplate) };
+
+
     protected:
       shared_ptr<string> extendedParams_ {};
       // This parameter is required.
@@ -140,6 +149,7 @@ namespace Models
       // This parameter is required.
       shared_ptr<string> target_ {};
       shared_ptr<string> templateKeyValue_ {};
+      shared_ptr<string> vendorTemplate_ {};
     };
 
     virtual bool empty() const override { return this->activityContentState_ == nullptr

@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StrategyContent, strategyContent_);
       DARABONBA_PTR_TO_JSON(StrategyType, strategyType_);
       DARABONBA_PTR_TO_JSON(TargetMsgkey, targetMsgkey_);
+      DARABONBA_PTR_TO_JSON(TargetVendorTemplate, targetVendorTemplate_);
       DARABONBA_PTR_TO_JSON(TaskName, taskName_);
       DARABONBA_PTR_TO_JSON(TemplateKeyValue, templateKeyValue_);
       DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
@@ -37,7 +38,9 @@ namespace Models
       DARABONBA_ANY_TO_JSON(ThirdChannelCategory, thirdChannelCategory_);
       DARABONBA_ANY_TO_JSON(TransparentMessagePayload, transparentMessagePayload_);
       DARABONBA_PTR_TO_JSON(TransparentMessageUrgency, transparentMessageUrgency_);
+      DARABONBA_PTR_TO_JSON(UseVoip, useVoip_);
       DARABONBA_PTR_TO_JSON(VendorTemplate, vendorTemplate_);
+      DARABONBA_PTR_TO_JSON(VoipMap, voipMap_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, PushTemplateRequest& obj) { 
@@ -58,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StrategyContent, strategyContent_);
       DARABONBA_PTR_FROM_JSON(StrategyType, strategyType_);
       DARABONBA_PTR_FROM_JSON(TargetMsgkey, targetMsgkey_);
+      DARABONBA_PTR_FROM_JSON(TargetVendorTemplate, targetVendorTemplate_);
       DARABONBA_PTR_FROM_JSON(TaskName, taskName_);
       DARABONBA_PTR_FROM_JSON(TemplateKeyValue, templateKeyValue_);
       DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
@@ -65,7 +69,9 @@ namespace Models
       DARABONBA_ANY_FROM_JSON(ThirdChannelCategory, thirdChannelCategory_);
       DARABONBA_ANY_FROM_JSON(TransparentMessagePayload, transparentMessagePayload_);
       DARABONBA_PTR_FROM_JSON(TransparentMessageUrgency, transparentMessageUrgency_);
+      DARABONBA_PTR_FROM_JSON(UseVoip, useVoip_);
       DARABONBA_PTR_FROM_JSON(VendorTemplate, vendorTemplate_);
+      DARABONBA_PTR_FROM_JSON(VoipMap, voipMap_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     PushTemplateRequest() = default ;
@@ -83,8 +89,9 @@ namespace Models
         && this->activityEvent_ == nullptr && this->appId_ == nullptr && this->channelId_ == nullptr && this->classification_ == nullptr && this->deliveryType_ == nullptr
         && this->dismissalDate_ == nullptr && this->expiredSeconds_ == nullptr && this->extendedParams_ == nullptr && this->miChannelId_ == nullptr && this->notifyLevel_ == nullptr
         && this->notifyType_ == nullptr && this->pushAction_ == nullptr && this->silent_ == nullptr && this->strategyContent_ == nullptr && this->strategyType_ == nullptr
-        && this->targetMsgkey_ == nullptr && this->taskName_ == nullptr && this->templateKeyValue_ == nullptr && this->templateName_ == nullptr && this->tenantId_ == nullptr
-        && this->thirdChannelCategory_ == nullptr && this->transparentMessagePayload_ == nullptr && this->transparentMessageUrgency_ == nullptr && this->vendorTemplate_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->targetMsgkey_ == nullptr && this->targetVendorTemplate_ == nullptr && this->taskName_ == nullptr && this->templateKeyValue_ == nullptr && this->templateName_ == nullptr
+        && this->tenantId_ == nullptr && this->thirdChannelCategory_ == nullptr && this->transparentMessagePayload_ == nullptr && this->transparentMessageUrgency_ == nullptr && this->useVoip_ == nullptr
+        && this->vendorTemplate_ == nullptr && this->voipMap_ == nullptr && this->workspaceId_ == nullptr; };
     // activityContentState Field Functions 
     bool hasActivityContentState() const { return this->activityContentState_ != nullptr;};
     void deleteActivityContentState() { this->activityContentState_ = nullptr;};
@@ -208,6 +215,13 @@ namespace Models
     inline PushTemplateRequest& setTargetMsgkey(string targetMsgkey) { DARABONBA_PTR_SET_VALUE(targetMsgkey_, targetMsgkey) };
 
 
+    // targetVendorTemplate Field Functions 
+    bool hasTargetVendorTemplate() const { return this->targetVendorTemplate_ != nullptr;};
+    void deleteTargetVendorTemplate() { this->targetVendorTemplate_ = nullptr;};
+    inline string getTargetVendorTemplate() const { DARABONBA_PTR_GET_DEFAULT(targetVendorTemplate_, "") };
+    inline PushTemplateRequest& setTargetVendorTemplate(string targetVendorTemplate) { DARABONBA_PTR_SET_VALUE(targetVendorTemplate_, targetVendorTemplate) };
+
+
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
@@ -261,11 +275,25 @@ namespace Models
     inline PushTemplateRequest& setTransparentMessageUrgency(string transparentMessageUrgency) { DARABONBA_PTR_SET_VALUE(transparentMessageUrgency_, transparentMessageUrgency) };
 
 
+    // useVoip Field Functions 
+    bool hasUseVoip() const { return this->useVoip_ != nullptr;};
+    void deleteUseVoip() { this->useVoip_ = nullptr;};
+    inline bool getUseVoip() const { DARABONBA_PTR_GET_DEFAULT(useVoip_, false) };
+    inline PushTemplateRequest& setUseVoip(bool useVoip) { DARABONBA_PTR_SET_VALUE(useVoip_, useVoip) };
+
+
     // vendorTemplate Field Functions 
     bool hasVendorTemplate() const { return this->vendorTemplate_ != nullptr;};
     void deleteVendorTemplate() { this->vendorTemplate_ = nullptr;};
     inline string getVendorTemplate() const { DARABONBA_PTR_GET_DEFAULT(vendorTemplate_, "") };
     inline PushTemplateRequest& setVendorTemplate(string vendorTemplate) { DARABONBA_PTR_SET_VALUE(vendorTemplate_, vendorTemplate) };
+
+
+    // voipMap Field Functions 
+    bool hasVoipMap() const { return this->voipMap_ != nullptr;};
+    void deleteVoipMap() { this->voipMap_ = nullptr;};
+    inline string getVoipMap() const { DARABONBA_PTR_GET_DEFAULT(voipMap_, "") };
+    inline PushTemplateRequest& setVoipMap(string voipMap) { DARABONBA_PTR_SET_VALUE(voipMap_, voipMap) };
 
 
     // workspaceId Field Functions 
@@ -297,6 +325,7 @@ namespace Models
     shared_ptr<int32_t> strategyType_ {};
     // This parameter is required.
     shared_ptr<string> targetMsgkey_ {};
+    shared_ptr<string> targetVendorTemplate_ {};
     shared_ptr<string> taskName_ {};
     shared_ptr<string> templateKeyValue_ {};
     // This parameter is required.
@@ -305,7 +334,9 @@ namespace Models
     Darabonba::Json thirdChannelCategory_ {};
     Darabonba::Json transparentMessagePayload_ {};
     shared_ptr<string> transparentMessageUrgency_ {};
+    shared_ptr<bool> useVoip_ {};
     shared_ptr<string> vendorTemplate_ {};
+    shared_ptr<string> voipMap_ {};
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

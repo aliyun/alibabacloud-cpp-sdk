@@ -2,11 +2,13 @@
 #include <alibabacloud/MPaaS20200710.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::MPaaS20200710::Models;
@@ -17,6 +19,9 @@ namespace MPaaS20200710
 {
 
 AlibabaCloud::MPaaS20200710::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "mPaaS";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-hangzhou" , "mpaas.aliyuncs.com"},
@@ -3321,6 +3326,10 @@ PushSimpleResponse Client::pushSimpleWithOptions(const PushSimpleRequest &tmpReq
     body["TargetMsgkey"] = request.getTargetMsgkey();
   }
 
+  if (!!request.hasTargetVendorTemplate()) {
+    body["TargetVendorTemplate"] = request.getTargetVendorTemplate();
+  }
+
   if (!!request.hasTaskName()) {
     body["TaskName"] = request.getTaskName();
   }
@@ -3349,8 +3358,16 @@ PushSimpleResponse Client::pushSimpleWithOptions(const PushSimpleRequest &tmpReq
     body["Uri"] = request.getUri();
   }
 
+  if (!!request.hasUseVoip()) {
+    body["UseVoip"] = request.getUseVoip();
+  }
+
   if (!!request.hasVendorTemplate()) {
     body["VendorTemplate"] = request.getVendorTemplate();
+  }
+
+  if (!!request.hasVoipMap()) {
+    body["VoipMap"] = request.getVoipMap();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -3469,6 +3486,10 @@ PushTemplateResponse Client::pushTemplateWithOptions(const PushTemplateRequest &
     body["TargetMsgkey"] = request.getTargetMsgkey();
   }
 
+  if (!!request.hasTargetVendorTemplate()) {
+    body["TargetVendorTemplate"] = request.getTargetVendorTemplate();
+  }
+
   if (!!request.hasTaskName()) {
     body["TaskName"] = request.getTaskName();
   }
@@ -3497,8 +3518,16 @@ PushTemplateResponse Client::pushTemplateWithOptions(const PushTemplateRequest &
     body["TransparentMessageUrgency"] = request.getTransparentMessageUrgency();
   }
 
+  if (!!request.hasUseVoip()) {
+    body["UseVoip"] = request.getUseVoip();
+  }
+
   if (!!request.hasVendorTemplate()) {
     body["VendorTemplate"] = request.getVendorTemplate();
+  }
+
+  if (!!request.hasVoipMap()) {
+    body["VoipMap"] = request.getVoipMap();
   }
 
   if (!!request.hasWorkspaceId()) {
