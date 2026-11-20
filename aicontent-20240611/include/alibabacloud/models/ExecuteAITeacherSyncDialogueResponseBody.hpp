@@ -95,13 +95,13 @@ namespace Models
 
 
     protected:
-      // The English response from the AI teacher.
+      // The English reply from the AI teacher.
       shared_ptr<string> englishResult_ {};
-      // Indicates whether the dialogue is finished.
+      // Indicates whether the conversation is completed.
       shared_ptr<bool> isFinish_ {};
-      // Indicates whether the user\\"s response is on topic.
+      // Indicates whether the response is on topic.
       shared_ptr<bool> isOnTopic_ {};
-      // The index of the current question.
+      // The index of the current question being answered.
       shared_ptr<int32_t> questionIndex_ {};
     };
 
@@ -154,7 +154,7 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<ExecuteAITeacherSyncDialogueResponseBody::Data> data_ {};
-    // The error code.
+    // The fault error message encoding.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
@@ -162,7 +162,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

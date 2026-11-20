@@ -140,17 +140,29 @@ namespace Models
 
 
   protected:
+    // The comma-separated list of authorized model IDs. This field is valid only when include_authorization is specified. An empty value indicates that the models are inherited or all models are authorized.
     shared_ptr<string> allowedModels_ {};
+    // The authorization configuration. Valid values: inherit: Inherited from the department. custom: Customized. This field is valid only when include_authorization is specified.
     shared_ptr<string> authConfig_ {};
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
+    // The member user ID.
     shared_ptr<int64_t> id_ {};
+    // The number of active keys that belong to the member. This field is valid only when include_authorization is specified.
     shared_ptr<int32_t> keyCount_ {};
+    // The logon name.
     shared_ptr<string> loginName_ {};
+    // The monthly balance. This field is valid only when include_balance is specified. The value is 0 if the feature is not activated.
     shared_ptr<double> monthlyBalance_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The permanent balance. This field is valid only when include_balance is specified. The value is 0 if the feature is not activated.
     shared_ptr<double> permanentBalance_ {};
+    // The mobile phone number.
     shared_ptr<string> phone_ {};
+    // The role code.
     shared_ptr<string> roleCode_ {};
+    // The role name.
     shared_ptr<string> roleName_ {};
   };
 

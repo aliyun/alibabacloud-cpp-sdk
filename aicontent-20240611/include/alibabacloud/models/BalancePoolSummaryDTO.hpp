@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The balance allocated to users equals the sum of the sub-wallet balances of all members in the department.
     shared_ptr<double> allocated_ {};
+    // The available department balance equals the sub-wallet balance of the department.
     shared_ptr<double> available_ {};
+    // The total amount equals the available department balance plus the balance allocated to users.
     shared_ptr<double> total_ {};
   };
 

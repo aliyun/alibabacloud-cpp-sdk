@@ -186,22 +186,39 @@ namespace Models
 
 
   protected:
+    // The company address.
     shared_ptr<string> address_ {};
+    // The authorization management configuration in the format of {"model_ids":[...],"group_ids":[...]}. An empty value indicates that group authorization is not used.
     shared_ptr<string> allowedModelGroupConfig_ {};
+    // The list of allowed model IDs, separated by commas. An empty value indicates all models.
     shared_ptr<string> allowedModels_ {};
+    // The customer UUID.
     shared_ptr<string> clientUuid_ {};
+    // The contact information.
     shared_ptr<string> contact_ {};
+    // The status. A value of 0 indicates enabled, and a non-zero value indicates disabled.
     shared_ptr<int32_t> deleteTag_ {};
+    // The discount factor. A value of 1.0 indicates no discount.
     shared_ptr<double> discount_ {};
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
+    // The update time.
     shared_ptr<string> gmtModified_ {};
+    // ID
     shared_ptr<int64_t> id_ {};
+    // The hierarchy level. Valid values: 1 to 5.
     shared_ptr<int32_t> level_ {};
+    // The account type. A value of 0 indicates a main account, and a value of 1 indicates a regular account.
     shared_ptr<int32_t> main_ {};
+    // The customer name.
     shared_ptr<string> name_ {};
+    // The node type. Valid values: department: Department. user: User node, which is a leaf in the department tree.
     shared_ptr<string> nodeType_ {};
+    // The parent department ID. An empty value indicates the top level.
     shared_ptr<int64_t> parentId_ {};
+    // The remarks.
     shared_ptr<string> remark_ {};
+    // The user ID. This field has a value only when the node type is user.
     shared_ptr<int64_t> userId_ {};
   };
 

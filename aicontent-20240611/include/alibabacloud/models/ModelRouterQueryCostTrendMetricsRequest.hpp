@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(granularity, granularity_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(memberUserIds, memberUserIds_);
+      DARABONBA_PTR_TO_JSON(modelIds, modelIds_);
       DARABONBA_PTR_TO_JSON(modelTypes, modelTypes_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(startTime, startTime_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(granularity, granularity_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(memberUserIds, memberUserIds_);
+      DARABONBA_PTR_FROM_JSON(modelIds, modelIds_);
       DARABONBA_PTR_FROM_JSON(modelTypes, modelTypes_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(startTime, startTime_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
         && this->clientId_ == nullptr && this->clientIds_ == nullptr && this->endTime_ == nullptr && this->granularity_ == nullptr && this->maxResults_ == nullptr
-        && this->memberUserIds_ == nullptr && this->modelTypes_ == nullptr && this->nextToken_ == nullptr && this->startTime_ == nullptr; };
+        && this->memberUserIds_ == nullptr && this->modelIds_ == nullptr && this->modelTypes_ == nullptr && this->nextToken_ == nullptr && this->startTime_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -99,6 +101,13 @@ namespace Models
     inline ModelRouterQueryCostTrendMetricsRequest& setMemberUserIds(string memberUserIds) { DARABONBA_PTR_SET_VALUE(memberUserIds_, memberUserIds) };
 
 
+    // modelIds Field Functions 
+    bool hasModelIds() const { return this->modelIds_ != nullptr;};
+    void deleteModelIds() { this->modelIds_ = nullptr;};
+    inline string getModelIds() const { DARABONBA_PTR_GET_DEFAULT(modelIds_, "") };
+    inline ModelRouterQueryCostTrendMetricsRequest& setModelIds(string modelIds) { DARABONBA_PTR_SET_VALUE(modelIds_, modelIds) };
+
+
     // modelTypes Field Functions 
     bool hasModelTypes() const { return this->modelTypes_ != nullptr;};
     void deleteModelTypes() { this->modelTypes_ = nullptr;};
@@ -142,6 +151,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // Optional. Filters by member IDs, separated by commas. If not specified, data for the department and all its members is returned. If an empty value is specified, only department data without members is returned.
     shared_ptr<string> memberUserIds_ {};
+    shared_ptr<string> modelIds_ {};
     // The model types, separated by commas.
     shared_ptr<string> modelTypes_ {};
     // nextToken

@@ -89,15 +89,15 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<ModelDTO> data_ {};
-    // The fault code.
+    // The encoding of the error message for the fault.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

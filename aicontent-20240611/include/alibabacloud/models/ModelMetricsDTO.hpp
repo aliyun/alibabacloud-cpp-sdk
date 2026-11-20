@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The average response time (ms).
     shared_ptr<double> avgResponseTime_ {};
+    // The total number of input tokens.
     shared_ptr<int64_t> inputTokens_ {};
+    // The total number of output tokens.
     shared_ptr<int64_t> outputTokens_ {};
+    // The success rate (%).
     shared_ptr<double> successRate_ {};
+    // The total number of calls.
     shared_ptr<int64_t> totalCalls_ {};
   };
 

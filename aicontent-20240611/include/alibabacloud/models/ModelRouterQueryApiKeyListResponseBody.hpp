@@ -119,11 +119,17 @@ namespace Models
 
 
     protected:
+      // The elements.
       shared_ptr<vector<ApiKeyDTO>> list_ {};
+      // The page size. Default value: 20.
       shared_ptr<string> maxResult_ {};
+      // nextToken
       shared_ptr<string> nextToken_ {};
+      // The page number.
       shared_ptr<int32_t> page_ {};
+      // The number of items per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -184,7 +190,7 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<ModelRouterQueryApiKeyListResponseBody::Data> data_ {};
-    // The error message code.
+    // The fault message encoding.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
@@ -194,7 +200,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

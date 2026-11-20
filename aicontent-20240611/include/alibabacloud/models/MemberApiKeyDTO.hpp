@@ -152,18 +152,31 @@ namespace Models
 
 
   protected:
+    // The parent department information.
     shared_ptr<ClientDTO> client_ {};
+    // The ID of the parent department. Member keys are mapped to their parent departments.
     shared_ptr<int64_t> clientId_ {};
+    // The deletion tag. A value of 0 indicates that the key is enabled, and a non-zero value indicates that the key is disabled.
     shared_ptr<int32_t> deleteTag_ {};
+    // The expiration time. A null value indicates that the key never expires.
     shared_ptr<string> expireAt_ {};
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
+    // The update time.
     shared_ptr<string> gmtModified_ {};
+    // The API key ID. This ID can be used to query the bound group by API key.
     shared_ptr<int64_t> id_ {};
+    // The full key. This field is not returned in the member list and is always empty.
     shared_ptr<string> key_ {};
+    // The masked preview of the API key.
     shared_ptr<string> keyPreview_ {};
+    // The ID of the department member to whom the key belongs.
     shared_ptr<int64_t> memberUserId_ {};
+    // The member name.
     shared_ptr<string> memberUserName_ {};
+    // The API key name.
     shared_ptr<string> name_ {};
+    // The status. Valid values: active: Enabled. disabled: Disabled.
     shared_ptr<string> status_ {};
   };
 

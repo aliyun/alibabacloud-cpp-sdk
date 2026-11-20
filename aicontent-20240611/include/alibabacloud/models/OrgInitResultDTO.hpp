@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The returned plaintext API key, which is visible only once during initialization.
     shared_ptr<string> apiKey_ {};
+    // The customer ID.
     shared_ptr<int64_t> clientId_ {};
+    // The customer unique identifier.
     shared_ptr<string> clientUuid_ {};
+    // Indicates whether it is newly created. A value of false indicates that it already exists.
     shared_ptr<bool> isNew_ {};
+    // The enterprise ID.
     shared_ptr<int64_t> orgId_ {};
+    // The user ID.
     shared_ptr<int64_t> userId_ {};
   };
 

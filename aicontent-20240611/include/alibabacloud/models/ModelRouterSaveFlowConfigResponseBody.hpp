@@ -123,19 +123,19 @@ namespace Models
 
 
     protected:
-      // The creation time of the configuration.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The last modification time of the configuration.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
-      // The ID of the flow control configuration.
+      // The rate limiting configuration ID.
       shared_ptr<int64_t> id_ {};
       // The model ID.
       shared_ptr<int32_t> modelId_ {};
-      // The configured RPM.
+      // The requests per minute (RPM) limit.
       shared_ptr<int32_t> rpm_ {};
-      // Indicates whether smooth flow control is enabled.
+      // Specifies whether smooth rate limiting is enabled.
       shared_ptr<bool> smoothFlowEnabled_ {};
-      // The configured TPM.
+      // The tokens per minute (TPM) limit.
       shared_ptr<int32_t> tpm_ {};
     };
 
@@ -186,17 +186,17 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response data.
     shared_ptr<ModelRouterSaveFlowConfigResponseBody::Data> data_ {};
-    // The error code returned if the request fails.
+    // The fault message code.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request fails.
+    // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

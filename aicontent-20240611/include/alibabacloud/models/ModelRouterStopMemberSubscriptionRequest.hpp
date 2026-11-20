@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The balance type. Valid values: permanent, monthly.
     shared_ptr<string> balanceType_ {};
   };
 

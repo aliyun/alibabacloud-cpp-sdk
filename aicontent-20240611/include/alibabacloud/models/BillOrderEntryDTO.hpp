@@ -158,19 +158,33 @@ namespace Models
 
 
   protected:
+    // The change amount.
     shared_ptr<double> amount_ {};
+    // The balance after the change.
     shared_ptr<double> balanceAfter_ {};
+    // The balance before the change.
     shared_ptr<double> balanceBefore_ {};
+    // The balance type: permanent/monthly.
     shared_ptr<string> balanceType_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The change direction: in/out.
     shared_ptr<string> direction_ {};
+    // The model code (available when gateway billing deduction is applied).
     shared_ptr<string> modelCode_ {};
+    // The operator ID.
     shared_ptr<string> operatorId_ {};
+    // The change record ID.
     shared_ptr<string> orderId_ {};
+    // The change type.
     shared_ptr<string> orderType_ {};
+    // The remark.
     shared_ptr<string> remark_ {};
+    // The source.
     shared_ptr<string> source_ {};
+    // The total balance after the change.
     shared_ptr<double> totalAfter_ {};
+    // The total balance before the change.
     shared_ptr<double> totalBefore_ {};
   };
 

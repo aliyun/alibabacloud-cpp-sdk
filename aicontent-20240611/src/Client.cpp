@@ -2,12 +2,14 @@
 #include <alibabacloud/AiContent20240611.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -19,6 +21,9 @@ namespace AiContent20240611
 {
 
 AlibabaCloud::AiContent20240611::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "AiContent";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-shanghai" , "aicontent.aliyuncs.com"},
@@ -457,7 +462,7 @@ CountOralEvaluationStatisticsErrorResponse Client::countOralEvaluationStatistics
 }
 
 /**
- * @summary Creates an access warrant.
+ * @summary Creates authorization credentials in the Alibaba Cloud Management Console.
  *
  * @param request CreateAccessWarrantRequest
  * @param headers map
@@ -510,7 +515,7 @@ CreateAccessWarrantResponse Client::createAccessWarrantWithOptions(const CreateA
 }
 
 /**
- * @summary Creates an access warrant.
+ * @summary Creates authorization credentials in the Alibaba Cloud Management Console.
  *
  * @param request CreateAccessWarrantRequest
  * @return CreateAccessWarrantResponse
@@ -1015,7 +1020,7 @@ ExecuteAITeacherEnglishParaphraseChatMessageResponse Client::executeAITeacherEng
 }
 
 /**
- * @summary Expansion dialogues are for open-ended conversations. In these conversations, the AI poses open-ended questions, but the user must stay on topic. If a user\\"s response is off-topic, the AI steers the conversation back on topic. If the user gives two consecutive off-topic responses, the AI moves on to the next topic.
+ * @summary Conducts extended practice conversations primarily for open-ended communication scenarios. During the practice, although the questions raised by the AI do not have preset answers, the user must still answer within the relevant topic. If the user\\"s answer deviates from the topic, the AI will attempt to guide them back to the topic. If the user goes off-topic twice in a row, the AI will guide them to proceed to the next topic.
  *
  * @param request ExecuteAITeacherExpansionDialogueRequest
  * @param headers map
@@ -1076,7 +1081,7 @@ ExecuteAITeacherExpansionDialogueResponse Client::executeAITeacherExpansionDialo
 }
 
 /**
- * @summary Expansion dialogues are for open-ended conversations. In these conversations, the AI poses open-ended questions, but the user must stay on topic. If a user\\"s response is off-topic, the AI steers the conversation back on topic. If the user gives two consecutive off-topic responses, the AI moves on to the next topic.
+ * @summary Conducts extended practice conversations primarily for open-ended communication scenarios. During the practice, although the questions raised by the AI do not have preset answers, the user must still answer within the relevant topic. If the user\\"s answer deviates from the topic, the AI will attempt to guide them back to the topic. If the user goes off-topic twice in a row, the AI will guide them to proceed to the next topic.
  *
  * @param request ExecuteAITeacherExpansionDialogueRequest
  * @return ExecuteAITeacherExpansionDialogueResponse
@@ -1088,7 +1093,7 @@ ExecuteAITeacherExpansionDialogueResponse Client::executeAITeacherExpansionDialo
 }
 
 /**
- * @summary Uses context to polish the expanded text.
+ * @summary Polishes the extension exercise based on the context.
  *
  * @param request ExecuteAITeacherExpansionDialogueRefineRequest
  * @param headers map
@@ -1149,7 +1154,7 @@ ExecuteAITeacherExpansionDialogueRefineResponse Client::executeAITeacherExpansio
 }
 
 /**
- * @summary Uses context to polish the expanded text.
+ * @summary Polishes the extension exercise based on the context.
  *
  * @param request ExecuteAITeacherExpansionDialogueRefineRequest
  * @return ExecuteAITeacherExpansionDialogueRefineResponse
@@ -1161,7 +1166,7 @@ ExecuteAITeacherExpansionDialogueRefineResponse Client::executeAITeacherExpansio
 }
 
 /**
- * @summary Further Contextual Translation Practice.
+ * @summary Translates the context for extended practice.
  *
  * @param request ExecuteAITeacherExpansionDialogueTranslateRequest
  * @param headers map
@@ -1218,7 +1223,7 @@ ExecuteAITeacherExpansionDialogueTranslateResponse Client::executeAITeacherExpan
 }
 
 /**
- * @summary Further Contextual Translation Practice.
+ * @summary Translates the context for extended practice.
  *
  * @param request ExecuteAITeacherExpansionDialogueTranslateRequest
  * @return ExecuteAITeacherExpansionDialogueTranslateResponse
@@ -1279,7 +1284,7 @@ ExecuteAITeacherGrammarCheckResponse Client::executeAITeacherGrammarCheck(const 
 }
 
 /**
- * @summary Practice synchronous dialogue.
+ * @summary Conducts a synchronous practice conversation.
  *
  * @param request ExecuteAITeacherSyncDialogueRequest
  * @param headers map
@@ -1324,7 +1329,7 @@ ExecuteAITeacherSyncDialogueResponse Client::executeAITeacherSyncDialogueWithOpt
 }
 
 /**
- * @summary Practice synchronous dialogue.
+ * @summary Conducts a synchronous practice conversation.
  *
  * @param request ExecuteAITeacherSyncDialogueRequest
  * @return ExecuteAITeacherSyncDialogueResponse
@@ -1336,7 +1341,7 @@ ExecuteAITeacherSyncDialogueResponse Client::executeAITeacherSyncDialogue(const 
 }
 
 /**
- * @summary You can practice contextual translation in real-time.
+ * @summary Translates context for synchronous practice.
  *
  * @param request ExecuteAITeacherSyncDialogueTranslateRequest
  * @param headers map
@@ -1377,7 +1382,7 @@ ExecuteAITeacherSyncDialogueTranslateResponse Client::executeAITeacherSyncDialog
 }
 
 /**
- * @summary You can practice contextual translation in real-time.
+ * @summary Translates context for synchronous practice.
  *
  * @param request ExecuteAITeacherSyncDialogueTranslateRequest
  * @return ExecuteAITeacherSyncDialogueTranslateResponse
@@ -1961,7 +1966,7 @@ ExecuteTextbookAssistantTranslateResponse Client::executeTextbookAssistantTransl
 }
 
 /**
- * @summary Supplemental Practice Assistant
+ * @summary Retrieves prompts for the extended practice assistant.
  *
  * @param request GetAITeacherExpansionDialogueSuggestionRequest
  * @param headers map
@@ -2022,7 +2027,7 @@ GetAITeacherExpansionDialogueSuggestionResponse Client::getAITeacherExpansionDia
 }
 
 /**
- * @summary Supplemental Practice Assistant
+ * @summary Retrieves prompts for the extended practice assistant.
  *
  * @param request GetAITeacherExpansionDialogueSuggestionRequest
  * @return GetAITeacherExpansionDialogueSuggestionResponse
@@ -2034,7 +2039,7 @@ GetAITeacherExpansionDialogueSuggestionResponse Client::getAITeacherExpansionDia
 }
 
 /**
- * @summary Sync Practice Assistant
+ * @summary Retrieves the prompts for the sync practice assistant.
  *
  * @param request GetAITeacherSyncDialogueSuggestionRequest
  * @param headers map
@@ -2079,7 +2084,7 @@ GetAITeacherSyncDialogueSuggestionResponse Client::getAITeacherSyncDialogueSugge
 }
 
 /**
- * @summary Sync Practice Assistant
+ * @summary Retrieves the prompts for the sync practice assistant.
  *
  * @param request GetAITeacherSyncDialogueSuggestionRequest
  * @return GetAITeacherSyncDialogueSuggestionResponse
@@ -2140,7 +2145,7 @@ GetTextbookAssistantTokenResponse Client::getTextbookAssistantToken(const GetTex
 }
 
 /**
- * @summary Batch get article details
+ * @summary Retrieves the details of multiple articles.
  *
  * @param request ListTextbookAssistantArticleDetailsRequest
  * @param headers map
@@ -2177,7 +2182,7 @@ ListTextbookAssistantArticleDetailsResponse Client::listTextbookAssistantArticle
 }
 
 /**
- * @summary Batch get article details
+ * @summary Retrieves the details of multiple articles.
  *
  * @param request ListTextbookAssistantArticleDetailsRequest
  * @return ListTextbookAssistantArticleDetailsResponse
@@ -2360,7 +2365,7 @@ ListTextbookAssistantBooksResponse Client::listTextbookAssistantBooks(const List
 }
 
 /**
- * @summary Retrieves the available grades and volumes for the Textbook Assistant.
+ * @summary Retrieves the list of grades that have English textbook resources.
  *
  * @param request ListTextbookAssistantGradeVolumesRequest
  * @param headers map
@@ -2397,7 +2402,7 @@ ListTextbookAssistantGradeVolumesResponse Client::listTextbookAssistantGradeVolu
 }
 
 /**
- * @summary Retrieves the available grades and volumes for the Textbook Assistant.
+ * @summary Retrieves the list of grades that have English textbook resources.
  *
  * @param request ListTextbookAssistantGradeVolumesRequest
  * @return ListTextbookAssistantGradeVolumesResponse
@@ -2409,7 +2414,7 @@ ListTextbookAssistantGradeVolumesResponse Client::listTextbookAssistantGradeVolu
 }
 
 /**
- * @summary Get Article Details
+ * @summary Retrieves the details of an article.
  *
  * @param request ListTextbookAssistantSceneDetailsRequest
  * @param headers map
@@ -2446,7 +2451,7 @@ ListTextbookAssistantSceneDetailsResponse Client::listTextbookAssistantSceneDeta
 }
 
 /**
- * @summary Get Article Details
+ * @summary Retrieves the details of an article.
  *
  * @param request ListTextbookAssistantSceneDetailsRequest
  * @return ListTextbookAssistantSceneDetailsResponse
@@ -2940,7 +2945,7 @@ ModelRouterChatCompletionsResponse Client::modelRouterChatCompletions(const Mode
 }
 
 /**
- * @summary Enables balance-based throttling for a department.
+ * @summary Enables department balance throttling.
  *
  * @param request ModelRouterConfigureClientBalanceRequest
  * @param headers map
@@ -2981,7 +2986,7 @@ ModelRouterConfigureClientBalanceResponse Client::modelRouterConfigureClientBala
 }
 
 /**
- * @summary Enables balance-based throttling for a department.
+ * @summary Enables department balance throttling.
  *
  * @param request ModelRouterConfigureClientBalanceRequest
  * @return ModelRouterConfigureClientBalanceResponse
@@ -3546,7 +3551,7 @@ ModelRouterCreateMemberSubscriptionResponse Client::modelRouterCreateMemberSubsc
 }
 
 /**
- * @summary Performs model creation.
+ * @summary Manages model creation.
  *
  * @param request ModelRouterCreateModelRequest
  * @param headers map
@@ -3623,7 +3628,7 @@ ModelRouterCreateModelResponse Client::modelRouterCreateModelWithOptions(const M
 }
 
 /**
- * @summary Performs model creation.
+ * @summary Manages model creation.
  *
  * @param request ModelRouterCreateModelRequest
  * @return ModelRouterCreateModelResponse
@@ -4266,7 +4271,7 @@ ModelRouterGetClientBalanceLogsResponse Client::modelRouterGetClientBalanceLogs(
 }
 
 /**
- * @summary Retrieves the balance overview of a department.
+ * @summary Retrieves the department balance overview.
  *
  * @param request ModelRouterGetDeptBalanceSummaryRequest
  * @param headers map
@@ -4293,7 +4298,7 @@ ModelRouterGetDeptBalanceSummaryResponse Client::modelRouterGetDeptBalanceSummar
 }
 
 /**
- * @summary Retrieves the balance overview of a department.
+ * @summary Retrieves the department balance overview.
  *
  * @param request ModelRouterGetDeptBalanceSummaryRequest
  * @return ModelRouterGetDeptBalanceSummaryResponse
@@ -4938,7 +4943,7 @@ ModelRouterQueryApiKeyResponse Client::modelRouterQueryApiKey(const string &id) 
 }
 
 /**
- * @summary Retrieves a list of API keys.
+ * @summary Queries a list of API keys.
  *
  * @param request ModelRouterQueryApiKeyListRequest
  * @param headers map
@@ -5019,7 +5024,7 @@ ModelRouterQueryApiKeyListResponse Client::modelRouterQueryApiKeyListWithOptions
 }
 
 /**
- * @summary Retrieves a list of API keys.
+ * @summary Queries a list of API keys.
  *
  * @param request ModelRouterQueryApiKeyListRequest
  * @return ModelRouterQueryApiKeyListResponse
@@ -5343,7 +5348,7 @@ ModelRouterQueryClientDiscountLogsResponse Client::modelRouterQueryClientDiscoun
 }
 
 /**
- * @summary Retrieves a list of clients.
+ * @summary Queries a list of customers.
  *
  * @param request ModelRouterQueryClientListRequest
  * @param headers map
@@ -5416,7 +5421,7 @@ ModelRouterQueryClientListResponse Client::modelRouterQueryClientListWithOptions
 }
 
 /**
- * @summary Retrieves a list of clients.
+ * @summary Queries a list of customers.
  *
  * @param request ModelRouterQueryClientListRequest
  * @return ModelRouterQueryClientListResponse
@@ -5683,7 +5688,7 @@ ModelRouterQueryCostModelDetailResponse Client::modelRouterQueryCostModelDetail(
 }
 
 /**
- * @summary Retrieves the list of models called for billing management.
+ * @summary Retrieves a list of invoked models for billing management.
  *
  * @param request ModelRouterQueryCostModelListRequest
  * @param headers map
@@ -5721,6 +5726,10 @@ ModelRouterQueryCostModelListResponse Client::modelRouterQueryCostModelListWithO
     query["memberUserIds"] = request.getMemberUserIds();
   }
 
+  if (!!request.hasModelIds()) {
+    query["modelIds"] = request.getModelIds();
+  }
+
   if (!!request.hasModelTypes()) {
     query["modelTypes"] = request.getModelTypes();
   }
@@ -5756,7 +5765,7 @@ ModelRouterQueryCostModelListResponse Client::modelRouterQueryCostModelListWithO
 }
 
 /**
- * @summary Retrieves the list of models called for billing management.
+ * @summary Retrieves a list of invoked models for billing management.
  *
  * @param request ModelRouterQueryCostModelListRequest
  * @return ModelRouterQueryCostModelListResponse
@@ -5885,6 +5894,10 @@ ModelRouterQueryCostTrendMetricsResponse Client::modelRouterQueryCostTrendMetric
 
   if (!!request.hasMemberUserIds()) {
     query["memberUserIds"] = request.getMemberUserIds();
+  }
+
+  if (!!request.hasModelIds()) {
+    query["modelIds"] = request.getModelIds();
   }
 
   if (!!request.hasModelTypes()) {
@@ -6265,9 +6278,9 @@ ModelRouterQueryModelGroupUsersResponse Client::modelRouterQueryModelGroupUsers(
 }
 
 /**
- * @summary Queries the bound groups and models by API key.
+ * @summary Queries the groups and models bound to an API key.
  *
- * @description Queries the bound groups and models by API key.
+ * @description Queries the groups and models bound to an API key.
  *
  * @param request ModelRouterQueryModelGroupsByApiKeyRequest
  * @param headers map
@@ -6294,9 +6307,9 @@ ModelRouterQueryModelGroupsByApiKeyResponse Client::modelRouterQueryModelGroupsB
 }
 
 /**
- * @summary Queries the bound groups and models by API key.
+ * @summary Queries the groups and models bound to an API key.
  *
- * @description Queries the bound groups and models by API key.
+ * @description Queries the groups and models bound to an API key.
  *
  * @param request ModelRouterQueryModelGroupsByApiKeyRequest
  * @return ModelRouterQueryModelGroupsByApiKeyResponse
@@ -6308,7 +6321,7 @@ ModelRouterQueryModelGroupsByApiKeyResponse Client::modelRouterQueryModelGroupsB
 }
 
 /**
- * @summary Model management/Get model list
+ * @summary Retrieves a list of models.
  *
  * @param request ModelRouterQueryModelListRequest
  * @param headers map
@@ -6381,7 +6394,7 @@ ModelRouterQueryModelListResponse Client::modelRouterQueryModelListWithOptions(c
 }
 
 /**
- * @summary Model management/Get model list
+ * @summary Retrieves a list of models.
  *
  * @param request ModelRouterQueryModelListRequest
  * @return ModelRouterQueryModelListResponse
@@ -6393,7 +6406,7 @@ ModelRouterQueryModelListResponse Client::modelRouterQueryModelList(const ModelR
 }
 
 /**
- * @summary Queries the list of Nacos service providers through Nacos configuration.
+ * @summary Retrieves the Nacos configuration and the list of Nacos service providers.
  *
  * @param request ModelRouterQueryNacosProvidersRequest
  * @param headers map
@@ -6454,7 +6467,7 @@ ModelRouterQueryNacosProvidersResponse Client::modelRouterQueryNacosProvidersWit
 }
 
 /**
- * @summary Queries the list of Nacos service providers through Nacos configuration.
+ * @summary Retrieves the Nacos configuration and the list of Nacos service providers.
  *
  * @param request ModelRouterQueryNacosProvidersRequest
  * @return ModelRouterQueryNacosProvidersResponse
@@ -6466,7 +6479,7 @@ ModelRouterQueryNacosProvidersResponse Client::modelRouterQueryNacosProviders(co
 }
 
 /**
- * @summary Retrieves a list of tags from Nacos.
+ * @summary Queries the list of Nacos tags.
  *
  * @param request ModelRouterQueryNacosTagsRequest
  * @param headers map
@@ -6531,7 +6544,7 @@ ModelRouterQueryNacosTagsResponse Client::modelRouterQueryNacosTagsWithOptions(c
 }
 
 /**
- * @summary Retrieves a list of tags from Nacos.
+ * @summary Queries the list of Nacos tags.
  *
  * @param request ModelRouterQueryNacosTagsRequest
  * @return ModelRouterQueryNacosTagsResponse
@@ -7060,7 +7073,7 @@ ModelRouterResetMemberAuthorizationResponse Client::modelRouterResetMemberAuthor
 }
 
 /**
- * @summary Flow control management / Save flow control configuration
+ * @summary Configures write rate limiting.
  *
  * @param request ModelRouterSaveFlowConfigRequest
  * @param headers map
@@ -7105,7 +7118,7 @@ ModelRouterSaveFlowConfigResponse Client::modelRouterSaveFlowConfigWithOptions(c
 }
 
 /**
- * @summary Flow control management / Save flow control configuration
+ * @summary Configures write rate limiting.
  *
  * @param request ModelRouterSaveFlowConfigRequest
  * @return ModelRouterSaveFlowConfigResponse
@@ -7260,7 +7273,7 @@ ModelRouterSetUserRolesResponse Client::modelRouterSetUserRoles(const string &id
 }
 
 /**
- * @summary 组织管理/停止成员订阅
+ * @summary Stops a member subscription.
  *
  * @param request ModelRouterStopMemberSubscriptionRequest
  * @param headers map
@@ -7293,7 +7306,7 @@ ModelRouterStopMemberSubscriptionResponse Client::modelRouterStopMemberSubscript
 }
 
 /**
- * @summary 组织管理/停止成员订阅
+ * @summary Stops a member subscription.
  *
  * @param request ModelRouterStopMemberSubscriptionRequest
  * @return ModelRouterStopMemberSubscriptionResponse
@@ -7956,7 +7969,7 @@ PersonalizedTextToImageQueryImageAssetResponse Client::personalizedTextToImageQu
 }
 
 /**
- * @summary Queries the status of a personalized text-to-image inference job.
+ * @summary Queries the status of a preset model inference task for personalized text-to-image generation.
  *
  * @param request PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
  * @param headers map
@@ -7989,7 +8002,7 @@ PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse Client::personalize
 }
 
 /**
- * @summary Queries the status of a personalized text-to-image inference job.
+ * @summary Queries the status of a preset model inference task for personalized text-to-image generation.
  *
  * @param request PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
  * @return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse
@@ -8001,7 +8014,7 @@ PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse Client::personalize
 }
 
 /**
- * @summary Creates an inference job to generate images based on a personalized text-to-image model.
+ * @summary Creates an image inference task based on a specified model for personalized text-to-image generation.
  *
  * @param request Personalizedtxt2imgAddInferenceJobRequest
  * @param headers map
@@ -8046,7 +8059,7 @@ Personalizedtxt2imgAddInferenceJobResponse Client::personalizedtxt2imgAddInferen
 }
 
 /**
- * @summary Creates an inference job to generate images based on a personalized text-to-image model.
+ * @summary Creates an image inference task based on a specified model for personalized text-to-image generation.
  *
  * @param request Personalizedtxt2imgAddInferenceJobRequest
  * @return Personalizedtxt2imgAddInferenceJobResponse
@@ -8172,7 +8185,7 @@ Personalizedtxt2imgQueryImageAssetResponse Client::personalizedtxt2imgQueryImage
 }
 
 /**
- * @summary Retrieves the status and results of a Personalizedtxt2img inference job.
+ * @summary Queries the status and results of a personalized text-to-image model inference task.
  *
  * @param request Personalizedtxt2imgQueryInferenceJobInfoRequest
  * @param headers map
@@ -8205,7 +8218,7 @@ Personalizedtxt2imgQueryInferenceJobInfoResponse Client::personalizedtxt2imgQuer
 }
 
 /**
- * @summary Retrieves the status and results of a Personalizedtxt2img inference job.
+ * @summary Queries the status and results of a personalized text-to-image model inference task.
  *
  * @param request Personalizedtxt2imgQueryInferenceJobInfoRequest
  * @return Personalizedtxt2imgQueryInferenceJobInfoResponse
@@ -8298,7 +8311,7 @@ Personalizedtxt2imgQueryModelTrainStatusResponse Client::personalizedtxt2imgQuer
 }
 
 /**
- * @summary Queries information about an application access ID (appkey).
+ * @summary Retrieves the application access identifier (appkey) information from the Alibaba Cloud Management Console.
  *
  * @param request QueryApplicationAccessIdRequest
  * @param headers map
@@ -8331,7 +8344,7 @@ QueryApplicationAccessIdResponse Client::queryApplicationAccessIdWithOptions(con
 }
 
 /**
- * @summary Queries information about an application access ID (appkey).
+ * @summary Retrieves the application access identifier (appkey) information from the Alibaba Cloud Management Console.
  *
  * @param request QueryApplicationAccessIdRequest
  * @return QueryApplicationAccessIdResponse

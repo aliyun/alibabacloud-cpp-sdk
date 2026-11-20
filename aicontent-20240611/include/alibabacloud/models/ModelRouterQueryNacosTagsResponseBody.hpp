@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // The display name of the model type. This parameter is returned when configType is set to model-types.
       shared_ptr<string> label_ {};
+      // The tag value.
       shared_ptr<string> tag_ {};
+      // The tag name.
       shared_ptr<string> tagName_ {};
+      // The model type value. This parameter is returned when configType is set to model-types.
       shared_ptr<string> value_ {};
     };
 
@@ -149,9 +153,9 @@ namespace Models
 
 
   protected:
-    // An array of tags.
+    // The data object.
     shared_ptr<vector<ModelRouterQueryNacosTagsResponseBody::Data>> data_ {};
-    // The error code.
+    // The fault message encoding.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
@@ -159,7 +163,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

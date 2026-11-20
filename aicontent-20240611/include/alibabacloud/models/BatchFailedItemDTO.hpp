@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The reason for failure.
     shared_ptr<string> reason_ {};
+    // The user ID of the failed member.
     shared_ptr<int64_t> userId_ {};
   };
 

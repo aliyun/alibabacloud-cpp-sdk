@@ -90,8 +90,11 @@ namespace Models
 
 
     protected:
+      // The label.
       shared_ptr<string> label_ {};
+      // The timestamp (RFC3339).
       shared_ptr<string> timestamp_ {};
+      // The value.
       Darabonba::Json value_ {};
     };
 
@@ -152,11 +155,17 @@ namespace Models
 
 
   protected:
+    // The call volume time series.
     shared_ptr<vector<TimeSeriesPointDTO>> callVolume_ {};
+    // The number of concurrent connections.
     shared_ptr<vector<TimeSeriesPointDTO>> concurrency_ {};
+    // The QPM time series.
     shared_ptr<vector<TimeSeriesPointDTO>> qpm_ {};
+    // The response time time series.
     shared_ptr<vector<TimeSeriesPointDTO>> responseTime_ {};
+    // The success rate time series.
     shared_ptr<vector<ObservationChartsDTO::SuccessRate>> successRate_ {};
+    // The TPM time series.
     shared_ptr<vector<TimeSeriesPointDTO>> tpm_ {};
   };
 

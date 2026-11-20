@@ -149,31 +149,31 @@ namespace Models
 
 
   protected:
-    // The client ID used to filter the results.
+    // The client ID used to filter results.
     shared_ptr<int64_t> clientId_ {};
-    // The field by which to group the results.
+    // The field used to group results.
     shared_ptr<string> groupBy_ {};
-    // Optional. If set to true, the keys of members under the department are also included when filtering by department.
+    // Optional. Specifies whether to include the keys of members under the department when filtering by department.
     shared_ptr<bool> includeMemberKeys_ {};
     // The search keyword.
     shared_ptr<string> keyword_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // Optional. Filters by member IDs. Separate multiple member IDs with commas. If this parameter is not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+    // Optional. Filters results by member IDs. Separate multiple IDs with commas. If you do not specify this parameter, the department and all its members are included. If you pass an empty value, only the department is included, excluding its members.
     shared_ptr<string> memberUserIds_ {};
-    // Specifies whether to return the total count.
+    // Specifies whether to return the total count of records.
     shared_ptr<bool> needTotalCount_ {};
     // The pagination token. An empty value indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
-    // The field by which to sort the results.
+    // The field by which to sort results.
     shared_ptr<string> orderBy_ {};
     // The sort direction.
     shared_ptr<string> orderDirection_ {};
     // The page number.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of entries per page.
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The status used to filter the results.
+    // The status used to filter results.
     shared_ptr<int32_t> status_ {};
   };
 

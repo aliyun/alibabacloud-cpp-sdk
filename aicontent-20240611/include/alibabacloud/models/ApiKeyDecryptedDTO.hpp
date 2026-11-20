@@ -115,14 +115,23 @@ namespace Models
 
 
   protected:
+    // The associated client information.
     shared_ptr<ClientDTO> client_ {};
+    // The client ID.
     shared_ptr<int64_t> clientId_ {};
+    // The deletion tag. A value of 0 indicates enabled, and a non-zero value indicates disabled.
     shared_ptr<int32_t> deleteTag_ {};
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
+    // The update time.
     shared_ptr<string> gmtModified_ {};
+    // ID
     shared_ptr<int64_t> id_ {};
+    // The full key.
     shared_ptr<string> key_ {};
+    // The key preview.
     shared_ptr<string> keyPreview_ {};
+    // The key name.
     shared_ptr<string> name_ {};
   };
 

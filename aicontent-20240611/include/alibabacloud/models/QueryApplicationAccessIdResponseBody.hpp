@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // The application access ID (appkey).
+      // The application access identifier (appkey).
       shared_ptr<string> applicationAccessId_ {};
-      // The application access secret. This parameter is returned only for requests from the Alibaba Cloud console.
+      // The application secret. This parameter is returned only for console requests.
       shared_ptr<string> applicationAccessSecret_ {};
     };
 
@@ -132,7 +132,7 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<QueryApplicationAccessIdResponseBody::Data> data_ {};
-    // The error code.
+    // The fault message encoding.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
@@ -140,7 +140,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

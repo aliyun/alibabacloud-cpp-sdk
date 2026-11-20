@@ -250,29 +250,29 @@ namespace Models
 
 
   protected:
-    // The actual payment amount (after discount), rounded to 8 decimal places.
+    // The actual amount paid after discounts, rounded to eight decimal places.
     shared_ptr<double> amount_ {};
     // API Key ID
     shared_ptr<int64_t> apiKeyId_ {};
-    // The API key name.
+    // The name of the API key.
     shared_ptr<string> apiKeyName_ {};
-    // The number of cache creation tokens (explicit cache writes).
+    // The number of cache creation tokens for explicit cache writes.
     shared_ptr<double> cacheCreationTokens_ {};
-    // The number of tokens that hit the cache.
+    // The number of cache hit tokens.
     shared_ptr<double> cachedTokens_ {};
-    // The department ID. A value of 0 indicates that no department is associated.
+    // The department ID. A value of 0 indicates that the request does not belong to any department.
     shared_ptr<int64_t> clientId_ {};
     // The department name.
     shared_ptr<string> clientName_ {};
-    // The discount coefficient. A value of 1.0 indicates no discount.
+    // The discount factor. A value of 1.0 indicates no discount.
     shared_ptr<double> discount_ {};
     // The number of input tokens, including cached tokens and cache creation tokens.
     shared_ptr<double> inputTokens_ {};
-    // The member user ID for a member row. The value is 0 for a department row.
+    // The user ID of the member. For department rows, the value is 0.
     shared_ptr<int64_t> memberUserId_ {};
-    // The member name for a member row. The value is empty for a department row.
+    // The name of the member. For department rows, the value is empty.
     shared_ptr<string> memberUserName_ {};
-    // The JSON of other metering field mapping, such as video duration and image count. Fields with a value of 0 are not included in the output.
+    // The JSON containing other metering field mappings, such as video duration and number of images. Fields with a value of 0 are not returned.
     shared_ptr<string> metrics_ {};
     // The model identifier.
     shared_ptr<string> modelCode_ {};
@@ -280,7 +280,7 @@ namespace Models
     shared_ptr<int64_t> modelId_ {};
     // The model name.
     shared_ptr<string> modelName_ {};
-    // The model symbol (provider identifier).
+    // The model symbol, which is the vendor identifier.
     shared_ptr<string> modelSymbol_ {};
     // The model type.
     shared_ptr<string> modelType_ {};
@@ -290,13 +290,13 @@ namespace Models
     shared_ptr<double> outputTokens_ {};
     // The number of reasoning tokens.
     shared_ptr<double> reasoningTokens_ {};
-    // The unique request ID.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
     // The request time as a UNIX timestamp in seconds.
     shared_ptr<int64_t> requestTime_ {};
     // The total number of tokens.
     shared_ptr<double> totalTokens_ {};
-    // The raw JSON of the usage details.
+    // The raw JSON of usage details.
     shared_ptr<string> usageDetail_ {};
   };
 

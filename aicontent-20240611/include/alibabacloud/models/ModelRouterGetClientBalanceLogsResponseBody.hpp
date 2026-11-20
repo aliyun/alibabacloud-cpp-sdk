@@ -107,9 +107,9 @@ namespace Models
       shared_ptr<vector<ClientBalanceLogDTO>> list_ {};
       // The current page number.
       shared_ptr<int32_t> page_ {};
-      // The number of entries per page.
+      // The number of items per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries.
+      // The total number of items.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -177,19 +177,19 @@ namespace Models
   protected:
     // The response data.
     shared_ptr<ModelRouterGetClientBalanceLogsResponseBody::Data> data_ {};
-    // The fault code.
+    // The error message code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The maximum number of entries to return.
+    // The maximum number of items to return.
     shared_ptr<int32_t> maxResults_ {};
     // nextToken
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

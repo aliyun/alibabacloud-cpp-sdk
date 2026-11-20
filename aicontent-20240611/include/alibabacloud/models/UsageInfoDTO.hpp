@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The output tokens.
     shared_ptr<int32_t> completionTokens_ {};
+    // The number of images.
     shared_ptr<int32_t> imageCount_ {};
+    // The input tokens.
     shared_ptr<int32_t> promptTokens_ {};
+    // The total tokens.
     shared_ptr<int32_t> totalTokens_ {};
+    // The number of videos.
     shared_ptr<int32_t> videoCount_ {};
+    // The video duration in seconds.
     shared_ptr<int32_t> videoDuration_ {};
   };
 

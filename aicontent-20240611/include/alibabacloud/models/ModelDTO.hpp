@@ -213,21 +213,22 @@ namespace Models
 
 
   protected:
-    // A masked preview of the API key.
+    // The API key preview.
     shared_ptr<string> apiKeyPreview_ {};
-    // The base URL for API requests.
+    // Base URL
     shared_ptr<string> baseUrl_ {};
-    // Indicates the model\\"s status. A value of 0 means enabled, and a non-zero value means disabled.
+    // A value of 0 indicates enabled, and a non-zero value indicates disabled.
     shared_ptr<int32_t> deleteTag_ {};
     // The model description.
     shared_ptr<string> description_ {};
     shared_ptr<string> extensions_ {};
-    // The time when the model was created, in ISO 8601 format.
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // The time when the model was last updated, in ISO 8601 format.
+    // The update time.
     shared_ptr<string> gmtModified_ {};
+    // Indicates whether a billing rule is configured.
     shared_ptr<bool> hasBillingRule_ {};
-    // The unique ID of the model.
+    // ID
     shared_ptr<int64_t> id_ {};
     shared_ptr<string> inOut_ {};
     // Indicates whether the model is custom.
@@ -236,7 +237,7 @@ namespace Models
     shared_ptr<string> maxInputLength_ {};
     // The maximum output length.
     shared_ptr<string> maxOutputLength_ {};
-    // The model code.
+    // The model identifier.
     shared_ptr<string> modelCode_ {};
     // The model type.
     shared_ptr<string> modelType_ {};
@@ -244,11 +245,11 @@ namespace Models
     shared_ptr<string> name_ {};
     // The vendor symbol.
     shared_ptr<string> symbol_ {};
-    // The display names for the tags, separated by commas.
+    // The tag display names.
     shared_ptr<string> tagNames_ {};
-    // A comma-separated list of model tags.
+    // The tags, separated by commas.
     shared_ptr<string> tags_ {};
-    // The version number.
+    // The version.
     shared_ptr<int32_t> version_ {};
   };
 

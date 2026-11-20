@@ -70,7 +70,7 @@ namespace Models
 
 
     protected:
-      // The collection of matched department IDs.
+      // The IDs of the matched departments.
       shared_ptr<vector<int64_t>> matchedDeptIds_ {};
     };
 

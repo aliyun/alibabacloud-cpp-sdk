@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The numeric ID of the model.
     shared_ptr<int64_t> id_ {};
+    // The model identifier.
     shared_ptr<string> modelCode_ {};
+    // The model type.
     shared_ptr<string> modelType_ {};
+    // The name of the model.
     shared_ptr<string> name_ {};
+    // The platform to which the model belongs.
     shared_ptr<string> platform_ {};
+    // The model version.
     shared_ptr<string> version_ {};
   };
 

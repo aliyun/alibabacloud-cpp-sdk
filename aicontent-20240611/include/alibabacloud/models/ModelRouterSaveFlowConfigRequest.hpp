@@ -70,11 +70,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> modelId_ {};
-    // The maximum number of requests per minute (RPM).
+    // The requests per minute (RPM) limit.
     shared_ptr<int32_t> rpm_ {};
-    // Specifies whether to enable smooth flow control.
+    // Specifies whether smooth rate limiting is enabled.
     shared_ptr<bool> smoothFlowEnabled_ {};
-    // The maximum number of tokens per minute (TPM).
+    // The tokens per minute (TPM) limit.
     shared_ptr<int32_t> tpm_ {};
   };
 

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The client ID filter.
     shared_ptr<int64_t> clientId_ {};
+    // The search keyword.
     shared_ptr<string> keyword_ {};
+    // The page number.
     shared_ptr<int32_t> page_ {};
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The status filter.
     shared_ptr<int32_t> status_ {};
   };
 

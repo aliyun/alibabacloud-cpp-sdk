@@ -89,7 +89,7 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<DeptBalanceSummaryDTO> data_ {};
-    // The fault message code.
+    // The fault message encoding.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
@@ -97,7 +97,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

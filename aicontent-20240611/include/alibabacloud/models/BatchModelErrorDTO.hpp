@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The failure cause.
     shared_ptr<string> errorMsg_ {};
+    // The model ID.
     shared_ptr<string> modelId_ {};
+    // The model name.
     shared_ptr<string> name_ {};
   };
 

@@ -244,28 +244,51 @@ namespace Models
 
 
   protected:
+    // API Key ID
     shared_ptr<int64_t> apiKeyId_ {};
+    // The client ID.
     shared_ptr<int64_t> clientId_ {};
+    // The unique identifier of the client.
     shared_ptr<string> clientUuid_ {};
+    // The output tokens.
     shared_ptr<int32_t> completionTokens_ {};
+    // The deletion tag. A value of 0 indicates enabled, and a non-zero value indicates disabled.
     shared_ptr<int32_t> deleteTag_ {};
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
+    // The update time.
     shared_ptr<string> gmtModified_ {};
+    // ID
     shared_ptr<int64_t> id_ {};
+    // The model.
     shared_ptr<string> modelCode_ {};
+    // The model ID.
     shared_ptr<int64_t> modelId_ {};
+    // The model name.
     shared_ptr<string> modelName_ {};
+    // The model type.
     shared_ptr<string> modelType_ {};
+    // The input tokens.
     shared_ptr<int32_t> promptTokens_ {};
+    // The request body.
     shared_ptr<string> requestBody_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The request time.
     shared_ptr<string> requestTime_ {};
+    // The response body.
     shared_ptr<string> responseBody_ {};
+    // The response time in milliseconds.
     shared_ptr<int32_t> responseTimeMs_ {};
+    // The status.
     shared_ptr<string> status_ {};
+    // The status code.
     shared_ptr<int32_t> statusCode_ {};
+    // The tag.
     shared_ptr<string> symbol_ {};
+    // The total tokens.
     shared_ptr<int32_t> totalTokens_ {};
+    // The usage statistics.
     shared_ptr<UsageInfoDTO> usage_ {};
   };
 

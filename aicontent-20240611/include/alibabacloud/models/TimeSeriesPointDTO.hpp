@@ -59,8 +59,11 @@ namespace Models
 
 
   protected:
+    // The label.
     shared_ptr<string> label_ {};
+    // The timestamp (RFC3339).
     shared_ptr<string> timestamp_ {};
+    // The value.
     Darabonba::Json value_ {};
   };
 

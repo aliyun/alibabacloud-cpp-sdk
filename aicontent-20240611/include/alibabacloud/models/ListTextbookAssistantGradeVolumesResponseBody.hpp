@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // The grade level. Valid values: 1 to 9.
+        // The grade. Valid values: 1 to 9, corresponding to the grade level.
         shared_ptr<string> grade_ {};
-        // The volume. Valid values: `0` (single volume), `1` (Volume 1), and `2` (Volume 2).
+        // The volume. Valid values: 0: full volume, 1: first semester, 2: second semester.
         shared_ptr<string> volume_ {};
       };
 
@@ -124,9 +124,9 @@ namespace Models
 
 
     protected:
-      // The grade and volume information.
+      // The grade and volume data.
       shared_ptr<vector<Data::GradeVolumes>> gradeVolumes_ {};
-      // The version of the textbook.
+      // The textbook version.
       shared_ptr<string> textbookVersion_ {};
     };
 
@@ -177,7 +177,7 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The response data object.
     shared_ptr<vector<ListTextbookAssistantGradeVolumesResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errCode_ {};
@@ -185,9 +185,9 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

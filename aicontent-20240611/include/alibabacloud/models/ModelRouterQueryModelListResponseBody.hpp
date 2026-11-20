@@ -119,17 +119,17 @@ namespace Models
 
 
     protected:
-      // An array of model objects.
+      // The list of trajectory query records.
       shared_ptr<vector<ModelDTO>> list_ {};
-      // The maximum number of results per page.
+      // maxResults
       shared_ptr<string> maxResults_ {};
-      // The pagination token used to retrieve the next page of results. An empty value indicates that no more results are available.
+      // nextToken
       shared_ptr<string> nextToken_ {};
-      // The current page number.
+      // The requested page.
       shared_ptr<int32_t> page_ {};
-      // The number of models per page.
+      // The number of items per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of models that meet the filter criteria.
+      // The total number of records.
       shared_ptr<string> total_ {};
     };
 
@@ -188,19 +188,19 @@ namespace Models
 
 
   protected:
-    // Contains the paginated list of models and pagination metadata.
+    // The data object.
     shared_ptr<ModelRouterQueryModelListResponseBody::Data> data_ {};
-    // The error code. Returned only when the request fails.
+    // The fault message code.
     shared_ptr<string> errCode_ {};
-    // The error message. Returned only when the request fails.
+    // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The maximum number of results per page.
+    // maxResults
     shared_ptr<int32_t> maxResults_ {};
-    // The unique identifier for the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

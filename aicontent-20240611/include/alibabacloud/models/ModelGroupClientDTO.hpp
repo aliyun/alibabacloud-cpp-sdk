@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The list of API key summaries for the department.
     shared_ptr<vector<ModelGroupClientKeyItemDTO>> apiKeys_ {};
+    // The department ID.
     shared_ptr<int64_t> clientId_ {};
+    // The department name.
     shared_ptr<string> clientName_ {};
   };
 

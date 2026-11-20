@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The conversation data in JSON format, containing message records for each model.
     shared_ptr<string> chatData_ {};
+    // The number of messages.
     shared_ptr<int32_t> messageCount_ {};
+    // The list of model IDs as a JSON array string.
     shared_ptr<string> modelIds_ {};
+    // The conversation title.
     shared_ptr<string> title_ {};
   };
 

@@ -120,7 +120,7 @@ namespace Models
 
 
       protected:
-        // The word analysis.
+        // The word definition.
         shared_ptr<string> wordAnalysis_ {};
         // The word ID.
         shared_ptr<string> wordId_ {};
@@ -177,11 +177,11 @@ namespace Models
 
 
       protected:
-        // A list of image URLs for the topic.
+        // The images related to the current topic.
         shared_ptr<vector<string>> topicImageList_ {};
         // The topic name.
         shared_ptr<string> topicName_ {};
-        // The translated topic name.
+        // The translation of the topic content.
         shared_ptr<string> topicTranslate_ {};
       };
 
@@ -234,11 +234,11 @@ namespace Models
 
 
       protected:
-        // A list of image URLs for the theme.
+        // The images related to the current theme.
         shared_ptr<vector<string>> themeImageList_ {};
         // The theme name.
         shared_ptr<string> themeName_ {};
-        // The translated theme name.
+        // The translation of the theme name.
         shared_ptr<string> themeTranslate_ {};
       };
 
@@ -289,7 +289,7 @@ namespace Models
 
 
       protected:
-        // The sentence analysis.
+        // The sentence analysis and explanation.
         shared_ptr<string> sentenceAnalysis_ {};
         // The sentence ID.
         shared_ptr<string> sentenceId_ {};
@@ -359,9 +359,9 @@ namespace Models
         shared_ptr<string> scene_ {};
         // The scene ID.
         shared_ptr<string> sceneId_ {};
-        // A list of image URLs for the scene.
+        // The images related to the current scene.
         shared_ptr<vector<string>> sceneImageList_ {};
-        // The translated scene description.
+        // The translation of the scene description.
         shared_ptr<string> sceneTranslate_ {};
       };
 
@@ -412,11 +412,11 @@ namespace Models
 
 
       protected:
-        // The answer.
+        // The answer to the question.
         shared_ptr<string> answer_ {};
-        // The question.
+        // The question content.
         shared_ptr<string> question_ {};
-        // The translated question.
+        // The translation of the question content.
         shared_ptr<string> questionTranslate_ {};
       };
 
@@ -494,19 +494,19 @@ namespace Models
     protected:
       // The article ID.
       shared_ptr<string> articleId_ {};
-      // A list of Q\\&A objects.
+      // The question and answer data.
       shared_ptr<vector<Data::QuestionList>> questionList_ {};
-      // A list of scene objects.
+      // The scene list.
       shared_ptr<vector<Data::SceneList>> sceneList_ {};
-      // A list of sentence objects.
+      // The sentence list.
       shared_ptr<vector<Data::SentenceList>> sentenceList_ {};
-      // The learning objectives.
+      // The practice objective.
       shared_ptr<string> target_ {};
-      // The theme object.
+      // The theme information.
       shared_ptr<Data::Theme> theme_ {};
-      // The topic object.
+      // The topic information.
       shared_ptr<Data::Topic> topic_ {};
-      // A list of word objects.
+      // The word list.
       shared_ptr<vector<Data::WordList>> wordList_ {};
     };
 
@@ -557,7 +557,7 @@ namespace Models
 
 
   protected:
-    // An array of article detail objects.
+    // The returned data object.
     shared_ptr<vector<ListTextbookAssistantArticleDetailsResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errCode_ {};
@@ -565,13 +565,12 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates if the API call succeeded.
+    // Indicates whether the API call is successful.
+    // - **true**: Successful.
     // 
-    // - **true**: Success
-    // 
-    // - **false**: Failure
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

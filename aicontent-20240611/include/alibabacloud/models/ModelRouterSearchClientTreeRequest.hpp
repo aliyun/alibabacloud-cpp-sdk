@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The search keyword, which can be a department name, username, or phone number.
+    // The search keyword, such as a department name, username, or phone number.
     shared_ptr<string> keyword_ {};
   };
 

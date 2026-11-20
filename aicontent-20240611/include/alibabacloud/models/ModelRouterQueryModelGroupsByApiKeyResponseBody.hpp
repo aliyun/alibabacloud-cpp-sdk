@@ -101,8 +101,11 @@ namespace Models
 
 
     protected:
+      // The owner type of the key. Valid values:
+      // - department: Department key (department-level authorization, all keys in the same department return the same result).
+      // - user: User (department member) key (user-level authorization).
       shared_ptr<string> bindType_ {};
-      // The department ID to which the key belongs.
+      // The ID of the department to which the key belongs.
       shared_ptr<int64_t> clientId_ {};
       // The list of bound model groups.
       shared_ptr<vector<ModelGroupDTO>> groups_ {};
@@ -159,7 +162,7 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<ModelRouterQueryModelGroupsByApiKeyResponseBody::Data> data_ {};
-    // The error message code.
+    // The fault message code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
@@ -167,7 +170,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

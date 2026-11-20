@@ -126,19 +126,19 @@ namespace Models
 
 
     protected:
-      // The creation time of the inference job.
+      // The creation time of the model inference task.
       shared_ptr<string> createTime_ {};
-      // The inference job ID.
+      // The model inference task ID.
       shared_ptr<string> id_ {};
-      // The job status.
+      // The model inference task status.
       shared_ptr<string> jobStatus_ {};
-      // The job progress.
+      // The model inference task progress.
       shared_ptr<double> jobTrainProgress_ {};
       // The model ID.
       shared_ptr<string> modelId_ {};
-      // The ID of the prompt used for the job.
+      // promptId
       shared_ptr<string> promptId_ {};
-      // A list of resource IDs for the generated images.
+      // The list of model inference task results.
       shared_ptr<vector<string>> resultImageUrl_ {};
     };
 
@@ -189,9 +189,9 @@ namespace Models
 
 
   protected:
-    // The response data object.
+    // The data object.
     shared_ptr<PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody::Data> data_ {};
-    // The error code.
+    // The fault message encoding.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
@@ -199,7 +199,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

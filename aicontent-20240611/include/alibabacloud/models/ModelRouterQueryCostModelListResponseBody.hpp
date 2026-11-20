@@ -108,19 +108,19 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<CostQueryModelsDTO> data_ {};
-    // The fault code.
+    // The fault message encoding.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The maximum number of results to return.
+    // The maximum number of results.
     shared_ptr<int32_t> maxResults_ {};
     // nextToken
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

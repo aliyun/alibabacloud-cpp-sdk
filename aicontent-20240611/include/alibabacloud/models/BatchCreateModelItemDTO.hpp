@@ -112,17 +112,29 @@ namespace Models
 
 
   protected:
+    // The model description.
     shared_ptr<string> description_ {};
+    // The extension configuration parameters in JSON string format.
     shared_ptr<string> extensions_ {};
+    // The supported input and output data types, separated by commas.
     shared_ptr<string> inOut_ {};
+    // The maximum input length in tokens.
     shared_ptr<string> maxInputLength_ {};
+    // The maximum output length in tokens.
     shared_ptr<string> maxOutputLength_ {};
+    // The model identifier. This parameter is required and corresponds to the model ID on the vendor side. If the identifier is duplicated, the backend automatically increments the version by using v1 or v2.
+    // 
     // This parameter is required.
     shared_ptr<string> modelId_ {};
+    // The model type. This parameter is required. Valid values: Chat, Embedding, Rerank, Image, Audio, and Video.
+    // 
     // This parameter is required.
     shared_ptr<string> modelType_ {};
+    // The model name. This parameter is required. If the identifier is duplicated, add -v1 or -v2 to distinguish the models.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The tags, separated by commas.
     shared_ptr<string> tags_ {};
   };
 

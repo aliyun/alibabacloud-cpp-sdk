@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The dimension key-value mapping, where the key is the dimension column name and the value is the display value.
     shared_ptr<string> dimValues_ {};
+    // The cost of the bucket.
     shared_ptr<float> payableAmount_ {};
+    // The usage value mapping, where the key is the metric name and the value is the numerical value.
     shared_ptr<string> values_ {};
   };
 

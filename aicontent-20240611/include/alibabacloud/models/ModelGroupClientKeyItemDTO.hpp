@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The numeric ID of the API key.
     shared_ptr<int64_t> id_ {};
+    // The masked preview of the API key.
     shared_ptr<string> keyPreview_ {};
+    // The authorization name (derived from the API key name).
     shared_ptr<string> name_ {};
   };
 

@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(granularity, granularity_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(memberUserIds, memberUserIds_);
+      DARABONBA_PTR_TO_JSON(modelIds, modelIds_);
       DARABONBA_PTR_TO_JSON(modelTypes, modelTypes_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(search, search_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(granularity, granularity_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(memberUserIds, memberUserIds_);
+      DARABONBA_PTR_FROM_JSON(modelIds, modelIds_);
       DARABONBA_PTR_FROM_JSON(modelTypes, modelTypes_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(search, search_);
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
         && this->clientId_ == nullptr && this->clientIds_ == nullptr && this->endTime_ == nullptr && this->granularity_ == nullptr && this->maxResults_ == nullptr
-        && this->memberUserIds_ == nullptr && this->modelTypes_ == nullptr && this->nextToken_ == nullptr && this->search_ == nullptr && this->startTime_ == nullptr; };
+        && this->memberUserIds_ == nullptr && this->modelIds_ == nullptr && this->modelTypes_ == nullptr && this->nextToken_ == nullptr && this->search_ == nullptr
+        && this->startTime_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -101,6 +104,13 @@ namespace Models
     inline ModelRouterQueryCostModelListRequest& setMemberUserIds(string memberUserIds) { DARABONBA_PTR_SET_VALUE(memberUserIds_, memberUserIds) };
 
 
+    // modelIds Field Functions 
+    bool hasModelIds() const { return this->modelIds_ != nullptr;};
+    void deleteModelIds() { this->modelIds_ = nullptr;};
+    inline string getModelIds() const { DARABONBA_PTR_GET_DEFAULT(modelIds_, "") };
+    inline ModelRouterQueryCostModelListRequest& setModelIds(string modelIds) { DARABONBA_PTR_SET_VALUE(modelIds_, modelIds) };
+
+
     // modelTypes Field Functions 
     bool hasModelTypes() const { return this->modelTypes_ != nullptr;};
     void deleteModelTypes() { this->modelTypes_ = nullptr;};
@@ -130,29 +140,31 @@ namespace Models
 
 
   protected:
-    // Optional. Filters results by API Key ID. This parameter is linked to the department and requires clientId to be specified first.
+    // The API key ID used for filtering. This parameter is optional and associated with the department. You must specify clientId first.
     shared_ptr<int64_t> apiKeyId_ {};
-    // Filters results by department ID.
+    // The department ID used for filtering.
     shared_ptr<int64_t> clientId_ {};
-    // The list of department IDs, separated by commas. Supports querying data for multiple departments. This parameter is mutually exclusive with clientId.
+    // The department IDs. Separate multiple IDs with commas to query data for multiple departments. This parameter is mutually exclusive with clientId.
     shared_ptr<string> clientIds_ {};
-    // The end time, in UNIX timestamp (seconds).
+    // The end time, specified as a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // Automatically aggregated. No input required. Granularity: hourly/daily. Default value: hourly.
+    // The time granularity for automatic aggregation. You do not need to pass this parameter. Valid values: hourly and daily. Default value: hourly.
     shared_ptr<string> granularity_ {};
-    // The maximum number of results to return.
+    // The maximum number of results.
     shared_ptr<int32_t> maxResults_ {};
-    // Optional. Filters results by members (member IDs, separated by commas). If not specified, the department and all its members are included. If an empty value is passed, only the department is included without members.
+    // The member IDs used for filtering. Separate multiple IDs with commas. This parameter is optional. If you do not specify this parameter, the department and all its members are included. If you pass an empty value, only the department is included, excluding its members.
     shared_ptr<string> memberUserIds_ {};
-    // The model types, separated by commas.
+    // The model IDs used for filtering. Separate multiple positive integer IDs with commas.
+    shared_ptr<string> modelIds_ {};
+    // The model types. Separate multiple values with commas.
     shared_ptr<string> modelTypes_ {};
     // nextToken
     shared_ptr<string> nextToken_ {};
-    // Fuzzy search by model name or code.
+    // The keyword for fuzzy search by model name or code.
     shared_ptr<string> search_ {};
-    // The start time, in UNIX timestamp (seconds).
+    // The start time, specified as a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

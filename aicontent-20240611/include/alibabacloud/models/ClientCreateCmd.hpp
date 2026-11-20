@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The company address.
     shared_ptr<string> address_ {};
+    // The list of allowed model IDs, separated by commas. An empty value indicates all models.
     shared_ptr<string> allowedModels_ {};
+    // The contact information.
     shared_ptr<string> contact_ {};
+    // The customer name.
     shared_ptr<string> name_ {};
+    // The remarks.
     shared_ptr<string> remark_ {};
   };
 

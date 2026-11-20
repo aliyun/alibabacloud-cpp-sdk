@@ -101,19 +101,27 @@ namespace Models
 
 
     protected:
-      // The message content.
+      // The conversation content.
       // 
       // This parameter is required.
       shared_ptr<string> content_ {};
-      // A control flag that indicates if a student\\"s response is off-topic. The value is based on the previous turn. If the conversation goes off-topic more than twice, the system sets this value to `true` to force a task switch.
+      // Specifies whether the response is off-topic and applies flow control. This parameter indicates whether the student\\"s response aligns with the conversation task settings. The value is derived from the return results of previous conversation turns. Additionally, this parameter controls the conversation flow. If the response is off-topic more than twice, the value is forcibly set to true to switch the task.
+      // 
+      // Valid values:
+      // - true: Off-topic.
+      // - false: On-topic.
       shared_ptr<bool> isOffTopicControl_ {};
-      // Specifies if the message is on topic. `true` indicates the message is on topic; `false` indicates it is off topic.
+      // Specifies whether the response is on-topic.
+      // 
+      // Valid values:
+      // - true: On-topic.
+      // - false: Off-topic.
       shared_ptr<bool> isOnTopic_ {};
-      // The sequence number of the message in the conversation.
+      // The sequence number.
       // 
       // This parameter is required.
       shared_ptr<int32_t> order_ {};
-      // The role of the message author. Valid values: `assistant` (for AI-generated messages) and `user` (for user-provided messages).
+      // The role.
       // 
       // This parameter is required.
       shared_ptr<string> role_ {};
@@ -175,17 +183,17 @@ namespace Models
 
 
     protected:
-      // The assistant\\"s message content.
+      // The AI conversation content.
       // 
       // This parameter is required.
       shared_ptr<string> assistant_ {};
-      // The translation of the assistant\\"s message.
+      // The translation of the AI conversation content.
       shared_ptr<string> assistantTranslate_ {};
-      // The sequence number of the dialogue task.
+      // The sequence number.
       // 
       // This parameter is required.
       shared_ptr<int32_t> order_ {};
-      // The user\\"s message content.
+      // The user conversation content.
       // 
       // This parameter is required.
       shared_ptr<string> user_ {};
@@ -226,17 +234,17 @@ namespace Models
 
 
   protected:
-    // A list of dialogue tasks.
+    // The collection of conversation task content.
     // 
     // This parameter is required.
     shared_ptr<vector<GetAITeacherSyncDialogueSuggestionRequest::DialogueTasks>> dialogueTasks_ {};
     // The language code.
     shared_ptr<string> languageCode_ {};
-    // A list of dialogue records.
+    // The collection of conversation records.
     // 
     // This parameter is required.
     shared_ptr<vector<GetAITeacherSyncDialogueSuggestionRequest::Records>> records_ {};
-    // The unique identifier for the end-user.
+    // The user ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

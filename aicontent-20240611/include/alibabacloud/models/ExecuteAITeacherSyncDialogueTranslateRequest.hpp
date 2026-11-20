@@ -99,19 +99,23 @@ namespace Models
 
 
     protected:
-      // The content of the message.
+      // The conversation content.
       // 
       // This parameter is required.
       shared_ptr<string> content_ {};
-      // Indicates whether the message is off-topic. This parameter is used for flow control.
+      // Specifies whether the content is off topic for flow control purposes. Valid values:
+      // - true: Off topic.
+      // - false: On topic.
       shared_ptr<bool> isOffTopicControl_ {};
-      // Indicates whether the message is on-topic.
+      // Specifies whether the content is on topic. Valid values:
+      // - true: On topic.
+      // - false: Off topic.
       shared_ptr<bool> isOnTopic_ {};
-      // The sequence number of the message.
+      // The sort order.
       // 
       // This parameter is required.
       shared_ptr<int32_t> order_ {};
-      // The message author\\"s role.
+      // The role.
       // 
       // This parameter is required.
       shared_ptr<string> role_ {};
@@ -173,17 +177,17 @@ namespace Models
 
 
     protected:
-      // The content of the assistant\\"s message.
+      // The AI conversation content.
       // 
       // This parameter is required.
       shared_ptr<string> assistant_ {};
-      // The translated content of the assistant\\"s message.
+      // The translation of the AI conversation content.
       shared_ptr<string> assistantTranslate_ {};
-      // The sequence number of the task.
+      // The sort order.
       // 
       // This parameter is required.
       shared_ptr<int32_t> order_ {};
-      // The content of the user\\"s message.
+      // The user conversation content.
       // 
       // This parameter is required.
       shared_ptr<string> user_ {};
@@ -217,11 +221,11 @@ namespace Models
 
 
   protected:
-    // An array of dialogue task objects.
+    // The collection of conversation content for dialogue tasks.
     // 
     // This parameter is required.
     shared_ptr<vector<ExecuteAITeacherSyncDialogueTranslateRequest::DialogueTasks>> dialogueTasks_ {};
-    // An array of dialogue record objects.
+    // The collection of conversation records.
     shared_ptr<vector<ExecuteAITeacherSyncDialogueTranslateRequest::Records>> records_ {};
     // The user ID.
     // 

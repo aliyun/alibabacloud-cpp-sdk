@@ -53,7 +53,9 @@ namespace Models
 
 
   protected:
+    // The monthly balance pool overview.
     shared_ptr<BalancePoolSummaryDTO> monthly_ {};
+    // The permanent balance pool overview.
     shared_ptr<BalancePoolSummaryDTO> permanent_ {};
   };
 

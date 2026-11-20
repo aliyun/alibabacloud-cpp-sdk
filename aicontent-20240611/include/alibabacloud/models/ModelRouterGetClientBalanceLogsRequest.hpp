@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The change type filter. Valid values: auto_deduct, deduct, recharge.
+    // The change type filter. Valid values: auto_deduct, deduct, and recharge.
     shared_ptr<string> changeType_ {};
-    // The maximum number of entries to return.
+    // The maximum number of items to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next request.
+    // The pagination cursor for the next request.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> page_ {};
-    // The number of entries per page.
+    // The number of items per page.
     shared_ptr<int32_t> size_ {};
   };
 

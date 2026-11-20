@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The list of API key summaries for the user.
     shared_ptr<vector<ModelGroupClientKeyItemDTO>> apiKeys_ {};
+    // The user ID.
     shared_ptr<int64_t> userId_ {};
+    // The username.
     shared_ptr<string> userName_ {};
   };
 

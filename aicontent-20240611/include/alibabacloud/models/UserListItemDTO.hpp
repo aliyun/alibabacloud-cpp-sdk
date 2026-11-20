@@ -88,11 +88,17 @@ namespace Models
 
 
   protected:
+    // The list of departments and roles to which the user belongs.
     shared_ptr<vector<UserDepartmentDTO>> departments_ {};
+    // The creation time in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> gmtCreate_ {};
+    // The user ID.
     shared_ptr<int64_t> id_ {};
+    // The logon name.
     shared_ptr<string> loginName_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The phone number.
     shared_ptr<string> phone_ {};
   };
 

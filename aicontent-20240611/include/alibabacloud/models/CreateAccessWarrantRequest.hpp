@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The merchant\\"s application ID.
+    // The AppKey of the project assigned by the merchant.
     shared_ptr<string> appId_ {};
-    // The signature for the request parameters.
+    // The signature of the authorization API parameters.
     shared_ptr<string> requestSign_ {};
-    // The 10-digit request timestamp in seconds.
+    // The 10-digit timestamp in seconds when the merchant initiates the authorization request.
     shared_ptr<string> timestamp_ {};
     // The public IP address of the client device.
     shared_ptr<string> userClientIp_ {};
-    // The merchant\\"s user ID.
+    // The ID of the merchant user.
     shared_ptr<string> userId_ {};
-    // The duration, in seconds, for which the access warrant is valid.
+    // The validity period of the authorization ID, in seconds.
     shared_ptr<int32_t> warrantAvailable_ {};
   };
 

@@ -97,12 +97,21 @@ namespace Models
 
 
   protected:
+    // The time when the group was created. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> gmtCreate_ {};
+    // The time when the group was updated. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> gmtModified_ {};
+    // The unique identifier of the group. It starts with the mg_ prefix and remains unchanged after creation.
     shared_ptr<string> groupId_ {};
+    // The number of models currently included in the group.
     shared_ptr<int32_t> modelCount_ {};
+    // The array of all member model IDs.
     shared_ptr<vector<int64_t>> modelList_ {};
+    // The name of the group. If a system group is unnamed, the default platform name is returned.
     shared_ptr<string> name_ {};
+    // The type of the group. Valid values:
+    // - system: The group is automatically created by the system and cannot be edited or deleted.
+    // - manual: The group is manually created.
     shared_ptr<string> type_ {};
   };
 

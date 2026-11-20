@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The list of failed items.
     shared_ptr<vector<BatchFailedItemDTO>> failed_ {};
+    // The list of successful member user IDs.
     shared_ptr<vector<int64_t>> succeeded_ {};
   };
 

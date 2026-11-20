@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The timestamp in UNIX seconds.
     shared_ptr<int64_t> timestamp_ {};
+    // The total cost at that point in time.
     shared_ptr<float> totalAmount_ {};
   };
 

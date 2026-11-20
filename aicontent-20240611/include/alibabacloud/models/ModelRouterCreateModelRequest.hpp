@@ -144,7 +144,7 @@ namespace Models
     shared_ptr<string> apiKey_ {};
     // Base URL
     shared_ptr<string> baseUrl_ {};
-    // The model description.
+    // The description of the model.
     shared_ptr<string> description_ {};
     // The extension configuration parameters of the model, stored as a JSON string.
     shared_ptr<string> extensions_ {};
@@ -154,11 +154,11 @@ namespace Models
     shared_ptr<string> maxInputLength_ {};
     // The maximum output length.
     shared_ptr<string> maxOutputLength_ {};
-    // The model ID.
+    // The ID of the model.
     shared_ptr<string> modelId_ {};
-    // The model type.
+    // The type of the model.
     shared_ptr<string> modelType_ {};
-    // The model name.
+    // The name of the model.
     shared_ptr<string> name_ {};
     // The vendor symbol.
     shared_ptr<string> symbol_ {};

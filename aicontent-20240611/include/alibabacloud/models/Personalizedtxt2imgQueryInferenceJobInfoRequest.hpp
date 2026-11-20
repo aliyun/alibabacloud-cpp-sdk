@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the inference job.
+    // The ID of the inference task.
     // 
     // This parameter is required.
     shared_ptr<string> inferenceJobId_ {};

@@ -117,11 +117,17 @@ namespace Models
 
 
     protected:
+      // The list of items.
       shared_ptr<vector<ClientDTO>> list_ {};
+      // maxResults
       shared_ptr<string> maxResults_ {};
+      // nextToken
       shared_ptr<string> nextToken_ {};
+      // The current page number.
       shared_ptr<int32_t> page_ {};
+      // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of records that meet the query conditions.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -172,9 +178,9 @@ namespace Models
 
 
   protected:
-    // A wrapper object for the paged response data.
+    // The data object.
     shared_ptr<ModelRouterQueryClientListResponseBody::Data> data_ {};
-    // The error code.
+    // The fault message encoding.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
@@ -182,7 +188,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

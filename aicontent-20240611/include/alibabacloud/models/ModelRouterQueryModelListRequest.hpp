@@ -130,26 +130,27 @@ namespace Models
 
 
   protected:
-    // The field to use for grouping the results.
+    // The field by which to group the results.
     shared_ptr<string> groupBy_ {};
-    // The keyword for a fuzzy search on model information.
+    // The search keyword.
     shared_ptr<string> keyword_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The model type filter.
     shared_ptr<string> modelType_ {};
-    // Specifies whether to include the total count of matching models in the response.
+    // Specifies whether to include the total count of items.
     shared_ptr<bool> needTotalCount_ {};
-    // The pagination token for retrieving the next page of results. If this parameter is not specified, the first page is retrieved. To retrieve a subsequent page, set this to the `nextToken` value from the previous response.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The field to use for sorting the results.
+    // The field by which to sort the results.
     shared_ptr<string> orderBy_ {};
-    // The sort order. Valid values include `ASC` for ascending order and `DESC` for descending order.
+    // The sort direction.
     shared_ptr<string> orderDirection_ {};
-    // The page number to retrieve. Pages are numbered starting from 1.
+    // The page number.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of models to return per page.
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The model status to use as a filter.
+    // The status filter.
     shared_ptr<int32_t> status_ {};
   };
 

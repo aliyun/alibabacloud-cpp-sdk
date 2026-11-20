@@ -158,19 +158,33 @@ namespace Models
 
 
   protected:
+    // The change amount.
     shared_ptr<double> amount_ {};
+    // The pool balance after the change.
     shared_ptr<double> balanceAfter_ {};
+    // The pool balance before the change.
     shared_ptr<double> balanceBefore_ {};
+    // The balance type (permanent: Permanent / monthly: Monthly).
     shared_ptr<string> balanceType_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The direction (in: Income / out: Expense).
     shared_ptr<string> direction_ {};
+    // The associated model code (available for deduction types).
     shared_ptr<string> modelCode_ {};
+    // The operator ID.
     shared_ptr<string> operatorId_ {};
+    // The unique identifier of the change record.
     shared_ptr<string> orderId_ {};
+    // The change type (recharge: Recharge / periodic_recharge: Periodic recharge / deduct: Deduction / manual_deduct: Manual deduction / transfer_out: Transfer out / transfer_in: Transfer in / return_out: Refund out / return_in: Refund in / write_off: Write-off / monthly_expire: Monthly expiration / deficit_writeoff: Deficit write-off).
     shared_ptr<string> orderType_ {};
+    // The remark.
     shared_ptr<string> remark_ {};
+    // The source identifier.
     shared_ptr<string> source_ {};
+    // The total balance after the change (permanent + monthly).
     shared_ptr<double> totalAfter_ {};
+    // The total balance before the change (permanent + monthly).
     shared_ptr<double> totalBefore_ {};
   };
 

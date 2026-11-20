@@ -161,7 +161,7 @@ namespace AiContent20240611
       Models::CountOralEvaluationStatisticsErrorResponse countOralEvaluationStatisticsError(const Models::CountOralEvaluationStatisticsErrorRequest &request);
 
       /**
-       * @summary Creates an access warrant.
+       * @summary Creates authorization credentials in the Alibaba Cloud Management Console.
        *
        * @param request CreateAccessWarrantRequest
        * @param headers map
@@ -171,7 +171,7 @@ namespace AiContent20240611
       Models::CreateAccessWarrantResponse createAccessWarrantWithOptions(const Models::CreateAccessWarrantRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an access warrant.
+       * @summary Creates authorization credentials in the Alibaba Cloud Management Console.
        *
        * @param request CreateAccessWarrantRequest
        * @return CreateAccessWarrantResponse
@@ -281,7 +281,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherEnglishParaphraseChatMessageResponse executeAITeacherEnglishParaphraseChatMessage(const Models::ExecuteAITeacherEnglishParaphraseChatMessageRequest &request);
 
       /**
-       * @summary Expansion dialogues are for open-ended conversations. In these conversations, the AI poses open-ended questions, but the user must stay on topic. If a user\\"s response is off-topic, the AI steers the conversation back on topic. If the user gives two consecutive off-topic responses, the AI moves on to the next topic.
+       * @summary Conducts extended practice conversations primarily for open-ended communication scenarios. During the practice, although the questions raised by the AI do not have preset answers, the user must still answer within the relevant topic. If the user\\"s answer deviates from the topic, the AI will attempt to guide them back to the topic. If the user goes off-topic twice in a row, the AI will guide them to proceed to the next topic.
        *
        * @param request ExecuteAITeacherExpansionDialogueRequest
        * @param headers map
@@ -291,7 +291,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherExpansionDialogueResponse executeAITeacherExpansionDialogueWithOptions(const Models::ExecuteAITeacherExpansionDialogueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Expansion dialogues are for open-ended conversations. In these conversations, the AI poses open-ended questions, but the user must stay on topic. If a user\\"s response is off-topic, the AI steers the conversation back on topic. If the user gives two consecutive off-topic responses, the AI moves on to the next topic.
+       * @summary Conducts extended practice conversations primarily for open-ended communication scenarios. During the practice, although the questions raised by the AI do not have preset answers, the user must still answer within the relevant topic. If the user\\"s answer deviates from the topic, the AI will attempt to guide them back to the topic. If the user goes off-topic twice in a row, the AI will guide them to proceed to the next topic.
        *
        * @param request ExecuteAITeacherExpansionDialogueRequest
        * @return ExecuteAITeacherExpansionDialogueResponse
@@ -299,7 +299,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherExpansionDialogueResponse executeAITeacherExpansionDialogue(const Models::ExecuteAITeacherExpansionDialogueRequest &request);
 
       /**
-       * @summary Uses context to polish the expanded text.
+       * @summary Polishes the extension exercise based on the context.
        *
        * @param request ExecuteAITeacherExpansionDialogueRefineRequest
        * @param headers map
@@ -309,7 +309,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherExpansionDialogueRefineResponse executeAITeacherExpansionDialogueRefineWithOptions(const Models::ExecuteAITeacherExpansionDialogueRefineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uses context to polish the expanded text.
+       * @summary Polishes the extension exercise based on the context.
        *
        * @param request ExecuteAITeacherExpansionDialogueRefineRequest
        * @return ExecuteAITeacherExpansionDialogueRefineResponse
@@ -317,7 +317,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherExpansionDialogueRefineResponse executeAITeacherExpansionDialogueRefine(const Models::ExecuteAITeacherExpansionDialogueRefineRequest &request);
 
       /**
-       * @summary Further Contextual Translation Practice.
+       * @summary Translates the context for extended practice.
        *
        * @param request ExecuteAITeacherExpansionDialogueTranslateRequest
        * @param headers map
@@ -327,7 +327,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherExpansionDialogueTranslateResponse executeAITeacherExpansionDialogueTranslateWithOptions(const Models::ExecuteAITeacherExpansionDialogueTranslateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Further Contextual Translation Practice.
+       * @summary Translates the context for extended practice.
        *
        * @param request ExecuteAITeacherExpansionDialogueTranslateRequest
        * @return ExecuteAITeacherExpansionDialogueTranslateResponse
@@ -353,7 +353,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherGrammarCheckResponse executeAITeacherGrammarCheck(const Models::ExecuteAITeacherGrammarCheckRequest &request);
 
       /**
-       * @summary Practice synchronous dialogue.
+       * @summary Conducts a synchronous practice conversation.
        *
        * @param request ExecuteAITeacherSyncDialogueRequest
        * @param headers map
@@ -363,7 +363,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherSyncDialogueResponse executeAITeacherSyncDialogueWithOptions(const Models::ExecuteAITeacherSyncDialogueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Practice synchronous dialogue.
+       * @summary Conducts a synchronous practice conversation.
        *
        * @param request ExecuteAITeacherSyncDialogueRequest
        * @return ExecuteAITeacherSyncDialogueResponse
@@ -371,7 +371,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherSyncDialogueResponse executeAITeacherSyncDialogue(const Models::ExecuteAITeacherSyncDialogueRequest &request);
 
       /**
-       * @summary You can practice contextual translation in real-time.
+       * @summary Translates context for synchronous practice.
        *
        * @param request ExecuteAITeacherSyncDialogueTranslateRequest
        * @param headers map
@@ -381,7 +381,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherSyncDialogueTranslateResponse executeAITeacherSyncDialogueTranslateWithOptions(const Models::ExecuteAITeacherSyncDialogueTranslateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can practice contextual translation in real-time.
+       * @summary Translates context for synchronous practice.
        *
        * @param request ExecuteAITeacherSyncDialogueTranslateRequest
        * @return ExecuteAITeacherSyncDialogueTranslateResponse
@@ -561,7 +561,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantTranslateResponse executeTextbookAssistantTranslate(const Models::ExecuteTextbookAssistantTranslateRequest &request);
 
       /**
-       * @summary Supplemental Practice Assistant
+       * @summary Retrieves prompts for the extended practice assistant.
        *
        * @param request GetAITeacherExpansionDialogueSuggestionRequest
        * @param headers map
@@ -571,7 +571,7 @@ namespace AiContent20240611
       Models::GetAITeacherExpansionDialogueSuggestionResponse getAITeacherExpansionDialogueSuggestionWithOptions(const Models::GetAITeacherExpansionDialogueSuggestionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Supplemental Practice Assistant
+       * @summary Retrieves prompts for the extended practice assistant.
        *
        * @param request GetAITeacherExpansionDialogueSuggestionRequest
        * @return GetAITeacherExpansionDialogueSuggestionResponse
@@ -579,7 +579,7 @@ namespace AiContent20240611
       Models::GetAITeacherExpansionDialogueSuggestionResponse getAITeacherExpansionDialogueSuggestion(const Models::GetAITeacherExpansionDialogueSuggestionRequest &request);
 
       /**
-       * @summary Sync Practice Assistant
+       * @summary Retrieves the prompts for the sync practice assistant.
        *
        * @param request GetAITeacherSyncDialogueSuggestionRequest
        * @param headers map
@@ -589,7 +589,7 @@ namespace AiContent20240611
       Models::GetAITeacherSyncDialogueSuggestionResponse getAITeacherSyncDialogueSuggestionWithOptions(const Models::GetAITeacherSyncDialogueSuggestionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sync Practice Assistant
+       * @summary Retrieves the prompts for the sync practice assistant.
        *
        * @param request GetAITeacherSyncDialogueSuggestionRequest
        * @return GetAITeacherSyncDialogueSuggestionResponse
@@ -615,7 +615,7 @@ namespace AiContent20240611
       Models::GetTextbookAssistantTokenResponse getTextbookAssistantToken(const Models::GetTextbookAssistantTokenRequest &request);
 
       /**
-       * @summary Batch get article details
+       * @summary Retrieves the details of multiple articles.
        *
        * @param request ListTextbookAssistantArticleDetailsRequest
        * @param headers map
@@ -625,7 +625,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantArticleDetailsResponse listTextbookAssistantArticleDetailsWithOptions(const Models::ListTextbookAssistantArticleDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch get article details
+       * @summary Retrieves the details of multiple articles.
        *
        * @param request ListTextbookAssistantArticleDetailsRequest
        * @return ListTextbookAssistantArticleDetailsResponse
@@ -687,7 +687,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantBooksResponse listTextbookAssistantBooks(const Models::ListTextbookAssistantBooksRequest &request);
 
       /**
-       * @summary Retrieves the available grades and volumes for the Textbook Assistant.
+       * @summary Retrieves the list of grades that have English textbook resources.
        *
        * @param request ListTextbookAssistantGradeVolumesRequest
        * @param headers map
@@ -697,7 +697,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantGradeVolumesResponse listTextbookAssistantGradeVolumesWithOptions(const Models::ListTextbookAssistantGradeVolumesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the available grades and volumes for the Textbook Assistant.
+       * @summary Retrieves the list of grades that have English textbook resources.
        *
        * @param request ListTextbookAssistantGradeVolumesRequest
        * @return ListTextbookAssistantGradeVolumesResponse
@@ -705,7 +705,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantGradeVolumesResponse listTextbookAssistantGradeVolumes(const Models::ListTextbookAssistantGradeVolumesRequest &request);
 
       /**
-       * @summary Get Article Details
+       * @summary Retrieves the details of an article.
        *
        * @param request ListTextbookAssistantSceneDetailsRequest
        * @param headers map
@@ -715,7 +715,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantSceneDetailsResponse listTextbookAssistantSceneDetailsWithOptions(const Models::ListTextbookAssistantSceneDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Article Details
+       * @summary Retrieves the details of an article.
        *
        * @param request ListTextbookAssistantSceneDetailsRequest
        * @return ListTextbookAssistantSceneDetailsResponse
@@ -899,7 +899,7 @@ namespace AiContent20240611
       Models::ModelRouterChatCompletionsResponse modelRouterChatCompletions(const Models::ModelRouterChatCompletionsRequest &request);
 
       /**
-       * @summary Enables balance-based throttling for a department.
+       * @summary Enables department balance throttling.
        *
        * @param request ModelRouterConfigureClientBalanceRequest
        * @param headers map
@@ -909,7 +909,7 @@ namespace AiContent20240611
       Models::ModelRouterConfigureClientBalanceResponse modelRouterConfigureClientBalanceWithOptions(const string &id, const Models::ModelRouterConfigureClientBalanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables balance-based throttling for a department.
+       * @summary Enables department balance throttling.
        *
        * @param request ModelRouterConfigureClientBalanceRequest
        * @return ModelRouterConfigureClientBalanceResponse
@@ -1095,7 +1095,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateMemberSubscriptionResponse modelRouterCreateMemberSubscription(const string &clientId, const string &id, const Models::ModelRouterCreateMemberSubscriptionRequest &request);
 
       /**
-       * @summary Performs model creation.
+       * @summary Manages model creation.
        *
        * @param request ModelRouterCreateModelRequest
        * @param headers map
@@ -1105,7 +1105,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateModelResponse modelRouterCreateModelWithOptions(const Models::ModelRouterCreateModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs model creation.
+       * @summary Manages model creation.
        *
        * @param request ModelRouterCreateModelRequest
        * @return ModelRouterCreateModelResponse
@@ -1355,7 +1355,7 @@ namespace AiContent20240611
       Models::ModelRouterGetClientBalanceLogsResponse modelRouterGetClientBalanceLogs(const string &id, const Models::ModelRouterGetClientBalanceLogsRequest &request);
 
       /**
-       * @summary Retrieves the balance overview of a department.
+       * @summary Retrieves the department balance overview.
        *
        * @param request ModelRouterGetDeptBalanceSummaryRequest
        * @param headers map
@@ -1365,7 +1365,7 @@ namespace AiContent20240611
       Models::ModelRouterGetDeptBalanceSummaryResponse modelRouterGetDeptBalanceSummaryWithOptions(const string &id, const Models::ModelRouterGetDeptBalanceSummaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the balance overview of a department.
+       * @summary Retrieves the department balance overview.
        *
        * @param request ModelRouterGetDeptBalanceSummaryRequest
        * @return ModelRouterGetDeptBalanceSummaryResponse
@@ -1607,7 +1607,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryApiKeyResponse modelRouterQueryApiKey(const string &id);
 
       /**
-       * @summary Retrieves a list of API keys.
+       * @summary Queries a list of API keys.
        *
        * @param request ModelRouterQueryApiKeyListRequest
        * @param headers map
@@ -1617,7 +1617,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryApiKeyListResponse modelRouterQueryApiKeyListWithOptions(const Models::ModelRouterQueryApiKeyListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of API keys.
+       * @summary Queries a list of API keys.
        *
        * @param request ModelRouterQueryApiKeyListRequest
        * @return ModelRouterQueryApiKeyListResponse
@@ -1705,7 +1705,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryClientDiscountLogsResponse modelRouterQueryClientDiscountLogs(const string &id, const Models::ModelRouterQueryClientDiscountLogsRequest &request);
 
       /**
-       * @summary Retrieves a list of clients.
+       * @summary Queries a list of customers.
        *
        * @param request ModelRouterQueryClientListRequest
        * @param headers map
@@ -1715,7 +1715,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryClientListResponse modelRouterQueryClientListWithOptions(const Models::ModelRouterQueryClientListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of clients.
+       * @summary Queries a list of customers.
        *
        * @param request ModelRouterQueryClientListRequest
        * @return ModelRouterQueryClientListResponse
@@ -1793,7 +1793,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostModelDetailResponse modelRouterQueryCostModelDetail(const Models::ModelRouterQueryCostModelDetailRequest &request);
 
       /**
-       * @summary Retrieves the list of models called for billing management.
+       * @summary Retrieves a list of invoked models for billing management.
        *
        * @param request ModelRouterQueryCostModelListRequest
        * @param headers map
@@ -1803,7 +1803,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostModelListResponse modelRouterQueryCostModelListWithOptions(const Models::ModelRouterQueryCostModelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of models called for billing management.
+       * @summary Retrieves a list of invoked models for billing management.
        *
        * @param request ModelRouterQueryCostModelListRequest
        * @return ModelRouterQueryCostModelListResponse
@@ -1973,9 +1973,9 @@ namespace AiContent20240611
       Models::ModelRouterQueryModelGroupUsersResponse modelRouterQueryModelGroupUsers(const string &groupId, const Models::ModelRouterQueryModelGroupUsersRequest &request);
 
       /**
-       * @summary Queries the bound groups and models by API key.
+       * @summary Queries the groups and models bound to an API key.
        *
-       * @description Queries the bound groups and models by API key.
+       * @description Queries the groups and models bound to an API key.
        *
        * @param request ModelRouterQueryModelGroupsByApiKeyRequest
        * @param headers map
@@ -1985,9 +1985,9 @@ namespace AiContent20240611
       Models::ModelRouterQueryModelGroupsByApiKeyResponse modelRouterQueryModelGroupsByApiKeyWithOptions(const string &id, const Models::ModelRouterQueryModelGroupsByApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the bound groups and models by API key.
+       * @summary Queries the groups and models bound to an API key.
        *
-       * @description Queries the bound groups and models by API key.
+       * @description Queries the groups and models bound to an API key.
        *
        * @param request ModelRouterQueryModelGroupsByApiKeyRequest
        * @return ModelRouterQueryModelGroupsByApiKeyResponse
@@ -1995,7 +1995,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryModelGroupsByApiKeyResponse modelRouterQueryModelGroupsByApiKey(const string &id, const Models::ModelRouterQueryModelGroupsByApiKeyRequest &request);
 
       /**
-       * @summary Model management/Get model list
+       * @summary Retrieves a list of models.
        *
        * @param request ModelRouterQueryModelListRequest
        * @param headers map
@@ -2005,7 +2005,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryModelListResponse modelRouterQueryModelListWithOptions(const Models::ModelRouterQueryModelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Model management/Get model list
+       * @summary Retrieves a list of models.
        *
        * @param request ModelRouterQueryModelListRequest
        * @return ModelRouterQueryModelListResponse
@@ -2013,7 +2013,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryModelListResponse modelRouterQueryModelList(const Models::ModelRouterQueryModelListRequest &request);
 
       /**
-       * @summary Queries the list of Nacos service providers through Nacos configuration.
+       * @summary Retrieves the Nacos configuration and the list of Nacos service providers.
        *
        * @param request ModelRouterQueryNacosProvidersRequest
        * @param headers map
@@ -2023,7 +2023,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryNacosProvidersResponse modelRouterQueryNacosProvidersWithOptions(const Models::ModelRouterQueryNacosProvidersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of Nacos service providers through Nacos configuration.
+       * @summary Retrieves the Nacos configuration and the list of Nacos service providers.
        *
        * @param request ModelRouterQueryNacosProvidersRequest
        * @return ModelRouterQueryNacosProvidersResponse
@@ -2031,7 +2031,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryNacosProvidersResponse modelRouterQueryNacosProviders(const Models::ModelRouterQueryNacosProvidersRequest &request);
 
       /**
-       * @summary Retrieves a list of tags from Nacos.
+       * @summary Queries the list of Nacos tags.
        *
        * @param request ModelRouterQueryNacosTagsRequest
        * @param headers map
@@ -2041,7 +2041,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryNacosTagsResponse modelRouterQueryNacosTagsWithOptions(const Models::ModelRouterQueryNacosTagsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of tags from Nacos.
+       * @summary Queries the list of Nacos tags.
        *
        * @param request ModelRouterQueryNacosTagsRequest
        * @return ModelRouterQueryNacosTagsResponse
@@ -2183,7 +2183,7 @@ namespace AiContent20240611
       Models::ModelRouterResetMemberAuthorizationResponse modelRouterResetMemberAuthorization(const string &clientId, const string &id, const Models::ModelRouterResetMemberAuthorizationRequest &request);
 
       /**
-       * @summary Flow control management / Save flow control configuration
+       * @summary Configures write rate limiting.
        *
        * @param request ModelRouterSaveFlowConfigRequest
        * @param headers map
@@ -2193,7 +2193,7 @@ namespace AiContent20240611
       Models::ModelRouterSaveFlowConfigResponse modelRouterSaveFlowConfigWithOptions(const Models::ModelRouterSaveFlowConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Flow control management / Save flow control configuration
+       * @summary Configures write rate limiting.
        *
        * @param request ModelRouterSaveFlowConfigRequest
        * @return ModelRouterSaveFlowConfigResponse
@@ -2259,7 +2259,7 @@ namespace AiContent20240611
       Models::ModelRouterSetUserRolesResponse modelRouterSetUserRoles(const string &id, const Models::ModelRouterSetUserRolesRequest &request);
 
       /**
-       * @summary 组织管理/停止成员订阅
+       * @summary Stops a member subscription.
        *
        * @param request ModelRouterStopMemberSubscriptionRequest
        * @param headers map
@@ -2269,7 +2269,7 @@ namespace AiContent20240611
       Models::ModelRouterStopMemberSubscriptionResponse modelRouterStopMemberSubscriptionWithOptions(const string &clientId, const string &id, const Models::ModelRouterStopMemberSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 组织管理/停止成员订阅
+       * @summary Stops a member subscription.
        *
        * @param request ModelRouterStopMemberSubscriptionRequest
        * @return ModelRouterStopMemberSubscriptionResponse
@@ -2483,7 +2483,7 @@ namespace AiContent20240611
       Models::PersonalizedTextToImageQueryImageAssetResponse personalizedTextToImageQueryImageAsset(const Models::PersonalizedTextToImageQueryImageAssetRequest &request);
 
       /**
-       * @summary Queries the status of a personalized text-to-image inference job.
+       * @summary Queries the status of a preset model inference task for personalized text-to-image generation.
        *
        * @param request PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
        * @param headers map
@@ -2493,7 +2493,7 @@ namespace AiContent20240611
       Models::PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse personalizedTextToImageQueryPreModelInferenceJobInfoWithOptions(const Models::PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of a personalized text-to-image inference job.
+       * @summary Queries the status of a preset model inference task for personalized text-to-image generation.
        *
        * @param request PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
        * @return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse
@@ -2501,7 +2501,7 @@ namespace AiContent20240611
       Models::PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse personalizedTextToImageQueryPreModelInferenceJobInfo(const Models::PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest &request);
 
       /**
-       * @summary Creates an inference job to generate images based on a personalized text-to-image model.
+       * @summary Creates an image inference task based on a specified model for personalized text-to-image generation.
        *
        * @param request Personalizedtxt2imgAddInferenceJobRequest
        * @param headers map
@@ -2511,7 +2511,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgAddInferenceJobResponse personalizedtxt2imgAddInferenceJobWithOptions(const Models::Personalizedtxt2imgAddInferenceJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an inference job to generate images based on a personalized text-to-image model.
+       * @summary Creates an image inference task based on a specified model for personalized text-to-image generation.
        *
        * @param request Personalizedtxt2imgAddInferenceJobRequest
        * @return Personalizedtxt2imgAddInferenceJobResponse
@@ -2555,7 +2555,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgQueryImageAssetResponse personalizedtxt2imgQueryImageAsset(const Models::Personalizedtxt2imgQueryImageAssetRequest &request);
 
       /**
-       * @summary Retrieves the status and results of a Personalizedtxt2img inference job.
+       * @summary Queries the status and results of a personalized text-to-image model inference task.
        *
        * @param request Personalizedtxt2imgQueryInferenceJobInfoRequest
        * @param headers map
@@ -2565,7 +2565,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgQueryInferenceJobInfoResponse personalizedtxt2imgQueryInferenceJobInfoWithOptions(const Models::Personalizedtxt2imgQueryInferenceJobInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the status and results of a Personalizedtxt2img inference job.
+       * @summary Queries the status and results of a personalized text-to-image model inference task.
        *
        * @param request Personalizedtxt2imgQueryInferenceJobInfoRequest
        * @return Personalizedtxt2imgQueryInferenceJobInfoResponse
@@ -2607,7 +2607,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgQueryModelTrainStatusResponse personalizedtxt2imgQueryModelTrainStatus(const Models::Personalizedtxt2imgQueryModelTrainStatusRequest &request);
 
       /**
-       * @summary Queries information about an application access ID (appkey).
+       * @summary Retrieves the application access identifier (appkey) information from the Alibaba Cloud Management Console.
        *
        * @param request QueryApplicationAccessIdRequest
        * @param headers map
@@ -2617,7 +2617,7 @@ namespace AiContent20240611
       Models::QueryApplicationAccessIdResponse queryApplicationAccessIdWithOptions(const Models::QueryApplicationAccessIdRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about an application access ID (appkey).
+       * @summary Retrieves the application access identifier (appkey) information from the Alibaba Cloud Management Console.
        *
        * @param request QueryApplicationAccessIdRequest
        * @return QueryApplicationAccessIdResponse

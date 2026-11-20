@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The list of cost trend data points.
     shared_ptr<vector<BillingBillSummaryPointDTO>> points_ {};
+    // The total cost within the time range.
     shared_ptr<float> totalAmount_ {};
   };
 

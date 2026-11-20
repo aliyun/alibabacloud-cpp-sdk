@@ -130,26 +130,27 @@ namespace Models
 
 
   protected:
-    // The field to group the results by.
+    // The field used to group the results.
     shared_ptr<string> groupBy_ {};
-    // The search keyword.
+    // The keyword used for search.
     shared_ptr<string> keyword_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // Specifies whether to return the total count of entries.
+    // Specifies whether to include the total count of records.
     shared_ptr<bool> needTotalCount_ {};
-    // The token for the next page of results. Set this to the nextToken value from the previous response. Omit for the first page.
+    // The pagination token. An empty value indicates that there are no more pages.
     shared_ptr<string> nextToken_ {};
-    // The field to sort the results by.
+    // The field used to sort the results.
     shared_ptr<string> orderBy_ {};
-    // The sort direction.
+    // The sort order.
     shared_ptr<string> orderDirection_ {};
-    // The page number of the results to return. The first page is 1.
+    // The page number.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of entries to return per page.
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Optional. The ID of the parent department used to filter the results.
     shared_ptr<int64_t> parentId_ {};
-    // Filters the results by status.
+    // The status used to filter the results.
     shared_ptr<int32_t> status_ {};
   };
 

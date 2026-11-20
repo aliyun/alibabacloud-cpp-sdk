@@ -112,22 +112,23 @@ namespace Models
 
 
   protected:
+    // Specifies the Nacos configuration type to retrieve.
     shared_ptr<string> configType_ {};
-    // The field by which to group the results.
+    // The grouping field.
     shared_ptr<string> groupBy_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // Specifies whether to return the total count of results.
+    // Specifies whether to return the total count.
     shared_ptr<bool> needTotalCount_ {};
-    // The token from a previous response to retrieve the next page of results.
+    // The pagination token. This parameter is empty if there is no next page.
     shared_ptr<string> nextToken_ {};
-    // The field by which to sort the results.
+    // The sort field.
     shared_ptr<string> orderBy_ {};
-    // The sort order.
+    // The sort direction.
     shared_ptr<string> orderDirection_ {};
     // The page number.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of results to return per page.
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

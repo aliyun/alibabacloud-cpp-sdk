@@ -183,11 +183,11 @@ namespace Models
 
 
       protected:
-        // A list of image URLs related to the topic.
+        // The images related to the current topic.
         shared_ptr<vector<string>> topicImageList_ {};
         // The topic name.
         shared_ptr<string> topicName_ {};
-        // The translation of the topic name.
+        // The translation of the topic content.
         shared_ptr<string> topicTranslate_ {};
       };
 
@@ -240,7 +240,7 @@ namespace Models
 
 
       protected:
-        // A list of image URLs related to the theme.
+        // The images related to the current theme.
         shared_ptr<vector<string>> themeImageList_ {};
         // The theme name.
         shared_ptr<string> themeName_ {};
@@ -295,7 +295,7 @@ namespace Models
 
 
       protected:
-        // The sentence analysis.
+        // The sentence analysis and explanation.
         shared_ptr<string> sentenceAnalysis_ {};
         // The sentence ID.
         shared_ptr<string> sentenceId_ {};
@@ -435,15 +435,15 @@ namespace Models
         shared_ptr<string> introduction_ {};
         // The translation of the role introduction.
         shared_ptr<string> introductionTranslate_ {};
-        // The role guidance text.
+        // The role prompt text.
         shared_ptr<string> promoting_ {};
-        // The translation of the role guidance text.
+        // The translation of the role prompt text.
         shared_ptr<string> promotingTranslate_ {};
         // The role name.
         shared_ptr<string> roleName_ {};
         // The translation of the role name.
         shared_ptr<string> roleNameTranslate_ {};
-        // The role type:
+        // The role type. A value of 0 indicates the AI questioner, and a value of 1 indicates the responder.
         shared_ptr<string> roleType_ {};
       };
 
@@ -542,27 +542,26 @@ namespace Models
 
 
     protected:
-      // A list of roles in the scene.
+      // The list of roles.
       shared_ptr<vector<Data::RoleList>> roleList_ {};
       // The scene description.
       shared_ptr<string> scene_ {};
       // The scene ID.
       shared_ptr<string> sceneId_ {};
-      // A list of image URLs related to the current scene.
+      // The images related to the current scene.
       shared_ptr<vector<string>> sceneImageList_ {};
-      // The scene task list.
+      // The list of scene tasks.
       shared_ptr<vector<Data::SceneTaskList>> sceneTaskList_ {};
-      // The translation of the scene description.
       shared_ptr<string> sceneTranslate_ {};
-      // The sentence list.
+      // The list of sentences.
       shared_ptr<vector<Data::SentenceList>> sentenceList_ {};
-      // The practice target.
+      // The practice objective.
       shared_ptr<string> target_ {};
-      // The theme details.
+      // The theme information.
       shared_ptr<Data::Theme> theme_ {};
-      // The topic details.
+      // The topic information.
       shared_ptr<Data::Topic> topic_ {};
-      // The word list.
+      // The list of words.
       shared_ptr<vector<Data::WordList>> wordList_ {};
     };
 
@@ -615,19 +614,18 @@ namespace Models
   protected:
     // The returned data object.
     shared_ptr<vector<ListTextbookAssistantSceneDetailsResponseBody::Data>> data_ {};
-    // The error code returned if the request fails.
+    // The error code.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request fails.
+    // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded.
+    // Indicates whether the API call is successful. Valid values:
+    // - **true**: Successful.
     // 
-    // - **true**: The call succeeded.
-    // 
-    // - **false**: The call failed.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The search keyword.
     shared_ptr<string> keyword_ {};
+    // The page number.
     shared_ptr<int32_t> page_ {};
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The status filter.
     shared_ptr<int32_t> status_ {};
   };
 
