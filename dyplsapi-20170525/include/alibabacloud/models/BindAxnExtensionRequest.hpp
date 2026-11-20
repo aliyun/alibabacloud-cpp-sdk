@@ -66,212 +66,235 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ASRModelId_ == nullptr
-        && return this->ASRStatus_ == nullptr && return this->callDisplayType_ == nullptr && return this->callRestrict_ == nullptr && return this->expectCity_ == nullptr && return this->expiration_ == nullptr
-        && return this->extend_ == nullptr && return this->extension_ == nullptr && return this->isRecordingEnabled_ == nullptr && return this->outId_ == nullptr && return this->outOrderId_ == nullptr
-        && return this->ownerId_ == nullptr && return this->phoneNoA_ == nullptr && return this->phoneNoB_ == nullptr && return this->phoneNoX_ == nullptr && return this->poolKey_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->ringConfig_ == nullptr; };
+        && this->ASRStatus_ == nullptr && this->callDisplayType_ == nullptr && this->callRestrict_ == nullptr && this->expectCity_ == nullptr && this->expiration_ == nullptr
+        && this->extend_ == nullptr && this->extension_ == nullptr && this->isRecordingEnabled_ == nullptr && this->outId_ == nullptr && this->outOrderId_ == nullptr
+        && this->ownerId_ == nullptr && this->phoneNoA_ == nullptr && this->phoneNoB_ == nullptr && this->phoneNoX_ == nullptr && this->poolKey_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->ringConfig_ == nullptr; };
     // ASRModelId Field Functions 
     bool hasASRModelId() const { return this->ASRModelId_ != nullptr;};
     void deleteASRModelId() { this->ASRModelId_ = nullptr;};
-    inline string ASRModelId() const { DARABONBA_PTR_GET_DEFAULT(ASRModelId_, "") };
+    inline string getASRModelId() const { DARABONBA_PTR_GET_DEFAULT(ASRModelId_, "") };
     inline BindAxnExtensionRequest& setASRModelId(string ASRModelId) { DARABONBA_PTR_SET_VALUE(ASRModelId_, ASRModelId) };
 
 
     // ASRStatus Field Functions 
     bool hasASRStatus() const { return this->ASRStatus_ != nullptr;};
     void deleteASRStatus() { this->ASRStatus_ = nullptr;};
-    inline bool ASRStatus() const { DARABONBA_PTR_GET_DEFAULT(ASRStatus_, false) };
+    inline bool getASRStatus() const { DARABONBA_PTR_GET_DEFAULT(ASRStatus_, false) };
     inline BindAxnExtensionRequest& setASRStatus(bool ASRStatus) { DARABONBA_PTR_SET_VALUE(ASRStatus_, ASRStatus) };
 
 
     // callDisplayType Field Functions 
     bool hasCallDisplayType() const { return this->callDisplayType_ != nullptr;};
     void deleteCallDisplayType() { this->callDisplayType_ = nullptr;};
-    inline int32_t callDisplayType() const { DARABONBA_PTR_GET_DEFAULT(callDisplayType_, 0) };
+    inline int32_t getCallDisplayType() const { DARABONBA_PTR_GET_DEFAULT(callDisplayType_, 0) };
     inline BindAxnExtensionRequest& setCallDisplayType(int32_t callDisplayType) { DARABONBA_PTR_SET_VALUE(callDisplayType_, callDisplayType) };
 
 
     // callRestrict Field Functions 
     bool hasCallRestrict() const { return this->callRestrict_ != nullptr;};
     void deleteCallRestrict() { this->callRestrict_ = nullptr;};
-    inline string callRestrict() const { DARABONBA_PTR_GET_DEFAULT(callRestrict_, "") };
+    inline string getCallRestrict() const { DARABONBA_PTR_GET_DEFAULT(callRestrict_, "") };
     inline BindAxnExtensionRequest& setCallRestrict(string callRestrict) { DARABONBA_PTR_SET_VALUE(callRestrict_, callRestrict) };
 
 
     // expectCity Field Functions 
     bool hasExpectCity() const { return this->expectCity_ != nullptr;};
     void deleteExpectCity() { this->expectCity_ = nullptr;};
-    inline string expectCity() const { DARABONBA_PTR_GET_DEFAULT(expectCity_, "") };
+    inline string getExpectCity() const { DARABONBA_PTR_GET_DEFAULT(expectCity_, "") };
     inline BindAxnExtensionRequest& setExpectCity(string expectCity) { DARABONBA_PTR_SET_VALUE(expectCity_, expectCity) };
 
 
     // expiration Field Functions 
     bool hasExpiration() const { return this->expiration_ != nullptr;};
     void deleteExpiration() { this->expiration_ = nullptr;};
-    inline string expiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
+    inline string getExpiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
     inline BindAxnExtensionRequest& setExpiration(string expiration) { DARABONBA_PTR_SET_VALUE(expiration_, expiration) };
 
 
     // extend Field Functions 
     bool hasExtend() const { return this->extend_ != nullptr;};
     void deleteExtend() { this->extend_ = nullptr;};
-    inline string extend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
+    inline string getExtend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
     inline BindAxnExtensionRequest& setExtend(string extend) { DARABONBA_PTR_SET_VALUE(extend_, extend) };
 
 
     // extension Field Functions 
     bool hasExtension() const { return this->extension_ != nullptr;};
     void deleteExtension() { this->extension_ = nullptr;};
-    inline string extension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
+    inline string getExtension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
     inline BindAxnExtensionRequest& setExtension(string extension) { DARABONBA_PTR_SET_VALUE(extension_, extension) };
 
 
     // isRecordingEnabled Field Functions 
     bool hasIsRecordingEnabled() const { return this->isRecordingEnabled_ != nullptr;};
     void deleteIsRecordingEnabled() { this->isRecordingEnabled_ = nullptr;};
-    inline bool isRecordingEnabled() const { DARABONBA_PTR_GET_DEFAULT(isRecordingEnabled_, false) };
+    inline bool getIsRecordingEnabled() const { DARABONBA_PTR_GET_DEFAULT(isRecordingEnabled_, false) };
     inline BindAxnExtensionRequest& setIsRecordingEnabled(bool isRecordingEnabled) { DARABONBA_PTR_SET_VALUE(isRecordingEnabled_, isRecordingEnabled) };
 
 
     // outId Field Functions 
     bool hasOutId() const { return this->outId_ != nullptr;};
     void deleteOutId() { this->outId_ = nullptr;};
-    inline string outId() const { DARABONBA_PTR_GET_DEFAULT(outId_, "") };
+    inline string getOutId() const { DARABONBA_PTR_GET_DEFAULT(outId_, "") };
     inline BindAxnExtensionRequest& setOutId(string outId) { DARABONBA_PTR_SET_VALUE(outId_, outId) };
 
 
     // outOrderId Field Functions 
     bool hasOutOrderId() const { return this->outOrderId_ != nullptr;};
     void deleteOutOrderId() { this->outOrderId_ = nullptr;};
-    inline string outOrderId() const { DARABONBA_PTR_GET_DEFAULT(outOrderId_, "") };
+    inline string getOutOrderId() const { DARABONBA_PTR_GET_DEFAULT(outOrderId_, "") };
     inline BindAxnExtensionRequest& setOutOrderId(string outOrderId) { DARABONBA_PTR_SET_VALUE(outOrderId_, outOrderId) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline BindAxnExtensionRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // phoneNoA Field Functions 
     bool hasPhoneNoA() const { return this->phoneNoA_ != nullptr;};
     void deletePhoneNoA() { this->phoneNoA_ = nullptr;};
-    inline string phoneNoA() const { DARABONBA_PTR_GET_DEFAULT(phoneNoA_, "") };
+    inline string getPhoneNoA() const { DARABONBA_PTR_GET_DEFAULT(phoneNoA_, "") };
     inline BindAxnExtensionRequest& setPhoneNoA(string phoneNoA) { DARABONBA_PTR_SET_VALUE(phoneNoA_, phoneNoA) };
 
 
     // phoneNoB Field Functions 
     bool hasPhoneNoB() const { return this->phoneNoB_ != nullptr;};
     void deletePhoneNoB() { this->phoneNoB_ = nullptr;};
-    inline string phoneNoB() const { DARABONBA_PTR_GET_DEFAULT(phoneNoB_, "") };
+    inline string getPhoneNoB() const { DARABONBA_PTR_GET_DEFAULT(phoneNoB_, "") };
     inline BindAxnExtensionRequest& setPhoneNoB(string phoneNoB) { DARABONBA_PTR_SET_VALUE(phoneNoB_, phoneNoB) };
 
 
     // phoneNoX Field Functions 
     bool hasPhoneNoX() const { return this->phoneNoX_ != nullptr;};
     void deletePhoneNoX() { this->phoneNoX_ = nullptr;};
-    inline string phoneNoX() const { DARABONBA_PTR_GET_DEFAULT(phoneNoX_, "") };
+    inline string getPhoneNoX() const { DARABONBA_PTR_GET_DEFAULT(phoneNoX_, "") };
     inline BindAxnExtensionRequest& setPhoneNoX(string phoneNoX) { DARABONBA_PTR_SET_VALUE(phoneNoX_, phoneNoX) };
 
 
     // poolKey Field Functions 
     bool hasPoolKey() const { return this->poolKey_ != nullptr;};
     void deletePoolKey() { this->poolKey_ = nullptr;};
-    inline string poolKey() const { DARABONBA_PTR_GET_DEFAULT(poolKey_, "") };
+    inline string getPoolKey() const { DARABONBA_PTR_GET_DEFAULT(poolKey_, "") };
     inline BindAxnExtensionRequest& setPoolKey(string poolKey) { DARABONBA_PTR_SET_VALUE(poolKey_, poolKey) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline BindAxnExtensionRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline BindAxnExtensionRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // ringConfig Field Functions 
     bool hasRingConfig() const { return this->ringConfig_ != nullptr;};
     void deleteRingConfig() { this->ringConfig_ = nullptr;};
-    inline string ringConfig() const { DARABONBA_PTR_GET_DEFAULT(ringConfig_, "") };
+    inline string getRingConfig() const { DARABONBA_PTR_GET_DEFAULT(ringConfig_, "") };
     inline BindAxnExtensionRequest& setRingConfig(string ringConfig) { DARABONBA_PTR_SET_VALUE(ringConfig_, ringConfig) };
 
 
   protected:
-    // The ID of the ASR model. On the [Automatic Speech Recognition (ASR) Model Management](https://dyplsnext.console.aliyun.com/?spm=5176.12818093.categories-n-products.ddypls.22e616d0a0tEFC#/asr) page, you can view the ID of the ASR model.
-    std::shared_ptr<string> ASRModelId_ = nullptr;
-    // Specifies whether to enable automatic speech recognition (ASR). Valid values:
+    // The ASR model ID. Valid values:
     // 
-    // *   **false** (default): disables ASR.
-    // *   **true**: enables ASR.
-    std::shared_ptr<bool> ASRStatus_ = nullptr;
-    // Re-sets the phone number display logic in the AXN extension binding. Fixed value: **1**, indicating that phone number X is displayed on both the calling phone and the called phone.
+    // - General-Telephone-Mandarin Chinese model ID: 7ee372834d2f4cc7ac0d0ab2d0ae1aac
     // 
-    // >  Due to the regulatory restrictions imposed by carriers, the setting to display real phone numbers during calls does not take effect.
-    std::shared_ptr<int32_t> callDisplayType_ = nullptr;
-    // The status of call restrictions. Valid values:
+    // - General-Telephone-Cantonese model ID: 9b4afe3d224e4fa3bf963697113e2f77
     // 
-    // *   **CONTROL_AX_DISABLE**: Phone number A cannot be used to call phone number X.
-    // *   **CONTROL_BX_DISABLE**: Phone number B cannot be used to call phone number X.
-    std::shared_ptr<string> callRestrict_ = nullptr;
-    // Specifies the city to which phone number X to be selected belongs.
+    // - General-Telephone-Regional accent model ID: 3655a6cb94764145a1f9a38a3c3b3b4b
+    shared_ptr<string> ASRModelId_ {};
+    // The ASR status. Valid values:
     // 
-    // *   If no phone number for the specified city is available in the current phone number pool or this parameter is not specified, a phone number that belongs to another city is randomly selected from the current phone number pool and assigned as phone number X.
-    // *   If Number X Assignment Mode is set to Strict Matching Mode and no phone number meets the requirement, the system displays an allocation error.
-    std::shared_ptr<string> expectCity_ = nullptr;
-    // The expiration time of the AXN extension binding. The value is accurate to seconds.
+    // - **false**: Disabled. This is the default value.
+    // - **true**: Enabled.
+    shared_ptr<bool> ASRStatus_ {};
+    // Resets the number display logic in the binding relationship. Set the value to **1**, which indicates that the intermediate number X is displayed for both the caller and the callee.
     // 
-    // >  The expiration time must be more than 1 minute later than the time when you call this API operation.
+    // > Due to carrier regulatory restrictions, the setting to display the real number during a call does not take effect.
+    shared_ptr<int32_t> callDisplayType_ {};
+    // The call restriction status. Valid values:
     // 
-    // This parameter is required.
-    std::shared_ptr<string> expiration_ = nullptr;
-    std::shared_ptr<string> extend_ = nullptr;
-    // The extension of phone number X. The extension is 1 to 3 digits in length.
+    // - **CONTROL_AX_DISABLE**: Number A cannot call number X.
+    // - **CONTROL_BX_DISABLE**: Number B cannot call number X.
+    shared_ptr<string> callRestrict_ {};
+    // The city where you want to select number X.
     // 
-    // >  If you specify Extension, you must also specify PhoneNoX.
-    std::shared_ptr<string> extension_ = nullptr;
-    // Specifies whether to record all calls made by the bound phone numbers. Valid values:
-    // 
-    // *   **true**
-    // *   **false** (default)
-    std::shared_ptr<bool> isRecordingEnabled_ = nullptr;
-    // The extension field for the external business. This parameter is returned in a call record receipt.
-    std::shared_ptr<string> outId_ = nullptr;
-    // The ID of the external business.
-    std::shared_ptr<string> outOrderId_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // Phone number A in the AXN extension binding. Phone number A can be set to a mobile phone number or a landline phone number. The landline phone number must be added with an area code, and no hyphen is required between the area code and the landline phone number.
+    // > - If no available numbers exist in the specified city in the current number pool, or if this parameter is not specified, the system randomly assigns a number from another city in the current number pool as number X.
+    // > - If the **number X allocation mode** is set to **strict match mode**, the system returns an allocation error when no eligible numbers are available.
+    shared_ptr<string> expectCity_ {};
+    // The expiration time of the binding relationship. The time is accurate to seconds.
+    // > The expiration time must be at least 1 minute later than the current time.
     // 
     // This parameter is required.
-    std::shared_ptr<string> phoneNoA_ = nullptr;
-    // Phone number B in the AXN extension binding. When phone number A is used to call phone number X, the call is forwarded to phone number B. If you need to update phone number B, call the [UpdateSubscription](https://help.aliyun.com/document_detail/110253.html) operation.
+    shared_ptr<string> expiration_ {};
+    shared_ptr<string> extend_ {};
+    // The extension number of number X. The extension number must be 1 to 3 digits in length.
     // 
-    // Phone number B can be set to a mobile phone number or a landline phone number. The landline phone number must be added with an area code, and no hyphen is required between the area code and the landline phone number.
-    std::shared_ptr<string> phoneNoB_ = nullptr;
-    // Phone number X in the AXN extension binding. If you do not specify this parameter, a random phone number is selected from the phone number pool based on the value of the **ExpectCity** parameter and is used as phone number X.
+    // > If you specify an extension number, you must also specify number X. This means that both the Extension and PhoneNoX parameters must be specified.
+    shared_ptr<string> extension_ {};
+    // Specifies whether to record all calls generated for this binding relationship. Valid values:
     // 
-    // >  Phone number X is the phone number that you purchased in the Phone Number Protection console or by using the [BuySecretNo](https://help.aliyun.com/document_detail/110266.html) operation before you bind a phone number. Phone number X is used to forward calls.
-    std::shared_ptr<string> phoneNoX_ = nullptr;
-    // The key of the phone number pool. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
-    std::shared_ptr<string> poolKey_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
-    // Sets the ringtone for enterprise Color Ring Back Tone (CRBT) in the AXN extension binding.
+    // - **true**: Records calls.
+    // - **false**: Does not record calls. This is the default value.
+    shared_ptr<bool> isRecordingEnabled_ {};
+    // The external business extension field. This parameter is returned in the call record receipt message.
+    shared_ptr<string> outId_ {};
+    // The external business ID.
+    shared_ptr<string> outOrderId_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    // The number A of the AXN extension number.
+    // Number A can be a mobile phone number or a landline number. For a landline number, you must add the area code. Do not add a hyphen between the area code and the phone number.
     // 
-    // *   Ringtone setting (with a callback number) when phone number A is used to call phone number X in the AXN extension binding: AXNRing_AB
-    // *   Ringtone setting (without a callback number) when phone number A is used to call phone number X in the AXN extension binding: AXNRing_A
-    // *   Ringtone setting when an N-side number is used to call phone number X in the AXN extension binding: AXNRing_N
+    // This parameter is required.
+    shared_ptr<string> phoneNoA_ {};
+    // The number B of the AXN extension number.
     // 
-    // Enterprise CRBT codes: Enterprise CRBT codes can be queried in the Phone Number Protection console. You can choose **Number Pool Management > Enterprise CRBT Management** to view and manage enterprise CRBT codes. You can also upload, delete, or perform other operations on enterprise CRBT codes.
+    // Number B can be a mobile phone number or a landline number. For a landline number, you must add the area code. Do not add a hyphen between the area code and the phone number.
+    // > - When number A calls number X, the call is forwarded to number B by default. If number B is not specified, the call cannot be connected.
+    // > - When number A calls number X, the call is forwarded to number B only when the **callback mode for number A** is set to **default mode**. If it is not set to **default mode**, the call cannot be connected.
+    // > - To modify the **callback mode for number A**, go to [Number Pool Management](https://dyplsnext.console.aliyun.com/number-pool?resType=1) > filter by **AXN Extension Number** > **Number Pool Management** > **Callback Mode for Number A** > **Adjust Configuration**.
+    // > - To update number B, call the [UpdateSubscription](https://www.alibabacloud.com/help/en/pnp/developer-reference/api-dyplsapi-2017-05-25-updatesubscription) operation.
+    shared_ptr<string> phoneNoB_ {};
+    // The number X of the AXN extension number.
     // 
-    // >  The bound enterprise CRBTs are preferentially used. If no enterprise CRBT is set or the setting does not take effect, the enterprise CRBTs at the phone number pool level are used.
-    std::shared_ptr<string> ringConfig_ = nullptr;
+    // Number X is a privacy number that you have [purchased](https://dyplsnext.console.aliyun.com/numberbuy?spm=a2c4g.11186623.0.0.7e6449bbtiHP8m) in the console.
+    // 
+    // > If you do not specify number X, the system randomly assigns a number from the specified number pool as number X based on the ExpectCity parameter.
+    shared_ptr<string> phoneNoX_ {};
+    // The key of the number pool.
+    // 
+    // You can obtain the **number pool key** on the [Number Pool Management](https://dyplsnext.console.aliyun.com/number-pool?spm=a2c4g.11186623.0.0.7e6449bbtiHP8m) page in the Privacy Protection console.
+    shared_ptr<string> poolKey_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
+    // Set the corporate ringback tone for dial-up to number X after the AXN extension number is bound.
+    // 
+    // Specify the **ringtone field** and **ringback tone encoding** for this parameter.
+    // 
+    // Valid values for the **ringtone field**:
+    // - AXNRing_AB: The ringtone settings before number A calls number X and the call is connected (with a callback number) in the AXN extension number scenario.
+    // - AXNRing_A: The ringtone settings before number A calls number X and the call is connected (without a callback number) in the AXN extension number scenario.
+    // - AXNRing_N: The ringtone settings before the number on side N calls number X and the call is connected in the AXN extension number scenario.
+    // - AXNRing_A_PICKUP: The ringtone settings after number A calls number X and the call is connected in the AXN extension number scenario.
+    // - AXNRing_N_PICKUP: The ringtone settings after the number on side N calls number X and the call is connected in the AXN extension number scenario.
+    // 
+    // **Ringback tone encoding**:
+    // 
+    // You can obtain the corporate ringback tone encoding on the [Corporate Ringback Tone Management](https://dyplsnext.console.aliyun.com/number-pool/ringtone?resType=1) page in the Privacy Protection console.
+    // 
+    // **Example**:
+    // 
+    // To set the ringtone before number A calls number X and the call is connected (without a callback number), enter "AXNRing_A": "1000****1".
+    shared_ptr<string> ringConfig_ {};
   };
 
   } // namespace Models

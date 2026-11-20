@@ -38,72 +38,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->blackNo_ == nullptr
-        && return this->blackType_ == nullptr && return this->poolKey_ == nullptr && return this->remark_ == nullptr && return this->wayControl_ == nullptr; };
+        && this->blackType_ == nullptr && this->poolKey_ == nullptr && this->remark_ == nullptr && this->wayControl_ == nullptr; };
     // blackNo Field Functions 
     bool hasBlackNo() const { return this->blackNo_ != nullptr;};
     void deleteBlackNo() { this->blackNo_ = nullptr;};
-    inline string blackNo() const { DARABONBA_PTR_GET_DEFAULT(blackNo_, "") };
+    inline string getBlackNo() const { DARABONBA_PTR_GET_DEFAULT(blackNo_, "") };
     inline DeleteSecretBlacklistRequest& setBlackNo(string blackNo) { DARABONBA_PTR_SET_VALUE(blackNo_, blackNo) };
 
 
     // blackType Field Functions 
     bool hasBlackType() const { return this->blackType_ != nullptr;};
     void deleteBlackType() { this->blackType_ = nullptr;};
-    inline string blackType() const { DARABONBA_PTR_GET_DEFAULT(blackType_, "") };
+    inline string getBlackType() const { DARABONBA_PTR_GET_DEFAULT(blackType_, "") };
     inline DeleteSecretBlacklistRequest& setBlackType(string blackType) { DARABONBA_PTR_SET_VALUE(blackType_, blackType) };
 
 
     // poolKey Field Functions 
     bool hasPoolKey() const { return this->poolKey_ != nullptr;};
     void deletePoolKey() { this->poolKey_ = nullptr;};
-    inline string poolKey() const { DARABONBA_PTR_GET_DEFAULT(poolKey_, "") };
+    inline string getPoolKey() const { DARABONBA_PTR_GET_DEFAULT(poolKey_, "") };
     inline DeleteSecretBlacklistRequest& setPoolKey(string poolKey) { DARABONBA_PTR_SET_VALUE(poolKey_, poolKey) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline DeleteSecretBlacklistRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // wayControl Field Functions 
     bool hasWayControl() const { return this->wayControl_ != nullptr;};
     void deleteWayControl() { this->wayControl_ = nullptr;};
-    inline string wayControl() const { DARABONBA_PTR_GET_DEFAULT(wayControl_, "") };
+    inline string getWayControl() const { DARABONBA_PTR_GET_DEFAULT(wayControl_, "") };
     inline DeleteSecretBlacklistRequest& setWayControl(string wayControl) { DARABONBA_PTR_SET_VALUE(wayControl_, wayControl) };
 
 
   protected:
-    // The phone numbers in the blacklist. A point-to-point blacklist has a pair of numbers separated by a colon (":"). A number pool blacklist or a platform blacklist has only one single number.
+    // The blacklisted number. The value type is determined by the **BlackType** parameter:
+    // 
+    // - **Point-to-point blacklist**: a pair of numbers separated by a colon (:)
+    // - **Number pool blacklist**: a single number
     // 
     // This parameter is required.
-    std::shared_ptr<string> blackNo_ = nullptr;
-    // The blacklist type. Valid values:
+    shared_ptr<string> blackNo_ {};
+    // The type of the blacklist. Valid values:
     // 
-    // *   **POINT_TO_POINT_BLACK**: point-to-point blacklist
-    // *   **PARTNER_GLOBAL_NUMBER_BLACK**: number pool blacklist
-    // 
-    // This parameter is required.
-    std::shared_ptr<string> blackType_ = nullptr;
-    // The key of the phone number pool. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
+    // - **POINT_TO_POINT_BLACK**: point-to-point blacklist
+    // - **PARTNER_GLOBAL_NUMBER_BLACK**: number pool blacklist
     // 
     // This parameter is required.
-    std::shared_ptr<string> poolKey_ = nullptr;
-    // The remarks for the blacklist.
-    std::shared_ptr<string> remark_ = nullptr;
-    // The control on the call direction.
+    shared_ptr<string> blackType_ {};
+    // The key of the number pool.
     // 
-    // *   **PHONEA_REJECT**: The first phone number in the blacklist can be used to call the second phone number, but the second phone number in the blacklist cannot be used to call the first phone number.
-    // *   **PHONEB_REJECT**: The first phone number in the blacklist cannot be used to call the second phone number, but the second phone number in the blacklist can be used to call the first phone number.
-    // *   If this parameter is not specified, the two phone numbers in the blacklist cannot be used to call each other.
+    // You can obtain the **number pool key** on the [Number Pool Management](https://dyplsnext.console.aliyun.com/number-pool) page in the Phone Number Privacy Protection console.
     // 
-    // Valid values:
+    // This parameter is required.
+    shared_ptr<string> poolKey_ {};
+    // The remark for the blacklist.
+    shared_ptr<string> remark_ {};
+    // The call direction control. Valid values:
     // 
-    // *   DUPLEX_REJECT
-    // *   PHONEA_REJECT
-    // *   PHONEB_REJECT
-    std::shared_ptr<string> wayControl_ = nullptr;
+    // - **PHONEA_REJECT**: The first number in BlackNo can call the second number, but the second number cannot call the first number.
+    // 
+    // - **PHONEB_REJECT**: The first number in BlackNo cannot call the second number, but the second number can call the first number.
+    // 
+    // - **Leave empty**: The two numbers in BlackNo cannot call each other.
+    shared_ptr<string> wayControl_ {};
   };
 
   } // namespace Models

@@ -40,61 +40,70 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && return this->code_ == nullptr && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->code_ == nullptr && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline string accessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
     inline DeleteSecretAPhoneNoToCustResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline DeleteSecretAPhoneNoToCustResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline bool data() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
+    inline bool getData() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
     inline DeleteSecretAPhoneNoToCustResponseBody& setData(bool data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DeleteSecretAPhoneNoToCustResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteSecretAPhoneNoToCustResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DeleteSecretAPhoneNoToCustResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> accessDeniedDetail_ = nullptr;
-    // 请求状态码
-    std::shared_ptr<string> code_ = nullptr;
-    // 删除是否成功
-    std::shared_ptr<bool> data_ = nullptr;
-    // 失败错误提示
-    std::shared_ptr<string> message_ = nullptr;
-    // 返回id
-    std::shared_ptr<string> requestId_ = nullptr;
-    // 请求是否成功
-    std::shared_ptr<bool> success_ = nullptr;
+    // Details of denied access.
+    shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code.
+    shared_ptr<string> code_ {};
+    // Indicates whether the deletion succeeded. Valid values:
+    // 
+    // - true: Succeeded.
+    // 
+    // - false: Failed.
+    shared_ptr<bool> data_ {};
+    // Error message for failure.
+    shared_ptr<string> message_ {};
+    // The returned ID.
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Valid values:
+    // 
+    // - true: Succeeded.
+    // 
+    // - false: Failed.
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

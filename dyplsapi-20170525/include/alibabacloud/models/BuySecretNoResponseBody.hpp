@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_BUYSECRETNORESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_BUYSECRETNORESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/BuySecretNoResponseBodySecretBuyInfoDTO.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,36 +35,68 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SecretBuyInfoDTO : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SecretBuyInfoDTO& obj) { 
+        DARABONBA_PTR_TO_JSON(SecretNo, secretNo_);
+      };
+      friend void from_json(const Darabonba::Json& j, SecretBuyInfoDTO& obj) { 
+        DARABONBA_PTR_FROM_JSON(SecretNo, secretNo_);
+      };
+      SecretBuyInfoDTO() = default ;
+      SecretBuyInfoDTO(const SecretBuyInfoDTO &) = default ;
+      SecretBuyInfoDTO(SecretBuyInfoDTO &&) = default ;
+      SecretBuyInfoDTO(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SecretBuyInfoDTO() = default ;
+      SecretBuyInfoDTO& operator=(const SecretBuyInfoDTO &) = default ;
+      SecretBuyInfoDTO& operator=(SecretBuyInfoDTO &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->secretNo_ == nullptr; };
+      // secretNo Field Functions 
+      bool hasSecretNo() const { return this->secretNo_ != nullptr;};
+      void deleteSecretNo() { this->secretNo_ = nullptr;};
+      inline string getSecretNo() const { DARABONBA_PTR_GET_DEFAULT(secretNo_, "") };
+      inline SecretBuyInfoDTO& setSecretNo(string secretNo) { DARABONBA_PTR_SET_VALUE(secretNo_, secretNo) };
+
+
+    protected:
+      // The private number, that is, phone number X.
+      shared_ptr<string> secretNo_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->secretBuyInfoDTO_ == nullptr; };
+        && this->message_ == nullptr && this->requestId_ == nullptr && this->secretBuyInfoDTO_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline BuySecretNoResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline BuySecretNoResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline BuySecretNoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // secretBuyInfoDTO Field Functions 
     bool hasSecretBuyInfoDTO() const { return this->secretBuyInfoDTO_ != nullptr;};
     void deleteSecretBuyInfoDTO() { this->secretBuyInfoDTO_ = nullptr;};
-    inline const BuySecretNoResponseBodySecretBuyInfoDTO & secretBuyInfoDTO() const { DARABONBA_PTR_GET_CONST(secretBuyInfoDTO_, BuySecretNoResponseBodySecretBuyInfoDTO) };
-    inline BuySecretNoResponseBodySecretBuyInfoDTO secretBuyInfoDTO() { DARABONBA_PTR_GET(secretBuyInfoDTO_, BuySecretNoResponseBodySecretBuyInfoDTO) };
-    inline BuySecretNoResponseBody& setSecretBuyInfoDTO(const BuySecretNoResponseBodySecretBuyInfoDTO & secretBuyInfoDTO) { DARABONBA_PTR_SET_VALUE(secretBuyInfoDTO_, secretBuyInfoDTO) };
-    inline BuySecretNoResponseBody& setSecretBuyInfoDTO(BuySecretNoResponseBodySecretBuyInfoDTO && secretBuyInfoDTO) { DARABONBA_PTR_SET_RVALUE(secretBuyInfoDTO_, secretBuyInfoDTO) };
+    inline const BuySecretNoResponseBody::SecretBuyInfoDTO & getSecretBuyInfoDTO() const { DARABONBA_PTR_GET_CONST(secretBuyInfoDTO_, BuySecretNoResponseBody::SecretBuyInfoDTO) };
+    inline BuySecretNoResponseBody::SecretBuyInfoDTO getSecretBuyInfoDTO() { DARABONBA_PTR_GET(secretBuyInfoDTO_, BuySecretNoResponseBody::SecretBuyInfoDTO) };
+    inline BuySecretNoResponseBody& setSecretBuyInfoDTO(const BuySecretNoResponseBody::SecretBuyInfoDTO & secretBuyInfoDTO) { DARABONBA_PTR_SET_VALUE(secretBuyInfoDTO_, secretBuyInfoDTO) };
+    inline BuySecretNoResponseBody& setSecretBuyInfoDTO(BuySecretNoResponseBody::SecretBuyInfoDTO && secretBuyInfoDTO) { DARABONBA_PTR_SET_RVALUE(secretBuyInfoDTO_, secretBuyInfoDTO) };
 
 
   protected:
@@ -73,13 +104,13 @@ namespace Models
     // 
     // *   The value OK indicates that the request was successful.
     // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The returned message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The information returned after the operation was called.
-    std::shared_ptr<BuySecretNoResponseBodySecretBuyInfoDTO> secretBuyInfoDTO_ = nullptr;
+    shared_ptr<BuySecretNoResponseBody::SecretBuyInfoDTO> secretBuyInfoDTO_ {};
   };
 
   } // namespace Models

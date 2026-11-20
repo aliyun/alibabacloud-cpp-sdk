@@ -16,6 +16,4 @@ else()
   FetchContent_MakeAvailable(_alibabacloud_open_api_v2)
   message(STATUS "Added alibabacloud_open_api_v2 source : ${_alibabacloud_open_api_v2_SOURCE_DIR}")
   message(STATUS "Added alibabacloud_open_api_v2 binary : ${_alibabacloud_open_api_v2_BINARY_DIR}")
-
-  target_include_directories(${PROJECT_NAME} PRIVATE "${_alibabacloud_open_api_v2_SOURCE_DIR}/include")
 endif()

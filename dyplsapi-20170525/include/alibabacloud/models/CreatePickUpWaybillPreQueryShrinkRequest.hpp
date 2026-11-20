@@ -40,70 +40,70 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consigneeInfoShrink_ == nullptr
-        && return this->cpCode_ == nullptr && return this->orderChannels_ == nullptr && return this->outerOrderCode_ == nullptr && return this->preWeight_ == nullptr && return this->senderInfoShrink_ == nullptr; };
+        && this->cpCode_ == nullptr && this->orderChannels_ == nullptr && this->outerOrderCode_ == nullptr && this->preWeight_ == nullptr && this->senderInfoShrink_ == nullptr; };
     // consigneeInfoShrink Field Functions 
     bool hasConsigneeInfoShrink() const { return this->consigneeInfoShrink_ != nullptr;};
     void deleteConsigneeInfoShrink() { this->consigneeInfoShrink_ = nullptr;};
-    inline string consigneeInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(consigneeInfoShrink_, "") };
+    inline string getConsigneeInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(consigneeInfoShrink_, "") };
     inline CreatePickUpWaybillPreQueryShrinkRequest& setConsigneeInfoShrink(string consigneeInfoShrink) { DARABONBA_PTR_SET_VALUE(consigneeInfoShrink_, consigneeInfoShrink) };
 
 
     // cpCode Field Functions 
     bool hasCpCode() const { return this->cpCode_ != nullptr;};
     void deleteCpCode() { this->cpCode_ = nullptr;};
-    inline string cpCode() const { DARABONBA_PTR_GET_DEFAULT(cpCode_, "") };
+    inline string getCpCode() const { DARABONBA_PTR_GET_DEFAULT(cpCode_, "") };
     inline CreatePickUpWaybillPreQueryShrinkRequest& setCpCode(string cpCode) { DARABONBA_PTR_SET_VALUE(cpCode_, cpCode) };
 
 
     // orderChannels Field Functions 
     bool hasOrderChannels() const { return this->orderChannels_ != nullptr;};
     void deleteOrderChannels() { this->orderChannels_ = nullptr;};
-    inline string orderChannels() const { DARABONBA_PTR_GET_DEFAULT(orderChannels_, "") };
+    inline string getOrderChannels() const { DARABONBA_PTR_GET_DEFAULT(orderChannels_, "") };
     inline CreatePickUpWaybillPreQueryShrinkRequest& setOrderChannels(string orderChannels) { DARABONBA_PTR_SET_VALUE(orderChannels_, orderChannels) };
 
 
     // outerOrderCode Field Functions 
     bool hasOuterOrderCode() const { return this->outerOrderCode_ != nullptr;};
     void deleteOuterOrderCode() { this->outerOrderCode_ = nullptr;};
-    inline string outerOrderCode() const { DARABONBA_PTR_GET_DEFAULT(outerOrderCode_, "") };
+    inline string getOuterOrderCode() const { DARABONBA_PTR_GET_DEFAULT(outerOrderCode_, "") };
     inline CreatePickUpWaybillPreQueryShrinkRequest& setOuterOrderCode(string outerOrderCode) { DARABONBA_PTR_SET_VALUE(outerOrderCode_, outerOrderCode) };
 
 
     // preWeight Field Functions 
     bool hasPreWeight() const { return this->preWeight_ != nullptr;};
     void deletePreWeight() { this->preWeight_ = nullptr;};
-    inline string preWeight() const { DARABONBA_PTR_GET_DEFAULT(preWeight_, "") };
+    inline string getPreWeight() const { DARABONBA_PTR_GET_DEFAULT(preWeight_, "") };
     inline CreatePickUpWaybillPreQueryShrinkRequest& setPreWeight(string preWeight) { DARABONBA_PTR_SET_VALUE(preWeight_, preWeight) };
 
 
     // senderInfoShrink Field Functions 
     bool hasSenderInfoShrink() const { return this->senderInfoShrink_ != nullptr;};
     void deleteSenderInfoShrink() { this->senderInfoShrink_ = nullptr;};
-    inline string senderInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(senderInfoShrink_, "") };
+    inline string getSenderInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(senderInfoShrink_, "") };
     inline CreatePickUpWaybillPreQueryShrinkRequest& setSenderInfoShrink(string senderInfoShrink) { DARABONBA_PTR_SET_VALUE(senderInfoShrink_, senderInfoShrink) };
 
 
   protected:
-    // The consignee information.
+    // The recipient information.
     // 
     // This parameter is required.
-    std::shared_ptr<string> consigneeInfoShrink_ = nullptr;
-    // The code of the courier company. If no courier company is specified, the system allocates a courier company.
-    std::shared_ptr<string> cpCode_ = nullptr;
-    // The identifier of the external channel source. It cannot contain underscores.
+    shared_ptr<string> consigneeInfoShrink_ {};
+    // The courier company code. If not specified, the system automatically assigns a courier company.
+    shared_ptr<string> cpCode_ {};
+    // The external channel source identifier. The value cannot contain underscores. The value is agreed upon with the system during integration.
     // 
     // This parameter is required.
-    std::shared_ptr<string> orderChannels_ = nullptr;
-    // The order number of the access system.
-    std::shared_ptr<string> outerOrderCode_ = nullptr;
-    // The estimated weight. Unit: gram.
+    shared_ptr<string> orderChannels_ {};
+    // The order number in the caller\\"s system.
+    shared_ptr<string> outerOrderCode_ {};
+    // The estimated weight, in grams.
     // 
-    // >  If you need to query the estimated price, this parameter is required.
-    std::shared_ptr<string> preWeight_ = nullptr;
+    // > If you want to query the estimated price, this parameter is required.
+    shared_ptr<string> preWeight_ {};
     // The sender information.
     // 
     // This parameter is required.
-    std::shared_ptr<string> senderInfoShrink_ = nullptr;
+    shared_ptr<string> senderInfoShrink_ {};
   };
 
   } // namespace Models

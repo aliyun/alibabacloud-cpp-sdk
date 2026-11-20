@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->blackNo_ == nullptr
-        && return this->operateType_ == nullptr && return this->ownerId_ == nullptr && return this->poolKey_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->tips_ == nullptr; };
+        && this->operateType_ == nullptr && this->ownerId_ == nullptr && this->poolKey_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->tips_ == nullptr; };
     // blackNo Field Functions 
     bool hasBlackNo() const { return this->blackNo_ != nullptr;};
     void deleteBlackNo() { this->blackNo_ = nullptr;};
-    inline string blackNo() const { DARABONBA_PTR_GET_DEFAULT(blackNo_, "") };
+    inline string getBlackNo() const { DARABONBA_PTR_GET_DEFAULT(blackNo_, "") };
     inline OperateBlackNoRequest& setBlackNo(string blackNo) { DARABONBA_PTR_SET_VALUE(blackNo_, blackNo) };
 
 
     // operateType Field Functions 
     bool hasOperateType() const { return this->operateType_ != nullptr;};
     void deleteOperateType() { this->operateType_ = nullptr;};
-    inline string operateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
+    inline string getOperateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
     inline OperateBlackNoRequest& setOperateType(string operateType) { DARABONBA_PTR_SET_VALUE(operateType_, operateType) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline OperateBlackNoRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // poolKey Field Functions 
     bool hasPoolKey() const { return this->poolKey_ != nullptr;};
     void deletePoolKey() { this->poolKey_ = nullptr;};
-    inline string poolKey() const { DARABONBA_PTR_GET_DEFAULT(poolKey_, "") };
+    inline string getPoolKey() const { DARABONBA_PTR_GET_DEFAULT(poolKey_, "") };
     inline OperateBlackNoRequest& setPoolKey(string poolKey) { DARABONBA_PTR_SET_VALUE(poolKey_, poolKey) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline OperateBlackNoRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline OperateBlackNoRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // tips Field Functions 
     bool hasTips() const { return this->tips_ != nullptr;};
     void deleteTips() { this->tips_ = nullptr;};
-    inline string tips() const { DARABONBA_PTR_GET_DEFAULT(tips_, "") };
+    inline string getTips() const { DARABONBA_PTR_GET_DEFAULT(tips_, "") };
     inline OperateBlackNoRequest& setTips(string tips) { DARABONBA_PTR_SET_VALUE(tips_, tips) };
 
 
@@ -97,23 +97,23 @@ namespace Models
     // The phone number to be added to or deleted from the blacklist.
     // 
     // This parameter is required.
-    std::shared_ptr<string> blackNo_ = nullptr;
+    shared_ptr<string> blackNo_ {};
     // The type of the operation on the phone number. Valid values:
     // 
     // *   **AddBlack**: adds the phone number to the blacklist.
     // *   **DeleteBlack**: deletes the phone number from the blacklist.
     // 
     // This parameter is required.
-    std::shared_ptr<string> operateType_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> operateType_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The key of the phone number pool. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
     // 
     // This parameter is required.
-    std::shared_ptr<string> poolKey_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> poolKey_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The description.
-    std::shared_ptr<string> tips_ = nullptr;
+    shared_ptr<string> tips_ {};
   };
 
   } // namespace Models

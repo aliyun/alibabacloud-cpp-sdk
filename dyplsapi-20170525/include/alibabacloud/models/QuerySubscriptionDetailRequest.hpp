@@ -42,88 +42,92 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ownerId_ == nullptr
-        && return this->phoneNoX_ == nullptr && return this->poolKey_ == nullptr && return this->productType_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->subsId_ == nullptr; };
+        && this->phoneNoX_ == nullptr && this->poolKey_ == nullptr && this->productType_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->subsId_ == nullptr; };
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline QuerySubscriptionDetailRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // phoneNoX Field Functions 
     bool hasPhoneNoX() const { return this->phoneNoX_ != nullptr;};
     void deletePhoneNoX() { this->phoneNoX_ = nullptr;};
-    inline string phoneNoX() const { DARABONBA_PTR_GET_DEFAULT(phoneNoX_, "") };
+    inline string getPhoneNoX() const { DARABONBA_PTR_GET_DEFAULT(phoneNoX_, "") };
     inline QuerySubscriptionDetailRequest& setPhoneNoX(string phoneNoX) { DARABONBA_PTR_SET_VALUE(phoneNoX_, phoneNoX) };
 
 
     // poolKey Field Functions 
     bool hasPoolKey() const { return this->poolKey_ != nullptr;};
     void deletePoolKey() { this->poolKey_ = nullptr;};
-    inline string poolKey() const { DARABONBA_PTR_GET_DEFAULT(poolKey_, "") };
+    inline string getPoolKey() const { DARABONBA_PTR_GET_DEFAULT(poolKey_, "") };
     inline QuerySubscriptionDetailRequest& setPoolKey(string poolKey) { DARABONBA_PTR_SET_VALUE(poolKey_, poolKey) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline QuerySubscriptionDetailRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline QuerySubscriptionDetailRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline QuerySubscriptionDetailRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // subsId Field Functions 
     bool hasSubsId() const { return this->subsId_ != nullptr;};
     void deleteSubsId() { this->subsId_ = nullptr;};
-    inline string subsId() const { DARABONBA_PTR_GET_DEFAULT(subsId_, "") };
+    inline string getSubsId() const { DARABONBA_PTR_GET_DEFAULT(subsId_, "") };
     inline QuerySubscriptionDetailRequest& setSubsId(string subsId) { DARABONBA_PTR_SET_VALUE(subsId_, subsId) };
 
 
   protected:
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // The private number in the binding, that is, phone number X.
+    shared_ptr<int64_t> ownerId_ {};
+    // The privacy number in the binding relationship, which is the X number.
+    // 
+    // Logon to the privacy protection console and go to the [Number Management](https://dyplsnext.console.aliyun.com/number/list) page to obtain the X number. Alternatively, check the **SecretNo** in the response parameters when you invoke number binding API operations such as [BindAxb](https://www.alibabacloud.com/help/en/pnp/developer-reference/api-dyplsapi-2017-05-25-bindaxb).
+    // 
+    // > When specifying the X number, make sure it is associated with the **SubsId** parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> phoneNoX_ = nullptr;
-    // The key of the phone number pool. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
+    shared_ptr<string> phoneNoX_ {};
+    // The key of the number pool.
     // 
-    // >  This parameter is required when **ProductType** is left empty.
-    std::shared_ptr<string> poolKey_ = nullptr;
+    // Log on to the privacy protection console and go to the [Number Pool Management](https://dyplsnext.console.aliyun.com/number-pool?spm=a2c4g.11186623.0.0.7e6449bbtiHP8m) page to obtain the **Number Pool Key**.
+    // 
+    // > This parameter is required when **ProductType** is left empty.
+    shared_ptr<string> poolKey_ {};
     // The product type. Valid values:
+    // - **AXB_170**
+    // - **AXN_170**
+    // - **AXN_95**
+    // - **AXN_EXTENSION_REUSE**
     // 
-    // *   **AXB_170**
-    // *   **AXN_170**
-    // *   **AXN_95**
-    // *   **AXN_EXTENSION_REUSE**
+    // > - This parameter is applicable to former Alibaba Dayu users. Alibaba Cloud users can ignore this parameter.
+    // > - This parameter is required when **PoolKey** is left empty.
+    shared_ptr<string> productType_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
+    // The binding relationship ID.
     // 
-    // > 
+    // Logon to the privacy protection console, go to the [Number Management](https://dyplsnext.console.aliyun.com/number/list) page, filter the numbers, and click **Details** to view the binding relationship ID. Alternatively, check the **SubsId** in the response parameters when you invoke number binding API operations such as [BindAxb](https://www.alibabacloud.com/help/en/pnp/developer-reference/api-dyplsapi-2017-05-25-bindaxb).
     // 
-    // *   This parameter is applicable to the original key accounts of Alibaba Cloud. This parameter can be ignored for Alibaba Cloud users.
-    // 
-    // *   This parameter is required when **PoolKey** is left empty.
-    std::shared_ptr<string> productType_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
-    // The binding ID.
-    // 
-    // Log on to the Phone Number Protection console, choose **Number and Number Pool** > **Number Management**. On the Number Management page, select the desired record and click Details to view the binding ID. Alternatively, you can view the value of the **SubsId** parameter returned by an API operation for a phone number binding such as [BindAxb](https://help.aliyun.com/document_detail/110248.html). The value of this parameter indicates a binding ID.
+    // > When specifying the binding relationship ID, make sure it is associated with the **PhoneNoX** parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> subsId_ = nullptr;
+    shared_ptr<string> subsId_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_QUERYPHONENOABYTRACKNORESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/QueryPhoneNoAByTrackNoResponseBodyModule.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,35 +36,90 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Module : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Module& obj) { 
+        DARABONBA_PTR_TO_JSON(Extension, extension_);
+        DARABONBA_PTR_TO_JSON(PhoneNoA, phoneNoA_);
+        DARABONBA_PTR_TO_JSON(PhoneNoX, phoneNoX_);
+      };
+      friend void from_json(const Darabonba::Json& j, Module& obj) { 
+        DARABONBA_PTR_FROM_JSON(Extension, extension_);
+        DARABONBA_PTR_FROM_JSON(PhoneNoA, phoneNoA_);
+        DARABONBA_PTR_FROM_JSON(PhoneNoX, phoneNoX_);
+      };
+      Module() = default ;
+      Module(const Module &) = default ;
+      Module(Module &&) = default ;
+      Module(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Module() = default ;
+      Module& operator=(const Module &) = default ;
+      Module& operator=(Module &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->extension_ == nullptr
+        && this->phoneNoA_ == nullptr && this->phoneNoX_ == nullptr; };
+      // extension Field Functions 
+      bool hasExtension() const { return this->extension_ != nullptr;};
+      void deleteExtension() { this->extension_ = nullptr;};
+      inline string getExtension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
+      inline Module& setExtension(string extension) { DARABONBA_PTR_SET_VALUE(extension_, extension) };
+
+
+      // phoneNoA Field Functions 
+      bool hasPhoneNoA() const { return this->phoneNoA_ != nullptr;};
+      void deletePhoneNoA() { this->phoneNoA_ = nullptr;};
+      inline string getPhoneNoA() const { DARABONBA_PTR_GET_DEFAULT(phoneNoA_, "") };
+      inline Module& setPhoneNoA(string phoneNoA) { DARABONBA_PTR_SET_VALUE(phoneNoA_, phoneNoA) };
+
+
+      // phoneNoX Field Functions 
+      bool hasPhoneNoX() const { return this->phoneNoX_ != nullptr;};
+      void deletePhoneNoX() { this->phoneNoX_ = nullptr;};
+      inline string getPhoneNoX() const { DARABONBA_PTR_GET_DEFAULT(phoneNoX_, "") };
+      inline Module& setPhoneNoX(string phoneNoX) { DARABONBA_PTR_SET_VALUE(phoneNoX_, phoneNoX) };
+
+
+    protected:
+      // The extension of phone number X.
+      shared_ptr<string> extension_ {};
+      // Phone number A.
+      shared_ptr<string> phoneNoA_ {};
+      // The private number, that is, phone number X.
+      shared_ptr<string> phoneNoX_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->message_ == nullptr && return this->module_ == nullptr && return this->requestId_ == nullptr; };
+        && this->message_ == nullptr && this->module_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline QueryPhoneNoAByTrackNoResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline QueryPhoneNoAByTrackNoResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline const vector<QueryPhoneNoAByTrackNoResponseBodyModule> & module() const { DARABONBA_PTR_GET_CONST(module_, vector<QueryPhoneNoAByTrackNoResponseBodyModule>) };
-    inline vector<QueryPhoneNoAByTrackNoResponseBodyModule> module() { DARABONBA_PTR_GET(module_, vector<QueryPhoneNoAByTrackNoResponseBodyModule>) };
-    inline QueryPhoneNoAByTrackNoResponseBody& setModule(const vector<QueryPhoneNoAByTrackNoResponseBodyModule> & module) { DARABONBA_PTR_SET_VALUE(module_, module) };
-    inline QueryPhoneNoAByTrackNoResponseBody& setModule(vector<QueryPhoneNoAByTrackNoResponseBodyModule> && module) { DARABONBA_PTR_SET_RVALUE(module_, module) };
+    inline const vector<QueryPhoneNoAByTrackNoResponseBody::Module> & getModule() const { DARABONBA_PTR_GET_CONST(module_, vector<QueryPhoneNoAByTrackNoResponseBody::Module>) };
+    inline vector<QueryPhoneNoAByTrackNoResponseBody::Module> getModule() { DARABONBA_PTR_GET(module_, vector<QueryPhoneNoAByTrackNoResponseBody::Module>) };
+    inline QueryPhoneNoAByTrackNoResponseBody& setModule(const vector<QueryPhoneNoAByTrackNoResponseBody::Module> & module) { DARABONBA_PTR_SET_VALUE(module_, module) };
+    inline QueryPhoneNoAByTrackNoResponseBody& setModule(vector<QueryPhoneNoAByTrackNoResponseBody::Module> && module) { DARABONBA_PTR_SET_RVALUE(module_, module) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryPhoneNoAByTrackNoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -74,13 +128,13 @@ namespace Models
     // 
     // *   The value OK indicates that the request was successful.
     // *   Other status codes indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The returned message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The information returned after the phone numbers were bound.
-    std::shared_ptr<vector<QueryPhoneNoAByTrackNoResponseBodyModule>> module_ = nullptr;
+    shared_ptr<vector<QueryPhoneNoAByTrackNoResponseBody::Module>> module_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
