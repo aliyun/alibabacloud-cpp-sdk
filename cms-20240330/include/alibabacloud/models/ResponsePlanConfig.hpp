@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The target incident status at which repeat notifications stop.
+      // The target incident state for stopping repeat notifications.
       shared_ptr<string> endIncidentState_ {};
-      // The repeat notification interval, in seconds.
+      // The repeat notification interval in seconds.
       shared_ptr<int32_t> repeatInterval_ {};
     };
 
@@ -122,9 +122,9 @@ namespace Models
 
 
     protected:
-      // The list of action integration IDs triggered by alerts.
+      // The list of alert-triggered action integration IDs.
       shared_ptr<vector<string>> alertActionIds_ {};
-      // The list of action integration IDs triggered by recovery.
+      // The list of recovery-triggered action integration IDs.
       shared_ptr<vector<string>> restoreActionIds_ {};
     };
 
@@ -165,7 +165,7 @@ namespace Models
 
 
   protected:
-    // The number of seconds for automatic recovery. If no new trigger occurs within this duration, the event is automatically recovered.
+    // The auto-recovery time in seconds. The incident automatically recovers if no new triggers occur within this duration.
     shared_ptr<int64_t> autoRecoverSeconds_ {};
     // The list of escalation plan IDs.
     shared_ptr<vector<string>> escalationId_ {};

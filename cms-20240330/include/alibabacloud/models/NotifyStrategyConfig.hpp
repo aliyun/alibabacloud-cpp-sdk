@@ -185,13 +185,13 @@ namespace Models
 
 
       protected:
-        // The type of the channel. Valid values: DING, WEIXIN, FEISHU, SLACK, TEAMS, WEBHOOK, CONTACT, GROUP, DUTY, and DING_COOL_APP. The values must be in uppercase. Lowercase values are not supported. For email, text messages, and voice calls, use CONTACT with enabledSubChannels.
+        // The type of the channel. Valid values: DING, WEIXIN, FEISHU, SLACK, TEAMS, WEBHOOK, CONTACT, GROUP, DUTY, and DING_COOL_APP. The values must be in uppercase. Lowercase values are not supported. For email, text message, and voice call, use CONTACT and configure enabledSubChannels.
         // 
         // This parameter is required.
         shared_ptr<string> channelType_ {};
-        // Required only for CONTACT, GROUP, and DUTY. Valid values for sub-channels: EMAIL, SMS, VOICE, DING, WEIXIN, FEISHU, and WEBHOOK. The values must be in uppercase.
+        // This parameter is required only when the channel type is CONTACT, GROUP, or DUTY. Valid values for sub-channels: EMAIL, SMS, VOICE, DING, WEIXIN, FEISHU, and WEBHOOK. The values must be in uppercase.
         shared_ptr<vector<string>> enabledSubChannels_ {};
-        // The list of receiver identifiers. At least one receiver is required. For WEBHOOK, specify the webhook UUID. For a chatbot, specify the chatbot UUID. For CONTACT, specify the contact ID.
+        // The list of recipient identifiers. At least one identifier is required. For WEBHOOK, specify the webhook UUID. For a chatbot, specify the chatbot UUID. For CONTACT, specify the contact ID.
         // 
         // This parameter is required.
         shared_ptr<vector<string>> receivers_ {};
@@ -247,7 +247,7 @@ namespace Models
       shared_ptr<string> digitalEmployeeName_ {};
       // The effective time range.
       shared_ptr<Routes::EffectTimeRange> effectTimeRange_ {};
-      // Specifies whether to enable Root Cause Analysis (RCA).
+      // Specifies whether to enable root cause analysis (RCA).
       shared_ptr<bool> enableRca_ {};
       // The route-level event filtering conditions.
       shared_ptr<FilterSetting> filterSetting_ {};
@@ -313,20 +313,22 @@ namespace Models
     protected:
       // The event fields used for grouping and merging. Events in the same group are merged into a single notification. An empty array indicates no grouping.
       shared_ptr<vector<string>> groupingKeys_ {};
-      // This parameter does not take effect for this API operation and does not need to be set.
+      // This parameter does not take effect for this API operation and does not need to be configured.
       shared_ptr<int32_t> periodMin_ {};
-      // This parameter does not take effect for this API operation and does not need to be set.
+      // This parameter does not take effect for this API operation and does not need to be configured.
       shared_ptr<int32_t> silenceSec_ {};
-      // This parameter does not take effect for this API operation and does not need to be set.
+      // This parameter does not take effect for this API operation and does not need to be configured.
       shared_ptr<int32_t> times_ {};
     };
 
     class CustomTemplateEntries : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const CustomTemplateEntries& obj) { 
+        DARABONBA_PTR_TO_JSON(targetType, targetType_);
         DARABONBA_PTR_TO_JSON(templateUuid, templateUuid_);
       };
       friend void from_json(const Darabonba::Json& j, CustomTemplateEntries& obj) { 
+        DARABONBA_PTR_FROM_JSON(targetType, targetType_);
         DARABONBA_PTR_FROM_JSON(templateUuid, templateUuid_);
       };
       CustomTemplateEntries() = default ;
@@ -340,7 +342,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->templateUuid_ == nullptr; };
+      virtual bool empty() const override { return this->targetType_ == nullptr
+        && this->templateUuid_ == nullptr; };
+      // targetType Field Functions 
+      bool hasTargetType() const { return this->targetType_ != nullptr;};
+      void deleteTargetType() { this->targetType_ = nullptr;};
+      inline string getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
+      inline CustomTemplateEntries& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
+
+
       // templateUuid Field Functions 
       bool hasTemplateUuid() const { return this->templateUuid_ != nullptr;};
       void deleteTemplateUuid() { this->templateUuid_ = nullptr;};
@@ -349,6 +359,8 @@ namespace Models
 
 
     protected:
+      // This parameter is optional. You can configure at most one template for each notification type.
+      shared_ptr<string> targetType_ {};
       // The UUID of the notification template.
       shared_ptr<string> templateUuid_ {};
     };

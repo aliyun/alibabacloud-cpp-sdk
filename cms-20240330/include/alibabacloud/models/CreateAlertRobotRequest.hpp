@@ -107,17 +107,17 @@ namespace Models
     shared_ptr<string> digitalEmployeeName_ {};
     // The language.
     shared_ptr<string> lang_ {};
-    // The name of the robot.
+    // The name of the chatbot.
     shared_ptr<string> name_ {};
-    // The unique ID of the robot.
+    // The unique ID of the chatbot.
     shared_ptr<string> robotId_ {};
-    // The signing key of the robot.
+    // The signing key of the chatbot.
     shared_ptr<string> robotSignKey_ {};
-    // The type of the robot.
+    // The type of the chatbot.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The webhook URL of the robot.
+    // The webhook URL of the chatbot.
     shared_ptr<string> url_ {};
     // The name of the workspace.
     shared_ptr<string> workspace_ {};

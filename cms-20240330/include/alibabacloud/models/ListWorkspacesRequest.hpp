@@ -157,7 +157,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The tags.
     shared_ptr<vector<ListWorkspacesRequest::Tags>> tags_ {};
-    // The workspace name. Fuzzy match is supported.
+    // The name of the workspace. Fuzzy match is supported.
     shared_ptr<string> workspaceName_ {};
     // The names of the workspaces. Exact match is supported.
     shared_ptr<vector<string>> workspaceNameList_ {};

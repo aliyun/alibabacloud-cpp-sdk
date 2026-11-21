@@ -136,9 +136,9 @@ namespace Models
 
 
       protected:
-        // The name of the Simple Log Service Logstore.
+        // The name of the Logstore.
         shared_ptr<string> logstore_ {};
-        // The name of the Simple Log Service project.
+        // The name of the project.
         shared_ptr<string> project_ {};
         // The start time.
         shared_ptr<string> startTime_ {};

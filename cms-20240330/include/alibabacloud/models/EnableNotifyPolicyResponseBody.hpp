@@ -59,7 +59,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The unique identifier of the notification policy.
     shared_ptr<string> uuid_ {};

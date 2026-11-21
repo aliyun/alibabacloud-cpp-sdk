@@ -78,15 +78,15 @@ namespace Models
 
 
   protected:
-    // The maxResults value of the current request.
+    // The maxResults value for the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. An encrypted hexadecimal string is returned when a next page exists. An empty value or absence of this field indicates no more data. Pass this value as-is in the nextToken parameter for the next page request.
+    // The token for the next page. An encrypted hexadecimal string is returned if a next page exists. An empty value or the absence of this field indicates that no more data is available. Pass this value as is in the nextToken parameter for the next request.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of tasks.
     shared_ptr<vector<Darabonba::Json>> serviceTasks_ {};
-    // The total number of entries that match the conditions.
+    // The total number of entries that meet the conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

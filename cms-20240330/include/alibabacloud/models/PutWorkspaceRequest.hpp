@@ -14,6 +14,7 @@ namespace Models
   class PutWorkspaceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const PutWorkspaceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, PutWorkspaceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
@@ -82,8 +84,15 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->displayName_ == nullptr && this->resourceGroupId_ == nullptr && this->slsProject_ == nullptr && this->tags_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->description_ == nullptr && this->displayName_ == nullptr && this->resourceGroupId_ == nullptr && this->slsProject_ == nullptr && this->tags_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline PutWorkspaceRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -122,13 +131,15 @@ namespace Models
 
 
   protected:
-    // The workspace description.
+    // Specifies whether to perform a dry run of the request. Valid values: true: sends a check request without making actual changes. false (default): sends a normal request.
+    shared_ptr<bool> dryRun_ {};
+    // The description of the workspace.
     shared_ptr<string> description_ {};
     // The display name of the workspace.
     shared_ptr<string> displayName_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The Simple Log Service project name.
+    // The name of the Simple Log Service project.
     // 
     // This parameter is required.
     shared_ptr<string> slsProject_ {};

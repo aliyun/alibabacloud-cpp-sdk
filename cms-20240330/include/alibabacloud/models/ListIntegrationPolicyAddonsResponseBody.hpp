@@ -297,9 +297,9 @@ namespace Models
 
 
         protected:
-          // The enabled status of the default alert rule policy.
+          // The enabling status of the default alert rule policy.
           shared_ptr<string> alertDefaultStatus_ {};
-          // Specifies whether the add-on is installed by default.
+          // Specifies whether it is installed by default.
           shared_ptr<bool> defaultInstall_ {};
           // Specifies whether a service account is assigned for communication with the console API.
           shared_ptr<bool> enableServiceAccount_ {};
@@ -309,7 +309,7 @@ namespace Models
           shared_ptr<bool> needRestartAfterIntegration_ {};
           // The protocols.
           shared_ptr<vector<Policies::Protocols>> protocols_ {};
-          // The name of the target add-on.
+          // The target add-on name.
           shared_ptr<string> targetAddonName_ {};
         };
 
@@ -366,7 +366,7 @@ namespace Models
 
 
         protected:
-          // The dependencies on cluster types.
+          // The cluster type dependencies.
           shared_ptr<vector<string>> clusterTypes_ {};
           // The dependencies on probes.
           shared_ptr<map<string, bool>> features_ {};
@@ -427,9 +427,9 @@ namespace Models
         shared_ptr<Environments::Dependencies> dependencies_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // Indicates whether the environment is enabled.
+        // Specifies whether it is enabled.
         shared_ptr<bool> enable_ {};
-        // The display name of the environment.
+        // The environment display name.
         shared_ptr<string> label_ {};
         // The environment name.
         shared_ptr<string> name_ {};

@@ -149,27 +149,27 @@ namespace Models
 
 
   protected:
-    // The creation time. The value is a UNIX timestamp string in milliseconds.
+    // The creation time, which is a UNIX timestamp string in milliseconds.
     shared_ptr<string> createTime_ {};
-    // The policy description.
+    // The description of the policy.
     shared_ptr<string> description_ {};
-    // Indicates whether the policy is enabled. This is a read-only field controlled by the Enable or Disable operation.
+    // Indicates whether the policy is enabled. This field is read-only and is controlled by the Enable or Disable API operations.
     shared_ptr<bool> enabled_ {};
     // The policy name.
     shared_ptr<string> name_ {};
-    // The notification policy sub-entity details.
+    // The details of the notification policy sub-entity.
     shared_ptr<NotifyStrategyDetail> notifyStrategy_ {};
-    // The response plan sub-entity details.
+    // The details of the response plan sub-entity.
     shared_ptr<ResponsePlanDetail> responsePlan_ {};
-    // The subscription sub-entity details.
+    // The details of the subscription sub-entity.
     shared_ptr<SubscriptionDetail> subscription_ {};
-    // The update time. The value is a UNIX timestamp string in milliseconds.
+    // The update time, which is a UNIX timestamp string in milliseconds.
     shared_ptr<string> updateTime_ {};
-    // The Alibaba Cloud account UID.
+    // The UID of the Alibaba Cloud account.
     shared_ptr<string> userId_ {};
     // The unique identifier of the policy.
     shared_ptr<string> uuid_ {};
-    // The optimistic locking version number.
+    // The optimistic lock version number.
     shared_ptr<int32_t> version_ {};
     // The workspace identifier.
     shared_ptr<string> workspace_ {};

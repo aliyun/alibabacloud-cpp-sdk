@@ -84,7 +84,7 @@ namespace Models
 
 
     protected:
-      // The ID of the contact.
+      // The contact ID.
       shared_ptr<string> contactId_ {};
       // The name.
       shared_ptr<string> name_ {};
@@ -157,11 +157,11 @@ namespace Models
     protected:
       // The description.
       shared_ptr<string> description_ {};
-      // The ID of the event escalation.
+      // The incident escalation ID.
       shared_ptr<string> incidentEscalationId_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The index of the escalation stage.
+      // The escalation stage index.
       shared_ptr<string> stageIndex_ {};
       // The title.
       shared_ptr<string> title_ {};
@@ -207,7 +207,7 @@ namespace Models
     protected:
       // The channel.
       shared_ptr<string> channel_ {};
-      // The masked ID of the contact.
+      // The contact ID (masked).
       shared_ptr<string> contactMask_ {};
     };
 
@@ -249,7 +249,7 @@ namespace Models
 
 
     protected:
-      // The confirmation level.
+      // The acknowledgment level.
       shared_ptr<string> breakLevel_ {};
       // The verification time.
       shared_ptr<int64_t> verifyTime_ {};
@@ -330,17 +330,17 @@ namespace Models
 
 
   protected:
-    // The structure of the confirmation information.
+    // The acknowledgment information struct.
     shared_ptr<IncidentMemberStruct::Acknowledge> acknowledge_ {};
-    // The ID of the contact.
+    // The contact ID.
     shared_ptr<string> contactId_ {};
-    // A list of contacts.
+    // The contact list.
     shared_ptr<vector<IncidentMemberStruct::Contacts>> contacts_ {};
-    // Information about the escalation stage.
+    // The escalation stage information.
     shared_ptr<IncidentMemberStruct::Escalation> escalation_ {};
-    // The ID of the event.
+    // The incident ID.
     shared_ptr<string> incidentId_ {};
-    // The ID of the event member.
+    // The incident member ID.
     shared_ptr<string> incidentMemberId_ {};
     // The scheduling group.
     shared_ptr<IncidentMemberStruct::ScheduleGroup> scheduleGroup_ {};

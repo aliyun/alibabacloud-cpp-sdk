@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The locale. Default value: zh. Valid values: zh, en.
+    // The locale. Default value: zh. Valid values: zh and en.
     shared_ptr<string> aliyunLang_ {};
     // The environment type. Valid values: CS (container) and ECS.
     shared_ptr<string> environmentType_ {};

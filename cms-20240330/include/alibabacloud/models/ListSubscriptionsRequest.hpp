@@ -140,11 +140,11 @@ namespace Models
 
 
   protected:
-    // The UUID of the AI agent. This parameter is used to filter subscriptions for a specified AI agent.
+    // The UUID of the AI agent. This parameter is used to filter subscriptions of a specific AI agent.
     shared_ptr<string> agentUuid_ {};
     // The sort order of the returned versions. Valid values:
-    // - asc: Ascending order. 
-    // - desc: Descending order.
+    // - asc: ascending order 
+    // - desc: descending order
     shared_ptr<string> direction_ {};
     // Specifies whether the subscription is enabled.
     shared_ptr<bool> enable_ {};
@@ -152,7 +152,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The UUID of the notification policy. This parameter is used to filter subscriptions that are bound to a specified notification policy. The value is a 32-character string.
+    // The UUID of the notification policy. This parameter is used to filter subscriptions that are bound to a specific notification policy. The value is a 32-character string.
     shared_ptr<string> notifyStrategyUuid_ {};
     // The sort field.
     shared_ptr<string> orderBy_ {};
@@ -160,9 +160,11 @@ namespace Models
     shared_ptr<string> subscriptionId_ {};
     // The name of the subscription.
     shared_ptr<string> subscriptionName_ {};
-    // The type of the subscription. Valid values: NORMAL (standard subscription) and AI_AGENT (AI agent subscription).
+    // The type of the subscription. Valid values:
+    // - NORMAL: standard subscription
+    // - AI_AGENT: AI agent subscription
     shared_ptr<string> subscriptionType_ {};
-    // **[Deprecated]** This is an internal reserved parameter. Do not use it.
+    // **[Deprecated]** This is an internal reserved parameter. Do not use this parameter.
     shared_ptr<bool> unbound_ {};
     // The name of the workspace.
     shared_ptr<string> workspace_ {};

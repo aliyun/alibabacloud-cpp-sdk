@@ -66,10 +66,10 @@ namespace Models
 
 
   protected:
-    // Specifies whether to unbind all labels from the specified resource. Valid values:
-    // 
-    // - false (default): No.
-    // - true: Yes.
+    // Specifies whether to unbind all tags from the specified resource. Valid values:
+    // - true: Unbinds all tags.
+    // - false: Does not unbind all tags.
+    // Default value: false.
     shared_ptr<bool> all_ {};
     // The list of resource IDs.
     // 
@@ -79,9 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The label key.
-    // 
-    // You can unbind up to 20 label keys at a time.
+    // The tag keys. You can unbind up to 20 tag keys.
     shared_ptr<string> tagKeyShrink_ {};
   };
 

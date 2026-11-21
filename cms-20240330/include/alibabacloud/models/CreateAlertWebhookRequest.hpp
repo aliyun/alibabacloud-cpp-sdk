@@ -110,7 +110,7 @@ namespace Models
     // - JSON (default)
     // - FORM
     shared_ptr<string> contentType_ {};
-    // The collection of HTTP request headers.
+    // The HTTP request headers.
     shared_ptr<map<string, string>> headers_ {};
     // The language. Valid values:
     // - zh_CN

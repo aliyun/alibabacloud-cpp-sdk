@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The request body, which contains the complete NotifyPolicyConfig configuration object for the notification policy.
+    // The request body, which is the complete configuration object NotifyPolicyConfig for the notification policy.
     shared_ptr<NotifyPolicyConfig> body_ {};
-    // The workspace ID, which isolates notification policy resources across different business workspaces.
+    // The workspace ID, which is used to isolate notification policy resources for different business workspaces.
     // 
     // This parameter is required.
     shared_ptr<string> workspace_ {};

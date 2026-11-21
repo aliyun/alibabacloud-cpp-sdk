@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The unique ID of the request, which is used for log tracing and troubleshooting.
+    // The unique ID of the request, used for log tracing and troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

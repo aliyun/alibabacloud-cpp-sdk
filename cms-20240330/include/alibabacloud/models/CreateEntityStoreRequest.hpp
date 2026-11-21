@@ -13,10 +13,10 @@ namespace Models
   class CreateEntityStoreRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateEntityStoreRequest& obj) { 
-      (void)j; (void)obj; 
+      DARABONBA_PTR_TO_JSON(dryRun, dryRun_);
     };
     friend void from_json(const Darabonba::Json& j, CreateEntityStoreRequest& obj) { 
-      (void)j; (void)obj; 
+      DARABONBA_PTR_FROM_JSON(dryRun, dryRun_);
     };
     CreateEntityStoreRequest() = default ;
     CreateEntityStoreRequest(const CreateEntityStoreRequest &) = default ;
@@ -29,7 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return true; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateEntityStoreRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
+  protected:
+    // Specifies whether to perform a dry run. Valid values: true: performs a dry run without making actual changes. false: sends a normal request. Default value: false.
+    shared_ptr<bool> dryRun_ {};
   };
 
   } // namespace Models

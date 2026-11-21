@@ -98,9 +98,9 @@ namespace Models
     protected:
       // The unique identifier of the contact group.
       shared_ptr<string> contactGroupId_ {};
-      // The contact IDs.
+      // The IDs of the contacts.
       shared_ptr<vector<string>> contactIds_ {};
-      // The contact name.
+      // The name of the contact.
       shared_ptr<string> name_ {};
       // The workspace.
       shared_ptr<string> workspace_ {};
@@ -152,7 +152,7 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The unique request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> total_ {};

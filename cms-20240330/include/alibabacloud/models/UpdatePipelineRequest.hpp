@@ -214,7 +214,7 @@ namespace Models
     protected:
       // The dataset.
       shared_ptr<Sink::Dataset> dataset_ {};
-      // The data sink type.
+      // The sink type.
       shared_ptr<string> type_ {};
     };
 
@@ -450,7 +450,7 @@ namespace Models
     protected:
       // The execution mode.
       shared_ptr<string> mode_ {};
-      // The configuration for one-time execution.
+      // The configuration for a single execution.
       shared_ptr<ExecutePolicy::RunOnce> runOnce_ {};
       // The configuration for scheduled execution.
       shared_ptr<ExecutePolicy::Scheduled> scheduled_ {};
@@ -508,7 +508,7 @@ namespace Models
     shared_ptr<UpdatePipelineRequest::ExecutePolicy> executePolicy_ {};
     // The pipeline configuration.
     shared_ptr<UpdatePipelineRequest::Pipeline> pipeline_ {};
-    // The data sink.
+    // The sink.
     shared_ptr<UpdatePipelineRequest::Sink> sink_ {};
     // The data source.
     shared_ptr<UpdatePipelineRequest::Source> source_ {};

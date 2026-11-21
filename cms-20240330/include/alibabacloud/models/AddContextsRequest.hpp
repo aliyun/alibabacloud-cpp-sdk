@@ -225,7 +225,7 @@ namespace Models
       Darabonba::Json experience_ {};
       // The expiration date.
       shared_ptr<string> expirationDate_ {};
-      // The mutability.
+      // The immutable attribute.
       shared_ptr<bool> immutable_ {};
       // The inference.
       shared_ptr<bool> infer_ {};

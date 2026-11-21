@@ -164,7 +164,7 @@ namespace Models
     shared_ptr<string> appId_ {};
     // The creation time.
     shared_ptr<string> createdAt_ {};
-    // The expiration time.
+    // The expiration date.
     shared_ptr<string> expirationDate_ {};
     // The memory ID.
     shared_ptr<string> id_ {};

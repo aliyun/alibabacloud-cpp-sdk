@@ -205,7 +205,7 @@ namespace Models
       shared_ptr<vector<string>> dimensions_ {};
       // The CloudMonitor labels. This parameter is returned only when metaFormat is set to CMS.
       shared_ptr<map<string, string>> labels_ {};
-      // The metadata source. CMS indicates CloudMonitor Basic monitoring metrics, and PROM_BASIC indicates Prometheus CloudMonitor basic monitoring metrics.
+      // The source of metadata. Valid values: CMS for CloudMonitor Basic monitoring metrics, and PROM_BASIC for basic monitoring metrics of Managed Service for Prometheus.
       // 
       // Example value:
       // CMS
@@ -213,18 +213,18 @@ namespace Models
       // CMS
       // PROM_BASIC
       shared_ptr<string> metaFormat_ {};
-      // The metric name.
+      // The name of the metric.
       shared_ptr<string> metricName_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
       // The period.
       shared_ptr<string> periods_ {};
-      // The statistical method of the metric. Example values:
+      // The statistical method of the metric. Valid values:
       // - Maximum: the maximum value.
       // - Minimum: the minimum value.
       // - Average: the average value.
       shared_ptr<string> statistics_ {};
-      // The metric type.
+      // The type of the metric.
       shared_ptr<string> type_ {};
       // The unit.
       shared_ptr<string> unit_ {};
@@ -272,11 +272,11 @@ namespace Models
   protected:
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The configuration information of the metrics in the resource.
+    // The configuration information of the metrics for the resource.
     shared_ptr<vector<DescribeMetricMetaListResponseBody::Resources>> resources_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

@@ -82,11 +82,11 @@ namespace Models
     shared_ptr<string> alertNotifyTemplateId_ {};
     // The name of the notification template.
     shared_ptr<string> alertNotifyTemplateName_ {};
-    // The template syntax type. Currently, only Go is supported. Templates in the title and content fields use the Go template syntax.
+    // The syntax type of the template. Currently, only Go is supported. The templates in the title and content fields use the Go template syntax.
     shared_ptr<string> programLang_ {};
-    // The multilingual notification templates. The key is the language code: zh for Chinese and en for English. The value is the template configuration object for the specified language. When a notification is sent, the corresponding template is selected based on the recipient\\"s language. The content format varies by type: Markdown for DING, WEIXIN, and FEISHU; HTML for EMAIL; plain text for SMS, CALL, and SLACK; and JSON for CUSTOM.
+    // The multilingual notification templates. The key is the language code: zh for Chinese and en for English. The value is the template configuration object for the specified language. When a notification is sent, the corresponding template is selected based on the recipient\\"s language. The content format varies by type. Markdown for DING, WEIXIN, and FEISHU. HTML for EMAIL. Plain text for SMS, CALL, and SLACK. JSON for CUSTOM.
     shared_ptr<map<string, Darabonba::Json>> templates_ {};
-    // The notification channel type. Valid values:
+    // The type of the notification channel. Valid values:
     // - DING
     // - WEIXIN
     // - FEISHU

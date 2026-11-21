@@ -315,21 +315,19 @@ namespace Models
 
 
     protected:
-      // The creation time.
-      // 
-      // The time is in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+      // The creation time. The time follows the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) and is in UTC.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
       // The data source ID (Prometheus instance ID).
       shared_ptr<string> dataSourceId_ {};
-      // The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
+      // The additional labels attached to all delivered metrics, where the key is the label name and the value is the label value.
       shared_ptr<map<string, string>> externalLabels_ {};
       // The extended information.
       shared_ptr<DeliveryTask::ExtraInfo> extraInfo_ {};
-      // The metric filter conditions used in conjunction with labelFiltersType. The key is the metric label name and the value is the match value.
+      // The metric filtering conditions used with labelFiltersType, where the key is the metric label name and the value is the matched value.
       shared_ptr<map<string, string>> labelFilters_ {};
-      // The metric filter mode.
+      // The metric filtering mode.
       shared_ptr<string> labelFiltersType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -345,9 +343,7 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The name of the task.
       shared_ptr<string> taskName_ {};
-      // The update time.
-      // 
-      // The time is in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+      // The update time. The time follows the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) and is in UTC.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};

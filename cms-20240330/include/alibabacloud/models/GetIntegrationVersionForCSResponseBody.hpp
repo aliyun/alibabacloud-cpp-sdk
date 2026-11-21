@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The version of the Integration Center.
+    // The integration center version.
     shared_ptr<string> integrationVersion_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

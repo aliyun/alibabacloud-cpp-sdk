@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to return for this request.
+    // The maximum number of entries to return for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The fuzzy filter for the policy name.
+    // The keyword for fuzzy filtering by policy name.
     shared_ptr<string> name_ {};
-    // The pagination token. Leave empty for the first page. For subsequent pages, pass the nextToken returned from the previous page.
+    // The pagination token. Leave this parameter empty for the first request. For subsequent requests, pass the nextToken value returned from the previous response.
     shared_ptr<string> nextToken_ {};
-    // The field to sort by. Valid values include createTime, updateTime, and name.
+    // The field by which to sort the results. Valid values: createTime, updateTime, and name.
     shared_ptr<string> orderBy_ {};
-    // Specifies whether to sort in descending order. Set to true for descending order, or false for ascending order.
+    // Specifies whether to sort the results in descending order. A value of true indicates descending order, and a value of false indicates ascending order.
     shared_ptr<string> orderDesc_ {};
-    // The workspace ID, used to isolate notification policy resources for different business workspaces.
+    // The workspace ID, which is used to isolate notification policy resources across different business workspaces.
     // 
     // This parameter is required.
     shared_ptr<string> workspace_ {};

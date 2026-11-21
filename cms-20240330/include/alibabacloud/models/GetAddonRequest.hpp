@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The locale. Default value: zh. Valid values: zh, en.
+    // The language environment. Default value: zh. Valid values: zh, en.
     shared_ptr<string> aliyunLang_ {};
     // The version of the add-on.
     shared_ptr<string> version_ {};

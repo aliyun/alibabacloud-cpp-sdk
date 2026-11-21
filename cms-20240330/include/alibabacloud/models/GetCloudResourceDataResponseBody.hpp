@@ -169,7 +169,7 @@ namespace Models
 
 
     protected:
-      // The information during the execution process.
+      // The information generated during execution.
       shared_ptr<string> executionStates_ {};
       // The status level.
       shared_ptr<string> level_ {};
@@ -218,7 +218,7 @@ namespace Models
 
 
   protected:
-    // The total number of returned data records.
+    // The total count of returned data items.
     shared_ptr<vector<vector<string>>> data_ {};
     // The list of request headers.
     shared_ptr<vector<string>> header_ {};

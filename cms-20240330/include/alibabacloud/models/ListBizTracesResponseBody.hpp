@@ -81,13 +81,13 @@ namespace Models
   protected:
     // The list of business links.
     shared_ptr<vector<BizTraceConfig>> items_ {};
-    // The maximum number of results to return. Maximum value: 100.
+    // The maximum number of results to return. The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of items.
     shared_ptr<int32_t> totalCount_ {};
   };
 

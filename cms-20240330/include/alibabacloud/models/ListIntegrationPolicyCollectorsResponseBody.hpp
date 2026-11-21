@@ -147,9 +147,9 @@ namespace Models
 
 
         protected:
-          // The security group ID.
+          // The ID of the security group.
           shared_ptr<string> securityGroupId_ {};
-          // The vSwitch ID.
+          // The ID of the vSwitch.
           shared_ptr<string> vswitchId_ {};
         };
 
@@ -244,29 +244,29 @@ namespace Models
 
 
       protected:
-        // The host IP address.
+        // The IP address of the host.
         shared_ptr<string> hostIp_ {};
         // The IP address of the workload.
         shared_ptr<string> ip_ {};
-        // Indicates whether the component is a managed component.
+        // Indicates whether the component is managed.
         shared_ptr<bool> managed_ {};
         // The policy management information.
         shared_ptr<Workloads::ManagedInfo> managedInfo_ {};
-        // The details.
+        // The condition details.
         shared_ptr<string> message_ {};
-        // The workload name.
+        // The name of the workload.
         shared_ptr<string> name_ {};
-        // The workload namespace.
+        // The namespace of the workload.
         shared_ptr<string> namespace_ {};
-        // The kind of the parent reference.
+        // The kind of the owner reference.
         shared_ptr<string> ownerReferenceKind_ {};
-        // The name of the parent reference.
+        // The name of the owner reference.
         shared_ptr<string> ownerReferenceName_ {};
-        // The start time.
+        // The start time, in ISO 8601 format, including the UTC identifier or time zone offset.
         shared_ptr<string> startTime_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The workload version.
+        // The version of the workload.
         shared_ptr<string> version_ {};
       };
 
@@ -344,17 +344,17 @@ namespace Models
 
 
       protected:
-        // The time of the first transition.
+        // The time of the first transition, in ISO 8601 format, including the UTC identifier or time zone offset.
         shared_ptr<string> firstTransitionTime_ {};
-        // The time of the last transition.
+        // The time of the last transition, in ISO 8601 format, including the UTC identifier or time zone offset.
         shared_ptr<string> lastTransitionTime_ {};
-        // The details.
+        // The condition details.
         shared_ptr<string> message_ {};
         // The reason for the failure.
         shared_ptr<string> reason_ {};
-        // The phase status.
+        // The conditions.
         shared_ptr<string> status_ {};
-        // The phase type.
+        // The type of the condition.
         shared_ptr<string> type_ {};
       };
 
@@ -433,19 +433,19 @@ namespace Models
     protected:
       // The add-on details.
       shared_ptr<AddonMeta> addonMeta_ {};
-      // The collector name.
+      // The name of the collector.
       shared_ptr<string> collectorName_ {};
-      // The collector type.
+      // The type of the collector.
       shared_ptr<string> collectorType_ {};
-      // The phase status.
+      // The conditions.
       shared_ptr<vector<Collectors::Conditions>> conditions_ {};
-      // Indicates whether the component is a managed component.
+      // Indicates whether the component is managed.
       shared_ptr<bool> managed_ {};
       // The name of the add-on release.
       shared_ptr<string> releaseName_ {};
-      // The collector status.
+      // The state of the collector.
       shared_ptr<string> state_ {};
-      // The component version.
+      // The version of the component.
       shared_ptr<string> version_ {};
       // The list of workloads.
       shared_ptr<vector<Collectors::Workloads>> workloads_ {};

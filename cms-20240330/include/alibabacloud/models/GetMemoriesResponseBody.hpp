@@ -191,7 +191,7 @@ namespace Models
       shared_ptr<string> memory_ {};
       // The metadata.
       Darabonba::Json metadata_ {};
-      // The role of the message initiator.
+      // The role that initiated the message.
       shared_ptr<string> role_ {};
       // The run ID.
       shared_ptr<string> runId_ {};

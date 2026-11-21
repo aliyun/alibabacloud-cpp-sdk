@@ -108,9 +108,9 @@ namespace Models
 
 
       protected:
-        // The name of the Simple Log Service Logstore.
+        // The name of the Logstore.
         shared_ptr<string> logstore_ {};
-        // The name of the Simple Log Service project.
+        // The name of the project.
         shared_ptr<string> project_ {};
         // The filter statement.
         shared_ptr<string> query_ {};
@@ -135,7 +135,7 @@ namespace Models
 
 
     protected:
-      // The Simple Log Service Logstore information.
+      // The Logstore information.
       shared_ptr<Source::Logstore> logstore_ {};
       // The data source type.
       shared_ptr<string> type_ {};
@@ -227,7 +227,7 @@ namespace Models
     protected:
       // The dataset information.
       shared_ptr<Sink::Dataset> dataset_ {};
-      // The sink type.
+      // The destination type.
       shared_ptr<string> type_ {};
     };
 
@@ -530,7 +530,7 @@ namespace Models
     shared_ptr<CreatePipelineRequest::Pipeline> pipeline_ {};
     // The name of the pipeline.
     shared_ptr<string> pipelineName_ {};
-    // The sink.
+    // The destination.
     shared_ptr<CreatePipelineRequest::Sink> sink_ {};
     // The data source.
     shared_ptr<CreatePipelineRequest::Source> source_ {};

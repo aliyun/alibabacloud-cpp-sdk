@@ -176,15 +176,15 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The list of instance IDs, separated by commas.
     shared_ptr<string> prometheusInstanceIds_ {};
-    // The instance name. Partial match is supported.
+    // The name of the instance. Partial match is supported.
     shared_ptr<string> prometheusInstanceName_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The resource type of the instance.
     shared_ptr<string> resourceType_ {};
     // The list of tags.
     shared_ptr<vector<ListPrometheusInstancesRequest::Tag>> tag_ {};
-    // The instance version.
+    // The version of the instance.
     shared_ptr<string> version_ {};
     // The workspace to which the instance belongs.
     shared_ptr<string> workspace_ {};

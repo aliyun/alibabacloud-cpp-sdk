@@ -142,7 +142,7 @@ namespace Models
         shared_ptr<string> interval_ {};
         // The number of matched targets.
         shared_ptr<int64_t> matchedTargetCount_ {};
-        // The sampling path.
+        // The collection path.
         shared_ptr<string> path_ {};
         // The collection port.
         shared_ptr<string> port_ {};
@@ -226,15 +226,15 @@ namespace Models
 
 
     protected:
-      // The addon name.
+      // The name of the add-on.
       shared_ptr<string> addonName_ {};
-      // The addon release name.
+      // The name of the add-on release.
       shared_ptr<string> addonReleaseName_ {};
-      // The addon version.
+      // The version of the add-on.
       shared_ptr<string> addonVersion_ {};
-      // The configuration YAML.
+      // The YAML configuration.
       shared_ptr<string> configYaml_ {};
-      // The enabling status.
+      // The enabled status.
       shared_ptr<string> enableStatus_ {};
       // The encrypted YAML.
       shared_ptr<bool> encryptYaml_ {};
@@ -242,9 +242,9 @@ namespace Models
       shared_ptr<vector<ServiceMonitors::Endpoints>> endpoints_ {};
       // The number of matched services.
       shared_ptr<int64_t> matchedServiceCount_ {};
-      // The ServiceMonitor name.
+      // The name of the ServiceMonitor.
       shared_ptr<string> name_ {};
-      // The namespace.
+      // The name of the project workspace.
       shared_ptr<string> namespace_ {};
     };
 

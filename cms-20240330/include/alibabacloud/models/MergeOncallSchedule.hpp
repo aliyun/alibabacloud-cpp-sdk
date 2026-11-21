@@ -96,15 +96,15 @@ namespace Models
 
 
   protected:
-    // The extension details.
+    // The extended details.
     Darabonba::Json detail_ {};
     // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // The last modified time.
+    // The last modification time.
     shared_ptr<string> gmtModified_ {};
     // The unique identifier.
     shared_ptr<string> identifier_ {};
-    // The schedule name.
+    // The name of the schedule.
     shared_ptr<string> name_ {};
     // The source.
     shared_ptr<string> source_ {};

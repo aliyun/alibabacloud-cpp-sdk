@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the contacts.
+    // The contact IDs.
     shared_ptr<vector<string>> contacts_ {};
     // The name of the contact.
     shared_ptr<string> name_ {};

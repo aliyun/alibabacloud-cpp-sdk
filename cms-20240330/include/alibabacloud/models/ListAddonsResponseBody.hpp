@@ -198,13 +198,13 @@ namespace Models
 
 
           protected:
-            // The description of the protocol.
+            // The protocol description.
             shared_ptr<string> description_ {};
             // The URL of the icon.
             shared_ptr<string> icon_ {};
             // The display name of the protocol.
             shared_ptr<string> label_ {};
-            // The name of the protocol.
+            // The protocol name.
             shared_ptr<string> name_ {};
           };
 
@@ -301,13 +301,13 @@ namespace Models
         protected:
           // The enabling status of the default policy for alert rules.
           shared_ptr<string> alertDefaultStatus_ {};
-          // Specifies whether to install the component by default.
+          // Specifies whether the add-on is installed by default.
           shared_ptr<bool> defaultInstall_ {};
           // Specifies whether to assign a service account for communication with the console API.
           shared_ptr<bool> enableServiceAccount_ {};
           // The metric check rule.
           shared_ptr<Policies::MetricCheckRule> metricCheckRule_ {};
-          // Specifies whether to trigger a pod restart guide immediately after the plug-in installation is completed during integration.
+          // Specifies whether to trigger the pod restart process immediately after the plug-in is installed during integration.
           shared_ptr<bool> needRestartAfterIntegration_ {};
           // The supported protocol types in the configuration.
           shared_ptr<vector<Policies::Protocols>> protocols_ {};
@@ -500,7 +500,7 @@ namespace Models
         shared_ptr<string> name_ {};
         // The integration policy configurations.
         shared_ptr<Environments::Policies> policies_ {};
-        // The policy type of the integration center.
+        // The Integration Center policy type.
         shared_ptr<string> policyType_ {};
       };
 
@@ -686,15 +686,15 @@ namespace Models
       shared_ptr<vector<string>> keywords_ {};
       // The language.
       shared_ptr<string> language_ {};
-      // The time when the latest version was created. The time follows the ISO 8601 standard and includes a UTC identifier or time zone offset.
+      // The time of the latest release. The time follows the ISO 8601 standard and includes a UTC identifier or time zone offset.
       shared_ptr<string> latestReleaseCreateTime_ {};
       // The name of the integration component.
       shared_ptr<string> name_ {};
-      // Specifies whether the component can be installed only once.
+      // Specifies whether the add-on can be installed only once.
       shared_ptr<bool> once_ {};
-      // The scenario of the component.
+      // The component scenario.
       shared_ptr<string> scene_ {};
-      // The version of the component.
+      // The component version.
       shared_ptr<string> version_ {};
       // The display weight of the integration component.
       shared_ptr<string> weight_ {};

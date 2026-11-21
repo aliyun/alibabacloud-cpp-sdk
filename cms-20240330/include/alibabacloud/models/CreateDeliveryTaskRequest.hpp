@@ -218,9 +218,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceId_ {};
-    // The additional labels attached to all delivered metrics. The key is the label name, and the value is the label value.
+    // The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
     shared_ptr<map<string, string>> externalLabels_ {};
-    // The metric filtering conditions. This parameter is used together with labelFiltersType. The key is the metric label name, and the value is the match value.
+    // The metric filtering conditions used in conjunction with labelFiltersType. The key is the metric label name and the value is the match value.
     shared_ptr<map<string, string>> labelFilters_ {};
     // The metric filtering mode.
     shared_ptr<string> labelFiltersType_ {};
@@ -230,7 +230,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<CreateDeliveryTaskRequest::SinkList>> sinkList_ {};
-    // The tags of the resource.
+    // The resource tags.
     shared_ptr<vector<CreateDeliveryTaskRequest::Tags>> tags_ {};
     // The description of the task.
     shared_ptr<string> taskDescription_ {};

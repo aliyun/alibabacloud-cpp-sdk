@@ -102,11 +102,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to include LLM output in memory extraction.
+      // Specifies whether to include the LLM output in memory extraction.
       shared_ptr<bool> includeOutput_ {};
       // The Simple Log Service query statement used to filter traces.
       shared_ptr<string> query_ {};
-      // The workspace where the trace resides.
+      // The workspace where the trace is located.
       shared_ptr<string> workspace_ {};
     };
 
@@ -148,9 +148,9 @@ namespace Models
 
 
     protected:
-      // The Simple Log Service Logstore name.
+      // The name of the Simple Log Service Logstore.
       shared_ptr<string> logstore_ {};
-      // The Simple Log Service project name.
+      // The name of the Simple Log Service project.
       shared_ptr<string> project_ {};
     };
 
@@ -266,9 +266,9 @@ namespace Models
     shared_ptr<vector<CustomExtractionStrategy>> customExtractionStrategies_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The extraction strategies. Valid values: Episodic, Summary, and Fact.
+    // The supported extraction strategies: Episodic, Summary, and Fact.
     shared_ptr<vector<string>> extractionStrategies_ {};
-    // The memory store name.
+    // The name of the memory store.
     shared_ptr<string> memoryStoreName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -276,17 +276,17 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The short-term memory storage.
     shared_ptr<GetMemoryStoreResponseBody::ShortTermStorage> shortTermStorage_ {};
-    // The retention period of short-term memory.
+    // The retention period for short-term memory.
     shared_ptr<int32_t> shortTermTtl_ {};
     // The memory source.
     shared_ptr<string> sourceType_ {};
-    // The configuration used when sourceType is set to Trace.
+    // The configuration when the sourceType is Trace.
     shared_ptr<GetMemoryStoreResponseBody::TraceSourceConfig> traceSourceConfig_ {};
     // The update time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};
-    // The workspace name.
+    // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };
 

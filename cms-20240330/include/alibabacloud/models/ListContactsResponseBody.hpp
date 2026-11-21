@@ -171,7 +171,7 @@ namespace Models
       shared_ptr<bool> emailVerify_ {};
       // The alert contact groups to which the alert contact belongs.
       shared_ptr<vector<string>> groupList_ {};
-      // The mapping of IM user IDs. Multiple instant messaging tools are supported.
+      // The mapping of instant messaging (IM) user IDs. Multiple IM tools are supported.
       shared_ptr<map<string, string>> imUserIds_ {};
       // The language.
       shared_ptr<string> lang_ {};
@@ -235,7 +235,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

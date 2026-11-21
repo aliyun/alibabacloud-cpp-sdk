@@ -178,7 +178,7 @@ namespace Models
     shared_ptr<bool> asyncMode_ {};
     // The custom instructions.
     shared_ptr<string> customInstructions_ {};
-    // The inference setting.
+    // Specifies whether to enable inference.
     shared_ptr<bool> infer_ {};
     // The messages.
     shared_ptr<vector<AddMemoriesRequest::Messages>> messages_ {};

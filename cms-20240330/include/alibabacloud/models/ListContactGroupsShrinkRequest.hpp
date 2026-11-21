@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The contact group IDs.
+    // The IDs of the contact groups.
     shared_ptr<string> contactGroupIdsShrink_ {};
-    // The contact name.
+    // The name of the contact.
     shared_ptr<string> name_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The workspace name.
+    // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };
 

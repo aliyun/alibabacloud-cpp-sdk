@@ -89,11 +89,11 @@ namespace Models
   protected:
     // The list of notification template IDs.
     shared_ptr<vector<string>> alertNotifyTemplateIds_ {};
-    // The name of the notification template.
+    // The notification template name.
     shared_ptr<string> alertNotifyTemplateName_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
     // The template language.
     shared_ptr<string> programLang_ {};

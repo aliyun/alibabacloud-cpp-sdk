@@ -103,35 +103,35 @@ namespace Models
 
 
   protected:
-    // The sort direction. Valid values:
+    // The sort order. Valid values:
     // 
-    // - **asc**: ascending order.
-    // - **desc**: descending order (default).
+    // - **asc**: Ascending order.
+    // - **desc**: Descending order. This is the default value.
     shared_ptr<string> direction_ {};
-    // Filters results by enabled status. Valid values:
+    // Filters by enabled status. Valid values:
     // 
     // - **true**: Returns only enabled silence policies.
     // - **false**: Returns only paused silence policies.
     // 
-    // If you do not specify this parameter, results are not filtered by enabled status.
+    // If you do not specify this parameter, the policies are not filtered by enabled status.
     shared_ptr<bool> enable_ {};
-    // The ID of the silence policy. Exact match is used. If you do not specify this parameter, results are not filtered by ID.
+    // The ID of the silence policy. Exact matching is used. If you do not specify this parameter, the policies are not filtered by ID.
     shared_ptr<string> maintainWindowId_ {};
-    // Policy Name of the silence policy. Fuzzy match is used (a match occurs if Policy Name contains the specified value). If you do not specify this parameter, results are not filtered by name.
+    // Policy Name of the silence policy. Fuzzy matching is used, where a match occurs if Policy Name contains the specified value. If you do not specify this parameter, the policies are not filtered by name.
     shared_ptr<string> maintainWindowName_ {};
-    // The maximum number of records to return in this request. Default value: 20.
+    // The maximum number of records to return for this request. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. You do not need to specify this parameter for the first query. For subsequent queries, set this parameter to the non-empty nextToken value returned in the previous response. This value does not guarantee that the next page contains data.
+    // The pagination cursor. You do not need to specify this parameter for the first query. For subsequent queries, you can specify the non-empty nextToken returned in the previous response. This value does not guarantee that the next page contains data.
     shared_ptr<string> nextToken_ {};
-    // The field by which to sort results. Default value: createTime. Valid values:
+    // The field by which to sort. By default, the policies are sorted by creation time. Valid values:
     // 
-    // - **createTime**: creation time.
-    // - **updateTime**: update time.
-    // - **enable**: enabled status.
+    // - **createTime**: Creation time.
+    // - **updateTime**: Update time.
+    // - **enable**: Enabled status.
     // 
-    // If you specify any other value, results are sorted by creation time.
+    // If you specify other values, the policies are sorted by creation time.
     shared_ptr<string> orderBy_ {};
-    // The workspace name. This parameter is required by the backend and is used to isolate silence policy resources across different business workspaces.
+    // The name of the workspace. This parameter is required by the backend and is used to isolate silence policy resources across different business workspaces.
     shared_ptr<string> workspace_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The workspace ID. Used to isolate notification policy resources across different business spaces.
+    // The workspace ID, which is used to isolate notification policy resources across different business workspaces.
     // 
     // This parameter is required.
     shared_ptr<string> workspace_ {};

@@ -492,27 +492,28 @@ namespace Models
 
 
     protected:
-      // The access type. Valid values: readWrite, readOnly, and httpReadOnly.
+      // The access type. Valid values:
+      // readWrite, readOnly, httpReadOnly
       shared_ptr<string> accessType_ {};
-      // The number of days to automatically archive data after the storage expires. A value of 0 indicates that data is not archived. A value of 3650 indicates permanent retention.
+      // The number of days to automatically archive and retain data after the storage expires. A value of 0 indicates that data is not archived, and a value of 3650 indicates permanent retention.
       shared_ptr<int32_t> archiveDuration_ {};
-      // The auth-free read policy. IP CIDR blocks and VPC IDs are supported.
+      // The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
       shared_ptr<string> authFreeReadPolicy_ {};
-      // The auth-free write policy. IP CIDR blocks and VPC IDs are supported.
+      // The authentication-free write policy. IP CIDR blocks and VPC IDs are supported.
       shared_ptr<string> authFreeWritePolicy_ {};
-      // The auth token.
+      // The authentication token string.
       shared_ptr<string> authToken_ {};
       // The time when the instance was created. The time is displayed in UTC+0 in the yyyy-MM-ddTHH:mmZ format.
       shared_ptr<string> createTime_ {};
-      // Specifies whether auth-free read is enabled.
+      // Specifies whether authentication-free read is enabled.
       shared_ptr<bool> enableAuthFreeRead_ {};
-      // Specifies whether auth-free write is enabled.
+      // Specifies whether authentication-free write is enabled.
       shared_ptr<bool> enableAuthFreeWrite_ {};
       // Specifies whether the authentication token is enabled.
       shared_ptr<bool> enableAuthToken_ {};
       // The extended information.
       shared_ptr<map<string, string>> extraInfo_ {};
-      // The URL of the dashboard folder.
+      // The URL of the visualization dashboard directory.
       shared_ptr<string> folderUrl_ {};
       // The instance ID of the attached managed Grafana instance.
       shared_ptr<string> grafanaInstanceId_ {};
@@ -527,10 +528,10 @@ namespace Models
       // The Prometheus instance type.
       shared_ptr<string> instanceType_ {};
       // The billing method. Valid values:
-      // - POSTPAY: Pay-as-you-go based on the volume of reported metrics.
-      // - POSTPAY_GB: Pay-as-you-go based on the volume of written metrics.
+      // POSTPAY: Pay-as-you-go based on the number of reported metrics.
+      // POSTPAY_GB: Pay-as-you-go based on the volume of written metrics.
       shared_ptr<string> paymentType_ {};
-      // The time when the billing method of the instance was updated (UTC format).
+      // The time when the billing method of the instance was updated. The time is in UTC format.
       shared_ptr<string> paymentTypeUpdateTime_ {};
       // The product to which the Prometheus instance belongs, such as ARMS or CMS.
       shared_ptr<string> product_ {};
@@ -601,7 +602,7 @@ namespace Models
   protected:
     // The Prometheus instance details.
     shared_ptr<GetPrometheusInstanceResponseBody::PrometheusInstance> prometheusInstance_ {};
-    // The unique identifier of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -103,10 +103,9 @@ namespace Models
 
 
     protected:
-      // The entry content in JSON string format. The format varies depending on the recordType.
+      // The content of the entry in JSON string format. The format varies based on the recordType.
       shared_ptr<string> recordContent_ {};
-      // The type of the linked entry. Currently supported:
-      // logCorrelation, which indicates application log association.
+      // The type of the association entry. Valid values: logCorrelation: application log association.
       shared_ptr<string> recordType_ {};
       // The unique identifier of the service.
       shared_ptr<string> serviceId_ {};
@@ -156,11 +155,11 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned.
+    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The list of operation records.
+    // The list of ticket operation records.
     shared_ptr<vector<ListServiceRecordsResponseBody::Records>> records_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

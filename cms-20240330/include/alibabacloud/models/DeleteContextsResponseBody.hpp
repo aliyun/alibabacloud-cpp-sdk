@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The number of deleted contexts.
+    // The number of successfully deleted contexts.
     shared_ptr<int32_t> deletedCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -272,7 +272,7 @@ namespace Models
       protected:
         // The data source information.
         shared_ptr<vector<Props::DataSource>> dataSource_ {};
-        // The related data collection.
+        // The related data set.
         shared_ptr<vector<string>> related_ {};
         // The selection mode.
         shared_ptr<string> selectMode_ {};
@@ -342,7 +342,7 @@ namespace Models
         shared_ptr<string> field_ {};
         // The condition operator.
         shared_ptr<string> op_ {};
-        // The target value for the condition.
+        // The target value.
         Darabonba::Json value_ {};
       };
 
@@ -459,7 +459,7 @@ namespace Models
       shared_ptr<string> label_ {};
       // The field name.
       shared_ptr<string> name_ {};
-      // The input prompt.
+      // The placeholder text.
       shared_ptr<string> placeholder_ {};
       // The other properties of the component.
       shared_ptr<Fields::Props> props_ {};

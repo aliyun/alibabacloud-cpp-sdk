@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The unique ID of the request. Used for troubleshooting and ticket tracking.
+    // The unique ID of the request, which is used for troubleshooting and ticket tracking.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
-    // The uuid of the notification policy that was operated on.
+    // The UUID of the notification policy on which the operation was performed.
     shared_ptr<string> uuid_ {};
   };
 

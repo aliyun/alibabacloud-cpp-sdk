@@ -107,19 +107,19 @@ namespace Models
 
 
   protected:
-    // The time when the event escalation was created.
+    // The creation time.
     shared_ptr<int64_t> createTime_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The ID of the event escalation.
+    // The incident escalation ID.
     shared_ptr<string> incidentEscalationId_ {};
-    // The time when the event escalation was last modified.
+    // The modification time.
     shared_ptr<int64_t> modifyTime_ {};
     // The name.
     shared_ptr<string> name_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The stages.
+    // The stage.
     shared_ptr<vector<IncidentEscalationStageStruct>> stage_ {};
     // The workspace.
     shared_ptr<string> workspace_ {};

@@ -252,8 +252,8 @@ namespace Models
       // The notification job ID.
       shared_ptr<string> jobId_ {};
       // Indicates whether the notification record has no actual delivery channel. Valid values:
-      // - true: the record has no channel, which means the notifyResult is NO_CHANNEL.
-      // - false: the record has an actual delivery channel.
+      // - true: The record has no channel, which means the notifyResult is NO_CHANNEL.
+      // - false: The record has an actual delivery channel.
       shared_ptr<bool> noChannel_ {};
       // The notification policy ID.
       shared_ptr<string> notifyStrategyId_ {};
@@ -261,41 +261,41 @@ namespace Models
       shared_ptr<string> notifyStrategyName_ {};
       // The recipient address, such as a phone number, email address, or webhook address, depending on the notification channel.
       shared_ptr<string> receiver_ {};
-      // The details of the notification delivery result. This is the raw response content returned by the channel, such as the API response from a DingTalk or Lark bot.
+      // The notification delivery result details. This is the raw response content returned by the channel, such as the API response from a DingTalk or Lark bot.
       shared_ptr<string> result_ {};
       // The alert rule ID.
       shared_ptr<string> ruleId_ {};
       // The alert rule name.
       shared_ptr<string> ruleName_ {};
       // The notification delivery type. Valid values:
-      // - SUBSCRIBE: subscription notifications
-      // - DIRECT: direct event notifications
-      // - ITSM: ticket or action notifications
+      // - SUBSCRIBE: Subscription notification.
+      // - DIRECT: Direct event notification.
+      // - ITSM: Ticket or action notification.
       shared_ptr<string> sendType_ {};
       // The alert severity. Valid values:
-      // - CRITICAL: critical
-      // - ERROR: error
-      // - WARNING: warning
-      // - INFO: info
+      // - CRITICAL: Critical.
+      // - ERROR: Error.
+      // - WARNING: Warning.
+      // - INFO: Info.
       shared_ptr<string> severity_ {};
       // The incident status. Valid values:
-      // - TRIGGERED: triggered
-      // - RESOLVED: resolved
-      // - ACK: acknowledged
-      // - ESCALATED: escalated
-      // - MANUAL_RESOLVED: manually resolved
-      // - TIMEOUT: automatically resolved due to timeout
-      // - RETRIGGERED: retriggered
-      // - PARTIAL_RESOLVED: partially resolved
-      // - INVALID: invalid
+      // - TRIGGERED: Triggered.
+      // - RESOLVED: Resolved.
+      // - ACK: Acknowledged.
+      // - ESCALATED: Escalated.
+      // - MANUAL_RESOLVED: Manually resolved.
+      // - TIMEOUT: Automatically resolved due to timeout.
+      // - RETRIGGERED: Retriggered.
+      // - PARTIAL_RESOLVED: Partially resolved.
+      // - INVALID: Invalid.
       shared_ptr<string> status_ {};
       // The subscription ID.
       shared_ptr<string> subscriptionId_ {};
       // The subscription name.
       shared_ptr<string> subscriptionName_ {};
       // Indicates whether the notification was delivered successfully. Valid values:
-      // - true: the delivery was successful.
-      // - false: the delivery failed.
+      // - true: Delivered successfully.
+      // - false: Delivery failed.
       shared_ptr<bool> success_ {};
       // The time when the notification was recorded. The value is a UNIX timestamp in seconds.
       shared_ptr<int32_t> timestamp_ {};
@@ -345,13 +345,13 @@ namespace Models
   protected:
     // The notification history list.
     shared_ptr<vector<ListUserNotifyHistoriesResponseBody::HistoryList>> historyList_ {};
-    // The maximum number of entries returned for the current request.
+    // The maximum number of records returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page. It is an opaque string generated and encrypted by the server. An empty value indicates that no more data is available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of notification history entries that meet the query conditions.
+    // The total number of notification history records that meet the query conditions.
     shared_ptr<int64_t> total_ {};
   };
 

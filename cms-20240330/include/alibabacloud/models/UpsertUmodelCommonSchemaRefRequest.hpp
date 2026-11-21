@@ -13,10 +13,12 @@ namespace Models
   class UpsertUmodelCommonSchemaRefRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpsertUmodelCommonSchemaRefRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(dryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(group, group_);
       DARABONBA_PTR_TO_JSON(version, version_);
     };
     friend void from_json(const Darabonba::Json& j, UpsertUmodelCommonSchemaRefRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(dryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(group, group_);
       DARABONBA_PTR_FROM_JSON(version, version_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->group_ == nullptr
-        && this->version_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->group_ == nullptr && this->version_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline UpsertUmodelCommonSchemaRefRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // group Field Functions 
     bool hasGroup() const { return this->group_ != nullptr;};
     void deleteGroup() { this->group_ = nullptr;};
@@ -48,6 +57,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to perform a dry run for this request. Valid values:
+    // - true: Sends a check request without performing actual changes.
+    // - false: Sends a normal request.
+    // Default value: false.
+    shared_ptr<bool> dryRun_ {};
     // The public Umodel schema group.
     // 
     // This parameter is required.

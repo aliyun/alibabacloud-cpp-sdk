@@ -107,13 +107,13 @@ namespace Models
 
 
     protected:
-      // The list of action plan IDs for alert push.
+      // The list of alert push action plan IDs.
       shared_ptr<vector<string>> alertActionIds_ {};
       // The action plan ID.
       shared_ptr<string> responsePlanId_ {};
-      // The list of action integration plan IDs for recovery push.
+      // The list of action integration plan IDs.
       shared_ptr<vector<string>> restoreActionIds_ {};
-      // The UUID of the template.
+      // The template UUID.
       shared_ptr<string> templateUuid_ {};
     };
 
@@ -237,11 +237,13 @@ namespace Models
     shared_ptr<string> description_ {};
     // The filter settings.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // The UUID of the notification strategy.
+    // The notification policy UUID.
     shared_ptr<string> notifyStrategyId_ {};
     // The push settings.
     shared_ptr<SubscriptionForModify::PushingSetting> pushingSetting_ {};
-    // Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values: true: Subscribe. false or null: Do not subscribe.
+    // Specifies whether to subscribe to legacy product events (CloudMonitor 1.0, ARMS, or SLS events where workspace is null). Valid values:
+    // - true: Subscribes to the events.
+    // - false or null: Does not subscribe to the events.
     shared_ptr<bool> subscribeLegacyEvent_ {};
     // The name.
     // 

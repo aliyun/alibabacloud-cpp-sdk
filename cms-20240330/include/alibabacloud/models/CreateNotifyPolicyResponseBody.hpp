@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The details of the notification policy object, including the policy UUID, name, description, and enabled status, as well as sub-entities such as the notification strategy (grouping and merging, notification routing, and channels), subscription (event filtering, cross-workspace routing, and legacy product event subscription), and response plan (escalation, repeated notifications, automatic recovery, and action integration).
+    // The details of the notification policy object, including the policy UUID, name, description, and enabled status, as well as sub-entities such as the notification policy (grouping and merging, notification routing, and channels), subscription (event filtering, cross-workspace routing, and legacy product event subscription), and response plan (escalation, repeated notifications, automatic recovery, and action integration).
     shared_ptr<NotifyPolicy> notifyPolicy_ {};
-    // The unique ID of the request. This ID is used for troubleshooting and ticket tracking.
+    // The unique ID of the request, which is used for troubleshooting and ticket tracking.
     shared_ptr<string> requestId_ {};
   };
 

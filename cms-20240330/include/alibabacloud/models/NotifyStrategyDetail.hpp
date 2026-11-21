@@ -124,7 +124,7 @@ namespace Models
 
 
       protected:
-        // The days of the week when the policy takes effect. Valid values: 0 to 6. 0 indicates Sunday, and 6 indicates Saturday. The value 7 is not supported.
+        // The effective days of the week. Valid values: 0 to 6. A value of 0 indicates Sunday, and 6 indicates Saturday. The value 7 is not supported.
         shared_ptr<vector<int32_t>> dayInWeek_ {};
         // The end time of the day in minutes. Valid values: 0 to 1439.
         shared_ptr<int32_t> endTimeInMinute_ {};
@@ -185,7 +185,7 @@ namespace Models
 
 
       protected:
-        // The type of the channel. Valid values: DING, WEIXIN, FEISHU, SLACK, TEAMS, WEBHOOK, CONTACT, GROUP, DUTY, and DING_COOL_APP.
+        // The channel type. Valid values: DING, WEIXIN, FEISHU, SLACK, TEAMS, WEBHOOK, CONTACT, GROUP, DUTY, and DING_COOL_APP.
         shared_ptr<string> channelType_ {};
         // The enabled sub-channels. Valid values: EMAIL, SMS, VOICE, DING, WEIXIN, FEISHU, and WEBHOOK.
         shared_ptr<vector<string>> enabledSubChannels_ {};
@@ -307,11 +307,11 @@ namespace Models
 
 
     protected:
-      // The event fields used for grouping and merging. Events in the same group are merged into a single notification. An empty array indicates that no grouping is applied.
+      // The event fields used for grouping and merging. Events with the same values for these fields are merged into a single notification. An empty array indicates that no grouping is applied.
       shared_ptr<vector<string>> groupingKeys_ {};
       // The check period in minutes.
       shared_ptr<int32_t> periodMin_ {};
-      // The mute period in seconds.
+      // The silence period in seconds.
       shared_ptr<int32_t> silenceSec_ {};
       // The number of triggers.
       shared_ptr<int32_t> times_ {};
@@ -399,7 +399,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The grouping and merging settings.
     shared_ptr<NotifyStrategyDetail::GroupingSetting> groupingSetting_ {};
-    // Specifies whether to ignore notifications for recovery events. A value of true indicates that recovery notifications are not sent.
+    // Specifies whether to ignore notifications for recovery events. If set to true, recovery notifications are not sent.
     shared_ptr<bool> ignoreRestoredNotification_ {};
     // The list of notification channel routing settings.
     shared_ptr<vector<NotifyStrategyDetail::Routes>> routes_ {};

@@ -116,15 +116,15 @@ namespace Models
 
 
   protected:
-    // The rendering result object, which contains two mappings: success for successfully rendered items and failed for items that failed to render.
+    // The rendering result object. This object includes two mappings: success for successfully rendered items and failed for failed rendering items.
     shared_ptr<PreviewNotifyTemplateResponseBody::Data> data_ {};
     // The processing result message. The value is success if the request is successful, or an error message if the request fails.
     shared_ptr<string> msg_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Specifies whether the request is successful. Valid values:
-    // - true: The request is successful.
-    // - false: The request fails.
+    // Indicates whether the request is successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

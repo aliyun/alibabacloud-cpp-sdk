@@ -87,9 +87,9 @@ namespace Models
 
 
     protected:
-      // The detailed configuration of the shipping destination. The meanings of keys and values vary based on the sink type.
+      // The detailed configuration of the delivery destination. The meanings of keys and values vary based on the sinkType.
       shared_ptr<map<string, string>> sinkConfigs_ {};
-      // The type of the shipping destination.
+      // The type of the delivery destination.
       shared_ptr<string> sinkType_ {};
     };
 
@@ -166,17 +166,17 @@ namespace Models
 
 
   protected:
-    // The data source ID, which is the Prometheus instance ID.
+    // The data source ID (Prometheus instance ID).
     shared_ptr<string> dataSourceId_ {};
-    // The additional labels appended to all shipped metrics. The key is the label name, and the value is the label value.
+    // The additional labels appended to all delivered metrics. The key is the label name, and the value is the label value.
     shared_ptr<map<string, string>> externalLabels_ {};
-    // The metric filtering conditions. The existing conditions are entirely replaced rather than incrementally merged.
+    // The metric filtering conditions. The existing conditions are entirely replaced without incremental merging.
     shared_ptr<map<string, string>> labelFilters_ {};
     // The metric filtering mode.
     shared_ptr<string> labelFiltersType_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The list of shipping destinations.
+    // The list of delivery destinations.
     shared_ptr<vector<UpdateDeliveryTaskRequest::SinkList>> sinkList_ {};
     // The task status, which is used to start or stop the task. Valid values:
     // 

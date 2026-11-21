@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The language environment. Default value: zh. Valid values: zh, en.
+    // The language. Default value: zh. Valid values: zh, en.
     shared_ptr<string> aliyunLang_ {};
     // The add-on catalog version. Valid values: v1, v2.
     shared_ptr<string> apiVersion_ {};
-    // The environment type. Valid values: CS (container), ECS.
+    // The environment type. Valid values: CS, ECS.
     shared_ptr<string> environmentType_ {};
-    // The component version.
+    // The add-on version.
     shared_ptr<string> version_ {};
   };
 

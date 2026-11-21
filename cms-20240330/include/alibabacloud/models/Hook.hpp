@@ -14,20 +14,24 @@ namespace Models
   class Hook : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const Hook& obj) { 
+      DARABONBA_PTR_TO_JSON(debug, debug_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(enable, enable_);
       DARABONBA_PTR_TO_JSON(event, event_);
       DARABONBA_PTR_TO_JSON(execution, execution_);
+      DARABONBA_PTR_TO_JSON(invisible, invisible_);
       DARABONBA_PTR_TO_JSON(match, match_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(schemaVersion, schemaVersion_);
       DARABONBA_PTR_TO_JSON(scope, scope_);
     };
     friend void from_json(const Darabonba::Json& j, Hook& obj) { 
+      DARABONBA_PTR_FROM_JSON(debug, debug_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(enable, enable_);
       DARABONBA_PTR_FROM_JSON(event, event_);
       DARABONBA_PTR_FROM_JSON(execution, execution_);
+      DARABONBA_PTR_FROM_JSON(invisible, invisible_);
       DARABONBA_PTR_FROM_JSON(match, match_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(schemaVersion, schemaVersion_);
@@ -109,21 +113,28 @@ namespace Models
 
 
     protected:
-      // The handling policy for invalid return values. If the handler return value remains invalid after retries, it is processed as allow or reject.
+      // The invalid return value handling policy. If the handler return value is still invalid after retries, it is processed as allow or reject.
       shared_ptr<string> failResult_ {};
-      // The execution instruction. The prompt type indicates a prompt, the bash type indicates a Bash script, the python3 type indicates a Python 3 script, and the hint type indicates contextual text directly appended. A non-empty UTF-8 text must be provided for all four types.
+      // The execution instruction. For the prompt type, it is a prompt. For the bash type, it is a Bash script. For the python3 type, it is a Python 3 script. For the hint type, it is contextual text directly appended. Non-empty UTF-8 text must be provided for all four types.
       shared_ptr<string> instruction_ {};
-      // The maximum number of additional attempts after a failure. Valid values: 0 to 3.
+      // The maximum number of retries. Specifies the number of additional attempts after a failure. Valid values: 0 to 3.
       shared_ptr<int64_t> maxRetry_ {};
-      // The timeout period in seconds. Valid values: 1 to 30. All attempts and waits for the Hook share this timeout period.
+      // The timeout period in seconds. Valid values: 1 to 30. All attempts and waits for this Hook share this timeout period.
       shared_ptr<int64_t> timeoutSeconds_ {};
-      // The handler type. Valid values: prompt, bash, python3, and hint.
+      // The handler type. Only prompt, bash, python3, and hint are supported.
       shared_ptr<string> type_ {};
     };
 
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->enable_ == nullptr && this->event_ == nullptr && this->execution_ == nullptr && this->match_ == nullptr && this->name_ == nullptr
-        && this->schemaVersion_ == nullptr && this->scope_ == nullptr; };
+    virtual bool empty() const override { return this->debug_ == nullptr
+        && this->description_ == nullptr && this->enable_ == nullptr && this->event_ == nullptr && this->execution_ == nullptr && this->invisible_ == nullptr
+        && this->match_ == nullptr && this->name_ == nullptr && this->schemaVersion_ == nullptr && this->scope_ == nullptr; };
+    // debug Field Functions 
+    bool hasDebug() const { return this->debug_ != nullptr;};
+    void deleteDebug() { this->debug_ = nullptr;};
+    inline bool getDebug() const { DARABONBA_PTR_GET_DEFAULT(debug_, false) };
+    inline Hook& setDebug(bool debug) { DARABONBA_PTR_SET_VALUE(debug_, debug) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -152,6 +163,13 @@ namespace Models
     inline Hook::Execution getExecution() { DARABONBA_PTR_GET(execution_, Hook::Execution) };
     inline Hook& setExecution(const Hook::Execution & execution) { DARABONBA_PTR_SET_VALUE(execution_, execution) };
     inline Hook& setExecution(Hook::Execution && execution) { DARABONBA_PTR_SET_RVALUE(execution_, execution) };
+
+
+    // invisible Field Functions 
+    bool hasInvisible() const { return this->invisible_ != nullptr;};
+    void deleteInvisible() { this->invisible_ = nullptr;};
+    inline bool getInvisible() const { DARABONBA_PTR_GET_DEFAULT(invisible_, false) };
+    inline Hook& setInvisible(bool invisible) { DARABONBA_PTR_SET_VALUE(invisible_, invisible) };
 
 
     // match Field Functions 
@@ -185,21 +203,25 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable debug mode.
+    shared_ptr<bool> debug_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // Specifies whether the Hook is enabled. The Hook is executed only when this parameter is set to true. If not configured, the Hook is disabled.
+    // Specifies whether the Hook is enabled. It is executed only when this parameter is set to true. If not configured, the Hook is disabled.
     shared_ptr<bool> enable_ {};
-    // The event processed by the Hook. Each Hook processes only one event.
+    // The event. Each Hook processes only one event.
     shared_ptr<string> event_ {};
-    // The execution configuration that specifies the synchronous execution, total timeout, number of retries, and invalid return value handling policy for the Hook.
+    // The execution configuration. Configures the synchronous execution, total timeout, number of retries, and invalid return value handling policy for the Hook.
     shared_ptr<Hook::Execution> execution_ {};
-    // The list of tool names. Only ToolStart and ToolEnd events perform exact matching based on the actual tool name. Tool names such as Read, Write, Bash, and Edit are supported, but wildcards are not supported. An empty array does not restrict tools. This field is ignored for other events.
+    // Specifies whether to hide Hook invocation events. When set to true, Hook invocation events are not sent to the frontend, regardless of whether debug mode is enabled.
+    shared_ptr<bool> invisible_ {};
+    // The list of tool names. Only ToolStart and ToolEnd perform an exact match based on the actual tool name. Tool names such as Read, Write, Bash, and Edit are supported. Wildcards are not supported. An empty array does not restrict tools. This field is ignored for other events.
     shared_ptr<vector<string>> match_ {};
-    // The Hook name. Only digits, letters, underscores, and hyphens are allowed. The name cannot be empty. Hooks with the same name are still executed independently in the order of the list.
+    // The Hook name. Only digits, letters, underscores, and hyphens are allowed, and it cannot be empty. Hooks with the same name are executed independently in the order of the list.
     shared_ptr<string> name_ {};
     // The configuration protocol version.
     shared_ptr<string> schemaVersion_ {};
-    // The effective scope. Valid values: all, chat, and mission. A value of all indicates that the scope includes Chat and Mission. A value of chat or mission indicates that the scope applies only to the corresponding scenario.
+    // The effective scope. A value of all indicates Chat and Mission. A value of chat or mission indicates that the Hook takes effect only in the corresponding scenario.
     shared_ptr<string> scope_ {};
   };
 

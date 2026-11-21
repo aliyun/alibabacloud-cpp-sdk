@@ -112,9 +112,9 @@ namespace Models
       shared_ptr<string> contentType_ {};
       // The request header information.
       shared_ptr<map<string, string>> headers_ {};
-      // The HTTP method for the webhook request.
+      // The webhook request method.
       shared_ptr<string> method_ {};
-      // The alert callback URL.
+      // The URL for the alert callback.
       shared_ptr<string> url_ {};
     };
 
@@ -213,7 +213,7 @@ namespace Models
     protected:
       // The integration key for PagerDuty.
       shared_ptr<string> key_ {};
-      // The integration webhook URL for PagerDuty. Both V1 and V2 are supported.
+      // The integration webhook for PagerDuty. V1 and V2 are supported.
       shared_ptr<string> url_ {};
     };
 
@@ -267,7 +267,6 @@ namespace Models
       // The Simple Message Queue (formerly MNS) resource type.
       shared_ptr<string> mnsType_ {};
       // The resource name.
-      // 
       // - If the resource type is queue, the resource name is the queue name.
       // - If the resource type is topic, the resource name is the topic name.
       shared_ptr<string> name_ {};
@@ -609,7 +608,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> alertActionName_ {};
-    // The event bus parameters.
+    // The event bus.
     shared_ptr<CreateAlertActionRequest::EbParam> ebParam_ {};
     // The elastic scaling parameters.
     shared_ptr<CreateAlertActionRequest::EssParam> essParam_ {};

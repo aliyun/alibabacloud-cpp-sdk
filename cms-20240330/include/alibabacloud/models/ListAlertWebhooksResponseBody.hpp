@@ -149,11 +149,11 @@ namespace Models
       shared_ptr<string> method_ {};
       // The name of the webhook.
       shared_ptr<string> name_ {};
-      // The URL of the alert callback.
+      // The alert callback URL.
       shared_ptr<string> url_ {};
-      // The unique ID of the webhook.
+      // The unique identifiers of the webhooks.
       shared_ptr<string> webhookId_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -199,7 +199,7 @@ namespace Models
   protected:
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

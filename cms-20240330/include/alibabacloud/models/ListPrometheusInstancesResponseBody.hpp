@@ -198,11 +198,11 @@ namespace Models
 
     protected:
       // The access type. Valid values:
-      // - readWrite
-      // - readOnly
-      // - httpReadOnly
+      // - readWrite: Read and write.
+      // - readOnly: Read-only.
+      // - httpReadOnly: HTTP read-only.
       shared_ptr<string> accessType_ {};
-      // The time when the instance was created. The time is displayed in UTC+0 and formatted as yyyy-MM-ddTHH:mmZ.
+      // The time when the instance was created. The time is displayed in UTC+0 in the yyyy-MM-ddTHH:mmZ format.
       shared_ptr<string> createTime_ {};
       // The instance type.
       shared_ptr<string> instanceType_ {};
@@ -214,13 +214,13 @@ namespace Models
       shared_ptr<string> paymentType_ {};
       // The product to which the Prometheus instance belongs.
       shared_ptr<string> product_ {};
-      // The instance ID.
+      // The ID of the instance.
       shared_ptr<string> prometheusInstanceId_ {};
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> prometheusInstanceName_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};

@@ -87,10 +87,10 @@ namespace Models
 
 
     protected:
-      // The entry content in JSON string format. The returned content varies depending on the recordType.
+      // The content of the entry in JSON string format. The returned content varies based on the recordType.
       shared_ptr<string> recordContent_ {};
-      // The type of the linked entry. Currently supported values:
-      // logCorrelation: indicates application log association.
+      // The type of the association entry. Valid values:
+      // logCorrelation: application log association.
       shared_ptr<string> recordType_ {};
       // The unique identifier of the service.
       shared_ptr<string> serviceId_ {};
@@ -117,7 +117,7 @@ namespace Models
 
 
   protected:
-    // The record.
+    // The number of records.
     shared_ptr<GetServiceRecordResponseBody::Record> record_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

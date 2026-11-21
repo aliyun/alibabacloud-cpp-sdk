@@ -148,7 +148,7 @@ namespace Models
     shared_ptr<string> extend_ {};
     // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // The last modification time.
+    // The last modified time.
     Darabonba::Json gmtModified_ {};
     // The request header information.
     shared_ptr<string> headers_ {};
@@ -158,13 +158,13 @@ namespace Models
     shared_ptr<string> lang_ {};
     // The HTTP request method.
     shared_ptr<string> method_ {};
-    // The name of the webhook.
+    // The webhook name.
     shared_ptr<string> name_ {};
     // The source system of the webhook.
     shared_ptr<string> source_ {};
-    // The webhook type, which indicates its target platform.
+    // The webhook type, which indicates the target platform.
     shared_ptr<string> type_ {};
-    // The webhook address used to send requests.
+    // The webhook URL used to send requests.
     shared_ptr<string> webhook_ {};
   };
 

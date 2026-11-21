@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The language environment. Default value: zh. Valid values: zh and en.
+    // The locale. Default value: zh. Valid values: zh, en.
     shared_ptr<string> aliyunLang_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};

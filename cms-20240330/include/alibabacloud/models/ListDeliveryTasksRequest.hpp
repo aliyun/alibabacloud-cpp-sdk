@@ -126,7 +126,7 @@ namespace Models
     shared_ptr<string> keyWords_ {};
     // The maximum number of entries to return per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Do not specify this parameter for the first request. For subsequent requests, specify the nextToken value returned from the previous request.
+    // The pagination token. Do not specify this parameter for the first request. For subsequent requests, specify the nextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};

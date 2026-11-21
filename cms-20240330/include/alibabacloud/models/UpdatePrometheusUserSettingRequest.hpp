@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The value of the user setting.
+    // The user configuration setting value.
     // 
     // This parameter is required.
     shared_ptr<string> settingValue_ {};

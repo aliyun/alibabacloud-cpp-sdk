@@ -268,57 +268,57 @@ namespace Models
 
 
   protected:
-    // The unique identifier (transId) of an alert history record.
+    // The unique identifier of an alert history record, which is the transId.
     shared_ptr<string> alertHistoryId_ {};
-    // Filters the history records of a specified alert rule. Specify the unique identifier (ruleUuid) of the alert rule.
+    // The unique identifier of the alert rule used to filter the history records of a specific alert rule. Pass the ruleUuid of the alert rule.
     shared_ptr<string> alertRuleId_ {};
-    // Specifies the business source of the alert history. For example, managed_service_for_prometheus indicates the managed type of the Prometheus integration center. Default value: empty. Leave this parameter empty if you are unsure how to specify it.
+    // The business source of the alert history. For example, `managed_service_for_prometheus` indicates the managed type of the Prometheus integration center. Default value: empty. Leave this parameter empty if you are unsure about the value.
     shared_ptr<string> bizSource_ {};
     // The namespace of CloudMonitor, such as acs_rds_dashboard and acs_ecs_dashboard.
     shared_ptr<string> cmsNamespace_ {};
     // The product category of CloudMonitor.
     shared_ptr<string> cmsProductCategory_ {};
-    // Filters the records by performing fuzzy matching on the keywords in the display name of the alert rule.
+    // The keyword used for fuzzy match filtering based on the display name of the alert rule.
     shared_ptr<string> displayNameKeyWord_ {};
-    // The unique key value (instanceKey) that identifies the alert object instance.
+    // The unique key value used to identify the alert object instance, which is the instanceKey.
     shared_ptr<string> instanceKey_ {};
     // The filter condition for rule labels. The value is a JSON-formatted string that supports filtering by label key-value pairs.
     shared_ptr<string> labelFilterShrink_ {};
-    // The level of the most recent alert during the alert duration. Valid values: CRITICAL (critical), WARN (warning), and INFO (info).
+    // The level of the most recent alert during the alert duration. Valid values: CRITICAL, WARN, and INFO.
     shared_ptr<string> latestLevel_ {};
-    // The highest alert level reached during the alert duration. Valid values: CRITICAL (critical), WARN (warning), and INFO (info).
+    // The highest alert level reached during the alert duration. Valid values: CRITICAL, WARN, and INFO.
     shared_ptr<string> maxLevel_ {};
-    // The maximum number of results returned per page in a paged query. This parameter is not supported. Use pageSize and pageNumber for paged queries.
+    // The maximum number of results to return on each page during paging for a paged query. This parameter is not supported. Use pageSize and pageNumber for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The migration status value of the alert history.
+    // The migration status of the alert history.
     shared_ptr<int32_t> migrationStatus_ {};
-    // The paging token for querying the next page. This parameter is not supported. Use pageSize and pageNumber for a paging query.
+    // The paging token used to query the next page. This parameter is not supported. Use pageSize and pageNumber for a paged query.
     shared_ptr<string> nextToken_ {};
-    // Filters alert rules that contain specified notification recipients. Only rules that contain any notification recipient specified in notifyTargets are returned in the result list.
+    // The filter used to filter alert rules that contain specific notification recipients. Only rules that contain at least one notification recipient specified in notifyTargets are returned in the result list.
     shared_ptr<string> notificationFilterShrink_ {};
     // The relation type of the observed object, such as GROUP, INSTANCE, and TAG.
     shared_ptr<string> observeRelationType_ {};
-    // The dimension column (domain) of the observed object.
+    // The domain of the observed object.
     shared_ptr<string> observeResourceDomain_ {};
     // Specifies whether the observed object is in the global scope.
     shared_ptr<bool> observeResourceGlobalScope_ {};
-    // Filters the alert history by resource instance ID.
+    // The resource instance ID used to filter the alert history.
     shared_ptr<string> observeResourceInstanceId_ {};
     // The type of the observed object, such as PROMETHEUS, APM, RUM, and cms_basic.
     shared_ptr<string> observeResourceType_ {};
-    // The page number for a paged query. Default value: 1.
+    // The page number for paging in a paged query. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of alert history records returned per page in a paged query. Default value: 10.
+    // The number of alert history records to return on each page during paging for a paged query. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The key value used for data partitioning. Typically, you do not need to specify this parameter.
+    // The key value used for data partitioning. You do not need to specify this parameter in most cases.
     shared_ptr<string> partitionKey_ {};
-    // The start timestamp of the time range for the alert start time. The value is a UNIX timestamp in milliseconds. If not specified, the default value is 30 days ago.
+    // The start timestamp of the time range for the alert start time. The value is a UNIX timestamp in milliseconds. If you do not specify this parameter, the default value is the timestamp 30 days ago.
     shared_ptr<int64_t> startTimeFrom_ {};
-    // The end timestamp of the time range for the alert start time. The value is a UNIX timestamp in milliseconds. If not specified, the default value is the current time.
+    // The end timestamp of the time range for the alert start time. The value is a UNIX timestamp in milliseconds. If you do not specify this parameter, the default value is the current timestamp.
     shared_ptr<int64_t> startTimeTo_ {};
-    // The current status of the alert history. Valid values: OK (recovered) and ALARM (alerting).
+    // The current status of the alert history. Valid values: OK and ALARM.
     shared_ptr<string> status_ {};
-    // The identifier of the workspace to which the alert history belongs. If not specified, the default workspace is used.
+    // The identifier of the workspace to which the alert history belongs. If you do not specify this parameter, the default workspace is used.
     shared_ptr<string> workspace_ {};
   };
 

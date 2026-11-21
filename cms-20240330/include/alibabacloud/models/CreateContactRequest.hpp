@@ -116,7 +116,7 @@ namespace Models
     shared_ptr<string> lang_ {};
     // The name of the contact.
     shared_ptr<string> name_ {};
-    // The mobile phone number. Currently, only mobile phone numbers in China are supported.
+    // The mobile phone number. Currently, only phone numbers in the Chinese mainland are supported.
     shared_ptr<string> phone_ {};
     // The country code.
     shared_ptr<string> phoneCode_ {};

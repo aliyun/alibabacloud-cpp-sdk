@@ -97,7 +97,7 @@ namespace Models
       shared_ptr<int32_t> count_ {};
       // The execution duration in milliseconds.
       shared_ptr<int64_t> elapsedMillisecond_ {};
-      // Indicates whether the query results are complete.
+      // Indicates whether the query result is complete.
       shared_ptr<string> progress_ {};
     };
 
@@ -129,7 +129,7 @@ namespace Models
 
 
   protected:
-    // The log data array. Each element corresponds to a log entry.
+    // The log data array, where each element corresponds to a log entry.
     shared_ptr<vector<map<string, string>>> data_ {};
     // The metadata.
     shared_ptr<ExecuteQueryResponseBody::Meta> meta_ {};

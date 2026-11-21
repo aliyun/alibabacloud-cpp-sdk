@@ -169,7 +169,7 @@ namespace Models
     shared_ptr<int64_t> autoRecoverTime_ {};
     // The content.
     shared_ptr<string> content_ {};
-    // The statistical count.
+    // The count.
     shared_ptr<int32_t> count_ {};
     // The dimension.
     shared_ptr<map<string, string>> dimension_ {};
@@ -183,7 +183,7 @@ namespace Models
     shared_ptr<int64_t> lastTime_ {};
     // The manual recovery time.
     shared_ptr<int64_t> recoverTime_ {};
-    // The information about the resources associated with the event.
+    // The resource information associated with the event.
     shared_ptr<map<string, string>> resource_ {};
     // The status.
     shared_ptr<int64_t> status_ {};

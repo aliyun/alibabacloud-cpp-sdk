@@ -238,7 +238,7 @@ namespace Models
 
 
           protected:
-            // The data check rule after installation.
+            // The data check rule applied after installation.
             shared_ptr<vector<string>> promQL_ {};
           };
 
@@ -307,7 +307,7 @@ namespace Models
           shared_ptr<bool> enableServiceAccount_ {};
           // The metric check rule.
           shared_ptr<Policies::MetricCheckRule> metricCheckRule_ {};
-          // Specifies whether the pod restart guide is triggered immediately after the add-on is installed during integration.
+          // Specifies whether to initiate a pod restart guide immediately after the add-on is installed during integration.
           shared_ptr<bool> needRestartAfterIntegration_ {};
           // The protocols.
           shared_ptr<vector<Policies::Protocols>> protocols_ {};
@@ -488,11 +488,11 @@ namespace Models
       protected:
         // The list of associated common schemas.
         shared_ptr<vector<Environments::CommonSchemaRefs>> commonSchemaRefs_ {};
-        // The additional dependency files.
+        // The additional dependencies.
         shared_ptr<Environments::Dependencies> dependencies_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // Specifies whether the environment is enabled.
+        // Indicates whether the environment is enabled.
         shared_ptr<bool> enable_ {};
         // The display name of the environment.
         shared_ptr<string> label_ {};
@@ -719,7 +719,7 @@ namespace Models
 
 
   protected:
-    // The data list corresponding to the request header.
+    // The list of data corresponding to the request.
     shared_ptr<GetAddonResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

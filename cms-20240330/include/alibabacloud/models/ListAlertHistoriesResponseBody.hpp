@@ -291,9 +291,9 @@ namespace Models
       shared_ptr<map<string, string>> annotations_ {};
       // The business source.
       shared_ptr<string> bizSource_ {};
-      // The cumulative number of alert events during the alert duration.
+      // The cumulative number of alerts (alert events) during the alert duration.
       shared_ptr<int64_t> count_ {};
-      // The end time of the alert, which is the recovery time. This field has a value only when the alert history enters the OK state. The value is a UNIX timestamp in milliseconds.
+      // The end time (recovery time) of the alert. This field has a value only when the alert history record enters the OK state. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The creation time of the alert history record. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
@@ -301,7 +301,7 @@ namespace Models
       shared_ptr<int64_t> gmtModified_ {};
       // The detailed information of the alert object, stored as key-value pairs.
       shared_ptr<map<string, string>> instanceDetail_ {};
-      // The unique key value (instanceKey) that identifies the alert object instance.
+      // The unique key value used to identify the alert object instance, which is the instanceKey.
       shared_ptr<string> instanceKey_ {};
       // The snapshot of the labels of the alert rule, stored as key-value pairs and copied from the rule when the alert is triggered.
       shared_ptr<map<string, string>> labels_ {};
@@ -311,11 +311,11 @@ namespace Models
       shared_ptr<string> maxLevel_ {};
       // The content of the latest alert message.
       shared_ptr<string> message_ {};
-      // Indicates whether the observed object is in the global scope. This value is copied from the rule when the alert history record is created.
+      // Indicates whether the observed object is in the global scope. This value is copied from the rule upon creation.
       shared_ptr<bool> observeResourceGlobalScope_ {};
-      // The serialized string of the observed object list. This value is copied from the rule when the alert history record is created.
+      // The serialized string of the observed object list. This value is copied from the rule upon creation.
       shared_ptr<string> observeResourceList_ {};
-      // The type of the observed object, such as PROMETHEUS, APM, RUM, or cms_basic. This value is copied from the rule when the alert history record is created.
+      // The type of the observed object, such as PROMETHEUS, APM, RUM, or cms_basic. This value is copied from the rule upon creation.
       shared_ptr<string> observeResourceType_ {};
       // The ID of the region to which the alert history record belongs.
       shared_ptr<string> regionId_ {};

@@ -59,9 +59,12 @@ namespace Models
   protected:
     // Indicates whether the service or product is activated.
     shared_ptr<bool> enabled_ {};
-    // PROM_NOT_OPEN: Prometheus is not activated.SLS_NOT_OPEN: Simple Log Service (SLS), a dependency of Prometheus, is not activated.CMS_SLR_NOT_EXIST: The service-linked role (SLR) for CloudMonitor does not exist.SLS_SLR_NOT_EXIST: The SLR for SLS does not exist.
+    // PROM_NOT_OPEN: Prometheus is not activated.
+    // SLS_NOT_OPEN: Simple Log Service, which Prometheus depends on, is not activated.
+    // CMS_SLR_NOT_EXIST: The CloudMonitor service-linked role is not created.
+    // SLS_SLR_NOT_EXIST: The Simple Log Service service-linked role is not created.
     shared_ptr<string> errorCode_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return value
+    // The results.
     shared_ptr<vector<Darabonba::Json>> results_ {};
   };
 

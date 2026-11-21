@@ -38,12 +38,10 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language. Valid values:
     // 
-    // - zh: Chinese. This is the default value.
-    // 
+    // - zh: Chinese (default).
     // - en: English.
-    // 
     // - ja: Japanese.
     shared_ptr<string> language_ {};
   };

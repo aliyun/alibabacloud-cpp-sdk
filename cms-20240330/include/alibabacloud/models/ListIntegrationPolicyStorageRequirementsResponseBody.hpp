@@ -308,7 +308,7 @@ namespace Models
 
 
       protected:
-        // The instance ID. Specify this parameter to narrow down the scope to the instance level. This depends on the data in EntityStore.
+        // The instance ID. Specify this parameter to narrow the scope to the instance level. This parameter depends on the data in the EntityStore.
         shared_ptr<string> entityId_ {};
         // The Prometheus instance ID.
         shared_ptr<string> instance_ {};
@@ -322,9 +322,9 @@ namespace Models
         shared_ptr<string> shareScope_ {};
         // The instance storage type.
         shared_ptr<string> storageType_ {};
-        // The tags to be added to the destination storage. These tags are injected as system tags.
+        // The tags to be added to the target storage, injected as system tags.
         shared_ptr<map<string, string>> systemTags_ {};
-        // The tags to be added to the destination storage. These tags are injected as regular tags.
+        // The tags to be added to the target storage, injected as regular tags.
         shared_ptr<map<string, string>> tags_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -455,15 +455,15 @@ namespace Models
 
 
     protected:
-      // The collection of add-on releases.
+      // The collection of AddonReleases.
       shared_ptr<vector<string>> addonReleaseNames_ {};
-      // The API version.
+      // The version number.
       shared_ptr<string> apiVersion_ {};
       // The resource kind.
       shared_ptr<string> kind_ {};
       // The metadata.
       shared_ptr<StorageRequirements::Metadata> metadata_ {};
-      // The resource specification.
+      // The specification of the resource.
       shared_ptr<StorageRequirements::Spec> spec_ {};
       // The storage requirement status.
       shared_ptr<StorageRequirements::Status> status_ {};

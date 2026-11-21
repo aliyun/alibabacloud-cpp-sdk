@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The effective days of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday).
+      // The valid days of the week. Valid values: 0 to 6, where 0 indicates Sunday and 6 indicates Saturday.
       shared_ptr<vector<int32_t>> dayInWeek_ {};
-      // The end time of the day, in minutes from 0:00.
+      // The end time of the day in minutes, calculated from 00:00.
       shared_ptr<int32_t> endTimeInMinute_ {};
-      // The start time of the day, in minutes from 0:00.
+      // The start time of the day in minutes, calculated from 00:00.
       shared_ptr<int32_t> startTimeInMinute_ {};
       // The time zone.
       shared_ptr<string> timeZone_ {};
@@ -153,7 +153,7 @@ namespace Models
     protected:
       // The channel type.
       shared_ptr<string> channelType_ {};
-      // The list of enabled subchannels.
+      // The list of enabled sub-channels.
       shared_ptr<vector<string>> enabledSubChannels_ {};
       // The list of receivers.
       shared_ptr<vector<string>> receivers_ {};

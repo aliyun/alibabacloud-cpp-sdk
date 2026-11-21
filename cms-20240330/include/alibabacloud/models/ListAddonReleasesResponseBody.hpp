@@ -150,7 +150,7 @@ namespace Models
       protected:
         // The number of ready sub-releases.
         shared_ptr<int32_t> ready_ {};
-        // The number of sub-releases.
+        // The total number of sub-releases.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -447,11 +447,11 @@ namespace Models
       shared_ptr<int64_t> alertRuleCount_ {};
       // The version number.
       shared_ptr<string> apiVersion_ {};
-      // The installation phase information.
+      // The installation phase conditions.
       shared_ptr<vector<Releases::Conditions>> conditions_ {};
       // The configuration information of the component.
       shared_ptr<string> config_ {};
-      // The integration time.
+      // The onboarding time.
       shared_ptr<string> createTime_ {};
       // The number of dashboards.
       shared_ptr<int64_t> dashboardCount_ {};
@@ -461,15 +461,15 @@ namespace Models
       shared_ptr<string> envType_ {};
       // The ID of the environment.
       shared_ptr<string> environmentId_ {};
-      // The number of plugins.
+      // The number of plug-ins.
       shared_ptr<int64_t> exporterCount_ {};
-      // Indicates whether configurations exist.
+      // Indicates whether a configuration exists.
       shared_ptr<bool> haveConfig_ {};
-      // The ID of the integration user.
+      // The ID of the onboarding user.
       shared_ptr<string> installUserId_ {};
       // The language.
       shared_ptr<string> language_ {};
-      // Indicates whether the component is a managed component.
+      // Indicates whether the component is managed.
       shared_ptr<bool> managed_ {};
       // The starting version number of the remaining list.
       shared_ptr<string> nextVersion_ {};
@@ -491,7 +491,7 @@ namespace Models
       shared_ptr<Releases::SubAddonRelease> subAddonRelease_ {};
       // The update time.
       shared_ptr<string> updateTime_ {};
-      // The ID of the owner user.
+      // The ID of the associated user.
       shared_ptr<string> userId_ {};
       // The version of the component.
       shared_ptr<string> version_ {};
@@ -532,13 +532,13 @@ namespace Models
 
 
   protected:
-    // The token for the next page.
+    // The token used to query the next page.
     shared_ptr<string> nextToken_ {};
-    // The collection of integrated component information.
+    // The collection of onboarded component information.
     shared_ptr<vector<ListAddonReleasesResponseBody::Releases>> releases_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of components.
+    // The total number of components.
     shared_ptr<int64_t> total_ {};
   };
 

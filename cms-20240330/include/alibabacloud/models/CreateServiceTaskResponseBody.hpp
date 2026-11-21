@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the created task. Use this ID for subsequent query or deletion operations.
+    // The ID of the created task. You can use this ID for subsequent queries or deletions.
     shared_ptr<string> taskId_ {};
   };
 

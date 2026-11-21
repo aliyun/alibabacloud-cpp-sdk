@@ -152,11 +152,11 @@ namespace Models
 
 
       protected:
-        // The name of the Log Service logstore.
+        // The name of the Simple Log Service Logstore.
         shared_ptr<string> logstore_ {};
-        // The name of the Log Service project.
+        // The name of the Simple Log Service project.
         shared_ptr<string> project_ {};
-        // The time when the configuration takes effect. This value is a Unix timestamp in milliseconds.
+        // The effective start time.
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
         shared_ptr<string> startTime_ {};
@@ -200,9 +200,9 @@ namespace Models
 
 
       protected:
-        // The name of the Log Service logstore.
+        // The name of the Simple Log Service Logstore.
         shared_ptr<string> logstore_ {};
-        // The name of the Log Service project.
+        // The name of the Simple Log Service project.
         shared_ptr<string> project_ {};
       };
 
@@ -238,7 +238,7 @@ namespace Models
     protected:
       // The internal source.
       shared_ptr<Config::InnerSource> innerSource_ {};
-      // The metadata fields.
+      // The metadata field.
       shared_ptr<map<string, string>> metadataField_ {};
       // The configuration source.
       shared_ptr<Config::Source> source_ {};
@@ -329,27 +329,27 @@ namespace Models
 
 
   protected:
-    // The configuration of the context store.
+    // The configuration information.
     shared_ptr<GetContextStoreResponseBody::Config> config_ {};
-    // The context store name.
+    // The name of the context store.
     shared_ptr<string> contextStoreName_ {};
-    // The type of the context store.
+    // The context type.
     shared_ptr<string> contextType_ {};
-    // The creation time of the context store. This value is a Unix timestamp in seconds.
+    // The creation time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
-    // Information about the associated dataset.
+    // The dataset information.
     shared_ptr<GetContextStoreResponseBody::Dataset> dataset_ {};
-    // The description of the context store.
+    // The description.
     shared_ptr<string> description_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the context store.
+    // The status.
     shared_ptr<string> status_ {};
-    // The last update time of the context store. This value is a Unix timestamp in seconds.
+    // The update time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};

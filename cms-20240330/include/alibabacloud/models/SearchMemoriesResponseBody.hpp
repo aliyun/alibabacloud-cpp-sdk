@@ -172,7 +172,7 @@ namespace Models
       shared_ptr<string> agentId_ {};
       // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The hash value of the memory.
+      // The memory hash value.
       shared_ptr<string> hash_ {};
       // The memory ID.
       shared_ptr<string> id_ {};
@@ -279,7 +279,7 @@ namespace Models
     shared_ptr<vector<SearchMemoriesResponseBody::Relations>> relations_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return values.
+    // The returned results.
     shared_ptr<vector<SearchMemoriesResponseBody::Results>> results_ {};
   };
 

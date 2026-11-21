@@ -171,9 +171,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> shortTermTtl_ {};
-    // The source of the memory.
+    // The memory source.
     shared_ptr<string> sourceType_ {};
-    // The configuration when the sourceType is Trace.
+    // The configuration when the sourceType is set to Trace.
     shared_ptr<CreateMemoryStoreRequest::TraceSourceConfig> traceSourceConfig_ {};
   };
 

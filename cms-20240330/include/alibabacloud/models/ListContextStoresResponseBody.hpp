@@ -135,7 +135,7 @@ namespace Models
       shared_ptr<string> contextStoreName_ {};
       // The context type.
       shared_ptr<string> contextType_ {};
-      // The creation time in UTC format based on the ISO 8601 standard. Example: 2026-08-10T05:00:00Z.
+      // The creation time. The time is in UTC and follows the ISO 8601 standard, for example, 2026-08-10T05:00:00Z.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
@@ -145,7 +145,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The status.
       shared_ptr<string> status_ {};
-      // The update time in UTC format based on the ISO 8601 standard. Example: 2026-08-10T05:10:00Z.
+      // The update time. The time is in UTC and follows the ISO 8601 standard, for example, 2026-08-10T05:10:00Z.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};

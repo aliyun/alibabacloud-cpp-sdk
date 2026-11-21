@@ -245,9 +245,9 @@ namespace Models
         shared_ptr<string> rotationName_ {};
         // The start time of the rotation. Format: HH:mm.
         shared_ptr<string> rotationStartTime_ {};
-        // The length of the shift cycle. This parameter is used together with shiftRecurrenceFrequency. For example, a value of 3 indicates that the on-call personnel changes every 3 days.
+        // The length of the shift recurrence. This parameter is used together with shiftRecurrenceFrequency. For example, you can set this parameter to 3 and shiftRecurrenceFrequency to Day to rotate the on-call personnel every 3 days.
         shared_ptr<int32_t> shiftLength_ {};
-        // The unit of the shift cycle. This parameter is used together with shiftLength. For example, a value of Week indicates that the on-call personnel changes every week.
+        // The unit of the shift recurrence frequency. This parameter is used together with shiftLength. For example, you can set this parameter to Week to rotate the on-call personnel every week.
         shared_ptr<string> shiftRecurrenceFrequency_ {};
         // The start date of the rotation. Format: yyyy-MM-dd.
         shared_ptr<string> startDate_ {};
@@ -310,7 +310,7 @@ namespace Models
       shared_ptr<string> oncallScheduleName_ {};
       // The list of rotations.
       shared_ptr<vector<OncallSchedules::Rotations>> rotations_ {};
-      // The ID of the robot that sends shift change reminders.
+      // The ID of the chatbot that sends shift reminders.
       shared_ptr<string> shiftRobotId_ {};
       // The list of substitution rules.
       shared_ptr<vector<OncallSchedules::Substitudes>> substitudes_ {};
@@ -346,7 +346,7 @@ namespace Models
   protected:
     // The list of on-call schedules.
     shared_ptr<vector<ListOncallSchedulesResponseBody::OncallSchedules>> oncallSchedules_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int32_t> total_ {};

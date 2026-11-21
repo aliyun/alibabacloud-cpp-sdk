@@ -50,7 +50,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The workspace name.
+    // The name of the workspace.
     shared_ptr<string> workspaceName_ {};
   };
 

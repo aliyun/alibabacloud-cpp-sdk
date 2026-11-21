@@ -54,7 +54,7 @@ namespace Models
 
 
   protected:
-    // The label filter. This parameter is not supported and does not take effect if specified.
+    // The tag filter. This feature is not yet supported, and passing this parameter has no effect.
     shared_ptr<FilterSetting> tagSelector_ {};
     // The list of workspace UUIDs.
     shared_ptr<vector<string>> workspaceUuids_ {};

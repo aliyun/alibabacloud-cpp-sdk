@@ -70,7 +70,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of records returned for the current request.
+    // The maximum number of records returned in the current request.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

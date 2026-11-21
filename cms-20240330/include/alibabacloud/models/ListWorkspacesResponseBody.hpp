@@ -194,7 +194,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The display name of the workspace.
       shared_ptr<string> displayName_ {};
-      // The update time.
+      // The last modification time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> lastModifyTime_ {};
@@ -260,9 +260,9 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total count.
+    // The total number of results.
     shared_ptr<int32_t> total_ {};
     // The list of workspaces.
     shared_ptr<vector<ListWorkspacesResponseBody::Workspaces>> workspaces_ {};

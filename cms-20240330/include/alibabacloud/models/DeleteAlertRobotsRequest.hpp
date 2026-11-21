@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The chatbot IDs.
+    // The IDs of the chatbots.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> robotIds_ {};
-    // The chatbot type.
+    // The type of the chatbot.
     shared_ptr<string> type_ {};
   };
 

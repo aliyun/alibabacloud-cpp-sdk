@@ -66,16 +66,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return. Maximum value: 200.
+    // The maximum number of results to return. Maximum value: 200.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The type of the linked entry. Currently supported:
-    // logCorrelation, which indicates application log association.
+    // The type of the association entry. Valid values: logCorrelation: application log association.
     // 
     // This parameter is required.
     shared_ptr<string> recordType_ {};
-    // The filter information for service-linked entries.
+    // The filter information for service association entries.
     shared_ptr<string> search_ {};
   };
 

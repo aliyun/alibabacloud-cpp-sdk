@@ -237,7 +237,7 @@ namespace Models
     protected:
       // The dataset information.
       shared_ptr<Sink::Dataset> dataset_ {};
-      // The data sink type.
+      // The output destination type.
       shared_ptr<string> type_ {};
     };
 
@@ -584,7 +584,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The data sink.
+    // The output destination.
     shared_ptr<GetPipelineResponseBody::Sink> sink_ {};
     // The data source.
     shared_ptr<GetPipelineResponseBody::Source> source_ {};

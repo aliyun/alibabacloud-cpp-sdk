@@ -140,9 +140,9 @@ namespace Models
     Darabonba::Json filters_ {};
     // The query content.
     shared_ptr<string> query_ {};
-    // The reranking option.
+    // Specifies whether to rerank.
     shared_ptr<bool> rerank_ {};
-    // The retrieval option.
+    // The retrieval options.
     shared_ptr<string> retrievalOption_ {};
     // The run ID.
     shared_ptr<string> runId_ {};

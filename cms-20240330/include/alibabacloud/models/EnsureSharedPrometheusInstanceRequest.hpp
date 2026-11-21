@@ -57,7 +57,10 @@ namespace Models
 
 
   protected:
-    // The language of the returned information. zh indicates Chinese, and en indicates English. Default value: zh.
+    // The language of the returned information. Valid values:
+    // - zh: Chinese.
+    // - en: English.
+    // Default value: zh.
     shared_ptr<string> aliyunLang_ {};
     // The share scope. Currently, only Workspace is supported, which indicates the shared Prometheus instance for the workspace in the requested region. Workspaces in the same region share the same instance, and no additional instances are created. Policy and Environment are not currently supported.
     // 

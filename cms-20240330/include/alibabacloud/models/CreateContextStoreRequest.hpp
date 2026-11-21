@@ -219,7 +219,7 @@ namespace Models
   protected:
     // The configuration information.
     shared_ptr<CreateContextStoreRequest::Config> config_ {};
-    // The name of the context store.
+    // The name of the context library.
     // 
     // This parameter is required.
     shared_ptr<string> contextStoreName_ {};

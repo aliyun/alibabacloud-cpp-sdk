@@ -39,7 +39,7 @@ namespace Models
 
   protected:
     // The type of the association entry. Valid values:
-    // logCorrelation: application log association
+    // - logCorrelation: application log association
     // 
     // This parameter is required.
     shared_ptr<string> recordType_ {};

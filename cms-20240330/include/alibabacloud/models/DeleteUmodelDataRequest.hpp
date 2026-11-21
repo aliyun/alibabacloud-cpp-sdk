@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteUmodelDataRequest& obj) { 
       DARABONBA_PTR_TO_JSON(domain, domain_);
+      DARABONBA_PTR_TO_JSON(dryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(kind, kind_);
       DARABONBA_PTR_TO_JSON(name, name_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteUmodelDataRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(domain, domain_);
+      DARABONBA_PTR_FROM_JSON(dryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(kind, kind_);
       DARABONBA_PTR_FROM_JSON(name, name_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && this->kind_ == nullptr && this->name_ == nullptr; };
+        && this->dryRun_ == nullptr && this->kind_ == nullptr && this->name_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
     inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline DeleteUmodelDataRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline DeleteUmodelDataRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // kind Field Functions 
@@ -57,11 +66,16 @@ namespace Models
 
 
   protected:
-    // The name of the Umodel data to delete. Omit this parameter to delete all Umodel data.
+    // The name of the specific Umodel data. If you do not specify this parameter, all Umodel data is included.
     shared_ptr<string> domain_ {};
-    // The kind of the Umodel data. If unspecified, data of all kinds is deleted.
+    // Specifies whether to perform a dry run of the request. Valid values:
+    // - true: sends a check request and does not perform actual changes.
+    // - false: sends a normal request.
+    // Default value: false.
+    shared_ptr<bool> dryRun_ {};
+    // The kind of the specific Umodel data. If you do not specify this parameter, all kinds are included.
     shared_ptr<string> kind_ {};
-    // The name of the Umodel data. If unspecified, data with any name is deleted.
+    // The name of the specific Umodel data. If you do not specify this parameter, all Umodel data is included.
     shared_ptr<string> name_ {};
   };
 

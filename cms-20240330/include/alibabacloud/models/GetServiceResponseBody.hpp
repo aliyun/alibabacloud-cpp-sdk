@@ -113,9 +113,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The key of the tag.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The value of the tag.
         shared_ptr<string> value_ {};
       };
 
@@ -225,23 +225,23 @@ namespace Models
       shared_ptr<string> description_ {};
       // The display name. This parameter is valid only when serviceType is set to RUM.
       shared_ptr<string> displayName_ {};
-      // The ARMS application ID for backward compatibility.
+      // The legacy ARMS application ID for backward compatibility.
       shared_ptr<string> pid_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The service ID.
+      // The ID of the service.
       shared_ptr<string> serviceId_ {};
       // The service name.
       shared_ptr<string> serviceName_ {};
-      // The service status. This parameter is valid only when serviceType is set to RUM.
+      // The status of the service. This parameter is valid only when serviceType is set to RUM.
       shared_ptr<string> serviceStatus_ {};
-      // The service type.
+      // The type of the service.
       shared_ptr<string> serviceType_ {};
-      // The tags.
+      // The array of tags.
       shared_ptr<vector<Service::Tags>> tags_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -264,7 +264,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The service object.
     shared_ptr<GetServiceResponseBody::Service> service_ {};

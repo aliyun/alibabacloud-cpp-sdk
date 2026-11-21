@@ -250,35 +250,35 @@ namespace Models
 
 
   protected:
-    // The notification batch ID. Used to filter the notification history for notifications sent in the same batch.
+    // The notification batch ID. Used to filter the notification history for the same delivery batch.
     shared_ptr<string> batchId_ {};
     // **[Deprecated]** This is an internal reserved parameter used only for business source filtering in internal platform scenarios. Do not specify this parameter in external calls.
     shared_ptr<string> bizSource_ {};
     // The notification channel. Valid values:
-    // - ALI_YUNGE_SMS: text message
-    // - ALI_YUNGE_CALL: phone call
-    // - ALI_YUNGE_MAIL: email
-    // - ALI_YUNGE_ALIUID: internal message
-    // - DING: DingTalk
-    // - DING_COOL_APP: DingTalk cool app
-    // - FEISHU: Lark
-    // - WEIXIN: WeCom
-    // - SLACK: Slack
-    // - TEAMS: Teams
-    // - PAGERDUTY: PagerDuty
-    // - WEBHOOK: custom webhook
-    // - ALIYUN_SLS: Simple Log Service
-    // - ALIYUN_FC: Function Compute
-    // - ALIYUN_FC3: Function Compute 3.0
-    // - ALIYUN_MNS: Message Service
-    // - ALIYUN_OOS: CloudOps Orchestration Service
-    // - ALIYUN_ESS: elastic scaling
-    // - ALIYUN_EB: event bus
-    // - ALIYUN_OPENAPI: OpenAPI
+    // - ALI_YUNGE_SMS: Text message.
+    // - ALI_YUNGE_CALL: Voice call.
+    // - ALI_YUNGE_MAIL: Email.
+    // - ALI_YUNGE_ALIUID: Internal message.
+    // - DING: DingTalk.
+    // - DING_COOL_APP: DingTalk Cool App.
+    // - FEISHU: Lark.
+    // - WEIXIN: WeCom.
+    // - SLACK: Slack.
+    // - TEAMS: Teams.
+    // - PAGERDUTY: PagerDuty.
+    // - WEBHOOK: Custom webhook.
+    // - ALIYUN_SLS: Simple Log Service.
+    // - ALIYUN_FC: Function Compute.
+    // - ALIYUN_FC3: Function Compute 3.0.
+    // - ALIYUN_MNS: Message Service.
+    // - ALIYUN_OOS: CloudOps Orchestration Service.
+    // - ALIYUN_ESS: Elastic scaling.
+    // - ALIYUN_EB: Event bus.
+    // - ALIYUN_OPENAPI: OpenAPI.
     shared_ptr<string> channel_ {};
     // The channel category. Valid values:
-    // - WEBHOOK: webhook channels, such as DingTalk, Lark, WeCom, Slack, Teams, and custom webhooks.
-    // - YUNGE: communication channels, such as text messages, phone calls, and emails.
+    // - WEBHOOK: Webhook channels, such as DingTalk, Lark, WeCom, Slack, Teams, and custom webhooks.
+    // - YUNGE: Yunge communication channels, such as text messages, voice calls, and emails.
     shared_ptr<string> channelCategory_ {};
     // The start time of the query. The value is a UNIX timestamp in seconds. Default value: 6 hours before the to parameter.
     shared_ptr<int32_t> from_ {};
@@ -286,17 +286,17 @@ namespace Models
     shared_ptr<string> group_ {};
     // The incident ID. Used to filter the notification history associated with a specified incident.
     shared_ptr<string> incidentId_ {};
-    // Specifies whether to include notification records that have no actual delivery channel. Valid values:
-    // - true: includes the records.
-    // - false: excludes the records and returns only records that were actually sent through a channel.
+    // Specifies whether to include notification records without an actual delivery channel. Valid values:
+    // - true: Includes the records.
+    // - false: Excludes the records and returns only records with an actual delivery channel.
     // Default value: true.
     shared_ptr<bool> includeNoChannel_ {};
     // Specifies whether to sort the results in descending order of time. Valid values:
-    // - true: descending order, with the latest records first.
-    // - false: ascending order.
+    // - true: Sorts the results in descending order, with the latest records first.
+    // - false: Sorts the results in ascending order.
     // Default value: true.
     shared_ptr<bool> isDesc_ {};
-    // The maximum number of entries to return per page. Default value: 20.
+    // The maximum number of records to return per page. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token. Used to retrieve the next page of data. It is an opaque string generated and encrypted by the server. You do not need to specify this parameter for the first query. For subsequent queries, pass the token returned in the previous response.
     shared_ptr<string> nextToken_ {};
@@ -308,33 +308,33 @@ namespace Models
     shared_ptr<string> partitionKey_ {};
     // The recipient. Used to filter the notification history by recipient address, such as a phone number, email address, or webhook address.
     shared_ptr<string> receiver_ {};
-    // The alert rule ID. Used to filter the notification history triggered by a specified alert rule. Exact match is used.
+    // The alert rule ID. Used to filter the notification history triggered by a specified alert rule with exact match.
     shared_ptr<string> ruleId_ {};
     // The alert rule name. Used to filter the notification history by rule name.
     shared_ptr<string> ruleName_ {};
     // The notification delivery type. Valid values:
-    // - SUBSCRIBE: subscription notifications
-    // - DIRECT: direct event notifications
-    // - ITSM: ticket or action notifications
+    // - SUBSCRIBE: Subscription notification.
+    // - DIRECT: Direct event notification.
+    // - ITSM: Ticket or action notification.
     shared_ptr<string> sendType_ {};
     // The alert severity. Valid values:
-    // - CRITICAL: critical
-    // - ERROR: error
-    // - WARNING: warning
-    // - INFO: info
+    // - CRITICAL: Critical.
+    // - ERROR: Error.
+    // - WARNING: Warning.
+    // - INFO: Info.
     shared_ptr<string> severity_ {};
     // The subscription ID. Used to filter the notification history for a specified subscription. It is a 32-character string.
     shared_ptr<string> subscriptionId_ {};
     // The subscription name. Used to filter the notification history by subscription name.
     shared_ptr<string> subscriptionName_ {};
     // Specifies whether to filter by delivery result. Valid values:
-    // - true: returns only successfully delivered records.
-    // - false: returns only failed delivery records.
+    // - true: Returns only successfully delivered records.
+    // - false: Returns only failed delivery records.
     // If you do not specify this parameter, the results are not filtered by delivery result.
     shared_ptr<bool> success_ {};
     // The end time of the query. The value is a UNIX timestamp in seconds. Default value: the current time.
     shared_ptr<int32_t> to_ {};
-    // The workspace identifier.
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> workspace_ {};
