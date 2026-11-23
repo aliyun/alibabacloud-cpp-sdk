@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // AppKey information.
+    // The AppKey information.
     // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
-    // The unique identity of the device in the push system. Query only one at a time.
+    // The unique identifier of the device in the push system. Only one device can be queried at a time.
     // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};

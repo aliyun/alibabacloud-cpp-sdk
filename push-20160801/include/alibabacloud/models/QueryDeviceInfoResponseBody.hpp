@@ -161,29 +161,29 @@ namespace Models
 
 
     protected:
-      // Account attached to the device.
+      // The account bound to the device.
       shared_ptr<string> account_ {};
-      // Alias attached to the device.
+      // The alias bound to the device.
       shared_ptr<string> alias_ {};
-      // Device brand.
+      // The device brand.
       shared_ptr<string> brand_ {};
-      // Device ID.
+      // The device ID.
       shared_ptr<string> deviceId_ {};
-      // Device token.
+      // The APNs token of the iOS device.
       shared_ptr<string> deviceToken_ {};
-      // Device type.
+      // The device type.
       shared_ptr<string> deviceType_ {};
-      // Last online time.
+      // The last online time.
       shared_ptr<string> lastOnlineTime_ {};
-      // Device model.
+      // The device model.
       shared_ptr<string> model_ {};
-      // Is online.
+      // Indicates whether the device is online.
       shared_ptr<bool> online_ {};
-      // Phone number.
+      // The mobile phone number.
       shared_ptr<string> phoneNumber_ {};
-      // Is push feature enabled.
+      // Indicates whether the push feature is enabled.
       shared_ptr<bool> pushEnabled_ {};
-      // Tags attached to the device.
+      // The tags bound to the device.
       shared_ptr<string> tags_ {};
     };
 
@@ -206,9 +206,9 @@ namespace Models
 
 
   protected:
-    // Device details.
+    // The device details.
     shared_ptr<QueryDeviceInfoResponseBody::DeviceInfo> deviceInfo_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

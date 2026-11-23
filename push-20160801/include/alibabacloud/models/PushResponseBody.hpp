@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The message ID that identifies a push notification.
+    // The message ID that identifies a push task.
     shared_ptr<string> messageId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

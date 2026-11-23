@@ -87,23 +87,23 @@ namespace Models
     protected:
       // The platform type. This parameter is optional.
       shared_ptr<string> platform_ {};
-      // The type of the push target.
+      // The push target type.
       // 
       // >Notice: 
       // 
-      // The MassPushV2 batch push API and the CONTINUOUS_PUSH continuous push support only the following three target types:
+      // The batch push API `MassPushV2` and continuous push `CONTINUOUS_PUSH` support only the following three target types:
       // 
-      // - DEVICE (device)
-      // - ACCOUNT (account)
-      // - ALIAS (alias)
+      // - `DEVICE` (device)
+      // - `ACCOUNT` (account)
+      // - `ALIAS` (alias)
       shared_ptr<string> type_ {};
-      // The push targets based on Target.Type. Separate multiple targets with commas. The following section describes the target types and target values in detail:
+      // Set the push target based on `Target.Type`. Separate multiple targets with commas. The target types and target values are described as follows:
       // 
-      // >* DEVICE: device IDs, such as deviceid1,deviceid2. Maximum of 1,000.
-      // >* ACCOUNT: account IDs, such as account1,account2. Maximum of 1,000.
-      // >* ALIAS: aliases, such as alias1,alias2. Maximum of 1,000.
-      // >* TAG: one or more tags. For the format, see [Tag format specifications](https://help.aliyun.com/document_detail/434847.html).
-      // >* ALL: all targets. No value is required. Pushing to all targets may increase costs. Use this option with caution.
+      // >* `DEVICE`: device IDs, such as deviceid1,deviceid2. Maximum of 1,000.
+      // >* `ACCOUNT`: account IDs, such as account1,account2. Maximum of 1,000.
+      // >* `ALIAS`: aliases, such as alias1,alias2. Maximum of 1,000.
+      // >* `TAG`: one or more tags. For the format, see [Tag format specifications](https://help.aliyun.com/document_detail/434847.html).
+      // >* `ALL`: push to all targets. No value is required. Pushing to all targets may increase costs. Use it as needed.
       shared_ptr<string> value_ {};
     };
 
@@ -205,17 +205,17 @@ namespace Models
       protected:
         // The delay time before the SMS message is triggered. Unit: seconds.
         // 
-        // If you use SMS linkage, this parameter is required. Set this parameter to at least 15 seconds and no more than 3 days to avoid duplicate SMS and push messages.
+        // This parameter is required when SMS linkage is used. We recommend that you set this parameter to at least 15 seconds and at most 3 days to avoid duplicate SMS and push messages.
         // 
         // > When SMS linkage is used, the ExpireTime parameter becomes invalid. The expiration time of the notification is calculated based on the DelaySecs parameter. The expiration time is the current time plus the DelaySecs value.
         shared_ptr<int64_t> delaySecs_ {};
         // The key-value pairs of the variables in the SMS template.
         shared_ptr<string> params_ {};
-        // The SMS sending policy.
+        // The SMS delivery policy.
         shared_ptr<string> sendPolicy_ {};
         // The SMS signature.
         shared_ptr<string> signName_ {};
-        // The name of the SMS template. You can obtain the name from the SMS template management page. The name is assigned by the system, not specified by the developer.
+        // The name of the SMS template. You can obtain the name on the SMS template management page. The name is assigned by the system, not specified by the developer.
         shared_ptr<string> templateName_ {};
       };
 
@@ -274,47 +274,47 @@ namespace Models
 
 
     protected:
-      // The expiration time of the message. The message is not sent after it expires. The maximum retention period is 72 hours.
+      // Specifies the expiration time of the message. The message is not delivered after it expires. The maximum retention period is 72 hours.
       // 
-      // > * The time must follow the ISO 8601 standard and use UTC time in the YYYY-MM-DDThh:mm:ssZ format.
+      // > * The time must be in UTC and follow the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
       // > * The expiration time must meet the following condition: ExpireTime > PushTime + 3 seconds. The 3 seconds are reserved for network and system latency.
-      // > * Set the expiration time to at least 1 minute for single-target push tasks and at least 10 minutes for full or batch push tasks.
+      // > * Recommendation: Set the expiration time to at least 1 minute for single-target push, and at least 10 minutes for full push or batch push.
       // 
       // 
-      // >Notice: For pass-through messages, if the expiration time is not set, the message is sent only to online devices. If the device is offline, the message is discarded.</notice>
+      // >Notice: For pass-through messages, if the expiration time is not set, the message is delivered only to online devices. If the device is offline, the message is discarded.</notice>
       shared_ptr<string> expireTime_ {};
       // The custom identifier of the push task. If JobKey is not empty, this field is included in the receipt log. For more information, see [Receipt logs](https://help.aliyun.com/document_detail/434651.html).
       shared_ptr<string> jobKey_ {};
-      // The unique identity of the message. This parameter is valid only when the Action parameter is set to CONTINUOUS_PUSH.
+      // The unique ID used as the identity of the message. This parameter takes effect only when the `Action` parameter is set to `CONTINUOUS_PUSH`.
       shared_ptr<int64_t> messageId_ {};
-      // Specifies the sending time of the message, which can be up to seven days later. Valid only when the Action parameter is set to SCHEDULED_PUSH.
+      // Specifies the time to deliver the message. The time can be at most 7 days later than the current time. This parameter takes effect only when the `Action` parameter is set to `SCHEDULED_PUSH`.
       // 
-      // > The time must follow the ISO 8601 standard and use UTC time in the yyyy-MM-ddTHH:mm:ssZ format.
+      // > The time must be in UTC and follow the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> pushTime_ {};
-      // The fallback SMS message configuration.
+      // The supplementary SMS message settings.
       // 
-      // > Currently, only Android and HarmonyOS devices are supported.
+      // > Currently, only `Android` and `HarmonyOS` devices are supported.
       shared_ptr<Options::Sms> sms_ {};
       // Specifies whether to automatically truncate excessively long titles and content.
       // 
-      // >This parameter applies only to vendor channels that explicitly limit the title and content length. It does not apply to channels such as APNs, Huawei, and Honor, which do not limit the title and content length but only limit the total request body size.
+      // >This feature applies only to vendor channels that explicitly limit the length of titles and content. It does not apply to channels such as APNs, Huawei, and Honor, which do not limit the length of titles and content but only limit the total request body size.
       shared_ptr<bool> trim_ {};
-      // Specifies the sending channels. Valid values:
+      // Specifies the delivery channels. Valid values:
       // 
-      // - accs: Alibaba Cloud proprietary channel.
-      // - huawei: Huawei channel.
-      // - honor: Honor channel.
-      // - xiaomi: Xiaomi channel.
-      // - oppo: OPPO channel.
-      // - vivo: vivo channel.
-      // - meizu: Meizu channel.
-      // - fcm: Google Firebase channel (HTTP v1 API).
-      // - apns: APNs channel.
-      // - harmony: HarmonyOS channel.
+      // - `accs`: Alibaba Cloud proprietary channel.
+      // - `huawei`: Huawei channel.
+      // - `honor`: Honor channel.
+      // - `xiaomi`: Xiaomi channel.
+      // - `oppo`: OPPO channel.
+      // - `vivo`: vivo channel.
+      // - `meizu`: Meizu channel.
+      // - `fcm`: Google Firebase channel (HTTP v1 API).
+      // - `apns`: APNs channel.
+      // - `harmony`: HarmonyOS channel.
       // 
       // > - If this parameter is not configured, all channels are available.
       // > - If this parameter is configured, only the specified channels are used.
-      // > - If the configured channels conflict with the sending policy (for example, iOS notifications only use the APNs channel, but apns is not included in this parameter), the message is not sent.
+      // > - If the configured channels conflict with the delivery policy (for example, iOS notifications are delivered only through the APNs channel, but `apns` is not included in this parameter), the message is not delivered.
       shared_ptr<string> useChannels_ {};
     };
 
@@ -474,37 +474,37 @@ namespace Models
 
 
         protected:
-          // The static pass-through parameters for iOS Live Activity push, which are used to pass unchanged business identification information.
+          // The static pass-through parameters for iOS Dynamic Island (Live Activities) push, which are used to pass unchanged business identification information.
           // 
-          // > This parameter is required when Event is set to start.
+          // > Required when `Event` is start.
           shared_ptr<string> attributes_ {};
           // The type of the Live Activity to be started.
           // 
-          // > This parameter is required when Event is set to start.
+          // > Required when `Event` is start.
           shared_ptr<string> attributesType_ {};
-          // The dynamic pass-through parameters for the Live Activity, which contain status information and changing data that can be updated in real time.
+          // The dynamic pass-through parameters for the Dynamic Island activity, which contain status information and changing data that can be updated in real time.
           // 
-          // > - Avoid excessively frequent updates. An interval of 5 seconds or more is recommended.
+          // > - Avoid excessively frequent updates. A recommended interval is 5 seconds or more.
           // > - Update multiple fields in batches to reduce the number of pushes.
-          // > - Consider the user experience and avoid interface flickering.
+          // > - Consider user experience and avoid interface flickering.
           // > - Must be a valid JSON string.
           shared_ptr<string> contentState_ {};
-          // The retention time of a completed Live Activity on the Lock Screen, which allows users to view the information after the activity ends. The value is a UNIX timestamp in seconds.
+          // The retention time of a completed Dynamic Island activity on the lock screen, which allows users to view the information after the activity ends. The value is a UNIX timestamp in seconds.
           shared_ptr<int64_t> dismissalDate_ {};
           // Starts, updates, or ends a live activity.
           shared_ptr<string> event_ {};
-          // The unique identifier of the Live Activity, which is used to associate the activity instance on the device with the push target on the server.
+          // The unique identifier of the Live Activity, which is used to associate the device-side activity instance with the server-side push target.
           // 
           // >Notice: 
           // 
-          // - The ID must be the same as the forActivityId parameter in the registerLiveActivityPushToken method of the client SDK.
+          // - This `ID` must be consistent with the `forActivityId` parameter in the `registerLiveActivityPushToken` method of the client SDK.
           // 
-          // - The server uses this ID to locate the specific activity instance during a push.
+          // - The server uses this `ID` to locate the specific activity instance during push.
           shared_ptr<string> id_ {};
-          // The expiration timestamp for the content of the iOS Live Activity. The value is a UNIX timestamp in seconds.
+          // The expiration timestamp for the iOS Dynamic Island activity content. The value is a UNIX timestamp in seconds.
           // 
-          // > - After the specified time is reached, the system automatically marks the activity as stale.
-          // > - Stale activities are removed from the Dynamic Island and the Lock Screen.
+          // > - After the specified time, the system automatically marks the activity as expired.
+          // > - Expired activities are removed from the Dynamic Island and the lock screen.
           // > - This prevents outdated information from occupying the user interface for a long time.
           shared_ptr<int64_t> staleDate_ {};
         };
@@ -616,59 +616,59 @@ namespace Models
       protected:
         // To send iOS notifications through the APNs center, you must specify the corresponding environment context. This parameter is optional. Default value: production environment.
         // 
-        // - DEV: the development environment, which applies to applications directly installed and debugged by using Xcode.
-        // - PRODUCT: the production environment, which applies to applications distributed through the App Store, TestFlight, Ad Hoc, and enterprise distribution.
+        // - DEV: development environment. Applicable to applications directly installed and debugged through Xcode.
+        // - PRODUCT: production environment. Applicable to applications distributed through the App Store, TestFlight, Ad Hoc, and enterprise distribution.
         shared_ptr<string> apnsEnv_ {};
-        // The badge of the iOS application.
+        // The iOS application badge.
         shared_ptr<int32_t> badge_ {};
-        // Specifies whether to enable the automatic badge increment feature. This parameter is optional. Default value: false.
+        // Specifies whether to enable the badge auto-increment feature. This parameter is optional. Default value: false.
         // 
         // > - This parameter cannot be used together with the badge setting parameter.
-        // > - The automatic badge increment feature maintains the badge count for each device on the Alibaba Cloud push server. You must use SDK version 1.9.5 or later to actively synchronize the badge count to the server.
+        // > - The badge auto-increment feature maintains the badge count for each device on the Alibaba Cloud push server. You must use SDK version 1.9.5 or later to actively sync the badge number to the server through the SDK.
         shared_ptr<bool> badgeAutoIncrement_ {};
-        // The category identifier of the iOS notification, which is used to define the interactive behavior and display style of the notification.
+        // The category identifier for the iOS notification, which is used to define the interactive behavior and display style of the notification.
         // 
-        // > - The category must be pre-registered in the application to take effect.
+        // > - The category must be pre-registered in the app to take effect.
         // > - Different categories can define different sets of actions.
         shared_ptr<string> category_ {};
-        // The unique identifier used to control notification grouping. Notifications with the same identifier are overwritten.
+        // The unique identifier used to control notification merging. Notifications with the same identifier are overwritten.
         shared_ptr<string> collapseId_ {};
-        // The custom extension attributes of the iOS notification.
+        // The custom extension attributes for the iOS notification.
         // 
-        // > - The parameter must be passed in standard JSON map format. Incorrect formats cause parsing failures.
+        // > - The parameter must be passed in standard JSON Map format. Incorrect formats cause parsing failures.
         shared_ptr<string> extParameters_ {};
         // The interruption level. This parameter is optional. Valid values:
         // 
-        // - passive: The system adds the notification to the notification list without lighting up the screen or playing a sound.
-        // - active: The system displays the notification immediately, lights up the screen, and may play a sound.
-        // - time-sensitive: The system presents the notification immediately, lights up the screen, and may play a sound, but does not bypass the system notification controls.
-        // - critical: The system displays the notification immediately, lights up the screen, and plays a sound bypassing the silent switch.
+        // - `passive`: The system adds the notification to the notification list without lighting up the screen or playing a sound.
+        // - `active`: The system displays the notification immediately, lights up the screen, and can play a sound.
+        // - `time-sensitive`: The system presents the notification immediately, lights up the screen, and can play a sound, but does not bypass system notification controls.
+        // - `critical`: The system displays the notification immediately, lights up the screen, and plays a sound bypassing the silent switch.
         shared_ptr<string> interruptionLevel_ {};
-        // The Live Activity parameter object.
+        // The Dynamic Island parameter object.
         // 
         // >Notice: 
         // 
-        // - Live Activity push supports pushing to a **single device** only by using the DEVICE type.
-        // - When pushing to a Live Activity, you do not need to specify the title and body parameters.
+        // - Dynamic Island push supports pushing to a **single device** only by `DEVICE` type.
+        // - When pushing to Dynamic Island, the `title` and `body` parameters are not required.
         shared_ptr<Ios::LiveActivity> liveActivity_ {};
-        // The sound of the iOS notification. Specify the name of the audio file stored in the app bundle or the Library/Sounds directory of the sandbox. For more information, see [How to set the notification sound for iOS push](https://help.aliyun.com/document_detail/48906.html).
+        // The iOS notification sound. Specify the audio file name stored in the app bundle or the sandbox Library/Sounds directory. For more information, see [How to set the notification sound for iOS push](https://help.aliyun.com/document_detail/48906.html).
         // 
         // > - If an empty string ("") is specified, the notification is silent.
-        // > - If this parameter is not set, the default value default is used, which indicates the system prompt sound.
+        // > - If not set, the default value is "default", which indicates the system prompt sound.
         shared_ptr<string> music_ {};
-        // Specifies whether to enable extended notifications and allow iOS notifications to be processed by the Notification Service Extension.
-        // > - This parameter must be set to true when sending silent notifications.
-        // > - The processing time of the extension cannot exceed 30 seconds.
+        // Enables extended notifications and specifies whether the iOS notification supports Notification Service Extension processing.
+        // > - When sending a silent notification, this parameter must be set to true.
+        // > - The Extension processing time cannot exceed 30 seconds.
         // > - A timeout causes the notification to display the original content.
-        // > - You must add the Notification Service Extension to your application.
+        // > - You must add a Notification Service Extension to the application.
         shared_ptr<bool> mutable_ {};
         // The relevance score of the notification message, which is used to control the priority and display strategy of the notification.
         shared_ptr<double> relevanceScore_ {};
         // Specifies whether to enable the silent push mode.
         // 
-        // > - When sending a silent notification, you do not need to specify the title and body parameters.
+        // > - When sending a silent notification, the `title` and `body` parameters are not required.
         shared_ptr<bool> silent_ {};
-        // The subtitle of the iOS notification.
+        // The subtitle content of the iOS notification.
         shared_ptr<string> subtitle_ {};
         // The thread identifier for iOS notification grouping, which is used to group and collapse related notifications.
         // 
@@ -871,67 +871,67 @@ namespace Models
         shared_ptr<string> action_ {};
         // The number to add to the HarmonyOS application badge.
         // 
-        // > - Supported by HarmonyOS SDK 1.2.0 and later.
-        // > - For more information, see the [addNum field description](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section266310382145) for HarmonyOS badges.
+        // > - Supported in HarmonyOS SDK 1.2.0 and later.
+        // > - For more information, see the description of the [addNum field](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section266310382145) for HarmonyOS badges.
         shared_ptr<int32_t> badgeAddNum_ {};
         // The number to set for the HarmonyOS application badge.
         // 
-        // > - For more information, see the [setNum field](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section266310382145) description for HarmonyOS badges.
-        // > - Supported by HarmonyOS SDK 1.2.0 and later.
+        // > - For more information, see the description of the [setNum field](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section266310382145) for HarmonyOS badges.
+        // > - Supported in HarmonyOS SDK 1.2.0 and later.
         shared_ptr<int32_t> badgeSetNum_ {};
-        // The category of the notification message. This parameter is optional. Default value: MARKETING.
+        // The notification message category. This parameter is optional. Default value: `MARKETING`.
         // 
-        // > After you apply for the notification message auto-classification permission, this parameter is used to identify the message type. Different notification message types affect the message display and reminder methods. For more information, see [Notification.category](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section17371529101117) on the HarmonyOS official website.
+        // > After applying for the notification message auto-classification permission, this parameter is used to identify the message type. Different notification message types affect the message display and reminder methods. For more information, see [Notification.category](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section17371529101117) on the HarmonyOS official website.
         shared_ptr<string> category_ {};
-        // Sets the custom extension attributes of the notification message to pass additional business data.
+        // The custom extension attributes of the notification message, which are used to pass additional business data.
         // 
-        // > The parameter must be passed in standard JSON map format. Incorrect formats will cause parsing failures.
+        // > The parameter must be passed in standard JSON map format. Incorrect formats cause parsing failures.
         shared_ptr<string> extParameters_ {};
-        // The additional data for notification extension messages.
+        // The additional data of the notification extension message.
         // 
         // > - Valid only when sending HarmonyOS notification extension messages.
-        // > - Conceptually equivalent to the extraData field of HarmonyOS notification extension messages. For specific definitions, see the [ExtensionPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section161192514234) description in HarmonyOS.
-        // > - Supported by HarmonyOS SDK 1.2.0 and later.
+        // > - Conceptually equivalent to the extraData field of the HarmonyOS notification extension message. For specific definitions, see the [ExtensionPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section161192514234) description in HarmonyOS.
+        // > - Supported in HarmonyOS SDK 1.2.0 and later.
         shared_ptr<string> extensionExtraData_ {};
-        // Enables HarmonyOS notification extensions.
+        // Specifies whether to enable HarmonyOS notification extensions.
         // 
         // > - To send notification extension messages, you must first apply for permissions on the HarmonyOS official website. For more information, see [HarmonyOS documentation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/push-send-extend-noti-V5).
-        // > - Supported by HarmonyOS SDK 1.2.0 and later.
+        // > - Supported in HarmonyOS SDK 1.2.0 and later.
         shared_ptr<bool> extensionPush_ {};
         // The URL of the large icon on the right side of the notification. The URL must use the HTTPS protocol.
         // 
-        // > - Supported image formats: PNG, JPG, JPEG, HEIF, GIF, and BMP. The total number of pixels (width × height) must be less than 25,000.
+        // > - Supported image formats: PNG, JPG, JPEG, HEIF, GIF, and BMP. The product of the image width and height must be less than 25,000 pixels.
         // > - For more information, see [Notification.image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section17371529101117) on the HarmonyOS official website.
         shared_ptr<string> imageUrl_ {};
-        // When RenderStyle is set to MULTI_LINE, this field is required to define the content for the multi-line text style. A maximum of three content items are supported.
+        // The content of the multi-line text style. This field is required when RenderStyle is set to MULTI_LINE. You can specify up to three content items.
         shared_ptr<vector<string>> inboxContent_ {};
-        // The JSON string of the HarmonyOS Live View data structure [LiveViewPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V13/push-scenariozed-api-request-param-V13#section66881469306). For development and integration, refer to the [HarmonyOS Live View push guide](https://help.aliyun.com/document_detail/2982112.html).
+        // The JSON string of the HarmonyOS Live View data structure [LiveViewPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V13/push-scenariozed-api-request-param-V13#section66881469306). For development and integration, see [HarmonyOS Live View push guide](https://help.aliyun.com/document_detail/2982112.html).
         shared_ptr<string> liveViewPayload_ {};
-        // The unique identifier (notifyId) for each message displayed in the notification bar. If this parameter is not provided, the push service automatically generates a unique identifier. Different notification messages can use the same notifyId to allow new messages to overwrite old ones. For more information, see [Notification.notifyId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section17371529101117) on the HarmonyOS official website.
+        // The unique identifier (notifyId) for each message displayed in the notification bar. If not provided, the push service automatically generates a unique identifier. Different notification messages can use the same notifyId to allow new messages to overwrite old ones. For more information, see [Notification.notifyId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section17371529101117) on the HarmonyOS official website.
         shared_ptr<int32_t> notifyId_ {};
-        // The receipt ID of the HarmonyOS channel. You can view this receipt ID in the receipt parameter settings of the HarmonyOS channel push operations platform.
+        // The receipt ID of the HarmonyOS channel. You can view the receipt ID in the receipt parameter settings of the HarmonyOS channel push operations platform.
         // 
-        // > - If the default receipt configuration on the HarmonyOS channel push operations platform is set to Alibaba Cloud receipt, you do not need to provide this parameter. Otherwise, we recommend that you configure the default receipt ID for the HarmonyOS channel in the Alibaba Cloud EMAS shift push console first.
+        // > - If the default receipt configured in the HarmonyOS channel push operations platform is the Alibaba Cloud receipt, you do not need to provide this parameter. Otherwise, we recommend that you configure the default receipt ID for the HarmonyOS channel in the Alibaba Cloud EMAS shift push console first.
         // > - For details, see [pushOptions.receiptId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section418321011212) on the HarmonyOS official website.
         shared_ptr<string> receiptId_ {};
         // The notification message style. This parameter is optional. Default value: NORMAL.
         shared_ptr<string> renderStyle_ {};
         // Uses a notification channel of the specified type.
         // 
-        // > - This parameter is valid only for Alibaba Cloud proprietary channels.
+        // > - Valid only for Alibaba Cloud proprietary channels.
         // > - For more information, see [SlotType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/js-apis-notificationmanager-V5#slottype) on the HarmonyOS official website.
         shared_ptr<string> slotType_ {};
         // The custom ringtone file name for HarmonyOS.
         shared_ptr<string> sound_ {};
-        // The duration of the custom message notification ringtone, in seconds. Valid values: 1 to 60. If the ringtone duration is shorter than the notification display time, the ringtone loops.
+        // The duration of the custom message notification ringtone, in seconds. Valid values: 1 to 60. If the duration is insufficient, the ringtone plays in a loop.
         shared_ptr<int32_t> soundDuration_ {};
-        // Enables test messages.
+        // Specifies whether to enable test messages.
         // 
         // > - For more information, see [TestMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section418321011212) in the HarmonyOS push parameters.
         shared_ptr<bool> testMessage_ {};
         // The URI corresponding to the ability of the built-in app page.
         // 
-        // > - If multiple abilities exist, specify the action and URI for each ability. The action is prioritized when searching for the corresponding built-in app page.
+        // > - When multiple abilities exist, specify the action and URI for each ability. The action is prioritized to find the corresponding built-in app page.
         // > - For more information, see [ClickAction.uri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section152462191216) on the HarmonyOS official website.
         shared_ptr<string> uri_ {};
       };
@@ -1079,9 +1079,9 @@ namespace Models
 
 
           protected:
-            // Sets the channel ID for the Xiaomi notification type. You must apply on the Xiaomi platform. For more information, see [Application link](https://dev.mi.com/console/doc/detail?pId=2422#_4).
+            // The channel ID for the Xiaomi notification type. You must apply for this on the Xiaomi platform. For more information, see [Application link](https://dev.mi.com/console/doc/detail?pId=2422#_4).
             // 
-            // > A single application can apply for a maximum of eight channels on the Xiaomi channel. Plan accordingly in advance.
+            // > You can apply for up to eight channels for a single application in the Xiaomi channel. Plan accordingly in advance.
             shared_ptr<string> channel_ {};
             // The JSON character string of the Xiaomi Super Island data structure [miui.focus.param](https://dev.mi.com/xiaomihyperos/documentation/detail?pId=2131). For development and integration, References: [Xiaomi Super Island push guide](https://www.alibabacloud.com/help/en/document_detail/3037956.html).
             shared_ptr<string> focusParam_ {};
@@ -1089,7 +1089,7 @@ namespace Models
             shared_ptr<string> focusPics_ {};
             // The Xiaomi private message template ID.
             shared_ptr<string> templateId_ {};
-            // The Xiaomi private message template parameters, as a JSON string.
+            // The Xiaomi private message template parameters, in JSON string format.
             shared_ptr<string> templateParams_ {};
           };
 
@@ -1177,15 +1177,15 @@ namespace Models
 
 
           protected:
-            // Sets the increment value for the vivo channel badge.
+            // The accumulated value of the badge number for the vivo channel.
             shared_ptr<bool> addBadge_ {};
-            // vivo message categorization includes two categories for management: system messages and operation messages. 
+            // vivo message categorization: system messages and operation messages. 
             // 
             // **System messages:**
             // 
             // - IM: Instant messages.
             // - ACCOUNT: Accounts and assets.
-            // - TODO: Schedules and to-do lists.
+            // - TODO: Schedules and to-dos.
             // - DEVICE_REMINDER: Device information.
             // - ORDER: Orders and logistics.
             // - SUBSCRIPTION: subscribe reminders.
@@ -1199,22 +1199,24 @@ namespace Models
             // 
             // For more information, see [vivo categorization description](https://dev.vivo.com.cn/documentCenter/doc/359#s-ef3qugc3).
             shared_ptr<string> category_ {};
-            // Sets the vivo notification message classification. Valid values:
+            // The vivo notification message classification. Valid values:
             // 
             // - 0: Operation messages (default).
             // - 1: System messages.
             // 
-            // > We recommend that you use Category for notification classification. You must apply on the vivo platform. For more information, see [Application link](https://dev.vivo.com.cn/documentCenter/doc/359).
+            // > We recommend that you use Category for notification classification. You must apply for this on the vivo platform. For more information, see [Application link](https://dev.vivo.com.cn/documentCenter/doc/359).
             shared_ptr<int32_t> importance_ {};
             // The JSON character string of the vivo Atomic Island data structure [liveMessage](https://dev.vivo.com.cn/documentCenter/doc/896#s-fdagzbd4). For development and integration, References: [vivo Atomic Island push guide](https://www.alibabacloud.com/help/en/document_detail/3030718.html).
             shared_ptr<string> liveMessage_ {};
-            // The message receipt identifier for the vivo vendor push channel, used to receive callback notifications for push results.
+            // The message receipt identifier for the vivo vendor push channel, which is used to receive callback notifications for push results.
             // 
             // > - Location: vivo Open Platform > Push Service > Application Information > Receipt Configuration.
             // > - Configuration recommendation: Configure the default receipt ID in the Alibaba Cloud EMAS console first.
             // > - Usage condition: Required only when the default receipt on the vivo platform is not the Alibaba Cloud receipt.
             shared_ptr<string> receiptId_ {};
+            // The vivo template ID.
             shared_ptr<string> templateId_ {};
+            // The vivo template parameters, in JSON object string format.
             shared_ptr<string> templateParams_ {};
           };
 
@@ -1302,13 +1304,13 @@ namespace Models
 
 
           protected:
-            // OPPO message categorization includes two categories for management: communication and service, and content and marketing. 
+            // OPPO message categorization: communication and service, and content and marketing. 
             // 
-            // **Communication and service (requires permission application):**
+            // **Communication and service (permission required):**
             // 
             // - IM: Instant messages.
             // - ACCOUNT: Accounts and assets.
-            // - TODO: Schedules and to-do lists.
+            // - TODO: Schedules and to-dos.
             // - DEVICE_REMINDER: Device information.
             // - ORDER: Orders and logistics.
             // - SUBSCRIPTION: subscribe reminders.
@@ -1320,17 +1322,17 @@ namespace Models
             // - MARKETING: operational activity.
             // - SOCIAL: Social updates.
             // 
-            // For more information, see the [OPPO categorization description](https://open.oppomobile.com/new/developmentDoc/info?id=13189).
+            // For more information, see [OPPO categorization description](https://open.oppomobile.com/new/developmentDoc/info?id=13189).
             shared_ptr<string> category_ {};
             // The JSON character string of the OPPO Fluid Cloud intent delete data structure [data](https://open.oppomobile.com/documentation/page/info?id=13578). This parameter is invalid if the AndroidOppoIntelligentIntent parameter is already specified. For development and integration, References: [OPPO Fluid Cloud push guide](https://help.aliyun.com/document_detail/2997310.html).
             shared_ptr<string> deleteIntentData_ {};
             // The JSON character string of the OPPO Fluid Cloud intent sharing data structure [IntelligentIntent](https://open.oppomobile.com/documentation/page/info?id=13565). For development and integration, References: [OPPO Fluid Cloud push guide](https://help.aliyun.com/document_detail/2997310.html).
             shared_ptr<string> intelligentIntent_ {};
-            // The reminder level for OPPO channel notification bar messages. Valid values:
+            // The notification bar message reminder level for the OPPO channel. Valid values:
             // 
             // - 1: Notification bar.
             // - 2: Notification bar, lock screen, ringtone, and vibration (default notification level for communication and service messages).
-            // - 16: Notification bar, lock screen, ringtone, vibration, and banner (requires permission application).
+            // - 16: Notification bar, lock screen, ringtone, vibration, and banner (permission required).
             // 
             // > When you use the NotifyLevel parameter, you must also pass the Category parameter.
             shared_ptr<int64_t> notifyLevel_ {};
@@ -1371,7 +1373,6 @@ namespace Models
 
           protected:
             // The Meizu message type. Valid values:
-            // 
             // - 0: Public message (default).
             // - 1: Private message.
             shared_ptr<int32_t> noticeMsgType_ {};
@@ -1451,34 +1452,34 @@ namespace Models
 
 
           protected:
-            // Sets the Huawei fast notification parameter. Valid values:
-            // - **0**: Send standard Huawei notifications (default).
-            // - **1**: Send Huawei fast notifications.
+            // The Huawei fast notification parameter. Valid values:
+            // - **0**: Send a standard Huawei notification (default).
+            // - **1**: Send a Huawei fast notification.
             shared_ptr<int32_t> businessType_ {};
-            // Purpose 1: After applying for [self-classification benefits](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835?#section3410731125514), this parameter is used to identify the message type, determine the [message reminder method](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835#ZH-CN_TOPIC_0000001149358835__p3850133955718), and accelerate the delivery of specific types of messages. For valid values, refer to the [message classification standards](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835#section1076611477914) in the official Huawei push documentation, and fill in the "Cloud notification category value" or "Local notification category value" from the documentation table.
+            // Purpose 1: After you apply for the [self-classification benefit](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835?#section3410731125514), this parameter is used to identify the message type, determine the [message reminder method](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835#ZH-CN_TOPIC_0000001149358835__p3850133955718), and accelerate the sending of specific types of messages. For valid values, see the [message classification standards](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835#section1076611477914) in the official Huawei push documentation. Enter the "Cloud notification category value" or "Local notification category value" from the documentation table.
             // 
-            // Purpose 2: After [applying for special permissions](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/faq-0000001050042183#section037425218509), this parameter is used to identify high-priority pass-through scenarios. Valid values:
+            // Purpose 2: After you [apply for special permissions](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/faq-0000001050042183#section037425218509), this parameter is used to identify high-priority pass-through scenarios. Valid values:
             // 
             // - VOIP: Audio and video calls.
             // - PLAY_VOICE: Voice broadcast.
             // 
-            // > - If the "Cloud notification category value" is "Not applicable", the message is sent through the Alibaba Cloud proprietary channel.
-            // > - If the "Local notification category value" is "Not applicable", the message is sent through the Huawei channel.
+            // > - If the "Cloud notification category value" is "Not applicable", the Alibaba Cloud proprietary channel is used.
+            // > - If the "Local notification category value" is "Not applicable", the Huawei channel is used.
             shared_ptr<string> category_ {};
-            // Sets the importance parameter for Huawei notification message classification, which determines the notification behavior on user devices. Valid values:
+            // The importance parameter for Huawei notification message classification, which determines the notification behavior on user devices. Valid values:
             // 
             // - 0: Information and marketing messages.
             // - 1: Service and communication messages.
             // 
-            // > We recommend that you use Category for notification classification. You must apply on the Huawei platform. See [Application link](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835#section893184112272).
+            // > We recommend that you use Category for notification classification. You must apply for this on the Huawei platform. See [Application link](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835#section893184112272).
             shared_ptr<int32_t> importance_ {};
-            // The JSON string of the Huawei Android Live Window data structure [LiveNotificationPayload](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/rest-live-0000001562939968#ZH-CN_TOPIC_0000001700850537__p195121620102511). For development and integration, refer to the [Huawei Live Window push guide](https://help.aliyun.com/document_detail/2983768.html).
+            // The JSON string of the Huawei Android Live Notification data structure [LiveNotificationPayload](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/rest-live-0000001562939968#ZH-CN_TOPIC_0000001700850537__p195121620102511). For development and integration, see [Huawei Live Notification push guide](https://help.aliyun.com/document_detail/2983768.html).
             shared_ptr<string> liveNotificationPayload_ {};
-            // The receipt ID of the Huawei channel. You can view this receipt ID in the receipt parameter settings of the Huawei channel push operations platform.
+            // The receipt ID of the Huawei channel. You can view the receipt ID in the receipt parameter settings of the Huawei channel push operations platform.
             // 
-            // > If the default receipt configuration on the Huawei channel push operations platform is set to Alibaba Cloud receipt, you do not need to provide this parameter. Otherwise, we recommend that you configure the default receipt ID for the Huawei channel in the Alibaba Cloud EMAS shift push console first.
+            // > If the default receipt configured in the Huawei channel push operations platform is the Alibaba Cloud receipt, you do not need to provide this parameter. Otherwise, we recommend that you configure the default receipt ID for the Huawei channel in the Alibaba Cloud EMAS shift push console first.
             shared_ptr<string> receiptId_ {};
-            // The delivery priority for Huawei channel notifications. Valid values:
+            // The delivery priority of the Huawei channel notification. Valid values:
             // 
             // - HIGH
             // - NORMAL
@@ -1515,12 +1516,12 @@ namespace Models
 
 
           protected:
-            // Sets the importance parameter for Honor notification message classification, which determines the notification behavior on user devices. Valid values:
+            // The importance parameter for Honor notification message classification, which determines the notification behavior on user devices. Valid values:
             // 
             // - 0: Information and marketing messages.
             // - 1: Service and communication messages.
             // 
-            // You must apply on the Honor platform. See [Application link](https://developer.honor.com/cn/docs/11002/guides/notification-class#%E8%87%AA%E5%88%86%E7%B1%BB%E6%9D%83%E7%9B%8A%E7%94%B3%E8%AF%B7).
+            // You must apply for this on the Honor platform. See [Application link](https://developer.honor.com/cn/docs/11002/guides/notification-class#%E8%87%AA%E5%88%86%E7%B1%BB%E6%9D%83%E7%9B%8A%E7%94%B3%E8%AF%B7).
             shared_ptr<int32_t> importance_ {};
           };
 
@@ -1610,31 +1611,31 @@ namespace Models
           protected:
             // The custom notification bar style for Android. Valid values: 1 to 100.
             // 
-            // > The client must complete the style preset configuration. References: [Custom notification style API](https://help.aliyun.com/document_detail/2834944.html).
+            // > You must preset the style on the client. References: [Custom notification style API](https://help.aliyun.com/document_detail/2834944.html).
             shared_ptr<int32_t> customStyle_ {};
-            // The reminder method for the notification. Valid values:
+            // The reminder method of the notification. Valid values:
             // 
             // - VIBRATE: Vibration (default).
             // - SOUND: Sound.
             // - BOTH: Sound and vibration.
             // - NONE: Silent.
             shared_ptr<string> notifyType_ {};
-            // Specifies the activity to open when the notification is clicked. Valid only when OpenType is set to ACTIVITY.
+            // The activity to open when the notification is tapped. Valid only when OpenType is set to ACTIVITY.
             shared_ptr<string> openActivity_ {};
-            // The action to perform when the notification is clicked. Valid values:
+            // The action to perform after the notification is tapped. Valid values:
             // 
             // - APPLICATION: Open the application (default).
-            // - ACTIVITY: Open the specified activity OpenActivity.
+            // - ACTIVITY: Open the specified page OpenActivity.
             // - URL: Open a URL.
             // - NONE: No redirection.
             shared_ptr<string> openType_ {};
-            // The URL to open when the notification is clicked after an Android device receives the push message. Valid only when OpenType is set to URL.
+            // The URL to open when the notification is tapped after the Android device receives the push message. Valid only when OpenType is set to URL.
             shared_ptr<string> openUrl_ {};
-            // The priority of the display position for Android notifications in the notification bar. Valid values: -2, -1, 0, 1, and 2.
+            // The priority of the Android notification display position in the notification bar. Valid values: -2, -1, 0, 1, and 2.
             shared_ptr<int32_t> priority_ {};
-            // The message group. Messages in the same group are collapsed and can be expanded in the notification bar. Notifications from different groups are displayed separately.
+            // The message group. Messages in the same group are folded and can be expanded in the notification bar. Notifications in different groups are displayed separately.
             // 
-            // > Supported by Android SDK 3.9.2 or later.
+            // > Supported in Android SDK 3.9.2 or later.
             shared_ptr<string> threadId_ {};
           };
 
@@ -1705,21 +1706,21 @@ namespace Models
 
 
         protected:
-          // The Alibaba Cloud proprietary configuration.
+          // The Alibaba Cloud proprietary configurations.
           // 
           // > Valid only when the Alibaba Cloud proprietary channel is used.
           shared_ptr<Options::Accs> accs_ {};
-          // The Honor configuration.
+          // The Honor configurations.
           shared_ptr<Options::Honor> honor_ {};
-          // The Huawei configuration.
+          // The Huawei configurations.
           shared_ptr<Options::Huawei> huawei_ {};
-          // The Meizu configuration.
+          // The Meizu configurations.
           shared_ptr<Options::Meizu> meizu_ {};
-          // The OPPO configuration.
+          // The OPPO configurations.
           shared_ptr<Options::Oppo> oppo_ {};
-          // The vivo configuration.
+          // The vivo configurations.
           shared_ptr<Options::Vivo> vivo_ {};
-          // The Xiaomi configuration.
+          // The Xiaomi configurations.
           shared_ptr<Options::Xiaomi> xiaomi_ {};
         };
 
@@ -1841,41 +1842,41 @@ namespace Models
         // 
         // > Valid only for Huawei and Honor vendor channel pushes.
         shared_ptr<string> badgeActivity_ {};
-        // Sets the increment value for the badge, which is added to the original badge number.
+        // The accumulated value of the badge number, which is added to the original badge number.
         // 
         // > - Supported by Huawei and Honor channels.
         // > - If both BadgeAddNum and BadgeSetNum are specified, BadgeSetNum takes precedence.
         shared_ptr<int32_t> badgeAddNum_ {};
-        // Sets a fixed value for the badge number. Valid values: 1 to 99.
+        // The fixed value of the badge number. Valid values: 1 to 99.
         // 
         // > - This parameter takes effect only for Huawei and Honor vendor channel pushes. 
         // > - For Alibaba Cloud proprietary channel pushes, this parameter takes effect only on Huawei, Honor, and vivo devices.
         shared_ptr<int32_t> badgeSetNum_ {};
-        // Sets the channel ID of the Android application. The channel ID must match the channel ID in the vendor application.
+        // The channel ID of the Android app. The channel ID must match the channel ID in the vendor app.
         // 
-        // > - Because the channel_id of the OPPO private message channel is the same as the channel ID of the application, this value is used as the channel_id when pushing through the OPPO channel.
+        // > - Because the channel_id of the OPPO private message channel is the same as the channelId of the app, this value is used as the channel_id when pushing through the OPPO channel.
         // > - This value is also used as the channel_id for Huawei, FCM, and Alibaba Cloud proprietary channel pushes.
-        // > - For specific use cases, see the FAQ: [Notifications are not received on devices running Android 8.0 or later](https://help.aliyun.com/document_detail/67398.html).
+        // > - For specific usage, see FAQ: [Notifications are not received on devices running Android 8.0 or later](https://help.aliyun.com/document_detail/67398.html).
         shared_ptr<string> channelId_ {};
-        // The custom extension attributes for Android notifications.
+        // The custom extension attributes of the Android notification.
         // 
-        // > - The parameter must be passed in standard JSON map format. Incorrect formats will cause parsing failures.
+        // > - The parameter must be passed in standard JSON map format. Incorrect formats cause parsing failures.
         shared_ptr<string> extParameters_ {};
-        // The message group. For messages in the same group, only the latest message and the total number of received messages in the group are displayed in the notification bar. All messages are not displayed and cannot be expanded. Currently supported by:
+        // The message group. For messages in the same group, only the latest message and the total number of received messages in the group are displayed in the notification bar. All messages are not displayed and cannot be expanded. Supported channels:
         // 
         // - Huawei vendor channel.
         // - Honor vendor channel.
-        // - Proprietary channels with Android SDK 3.9.1 or earlier.
+        // - Proprietary channels: Android SDK 3.9.1 or earlier.
         // 
         // > Proprietary channels no longer support this parameter in Android SDK 3.9.2 or later.
         shared_ptr<string> groupId_ {};
-        // The URL of the icon on the right side. Currently supported by:
+        // The URL of the icon on the right side. Supported channels:
         // 
-        // - Huawei EMUI (applicable only in long text mode and Inbox mode).
-        // - Honor Magic UI (applicable only in long text mode).
-        // - Proprietary channels (Android SDK 3.5.0 or later).
+        // - Huawei EMUI: Applicable only in long text mode and Inbox mode.
+        // - Honor Magic UI: Applicable only in long text mode.
+        // - Proprietary channels: Android SDK 3.5.0 or later.
         shared_ptr<string> imageUrl_ {};
-        // The body text in Inbox mode. The content must be a valid JSON array with a maximum of five elements. Currently supported by:
+        // The body text in Inbox mode. The content must be a valid JSON array with no more than five elements. Supported channels:
         // 
         // - Huawei: EMUI 9 or later.
         // - Honor: Magic UI 4.0 or later.
@@ -1883,13 +1884,13 @@ namespace Models
         // - OPPO: ColorOS 5.0 or later.
         // - Proprietary channels: Android SDK 3.6.0 or later.
         shared_ptr<vector<string>> inboxContent_ {};
-        // The notification sound for the Huawei vendor channel. Specify the audio file name stored in the `app/src/main/res/raw/` directory of the client project. Do not include the file format extension. If not set, the default ringtone is used.
+        // The notification sound for the Huawei vendor channel. Specify the audio file name stored in the `app/src/main/res/raw/` directory of the client project. Do not include the file format suffix. If this parameter is not set, the default ringtone is used.
         shared_ptr<string> music_ {};
-        // The unique identifier of the Android notification bar message, used to control the override and replacement behavior of notifications. A new notification with the same NotifyId automatically overrides the old notification.
+        // The unique identifier of the Android notification bar message, which is used to control the override and replacement behavior of notifications. A new notification with the same NotifyId automatically overrides the old notification.
         shared_ptr<int32_t> notifyId_ {};
-        // The detailed channel configuration.
+        // The detailed configurations of the channel.
         shared_ptr<Android::Options> options_ {};
-        // The image URL in large image mode. Currently supported by proprietary channels with Android SDK 3.6.0 or later.
+        // The image URL in large image mode. Supported channels: proprietary channels with Android SDK 3.6.0 or later.
         shared_ptr<string> pictureUrl_ {};
         // The notification style. Valid values:
         // 
@@ -1898,14 +1899,14 @@ namespace Models
         // - 2: Large image mode (supported by proprietary channels).
         // - 3: List mode (supported by Huawei, Honor, Xiaomi, OPPO, and proprietary channels).
         shared_ptr<string> renderStyle_ {};
-        // Sets the notification type for vendor channels. Valid values:
+        // The notification type for the vendor channel. Valid values:
         // 
         // - false: Formal notification (default).
         // - true: Test notification.
         // 
-        // > Currently supported by Huawei channel, Honor channel, vivo channel, and OPPO Fluid Cloud.
+        // > Supported channels: Huawei, Honor, vivo, and OPPO Fluid Cloud.
         shared_ptr<bool> testMessage_ {};
-        // Specifies the activity to open when the notification is clicked.
+        // The activity to which the user is redirected after tapping the notification.
         // 
         // >Warning: This parameter is required when you use Android vendor channels.</warning>
         shared_ptr<string> vendorChannelActivity_ {};
@@ -1955,9 +1956,9 @@ namespace Models
 
 
     protected:
-      // The Android notification configuration.
+      // The Android notification configurations.
       shared_ptr<Notification::Android> android_ {};
-      // The body of the notification to be pushed.
+      // The content of the pushed notification.
       // 
       // > Length limits:
       // > - iOS/HarmonyOS/Android: the **character length** cannot exceed 200.
@@ -1966,7 +1967,7 @@ namespace Models
       shared_ptr<Notification::Hmos> hmos_ {};
       // iOS notification configuration.
       shared_ptr<Notification::Ios> ios_ {};
-      // The title of the notification to be pushed.
+      // The title of the pushed notification.
       // 
       // > Length limits:
       // > - iOS/HarmonyOS: the **byte length** cannot exceed 200.
@@ -2012,9 +2013,9 @@ namespace Models
 
 
     protected:
-      // The body of the message to be sent.
+      // The content of the sent message.
       shared_ptr<string> body_ {};
-      // The title of the message to be sent.
+      // The title of the sent message.
       shared_ptr<string> title_ {};
     };
 
@@ -2064,33 +2065,33 @@ namespace Models
 
 
   protected:
-    // The push method. This parameter is optional. Default value: PUSH_IMMEDIATELY (push immediately).
+    // The push method. This parameter is optional. Default value: `PUSH_IMMEDIATELY` (immediate push).
     // 
     // >Notice: 
     // 
-    // The MassPushV2 batch push API supports only the following push methods:
+    // The batch push API `MassPushV2` supports only the following push methods:
     // 
-    // - PUSH_IMMEDIATELY (push immediately)
-    // - SCHEDULED_PUSH (scheduled push)
+    // - `PUSH_IMMEDIATELY` (immediate push)
+    // - `SCHEDULED_PUSH` (scheduled push)
     shared_ptr<string> action_ {};
     // The pass-through message data sent to the device. The total length cannot exceed 4,000 bytes.
     // 
-    // > Length calculation rules
-    // > - The length is calculated based on the byte length of the UTF-8 encoded string after the Message object is serialized into JSON.
+    // > Length calculation instructions
+    // > - The length is calculated based on the byte length of the UTF-8 encoded string after the Message object is serialized in JSON.
     // > - A Chinese character typically occupies 3 bytes in UTF-8 encoding.
     shared_ptr<PushTask::Message> message_ {};
     // The vendor notification data sent to the device.
     // 
     // >Notice: 
     // 
-    // If both Message and Notification are configured, the device receives only one of them based on the following rules:
+    // When both `Message` and `Notification` are set, the device receives only one of them. The sending rules are as follows:
     // 
-    // - If the device is online, the pass-through message data is sent.
-    // - If the device is offline, the system notification is sent.
+    // - If the device is online, pass-through message data is sent.
+    // - If the device is offline, a system notification is sent.
     shared_ptr<PushTask::Notification> notification_ {};
     // The push options.
     shared_ptr<PushTask::Options> options_ {};
-    // The target object for the message push. This parameter is optional when the Action parameter is set to CREATE_CONTINUOUS_PUSH (create a continuous push task).
+    // The target object for the message push. This parameter is optional when the `Action` operation type is `CREATE_CONTINUOUS_PUSH` (create continuous push task).
     shared_ptr<PushTask::Target> target_ {};
   };
 

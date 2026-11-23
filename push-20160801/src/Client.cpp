@@ -641,10 +641,10 @@ ListTagsResponse Client::listTags(const ListTagsRequest &request) {
 /**
  * @summary Pushes different messages or notifications to different devices in batches.
  *
- * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of Mobile Push.**
- * In some business scenarios, you may need to push different messages to a large number of different devices within a very short time. When the number of devices and messages is extremely large, a high queries per second (QPS) rate is generated. This may reach the QPS limit for a single source IP address and cause some push tasks to fail.
- * This operation is designed to address this issue. It allows you to pass up to 100 independent push tasks in a single call. By aggregating requests, it effectively reduces the QPS and improves the stability and success rate of mass single-target push tasks. The rate limit for batch push is 500 calls per second per account.
- * Each independent push task only supports three types of push targets: device, account, and alias. SMS integration configuration is currently not supported.
+ * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.**
+ * In some business scenarios, you may need to push different messages to a large number of devices within a very short time. When the number of devices and messages is extremely large, a high queries per second (QPS) rate is generated. This may reach the QPS limit for a single source IP address and cause some push tasks to fail.
+ * This operation is designed to resolve this issue. It supports a maximum of 100 independent push tasks in a single call. By aggregating requests, it effectively reduces the QPS and improves the stability and success rate of a large number of single-target push tasks. The rate limit for batch push is 500 calls per second per account.
+ * Each independent push task only supports three types of push targets: device, account, and alias. SMS integration configuration is not supported.
  * > The SDK must be upgraded to version 3.11.0 or later.
  * ## PushTask properties
  * - The PushTask property format is PushTask.N.Property. It includes:
@@ -653,12 +653,12 @@ ListTagsResponse Client::listTags(const ListTagsRequest &request) {
  *     - iOS notification task configuration
  *     - Android notification task configuration
  *     - Android auxiliary pop-up window configuration
- *     - HarmonyOS notification task configuration 
- *     - Push control
+ *     - HarmonyOS notification task configuration
+ *     - Push control (push control)
  * - Each PushTask represents an independent push task. A maximum of 100 push tasks are supported. The push-related configurations are the same as those in the Push operation.
- * - The PushTask.N.Target parameter only supports the DEVICE, ACCOUNT, and ALIAS types.
- * - PushTask does not support SMS linkage configuration.
- * - The product of the number of parent nodes and child nodes cannot exceed 10,000. Otherwise, the parameter is considered invalid.
+ * - The PushTask.N.Target parameter only supports the following three types: DEVICE, ACCOUNT, and ALIAS.
+ * - PushTask does not support SMS integration configuration.
+ * - The product of the number of parent nodes and child nodes cannot exceed 10,000. Otherwise, the parameters are considered invalid.
  *
  * @param request MassPushRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -701,10 +701,10 @@ MassPushResponse Client::massPushWithOptions(const MassPushRequest &request, con
 /**
  * @summary Pushes different messages or notifications to different devices in batches.
  *
- * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of Mobile Push.**
- * In some business scenarios, you may need to push different messages to a large number of different devices within a very short time. When the number of devices and messages is extremely large, a high queries per second (QPS) rate is generated. This may reach the QPS limit for a single source IP address and cause some push tasks to fail.
- * This operation is designed to address this issue. It allows you to pass up to 100 independent push tasks in a single call. By aggregating requests, it effectively reduces the QPS and improves the stability and success rate of mass single-target push tasks. The rate limit for batch push is 500 calls per second per account.
- * Each independent push task only supports three types of push targets: device, account, and alias. SMS integration configuration is currently not supported.
+ * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.**
+ * In some business scenarios, you may need to push different messages to a large number of devices within a very short time. When the number of devices and messages is extremely large, a high queries per second (QPS) rate is generated. This may reach the QPS limit for a single source IP address and cause some push tasks to fail.
+ * This operation is designed to resolve this issue. It supports a maximum of 100 independent push tasks in a single call. By aggregating requests, it effectively reduces the QPS and improves the stability and success rate of a large number of single-target push tasks. The rate limit for batch push is 500 calls per second per account.
+ * Each independent push task only supports three types of push targets: device, account, and alias. SMS integration configuration is not supported.
  * > The SDK must be upgraded to version 3.11.0 or later.
  * ## PushTask properties
  * - The PushTask property format is PushTask.N.Property. It includes:
@@ -713,12 +713,12 @@ MassPushResponse Client::massPushWithOptions(const MassPushRequest &request, con
  *     - iOS notification task configuration
  *     - Android notification task configuration
  *     - Android auxiliary pop-up window configuration
- *     - HarmonyOS notification task configuration 
- *     - Push control
+ *     - HarmonyOS notification task configuration
+ *     - Push control (push control)
  * - Each PushTask represents an independent push task. A maximum of 100 push tasks are supported. The push-related configurations are the same as those in the Push operation.
- * - The PushTask.N.Target parameter only supports the DEVICE, ACCOUNT, and ALIAS types.
- * - PushTask does not support SMS linkage configuration.
- * - The product of the number of parent nodes and child nodes cannot exceed 10,000. Otherwise, the parameter is considered invalid.
+ * - The PushTask.N.Target parameter only supports the following three types: DEVICE, ACCOUNT, and ALIAS.
+ * - PushTask does not support SMS integration configuration.
+ * - The product of the number of parent nodes and child nodes cannot exceed 10,000. Otherwise, the parameters are considered invalid.
  *
  * @param request MassPushRequest
  * @return MassPushResponse
@@ -789,10 +789,10 @@ MassPushV2Response Client::massPushV2(const MassPushV2Request &request) {
 }
 
 /**
- * @summary Pushes notifications or messages to various device endpoints and provides rich custom parameters to implement push behaviors in different scenarios.
+ * @summary Pushes notifications or messages to different device endpoints. This API provides a variety of custom push parameters to implement push behaviors in different scenarios.
  *
- * @description **Before you use this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.**
- * This operation distinguishes between Android, iOS, and HarmonyOS platforms. For push calls on different platforms, you must pass the AppKey corresponding to the platform.
+ * @description **Before you use this API, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of Enterprise Mobile Application Service (EMAS) Mobile Push.**
+ * This API distinguishes between Android, iOS, and HarmonyOS platforms. For push calls on different platforms, you must pass the AppKey corresponding to the platform.
  *
  * @param tmpReq PushRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1321,10 +1321,10 @@ PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba:
 }
 
 /**
- * @summary Pushes notifications or messages to various device endpoints and provides rich custom parameters to implement push behaviors in different scenarios.
+ * @summary Pushes notifications or messages to different device endpoints. This API provides a variety of custom push parameters to implement push behaviors in different scenarios.
  *
- * @description **Before you use this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.**
- * This operation distinguishes between Android, iOS, and HarmonyOS platforms. For push calls on different platforms, you must pass the AppKey corresponding to the platform.
+ * @description **Before you use this API, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of Enterprise Mobile Application Service (EMAS) Mobile Push.**
+ * This API distinguishes between Android, iOS, and HarmonyOS platforms. For push calls on different platforms, you must pass the AppKey corresponding to the platform.
  *
  * @param request PushRequest
  * @return PushResponse
@@ -1743,7 +1743,7 @@ QueryAliasesResponse Client::queryAliases(const QueryAliasesRequest &request) {
 }
 
 /**
- * @summary Query details of a specified device.
+ * @summary Queries the details of a specified device.
  *
  * @param request QueryDeviceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1778,7 +1778,7 @@ QueryDeviceInfoResponse Client::queryDeviceInfoWithOptions(const QueryDeviceInfo
 }
 
 /**
- * @summary Query details of a specified device.
+ * @summary Queries the details of a specified device.
  *
  * @param request QueryDeviceInfoRequest
  * @return QueryDeviceInfoResponse
