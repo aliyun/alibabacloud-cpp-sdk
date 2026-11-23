@@ -2,11 +2,13 @@
 #include <alibabacloud/Saf20190521.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::Saf20190521::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -17,6 +19,9 @@ namespace Saf20190521
 {
 
 AlibabaCloud::Saf20190521::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "saf";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-hangzhou" , "saf.cn-shanghai.aliyuncs.com"}
