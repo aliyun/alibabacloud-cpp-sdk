@@ -220,9 +220,9 @@ namespace Models
 
 
     protected:
-      // The currently active skill version information.
+      // The information about the currently active skill version.
       Darabonba::Json activeVersion_ {};
-      // The currently active version ID.
+      // The ID of the currently active version.
       shared_ptr<string> activeVersionId_ {};
       // The skill category.
       shared_ptr<string> category_ {};
@@ -234,9 +234,9 @@ namespace Models
       shared_ptr<vector<string>> dbtypes_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The skill display name.
+      // The display name of the skill.
       shared_ptr<string> displayName_ {};
-      // The public HTTPS URL of the current icon. Empty if not configured.
+      // The public HTTPS URL of the current icon. This parameter is empty if no icon is configured.
       shared_ptr<string> icon_ {};
       // The unique identifier of the skill.
       shared_ptr<string> id_ {};
@@ -244,15 +244,15 @@ namespace Models
       shared_ptr<bool> isDeleted_ {};
       // The skill name.
       shared_ptr<string> name_ {};
-      // The skill visibility scope.
+      // The visibility scope of the skill.
       shared_ptr<string> scope_ {};
       // The skill type.
       shared_ptr<string> skillType_ {};
-      // The skill stable identifier.
+      // The stable identifier of the skill.
       shared_ptr<string> slug_ {};
       // The update time.
       shared_ptr<string> updatedAt_ {};
-      // The skill visibility for the current user.
+      // The visibility of the skill to the current user.
       shared_ptr<string> visibility_ {};
     };
 
@@ -302,7 +302,7 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int32_t> totalCount_ {};

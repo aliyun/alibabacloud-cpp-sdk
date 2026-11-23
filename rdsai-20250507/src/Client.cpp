@@ -409,7 +409,7 @@ ChatMessagesTaskStopResponse Client::chatMessagesTaskStop(const ChatMessagesTask
 /**
  * @summary Creates a custom API key.
  *
- * @description ### Applicable engines
+ * @description ### Supported engines
  * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request CreateApiKeyRequest
@@ -475,7 +475,7 @@ CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &
 /**
  * @summary Creates a custom API key.
  *
- * @description ### Applicable engines
+ * @description ### Supported engines
  * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request CreateApiKeyRequest
@@ -1017,7 +1017,7 @@ CreateContextDatabaseWorkspaceResponse Client::createContextDatabaseWorkspace(co
 }
 
 /**
- * @summary Creates a custom agent.
+ * @summary Creates a dedicated agent.
  *
  * @param tmpReq CreateCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1074,7 +1074,7 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
 }
 
 /**
- * @summary Creates a custom agent.
+ * @summary Creates a dedicated agent.
  *
  * @param request CreateCustomAgentRequest
  * @return CreateCustomAgentResponse
@@ -1229,7 +1229,7 @@ CreateMOUsageDetailExportResponse Client::createMOUsageDetailExport(const Create
 /**
  * @summary Creates a sandbox template.
  *
- * @description ### Applicable engine
+ * @description ### Supported engines
  * RDS Supabase
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1303,7 +1303,7 @@ CreateSandboxTemplateResponse Client::createSandboxTemplateWithOptions(const Cre
 /**
  * @summary Creates a sandbox template.
  *
- * @description ### Applicable engine
+ * @description ### Supported engines
  * RDS Supabase
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2127,7 +2127,7 @@ DescribeAppInstanceAttributeResponse Client::describeAppInstanceAttribute(const 
  *
  * @description ### Supported engines
  * RDS PostgreSQL
- * ### Related documentation
+ * ### Related feature documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeAppInstancesRequest
@@ -2179,7 +2179,7 @@ DescribeAppInstancesResponse Client::describeAppInstancesWithOptions(const Descr
  *
  * @description ### Supported engines
  * RDS PostgreSQL
- * ### Related documentation
+ * ### Related feature documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeAppInstancesRequest
@@ -2317,7 +2317,7 @@ DescribeEventsListResponse Client::describeEventsList(const DescribeEventsListRe
  *
  * @description ### Supported engines
  * RDS PostgreSQL
- * ### Related feature documentation
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceAuthInfoRequest
@@ -2361,7 +2361,7 @@ DescribeInstanceAuthInfoResponse Client::describeInstanceAuthInfoWithOptions(con
  *
  * @description ### Supported engines
  * RDS PostgreSQL
- * ### Related feature documentation
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceAuthInfoRequest
@@ -2433,9 +2433,9 @@ DescribeInstanceEndpointsResponse Client::describeInstanceEndpoints(const Descri
 }
 
 /**
- * @summary Queries the IP whitelist of an RDS AI application instance.
+ * @summary Queries the IP address whitelist of an ApsaraDB RDS AI application instance.
  *
- * @description ### Supported engine
+ * @description ### Supported engines
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2481,9 +2481,9 @@ DescribeInstanceIpWhitelistResponse Client::describeInstanceIpWhitelistWithOptio
 }
 
 /**
- * @summary Queries the IP whitelist of an RDS AI application instance.
+ * @summary Queries the IP address whitelist of an ApsaraDB RDS AI application instance.
  *
- * @description ### Supported engine
+ * @description ### Supported engines
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2551,8 +2551,8 @@ DescribeInstanceRAGConfigResponse Client::describeInstanceRAGConfig(const Descri
  *
  * @description ### Supported engines
  * ApsaraDB RDS for PostgreSQL
- * ### Related documentation
- * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * ### Related feature documentation
+ * [ApsaraDB RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceSSLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2595,8 +2595,8 @@ DescribeInstanceSSLResponse Client::describeInstanceSSLWithOptions(const Describ
  *
  * @description ### Supported engines
  * ApsaraDB RDS for PostgreSQL
- * ### Related documentation
- * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * ### Related feature documentation
+ * [ApsaraDB RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeInstanceSSLRequest
  * @return DescribeInstanceSSLResponse
@@ -2999,11 +2999,11 @@ DescribeMonitorDataResponse Client::describeMonitorData(const DescribeMonitorDat
 }
 
 /**
- * @summary Queries a list of sandbox templates for creating Supabase sandboxes.
+ * @summary Queries a list of sandbox templates used to create Supabase sandboxes.
  *
- * @description ### Applicable engine
+ * @description ### Applicable engines
  * RDS Supabase
- * ### Related documentation
+ * ### Related feature documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeSandboxTemplatesRequest
@@ -3063,11 +3063,11 @@ DescribeSandboxTemplatesResponse Client::describeSandboxTemplatesWithOptions(con
 }
 
 /**
- * @summary Queries a list of sandbox templates for creating Supabase sandboxes.
+ * @summary Queries a list of sandbox templates used to create Supabase sandboxes.
  *
- * @description ### Applicable engine
+ * @description ### Applicable engines
  * RDS Supabase
- * ### Related documentation
+ * ### Related feature documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeSandboxTemplatesRequest
@@ -3345,6 +3345,146 @@ GetChatModelResponse Client::getChatModelWithOptions(const GetChatModelRequest &
 GetChatModelResponse Client::getChatModel(const GetChatModelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getChatModelWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the credit consumption trend and total amount for the caller account within a specified time range. If WorkspaceId is specified, the statistics apply to a single workspace. If omitted, the statistics aggregate all workspaces under the account. Results are bucketed by hour or day, billing item, and applicable context evolution sub-item. MemberId only filters records and does not split buckets by member. To obtain only the total amount for the range, you can omit Interval and read TotalCredits. To rank by member, call GetContextDatabaseCreditUsageSummaryByMember.
+ *
+ * @description Queries the credit consumption of the caller account within a specified UTC time range, bucketed by hour or day and by billing item. When WorkspaceId is provided, the query is at the workspace dimension (ownership is verified, and locked workspaces can still be queried). When omitted, the query aggregates all workspaces at the account (primary account UID) dimension. Buckets are sorted by BucketStart, Item, and SubItem. Unpriced records are not included in Credits. Note that member filtering does not split buckets. To view details by member, use ListContextDatabaseCreditUsageRecords or GetContextDatabaseCreditUsageSummaryByMember. Credit is represented as a decimal string (1 credit = 1 CNY, up to 6 decimal places).
+ *
+ * @param request GetContextDatabaseCreditUsageSummaryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextDatabaseCreditUsageSummaryResponse
+ */
+GetContextDatabaseCreditUsageSummaryResponse Client::getContextDatabaseCreditUsageSummaryWithOptions(const GetContextDatabaseCreditUsageSummaryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInterval()) {
+    query["Interval"] = request.getInterval();
+  }
+
+  if (!!request.hasItem()) {
+    query["Item"] = request.getItem();
+  }
+
+  if (!!request.hasMemberId()) {
+    query["MemberId"] = request.getMemberId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasSubItem()) {
+    query["SubItem"] = request.getSubItem();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextDatabaseCreditUsageSummary"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextDatabaseCreditUsageSummaryResponse>();
+}
+
+/**
+ * @summary Queries the credit consumption trend and total amount for the caller account within a specified time range. If WorkspaceId is specified, the statistics apply to a single workspace. If omitted, the statistics aggregate all workspaces under the account. Results are bucketed by hour or day, billing item, and applicable context evolution sub-item. MemberId only filters records and does not split buckets by member. To obtain only the total amount for the range, you can omit Interval and read TotalCredits. To rank by member, call GetContextDatabaseCreditUsageSummaryByMember.
+ *
+ * @description Queries the credit consumption of the caller account within a specified UTC time range, bucketed by hour or day and by billing item. When WorkspaceId is provided, the query is at the workspace dimension (ownership is verified, and locked workspaces can still be queried). When omitted, the query aggregates all workspaces at the account (primary account UID) dimension. Buckets are sorted by BucketStart, Item, and SubItem. Unpriced records are not included in Credits. Note that member filtering does not split buckets. To view details by member, use ListContextDatabaseCreditUsageRecords or GetContextDatabaseCreditUsageSummaryByMember. Credit is represented as a decimal string (1 credit = 1 CNY, up to 6 decimal places).
+ *
+ * @param request GetContextDatabaseCreditUsageSummaryRequest
+ * @return GetContextDatabaseCreditUsageSummaryResponse
+ */
+GetContextDatabaseCreditUsageSummaryResponse Client::getContextDatabaseCreditUsageSummary(const GetContextDatabaseCreditUsageSummaryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContextDatabaseCreditUsageSummaryWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the ranking of member credit consumption for a single workspace within the caller\\"s account over a specified time range. Returns one aggregated record per member covering the entire range, paginated and sorted in descending order of total credits, without hourly or daily bucketing. The total count for pagination is the number of members matching the filter criteria, not the number of metering records. To view individual records, call ListContextDatabaseCreditUsageRecords.
+ *
+ * @description Aggregates and ranks the credit consumption of a single workspace by member within a specified UTC time range, with one row per member. This operation uses a fixed workspace dimension: WorkspaceId is required and its ownership is verified (locked workspaces can still be queried), and there are no Dimension, Interval, or sorting input parameters. Members are returned in descending order of aggregated credits. Pagination and ranking are handled by the upstream service. This layer does not re-sort, re-price, or drop rows, so Total represents the number of filtered members rather than the number of records. Credits are represented as decimal strings (1 credit = 1 CNY, up to 6 decimal places) and are null for members without priced records.
+ *
+ * @param request GetContextDatabaseCreditUsageSummaryByMemberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextDatabaseCreditUsageSummaryByMemberResponse
+ */
+GetContextDatabaseCreditUsageSummaryByMemberResponse Client::getContextDatabaseCreditUsageSummaryByMemberWithOptions(const GetContextDatabaseCreditUsageSummaryByMemberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasItem()) {
+    query["Item"] = request.getItem();
+  }
+
+  if (!!request.hasMemberId()) {
+    query["MemberId"] = request.getMemberId();
+  }
+
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextDatabaseCreditUsageSummaryByMember"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextDatabaseCreditUsageSummaryByMemberResponse>();
+}
+
+/**
+ * @summary Queries the ranking of member credit consumption for a single workspace within the caller\\"s account over a specified time range. Returns one aggregated record per member covering the entire range, paginated and sorted in descending order of total credits, without hourly or daily bucketing. The total count for pagination is the number of members matching the filter criteria, not the number of metering records. To view individual records, call ListContextDatabaseCreditUsageRecords.
+ *
+ * @description Aggregates and ranks the credit consumption of a single workspace by member within a specified UTC time range, with one row per member. This operation uses a fixed workspace dimension: WorkspaceId is required and its ownership is verified (locked workspaces can still be queried), and there are no Dimension, Interval, or sorting input parameters. Members are returned in descending order of aggregated credits. Pagination and ranking are handled by the upstream service. This layer does not re-sort, re-price, or drop rows, so Total represents the number of filtered members rather than the number of records. Credits are represented as decimal strings (1 credit = 1 CNY, up to 6 decimal places) and are null for members without priced records.
+ *
+ * @param request GetContextDatabaseCreditUsageSummaryByMemberRequest
+ * @return GetContextDatabaseCreditUsageSummaryByMemberResponse
+ */
+GetContextDatabaseCreditUsageSummaryByMemberResponse Client::getContextDatabaseCreditUsageSummaryByMember(const GetContextDatabaseCreditUsageSummaryByMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContextDatabaseCreditUsageSummaryByMemberWithOptions(request, runtime);
 }
 
 /**
@@ -3795,6 +3935,60 @@ GetContextDatabaseSyncSourceSelectionResponse Client::getContextDatabaseSyncSour
 GetContextDatabaseSyncSourceSelectionResponse Client::getContextDatabaseSyncSourceSelection(const GetContextDatabaseSyncSourceSelectionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getContextDatabaseSyncSourceSelectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the context database usage of the caller account within a specified time range. If WorkspaceId is specified, queries a single workspace. If omitted, aggregates all workspaces under the account. Returns fixed metering items with their units and quantities, filling zero for items with no data. This operation does not return a separate credit amount field. To query amounts, call ListContextDatabaseCreditUsageRecords or GetContextDatabaseCreditUsageSummary.
+ *
+ * @description Queries the context database usage (invocation count, token consumption, and storage usage) of the caller account within a UTC time window, excluding any amounts. If WorkspaceId is provided, the query is at the workspace level. If omitted, the query aggregates all workspaces at the account (primary account UID) level. Returns all billing catalog items and fills zero for missing quantities, so the length of Items is fixed. The account identity is obtained from POP common parameters and cannot be specified by input parameters.
+ *
+ * @param request GetContextDatabaseUsageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextDatabaseUsageResponse
+ */
+GetContextDatabaseUsageResponse Client::getContextDatabaseUsageWithOptions(const GetContextDatabaseUsageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextDatabaseUsage"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextDatabaseUsageResponse>();
+}
+
+/**
+ * @summary Queries the context database usage of the caller account within a specified time range. If WorkspaceId is specified, queries a single workspace. If omitted, aggregates all workspaces under the account. Returns fixed metering items with their units and quantities, filling zero for items with no data. This operation does not return a separate credit amount field. To query amounts, call ListContextDatabaseCreditUsageRecords or GetContextDatabaseCreditUsageSummary.
+ *
+ * @description Queries the context database usage (invocation count, token consumption, and storage usage) of the caller account within a UTC time window, excluding any amounts. If WorkspaceId is provided, the query is at the workspace level. If omitted, the query aggregates all workspaces at the account (primary account UID) level. Returns all billing catalog items and fills zero for missing quantities, so the length of Items is fixed. The account identity is obtained from POP common parameters and cannot be specified by input parameters.
+ *
+ * @param request GetContextDatabaseUsageRequest
+ * @return GetContextDatabaseUsageResponse
+ */
+GetContextDatabaseUsageResponse Client::getContextDatabaseUsage(const GetContextDatabaseUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContextDatabaseUsageWithOptions(request, runtime);
 }
 
 /**
@@ -4282,9 +4476,9 @@ GetStandAloneReportsResponse Client::getStandAloneReports(const GetStandAloneRep
 }
 
 /**
- * @summary Queries custom API keys.
+ * @summary Retrieves custom API keys.
  *
- * @description ### Applicable engine
+ * @description ### Applicable engines
  * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request ListApiKeysRequest
@@ -4324,9 +4518,9 @@ ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &req
 }
 
 /**
- * @summary Queries custom API keys.
+ * @summary Retrieves custom API keys.
  *
- * @description ### Applicable engine
+ * @description ### Applicable engines
  * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request ListApiKeysRequest
@@ -4396,9 +4590,91 @@ ListContextDatabaseApiKeysResponse Client::listContextDatabaseApiKeys(const List
 }
 
 /**
- * @summary Lists context database members.
+ * @summary Performs a paging query for the credit consumption of the caller account within a specified time range, where each result corresponds to a metering record. You can query a single workspace or all workspaces under the account, excluding storage items that do not consume credits. By default, the results are in descending order of request time, but sorting by credit amount is supported. Metering records are written asynchronously, so recent usage may not be displayed. To view time trends, invoke `GetContextDatabaseCreditUsageSummary`.
  *
- * @description Lists all members in a specified workspace. Each member includes a list of API keys (plaintext values are not returned).
+ * @description Queries the credit consumption details of the caller account within a specified UTC time range in a paginated manner. Each record corresponds to a metered read or write request for a knowledge base or memory base, or a write operation for a knowledge base. The credit amount is frozen at the time of metering and does not change afterward. By default, the records are sorted in descending order of request time, and can be sorted by credit amount. Sorting only changes the order within the page and does not change the total count or the record set. If WorkspaceId is provided, paged query is at the workspace dimension, verifying ownership, and locked workspaces can still be queried. If omitted, paged query aggregates all workspaces under the account dimension, identified by the primary account UID. Storage billing items do not consume credits and do not appear in the details. The credit amount is a decimal string, where 1 credit equals 1 CNY, with up to 6 decimal places. Records that cannot be priced are returned as null and are not included in the aggregated amount.
+ *
+ * @param request ListContextDatabaseCreditUsageRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseCreditUsageRecordsResponse
+ */
+ListContextDatabaseCreditUsageRecordsResponse Client::listContextDatabaseCreditUsageRecordsWithOptions(const ListContextDatabaseCreditUsageRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasItem()) {
+    query["Item"] = request.getItem();
+  }
+
+  if (!!request.hasMemberId()) {
+    query["MemberId"] = request.getMemberId();
+  }
+
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasSubItem()) {
+    query["SubItem"] = request.getSubItem();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseCreditUsageRecords"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseCreditUsageRecordsResponse>();
+}
+
+/**
+ * @summary Performs a paging query for the credit consumption of the caller account within a specified time range, where each result corresponds to a metering record. You can query a single workspace or all workspaces under the account, excluding storage items that do not consume credits. By default, the results are in descending order of request time, but sorting by credit amount is supported. Metering records are written asynchronously, so recent usage may not be displayed. To view time trends, invoke `GetContextDatabaseCreditUsageSummary`.
+ *
+ * @description Queries the credit consumption details of the caller account within a specified UTC time range in a paginated manner. Each record corresponds to a metered read or write request for a knowledge base or memory base, or a write operation for a knowledge base. The credit amount is frozen at the time of metering and does not change afterward. By default, the records are sorted in descending order of request time, and can be sorted by credit amount. Sorting only changes the order within the page and does not change the total count or the record set. If WorkspaceId is provided, paged query is at the workspace dimension, verifying ownership, and locked workspaces can still be queried. If omitted, paged query aggregates all workspaces under the account dimension, identified by the primary account UID. Storage billing items do not consume credits and do not appear in the details. The credit amount is a decimal string, where 1 credit equals 1 CNY, with up to 6 decimal places. Records that cannot be priced are returned as null and are not included in the aggregated amount.
+ *
+ * @param request ListContextDatabaseCreditUsageRecordsRequest
+ * @return ListContextDatabaseCreditUsageRecordsResponse
+ */
+ListContextDatabaseCreditUsageRecordsResponse Client::listContextDatabaseCreditUsageRecords(const ListContextDatabaseCreditUsageRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseCreditUsageRecordsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists ContextDB members.
+ *
+ * @description Lists all members in a specified workspace, along with a list of API keys for each member. Plaintext keys are not returned.
  *
  * @param request ListContextDatabaseMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4437,9 +4713,9 @@ ListContextDatabaseMembersResponse Client::listContextDatabaseMembersWithOptions
 }
 
 /**
- * @summary Lists context database members.
+ * @summary Lists ContextDB members.
  *
- * @description Lists all members in a specified workspace. Each member includes a list of API keys (plaintext values are not returned).
+ * @description Lists all members in a specified workspace, along with a list of API keys for each member. Plaintext keys are not returned.
  *
  * @param request ListContextDatabaseMembersRequest
  * @return ListContextDatabaseMembersResponse
@@ -5420,10 +5696,10 @@ ModifyAppInstanceResponse Client::modifyAppInstance(const ModifyAppInstanceReque
 /**
  * @summary Modifies the authentication configuration of an ApsaraDB RDS AI application instance.
  *
- * @description ### Supported engines
+ * @description ### Applicable engine
  * ApsaraDB RDS for PostgreSQL
  * ### Related documentation
- * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * [ApsaraDB RDS for Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param tmpReq ModifyInstanceAuthConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5474,10 +5750,10 @@ ModifyInstanceAuthConfigResponse Client::modifyInstanceAuthConfigWithOptions(con
 /**
  * @summary Modifies the authentication configuration of an ApsaraDB RDS AI application instance.
  *
- * @description ### Supported engines
+ * @description ### Applicable engine
  * ApsaraDB RDS for PostgreSQL
  * ### Related documentation
- * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+ * [ApsaraDB RDS for Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyInstanceAuthConfigRequest
  * @return ModifyInstanceAuthConfigResponse
@@ -5696,7 +5972,7 @@ ModifyInstanceRAGConfigResponse Client::modifyInstanceRAGConfig(const ModifyInst
 /**
  * @summary Modifies the SSL configuration of an RDS AI application instance.
  *
- * @description ### Supported engines
+ * @description ### Supported engine
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -5756,7 +6032,7 @@ ModifyInstanceSSLResponse Client::modifyInstanceSSLWithOptions(const ModifyInsta
 /**
  * @summary Modifies the SSL configuration of an RDS AI application instance.
  *
- * @description ### Supported engines
+ * @description ### Supported engine
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -5770,13 +6046,13 @@ ModifyInstanceSSLResponse Client::modifyInstanceSSL(const ModifyInstanceSSLReque
 }
 
 /**
- * @summary Modifies the storage configuration of an RDS AI application instance.
+ * @summary Modifies the storage configuration of an ApsaraDB RDS AI application instance.
  *
  * @description ### Supported engines
- * RDS PostgreSQL
+ * ApsaraDB RDS for PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * > Currently, only Object Storage Service (OSS) is supported.
+ * > Only Object Storage Service (OSS) is supported.
  *
  * @param tmpReq ModifyInstanceStorageConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5829,13 +6105,13 @@ ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfigWithOptio
 }
 
 /**
- * @summary Modifies the storage configuration of an RDS AI application instance.
+ * @summary Modifies the storage configuration of an ApsaraDB RDS AI application instance.
  *
  * @description ### Supported engines
- * RDS PostgreSQL
+ * ApsaraDB RDS for PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * > Currently, only Object Storage Service (OSS) is supported.
+ * > Only Object Storage Service (OSS) is supported.
  *
  * @param request ModifyInstanceStorageConfigRequest
  * @return ModifyInstanceStorageConfigResponse
@@ -5846,10 +6122,10 @@ ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfig(const Mo
 }
 
 /**
- * @summary Batch modifies the SSL configurations of RDS AI application instances.
+ * @summary Modifies the SSL configurations of multiple ApsaraDB RDS AI application instances in batches.
  *
- * @description ### Applicable engine
- * RDS PostgreSQL
+ * @description ### Supported engines
+ * ApsaraDB RDS for PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
@@ -5908,10 +6184,10 @@ ModifyInstancesSSLResponse Client::modifyInstancesSSLWithOptions(const ModifyIns
 }
 
 /**
- * @summary Batch modifies the SSL configurations of RDS AI application instances.
+ * @summary Modifies the SSL configurations of multiple ApsaraDB RDS AI application instances in batches.
  *
- * @description ### Applicable engine
- * RDS PostgreSQL
+ * @description ### Supported engines
+ * ApsaraDB RDS for PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
@@ -5980,7 +6256,7 @@ ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacks(const ModifyMess
 /**
  * @summary Modifies a sandbox template.
  *
- * @description ### Applicable engine
+ * @description ### Supported engines
  * RDS Supabase
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -6050,7 +6326,7 @@ ModifySandboxTemplateResponse Client::modifySandboxTemplateWithOptions(const Mod
 /**
  * @summary Modifies a sandbox template.
  *
- * @description ### Applicable engine
+ * @description ### Supported engines
  * RDS Supabase
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -6254,7 +6530,7 @@ RemoveContextDatabaseSyncJobExclusionResponse Client::removeContextDatabaseSyncJ
 /**
  * @summary Renames a custom API key.
  *
- * @description ### Applicable engine
+ * @description ### Applicable engines
  * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request RenameApiKeyRequest
@@ -6304,7 +6580,7 @@ RenameApiKeyResponse Client::renameApiKeyWithOptions(const RenameApiKeyRequest &
 /**
  * @summary Renames a custom API key.
  *
- * @description ### Applicable engine
+ * @description ### Applicable engines
  * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request RenameApiKeyRequest
@@ -6834,11 +7110,11 @@ StartInstanceResponse Client::startInstance(const StartInstanceRequest &request)
 }
 
 /**
- * @summary Pauses an RDS AI application instance that is in the Running state.
+ * @summary Pauses an ApsaraDB RDS AI application instance that is in the Running state.
  *
- * @description ### Applicable engine
- * RDS PostgreSQL
- * ### Related feature documentation
+ * @description ### Supported engines
+ * ApsaraDB RDS for PostgreSQL
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request StopInstanceRequest
@@ -6882,11 +7158,11 @@ StopInstanceResponse Client::stopInstanceWithOptions(const StopInstanceRequest &
 }
 
 /**
- * @summary Pauses an RDS AI application instance that is in the Running state.
+ * @summary Pauses an ApsaraDB RDS AI application instance that is in the Running state.
  *
- * @description ### Applicable engine
- * RDS PostgreSQL
- * ### Related feature documentation
+ * @description ### Supported engines
+ * ApsaraDB RDS for PostgreSQL
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request StopInstanceRequest

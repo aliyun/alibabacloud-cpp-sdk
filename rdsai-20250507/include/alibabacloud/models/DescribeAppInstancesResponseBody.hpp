@@ -238,7 +238,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The internal endpoint of the AI application.
+      // The internal network connection endpoint of the AI application.
       shared_ptr<string> vpcConnectionString_ {};
     };
 
@@ -291,7 +291,7 @@ namespace Models
   protected:
     // The list of instances.
     shared_ptr<vector<DescribeAppInstancesResponseBody::Instances>> instances_ {};
-    // A reserved parameter. You can ignore it.
+    // A reserved parameter. You can ignore this parameter.
     shared_ptr<int64_t> maxResults_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
@@ -299,7 +299,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

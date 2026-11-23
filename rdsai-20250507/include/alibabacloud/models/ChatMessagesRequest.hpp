@@ -153,7 +153,7 @@ namespace Models
     protected:
       // The custom agent ID for the user.
       shared_ptr<string> customAgentId_ {};
-      // Specifies whether to enable deep thinking mode.
+      // Specifies whether to enable the deep thinking mode.
       shared_ptr<string> enableThinking_ {};
       // The conversation language.
       shared_ptr<string> language_ {};
@@ -161,13 +161,13 @@ namespace Models
       shared_ptr<string> modelId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The tool approval call ID for resuming execution. Pass this parameter after all decisions in the current approval round are completed in the console to continue the interrupted ChatMessage Loop. Do not pass this parameter for regular conversations.
+      // The tool approval call ID for resuming execution. Pass this parameter after the console completes all decisions for the current approval round to continue the interrupted ChatMessage loop. Do not pass this parameter for regular conversations.
       shared_ptr<string> resumeCallId_ {};
       // The thinking depth.
       shared_ptr<string> thinkEffort_ {};
       // The time zone. Default value: **Asia/Shanghai**.
       shared_ptr<string> timezone_ {};
-      // The tool approval mode for the current conversation. Valid values: read_only (read-only, write tools are rejected), manual (write tools require manual approval), and auto (the approval sub-agent automatically determines the action. If the result is needs_human, the request is escalated to manual approval). When this parameter is passed, the approval mode of the current conversation is updated.
+      // The tool approval mode for the current conversation. Valid values: read_only (read-only, rejects write tools), manual (write tools require manual approval), and auto (automatically determined by the approval sub-agent; escalated to manual approval when needs_human is returned). Passing this parameter updates the approval mode for the current conversation.
       shared_ptr<string> toolApprovalMode_ {};
       // The ContextDB workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -179,11 +179,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(TransferMethod, transferMethod_);
         DARABONBA_PTR_TO_JSON(Type, type_);
         DARABONBA_PTR_TO_JSON(UploadFileId, uploadFileId_);
+        DARABONBA_PTR_TO_JSON(Url, url_);
       };
       friend void from_json(const Darabonba::Json& j, Files& obj) { 
         DARABONBA_PTR_FROM_JSON(TransferMethod, transferMethod_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
         DARABONBA_PTR_FROM_JSON(UploadFileId, uploadFileId_);
+        DARABONBA_PTR_FROM_JSON(Url, url_);
       };
       Files() = default ;
       Files(const Files &) = default ;
@@ -197,7 +199,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->transferMethod_ == nullptr
-        && this->type_ == nullptr && this->uploadFileId_ == nullptr; };
+        && this->type_ == nullptr && this->uploadFileId_ == nullptr && this->url_ == nullptr; };
       // transferMethod Field Functions 
       bool hasTransferMethod() const { return this->transferMethod_ != nullptr;};
       void deleteTransferMethod() { this->transferMethod_ = nullptr;};
@@ -219,10 +221,22 @@ namespace Models
       inline Files& setUploadFileId(string uploadFileId) { DARABONBA_PTR_SET_VALUE(uploadFileId_, uploadFileId) };
 
 
+      // url Field Functions 
+      bool hasUrl() const { return this->url_ != nullptr;};
+      void deleteUrl() { this->url_ = nullptr;};
+      inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+      inline Files& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
+
+
     protected:
+      // The file transfer method. Set this parameter to local_file when referencing an uploaded file, and provide the UploadFileId at the same time.
       shared_ptr<string> transferMethod_ {};
+      // The attachment type. A value of image indicates an image. The actual supported types are determined by the file upload configuration of the application.
       shared_ptr<string> type_ {};
+      // The identifier of the uploaded file. The ContextDB management agent can use the UploadFileId returned by the current workspace knowledge base.
       shared_ptr<string> uploadFileId_ {};
+      // The image URL.
+      shared_ptr<string> url_ {};
     };
 
     virtual bool empty() const override { return this->conversationId_ == nullptr
@@ -276,10 +290,11 @@ namespace Models
   protected:
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
-    // The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of the event = message response. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
+    // The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool calling invoke events, child node events, and document events are unified into the answer field of the event = message. When set to separate, tool calling invoke events, child node events, and document events have their own respective events.
     shared_ptr<string> eventMode_ {};
+    // The list of attachments included in the current conversation round. References uploaded files by using UploadFileId.
     shared_ptr<vector<ChatMessagesRequest::Files>> files_ {};
-    // The task inputs.
+    // The task input.
     shared_ptr<ChatMessagesRequest::Inputs> inputs_ {};
     // The parent message ID.
     shared_ptr<string> parentMessageId_ {};

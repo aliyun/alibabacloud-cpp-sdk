@@ -79,13 +79,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};
-    // The instance ID.
+    // The instance name.
     shared_ptr<string> instanceId_ {};
-    // The API key name.
+    // The name of the API key.
     // 
     // This parameter is required.
     shared_ptr<string> keyName_ {};
+    // The ARN of the RAM role associated with the API key. The account to which the role belongs must be the same as the account of the caller.
     shared_ptr<string> roleArn_ {};
+    // The name of the RAM role associated with the API key.
     shared_ptr<string> roleName_ {};
   };
 

@@ -72,6 +72,7 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The expiration time of the custom SSL certificate. The time is in the yyyy-MM-dd HH:mm:ss format and displayed in the UTC+8 time zone.
     shared_ptr<string> SSLExpiredTime_ {};
   };
 

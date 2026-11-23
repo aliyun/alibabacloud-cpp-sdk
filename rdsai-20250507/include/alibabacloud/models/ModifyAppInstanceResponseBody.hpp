@@ -122,7 +122,7 @@ namespace Models
 
 
   protected:
-    // The reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> branchName_ {};
     // The list of modules.
     shared_ptr<vector<ModifyAppInstanceResponseBody::Components>> components_ {};
@@ -130,7 +130,7 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> targetInstanceName_ {};
   };
 

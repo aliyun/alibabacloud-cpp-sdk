@@ -153,12 +153,13 @@ namespace Models
         shared_ptr<float> limitRate_ {};
         // The quota limit type. Valid values:
         // 
-        // - **fixed**: Fixed value.
+        // - **fixed**: fixed value.
         // 
-        // - **ratio**: Percentage-based.
+        // - **ratio**: percentage.
         // 
-        // - **auto**: Automatic allocation.
+        // - **auto**: automatic allocation.
         shared_ptr<string> limitType_ {};
+        // The ARN of the RAM role bound to the custom API key.
         shared_ptr<string> roleArn_ {};
         // The token quota for the current key.
         shared_ptr<int64_t> tokenQuota_ {};
@@ -237,7 +238,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The request result.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

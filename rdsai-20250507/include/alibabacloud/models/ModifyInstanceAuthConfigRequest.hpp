@@ -76,17 +76,17 @@ namespace Models
     protected:
       // The name of the configuration item. Valid values:
       // 
-      // - **GOTRUE_EXTERNAL_EMAIL_ENABLED**: Allows external emails.
+      // - **GOTRUE_EXTERNAL_EMAIL_ENABLED**: Specifies whether to allow external email addresses.
       // - **GOTRUE_SITE_URL**: The website URL displayed when the AI application sends emails.
       // - **GOTRUE_SMTP_PORT**: The port of the SMTP service provider.
       // - **GOTRUE_SMTP_SENDER_NAME**: The name of the email sender.
-      // - **GOTRUE_SMTP_USER**: The username of the SMTP service provider.
-      // - **GOTRUE_SMTP_PASS**: The password of the SMTP service provider.
-      // - **GOTRUE_SMTP_ADMIN_EMAIL**: The email address of the SMTP service provider.
+      // - **GOTRUE_SMTP_USER**: The username for the SMTP service provider.
+      // - **GOTRUE_SMTP_PASS**: The password for the SMTP service provider.
+      // - **GOTRUE_SMTP_ADMIN_EMAIL**: The administrator email address for the SMTP service provider.
       // - **GOTRUE_SMTP_HOST**: The host address of the SMTP service provider.
-      // - **GOTRUE_MAILER_AUTOCONFIRM**: Specifies whether to enable auto-confirmation.
+      // - **GOTRUE_MAILER_AUTOCONFIRM**: Specifies whether to enable automatic confirmation.
       // - **GOTRUE_MAILER_OTP_EXP**: The validity period of the one-time password (OTP). Unit: seconds.
-      // - **GOTRUE_MAILER_OTP_LENGTH**: The length of the one-time password (OTP) verification code. The value must be an integer greater than or equal to 6.
+      // - **GOTRUE_MAILER_OTP_LENGTH**: The length of the one-time password (OTP). The value must be an integer greater than or equal to 6.
       shared_ptr<string> name_ {};
       // The value of the configuration item.
       shared_ptr<string> value_ {};
@@ -125,7 +125,7 @@ namespace Models
 
 
   protected:
-    // The reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> branchName_ {};
     // The list of authentication configurations.
     shared_ptr<vector<ModifyInstanceAuthConfigRequest::ConfigList>> configList_ {};

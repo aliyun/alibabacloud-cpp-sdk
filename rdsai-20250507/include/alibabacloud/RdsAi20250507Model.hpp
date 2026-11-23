@@ -163,6 +163,12 @@
 #include <alibabacloud/models/GetChatModelRequest.hpp>
 #include <alibabacloud/models/GetChatModelResponseBody.hpp>
 #include <alibabacloud/models/GetChatModelResponse.hpp>
+#include <alibabacloud/models/GetContextDatabaseCreditUsageSummaryRequest.hpp>
+#include <alibabacloud/models/GetContextDatabaseCreditUsageSummaryResponseBody.hpp>
+#include <alibabacloud/models/GetContextDatabaseCreditUsageSummaryResponse.hpp>
+#include <alibabacloud/models/GetContextDatabaseCreditUsageSummaryByMemberRequest.hpp>
+#include <alibabacloud/models/GetContextDatabaseCreditUsageSummaryByMemberResponseBody.hpp>
+#include <alibabacloud/models/GetContextDatabaseCreditUsageSummaryByMemberResponse.hpp>
 #include <alibabacloud/models/GetContextDatabaseSyncConnectionRequest.hpp>
 #include <alibabacloud/models/GetContextDatabaseSyncConnectionResponseBody.hpp>
 #include <alibabacloud/models/GetContextDatabaseSyncConnectionResponse.hpp>
@@ -190,6 +196,9 @@
 #include <alibabacloud/models/GetContextDatabaseSyncSourceSelectionRequest.hpp>
 #include <alibabacloud/models/GetContextDatabaseSyncSourceSelectionResponseBody.hpp>
 #include <alibabacloud/models/GetContextDatabaseSyncSourceSelectionResponse.hpp>
+#include <alibabacloud/models/GetContextDatabaseUsageRequest.hpp>
+#include <alibabacloud/models/GetContextDatabaseUsageResponseBody.hpp>
+#include <alibabacloud/models/GetContextDatabaseUsageResponse.hpp>
 #include <alibabacloud/models/GetConversationsRequest.hpp>
 #include <alibabacloud/models/GetConversationsResponseBody.hpp>
 #include <alibabacloud/models/GetConversationsResponse.hpp>
@@ -223,6 +232,9 @@
 #include <alibabacloud/models/ListContextDatabaseApiKeysRequest.hpp>
 #include <alibabacloud/models/ListContextDatabaseApiKeysResponseBody.hpp>
 #include <alibabacloud/models/ListContextDatabaseApiKeysResponse.hpp>
+#include <alibabacloud/models/ListContextDatabaseCreditUsageRecordsRequest.hpp>
+#include <alibabacloud/models/ListContextDatabaseCreditUsageRecordsResponseBody.hpp>
+#include <alibabacloud/models/ListContextDatabaseCreditUsageRecordsResponse.hpp>
 #include <alibabacloud/models/ListContextDatabaseMembersRequest.hpp>
 #include <alibabacloud/models/ListContextDatabaseMembersResponseBody.hpp>
 #include <alibabacloud/models/ListContextDatabaseMembersResponse.hpp>

@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // Specifies whether to obtain a temporary download URL for the specified version. Default value: false.
+    // Specifies whether to obtain the temporary download URL of the specified version. Default value: false.
     shared_ptr<bool> download_ {};
-    // The supported language. Valid values:
+    // The supported languages. Valid values:
     // * zh-CN: Simplified Chinese
     // * zh-TW: Traditional Chinese
     // * en-US: English
     // * ja-JP: Japanese
     shared_ptr<string> language_ {};
-    // The file path within the package, such as SKILL.md. The body is in File.text, and the full Markdown is in SkillMarkdown.
+    // The file path in the package, such as SKILL.md. For the body text, see File.text. For the complete Markdown content, see SkillMarkdown.
     shared_ptr<string> path_ {};
     // The unique identifier of the skill.
     // 
     // This parameter is required.
     shared_ptr<string> skillId_ {};
-    // The version UUID (Versions[].Id), not a version number such as 1.0.0. If omitted, the currently active version is read.
+    // The version UUID (Versions[].Id), which is not a version number such as 1.0.0. If this parameter is omitted, the current active version is read.
     shared_ptr<string> versionId_ {};
     // The ContextDB workspace ID.
     shared_ptr<string> workspaceId_ {};

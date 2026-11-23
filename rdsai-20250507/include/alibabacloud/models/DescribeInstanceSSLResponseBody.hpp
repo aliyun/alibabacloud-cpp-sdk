@@ -115,6 +115,7 @@ namespace Models
     // * **1**: Enabled.
     // * **0**: Disabled.
     shared_ptr<string> SSLEnabled_ {};
+    // The expiration time of the custom SSL certificate. The time is in the yyyy-MM-dd HH:mm:ss format and in the UTC+8 time zone.
     shared_ptr<string> SSLExpiredTime_ {};
     // The content of the custom certificate.
     shared_ptr<string> serverCert_ {};

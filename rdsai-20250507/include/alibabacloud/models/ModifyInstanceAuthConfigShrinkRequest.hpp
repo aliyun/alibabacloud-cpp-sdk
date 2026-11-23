@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> branchName_ {};
     // The list of authentication configurations.
     shared_ptr<string> configListShrink_ {};

@@ -106,10 +106,11 @@ namespace Models
 
 
   protected:
-    // The number of CPUs for sandboxes created from this template. Valid values: 1 to 4.
+    // The number of CPUs for sandboxes created by using this template. Valid values: 1 to 4.
     shared_ptr<string> defaultCpu_ {};
-    // The memory size of sandboxes created from this template. Unit: Gi. Valid values: 1Gi to 8Gi.
+    // The memory size for sandboxes created by using this template. Unit: GiB. Valid values: 1 to 8.
     shared_ptr<string> defaultMemory_ {};
+    // The container image used for the sandbox template. Format: `[registry/]<repo>[:tag][@sha256:digest]`.
     shared_ptr<string> image_ {};
     // The instance ID of the AI application.
     // 
@@ -119,8 +120,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The initial number of instances. Valid values: 1 to 1000.
     shared_ptr<int64_t> replicas_ {};
+    // The custom tags of the sandbox template. The key is the tag name, and the value is the tag value. You cannot use the system-reserved tag createdBy or the system-reserved tag hidden.
     shared_ptr<map<string, string>> tags_ {};
-    // The sandbox template ID.
+    // The ID of the sandbox template.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};

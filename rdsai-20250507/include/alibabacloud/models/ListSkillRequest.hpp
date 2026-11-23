@@ -104,7 +104,6 @@ namespace Models
 
   protected:
     // The supported languages. Valid values:
-    // 
     // * zh-CN: Simplified Chinese
     // * zh-TW: Traditional Chinese
     // * en-US: English
@@ -114,13 +113,13 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The search parameter for skill name or description. This filter is not currently enabled in the ContextDB management console.
+    // The search parameter for the skill name or description. This filter is currently disabled in the ContextDB management portal.
     shared_ptr<string> query_ {};
     // The ContextDB query scope. Valid values: all (default), private, and system.
     shared_ptr<string> scope_ {};
-    // The sort parameter for skills. This sorting is not currently enabled in the ContextDB management console.
+    // The sort parameter for skills. This sorting option is currently disabled in the ContextDB management portal.
     shared_ptr<string> sort_ {};
-    // The filter parameter for skill source. This filter is not currently enabled in the ContextDB management console.
+    // The filter parameter for the skill source. This filter is currently disabled in the ContextDB management portal.
     shared_ptr<string> source_ {};
     // The ContextDB workspace ID.
     shared_ptr<string> workspaceId_ {};

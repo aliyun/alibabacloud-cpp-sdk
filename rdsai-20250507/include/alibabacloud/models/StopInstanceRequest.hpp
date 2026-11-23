@@ -66,7 +66,13 @@ namespace Models
 
 
   protected:
+    // The name of the branch to operate on. If this parameter is not specified, the operation is performed on the original instance.
     shared_ptr<string> branchName_ {};
+    // Specifies whether to forcibly stop the instance. Valid values:
+    // - true: Forcibly stops the instance.
+    // - false: Normally stops the instance.
+    // 
+    // Default value: false.
     shared_ptr<bool> force_ {};
     // The instance ID of the AI application.
     // 

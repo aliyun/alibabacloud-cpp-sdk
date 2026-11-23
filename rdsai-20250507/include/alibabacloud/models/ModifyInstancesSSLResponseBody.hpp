@@ -60,10 +60,11 @@ namespace Models
 
 
   protected:
-    // The list of instance IDs of AI applications that were successfully modified.
+    // The list of instance IDs of the AI applications that were successfully modified.
     shared_ptr<vector<string>> instanceNames_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The expiration time of the custom SSL certificate. The time is in the yyyy-MM-dd HH:mm:ss format and in the UTC+8 time zone.
     shared_ptr<string> SSLExpiredTime_ {};
   };
 

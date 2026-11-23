@@ -66,12 +66,13 @@ namespace Models
 
 
   protected:
+    // The name of the branch to be operated on. If this parameter is not specified, the operation is performed on the original instance.
     shared_ptr<string> branchName_ {};
-    // The group name.
+    // The name of the group.
     shared_ptr<string> groupName_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
-    // The region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

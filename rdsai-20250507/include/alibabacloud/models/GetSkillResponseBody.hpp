@@ -245,25 +245,25 @@ namespace Models
 
 
     protected:
-      // The activation time of the skill version.
+      // The time when the skill version was activated.
       shared_ptr<string> activatedAt_ {};
-      // The creation time of the skill version.
+      // The time when the skill version was created.
       shared_ptr<string> createdAt_ {};
-      // Indicates whether the skill requires a credential.
+      // Indicates whether the skill requires credentials.
       shared_ptr<bool> credentialRequired_ {};
-      // The number of files in the skill bundle.
+      // The number of files in the skill package.
       shared_ptr<int64_t> fileCount_ {};
-      // The skill version ID.
+      // The ID of the skill version.
       shared_ptr<string> id_ {};
-      // The size of the skill bundle, in bytes.
+      // The size of the skill package, in bytes.
       shared_ptr<int64_t> packageSize_ {};
-      // The reason for revoking the skill version.
+      // The reason why the skill version was revoked.
       shared_ptr<string> revokeReason_ {};
-      // The revocation time of the skill version.
+      // The time when the skill version was revoked.
       shared_ptr<string> revokedAt_ {};
       // The SHA-256 digest of the skill package.
       shared_ptr<string> sha256_ {};
-      // The ID of the skill to which the version belongs.
+      // The ID of the parent skill.
       shared_ptr<string> skillId_ {};
       // The Markdown content of the skill.
       shared_ptr<string> skillMarkdown_ {};
@@ -271,7 +271,7 @@ namespace Models
       shared_ptr<string> source_ {};
       // The status of the skill version.
       shared_ptr<string> status_ {};
-      // The update note for the version.
+      // The update notes for the version.
       shared_ptr<string> updateNote_ {};
       // The version number of the skill.
       shared_ptr<string> version_ {};
@@ -353,7 +353,7 @@ namespace Models
     protected:
       // Indicates whether the skill can be deleted.
       shared_ptr<bool> delete_ {};
-      // Indicates whether the skill bundle can be downloaded.
+      // Indicates whether the skill package can be downloaded.
       shared_ptr<bool> download_ {};
       // Indicates whether the skill can be edited.
       shared_ptr<bool> edit_ {};
@@ -597,15 +597,15 @@ namespace Models
 
 
   protected:
-    // The current active version ID.
+    // The ID of the currently active version.
     shared_ptr<string> activeVersionId_ {};
-    // The content digest of the current skill bundle.
+    // The content digest of the current skill package.
     shared_ptr<string> bundleHash_ {};
-    // The size of the current skill bundle, in bytes.
+    // The size of the current skill package, in bytes.
     shared_ptr<int64_t> bundleSizeBytes_ {};
     // The skill operations that the current user can perform.
     shared_ptr<GetSkillResponseBody::Capabilities> capabilities_ {};
-    // The skill category.
+    // The category of the skill.
     shared_ptr<string> category_ {};
     // The content.
     Darabonba::Json content_ {};
@@ -613,43 +613,43 @@ namespace Models
     shared_ptr<string> createdAt_ {};
     // The list of database types.
     shared_ptr<vector<string>> dbtypes_ {};
-    // The skill description. The description can be up to 1000 characters in length.
+    // The description of the skill. The description can be up to 1,000 characters in length.
     shared_ptr<string> description_ {};
     // The display name of the skill.
     shared_ptr<string> displayName_ {};
-    // The temporary download URL of the skill bundle.
+    // The temporary download URL for the skill package.
     shared_ptr<string> downloadUrl_ {};
     // The expiration time of the temporary download URL.
     shared_ptr<string> expiresAt_ {};
-    // The file in the bundle that is read based on the specified path.
+    // The file in the package specified by path.
     Darabonba::Json file_ {};
-    // The list of files in the current skill bundle.
+    // The list of files in the current skill package.
     shared_ptr<vector<Darabonba::Json>> files_ {};
     // The metadata fields of SKILL.md.
     Darabonba::Json frontmatter_ {};
-    // The public HTTPS URL of the current icon. This value is empty if no icon is configured.
+    // The public HTTPS URL of the current icon. This field is empty if no icon is configured.
     shared_ptr<string> icon_ {};
     // The unique identifier of the skill.
     shared_ptr<string> id_ {};
     // Indicates whether the skill is deleted.
     shared_ptr<bool> isDeleted_ {};
-    // The skill name. The name can contain only lowercase letters, digits, and hyphens.
+    // The name of the skill. The name can contain only lowercase letters, digits, and hyphens.
     shared_ptr<string> name_ {};
-    // The unique request identifier.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
     // The visibility scope of the skill.
     shared_ptr<string> scope_ {};
     // The current skill ID.
     shared_ptr<string> skillId_ {};
-    // The full Markdown content of SKILL.md.
+    // The full SKILL.md Markdown content.
     shared_ptr<string> skillMarkdown_ {};
-    // The skill type.
+    // The type of the skill.
     shared_ptr<string> skillType_ {};
-    // The stable identifier of the private skill.
+    // The stable identifier for the private skill.
     shared_ptr<string> slug_ {};
     // The update time.
     shared_ptr<string> updatedAt_ {};
-    // The current skill version number.
+    // The current version number of the skill.
     shared_ptr<string> version_ {};
     // The current skill version ID.
     shared_ptr<string> versionId_ {};

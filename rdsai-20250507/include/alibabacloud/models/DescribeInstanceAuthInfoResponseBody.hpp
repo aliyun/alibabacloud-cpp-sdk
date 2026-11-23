@@ -80,7 +80,7 @@ namespace Models
     protected:
       // The name of the configuration item. Valid values:
       // 
-      // - **GOTRUE_EXTERNAL_EMAIL_ENABLED**: Specifies whether external emails are allowed.
+      // - **GOTRUE_EXTERNAL_EMAIL_ENABLED**: Specifies whether to allow external emails.
       // - **GOTRUE_SITE_URL**: The website URL displayed when the AI application sends emails.
       // - **GOTRUE_SMTP_PORT**: The port of the SMTP service provider.
       // - **GOTRUE_SMTP_SENDER_NAME**: The name of the email sender.
@@ -88,7 +88,7 @@ namespace Models
       // - **GOTRUE_SMTP_PASS**: The password of the SMTP service provider.
       // - **GOTRUE_SMTP_ADMIN_EMAIL**: The email address of the SMTP service provider.
       // - **GOTRUE_SMTP_HOST**: The host address of the SMTP service provider.
-      // - **GOTRUE_MAILER_AUTOCONFIRM**: Specifies whether automatic confirmation is enabled.
+      // - **GOTRUE_MAILER_AUTOCONFIRM**: Specifies whether to enable automatic confirmation.
       // - **GOTRUE_MAILER_OTP_EXP**: The validity period of the one-time password (OTP). Unit: seconds.
       // - **GOTRUE_MAILER_OTP_LENGTH**: The length of the one-time password (OTP). The value must be an integer greater than or equal to 6.
       shared_ptr<string> name_ {};
@@ -143,10 +143,11 @@ namespace Models
 
 
     protected:
-      // The ANON_KEY of Supabase.
+      // The Supabase ANON_KEY.
       shared_ptr<string> anonKey_ {};
+      // The API key used to access E2B-compatible sandbox APIs. This parameter is returned when the sandbox is enabled and a service key exists.
       shared_ptr<string> e2bApiKey_ {};
-      // The SERVICE_ROLE_KEY of Supabase.
+      // The Supabase SERVICE_ROLE_KEY.
       shared_ptr<string> serviceKey_ {};
     };
 
@@ -201,7 +202,7 @@ namespace Models
   protected:
     // The API keys.
     shared_ptr<DescribeInstanceAuthInfoResponseBody::ApiKeys> apiKeys_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> branchName_ {};
     // The list of authentication information.
     shared_ptr<vector<DescribeInstanceAuthInfoResponseBody::ConfigList>> configList_ {};

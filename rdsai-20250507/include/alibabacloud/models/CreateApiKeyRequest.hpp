@@ -121,13 +121,15 @@ namespace Models
     // The quota limit percentage.
     shared_ptr<double> limitRate_ {};
     // The quota limit type. Valid values:
-    // - ratio: Percentage-based.
-    // - fixed: Fixed value.
-    // - auto: Automatic allocation.
+    // - ratio: percentage.
+    // - fixed: fixed value.
+    // - auto: automatic allocation.
     shared_ptr<string> limitType_ {};
     // The number of API keys to create. Default value: **1**.
     shared_ptr<int32_t> quantity_ {};
+    // The ARN of the RAM role bound to the API key. The account to which the role belongs must be the same as the caller account.
     shared_ptr<string> roleArn_ {};
+    // The name of the RAM role bound to the API key.
     shared_ptr<string> roleName_ {};
     // The token quota for the current key.
     shared_ptr<int64_t> tokenQuota_ {};

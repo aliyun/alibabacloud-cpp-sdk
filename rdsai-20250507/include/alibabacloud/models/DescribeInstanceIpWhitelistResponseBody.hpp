@@ -76,7 +76,7 @@ namespace Models
 
 
     protected:
-      // The group name.
+      // The name of the group.
       shared_ptr<string> groupName_ {};
       // The list of IP addresses.
       shared_ptr<string> ipWhitelist_ {};
@@ -120,7 +120,9 @@ namespace Models
 
 
     protected:
+      // The name of the IP address whitelist group.
       shared_ptr<string> groupName_ {};
+      // The list of addresses in the IP address whitelist.
       shared_ptr<string> ipWhitelist_ {};
     };
 
@@ -166,11 +168,13 @@ namespace Models
 
 
   protected:
+    // The name of the branch specified for this operation.
     shared_ptr<string> branchName_ {};
+    // The list of IP address whitelist groups for the PostgreSQL database instance associated with the branch.
     shared_ptr<vector<DescribeInstanceIpWhitelistResponseBody::DbIpWhiteListGroups>> dbIpWhiteListGroups_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
-    // The IP whitelist groups.
+    // The list of IP address whitelist groups.
     shared_ptr<vector<DescribeInstanceIpWhitelistResponseBody::IpWhiteListGroups>> ipWhiteListGroups_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

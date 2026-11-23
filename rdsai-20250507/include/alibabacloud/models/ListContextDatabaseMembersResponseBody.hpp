@@ -176,19 +176,19 @@ namespace Models
 
 
       protected:
-        // The time when the member was created.
+        // The creation time.
         shared_ptr<string> createdAt_ {};
         // The API key description.
         shared_ptr<string> description_ {};
         // This field is empty.
         shared_ptr<string> expiresAt_ {};
-        // The suffix of the API key.
+        // The display suffix of the API key.
         shared_ptr<string> keyDisplaySuffix_ {};
         // The key ID.
         shared_ptr<int64_t> keyId_ {};
         // The prefix of the API key.
         shared_ptr<string> keyPrefix_ {};
-        // The time when the key was last used. This field is populated after the key has been authenticated and used. This field is empty for keys that have not been used.
+        // The time when the key was last used. This field is populated after the key is used for authentication and is empty for unused keys.
         shared_ptr<string> lastUsedAt_ {};
         // The API key name.
         shared_ptr<string> name_ {};
@@ -245,7 +245,7 @@ namespace Models
 
 
     protected:
-      // The time when the member was created.
+      // The creation time.
       shared_ptr<string> createdAt_ {};
       // The list of API keys.
       shared_ptr<vector<Members::Keys>> keys_ {};

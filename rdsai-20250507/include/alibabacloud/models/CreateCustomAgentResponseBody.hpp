@@ -100,7 +100,7 @@ namespace Models
 
 
     protected:
-      // The skill description.
+      // The description of the skill.
       shared_ptr<string> description_ {};
       // The unique identifier of the skill.
       shared_ptr<string> id_ {};
@@ -180,7 +180,7 @@ namespace Models
     shared_ptr<bool> enableTools_ {};
     // AgentId
     shared_ptr<string> id_ {};
-    // The name of the custom agent.
+    // The name of the dedicated agent.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

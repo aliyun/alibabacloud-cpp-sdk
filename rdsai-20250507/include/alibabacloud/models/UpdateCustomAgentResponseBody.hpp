@@ -98,13 +98,13 @@ namespace Models
 
 
     protected:
-      // The skill description.
+      // The description of the skill.
       shared_ptr<string> description_ {};
       // The unique identifier of the skill.
       shared_ptr<string> id_ {};
-      // The skill name.
+      // The name of the skill.
       shared_ptr<string> name_ {};
-      // The skill type.
+      // The type of the skill.
       shared_ptr<string> skillType_ {};
     };
 
