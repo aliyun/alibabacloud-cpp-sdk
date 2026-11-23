@@ -983,7 +983,7 @@ namespace AgentLoop20260520
       Models::ListEvaluationRunsResponse listEvaluationRuns(const string &agentSpace, const string &taskId, const Models::ListEvaluationRunsRequest &request);
 
       /**
-       * @summary Queries a list of evaluation tasks.
+       * @summary Queries the list of evaluation tasks.
        *
        * @param request ListEvaluationTasksRequest
        * @param headers map
@@ -993,7 +993,7 @@ namespace AgentLoop20260520
       Models::ListEvaluationTasksResponse listEvaluationTasksWithOptions(const Models::ListEvaluationTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of evaluation tasks.
+       * @summary Queries the list of evaluation tasks.
        *
        * @param request ListEvaluationTasksRequest
        * @return ListEvaluationTasksResponse
@@ -1157,6 +1157,24 @@ namespace AgentLoop20260520
       Models::ListPipelinesResponse listPipelines(const string &agentSpace, const Models::ListPipelinesRequest &request);
 
       /**
+       * @summary Lists the resources associated with tags.
+       *
+       * @param tmpReq ListTagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists the resources associated with tags.
+       *
+       * @param request ListTagResourcesRequest
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
        * @summary Pauses a pipeline.
        *
        * @param request PausePipelineRequest
@@ -1261,6 +1279,24 @@ namespace AgentLoop20260520
       Models::SearchContextResponse searchContext(const string &agentSpace, const string &contextStoreName, const Models::SearchContextRequest &request);
 
       /**
+       * @summary Adds or updates tags.
+       *
+       * @param request TagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adds or updates tags.
+       *
+       * @param request TagResourcesRequest
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
+
+      /**
        * @summary Terminates a pipeline.
        *
        * @param request TerminatePipelineRequest
@@ -1277,6 +1313,24 @@ namespace AgentLoop20260520
        * @return TerminatePipelineResponse
        */
       Models::TerminatePipelineResponse terminatePipeline(const string &agentSpace, const string &pipelineName, const Models::TerminatePipelineRequest &request);
+
+      /**
+       * @summary Removes tags.
+       *
+       * @param tmpReq UntagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Removes tags.
+       *
+       * @param request UntagResourcesRequest
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
        * @summary Updates an AgentSpace.

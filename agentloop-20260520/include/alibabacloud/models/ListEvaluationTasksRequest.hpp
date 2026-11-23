@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // The AgentSpace name.
+    // The name of the AgentSpace.
     shared_ptr<string> agentSpace_ {};
-    // The filter condition for the task source. If this parameter is not specified, tasks from the default source are queried.
+    // The filter condition for the task source. If not specified, tasks from the default source are queried.
     shared_ptr<string> channel_ {};
-    // The data source type of the evaluation object. Set this parameter to `trace` for trace-based evaluation.
+    // The data source type of the evaluation object. Use trace for trace evaluation.
     shared_ptr<string> dataType_ {};
-    // The number of entries per page. Default value: 20. Maximum value: 100.
+    // The number of entries to return per page. The default value is 20, and the maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page, obtained from the previous response.
     shared_ptr<string> nextToken_ {};
     // The filter condition for the evaluation task status.
     shared_ptr<string> status_ {};
-    // The evaluation task mode. If this parameter is not specified, the default value is `batch`.
+    // The mode of the evaluation task. If not specified, the backend defaults to batch.
     shared_ptr<string> taskMode_ {};
-    // The fuzzy match condition for the task name.
+    // The fuzzy search condition for the task name.
     shared_ptr<string> taskName_ {};
   };
 

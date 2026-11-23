@@ -19,6 +19,7 @@
 #include <alibabacloud/models/IndexJsonKey.hpp>
 #include <alibabacloud/models/IndexKey.hpp>
 #include <alibabacloud/models/OfflineExperimentConfig.hpp>
+#include <alibabacloud/models/SelectedDataStrategy.hpp>
 #include <alibabacloud/models/RunStrategies.hpp>
 #include <alibabacloud/models/MetaSchemaValue.hpp>
 #include <alibabacloud/models/AddDatasetDataRequest.hpp>
@@ -203,6 +204,10 @@
 #include <alibabacloud/models/ListPipelinesRequest.hpp>
 #include <alibabacloud/models/ListPipelinesResponseBody.hpp>
 #include <alibabacloud/models/ListPipelinesResponse.hpp>
+#include <alibabacloud/models/ListTagResourcesRequest.hpp>
+#include <alibabacloud/models/ListTagResourcesShrinkRequest.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListTagResourcesResponse.hpp>
 #include <alibabacloud/models/PausePipelineRequest.hpp>
 #include <alibabacloud/models/PausePipelineResponseBody.hpp>
 #include <alibabacloud/models/PausePipelineResponse.hpp>
@@ -218,9 +223,16 @@
 #include <alibabacloud/models/SearchContextRequest.hpp>
 #include <alibabacloud/models/SearchContextResponseBody.hpp>
 #include <alibabacloud/models/SearchContextResponse.hpp>
+#include <alibabacloud/models/TagResourcesRequest.hpp>
+#include <alibabacloud/models/TagResourcesResponseBody.hpp>
+#include <alibabacloud/models/TagResourcesResponse.hpp>
 #include <alibabacloud/models/TerminatePipelineRequest.hpp>
 #include <alibabacloud/models/TerminatePipelineResponseBody.hpp>
 #include <alibabacloud/models/TerminatePipelineResponse.hpp>
+#include <alibabacloud/models/UntagResourcesRequest.hpp>
+#include <alibabacloud/models/UntagResourcesShrinkRequest.hpp>
+#include <alibabacloud/models/UntagResourcesResponseBody.hpp>
+#include <alibabacloud/models/UntagResourcesResponse.hpp>
 #include <alibabacloud/models/UpdateAgentSpaceRequest.hpp>
 #include <alibabacloud/models/UpdateAgentSpaceResponseBody.hpp>
 #include <alibabacloud/models/UpdateAgentSpaceResponse.hpp>

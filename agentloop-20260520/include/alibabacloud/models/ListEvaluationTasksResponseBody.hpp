@@ -178,19 +178,19 @@ namespace Models
     protected:
       // The data source and execution configuration summary.
       shared_ptr<map<string, string>> config_ {};
-      // The creation time, in seconds-level UNIX timestamp.
+      // The creation time, represented as a UNIX timestamp in seconds.
       shared_ptr<int64_t> createdAt_ {};
       // The data source type of the evaluation object.
       shared_ptr<string> dataType_ {};
-      // The description of the evaluation task.
+      // The evaluation task description.
       shared_ptr<string> description_ {};
-      // The evaluator configuration summary, in JSON string format.
+      // The evaluator configuration summary, as a JSON string.
       shared_ptr<string> evaluators_ {};
-      // The structured run strategy configuration, including the parsed backfill strategy and continuous evaluation strategy.
+      // The structured configuration of the run strategy, including the parsed backfill strategy and continuous evaluation strategy.
       shared_ptr<RunStrategies> runStrategyConfig_ {};
       // The evaluation task status.
       shared_ptr<string> status_ {};
-      // The key-value pairs of task tags. This parameter is empty if no tags are set.
+      // The key-value pairs of task tags. Empty if not set.
       shared_ptr<map<string, string>> tags_ {};
       // The evaluation task ID.
       shared_ptr<string> taskId_ {};
@@ -198,7 +198,7 @@ namespace Models
       shared_ptr<string> taskMode_ {};
       // The task name.
       shared_ptr<string> taskName_ {};
-      // The last update time, in seconds-level UNIX timestamp.
+      // The last update time, represented as a UNIX timestamp in seconds.
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -244,13 +244,13 @@ namespace Models
   protected:
     // The list of evaluation task summaries.
     shared_ptr<vector<ListEvaluationTasksResponseBody::EvaluationTasks>> evaluationTasks_ {};
-    // The number of entries per page used in this request.
+    // The number of entries per page used for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. An empty value indicates that no more pages are available.
+    // The pagination token for the next page. An empty value indicates that there is no next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records. The total count is calculated only on the first page. This value may be empty on subsequent pages.
+    // The total number of records. The backend queries the total count only on the first page, so this field may be empty on subsequent pages.
     shared_ptr<int32_t> totalCount_ {};
   };
 
