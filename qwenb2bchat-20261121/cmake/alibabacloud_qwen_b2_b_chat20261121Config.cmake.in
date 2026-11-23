@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_qwen_b2_b_chat20261121Targets.cmake")
+check_required_components("alibabacloud_qwen_b2_b_chat20261121")
