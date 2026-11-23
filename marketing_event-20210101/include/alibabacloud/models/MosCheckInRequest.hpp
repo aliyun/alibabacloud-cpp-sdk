@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const MosCheckInRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ActivityId, activityId_);
+      DARABONBA_PTR_TO_JSON(CheckinPoint, checkinPoint_);
       DARABONBA_PTR_TO_JSON(ExtParam, extParam_);
       DARABONBA_PTR_TO_JSON(QrCode, qrCode_);
     };
     friend void from_json(const Darabonba::Json& j, MosCheckInRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ActivityId, activityId_);
+      DARABONBA_PTR_FROM_JSON(CheckinPoint, checkinPoint_);
       DARABONBA_PTR_FROM_JSON(ExtParam, extParam_);
       DARABONBA_PTR_FROM_JSON(QrCode, qrCode_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activityId_ == nullptr
-        && this->extParam_ == nullptr && this->qrCode_ == nullptr; };
+        && this->checkinPoint_ == nullptr && this->extParam_ == nullptr && this->qrCode_ == nullptr; };
     // activityId Field Functions 
     bool hasActivityId() const { return this->activityId_ != nullptr;};
     void deleteActivityId() { this->activityId_ = nullptr;};
     inline string getActivityId() const { DARABONBA_PTR_GET_DEFAULT(activityId_, "") };
     inline MosCheckInRequest& setActivityId(string activityId) { DARABONBA_PTR_SET_VALUE(activityId_, activityId) };
+
+
+    // checkinPoint Field Functions 
+    bool hasCheckinPoint() const { return this->checkinPoint_ != nullptr;};
+    void deleteCheckinPoint() { this->checkinPoint_ = nullptr;};
+    inline string getCheckinPoint() const { DARABONBA_PTR_GET_DEFAULT(checkinPoint_, "") };
+    inline MosCheckInRequest& setCheckinPoint(string checkinPoint) { DARABONBA_PTR_SET_VALUE(checkinPoint_, checkinPoint) };
 
 
     // extParam Field Functions 
@@ -58,6 +67,7 @@ namespace Models
 
   protected:
     shared_ptr<string> activityId_ {};
+    shared_ptr<string> checkinPoint_ {};
     shared_ptr<string> extParam_ {};
     shared_ptr<string> qrCode_ {};
   };

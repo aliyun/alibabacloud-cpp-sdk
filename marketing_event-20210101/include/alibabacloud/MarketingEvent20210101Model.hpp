@@ -26,6 +26,9 @@
 #include <alibabacloud/models/MosCheckInRequest.hpp>
 #include <alibabacloud/models/MosCheckInResponseBody.hpp>
 #include <alibabacloud/models/MosCheckInResponse.hpp>
+#include <alibabacloud/models/MosQueryRegistrationInfoRequest.hpp>
+#include <alibabacloud/models/MosQueryRegistrationInfoResponseBody.hpp>
+#include <alibabacloud/models/MosQueryRegistrationInfoResponse.hpp>
 #include <alibabacloud/models/QueryAllActivityInfoRequest.hpp>
 #include <alibabacloud/models/QueryAllActivityInfoResponseBody.hpp>
 #include <alibabacloud/models/QueryAllActivityInfoResponse.hpp>
@@ -62,5 +65,8 @@
 #include <alibabacloud/models/UpdateTicketRecordByticketCodePopRequest.hpp>
 #include <alibabacloud/models/UpdateTicketRecordByticketCodePopResponseBody.hpp>
 #include <alibabacloud/models/UpdateTicketRecordByticketCodePopResponse.hpp>
+#include <alibabacloud/models/VerifyActivityAdmissionRequest.hpp>
+#include <alibabacloud/models/VerifyActivityAdmissionResponseBody.hpp>
+#include <alibabacloud/models/VerifyActivityAdmissionResponse.hpp>
 
 #endif

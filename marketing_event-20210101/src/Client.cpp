@@ -2,11 +2,13 @@
 #include <alibabacloud/MarketingEvent20210101.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace MarketingEvent20210101
 {
 
 AlibabaCloud::MarketingEvent20210101::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "marketing_event";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "";
   checkConfig(config);
   this->_endpoint = getEndpoint("marketing_event", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -463,6 +468,10 @@ MosCheckInResponse Client::mosCheckInWithOptions(const MosCheckInRequest &reques
     body["ActivityId"] = request.getActivityId();
   }
 
+  if (!!request.hasCheckinPoint()) {
+    body["CheckinPoint"] = request.getCheckinPoint();
+  }
+
   if (!!request.hasExtParam()) {
     body["ExtParam"] = request.getExtParam();
   }
@@ -500,6 +509,46 @@ MosCheckInResponse Client::mosCheckIn(const MosCheckInRequest &request) {
 }
 
 /**
+ * @summary MOS活动报名查询
+ *
+ * @param request MosQueryRegistrationInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MosQueryRegistrationInfoResponse
+ */
+MosQueryRegistrationInfoResponse Client::mosQueryRegistrationInfoWithOptions(const MosQueryRegistrationInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MosQueryRegistrationInfo"},
+    {"version" , "2021-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MosQueryRegistrationInfoResponse>();
+}
+
+/**
+ * @summary MOS活动报名查询
+ *
+ * @param request MosQueryRegistrationInfoRequest
+ * @return MosQueryRegistrationInfoResponse
+ */
+MosQueryRegistrationInfoResponse Client::mosQueryRegistrationInfo(const MosQueryRegistrationInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return mosQueryRegistrationInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通过活动id查询所有审核通过的报名信息
+ *
  * @param request QueryAllActivityInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryAllActivityInfoResponse
@@ -525,6 +574,8 @@ QueryAllActivityInfoResponse Client::queryAllActivityInfoWithOptions(const Query
 }
 
 /**
+ * @summary 通过活动id查询所有审核通过的报名信息
+ *
  * @param request QueryAllActivityInfoRequest
  * @return QueryAllActivityInfoResponse
  */
@@ -794,6 +845,8 @@ QuerySignInRecordPopResponse Client::querySignInRecordPop(const QuerySignInRecor
 }
 
 /**
+ * @summary 通过活动id, 参会人名称等查询单个审核通过的报名信息
+ *
  * @param request QuerySingleActivityInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QuerySingleActivityInfoResponse
@@ -819,6 +872,8 @@ QuerySingleActivityInfoResponse Client::querySingleActivityInfoWithOptions(const
 }
 
 /**
+ * @summary 通过活动id, 参会人名称等查询单个审核通过的报名信息
+ *
  * @param request QuerySingleActivityInfoRequest
  * @return QuerySingleActivityInfoResponse
  */
@@ -828,6 +883,8 @@ QuerySingleActivityInfoResponse Client::querySingleActivityInfo(const QuerySingl
 }
 
 /**
+ * @summary 签到处理
+ *
  * @param request SyncSignInInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SyncSignInInfoResponse
@@ -853,6 +910,8 @@ SyncSignInInfoResponse Client::syncSignInInfoWithOptions(const SyncSignInInfoReq
 }
 
 /**
+ * @summary 签到处理
+ *
  * @param request SyncSignInInfoRequest
  * @return SyncSignInInfoResponse
  */
@@ -1033,6 +1092,52 @@ UpdateTicketRecordByticketCodePopResponse Client::updateTicketRecordByticketCode
 UpdateTicketRecordByticketCodePopResponse Client::updateTicketRecordByticketCodePop(const UpdateTicketRecordByticketCodePopRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateTicketRecordByticketCodePopWithOptions(request, runtime);
+}
+
+/**
+ * @summary 核验指定活动当天的入场权限
+ *
+ * @param request VerifyActivityAdmissionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VerifyActivityAdmissionResponse
+ */
+VerifyActivityAdmissionResponse Client::verifyActivityAdmissionWithOptions(const VerifyActivityAdmissionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasActivityId()) {
+    body["ActivityId"] = request.getActivityId();
+  }
+
+  if (!!request.hasIdCardNo()) {
+    body["IdCardNo"] = request.getIdCardNo();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "VerifyActivityAdmission"},
+    {"version" , "2021-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VerifyActivityAdmissionResponse>();
+}
+
+/**
+ * @summary 核验指定活动当天的入场权限
+ *
+ * @param request VerifyActivityAdmissionRequest
+ * @return VerifyActivityAdmissionResponse
+ */
+VerifyActivityAdmissionResponse Client::verifyActivityAdmission(const VerifyActivityAdmissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return verifyActivityAdmissionWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace MarketingEvent20210101

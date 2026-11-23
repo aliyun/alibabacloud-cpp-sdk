@@ -141,6 +141,25 @@ namespace MarketingEvent20210101
       Models::MosCheckInResponse mosCheckIn(const Models::MosCheckInRequest &request);
 
       /**
+       * @summary MOS活动报名查询
+       *
+       * @param request MosQueryRegistrationInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MosQueryRegistrationInfoResponse
+       */
+      Models::MosQueryRegistrationInfoResponse mosQueryRegistrationInfoWithOptions(const Models::MosQueryRegistrationInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary MOS活动报名查询
+       *
+       * @param request MosQueryRegistrationInfoRequest
+       * @return MosQueryRegistrationInfoResponse
+       */
+      Models::MosQueryRegistrationInfoResponse mosQueryRegistrationInfo(const Models::MosQueryRegistrationInfoRequest &request);
+
+      /**
+       * @summary 通过活动id查询所有审核通过的报名信息
+       *
        * @param request QueryAllActivityInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryAllActivityInfoResponse
@@ -148,6 +167,8 @@ namespace MarketingEvent20210101
       Models::QueryAllActivityInfoResponse queryAllActivityInfoWithOptions(const Models::QueryAllActivityInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 通过活动id查询所有审核通过的报名信息
+       *
        * @param request QueryAllActivityInfoRequest
        * @return QueryAllActivityInfoResponse
        */
@@ -240,6 +261,8 @@ namespace MarketingEvent20210101
       Models::QuerySignInRecordPopResponse querySignInRecordPop(const Models::QuerySignInRecordPopRequest &request);
 
       /**
+       * @summary 通过活动id, 参会人名称等查询单个审核通过的报名信息
+       *
        * @param request QuerySingleActivityInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QuerySingleActivityInfoResponse
@@ -247,12 +270,16 @@ namespace MarketingEvent20210101
       Models::QuerySingleActivityInfoResponse querySingleActivityInfoWithOptions(const Models::QuerySingleActivityInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 通过活动id, 参会人名称等查询单个审核通过的报名信息
+       *
        * @param request QuerySingleActivityInfoRequest
        * @return QuerySingleActivityInfoResponse
        */
       Models::QuerySingleActivityInfoResponse querySingleActivityInfo(const Models::QuerySingleActivityInfoRequest &request);
 
       /**
+       * @summary 签到处理
+       *
        * @param request SyncSignInInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SyncSignInInfoResponse
@@ -260,6 +287,8 @@ namespace MarketingEvent20210101
       Models::SyncSignInInfoResponse syncSignInInfoWithOptions(const Models::SyncSignInInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 签到处理
+       *
        * @param request SyncSignInInfoRequest
        * @return SyncSignInInfoResponse
        */
@@ -303,6 +332,23 @@ namespace MarketingEvent20210101
        * @return UpdateTicketRecordByticketCodePopResponse
        */
       Models::UpdateTicketRecordByticketCodePopResponse updateTicketRecordByticketCodePop(const Models::UpdateTicketRecordByticketCodePopRequest &request);
+
+      /**
+       * @summary 核验指定活动当天的入场权限
+       *
+       * @param request VerifyActivityAdmissionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return VerifyActivityAdmissionResponse
+       */
+      Models::VerifyActivityAdmissionResponse verifyActivityAdmissionWithOptions(const Models::VerifyActivityAdmissionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 核验指定活动当天的入场权限
+       *
+       * @param request VerifyActivityAdmissionRequest
+       * @return VerifyActivityAdmissionResponse
+       */
+      Models::VerifyActivityAdmissionResponse verifyActivityAdmission(const Models::VerifyActivityAdmissionRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace MarketingEvent20210101
