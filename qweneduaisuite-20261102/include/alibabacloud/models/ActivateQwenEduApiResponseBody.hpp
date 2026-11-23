@@ -73,7 +73,12 @@ namespace Models
 
 
     protected:
+      // The failure description.
       shared_ptr<string> failMessage_ {};
+      // The activation status. Valid values:
+      // - ACTIVE: Activated.
+      // - ACTIVATING: Activating.
+      // - FAILED: Activation failed.
       shared_ptr<string> status_ {};
     };
 
@@ -110,9 +115,13 @@ namespace Models
 
 
   protected:
+    // The API status or POP error code.
     shared_ptr<string> code_ {};
+    // The activation result. This parameter is null when an error occurs.
     shared_ptr<ActivateQwenEduApiResponseBody::Data> data_ {};
+    // The request error message.
     shared_ptr<string> message_ {};
+    // The POP request ID. This parameter is not returned when signature or identity verification fails.
     shared_ptr<string> requestId_ {};
   };
 

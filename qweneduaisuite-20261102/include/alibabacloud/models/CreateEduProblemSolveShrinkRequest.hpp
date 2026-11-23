@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // This parameter is required.
+    // **The question image container.**
     shared_ptr<string> queryShrink_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

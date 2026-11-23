@@ -97,9 +97,13 @@ namespace Models
 
 
       protected:
+        // **The Base64-encoded image**. If both this parameter and the URL are provided, this parameter takes precedence.
         shared_ptr<string> base64_ {};
+        // **The image format**: jpg, jpeg, or png. The value must match the actual file format.
+        // 
         // This parameter is required.
         shared_ptr<string> format_ {};
+        // The URL of a single question image.
         shared_ptr<string> url_ {};
       };
 
@@ -114,6 +118,7 @@ namespace Models
 
 
     protected:
+      // **The image information.**
       shared_ptr<Query::Image> image_ {};
     };
 
@@ -136,8 +141,9 @@ namespace Models
 
 
   protected:
-    // This parameter is required.
+    // **The question image container.**
     shared_ptr<CreateEduProblemSolveRequest::Query> query_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
