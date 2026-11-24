@@ -98,11 +98,11 @@ namespace Models
 
 
     protected:
-      // The time when the dynamic parameter was created, in UTC in RFC 3339 format.
+      // The creation time of the dynamic parameter, in UTC and RFC 3339 format.
       shared_ptr<string> createdAt_ {};
       // The name of the dynamic parameter.
       shared_ptr<string> key_ {};
-      // The time when the dynamic parameter was last updated, in UTC in RFC 3339 format.
+      // The update time of the dynamic parameter, in UTC and RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
       // The value of the dynamic parameter.
       shared_ptr<string> value_ {};
@@ -165,7 +165,7 @@ namespace Models
   protected:
     // The list of dynamic parameters.
     shared_ptr<vector<ListConfigsResponseBody::Configs>> configs_ {};
-    // Indicates whether more data exists.
+    // Indicates whether more data is available.
     shared_ptr<bool> hasMore_ {};
     // The service name.
     shared_ptr<string> name_ {};

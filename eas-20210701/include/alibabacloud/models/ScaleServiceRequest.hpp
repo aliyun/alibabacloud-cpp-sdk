@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The target number of instances.
+    // The target instance count for scaling.
     // 
     // This parameter is required.
     shared_ptr<int64_t> instance_ {};
-    // A list of instance names to prioritize for removal during a scale-in operation.
+    // The list of instance names to prioritize for deletion during a scale-in operation. Note: This parameter takes effect only during scale-in.
     shared_ptr<vector<string>> instancesToDelete_ {};
   };
 

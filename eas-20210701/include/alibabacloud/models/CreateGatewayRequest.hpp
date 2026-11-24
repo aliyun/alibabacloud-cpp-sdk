@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Replicas, replicas_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateGatewayRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ResourceName, resourceName_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     CreateGatewayRequest() = default ;
     CreateGatewayRequest(const CreateGatewayRequest &) = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceName_ == nullptr
         && this->autoRenewal_ == nullptr && this->chargeType_ == nullptr && this->enableInternet_ == nullptr && this->enableIntranet_ == nullptr && this->gatewayType_ == nullptr
-        && this->instanceType_ == nullptr && this->name_ == nullptr && this->replicas_ == nullptr; };
+        && this->instanceType_ == nullptr && this->name_ == nullptr && this->replicas_ == nullptr && this->workspaceId_ == nullptr; };
     // resourceName Field Functions 
     bool hasResourceName() const { return this->resourceName_ != nullptr;};
     void deleteResourceName() { this->resourceName_ = nullptr;};
@@ -111,22 +113,29 @@ namespace Models
     inline CreateGatewayRequest& setReplicas(int32_t replicas) { DARABONBA_PTR_SET_VALUE(replicas_, replicas) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline CreateGatewayRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
-    // The name of the resource group. For more information, see the ResourceName field where ResourceType is SelfManaged in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
+    // The name of the resource group. For more information, see the ResourceName field returned by the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation when ResourceType is set to SelfManaged.
     shared_ptr<string> resourceName_ {};
     // Specifies whether to enable auto-renewal. Valid values:
-    // - false: disables auto-renewal. This is the default value.
-    // - true: enables auto-renewal.
+    // - false: Disables auto-renewal. This is the default value.
+    // - true: Enables auto-renewal.
     shared_ptr<bool> autoRenewal_ {};
     // The billing method. Valid values:
-    // - PrePaid: subscription.
-    // - PostPaid: pay-as-you-go.
+    // - PrePaid: Subscription.
+    // - PostPaid: Pay-as-you-go.
     shared_ptr<string> chargeType_ {};
     // Specifies whether to enable public network access. Default value: false.
     shared_ptr<bool> enableInternet_ {};
     // Specifies whether to enable internal network access. Default value: true.
     shared_ptr<bool> enableIntranet_ {};
-    // The type of the private gateway. ALB indicates an application-layer dedicated gateway, and FullyManaged indicates a fully managed dedicated gateway.
+    // The type of the private gateway. A value of ALB indicates an application-type dedicated gateway. A value of FullyManaged indicates a fully managed dedicated gateway.
     shared_ptr<string> gatewayType_ {};
     // The instance type used by the private gateway. Valid values:
     // - 2c4g
@@ -138,6 +147,8 @@ namespace Models
     shared_ptr<string> name_ {};
     // The number of nodes in the private gateway.
     shared_ptr<int32_t> replicas_ {};
+    // The workspace ID.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

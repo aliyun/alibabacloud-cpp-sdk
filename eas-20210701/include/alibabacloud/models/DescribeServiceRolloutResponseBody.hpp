@@ -101,7 +101,7 @@ namespace Models
 
 
         protected:
-          // The partition value. Specifies the number or percentage of old replicas to retain. For example, \\"50%\\" indicates that 50% of the old replicas are retained.
+          // The partition value. Indicates the number or percentage of old replicas to retain. For example, \\"50%\\" indicates that 50% of the old replicas are retained.
           shared_ptr<string> partition_ {};
         };
 
@@ -145,7 +145,7 @@ namespace Models
         protected:
           // The batch size. The number or percentage of replicas to update in each batch.
           shared_ptr<string> batchSize_ {};
-          // The batch interval. The wait time between two consecutive rollout batches.
+          // The batch interval. The waiting time between two rollouts.
           shared_ptr<string> interval_ {};
         };
 
@@ -170,9 +170,9 @@ namespace Models
 
 
       protected:
-        // The batch rollout configuration. This field is returned only if a batch-based rollout strategy is used.
+        // The batch rollout configuration. This parameter is returned if a batch rollout strategy is used. Otherwise, it is not returned.
         shared_ptr<Strategy::Batch> batch_ {};
-        // The partition rollout configuration. This field is returned only if a partition-based rollout strategy is used.
+        // The partition rollout configuration. This parameter is returned if a partition rollout strategy is used. Otherwise, it is not returned.
         shared_ptr<Strategy::Partition> partition_ {};
       };
 
@@ -252,20 +252,20 @@ namespace Models
       protected:
         // The current revision. The identifier of the version that is currently running.
         shared_ptr<string> currentRevision_ {};
-        // The time when the next batch starts updating, in the format of YYYY/MM/DD HH:mm:ss.
+        // The start time of the next batch update, in the YYYY/MM/DD HH:mm:ss format.
         shared_ptr<string> nextBatchStartTime_ {};
         // The rollout phase. Valid values:
-        // - Pending: Waiting to start the rollout.
+        // - Pending: The rollout is waiting to start.
         // - Running: The rollout is in progress.
         // - Paused: The rollout is paused.
         // - Completed: The rollout is completed.
         // - Failed: The rollout failed.
         shared_ptr<string> phase_ {};
-        // The total number of replicas for the service.
+        // The total number of replicas. The total number of replicas for the service.
         shared_ptr<int32_t> totalReplicas_ {};
         // The update revision. The identifier of the target version to which the service is being updated.
         shared_ptr<string> updateRevision_ {};
-        // The number of replicas that have been updated to the new version.
+        // The number of updated replicas. The number of replicas that have been updated to the new version.
         shared_ptr<int32_t> updatedReplicas_ {};
       };
 
@@ -290,9 +290,9 @@ namespace Models
 
 
     protected:
-      // The rollout execution status. Contains the current rollout progress and phase information.
+      // The rollout execution status. Includes the current rollout progress and phase information.
       shared_ptr<Rollout::Status> status_ {};
-      // The rollout strategy configuration. Contains the specific configuration parameters for partition-based or batch-based rollout.
+      // The rollout strategy configuration. Includes the specific configuration parameters for partition or batch rollouts.
       shared_ptr<Rollout::Strategy> strategy_ {};
     };
 
@@ -315,9 +315,9 @@ namespace Models
 
 
   protected:
-    // The request ID. A unique identifier returned with each request, used for troubleshooting and tracing.
+    // The request ID. The unique identifier returned for each request, used for troubleshooting and tracking.
     shared_ptr<string> requestId_ {};
-    // The rollout strategy information. Contains the strategy configuration (Strategy) and execution status (Status).
+    // The rollout information. Includes the strategy configuration and execution status.
     shared_ptr<DescribeServiceRolloutResponseBody::Rollout> rollout_ {};
   };
 

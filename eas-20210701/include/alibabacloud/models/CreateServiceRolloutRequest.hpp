@@ -137,9 +137,9 @@ namespace Models
 
 
   protected:
-    // The configuration for automatic batching.
+    // The automatic batching configuration.
     shared_ptr<CreateServiceRolloutRequest::Batch> batch_ {};
-    // The configuration for manual batching.
+    // The manual batching configuration.
     shared_ptr<CreateServiceRolloutRequest::Partition> partition_ {};
     // Specifies whether to pause the update.
     shared_ptr<bool> paused_ {};

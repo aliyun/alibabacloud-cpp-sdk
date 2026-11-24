@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the private gateway.
+    // The private gateway ID.
     shared_ptr<string> gatewayId_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

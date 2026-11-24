@@ -17,23 +17,29 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableInternet, enableInternet_);
       DARABONBA_PTR_TO_JSON(EnableIntranet, enableIntranet_);
       DARABONBA_PTR_TO_JSON(EnableSSLRedirection, enableSSLRedirection_);
+      DARABONBA_PTR_TO_JSON(IdleTimeout, idleTimeout_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Replicas, replicas_);
+      DARABONBA_PTR_TO_JSON(RequestTimeout, requestTimeout_);
       DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateGatewayRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EnableInternet, enableInternet_);
       DARABONBA_PTR_FROM_JSON(EnableIntranet, enableIntranet_);
       DARABONBA_PTR_FROM_JSON(EnableSSLRedirection, enableSSLRedirection_);
+      DARABONBA_PTR_FROM_JSON(IdleTimeout, idleTimeout_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
+      DARABONBA_PTR_FROM_JSON(RequestTimeout, requestTimeout_);
       DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     UpdateGatewayRequest() = default ;
     UpdateGatewayRequest(const UpdateGatewayRequest &) = default ;
@@ -47,8 +53,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableInternet_ == nullptr
-        && this->enableIntranet_ == nullptr && this->enableSSLRedirection_ == nullptr && this->instanceType_ == nullptr && this->isDefault_ == nullptr && this->name_ == nullptr
-        && this->replicas_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr; };
+        && this->enableIntranet_ == nullptr && this->enableSSLRedirection_ == nullptr && this->idleTimeout_ == nullptr && this->instanceType_ == nullptr && this->isDefault_ == nullptr
+        && this->name_ == nullptr && this->replicas_ == nullptr && this->requestTimeout_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // enableInternet Field Functions 
     bool hasEnableInternet() const { return this->enableInternet_ != nullptr;};
     void deleteEnableInternet() { this->enableInternet_ = nullptr;};
@@ -68,6 +75,13 @@ namespace Models
     void deleteEnableSSLRedirection() { this->enableSSLRedirection_ = nullptr;};
     inline bool getEnableSSLRedirection() const { DARABONBA_PTR_GET_DEFAULT(enableSSLRedirection_, false) };
     inline UpdateGatewayRequest& setEnableSSLRedirection(bool enableSSLRedirection) { DARABONBA_PTR_SET_VALUE(enableSSLRedirection_, enableSSLRedirection) };
+
+
+    // idleTimeout Field Functions 
+    bool hasIdleTimeout() const { return this->idleTimeout_ != nullptr;};
+    void deleteIdleTimeout() { this->idleTimeout_ = nullptr;};
+    inline int32_t getIdleTimeout() const { DARABONBA_PTR_GET_DEFAULT(idleTimeout_, 0) };
+    inline UpdateGatewayRequest& setIdleTimeout(int32_t idleTimeout) { DARABONBA_PTR_SET_VALUE(idleTimeout_, idleTimeout) };
 
 
     // instanceType Field Functions 
@@ -98,6 +112,13 @@ namespace Models
     inline UpdateGatewayRequest& setReplicas(int32_t replicas) { DARABONBA_PTR_SET_VALUE(replicas_, replicas) };
 
 
+    // requestTimeout Field Functions 
+    bool hasRequestTimeout() const { return this->requestTimeout_ != nullptr;};
+    void deleteRequestTimeout() { this->requestTimeout_ = nullptr;};
+    inline int32_t getRequestTimeout() const { DARABONBA_PTR_GET_DEFAULT(requestTimeout_, 0) };
+    inline UpdateGatewayRequest& setRequestTimeout(int32_t requestTimeout) { DARABONBA_PTR_SET_VALUE(requestTimeout_, requestTimeout) };
+
+
     // vSwitchIds Field Functions 
     bool hasVSwitchIds() const { return this->vSwitchIds_ != nullptr;};
     void deleteVSwitchIds() { this->vSwitchIds_ = nullptr;};
@@ -114,6 +135,13 @@ namespace Models
     inline UpdateGatewayRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline UpdateGatewayRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     // Specifies whether to enable public network access. Default value: false.
     shared_ptr<bool> enableInternet_ {};
@@ -121,6 +149,8 @@ namespace Models
     shared_ptr<bool> enableIntranet_ {};
     // Specifies whether to enable HTTP to HTTPS redirection. Default value: false.
     shared_ptr<bool> enableSSLRedirection_ {};
+    // The idle connection timeout period. Unit: seconds. Default value: 600. Valid values: 1 to 3600.
+    shared_ptr<int32_t> idleTimeout_ {};
     // The instance type used by the private gateway. Valid values:
     // - 2c4g
     // - 4c8g
@@ -133,10 +163,14 @@ namespace Models
     shared_ptr<string> name_ {};
     // The number of nodes in the private gateway.
     shared_ptr<int32_t> replicas_ {};
+    // The request timeout period. Unit: seconds. Default value: 600. Valid values: 1 to 3600.
+    shared_ptr<int32_t> requestTimeout_ {};
     // The list of vSwitches. This parameter applies only to dedicated gateways for applications.
     shared_ptr<vector<string>> vSwitchIds_ {};
     // The ID of the VPC to which the gateway belongs. This parameter applies only to dedicated gateways for applications.
     shared_ptr<string> vpcId_ {};
+    // The workspace ID.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

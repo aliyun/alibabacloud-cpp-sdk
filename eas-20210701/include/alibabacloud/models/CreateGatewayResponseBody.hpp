@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The region where the private gateway resides.
+    // The region where the private gateway is located.
     shared_ptr<string> clusterId_ {};
-    // The ID of the private gateway.
+    // The private gateway ID.
     shared_ptr<string> gatewayId_ {};
     // The message returned in the response.
     shared_ptr<string> message_ {};

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExternalClusterId, externalClusterId_);
       DARABONBA_PTR_TO_JSON(GatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(GatewayName, gatewayName_);
+      DARABONBA_PTR_TO_JSON(IdleTimeout, idleTimeout_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(InternetDomain, internetDomain_);
       DARABONBA_PTR_TO_JSON(InternetEnabled, internetEnabled_);
@@ -29,9 +30,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Labels, labels_);
       DARABONBA_PTR_TO_JSON(Replicas, replicas_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(RequestTimeout, requestTimeout_);
       DARABONBA_PTR_TO_JSON(SSLRedirectionEnabled, SSLRedirectionEnabled_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeGatewayResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
@@ -39,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExternalClusterId, externalClusterId_);
       DARABONBA_PTR_FROM_JSON(GatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(GatewayName, gatewayName_);
+      DARABONBA_PTR_FROM_JSON(IdleTimeout, idleTimeout_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(InternetDomain, internetDomain_);
       DARABONBA_PTR_FROM_JSON(InternetEnabled, internetEnabled_);
@@ -49,9 +53,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
       DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(RequestTimeout, requestTimeout_);
       DARABONBA_PTR_FROM_JSON(SSLRedirectionEnabled, SSLRedirectionEnabled_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     DescribeGatewayResponseBody() = default ;
     DescribeGatewayResponseBody(const DescribeGatewayResponseBody &) = default ;
@@ -102,17 +108,17 @@ namespace Models
 
 
     protected:
-      // The gateway label key.
+      // The key of the gateway label.
       shared_ptr<string> labelKey_ {};
-      // The gateway label value.
+      // The value of the gateway label.
       shared_ptr<string> labelValue_ {};
     };
 
     virtual bool empty() const override { return this->chargeType_ == nullptr
-        && this->createTime_ == nullptr && this->externalClusterId_ == nullptr && this->gatewayId_ == nullptr && this->gatewayName_ == nullptr && this->instanceType_ == nullptr
-        && this->internetDomain_ == nullptr && this->internetEnabled_ == nullptr && this->internetStatus_ == nullptr && this->intranetDomain_ == nullptr && this->intranetEnabled_ == nullptr
-        && this->isDefault_ == nullptr && this->labels_ == nullptr && this->replicas_ == nullptr && this->requestId_ == nullptr && this->SSLRedirectionEnabled_ == nullptr
-        && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->createTime_ == nullptr && this->externalClusterId_ == nullptr && this->gatewayId_ == nullptr && this->gatewayName_ == nullptr && this->idleTimeout_ == nullptr
+        && this->instanceType_ == nullptr && this->internetDomain_ == nullptr && this->internetEnabled_ == nullptr && this->internetStatus_ == nullptr && this->intranetDomain_ == nullptr
+        && this->intranetEnabled_ == nullptr && this->isDefault_ == nullptr && this->labels_ == nullptr && this->replicas_ == nullptr && this->requestId_ == nullptr
+        && this->requestTimeout_ == nullptr && this->SSLRedirectionEnabled_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr && this->workspaceId_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -146,6 +152,13 @@ namespace Models
     void deleteGatewayName() { this->gatewayName_ = nullptr;};
     inline string getGatewayName() const { DARABONBA_PTR_GET_DEFAULT(gatewayName_, "") };
     inline DescribeGatewayResponseBody& setGatewayName(string gatewayName) { DARABONBA_PTR_SET_VALUE(gatewayName_, gatewayName) };
+
+
+    // idleTimeout Field Functions 
+    bool hasIdleTimeout() const { return this->idleTimeout_ != nullptr;};
+    void deleteIdleTimeout() { this->idleTimeout_ = nullptr;};
+    inline string getIdleTimeout() const { DARABONBA_PTR_GET_DEFAULT(idleTimeout_, "") };
+    inline DescribeGatewayResponseBody& setIdleTimeout(string idleTimeout) { DARABONBA_PTR_SET_VALUE(idleTimeout_, idleTimeout) };
 
 
     // instanceType Field Functions 
@@ -220,6 +233,13 @@ namespace Models
     inline DescribeGatewayResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // requestTimeout Field Functions 
+    bool hasRequestTimeout() const { return this->requestTimeout_ != nullptr;};
+    void deleteRequestTimeout() { this->requestTimeout_ = nullptr;};
+    inline string getRequestTimeout() const { DARABONBA_PTR_GET_DEFAULT(requestTimeout_, "") };
+    inline DescribeGatewayResponseBody& setRequestTimeout(string requestTimeout) { DARABONBA_PTR_SET_VALUE(requestTimeout_, requestTimeout) };
+
+
     // SSLRedirectionEnabled Field Functions 
     bool hasSSLRedirectionEnabled() const { return this->SSLRedirectionEnabled_ != nullptr;};
     void deleteSSLRedirectionEnabled() { this->SSLRedirectionEnabled_ = nullptr;};
@@ -241,43 +261,58 @@ namespace Models
     inline DescribeGatewayResponseBody& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline DescribeGatewayResponseBody& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
-    // The billing method. Valid values:
+    // The billing method.
     shared_ptr<string> chargeType_ {};
-    // The time when the dedicated gateway was created. The time is in UTC.
+    // The time when the private gateway was created. The time is displayed in UTC.
     shared_ptr<string> createTime_ {};
-    // The self-managed cluster ID.
+    // The ID of the self-managed cluster.
     shared_ptr<string> externalClusterId_ {};
-    // The dedicated gateway ID.
+    // The ID of the private gateway.
     shared_ptr<string> gatewayId_ {};
-    // The alias of the dedicated gateway.
+    // The alias of the private gateway.
     shared_ptr<string> gatewayName_ {};
-    // The instance type used by the dedicated gateway.
+    // The idle connection timeout. Default value: 600. Valid values: 1 to 3600. Unit: seconds.
+    shared_ptr<string> idleTimeout_ {};
+    // The instance type used by the private gateway.
     shared_ptr<string> instanceType_ {};
-    // The public network access domain name.
+    // The domain name for public network access.
     shared_ptr<string> internetDomain_ {};
-    // Indicates whether public network access is enabled.
+    // Specifies whether public network access is enabled.
     shared_ptr<bool> internetEnabled_ {};
-    // The status of public network access. Valid values:
+    // The status of enabling or disabling public network access.
     shared_ptr<string> internetStatus_ {};
-    // The internal access domain name.
+    // The domain name for internal network access.
     shared_ptr<string> intranetDomain_ {};
-    // Indicates whether internal network access is enabled. A value of true indicates that internal network access is enabled. A value of false indicates that internal network access is not enabled.
+    // Specifies whether internal network access is enabled. A value of true indicates that internal network access is enabled. A value of false indicates that internal network access is disabled.
     shared_ptr<bool> intranetEnabled_ {};
-    // Indicates whether the dedicated gateway is the default gateway.
+    // Specifies whether the private gateway is the default private gateway.
     shared_ptr<bool> isDefault_ {};
     // The list of gateway labels.
     shared_ptr<vector<DescribeGatewayResponseBody::Labels>> labels_ {};
-    // The number of nodes in the dedicated gateway.
+    // The number of nodes in the private gateway.
     shared_ptr<int32_t> replicas_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether HTTP-to-HTTPS redirection is enabled.
+    // The request timeout. Unit: seconds.
+    // 
+    // Default value: 600. Valid values: 1 to 3600.
+    shared_ptr<string> requestTimeout_ {};
+    // Specifies whether HTTP to HTTPS redirection is enabled.
     shared_ptr<bool> SSLRedirectionEnabled_ {};
-    // The status of the dedicated gateway. Valid values:
+    // The status of the private gateway.
     shared_ptr<string> status_ {};
-    // The time when the dedicated gateway was last updated. The time is in UTC.
+    // The time when the private gateway was updated. The time is displayed in UTC.
     shared_ptr<string> updateTime_ {};
+    // The workspace ID.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

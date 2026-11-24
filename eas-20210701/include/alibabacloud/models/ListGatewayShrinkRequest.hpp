@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceName, resourceName_);
       DARABONBA_PTR_TO_JSON(Sort, sort_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListGatewayShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceName, resourceName_);
       DARABONBA_PTR_FROM_JSON(Sort, sort_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     ListGatewayShrinkRequest() = default ;
     ListGatewayShrinkRequest(const ListGatewayShrinkRequest &) = default ;
@@ -54,7 +56,7 @@ namespace Models
     virtual bool empty() const override { return this->chargeType_ == nullptr
         && this->gatewayId_ == nullptr && this->gatewayName_ == nullptr && this->gatewayType_ == nullptr && this->internetEnabled_ == nullptr && this->labelShrink_ == nullptr
         && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceName_ == nullptr && this->sort_ == nullptr
-        && this->status_ == nullptr; };
+        && this->status_ == nullptr && this->workspaceId_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -139,31 +141,40 @@ namespace Models
     inline ListGatewayShrinkRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ListGatewayShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     // The billing method.
     shared_ptr<string> chargeType_ {};
-    // The ID of the private gateway. For information about how to obtain the ID of a private gateway, see the private_gateway_id field in the response of the ListResources operation.
+    // The ID of the private gateway. To obtain the private gateway ID, see the private_gateway_id field in the response of the ListResources operation.
     shared_ptr<string> gatewayId_ {};
     // The alias of the private gateway.
     shared_ptr<string> gatewayName_ {};
     // The type of the gateway.
     shared_ptr<string> gatewayType_ {};
-    // Specifies whether Internet access is enabled.
+    // Specifies whether public network access is enabled.
     shared_ptr<bool> internetEnabled_ {};
-    // The label used to filter gateways.
+    // Filters the results by label.
     shared_ptr<string> labelShrink_ {};
     // The sort order.
     shared_ptr<string> order_ {};
     // The page number of the gateway list. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The paging Settings for the number of entries to return per page in a paged query. Default value: 100.
+    // The paging settings for the number of entries to return on each page in a paged query. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group. For information about how to obtain the ID of a resource group, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
+    // The ID of the resource group. To obtain the resource group ID, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
     shared_ptr<string> resourceName_ {};
     // The field used for sorting.
     shared_ptr<string> sort_ {};
     // The status of the gateway.
     shared_ptr<string> status_ {};
+    // The ID of the workspace.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

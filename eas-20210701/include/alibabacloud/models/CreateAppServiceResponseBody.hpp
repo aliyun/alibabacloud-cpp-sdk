@@ -98,7 +98,7 @@ namespace Models
     shared_ptr<string> internetEndpoint_ {};
     // The internal endpoint of the service.
     shared_ptr<string> intranetEndpoint_ {};
-    // The region where the service is located.
+    // The region where the service is deployed.
     shared_ptr<string> region_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

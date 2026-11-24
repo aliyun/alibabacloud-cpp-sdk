@@ -399,10 +399,10 @@ CreateBenchmarkTaskResponse Client::createBenchmarkTask(const CreateBenchmarkTas
  * @summary Creates a single dynamic parameter in a specified service.
  *
  * @description ## Request description
- * - This API operation sends a POST request to a specified path to create a dynamic parameter.
- * - The dynamic parameter name (ConfigKey) supports letters, digits, periods, underscores, hyphens, and forward slashes, with a maximum length of 100 characters.
+ * - This API sends a POST request to a specified path to create a dynamic parameter.
+ * - The name of the dynamic parameter (ConfigKey) supports letters, digits, periods, underscores, hyphens, and forward slashes, with a maximum length of 100 characters.
  * - The request body must contain the specific value (Value) of the dynamic parameter.
- * - After the dynamic parameter is created, the API returns key information about the new dynamic parameter, including the parameter name (Key), value (Value), and the creation and update timestamps.
+ * - After the dynamic parameter is created, the API returns the key information of the new dynamic parameter, including the parameter name (Key), value (Value), and the creation and update timestamps.
  *
  * @param request CreateConfigRequest
  * @param headers map
@@ -438,10 +438,10 @@ CreateConfigResponse Client::createConfigWithOptions(const string &ClusterId, co
  * @summary Creates a single dynamic parameter in a specified service.
  *
  * @description ## Request description
- * - This API operation sends a POST request to a specified path to create a dynamic parameter.
- * - The dynamic parameter name (ConfigKey) supports letters, digits, periods, underscores, hyphens, and forward slashes, with a maximum length of 100 characters.
+ * - This API sends a POST request to a specified path to create a dynamic parameter.
+ * - The name of the dynamic parameter (ConfigKey) supports letters, digits, periods, underscores, hyphens, and forward slashes, with a maximum length of 100 characters.
  * - The request body must contain the specific value (Value) of the dynamic parameter.
- * - After the dynamic parameter is created, the API returns key information about the new dynamic parameter, including the parameter name (Key), value (Value), and the creation and update timestamps.
+ * - After the dynamic parameter is created, the API returns the key information of the new dynamic parameter, including the parameter name (Key), value (Value), and the creation and update timestamps.
  *
  * @param request CreateConfigRequest
  * @return CreateConfigResponse
@@ -455,7 +455,7 @@ CreateConfigResponse Client::createConfig(const string &ClusterId, const string 
 /**
  * @summary Creates a fault injection task.
  *
- * @description **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+ * @description **Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you call this operation.**
  *
  * @param request CreateFaultInjectionRequest
  * @param headers map
@@ -494,7 +494,7 @@ CreateFaultInjectionResponse Client::createFaultInjectionWithOptions(const strin
 /**
  * @summary Creates a fault injection task.
  *
- * @description **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+ * @description **Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you call this operation.**
  *
  * @param request CreateFaultInjectionRequest
  * @return CreateFaultInjectionResponse
@@ -551,6 +551,10 @@ CreateGatewayResponse Client::createGatewayWithOptions(const CreateGatewayReques
 
   if (!!request.hasReplicas()) {
     body["Replicas"] = request.getReplicas();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1253,15 +1257,15 @@ CreateServiceMirrorResponse Client::createServiceMirror(const string &ClusterId,
 }
 
 /**
- * @summary Creates a service rollout plan.
+ * @summary Creates a service update plan.
  *
  * @description ## Request description
- * - **Mutually exclusive policies**: You can choose only one of the Partition (partition-based rollout) and Batch (batch-based rollout) policies. They cannot be used at the same time.
+ * - **Mutually exclusive policies**: You can select only one of the Partition (partition-based rollout) and Batch (batch-based rollout) policies. They cannot be used simultaneously.
  * - **Request rate limit**: A maximum of 100 requests per second.
  * - **Authorization information**: You must have the eas:CreateServiceRollout permission to call this operation.
  * - **Resource ARN**: acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}.
  * - **Pause a rollout**: You can pause the rollout process by setting the Paused parameter to true. You can then resume or cancel the rollout by calling the UpdateServiceRollout operation.
- * - **Monitoring and rollback**: Continuously monitor service metrics during the rollout to identify and resolve issues promptly. To roll back, adjust the Partition value or delete the rollout policy.
+ * - **Monitoring and rollback**: Continuously monitor service metrics during the rollout to promptly identify and resolve issues. To roll back, adjust the Partition value or delete the rollout policy.
  *
  * @param request CreateServiceRolloutRequest
  * @param headers map
@@ -1302,15 +1306,15 @@ CreateServiceRolloutResponse Client::createServiceRolloutWithOptions(const strin
 }
 
 /**
- * @summary Creates a service rollout plan.
+ * @summary Creates a service update plan.
  *
  * @description ## Request description
- * - **Mutually exclusive policies**: You can choose only one of the Partition (partition-based rollout) and Batch (batch-based rollout) policies. They cannot be used at the same time.
+ * - **Mutually exclusive policies**: You can select only one of the Partition (partition-based rollout) and Batch (batch-based rollout) policies. They cannot be used simultaneously.
  * - **Request rate limit**: A maximum of 100 requests per second.
  * - **Authorization information**: You must have the eas:CreateServiceRollout permission to call this operation.
  * - **Resource ARN**: acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}.
  * - **Pause a rollout**: You can pause the rollout process by setting the Paused parameter to true. You can then resume or cancel the rollout by calling the UpdateServiceRollout operation.
- * - **Monitoring and rollback**: Continuously monitor service metrics during the rollout to identify and resolve issues promptly. To roll back, adjust the Partition value or delete the rollout policy.
+ * - **Monitoring and rollback**: Continuously monitor service metrics during the rollout to promptly identify and resolve issues. To roll back, adjust the Partition value or delete the rollout policy.
  *
  * @param request CreateServiceRolloutRequest
  * @return CreateServiceRolloutResponse
@@ -1472,7 +1476,7 @@ DeleteBenchmarkTaskResponse Client::deleteBenchmarkTask(const string &ClusterId,
  * @summary Deletes a single dynamic parameter for a specified service.
  *
  * @description ## Request description
- * This API allows you to delete a specific configuration item by specifying the cluster ID, configuration type, service name, and configuration item name. Ensure that the provided parameter values are accurate to prevent accidental deletion of important configurations.
+ * This API allows you to delete a specific configuration item by specifying the cluster ID, configuration type, service name, and configuration item name. Ensure that the provided parameter values are accurate to avoid accidental deletion of important configurations.
  *
  * @param request DeleteConfigRequest
  * @param headers map
@@ -1502,7 +1506,7 @@ DeleteConfigResponse Client::deleteConfigWithOptions(const string &ClusterId, co
  * @summary Deletes a single dynamic parameter for a specified service.
  *
  * @description ## Request description
- * This API allows you to delete a specific configuration item by specifying the cluster ID, configuration type, service name, and configuration item name. Ensure that the provided parameter values are accurate to prevent accidental deletion of important configurations.
+ * This API allows you to delete a specific configuration item by specifying the cluster ID, configuration type, service name, and configuration item name. Ensure that the provided parameter values are accurate to avoid accidental deletion of important configurations.
  *
  * @param request DeleteConfigRequest
  * @return DeleteConfigResponse
@@ -1516,7 +1520,7 @@ DeleteConfigResponse Client::deleteConfig(const string &ClusterId, const string 
 /**
  * @summary Deletes a fault injection task.
  *
- * @description **Before you use this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+ * @description **Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request DeleteFaultInjectionRequest
  * @param headers map
@@ -1545,7 +1549,7 @@ DeleteFaultInjectionResponse Client::deleteFaultInjectionWithOptions(const strin
 /**
  * @summary Deletes a fault injection task.
  *
- * @description **Before you use this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+ * @description **Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request DeleteFaultInjectionRequest
  * @return DeleteFaultInjectionResponse
@@ -1702,7 +1706,7 @@ DeleteGatewayIntranetLinkedVpcPeerResponse Client::deleteGatewayIntranetLinkedVp
 /**
  * @summary Deletes gateway labels.
  *
- * @description **Before you call this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) for Elastic Algorithm Service (EAS).**
+ * @description **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param tmpReq DeleteGatewayLabelRequest
  * @param headers map
@@ -1743,7 +1747,7 @@ DeleteGatewayLabelResponse Client::deleteGatewayLabelWithOptions(const string &C
 /**
  * @summary Deletes gateway labels.
  *
- * @description **Before you call this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) for Elastic Algorithm Service (EAS).**
+ * @description **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request DeleteGatewayLabelRequest
  * @return DeleteGatewayLabelResponse
@@ -2323,9 +2327,9 @@ DeleteServiceMirrorResponse Client::deleteServiceMirror(const string &ClusterId,
 }
 
 /**
- * @summary Deletes the update plan of a service.
+ * @summary Deletes a service update plan.
  *
- * @description Deletes the update plan of a specified service.
+ * @description Deletes the update plan for a specified service.
  *
  * @param request DeleteServiceRolloutRequest
  * @param headers map
@@ -2352,9 +2356,9 @@ DeleteServiceRolloutResponse Client::deleteServiceRolloutWithOptions(const strin
 }
 
 /**
- * @summary Deletes the update plan of a service.
+ * @summary Deletes a service update plan.
  *
- * @description Deletes the update plan of a specified service.
+ * @description Deletes the update plan for a specified service.
  *
  * @param request DeleteServiceRolloutRequest
  * @return DeleteServiceRolloutResponse
@@ -2405,7 +2409,7 @@ DeleteVirtualResourceResponse Client::deleteVirtualResource(const string &Cluste
 }
 
 /**
- * @summary Queries the details of a cloud native artifact.
+ * @summary Queries the details of an artifact.
  *
  * @param request DescribeArtifactRequest
  * @param headers map
@@ -2432,7 +2436,7 @@ DescribeArtifactResponse Client::describeArtifactWithOptions(const string &Clust
 }
 
 /**
- * @summary Queries the details of a cloud native artifact.
+ * @summary Queries the details of an artifact.
  *
  * @param request DescribeArtifactRequest
  * @return DescribeArtifactResponse
@@ -2528,7 +2532,7 @@ DescribeBenchmarkTaskReportResponse Client::describeBenchmarkTaskReport(const st
 }
 
 /**
- * @summary Queries the details of a dedicated gateway.
+ * @summary Queries the details of a private gateway.
  *
  * @param request DescribeGatewayRequest
  * @param headers map
@@ -2555,7 +2559,7 @@ DescribeGatewayResponse Client::describeGatewayWithOptions(const string &Cluster
 }
 
 /**
- * @summary Queries the details of a dedicated gateway.
+ * @summary Queries the details of a private gateway.
  *
  * @param request DescribeGatewayRequest
  * @return DescribeGatewayResponse
@@ -2857,7 +2861,7 @@ DescribeResourceLogResponse Client::describeResourceLog(const string &ClusterId,
 }
 
 /**
- * @summary Queries the details about a service.
+ * @summary Retrieves the details of a specified service.
  *
  * @param request DescribeServiceRequest
  * @param headers map
@@ -2884,7 +2888,7 @@ DescribeServiceResponse Client::describeServiceWithOptions(const string &Cluster
 }
 
 /**
- * @summary Queries the details about a service.
+ * @summary Retrieves the details of a specified service.
  *
  * @param request DescribeServiceRequest
  * @return DescribeServiceResponse
@@ -3272,15 +3276,15 @@ DescribeServiceMirrorResponse Client::describeServiceMirror(const string &Cluste
 }
 
 /**
- * @summary Queries the service update plan.
+ * @summary Queries the service rollout plan.
  *
- * @description ## Operation description
+ * @description ## Request description
  * - This operation queries the rollout configuration and current execution status of a specific service.
- * - The returned information includes but is not limited to the specific parameters of the rollout strategy and the current rollout progress.
- * - Specify `ClusterId` and the service name `ServiceName` as path parameters in the request.
- * - The request rate limit is 100 requests per second.
- * - If the service does not exist or no rollout strategy has been created, this operation returns an error.
- * - The returned status is a real-time query result that may change over time. Adjust the polling interval as needed.
+ * - The returned information includes but is not limited to the specific parameters of the rollout and the current rollout progress.
+ * - You must provide ClusterId and the service name ServiceName as path parameters in the request.
+ * - Note that the request rate limit is up to 100 requests per second.
+ * - If the service does not exist or no rollout is created, calling this operation returns an error.
+ * - The returned status is the result of a real-time query and may change over time. Adjust the polling interval as needed.
  *
  * @param request DescribeServiceRolloutRequest
  * @param headers map
@@ -3307,15 +3311,15 @@ DescribeServiceRolloutResponse Client::describeServiceRolloutWithOptions(const s
 }
 
 /**
- * @summary Queries the service update plan.
+ * @summary Queries the service rollout plan.
  *
- * @description ## Operation description
+ * @description ## Request description
  * - This operation queries the rollout configuration and current execution status of a specific service.
- * - The returned information includes but is not limited to the specific parameters of the rollout strategy and the current rollout progress.
- * - Specify `ClusterId` and the service name `ServiceName` as path parameters in the request.
- * - The request rate limit is 100 requests per second.
- * - If the service does not exist or no rollout strategy has been created, this operation returns an error.
- * - The returned status is a real-time query result that may change over time. Adjust the polling interval as needed.
+ * - The returned information includes but is not limited to the specific parameters of the rollout and the current rollout progress.
+ * - You must provide ClusterId and the service name ServiceName as path parameters in the request.
+ * - Note that the request rate limit is up to 100 requests per second.
+ * - If the service does not exist or no rollout is created, calling this operation returns an error.
+ * - The returned status is the result of a real-time query and may change over time. Adjust the polling interval as needed.
  *
  * @param request DescribeServiceRolloutRequest
  * @return DescribeServiceRolloutResponse
@@ -3690,15 +3694,15 @@ ListBenchmarkTaskResponse Client::listBenchmarkTask(const ListBenchmarkTaskReque
 }
 
 /**
- * @summary Queries the list of dynamic parameters under a specified service.
+ * @summary Queries the list of dynamic parameters for a specified service.
  *
- * @description ## Operation description
- * - This API operation queries the list of dynamic parameters under a specific service.
- * - ClusterId specifies the region to which the service belongs.
- * - ConfigType currently supports only the `service` type.
- * - Name specifies the service name.
- * - Use the Page and PageSize parameters for paged query. By default, 100 records are displayed per page, with a maximum of 200.
- * - The response includes dynamic parameter details and paging information.
+ * @description ## Request description
+ * - This operation queries the list of dynamic parameters for a specific service.
+ * - `ClusterId` specifies the region of the service to query.
+ * - `ConfigType` currently supports only the `service` type.
+ * - `Name` specifies the service name.
+ * - You can use the `Page` and `PageSize` parameters to perform a paged query. By default, 100 records are displayed per page, and a maximum of 200 records are supported.
+ * - The response includes the details of the dynamic parameters and paging information.
  *
  * @param request ListConfigsRequest
  * @param headers map
@@ -3735,15 +3739,15 @@ ListConfigsResponse Client::listConfigsWithOptions(const string &ClusterId, cons
 }
 
 /**
- * @summary Queries the list of dynamic parameters under a specified service.
+ * @summary Queries the list of dynamic parameters for a specified service.
  *
- * @description ## Operation description
- * - This API operation queries the list of dynamic parameters under a specific service.
- * - ClusterId specifies the region to which the service belongs.
- * - ConfigType currently supports only the `service` type.
- * - Name specifies the service name.
- * - Use the Page and PageSize parameters for paged query. By default, 100 records are displayed per page, with a maximum of 200.
- * - The response includes dynamic parameter details and paging information.
+ * @description ## Request description
+ * - This operation queries the list of dynamic parameters for a specific service.
+ * - `ClusterId` specifies the region of the service to query.
+ * - `ConfigType` currently supports only the `service` type.
+ * - `Name` specifies the service name.
+ * - You can use the `Page` and `PageSize` parameters to perform a paged query. By default, 100 records are displayed per page, and a maximum of 200 records are supported.
+ * - The response includes the details of the dynamic parameters and paging information.
  *
  * @param request ListConfigsRequest
  * @return ListConfigsResponse
@@ -3755,7 +3759,7 @@ ListConfigsResponse Client::listConfigs(const string &ClusterId, const string &C
 }
 
 /**
- * @summary Queries a list of private gateways.
+ * @summary Queries the list of private gateways.
  *
  * @param tmpReq ListGatewayRequest
  * @param headers map
@@ -3819,6 +3823,10 @@ ListGatewayResponse Client::listGatewayWithOptions(const ListGatewayRequest &tmp
     query["Status"] = request.getStatus();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -3838,7 +3846,7 @@ ListGatewayResponse Client::listGatewayWithOptions(const ListGatewayRequest &tmp
 }
 
 /**
- * @summary Queries a list of private gateways.
+ * @summary Queries the list of private gateways.
  *
  * @param request ListGatewayRequest
  * @return ListGatewayResponse
@@ -4434,7 +4442,7 @@ ListServiceContainersResponse Client::listServiceContainers(const string &Cluste
 /**
  * @summary Retrieves fault injection information.
  *
- * @description **Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+ * @description **Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request ListServiceInstanceFaultInjectionInfoRequest
  * @param headers map
@@ -4463,7 +4471,7 @@ ListServiceInstanceFaultInjectionInfoResponse Client::listServiceInstanceFaultIn
 /**
  * @summary Retrieves fault injection information.
  *
- * @description **Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+ * @description **Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
  *
  * @param request ListServiceInstanceFaultInjectionInfoRequest
  * @return ListServiceInstanceFaultInjectionInfoResponse
@@ -4897,7 +4905,7 @@ ListVirtualResourceResponse Client::listVirtualResource(const ListVirtualResourc
 }
 
 /**
- * @summary Migrates instances to a specified resource group.
+ * @summary Migrates machine instances in a resource group.
  *
  * @param request MigrateResourceInstanceRequest
  * @param headers map
@@ -4938,7 +4946,7 @@ MigrateResourceInstanceResponse Client::migrateResourceInstanceWithOptions(const
 }
 
 /**
- * @summary Migrates instances to a specified resource group.
+ * @summary Migrates machine instances in a resource group.
  *
  * @param request MigrateResourceInstanceRequest
  * @return MigrateResourceInstanceResponse
@@ -5427,10 +5435,10 @@ UpdateBenchmarkTaskResponse Client::updateBenchmarkTask(const string &ClusterId,
 }
 
 /**
- * @summary Updates the value of a single dynamic parameter under a specified cluster and service.
+ * @summary Updates the value of a single dynamic parameter for a specified cluster and service.
  *
  * @description ## Request description
- * This API allows you to update the value of a specific dynamic parameter by specifying ClusterId, ConfigType, Name, and ConfigKey. The request body must contain the new parameter value Value. Ensure that the provided path parameters are accurate to avoid updating the wrong dynamic parameter.
+ * This API allows you to update the value of a specific dynamic parameter by specifying ClusterId, ConfigType, Name, and ConfigKey. The request body must include the new parameter value Value. Ensure that the provided path parameters are accurate to avoid updating the wrong dynamic parameter.
  *
  * @param request UpdateConfigRequest
  * @param headers map
@@ -5463,10 +5471,10 @@ UpdateConfigResponse Client::updateConfigWithOptions(const string &ClusterId, co
 }
 
 /**
- * @summary Updates the value of a single dynamic parameter under a specified cluster and service.
+ * @summary Updates the value of a single dynamic parameter for a specified cluster and service.
  *
  * @description ## Request description
- * This API allows you to update the value of a specific dynamic parameter by specifying ClusterId, ConfigType, Name, and ConfigKey. The request body must contain the new parameter value Value. Ensure that the provided path parameters are accurate to avoid updating the wrong dynamic parameter.
+ * This API allows you to update the value of a specific dynamic parameter by specifying ClusterId, ConfigType, Name, and ConfigKey. The request body must include the new parameter value Value. Ensure that the provided path parameters are accurate to avoid updating the wrong dynamic parameter.
  *
  * @param request UpdateConfigRequest
  * @return UpdateConfigResponse
@@ -5500,6 +5508,10 @@ UpdateGatewayResponse Client::updateGatewayWithOptions(const string &GatewayId, 
     body["EnableSSLRedirection"] = request.getEnableSSLRedirection();
   }
 
+  if (!!request.hasIdleTimeout()) {
+    body["IdleTimeout"] = request.getIdleTimeout();
+  }
+
   if (!!request.hasInstanceType()) {
     body["InstanceType"] = request.getInstanceType();
   }
@@ -5516,12 +5528,20 @@ UpdateGatewayResponse Client::updateGatewayWithOptions(const string &GatewayId, 
     body["Replicas"] = request.getReplicas();
   }
 
+  if (!!request.hasRequestTimeout()) {
+    body["RequestTimeout"] = request.getRequestTimeout();
+  }
+
   if (!!request.hasVSwitchIds()) {
     body["VSwitchIds"] = request.getVSwitchIds();
   }
 
   if (!!request.hasVpcId()) {
     body["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6204,12 +6224,12 @@ UpdateServiceMirrorResponse Client::updateServiceMirror(const string &ClusterId,
 /**
  * @summary Updates a service rollout plan.
  *
- * @description ## Request notes
- * - **Provide at least one parameter**: Specify at least one of the `Partition`, `Batch`, or `Paused` parameters in the request.
- * - **Mutually exclusive parameters**: The `Partition` and `Batch` parameters are mutually exclusive.
+ * @description ## Request description
+ * - **Provide at least one parameter**: You must specify at least one of the Partition, Batch, or Paused parameters in the request.
+ * - **Mutually exclusive policies**: You cannot provide both Partition and Batch configurations at the same time.
  * - **Immediate effect**: Updates take effect immediately and affect the ongoing service rollout process.
- * - **Rollback operations**: Increase the `Partition` value to roll back to a previous version. This action does not trigger automatically and requires a manual update of the service image.
- * - **Pausing does not affect parameters**: Pausing the rollout does not change the configured `Partition` or `Batch` parameters. It only pauses the execution of the current policy.
+ * - **Rollback operation**: You can roll back to a previous version by increasing the Partition value. However, this is not triggered automatically and requires a manual update of the service image.
+ * - **Pause does not affect parameters**: Pausing the rollout does not change the configured Partition or Batch parameters. It only pauses the execution of the current policy.
  *
  * @param request UpdateServiceRolloutRequest
  * @param headers map
@@ -6252,12 +6272,12 @@ UpdateServiceRolloutResponse Client::updateServiceRolloutWithOptions(const strin
 /**
  * @summary Updates a service rollout plan.
  *
- * @description ## Request notes
- * - **Provide at least one parameter**: Specify at least one of the `Partition`, `Batch`, or `Paused` parameters in the request.
- * - **Mutually exclusive parameters**: The `Partition` and `Batch` parameters are mutually exclusive.
+ * @description ## Request description
+ * - **Provide at least one parameter**: You must specify at least one of the Partition, Batch, or Paused parameters in the request.
+ * - **Mutually exclusive policies**: You cannot provide both Partition and Batch configurations at the same time.
  * - **Immediate effect**: Updates take effect immediately and affect the ongoing service rollout process.
- * - **Rollback operations**: Increase the `Partition` value to roll back to a previous version. This action does not trigger automatically and requires a manual update of the service image.
- * - **Pausing does not affect parameters**: Pausing the rollout does not change the configured `Partition` or `Batch` parameters. It only pauses the execution of the current policy.
+ * - **Rollback operation**: You can roll back to a previous version by increasing the Partition value. However, this is not triggered automatically and requires a manual update of the service image.
+ * - **Pause does not affect parameters**: Pausing the rollout does not change the configured Partition or Batch parameters. It only pauses the execution of the current policy.
  *
  * @param request UpdateServiceRolloutRequest
  * @return UpdateServiceRolloutResponse

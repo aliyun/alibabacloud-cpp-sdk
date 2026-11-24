@@ -56,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SSLRedirectionEnabled, SSLRedirectionEnabled_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
+        DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
       };
       friend void from_json(const Darabonba::Json& j, Gateways& obj) { 
         DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
@@ -73,6 +74,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SSLRedirectionEnabled, SSLRedirectionEnabled_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
+        DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
       };
       Gateways() = default ;
       Gateways(const Gateways &) = default ;
@@ -132,7 +134,7 @@ namespace Models
       virtual bool empty() const override { return this->chargeType_ == nullptr
         && this->createTime_ == nullptr && this->gatewayId_ == nullptr && this->gatewayName_ == nullptr && this->instanceType_ == nullptr && this->internetDomain_ == nullptr
         && this->internetEnabled_ == nullptr && this->intranetDomain_ == nullptr && this->intranetEnabled_ == nullptr && this->isDefault_ == nullptr && this->labels_ == nullptr
-        && this->replicas_ == nullptr && this->SSLRedirectionEnabled_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->replicas_ == nullptr && this->SSLRedirectionEnabled_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr && this->workspaceId_ == nullptr; };
       // chargeType Field Functions 
       bool hasChargeType() const { return this->chargeType_ != nullptr;};
       void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -240,6 +242,13 @@ namespace Models
       inline Gateways& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
+      // workspaceId Field Functions 
+      bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+      void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+      inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+      inline Gateways& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
     protected:
       // The billing method. Valid values:
       // - PrePaid: subscription.
@@ -273,6 +282,8 @@ namespace Models
       shared_ptr<string> status_ {};
       // The time when the private gateway was updated. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
+      // The ID of the workspace.
+      shared_ptr<string> workspaceId_ {};
     };
 
     virtual bool empty() const override { return this->gateways_ == nullptr
@@ -317,9 +328,9 @@ namespace Models
   protected:
     // The list of private gateways.
     shared_ptr<vector<ListGatewayResponseBody::Gateways>> gateways_ {};
-    // The page number of the returned gateway list.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of gateways returned on each page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

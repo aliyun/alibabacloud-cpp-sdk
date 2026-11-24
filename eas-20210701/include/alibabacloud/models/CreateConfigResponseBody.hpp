@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The creation time in UTC, in RFC 3339 format.
+    // The creation time in UTC format that complies with RFC 3339.
     shared_ptr<string> createdAt_ {};
-    // The dynamic parameter name.
+    // The name of the dynamic parameter.
     shared_ptr<string> key_ {};
-    // The update time in UTC, in RFC 3339 format.
+    // The update time in UTC format that complies with RFC 3339.
     shared_ptr<string> updatedAt_ {};
-    // The dynamic parameter value.
+    // The value of the dynamic parameter.
     shared_ptr<string> value_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to perform a cascade delete. If enabled, deleting the service group automatically deletes all services within the service group. This feature is disabled by default.
+    // Specifies whether cascade delete is enabled. If enabled, deleting the service group automatically deletes all services in the service group. Default value: false.
     shared_ptr<string> cascadeDelete_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The dynamic parameter value. This parameter is required.
+    // The value of the dynamic parameter. Required.
     shared_ptr<string> value_ {};
   };
 

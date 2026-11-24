@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // **Page number**. Default value: 1.
+    // **The page number**. Default value: 1.
     shared_ptr<int32_t> page_ {};
-    // **Number of entries per page**. Default value: 100. Maximum value: 200.
+    // **The number of entries per page**. Default value: 100. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
   };
 

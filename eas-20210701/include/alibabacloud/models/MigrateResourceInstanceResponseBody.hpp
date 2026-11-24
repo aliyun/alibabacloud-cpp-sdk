@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the instances.
+    // The instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The message returned for the request.
+    // The message returned in the response.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 
