@@ -1,3 +1,7 @@
+2026-11-24 Version: 1.2.0
+- Support API WithdrawQuotaApplication.
+
+
 2026-10-28 Version: 1.1.0
 - Support API GetQuotaUtilizationOverview.
 - Support API ListQuotaUtilizationReport.

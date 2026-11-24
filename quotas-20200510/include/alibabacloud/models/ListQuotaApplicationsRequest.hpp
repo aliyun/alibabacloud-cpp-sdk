@@ -84,11 +84,11 @@ namespace Models
     protected:
       // The key of the quota dimension.
       // 
-      // > `Dimensions.N.Key` and `Dimensions.N.Value` must be specified together. The valid values of N depend on the number of dimensions supported by the cloud service. You can call [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) to query the quota dimensions supported by a cloud service. The length of the returned array is the value of N.
+      // > Dimensions.N.Key and Dimensions.N.Value must be specified at the same time. The value range of N depends on the number of dimensions supported by the corresponding cloud service. You can call the [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) operation to query the quota dimensions supported by the cloud service. The length of the returned array is the value of N.
       shared_ptr<string> key_ {};
       // The value of the quota dimension.
       // 
-      // > `Dimensions.N.Key` and `Dimensions.N.Value` must be specified together. The valid values of N depend on the number of dimensions supported by the cloud service. You can call [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) to query the quota dimensions supported by a cloud service. The length of the returned array is the value of N.
+      // > Dimensions.N.Key and Dimensions.N.Value must be specified at the same time. The value range of N depends on the number of dimensions supported by the corresponding cloud service. You can call the [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) operation to query the quota dimensions supported by the cloud service. The length of the returned array is the value of N.
       shared_ptr<string> value_ {};
     };
 
@@ -155,25 +155,25 @@ namespace Models
 
   protected:
     // The quota dimensions.
-    // The dimensions are properties of a quota item. A combination of dimensions (Dimensions) and a quota ID (QuotaActionCode) uniquely identifies a quota item.
-    // > Some cloud services require dimensions. You can call [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) to query the quota dimensions supported by a cloud service. The `Requisite` response parameter indicates whether a dimension is required.
+    // The properties of the quota item. The combination of dimensions and the quota ID (QuotaActionCode) uniquely identifies a quota item.
+    // > The dimensions are required for some cloud services. You can call the [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) operation to query the quota dimensions supported by a cloud service. The Requisite response parameter indicates whether a dimension is required.
     shared_ptr<vector<ListQuotaApplicationsRequest::Dimensions>> dimensions_ {};
-    // The keyword for searching quota increase applications.
+    // The search keyword for quota increase applications.
     shared_ptr<string> keyWord_ {};
-    // The maximum number of records to return in this query.
+    // The maximum number of entries to return for the current query.
     // 
     // Valid values: 1 to 200. Default value: 30.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the position from which you want to start the query. Leave this parameter empty to query from the beginning.
+    // The pagination token that specifies the start position of the query. An empty value indicates that the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The abbreviation of the cloud service name.
+    // The abbreviation of the cloud service.
     shared_ptr<string> productCode_ {};
     // The quota ID.
     shared_ptr<string> quotaActionCode_ {};
-    // The quota category. Valid values:
-    // - CommonQuota: general quota.
+    // The quota type. Valid values:
+    // - CommonQuota: General quota.
     // - FlowControl: API rate limit.
-    // - WhiteListLabel: privilege.
+    // - WhiteListLabel: Privilege.
     shared_ptr<string> quotaCategory_ {};
     // The approval status of the quota increase application. Valid values:
     // 
@@ -184,6 +184,8 @@ namespace Models
     // - Process: Under review.
     // 
     // - Cancel: Closed.
+    // 
+    // - Withdrawn: Withdrawn.
     shared_ptr<string> status_ {};
   };
 

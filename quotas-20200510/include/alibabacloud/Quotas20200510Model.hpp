@@ -92,5 +92,8 @@
 #include <alibabacloud/models/UpdateQuotaAlarmRequest.hpp>
 #include <alibabacloud/models/UpdateQuotaAlarmResponseBody.hpp>
 #include <alibabacloud/models/UpdateQuotaAlarmResponse.hpp>
+#include <alibabacloud/models/WithdrawQuotaApplicationRequest.hpp>
+#include <alibabacloud/models/WithdrawQuotaApplicationResponseBody.hpp>
+#include <alibabacloud/models/WithdrawQuotaApplicationResponse.hpp>
 
 #endif

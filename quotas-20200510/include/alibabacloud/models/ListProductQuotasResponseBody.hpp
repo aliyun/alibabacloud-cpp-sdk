@@ -158,9 +158,9 @@ namespace Models
         // Format: a collection of `key:value` pairs. Example:
         // `{"productCode":"***","metricKey":"***","regionId":"***","label":"***"}`.
         shared_ptr<map<string, string>> metricDimensions_ {};
-        // The name of the CloudMonitor monitoring metric.
+        // The CloudMonitor metric name.
         shared_ptr<string> metricName_ {};
-        // The namespace of the CloudMonitor monitoring data.
+        // The CloudMonitor monitoring data namespace.
         shared_ptr<string> metricNamespace_ {};
       };
 
@@ -463,7 +463,7 @@ namespace Models
     protected:
       // Indicates whether the quota is adjustable.
       shared_ptr<bool> adjustable_ {};
-      // The range of quota values that can be applied for the current quota item, which serves as a reference for quota applications.
+      // The range of quota values that can be applied for the current quota item. This range is for reference when you apply for a quota.
       shared_ptr<vector<float>> applicableRange_ {};
       // The quota adjustment type.
       shared_ptr<string> applicableType_ {};
@@ -483,7 +483,7 @@ namespace Models
       shared_ptr<Quotas::Period> period_ {};
       // The abbreviation of the cloud service name.
       shared_ptr<string> productCode_ {};
-      // The ID of the quota.
+      // The quota ID.
       shared_ptr<string> quotaActionCode_ {};
       // The ARN of the quota.
       shared_ptr<string> quotaArn_ {};
@@ -499,7 +499,7 @@ namespace Models
       shared_ptr<string> quotaType_ {};
       // The quota unit.
       shared_ptr<string> quotaUnit_ {};
-      // The range of quota values supported by the current quota item, which serves as a reference when you configure a quota template.
+      // The range of quota values supported by the current quota item. This range is for reference when you configure a quota template.
       shared_ptr<vector<float>> supportedRange_ {};
       // The quota value.
       shared_ptr<float> totalQuota_ {};
@@ -558,7 +558,7 @@ namespace Models
     // Indicates whether a token for the next query is available.
     // 
     // - If NextToken is empty, it indicates that no subsequent query is available.
-    // - If NextToken is returned, the value is the token used to start the next query.
+    // - If NextToken has a return value, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The quota details.
     shared_ptr<vector<ListProductQuotasResponseBody::Quotas>> quotas_ {};

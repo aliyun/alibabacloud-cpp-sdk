@@ -2,11 +2,13 @@
 #include <alibabacloud/Quotas20200510.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,6 +19,9 @@ namespace Quotas20200510
 {
 
 AlibabaCloud::Quotas20200510::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "quotas";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "central";
   checkConfig(config);
   this->_endpoint = getEndpoint("quotas", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -748,7 +753,7 @@ GetQuotaTemplateServiceStatusResponse Client::getQuotaTemplateServiceStatus(cons
 }
 
 /**
- * @summary 获取配额使用率概览
+ * @summary Retrieves an overview of quota utilization.
  *
  * @param request GetQuotaUtilizationOverviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -779,7 +784,7 @@ GetQuotaUtilizationOverviewResponse Client::getQuotaUtilizationOverviewWithOptio
 }
 
 /**
- * @summary 获取配额使用率概览
+ * @summary Retrieves an overview of quota utilization.
  *
  * @param request GetQuotaUtilizationOverviewRequest
  * @return GetQuotaUtilizationOverviewResponse
@@ -1010,7 +1015,7 @@ ListProductQuotaDimensionsResponse Client::listProductQuotaDimensions(const List
 }
 
 /**
- * @summary Queries the quotas of a specified cloud service.
+ * @summary Queries the list of quotas for a specified cloud service.
  *
  * @param request ListProductQuotasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1077,7 +1082,7 @@ ListProductQuotasResponse Client::listProductQuotasWithOptions(const ListProduct
 }
 
 /**
- * @summary Queries the quotas of a specified cloud service.
+ * @summary Queries the list of quotas for a specified cloud service.
  *
  * @param request ListProductQuotasRequest
  * @return ListProductQuotasResponse
@@ -1342,7 +1347,7 @@ ListQuotaApplicationsResponse Client::listQuotaApplications(const ListQuotaAppli
 }
 
 /**
- * @summary Queries the details of quota increase applications for a member in a resource directory.
+ * @summary Queries the details of quota increase applications for members in a resource directory.
  *
  * @param request ListQuotaApplicationsDetailForTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1401,7 +1406,7 @@ ListQuotaApplicationsDetailForTemplateResponse Client::listQuotaApplicationsDeta
 }
 
 /**
- * @summary Queries the details of quota increase applications for a member in a resource directory.
+ * @summary Queries the details of quota increase applications for members in a resource directory.
  *
  * @param request ListQuotaApplicationsDetailForTemplateRequest
  * @return ListQuotaApplicationsDetailForTemplateResponse
@@ -1482,7 +1487,7 @@ ListQuotaApplicationsForTemplateResponse Client::listQuotaApplicationsForTemplat
 }
 
 /**
- * @summary 列举配额使用率报告
+ * @summary Lists quota utilization reports.
  *
  * @param request ListQuotaUtilizationReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1541,7 +1546,7 @@ ListQuotaUtilizationReportResponse Client::listQuotaUtilizationReportWithOptions
 }
 
 /**
- * @summary 列举配额使用率报告
+ * @summary Lists quota utilization reports.
  *
  * @param request ListQuotaUtilizationReportRequest
  * @return ListQuotaUtilizationReportResponse
@@ -1730,7 +1735,7 @@ RemindQuotaApplicationApprovalResponse Client::remindQuotaApplicationApproval(co
 }
 
 /**
- * @summary 发起配额使用率报告查询
+ * @summary Initiates a quota usage report query. This API applies only to general quotas.
  *
  * @param request StartQuotaUtilizationReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1754,7 +1759,7 @@ StartQuotaUtilizationReportResponse Client::startQuotaUtilizationReportWithOptio
 }
 
 /**
- * @summary 发起配额使用率报告查询
+ * @summary Initiates a quota usage report query. This API applies only to general quotas.
  *
  * @param request StartQuotaUtilizationReportRequest
  * @return StartQuotaUtilizationReportResponse
@@ -1828,6 +1833,52 @@ UpdateQuotaAlarmResponse Client::updateQuotaAlarmWithOptions(const UpdateQuotaAl
 UpdateQuotaAlarmResponse Client::updateQuotaAlarm(const UpdateQuotaAlarmRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateQuotaAlarmWithOptions(request, runtime);
+}
+
+/**
+ * @summary Withdraws a quota application.
+ *
+ * @param request WithdrawQuotaApplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return WithdrawQuotaApplicationResponse
+ */
+WithdrawQuotaApplicationResponse Client::withdrawQuotaApplicationWithOptions(const WithdrawQuotaApplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApplicationId()) {
+    body["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasReason()) {
+    body["Reason"] = request.getReason();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "WithdrawQuotaApplication"},
+    {"version" , "2020-05-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<WithdrawQuotaApplicationResponse>();
+}
+
+/**
+ * @summary Withdraws a quota application.
+ *
+ * @param request WithdrawQuotaApplicationRequest
+ * @return WithdrawQuotaApplicationResponse
+ */
+WithdrawQuotaApplicationResponse Client::withdrawQuotaApplication(const WithdrawQuotaApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return withdrawQuotaApplicationWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Quotas20200510

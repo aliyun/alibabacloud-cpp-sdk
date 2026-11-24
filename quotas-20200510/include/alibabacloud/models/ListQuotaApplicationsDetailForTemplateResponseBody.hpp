@@ -138,9 +138,9 @@ namespace Models
 
 
       protected:
-        // The unit of the calculation cycle.
+        // The unit of the quota calculation period.
         shared_ptr<string> periodUnit_ {};
-        // The value of the calculation cycle.
+        // The value of the quota calculation period.
         shared_ptr<int32_t> periodValue_ {};
       };
 
@@ -311,49 +311,44 @@ namespace Models
     protected:
       // The Alibaba Cloud account.
       shared_ptr<string> aliyunUid_ {};
-      // The ID of the quota increase request.
+      // The ID of the quota increase application.
       shared_ptr<string> applicationId_ {};
-      // The UTC time when the quota increase request was submitted.
+      // The time when the quota increase application was submitted. The time is displayed in UTC.
       shared_ptr<string> applyTime_ {};
-      // The approved quota value.
+      // The approved quota value for the quota increase application.
       shared_ptr<double> approveValue_ {};
-      // The reason for the approval.
+      // The approval comments for the quota increase application.
       shared_ptr<string> auditReason_ {};
-      // The ID of the quota application batch.
+      // The ID of the batch quota application.
       shared_ptr<string> batchQuotaApplicationId_ {};
-      // The requested quota value.
+      // The requested quota value in the quota increase application.
       shared_ptr<double> desireValue_ {};
-      // The UTC time when the new quota value takes effect.
+      // The time when the quota takes effect. The time is displayed in UTC.
       shared_ptr<string> effectiveTime_ {};
-      // The language of the alert notification. Valid values:
+      // The language of quota alert notifications. Valid values:
       // 
       // - zh: Chinese.
-      // 
       // - en: English.
       shared_ptr<string> envLanguage_ {};
-      // The UTC time when the new quota value expires.
+      // The time when the quota expires. The time is displayed in UTC.
       shared_ptr<string> expireTime_ {};
-      // Indicates whether a notification is sent for the quota increase request. Valid values:
+      // Specifies whether to send notifications for the result of the quota increase application. Valid values:
       // 
       // - 0: No.
-      // 
       // - 3: Yes.
       shared_ptr<int32_t> noticeType_ {};
-      // The calculation cycle of the quota.
+      // The quota calculation period.
       shared_ptr<QuotaApplications::Period> period_ {};
-      // The abbreviation of the Alibaba Cloud service name.
+      // The abbreviation of the cloud service name.
       shared_ptr<string> productCode_ {};
       // The quota ID.
       shared_ptr<string> quotaActionCode_ {};
       // The Alibaba Cloud Resource Name (ARN) of the quota.
       shared_ptr<string> quotaArn_ {};
       // The quota type. Valid values:
-      // 
       // - CommonQuota (default): General quota.
-      // 
-      // - WhiteListLabel: Privilege quota.
-      // 
-      // - FlowControl: API rate limit quota.
+      // - WhiteListLabel: Privilege.
+      // - FlowControl: API rate limit.
       shared_ptr<string> quotaCategory_ {};
       // The description of the quota.
       shared_ptr<string> quotaDescription_ {};
@@ -363,17 +358,17 @@ namespace Models
       shared_ptr<string> quotaName_ {};
       // The unit of the quota.
       shared_ptr<string> quotaUnit_ {};
-      // The reason for the quota increase request.
+      // The reason for the quota increase application.
       shared_ptr<string> reason_ {};
-      // The approval status of the quota increase request. Valid values:
+      // The approval status of the quota increase application. Valid values:
       // 
-      // - Disagree: The request is rejected.
+      // - Disagree: Rejected.
       // 
-      // - Agree: The request is approved.
+      // - Agree: Approved.
       // 
-      // - Process: The request is in review.
+      // - Process: Under review.
       // 
-      // - Cancel: The request is closed.
+      // - Cancel: Closed.
       shared_ptr<string> status_ {};
     };
 
@@ -417,15 +412,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of records returned for the current query.
+    // The maximum number of entries returned for the current query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the position from which the next query starts.
+    // The token that specifies the starting position of the query.
     shared_ptr<string> nextToken_ {};
-    // A list of quota application details.
+    // The list of quota application details.
     shared_ptr<vector<ListQuotaApplicationsDetailForTemplateResponseBody::QuotaApplications>> quotaApplications_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records returned for the request.
+    // The total number of entries returned for the current request.
     shared_ptr<int32_t> totalCount_ {};
   };
 

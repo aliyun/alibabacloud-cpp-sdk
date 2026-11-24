@@ -174,27 +174,27 @@ namespace Models
   protected:
     // The quota dimensions.
     shared_ptr<vector<ListProductQuotasRequest::Dimensions>> dimensions_ {};
-    // The code of the dimension group.
+    // The dimension group code.
     shared_ptr<string> groupCode_ {};
     // The search keyword for the quota.
     // > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). The search scope includes `QuotaName` and `QuotaActionCode`.
     shared_ptr<string> keyWord_ {};
-    // The maximum number of entries to return in a single request.
+    // The maximum number of entries to return for the current query.
     // 
     // Valid values: 1 to 100. Default value: 30.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to retrieve the next page of results.
+    // The token for the next query.
     // 
-    // - Leave this parameter empty for the first request or when no more results are available.
-    // - If more results are available, set this parameter to the NextToken value returned when you invoke the previous API call.
+    // - For the first query or when no subsequent query is required, you do not need to specify this parameter.
+    // - If a subsequent query is required, set the value to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The abbreviation of the cloud service.
+    // The abbreviated name of the cloud service.
     // 
-    // > For more information about how to obtain the abbreviation of a cloud service, see `ProductCode` in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
+    // > For more information about how to obtain the abbreviated name of a cloud service, see `ProductCode` in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // The ID of the quota.
+    // The quota ID.
     shared_ptr<string> quotaActionCode_ {};
     // The quota category.
     // 
@@ -202,11 +202,11 @@ namespace Models
     shared_ptr<string> quotaCategory_ {};
     // The sorting method supported by the quota.
     // 
-    // > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). If no Settings are specified, it is left empty.
+    // > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). If the Settings are not specified, it is left empty.
     shared_ptr<string> sortField_ {};
     // The sorting method supported by the quota.
     // 
-    // > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). If no Settings are specified, it is left empty.
+    // > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). If the Settings are not specified, it is left empty.
     shared_ptr<string> sortOrder_ {};
   };
 

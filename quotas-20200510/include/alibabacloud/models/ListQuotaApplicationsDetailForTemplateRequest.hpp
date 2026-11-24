@@ -103,41 +103,38 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account for which the quota increase is requested.
+    // The Alibaba Cloud account that submitted the quota increase application.
     shared_ptr<string> aliyunUid_ {};
-    // The ID of the quota application batch.
+    // The ID of the batch quota application.
     shared_ptr<string> batchQuotaApplicationId_ {};
-    // The maximum number of records to return for the current query.
+    // The maximum number of entries to return for the current query.
     // 
     // Valid values: 1 to 100. Default value: 30.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the position from which the query starts.
+    // The token that specifies the starting position of the query.
     // 
     // > If you do not specify this parameter, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The abbreviation of the Alibaba Cloud service name.
+    // The abbreviation of the cloud service name.
     // 
-    // > For more information about how to obtain the abbreviation of an Alibaba Cloud service name, see the `ProductCode` parameter in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
+    // > For more information about how to obtain the abbreviation of a cloud service name, see `ProductCode` in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
     shared_ptr<string> productCode_ {};
     // The quota ID.
     shared_ptr<string> quotaActionCode_ {};
     // The quota type. Valid values:
-    // 
     // - CommonQuota: General quota.
-    // 
-    // - FlowControl: API rate limit quota.
-    // 
-    // - WhiteListLabel: Privilege quota.
+    // - FlowControl: API rate limit.
+    // - WhiteListLabel: Privilege.
     shared_ptr<string> quotaCategory_ {};
-    // The approval status of the quota increase request. Valid values:
+    // The approval status of the quota increase application. Valid values:
     // 
-    // - Disagree: The request is rejected.
+    // - Disagree: Rejected.
     // 
-    // - Agree: The request is approved.
+    // - Agree: Approved.
     // 
-    // - Process: The request is in review.
+    // - Process: Under review.
     // 
-    // - Cancel: The request is closed.
+    // - Cancel: Closed.
     shared_ptr<string> status_ {};
   };
 

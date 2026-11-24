@@ -220,38 +220,37 @@ namespace Models
     protected:
       // The ID of the quota increase application.
       shared_ptr<string> applicationId_ {};
-      // The time when the quota increase application was submitted.
+      // The time when the quota increase application was submitted. Format: ISO 8601, UTC time, ending with Z.
       shared_ptr<string> applyTime_ {};
       // The approved quota value.
       shared_ptr<float> approveValue_ {};
-      // The review comments for the quota increase application.
+      // The approval comments for the quota increase application.
       shared_ptr<string> auditReason_ {};
       // The requested quota value.
       shared_ptr<int32_t> desireValue_ {};
-      // The quota dimension.
-      // 
-      // Format: `{"regionId":"region"}`.
+      // The quota dimension. Format: `{"regionId":"region"}`. Example of a region dimension: `{"regionId":"cn-shanghai"}` or `{"regionId":"cn-hangzhou"}`.
       Darabonba::Json dimension_ {};
-      // The effective period of the quota.
+      // The effective period of the quota. Format: YYYY-MM-DD HH:mm:ss, without a time zone identity.
       shared_ptr<string> effectiveTime_ {};
-      // The time when the quota expires.
+      // The time when the quota expires. Format: YYYY-MM-DD HH:mm:ss, without a time zone identifier.
       shared_ptr<string> expireTime_ {};
       // The notification type. Valid values:
       // 
-      // - 0: no notification
-      // - 1: email notification
-      // - 2: SMS notification
+      // - 0: No notification.
+      // - 1: Email notification.
+      // - 2: SMS notification.
       shared_ptr<int64_t> noticeType_ {};
       // The abbreviation of the cloud service name.
       shared_ptr<string> productCode_ {};
       // The quota ID.
       shared_ptr<string> quotaActionCode_ {};
-      // The ARN of the quota.
+      // The quota ARN.
       shared_ptr<string> quotaArn_ {};
       // The quota category. Valid values:
-      // - CommonQuota: general quota
-      // - FlowControl: API rate limit
-      // - WhiteListLabel: privilege
+      // 
+      // - CommonQuota: General quota.
+      // - FlowControl: API rate limit.
+      // - WhiteListLabel: Privilege.
       shared_ptr<string> quotaCategory_ {};
       // The quota description.
       shared_ptr<string> quotaDescription_ {};
@@ -264,11 +263,8 @@ namespace Models
       // The approval status of the quota increase application. Valid values:
       // 
       // - Disagree: Rejected.
-      // 
       // - Agree: Approved.
-      // 
       // - Process: Under review.
-      // 
       // - Cancel: Closed.
       shared_ptr<string> status_ {};
     };

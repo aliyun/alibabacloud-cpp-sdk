@@ -147,8 +147,14 @@ namespace Models
 
 
       protected:
+        // The CloudMonitor monitoring dimensions.
+        // 
+        // Format: a collection of key:value pairs. Example:
+        // `{"productCode":"***","metricKey":"***","regionId":"***","label":"***"}`.
         shared_ptr<map<string, string>> metricDimensions_ {};
+        // The [monitored metric](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
         shared_ptr<string> metricName_ {};
+        // The namespace of the CloudMonitor monitoring data.
         shared_ptr<string> metricNamespace_ {};
       };
 
@@ -217,7 +223,14 @@ namespace Models
 
 
         protected:
+          // The unit of the quota calculation period. Valid values:
+          // - second: Seconds.
+          // - minute: Minutes.
+          // - hour: Hours.
+          // - day: Days.
+          // - week: Weeks.
           shared_ptr<string> periodUnit_ {};
+          // The value of the quota calculation period.
           shared_ptr<int32_t> periodValue_ {};
         };
 
@@ -261,10 +274,18 @@ namespace Models
 
 
       protected:
+        // The type of the throttling algorithm. Valid values:
+        // - FixedWindow: Fixed window.
+        // - TokenBucket: Token bucket.
+        // - Concurrency: Concurrency limit.
         shared_ptr<string> algoType_ {};
+        // The time period. This parameter is returned only for FixedWindow and is empty for other algorithms.
         shared_ptr<FlowControlAlgo::Period> period_ {};
+        // The time interval between two token refills. This parameter is returned only for TokenBucket and is empty for other algorithms. The time unit must be confirmed with the upstream service and is not declared in the current code.
         shared_ptr<int32_t> refillInterval_ {};
+        // The number of tokens added per refill. This parameter is returned only for TokenBucket and is empty for other algorithms.
         shared_ptr<int32_t> tokensPerRefill_ {};
+        // The quota value.
         shared_ptr<double> totalQuota_ {};
       };
 
@@ -391,21 +412,42 @@ namespace Models
 
 
     protected:
+      // Indicates whether the quota is adjustable.
       shared_ptr<bool> adjustable_ {};
+      // Indicates whether the used quota is displayed.
       shared_ptr<bool> consumable_ {};
+      // The quota dimensions. Format: `{"regionId":"region ID"}`.
       shared_ptr<map<string, string>> dimensions_ {};
+      // The traffic throttling algorithms.
       shared_ptr<Quotas::FlowControlAlgo> flowControlAlgo_ {};
+      // The abbreviation of the cloud service name.
       shared_ptr<string> productCode_ {};
+      // The quota ID.
       shared_ptr<string> quotaActionCode_ {};
+      // The quota ARN.
       shared_ptr<string> quotaArn_ {};
+      // The quota type.
       shared_ptr<string> quotaCategory_ {};
+      // The quota description.
       shared_ptr<string> quotaDescription_ {};
+      // The quota name.
       shared_ptr<string> quotaName_ {};
+      // The quota value.
       shared_ptr<double> totalQuota_ {};
+      // The quota usage.
       shared_ptr<double> totalUsage_ {};
+      // The reason why the quota is not adjustable.
       shared_ptr<string> unadjustableDetail_ {};
+      // The monitoring information of the quota usage in CloudMonitor.
+      // 
+      // > An empty value indicates that no monitoring data for this quota exists in CloudMonitor.
       shared_ptr<Quotas::UsageMetric> usageMetric_ {};
+      // The quota utilization rate, without the percentage sign.
       shared_ptr<double> utilization_ {};
+      // The risk level determined by the returned Utilization value. Valid values:
+      // - NORMAL: Less than 80%.
+      // - WARN: Greater than or equal to 80% and less than 95%.
+      // - CRITICAL: Greater than or equal to 95%.
       shared_ptr<string> utilizationStatus_ {};
     };
 
@@ -485,15 +527,33 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The data generation time or statistical date. For general quotas, the time is in UTC and formatted as yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\". For API rate quotas, the date is formatted as yyyy-MM-dd.
     shared_ptr<string> generatedAt_ {};
+    // The supplementary description of the report status, such as report generation in progress, report generation needs to be started first, or a newer report is available for re-query. Applications should use Status to determine the status.
     shared_ptr<string> message_ {};
+    // The token used to query the next page. An empty value indicates that no next page exists.
     shared_ptr<string> nextToken_ {};
+    // The list of quota usage on the current page. An empty list is returned if no matching data exists or no general quota report is available.
     shared_ptr<vector<ListQuotaUtilizationReportResponseBody::Quotas>> quotas_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the query result for the quota utilization report. Valid values:
+    // 
+    // - AVAILABLE: The data is available for query.
+    // 
+    // - GENERATING: A new report is being generated. If an unexpired historical report exists, the most recent historical report is returned.
+    // - UNAVAILABLE: No general quota report is available. You must call StartQuotaUtilizationReport to start report generation first.
     shared_ptr<string> status_ {};
+    // Indicates whether the call is successful. Valid values:
+    // 
+    // - true: The call is successful.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
+    // The total number of entries that meet all filter conditions in the current report, rather than the number of entries on the current page. The value is 0 if no matching entries exist.
     shared_ptr<int32_t> totalCount_ {};
   };
 

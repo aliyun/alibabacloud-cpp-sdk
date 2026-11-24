@@ -273,7 +273,7 @@ namespace Quotas20200510
       Models::GetQuotaTemplateServiceStatusResponse getQuotaTemplateServiceStatus(const Models::GetQuotaTemplateServiceStatusRequest &request);
 
       /**
-       * @summary 获取配额使用率概览
+       * @summary Retrieves an overview of quota utilization.
        *
        * @param request GetQuotaUtilizationOverviewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -282,7 +282,7 @@ namespace Quotas20200510
       Models::GetQuotaUtilizationOverviewResponse getQuotaUtilizationOverviewWithOptions(const Models::GetQuotaUtilizationOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取配额使用率概览
+       * @summary Retrieves an overview of quota utilization.
        *
        * @param request GetQuotaUtilizationOverviewRequest
        * @return GetQuotaUtilizationOverviewResponse
@@ -362,7 +362,7 @@ namespace Quotas20200510
       Models::ListProductQuotaDimensionsResponse listProductQuotaDimensions(const Models::ListProductQuotaDimensionsRequest &request);
 
       /**
-       * @summary Queries the quotas of a specified cloud service.
+       * @summary Queries the list of quotas for a specified cloud service.
        *
        * @param request ListProductQuotasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -371,7 +371,7 @@ namespace Quotas20200510
       Models::ListProductQuotasResponse listProductQuotasWithOptions(const Models::ListProductQuotasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the quotas of a specified cloud service.
+       * @summary Queries the list of quotas for a specified cloud service.
        *
        * @param request ListProductQuotasRequest
        * @return ListProductQuotasResponse
@@ -455,7 +455,7 @@ namespace Quotas20200510
       Models::ListQuotaApplicationsResponse listQuotaApplications(const Models::ListQuotaApplicationsRequest &request);
 
       /**
-       * @summary Queries the details of quota increase applications for a member in a resource directory.
+       * @summary Queries the details of quota increase applications for members in a resource directory.
        *
        * @param request ListQuotaApplicationsDetailForTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -464,7 +464,7 @@ namespace Quotas20200510
       Models::ListQuotaApplicationsDetailForTemplateResponse listQuotaApplicationsDetailForTemplateWithOptions(const Models::ListQuotaApplicationsDetailForTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of quota increase applications for a member in a resource directory.
+       * @summary Queries the details of quota increase applications for members in a resource directory.
        *
        * @param request ListQuotaApplicationsDetailForTemplateRequest
        * @return ListQuotaApplicationsDetailForTemplateResponse
@@ -489,7 +489,7 @@ namespace Quotas20200510
       Models::ListQuotaApplicationsForTemplateResponse listQuotaApplicationsForTemplate(const Models::ListQuotaApplicationsForTemplateRequest &request);
 
       /**
-       * @summary 列举配额使用率报告
+       * @summary Lists quota utilization reports.
        *
        * @param request ListQuotaUtilizationReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -498,7 +498,7 @@ namespace Quotas20200510
       Models::ListQuotaUtilizationReportResponse listQuotaUtilizationReportWithOptions(const Models::ListQuotaUtilizationReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举配额使用率报告
+       * @summary Lists quota utilization reports.
        *
        * @param request ListQuotaUtilizationReportRequest
        * @return ListQuotaUtilizationReportResponse
@@ -571,7 +571,7 @@ namespace Quotas20200510
       Models::RemindQuotaApplicationApprovalResponse remindQuotaApplicationApproval(const Models::RemindQuotaApplicationApprovalRequest &request);
 
       /**
-       * @summary 发起配额使用率报告查询
+       * @summary Initiates a quota usage report query. This API applies only to general quotas.
        *
        * @param request StartQuotaUtilizationReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -580,7 +580,7 @@ namespace Quotas20200510
       Models::StartQuotaUtilizationReportResponse startQuotaUtilizationReportWithOptions(const Models::StartQuotaUtilizationReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发起配额使用率报告查询
+       * @summary Initiates a quota usage report query. This API applies only to general quotas.
        *
        * @param request StartQuotaUtilizationReportRequest
        * @return StartQuotaUtilizationReportResponse
@@ -607,6 +607,23 @@ namespace Quotas20200510
        * @return UpdateQuotaAlarmResponse
        */
       Models::UpdateQuotaAlarmResponse updateQuotaAlarm(const Models::UpdateQuotaAlarmRequest &request);
+
+      /**
+       * @summary Withdraws a quota application.
+       *
+       * @param request WithdrawQuotaApplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return WithdrawQuotaApplicationResponse
+       */
+      Models::WithdrawQuotaApplicationResponse withdrawQuotaApplicationWithOptions(const Models::WithdrawQuotaApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Withdraws a quota application.
+       *
+       * @param request WithdrawQuotaApplicationRequest
+       * @return WithdrawQuotaApplicationResponse
+       */
+      Models::WithdrawQuotaApplicationResponse withdrawQuotaApplication(const Models::WithdrawQuotaApplicationRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Quotas20200510

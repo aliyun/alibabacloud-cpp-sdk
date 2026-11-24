@@ -152,9 +152,9 @@ namespace Models
         // Format: a collection of `key:value` pairs. Example:
         // `{"productCode":"***","metricKey":"***","regionId":"***","label":"***"}`.
         shared_ptr<map<string, string>> metricDimensions_ {};
-        // The CloudMonitor metric name.
+        // The name of the CloudMonitor metric.
         shared_ptr<string> metricName_ {};
-        // The CloudMonitor metric namespace.
+        // The namespace of the CloudMonitor monitoring data.
         shared_ptr<string> metricNamespace_ {};
       };
 
@@ -218,13 +218,13 @@ namespace Models
         shared_ptr<string> quota_ {};
         // The quota unit.
         // 
-        // > The unit varies for each quota. For example, the unit of the q_cbdch3 quota (maximum number of clusters) for Container Service for Kubernetes is Cluster, and the unit of the q_security-groups quota (maximum number of security groups) for Elastic Compute Service servers is count.
+        // > The unit varies with each quota. For example, the unit of the q_cbdch3 quota (maximum number of clusters) for Container Service for Kubernetes is Cluster, and the unit of the q_security-groups quota (maximum number of security groups) for Elastic Compute Service (ECS) servers is count.
         shared_ptr<string> quotaUnit_ {};
-        // The quota item type. Valid values:
+        // The type of the quota item. Valid values:
         // 
-        // - BaseQuota: Base quota.
+        // - BaseQuota: base quota
         // 
-        // - ReservedQuota: Reserved quota.
+        // - ReservedQuota: reserved quota
         shared_ptr<string> type_ {};
         // The quota usage.
         shared_ptr<string> usage_ {};
@@ -270,15 +270,15 @@ namespace Models
       protected:
         // The unit of the quota period. Valid values:
         // 
-        // - second: Seconds.
+        // - second: seconds
         // 
-        // - minute: Minutes.
+        // - minute: minutes
         // 
-        // - hour: Hours.
+        // - hour: hours
         // 
-        // - day: Days.
+        // - day: days
         // 
-        // - week: Weeks.
+        // - week: weeks
         shared_ptr<string> periodUnit_ {};
         // The value of the quota period.
         shared_ptr<int32_t> periodValue_ {};
@@ -481,9 +481,9 @@ namespace Models
       shared_ptr<vector<float>> applicableRange_ {};
       // The type of quota adjustment. Valid values:
       // 
-      // - continuous: Continuous.
+      // - continuous: continuous
       // 
-      // - discontinuous: Discontinuous.
+      // - discontinuous: discontinuous
       shared_ptr<string> applicableType_ {};
       // The sample reasons for applying for a quota adjustment.
       shared_ptr<string> applyReasonTips_ {};
@@ -512,11 +512,11 @@ namespace Models
       // The ARN of the quota.
       shared_ptr<string> quotaArn_ {};
       // The quota category. Valid values:
-      // - CommonQuota: General quota.
+      // - CommonQuota: general quota
       // 
-      // - FlowControl: API rate limit.
+      // - FlowControl: API rate limit
       // 
-      // - WhiteListLabel: Privilege.
+      // - WhiteListLabel: privilege
       shared_ptr<string> quotaCategory_ {};
       // The quota description.
       shared_ptr<string> quotaDescription_ {};
@@ -526,13 +526,13 @@ namespace Models
       shared_ptr<string> quotaName_ {};
       // The quota type. Valid values:
       // 
-      // - privilege: Privilege.
+      // - privilege: privileged
       // 
-      // - normal: Normal.
+      // - normal: normal
       shared_ptr<string> quotaType_ {};
       // The quota unit.
       // 
-      // > The unit varies for each quota. For example, the unit of the q_cbdch3 quota (maximum number of clusters) for Container Service for Kubernetes is Cluster, and the unit of the q_security-groups quota (maximum number of security groups) for Elastic Compute Service servers is count.
+      // > The unit varies with each quota. For example, the unit of the q_cbdch3 quota (maximum number of clusters) for Container Service for Kubernetes is Cluster, and the unit of the q_security-groups quota (maximum number of security groups) for Elastic Compute Service (ECS) servers is count.
       shared_ptr<string> quotaUnit_ {};
       // The supported range of quota values for the current quota item, which can be used as a reference when configuring a quota template.
       shared_ptr<vector<float>> supportedRange_ {};
@@ -548,7 +548,7 @@ namespace Models
       // 
       // - limitReached: The quota limit is reached.
       // 
-      // - supportTicketRequired: A ticket must be submitted for the application.
+      // - supportTicketRequired: A ticket is required.
       shared_ptr<string> unadjustableDetail_ {};
       // The monitoring information of the quota usage in CloudMonitor.
       // 

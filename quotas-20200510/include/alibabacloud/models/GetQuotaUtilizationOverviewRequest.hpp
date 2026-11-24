@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // CommonQuota, FlowControl
     shared_ptr<string> quotaCategory_ {};
   };
 

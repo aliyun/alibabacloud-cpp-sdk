@@ -113,8 +113,11 @@ namespace Models
 
 
       protected:
+        // The number of adjustable quotas with a utilization rate exceeding 95%.
         shared_ptr<int64_t> adjustable_ {};
+        // The adjustment rate of quotas with a utilization rate exceeding 95%, without the percentage sign.
         shared_ptr<double> adjustableRatio_ {};
+        // The number of quotas with a utilization rate exceeding 95%.
         shared_ptr<int64_t> total_ {};
       };
 
@@ -165,8 +168,11 @@ namespace Models
 
 
       protected:
+        // The number of adjustable quotas with a utilization rate exceeding 80%.
         shared_ptr<int64_t> adjustable_ {};
+        // The adjustment rate of quotas with a utilization rate exceeding 80%, without the percentage sign.
         shared_ptr<double> adjustableRatio_ {};
+        // The number of quotas with a utilization rate exceeding 80%.
         shared_ptr<int64_t> total_ {};
       };
 
@@ -217,8 +223,11 @@ namespace Models
 
 
       protected:
+        // The number of adjustable quotas in use.
         shared_ptr<int64_t> adjustable_ {};
+        // The adjustment rate of quotas in use, without the percentage sign.
         shared_ptr<double> adjustableRatio_ {};
+        // The total number of quotas in use.
         shared_ptr<int64_t> total_ {};
       };
 
@@ -252,8 +261,11 @@ namespace Models
 
 
     protected:
+      // The quotas in use.
       shared_ptr<QuotaOverview::InUse> inUse_ {};
+      // The quotas with a utilization rate exceeding 80%.
       shared_ptr<QuotaOverview::Over80Percent> over80Percent_ {};
+      // The quotas with a utilization rate exceeding 95%.
       shared_ptr<QuotaOverview::Over95Percent> over95Percent_ {};
     };
 
@@ -319,13 +331,29 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The data generation time or statistical date. For general quotas, the time is in UTC and formatted as yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\". For API rate limits, the format is yyyy-MM-dd.
     shared_ptr<string> generatedAt_ {};
+    // The supplementary description of the report status. Use Status to determine the status.
     shared_ptr<string> message_ {};
+    // The quota overview data.
     shared_ptr<GetQuotaUtilizationOverviewResponseBody::QuotaOverview> quotaOverview_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The query result status of the quota utilization report. Valid values:
+    // 
+    // - AVAILABLE: The data is available.
+    // 
+    // - GENERATING: A new report is being generated. If an unexpired historical report exists, the most recent historical report is returned.
+    // - UNAVAILABLE: No general quota report is available. You must call StartQuotaUtilizationReport to start report generation first.
     shared_ptr<string> status_ {};
+    // Indicates whether the call is successful. Valid values:
+    // 
+    // - true: The call is successful.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

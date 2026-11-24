@@ -134,11 +134,11 @@ namespace Models
 
       protected:
         // The unit of the quota calculation period. Valid values:
-        // - second: seconds.
-        // - minute: minutes.
-        // - hour: hours.
-        // - day: days.
-        // - week: weeks.
+        // - second: Seconds.
+        // - minute: Minutes.
+        // - hour: Hours.
+        // - day: Days.
+        // - week: Weeks.
         shared_ptr<string> periodUnit_ {};
         // The value of the quota calculation period.
         shared_ptr<int64_t> periodValue_ {};
@@ -296,23 +296,23 @@ namespace Models
     protected:
       // The ID of the quota increase application.
       shared_ptr<string> applicationId_ {};
-      // The time when the quota increase application was submitted. The value is in ISO 8601 format, in UTC, and ends with Z.
+      // The time when the quota increase application was submitted. The time follows the ISO 8601 standard and is displayed in UTC, ending with Z.
       shared_ptr<string> applyTime_ {};
-      // The approved quota value of the quota increase application.
+      // The approved quota value for the quota increase application.
       shared_ptr<float> approveValue_ {};
-      // The approval comment for the quota increase application.
+      // The approval comments for the quota increase application.
       shared_ptr<string> auditReason_ {};
-      // The remarks of the quota increase application.
+      // The remarks for the quota increase application.
       shared_ptr<string> comment_ {};
-      // The requested quota value of the quota increase application.
+      // The requested quota value for the quota increase application.
       shared_ptr<float> desireValue_ {};
       // The quota dimensions of the quota increase application.
       Darabonba::Json dimension_ {};
-      // The effective period of the quota increase application. The value is in ISO 8601 format, in UTC, and ends with Z.
+      // The effective period of the quota increase application. Format: ISO 8601, UTC time, ending with Z.
       shared_ptr<string> effectiveTime_ {};
-      // The expiration time of the quota increase application. The value is in ISO 8601 format, in UTC, and ends with Z.
+      // The expiration time of the quota increase application. The time follows the ISO 8601 standard and is displayed in UTC, ending with Z.
       shared_ptr<string> expireTime_ {};
-      // Indicates whether a notification is sent for the quota increase application result. Valid values:
+      // Specifies whether to send notifications for the result of the quota increase application. Valid values:
       // 
       // - 0: No.
       // - 3: Yes.
@@ -323,11 +323,11 @@ namespace Models
       shared_ptr<string> productCode_ {};
       // The quota ID.
       shared_ptr<string> quotaActionCode_ {};
-      // The Alibaba Cloud Resource Name (ARN) of the quota.
+      // The ARN of the quota.
       shared_ptr<string> quotaArn_ {};
-      // The quota category. Valid values:
-      // - CommonQuota (default): general quota.
-      // - WhiteListLabel: privilege.
+      // The quota type. Valid values:
+      // - CommonQuota (default): General quota.
+      // - WhiteListLabel: Privilege.
       // - FlowControl: API rate limit.
       shared_ptr<string> quotaCategory_ {};
       // The description of the quota.
@@ -390,9 +390,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of records returned in this query.
+    // The maximum number of entries returned for the current query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the position of the returned data. An empty value indicates that all data has been returned.
+    // The pagination token that specifies the position of the returned data. An empty value indicates that all data has been queried.
     shared_ptr<string> nextToken_ {};
     // The details of the quota increase applications.
     shared_ptr<vector<ListQuotaApplicationsResponseBody::QuotaApplications>> quotaApplications_ {};

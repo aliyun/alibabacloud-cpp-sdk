@@ -106,13 +106,26 @@ namespace Models
 
 
   protected:
+    // Specifies whether to filter quotas by adjustability. Valid values:
+    // - true: Queries only adjustable quotas.
+    // - false: Queries only non-adjustable quotas.
+    // If this parameter is not specified, quotas are not filtered by adjustability.
     shared_ptr<bool> adjustable_ {};
+    // The search keyword. Performs a fuzzy match based on the quota name or quota ID.
     shared_ptr<string> keyWords_ {};
+    // The maximum number of entries to return for this query.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. Do not specify this parameter for the first query. For subsequent queries, pass the NextToken value returned in the previous response as is, and keep the quota type and filter conditions unchanged. Do not parse or construct the token.
     shared_ptr<string> nextToken_ {};
+    // The abbreviation of the cloud service.
+    // 
+    // > For information about how to obtain the abbreviation of a cloud service, see ProductCode in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
     shared_ptr<string> productCode_ {};
+    // CommonQuota, FlowControl
     shared_ptr<string> quotaCategory_ {};
+    // The region ID of the quota, such as cn-hangzhou. If this parameter is not specified or is left empty, quotas are not filtered by region.
     shared_ptr<string> quotaRegionId_ {};
+    // The utilization statuses. You can specify multiple values. If this parameter is not specified or an empty list is passed, quotas are not filtered by utilization status.
     shared_ptr<vector<string>> utilizationStatuses_ {};
   };
 
