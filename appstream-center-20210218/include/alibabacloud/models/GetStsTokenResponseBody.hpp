@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The tenant ID, which is the UID of the Alibaba Cloud account.
+      // The tenant ID (Alibaba Cloud account UID).
       shared_ptr<int64_t> aliUid_ {};
       // The session ID.
       shared_ptr<string> sessionId_ {};
-      // The temporary credentials.
+      // The temporary identity credential.
       shared_ptr<string> stsToken_ {};
-      // The tenant ID, which is the UID of the Alibaba Cloud account.
+      // The tenant ID (Alibaba Cloud account UID).
       shared_ptr<int64_t> tenantId_ {};
     };
 
@@ -118,7 +118,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the token.
+    // The token details.
     shared_ptr<GetStsTokenResponseBody::StsTokenModel> stsTokenModel_ {};
   };
 

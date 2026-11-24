@@ -103,14 +103,17 @@ namespace Models
 
 
   protected:
+    // The account type. Valid values: ad (enterprise AD account) and simple (convenience account).
     shared_ptr<string> accountType_ {};
+    // The Active Directory domain name. This parameter is required when the account type is ad.
     shared_ptr<string> adDomain_ {};
+    // The password of the enterprise AD account.
     shared_ptr<string> adPassword_ {};
-    // Specifies whether to synchronously create an EndUserId based on ExternalUserId. This parameter takes effect only when EndUserId is empty.
+    // Specifies whether to synchronously create an EndUserId based on ExternalUserId. This parameter takes effect only when EndUserId is left empty.
     shared_ptr<bool> autoCreateUser_ {};
-    // The username of the China Desktop Service (China Desktop Service) convenience account. The username must be unique within an Alibaba Cloud account. This parameter and ExternalUserId cannot both be empty.
+    // The username of the Wuying convenience account. The username must be unique within an Alibaba Cloud account. This parameter and ExternalUserId cannot be left empty at the same time.
     shared_ptr<string> endUserId_ {};
-    // The external user ID. This ID is defined by the caller and must be unique within an Alibaba Cloud account. This parameter and EndUserId cannot both be empty.
+    // The external user ID. This ID is customized by the caller and must be unique within an Alibaba Cloud account. This parameter and ExternalUserId cannot be left empty at the same time.
     shared_ptr<string> externalUserId_ {};
     // The access policy that restricts the access permissions of the authorization code. If this parameter is left empty, no restrictions are applied.
     // 
@@ -120,18 +123,19 @@ namespace Models
     // {
     //       "Version": "1",
     //       "Resource": {
-    //             "Type": "<Resource type>",
-    //             "Id": "<Resource ID>"
+    //             "Type": "<resource type>",
+    //             "Id": "<resource ID>"
     //       }
     // }
     // ```
     // 
-    // Valid values of <Resource type>:
+    // Valid values for <resource type>:
     // 
-    // - AppInstanceGroup: delivery group. You can call the ListAppInstanceGroup operation to obtain the ID.
-    // - AppInstance: application instance (dedicated field).
+    // - AppInstanceGroup: app instance group. You can call the ListAppInstanceGroup operation to obtain the ID.
+    // - AppInstance: app instance. This is a dedicated field.
     // - App: application. You can call the ListAppInstanceGroup operation to obtain the ID.
     shared_ptr<string> policy_ {};
+    // The token type. Valid values: LoginToken (logon token) and StsToken (temporary identity credential).
     shared_ptr<string> tokenType_ {};
   };
 

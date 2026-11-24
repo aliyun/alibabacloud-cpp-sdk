@@ -2,11 +2,13 @@
 #include <alibabacloud/AppstreamCenter20210218.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -17,11 +19,10 @@ namespace AppstreamCenter20210218
 {
 
 AlibabaCloud::AppstreamCenter20210218::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "appstream-center";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shanghai" , "appstream-center.cn-shanghai.aliyuncs.com"},
-    {"ap-southeast-1" , "appstream-center.ap-southeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("appstream-center", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -40,7 +41,77 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Manually expires a logon token before its automatic expiration.
+ * @summary Creates a time-limited static access token for a specified user in the current account to access a single cloud desktop.
+ *
+ * @description When you call this operation, you must provide Resource and specify both ResourceType and ResourceId. Only a single cloud desktop is supported. You cannot omit Resource to authorize or query all cloud desktops.
+ * AuthorizerId is the WyId of the user and cannot be replaced by a username. BusinessChannel supports Enterprise and Business. If omitted, the default value is Enterprise.
+ * Before creation, the user must belong to the current calling account and have access permissions for the target cloud desktop. This operation only creates an access token. It does not create a user or add an authorization relationship between the user and the cloud desktop. Each successful call creates a new time-limited token. To obtain an existing token, call GetLatestThirdAppAccessToken and pass the same AuthorizerId and Resource.
+ * The unit of Expiration is seconds. Valid values: 1 to 15552000. If omitted, the default value is 15552000, which equals 180 days. Permanent validity is not supported. Keep the returned AccessToken secure and avoid displaying the full token in logs or public content.
+ *
+ * @param tmpReq CreateThirdAppAccessTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateThirdAppAccessTokenResponse
+ */
+CreateThirdAppAccessTokenResponse Client::createThirdAppAccessTokenWithOptions(const CreateThirdAppAccessTokenRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateThirdAppAccessTokenShrinkRequest request = CreateThirdAppAccessTokenShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResource()) {
+    request.setResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResource(), "Resource", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAuthorizerId()) {
+    body["AuthorizerId"] = request.getAuthorizerId();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  if (!!request.hasExpiration()) {
+    body["Expiration"] = request.getExpiration();
+  }
+
+  if (!!request.hasResourceShrink()) {
+    body["Resource"] = request.getResourceShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateThirdAppAccessToken"},
+    {"version" , "2021-02-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateThirdAppAccessTokenResponse>();
+}
+
+/**
+ * @summary Creates a time-limited static access token for a specified user in the current account to access a single cloud desktop.
+ *
+ * @description When you call this operation, you must provide Resource and specify both ResourceType and ResourceId. Only a single cloud desktop is supported. You cannot omit Resource to authorize or query all cloud desktops.
+ * AuthorizerId is the WyId of the user and cannot be replaced by a username. BusinessChannel supports Enterprise and Business. If omitted, the default value is Enterprise.
+ * Before creation, the user must belong to the current calling account and have access permissions for the target cloud desktop. This operation only creates an access token. It does not create a user or add an authorization relationship between the user and the cloud desktop. Each successful call creates a new time-limited token. To obtain an existing token, call GetLatestThirdAppAccessToken and pass the same AuthorizerId and Resource.
+ * The unit of Expiration is seconds. Valid values: 1 to 15552000. If omitted, the default value is 15552000, which equals 180 days. Permanent validity is not supported. Keep the returned AccessToken secure and avoid displaying the full token in logs or public content.
+ *
+ * @param request CreateThirdAppAccessTokenRequest
+ * @return CreateThirdAppAccessTokenResponse
+ */
+CreateThirdAppAccessTokenResponse Client::createThirdAppAccessToken(const CreateThirdAppAccessTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createThirdAppAccessTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary Invalidates a Wuying Workspace logon session before it naturally expires.
  *
  * @param request ExpireLoginTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -83,7 +154,7 @@ ExpireLoginTokenResponse Client::expireLoginTokenWithOptions(const ExpireLoginTo
 }
 
 /**
- * @summary Manually expires a logon token before its automatic expiration.
+ * @summary Invalidates a Wuying Workspace logon session before it naturally expires.
  *
  * @param request ExpireLoginTokenRequest
  * @return ExpireLoginTokenResponse
@@ -94,7 +165,9 @@ ExpireLoginTokenResponse Client::expireLoginToken(const ExpireLoginTokenRequest 
 }
 
 /**
- * @summary Obtains an authorization code that contains user identity and permission information. The authorization code can be used to launch a cloud application in integration scenarios.
+ * @summary Retrieves an authorization code that contains user identity and permission information, which can be used to invoke cloud applications in integration scenarios.
+ *
+ * @description Retrieves an authorization code that contains user identity and permission information, which can be used to invoke cloud applications in integration scenarios.
  *
  * @param request GetAuthCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -155,7 +228,9 @@ GetAuthCodeResponse Client::getAuthCodeWithOptions(const GetAuthCodeRequest &req
 }
 
 /**
- * @summary Obtains an authorization code that contains user identity and permission information. The authorization code can be used to launch a cloud application in integration scenarios.
+ * @summary Retrieves an authorization code that contains user identity and permission information, which can be used to invoke cloud applications in integration scenarios.
+ *
+ * @description Retrieves an authorization code that contains user identity and permission information, which can be used to invoke cloud applications in integration scenarios.
  *
  * @param request GetAuthCodeRequest
  * @return GetAuthCodeResponse
@@ -166,7 +241,73 @@ GetAuthCodeResponse Client::getAuthCode(const GetAuthCodeRequest &request) {
 }
 
 /**
- * @summary Gets a Security Token Service (STS) token.
+ * @summary Retrieves the current valid static access token for a specified user and a single cloud desktop under the current account, keeping the original expiration time.
+ *
+ * @description You must provide Resource and specify both ResourceType and ResourceId when calling this operation. Only a single cloud desktop is supported. You cannot omit Resource to authorize or query all cloud desktops.
+ * AuthorizerId is the WyId of the user and cannot be replaced by a username. BusinessChannel supports Enterprise and Business. If omitted, the default value is Enterprise.
+ * The AuthorizerId and Resource in the query conditions must be consistent with those used when the token was created. This operation only returns the current valid token for the current account, user, and cloud desktop. It does not create a new token, renew the token, or restore or roll back to a historical token. If no valid token is found, the token has expired, or the corresponding cache has been cleared, AccessToken.NotFound is returned. To obtain a new token, call CreateThirdAppAccessToken.
+ * Keep the returned AccessToken secure and avoid displaying the full token in logs or public content.
+ *
+ * @param tmpReq GetLatestThirdAppAccessTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLatestThirdAppAccessTokenResponse
+ */
+GetLatestThirdAppAccessTokenResponse Client::getLatestThirdAppAccessTokenWithOptions(const GetLatestThirdAppAccessTokenRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetLatestThirdAppAccessTokenShrinkRequest request = GetLatestThirdAppAccessTokenShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResource()) {
+    request.setResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResource(), "Resource", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAuthorizerId()) {
+    body["AuthorizerId"] = request.getAuthorizerId();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    body["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  if (!!request.hasResourceShrink()) {
+    body["Resource"] = request.getResourceShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetLatestThirdAppAccessToken"},
+    {"version" , "2021-02-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLatestThirdAppAccessTokenResponse>();
+}
+
+/**
+ * @summary Retrieves the current valid static access token for a specified user and a single cloud desktop under the current account, keeping the original expiration time.
+ *
+ * @description You must provide Resource and specify both ResourceType and ResourceId when calling this operation. Only a single cloud desktop is supported. You cannot omit Resource to authorize or query all cloud desktops.
+ * AuthorizerId is the WyId of the user and cannot be replaced by a username. BusinessChannel supports Enterprise and Business. If omitted, the default value is Enterprise.
+ * The AuthorizerId and Resource in the query conditions must be consistent with those used when the token was created. This operation only returns the current valid token for the current account, user, and cloud desktop. It does not create a new token, renew the token, or restore or roll back to a historical token. If no valid token is found, the token has expired, or the corresponding cache has been cleared, AccessToken.NotFound is returned. To obtain a new token, call CreateThirdAppAccessToken.
+ * Keep the returned AccessToken secure and avoid displaying the full token in logs or public content.
+ *
+ * @param request GetLatestThirdAppAccessTokenRequest
+ * @return GetLatestThirdAppAccessTokenResponse
+ */
+GetLatestThirdAppAccessTokenResponse Client::getLatestThirdAppAccessToken(const GetLatestThirdAppAccessTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getLatestThirdAppAccessTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves a Wuying STS token (temporary identity credential).
  *
  * @param request GetStsTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -205,7 +346,7 @@ GetStsTokenResponse Client::getStsTokenWithOptions(const GetStsTokenRequest &req
 }
 
 /**
- * @summary Gets a Security Token Service (STS) token.
+ * @summary Retrieves a Wuying STS token (temporary identity credential).
  *
  * @param request GetStsTokenRequest
  * @return GetStsTokenResponse

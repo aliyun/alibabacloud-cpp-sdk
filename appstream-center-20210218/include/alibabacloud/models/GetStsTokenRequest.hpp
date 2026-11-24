@@ -57,13 +57,14 @@ namespace Models
 
 
   protected:
-    // The Elastic Desktop Service (EDS) username.
+    // The Wuying username.
     // 
-    // > Either EndUserId or ExternalId is required.
+    // 
+    // > Either the Wuying username or the external ID is required.
     shared_ptr<string> endUserId_ {};
-    // The validity period of the token, in seconds. The maximum period is two days.
+    // The expiration time in seconds. The maximum validity period is two days.
     shared_ptr<int64_t> expiration_ {};
-    // The ID of the external user.
+    // The external user ID.
     shared_ptr<string> externalId_ {};
   };
 

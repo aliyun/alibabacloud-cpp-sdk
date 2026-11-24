@@ -74,7 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> loginToken_ {};
-    // The ID of the workspace. This parameter is required if you log on using a workspace ID. You can leave this parameter empty if you log on using an organization ID.
+    // The ID of the workspace. This parameter is required if you log on through a workspace, and can be left empty if you log on through an organization ID.
     shared_ptr<string> officeSiteId_ {};
     // The ID of the logon session.
     // 
