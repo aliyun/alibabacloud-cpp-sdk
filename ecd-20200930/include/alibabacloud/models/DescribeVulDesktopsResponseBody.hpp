@@ -150,11 +150,11 @@ namespace Models
       protected:
         // The batch ID of the scheduled task execution.
         shared_ptr<string> batchId_ {};
-        // The failure reason.
+        // The reason for the failure.
         shared_ptr<string> fixFailureReason_ {};
         // The fix result.
         shared_ptr<string> fixResult_ {};
-        // The timestamp when the fix task ended, in milliseconds.
+        // The timestamp when the fix task ended. Unit: milliseconds.
         shared_ptr<string> fixTime_ {};
         // The fix type.
         shared_ptr<string> fixType_ {};
@@ -244,19 +244,19 @@ namespace Models
 
 
       protected:
-        // The CVE ID of the vulnerability.
+        // The vulnerability ID.
         shared_ptr<string> cveId_ {};
-        // The vulnerability level.
+        // The severity level of the vulnerability.
         shared_ptr<string> cveLevel_ {};
-        // The vulnerability name.
+        // The name of the vulnerability.
         shared_ptr<string> cveTitle_ {};
-        // The CVE URL.
+        // The CVE link.
         shared_ptr<string> cveUrl_ {};
         // The vulnerability score.
         shared_ptr<string> impactScore_ {};
-        // The reference URL for the vulnerability details.
+        // The reference link for the vulnerability details.
         shared_ptr<string> referenceUrl_ {};
-        // The release time. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
+        // The release time. The time is in the ISO 8601 standard UTC format: yyyy-MM-ddTHH:mm:ssZ.
         shared_ptr<string> releaseTime_ {};
       };
 
@@ -369,13 +369,13 @@ namespace Models
 
 
     protected:
-      // The configuration task ID.
+      // The ID of the configuration task.
       shared_ptr<string> configGroupId_ {};
       // The connection status of the cloud desktop.
       shared_ptr<string> connectionStatus_ {};
       // The number of vulnerabilities.
       shared_ptr<int32_t> cveCount_ {};
-      // The vulnerability details.
+      // The list of vulnerability details.
       shared_ptr<vector<VulDesktops::Cves>> cves_ {};
       // The ID of the cloud desktop affected by the vulnerability.
       shared_ptr<string> desktopId_ {};
@@ -383,19 +383,19 @@ namespace Models
       shared_ptr<string> desktopStatus_ {};
       // Indicates whether the activation code is disabled.
       shared_ptr<bool> disabled_ {};
-      // The time when the vulnerability was first detected. Format: yyyy-MM-dd HH:mm:ss.
+      // The time when the vulnerability was first detected. The time is in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> firstFoundTime_ {};
-      // The fix records of the cloud desktop.
+      // The list of fix details for the cloud desktop.
       shared_ptr<vector<VulDesktops::FixRecords>> fixRecords_ {};
-      // The patch IDs.
+      // The list of patch IDs.
       shared_ptr<vector<string>> patchIds_ {};
-      // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
+      // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by WUYING Workspace.
       shared_ptr<string> regionId_ {};
-      // The enterprise resource group ID.
+      // The ID of the enterprise resource group.
       shared_ptr<string> resourceGroupId_ {};
       // The fix status of the patch.
       shared_ptr<string> status_ {};
-      // The patch level.
+      // The severity level of the patch.
       shared_ptr<string> vulLevel_ {};
     };
 
@@ -439,19 +439,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page in a paged query.
-    // 
-    // Maximum value: 100.
-    // 
-    // Default value: 10.
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. An empty value indicates that no more results exist.
+    // The token for the next query. An empty NextToken indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
-    // The details of cloud desktops affected by the vulnerability.
+    // The list of details about cloud desktops affected by the vulnerability.
     shared_ptr<vector<DescribeVulDesktopsResponseBody::VulDesktops>> vulDesktops_ {};
   };
 

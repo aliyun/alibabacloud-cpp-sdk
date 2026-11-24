@@ -346,6 +346,9 @@
 #include <alibabacloud/models/DescribeDesktopGroupsRequest.hpp>
 #include <alibabacloud/models/DescribeDesktopGroupsResponseBody.hpp>
 #include <alibabacloud/models/DescribeDesktopGroupsResponse.hpp>
+#include <alibabacloud/models/DescribeDesktopIdsByVulNamesRequest.hpp>
+#include <alibabacloud/models/DescribeDesktopIdsByVulNamesResponseBody.hpp>
+#include <alibabacloud/models/DescribeDesktopIdsByVulNamesResponse.hpp>
 #include <alibabacloud/models/DescribeDesktopInfoRequest.hpp>
 #include <alibabacloud/models/DescribeDesktopInfoResponseBody.hpp>
 #include <alibabacloud/models/DescribeDesktopInfoResponse.hpp>
@@ -490,6 +493,9 @@
 #include <alibabacloud/models/DescribeResourceByCenterPolicyIdRequest.hpp>
 #include <alibabacloud/models/DescribeResourceByCenterPolicyIdResponseBody.hpp>
 #include <alibabacloud/models/DescribeResourceByCenterPolicyIdResponse.hpp>
+#include <alibabacloud/models/DescribeResourceStatisticByRegionRequest.hpp>
+#include <alibabacloud/models/DescribeResourceStatisticByRegionResponseBody.hpp>
+#include <alibabacloud/models/DescribeResourceStatisticByRegionResponse.hpp>
 #include <alibabacloud/models/DescribeRouteEntryListRequest.hpp>
 #include <alibabacloud/models/DescribeRouteEntryListResponseBody.hpp>
 #include <alibabacloud/models/DescribeRouteEntryListResponse.hpp>

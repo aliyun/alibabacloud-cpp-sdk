@@ -82,15 +82,15 @@ namespace Models
   protected:
     // Specifies whether to unbind all tags from the resource. This parameter takes effect only when TagKey.N is not specified. Default value: false.
     shared_ptr<bool> all_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service (EDS).
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions supported by cloud computers.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of the resources, that is, the IDs of the cloud desktops. You can specify 1 to 50 IDs.
+    // The list of resource IDs, which are the cloud computer IDs. You can specify 1 to 50 IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource.
+    // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

@@ -3333,8 +3333,8 @@ CreateConfigGroupResponse Client::createConfigGroup(const CreateConfigGroupReque
 /**
  * @summary Creates a shared cloud desktop.
  *
- * @description - For information about the features, common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
- * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policies are created.
+ * @description - For information about the features, Common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
+ * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policy are created.
  *
  * @param request CreateDesktopGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3607,8 +3607,8 @@ CreateDesktopGroupResponse Client::createDesktopGroupWithOptions(const CreateDes
 /**
  * @summary Creates a shared cloud desktop.
  *
- * @description - For information about the features, common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
- * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policies are created.
+ * @description - For information about the features, Common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
+ * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policy are created.
  *
  * @param request CreateDesktopGroupRequest
  * @return CreateDesktopGroupResponse
@@ -8651,6 +8651,64 @@ DescribeDesktopGroupsResponse Client::describeDesktopGroups(const DescribeDeskto
 }
 
 /**
+ * @summary Queries a list of cloud desktops with detected vulnerabilities.
+ *
+ * @param request DescribeDesktopIdsByVulNamesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDesktopIdsByVulNamesResponse
+ */
+DescribeDesktopIdsByVulNamesResponse Client::describeDesktopIdsByVulNamesWithOptions(const DescribeDesktopIdsByVulNamesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNecessity()) {
+    query["Necessity"] = request.getNecessity();
+  }
+
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.getOfficeSiteId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  if (!!request.hasVulName()) {
+    query["VulName"] = request.getVulName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDesktopIdsByVulNames"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDesktopIdsByVulNamesResponse>();
+}
+
+/**
+ * @summary Queries a list of cloud desktops with detected vulnerabilities.
+ *
+ * @param request DescribeDesktopIdsByVulNamesRequest
+ * @return DescribeDesktopIdsByVulNamesResponse
+ */
+DescribeDesktopIdsByVulNamesResponse Client::describeDesktopIdsByVulNames(const DescribeDesktopIdsByVulNamesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDesktopIdsByVulNamesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the basic information of cloud computers.
  *
  * @param request DescribeDesktopInfoRequest
@@ -12319,6 +12377,60 @@ DescribeResourceByCenterPolicyIdResponse Client::describeResourceByCenterPolicyI
 }
 
 /**
+ * @summary Retrieves the statistics on the number of different resources by region.
+ *
+ * @description - This API operation is a centralized operation and can only be called by using the endpoints in the China (Shanghai) or Singapore region.
+ *
+ * @param request DescribeResourceStatisticByRegionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeResourceStatisticByRegionResponse
+ */
+DescribeResourceStatisticByRegionResponse Client::describeResourceStatisticByRegionWithOptions(const DescribeResourceStatisticByRegionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIncludeGroupDesktops()) {
+    query["IncludeGroupDesktops"] = request.getIncludeGroupDesktops();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSearchRegionId()) {
+    query["SearchRegionId"] = request.getSearchRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeResourceStatisticByRegion"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeResourceStatisticByRegionResponse>();
+}
+
+/**
+ * @summary Retrieves the statistics on the number of different resources by region.
+ *
+ * @description - This API operation is a centralized operation and can only be called by using the endpoints in the China (Shanghai) or Singapore region.
+ *
+ * @param request DescribeResourceStatisticByRegionRequest
+ * @return DescribeResourceStatisticByRegionResponse
+ */
+DescribeResourceStatisticByRegionResponse Client::describeResourceStatisticByRegion(const DescribeResourceStatisticByRegionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeResourceStatisticByRegionWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询路由条目列表
  *
  * @param request DescribeRouteEntryListRequest
@@ -13287,10 +13399,10 @@ DescribeVirtualMFADevicesResponse Client::describeVirtualMFADevices(const Descri
 }
 
 /**
- * @summary Retrieves cloud desktop information for a vulnerability.
+ * @summary Retrieves the cloud desktop information for vulnerabilities.
  *
- * @description - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
- * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
+ * @description - This API operation uses a centralized domain name. The endpoint is in the China (Shanghai) region. Calls from other regions are not supported.
+ * - The cloud desktop status information returned by this API operation has a delay of 1 to 3 seconds compared to the actual values.
  *
  * @param request DescribeVulDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13317,6 +13429,10 @@ DescribeVulDesktopsResponse Client::describeVulDesktopsWithOptions(const Describ
 
   if (!!request.hasIncludeFixResult()) {
     query["IncludeFixResult"] = request.getIncludeFixResult();
+  }
+
+  if (!!request.hasIncludePatchTask()) {
+    query["IncludePatchTask"] = request.getIncludePatchTask();
   }
 
   if (!!request.hasLanguage()) {
@@ -13385,10 +13501,10 @@ DescribeVulDesktopsResponse Client::describeVulDesktopsWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves cloud desktop information for a vulnerability.
+ * @summary Retrieves the cloud desktop information for vulnerabilities.
  *
- * @description - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
- * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
+ * @description - This API operation uses a centralized domain name. The endpoint is in the China (Shanghai) region. Calls from other regions are not supported.
+ * - The cloud desktop status information returned by this API operation has a delay of 1 to 3 seconds compared to the actual values.
  *
  * @param request DescribeVulDesktopsRequest
  * @return DescribeVulDesktopsResponse
@@ -13401,7 +13517,7 @@ DescribeVulDesktopsResponse Client::describeVulDesktops(const DescribeVulDesktop
 /**
  * @summary Retrieves vulnerability information.
  *
- * @description After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+ * @description After security protection is enabled, the system automatically scans cloud desktops for system vulnerability at each epoch (once a day).
  *
  * @param request DescribeVulnerabilityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13462,7 +13578,7 @@ DescribeVulnerabilityResponse Client::describeVulnerabilityWithOptions(const Des
 /**
  * @summary Retrieves vulnerability information.
  *
- * @description After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+ * @description After security protection is enabled, the system automatically scans cloud desktops for system vulnerability at each epoch (once a day).
  *
  * @param request DescribeVulnerabilityRequest
  * @return DescribeVulnerabilityResponse
@@ -17117,9 +17233,9 @@ ModifyDesktopChargeTypeResponse Client::modifyDesktopChargeType(const ModifyDesk
 }
 
 /**
- * @summary Modifies a shared cloud computer.
+ * @summary Modifies a shared cloud desktop.
  *
- * @description After you create a shared cloud computer, the system performs automatic creation of the corresponding number of cloud computers in the shared cloud computer based on the scaling policy in Settings and the connection status of end users. These cloud computers use the same cloud computer template and security policy. In different scenarios, you can modify the shared cloud computer configurations as needed, including the shared cloud computer name, cloud computer template, and associated policies.
+ * @description After a shared cloud desktop is created, the system performs automatic creation of a corresponding number of cloud desktops within the shared cloud desktop based on the shared cloud desktop scaling policy Settings and the end-user connection status. These cloud desktops share the same cloud desktop template and security policy. You can modify the configurations of the shared cloud desktop as needed in different scenarios, such as the name, cloud desktop template, and associated policies.
  *
  * @param request ModifyDesktopGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17254,9 +17370,9 @@ ModifyDesktopGroupResponse Client::modifyDesktopGroupWithOptions(const ModifyDes
 }
 
 /**
- * @summary Modifies a shared cloud computer.
+ * @summary Modifies a shared cloud desktop.
  *
- * @description After you create a shared cloud computer, the system performs automatic creation of the corresponding number of cloud computers in the shared cloud computer based on the scaling policy in Settings and the connection status of end users. These cloud computers use the same cloud computer template and security policy. In different scenarios, you can modify the shared cloud computer configurations as needed, including the shared cloud computer name, cloud computer template, and associated policies.
+ * @description After a shared cloud desktop is created, the system performs automatic creation of a corresponding number of cloud desktops within the shared cloud desktop based on the shared cloud desktop scaling policy Settings and the end-user connection status. These cloud desktops share the same cloud desktop template and security policy. You can modify the configurations of the shared cloud desktop as needed in different scenarios, such as the name, cloud desktop template, and associated policies.
  *
  * @param request ModifyDesktopGroupRequest
  * @return ModifyDesktopGroupResponse
@@ -22233,7 +22349,7 @@ UnlockVirtualMFADeviceResponse Client::unlockVirtualMFADevice(const UnlockVirtua
 }
 
 /**
- * @summary Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
+ * @summary Removes tags from cloud computers. If a removed tag is not added to any cloud computer, the tag is automatically deleted.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22280,7 +22396,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
+ * @summary Removes tags from cloud computers. If a removed tag is not added to any cloud computer, the tag is automatically deleted.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse

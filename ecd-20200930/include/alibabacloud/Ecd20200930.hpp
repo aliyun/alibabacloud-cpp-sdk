@@ -809,8 +809,8 @@ namespace Ecd20200930
       /**
        * @summary Creates a shared cloud desktop.
        *
-       * @description - For information about the features, common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
-       * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policies are created.
+       * @description - For information about the features, Common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
+       * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policy are created.
        *
        * @param request CreateDesktopGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -821,8 +821,8 @@ namespace Ecd20200930
       /**
        * @summary Creates a shared cloud desktop.
        *
-       * @description - For information about the features, common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
-       * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policies are created.
+       * @description - For information about the features, Common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
+       * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policy are created.
        *
        * @param request CreateDesktopGroupRequest
        * @return CreateDesktopGroupResponse
@@ -2322,6 +2322,23 @@ namespace Ecd20200930
       Models::DescribeDesktopGroupsResponse describeDesktopGroups(const Models::DescribeDesktopGroupsRequest &request);
 
       /**
+       * @summary Queries a list of cloud desktops with detected vulnerabilities.
+       *
+       * @param request DescribeDesktopIdsByVulNamesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDesktopIdsByVulNamesResponse
+       */
+      Models::DescribeDesktopIdsByVulNamesResponse describeDesktopIdsByVulNamesWithOptions(const Models::DescribeDesktopIdsByVulNamesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of cloud desktops with detected vulnerabilities.
+       *
+       * @param request DescribeDesktopIdsByVulNamesRequest
+       * @return DescribeDesktopIdsByVulNamesResponse
+       */
+      Models::DescribeDesktopIdsByVulNamesResponse describeDesktopIdsByVulNames(const Models::DescribeDesktopIdsByVulNamesRequest &request);
+
+      /**
        * @summary Queries the basic information of cloud computers.
        *
        * @param request DescribeDesktopInfoRequest
@@ -3322,6 +3339,27 @@ namespace Ecd20200930
       Models::DescribeResourceByCenterPolicyIdResponse describeResourceByCenterPolicyId(const Models::DescribeResourceByCenterPolicyIdRequest &request);
 
       /**
+       * @summary Retrieves the statistics on the number of different resources by region.
+       *
+       * @description - This API operation is a centralized operation and can only be called by using the endpoints in the China (Shanghai) or Singapore region.
+       *
+       * @param request DescribeResourceStatisticByRegionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeResourceStatisticByRegionResponse
+       */
+      Models::DescribeResourceStatisticByRegionResponse describeResourceStatisticByRegionWithOptions(const Models::DescribeResourceStatisticByRegionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the statistics on the number of different resources by region.
+       *
+       * @description - This API operation is a centralized operation and can only be called by using the endpoints in the China (Shanghai) or Singapore region.
+       *
+       * @param request DescribeResourceStatisticByRegionRequest
+       * @return DescribeResourceStatisticByRegionResponse
+       */
+      Models::DescribeResourceStatisticByRegionResponse describeResourceStatisticByRegion(const Models::DescribeResourceStatisticByRegionRequest &request);
+
+      /**
        * @summary 查询路由条目列表
        *
        * @param request DescribeRouteEntryListRequest
@@ -3579,10 +3617,10 @@ namespace Ecd20200930
       Models::DescribeVirtualMFADevicesResponse describeVirtualMFADevices(const Models::DescribeVirtualMFADevicesRequest &request);
 
       /**
-       * @summary Retrieves cloud desktop information for a vulnerability.
+       * @summary Retrieves the cloud desktop information for vulnerabilities.
        *
-       * @description - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
-       * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
+       * @description - This API operation uses a centralized domain name. The endpoint is in the China (Shanghai) region. Calls from other regions are not supported.
+       * - The cloud desktop status information returned by this API operation has a delay of 1 to 3 seconds compared to the actual values.
        *
        * @param request DescribeVulDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3591,10 +3629,10 @@ namespace Ecd20200930
       Models::DescribeVulDesktopsResponse describeVulDesktopsWithOptions(const Models::DescribeVulDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves cloud desktop information for a vulnerability.
+       * @summary Retrieves the cloud desktop information for vulnerabilities.
        *
-       * @description - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
-       * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
+       * @description - This API operation uses a centralized domain name. The endpoint is in the China (Shanghai) region. Calls from other regions are not supported.
+       * - The cloud desktop status information returned by this API operation has a delay of 1 to 3 seconds compared to the actual values.
        *
        * @param request DescribeVulDesktopsRequest
        * @return DescribeVulDesktopsResponse
@@ -3604,7 +3642,7 @@ namespace Ecd20200930
       /**
        * @summary Retrieves vulnerability information.
        *
-       * @description After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+       * @description After security protection is enabled, the system automatically scans cloud desktops for system vulnerability at each epoch (once a day).
        *
        * @param request DescribeVulnerabilityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3615,7 +3653,7 @@ namespace Ecd20200930
       /**
        * @summary Retrieves vulnerability information.
        *
-       * @description After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+       * @description After security protection is enabled, the system automatically scans cloud desktops for system vulnerability at each epoch (once a day).
        *
        * @param request DescribeVulnerabilityRequest
        * @return DescribeVulnerabilityResponse
@@ -4536,9 +4574,9 @@ namespace Ecd20200930
       Models::ModifyDesktopChargeTypeResponse modifyDesktopChargeType(const Models::ModifyDesktopChargeTypeRequest &request);
 
       /**
-       * @summary Modifies a shared cloud computer.
+       * @summary Modifies a shared cloud desktop.
        *
-       * @description After you create a shared cloud computer, the system performs automatic creation of the corresponding number of cloud computers in the shared cloud computer based on the scaling policy in Settings and the connection status of end users. These cloud computers use the same cloud computer template and security policy. In different scenarios, you can modify the shared cloud computer configurations as needed, including the shared cloud computer name, cloud computer template, and associated policies.
+       * @description After a shared cloud desktop is created, the system performs automatic creation of a corresponding number of cloud desktops within the shared cloud desktop based on the shared cloud desktop scaling policy Settings and the end-user connection status. These cloud desktops share the same cloud desktop template and security policy. You can modify the configurations of the shared cloud desktop as needed in different scenarios, such as the name, cloud desktop template, and associated policies.
        *
        * @param request ModifyDesktopGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4547,9 +4585,9 @@ namespace Ecd20200930
       Models::ModifyDesktopGroupResponse modifyDesktopGroupWithOptions(const Models::ModifyDesktopGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a shared cloud computer.
+       * @summary Modifies a shared cloud desktop.
        *
-       * @description After you create a shared cloud computer, the system performs automatic creation of the corresponding number of cloud computers in the shared cloud computer based on the scaling policy in Settings and the connection status of end users. These cloud computers use the same cloud computer template and security policy. In different scenarios, you can modify the shared cloud computer configurations as needed, including the shared cloud computer name, cloud computer template, and associated policies.
+       * @description After a shared cloud desktop is created, the system performs automatic creation of a corresponding number of cloud desktops within the shared cloud desktop based on the shared cloud desktop scaling policy Settings and the end-user connection status. These cloud desktops share the same cloud desktop template and security policy. You can modify the configurations of the shared cloud desktop as needed in different scenarios, such as the name, cloud desktop template, and associated policies.
        *
        * @param request ModifyDesktopGroupRequest
        * @return ModifyDesktopGroupResponse
@@ -6097,7 +6135,7 @@ namespace Ecd20200930
       Models::UnlockVirtualMFADeviceResponse unlockVirtualMFADevice(const Models::UnlockVirtualMFADeviceRequest &request);
 
       /**
-       * @summary Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
+       * @summary Removes tags from cloud computers. If a removed tag is not added to any cloud computer, the tag is automatically deleted.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6106,7 +6144,7 @@ namespace Ecd20200930
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
+       * @summary Removes tags from cloud computers. If a removed tag is not added to any cloud computer, the tag is automatically deleted.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DesktopIdList, desktopIdList_);
       DARABONBA_PTR_TO_JSON(DesktopStatus, desktopStatus_);
       DARABONBA_PTR_TO_JSON(IncludeFixResult, includeFixResult_);
+      DARABONBA_PTR_TO_JSON(IncludePatchTask, includePatchTask_);
       DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DesktopIdList, desktopIdList_);
       DARABONBA_PTR_FROM_JSON(DesktopStatus, desktopStatus_);
       DARABONBA_PTR_FROM_JSON(IncludeFixResult, includeFixResult_);
+      DARABONBA_PTR_FROM_JSON(IncludePatchTask, includePatchTask_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -63,10 +65,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectionStatus_ == nullptr
-        && this->cveId_ == nullptr && this->desktopIdList_ == nullptr && this->desktopStatus_ == nullptr && this->includeFixResult_ == nullptr && this->language_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->onlyCurrentMonthFixAttempted_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->patchId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->searchRegionId_ == nullptr && this->statusList_ == nullptr
-        && this->vulLevel_ == nullptr; };
+        && this->cveId_ == nullptr && this->desktopIdList_ == nullptr && this->desktopStatus_ == nullptr && this->includeFixResult_ == nullptr && this->includePatchTask_ == nullptr
+        && this->language_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->onlyCurrentMonthFixAttempted_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->patchId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->searchRegionId_ == nullptr
+        && this->statusList_ == nullptr && this->vulLevel_ == nullptr; };
     // connectionStatus Field Functions 
     bool hasConnectionStatus() const { return this->connectionStatus_ != nullptr;};
     void deleteConnectionStatus() { this->connectionStatus_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
     void deleteIncludeFixResult() { this->includeFixResult_ = nullptr;};
     inline bool getIncludeFixResult() const { DARABONBA_PTR_GET_DEFAULT(includeFixResult_, false) };
     inline DescribeVulDesktopsRequest& setIncludeFixResult(bool includeFixResult) { DARABONBA_PTR_SET_VALUE(includeFixResult_, includeFixResult) };
+
+
+    // includePatchTask Field Functions 
+    bool hasIncludePatchTask() const { return this->includePatchTask_ != nullptr;};
+    void deleteIncludePatchTask() { this->includePatchTask_ = nullptr;};
+    inline bool getIncludePatchTask() const { DARABONBA_PTR_GET_DEFAULT(includePatchTask_, false) };
+    inline DescribeVulDesktopsRequest& setIncludePatchTask(bool includePatchTask) { DARABONBA_PTR_SET_VALUE(includePatchTask_, includePatchTask) };
 
 
     // language Field Functions 
@@ -191,52 +200,48 @@ namespace Models
 
 
   protected:
-    // The connection status of the cloud desktop. Valid values: CONNECTED and DISCONNECTED.
+    // The connection status of the cloud desktop.
     shared_ptr<string> connectionStatus_ {};
-    // The CVE ID of the vulnerability.
+    // The vulnerability ID.
     shared_ptr<string> cveId_ {};
     // The list of cloud desktop IDs.
     shared_ptr<vector<string>> desktopIdList_ {};
     // The running status of the cloud desktop.
     shared_ptr<string> desktopStatus_ {};
-    // Specifies whether to include patch update results.
+    // Specifies whether to include the patch update results.
     shared_ptr<bool> includeFixResult_ {};
-    // The language of the returned information. Valid values:
-    // 
-    // - **ch**: Chinese.
-    // - **en**: English.
+    // Specifies whether to include cloud desktops that have scheduled patch tasks.
+    shared_ptr<bool> includePatchTask_ {};
+    // The language of the response.
     shared_ptr<string> language_ {};
-    // The number of entries per page in a paged query.
-    // 
+    // The number of entries per page for a paging query.
     // Maximum value: 100.
-    // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
-    // Specifies whether to include only cloud desktops that have had fix tasks executed in the current month.
+    // Specifies whether to include only cloud desktops for which fix tasks have been executed in the current month.
     shared_ptr<bool> onlyCurrentMonthFixAttempted_ {};
-    // The page number of the current page in a paged query.
+    // The page number of the current page for a paging query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page number of the current page in a paged query.
+    // The page size for a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The patch ID.
     shared_ptr<string> patchId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions supported by WUYING Workspace.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The region ID used to filter cloud desktop information for a specific region.
+    // The search region ID. This parameter is used to filter cloud desktop information for a specified region.
     shared_ptr<string> searchRegionId_ {};
     // The list of vulnerability status details.
     shared_ptr<vector<string>> statusList_ {};
-    // The severity level of the intrusion prevention event. Valid values:
+    // The security level of the intrusion prevention event. Valid values:
+    // - **low**: low-risk.
+    // - **medium**: medium-risk.
+    // - **critical**: high-risk.
     // 
-    // - **low**: Low.
-    // - **medium**: Medium.
-    // - **critical**: Critical.
-    // 
-    // > If you do not set this parameter, vulnerabilities of all severity levels are queried.
+    // > If you do not specify this parameter, vulnerabilities of all security levels are queried.
     shared_ptr<string> vulLevel_ {};
   };
 
