@@ -75,14 +75,26 @@ namespace Models
 
 
   protected:
+    // **The CU limit for the job.**
+    // 
     // This parameter is required.
     shared_ptr<double> cuLimit_ {};
+    // **The reserved CUs for the job.**
+    // 
+    // > The number of reserved CUs must not exceed the CU limit.
+    // 
     // This parameter is required.
     shared_ptr<double> cuReserved_ {};
+    // **The compute instance ID.**
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // **The name of the compute job.**
+    // 
     // This parameter is required.
     shared_ptr<string> jobName_ {};
+    // **The region ID.**
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

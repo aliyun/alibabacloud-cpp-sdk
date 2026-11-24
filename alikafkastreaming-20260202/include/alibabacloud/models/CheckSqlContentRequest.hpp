@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The compute instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The compute job name.
+    // 
     // This parameter is required.
     shared_ptr<string> jobName_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The Flink SQL statement to be validated.
+    // 
     // This parameter is required.
     shared_ptr<string> sqlContent_ {};
   };

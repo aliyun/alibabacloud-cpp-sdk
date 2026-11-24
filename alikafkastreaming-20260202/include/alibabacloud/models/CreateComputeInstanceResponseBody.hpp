@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // The compute instance ID.
       shared_ptr<string> instanceId_ {};
+      // The order ID.
       shared_ptr<string> orderId_ {};
     };
 
@@ -110,9 +112,13 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<int64_t> code_ {};
+    // The returned data.
     shared_ptr<CreateComputeInstanceResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

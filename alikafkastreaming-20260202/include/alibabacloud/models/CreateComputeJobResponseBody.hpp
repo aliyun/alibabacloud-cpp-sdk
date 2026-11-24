@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<int64_t> code_ {};
+    // The response data.
     shared_ptr<bool> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

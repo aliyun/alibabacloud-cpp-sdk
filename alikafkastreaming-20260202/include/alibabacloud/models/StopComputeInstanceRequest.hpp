@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The compute instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

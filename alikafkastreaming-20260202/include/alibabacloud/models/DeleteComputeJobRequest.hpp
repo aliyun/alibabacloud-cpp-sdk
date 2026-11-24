@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The ID of the compute instance, excluding the region name.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The name of the compute job.
+    // 
     // This parameter is required.
     shared_ptr<string> jobName_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

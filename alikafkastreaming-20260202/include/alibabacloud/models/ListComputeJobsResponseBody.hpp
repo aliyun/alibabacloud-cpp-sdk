@@ -162,17 +162,29 @@ namespace Models
 
 
     protected:
+      // The creation time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The CU limit for the job.
       shared_ptr<double> cuLimit_ {};
+      // The reserved CUs for the job.
       shared_ptr<double> cuReserved_ {};
+      // The number of CUs used.
       shared_ptr<double> cuUsed_ {};
+      // Specifies whether the job is a debug job. Valid values: 0: No. 1: Yes.
       shared_ptr<int32_t> debugMode_ {};
+      // The compute instance ID.
       shared_ptr<string> instanceId_ {};
+      // The name of the compute job.
       shared_ptr<string> jobName_ {};
+      // The owner of the resource.
       shared_ptr<string> owner_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The job remark.
       shared_ptr<string> remark_ {};
+      // The job status.
       shared_ptr<string> status_ {};
     };
 
@@ -231,12 +243,19 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<int64_t> code_ {};
+    // The returned data.
     shared_ptr<vector<ListComputeJobsResponseBody::Data>> data_ {};
+    // The maximum number of returned entries.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // The total number of records that match the query conditions.
     shared_ptr<int64_t> total_ {};
   };
 

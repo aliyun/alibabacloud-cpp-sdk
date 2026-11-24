@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The name of the compute instance.
     shared_ptr<string> instanceName_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The list of vSwitch IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchIdsShrink_ {};
+    // The ID of the VPC where the instance is deployed.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

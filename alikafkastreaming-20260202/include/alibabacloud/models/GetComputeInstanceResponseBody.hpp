@@ -195,22 +195,39 @@ namespace Models
 
 
     protected:
+      // The billing method.
       shared_ptr<string> chargeType_ {};
+      // The creation time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The total CU limit.
       shared_ptr<double> cuLimitSum_ {};
+      // The total number of reserved CUs.
       shared_ptr<double> cuReservedSum_ {};
+      // The total number of used CUs.
       shared_ptr<double> cuUsedSum_ {};
+      // The expiration time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> expireTime_ {};
+      // The compute instance ID.
       shared_ptr<string> instanceId_ {};
+      // The name of the compute instance.
       shared_ptr<string> instanceName_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
+      // The service status of the instance.
       shared_ptr<string> serviceStatus_ {};
+      // The total number of jobs.
       shared_ptr<int64_t> totalJobs_ {};
+      // The number of running jobs.
       shared_ptr<int64_t> totalRunningJobs_ {};
+      // The list of vSwitch IDs.
       shared_ptr<vector<string>> vSwitchIds_ {};
+      // VPC ID
       shared_ptr<string> vpcId_ {};
     };
 
@@ -247,9 +264,13 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<int64_t> code_ {};
+    // The returned data.
     shared_ptr<GetComputeInstanceResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

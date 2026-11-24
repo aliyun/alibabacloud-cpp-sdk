@@ -210,23 +210,41 @@ namespace Models
 
 
     protected:
+      // Indicates whether auto-renewal is enabled.
       shared_ptr<bool> autoRenewFlag_ {};
+      // The billing method.
       shared_ptr<string> chargeType_ {};
+      // The creation time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The total CU limit.
       shared_ptr<double> cuLimitSum_ {};
+      // The total number of reserved CUs.
       shared_ptr<double> cuReservedSum_ {};
+      // The total number of used CUs.
       shared_ptr<double> cuUsedSum_ {};
+      // The expiration time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> expireTime_ {};
+      // The compute instance ID.
       shared_ptr<string> instanceId_ {};
+      // The instance name.
       shared_ptr<string> instanceName_ {};
+      // The owner of the resource.
       shared_ptr<string> owner_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The service status of the instance.
       shared_ptr<string> serviceStatus_ {};
+      // The total number of jobs.
       shared_ptr<int64_t> totalJobs_ {};
+      // The number of running jobs.
       shared_ptr<int64_t> totalRunningJobs_ {};
+      // The list of vSwitch IDs.
       shared_ptr<vector<string>> vSwitchIds_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -285,12 +303,19 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<int64_t> code_ {};
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The returned data.
     shared_ptr<vector<ListComputeInstancesInPageResponseBody::Data>> data_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries that meet the query conditions.
     shared_ptr<int64_t> total_ {};
   };
 

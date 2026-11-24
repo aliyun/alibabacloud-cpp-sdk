@@ -141,12 +141,19 @@ namespace Models
 
 
       protected:
+        // The SQL snippet where the error occurred.
         shared_ptr<string> codeSnippet_ {};
+        // The starting column number of the error.
         shared_ptr<int32_t> columnNumber_ {};
+        // The ending column number of the error.
         shared_ptr<int32_t> endColumnNumber_ {};
+        // The ending line number of the error.
         shared_ptr<int32_t> endLineNumber_ {};
+        // The error type.
         shared_ptr<string> errorType_ {};
+        // The starting line number of the error.
         shared_ptr<int32_t> lineNumber_ {};
+        // The error message.
         shared_ptr<string> message_ {};
       };
 
@@ -169,7 +176,9 @@ namespace Models
 
 
     protected:
+      // The list of SQL validation errors.
       shared_ptr<vector<Data::ErrorList>> errorList_ {};
+      // Indicates whether the SQL statement passed the validation.
       shared_ptr<bool> valid_ {};
     };
 
@@ -206,9 +215,13 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<int64_t> code_ {};
+    // The returned data.
     shared_ptr<CheckSqlContentResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

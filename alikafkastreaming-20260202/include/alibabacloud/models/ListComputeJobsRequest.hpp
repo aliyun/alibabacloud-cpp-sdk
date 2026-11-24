@@ -94,14 +94,23 @@ namespace Models
 
 
   protected:
+    // The compute instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum number of jobs to return in the current request. Default value: 10. Maximum value: 1000. If you set this parameter to 0, the default value is used.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. Do not specify this parameter in the first request. For subsequent requests, use the `NextToken` value returned in the previous response.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The keyword used to search for jobs by name or remark.
     shared_ptr<string> search_ {};
+    // The sort direction. The value is not case-sensitive. Valid values: `ASC` and `DESC`.
     shared_ptr<string> sortDirection_ {};
+    // The sort field. Valid values: `createTime`, `cuReserved`, `cuLimit`, `cuUsed`, `status`, and `jobName`.
     shared_ptr<string> sortField_ {};
   };
 

@@ -201,23 +201,43 @@ namespace Models
 
 
     protected:
+      // The creation time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The CU limit for the job.
       shared_ptr<double> cuLimit_ {};
+      // The reserved CUs for the job.
       shared_ptr<double> cuReserved_ {};
+      // The used CUs.
       shared_ptr<double> cuUsed_ {};
+      // Indicates whether the job is a debug job. Valid values:
+      // - 0: No.
+      // - 1: Yes.
       shared_ptr<int32_t> debugMode_ {};
+      // The currently deployed SQL.
       shared_ptr<string> deployedSql_ {};
+      // The Flink SQL draft.
       shared_ptr<string> draftSql_ {};
+      // The error message.
       shared_ptr<string> errorMsg_ {};
+      // The expiration time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> expirationTime_ {};
+      // The compute instance ID.
       shared_ptr<string> instanceId_ {};
+      // The name of the compute job.
       shared_ptr<string> jobName_ {};
+      // The owner of the resource.
       shared_ptr<string> owner_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The remark for the job.
       shared_ptr<string> remark_ {};
+      // The status of the job.
       shared_ptr<string> status_ {};
+      // The startup mode, such as savepoint or stateless.
       shared_ptr<string> upgradeMode_ {};
     };
 
@@ -254,9 +274,13 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<int64_t> code_ {};
+    // The response data.
     shared_ptr<GetComputeJobResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 
