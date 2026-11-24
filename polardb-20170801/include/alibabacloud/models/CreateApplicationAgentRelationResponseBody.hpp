@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the Squad application.
+    // The ID of the squad application.
     shared_ptr<string> applicationId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

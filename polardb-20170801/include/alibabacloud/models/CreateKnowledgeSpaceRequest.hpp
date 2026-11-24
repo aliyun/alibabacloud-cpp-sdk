@@ -229,7 +229,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> embeddingModel_ {};
-    // Specifies whether to enforce ACL authentication for the knowledge space.
+    // Specifies whether to enable mandatory ACL authentication for the knowledge space.
     shared_ptr<bool> enforceAcl_ {};
     // The name of the large language model.
     shared_ptr<string> LLMModel_ {};
@@ -253,7 +253,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the reranking model.
+    // The name of the rerank model.
     shared_ptr<string> rerankModel_ {};
     // The ID of the security group.
     // 
@@ -265,19 +265,19 @@ namespace Models
     shared_ptr<int32_t> shardingSize_ {};
     // The sharding strategy. Valid values:
     // - hierarchical: The default value.
-    // - hybrid.
+    // - hybrid
     // 
     // This parameter is required.
     shared_ptr<string> shardingStrategy_ {};
-    // The ID of the vSwitch for the automatic creation of the database.
+    // The ID of the vSwitch for automatic creation of the database.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC for the automatic creation of the database.
+    // The ID of the VPC for automatic creation of the database.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The active zone for the automatic creation of the database.
+    // The active zone for automatic creation of the database.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

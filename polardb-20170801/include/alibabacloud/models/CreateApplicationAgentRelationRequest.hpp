@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The instance ID of the Agent to attach.
+    // The instance ID of the agent to attach.
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
-    // The ID of the Squad application.
+    // The ID of the squad application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};

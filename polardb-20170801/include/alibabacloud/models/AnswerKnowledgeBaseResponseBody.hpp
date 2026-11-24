@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the Q&A task.
+    // The unique identifier of the question answering task.
     shared_ptr<string> queryId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The status of the Q&A task.
+    // The status of the question answering task.
     shared_ptr<string> status_ {};
   };
 

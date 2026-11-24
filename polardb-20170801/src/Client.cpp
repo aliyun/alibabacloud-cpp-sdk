@@ -363,7 +363,7 @@ AddPolarClawMCPServerResponse Client::addPolarClawMCPServer(const AddPolarClawMC
 /**
  * @summary Adds a transparent acceleration path.
  *
- * @description Adds a transparent acceleration path for a PolarFS instance. Before you call this operation, make sure that you have a running PolarDB cluster, a valid OSS bucket in the same region, and a PolarFS instance of the basic type with acceleration enabled. The bucket endpoint format is {bucket-name}.oss-{regionId}-internal.aliyuncs.com. This operation is not applicable to instances of the cold type or instances with acceleration disabled. You can call the DescribePolarFs and DescribePolarFsAttribute operations to verify the instance type and acceleration status.
+ * @description Adds a transparent acceleration path for a PolarFS instance. Before calling this operation, ensure that a running PolarDB cluster, a valid OSS bucket in the same region, and a basic PolarFS instance with acceleration enabled are available. The bucket address format is {bucket-name}.oss-{regionId}-internal.aliyuncs.com. This operation is not applicable to cold instances or instances with acceleration disabled. You can call the DescribePolarFs and DescribePolarFsAttribute operations to verify the instance type and acceleration status.
  *
  * @param request AddPolarFsPathMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +404,7 @@ AddPolarFsPathMappingResponse Client::addPolarFsPathMappingWithOptions(const Add
 /**
  * @summary Adds a transparent acceleration path.
  *
- * @description Adds a transparent acceleration path for a PolarFS instance. Before you call this operation, make sure that you have a running PolarDB cluster, a valid OSS bucket in the same region, and a PolarFS instance of the basic type with acceleration enabled. The bucket endpoint format is {bucket-name}.oss-{regionId}-internal.aliyuncs.com. This operation is not applicable to instances of the cold type or instances with acceleration disabled. You can call the DescribePolarFs and DescribePolarFsAttribute operations to verify the instance type and acceleration status.
+ * @description Adds a transparent acceleration path for a PolarFS instance. Before calling this operation, ensure that a running PolarDB cluster, a valid OSS bucket in the same region, and a basic PolarFS instance with acceleration enabled are available. The bucket address format is {bucket-name}.oss-{regionId}-internal.aliyuncs.com. This operation is not applicable to cold instances or instances with acceleration disabled. You can call the DescribePolarFs and DescribePolarFsAttribute operations to verify the instance type and acceleration status.
  *
  * @param request AddPolarFsPathMappingRequest
  * @return AddPolarFsPathMappingResponse
@@ -417,13 +417,13 @@ AddPolarFsPathMappingResponse Client::addPolarFsPathMapping(const AddPolarFsPath
 /**
  * @summary Adds a new directory quota rule to a Polarlakebase instance.
  *
- * @description ## Request description
- * - This operation adds a new path policy—a directory quota rule—to a specified Polarlakebase instance.
- * - The `Quotas` parameter is a list. Each element represents a new quota rule. You can add up to 11 rules in a single request.
- * - Each rule must include the `Name` and `Include` fields. Other fields, such as `Description` and `Exclude`, are optional.
- * - To define the quota limit, specify at least one of the following parameters: `SizeLimit`, `FileCountLimit`, `AccessTTL`, or `ChangeTTL`.
- * - The `Priority` field specifies the rule priority. A larger value indicates higher priority. The default value is 0.
- * - The `Enabled` field determines whether the rule takes effect immediately. The default value is true.
+ * @description ## Operation description
+ * - This operation adds a new PathPolicy (quota rule) to a specified Polarlakebase instance.
+ * - The `Quotas` parameter is a list. Each element represents a rule to be added. You can add up to 11 rules at a time.
+ * - Each rule must include the `Name` and `Include` fields. Other fields such as `Description` and `Exclude` are optional.
+ * - You must specify at least one of the following fields to define the quota limit: `SizeLimit`, `FileCountLimit`, `AccessTTL`, and `ChangeTTL`.
+ * - The `Priority` field specifies the priority of the rule. A larger value indicates a higher priority. Default value: 0.
+ * - The `Enabled` field specifies whether the rule takes effect immediately. Default value: true, which indicates that the rule takes effect immediately.
  *
  * @param request AddPolarFsQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -464,13 +464,13 @@ AddPolarFsQuotaResponse Client::addPolarFsQuotaWithOptions(const AddPolarFsQuota
 /**
  * @summary Adds a new directory quota rule to a Polarlakebase instance.
  *
- * @description ## Request description
- * - This operation adds a new path policy—a directory quota rule—to a specified Polarlakebase instance.
- * - The `Quotas` parameter is a list. Each element represents a new quota rule. You can add up to 11 rules in a single request.
- * - Each rule must include the `Name` and `Include` fields. Other fields, such as `Description` and `Exclude`, are optional.
- * - To define the quota limit, specify at least one of the following parameters: `SizeLimit`, `FileCountLimit`, `AccessTTL`, or `ChangeTTL`.
- * - The `Priority` field specifies the rule priority. A larger value indicates higher priority. The default value is 0.
- * - The `Enabled` field determines whether the rule takes effect immediately. The default value is true.
+ * @description ## Operation description
+ * - This operation adds a new PathPolicy (quota rule) to a specified Polarlakebase instance.
+ * - The `Quotas` parameter is a list. Each element represents a rule to be added. You can add up to 11 rules at a time.
+ * - Each rule must include the `Name` and `Include` fields. Other fields such as `Description` and `Exclude` are optional.
+ * - You must specify at least one of the following fields to define the quota limit: `SizeLimit`, `FileCountLimit`, `AccessTTL`, and `ChangeTTL`.
+ * - The `Priority` field specifies the priority of the rule. A larger value indicates a higher priority. Default value: 0.
+ * - The `Enabled` field specifies whether the rule takes effect immediately. Default value: true, which indicates that the rule takes effect immediately.
  *
  * @param request AddPolarFsQuotaRequest
  * @return AddPolarFsQuotaResponse
@@ -601,7 +601,7 @@ AddSQLRateLimitingRulesResponse Client::addSQLRateLimitingRules(const AddSQLRate
 }
 
 /**
- * @summary Answers a single-turn question based on a knowledge base.
+ * @summary Performs single-turn question answering based on a knowledge base.
  *
  * @param request AnswerKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -672,7 +672,7 @@ AnswerKnowledgeBaseResponse Client::answerKnowledgeBaseWithOptions(const AnswerK
 }
 
 /**
- * @summary Answers a single-turn question based on a knowledge base.
+ * @summary Performs single-turn question answering based on a knowledge base.
  *
  * @param request AnswerKnowledgeBaseRequest
  * @return AnswerKnowledgeBaseResponse
@@ -1923,9 +1923,9 @@ ClonePolarFsBasicSnapshotResponse Client::clonePolarFsBasicSnapshot(const CloneP
 /**
  * @summary Disables the PolarDB for AI feature.
  *
- * @description Disables a PolarDB for AI task. Prerequisites: The Category of the target cluster must be Normal (SENormal is not supported), and the AI task must have been enabled by calling OpenAITask. Call DescribeAITaskStatus to confirm that Status is 1 before disabling the task. For the paid DLNode path, you must first call CreateDBNodes and set DBNodeType to DLNode to create an AI node, and then call OpenAITask. For the free trial path, if a trial AI node is already available, you do not need to create an additional paid DLNode to disable the task, but you must still confirm that the task is enabled and its status is 1.
+ * @description Closes a PolarDB for AI task. Prerequisites: The category of the destination cluster must be Normal (SENormal is not supported), and the AI task must have been enabled by calling OpenAITask. Call DescribeAITaskStatus to confirm that Status is 1 before you close the task. For the paid DLNode path, you must first call CreateDBNodes and set DBNodeType to DLNode to create an AI node, and then call OpenAITask. For the free trial path, if a trial AI node is already available, you do not need to create an additional paid DLNode to close the task. However, you must still confirm that the task is enabled and its status is 1.
  * ## Prerequisites
- * In the detailed description of CloseAITask, supplement the prerequisite workflow (CreateDBNodes(DBNodeType=DLNode) → OpenAITask → CloseAITask). Explicitly state that the cluster must be of the Normal category and the AI task status must be 1 (which can be queried by calling DescribeAITaskStatus). Distinguish the applicability of this API between the free trial AI node path and the paid DLNode path.
+ * Supplement the prerequisite workflow in the detailed description of CloseAITask (CreateDBNodes(DBNodeType=DLNode) → OpenAITask → CloseAITask). Explicitly state that the cluster must be of the Normal category and the AI task status must be Status=1 (which can be queried by calling DescribeAITaskStatus). Distinguish the applicability of this API between the free trial AI node path and the paid DLNode path.
  *
  * @param request CloseAITaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1978,9 +1978,9 @@ CloseAITaskResponse Client::closeAITaskWithOptions(const CloseAITaskRequest &req
 /**
  * @summary Disables the PolarDB for AI feature.
  *
- * @description Disables a PolarDB for AI task. Prerequisites: The Category of the target cluster must be Normal (SENormal is not supported), and the AI task must have been enabled by calling OpenAITask. Call DescribeAITaskStatus to confirm that Status is 1 before disabling the task. For the paid DLNode path, you must first call CreateDBNodes and set DBNodeType to DLNode to create an AI node, and then call OpenAITask. For the free trial path, if a trial AI node is already available, you do not need to create an additional paid DLNode to disable the task, but you must still confirm that the task is enabled and its status is 1.
+ * @description Closes a PolarDB for AI task. Prerequisites: The category of the destination cluster must be Normal (SENormal is not supported), and the AI task must have been enabled by calling OpenAITask. Call DescribeAITaskStatus to confirm that Status is 1 before you close the task. For the paid DLNode path, you must first call CreateDBNodes and set DBNodeType to DLNode to create an AI node, and then call OpenAITask. For the free trial path, if a trial AI node is already available, you do not need to create an additional paid DLNode to close the task. However, you must still confirm that the task is enabled and its status is 1.
  * ## Prerequisites
- * In the detailed description of CloseAITask, supplement the prerequisite workflow (CreateDBNodes(DBNodeType=DLNode) → OpenAITask → CloseAITask). Explicitly state that the cluster must be of the Normal category and the AI task status must be 1 (which can be queried by calling DescribeAITaskStatus). Distinguish the applicability of this API between the free trial AI node path and the paid DLNode path.
+ * Supplement the prerequisite workflow in the detailed description of CloseAITask (CreateDBNodes(DBNodeType=DLNode) → OpenAITask → CloseAITask). Explicitly state that the cluster must be of the Normal category and the AI task status must be Status=1 (which can be queried by calling DescribeAITaskStatus). Distinguish the applicability of this API between the free trial AI node path and the paid DLNode path.
  *
  * @param request CloseAITaskRequest
  * @return CloseAITaskResponse
@@ -2577,7 +2577,7 @@ CreateAIDBClusterTaskResponse Client::createAIDBClusterTask(const CreateAIDBClus
 /**
  * @summary Creates an AI node.
  *
- * @description Creates a node for an AI cluster. This operation is applicable only to clusters whose AiNodeType is vnode or container. The maas type is not supported. You can call the DescribeAIDBClusters operation to view the AiNodeType of the target cluster.
+ * @description Creates a node for an AI cluster. This operation is applicable only to clusters whose AiNodeType is vnode or container. Clusters of the maas type are not supported. You can call the DescribeAIDBClusters operation to view the AiNodeType of the target cluster.
  *
  * @param request CreateAINodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2614,7 +2614,7 @@ CreateAINodesResponse Client::createAINodesWithOptions(const CreateAINodesReques
 /**
  * @summary Creates an AI node.
  *
- * @description Creates a node for an AI cluster. This operation is applicable only to clusters whose AiNodeType is vnode or container. The maas type is not supported. You can call the DescribeAIDBClusters operation to view the AiNodeType of the target cluster.
+ * @description Creates a node for an AI cluster. This operation is applicable only to clusters whose AiNodeType is vnode or container. Clusters of the maas type are not supported. You can call the DescribeAIDBClusters operation to view the AiNodeType of the target cluster.
  *
  * @param request CreateAINodesRequest
  * @return CreateAINodesResponse
@@ -3405,7 +3405,7 @@ CreateApplicationResponse Client::createApplication(const CreateApplicationReque
 }
 
 /**
- * @summary Binds an Agent to a Squad.
+ * @summary Associates an agent with a squad.
  *
  * @param request CreateApplicationAgentRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3444,7 +3444,7 @@ CreateApplicationAgentRelationResponse Client::createApplicationAgentRelationWit
 }
 
 /**
- * @summary Binds an Agent to a Squad.
+ * @summary Associates an agent with a squad.
  *
  * @param request CreateApplicationAgentRelationRequest
  * @return CreateApplicationAgentRelationResponse
@@ -4094,6 +4094,10 @@ CreateConsumerGroupResponse Client::createConsumerGroup(const CreateConsumerGrou
 CreateCostRuleResponse Client::createCostRuleWithOptions(const CreateCostRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBypassQuotaCheck()) {
+    query["BypassQuotaCheck"] = request.getBypassQuotaCheck();
+  }
+
   if (!!request.hasCacheCostPointsPerMillion()) {
     query["CacheCostPointsPerMillion"] = request.getCacheCostPointsPerMillion();
   }
@@ -4128,6 +4132,10 @@ CreateCostRuleResponse Client::createCostRuleWithOptions(const CreateCostRuleReq
 
   if (!!request.hasInputCostPointsPerMillion()) {
     query["InputCostPointsPerMillion"] = request.getInputCostPointsPerMillion();
+  }
+
+  if (!!request.hasInputTokenTier()) {
+    query["InputTokenTier"] = request.getInputTokenTier();
   }
 
   if (!!request.hasInputTokenTiers()) {
@@ -4723,9 +4731,9 @@ CreateDBClusterEndpointResponse Client::createDBClusterEndpoint(const CreateDBCl
 }
 
 /**
- * @summary Creates a custom cluster endpoint for an edge cluster.
+ * @summary Creates a custom cluster endpoint for an edge cloud cluster.
  *
- * @description Prerequisites: This operation applies only to PolarDB on ENS clusters and does not apply to standard PolarDB clusters. The CreateDBClusterZonal operation is currently unavailable. To create an edge cluster, apply through the ENS or MyBase infrastructure, or call the CreateDBCluster operation with CloudProvider set to ENS. Then, call the DescribeDBClustersZonal operation to obtain the edge cluster ID. Usage notes: This operation applies only to PolarDB on ENS clusters. It outlines the concepts of edge clouds, activation methods, and how to obtain the edge cluster ID, noting that the CreateDBClusterZonal operation is unavailable and clusters must be created through alternative methods.
+ * @description Before you begin: This operation applies only to Edge Node Service (ENS) edge cloud clusters and is not applicable to standard PolarDB clusters. Currently, the CreateDBClusterZonal operation is unavailable. To create an edge cluster, apply through ENS or MyBase infrastructure, or call CreateDBCluster with CloudProvider set to ENS, and then call DescribeDBClustersZonal to obtain the edge cluster ID. Operation description: Prerequisites for edge cloud clusters: This API applies only to ENS edge cloud clusters and is not applicable to standard PolarDB clusters. It provides an overview of edge clouds, activation methods, and instructions on how to obtain the edge cluster ID, noting that the CreateDBClusterZonal API is currently unavailable and clusters must be created through alternative methods.
  *
  * @param request CreateDBClusterEndpointZonalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4812,9 +4820,9 @@ CreateDBClusterEndpointZonalResponse Client::createDBClusterEndpointZonalWithOpt
 }
 
 /**
- * @summary Creates a custom cluster endpoint for an edge cluster.
+ * @summary Creates a custom cluster endpoint for an edge cloud cluster.
  *
- * @description Prerequisites: This operation applies only to PolarDB on ENS clusters and does not apply to standard PolarDB clusters. The CreateDBClusterZonal operation is currently unavailable. To create an edge cluster, apply through the ENS or MyBase infrastructure, or call the CreateDBCluster operation with CloudProvider set to ENS. Then, call the DescribeDBClustersZonal operation to obtain the edge cluster ID. Usage notes: This operation applies only to PolarDB on ENS clusters. It outlines the concepts of edge clouds, activation methods, and how to obtain the edge cluster ID, noting that the CreateDBClusterZonal operation is unavailable and clusters must be created through alternative methods.
+ * @description Before you begin: This operation applies only to Edge Node Service (ENS) edge cloud clusters and is not applicable to standard PolarDB clusters. Currently, the CreateDBClusterZonal operation is unavailable. To create an edge cluster, apply through ENS or MyBase infrastructure, or call CreateDBCluster with CloudProvider set to ENS, and then call DescribeDBClustersZonal to obtain the edge cluster ID. Operation description: Prerequisites for edge cloud clusters: This API applies only to ENS edge cloud clusters and is not applicable to standard PolarDB clusters. It provides an overview of edge clouds, activation methods, and instructions on how to obtain the edge cluster ID, noting that the CreateDBClusterZonal API is currently unavailable and clusters must be created through alternative methods.
  *
  * @param request CreateDBClusterEndpointZonalRequest
  * @return CreateDBClusterEndpointZonalResponse
@@ -4913,11 +4921,9 @@ CreateDBEndpointAddressResponse Client::createDBEndpointAddress(const CreateDBEn
 /**
  * @summary Creates a DBLink.
  *
- * @description A DBLink provides connectivity between two PolarDB for PostgreSQL (Oracle-compatible) clusters, or between a PolarDB for PostgreSQL (Oracle-compatible) cluster and a self-managed PostgreSQL database on an Elastic Compute Service (ECS) instance. This lets you query data across clusters.
- * > - Each cluster supports a maximum of 10 DBLinks.
- * >
- * > - A DBLink consumes one DBLink quota from both the source cluster and the destination cluster.
- * >
+ * @description A DBLink can connect two PolarDB for PostgreSQL (Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL (Compatible with Oracle) cluster and a self-managed PostgreSQL database on an ECS instance. You can use a DBLink to query data across clusters.
+ * > - You can create up to 10 DBLinks for a cluster.
+ * > - Both the source and destination clusters of a DBLink consume one DBLink quota.
  * > - The source cluster and the destination cluster or destination ECS instance must be in the same region.
  *
  * @param request CreateDBLinkRequest
@@ -5015,11 +5021,9 @@ CreateDBLinkResponse Client::createDBLinkWithOptions(const CreateDBLinkRequest &
 /**
  * @summary Creates a DBLink.
  *
- * @description A DBLink provides connectivity between two PolarDB for PostgreSQL (Oracle-compatible) clusters, or between a PolarDB for PostgreSQL (Oracle-compatible) cluster and a self-managed PostgreSQL database on an Elastic Compute Service (ECS) instance. This lets you query data across clusters.
- * > - Each cluster supports a maximum of 10 DBLinks.
- * >
- * > - A DBLink consumes one DBLink quota from both the source cluster and the destination cluster.
- * >
+ * @description A DBLink can connect two PolarDB for PostgreSQL (Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL (Compatible with Oracle) cluster and a self-managed PostgreSQL database on an ECS instance. You can use a DBLink to query data across clusters.
+ * > - You can create up to 10 DBLinks for a cluster.
+ * > - Both the source and destination clusters of a DBLink consume one DBLink quota.
  * > - The source cluster and the destination cluster or destination ECS instance must be in the same region.
  *
  * @param request CreateDBLinkRequest
@@ -5387,11 +5391,11 @@ CreateDatabaseResponse Client::createDatabase(const CreateDatabaseRequest &reque
 }
 
 /**
- * @summary Creates a database for an ApsaraDB for PolarDB edge cluster.
+ * @summary Creates an ApsaraDB PolarDB edge database.
  *
- * @description Prerequisites: The DBClusterId must be the ID of a PolarDB on ENS cluster. You can call DescribeDBClustersZonal to query edge clusters in ENS dedicated regions, or call CreateDBCluster with CloudProvider=ENS to create an edge cluster, and then call CreateDatabaseZonal.
+ * @description Prerequisites: The DBClusterId must be the ID of a PolarDB on ENS cluster. You can call the DescribeDBClustersZonal operation to query edge clusters in ENS dedicated regions, or call the CreateDBCluster operation with CloudProvider set to ENS to create an edge cluster, and then call CreateDatabaseZonal.
  * ## Before you begin
- * Append the complete dependency chain description for ENS cluster creation to the detailed_description of the CreateDatabaseZonal API. Specify that you must first use the ENS product API to create a VPC and a vSwitch in an edge region, then create an ENS cluster, and finally call CreateDatabaseZonal.
+ * Append the complete dependency chain for creating an ENS cluster to the detailed_description of the CreateDatabaseZonal API. Specify that you must first create a VPC and a vSwitch in an edge region by using the ENS API, then create an ENS cluster, and finally call CreateDatabaseZonal.
  *
  * @param request CreateDatabaseZonalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5470,11 +5474,11 @@ CreateDatabaseZonalResponse Client::createDatabaseZonalWithOptions(const CreateD
 }
 
 /**
- * @summary Creates a database for an ApsaraDB for PolarDB edge cluster.
+ * @summary Creates an ApsaraDB PolarDB edge database.
  *
- * @description Prerequisites: The DBClusterId must be the ID of a PolarDB on ENS cluster. You can call DescribeDBClustersZonal to query edge clusters in ENS dedicated regions, or call CreateDBCluster with CloudProvider=ENS to create an edge cluster, and then call CreateDatabaseZonal.
+ * @description Prerequisites: The DBClusterId must be the ID of a PolarDB on ENS cluster. You can call the DescribeDBClustersZonal operation to query edge clusters in ENS dedicated regions, or call the CreateDBCluster operation with CloudProvider set to ENS to create an edge cluster, and then call CreateDatabaseZonal.
  * ## Before you begin
- * Append the complete dependency chain description for ENS cluster creation to the detailed_description of the CreateDatabaseZonal API. Specify that you must first use the ENS product API to create a VPC and a vSwitch in an edge region, then create an ENS cluster, and finally call CreateDatabaseZonal.
+ * Append the complete dependency chain for creating an ENS cluster to the detailed_description of the CreateDatabaseZonal API. Specify that you must first create a VPC and a vSwitch in an edge region by using the ENS API, then create an ENS cluster, and finally call CreateDatabaseZonal.
  *
  * @param request CreateDatabaseZonalRequest
  * @return CreateDatabaseZonalResponse
@@ -6193,7 +6197,7 @@ CreateKnowledgeBaseResponse Client::createKnowledgeBase(const CreateKnowledgeBas
 /**
  * @summary Creates a knowledge space.
  *
- * @description Prerequisites: You must activate the PrivateLink service in your current account before calling this operation. If the service is not activated, the operation returns the PrivateLinkService.NotOpen (400) error. You can check the service activation status in the PrivateLink console. Before creating a knowledge space, you must also prepare a VpcId, VSwitchId, SecurityGroupId, and OSSBucket. You can query VPCs and vSwitches by calling the VPC DescribeVpcs and DescribeVSwitches operations, query security groups by calling the ECS DescribeSecurityGroups operation, and query buckets by calling the OSS ListBuckets operation. If the resources do not exist, create them in the corresponding services first.
+ * @description Prerequisites: You must activate the PrivateLink service in your current account before calling this operation. If the service is not activated, the operation returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare a VpcId, VSwitchId, SecurityGroupId, and OSSBucket. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
  *
  * @param request CreateKnowledgeSpaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6302,7 +6306,7 @@ CreateKnowledgeSpaceResponse Client::createKnowledgeSpaceWithOptions(const Creat
 /**
  * @summary Creates a knowledge space.
  *
- * @description Prerequisites: You must activate the PrivateLink service in your current account before calling this operation. If the service is not activated, the operation returns the PrivateLinkService.NotOpen (400) error. You can check the service activation status in the PrivateLink console. Before creating a knowledge space, you must also prepare a VpcId, VSwitchId, SecurityGroupId, and OSSBucket. You can query VPCs and vSwitches by calling the VPC DescribeVpcs and DescribeVSwitches operations, query security groups by calling the ECS DescribeSecurityGroups operation, and query buckets by calling the OSS ListBuckets operation. If the resources do not exist, create them in the corresponding services first.
+ * @description Prerequisites: You must activate the PrivateLink service in your current account before calling this operation. If the service is not activated, the operation returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare a VpcId, VSwitchId, SecurityGroupId, and OSSBucket. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
  *
  * @param request CreateKnowledgeSpaceRequest
  * @return CreateKnowledgeSpaceResponse
@@ -6456,6 +6460,14 @@ CreateModelApiResponse Client::createModelApiWithOptions(const CreateModelApiReq
 
   if (!!request.hasModelCategory()) {
     query["ModelCategory"] = request.getModelCategory();
+  }
+
+  if (!!request.hasModelMappings()) {
+    query["ModelMappings"] = request.getModelMappings();
+  }
+
+  if (!!request.hasModelRouting()) {
+    query["ModelRouting"] = request.getModelRouting();
   }
 
   if (!!request.hasName()) {
@@ -7105,6 +7117,11 @@ CreatePolarClawCronJobResponse Client::createPolarClawCronJob(const CreatePolarC
 /**
  * @summary Uploads a skill.
  *
+ * @description ## 前提条件
+ * - 已创建 PolarClaw 应用：技能将上传到该应用。可调用 DescribeApplications 并将 ApplicationTypes 设置为 polardb_polarclaw 查询应用列表，获取应用 ID。
+ * - 技能文件已存放在 OSS Bucket 中：OSSBucket 必须是真实存在、且与应用处于同一地域的 Bucket，Bucket 所在地域可通过 BucketRegionId 指定。
+ * - OSSPrefix 为技能文件在 Bucket 中的对象前缀。
+ *
  * @param request CreatePolarClawSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreatePolarClawSkillResponse
@@ -7171,6 +7188,11 @@ CreatePolarClawSkillResponse Client::createPolarClawSkillWithOptions(const Creat
 
 /**
  * @summary Uploads a skill.
+ *
+ * @description ## 前提条件
+ * - 已创建 PolarClaw 应用：技能将上传到该应用。可调用 DescribeApplications 并将 ApplicationTypes 设置为 polardb_polarclaw 查询应用列表，获取应用 ID。
+ * - 技能文件已存放在 OSS Bucket 中：OSSBucket 必须是真实存在、且与应用处于同一地域的 Bucket，Bucket 所在地域可通过 BucketRegionId 指定。
+ * - OSSPrefix 为技能文件在 Bucket 中的对象前缀。
  *
  * @param request CreatePolarClawSkillRequest
  * @return CreatePolarClawSkillResponse
@@ -7503,11 +7525,12 @@ CreateRateLimitPolicyResponse Client::createRateLimitPolicy(const CreateRateLimi
 }
 
 /**
- * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can set the maximum CPU quota percentage available to the rule by using MaxCpu, or set the maximum number of CPU cores available to the rule by using CpuCount. When you create a rule, you must specify either MaxCpu or CpuCount, but not both.
+ * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can specify the maximum CPU quota percentage for the rule by using MaxCpu or the maximum number of CPU cores by using CpuCount.
+ * You must specify exactly one of the MaxCpu and CpuCount parameters when you create a rule.
  *
- * @description Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports the creation, modification, deletion, binding, and unbinding of resource control rules, but does not support querying Resource Control CPU utilization.
+ * @description Resource Control limits the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding rules, but does not support querying CPU utilization for Resource Control.
  * ### Limits
- * - Applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+ * - Applies only to PolarDB for MySQL Cluster Edition that supports Resource Control. PolarDB for MySQL Standard Edition is not supported.
  * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
  * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
  * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
@@ -7558,11 +7581,12 @@ CreateResourceControlResponse Client::createResourceControlWithOptions(const Cre
 }
 
 /**
- * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can set the maximum CPU quota percentage available to the rule by using MaxCpu, or set the maximum number of CPU cores available to the rule by using CpuCount. When you create a rule, you must specify either MaxCpu or CpuCount, but not both.
+ * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can specify the maximum CPU quota percentage for the rule by using MaxCpu or the maximum number of CPU cores by using CpuCount.
+ * You must specify exactly one of the MaxCpu and CpuCount parameters when you create a rule.
  *
- * @description Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports the creation, modification, deletion, binding, and unbinding of resource control rules, but does not support querying Resource Control CPU utilization.
+ * @description Resource Control limits the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding rules, but does not support querying CPU utilization for Resource Control.
  * ### Limits
- * - Applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+ * - Applies only to PolarDB for MySQL Cluster Edition that supports Resource Control. PolarDB for MySQL Standard Edition is not supported.
  * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
  * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
  * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
@@ -14468,9 +14492,9 @@ DescribeAvailableModelsResponse Client::describeAvailableModels(const DescribeAv
 }
 
 /**
- * @summary Queries the download links of redo log backups.
+ * @summary Queries the download links for physical log backups.
  *
- * @description Before you begin: Log backup is enabled for the destination cluster, and the required physical logs are archived. First, call DescribeBackupLogs to query valid redo log backup IDs, and then call this operation by using the cluster ID and the redo log backup IDs.
+ * @description Before you begin: Log backup is enabled for the target cluster, and the required physical logs are archived. Invoke DescribeBackupLogs to query valid physical log backup IDs, and then invoke this operation with the cluster ID and log backup ID.
  *
  * @param request DescribeBackupLogDownloadLinksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14509,9 +14533,9 @@ DescribeBackupLogDownloadLinksResponse Client::describeBackupLogDownloadLinksWit
 }
 
 /**
- * @summary Queries the download links of redo log backups.
+ * @summary Queries the download links for physical log backups.
  *
- * @description Before you begin: Log backup is enabled for the destination cluster, and the required physical logs are archived. First, call DescribeBackupLogs to query valid redo log backup IDs, and then call this operation by using the cluster ID and the redo log backup IDs.
+ * @description Before you begin: Log backup is enabled for the target cluster, and the required physical logs are archived. Invoke DescribeBackupLogs to query valid physical log backup IDs, and then invoke this operation with the cluster ID and log backup ID.
  *
  * @param request DescribeBackupLogDownloadLinksRequest
  * @return DescribeBackupLogDownloadLinksResponse
@@ -29203,6 +29227,10 @@ ModifyConsumerGroupResponse Client::modifyConsumerGroup(const ModifyConsumerGrou
 ModifyCostRuleResponse Client::modifyCostRuleWithOptions(const ModifyCostRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBypassQuotaCheck()) {
+    query["BypassQuotaCheck"] = request.getBypassQuotaCheck();
+  }
+
   if (!!request.hasCacheCostPointsPerMillion()) {
     query["CacheCostPointsPerMillion"] = request.getCacheCostPointsPerMillion();
   }
@@ -32979,6 +33007,18 @@ ModifyModelApiResponse Client::modifyModelApiWithOptions(const ModifyModelApiReq
     query["ModelCategory"] = request.getModelCategory();
   }
 
+  if (!!request.hasModelMappings()) {
+    query["ModelMappings"] = request.getModelMappings();
+  }
+
+  if (!!request.hasModelRouting()) {
+    query["ModelRouting"] = request.getModelRouting();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
   if (!!request.hasPathPrefix()) {
     query["PathPrefix"] = request.getPathPrefix();
   }
@@ -34438,9 +34478,9 @@ RegisterAIDBClusterCustomModelResponse Client::registerAIDBClusterCustomModel(co
 /**
  * @summary Registers an OSS file to a knowledge base.
  *
- * @description Registers an uploaded file to a knowledge base. Before you begin, activate the PrivateLink service, create a knowledge space and a knowledge base, upload the file to OSS, and then call this operation by using the knowledge base ID and the OSS object key of the file.
+ * @description Registers an uploaded file to a knowledge base. Before you begin: activate the PrivateLink service, create a knowledge space and a knowledge base, upload the file to OSS, and then call this operation by using the knowledge base ID and the OSS object key of the file.
  * ## Before you begin
- * Note: The complete dependency chain is as follows: 1) Activate the PrivateLink service. 2) Call CreateKnowledgeSpace to create a knowledge space. 3) Call CreateKnowledgeBase to create a knowledge base. 4) Upload the file to the associated OSS bucket. Include links to the corresponding API operations for each step.
+ * Note: The complete dependency chain is as follows: 1) Activate the PrivateLink service. 2) Call CreateKnowledgeSpace to create a knowledge space. 3) Call CreateKnowledgeBase to create a knowledge base. 4) Upload the file to the associated OSS bucket. Include links to the API operations for each step.
  *
  * @param request RegisterKnowledgeBaseFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34481,9 +34521,9 @@ RegisterKnowledgeBaseFileResponse Client::registerKnowledgeBaseFileWithOptions(c
 /**
  * @summary Registers an OSS file to a knowledge base.
  *
- * @description Registers an uploaded file to a knowledge base. Before you begin, activate the PrivateLink service, create a knowledge space and a knowledge base, upload the file to OSS, and then call this operation by using the knowledge base ID and the OSS object key of the file.
+ * @description Registers an uploaded file to a knowledge base. Before you begin: activate the PrivateLink service, create a knowledge space and a knowledge base, upload the file to OSS, and then call this operation by using the knowledge base ID and the OSS object key of the file.
  * ## Before you begin
- * Note: The complete dependency chain is as follows: 1) Activate the PrivateLink service. 2) Call CreateKnowledgeSpace to create a knowledge space. 3) Call CreateKnowledgeBase to create a knowledge base. 4) Upload the file to the associated OSS bucket. Include links to the corresponding API operations for each step.
+ * Note: The complete dependency chain is as follows: 1) Activate the PrivateLink service. 2) Call CreateKnowledgeSpace to create a knowledge space. 3) Call CreateKnowledgeBase to create a knowledge base. 4) Upload the file to the associated OSS bucket. Include links to the API operations for each step.
  *
  * @param request RegisterKnowledgeBaseFileRequest
  * @return RegisterKnowledgeBaseFileResponse
@@ -35514,6 +35554,11 @@ RestartDBNodeResponse Client::restartDBNode(const RestartDBNodeRequest &request)
 /**
  * @summary Restarts a node of an edge cluster for PolarDB on ENS.
  *
+ * @description ## 前提条件
+ * 本接口用于重启边缘云（ENS）PolarDB 集群的节点。边缘云集群需通过 CreateDBCluster 创建，并将 CloudProvider 设置为 ENS；可通过 DescribeDBClustersZonal 查询当前账号下的边缘云集群及其节点，通过 DescribeEdgeCloudRegion 查询可用的边缘云地域、中心管控地域（CentralControlRegionId）及备用边缘云地域。
+ * ## 地域说明
+ * 本接口 spec 未声明、也不转发 RegionId 参数；但通过 SDK 或 OpenAPI 调用时仍需指定地域，请使用 DescribeEdgeCloudRegion 返回的中心管控地域 ID，以完成 endpoint 路由；未指定地域时 SDK 无法构建正确的区域化 endpoint。若研发确认该接口为非地域化接口、调用时无需地域路由，则以研发结论为准。
+ *
  * @param request RestartDBNodeZonalRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RestartDBNodeZonalResponse
@@ -35568,6 +35613,11 @@ RestartDBNodeZonalResponse Client::restartDBNodeZonalWithOptions(const RestartDB
 
 /**
  * @summary Restarts a node of an edge cluster for PolarDB on ENS.
+ *
+ * @description ## 前提条件
+ * 本接口用于重启边缘云（ENS）PolarDB 集群的节点。边缘云集群需通过 CreateDBCluster 创建，并将 CloudProvider 设置为 ENS；可通过 DescribeDBClustersZonal 查询当前账号下的边缘云集群及其节点，通过 DescribeEdgeCloudRegion 查询可用的边缘云地域、中心管控地域（CentralControlRegionId）及备用边缘云地域。
+ * ## 地域说明
+ * 本接口 spec 未声明、也不转发 RegionId 参数；但通过 SDK 或 OpenAPI 调用时仍需指定地域，请使用 DescribeEdgeCloudRegion 返回的中心管控地域 ID，以完成 endpoint 路由；未指定地域时 SDK 无法构建正确的区域化 endpoint。若研发确认该接口为非地域化接口、调用时无需地域路由，则以研发结论为准。
  *
  * @param request RestartDBNodeZonalRequest
  * @return RestartDBNodeZonalResponse

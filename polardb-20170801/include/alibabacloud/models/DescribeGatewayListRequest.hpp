@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The gateway instance ID.
     shared_ptr<string> gwClusterId_ {};
-    // The gateway description.
+    // The description of the gateway.
     shared_ptr<string> gwDescription_ {};
     // The current page number.
     shared_ptr<string> pageNumber_ {};

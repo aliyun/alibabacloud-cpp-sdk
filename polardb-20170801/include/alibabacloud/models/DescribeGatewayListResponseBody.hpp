@@ -43,6 +43,7 @@ namespace Models
     class Items : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(AutoExpireTime, autoExpireTime_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(DbType, dbType_);
         DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
@@ -52,11 +53,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
         DARABONBA_PTR_TO_JSON(PayType, payType_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(SmartRoutingEnabled, smartRoutingEnabled_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(AutoExpireTime, autoExpireTime_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(DbType, dbType_);
         DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
@@ -66,6 +69,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
         DARABONBA_PTR_FROM_JSON(PayType, payType_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(SmartRoutingEnabled, smartRoutingEnabled_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -81,10 +85,17 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->dbType_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->gwClusterId_ == nullptr && this->gwDescription_ == nullptr
-        && this->modifyTime_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcId_ == nullptr; };
+      virtual bool empty() const override { return this->autoExpireTime_ == nullptr
+        && this->createTime_ == nullptr && this->dbType_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->gwClusterId_ == nullptr
+        && this->gwDescription_ == nullptr && this->modifyTime_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr && this->smartRoutingEnabled_ == nullptr
+        && this->status_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+      // autoExpireTime Field Functions 
+      bool hasAutoExpireTime() const { return this->autoExpireTime_ != nullptr;};
+      void deleteAutoExpireTime() { this->autoExpireTime_ = nullptr;};
+      inline string getAutoExpireTime() const { DARABONBA_PTR_GET_DEFAULT(autoExpireTime_, "") };
+      inline Items& setAutoExpireTime(string autoExpireTime) { DARABONBA_PTR_SET_VALUE(autoExpireTime_, autoExpireTime) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -148,6 +159,13 @@ namespace Models
       inline Items& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+      // smartRoutingEnabled Field Functions 
+      bool hasSmartRoutingEnabled() const { return this->smartRoutingEnabled_ != nullptr;};
+      void deleteSmartRoutingEnabled() { this->smartRoutingEnabled_ = nullptr;};
+      inline bool getSmartRoutingEnabled() const { DARABONBA_PTR_GET_DEFAULT(smartRoutingEnabled_, false) };
+      inline Items& setSmartRoutingEnabled(bool smartRoutingEnabled) { DARABONBA_PTR_SET_VALUE(smartRoutingEnabled_, smartRoutingEnabled) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -170,9 +188,11 @@ namespace Models
 
 
     protected:
+      // The cumulative expiration time of the smart routing benefit. The time follows the ISO 8601 standard and is displayed in UTC. If smart routing is not enabled, this parameter may be omitted or set to null.
+      shared_ptr<string> autoExpireTime_ {};
       // The creation time.
       // 
-      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
       shared_ptr<string> createTime_ {};
       // The database type.
       shared_ptr<string> dbType_ {};
@@ -180,7 +200,7 @@ namespace Models
       // - If the billing method of the cluster is subscription, the actual expiration time is returned.
       // - If the billing method of the cluster is pay-as-you-go, an empty value is returned.
       // 
-      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
       shared_ptr<string> expireTime_ {};
       // Indicates whether the cluster has expired. Valid values:
       // 
@@ -190,11 +210,11 @@ namespace Models
       shared_ptr<bool> expired_ {};
       // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
-      // The gateway description.
+      // The description of the gateway.
       shared_ptr<string> gwDescription_ {};
       // The last modification time.
       // 
-      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
       shared_ptr<string> modifyTime_ {};
       // The billing method. Valid values: 
       // 
@@ -203,14 +223,16 @@ namespace Models
       shared_ptr<string> payType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
+      // Indicates whether smart routing is enabled for the instance. This value is returned by ApsaraDB based on the benefit validity period. A value of true does not indicate that the data plane is healthy.
+      shared_ptr<bool> smartRoutingEnabled_ {};
       // The application status. Valid values:
       // 
-      // - CREATE: being created.
-      // - ACTIVATION: running.
+      // - CREATE: creating
+      // - ACTIVATION: running
       shared_ptr<string> status_ {};
-      // The vSwitch ID.
+      // The ID of the vSwitch.
       shared_ptr<string> vSwitchId_ {};
-      // The VPC ID.
+      // The ID of the virtual private cloud (VPC).
       shared_ptr<string> vpcId_ {};
     };
 

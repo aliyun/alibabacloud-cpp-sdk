@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ForceModel, forceModel_);
       DARABONBA_PTR_TO_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_TO_JSON(ModelCategory, modelCategory_);
+      DARABONBA_PTR_TO_JSON(ModelMappings, modelMappings_);
+      DARABONBA_PTR_TO_JSON(ModelRouting, modelRouting_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(PathPrefix, pathPrefix_);
       DARABONBA_PTR_TO_JSON(Protocol, protocol_);
@@ -30,6 +32,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ForceModel, forceModel_);
       DARABONBA_PTR_FROM_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_FROM_JSON(ModelCategory, modelCategory_);
+      DARABONBA_PTR_FROM_JSON(ModelMappings, modelMappings_);
+      DARABONBA_PTR_FROM_JSON(ModelRouting, modelRouting_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(PathPrefix, pathPrefix_);
       DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
@@ -50,8 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && this->forceModel_ == nullptr && this->gwClusterId_ == nullptr && this->modelCategory_ == nullptr && this->name_ == nullptr && this->pathPrefix_ == nullptr
-        && this->protocol_ == nullptr && this->recordInput_ == nullptr && this->recordOutput_ == nullptr && this->regionId_ == nullptr && this->routeRules_ == nullptr; };
+        && this->forceModel_ == nullptr && this->gwClusterId_ == nullptr && this->modelCategory_ == nullptr && this->modelMappings_ == nullptr && this->modelRouting_ == nullptr
+        && this->name_ == nullptr && this->pathPrefix_ == nullptr && this->protocol_ == nullptr && this->recordInput_ == nullptr && this->recordOutput_ == nullptr
+        && this->regionId_ == nullptr && this->routeRules_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
@@ -78,6 +83,20 @@ namespace Models
     void deleteModelCategory() { this->modelCategory_ = nullptr;};
     inline string getModelCategory() const { DARABONBA_PTR_GET_DEFAULT(modelCategory_, "") };
     inline CreateModelApiRequest& setModelCategory(string modelCategory) { DARABONBA_PTR_SET_VALUE(modelCategory_, modelCategory) };
+
+
+    // modelMappings Field Functions 
+    bool hasModelMappings() const { return this->modelMappings_ != nullptr;};
+    void deleteModelMappings() { this->modelMappings_ = nullptr;};
+    inline string getModelMappings() const { DARABONBA_PTR_GET_DEFAULT(modelMappings_, "") };
+    inline CreateModelApiRequest& setModelMappings(string modelMappings) { DARABONBA_PTR_SET_VALUE(modelMappings_, modelMappings) };
+
+
+    // modelRouting Field Functions 
+    bool hasModelRouting() const { return this->modelRouting_ != nullptr;};
+    void deleteModelRouting() { this->modelRouting_ = nullptr;};
+    inline string getModelRouting() const { DARABONBA_PTR_GET_DEFAULT(modelRouting_, "") };
+    inline CreateModelApiRequest& setModelRouting(string modelRouting) { DARABONBA_PTR_SET_VALUE(modelRouting_, modelRouting) };
 
 
     // name Field Functions 
@@ -134,7 +153,7 @@ namespace Models
     shared_ptr<string> config_ {};
     // The forced model.
     shared_ptr<string> forceModel_ {};
-    // The gateway instance ID. You can obtain this ID from the GwClusterId parameter returned by the CreateGateway operation.
+    // The ID of the gateway instance. You can obtain this ID from the GwClusterId value returned by the CreateGateway operation.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
@@ -142,16 +161,14 @@ namespace Models
     // * **text**
     // * **embedding**
     // * **rerank**
-    // 
-    // This parameter is required.
     shared_ptr<string> modelCategory_ {};
+    // The model name mappings, specified as a JSON array string. Each element is in the format of {"Source":"client model name","Target":"upstream model name"}. The Source parameter is matched in a case-insensitive manner and must be unique. The Target parameter retains its original case when forwarded. Both parameters cannot be empty and cannot contain leading or trailing spaces.
+    shared_ptr<string> modelMappings_ {};
+    // The intelligent routing candidate list, specified as a JSON object string. Currently, it only contains AllowedModels, which is a non-empty array of unique model names. The order of the array determines the candidate order. Do not pass the Enabled, cost, or quality tier parameters. Saving candidates does not enable the feature. You must first call the EnableModelRouting operation to obtain the gateway entitlements.
+    shared_ptr<string> modelRouting_ {};
     // The name of the model API.
-    // 
-    // This parameter is required.
     shared_ptr<string> name_ {};
     // The API path prefix.
-    // 
-    // This parameter is required.
     shared_ptr<string> pathPrefix_ {};
     // The protocol. Valid values:
     // 
@@ -159,8 +176,6 @@ namespace Models
     // * **anthropic**
     // * **bailian**
     // * **vllm**
-    // 
-    // This parameter is required.
     shared_ptr<string> protocol_ {};
     // The number of input points.
     shared_ptr<string> recordInput_ {};
@@ -169,8 +184,6 @@ namespace Models
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The list of routing rules, specified as a JSON array string.
-    // 
-    // This parameter is required.
     shared_ptr<string> routeRules_ {};
   };
 

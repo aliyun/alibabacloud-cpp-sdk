@@ -106,17 +106,17 @@ namespace Models
 
 
     protected:
-      // The redo log backup ID.
+      // The physical backup log ID.
       shared_ptr<string> backupLogId_ {};
-      // The public download link of the redo log backup.
+      // The Internet download link for the physical backup log.
       shared_ptr<string> downloadLink_ {};
-      // The error code for the single entry. Empty if the operation is successful.
+      // The error code for a single record. This parameter is empty if the call is successful.
       shared_ptr<string> errorCode_ {};
-      // The internal network download link of the redo log backup.
+      // The internal network download link for the physical backup log.
       shared_ptr<string> intranetDownloadLink_ {};
-      // The expiration time of the download links, in UTC.
+      // The expiration time of the download link. The time is displayed in UTC.
       shared_ptr<string> linkExpiredTime_ {};
-      // The error message for the single entry. Empty if the operation is successful.
+      // The error message for a single record. This parameter is empty if the call is successful.
       shared_ptr<string> message_ {};
     };
 
@@ -139,7 +139,7 @@ namespace Models
 
 
   protected:
-    // The redo log backup details.
+    // The physical log backup details.
     shared_ptr<vector<DescribeBackupLogDownloadLinksResponseBody::BackupLogDownloadLinkItem>> backupLogDownloadLinkItem_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

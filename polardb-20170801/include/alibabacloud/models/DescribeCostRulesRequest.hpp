@@ -121,17 +121,17 @@ namespace Models
 
 
   protected:
-    // The ID of the cost rule.
+    // The cost rule ID.
     shared_ptr<string> costRuleId_ {};
-    // The effective target type used to filter the results. Valid values: global, consumerGroup, and consumer.
+    // The effective target type. Valid values: global, consumerGroup, and consumer.
     shared_ptr<string> effectiveTargetType_ {};
-    // The effective target value used to filter the results.
+    // The effective target value.
     shared_ptr<string> effectiveTargetValue_ {};
     // The gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The input token tier used to filter the results. Returns rules that include this tier. Valid values: 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+.
+    // The input token tier used for filtering. Returns rules that include this tier. An empty string filters the default tier. Valid values: 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+.
     shared_ptr<string> inputTokenTier_ {};
     // The name of the model, such as gpt-4 or qwen-turbo.
     shared_ptr<string> modelName_ {};

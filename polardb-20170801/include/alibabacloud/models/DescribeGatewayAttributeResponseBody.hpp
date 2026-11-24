@@ -14,6 +14,7 @@ namespace Models
   class DescribeGatewayAttributeResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeGatewayAttributeResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoExpireTime, autoExpireTime_);
       DARABONBA_PTR_TO_JSON(ClassCode, classCode_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(CurrentVersion, currentVersion_);
@@ -31,11 +32,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RunningVersion, runningVersion_);
       DARABONBA_PTR_TO_JSON(SecurityIPArrays, securityIPArrays_);
       DARABONBA_PTR_TO_JSON(SemanticCacheEnabled, semanticCacheEnabled_);
+      DARABONBA_PTR_TO_JSON(SmartRoutingEnabled, smartRoutingEnabled_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeGatewayAttributeResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoExpireTime, autoExpireTime_);
       DARABONBA_PTR_FROM_JSON(ClassCode, classCode_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(CurrentVersion, currentVersion_);
@@ -53,6 +56,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RunningVersion, runningVersion_);
       DARABONBA_PTR_FROM_JSON(SecurityIPArrays, securityIPArrays_);
       DARABONBA_PTR_FROM_JSON(SemanticCacheEnabled, semanticCacheEnabled_);
+      DARABONBA_PTR_FROM_JSON(SmartRoutingEnabled, smartRoutingEnabled_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -207,15 +211,15 @@ namespace Models
 
 
     protected:
-      // The endpoint address.
+      // The endpoint.
       shared_ptr<string> address_ {};
-      // The ID of the endpoint node.
+      // The ID of the endpoint.
       shared_ptr<string> endpointId_ {};
-      // The gateway instance ID.
+      // The instance ID of the gateway.
       shared_ptr<string> gwClusterId_ {};
-      // The type of the endpoint address. Valid values:
+      // The endpoint type. Valid values:
       // - Private: VPC address
-      // - Public: Internet address
+      // - Public: public network address
       shared_ptr<string> netType_ {};
       // The port.
       shared_ptr<string> port_ {};
@@ -225,11 +229,19 @@ namespace Models
       shared_ptr<string> vpcId_ {};
     };
 
-    virtual bool empty() const override { return this->classCode_ == nullptr
-        && this->createTime_ == nullptr && this->currentVersion_ == nullptr && this->dbType_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr
-        && this->expired_ == nullptr && this->gwClusterId_ == nullptr && this->gwDescription_ == nullptr && this->latestVersion_ == nullptr && this->modifyTime_ == nullptr
-        && this->payType_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->runningVersion_ == nullptr && this->securityIPArrays_ == nullptr
-        && this->semanticCacheEnabled_ == nullptr && this->status_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+    virtual bool empty() const override { return this->autoExpireTime_ == nullptr
+        && this->classCode_ == nullptr && this->createTime_ == nullptr && this->currentVersion_ == nullptr && this->dbType_ == nullptr && this->endpoints_ == nullptr
+        && this->expireTime_ == nullptr && this->expired_ == nullptr && this->gwClusterId_ == nullptr && this->gwDescription_ == nullptr && this->latestVersion_ == nullptr
+        && this->modifyTime_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->runningVersion_ == nullptr
+        && this->securityIPArrays_ == nullptr && this->semanticCacheEnabled_ == nullptr && this->smartRoutingEnabled_ == nullptr && this->status_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr; };
+    // autoExpireTime Field Functions 
+    bool hasAutoExpireTime() const { return this->autoExpireTime_ != nullptr;};
+    void deleteAutoExpireTime() { this->autoExpireTime_ = nullptr;};
+    inline string getAutoExpireTime() const { DARABONBA_PTR_GET_DEFAULT(autoExpireTime_, "") };
+    inline DescribeGatewayAttributeResponseBody& setAutoExpireTime(string autoExpireTime) { DARABONBA_PTR_SET_VALUE(autoExpireTime_, autoExpireTime) };
+
+
     // classCode Field Functions 
     bool hasClassCode() const { return this->classCode_ != nullptr;};
     void deleteClassCode() { this->classCode_ = nullptr;};
@@ -353,6 +365,13 @@ namespace Models
     inline DescribeGatewayAttributeResponseBody& setSemanticCacheEnabled(bool semanticCacheEnabled) { DARABONBA_PTR_SET_VALUE(semanticCacheEnabled_, semanticCacheEnabled) };
 
 
+    // smartRoutingEnabled Field Functions 
+    bool hasSmartRoutingEnabled() const { return this->smartRoutingEnabled_ != nullptr;};
+    void deleteSmartRoutingEnabled() { this->smartRoutingEnabled_ = nullptr;};
+    inline bool getSmartRoutingEnabled() const { DARABONBA_PTR_GET_DEFAULT(smartRoutingEnabled_, false) };
+    inline DescribeGatewayAttributeResponseBody& setSmartRoutingEnabled(bool smartRoutingEnabled) { DARABONBA_PTR_SET_VALUE(smartRoutingEnabled_, smartRoutingEnabled) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -375,11 +394,13 @@ namespace Models
 
 
   protected:
-    // The specification code.
+    // The cumulative expiration time of the smart routing privilege in UTC and ISO 8601 format. This parameter may be omitted or null if smart routing is not enabled.
+    shared_ptr<string> autoExpireTime_ {};
+    // The instance type code.
     shared_ptr<string> classCode_ {};
     // The creation time.
     // 
-    // The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+    // The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
     // The current version number.
     shared_ptr<string> currentVersion_ {};
@@ -391,15 +412,14 @@ namespace Models
     // 
     // This parameter is empty when the billing method is Postpaid.
     // 
-    // The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+    // The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired. Valid values:
     // 
-    // - true
-    // 
-    // - false
+    // - true: The cluster has expired.
+    // - false: The cluster has not expired.
     shared_ptr<bool> expired_ {};
-    // The gateway instance ID.
+    // The instance ID of the gateway.
     shared_ptr<string> gwClusterId_ {};
     // The description of the gateway.
     shared_ptr<string> gwDescription_ {};
@@ -407,7 +427,7 @@ namespace Models
     shared_ptr<string> latestVersion_ {};
     // The last modification time.
     // 
-    // The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+    // The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> modifyTime_ {};
     // The billing method. Valid values:
     // 
@@ -420,10 +440,12 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The running version number.
     shared_ptr<string> runningVersion_ {};
-    // The application-level whitelist.
+    // The application-level IP whitelist.
     shared_ptr<vector<DescribeGatewayAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
-    // Indicates whether the semantic cache is enabled. If the semantic cache is disabled or has never been enabled, the value is false.
+    // Indicates whether semantic caching is enabled. If it is disabled or has never been enabled, the value is false.
     shared_ptr<bool> semanticCacheEnabled_ {};
+    // Indicates whether smart routing is enabled for the instance. The value is returned by ApsaraDB based on the validity period of the privilege. A value of true does not indicate that the data plane is healthy.
+    shared_ptr<bool> smartRoutingEnabled_ {};
     // The application status. Valid values:
     // 
     // - CREATE: creating

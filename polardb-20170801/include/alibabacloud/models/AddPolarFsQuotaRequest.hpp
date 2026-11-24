@@ -145,27 +145,23 @@ namespace Models
 
 
     protected:
-      // The time to live (TTL) for the access time. Unit: seconds.
+      // The time-to-live (TTL) for the access time. Unit: seconds.
       shared_ptr<int64_t> accessTTL_ {};
-      // The TTL for the change time. Unit: seconds.
+      // The time-to-live (TTL) for the change time. Unit: seconds.
       shared_ptr<int64_t> changeTTL_ {};
       // The description of the resource quota.
       shared_ptr<string> description_ {};
-      // Specifies whether to enable the rule. Valid values:
-      // 
-      // - **True**: The rule immediately applies to new items. This is the default value.
-      // 
-      // - **False**: The rule does not apply to new items.
+      // Specifies whether the rule is enabled. Valid values:
+      // - **True**: New events take effect immediately for new resources. This is the default value.
+      // - **False**: New events do not take effect for new resources.
       shared_ptr<bool> enabled_ {};
-      // The rule to exclude specific paths from matching.
-      // 
-      // - A path pattern that starts with a forward slash (/). Supports glob syntax, including `*`, `?`, and `**`.
+      // The matching rule used to exclude specific paths.
+      // - A path pattern that starts with `/`. Glob syntax such as `*`, `?`, and `**` is supported.
       shared_ptr<string> exclude_ {};
-      // The limit on the number of files for a user in the directory.
+      // The maximum number of files allowed in the directory.
       shared_ptr<int64_t> fileCountLimit_ {};
-      // The wildcard pattern to match paths.
-      // 
-      // - A path pattern that starts with a forward slash (/). Supports glob syntax, including `*`, `?`, and `**`.
+      // The wildcard pattern used to match paths.
+      // - A path pattern that starts with `/`. Glob syntax such as `*`, `?`, and `**` is supported.
       // 
       // This parameter is required.
       shared_ptr<string> include_ {};
@@ -175,8 +171,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The priority of the quota rule.
       shared_ptr<int32_t> priority_ {};
-      // The total size limit for files in the directory. Unit: GB.
-      // 
+      // The maximum total capacity of files in the directory. Unit: GB.
       // - Note: The value must be at least 1 GB.
       shared_ptr<int64_t> sizeLimit_ {};
     };
@@ -207,9 +202,9 @@ namespace Models
 
 
   protected:
-    // The ID of the PolarDB instance on which the application depends.
+    // The PolarDB instance ID that the application depends on.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the Polarlakebase instance.
+    // The Polarlakebase instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};

@@ -132,7 +132,7 @@ namespace Models
     // * **embedding**
     // * **rerank**
     shared_ptr<string> modelCategory_ {};
-    // The name of the model API.
+    // The model API name.
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -152,7 +152,7 @@ namespace Models
     shared_ptr<string> protocol_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The status of the model API.
+    // The model API status.
     shared_ptr<string> status_ {};
   };
 

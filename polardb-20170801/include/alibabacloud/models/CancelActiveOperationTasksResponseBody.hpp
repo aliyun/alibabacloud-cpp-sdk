@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The IDs of the O&M events to cancel in batches. Separate multiple IDs with commas (,).
+    // The IDs of the O&M events to be canceled in batches. Separate multiple IDs with commas (,).
     shared_ptr<string> taskIds_ {};
   };
 

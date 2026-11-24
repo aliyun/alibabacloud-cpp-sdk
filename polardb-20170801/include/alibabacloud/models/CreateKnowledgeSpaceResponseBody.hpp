@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The ID of the PolarDB instance for automatic creation.
+    // The ID of the PolarDB instance created by automatic creation.
     shared_ptr<string> DBClusterId_ {};
     // The unique identifier of the knowledge space.
     shared_ptr<string> knowledgeSpaceId_ {};

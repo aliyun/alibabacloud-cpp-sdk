@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageRecordCount, pageRecordCount_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TotalPages, totalPages_);
       DARABONBA_PTR_TO_JSON(TotalRecordCount, totalRecordCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeModelApisResponseBody& obj) { 
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageRecordCount, pageRecordCount_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TotalPages, totalPages_);
       DARABONBA_PTR_FROM_JSON(TotalRecordCount, totalRecordCount_);
     };
     DescribeModelApisResponseBody() = default ;
@@ -45,8 +47,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
         DARABONBA_PTR_TO_JSON(Category, category_);
         DARABONBA_PTR_TO_JSON(Config, config_);
+        DARABONBA_PTR_TO_JSON(CustinsName, custinsName_);
         DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
+        DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_TO_JSON(ModelApiId, modelApiId_);
+        DARABONBA_PTR_TO_JSON(ModelMappings, modelMappings_);
+        DARABONBA_PTR_TO_JSON(ModelRouting, modelRouting_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(PathPrefix, pathPrefix_);
         DARABONBA_PTR_TO_JSON(Protocol, protocol_);
@@ -58,8 +64,12 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(Category, category_);
         DARABONBA_PTR_FROM_JSON(Config, config_);
+        DARABONBA_PTR_FROM_JSON(CustinsName, custinsName_);
         DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
+        DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_FROM_JSON(ModelApiId, modelApiId_);
+        DARABONBA_PTR_FROM_JSON(ModelMappings, modelMappings_);
+        DARABONBA_PTR_FROM_JSON(ModelRouting, modelRouting_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(PathPrefix, pathPrefix_);
         DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
@@ -80,8 +90,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->category_ == nullptr
-        && this->config_ == nullptr && this->gmtCreated_ == nullptr && this->modelApiId_ == nullptr && this->name_ == nullptr && this->pathPrefix_ == nullptr
-        && this->protocol_ == nullptr && this->recordInput_ == nullptr && this->recordOutput_ == nullptr && this->routeRules_ == nullptr && this->status_ == nullptr; };
+        && this->config_ == nullptr && this->custinsName_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->modelApiId_ == nullptr
+        && this->modelMappings_ == nullptr && this->modelRouting_ == nullptr && this->name_ == nullptr && this->pathPrefix_ == nullptr && this->protocol_ == nullptr
+        && this->recordInput_ == nullptr && this->recordOutput_ == nullptr && this->routeRules_ == nullptr && this->status_ == nullptr; };
       // category Field Functions 
       bool hasCategory() const { return this->category_ != nullptr;};
       void deleteCategory() { this->category_ = nullptr;};
@@ -96,6 +107,13 @@ namespace Models
       inline Items& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
+      // custinsName Field Functions 
+      bool hasCustinsName() const { return this->custinsName_ != nullptr;};
+      void deleteCustinsName() { this->custinsName_ = nullptr;};
+      inline string getCustinsName() const { DARABONBA_PTR_GET_DEFAULT(custinsName_, "") };
+      inline Items& setCustinsName(string custinsName) { DARABONBA_PTR_SET_VALUE(custinsName_, custinsName) };
+
+
       // gmtCreated Field Functions 
       bool hasGmtCreated() const { return this->gmtCreated_ != nullptr;};
       void deleteGmtCreated() { this->gmtCreated_ = nullptr;};
@@ -103,11 +121,32 @@ namespace Models
       inline Items& setGmtCreated(string gmtCreated) { DARABONBA_PTR_SET_VALUE(gmtCreated_, gmtCreated) };
 
 
+      // gmtModified Field Functions 
+      bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
+      void deleteGmtModified() { this->gmtModified_ = nullptr;};
+      inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+      inline Items& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
+
+
       // modelApiId Field Functions 
       bool hasModelApiId() const { return this->modelApiId_ != nullptr;};
       void deleteModelApiId() { this->modelApiId_ = nullptr;};
       inline string getModelApiId() const { DARABONBA_PTR_GET_DEFAULT(modelApiId_, "") };
       inline Items& setModelApiId(string modelApiId) { DARABONBA_PTR_SET_VALUE(modelApiId_, modelApiId) };
+
+
+      // modelMappings Field Functions 
+      bool hasModelMappings() const { return this->modelMappings_ != nullptr;};
+      void deleteModelMappings() { this->modelMappings_ = nullptr;};
+      inline string getModelMappings() const { DARABONBA_PTR_GET_DEFAULT(modelMappings_, "") };
+      inline Items& setModelMappings(string modelMappings) { DARABONBA_PTR_SET_VALUE(modelMappings_, modelMappings) };
+
+
+      // modelRouting Field Functions 
+      bool hasModelRouting() const { return this->modelRouting_ != nullptr;};
+      void deleteModelRouting() { this->modelRouting_ = nullptr;};
+      inline string getModelRouting() const { DARABONBA_PTR_GET_DEFAULT(modelRouting_, "") };
+      inline Items& setModelRouting(string modelRouting) { DARABONBA_PTR_SET_VALUE(modelRouting_, modelRouting) };
 
 
       // name Field Functions 
@@ -167,11 +206,19 @@ namespace Models
       shared_ptr<string> category_ {};
       // The gateway retry configuration.
       shared_ptr<string> config_ {};
+      // The ID of the gateway instance to which the model API belongs.
+      shared_ptr<string> custinsName_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
+      // The modification time of the model API.
+      shared_ptr<string> gmtModified_ {};
       // The model API IDs.
       shared_ptr<string> modelApiId_ {};
-      // The name of the model API.
+      // The model name mappings, which is a JSON array string. Each element is in the format of {"Source":"client model name","Target":"upstream model name"}. If not configured, this parameter is empty.
+      shared_ptr<string> modelMappings_ {};
+      // The intelligent routing candidate list, which is a JSON object string in the format of {"AllowedModels":["candidate model name"]}. If not configured, this parameter is empty.
+      shared_ptr<string> modelRouting_ {};
+      // The model API name.
       shared_ptr<string> name_ {};
       // The API path prefix.
       shared_ptr<string> pathPrefix_ {};
@@ -181,18 +228,19 @@ namespace Models
       // * **bailian**
       // * **vllm**
       shared_ptr<string> protocol_ {};
-      // The number of input tokens.
+      // The number of input points.
       shared_ptr<string> recordInput_ {};
-      // The number of output tokens.
+      // The number of output points.
       shared_ptr<string> recordOutput_ {};
       // The list of routing rules, which is a JSON array string.
       shared_ptr<string> routeRules_ {};
-      // The status of the model API.
+      // The model API status.
       shared_ptr<string> status_ {};
     };
 
     virtual bool empty() const override { return this->items_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageRecordCount_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalRecordCount_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageRecordCount_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalPages_ == nullptr
+        && this->totalRecordCount_ == nullptr; };
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
@@ -230,6 +278,13 @@ namespace Models
     inline DescribeModelApisResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // totalPages Field Functions 
+    bool hasTotalPages() const { return this->totalPages_ != nullptr;};
+    void deleteTotalPages() { this->totalPages_ = nullptr;};
+    inline int32_t getTotalPages() const { DARABONBA_PTR_GET_DEFAULT(totalPages_, 0) };
+    inline DescribeModelApisResponseBody& setTotalPages(int32_t totalPages) { DARABONBA_PTR_SET_VALUE(totalPages_, totalPages) };
+
+
     // totalRecordCount Field Functions 
     bool hasTotalRecordCount() const { return this->totalRecordCount_ != nullptr;};
     void deleteTotalRecordCount() { this->totalRecordCount_ = nullptr;};
@@ -242,15 +297,15 @@ namespace Models
     shared_ptr<vector<DescribeModelApisResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on the current page.
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The number of entries per page. Valid values: **30**, **50**, and **100**.
-    // 
-    // Default value: **30**.
+    // The number of entries per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of pages.
+    shared_ptr<int32_t> totalPages_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

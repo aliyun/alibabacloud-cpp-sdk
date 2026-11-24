@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageRecordCount, pageRecordCount_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TotalPages, totalPages_);
       DARABONBA_PTR_TO_JSON(TotalRecordCount, totalRecordCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCostRulesResponseBody& obj) { 
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageRecordCount, pageRecordCount_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TotalPages, totalPages_);
       DARABONBA_PTR_FROM_JSON(TotalRecordCount, totalRecordCount_);
     };
     DescribeCostRulesResponseBody() = default ;
@@ -135,7 +137,7 @@ namespace Models
 
 
       protected:
-        // The input cost points per million tokens for the tier.
+        // The input cost points per million tokens for this tier.
         shared_ptr<string> inputCostPointsPerMillion_ {};
         // The token tier. Valid values: "" (default tier), 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+.
         shared_ptr<string> tier_ {};
@@ -295,19 +297,19 @@ namespace Models
       shared_ptr<string> cacheCreationCostPointsPerMillion_ {};
       // The ID of the cost rule.
       shared_ptr<string> costRuleId_ {};
-      // The end time of the effective period. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The effective end time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC time).
       shared_ptr<string> effectiveEndTime_ {};
-      // The start time of the effective period. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The effective start time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC time).
       shared_ptr<string> effectiveStartTime_ {};
-      // The type of the effective target.
+      // The effective target type.
       shared_ptr<string> effectiveTargetType_ {};
-      // The value of the effective target.
+      // The effective target value.
       shared_ptr<string> effectiveTargetValue_ {};
       // The explicit cache read cost points per million tokens.
       shared_ptr<string> explicitCacheCostPointsPerMillion_ {};
-      // The time when the cost rule was created.
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The time when the cost rule was last updated.
+      // The last update time.
       shared_ptr<string> gmtModified_ {};
       // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
@@ -332,7 +334,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->items_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageRecordCount_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalRecordCount_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageRecordCount_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalPages_ == nullptr
+        && this->totalRecordCount_ == nullptr; };
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
@@ -370,6 +373,13 @@ namespace Models
     inline DescribeCostRulesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // totalPages Field Functions 
+    bool hasTotalPages() const { return this->totalPages_ != nullptr;};
+    void deleteTotalPages() { this->totalPages_ = nullptr;};
+    inline int32_t getTotalPages() const { DARABONBA_PTR_GET_DEFAULT(totalPages_, 0) };
+    inline DescribeCostRulesResponseBody& setTotalPages(int32_t totalPages) { DARABONBA_PTR_SET_VALUE(totalPages_, totalPages) };
+
+
     // totalRecordCount Field Functions 
     bool hasTotalRecordCount() const { return this->totalRecordCount_ != nullptr;};
     void deleteTotalRecordCount() { this->totalRecordCount_ = nullptr;};
@@ -382,13 +392,15 @@ namespace Models
     shared_ptr<vector<DescribeCostRulesResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
+    // The number of records per page. Valid values: 30, 50, and 100. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of pages.
+    shared_ptr<int32_t> totalPages_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

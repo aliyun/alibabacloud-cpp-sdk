@@ -13,6 +13,7 @@ namespace Models
   class CreateCostRuleRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateCostRuleRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BypassQuotaCheck, bypassQuotaCheck_);
       DARABONBA_PTR_TO_JSON(CacheCostPointsPerMillion, cacheCostPointsPerMillion_);
       DARABONBA_PTR_TO_JSON(CacheCreationCostPointsPerMillion, cacheCreationCostPointsPerMillion_);
       DARABONBA_PTR_TO_JSON(EffectiveStartTime, effectiveStartTime_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_TO_JSON(ImageCostPointsPerCount, imageCostPointsPerCount_);
       DARABONBA_PTR_TO_JSON(InputCostPointsPerMillion, inputCostPointsPerMillion_);
+      DARABONBA_PTR_TO_JSON(InputTokenTier, inputTokenTier_);
       DARABONBA_PTR_TO_JSON(InputTokenTiers, inputTokenTiers_);
       DARABONBA_PTR_TO_JSON(ModelName, modelName_);
       DARABONBA_PTR_TO_JSON(ModelServiceId, modelServiceId_);
@@ -30,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VideoCostPointsPerSecond, videoCostPointsPerSecond_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCostRuleRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BypassQuotaCheck, bypassQuotaCheck_);
       DARABONBA_PTR_FROM_JSON(CacheCostPointsPerMillion, cacheCostPointsPerMillion_);
       DARABONBA_PTR_FROM_JSON(CacheCreationCostPointsPerMillion, cacheCreationCostPointsPerMillion_);
       DARABONBA_PTR_FROM_JSON(EffectiveStartTime, effectiveStartTime_);
@@ -39,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_FROM_JSON(ImageCostPointsPerCount, imageCostPointsPerCount_);
       DARABONBA_PTR_FROM_JSON(InputCostPointsPerMillion, inputCostPointsPerMillion_);
+      DARABONBA_PTR_FROM_JSON(InputTokenTier, inputTokenTier_);
       DARABONBA_PTR_FROM_JSON(InputTokenTiers, inputTokenTiers_);
       DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
       DARABONBA_PTR_FROM_JSON(ModelServiceId, modelServiceId_);
@@ -57,10 +61,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->cacheCostPointsPerMillion_ == nullptr
-        && this->cacheCreationCostPointsPerMillion_ == nullptr && this->effectiveStartTime_ == nullptr && this->effectiveTargetType_ == nullptr && this->effectiveTargetValue_ == nullptr && this->explicitCacheCostPointsPerMillion_ == nullptr
-        && this->gwClusterId_ == nullptr && this->imageCostPointsPerCount_ == nullptr && this->inputCostPointsPerMillion_ == nullptr && this->inputTokenTiers_ == nullptr && this->modelName_ == nullptr
-        && this->modelServiceId_ == nullptr && this->outputCostPointsPerMillion_ == nullptr && this->regionId_ == nullptr && this->videoCostPointsPerSecond_ == nullptr; };
+    virtual bool empty() const override { return this->bypassQuotaCheck_ == nullptr
+        && this->cacheCostPointsPerMillion_ == nullptr && this->cacheCreationCostPointsPerMillion_ == nullptr && this->effectiveStartTime_ == nullptr && this->effectiveTargetType_ == nullptr && this->effectiveTargetValue_ == nullptr
+        && this->explicitCacheCostPointsPerMillion_ == nullptr && this->gwClusterId_ == nullptr && this->imageCostPointsPerCount_ == nullptr && this->inputCostPointsPerMillion_ == nullptr && this->inputTokenTier_ == nullptr
+        && this->inputTokenTiers_ == nullptr && this->modelName_ == nullptr && this->modelServiceId_ == nullptr && this->outputCostPointsPerMillion_ == nullptr && this->regionId_ == nullptr
+        && this->videoCostPointsPerSecond_ == nullptr; };
+    // bypassQuotaCheck Field Functions 
+    bool hasBypassQuotaCheck() const { return this->bypassQuotaCheck_ != nullptr;};
+    void deleteBypassQuotaCheck() { this->bypassQuotaCheck_ = nullptr;};
+    inline bool getBypassQuotaCheck() const { DARABONBA_PTR_GET_DEFAULT(bypassQuotaCheck_, false) };
+    inline CreateCostRuleRequest& setBypassQuotaCheck(bool bypassQuotaCheck) { DARABONBA_PTR_SET_VALUE(bypassQuotaCheck_, bypassQuotaCheck) };
+
+
     // cacheCostPointsPerMillion Field Functions 
     bool hasCacheCostPointsPerMillion() const { return this->cacheCostPointsPerMillion_ != nullptr;};
     void deleteCacheCostPointsPerMillion() { this->cacheCostPointsPerMillion_ = nullptr;};
@@ -124,6 +136,13 @@ namespace Models
     inline CreateCostRuleRequest& setInputCostPointsPerMillion(string inputCostPointsPerMillion) { DARABONBA_PTR_SET_VALUE(inputCostPointsPerMillion_, inputCostPointsPerMillion) };
 
 
+    // inputTokenTier Field Functions 
+    bool hasInputTokenTier() const { return this->inputTokenTier_ != nullptr;};
+    void deleteInputTokenTier() { this->inputTokenTier_ = nullptr;};
+    inline string getInputTokenTier() const { DARABONBA_PTR_GET_DEFAULT(inputTokenTier_, "") };
+    inline CreateCostRuleRequest& setInputTokenTier(string inputTokenTier) { DARABONBA_PTR_SET_VALUE(inputTokenTier_, inputTokenTier) };
+
+
     // inputTokenTiers Field Functions 
     bool hasInputTokenTiers() const { return this->inputTokenTiers_ != nullptr;};
     void deleteInputTokenTiers() { this->inputTokenTiers_ = nullptr;};
@@ -167,11 +186,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to bypass the quota check. This parameter is optional and has no default value. If omitted, it is not passed through. Both false and true are passed through as-is.
+    shared_ptr<bool> bypassQuotaCheck_ {};
     // The cache read cost points per million tokens. Default value: 0.
     shared_ptr<string> cacheCostPointsPerMillion_ {};
     // The cache creation cost points per million tokens.
     shared_ptr<string> cacheCreationCostPointsPerMillion_ {};
-    // The effective start time in the yyyy-MM-dd HH:mm:ss format. If this parameter is not specified, the rule takes effect immediately.
+    // The effective start time in the yyyy-MM-dd HH:mm:ss format. If this parameter is not provided, the rule takes effect immediately.
     shared_ptr<string> effectiveStartTime_ {};
     // The effective target type. Valid values: global, consumerGroup, and consumer. Default value: global.
     shared_ptr<string> effectiveTargetType_ {};
@@ -187,7 +208,9 @@ namespace Models
     shared_ptr<string> imageCostPointsPerCount_ {};
     // The input cost points per million tokens. Default value: 0.
     shared_ptr<string> inputCostPointsPerMillion_ {};
-    // The tiered price for input tokens (non-cumulative). The value is a JSON array character string. Each element contains Tier and InputCostPointsPerMillion. Valid values for Tier: "" (default tier), 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+. Example: [{"Tier":"0-32K","InputCostPointsPerMillion":"1000"},{"Tier":"32K-64K","InputCostPointsPerMillion":"1800"}]. If this parameter is specified, it takes precedence over InputCostPointsPerMillion. An empty array [] is not allowed.
+    // The input token tier. An empty string indicates the default tier. If this parameter is omitted, it is processed by the backend.
+    shared_ptr<string> inputTokenTier_ {};
+    // The tiered price for input tokens (non-cumulative). The value is a JSON array character string. Each element contains Tier and InputCostPointsPerMillion. Valid values for Tier: "" (default tier), 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+. Example: [{"Tier":"0-32K","InputCostPointsPerMillion":"1000"},{"Tier":"32K-64K","InputCostPointsPerMillion":"1800"}]. If this parameter is provided, it takes precedence over InputCostPointsPerMillion. An empty array [] is not allowed.
     shared_ptr<string> inputTokenTiers_ {};
     // The name of the model, such as gpt-4 or qwen-turbo.
     // 

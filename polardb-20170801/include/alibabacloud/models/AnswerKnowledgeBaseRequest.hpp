@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the knowledge base. To obtain the ID, first call CreateKnowledgeSpace to create a knowledge space, use the returned KnowledgeSpaceId to call CreateKnowledgeBase, and then use the KnowledgeBaseId returned by CreateKnowledgeBase. Separate multiple knowledge base IDs with commas.
+    // The unique identifier of the knowledge base. To obtain this ID, call CreateKnowledgeSpace to create a knowledge space, use the returned KnowledgeSpaceId to call CreateKnowledgeBase, and then use the KnowledgeBaseId returned by CreateKnowledgeBase. You can specify up to 50 knowledge base IDs separated by commas.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
@@ -154,7 +154,7 @@ namespace Models
     shared_ptr<string> searchMode_ {};
     // The system prompt.
     shared_ptr<string> systemPrompt_ {};
-    // The number of results to recall.
+    // The number of results to recall during retrieval.
     shared_ptr<int32_t> topK_ {};
     // The additional user instructions.
     shared_ptr<string> userInstructions_ {};

@@ -17,6 +17,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_TO_JSON(ModelApiId, modelApiId_);
       DARABONBA_PTR_TO_JSON(ModelCategory, modelCategory_);
+      DARABONBA_PTR_TO_JSON(ModelMappings, modelMappings_);
+      DARABONBA_PTR_TO_JSON(ModelRouting, modelRouting_);
+      DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(PathPrefix, pathPrefix_);
       DARABONBA_PTR_TO_JSON(Protocol, protocol_);
       DARABONBA_PTR_TO_JSON(RecordInput, recordInput_);
@@ -29,6 +32,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_FROM_JSON(ModelApiId, modelApiId_);
       DARABONBA_PTR_FROM_JSON(ModelCategory, modelCategory_);
+      DARABONBA_PTR_FROM_JSON(ModelMappings, modelMappings_);
+      DARABONBA_PTR_FROM_JSON(ModelRouting, modelRouting_);
+      DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(PathPrefix, pathPrefix_);
       DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(RecordInput, recordInput_);
@@ -48,8 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && this->gwClusterId_ == nullptr && this->modelApiId_ == nullptr && this->modelCategory_ == nullptr && this->pathPrefix_ == nullptr && this->protocol_ == nullptr
-        && this->recordInput_ == nullptr && this->recordOutput_ == nullptr && this->regionId_ == nullptr && this->routeRules_ == nullptr; };
+        && this->gwClusterId_ == nullptr && this->modelApiId_ == nullptr && this->modelCategory_ == nullptr && this->modelMappings_ == nullptr && this->modelRouting_ == nullptr
+        && this->name_ == nullptr && this->pathPrefix_ == nullptr && this->protocol_ == nullptr && this->recordInput_ == nullptr && this->recordOutput_ == nullptr
+        && this->regionId_ == nullptr && this->routeRules_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
@@ -76,6 +83,27 @@ namespace Models
     void deleteModelCategory() { this->modelCategory_ = nullptr;};
     inline string getModelCategory() const { DARABONBA_PTR_GET_DEFAULT(modelCategory_, "") };
     inline ModifyModelApiRequest& setModelCategory(string modelCategory) { DARABONBA_PTR_SET_VALUE(modelCategory_, modelCategory) };
+
+
+    // modelMappings Field Functions 
+    bool hasModelMappings() const { return this->modelMappings_ != nullptr;};
+    void deleteModelMappings() { this->modelMappings_ = nullptr;};
+    inline string getModelMappings() const { DARABONBA_PTR_GET_DEFAULT(modelMappings_, "") };
+    inline ModifyModelApiRequest& setModelMappings(string modelMappings) { DARABONBA_PTR_SET_VALUE(modelMappings_, modelMappings) };
+
+
+    // modelRouting Field Functions 
+    bool hasModelRouting() const { return this->modelRouting_ != nullptr;};
+    void deleteModelRouting() { this->modelRouting_ = nullptr;};
+    inline string getModelRouting() const { DARABONBA_PTR_GET_DEFAULT(modelRouting_, "") };
+    inline ModifyModelApiRequest& setModelRouting(string modelRouting) { DARABONBA_PTR_SET_VALUE(modelRouting_, modelRouting) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline ModifyModelApiRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // pathPrefix Field Functions 
@@ -135,12 +163,14 @@ namespace Models
     // * **text**
     // * **embedding**
     // * **rerank**
-    // 
-    // This parameter is required.
     shared_ptr<string> modelCategory_ {};
+    // The model name mappings, specified as a JSON array string. Each element is in the format of {"Source":"client model name","Target":"upstream model name"}. If you do not specify this parameter, the current mappings are retained. If you specify "[]", the mappings are cleared. The Source field is matched in a case-insensitive manner and must be unique.
+    shared_ptr<string> modelMappings_ {};
+    // The intelligent routing candidate list, specified as a JSON object string in the format of {"AllowedModels":["candidate model name"]}. If you do not specify this parameter, the current list is retained. If you specify this parameter, the existing list is fully replaced with the new list. You cannot use an empty list to disable the feature. Saving candidates does not enable the feature. You must call EnableModelRouting first.
+    shared_ptr<string> modelRouting_ {};
+    // The name of the model API. This parameter is modifiable. If you do not specify this parameter, the original name is retained.
+    shared_ptr<string> name_ {};
     // The API path prefix.
-    // 
-    // This parameter is required.
     shared_ptr<string> pathPrefix_ {};
     // The protocol. Valid values:
     // 
@@ -148,8 +178,6 @@ namespace Models
     // * **anthropic**
     // * **bailian**
     // * **vllm**
-    // 
-    // This parameter is required.
     shared_ptr<string> protocol_ {};
     // The number of input tokens.
     shared_ptr<string> recordInput_ {};
@@ -157,9 +185,7 @@ namespace Models
     shared_ptr<string> recordOutput_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The list of routing rules, formatted as a JSON array string. Usage notes: Correct the value of FallbackMode in the RouteRules parameter example by replacing it with a valid value or removing the field, and add the list of valid values and their meanings for the FallbackMode subfield to the description of RouteRules.
-    // 
-    // This parameter is required.
+    // The list of routing rules, specified as a JSON array string. Usage note: Correct the value of FallbackMode in the RouteRules parameter example by replacing it with a valid value or removing the field, and add the list of valid values and their descriptions for the FallbackMode subfield in the description of RouteRules.
     shared_ptr<string> routeRules_ {};
   };
 
