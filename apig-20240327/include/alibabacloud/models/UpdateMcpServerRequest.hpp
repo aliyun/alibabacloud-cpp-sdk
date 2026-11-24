@@ -93,7 +93,7 @@ namespace Models
 
 
     protected:
-      // The MCP server configurations. This parameter is mutually exclusive with swaggerConfig.
+      // The MCP server configurations. This parameter is mutually exclusive with the swaggerConfig parameter.
       shared_ptr<string> mcpServerSpec_ {};
       // The Swagger document for HTTP-to-MCP. The document must comply with the OpenAPI 3.0 specification.
       shared_ptr<string> swaggerConfig_ {};
@@ -210,7 +210,7 @@ namespace Models
         protected:
           // The service port.
           shared_ptr<int32_t> port_ {};
-          // The protocol.
+          // The service protocol.
           shared_ptr<string> protocol_ {};
           // The service ID.
           shared_ptr<string> serviceId_ {};
@@ -369,10 +369,10 @@ namespace Models
       protected:
         // The service port. Do not specify this parameter for dynamic ports.
         shared_ptr<int32_t> port_ {};
-        // The protocol. Valid values:
-        // - TCP.
-        // - HTTP.
-        // - DUBBO.
+        // The service protocol. Valid values:
+        // - TCP: TCP
+        // - HTTP: HTTP
+        // - DUBBO: Dubbo
         shared_ptr<string> protocol_ {};
         // The service ID.
         shared_ptr<string> serviceId_ {};
@@ -577,11 +577,11 @@ namespace Models
     // The backend service configurations of the route. This parameter is conditionally required. If it is not provided, the API returns InvalidParameter.WithValue(400).
     shared_ptr<UpdateMcpServerRequest::BackendConfig> backendConfig_ {};
     // The creation source type. Valid values:
-    // - ApiGatewayHttpToMCP: API Gateway-managed HTTP-to-MCP
-    // - ApiGatewayProxyMcpHosting: API Gateway-managed direct MCP proxy
-    // - ApiGatewayAssembly: API Gateway MCP assembly
-    // - NacosHttpToMCP: API Gateway-managed Nacos-synchronized HTTP-to-MCP
-    // - NacosMcpHosting: API Gateway-managed Nacos-synchronized direct MCP proxy
+    // - ApiGatewayHttpToMCP: Gateway-hosted HTTP-to-MCP
+    // - ApiGatewayProxyMcpHosting: Gateway-hosted direct MCP proxy
+    // - ApiGatewayAssembly: Gateway MCP assembly
+    // - NacosHttpToMCP: Gateway-hosted Nacos-synchronized HTTP-to-MCP
+    // - NacosMcpHosting: Gateway-hosted Nacos-synchronized direct MCP proxy
     shared_ptr<string> createFromType_ {};
     // The description.
     shared_ptr<string> description_ {};
@@ -591,7 +591,13 @@ namespace Models
     shared_ptr<string> exposedUriPath_ {};
     // The list of canary release MCP server route configurations.
     shared_ptr<vector<UpdateMcpServerRequest::GrayMcpServerConfigs>> grayMcpServerConfigs_ {};
-    // The MCP service description.
+    // The MCP service instructions. Only gateway-hosted HTTP-to-MCP services of AI Gateway Professional Edition are supported. The maximum length is 2,048 UTF-8 bytes.
+    // 
+    // - Passing a non-empty string replaces the saved instructions.
+    // - Omitting this field retains the saved instructions.
+    // - Passing an empty string `""` clears the saved instructions.
+    // 
+    // After you republish the MCP service, newly established MCP connections can read the updated instructions in `result.instructions` of the `initialize` response. If cleared, the response omits `instructions`.
     shared_ptr<string> instructions_ {};
     // The route match rules. This parameter is conditionally required. If it is not provided, the API returns InvalidParameter.IsEmpty(400).
     shared_ptr<HttpRouteMatch> match_ {};

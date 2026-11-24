@@ -461,6 +461,9 @@
 #include <alibabacloud/models/GetModelGroupRequest.hpp>
 #include <alibabacloud/models/GetModelGroupResponseBody.hpp>
 #include <alibabacloud/models/GetModelGroupResponse.hpp>
+#include <alibabacloud/models/GetModelTokenRateLimitRequest.hpp>
+#include <alibabacloud/models/GetModelTokenRateLimitResponseBody.hpp>
+#include <alibabacloud/models/GetModelTokenRateLimitResponse.hpp>
 #include <alibabacloud/models/GetPluginAttachmentResponseBody.hpp>
 #include <alibabacloud/models/GetPluginAttachmentResponse.hpp>
 #include <alibabacloud/models/GetPluginClassRequest.hpp>
@@ -863,6 +866,9 @@
 #include <alibabacloud/models/UpdateModelGroupRequest.hpp>
 #include <alibabacloud/models/UpdateModelGroupResponseBody.hpp>
 #include <alibabacloud/models/UpdateModelGroupResponse.hpp>
+#include <alibabacloud/models/UpdateModelTokenRateLimitRequest.hpp>
+#include <alibabacloud/models/UpdateModelTokenRateLimitResponseBody.hpp>
+#include <alibabacloud/models/UpdateModelTokenRateLimitResponse.hpp>
 #include <alibabacloud/models/UpdateNetworkAccessRequest.hpp>
 #include <alibabacloud/models/UpdateNetworkAccessResponseBody.hpp>
 #include <alibabacloud/models/UpdateNetworkAccessResponse.hpp>

@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(gateway, gateway_);
         DARABONBA_PTR_TO_JSON(identityDescription, identityDescription_);
         DARABONBA_PTR_TO_JSON(impacts, impacts_);
+        DARABONBA_PTR_TO_JSON(modelTpmLimits, modelTpmLimits_);
         DARABONBA_PTR_TO_JSON(quotas, quotas_);
         DARABONBA_PTR_TO_JSON(resources, resources_);
       };
@@ -51,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(gateway, gateway_);
         DARABONBA_PTR_FROM_JSON(identityDescription, identityDescription_);
         DARABONBA_PTR_FROM_JSON(impacts, impacts_);
+        DARABONBA_PTR_FROM_JSON(modelTpmLimits, modelTpmLimits_);
         DARABONBA_PTR_FROM_JSON(quotas, quotas_);
         DARABONBA_PTR_FROM_JSON(resources, resources_);
       };
@@ -178,9 +180,9 @@ namespace Models
 
 
         protected:
-          // The name of the consumer group that provides this authorization.
+          // The name of the consumer group that grants this authorization.
           shared_ptr<string> consumerGroupName_ {};
-          // The model identifier. Standard models use the source model card ID, while logical model endpoints use the vm- prefix.
+          // The model identifier. A standard model uses the source model card ID, while a logical model endpoint uses a vm- prefix.
           shared_ptr<string> modelCardId_ {};
           // The model source ID. Use the modelSourceId returned by CreateAiModelSource.
           shared_ptr<string> modelSourceId_ {};
@@ -291,9 +293,9 @@ namespace Models
 
 
           protected:
-            // The name of the consumer group that provides this authorization.
+            // The name of the consumer group that grants this authorization.
             shared_ptr<string> consumerGroupName_ {};
-            // The model identifier. Standard models use the source model card ID, while logical model endpoints use the vm- prefix.
+            // The model identifier. A standard model uses the source model card ID, while a logical model endpoint uses a vm- prefix.
             shared_ptr<string> modelCardId_ {};
             // The model source ID. Use the modelSourceId returned by CreateAiModelSource.
             shared_ptr<string> modelSourceId_ {};
@@ -338,7 +340,7 @@ namespace Models
 
 
         protected:
-          // The name of the consumer group that provides this authorization.
+          // The name of the consumer group that grants this authorization.
           shared_ptr<string> consumerGroupName_ {};
           // The model group ID. Use the modelGroupId returned by CreateModelGroup.
           shared_ptr<string> modelGroupId_ {};
@@ -408,9 +410,9 @@ namespace Models
           shared_ptr<int64_t> appliedRevision_ {};
           // The expected authorization revision number to be delivered.
           shared_ptr<int64_t> desiredRevision_ {};
-          // The error description when processing fails. This field is empty if no error occurs.
+          // The error description when processing fails. Empty when no error occurs.
           shared_ptr<string> errorMessage_ {};
-          // The status. Valid values: Pending, Applying, Committed, and Failed.
+          // The status of the entitlement delivery. Valid values: Pending, Applying, Committed, and Failed.
           shared_ptr<string> status_ {};
         };
 
@@ -503,15 +505,15 @@ namespace Models
 
 
       protected:
-        // Specifies whether the authorization scope of this resource includes all models.
+        // Specifies whether the authorization scope of the resource includes all models.
         shared_ptr<bool> allModels_ {};
-        // Specifies whether the authorization scope of this MCP resource includes all tools.
+        // Specifies whether the authorization scope of the MCP resource includes all tools.
         shared_ptr<bool> allTools_ {};
-        // The name of the consumer group that provides this authorization.
+        // The name of the consumer group that grants this authorization.
         shared_ptr<string> consumerGroupName_ {};
-        // The existing desired or applied state of the model entitlement projection. This field is omitted if no state row exists.
+        // The existing desired and applied states of the model entitlement projection. Omitted when no state row exists.
         shared_ptr<Resources::EntitlementState> entitlementState_ {};
-        // The expiration time. The value is null for long-term authorization, an RFC 3339 formatted string for short-term authorization that can be losslessly projected, or omitted if unknown.
+        // The expiration time. The value is null for long-term authorizations, an RFC 3339 formatted string for short-term authorizations with lossless projection, and omitted when unknown.
         shared_ptr<string> expireTime_ {};
         // The accessible model groups and their model collections.
         shared_ptr<vector<Resources::ModelGroups>> modelGroups_ {};
@@ -523,7 +525,7 @@ namespace Models
         shared_ptr<string> resourceId_ {};
         // The resource type. Valid values: ModelApi, MCP, and Agent.
         shared_ptr<string> resourceType_ {};
-        // The list of names of MCP tools that are allowed to be called within this resource scope.
+        // The list of MCP tool names that are allowed to be called within the resource scope.
         shared_ptr<vector<string>> tools_ {};
       };
 
@@ -647,28 +649,83 @@ namespace Models
 
 
       protected:
-        // The quota limit for the current rule, measured in the same unit as the unit field.
+        // The quota limit for the current rule, using the same unit of measurement as the unit field.
         shared_ptr<int64_t> limit_ {};
         // The name of the consumer.
         shared_ptr<string> name_ {};
         // The multiplier for the custom period.
         shared_ptr<int64_t> periodMultiplier_ {};
-        // The quota period type. Valid values: day, week, and month.
+        // The type of the quota period. Valid values: day, week, and month.
         shared_ptr<string> periodType_ {};
-        // The quota rule ID.
+        // The ID of the quota rule.
         shared_ptr<string> ruleId_ {};
         // The ID of the subject to which the quota belongs.
         shared_ptr<string> subjectId_ {};
         // The name of the subject to which the quota belongs.
         shared_ptr<string> subjectName_ {};
-        // The quota subject type. Valid values: consumer and consumer_group.
+        // The type of the quota subject. Valid values: consumer and consumer_group.
         shared_ptr<string> subjectType_ {};
-        // The quota measurement unit.
+        // The unit of measurement for the quota.
         shared_ptr<string> unit_ {};
-        // The used quota within the period corresponding to the current rule, measured in the same unit as the unit field.
+        // The used quota within the period corresponding to the current rule, using the same unit of measurement as the unit field.
         shared_ptr<double> used_ {};
-        // The alignment method of the period window. Valid values: calendar for natural periods and epoch for custom base periods.
+        // The alignment of the period window. Valid values: calendar for natural periods and epoch for custom base periods.
         shared_ptr<string> windowAlignment_ {};
+      };
+
+      class ModelTpmLimits : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ModelTpmLimits& obj) { 
+          DARABONBA_PTR_TO_JSON(consumerTpm, consumerTpm_);
+          DARABONBA_PTR_TO_JSON(globalTpm, globalTpm_);
+          DARABONBA_PTR_TO_JSON(modelId, modelId_);
+        };
+        friend void from_json(const Darabonba::Json& j, ModelTpmLimits& obj) { 
+          DARABONBA_PTR_FROM_JSON(consumerTpm, consumerTpm_);
+          DARABONBA_PTR_FROM_JSON(globalTpm, globalTpm_);
+          DARABONBA_PTR_FROM_JSON(modelId, modelId_);
+        };
+        ModelTpmLimits() = default ;
+        ModelTpmLimits(const ModelTpmLimits &) = default ;
+        ModelTpmLimits(ModelTpmLimits &&) = default ;
+        ModelTpmLimits(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ModelTpmLimits() = default ;
+        ModelTpmLimits& operator=(const ModelTpmLimits &) = default ;
+        ModelTpmLimits& operator=(ModelTpmLimits &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->consumerTpm_ == nullptr
+        && this->globalTpm_ == nullptr && this->modelId_ == nullptr; };
+        // consumerTpm Field Functions 
+        bool hasConsumerTpm() const { return this->consumerTpm_ != nullptr;};
+        void deleteConsumerTpm() { this->consumerTpm_ = nullptr;};
+        inline int64_t getConsumerTpm() const { DARABONBA_PTR_GET_DEFAULT(consumerTpm_, 0L) };
+        inline ModelTpmLimits& setConsumerTpm(int64_t consumerTpm) { DARABONBA_PTR_SET_VALUE(consumerTpm_, consumerTpm) };
+
+
+        // globalTpm Field Functions 
+        bool hasGlobalTpm() const { return this->globalTpm_ != nullptr;};
+        void deleteGlobalTpm() { this->globalTpm_ = nullptr;};
+        inline int64_t getGlobalTpm() const { DARABONBA_PTR_GET_DEFAULT(globalTpm_, 0L) };
+        inline ModelTpmLimits& setGlobalTpm(int64_t globalTpm) { DARABONBA_PTR_SET_VALUE(globalTpm_, globalTpm) };
+
+
+        // modelId Field Functions 
+        bool hasModelId() const { return this->modelId_ != nullptr;};
+        void deleteModelId() { this->modelId_ = nullptr;};
+        inline string getModelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
+        inline ModelTpmLimits& setModelId(string modelId) { DARABONBA_PTR_SET_VALUE(modelId_, modelId) };
+
+
+      protected:
+        // The maximum tokens per minute for the current consumer using this model. Returned only when a rule is configured for the consumer.
+        shared_ptr<int64_t> consumerTpm_ {};
+        // The maximum tokens per minute shared by all consumers for this model within the instance. Returned only when a global limit is configured.
+        shared_ptr<int64_t> globalTpm_ {};
+        // The actual model card ID starting with msc- or the logical model ID starting with vm-.
+        shared_ptr<string> modelId_ {};
       };
 
       class Impacts : public Darabonba::Model {
@@ -785,11 +842,11 @@ namespace Models
 
 
         protected:
-          // The number of agent APIs with configured authorization.
+          // The number of agent APIs with configured authorizations.
           shared_ptr<int32_t> agentApis_ {};
-          // The number of MCP servers with configured authorization.
+          // The number of MCP services with configured authorizations.
           shared_ptr<int32_t> mcpServers_ {};
-          // The number of model APIs with configured authorization.
+          // The number of model APIs with configured authorizations.
           shared_ptr<int32_t> modelApis_ {};
         };
 
@@ -823,9 +880,9 @@ namespace Models
 
 
       protected:
-        // The number of authorization configurations counted by resource type.
+        // The number of authorization configurations by resource type.
         shared_ptr<Impacts::AuthorizationCounts> authorizationCounts_ {};
-        // The gateway identifier and name in the current view.
+        // The gateway identifier and name in the current context.
         shared_ptr<Impacts::Gateway> gateway_ {};
         // The collection of resources for which the consumer has been granted authorization.
         shared_ptr<vector<string>> resources_ {};
@@ -876,7 +933,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->complete_ == nullptr
-        && this->gateway_ == nullptr && this->identityDescription_ == nullptr && this->impacts_ == nullptr && this->quotas_ == nullptr && this->resources_ == nullptr; };
+        && this->gateway_ == nullptr && this->identityDescription_ == nullptr && this->impacts_ == nullptr && this->modelTpmLimits_ == nullptr && this->quotas_ == nullptr
+        && this->resources_ == nullptr; };
       // complete Field Functions 
       bool hasComplete() const { return this->complete_ != nullptr;};
       void deleteComplete() { this->complete_ = nullptr;};
@@ -909,6 +967,15 @@ namespace Models
       inline Data& setImpacts(vector<Data::Impacts> && impacts) { DARABONBA_PTR_SET_RVALUE(impacts_, impacts) };
 
 
+      // modelTpmLimits Field Functions 
+      bool hasModelTpmLimits() const { return this->modelTpmLimits_ != nullptr;};
+      void deleteModelTpmLimits() { this->modelTpmLimits_ = nullptr;};
+      inline const vector<Data::ModelTpmLimits> & getModelTpmLimits() const { DARABONBA_PTR_GET_CONST(modelTpmLimits_, vector<Data::ModelTpmLimits>) };
+      inline vector<Data::ModelTpmLimits> getModelTpmLimits() { DARABONBA_PTR_GET(modelTpmLimits_, vector<Data::ModelTpmLimits>) };
+      inline Data& setModelTpmLimits(const vector<Data::ModelTpmLimits> & modelTpmLimits) { DARABONBA_PTR_SET_VALUE(modelTpmLimits_, modelTpmLimits) };
+      inline Data& setModelTpmLimits(vector<Data::ModelTpmLimits> && modelTpmLimits) { DARABONBA_PTR_SET_RVALUE(modelTpmLimits_, modelTpmLimits) };
+
+
       // quotas Field Functions 
       bool hasQuotas() const { return this->quotas_ != nullptr;};
       void deleteQuotas() { this->quotas_ = nullptr;};
@@ -928,14 +995,16 @@ namespace Models
 
 
     protected:
-      // Specifies whether the query result is complete. A successful response returns a complete projection.
+      // Indicates whether the query result is complete. A successful response returns a complete projection.
       shared_ptr<bool> complete_ {};
-      // The gateway identifier and name in the current view.
+      // The gateway identifier and name in the current context.
       shared_ptr<Data::Gateway> gateway_ {};
       // The description text of the consumer.
       shared_ptr<string> identityDescription_ {};
-      // The impact of authorization configurations for this consumer in readable gateways within the local region.
+      // The impact of authorization configurations for the consumer in readable gateways within the local region.
       shared_ptr<vector<Data::Impacts>> impacts_ {};
+      // The list of models with configured global or current consumer TPM limits in the target dedicated instance. Returned when includeModelTpm is set to true, and an empty array when no matching models exist.
+      shared_ptr<vector<Data::ModelTpmLimits>> modelTpmLimits_ {};
       // The quota rules and usage for the consumer and its associated consumer group.
       shared_ptr<vector<Data::Quotas>> quotas_ {};
       // The collection of resources for which the consumer has been granted authorization.
@@ -975,13 +1044,13 @@ namespace Models
 
 
   protected:
-    // The response status code. The value is Ok for successful requests, or a specific business error code for failed requests.
+    // The response status code. It returns Ok for a successful request or a specific business error code for a failed request.
     shared_ptr<string> code_ {};
     // The business result returned by the consumer operation.
     shared_ptr<GetConsumerAccessOverviewResponseBody::Data> data_ {};
     // The response message that describes the request processing result.
     shared_ptr<string> message_ {};
-    // The request ID generated by the system to trace the current call.
+    // The ID of the request generated by the system to trace the call.
     shared_ptr<string> requestId_ {};
   };
 

@@ -112,27 +112,27 @@ namespace Models
 
 
   protected:
-    // The connection ID.
+    // The connection identifier.
     shared_ptr<string> connectionId_ {};
-    // The end time.
+    // The end time. The value is a UNIX timestamp in seconds since the UTC epoch. Example: 1793919600.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The number of entries per page for cursor-based pagination. If not specified or set to 0, the default value is 50. If the value is greater than 100, it is capped at 100. Negative values are invalid.
+    // The maximum number of results per page for cursor-based pagination.
     shared_ptr<int32_t> maxResults_ {};
     // The model.
     shared_ptr<string> model_ {};
-    // The pagination cursor. Do not specify this parameter for the first query. For subsequent pages, use the nextToken value returned in the previous response. The time range and filter conditions must remain unchanged, but you can adjust the maxResults value.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
     // The provider.
     shared_ptr<string> provider_ {};
     // The log source.
     shared_ptr<string> source_ {};
-    // The start time.
+    // The start time. The value is a UNIX timestamp in seconds since the UTC epoch. Example: 1793916000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The turn ID.
+    // The turn identifier.
     shared_ptr<string> turnId_ {};
   };
 

@@ -5260,6 +5260,10 @@ GetConsumerAccessOverviewResponse Client::getConsumerAccessOverviewWithOptions(c
     query["gatewayId"] = request.getGatewayId();
   }
 
+  if (!!request.hasIncludeModelTpm()) {
+    query["includeModelTpm"] = request.getIncludeModelTpm();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -6516,6 +6520,45 @@ GetModelGroupResponse Client::getModelGroup(const string &modelGroupId, const Ge
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getModelGroupWithOptions(modelGroupId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the token throttling rules for a model.
+ *
+ * @param request GetModelTokenRateLimitRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetModelTokenRateLimitResponse
+ */
+GetModelTokenRateLimitResponse Client::getModelTokenRateLimitWithOptions(const string &gatewayId, const string &modelId, const GetModelTokenRateLimitRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetModelTokenRateLimit"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/model-tpm/" , Darabonba::Encode::Encoder::percentEncode(modelId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetModelTokenRateLimitResponse>();
+}
+
+/**
+ * @summary Queries the token throttling rules for a model.
+ *
+ * @param request GetModelTokenRateLimitRequest
+ * @return GetModelTokenRateLimitResponse
+ */
+GetModelTokenRateLimitResponse Client::getModelTokenRateLimit(const string &gatewayId, const string &modelId, const GetModelTokenRateLimitRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getModelTokenRateLimitWithOptions(gatewayId, modelId, request, headers, runtime);
 }
 
 /**
@@ -9018,9 +9061,9 @@ ListGatewayQuotaRulesResponse Client::listGatewayQuotaRules(const string &gatewa
 }
 
 /**
- * @summary Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+ * @summary Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
  *
- * @description Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+ * @description Retrieves the historical events delivered by the dedicated Professional AI gateway of the current user to Simple Log Service (SLS). Standard user log delivery and the corresponding indexes must be enabled. The query time range is a left-closed and right-open interval. The time span cannot exceed 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results do not represent an online connection directory, and missing logs do not indicate that no calls occurred.
  *
  * @param request ListGatewayWebsocketEventsRequest
  * @param headers map
@@ -9085,9 +9128,9 @@ ListGatewayWebsocketEventsResponse Client::listGatewayWebsocketEventsWithOptions
 }
 
 /**
- * @summary Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+ * @summary Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
  *
- * @description Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+ * @description Retrieves the historical events delivered by the dedicated Professional AI gateway of the current user to Simple Log Service (SLS). Standard user log delivery and the corresponding indexes must be enabled. The query time range is a left-closed and right-open interval. The time span cannot exceed 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results do not represent an online connection directory, and missing logs do not indicate that no calls occurred.
  *
  * @param request ListGatewayWebsocketEventsRequest
  * @return ListGatewayWebsocketEventsResponse
@@ -14267,7 +14310,7 @@ UpdateLogicalModelResponse Client::updateLogicalModel(const string &logicalModel
 /**
  * @summary Updates an MCP server.
  *
- * @description Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
+ * @description Only sources of the **container service** type are allowed to update the configurations of Ingress listeners.
  *
  * @param request UpdateMcpServerRequest
  * @param headers map
@@ -14350,7 +14393,7 @@ UpdateMcpServerResponse Client::updateMcpServerWithOptions(const string &mcpServ
 /**
  * @summary Updates an MCP server.
  *
- * @description Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
+ * @description Only sources of the **container service** type are allowed to update the configurations of Ingress listeners.
  *
  * @param request UpdateMcpServerRequest
  * @return UpdateMcpServerResponse
@@ -14570,6 +14613,59 @@ UpdateModelGroupResponse Client::updateModelGroup(const string &modelGroupId, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateModelGroupWithOptions(modelGroupId, request, headers, runtime);
+}
+
+/**
+ * @summary Modifies the token throttling rules for a model.
+ *
+ * @param request UpdateModelTokenRateLimitRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateModelTokenRateLimitResponse
+ */
+UpdateModelTokenRateLimitResponse Client::updateModelTokenRateLimitWithOptions(const string &gatewayId, const string &modelId, const UpdateModelTokenRateLimitRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConsumers()) {
+    body["consumers"] = request.getConsumers();
+  }
+
+  if (!!request.hasExpectedRevision()) {
+    body["expectedRevision"] = request.getExpectedRevision();
+  }
+
+  if (!!request.hasGlobalTpm()) {
+    body["globalTpm"] = request.getGlobalTpm();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateModelTokenRateLimit"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/model-tpm/" , Darabonba::Encode::Encoder::percentEncode(modelId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateModelTokenRateLimitResponse>();
+}
+
+/**
+ * @summary Modifies the token throttling rules for a model.
+ *
+ * @param request UpdateModelTokenRateLimitRequest
+ * @return UpdateModelTokenRateLimitResponse
+ */
+UpdateModelTokenRateLimitResponse Client::updateModelTokenRateLimit(const string &gatewayId, const string &modelId, const UpdateModelTokenRateLimitRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateModelTokenRateLimitWithOptions(gatewayId, modelId, request, headers, runtime);
 }
 
 /**

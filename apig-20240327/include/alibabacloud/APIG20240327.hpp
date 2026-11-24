@@ -2423,6 +2423,24 @@ namespace APIG20240327
       Models::GetModelGroupResponse getModelGroup(const string &modelGroupId, const Models::GetModelGroupRequest &request);
 
       /**
+       * @summary Queries the token throttling rules for a model.
+       *
+       * @param request GetModelTokenRateLimitRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetModelTokenRateLimitResponse
+       */
+      Models::GetModelTokenRateLimitResponse getModelTokenRateLimitWithOptions(const string &gatewayId, const string &modelId, const Models::GetModelTokenRateLimitRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the token throttling rules for a model.
+       *
+       * @param request GetModelTokenRateLimitRequest
+       * @return GetModelTokenRateLimitResponse
+       */
+      Models::GetModelTokenRateLimitResponse getModelTokenRateLimit(const string &gatewayId, const string &modelId, const Models::GetModelTokenRateLimitRequest &request);
+
+      /**
        * @summary Queries a plugin attachment.
        *
        * @param headers map
@@ -3273,9 +3291,9 @@ namespace APIG20240327
       Models::ListGatewayQuotaRulesResponse listGatewayQuotaRules(const string &gatewayId, const Models::ListGatewayQuotaRulesRequest &request);
 
       /**
-       * @summary Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+       * @summary Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
        *
-       * @description Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+       * @description Retrieves the historical events delivered by the dedicated Professional AI gateway of the current user to Simple Log Service (SLS). Standard user log delivery and the corresponding indexes must be enabled. The query time range is a left-closed and right-open interval. The time span cannot exceed 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results do not represent an online connection directory, and missing logs do not indicate that no calls occurred.
        *
        * @param request ListGatewayWebsocketEventsRequest
        * @param headers map
@@ -3285,9 +3303,9 @@ namespace APIG20240327
       Models::ListGatewayWebsocketEventsResponse listGatewayWebsocketEventsWithOptions(const string &gatewayId, const Models::ListGatewayWebsocketEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+       * @summary Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
        *
-       * @description Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+       * @description Retrieves the historical events delivered by the dedicated Professional AI gateway of the current user to Simple Log Service (SLS). Standard user log delivery and the corresponding indexes must be enabled. The query time range is a left-closed and right-open interval. The time span cannot exceed 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results do not represent an online connection directory, and missing logs do not indicate that no calls occurred.
        *
        * @param request ListGatewayWebsocketEventsRequest
        * @return ListGatewayWebsocketEventsResponse
@@ -4941,7 +4959,7 @@ namespace APIG20240327
       /**
        * @summary Updates an MCP server.
        *
-       * @description Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
+       * @description Only sources of the **container service** type are allowed to update the configurations of Ingress listeners.
        *
        * @param request UpdateMcpServerRequest
        * @param headers map
@@ -4953,7 +4971,7 @@ namespace APIG20240327
       /**
        * @summary Updates an MCP server.
        *
-       * @description Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
+       * @description Only sources of the **container service** type are allowed to update the configurations of Ingress listeners.
        *
        * @param request UpdateMcpServerRequest
        * @return UpdateMcpServerResponse
@@ -5013,6 +5031,24 @@ namespace APIG20240327
        * @return UpdateModelGroupResponse
        */
       Models::UpdateModelGroupResponse updateModelGroup(const string &modelGroupId, const Models::UpdateModelGroupRequest &request);
+
+      /**
+       * @summary Modifies the token throttling rules for a model.
+       *
+       * @param request UpdateModelTokenRateLimitRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateModelTokenRateLimitResponse
+       */
+      Models::UpdateModelTokenRateLimitResponse updateModelTokenRateLimitWithOptions(const string &gatewayId, const string &modelId, const Models::UpdateModelTokenRateLimitRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the token throttling rules for a model.
+       *
+       * @param request UpdateModelTokenRateLimitRequest
+       * @return UpdateModelTokenRateLimitResponse
+       */
+      Models::UpdateModelTokenRateLimitResponse updateModelTokenRateLimit(const string &gatewayId, const string &modelId, const Models::UpdateModelTokenRateLimitRequest &request);
 
       /**
        * @summary Modifies the network access type of a gateway.

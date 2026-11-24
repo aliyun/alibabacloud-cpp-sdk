@@ -109,9 +109,9 @@ namespace Models
       shared_ptr<bool> hasMore_ {};
       // The observability events.
       shared_ptr<vector<Darabonba::Json>> items_ {};
-      // The actual number of entries per page used for the current request. The default value is 50 and the maximum value is 100.
+      // The actual number of results per page.
       shared_ptr<int32_t> maxResults_ {};
-      // The encrypted cursor returned when there is a next page. This parameter is empty for the last page. The cursor is valid for 10 minutes and is bound to the user, gateway, time range, and filters. You can adjust maxResults for subsequent pages. SLS snapshot isolation is not guaranteed.
+      // The pagination token for the next page.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -150,11 +150,11 @@ namespace Models
   protected:
     // The business response code.
     shared_ptr<string> code_ {};
-    // The query result.
+    // The query results.
     shared_ptr<ListGatewayWebsocketEventsResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 
