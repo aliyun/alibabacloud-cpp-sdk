@@ -9,7 +9,6 @@
 #include <alibabacloud/models/CreateEduHomeworkCorrectSubmitResponseBody.hpp>
 #include <alibabacloud/models/CreateEduHomeworkCorrectSubmitResponse.hpp>
 #include <alibabacloud/models/CreateEduProblemSolveRequest.hpp>
-#include <alibabacloud/models/CreateEduProblemSolveShrinkRequest.hpp>
 #include <alibabacloud/models/CreateEduProblemSolveResponseBody.hpp>
 #include <alibabacloud/models/CreateEduProblemSolveResponse.hpp>
 #include <alibabacloud/models/GetEduHomeworkCorrectionResultRequest.hpp>

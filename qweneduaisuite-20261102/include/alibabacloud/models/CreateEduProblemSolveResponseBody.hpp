@@ -156,8 +156,8 @@ namespace Models
         // The current thinking content.
         shared_ptr<string> content_ {};
         // The thinking status. Valid values:
-        // * processing: Processing.
-        // * complete: Complete.
+        // - processing: The thinking process is in progress.
+        // - complete: The thinking process is complete.
         shared_ptr<string> status_ {};
       };
 
@@ -201,17 +201,17 @@ namespace Models
 
 
     protected:
-      // The complete Markdown content of the question resolution, including the deduction process and the final result.
+      // The complete question resolution content in Markdown format, including the deduction process and the final result.
       shared_ptr<string> content_ {};
       // The URL of the unique image for the current question. The URL may be time-sensitive. If the question is not associated with an image resource and no request URL is available for fallback, an empty string is returned.
       shared_ptr<string> imageUrl_ {};
-      // The question identifier. The value is the question title, such as Question 1. The server does not return a separate title field. If the downstream service does not provide a question title, which is always the case for single-question scenarios, titles such as Question 1 and Question 2 are generated in the order of the questions.
+      // The question identifier. The value is the question title, such as Question 1. The server does not return a separate title field. If the downstream service does not provide a question title, which is always the case in single-question scenarios, titles such as Question 1 and Question 2 are generated in the order of the questions.
       shared_ptr<string> questionId_ {};
       // The current question status. Valid values:
-      // * processing: Processing.
-      // * complete: Complete.
+      // - processing: The question is being processed.
+      // - complete: The question processing is complete.
       shared_ptr<string> status_ {};
-      // The thinking process. This field is returned only when result_type is single, and is not returned for multiple questions.
+      // The thinking process. This field is returned only when result_type is single. It is not returned for multiple questions.
       shared_ptr<Items::Thinking> thinking_ {};
     };
 
@@ -281,21 +281,21 @@ namespace Models
   protected:
     // The API data identifier.
     shared_ptr<string> code_ {};
-    // Specifies whether this is the final full snapshot. The value is fixed to true in the complete event.
+    // Specifies whether the response is the final full snapshot. This value is fixed to true in the complete event.
     shared_ptr<bool> finished_ {};
     // The current list of complete question results.
     shared_ptr<vector<CreateEduProblemSolveResponseBody::Items>> items_ {};
-    // The actual response message of the request.
+    // The actual message returned by the request.
     shared_ptr<string> message_ {};
     // Echo request ID echoed from echo request.
     shared_ptr<string> requestId_ {};
     // The type of the question resolution result. Valid values:
-    // * single: Single question.
-    // * multiple: Multiple questions.
+    // - single: A single question.
+    // - multiple: Multiple questions.
     shared_ptr<string> resultType_ {};
     // Specifies whether the error is retryable. Default value: true.
     shared_ptr<bool> retryable_ {};
-    // The token usage. Only the complete event carries the final value. The message event does not return this field.
+    // The token usage. Only the complete event carries the final value. This field is not returned in message events.
     shared_ptr<CreateEduProblemSolveResponseBody::Usage> usage_ {};
   };
 

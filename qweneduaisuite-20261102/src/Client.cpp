@@ -100,12 +100,12 @@ ActivateQwenEduApiResponse Client::activateQwenEduApi(const ActivateQwenEduApiRe
  * @summary Submits a single-page homework image and asynchronously retrieves the grading results.
  *
  * @description ## Request description
- * - This operation submits a homework image to the server for question segmentation, recognition, and grading.
- * - You can submit the image by using `imageBase64` or `imageUrl`. `imageBase64` takes precedence.
- * - The optional `dewarp` parameter specifies whether to correct the image distortion. Default value: `true`.
+ * - This operation is used to submit a homework image to the server for question segmentation, recognition, and grading.
+ * - You can submit the image by using `imageBase64` or `imageUrl`. `imageBase64` is preferred.
+ * - The optional parameter `dewarp` specifies whether to correct the image distortion. Default value: `true`.
  * - Provide `requestId` to facilitate troubleshooting and reconciliation.
- * - Image size limit: The Base64-encoded image size cannot exceed 15 MB.
- * - All requests and responses use the JSON format.
+ * - Image size limit: The Base64-encoded image cannot exceed 15 MB.
+ * - All requests and responses are in JSON format.
  *
  * @param request CreateEduHomeworkCorrectSubmitRequest
  * @param headers map
@@ -143,7 +143,7 @@ CreateEduHomeworkCorrectSubmitResponse Client::createEduHomeworkCorrectSubmitWit
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
-    {"reqBodyType" , "formData"},
+    {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateEduHomeworkCorrectSubmitResponse>();
@@ -153,12 +153,12 @@ CreateEduHomeworkCorrectSubmitResponse Client::createEduHomeworkCorrectSubmitWit
  * @summary Submits a single-page homework image and asynchronously retrieves the grading results.
  *
  * @description ## Request description
- * - This operation submits a homework image to the server for question segmentation, recognition, and grading.
- * - You can submit the image by using `imageBase64` or `imageUrl`. `imageBase64` takes precedence.
- * - The optional `dewarp` parameter specifies whether to correct the image distortion. Default value: `true`.
+ * - This operation is used to submit a homework image to the server for question segmentation, recognition, and grading.
+ * - You can submit the image by using `imageBase64` or `imageUrl`. `imageBase64` is preferred.
+ * - The optional parameter `dewarp` specifies whether to correct the image distortion. Default value: `true`.
  * - Provide `requestId` to facilitate troubleshooting and reconciliation.
- * - Image size limit: The Base64-encoded image size cannot exceed 15 MB.
- * - All requests and responses use the JSON format.
+ * - Image size limit: The Base64-encoded image cannot exceed 15 MB.
+ * - All requests and responses are in JSON format.
  *
  * @param request CreateEduHomeworkCorrectSubmitRequest
  * @return CreateEduHomeworkCorrectSubmitResponse
@@ -172,35 +172,29 @@ CreateEduHomeworkCorrectSubmitResponse Client::createEduHomeworkCorrectSubmit(co
 /**
  * @summary Provides question resolution services by using image URLs or Base64 encoding.
  *
- * @description ## Request description
- * - This API supports obtaining question resolution results by providing the URL or Base64 encoding of a question image.
- * - Supports processing a single image. The image format must be JPG, JPEG, or PNG.
+ * @description ## Request instructions
+ * - This API retrieves question resolution results by using the URL or Base64 encoding of a question image.
+ * - Only a single image is supported per request, and the image format must be JPG, JPEG, or PNG.
  * - The image must be clear and complete. Avoid tilted, obscured, or irrelevant content.
  * - Each request can process only one image. Multi-image or plain text requests are not supported.
- * - The recommended image size is up to 1 MB, with a maximum of 10 MB. The image width and height must not exceed 8,000 pixels, and the total pixel count must not exceed 2.6 million.
- * - You must use the HTTPS protocol to call the API and provide image URLs.
- * - The user_id parameter must be an anonymized identifier. Do not pass direct identity information such as names or phone numbers.
- * - The API uses the HTTP POST method combined with Server-Sent Events (SSE) streaming response. The client must read the response event by event, rather than waiting for the connection to close to read the entire response.
- * - A successful response returns the question resolution process through a series of message events and ends with a complete event. If an error occurs, an error event is returned.
+ * - The recommended image size is up to 1 MB, with a maximum limit of 10 MB. The width and height of the image must not exceed 8,000 pixels, and the total number of pixels must not exceed 2.6 million.
+ * - Use the HTTPS protocol to call the API and provide image URLs.
+ * - The user_id must be an anonymized identifier. Do not pass direct identity information such as names or phone numbers.
+ * - This API uses the HTTP POST method combined with Server-Sent Events (SSE) streaming response technology. The client must read the response event by event and must not wait for the connection to close before reading the entire response.
+ * - A successful response returns the question resolution process step by step through a series of message events and ends with a complete event. If an error occurs, an error event is returned.
  * - For retryable errors such as TOO_MANY_ACTIVE_STREAMS, use an exponential backoff strategy to retry the request.
- * - Set a reasonable timeout period of at least 3 minutes on the client, and ensure that the proxy layer does not cache SSE responses.
+ * - Set a reasonable timeout period for the client, which must be at least 3 minutes, and ensure that the proxy layer does not cache SSE responses.
  *
- * @param tmpReq CreateEduProblemSolveRequest
+ * @param request CreateEduProblemSolveRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateEduProblemSolveResponse
  */
-FutureGenerator<CreateEduProblemSolveResponse> Client::createEduProblemSolveWithSSE(const CreateEduProblemSolveRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  tmpReq.validate();
-  CreateEduProblemSolveShrinkRequest request = CreateEduProblemSolveShrinkRequest();
-  Utils::Utils::convert(tmpReq, request);
-  if (!!tmpReq.hasQuery()) {
-    request.setQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQuery(), "query", "json"));
-  }
-
+FutureGenerator<CreateEduProblemSolveResponse> Client::createEduProblemSolveWithSSE(const CreateEduProblemSolveRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   json body = {};
-  if (!!request.hasQueryShrink()) {
-    body["query"] = request.getQueryShrink();
+  if (!!request.hasQuery()) {
+    body["query"] = request.getQuery();
   }
 
   if (!!request.hasRequestId()) {
@@ -219,7 +213,7 @@ FutureGenerator<CreateEduProblemSolveResponse> Client::createEduProblemSolveWith
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
-    {"reqBodyType" , "formData"},
+    {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
@@ -242,35 +236,29 @@ return Darabonba::FutureGenerator<json>(__retrun);
 /**
  * @summary Provides question resolution services by using image URLs or Base64 encoding.
  *
- * @description ## Request description
- * - This API supports obtaining question resolution results by providing the URL or Base64 encoding of a question image.
- * - Supports processing a single image. The image format must be JPG, JPEG, or PNG.
+ * @description ## Request instructions
+ * - This API retrieves question resolution results by using the URL or Base64 encoding of a question image.
+ * - Only a single image is supported per request, and the image format must be JPG, JPEG, or PNG.
  * - The image must be clear and complete. Avoid tilted, obscured, or irrelevant content.
  * - Each request can process only one image. Multi-image or plain text requests are not supported.
- * - The recommended image size is up to 1 MB, with a maximum of 10 MB. The image width and height must not exceed 8,000 pixels, and the total pixel count must not exceed 2.6 million.
- * - You must use the HTTPS protocol to call the API and provide image URLs.
- * - The user_id parameter must be an anonymized identifier. Do not pass direct identity information such as names or phone numbers.
- * - The API uses the HTTP POST method combined with Server-Sent Events (SSE) streaming response. The client must read the response event by event, rather than waiting for the connection to close to read the entire response.
- * - A successful response returns the question resolution process through a series of message events and ends with a complete event. If an error occurs, an error event is returned.
+ * - The recommended image size is up to 1 MB, with a maximum limit of 10 MB. The width and height of the image must not exceed 8,000 pixels, and the total number of pixels must not exceed 2.6 million.
+ * - Use the HTTPS protocol to call the API and provide image URLs.
+ * - The user_id must be an anonymized identifier. Do not pass direct identity information such as names or phone numbers.
+ * - This API uses the HTTP POST method combined with Server-Sent Events (SSE) streaming response technology. The client must read the response event by event and must not wait for the connection to close before reading the entire response.
+ * - A successful response returns the question resolution process step by step through a series of message events and ends with a complete event. If an error occurs, an error event is returned.
  * - For retryable errors such as TOO_MANY_ACTIVE_STREAMS, use an exponential backoff strategy to retry the request.
- * - Set a reasonable timeout period of at least 3 minutes on the client, and ensure that the proxy layer does not cache SSE responses.
+ * - Set a reasonable timeout period for the client, which must be at least 3 minutes, and ensure that the proxy layer does not cache SSE responses.
  *
- * @param tmpReq CreateEduProblemSolveRequest
+ * @param request CreateEduProblemSolveRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateEduProblemSolveResponse
  */
-CreateEduProblemSolveResponse Client::createEduProblemSolveWithOptions(const CreateEduProblemSolveRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  tmpReq.validate();
-  CreateEduProblemSolveShrinkRequest request = CreateEduProblemSolveShrinkRequest();
-  Utils::Utils::convert(tmpReq, request);
-  if (!!tmpReq.hasQuery()) {
-    request.setQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQuery(), "query", "json"));
-  }
-
+CreateEduProblemSolveResponse Client::createEduProblemSolveWithOptions(const CreateEduProblemSolveRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   json body = {};
-  if (!!request.hasQueryShrink()) {
-    body["query"] = request.getQueryShrink();
+  if (!!request.hasQuery()) {
+    body["query"] = request.getQuery();
   }
 
   if (!!request.hasRequestId()) {
@@ -289,7 +277,7 @@ CreateEduProblemSolveResponse Client::createEduProblemSolveWithOptions(const Cre
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
-    {"reqBodyType" , "formData"},
+    {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateEduProblemSolveResponse>();
@@ -298,18 +286,18 @@ CreateEduProblemSolveResponse Client::createEduProblemSolveWithOptions(const Cre
 /**
  * @summary Provides question resolution services by using image URLs or Base64 encoding.
  *
- * @description ## Request description
- * - This API supports obtaining question resolution results by providing the URL or Base64 encoding of a question image.
- * - Supports processing a single image. The image format must be JPG, JPEG, or PNG.
+ * @description ## Request instructions
+ * - This API retrieves question resolution results by using the URL or Base64 encoding of a question image.
+ * - Only a single image is supported per request, and the image format must be JPG, JPEG, or PNG.
  * - The image must be clear and complete. Avoid tilted, obscured, or irrelevant content.
  * - Each request can process only one image. Multi-image or plain text requests are not supported.
- * - The recommended image size is up to 1 MB, with a maximum of 10 MB. The image width and height must not exceed 8,000 pixels, and the total pixel count must not exceed 2.6 million.
- * - You must use the HTTPS protocol to call the API and provide image URLs.
- * - The user_id parameter must be an anonymized identifier. Do not pass direct identity information such as names or phone numbers.
- * - The API uses the HTTP POST method combined with Server-Sent Events (SSE) streaming response. The client must read the response event by event, rather than waiting for the connection to close to read the entire response.
- * - A successful response returns the question resolution process through a series of message events and ends with a complete event. If an error occurs, an error event is returned.
+ * - The recommended image size is up to 1 MB, with a maximum limit of 10 MB. The width and height of the image must not exceed 8,000 pixels, and the total number of pixels must not exceed 2.6 million.
+ * - Use the HTTPS protocol to call the API and provide image URLs.
+ * - The user_id must be an anonymized identifier. Do not pass direct identity information such as names or phone numbers.
+ * - This API uses the HTTP POST method combined with Server-Sent Events (SSE) streaming response technology. The client must read the response event by event and must not wait for the connection to close before reading the entire response.
+ * - A successful response returns the question resolution process step by step through a series of message events and ends with a complete event. If an error occurs, an error event is returned.
  * - For retryable errors such as TOO_MANY_ACTIVE_STREAMS, use an exponential backoff strategy to retry the request.
- * - Set a reasonable timeout period of at least 3 minutes on the client, and ensure that the proxy layer does not cache SSE responses.
+ * - Set a reasonable timeout period for the client, which must be at least 3 minutes, and ensure that the proxy layer does not cache SSE responses.
  *
  * @param request CreateEduProblemSolveRequest
  * @return CreateEduProblemSolveResponse

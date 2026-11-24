@@ -251,9 +251,9 @@ namespace Models
 
 
         protected:
-          // The coordinate group of the user\\"s answering area. It generally contains four vertex coordinates arranged in the order of top-left, top-right, bottom-right, and bottom-left, formatted as `[{"x": ..., "y": ...}, ...]`.
+          // The coordinate group of the user\\"s answering area. It generally contains four vertex coordinates, arranged in the order of top-left, top-right, bottom-right, and bottom-left, such as `[{"x": ..., "y": ...}, ...]`.
           shared_ptr<vector<AnswerResults::AnswerPoints>> answerPoints_ {};
-          // The coordinates of the grading mark point, formatted as `{ "x": ..., "y": ... }`.
+          // The coordinates of the grading mark point, such as `{ "x": ..., "y": ... }`.
           shared_ptr<AnswerResults::CheckPoint> checkPoint_ {};
           // The grading conclusion, such as `correct`, `wrong`, or `partial`.
           shared_ptr<string> checkResult_ {};
@@ -322,7 +322,7 @@ namespace Models
       protected:
         // The array of answering and grading results for the question.
         shared_ptr<vector<QuestionResults::AnswerResults>> answerResults_ {};
-        // Specifies whether the task is completed:
+        // Specifies whether the task is completed. Valid values:
         // 
         // - **true**: The task is completed.
         // - **false**: The task is not completed.
@@ -331,7 +331,7 @@ namespace Models
         shared_ptr<string> questionContent_ {};
         // The question ID.
         shared_ptr<string> questionId_ {};
-        // The coordinate group of the question area. It generally contains four vertex coordinates arranged in the order of top-left, top-right, bottom-right, and bottom-left.
+        // The coordinate group of the question area. It generally contains four vertex coordinates, arranged in the order of top-left, top-right, bottom-right, and bottom-left.
         shared_ptr<vector<vector<QuestionResults::QuestionPoints>>> questionPoints_ {};
         // The question type.
         shared_ptr<string> questionType_ {};
@@ -379,15 +379,15 @@ namespace Models
 
 
     protected:
-      // The clockwise rotation angle of the image, in degrees.
+      // The rotation angle of the image in the clockwise direction, in degrees.
       shared_ptr<int64_t> angle_ {};
-      // The URL of the corrected image. If `dewarp` is set to `false`, the URL of the original image is returned.
+      // The URL of the corrected image. If `dewarp` is set to `false`, the original image is returned.
       shared_ptr<string> dewarpUrl_ {};
       // The array of question recognition and grading results.
       shared_ptr<vector<Data::QuestionResults>> questionResults_ {};
       // The task status.
       shared_ptr<string> status_ {};
-      // The unique identifier of the task. You must include this ID in subsequent queries.
+      // The unique identifier of the task, which must be included in subsequent queries.
       shared_ptr<string> taskId_ {};
     };
 
@@ -430,7 +430,7 @@ namespace Models
     shared_ptr<CreateEduHomeworkCorrectSubmitResponseBody::Data> data_ {};
     // The request error message.
     shared_ptr<string> message_ {};
-    // The request ID on the caller side.
+    // The request ID of the caller.
     shared_ptr<string> requestId_ {};
   };
 
