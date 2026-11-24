@@ -131,6 +131,28 @@ namespace APIG20240327
       Models::BatchDeleteConsumerAuthorizationRuleResponse batchDeleteConsumerAuthorizationRule(const Models::BatchDeleteConsumerAuthorizationRuleRequest &request);
 
       /**
+       * @summary Publishes specified routes or all visible routes under the same HTTP API in batches.
+       *
+       * @description Batch requests are processed individually after passing route ownership validation. If some routes fail to be published, other successfully published routes remain valid.
+       *
+       * @param request BatchDeployHttpApiRoutesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchDeployHttpApiRoutesResponse
+       */
+      Models::BatchDeployHttpApiRoutesResponse batchDeployHttpApiRoutesWithOptions(const string &httpApiId, const Models::BatchDeployHttpApiRoutesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Publishes specified routes or all visible routes under the same HTTP API in batches.
+       *
+       * @description Batch requests are processed individually after passing route ownership validation. If some routes fail to be published, other successfully published routes remain valid.
+       *
+       * @param request BatchDeployHttpApiRoutesRequest
+       * @return BatchDeployHttpApiRoutesResponse
+       */
+      Models::BatchDeployHttpApiRoutesResponse batchDeployHttpApiRoutes(const string &httpApiId, const Models::BatchDeployHttpApiRoutesRequest &request);
+
+      /**
        * @summary Performs a batch export of HTTP APIs.
        *
        * @param request BatchExportHttpApisRequest
@@ -2929,6 +2951,24 @@ namespace APIG20240327
        * @return ListBatchExportTasksResponse
        */
       Models::ListBatchExportTasksResponse listBatchExportTasks(const Models::ListBatchExportTasksRequest &request);
+
+      /**
+       * @summary Queries the list of batch import tasks.
+       *
+       * @param request ListBatchImportTasksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBatchImportTasksResponse
+       */
+      Models::ListBatchImportTasksResponse listBatchImportTasksWithOptions(const Models::ListBatchImportTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of batch import tasks.
+       *
+       * @param request ListBatchImportTasksRequest
+       * @return ListBatchImportTasksResponse
+       */
+      Models::ListBatchImportTasksResponse listBatchImportTasks(const Models::ListBatchImportTasksRequest &request);
 
       /**
        * @summary Performs a paged query on the HiMarket chat session list, returning the session ID, name, conversation type, and associated API products for each session. The response also returns the paging page number, paging size, and total count.

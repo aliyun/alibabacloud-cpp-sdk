@@ -356,6 +356,63 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
 }
 
 /**
+ * @summary Publishes specified routes or all visible routes under the same HTTP API in batches.
+ *
+ * @description Batch requests are processed individually after passing route ownership validation. If some routes fail to be published, other successfully published routes remain valid.
+ *
+ * @param request BatchDeployHttpApiRoutesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchDeployHttpApiRoutesResponse
+ */
+BatchDeployHttpApiRoutesResponse Client::batchDeployHttpApiRoutesWithOptions(const string &httpApiId, const BatchDeployHttpApiRoutesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAsync()) {
+    body["async"] = request.getAsync();
+  }
+
+  if (!!request.hasDeployAll()) {
+    body["deployAll"] = request.getDeployAll();
+  }
+
+  if (!!request.hasRouteIds()) {
+    body["routeIds"] = request.getRouteIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchDeployHttpApiRoutes"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/http-apis/" , Darabonba::Encode::Encoder::percentEncode(httpApiId) , "/routes/batch-deploy")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchDeployHttpApiRoutesResponse>();
+}
+
+/**
+ * @summary Publishes specified routes or all visible routes under the same HTTP API in batches.
+ *
+ * @description Batch requests are processed individually after passing route ownership validation. If some routes fail to be published, other successfully published routes remain valid.
+ *
+ * @param request BatchDeployHttpApiRoutesRequest
+ * @return BatchDeployHttpApiRoutesResponse
+ */
+BatchDeployHttpApiRoutesResponse Client::batchDeployHttpApiRoutes(const string &httpApiId, const BatchDeployHttpApiRoutesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchDeployHttpApiRoutesWithOptions(httpApiId, request, headers, runtime);
+}
+
+/**
  * @summary Performs a batch export of HTTP APIs.
  *
  * @param request BatchExportHttpApisRequest
@@ -7910,6 +7967,79 @@ ListBatchExportTasksResponse Client::listBatchExportTasks(const ListBatchExportT
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listBatchExportTasksWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of batch import tasks.
+ *
+ * @param request ListBatchImportTasksRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBatchImportTasksResponse
+ */
+ListBatchImportTasksResponse Client::listBatchImportTasksWithOptions(const ListBatchImportTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatuses()) {
+    query["statuses"] = request.getStatuses();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListBatchImportTasks"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/http-api-batch-import-tasks")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBatchImportTasksResponse>();
+}
+
+/**
+ * @summary Queries the list of batch import tasks.
+ *
+ * @param request ListBatchImportTasksRequest
+ * @return ListBatchImportTasksResponse
+ */
+ListBatchImportTasksResponse Client::listBatchImportTasks(const ListBatchImportTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listBatchImportTasksWithOptions(request, headers, runtime);
 }
 
 /**

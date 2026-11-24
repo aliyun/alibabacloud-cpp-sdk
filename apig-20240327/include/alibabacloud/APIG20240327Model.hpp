@@ -108,6 +108,7 @@
 #include <alibabacloud/models/TransportCertificateInfo.hpp>
 #include <alibabacloud/models/TransportEncryptionInfo.hpp>
 #include <alibabacloud/models/ValidationOptions.hpp>
+#include <alibabacloud/models/DataResultsValue.hpp>
 #include <alibabacloud/models/DataPathConfigsFieldPathsValue.hpp>
 #include <alibabacloud/models/DataFieldPathsValue.hpp>
 #include <alibabacloud/models/AddGatewayQuotaRuleRequest.hpp>
@@ -125,6 +126,9 @@
 #include <alibabacloud/models/BatchDeleteConsumerAuthorizationRuleRequest.hpp>
 #include <alibabacloud/models/BatchDeleteConsumerAuthorizationRuleResponseBody.hpp>
 #include <alibabacloud/models/BatchDeleteConsumerAuthorizationRuleResponse.hpp>
+#include <alibabacloud/models/BatchDeployHttpApiRoutesRequest.hpp>
+#include <alibabacloud/models/BatchDeployHttpApiRoutesResponseBody.hpp>
+#include <alibabacloud/models/BatchDeployHttpApiRoutesResponse.hpp>
 #include <alibabacloud/models/BatchExportHttpApisRequest.hpp>
 #include <alibabacloud/models/BatchExportHttpApisResponseBody.hpp>
 #include <alibabacloud/models/BatchExportHttpApisResponse.hpp>
@@ -538,6 +542,9 @@
 #include <alibabacloud/models/ListBatchExportTasksRequest.hpp>
 #include <alibabacloud/models/ListBatchExportTasksResponseBody.hpp>
 #include <alibabacloud/models/ListBatchExportTasksResponse.hpp>
+#include <alibabacloud/models/ListBatchImportTasksRequest.hpp>
+#include <alibabacloud/models/ListBatchImportTasksResponseBody.hpp>
+#include <alibabacloud/models/ListBatchImportTasksResponse.hpp>
 #include <alibabacloud/models/ListChatSessionsRequest.hpp>
 #include <alibabacloud/models/ListChatSessionsResponseBody.hpp>
 #include <alibabacloud/models/ListChatSessionsResponse.hpp>
