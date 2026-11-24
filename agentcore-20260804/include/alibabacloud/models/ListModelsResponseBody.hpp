@@ -57,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(maxTokens, maxTokens_);
         DARABONBA_PTR_TO_JSON(modelId, modelId_);
         DARABONBA_PTR_TO_JSON(modelName, modelName_);
+        DARABONBA_PTR_TO_JSON(supportedThinkingLevels, supportedThinkingLevels_);
         DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
         DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
       };
@@ -69,6 +70,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(maxTokens, maxTokens_);
         DARABONBA_PTR_FROM_JSON(modelId, modelId_);
         DARABONBA_PTR_FROM_JSON(modelName, modelName_);
+        DARABONBA_PTR_FROM_JSON(supportedThinkingLevels, supportedThinkingLevels_);
         DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
         DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
       };
@@ -176,27 +178,27 @@ namespace Models
 
 
       protected:
-        // Indicates whether the model supports audio input or output.
+        // Specifies whether the model supports audio input or output.
         shared_ptr<bool> audio_ {};
-        // Indicates whether the model supports document input.
+        // Specifies whether the model supports document input.
         shared_ptr<bool> document_ {};
-        // Specifies whether the model supports multiple tool calls in a single response.
+        // Specifies whether the model is able to invoke multiple tool calling operations in a single response.
         shared_ptr<bool> multiToolCall_ {};
-        // Indicates whether the model supports reasoning capabilities.
+        // Specifies whether the model supports reasoning capabilities.
         shared_ptr<bool> reasoning_ {};
-        // Specifies whether the model supports streaming tool calls.
+        // Specifies whether the model is able to invoke tool calling in a streaming manner.
         shared_ptr<bool> streamToolCall_ {};
-        // Indicates whether the model supports tool calling.
+        // Specifies whether the model supports tool calling.
         shared_ptr<bool> toolCall_ {};
-        // Indicates whether the model supports video input.
+        // Specifies whether the model supports video input.
         shared_ptr<bool> video_ {};
-        // Indicates whether the model supports image input.
+        // Specifies whether the model supports image input.
         shared_ptr<bool> vision_ {};
       };
 
       virtual bool empty() const override { return this->capabilities_ == nullptr
         && this->connectionId_ == nullptr && this->contextSize_ == nullptr && this->createdAt_ == nullptr && this->description_ == nullptr && this->maxTokens_ == nullptr
-        && this->modelId_ == nullptr && this->modelName_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->modelId_ == nullptr && this->modelName_ == nullptr && this->supportedThinkingLevels_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
       // capabilities Field Functions 
       bool hasCapabilities() const { return this->capabilities_ != nullptr;};
       void deleteCapabilities() { this->capabilities_ = nullptr;};
@@ -255,6 +257,15 @@ namespace Models
       inline Items& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
+      // supportedThinkingLevels Field Functions 
+      bool hasSupportedThinkingLevels() const { return this->supportedThinkingLevels_ != nullptr;};
+      void deleteSupportedThinkingLevels() { this->supportedThinkingLevels_ = nullptr;};
+      inline const vector<string> & getSupportedThinkingLevels() const { DARABONBA_PTR_GET_CONST(supportedThinkingLevels_, vector<string>) };
+      inline vector<string> getSupportedThinkingLevels() { DARABONBA_PTR_GET(supportedThinkingLevels_, vector<string>) };
+      inline Items& setSupportedThinkingLevels(const vector<string> & supportedThinkingLevels) { DARABONBA_PTR_SET_VALUE(supportedThinkingLevels_, supportedThinkingLevels) };
+      inline Items& setSupportedThinkingLevels(vector<string> && supportedThinkingLevels) { DARABONBA_PTR_SET_RVALUE(supportedThinkingLevels_, supportedThinkingLevels) };
+
+
       // updatedAt Field Functions 
       bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
       void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
@@ -276,9 +287,9 @@ namespace Models
       shared_ptr<string> connectionId_ {};
       // The context window size of the model, in tokens. The value must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
-      // The time when the resource was created, in RFC 3339 UTC format.
+      // The time when the resource was created. The time is in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
-      // The model description, which can be up to 255 characters in length.
+      // The model description. The description can be up to 255 characters in length.
       shared_ptr<string> description_ {};
       // The maximum number of output tokens supported by the model per generation.
       shared_ptr<int64_t> maxTokens_ {};
@@ -286,7 +297,9 @@ namespace Models
       shared_ptr<string> modelId_ {};
       // The upstream model name.
       shared_ptr<string> modelName_ {};
-      // The time when the resource was last updated, in RFC 3339 UTC format.
+      // The explicit thinking levels supported by the model. An empty list indicates that only the default setting is supported. If this field is omitted, no level information is available.
+      shared_ptr<vector<string>> supportedThinkingLevels_ {};
+      // The time when the resource was last updated. The time is in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -361,9 +374,9 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of SUCCESS indicates success.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code. A value of 200 indicates success.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of models.
     shared_ptr<vector<ListModelsResponseBody::Items>> items_ {};
@@ -371,7 +384,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The message about the request processing result.
     shared_ptr<string> message_ {};
-    // The pagination token. Specify the token returned from the previous query. An empty response indicates that no more pages are available.
+    // The pagination token. Pass the token returned by the previous query in the request. An empty value in the response indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

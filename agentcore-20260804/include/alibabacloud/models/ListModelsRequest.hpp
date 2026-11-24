@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The upstream model name.
     shared_ptr<string> modelName_ {};
-    // The pagination token. Specify the token returned from the previous query. An empty response indicates that no more pages are available.
+    // The pagination token. Pass the token returned by the previous query in the request. An empty value in the response indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
   };
 

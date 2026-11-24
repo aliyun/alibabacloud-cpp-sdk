@@ -52,6 +52,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
         DARABONBA_PTR_TO_JSON(addresses, addresses_);
         DARABONBA_PTR_TO_JSON(auth, auth_);
+        DARABONBA_PTR_TO_JSON(backendMcpProtocol, backendMcpProtocol_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(customTags, customTags_);
         DARABONBA_PTR_TO_JSON(deploymentConfig, deploymentConfig_);
@@ -62,6 +63,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(mcpServerId, mcpServerId_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(officialTag, officialTag_);
+        DARABONBA_PTR_TO_JSON(operation, operation_);
+        DARABONBA_PTR_TO_JSON(originProbe, originProbe_);
+        DARABONBA_PTR_TO_JSON(originProtocolVersion, originProtocolVersion_);
         DARABONBA_PTR_TO_JSON(permissionMode, permissionMode_);
         DARABONBA_PTR_TO_JSON(protocol, protocol_);
         DARABONBA_PTR_TO_JSON(status, status_);
@@ -74,6 +78,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(addresses, addresses_);
         DARABONBA_PTR_FROM_JSON(auth, auth_);
+        DARABONBA_PTR_FROM_JSON(backendMcpProtocol, backendMcpProtocol_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(customTags, customTags_);
         DARABONBA_PTR_FROM_JSON(deploymentConfig, deploymentConfig_);
@@ -84,6 +89,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(mcpServerId, mcpServerId_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(officialTag, officialTag_);
+        DARABONBA_PTR_FROM_JSON(operation, operation_);
+        DARABONBA_PTR_FROM_JSON(originProbe, originProbe_);
+        DARABONBA_PTR_FROM_JSON(originProtocolVersion, originProtocolVersion_);
         DARABONBA_PTR_FROM_JSON(permissionMode, permissionMode_);
         DARABONBA_PTR_FROM_JSON(protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(status, status_);
@@ -104,6 +112,433 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class OriginProbe : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const OriginProbe& obj) { 
+          DARABONBA_PTR_TO_JSON(lastResult, lastResult_);
+        };
+        friend void from_json(const Darabonba::Json& j, OriginProbe& obj) { 
+          DARABONBA_PTR_FROM_JSON(lastResult, lastResult_);
+        };
+        OriginProbe() = default ;
+        OriginProbe(const OriginProbe &) = default ;
+        OriginProbe(OriginProbe &&) = default ;
+        OriginProbe(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~OriginProbe() = default ;
+        OriginProbe& operator=(const OriginProbe &) = default ;
+        OriginProbe& operator=(OriginProbe &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class LastResult : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const LastResult& obj) { 
+            DARABONBA_PTR_TO_JSON(actualConfiguration, actualConfiguration_);
+            DARABONBA_PTR_TO_JSON(error, error_);
+            DARABONBA_PTR_TO_JSON(probedAt, probedAt_);
+            DARABONBA_PTR_TO_JSON(stage, stage_);
+            DARABONBA_PTR_TO_JSON(status, status_);
+          };
+          friend void from_json(const Darabonba::Json& j, LastResult& obj) { 
+            DARABONBA_PTR_FROM_JSON(actualConfiguration, actualConfiguration_);
+            DARABONBA_PTR_FROM_JSON(error, error_);
+            DARABONBA_PTR_FROM_JSON(probedAt, probedAt_);
+            DARABONBA_PTR_FROM_JSON(stage, stage_);
+            DARABONBA_PTR_FROM_JSON(status, status_);
+          };
+          LastResult() = default ;
+          LastResult(const LastResult &) = default ;
+          LastResult(LastResult &&) = default ;
+          LastResult(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~LastResult() = default ;
+          LastResult& operator=(const LastResult &) = default ;
+          LastResult& operator=(LastResult &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Error : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Error& obj) { 
+              DARABONBA_PTR_TO_JSON(code, code_);
+              DARABONBA_PTR_TO_JSON(message, message_);
+              DARABONBA_PTR_TO_JSON(retryable, retryable_);
+              DARABONBA_PTR_TO_JSON(source, source_);
+              DARABONBA_PTR_TO_JSON(stage, stage_);
+            };
+            friend void from_json(const Darabonba::Json& j, Error& obj) { 
+              DARABONBA_PTR_FROM_JSON(code, code_);
+              DARABONBA_PTR_FROM_JSON(message, message_);
+              DARABONBA_PTR_FROM_JSON(retryable, retryable_);
+              DARABONBA_PTR_FROM_JSON(source, source_);
+              DARABONBA_PTR_FROM_JSON(stage, stage_);
+            };
+            Error() = default ;
+            Error(const Error &) = default ;
+            Error(Error &&) = default ;
+            Error(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Error() = default ;
+            Error& operator=(const Error &) = default ;
+            Error& operator=(Error &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->code_ == nullptr
+        && this->message_ == nullptr && this->retryable_ == nullptr && this->source_ == nullptr && this->stage_ == nullptr; };
+            // code Field Functions 
+            bool hasCode() const { return this->code_ != nullptr;};
+            void deleteCode() { this->code_ = nullptr;};
+            inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+            inline Error& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+            // message Field Functions 
+            bool hasMessage() const { return this->message_ != nullptr;};
+            void deleteMessage() { this->message_ = nullptr;};
+            inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+            inline Error& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+            // retryable Field Functions 
+            bool hasRetryable() const { return this->retryable_ != nullptr;};
+            void deleteRetryable() { this->retryable_ = nullptr;};
+            inline bool getRetryable() const { DARABONBA_PTR_GET_DEFAULT(retryable_, false) };
+            inline Error& setRetryable(bool retryable) { DARABONBA_PTR_SET_VALUE(retryable_, retryable) };
+
+
+            // source Field Functions 
+            bool hasSource() const { return this->source_ != nullptr;};
+            void deleteSource() { this->source_ = nullptr;};
+            inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+            inline Error& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
+            // stage Field Functions 
+            bool hasStage() const { return this->stage_ != nullptr;};
+            void deleteStage() { this->stage_ = nullptr;};
+            inline string getStage() const { DARABONBA_PTR_GET_DEFAULT(stage_, "") };
+            inline Error& setStage(string stage) { DARABONBA_PTR_SET_VALUE(stage_, stage) };
+
+
+          protected:
+            // The diagnostic error code. Only bounded diagnostic codes are returned. The original error body from the origin server is not returned.
+            shared_ptr<string> code_ {};
+            // The necessary diagnostics after trimming and desensitization. Credentials and original responses are not included.
+            shared_ptr<string> message_ {};
+            // Specifies whether the operation is suitable for retry based on a restricted policy. This field does not trigger automatic retries.
+            shared_ptr<bool> retryable_ {};
+            // The error source. Valid values: MAGIC, ROUTER, NETWORK, ORIGIN, and UNKNOWN. The value is determined only based on actual evidence.
+            shared_ptr<string> source_ {};
+            // The detection or publish stage where the error occurred.
+            shared_ptr<string> stage_ {};
+          };
+
+          class ActualConfiguration : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const ActualConfiguration& obj) { 
+              DARABONBA_PTR_TO_JSON(backendMcpProtocol, backendMcpProtocol_);
+              DARABONBA_PTR_TO_JSON(protocol, protocol_);
+              DARABONBA_PTR_TO_JSON(protocolVersion, protocolVersion_);
+              DARABONBA_PTR_TO_JSON(sessionMode, sessionMode_);
+            };
+            friend void from_json(const Darabonba::Json& j, ActualConfiguration& obj) { 
+              DARABONBA_PTR_FROM_JSON(backendMcpProtocol, backendMcpProtocol_);
+              DARABONBA_PTR_FROM_JSON(protocol, protocol_);
+              DARABONBA_PTR_FROM_JSON(protocolVersion, protocolVersion_);
+              DARABONBA_PTR_FROM_JSON(sessionMode, sessionMode_);
+            };
+            ActualConfiguration() = default ;
+            ActualConfiguration(const ActualConfiguration &) = default ;
+            ActualConfiguration(ActualConfiguration &&) = default ;
+            ActualConfiguration(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~ActualConfiguration() = default ;
+            ActualConfiguration& operator=(const ActualConfiguration &) = default ;
+            ActualConfiguration& operator=(ActualConfiguration &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->backendMcpProtocol_ == nullptr
+        && this->protocol_ == nullptr && this->protocolVersion_ == nullptr && this->sessionMode_ == nullptr; };
+            // backendMcpProtocol Field Functions 
+            bool hasBackendMcpProtocol() const { return this->backendMcpProtocol_ != nullptr;};
+            void deleteBackendMcpProtocol() { this->backendMcpProtocol_ = nullptr;};
+            inline string getBackendMcpProtocol() const { DARABONBA_PTR_GET_DEFAULT(backendMcpProtocol_, "") };
+            inline ActualConfiguration& setBackendMcpProtocol(string backendMcpProtocol) { DARABONBA_PTR_SET_VALUE(backendMcpProtocol_, backendMcpProtocol) };
+
+
+            // protocol Field Functions 
+            bool hasProtocol() const { return this->protocol_ != nullptr;};
+            void deleteProtocol() { this->protocol_ = nullptr;};
+            inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+            inline ActualConfiguration& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
+
+
+            // protocolVersion Field Functions 
+            bool hasProtocolVersion() const { return this->protocolVersion_ != nullptr;};
+            void deleteProtocolVersion() { this->protocolVersion_ = nullptr;};
+            inline string getProtocolVersion() const { DARABONBA_PTR_GET_DEFAULT(protocolVersion_, "") };
+            inline ActualConfiguration& setProtocolVersion(string protocolVersion) { DARABONBA_PTR_SET_VALUE(protocolVersion_, protocolVersion) };
+
+
+            // sessionMode Field Functions 
+            bool hasSessionMode() const { return this->sessionMode_ != nullptr;};
+            void deleteSessionMode() { this->sessionMode_ = nullptr;};
+            inline string getSessionMode() const { DARABONBA_PTR_GET_DEFAULT(sessionMode_, "") };
+            inline ActualConfiguration& setSessionMode(string sessionMode) { DARABONBA_PTR_SET_VALUE(sessionMode_, sessionMode) };
+
+
+          protected:
+            // The verified backend MCP protocol policy. Valid values: legacy and modern. This field is empty if the policy is not confirmed.
+            shared_ptr<string> backendMcpProtocol_ {};
+            // The verified MCP transport. Valid values: SSE and StreamableHTTP. This field is empty if the transport is not confirmed.
+            shared_ptr<string> protocol_ {};
+            // The actual negotiated or selected and verified date version of the MCP protocol. This field is empty if the version is not confirmed.
+            shared_ptr<string> protocolVersion_ {};
+            // The actual session mode. Valid values: STATEFUL, STATELESS, and NOT_APPLICABLE. This field is empty if the mode is not confirmed.
+            shared_ptr<string> sessionMode_ {};
+          };
+
+          virtual bool empty() const override { return this->actualConfiguration_ == nullptr
+        && this->error_ == nullptr && this->probedAt_ == nullptr && this->stage_ == nullptr && this->status_ == nullptr; };
+          // actualConfiguration Field Functions 
+          bool hasActualConfiguration() const { return this->actualConfiguration_ != nullptr;};
+          void deleteActualConfiguration() { this->actualConfiguration_ = nullptr;};
+          inline const LastResult::ActualConfiguration & getActualConfiguration() const { DARABONBA_PTR_GET_CONST(actualConfiguration_, LastResult::ActualConfiguration) };
+          inline LastResult::ActualConfiguration getActualConfiguration() { DARABONBA_PTR_GET(actualConfiguration_, LastResult::ActualConfiguration) };
+          inline LastResult& setActualConfiguration(const LastResult::ActualConfiguration & actualConfiguration) { DARABONBA_PTR_SET_VALUE(actualConfiguration_, actualConfiguration) };
+          inline LastResult& setActualConfiguration(LastResult::ActualConfiguration && actualConfiguration) { DARABONBA_PTR_SET_RVALUE(actualConfiguration_, actualConfiguration) };
+
+
+          // error Field Functions 
+          bool hasError() const { return this->error_ != nullptr;};
+          void deleteError() { this->error_ = nullptr;};
+          inline const LastResult::Error & getError() const { DARABONBA_PTR_GET_CONST(error_, LastResult::Error) };
+          inline LastResult::Error getError() { DARABONBA_PTR_GET(error_, LastResult::Error) };
+          inline LastResult& setError(const LastResult::Error & error) { DARABONBA_PTR_SET_VALUE(error_, error) };
+          inline LastResult& setError(LastResult::Error && error) { DARABONBA_PTR_SET_RVALUE(error_, error) };
+
+
+          // probedAt Field Functions 
+          bool hasProbedAt() const { return this->probedAt_ != nullptr;};
+          void deleteProbedAt() { this->probedAt_ = nullptr;};
+          inline string getProbedAt() const { DARABONBA_PTR_GET_DEFAULT(probedAt_, "") };
+          inline LastResult& setProbedAt(string probedAt) { DARABONBA_PTR_SET_VALUE(probedAt_, probedAt) };
+
+
+          // stage Field Functions 
+          bool hasStage() const { return this->stage_ != nullptr;};
+          void deleteStage() { this->stage_ = nullptr;};
+          inline string getStage() const { DARABONBA_PTR_GET_DEFAULT(stage_, "") };
+          inline LastResult& setStage(string stage) { DARABONBA_PTR_SET_VALUE(stage_, stage) };
+
+
+          // status Field Functions 
+          bool hasStatus() const { return this->status_ != nullptr;};
+          void deleteStatus() { this->status_ = nullptr;};
+          inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+          inline LastResult& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+        protected:
+          // The actual configuration confirmed by evidence in this probe. This field is empty if no confirmed information is available and is not inferred from the expected configuration.
+          shared_ptr<LastResult::ActualConfiguration> actualConfiguration_ {};
+          // The probe error. This field is empty if the probe is successful. It only stores desensitized diagnostics required for this probe.
+          shared_ptr<LastResult::Error> error_ {};
+          // The time when the origin server was probed, in ISO 8601 UTC format.
+          shared_ptr<string> probedAt_ {};
+          // The probe stage. Valid values: CONNECT, DISCOVER, INITIALIZE, SESSION_CHECK, CLEANUP, and COMPLETE.
+          shared_ptr<string> stage_ {};
+          // The probe result. Valid values:
+          // - SUCCESS: The protocol and applicable session checks passed. Undeclared capabilities do not affect the result.
+          // - FAILED: The checks failed.
+          shared_ptr<string> status_ {};
+        };
+
+        virtual bool empty() const override { return this->lastResult_ == nullptr; };
+        // lastResult Field Functions 
+        bool hasLastResult() const { return this->lastResult_ != nullptr;};
+        void deleteLastResult() { this->lastResult_ = nullptr;};
+        inline const OriginProbe::LastResult & getLastResult() const { DARABONBA_PTR_GET_CONST(lastResult_, OriginProbe::LastResult) };
+        inline OriginProbe::LastResult getLastResult() { DARABONBA_PTR_GET(lastResult_, OriginProbe::LastResult) };
+        inline OriginProbe& setLastResult(const OriginProbe::LastResult & lastResult) { DARABONBA_PTR_SET_VALUE(lastResult_, lastResult) };
+        inline OriginProbe& setLastResult(OriginProbe::LastResult && lastResult) { DARABONBA_PTR_SET_RVALUE(lastResult_, lastResult) };
+
+
+      protected:
+        // Returned only for CODE_PACKAGE. This field is cleared when a new task starts and is empty if no verification has been performed or if the old task did not perform verification. If a subsequent release fails, the current summary is retained, which does not indicate real-time health or the active version status.
+        shared_ptr<OriginProbe::LastResult> lastResult_ {};
+      };
+
+      class Operation : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Operation& obj) { 
+          DARABONBA_PTR_TO_JSON(error, error_);
+          DARABONBA_PTR_TO_JSON(operationId, operationId_);
+          DARABONBA_PTR_TO_JSON(stage, stage_);
+          DARABONBA_PTR_TO_JSON(status, status_);
+          DARABONBA_PTR_TO_JSON(type, type_);
+          DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
+        };
+        friend void from_json(const Darabonba::Json& j, Operation& obj) { 
+          DARABONBA_PTR_FROM_JSON(error, error_);
+          DARABONBA_PTR_FROM_JSON(operationId, operationId_);
+          DARABONBA_PTR_FROM_JSON(stage, stage_);
+          DARABONBA_PTR_FROM_JSON(status, status_);
+          DARABONBA_PTR_FROM_JSON(type, type_);
+          DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
+        };
+        Operation() = default ;
+        Operation(const Operation &) = default ;
+        Operation(Operation &&) = default ;
+        Operation(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Operation() = default ;
+        Operation& operator=(const Operation &) = default ;
+        Operation& operator=(Operation &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Error : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Error& obj) { 
+            DARABONBA_PTR_TO_JSON(code, code_);
+            DARABONBA_PTR_TO_JSON(message, message_);
+            DARABONBA_PTR_TO_JSON(retryable, retryable_);
+            DARABONBA_PTR_TO_JSON(source, source_);
+            DARABONBA_PTR_TO_JSON(stage, stage_);
+          };
+          friend void from_json(const Darabonba::Json& j, Error& obj) { 
+            DARABONBA_PTR_FROM_JSON(code, code_);
+            DARABONBA_PTR_FROM_JSON(message, message_);
+            DARABONBA_PTR_FROM_JSON(retryable, retryable_);
+            DARABONBA_PTR_FROM_JSON(source, source_);
+            DARABONBA_PTR_FROM_JSON(stage, stage_);
+          };
+          Error() = default ;
+          Error(const Error &) = default ;
+          Error(Error &&) = default ;
+          Error(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Error() = default ;
+          Error& operator=(const Error &) = default ;
+          Error& operator=(Error &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->code_ == nullptr
+        && this->message_ == nullptr && this->retryable_ == nullptr && this->source_ == nullptr && this->stage_ == nullptr; };
+          // code Field Functions 
+          bool hasCode() const { return this->code_ != nullptr;};
+          void deleteCode() { this->code_ = nullptr;};
+          inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+          inline Error& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+          // message Field Functions 
+          bool hasMessage() const { return this->message_ != nullptr;};
+          void deleteMessage() { this->message_ = nullptr;};
+          inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+          inline Error& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+          // retryable Field Functions 
+          bool hasRetryable() const { return this->retryable_ != nullptr;};
+          void deleteRetryable() { this->retryable_ = nullptr;};
+          inline bool getRetryable() const { DARABONBA_PTR_GET_DEFAULT(retryable_, false) };
+          inline Error& setRetryable(bool retryable) { DARABONBA_PTR_SET_VALUE(retryable_, retryable) };
+
+
+          // source Field Functions 
+          bool hasSource() const { return this->source_ != nullptr;};
+          void deleteSource() { this->source_ = nullptr;};
+          inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+          inline Error& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
+          // stage Field Functions 
+          bool hasStage() const { return this->stage_ != nullptr;};
+          void deleteStage() { this->stage_ = nullptr;};
+          inline string getStage() const { DARABONBA_PTR_GET_DEFAULT(stage_, "") };
+          inline Error& setStage(string stage) { DARABONBA_PTR_SET_VALUE(stage_, stage) };
+
+
+        protected:
+          // The diagnostic error code. Only bounded diagnostic codes are returned. The original error body from the origin server is not returned.
+          shared_ptr<string> code_ {};
+          // The necessary diagnostics after trimming and desensitization. Credentials and original responses are not included.
+          shared_ptr<string> message_ {};
+          // Specifies whether the operation is suitable for retry based on a restricted policy. This field does not trigger automatic retries.
+          shared_ptr<bool> retryable_ {};
+          // The error source. Valid values: MAGIC, ROUTER, NETWORK, ORIGIN, and UNKNOWN. The value is determined only based on actual evidence.
+          shared_ptr<string> source_ {};
+          // The detection or publish stage where the error occurred.
+          shared_ptr<string> stage_ {};
+        };
+
+        virtual bool empty() const override { return this->error_ == nullptr
+        && this->operationId_ == nullptr && this->stage_ == nullptr && this->status_ == nullptr && this->type_ == nullptr && this->updatedAt_ == nullptr; };
+        // error Field Functions 
+        bool hasError() const { return this->error_ != nullptr;};
+        void deleteError() { this->error_ = nullptr;};
+        inline const Operation::Error & getError() const { DARABONBA_PTR_GET_CONST(error_, Operation::Error) };
+        inline Operation::Error getError() { DARABONBA_PTR_GET(error_, Operation::Error) };
+        inline Operation& setError(const Operation::Error & error) { DARABONBA_PTR_SET_VALUE(error_, error) };
+        inline Operation& setError(Operation::Error && error) { DARABONBA_PTR_SET_RVALUE(error_, error) };
+
+
+        // operationId Field Functions 
+        bool hasOperationId() const { return this->operationId_ != nullptr;};
+        void deleteOperationId() { this->operationId_ = nullptr;};
+        inline string getOperationId() const { DARABONBA_PTR_GET_DEFAULT(operationId_, "") };
+        inline Operation& setOperationId(string operationId) { DARABONBA_PTR_SET_VALUE(operationId_, operationId) };
+
+
+        // stage Field Functions 
+        bool hasStage() const { return this->stage_ != nullptr;};
+        void deleteStage() { this->stage_ = nullptr;};
+        inline string getStage() const { DARABONBA_PTR_GET_DEFAULT(stage_, "") };
+        inline Operation& setStage(string stage) { DARABONBA_PTR_SET_VALUE(stage_, stage) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline Operation& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline Operation& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+        // updatedAt Field Functions 
+        bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
+        void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
+        inline string getUpdatedAt() const { DARABONBA_PTR_GET_DEFAULT(updatedAt_, "") };
+        inline Operation& setUpdatedAt(string updatedAt) { DARABONBA_PTR_SET_VALUE(updatedAt_, updatedAt) };
+
+
+      protected:
+        // The desensitized error of the current publish operation. Gateway or formal link failures after the origin server passes the probe are represented by this field.
+        shared_ptr<Operation::Error> error_ {};
+        // The identifier of the current or most recent publish operation.
+        shared_ptr<string> operationId_ {};
+        // The publish stage. Valid values: compute deployment, origin probe, summary save, gateway publish, entry credential synchronization, formal link verification, and deployment submission. Legacy tasks retain their original stage semantics.
+        shared_ptr<string> stage_ {};
+        // The operation status. Valid values: PENDING, RUNNING, SUCCEEDED, and FAILED.
+        shared_ptr<string> status_ {};
+        // The operation type. Valid value: PUBLISH.
+        shared_ptr<string> type_ {};
+        // The time when the operation was updated, in ISO 8601 UTC format.
+        shared_ptr<string> updatedAt_ {};
+      };
+
       class MarketSource : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const MarketSource& obj) { 
@@ -276,19 +711,19 @@ namespace Models
 
 
         protected:
-          // The CPU specifications in cores. Default value: 0.25.
+          // The CPU size in cores. Default value: 0.25.
           shared_ptr<double> cpu_ {};
-          // The temporary disk size in MB. Valid values: 512 or 10240.
+          // The ephemeral disk size in MB. Valid values: 512 and 10240.
           shared_ptr<int32_t> diskSize_ {};
           // The environment variables.
           shared_ptr<map<string, string>> environmentVariables_ {};
-          // The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
+          // The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
           shared_ptr<string> executionRoleArn_ {};
-          // The request concurrency per instance. Default value: 200.
+          // Default value: 200.
           shared_ptr<int32_t> instanceConcurrency_ {};
-          // The memory specifications in MB. Default value: 512.
+          // The memory size in MB. Default value: 512.
           shared_ptr<int32_t> memory_ {};
-          // The service port. Default value: 9000.
+          // Default value: 9000.
           shared_ptr<int32_t> port_ {};
           // The function timeout period in seconds. Default value: 300.
           shared_ptr<int32_t> timeout_ {};
@@ -322,7 +757,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable the MCP proxy.
+          // Specifies whether the MCP proxy is enabled.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -375,9 +810,9 @@ namespace Models
         protected:
           // Specifies whether parameter transformation and result enhancement are enabled.
           shared_ptr<bool> enabled_ {};
-          // The reserved reference to the parameter transformation and result enhancement rule set.
+          // The reference to the reserved parameter transformation and result enhancement rule set.
           shared_ptr<string> ruleSetId_ {};
-          // The transformation rule version.
+          // The version of the transformation rule.
           shared_ptr<string> version_ {};
         };
 
@@ -467,9 +902,9 @@ namespace Models
           protected:
             // The name of the OSS bucket.
             shared_ptr<string> bucketName_ {};
-            // The path in the OSS bucket.
+            // The path of the OSS bucket.
             shared_ptr<string> bucketPath_ {};
-            // The endpoint of the OSS service.
+            // The OSS service endpoint.
             shared_ptr<string> endpoint_ {};
             // The local mount directory.
             shared_ptr<string> mountDir_ {};
@@ -630,11 +1065,11 @@ namespace Models
 
 
           protected:
-            // Specifies whether to enable TLS.
+            // Specifies whether TLS is enabled.
             shared_ptr<bool> enableTls_ {};
             // The local mount directory.
             shared_ptr<string> mountDir_ {};
-            // The NAS server address.
+            // The NAS service address.
             shared_ptr<string> serverAddr_ {};
           };
 
@@ -664,11 +1099,11 @@ namespace Models
 
 
         protected:
-          // The user group ID.
+          // The runtime user group ID.
           shared_ptr<int32_t> groupId_ {};
           // The list of NAS mount points.
           shared_ptr<vector<NasConfiguration::MountPoints>> mountPoints_ {};
-          // The user ID.
+          // The runtime user ID.
           shared_ptr<int32_t> userId_ {};
         };
 
@@ -679,12 +1114,14 @@ namespace Models
             DARABONBA_PTR_TO_JSON(sessionConcurrencyPerInstance, sessionConcurrencyPerInstance_);
             DARABONBA_PTR_TO_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
             DARABONBA_PTR_TO_JSON(sessionMaxLifetimeSeconds, sessionMaxLifetimeSeconds_);
+            DARABONBA_PTR_TO_JSON(sessionMode, sessionMode_);
           };
           friend void from_json(const Darabonba::Json& j, McpConfiguration& obj) { 
             DARABONBA_PTR_FROM_JSON(endpointPath, endpointPath_);
             DARABONBA_PTR_FROM_JSON(sessionConcurrencyPerInstance, sessionConcurrencyPerInstance_);
             DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
             DARABONBA_PTR_FROM_JSON(sessionMaxLifetimeSeconds, sessionMaxLifetimeSeconds_);
+            DARABONBA_PTR_FROM_JSON(sessionMode, sessionMode_);
           };
           McpConfiguration() = default ;
           McpConfiguration(const McpConfiguration &) = default ;
@@ -698,7 +1135,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->endpointPath_ == nullptr
-        && this->sessionConcurrencyPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->sessionMaxLifetimeSeconds_ == nullptr; };
+        && this->sessionConcurrencyPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->sessionMaxLifetimeSeconds_ == nullptr && this->sessionMode_ == nullptr; };
           // endpointPath Field Functions 
           bool hasEndpointPath() const { return this->endpointPath_ != nullptr;};
           void deleteEndpointPath() { this->endpointPath_ = nullptr;};
@@ -727,15 +1164,24 @@ namespace Models
           inline McpConfiguration& setSessionMaxLifetimeSeconds(int32_t sessionMaxLifetimeSeconds) { DARABONBA_PTR_SET_VALUE(sessionMaxLifetimeSeconds_, sessionMaxLifetimeSeconds) };
 
 
+          // sessionMode Field Functions 
+          bool hasSessionMode() const { return this->sessionMode_ != nullptr;};
+          void deleteSessionMode() { this->sessionMode_ = nullptr;};
+          inline string getSessionMode() const { DARABONBA_PTR_GET_DEFAULT(sessionMode_, "") };
+          inline McpConfiguration& setSessionMode(string sessionMode) { DARABONBA_PTR_SET_VALUE(sessionMode_, sessionMode) };
+
+
         protected:
           // The MCP endpoint path, such as /mcp or /sse.
           shared_ptr<string> endpointPath_ {};
-          // The session concurrency per instance. Currently fixed to 1.
+          // Currently fixed to 1.
           shared_ptr<int32_t> sessionConcurrencyPerInstance_ {};
           // The session idle timeout period in seconds. Default value: 1800.
           shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
           // The maximum session lifetime in seconds. Default value: 21600.
           shared_ptr<int32_t> sessionMaxLifetimeSeconds_ {};
+          // Applicable only to StreamableHTTP. Default value for creation: STATEFUL. If omitted during an update, the original value is retained. STATELESS disables Function Compute session affinity, and the stdio gateway does not enable stateful mode. Native HTTP services must support stateless MCP themselves.
+          shared_ptr<string> sessionMode_ {};
         };
 
         class LogConfiguration : public Darabonba::Model {
@@ -803,11 +1249,11 @@ namespace Models
 
 
         protected:
-          // Specifies whether to collect instance metrics.
+          // Specifies whether instance metrics are collected.
           shared_ptr<bool> enableInstanceMetrics_ {};
           // Specifies whether to collect request metrics.
           shared_ptr<bool> enableRequestMetrics_ {};
-          // The start rule for Function Compute log splitting.
+          // The start rule for splitting Function Compute logs.
           shared_ptr<string> logBeginRule_ {};
           // The name of the Logstore.
           shared_ptr<string> logstore_ {};
@@ -924,11 +1370,11 @@ namespace Models
             shared_ptr<string> apiVersion_ {};
             // The description of the hook.
             shared_ptr<string> description_ {};
-            // Specifies whether to enable the hook.
+            // Specifies whether the hook is enabled.
             shared_ptr<bool> enabled_ {};
             // The hook event.
             shared_ptr<string> event_ {};
-            // The hook request headers.
+            // The request headers of the hook.
             shared_ptr<map<string, string>> headers_ {};
             // The timeout period of the hook, in milliseconds.
             shared_ptr<int32_t> timeout_ {};
@@ -947,7 +1393,7 @@ namespace Models
 
 
         protected:
-          // Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
+          // The ordered list of hooks. The PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks are executed in the order of the array.
           shared_ptr<vector<HookConfiguration::Hooks>> hooks_ {};
         };
 
@@ -1049,9 +1495,9 @@ namespace Models
           shared_ptr<string> image_ {};
           // The image registry type.
           shared_ptr<string> imageRegistryType_ {};
-          // The MCP runtime mode. Custom containers currently must expose the standard MCP themselves. The value is SELF_HOSTED.
+          // Custom containers must currently expose the standard MCP themselves. Valid value: SELF_HOSTED.
           shared_ptr<string> mcpRuntimeMode_ {};
-          // The container source type. Currently fixed to CONTAINER_IMAGE.
+          // Currently fixed to CONTAINER_IMAGE.
           shared_ptr<string> sourceType_ {};
         };
 
@@ -1104,11 +1550,11 @@ namespace Models
 
 
         protected:
-          // The temporary code package token returned by GetMcpCodePackageUploadUrl. It is used to create or update a code deployment after a presigned upload is completed.
+          // The temporary code package token returned by GetMcpCodePackageUploadUrl. It is used to create or update a code deployment after the presigned upload is completed.
           shared_ptr<string> codePackageToken_ {};
           // The complete startup command, passed sequentially by parameter boundaries. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the complete subcommand, and the remaining parameters.
           shared_ptr<vector<string>> command_ {};
-          // The code package runtime. Valid values: python3.13, nodejs22, or java17.
+          // The code package runtime. Valid values: python3.13, nodejs22, and java17.
           shared_ptr<string> language_ {};
         };
 
@@ -1168,13 +1614,13 @@ namespace Models
 
 
         protected:
-          // Specifies whether authorization is enabled.
+          // Indicates whether authorization is enabled.
           shared_ptr<bool> authorizationEnabled_ {};
           // The credential provider ARN.
           shared_ptr<string> credentialProviderArn_ {};
           // The credential provider type.
           shared_ptr<string> credentialProviderType_ {};
-          // Specifies whether agent identity is enabled.
+          // Specifies whether Agent identity is enabled.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -1225,11 +1671,11 @@ namespace Models
 
 
         protected:
-          // The ID of the AgentCore credential referenced when the mode is set to CREDENTIAL.
+          // The ID of the access credential. This parameter references an AgentCore credential when the mode is set to CREDENTIAL.
           shared_ptr<string> credentialId_ {};
-          // Specifies whether to enable entry access control.
+          // Specifies whether entry access control is enabled.
           shared_ptr<bool> enabled_ {};
-          // The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates access by using AgentCore credentials.
+          // The access control mode. A value of ANONYMOUS indicates anonymous access. A value of CREDENTIAL indicates that AgentCore access credentials are used.
           shared_ptr<string> mode_ {};
         };
 
@@ -1364,9 +1810,11 @@ namespace Models
       protected:
         // The MCP entry access control.
         shared_ptr<DeploymentConfig::AccessControl> accessControl_ {};
-        // The agent identity configuration.
+        // The Agent identity configuration.
         shared_ptr<DeploymentConfig::AgentIdentityConfiguration> agentIdentityConfiguration_ {};
-        // The artifact type. Code indicates a ZIP code package, and Container indicates a custom container.
+        // The artifact type. Valid values:
+        // - Code: ZIP code package.
+        // - Container: Custom container.
         shared_ptr<string> artifactType_ {};
         // The code package configuration.
         shared_ptr<DeploymentConfig::CodeConfiguration> codeConfiguration_ {};
@@ -1576,9 +2024,9 @@ namespace Models
 
 
         protected:
-          // The API Key used to verify the MCP caller.
+          // The API key used to verify the MCP caller.
           shared_ptr<string> apiKey_ {};
-          // The name of the request header that carries the API Key.
+          // The name of the request header that carries the API key.
           shared_ptr<string> headerName_ {};
         };
 
@@ -1619,7 +2067,7 @@ namespace Models
 
 
       protected:
-        // The caller API Key authentication configuration for the code deployment MCP.
+        // The caller API key authentication configuration for the code deployment MCP.
         shared_ptr<Auth::CodePackage> codePackage_ {};
         // The authentication configuration for the direct proxy.
         shared_ptr<Auth::DirectProxy> directProxy_ {};
@@ -1630,10 +2078,11 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->addresses_ == nullptr
-        && this->auth_ == nullptr && this->createdAt_ == nullptr && this->customTags_ == nullptr && this->deploymentConfig_ == nullptr && this->description_ == nullptr
-        && this->endpoint_ == nullptr && this->functionName_ == nullptr && this->marketSource_ == nullptr && this->mcpServerId_ == nullptr && this->name_ == nullptr
-        && this->officialTag_ == nullptr && this->permissionMode_ == nullptr && this->protocol_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr
-        && this->swaggerConfig_ == nullptr && this->type_ == nullptr && this->updatedAt_ == nullptr && this->usageActive_ == nullptr; };
+        && this->auth_ == nullptr && this->backendMcpProtocol_ == nullptr && this->createdAt_ == nullptr && this->customTags_ == nullptr && this->deploymentConfig_ == nullptr
+        && this->description_ == nullptr && this->endpoint_ == nullptr && this->functionName_ == nullptr && this->marketSource_ == nullptr && this->mcpServerId_ == nullptr
+        && this->name_ == nullptr && this->officialTag_ == nullptr && this->operation_ == nullptr && this->originProbe_ == nullptr && this->originProtocolVersion_ == nullptr
+        && this->permissionMode_ == nullptr && this->protocol_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr && this->swaggerConfig_ == nullptr
+        && this->type_ == nullptr && this->updatedAt_ == nullptr && this->usageActive_ == nullptr; };
       // addresses Field Functions 
       bool hasAddresses() const { return this->addresses_ != nullptr;};
       void deleteAddresses() { this->addresses_ = nullptr;};
@@ -1650,6 +2099,13 @@ namespace Models
       inline Items::Auth getAuth() { DARABONBA_PTR_GET(auth_, Items::Auth) };
       inline Items& setAuth(const Items::Auth & auth) { DARABONBA_PTR_SET_VALUE(auth_, auth) };
       inline Items& setAuth(Items::Auth && auth) { DARABONBA_PTR_SET_RVALUE(auth_, auth) };
+
+
+      // backendMcpProtocol Field Functions 
+      bool hasBackendMcpProtocol() const { return this->backendMcpProtocol_ != nullptr;};
+      void deleteBackendMcpProtocol() { this->backendMcpProtocol_ = nullptr;};
+      inline string getBackendMcpProtocol() const { DARABONBA_PTR_GET_DEFAULT(backendMcpProtocol_, "") };
+      inline Items& setBackendMcpProtocol(string backendMcpProtocol) { DARABONBA_PTR_SET_VALUE(backendMcpProtocol_, backendMcpProtocol) };
 
 
       // createdAt Field Functions 
@@ -1728,6 +2184,31 @@ namespace Models
       inline Items& setOfficialTag(string officialTag) { DARABONBA_PTR_SET_VALUE(officialTag_, officialTag) };
 
 
+      // operation Field Functions 
+      bool hasOperation() const { return this->operation_ != nullptr;};
+      void deleteOperation() { this->operation_ = nullptr;};
+      inline const Items::Operation & getOperation() const { DARABONBA_PTR_GET_CONST(operation_, Items::Operation) };
+      inline Items::Operation getOperation() { DARABONBA_PTR_GET(operation_, Items::Operation) };
+      inline Items& setOperation(const Items::Operation & operation) { DARABONBA_PTR_SET_VALUE(operation_, operation) };
+      inline Items& setOperation(Items::Operation && operation) { DARABONBA_PTR_SET_RVALUE(operation_, operation) };
+
+
+      // originProbe Field Functions 
+      bool hasOriginProbe() const { return this->originProbe_ != nullptr;};
+      void deleteOriginProbe() { this->originProbe_ = nullptr;};
+      inline const Items::OriginProbe & getOriginProbe() const { DARABONBA_PTR_GET_CONST(originProbe_, Items::OriginProbe) };
+      inline Items::OriginProbe getOriginProbe() { DARABONBA_PTR_GET(originProbe_, Items::OriginProbe) };
+      inline Items& setOriginProbe(const Items::OriginProbe & originProbe) { DARABONBA_PTR_SET_VALUE(originProbe_, originProbe) };
+      inline Items& setOriginProbe(Items::OriginProbe && originProbe) { DARABONBA_PTR_SET_RVALUE(originProbe_, originProbe) };
+
+
+      // originProtocolVersion Field Functions 
+      bool hasOriginProtocolVersion() const { return this->originProtocolVersion_ != nullptr;};
+      void deleteOriginProtocolVersion() { this->originProtocolVersion_ = nullptr;};
+      inline string getOriginProtocolVersion() const { DARABONBA_PTR_GET_DEFAULT(originProtocolVersion_, "") };
+      inline Items& setOriginProtocolVersion(string originProtocolVersion) { DARABONBA_PTR_SET_VALUE(originProtocolVersion_, originProtocolVersion) };
+
+
       // permissionMode Field Functions 
       bool hasPermissionMode() const { return this->permissionMode_ != nullptr;};
       void deletePermissionMode() { this->permissionMode_ = nullptr;};
@@ -1787,19 +2268,21 @@ namespace Models
     protected:
       // The list of MCP service addresses.
       shared_ptr<vector<string>> addresses_ {};
-      // The backend authentication configuration. The enabled field indicates whether the configuration is enabled. The directProxy field specifies the custom authentication header for the direct proxy. The httpToMcp field specifies the list of OpenAPI credentials for HTTP_TO_MCP.
+      // The backend authentication configuration. enabled specifies whether the configuration is enabled. directProxy specifies the custom authentication header for the direct proxy. httpToMcp specifies the list of OpenAPI credentials for HTTP_TO_MCP.
       shared_ptr<Items::Auth> auth_ {};
+      // The saved legacy or modern backend policy, which is separate from the transport indicated by protocol and does not indicate verification. This field is not saved for newly created CODE_PACKAGE. For historical CODE_PACKAGE, the existing value does not control Function Compute session affinity or gateway protocol. For the actual protocol, refer to OriginProbe.LastResult.ActualConfiguration.BackendMcpProtocol. This field is returned as empty for historical unspecified values and HTTP_TO_MCP.
+      shared_ptr<string> backendMcpProtocol_ {};
       // The time when the MCP was created, in ISO 8601 UTC format.
       shared_ptr<string> createdAt_ {};
       // The custom tags. Multiple tags are supported.
       shared_ptr<vector<string>> customTags_ {};
-      // The deployment configuration for the code deployment MCP.
+      // The deployment configuration for code-deployed MCP.
       shared_ptr<Items::DeploymentConfig> deploymentConfig_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The MCP endpoint that can be called by users or agents. This field is empty before deployment is complete.
+      // The MCP endpoint that can be called by users or agents. This field is empty before the deployment is completed.
       shared_ptr<string> endpoint_ {};
-      // The Function Compute function name corresponding to the CODE_PACKAGE MCP. This field is empty before deployment is complete and for other types.
+      // The Function Compute function name for the CODE_PACKAGE MCP. This field is empty before deployment is complete and for other types.
       shared_ptr<string> functionName_ {};
       // The MCP source marketplace template.
       shared_ptr<Items::MarketSource> marketSource_ {};
@@ -1809,7 +2292,15 @@ namespace Models
       shared_ptr<string> name_ {};
       // The official usage tag, which is managed by the server.
       shared_ptr<string> officialTag_ {};
-      // PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
+      // The read-only progress of the reused existing publish task. This field does not change the primary status of the resource and is empty if no historical operation information is available.
+      shared_ptr<Items::Operation> operation_ {};
+      // Only code deployment returns the minimal origin verification summary of the most recent task. This field is empty for direct proxy and HTTP to MCP, and queries do not trigger probing.
+      shared_ptr<Items::OriginProbe> originProbe_ {};
+      // The optional saved origin MCP protocol date display metadata, in YYYY-MM-DD format. You can specify this field during creation and modify it during updates. If omitted during an update, the current value is retained. This field only saves and displays information. It is not a software version, does not restrict the external gateway protocol, does not control backend requests, and does not indicate that real-time verification has passed. This field returns null and has no default value if it is omitted during creation and not updated, missing historically, or used for HTTP_TO_MCP.
+      shared_ptr<string> originProtocolVersion_ {};
+      // The access permission mode. Valid values:
+      // - PUBLIC: Public access.
+      // - CONTROLLED: Access controlled based on permission rules.
       shared_ptr<string> permissionMode_ {};
       // The MCP protocol.
       shared_ptr<string> protocol_ {};
@@ -1823,7 +2314,7 @@ namespace Models
       shared_ptr<string> type_ {};
       // The time when the MCP was last updated, in ISO 8601 UTC format.
       shared_ptr<string> updatedAt_ {};
-      // Specifies whether the MCP is still subject to the usage constraints of the official template.
+      // Indicates whether the MCP is still subject to the usage constraints of the official template.
       shared_ptr<bool> usageActive_ {};
     };
 
@@ -1902,7 +2393,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list data.
     shared_ptr<vector<ListMcpsResponseBody::Items>> items_ {};
-    // The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
+    // The maximum number of entries to return per page.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};

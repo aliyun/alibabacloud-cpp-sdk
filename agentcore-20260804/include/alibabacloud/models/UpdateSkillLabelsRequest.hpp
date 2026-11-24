@@ -32,9 +32,11 @@ namespace Models
     class Body : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Body& obj) { 
+        DARABONBA_PTR_TO_JSON(labelDescriptions, labelDescriptions_);
         DARABONBA_PTR_TO_JSON(labels, labels_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
+        DARABONBA_PTR_FROM_JSON(labelDescriptions, labelDescriptions_);
         DARABONBA_PTR_FROM_JSON(labels, labels_);
       };
       Body() = default ;
@@ -48,7 +50,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->labels_ == nullptr; };
+      virtual bool empty() const override { return this->labelDescriptions_ == nullptr
+        && this->labels_ == nullptr; };
+      // labelDescriptions Field Functions 
+      bool hasLabelDescriptions() const { return this->labelDescriptions_ != nullptr;};
+      void deleteLabelDescriptions() { this->labelDescriptions_ = nullptr;};
+      inline string getLabelDescriptions() const { DARABONBA_PTR_GET_DEFAULT(labelDescriptions_, "") };
+      inline Body& setLabelDescriptions(string labelDescriptions) { DARABONBA_PTR_SET_VALUE(labelDescriptions_, labelDescriptions) };
+
+
       // labels Field Functions 
       bool hasLabels() const { return this->labels_ != nullptr;};
       void deleteLabels() { this->labels_ = nullptr;};
@@ -57,6 +67,8 @@ namespace Models
 
 
     protected:
+      // The label descriptions.
+      shared_ptr<string> labelDescriptions_ {};
       // The version label mapping JSON string.
       // 
       // This parameter is required.

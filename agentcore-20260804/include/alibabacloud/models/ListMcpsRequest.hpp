@@ -94,17 +94,17 @@ namespace Models
 
 
   protected:
-    // The custom tag used for filtering. An exact match is required.
+    // The custom tags used to filter results. An exact match is required.
     shared_ptr<string> customTag_ {};
-    // The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
+    // The maximum number of entries to return per page.
     shared_ptr<int32_t> maxResults_ {};
     // The MCP service name or service ID. This parameter is used in conjunction with SearchType.
     shared_ptr<string> name_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The official usage tag used for filtering.
+    // The official usage tags used to filter results.
     shared_ptr<string> officialTag_ {};
-    // The name match type. This parameter takes effect only when Name is specified. Valid values: accurate (exact match) and blur (fuzzy match). Default value: blur.
+    // The name matching mode. This parameter takes effect only when Name is specified. Valid values: accurate (exact match) and blur (fuzzy match). Default value: blur.
     shared_ptr<string> searchType_ {};
     // Specifies whether the service is still subject to official template usage constraints.
     shared_ptr<bool> usageActive_ {};

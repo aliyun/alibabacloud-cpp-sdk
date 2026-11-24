@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(editingVersion, editingVersion_);
         DARABONBA_PTR_TO_JSON(enable, enable_);
         DARABONBA_PTR_TO_JSON(from, from_);
+        DARABONBA_PTR_TO_JSON(labelDescriptions, labelDescriptions_);
         DARABONBA_PTR_TO_JSON(labels, labels_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(onlineCnt, onlineCnt_);
@@ -64,6 +65,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(editingVersion, editingVersion_);
         DARABONBA_PTR_FROM_JSON(enable, enable_);
         DARABONBA_PTR_FROM_JSON(from, from_);
+        DARABONBA_PTR_FROM_JSON(labelDescriptions, labelDescriptions_);
         DARABONBA_PTR_FROM_JSON(labels, labels_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(onlineCnt, onlineCnt_);
@@ -197,33 +199,33 @@ namespace Models
 
 
       protected:
-        // The author of the version.
+        // The version author.
         shared_ptr<string> author_ {};
         // The commit message.
         shared_ptr<string> commitMsg_ {};
         // The MD5 checksum of the skill content package for this version, used to verify content consistency.
         shared_ptr<string> contentMd5_ {};
-        // The creation time. The value is a UNIX timestamp in milliseconds.
+        // The creation time. It is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
         // The description.
         shared_ptr<string> description_ {};
         // The number of downloads.
         shared_ptr<int64_t> downloadCount_ {};
-        // The release pipeline information.
+        // The publish pipeline information.
         shared_ptr<string> publishPipelineInfo_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The update time. The value is a UNIX timestamp in milliseconds.
+        // The update time. It is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
-        // The version number.
+        // The version number. A value of HEAD indicates a persistent draft, which should be displayed as a draft in the user interface.
         shared_ptr<string> version_ {};
       };
 
       virtual bool empty() const override { return this->bizTags_ == nullptr
         && this->description_ == nullptr && this->downloadCount_ == nullptr && this->draftMode_ == nullptr && this->editable_ == nullptr && this->editingVersion_ == nullptr
-        && this->enable_ == nullptr && this->from_ == nullptr && this->labels_ == nullptr && this->name_ == nullptr && this->onlineCnt_ == nullptr
-        && this->owner_ == nullptr && this->reviewingVersion_ == nullptr && this->scope_ == nullptr && this->updateTime_ == nullptr && this->versions_ == nullptr
-        && this->workspaceId_ == nullptr && this->writeable_ == nullptr; };
+        && this->enable_ == nullptr && this->from_ == nullptr && this->labelDescriptions_ == nullptr && this->labels_ == nullptr && this->name_ == nullptr
+        && this->onlineCnt_ == nullptr && this->owner_ == nullptr && this->reviewingVersion_ == nullptr && this->scope_ == nullptr && this->updateTime_ == nullptr
+        && this->versions_ == nullptr && this->workspaceId_ == nullptr && this->writeable_ == nullptr; };
       // bizTags Field Functions 
       bool hasBizTags() const { return this->bizTags_ != nullptr;};
       void deleteBizTags() { this->bizTags_ = nullptr;};
@@ -278,6 +280,15 @@ namespace Models
       void deleteFrom() { this->from_ = nullptr;};
       inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
       inline Data& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
+
+
+      // labelDescriptions Field Functions 
+      bool hasLabelDescriptions() const { return this->labelDescriptions_ != nullptr;};
+      void deleteLabelDescriptions() { this->labelDescriptions_ = nullptr;};
+      inline const map<string, string> & getLabelDescriptions() const { DARABONBA_PTR_GET_CONST(labelDescriptions_, map<string, string>) };
+      inline map<string, string> getLabelDescriptions() { DARABONBA_PTR_GET(labelDescriptions_, map<string, string>) };
+      inline Data& setLabelDescriptions(const map<string, string> & labelDescriptions) { DARABONBA_PTR_SET_VALUE(labelDescriptions_, labelDescriptions) };
+      inline Data& setLabelDescriptions(map<string, string> && labelDescriptions) { DARABONBA_PTR_SET_RVALUE(labelDescriptions_, labelDescriptions) };
 
 
       // labels Field Functions 
@@ -361,17 +372,19 @@ namespace Models
       shared_ptr<string> description_ {};
       // The total number of downloads.
       shared_ptr<int64_t> downloadCount_ {};
-      // The draft pattern. A value of HEAD indicates that the skill has a persistent draft. A value of VERSIONED indicates that each edit creates a draft with a version number. This pattern is determined by the server, and the client uses it for routing What to do next when they invoke the API.
+      // The draft pattern. HEAD indicates that the skill has a persistent draft, and VERSIONED indicates that a draft with a version number is created for each edit. This is determined by the server, and clients invoke What to do next by routing based on this value.
       shared_ptr<string> draftMode_ {};
       // Indicates whether the root data is editable.
       shared_ptr<bool> editable_ {};
-      // The version being edited.
+      // The version being edited. The value is HEAD in HEAD draft mode.
       shared_ptr<string> editingVersion_ {};
       // Indicates whether the skill is enabled.
       shared_ptr<bool> enable_ {};
       // The source tag.
       shared_ptr<string> from_ {};
-      // The tag mapping.
+      // The label descriptions under the root data.
+      shared_ptr<map<string, string>> labelDescriptions_ {};
+      // The label mapping.
       shared_ptr<map<string, string>> labels_ {};
       // The name.
       shared_ptr<string> name_ {};
@@ -379,11 +392,11 @@ namespace Models
       shared_ptr<int32_t> onlineCnt_ {};
       // The resource owner.
       shared_ptr<string> owner_ {};
-      // The version under review.
+      // The version under review. The value is HEAD in HEAD draft mode.
       shared_ptr<string> reviewingVersion_ {};
       // The visibility scope.
       shared_ptr<string> scope_ {};
-      // The update time. The value is a UNIX timestamp in milliseconds.
+      // The update time. It is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
       // The list of all version summaries.
       shared_ptr<vector<Data::Versions>> versions_ {};

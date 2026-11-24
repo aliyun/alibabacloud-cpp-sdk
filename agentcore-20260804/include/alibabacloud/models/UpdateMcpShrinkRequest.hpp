@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<string> bodyShrink_ {};
-    // The reserved query request identifier. The current console backend does not read this parameter and does not provide idempotency guarantees for deduplication or restoring the original acceptance result based on this identifier.
+    // The reserved query request identifier. The console backend does not read this parameter and does not provide idempotency guarantees for deduplication or restoring original results based on this identifier.
     shared_ptr<string> clientToken_ {};
   };
 

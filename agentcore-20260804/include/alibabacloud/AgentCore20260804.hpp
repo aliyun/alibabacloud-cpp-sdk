@@ -93,10 +93,9 @@ namespace AgentCore20260804
       Models::BatchUploadSkillsViaOssResponse batchUploadSkillsViaOss(const string &workspaceId, const Models::BatchUploadSkillsViaOssRequest &request);
 
       /**
-       * @summary Converts an MCP service to free edit mode.
+       * @summary Converts an MCP service to free-edit mode.
        *
-       * @description Converts an MCP service installed from a marketplace template to free edit mode to allow direct modification of the service configuration.
-       * After the conversion, the original source and tag information are retained, and the template editing restrictions are removed. The service no longer appears on the usage page associated with the template.
+       * @description Converts an MCP service installed from a marketplace template to free-edit mode, allowing you to directly modify the service configuration. After the conversion, the original source and tag information are retained, and the editing restrictions of the template are removed. The service will no longer appear on the use case page corresponding to the template.
        *
        * @param request ConvertMcpToFreeEditRequest
        * @param headers map
@@ -106,10 +105,9 @@ namespace AgentCore20260804
       Models::ConvertMcpToFreeEditResponse convertMcpToFreeEditWithOptions(const string &workspaceId, const string &mcpServerId, const Models::ConvertMcpToFreeEditRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Converts an MCP service to free edit mode.
+       * @summary Converts an MCP service to free-edit mode.
        *
-       * @description Converts an MCP service installed from a marketplace template to free edit mode to allow direct modification of the service configuration.
-       * After the conversion, the original source and tag information are retained, and the template editing restrictions are removed. The service no longer appears on the usage page associated with the template.
+       * @description Converts an MCP service installed from a marketplace template to free-edit mode, allowing you to directly modify the service configuration. After the conversion, the original source and tag information are retained, and the editing restrictions of the template are removed. The service will no longer appear on the use case page corresponding to the template.
        *
        * @param request ConvertMcpToFreeEditRequest
        * @return ConvertMcpToFreeEditResponse
@@ -397,6 +395,24 @@ namespace AgentCore20260804
        * @return CreateCustomAgentResponse
        */
       Models::CreateCustomAgentResponse createCustomAgent(const string &workspaceId, const Models::CreateCustomAgentRequest &request);
+
+      /**
+       * @summary Issues a local debug token for a running high-code agent in a specified workspace. The latest configuration of the agent must take effect. The workspace must enable inbound access for the selected network and complete debug routing preparations. The token is valid for 1 hour from the time of issuance. You can call this operation again to obtain a new token after the token expires.
+       *
+       * @param request CreateCustomAgentDebugTokenRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCustomAgentDebugTokenResponse
+       */
+      Models::CreateCustomAgentDebugTokenResponse createCustomAgentDebugTokenWithOptions(const string &workspaceId, const string &agentId, const Models::CreateCustomAgentDebugTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Issues a local debug token for a running high-code agent in a specified workspace. The latest configuration of the agent must take effect. The workspace must enable inbound access for the selected network and complete debug routing preparations. The token is valid for 1 hour from the time of issuance. You can call this operation again to obtain a new token after the token expires.
+       *
+       * @param request CreateCustomAgentDebugTokenRequest
+       * @return CreateCustomAgentDebugTokenResponse
+       */
+      Models::CreateCustomAgentDebugTokenResponse createCustomAgentDebugToken(const string &workspaceId, const string &agentId, const Models::CreateCustomAgentDebugTokenRequest &request);
 
       /**
        * @summary Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write result for each event in the same order as the request. A successful request does not indicate that every event is written successfully or that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
@@ -775,12 +791,12 @@ namespace AgentCore20260804
       Models::CreateManagedAgentResponse createManagedAgent(const string &workspaceId, const Models::CreateManagedAgentRequest &request);
 
       /**
-       * @summary Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call a query operation to verify whether the service is ready.
+       * @summary Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call the query operation to confirm whether the service is ready.
        *
        * @description Creates an MCP service in a workspace for agents to use the tools provided by the service.
-       * The creation process is asynchronous. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to check whether the service is ready.
-       * To deploy using a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the upload URL and upload the file. Then, fill the returned code package token into the deployment configuration.
-       * The `clientToken` parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
+       * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query whether the service is ready.
+       * When deploying with a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the URL and upload the file, and then fill the returned code package token into the deployment configuration.
+       * `clientToken` currently does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
        *
        * @param tmpReq CreateMcpRequest
        * @param headers map
@@ -790,12 +806,12 @@ namespace AgentCore20260804
       Models::CreateMcpResponse createMcpWithOptions(const string &workspaceId, const Models::CreateMcpRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call a query operation to verify whether the service is ready.
+       * @summary Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call the query operation to confirm whether the service is ready.
        *
        * @description Creates an MCP service in a workspace for agents to use the tools provided by the service.
-       * The creation process is asynchronous. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to check whether the service is ready.
-       * To deploy using a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the upload URL and upload the file. Then, fill the returned code package token into the deployment configuration.
-       * The `clientToken` parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
+       * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query whether the service is ready.
+       * When deploying with a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the URL and upload the file, and then fill the returned code package token into the deployment configuration.
+       * `clientToken` currently does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
        *
        * @param request CreateMcpRequest
        * @return CreateMcpResponse
@@ -3783,9 +3799,9 @@ namespace AgentCore20260804
       Models::ListMcpToolsResponse listMcpTools(const string &workspaceId, const string &mcpServerId, const Models::ListMcpToolsRequest &request);
 
       /**
-       * @summary Performs a paging query for the MCP services and their configurations and statuses in a specified workspace.
+       * @summary Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
        *
-       * @description Performs a paging query for the MCP services and their configurations and statuses in a specified workspace.
+       * @description Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
        *
        * @param request ListMcpsRequest
        * @param headers map
@@ -3795,9 +3811,9 @@ namespace AgentCore20260804
       Models::ListMcpsResponse listMcpsWithOptions(const string &workspaceId, const Models::ListMcpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paging query for the MCP services and their configurations and statuses in a specified workspace.
+       * @summary Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
        *
-       * @description Performs a paging query for the MCP services and their configurations and statuses in a specified workspace.
+       * @description Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
        *
        * @param request ListMcpsRequest
        * @return ListMcpsResponse
@@ -3965,9 +3981,9 @@ namespace AgentCore20260804
       Models::ListModelConnectionsResponse listModelConnections(const string &workspaceId, const Models::ListModelConnectionsRequest &request);
 
       /**
-       * @summary Performs a paging query for models in a specified workspace and supports filtering by model connection and model name.
+       * @summary Performs a paged query for models in a specified workspace and supports filtering by model connection and model name during paging.
        *
-       * @description Performs a paging query for models in a specified workspace and supports filtering by model connection and model name.
+       * @description Performs a paged query for models in a specified workspace and supports filtering by model connection and model name during paging.
        *
        * @param request ListModelsRequest
        * @param headers map
@@ -3977,9 +3993,9 @@ namespace AgentCore20260804
       Models::ListModelsResponse listModelsWithOptions(const string &workspaceId, const Models::ListModelsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paging query for models in a specified workspace and supports filtering by model connection and model name.
+       * @summary Performs a paged query for models in a specified workspace and supports filtering by model connection and model name during paging.
        *
-       * @description Performs a paging query for models in a specified workspace and supports filtering by model connection and model name.
+       * @description Performs a paged query for models in a specified workspace and supports filtering by model connection and model name during paging.
        *
        * @param request ListModelsRequest
        * @return ListModelsResponse
@@ -4381,6 +4397,28 @@ namespace AgentCore20260804
        * @return PrepareIdentityProviderSCIMResponse
        */
       Models::PrepareIdentityProviderSCIMResponse prepareIdentityProviderSCIM(const string &workspaceId, const Models::PrepareIdentityProviderSCIMRequest &request);
+
+      /**
+       * @summary Validates an MCP origin server.
+       *
+       * @description Validates a single direct MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not passed. The server discovers them automatically, prioritizing the validation of the modern protocol and falling back to the legacy protocol only if the modern one is confirmed to be unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the external protocol conversion compatibility of the gateway. A direct connection protocol check is still considered SUCCESS even if no capabilities are declared. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration, and sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business interfaces defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation interface, does not accept detection-specific headers, and does not execute tools/call. A success response from the interface only indicates that the validation request has been processed. The origin server result is indicated by data.status.
+       *
+       * @param tmpReq ProbeMcpOriginRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ProbeMcpOriginResponse
+       */
+      Models::ProbeMcpOriginResponse probeMcpOriginWithOptions(const string &workspaceId, const Models::ProbeMcpOriginRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Validates an MCP origin server.
+       *
+       * @description Validates a single direct MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not passed. The server discovers them automatically, prioritizing the validation of the modern protocol and falling back to the legacy protocol only if the modern one is confirmed to be unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the external protocol conversion compatibility of the gateway. A direct connection protocol check is still considered SUCCESS even if no capabilities are declared. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration, and sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business interfaces defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation interface, does not accept detection-specific headers, and does not execute tools/call. A success response from the interface only indicates that the validation request has been processed. The origin server result is indicated by data.status.
+       *
+       * @param request ProbeMcpOriginRequest
+       * @return ProbeMcpOriginResponse
+       */
+      Models::ProbeMcpOriginResponse probeMcpOrigin(const string &workspaceId, const Models::ProbeMcpOriginRequest &request);
 
       /**
        * @summary Publishes a specified skill version and sets its status to published.
@@ -5216,7 +5254,7 @@ namespace AgentCore20260804
        * @summary Updates the address, description, authentication, or Swagger configuration of a specified MCP service. The MCP type and protocol cannot be modified after creation. The update process is asynchronous.
        *
        * @description Updates the address, description, authentication, or Swagger configuration of an MCP service. The service type and protocol cannot be modified after creation.
-       * The update process is executed asynchronously. After submission, you can call the [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) operation to query the processing result. The `clientToken` parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query the current configuration and status first.
+       * The update process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query the processing result. The clientToken parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query the current configuration and status first.
        *
        * @param tmpReq UpdateMcpRequest
        * @param headers map
@@ -5229,7 +5267,7 @@ namespace AgentCore20260804
        * @summary Updates the address, description, authentication, or Swagger configuration of a specified MCP service. The MCP type and protocol cannot be modified after creation. The update process is asynchronous.
        *
        * @description Updates the address, description, authentication, or Swagger configuration of an MCP service. The service type and protocol cannot be modified after creation.
-       * The update process is executed asynchronously. After submission, you can call the [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) operation to query the processing result. The `clientToken` parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query the current configuration and status first.
+       * The update process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query the processing result. The clientToken parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query the current configuration and status first.
        *
        * @param request UpdateMcpRequest
        * @return UpdateMcpResponse
@@ -5237,9 +5275,10 @@ namespace AgentCore20260804
       Models::UpdateMcpResponse updateMcp(const string &workspaceId, const string &mcpServerId, const Models::UpdateMcpRequest &request);
 
       /**
-       * @summary Updates the parameters of an MCP service based on a template.
+       * @summary Updates the MCP parameters based on a template.
        *
-       * @description Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service. This operation uses the same template version that was bound when the MCP service was created to update the parameters exposed by the schema, without upgrading the template version.
+       * @description Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service.
+       * Updates the parameters exposed by the schema using the same template version bound during MCP creation, without upgrading the template version.
        *
        * @param tmpReq UpdateMcpTemplateConfigRequest
        * @param headers map
@@ -5249,9 +5288,10 @@ namespace AgentCore20260804
       Models::UpdateMcpTemplateConfigResponse updateMcpTemplateConfigWithOptions(const string &workspaceId, const string &mcpServerId, const Models::UpdateMcpTemplateConfigRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the parameters of an MCP service based on a template.
+       * @summary Updates the MCP parameters based on a template.
        *
-       * @description Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service. This operation uses the same template version that was bound when the MCP service was created to update the parameters exposed by the schema, without upgrading the template version.
+       * @description Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service.
+       * Updates the parameters exposed by the schema using the same template version bound during MCP creation, without upgrading the template version.
        *
        * @param request UpdateMcpTemplateConfigRequest
        * @return UpdateMcpTemplateConfigResponse

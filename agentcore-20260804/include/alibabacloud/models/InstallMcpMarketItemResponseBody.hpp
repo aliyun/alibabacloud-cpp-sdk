@@ -163,7 +163,7 @@ namespace Models
         shared_ptr<string> schemaVersion_ {};
         // The template input schema, represented as a JSON Schema string.
         shared_ptr<string> templateInputSchema_ {};
-        // Indicates whether an updated template version is available.
+        // Indicates whether a template update is available.
         shared_ptr<bool> updateAvailable_ {};
       };
 
@@ -195,7 +195,7 @@ namespace Models
 
 
       protected:
-        // The MCP marketplace template ID.
+        // The ID of the MCP marketplace template.
         shared_ptr<string> marketItemId_ {};
       };
 
@@ -339,21 +339,21 @@ namespace Models
 
 
         protected:
-          // The CPU specifications. Unit: cores. Default value: 0.25.
+          // The CPU specification in cores. Default value: 0.25.
           shared_ptr<double> cpu_ {};
-          // The size of the temporary disk. Unit: MB. Valid values: 512 and 10240.
+          // The ephemeral disk size in MB. Valid values: 512 and 10240.
           shared_ptr<int32_t> diskSize_ {};
           // The environment variables.
           shared_ptr<map<string, string>> environmentVariables_ {};
           // The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
           shared_ptr<string> executionRoleArn_ {};
-          // The number of concurrent requests per instance. Default value: 200.
+          // The request concurrency per instance. Default value: 200.
           shared_ptr<int32_t> instanceConcurrency_ {};
-          // The memory specifications. Unit: MB. Default value: 512.
+          // The memory specification in MB. Default value: 512.
           shared_ptr<int32_t> memory_ {};
           // The service port. Default value: 9000.
           shared_ptr<int32_t> port_ {};
-          // The function timeout period. Unit: seconds. Default value: 300.
+          // The function timeout period in seconds. Default value: 300.
           shared_ptr<int32_t> timeout_ {};
         };
 
@@ -438,7 +438,7 @@ namespace Models
         protected:
           // Specifies whether to enable parameter transformation and result enhancement.
           shared_ptr<bool> enabled_ {};
-          // The reserved reference for the parameter transformation and result enhancement rule set.
+          // The reserved reference to the parameter transformation and result enhancement rule set.
           shared_ptr<string> ruleSetId_ {};
           // The version of the transformation rule.
           shared_ptr<string> version_ {};
@@ -551,7 +551,7 @@ namespace Models
 
 
         protected:
-          // The list of OSS mount points.
+          // The OSS mount points.
           shared_ptr<vector<OssMountConfiguration::MountPoints>> mountPoints_ {};
         };
 
@@ -617,7 +617,7 @@ namespace Models
           shared_ptr<string> networkMode_ {};
           // The security group ID.
           shared_ptr<string> securityGroupId_ {};
-          // The list of vSwitch IDs.
+          // The vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
           // The VPC ID.
           shared_ptr<string> vpcId_ {};
@@ -727,9 +727,9 @@ namespace Models
 
 
         protected:
-          // The group ID.
+          // The user group ID.
           shared_ptr<int32_t> groupId_ {};
-          // The list of NAS mount points.
+          // The NAS mount points.
           shared_ptr<vector<NasConfiguration::MountPoints>> mountPoints_ {};
           // The user ID.
           shared_ptr<int32_t> userId_ {};
@@ -742,12 +742,14 @@ namespace Models
             DARABONBA_PTR_TO_JSON(sessionConcurrencyPerInstance, sessionConcurrencyPerInstance_);
             DARABONBA_PTR_TO_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
             DARABONBA_PTR_TO_JSON(sessionMaxLifetimeSeconds, sessionMaxLifetimeSeconds_);
+            DARABONBA_PTR_TO_JSON(sessionMode, sessionMode_);
           };
           friend void from_json(const Darabonba::Json& j, McpConfiguration& obj) { 
             DARABONBA_PTR_FROM_JSON(endpointPath, endpointPath_);
             DARABONBA_PTR_FROM_JSON(sessionConcurrencyPerInstance, sessionConcurrencyPerInstance_);
             DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
             DARABONBA_PTR_FROM_JSON(sessionMaxLifetimeSeconds, sessionMaxLifetimeSeconds_);
+            DARABONBA_PTR_FROM_JSON(sessionMode, sessionMode_);
           };
           McpConfiguration() = default ;
           McpConfiguration(const McpConfiguration &) = default ;
@@ -761,7 +763,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->endpointPath_ == nullptr
-        && this->sessionConcurrencyPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->sessionMaxLifetimeSeconds_ == nullptr; };
+        && this->sessionConcurrencyPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->sessionMaxLifetimeSeconds_ == nullptr && this->sessionMode_ == nullptr; };
           // endpointPath Field Functions 
           bool hasEndpointPath() const { return this->endpointPath_ != nullptr;};
           void deleteEndpointPath() { this->endpointPath_ = nullptr;};
@@ -790,15 +792,24 @@ namespace Models
           inline McpConfiguration& setSessionMaxLifetimeSeconds(int32_t sessionMaxLifetimeSeconds) { DARABONBA_PTR_SET_VALUE(sessionMaxLifetimeSeconds_, sessionMaxLifetimeSeconds) };
 
 
+          // sessionMode Field Functions 
+          bool hasSessionMode() const { return this->sessionMode_ != nullptr;};
+          void deleteSessionMode() { this->sessionMode_ = nullptr;};
+          inline string getSessionMode() const { DARABONBA_PTR_GET_DEFAULT(sessionMode_, "") };
+          inline McpConfiguration& setSessionMode(string sessionMode) { DARABONBA_PTR_SET_VALUE(sessionMode_, sessionMode) };
+
+
         protected:
           // The MCP endpoint path, such as /mcp or /sse.
           shared_ptr<string> endpointPath_ {};
-          // The number of concurrent sessions per instance. Currently, this parameter is fixed to 1.
+          // The session concurrency per instance. Currently fixed to 1.
           shared_ptr<int32_t> sessionConcurrencyPerInstance_ {};
-          // The session idle timeout period. Unit: seconds. Default value: 1800.
+          // The session idle timeout period in seconds. Default value: 1800.
           shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
-          // The maximum session lifetime. Unit: seconds. Default value: 21600.
+          // The maximum session lifetime in seconds. Default value: 21600.
           shared_ptr<int32_t> sessionMaxLifetimeSeconds_ {};
+          // The session mode. This parameter applies only to StreamableHTTP. Default value for creation: STATEFUL. If omitted during an update, the original value is retained. STATELESS disables Function Compute session affinity, and the stdio gateway does not enable stateful mode. Native HTTP services must support stateless MCP by themselves.
+          shared_ptr<string> sessionMode_ {};
         };
 
         class LogConfiguration : public Darabonba::Model {
@@ -870,7 +881,7 @@ namespace Models
           shared_ptr<bool> enableInstanceMetrics_ {};
           // Specifies whether to collect request metrics.
           shared_ptr<bool> enableRequestMetrics_ {};
-          // The start rule for Function Compute log splitting.
+          // The start rule for splitting Function Compute logs.
           shared_ptr<string> logBeginRule_ {};
           // The name of the Logstore.
           shared_ptr<string> logstore_ {};
@@ -993,7 +1004,7 @@ namespace Models
             shared_ptr<string> event_ {};
             // The hook request headers.
             shared_ptr<map<string, string>> headers_ {};
-            // The timeout period of the hook, in milliseconds.
+            // The timeout in milliseconds.
             shared_ptr<int32_t> timeout_ {};
             // The callback URL of the hook.
             shared_ptr<string> url_ {};
@@ -1010,7 +1021,7 @@ namespace Models
 
 
         protected:
-          // The ordered list of hooks. The system executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
+          // The ordered list of hooks. The PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks are executed in the sequence of the array.
           shared_ptr<vector<HookConfiguration::Hooks>> hooks_ {};
         };
 
@@ -1102,19 +1113,19 @@ namespace Models
 
 
         protected:
-          // The ID of the ACR instance.
+          // The ACR instance ID.
           shared_ptr<string> acrInstanceId_ {};
           // The startup command.
           shared_ptr<vector<string>> command_ {};
-          // The entrypoint arguments for the container.
+          // The container entrypoint arguments.
           shared_ptr<vector<string>> entrypoint_ {};
-          // The URL of the container image.
+          // The container image URL.
           shared_ptr<string> image_ {};
-          // The type of the image repository.
+          // The image repository type.
           shared_ptr<string> imageRegistryType_ {};
-          // The MCP runtime mode. Custom containers must currently expose the standard MCP themselves. Set this parameter to SELF_HOSTED.
+          // The MCP runtime mode. Custom containers must expose standard MCP by themselves. Set the value to SELF_HOSTED.
           shared_ptr<string> mcpRuntimeMode_ {};
-          // The container source type. Currently, this parameter is fixed to CONTAINER_IMAGE.
+          // The container source type. Currently fixed to CONTAINER_IMAGE.
           shared_ptr<string> sourceType_ {};
         };
 
@@ -1171,7 +1182,7 @@ namespace Models
           shared_ptr<string> codePackageToken_ {};
           // The complete startup command, passed sequentially by parameter boundaries. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the complete subcommand, and the remaining parameters.
           shared_ptr<vector<string>> command_ {};
-          // The runtime environment for the code package, such as python3.13, nodejs22, or java17.
+          // The code package runtime. Valid values: python3.13, nodejs22, and java17.
           shared_ptr<string> language_ {};
         };
 
@@ -1292,7 +1303,7 @@ namespace Models
           shared_ptr<string> credentialId_ {};
           // Specifies whether to enable ingress access control.
           shared_ptr<bool> enabled_ {};
-          // The access control mode. ANONYMOUS indicates anonymous access. CREDENTIAL indicates authentication by using AgentCore credentials.
+          // The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates authentication by using AgentCore credentials.
           shared_ptr<string> mode_ {};
         };
 
@@ -1425,7 +1436,7 @@ namespace Models
 
 
       protected:
-        // The MCP ingress access control configuration.
+        // The MCP ingress access control.
         shared_ptr<DeploymentConfig::AccessControl> accessControl_ {};
         // The agent identity configuration.
         shared_ptr<DeploymentConfig::AgentIdentityConfiguration> agentIdentityConfiguration_ {};
@@ -1592,7 +1603,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The MCP service endpoint.
       shared_ptr<string> endpoint_ {};
-      // The Function Compute function name for the code-deployed MCP.
+      // The name of the Function Compute function for the code-deployed MCP.
       shared_ptr<string> functionName_ {};
       // The source marketplace template of the MCP.
       shared_ptr<Data::MarketSource> marketSource_ {};
@@ -1608,11 +1619,11 @@ namespace Models
       shared_ptr<string> status_ {};
       // The reason for the current status of the MCP service.
       shared_ptr<string> statusReason_ {};
-      // The bound template version and input schema of the MCP.
+      // The template version and input schema bound to the MCP.
       shared_ptr<Data::Template> template_ {};
-      // The MCP type. Valid values: DIRECT_PROXY (direct proxy), HTTP_TO_MCP (HTTP to MCP), and CODE_PACKAGE (code deployment).
+      // The type of the MCP service. Valid values: DIRECT_PROXY (direct proxy), HTTP_TO_MCP (HTTP to MCP), and CODE_PACKAGE (code deployment).
       shared_ptr<string> type_ {};
-      // Specifies whether the MCP is still subject to the usage constraints of the official template.
+      // Indicates whether the MCP is still subject to the usage constraints of the official template.
       shared_ptr<bool> usageActive_ {};
     };
 

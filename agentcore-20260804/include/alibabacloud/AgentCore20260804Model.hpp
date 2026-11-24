@@ -44,6 +44,9 @@
 #include <alibabacloud/models/CreateCustomAgentShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/CreateCustomAgentResponse.hpp>
+#include <alibabacloud/models/CreateCustomAgentDebugTokenRequest.hpp>
+#include <alibabacloud/models/CreateCustomAgentDebugTokenResponseBody.hpp>
+#include <alibabacloud/models/CreateCustomAgentDebugTokenResponse.hpp>
 #include <alibabacloud/models/CreateEventsRequest.hpp>
 #include <alibabacloud/models/CreateEventsShrinkRequest.hpp>
 #include <alibabacloud/models/CreateEventsResponseBody.hpp>
@@ -489,6 +492,10 @@
 #include <alibabacloud/models/PrepareIdentityProviderSCIMRequest.hpp>
 #include <alibabacloud/models/PrepareIdentityProviderSCIMResponseBody.hpp>
 #include <alibabacloud/models/PrepareIdentityProviderSCIMResponse.hpp>
+#include <alibabacloud/models/ProbeMcpOriginRequest.hpp>
+#include <alibabacloud/models/ProbeMcpOriginShrinkRequest.hpp>
+#include <alibabacloud/models/ProbeMcpOriginResponseBody.hpp>
+#include <alibabacloud/models/ProbeMcpOriginResponse.hpp>
 #include <alibabacloud/models/PublishSkillVersionRequest.hpp>
 #include <alibabacloud/models/PublishSkillVersionShrinkRequest.hpp>
 #include <alibabacloud/models/PublishSkillVersionResponseBody.hpp>
