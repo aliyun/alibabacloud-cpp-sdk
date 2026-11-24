@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SendMessageRequest& obj) { 
       DARABONBA_PTR_TO_JSON(attachments, attachments_);
+      DARABONBA_PTR_TO_JSON(commands, commands_);
       DARABONBA_PTR_TO_JSON(content, content_);
       DARABONBA_PTR_TO_JSON(resume, resume_);
       DARABONBA_PTR_TO_JSON(runId, runId_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, SendMessageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(attachments, attachments_);
+      DARABONBA_PTR_FROM_JSON(commands, commands_);
       DARABONBA_PTR_FROM_JSON(content, content_);
       DARABONBA_PTR_FROM_JSON(resume, resume_);
       DARABONBA_PTR_FROM_JSON(runId, runId_);
@@ -87,12 +89,102 @@ namespace Models
 
 
     protected:
-      // The ID of the interrupt to be replied to. Obtain this value from data.outcome.interrupts[].id in the SSE RUN_FINISHED event or the GetRun response.
+      // The ID of the interrupt to be replied to. Obtain this value from `data.outcome.interrupts[].id` in the SSE `RUN_FINISHED` event or `data.outcome.interrupts[].id` in the `GetRun` response.
       shared_ptr<string> interruptId_ {};
-      // The interrupt handling result. This parameter is required when status is set to resolved and must conform to the responseSchema of the corresponding interrupt. Do not pass this parameter when status is set to cancelled.
+      // The interrupt processing result. This parameter is required when `status` is set to `resolved` and must conform to the `responseSchema` of the corresponding interrupt. Do not provide this parameter when `status` is set to `cancelled`.
       Darabonba::Json payload_ {};
-      // The reply method for the interrupt. Valid values: resolved (submits the answer, confirmation, or tool result required by the interrupt, and must include payload) and cancelled (cancels the interrupt without passing payload).
+      // The reply method for the current interrupt. A value of `resolved` indicates that the answer, confirmation, or tool result required by the interrupt is submitted, and `payload` must be provided. A value of `cancelled` indicates that the interrupt is canceled, and `payload` is not provided.
       shared_ptr<string> status_ {};
+    };
+
+    class Commands : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Commands& obj) { 
+        DARABONBA_PTR_TO_JSON(payload, payload_);
+        DARABONBA_PTR_TO_JSON(type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, Commands& obj) { 
+        DARABONBA_PTR_FROM_JSON(payload, payload_);
+        DARABONBA_PTR_FROM_JSON(type, type_);
+      };
+      Commands() = default ;
+      Commands(const Commands &) = default ;
+      Commands(Commands &&) = default ;
+      Commands(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Commands() = default ;
+      Commands& operator=(const Commands &) = default ;
+      Commands& operator=(Commands &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Payload : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Payload& obj) { 
+          DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(skillId, skillId_);
+        };
+        friend void from_json(const Darabonba::Json& j, Payload& obj) { 
+          DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(skillId, skillId_);
+        };
+        Payload() = default ;
+        Payload(const Payload &) = default ;
+        Payload(Payload &&) = default ;
+        Payload(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Payload() = default ;
+        Payload& operator=(const Payload &) = default ;
+        Payload& operator=(Payload &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->name_ == nullptr
+        && this->skillId_ == nullptr; };
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline Payload& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // skillId Field Functions 
+        bool hasSkillId() const { return this->skillId_ != nullptr;};
+        void deleteSkillId() { this->skillId_ = nullptr;};
+        inline string getSkillId() const { DARABONBA_PTR_GET_DEFAULT(skillId_, "") };
+        inline Payload& setSkillId(string skillId) { DARABONBA_PTR_SET_VALUE(skillId_, skillId) };
+
+
+      protected:
+        // The skill name snapshot.
+        shared_ptr<string> name_ {};
+        // The skill ID.
+        shared_ptr<string> skillId_ {};
+      };
+
+      virtual bool empty() const override { return this->payload_ == nullptr
+        && this->type_ == nullptr; };
+      // payload Field Functions 
+      bool hasPayload() const { return this->payload_ != nullptr;};
+      void deletePayload() { this->payload_ = nullptr;};
+      inline const Commands::Payload & getPayload() const { DARABONBA_PTR_GET_CONST(payload_, Commands::Payload) };
+      inline Commands::Payload getPayload() { DARABONBA_PTR_GET(payload_, Commands::Payload) };
+      inline Commands& setPayload(const Commands::Payload & payload) { DARABONBA_PTR_SET_VALUE(payload_, payload) };
+      inline Commands& setPayload(Commands::Payload && payload) { DARABONBA_PTR_SET_RVALUE(payload_, payload) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Commands& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      // The parameter object corresponding to the command type. For a skill command, you must specify the skill to be executed by using `skillId`. The `name` parameter is optional and is used only to save a snapshot of the display name. It is not used for execution or authorization checks. For a compact command, omit this object.
+      shared_ptr<Commands::Payload> payload_ {};
+      // The command type.
+      shared_ptr<string> type_ {};
     };
 
     class Attachments : public Darabonba::Model {
@@ -162,7 +254,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->attachments_ == nullptr
-        && this->content_ == nullptr && this->resume_ == nullptr && this->runId_ == nullptr && this->type_ == nullptr; };
+        && this->commands_ == nullptr && this->content_ == nullptr && this->resume_ == nullptr && this->runId_ == nullptr && this->type_ == nullptr; };
     // attachments Field Functions 
     bool hasAttachments() const { return this->attachments_ != nullptr;};
     void deleteAttachments() { this->attachments_ = nullptr;};
@@ -170,6 +262,15 @@ namespace Models
     inline vector<SendMessageRequest::Attachments> getAttachments() { DARABONBA_PTR_GET(attachments_, vector<SendMessageRequest::Attachments>) };
     inline SendMessageRequest& setAttachments(const vector<SendMessageRequest::Attachments> & attachments) { DARABONBA_PTR_SET_VALUE(attachments_, attachments) };
     inline SendMessageRequest& setAttachments(vector<SendMessageRequest::Attachments> && attachments) { DARABONBA_PTR_SET_RVALUE(attachments_, attachments) };
+
+
+    // commands Field Functions 
+    bool hasCommands() const { return this->commands_ != nullptr;};
+    void deleteCommands() { this->commands_ = nullptr;};
+    inline const vector<SendMessageRequest::Commands> & getCommands() const { DARABONBA_PTR_GET_CONST(commands_, vector<SendMessageRequest::Commands>) };
+    inline vector<SendMessageRequest::Commands> getCommands() { DARABONBA_PTR_GET(commands_, vector<SendMessageRequest::Commands>) };
+    inline SendMessageRequest& setCommands(const vector<SendMessageRequest::Commands> & commands) { DARABONBA_PTR_SET_VALUE(commands_, commands) };
+    inline SendMessageRequest& setCommands(vector<SendMessageRequest::Commands> && commands) { DARABONBA_PTR_SET_RVALUE(commands_, commands) };
 
 
     // content Field Functions 
@@ -205,13 +306,15 @@ namespace Models
   protected:
     // The list of attachments.
     shared_ptr<vector<SendMessageRequest::Attachments>> attachments_ {};
+    // The MESSAGE commands. A skill command must include `payload.skillId`. A compact command must be sent separately without a body or attachments.
+    shared_ptr<vector<SendMessageRequest::Commands>> commands_ {};
     // The message text in MESSAGE mode. This parameter cannot be empty. The type parameter can be omitted in this mode.
     shared_ptr<string> content_ {};
-    // The list of interrupt replies. This parameter is required when type is set to RESUME. You must reply to all pending interrupts at once. Each interruptId can appear only once.
+    // The list of interrupt replies. This parameter is required when `type` is set to `RESUME`. You must reply to all pending interrupts at once. Each `interruptId` can appear only once.
     shared_ptr<vector<SendMessageRequest::Resume>> resume_ {};
     // The ID of the active run to resubscribe to. This parameter is required in RECONNECT mode.
     shared_ptr<string> runId_ {};
-    // The request type. Valid values: MESSAGE (sends a message), RESUME (resumes a run), and RECONNECT (reconnects to a run). Default value: MESSAGE.
+    // The request type. Valid values: `MESSAGE` (sends a message), `RESUME` (resumes a run), and `RECONNECT` (reconnects to a run). Default value: `MESSAGE`.
     shared_ptr<string> type_ {};
   };
 

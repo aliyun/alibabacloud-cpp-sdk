@@ -186,7 +186,7 @@ namespace Models
 
 
             protected:
-              // The tool parameters as a JSON string.
+              // The tool parameters in the form of a JSON string.
               shared_ptr<string> arguments_ {};
               // The name of the function or tool.
               shared_ptr<string> name_ {};
@@ -234,15 +234,15 @@ namespace Models
 
 
           protected:
-            // The encrypted content of the tool invocation. The example is a placeholder value only.
+            // The encrypted content of the tool invocation. The example is only a placeholder value.
             shared_ptr<string> encryptedValue_ {};
-            // The information about the function to execute.
+            // The information about the function to be executed.
             shared_ptr<ToolCalls::Function> function_ {};
-            // The tool invocation ID.
+            // The ID of the tool invocation.
             shared_ptr<string> id_ {};
             // The extended metadata of the tool invocation.
             Darabonba::Json metadata_ {};
-            // The tool invocation type. The value is fixed to `function`.
+            // The type of the tool invocation. The value is fixed to `function`.
             shared_ptr<string> type_ {};
           };
 
@@ -324,7 +324,7 @@ namespace Models
               shared_ptr<string> interruptId_ {};
               // The processing result for the corresponding interrupt. The result must comply with the responseSchema of the interrupt.
               Darabonba::Json payload_ {};
-              // The response method for this interrupt. Valid values: `resolved` (the answer, confirmation, or tool result required by the interrupt has been submitted, which includes the `payload`) and `cancelled` (the interrupt has been canceled, which does not include the `payload`).
+              // The response method for the interrupt. Valid values: `resolved` (the answer, confirmation, or tool result required by the interrupt has been submitted, including the `payload`) and `cancelled` (the interrupt has been canceled, excluding the `payload`).
               shared_ptr<string> status_ {};
             };
 
@@ -361,7 +361,7 @@ namespace Models
 
 
           protected:
-            // The time when the interrupt processing was completed, in RFC 3339 format.
+            // The time when the interrupt processing is completed, in RFC 3339 format.
             shared_ptr<string> resolvedAt_ {};
             // The submitted processing results for each interrupt.
             shared_ptr<vector<ResumeInput::Resume>> resume_ {};
@@ -547,15 +547,15 @@ namespace Models
               protected:
                 // The list of API operations that require approval.
                 shared_ptr<vector<Data::ApiCalls>> apiCalls_ {};
-                // The ID of the associated approval request.
+                // The ID of the associated approval ticket.
                 shared_ptr<string> approvalId_ {};
-                // The URL of the approval page. The example URL cannot be used for actual approvals.
+                // The URL of the approval page. The example URL cannot be used for actual approval.
                 shared_ptr<string> approvalUrl_ {};
-                // Specifies whether the approval can be canceled.
+                // Indicates whether the approval can be canceled.
                 shared_ptr<bool> cancellable_ {};
-                // The summary identifier of the change pending approval.
+                // The digest identifier of the change pending approval.
                 shared_ptr<string> changeDigest_ {};
-                // The title of the approval request.
+                // The title of the approval item.
                 shared_ptr<string> title_ {};
               };
 
@@ -625,21 +625,21 @@ namespace Models
 
 
             protected:
-              // The supplementary business data for the interrupt.
+              // The supplementary business data of the interrupt.
               shared_ptr<Interrupts::Data> data_ {};
               // The expiration time of the interrupt, in RFC 3339 format.
               shared_ptr<string> expiresAt_ {};
-              // The interrupt ID.
+              // The ID of the interrupt.
               shared_ptr<string> id_ {};
               // The interrupt prompt displayed to the user.
               shared_ptr<string> message_ {};
               // The extended metadata of the interrupt.
               Darabonba::Json metadata_ {};
-              // The reason for the interrupt. Valid values: `tool_call` (tool invocation requires processing), `input_required` (user input is required), `confirmation` (confirmation is required), and `out_of_band_approval` (waiting for out-of-band approval).
+              // The reason for the interrupt. Valid values: `tool_call` (the tool invocation needs to be processed), `input_required` (user input is required), `confirmation` (confirmation is required), and `out_of_band_approval` (waiting for out-of-band approval).
               shared_ptr<string> reason_ {};
               // The JSON schema that the resume result payload must follow.
               Darabonba::Json responseSchema_ {};
-              // The tool invocation ID associated with the interrupt.
+              // The ID of the tool invocation associated with the interrupt.
               shared_ptr<string> toolCallId_ {};
             };
 
@@ -664,7 +664,7 @@ namespace Models
           protected:
             // The list of historical interrupts.
             shared_ptr<vector<InterruptOutcome::Interrupts>> interrupts_ {};
-            // The interrupt result type. The value is fixed to `interrupt`.
+            // The type of the interrupt result. The value is fixed to `interrupt`.
             shared_ptr<string> type_ {};
           };
 
@@ -769,13 +769,13 @@ namespace Models
         protected:
           // The type identifier of the activity message.
           shared_ptr<string> activityType_ {};
-          // The message content. The structure is determined by the message type.
+          // The content of the message. The structure is determined by the message type.
           Darabonba::Json content_ {};
-          // The encrypted content. The example is an invalid placeholder value and does not contain actual ciphertext.
+          // The encrypted content. The example is an invalid placeholder value and does not contain real ciphertext.
           shared_ptr<string> encryptedValue_ {};
           // The error description when the tool execution fails.
           shared_ptr<string> error_ {};
-          // The message ID.
+          // The ID of the message.
           shared_ptr<string> id_ {};
           // The result information of the historical interrupt.
           shared_ptr<Message::InterruptOutcome> interruptOutcome_ {};
@@ -787,7 +787,7 @@ namespace Models
           shared_ptr<Message::ResumeInput> resumeInput_ {};
           // The role of the message. Valid values: `user` (user message), `assistant` (assistant message), `tool` (tool result), `activity` (activity message), `reasoning` (reasoning message), and `interrupt` (interrupt record).
           shared_ptr<string> role_ {};
-          // The tool invocation ID associated with the tool result.
+          // The ID of the tool invocation associated with the tool result.
           shared_ptr<string> toolCallId_ {};
           // The list of tool invocations initiated by the agent.
           shared_ptr<vector<Message::ToolCalls>> toolCalls_ {};
@@ -812,7 +812,7 @@ namespace Models
 
 
       protected:
-        // The message object. Message types are distinguished by role, and each type uses its corresponding fields.
+        // The message object. Different message types are distinguished by role, and each type uses the corresponding fields.
         shared_ptr<Timeline::Message> message_ {};
         // The ID of the run to which the message belongs.
         shared_ptr<string> runId_ {};
@@ -855,9 +855,9 @@ namespace Models
       shared_ptr<string> nextToken_ {};
       // The ID of the session to which the messages belong.
       shared_ptr<string> sessionId_ {};
-      // The message records returned in chronological order.
+      // The message records returned in the timeline.
       shared_ptr<vector<Data::Timeline>> timeline_ {};
-      // The number of timeline records on the current page. The value is equal to the length of the timeline array.
+      // The number of timeline records on the current page, which is equal to the length of the timeline array.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -889,9 +889,9 @@ namespace Models
   protected:
     // The message history and pagination information.
     shared_ptr<ListMessagesResponseBody::Data> data_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The ID of the request. You can use the ID to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. A value of true indicates success.
+    // Indicates whether the request is successful. A value of true indicates success.
     shared_ptr<bool> success_ {};
   };
 

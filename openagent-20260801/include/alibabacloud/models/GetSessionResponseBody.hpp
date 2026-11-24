@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(title, title_);
+        DARABONBA_PTR_TO_JSON(uiEnabled, uiEnabled_);
         DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(title, title_);
+        DARABONBA_PTR_FROM_JSON(uiEnabled, uiEnabled_);
         DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
       };
       Data() = default ;
@@ -68,7 +70,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createdAt_ == nullptr
         && this->lastRunId_ == nullptr && this->lastRunStatus_ == nullptr && this->pinned_ == nullptr && this->sessionId_ == nullptr && this->status_ == nullptr
-        && this->title_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->title_ == nullptr && this->uiEnabled_ == nullptr && this->updatedAt_ == nullptr; };
       // createdAt Field Functions 
       bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
       void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -118,6 +120,13 @@ namespace Models
       inline Data& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
+      // uiEnabled Field Functions 
+      bool hasUiEnabled() const { return this->uiEnabled_ != nullptr;};
+      void deleteUiEnabled() { this->uiEnabled_ = nullptr;};
+      inline bool getUiEnabled() const { DARABONBA_PTR_GET_DEFAULT(uiEnabled_, false) };
+      inline Data& setUiEnabled(bool uiEnabled) { DARABONBA_PTR_SET_VALUE(uiEnabled_, uiEnabled) };
+
+
       // updatedAt Field Functions 
       bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
       void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
@@ -126,21 +135,23 @@ namespace Models
 
 
     protected:
-      // The time when the session was created, in ISO 8601 format.
+      // The time when the session was created. The time is in the ISO 8601 format.
       shared_ptr<string> createdAt_ {};
-      // The ID of the last run.
+      // The ID of the most recent run.
       shared_ptr<string> lastRunId_ {};
-      // The status of the last run. Valid values: `PENDING` (pending), `RUNNING` (running), `WAITING_USER` (waiting for interrupt handling), `COMPLETED` (completed), `FAILED` (failed), `CANCELLED` (cancelled), `REJECTED` (rejected).
+      // The status of the most recent run. Valid values: `PENDING` (Pending), `RUNNING` (Running), `WAITING_USER` (Waiting for interrupt handling), `COMPLETED` (Completed), `FAILED` (Failed), `CANCELLED` (Cancelled), and `REJECTED` (Rejected).
       shared_ptr<string> lastRunStatus_ {};
       // Indicates whether the session is pinned.
       shared_ptr<bool> pinned_ {};
-      // The session ID.
+      // The ID of the session.
       shared_ptr<string> sessionId_ {};
-      // The session status. Valid values: `IDLE` (idle), `ACTIVE` (running), `WAITING_USER_INPUT` (waiting for user input), `WAITING_APPROVAL` (waiting for user confirmation), `WAITING_OUT_OF_BAND_APPROVAL` (waiting for out-of-band approval), `CLOSED` (closed).
+      // The status of the session. Valid values: `IDLE` (Idle), `ACTIVE` (Running), `WAITING_USER_INPUT` (Waiting for user input), `WAITING_APPROVAL` (Waiting for user confirmation), `WAITING_OUT_OF_BAND_APPROVAL` (Waiting for out-of-band approval), and `CLOSED` (Closed).
       shared_ptr<string> status_ {};
-      // The session title.
+      // The title of the session.
       shared_ptr<string> title_ {};
-      // The time when the session was last updated, in ISO 8601 format.
+      // 是否启用会话 UI 增强。true 表示启用，false 表示关闭；仅普通会话支持。未返回该字段时按未启用处理。
+      shared_ptr<bool> uiEnabled_ {};
+      // The time when the session was last updated. The time is in the ISO 8601 format.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -170,9 +181,9 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<GetSessionResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

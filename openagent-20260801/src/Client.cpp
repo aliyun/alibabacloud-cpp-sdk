@@ -104,7 +104,7 @@ CancelRunResponse Client::cancelRun(const string &sessionId, const string &runId
 /**
  * @summary Creates a session.
  *
- * @description Creates a session and returns the session information. Use the returned sessionId for subsequent operations such as sending messages, querying records, and updating the session.
+ * @description Creates a session and returns the session information. Use the returned sessionId to send messages, query records, and update the session in subsequent operations.
  *
  * @param request CreateSessionRequest
  * @param headers CreateSessionHeaders
@@ -116,6 +116,10 @@ CreateSessionResponse Client::createSessionWithOptions(const CreateSessionReques
   json body = {};
   if (!!request.hasTitle()) {
     body["title"] = request.getTitle();
+  }
+
+  if (!!request.hasUiEnabled()) {
+    body["uiEnabled"] = request.getUiEnabled();
   }
 
   map<string, string> realHeaders = {};
@@ -148,7 +152,7 @@ CreateSessionResponse Client::createSessionWithOptions(const CreateSessionReques
 /**
  * @summary Creates a session.
  *
- * @description Creates a session and returns the session information. Use the returned sessionId for subsequent operations such as sending messages, querying records, and updating the session.
+ * @description Creates a session and returns the session information. Use the returned sessionId to send messages, query records, and update the session in subsequent operations.
  *
  * @param request CreateSessionRequest
  * @return CreateSessionResponse
@@ -214,7 +218,7 @@ DeleteSessionResponse Client::deleteSession(const string &sessionId, const Delet
 /**
  * @summary Queries the read-only mode.
  *
- * @description Queries the read-only mode switch of the current account. It is enabled by default if not configured.
+ * @description Queries the read-only mode switch for the current account. The read-only mode is enabled by default if not configured.
  *
  * @param request GetReadonlyModeRequest
  * @param headers map
@@ -243,7 +247,7 @@ GetReadonlyModeResponse Client::getReadonlyModeWithOptions(const GetReadonlyMode
 /**
  * @summary Queries the read-only mode.
  *
- * @description Queries the read-only mode switch of the current account. It is enabled by default if not configured.
+ * @description Queries the read-only mode switch for the current account. The read-only mode is enabled by default if not configured.
  *
  * @param request GetReadonlyModeRequest
  * @return GetReadonlyModeResponse
@@ -298,9 +302,9 @@ GetRunResponse Client::getRun(const string &sessionId, const string &runId, cons
 }
 
 /**
- * @summary Queries a session.
+ * @summary Queries the details of a session.
  *
- * @description Queries the title, status, and pinned state of a specified session, along with the ID and status of its last run.
+ * @description Queries the title, status, and pinning status of a specified session, as well as the ID and status of its most recent run.
  *
  * @param request GetSessionRequest
  * @param headers map
@@ -327,9 +331,9 @@ GetSessionResponse Client::getSessionWithOptions(const string &sessionId, const 
 }
 
 /**
- * @summary Queries a session.
+ * @summary Queries the details of a session.
  *
- * @description Queries the title, status, and pinned state of a specified session, along with the ID and status of its last run.
+ * @description Queries the title, status, and pinning status of a specified session, as well as the ID and status of its most recent run.
  *
  * @param request GetSessionRequest
  * @return GetSessionResponse
@@ -343,7 +347,7 @@ GetSessionResponse Client::getSession(const string &sessionId, const GetSessionR
 /**
  * @summary Lists messages.
  *
- * @description Queries the message timeline of a specified session in pages. Use the returned nextToken to retrieve the next page.
+ * @description Performs a paged query on the message timeline of a specified session. Use the returned nextToken for paging.
  *
  * @param request ListMessagesRequest
  * @param headers map
@@ -386,7 +390,7 @@ ListMessagesResponse Client::listMessagesWithOptions(const string &sessionId, co
 /**
  * @summary Lists messages.
  *
- * @description Queries the message timeline of a specified session in pages. Use the returned nextToken to retrieve the next page.
+ * @description Performs a paged query on the message timeline of a specified session. Use the returned nextToken for paging.
  *
  * @param request ListMessagesRequest
  * @return ListMessagesResponse
@@ -400,7 +404,7 @@ ListMessagesResponse Client::listMessages(const string &sessionId, const ListMes
 /**
  * @summary Lists sessions.
  *
- * @description Performs a paging query for the list of sessions accessible to the current invoke identity. Use the returned nextToken to retrieve the next page.
+ * @description Performs a paged query for the list of sessions accessible to the current invoke identity. Use the returned nextToken for paging to retrieve the next page.
  *
  * @param request ListSessionsRequest
  * @param headers map
@@ -439,7 +443,7 @@ ListSessionsResponse Client::listSessionsWithOptions(const ListSessionsRequest &
 /**
  * @summary Lists sessions.
  *
- * @description Performs a paging query for the list of sessions accessible to the current invoke identity. Use the returned nextToken to retrieve the next page.
+ * @description Performs a paged query for the list of sessions accessible to the current invoke identity. Use the returned nextToken for paging to retrieve the next page.
  *
  * @param request ListSessionsRequest
  * @return ListSessionsResponse
@@ -453,7 +457,7 @@ ListSessionsResponse Client::listSessions(const ListSessionsRequest &request) {
 /**
  * @summary Sends a message.
  *
- * @description Sends a message to a specified session, submits interrupt handling results, or reconnects to a specified run. Returns the run progress and results through a Server-Sent Events (SSE) event stream.
+ * @description Sends a message to a specified session, submits interrupt processing results, or reconnects to a specified run. Returns the run progress and results through a Server-Sent Events (SSE) event stream.
  *
  * @param request SendMessageRequest
  * @param headers SendMessageHeaders
@@ -465,6 +469,10 @@ FutureGenerator<SendMessageResponse> Client::sendMessageWithSSE(const string &se
   json body = {};
   if (!!request.hasAttachments()) {
     body["attachments"] = request.getAttachments();
+  }
+
+  if (!!request.hasCommands()) {
+    body["commands"] = request.getCommands();
   }
 
   if (!!request.hasContent()) {
@@ -527,7 +535,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 /**
  * @summary Sends a message.
  *
- * @description Sends a message to a specified session, submits interrupt handling results, or reconnects to a specified run. Returns the run progress and results through a Server-Sent Events (SSE) event stream.
+ * @description Sends a message to a specified session, submits interrupt processing results, or reconnects to a specified run. Returns the run progress and results through a Server-Sent Events (SSE) event stream.
  *
  * @param request SendMessageRequest
  * @param headers SendMessageHeaders
@@ -539,6 +547,10 @@ SendMessageResponse Client::sendMessageWithOptions(const string &sessionId, cons
   json body = {};
   if (!!request.hasAttachments()) {
     body["attachments"] = request.getAttachments();
+  }
+
+  if (!!request.hasCommands()) {
+    body["commands"] = request.getCommands();
   }
 
   if (!!request.hasContent()) {
@@ -587,7 +599,7 @@ SendMessageResponse Client::sendMessageWithOptions(const string &sessionId, cons
 /**
  * @summary Sends a message.
  *
- * @description Sends a message to a specified session, submits interrupt handling results, or reconnects to a specified run. Returns the run progress and results through a Server-Sent Events (SSE) event stream.
+ * @description Sends a message to a specified session, submits interrupt processing results, or reconnects to a specified run. Returns the run progress and results through a Server-Sent Events (SSE) event stream.
  *
  * @param request SendMessageRequest
  * @return SendMessageResponse
@@ -648,9 +660,9 @@ UpdateReadonlyModeResponse Client::updateReadonlyMode(const UpdateReadonlyModeRe
 }
 
 /**
- * @summary Updates the title or pinned status of a session.
+ * @summary Updates a session.
  *
- * @description Updates the title or pinned status of a specified session. You must specify at least one of the title and pinned parameters. Fields that are not specified remain unchanged.
+ * @description Updates the title or pinned status of a specified session. Specify at least one of the title and pinned fields. Fields that are not specified remain unchanged.
  *
  * @param request UpdateSessionRequest
  * @param headers UpdateSessionHeaders
@@ -666,6 +678,10 @@ UpdateSessionResponse Client::updateSessionWithOptions(const string &sessionId, 
 
   if (!!request.hasTitle()) {
     body["title"] = request.getTitle();
+  }
+
+  if (!!request.hasUiEnabled()) {
+    body["uiEnabled"] = request.getUiEnabled();
   }
 
   map<string, string> realHeaders = {};
@@ -696,9 +712,9 @@ UpdateSessionResponse Client::updateSessionWithOptions(const string &sessionId, 
 }
 
 /**
- * @summary Updates the title or pinned status of a session.
+ * @summary Updates a session.
  *
- * @description Updates the title or pinned status of a specified session. You must specify at least one of the title and pinned parameters. Fields that are not specified remain unchanged.
+ * @description Updates the title or pinned status of a specified session. Specify at least one of the title and pinned fields. Fields that are not specified remain unchanged.
  *
  * @param request UpdateSessionRequest
  * @return UpdateSessionResponse

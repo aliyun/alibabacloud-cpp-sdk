@@ -98,7 +98,7 @@ namespace Models
 
 
     protected:
-      // The configuration name. The value is fixed to readonly.
+      // The configuration name. The value is fixed as readonly.
       shared_ptr<string> configName_ {};
       // Indicates whether a configuration record already exists.
       shared_ptr<bool> exists_ {};
@@ -106,7 +106,7 @@ namespace Models
       shared_ptr<string> gmtUpdate_ {};
       // The current effective configuration value. The value is returned as a string, either true or false.
       shared_ptr<string> value_ {};
-      // The type of the configuration value. The value is BOOL for this operation.
+      // The type of the configuration value. For this operation, the value is BOOL.
       shared_ptr<string> valueType_ {};
     };
 

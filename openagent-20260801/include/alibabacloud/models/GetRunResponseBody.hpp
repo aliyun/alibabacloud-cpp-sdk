@@ -319,7 +319,7 @@ namespace Models
         protected:
           // The interrupt data.
           shared_ptr<Interrupts::Data> data_ {};
-          // The interrupt expiration time in ISO 8601 format.
+          // The expiration time of the interrupt, in ISO 8601 format.
           shared_ptr<string> expiresAt_ {};
           // The interrupt ID.
           shared_ptr<string> id_ {};
@@ -328,12 +328,12 @@ namespace Models
           // The extended information.
           Darabonba::Json metadata_ {};
           // The interrupt reason. Valid values:
-          // - `tool_call`: tool invocation requires handling
-          // - `input_required`: user input is required
-          // - `confirmation`: confirmation is required
-          // - `out_of_band_approval`: waiting for out-of-band approval
+          // - `tool_call`: Tool invocation requires handling.
+          // - `input_required`: User input is required.
+          // - `confirmation`: Confirmation is required.
+          // - `out_of_band_approval`: Waiting for out-of-band approval.
           shared_ptr<string> reason_ {};
-          // The JSON schema that the payload must comply with when resuming this interrupt.
+          // The JSON schema that the payload must conform to when resuming this interrupt.
           Darabonba::Json responseSchema_ {};
           // The tool invocation ID.
           shared_ptr<string> toolCallId_ {};
@@ -358,11 +358,11 @@ namespace Models
 
 
       protected:
-        // The interrupt list.
+        // The list of interrupts.
         shared_ptr<vector<Outcome::Interrupts>> interrupts_ {};
-        // The result type. Valid values:
-        // - `success`: successfully completed
-        // - `interrupt`: waiting for interrupt handling
+        // The outcome type. Valid values:
+        // - `success`: Successfully completed.
+        // - `interrupt`: Waiting for interrupt handling.
         shared_ptr<string> type_ {};
       };
 
@@ -413,7 +413,7 @@ namespace Models
 
 
     protected:
-      // The run creation time in ISO 8601 format.
+      // The creation time of the run, in ISO 8601 format.
       shared_ptr<string> createdAt_ {};
       // The run outcome.
       shared_ptr<Data::Outcome> outcome_ {};
@@ -422,15 +422,15 @@ namespace Models
       // The session ID.
       shared_ptr<string> sessionId_ {};
       // The run status. Valid values:
-      // - `PENDING`: pending execution
-      // - `RUNNING`: running
-      // - `WAITING_USER`: waiting for interrupt handling
-      // - `COMPLETED`: completed
-      // - `FAILED`: failed
-      // - `CANCELLED`: canceled
-      // - `REJECTED`: rejected
+      // - `PENDING`: Pending execution.
+      // - `RUNNING`: Running.
+      // - `WAITING_USER`: Waiting for interrupt handling.
+      // - `COMPLETED`: Completed.
+      // - `FAILED`: Failed.
+      // - `CANCELLED`: Canceled.
+      // - `REJECTED`: Rejected.
       shared_ptr<string> status_ {};
-      // The last update time of the run in ISO 8601 format.
+      // The last update time of the run, in ISO 8601 format.
       shared_ptr<string> updatedAt_ {};
     };
 

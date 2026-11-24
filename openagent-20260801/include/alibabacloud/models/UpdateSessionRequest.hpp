@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateSessionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(pinned, pinned_);
       DARABONBA_PTR_TO_JSON(title, title_);
+      DARABONBA_PTR_TO_JSON(uiEnabled, uiEnabled_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateSessionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(pinned, pinned_);
       DARABONBA_PTR_FROM_JSON(title, title_);
+      DARABONBA_PTR_FROM_JSON(uiEnabled, uiEnabled_);
     };
     UpdateSessionRequest() = default ;
     UpdateSessionRequest(const UpdateSessionRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pinned_ == nullptr
-        && this->title_ == nullptr; };
+        && this->title_ == nullptr && this->uiEnabled_ == nullptr; };
     // pinned Field Functions 
     bool hasPinned() const { return this->pinned_ != nullptr;};
     void deletePinned() { this->pinned_ = nullptr;};
@@ -47,11 +49,20 @@ namespace Models
     inline UpdateSessionRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
+    // uiEnabled Field Functions 
+    bool hasUiEnabled() const { return this->uiEnabled_ != nullptr;};
+    void deleteUiEnabled() { this->uiEnabled_ = nullptr;};
+    inline bool getUiEnabled() const { DARABONBA_PTR_GET_DEFAULT(uiEnabled_, false) };
+    inline UpdateSessionRequest& setUiEnabled(bool uiEnabled) { DARABONBA_PTR_SET_VALUE(uiEnabled_, uiEnabled) };
+
+
   protected:
-    // Specifies whether to pin the session. If this parameter is not specified, the pinned status remains unchanged.
+    // Specifies whether to pin the session. If this field is not specified, the pinned status remains unchanged.
     shared_ptr<bool> pinned_ {};
-    // The updated title of the session. If you do not need to update the title, you can leave this parameter empty.
+    // The updated title of the session. If you do not need to update the title, you can leave this field unspecified.
     shared_ptr<string> title_ {};
+    // 是否启用会话 UI 增强；仅普通会话支持
+    shared_ptr<bool> uiEnabled_ {};
   };
 
   } // namespace Models

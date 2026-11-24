@@ -40,6 +40,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(pinned, pinned_);
         DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
         DARABONBA_PTR_TO_JSON(status, status_);
+        DARABONBA_PTR_TO_JSON(uiEnabled, uiEnabled_);
         DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
@@ -47,6 +48,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(pinned, pinned_);
         DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
         DARABONBA_PTR_FROM_JSON(status, status_);
+        DARABONBA_PTR_FROM_JSON(uiEnabled, uiEnabled_);
         DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
       };
       Data() = default ;
@@ -61,7 +63,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->pinned_ == nullptr && this->sessionId_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->pinned_ == nullptr && this->sessionId_ == nullptr && this->status_ == nullptr && this->uiEnabled_ == nullptr && this->updatedAt_ == nullptr; };
       // createdAt Field Functions 
       bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
       void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -90,6 +92,13 @@ namespace Models
       inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // uiEnabled Field Functions 
+      bool hasUiEnabled() const { return this->uiEnabled_ != nullptr;};
+      void deleteUiEnabled() { this->uiEnabled_ = nullptr;};
+      inline bool getUiEnabled() const { DARABONBA_PTR_GET_DEFAULT(uiEnabled_, false) };
+      inline Data& setUiEnabled(bool uiEnabled) { DARABONBA_PTR_SET_VALUE(uiEnabled_, uiEnabled) };
+
+
       // updatedAt Field Functions 
       bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
       void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
@@ -106,6 +115,8 @@ namespace Models
       shared_ptr<string> sessionId_ {};
       // The session status. The value is fixed to `IDLE` upon successful creation.
       shared_ptr<string> status_ {};
+      // 是否启用会话 UI 增强。true 表示启用，false 表示关闭；仅普通会话支持。未返回该字段时按未启用处理。
+      shared_ptr<bool> uiEnabled_ {};
       // The time when the session was last updated, in ISO 8601 format.
       shared_ptr<string> updatedAt_ {};
     };
@@ -136,7 +147,7 @@ namespace Models
 
 
   protected:
-    // The session information of the created session.
+    // The created session information.
     shared_ptr<CreateSessionResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

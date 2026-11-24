@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateSessionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(title, title_);
+      DARABONBA_PTR_TO_JSON(uiEnabled, uiEnabled_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSessionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(title, title_);
+      DARABONBA_PTR_FROM_JSON(uiEnabled, uiEnabled_);
     };
     CreateSessionRequest() = default ;
     CreateSessionRequest(const CreateSessionRequest &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->title_ == nullptr; };
+    virtual bool empty() const override { return this->title_ == nullptr
+        && this->uiEnabled_ == nullptr; };
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
@@ -37,9 +40,18 @@ namespace Models
     inline CreateSessionRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
+    // uiEnabled Field Functions 
+    bool hasUiEnabled() const { return this->uiEnabled_ != nullptr;};
+    void deleteUiEnabled() { this->uiEnabled_ = nullptr;};
+    inline bool getUiEnabled() const { DARABONBA_PTR_GET_DEFAULT(uiEnabled_, false) };
+    inline CreateSessionRequest& setUiEnabled(bool uiEnabled) { DARABONBA_PTR_SET_VALUE(uiEnabled_, uiEnabled) };
+
+
   protected:
     // The session title.
     shared_ptr<string> title_ {};
+    // 是否启用会话 UI 增强；仅普通会话支持
+    shared_ptr<bool> uiEnabled_ {};
   };
 
   } // namespace Models
