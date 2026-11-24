@@ -194,28 +194,28 @@ namespace Models
       protected:
         // The number of CPU cores of the node.
         shared_ptr<int32_t> cpuCores_ {};
-        // The CPU usage (%).
+        // The CPU utilization (%).
         shared_ptr<string> cpuPercent_ {};
         // The total disk capacity of the node, in GB.
         shared_ptr<int32_t> diskSizeGB_ {};
-        // The disk space usage of the node.
+        // The disk space utilization of the node.
         shared_ptr<string> diskUsedPercent_ {};
-        // The total number of unresolved baseline check items.
+        // The total number of unresolved baseline checks.
         shared_ptr<string> health_ {};
-        // The JVM heap memory usage of the node.
+        // The JVM heap memory utilization of the node.
         shared_ptr<string> heapPercent_ {};
         // The IP address and port of the session host that initiated the session.
         shared_ptr<string> host_ {};
-        // The name of the host on which the node instance runs. You can log on to the host and run the `hostname` command to view the hostname.
+        // The name of the host where the node instance runs. You can log on to the host and run the `hostname` command to view the hostname.
         shared_ptr<string> hostName_ {};
         // The average system load of the node over the last 1 minute.
         shared_ptr<string> loadOneM_ {};
-        // The amount of memory used.
+        // The amount of used memory.
         shared_ptr<int32_t> memoryGB_ {};
-        // The node type to query. Valid values:
-        // - all: queries both dn and gms nodes.
-        // - gms: queries only gms nodes.
-        // - dn: queries only dn nodes.
+        // The type of node to query. Valid values:
+        // - all: Queries both dn and gms nodes.
+        // - gms: Queries only gms nodes.
+        // - dn: Queries only dn nodes.
         shared_ptr<string> nodeType_ {};
         // The port.
         shared_ptr<int32_t> port_ {};
@@ -324,15 +324,15 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The identity used for authentication in the request.
+      // The identity identifier used for authentication in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of the authentication principal.
+      // The description as above.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The no-permission type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -368,7 +368,7 @@ namespace Models
   protected:
     // The details of the access denial.
     shared_ptr<DescribeOpenSearchNodesResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The data struct.
+    // The data structure.
     shared_ptr<DescribeOpenSearchNodesResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

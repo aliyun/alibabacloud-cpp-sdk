@@ -157,9 +157,9 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The no-permission type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -193,7 +193,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<DeletePxfuseResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The monitoring data.
     shared_ptr<DeletePxfuseResponseBody::Data> data_ {};

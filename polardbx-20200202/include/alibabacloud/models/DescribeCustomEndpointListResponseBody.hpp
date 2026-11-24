@@ -179,24 +179,24 @@ namespace Models
         shared_ptr<vector<string>> cnNames_ {};
         // The endpoint of the instance.
         shared_ptr<string> connectionString_ {};
-        // The custom endpoint ID.
+        // The ID of the custom endpoint.
         shared_ptr<string> customEndpointId_ {};
         // The instance ID.
         shared_ptr<string> DBInstanceName_ {};
         // The name.
         shared_ptr<string> name_ {};
-        // Specifies whether the node automatically joins the cluster and starts providing services after being added or restored.
+        // Indicates whether the node automatically joins the cluster and starts providing services after being added or restored.
         shared_ptr<string> nodeAutoEnter_ {};
-        // If you want to query the metrics of a read-only node in a cloud-native read/write splitting architecture instance, set this parameter to **READONLY** along with the specific **NodeId**.
-        // >  In other cases, you do not need to specify this parameter (or set it to **MASTER**).
+        // If you want to query the metrics of read-only nodes in a cloud-native instance with the read/write splitting architecture, you must set this parameter to **READONLY** and specify the **NodeId** parameter.
+        // > In other cases, you do not need to specify this parameter or you can set it to **MASTER**.
         shared_ptr<string> nodeRole_ {};
         // The connection port of the instance.
         shared_ptr<int32_t> port_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The vSwitch ID.
+        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
-        // The ID of the VPC where the endpoint resides.
+        // The ID of the virtual private cloud (VPC) where the endpoint resides.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -221,7 +221,7 @@ namespace Models
     protected:
       // Indicates whether the node can be deleted.
       shared_ptr<int32_t> canDeleteCount_ {};
-      // The endpoint details.
+      // The detailed information about the endpoints.
       shared_ptr<vector<Data::Endpoints>> endpoints_ {};
     };
 
@@ -244,7 +244,7 @@ namespace Models
 
 
   protected:
-    // The data struct.
+    // The data structure.
     shared_ptr<DescribeCustomEndpointListResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

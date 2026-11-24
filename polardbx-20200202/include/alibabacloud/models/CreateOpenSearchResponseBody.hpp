@@ -163,11 +163,11 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The name of the security principal.
+      // The name of the authenticated principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The Alibaba Cloud account ID of the security principal.
+      // The ID of the Alibaba Cloud account to which the authenticated principal belongs.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // Same as above.
+      // The type of the authenticated principal.
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};

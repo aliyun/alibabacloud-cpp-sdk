@@ -102,9 +102,9 @@ namespace Models
 
 
       protected:
-        // The name of the group.
+        // The group name.
         shared_ptr<string> groupName_ {};
-        // The tag of the group.
+        // The group tag.
         shared_ptr<string> groupTag_ {};
         // The IP whitelist.
         shared_ptr<string> securityIPList_ {};
@@ -131,7 +131,7 @@ namespace Models
     protected:
       // The instance name.
       shared_ptr<string> DBInstanceName_ {};
-      // The list of whitelist groups.
+      // The whitelist group list.
       shared_ptr<vector<Data::GroupItems>> groupItems_ {};
     };
 
@@ -221,17 +221,17 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The authentication principal name.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of the authentication principal.
+      // The authentication principal type.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The no permission type.
       shared_ptr<string> noPermissionType_ {};
-      // The type of the policy.
+      // The policy type.
       shared_ptr<string> policyType_ {};
     };
 
@@ -263,7 +263,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denied error.
+    // The access denied details.
     shared_ptr<DescribeSupabaseIpWhitelistResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The whitelist information.
     shared_ptr<DescribeSupabaseIpWhitelistResponseBody::Data> data_ {};

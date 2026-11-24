@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The name of the PolarDB-X Search instance.
+    // The name of the PolarDBX Search instance.
     // 
     // This parameter is required.
     shared_ptr<string> openSearchInstanceName_ {};

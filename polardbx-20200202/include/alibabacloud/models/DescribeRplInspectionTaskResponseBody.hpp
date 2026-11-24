@@ -147,13 +147,13 @@ namespace Models
         shared_ptr<string> description_ {};
         // The task ID.
         shared_ptr<int64_t> id_ {};
-        // slinktaskid。
+        // The Slink task ID.
         shared_ptr<string> slinkTaskId_ {};
         // The stage name.
         shared_ptr<string> stage_ {};
         // The task status.
         shared_ptr<string> status_ {};
-        // The timestamp when the task was last updated.
+        // The timestamp of the last task update.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -178,7 +178,7 @@ namespace Models
     protected:
       // The machine task information.
       shared_ptr<vector<Data::InspectionTaskList>> inspectionTaskList_ {};
-      // The slink status.
+      // The Slink status.
       shared_ptr<string> slinkStage_ {};
     };
 
@@ -221,7 +221,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

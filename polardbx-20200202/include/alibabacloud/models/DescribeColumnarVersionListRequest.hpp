@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The name of the instance.
     shared_ptr<string> DBInstanceName_ {};
-    // The region where the instance resides.
+    // The region where the instance is located.
     shared_ptr<string> regionId_ {};
   };
 

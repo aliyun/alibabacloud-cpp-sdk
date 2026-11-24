@@ -476,6 +476,9 @@
 #include <alibabacloud/models/ExecuteMetaQueryRequest.hpp>
 #include <alibabacloud/models/ExecuteMetaQueryResponseBody.hpp>
 #include <alibabacloud/models/ExecuteMetaQueryResponse.hpp>
+#include <alibabacloud/models/ListPxfsTenantsRequest.hpp>
+#include <alibabacloud/models/ListPxfsTenantsResponseBody.hpp>
+#include <alibabacloud/models/ListPxfsTenantsResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
@@ -554,6 +557,9 @@
 #include <alibabacloud/models/ModifyPxfsSecurityIpsRequest.hpp>
 #include <alibabacloud/models/ModifyPxfsSecurityIpsResponseBody.hpp>
 #include <alibabacloud/models/ModifyPxfsSecurityIpsResponse.hpp>
+#include <alibabacloud/models/ModifyPxfsTenantQuotaRequest.hpp>
+#include <alibabacloud/models/ModifyPxfsTenantQuotaResponseBody.hpp>
+#include <alibabacloud/models/ModifyPxfsTenantQuotaResponse.hpp>
 #include <alibabacloud/models/ModifyPxfuseSecurityIpsRequest.hpp>
 #include <alibabacloud/models/ModifyPxfuseSecurityIpsResponseBody.hpp>
 #include <alibabacloud/models/ModifyPxfuseSecurityIpsResponse.hpp>

@@ -150,22 +150,21 @@ namespace Models
 
 
         protected:
-          // Indicates whether the node is enabled. For the compute layer, only the primary zone node is enabled. After a primary/secondary switchover, the standby compute node becomes the primary node. All storage layer nodes are enabled.
+          // Indicates whether the node is enabled. In the compute layer, only nodes in the primary zone are enabled. After a primary/secondary switchover is performed on the instance, the secondary node in the compute layer is switched to the primary node. All nodes in the storage layer are enabled.
           shared_ptr<bool> activated_ {};
-          // The instance specification type (specification code).
+          // The instance type (instance type code).
           shared_ptr<string> class_ {};
           // The IP address.
           shared_ptr<string> ip_ {};
-          // The port number.
+          // The connection port number.
           shared_ptr<string> port_ {};
           // The replica ID.
           shared_ptr<int64_t> replicaId_ {};
           // The weight of the destination route.
-          // 
-          // - For VPN gateway instances that support the dual-tunnel mode for IPsec-VPN connections, the weight of the destination route is **100** by default and has no practical significance.
-          // - For VPN gateway instances that support the single-tunnel mode for IPsec-VPN connections, the weight represents the priority of the destination route:
-          //     - **100**: high priority. If multiple destination routes have the same destination CIDR block, the IPsec-VPN connection associated with this route serves as the active link.
-          //     - **0**: low priority. If multiple destination routes have the same destination CIDR block, the IPsec-VPN connection associated with this route serves as the standby link.
+          // - For VPN gateway instances that support the dual-tunnel mode for IPsec-VPN connections, the default weight of the destination route is **100**, which has no actual significance.
+          // - For VPN gateway instances that support the single-tunnel mode for IPsec-VPN connections, the weight of the destination route indicates the priority of the destination route:
+          //     - **100**: high priority. If multiple destination routes have the same destination CIDR block, the IPsec-VPN connection associated with this destination route serves as the primary link.
+          //     - **0**: low priority. If multiple destination routes have the same destination CIDR block, the IPsec-VPN connection associated with this destination route serves as the secondary link.
           shared_ptr<int64_t> weight_ {};
         };
 
@@ -347,43 +346,38 @@ namespace Models
         protected:
           // The address.
           shared_ptr<string> address_ {};
-          // The instance specification type (specification code).
+          // The instance type (instance type code).
           shared_ptr<string> class_ {};
           // The ID of the endpoint group to which the endpoint belongs.
           shared_ptr<int64_t> endpointGroupId_ {};
-          // The logical node ID.
+          // The ID of the logical node.
           shared_ptr<int64_t> id_ {};
-          // Indicates whether this is the default vSwitch.
+          // Indicates whether the vSwitch is the default vSwitch.
           shared_ptr<bool> isDefault_ {};
-          // The payload type. Valid values:
-          // - agentTurn: agent conversation.
-          // - systemEvent: system event.
+          // The payload type. Valid values: `agentTurn` (agent conversation) and `systemEvent` (system event).
           shared_ptr<string> kind_ {};
-          // The network type of the endpoint. Valid values:
-          // * **Public**: public endpoint.
-          // * **Private**: private endpoint.
-          // * **Inner**: private endpoint (classic network).
+          // The network type of the connection string. Valid values:
+          // * **Public**: public network address.
+          // * **Private**: private network address.
+          // * **Inner**: private network address (classic network).
           shared_ptr<string> netType_ {};
-          // The read/write type. Valid values:
-          // - ReadWrite: row store read/write.
-          // - ColumnarRead: column store read-only.
+          // The read/write type. Valid values: ReadWrite (row store read/write) and ColumnarRead (column store read-only).
           shared_ptr<string> readType_ {};
           // The object name.
           shared_ptr<string> targetName_ {};
           // The tunnel ID.
           shared_ptr<int64_t> tunnelId_ {};
           // The instance type. Valid values:
-          // 
           // - **ReadWrite**: primary instance.
           // - **ReadOnly**: read-only instance.
           shared_ptr<string> type_ {};
-          // Indicates whether the endpoint is visible to the user.
+          // Indicates whether the endpoint is visible to users.
           shared_ptr<bool> userVisible_ {};
           // The vSwitch ID.
           shared_ptr<string> vSwitchId_ {};
-          // The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance protected by the policy.
+          // The IP address of the Anti-DDoS instance protected by the policy.
           shared_ptr<string> vip_ {};
-          // The ID of the VPC in which the endpoint resides.
+          // The ID of the VPC where the endpoint resides.
           shared_ptr<string> vpcId_ {};
           // The VIP port, such as 80, 8080, or 443.
           shared_ptr<int64_t> vport_ {};
@@ -429,7 +423,7 @@ namespace Models
 
 
     protected:
-      // The internal connection type. The value is fixed as 1, which indicates the classic network.
+      // The internal connection method. Fixed value: 1, which indicates the classic network.
       shared_ptr<vector<Data::Items>> items_ {};
     };
 
@@ -468,9 +462,9 @@ namespace Models
   protected:
     // The monitoring data.
     shared_ptr<DescribeDBInstanceEndpointResponseBody::Data> data_ {};
-    // The number of entries per page for a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
+    // The number of entries to return on each page in a paged query. Maximum value: 100. Default value: 10. If you do not specify a value in Settings or the specified value is less than 10, the default value 10 is used for paging. If the specified value is greater than 100, the default value 100 is used.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

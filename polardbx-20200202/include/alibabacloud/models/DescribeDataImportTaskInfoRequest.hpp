@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The page number of the failed records.
+    // The page number for failed records.
     shared_ptr<int32_t> failPageNumber_ {};
-    // The number of failed records to display per page.
+    // The number of failed records to return on each page.
     shared_ptr<int32_t> failPageSize_ {};
     // The region where the instance resides.
     // 
@@ -96,9 +96,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> slinkTaskId_ {};
-    // The page number of the successful records.
+    // The page number for successful records.
     shared_ptr<int64_t> successPageNumber_ {};
-    // The number of successful records to display per page.
+    // The number of successful records to return on each page.
     shared_ptr<int64_t> successPageSize_ {};
   };
 

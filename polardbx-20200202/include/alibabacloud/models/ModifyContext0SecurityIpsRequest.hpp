@@ -82,9 +82,10 @@ namespace Models
     // The name of the whitelist group for the instance.
     shared_ptr<string> groupName_ {};
     // The modification mode of the whitelist. Valid values:
+    // 
     // - 0: Overwrites the whitelist group.
-    // - 1: Adds a whitelist group.
-    // - 2: Deletes a whitelist group.
+    // - 1: Appends IP addresses to the whitelist group.
+    // - 2: Deletes the whitelist group.
     shared_ptr<string> modifyMode_ {};
     // The ID of the region where the instance resides.
     // 

@@ -250,14 +250,14 @@ namespace Models
 
 
   protected:
-    // The instance name.
+    // The name of the instance.
     shared_ptr<string> DBInstanceName_ {};
-    // The end time of the query. Format: YYYY-MM-ddTHH:mm:ssZ (UTC).
+    // The end time of the query. The time is in the YYYY-MM-ddTHH:mm:ssZ format and in UTC.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeDBNodePerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. Format: YYYY-MM-ddTHH:mm:ssZ (UTC).
+    // The start time of the query. The time is in the YYYY-MM-ddTHH:mm:ssZ format and in UTC.
     shared_ptr<string> startTime_ {};
   };
 

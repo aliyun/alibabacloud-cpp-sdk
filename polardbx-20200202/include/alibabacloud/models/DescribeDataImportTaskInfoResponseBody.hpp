@@ -202,9 +202,9 @@ namespace Models
           protected:
             // The delay time.
             shared_ptr<int64_t> delay_ {};
-            // The most recent error message.
+            // The latest error message.
             shared_ptr<string> lastError_ {};
-            // The physical database name.
+            // The name of the physical database.
             shared_ptr<string> physicalDbName_ {};
             // The data import progress.
             shared_ptr<int64_t> progress_ {};
@@ -257,10 +257,9 @@ namespace Models
           shared_ptr<string> status_ {};
           // The task details.
           shared_ptr<vector<ServiceDetailList::TaskDetailList>> taskDetailList_ {};
-          // The replication type. Valid values:
-          // 
-          // - FULL_COPY: full replication.
-          // - INC_COPY: incremental replication.
+          // Valid values:
+          // - FULL_COPY: Full replication.
+          // - INC_COPY: Incremental replication.
           shared_ptr<string> type_ {};
         };
 
@@ -299,11 +298,11 @@ namespace Models
       protected:
         // The progress ID.
         shared_ptr<int64_t> fsmId_ {};
-        // The state identifier in the data migration or synchronization task.
+        // A state identifier in a data migration or synchronization task.
         shared_ptr<string> fsmState_ {};
-        // The status in the data migration, import, or synchronization system.
+        // The status in systems such as data migration, import, and synchronization.
         shared_ptr<string> fsmStatus_ {};
-        // The data import task details.
+        // The details of the data import task.
         shared_ptr<vector<DataImportTaskDetailInfo::ServiceDetailList>> serviceDetailList_ {};
       };
 
@@ -362,15 +361,15 @@ namespace Models
 
 
   protected:
-    // The response code. This parameter is empty when the request succeeds. If the request fails, an error message is returned, such as an error code.
+    // The response code. This parameter is empty when the request is successful. If the request fails, an exception message such as an error code is returned.
     shared_ptr<int64_t> code_ {};
-    // The result set.
+    // The returned result set.
     shared_ptr<DescribeDataImportTaskInfoResponseBody::Data> data_ {};
-    // The response message. This parameter has a value only when the task status is success. Otherwise, an empty value is returned.
+    // The returned message. This parameter has a value only when the task status is success. Otherwise, it is empty.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
   };
 

@@ -135,7 +135,7 @@ namespace Models
 
 
     protected:
-      // The capacity quota.
+      // The storage quota.
       shared_ptr<int64_t> quotaBytes_ {};
       // The file count quota.
       shared_ptr<int64_t> quotaFiles_ {};
@@ -145,13 +145,13 @@ namespace Models
       shared_ptr<int64_t> rateLimitWbps_ {};
       // The status.
       shared_ptr<string> status_ {};
-      // The tenant ID.
+      // The ID of the tenant.
       shared_ptr<string> tenantId_ {};
-      // The tenant name.
+      // The name of the tenant.
       shared_ptr<string> tenantName_ {};
-      // The used capacity.
+      // The used storage capacity.
       shared_ptr<int64_t> usedBytes_ {};
-      // The used file count.
+      // The number of used files.
       shared_ptr<int64_t> usedFiles_ {};
     };
 
@@ -247,9 +247,9 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The no-permission type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -285,9 +285,9 @@ namespace Models
   protected:
     // The details of the access denial.
     shared_ptr<DescribePxfsTenantResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<DescribePxfsTenantResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

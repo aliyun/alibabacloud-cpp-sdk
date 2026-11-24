@@ -159,7 +159,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<ScaleOutOpenSearchResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

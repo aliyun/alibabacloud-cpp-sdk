@@ -109,7 +109,7 @@ namespace Models
       shared_ptr<string> DBInstanceName_ {};
       // The ID of the task.
       shared_ptr<int32_t> taskId_ {};
-      // The list of task IDs in the task group.
+      // The IDs of the tasks in the task group.
       shared_ptr<vector<int32_t>> taskIds_ {};
     };
 
@@ -197,13 +197,13 @@ namespace Models
 
 
     protected:
-      // The authentication action.
+      // The authorization action.
       shared_ptr<string> authAction_ {};
-      // The name of the authentication principal.
+      // The display name of the authenticated principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the authentication principal.
+      // The owner ID of the authenticated principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of identity used for authentication in the request. Valid values:
+      // The type of the identity used for authentication in the request. Valid values:
       // - SubUser: RAM user.
       // - AssumedRoleUser: RAM role.
       // - Federated: SSO federated identity.

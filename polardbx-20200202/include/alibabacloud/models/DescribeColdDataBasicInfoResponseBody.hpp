@@ -148,9 +148,9 @@ namespace Models
       shared_ptr<double> backupSetSpaceSize_ {};
       // The underlying cloud storage service.
       shared_ptr<string> cloudProduct_ {};
-      // The data size of cold storage.
+      // The data size in cold storage.
       shared_ptr<double> currentSpaceSize_ {};
-      // The data redundancy type of cold storage. LRS indicates locally redundant storage.
+      // The data redundancy type for cold storage. LRS indicates locally redundant storage.
       shared_ptr<string> dataRedundancyType_ {};
       // Indicates whether cold storage is enabled.
       shared_ptr<bool> enableStatus_ {};

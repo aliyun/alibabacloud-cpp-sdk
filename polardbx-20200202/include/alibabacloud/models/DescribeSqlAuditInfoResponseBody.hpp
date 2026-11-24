@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The returned result set.
+    // The result set.
     shared_ptr<DescribeSqlAuditInfoResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

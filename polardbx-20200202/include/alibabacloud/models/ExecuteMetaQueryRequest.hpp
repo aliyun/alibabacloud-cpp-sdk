@@ -85,7 +85,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The SQL statement to execute.
+    // The SQL statement to be executed.
     // 
     // This parameter is required.
     shared_ptr<string> sql_ {};

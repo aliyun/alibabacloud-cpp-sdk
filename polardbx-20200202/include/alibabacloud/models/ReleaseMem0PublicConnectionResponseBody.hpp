@@ -125,9 +125,9 @@ namespace Models
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of missing permission.
+      // NoPermissionType
       shared_ptr<string> noPermissionType_ {};
-      // The policy type.
+      // PolicyType
       shared_ptr<string> policyType_ {};
     };
 
@@ -150,9 +150,9 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The detailed reason for access denial.
     shared_ptr<ReleaseMem0PublicConnectionResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

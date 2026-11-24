@@ -132,11 +132,11 @@ namespace Models
       protected:
         // The cause of the exception.
         shared_ptr<string> exceptionDetail_ {};
-        // The name of the table that encountered an exception.
+        // The name of the table with exceptions.
         shared_ptr<string> exceptionFullTableName_ {};
         // The number of completed records.
         shared_ptr<int32_t> finishedNum_ {};
-        // The current progress in percentage.
+        // The current progress (percentage).
         shared_ptr<int32_t> percentage_ {};
         // The import status.
         shared_ptr<string> status_ {};
@@ -163,9 +163,9 @@ namespace Models
 
 
     protected:
-      // The slink status.
+      // The Slink status.
       shared_ptr<string> slinkStage_ {};
-      // The import result of the schema import task.
+      // The import result of the structure import task.
       shared_ptr<Data::StructureImportResult> structureImportResult_ {};
     };
 
@@ -202,13 +202,13 @@ namespace Models
 
 
   protected:
-    // The result set.
+    // The returned result set.
     shared_ptr<DescribeStructureImportTaskInfoResponseBody::Data> data_ {};
-    // The returned message. This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
+    // The returned message. This parameter is empty when the request is successful. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

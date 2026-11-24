@@ -260,7 +260,7 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // NoPermissionType
       shared_ptr<string> noPermissionType_ {};

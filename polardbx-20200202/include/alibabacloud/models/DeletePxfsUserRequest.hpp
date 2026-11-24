@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The identity name.
+    // The name of the identity.
     // 
     // This parameter is required.
     shared_ptr<string> identityName_ {};
@@ -78,7 +78,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The tenant ID.
+    // The ID of the tenant.
     // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};

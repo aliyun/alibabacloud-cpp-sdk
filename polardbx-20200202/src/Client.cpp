@@ -2,11 +2,13 @@
 #include <alibabacloud/Polardbx20200202.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -18,6 +20,9 @@ namespace Polardbx20200202
 {
 
 AlibabaCloud::Polardbx20200202::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "polardbx";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"ap-northeast-1" , "polardbx.aliyuncs.com"},
@@ -188,9 +193,9 @@ AllocateColdDataVolumeResponse Client::allocateColdDataVolume(const AllocateCold
 }
 
 /**
- * @summary Enables public network connections for a specified physical ReplicaSet of the context service.
+ * @summary Enables public network access for a specified physical ReplicaSet of the context service.
  *
- * @description This operation confirms that no active connections exist before a rollback task to ensure operational security.
+ * @description This operation confirms that no active connections exist before rolling back a task to ensure operational security.
  *
  * @param request AllocateContext0PublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -237,9 +242,9 @@ AllocateContext0PublicConnectionResponse Client::allocateContext0PublicConnectio
 }
 
 /**
- * @summary Enables public network connections for a specified physical ReplicaSet of the context service.
+ * @summary Enables public network access for a specified physical ReplicaSet of the context service.
  *
- * @description This operation confirms that no active connections exist before a rollback task to ensure operational security.
+ * @description This operation confirms that no active connections exist before rolling back a task to ensure operational security.
  *
  * @param request AllocateContext0PublicConnectionRequest
  * @return AllocateContext0PublicConnectionResponse
@@ -250,9 +255,9 @@ AllocateContext0PublicConnectionResponse Client::allocateContext0PublicConnectio
 }
 
 /**
- * @summary Enables a public network connection for a ContextDB-X service ReplicaSet.
+ * @summary Enables public network connection for a ContextDB-X service ReplicaSet.
  *
- * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+ * @description This operation verifies that no active connections exist before a rollback task to ensure operational security.
  *
  * @param request AllocateContextDBPublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -299,9 +304,9 @@ AllocateContextDBPublicConnectionResponse Client::allocateContextDBPublicConnect
 }
 
 /**
- * @summary Enables a public network connection for a ContextDB-X service ReplicaSet.
+ * @summary Enables public network connection for a ContextDB-X service ReplicaSet.
  *
- * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+ * @description This operation verifies that no active connections exist before a rollback task to ensure operational security.
  *
  * @param request AllocateContextDBPublicConnectionRequest
  * @return AllocateContextDBPublicConnectionResponse
@@ -388,7 +393,7 @@ AllocateInstancePublicConnectionResponse Client::allocateInstancePublicConnectio
 /**
  * @summary Enables the public domain name for a Mem0 instance.
  *
- * @description This operation checks for active connections before a rollback task to ensure operational security.
+ * @description This operation verifies that no active connections exist before rolling back a task to ensure operational security.
  *
  * @param request AllocateMem0PublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -433,7 +438,7 @@ AllocateMem0PublicConnectionResponse Client::allocateMem0PublicConnectionWithOpt
 /**
  * @summary Enables the public domain name for a Mem0 instance.
  *
- * @description This operation checks for active connections before a rollback task to ensure operational security.
+ * @description This operation verifies that no active connections exist before rolling back a task to ensure operational security.
  *
  * @param request AllocateMem0PublicConnectionRequest
  * @return AllocateMem0PublicConnectionResponse
@@ -444,9 +449,9 @@ AllocateMem0PublicConnectionResponse Client::allocateMem0PublicConnection(const 
 }
 
 /**
- * @summary Enables public network connection for PXFS.
+ * @summary Enables a public network connection for PXFS.
  *
- * @description Enables public network connection for the agent file service.
+ * @description Enables a public network connection for the Agent file service.
  *
  * @param request AllocatePxfsPublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -481,9 +486,9 @@ AllocatePxfsPublicConnectionResponse Client::allocatePxfsPublicConnectionWithOpt
 }
 
 /**
- * @summary Enables public network connection for PXFS.
+ * @summary Enables a public network connection for PXFS.
  *
- * @description Enables public network connection for the agent file service.
+ * @description Enables a public network connection for the Agent file service.
  *
  * @param request AllocatePxfsPublicConnectionRequest
  * @return AllocatePxfsPublicConnectionResponse
@@ -690,7 +695,7 @@ CheckCloudResourceAuthorizedResponse Client::checkCloudResourceAuthorized(const 
 }
 
 /**
- * @summary Performs a service health check.
+ * @summary Checks the health of the service.
  *
  * @param request CheckHealthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -714,7 +719,7 @@ CheckHealthResponse Client::checkHealthWithOptions(const CheckHealthRequest &req
 }
 
 /**
- * @summary Performs a service health check.
+ * @summary Checks the health of the service.
  *
  * @param request CheckHealthRequest
  * @return CheckHealthResponse
@@ -1437,9 +1442,9 @@ CreateDBInstanceResponse Client::createDBInstance(const CreateDBInstanceRequest 
 }
 
 /**
- * @summary Creates a data import task to import external data files such as SQL scripts and CSV files into a target database instance.
+ * @summary Creates a data import task to import external data files, such as SQL scripts and CSV files, into a destination database instance.
  *
- * @description The CreateDataImportTask operation creates a data import task that supports importing SQL or CSV files stored in OSS, ECS, or directly uploaded into a target database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
+ * @description The CreateDataImportTask operation creates a data import task. It supports importing SQL or CSV files stored in OSS or ECS, or directly passed files, into a destination database instance. By specifying the instance ID, database name, engine type, data source such as the OSS path, and import type, the system asynchronously or synchronously performs data write operations. This operation is applicable to scenarios such as data migration, initialization, and data backfilling. It returns a task ID for subsequent status query and management.
  *
  * @param request CreateDataImportTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1510,9 +1515,9 @@ CreateDataImportTaskResponse Client::createDataImportTaskWithOptions(const Creat
 }
 
 /**
- * @summary Creates a data import task to import external data files such as SQL scripts and CSV files into a target database instance.
+ * @summary Creates a data import task to import external data files, such as SQL scripts and CSV files, into a destination database instance.
  *
- * @description The CreateDataImportTask operation creates a data import task that supports importing SQL or CSV files stored in OSS, ECS, or directly uploaded into a target database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
+ * @description The CreateDataImportTask operation creates a data import task. It supports importing SQL or CSV files stored in OSS or ECS, or directly passed files, into a destination database instance. By specifying the instance ID, database name, engine type, data source such as the OSS path, and import type, the system asynchronously or synchronously performs data write operations. This operation is applicable to scenarios such as data migration, initialization, and data backfilling. It returns a task ID for subsequent status query and management.
  *
  * @param request CreateDataImportTaskRequest
  * @return CreateDataImportTaskResponse
@@ -1639,7 +1644,7 @@ CreateGdnInstanceResponse Client::createGdnInstance(const CreateGdnInstanceReque
 }
 
 /**
- * @summary Adds a secondary instance to a global database network (GDN).
+ * @summary Adds a GDN secondary instance.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -1764,7 +1769,7 @@ CreateGdnStandbyMemberResponse Client::createGdnStandbyMemberWithOptions(const C
 }
 
 /**
- * @summary Adds a secondary instance to a global database network (GDN).
+ * @summary Adds a GDN secondary instance.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -1827,7 +1832,7 @@ CreateMem0Response Client::createMem0(const CreateMem0Request &request) {
 }
 
 /**
- * @summary Creates a PolarDBX Search instance.
+ * @summary Creates a PolarDB-X Search instance.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -1936,7 +1941,7 @@ CreateOpenSearchResponse Client::createOpenSearchWithOptions(const CreateOpenSea
 }
 
 /**
- * @summary Creates a PolarDBX Search instance.
+ * @summary Creates a PolarDB-X Search instance.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -2497,9 +2502,9 @@ CreatePxfuseResponse Client::createPxfuse(const CreatePxfuseRequest &request) {
 }
 
 /**
- * @summary Performs a health check on a replication task during data migration.
+ * @summary Performs a health check on the replication link during data migration.
  *
- * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for issues such as latency, replication interruption, or data inconsistency.
+ * @description Initiates a diagnostic task for the replication link during the data synchronization phase to check for anomalies such as latency, interruption, and data inconsistency.
  *
  * @param request CreateRplInspectionTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2558,9 +2563,9 @@ CreateRplInspectionTaskResponse Client::createRplInspectionTaskWithOptions(const
 }
 
 /**
- * @summary Performs a health check on a replication task during data migration.
+ * @summary Performs a health check on the replication link during data migration.
  *
- * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for issues such as latency, replication interruption, or data inconsistency.
+ * @description Initiates a diagnostic task for the replication link during the data synchronization phase to check for anomalies such as latency, interruption, and data inconsistency.
  *
  * @param request CreateRplInspectionTaskRequest
  * @return CreateRplInspectionTaskResponse
@@ -2571,7 +2576,7 @@ CreateRplInspectionTaskResponse Client::createRplInspectionTask(const CreateRplI
 }
 
 /**
- * @summary Creates a SQL statement assessment task. You submit SQL statements through this operation, and the system performs static analysis and risk assessment to identify execution risks and compatibility issues on the target database instance.
+ * @summary Creates an SQL statement evaluation task. This operation submits SQL statements for static analysis and risk assessment, and outputs execution risks and compatibility issues on the target database instance.
  *
  * @param request CreateSQLEvaluateTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2650,7 +2655,7 @@ CreateSQLEvaluateTaskResponse Client::createSQLEvaluateTaskWithOptions(const Cre
 }
 
 /**
- * @summary Creates a SQL statement assessment task. You submit SQL statements through this operation, and the system performs static analysis and risk assessment to identify execution risks and compatibility issues on the target database instance.
+ * @summary Creates an SQL statement evaluation task. This operation submits SQL statements for static analysis and risk assessment, and outputs execution risks and compatibility issues on the target database instance.
  *
  * @param request CreateSQLEvaluateTaskRequest
  * @return CreateSQLEvaluateTaskResponse
@@ -3109,7 +3114,7 @@ DeleteAccountResponse Client::deleteAccount(const DeleteAccountRequest &request)
 /**
  * @summary Deletes a context service.
  *
- * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+ * @description Deletes the custom endpoint of a specified database instance and closes the access entry for the domain name.
  *
  * @param request DeleteContext0Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -3146,7 +3151,7 @@ DeleteContext0Response Client::deleteContext0WithOptions(const DeleteContext0Req
 /**
  * @summary Deletes a context service.
  *
- * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+ * @description Deletes the custom endpoint of a specified database instance and closes the access entry for the domain name.
  *
  * @param request DeleteContext0Request
  * @return DeleteContext0Response
@@ -3505,7 +3510,7 @@ DeleteMem0Response Client::deleteMem0(const DeleteMem0Request &request) {
 /**
  * @summary Releases a PolarDB-X Search instance.
  *
- * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+ * @description Deletes the custom endpoint of a specified database instance and disables access to the domain name.
  *
  * @param request DeleteOpenSearchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3542,7 +3547,7 @@ DeleteOpenSearchResponse Client::deleteOpenSearchWithOptions(const DeleteOpenSea
 /**
  * @summary Releases a PolarDB-X Search instance.
  *
- * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+ * @description Deletes the custom endpoint of a specified database instance and disables access to the domain name.
  *
  * @param request DeleteOpenSearchRequest
  * @return DeleteOpenSearchResponse
@@ -3610,8 +3615,8 @@ DeleteOpenSearchAccountResponse Client::deleteOpenSearchAccount(const DeleteOpen
  * @summary Deletes a PolarDB-X Search whitelist group.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list contains all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
- * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+ * - If the DownloadLink parameter is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DeleteOpenSearchWhitelistGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3653,8 +3658,8 @@ DeleteOpenSearchWhitelistGroupResponse Client::deleteOpenSearchWhitelistGroupWit
  * @summary Deletes a PolarDB-X Search whitelist group.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list contains all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
- * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+ * - If the DownloadLink parameter is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DeleteOpenSearchWhitelistGroupRequest
  * @return DeleteOpenSearchWhitelistGroupResponse
@@ -3765,9 +3770,9 @@ DeletePxfsResponse Client::deletePxfs(const DeletePxfsRequest &request) {
 }
 
 /**
- * @summary Deletes an Agent file service tenant identity.
+ * @summary Deletes the tenant identity for the Agent file service.
  *
- * @description Deletes an Agent file service tenant identity.
+ * @description Deletes the tenant identity for the Agent file service.
  *
  * @param request DeletePxfsUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3810,9 +3815,9 @@ DeletePxfsUserResponse Client::deletePxfsUserWithOptions(const DeletePxfsUserReq
 }
 
 /**
- * @summary Deletes an Agent file service tenant identity.
+ * @summary Deletes the tenant identity for the Agent file service.
  *
- * @description Deletes an Agent file service tenant identity.
+ * @description Deletes the tenant identity for the Agent file service.
  *
  * @param request DeletePxfsUserRequest
  * @return DeletePxfsUserResponse
@@ -3825,7 +3830,7 @@ DeletePxfsUserResponse Client::deletePxfsUser(const DeletePxfsUserRequest &reque
 /**
  * @summary Deletes a PXFuse node.
  *
- * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+ * @description Deletes the custom endpoint of a specified database instance and disables access to the domain name.
  *
  * @param request DeletePxfuseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3862,7 +3867,7 @@ DeletePxfuseResponse Client::deletePxfuseWithOptions(const DeletePxfuseRequest &
 /**
  * @summary Deletes a PXFuse node.
  *
- * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+ * @description Deletes the custom endpoint of a specified database instance and disables access to the domain name.
  *
  * @param request DeletePxfuseRequest
  * @return DeletePxfuseResponse
@@ -4031,7 +4036,7 @@ DeleteSupabaseNetTypeResponse Client::deleteSupabaseNetType(const DeleteSupabase
 }
 
 /**
- * @summary Queries the list of accounts by calling the DescribeAccountList operation.
+ * @summary Queries the list of accounts.
  *
  * @param request DescribeAccountListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4074,7 +4079,7 @@ DescribeAccountListResponse Client::describeAccountListWithOptions(const Describ
 }
 
 /**
- * @summary Queries the list of accounts by calling the DescribeAccountList operation.
+ * @summary Queries the list of accounts.
  *
  * @param request DescribeAccountListRequest
  * @return DescribeAccountListResponse
@@ -4085,7 +4090,7 @@ DescribeAccountListResponse Client::describeAccountList(const DescribeAccountLis
 }
 
 /**
- * @summary Queries the O&M time configuration.
+ * @summary Queries the O&M window configuration.
  *
  * @param request DescribeActiveOperationMaintainConfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4116,7 +4121,7 @@ DescribeActiveOperationMaintainConfResponse Client::describeActiveOperationMaint
 }
 
 /**
- * @summary Queries the O&M time configuration.
+ * @summary Queries the O&M window configuration.
  *
  * @param request DescribeActiveOperationMaintainConfRequest
  * @return DescribeActiveOperationMaintainConfResponse
@@ -4269,7 +4274,7 @@ DescribeArchiveTableListResponse Client::describeArchiveTableList(const Describe
 }
 
 /**
- * @summary Queries the list of available regions that support cross-region operations, typically used for multi-region deployment or data replication scenarios.
+ * @summary Queries the list of zones that support cross-region operations, typically used for multi-region deployment or data replication scenarios.
  *
  * @param request DescribeAvailableCrossRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4304,7 +4309,7 @@ DescribeAvailableCrossRegionsResponse Client::describeAvailableCrossRegionsWithO
 }
 
 /**
- * @summary Queries the list of available regions that support cross-region operations, typically used for multi-region deployment or data replication scenarios.
+ * @summary Queries the list of zones that support cross-region operations, typically used for multi-region deployment or data replication scenarios.
  *
  * @param request DescribeAvailableCrossRegionsRequest
  * @return DescribeAvailableCrossRegionsResponse
@@ -4361,7 +4366,7 @@ DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPo
 }
 
 /**
- * @summary Queries the details of a backup set by calling the DescribeBackupSet operation.
+ * @summary Queries the details of a backup set.
  *
  * @param request DescribeBackupSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4404,7 +4409,7 @@ DescribeBackupSetResponse Client::describeBackupSetWithOptions(const DescribeBac
 }
 
 /**
- * @summary Queries the details of a backup set by calling the DescribeBackupSet operation.
+ * @summary Queries the details of a backup set.
  *
  * @param request DescribeBackupSetRequest
  * @return DescribeBackupSetResponse
@@ -4415,7 +4420,7 @@ DescribeBackupSetResponse Client::describeBackupSet(const DescribeBackupSetReque
 }
 
 /**
- * @summary Queries the list of backup sets by calling the DescribeBackupSetList operation.
+ * @summary Queries the list of backup sets.
  *
  * @param request DescribeBackupSetListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4442,7 +4447,7 @@ DescribeBackupSetListResponse Client::describeBackupSetListWithOptions(const Des
 }
 
 /**
- * @summary Queries the list of backup sets by calling the DescribeBackupSetList operation.
+ * @summary Queries the list of backup sets.
  *
  * @param request DescribeBackupSetListRequest
  * @return DescribeBackupSetListResponse
@@ -4457,7 +4462,7 @@ DescribeBackupSetListResponse Client::describeBackupSetList(const DescribeBackup
  *
  * @description - Binary log files are retained for 15 days by default.
  * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
- * - If the value of DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
+ * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DescribeBinaryLogListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4516,7 +4521,7 @@ DescribeBinaryLogListResponse Client::describeBinaryLogListWithOptions(const Des
  *
  * @description - Binary log files are retained for 15 days by default.
  * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
- * - If the value of DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
+ * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DescribeBinaryLogListRequest
  * @return DescribeBinaryLogListResponse
@@ -4585,7 +4590,7 @@ DescribeCdcClassListResponse Client::describeCdcClassList(const DescribeCdcClass
 }
 
 /**
- * @summary Queries CDC information.
+ * @summary Queries the CDC information.
  *
  * @param request DescribeCdcInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4620,7 +4625,7 @@ DescribeCdcInfoResponse Client::describeCdcInfoWithOptions(const DescribeCdcInfo
 }
 
 /**
- * @summary Queries CDC information.
+ * @summary Queries the CDC information.
  *
  * @param request DescribeCdcInfoRequest
  * @return DescribeCdcInfoResponse
@@ -4631,11 +4636,11 @@ DescribeCdcInfoResponse Client::describeCdcInfo(const DescribeCdcInfoRequest &re
 }
 
 /**
- * @summary Retrieves a list of CDC versions.
+ * @summary Queries the list of CDC versions.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
- * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
+ * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+ * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DescribeCdcVersionListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4674,11 +4679,11 @@ DescribeCdcVersionListResponse Client::describeCdcVersionListWithOptions(const D
 }
 
 /**
- * @summary Retrieves a list of CDC versions.
+ * @summary Queries the list of CDC versions.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
- * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
+ * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+ * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DescribeCdcVersionListRequest
  * @return DescribeCdcVersionListResponse
@@ -4689,7 +4694,7 @@ DescribeCdcVersionListResponse Client::describeCdcVersionList(const DescribeCdcV
 }
 
 /**
- * @summary Invokes the DescribeCharacterSet operation to query the character set types supported by databases in a target instance.
+ * @summary Invokes the DescribeCharacterSet operation to query the character set types supported by the database on the target instance.
  *
  * @param request DescribeCharacterSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4724,7 +4729,7 @@ DescribeCharacterSetResponse Client::describeCharacterSetWithOptions(const Descr
 }
 
 /**
- * @summary Invokes the DescribeCharacterSet operation to query the character set types supported by databases in a target instance.
+ * @summary Invokes the DescribeCharacterSet operation to query the character set types supported by the database on the target instance.
  *
  * @param request DescribeCharacterSetRequest
  * @return DescribeCharacterSetResponse
@@ -4773,7 +4778,7 @@ DescribeColdDataBasicInfoResponse Client::describeColdDataBasicInfo(const Descri
 }
 
 /**
- * @summary Queries the list of column store specifications for an instance.
+ * @summary Queries the column store specifications of an instance.
  *
  * @param request DescribeColumnarClassListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4812,7 +4817,7 @@ DescribeColumnarClassListResponse Client::describeColumnarClassListWithOptions(c
 }
 
 /**
- * @summary Queries the list of column store specifications for an instance.
+ * @summary Queries the column store specifications of an instance.
  *
  * @param request DescribeColumnarClassListRequest
  * @return DescribeColumnarClassListResponse
@@ -4872,8 +4877,8 @@ DescribeColumnarInfoResponse Client::describeColumnarInfo(const DescribeColumnar
  * @summary Queries the column store version information.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
- * - If DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+ * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
  *
  * @param request DescribeColumnarVersionListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4911,8 +4916,8 @@ DescribeColumnarVersionListResponse Client::describeColumnarVersionListWithOptio
  * @summary Queries the column store version information.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
- * - If DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+ * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
  *
  * @param request DescribeColumnarVersionListRequest
  * @return DescribeColumnarVersionListResponse
@@ -4923,7 +4928,7 @@ DescribeColumnarVersionListResponse Client::describeColumnarVersionList(const De
 }
 
 /**
- * @summary Retrieves the property information of a specified component, including property names and types.
+ * @summary Retrieves the property information of a specified component, including the property name and type.
  *
  * @param request DescribeComponentPropetiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4966,7 +4971,7 @@ DescribeComponentPropetiesResponse Client::describeComponentPropetiesWithOptions
 }
 
 /**
- * @summary Retrieves the property information of a specified component, including property names and types.
+ * @summary Retrieves the property information of a specified component, including the property name and type.
  *
  * @param request DescribeComponentPropetiesRequest
  * @return DescribeComponentPropetiesResponse
@@ -4979,7 +4984,7 @@ DescribeComponentPropetiesResponse Client::describeComponentPropeties(const Desc
 /**
  * @summary Queries the management credentials of the context service.
  *
- * @description > * PolarDB-X 2.0 SQL audit and analysis feature is free of charge, but Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeContext0ConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5016,7 +5021,7 @@ DescribeContext0ConfigResponse Client::describeContext0ConfigWithOptions(const D
 /**
  * @summary Queries the management credentials of the context service.
  *
- * @description > * PolarDB-X 2.0 SQL audit and analysis feature is free of charge, but Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeContext0ConfigRequest
  * @return DescribeContext0ConfigResponse
@@ -5027,9 +5032,9 @@ DescribeContext0ConfigResponse Client::describeContext0Config(const DescribeCont
 }
 
 /**
- * @summary Queries the information about context service instances.
+ * @summary Queries the details of a context service instance.
  *
- * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge, but Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeContext0InfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5064,9 +5069,9 @@ DescribeContext0InfoResponse Client::describeContext0InfoWithOptions(const Descr
 }
 
 /**
- * @summary Queries the information about context service instances.
+ * @summary Queries the details of a context service instance.
  *
- * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge, but Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeContext0InfoRequest
  * @return DescribeContext0InfoResponse
@@ -5077,9 +5082,9 @@ DescribeContext0InfoResponse Client::describeContext0Info(const DescribeContext0
 }
 
 /**
- * @summary Queries the whitelist for the context service.
+ * @summary Queries the context service whitelist.
  *
- * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data processing, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeContext0SecurityIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5114,9 +5119,9 @@ DescribeContext0SecurityIpsResponse Client::describeContext0SecurityIpsWithOptio
 }
 
 /**
- * @summary Queries the whitelist for the context service.
+ * @summary Queries the context service whitelist.
  *
- * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data processing, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeContext0SecurityIpsRequest
  * @return DescribeContext0SecurityIpsResponse
@@ -5177,7 +5182,7 @@ DescribeContextDBConfigResponse Client::describeContextDBConfig(const DescribeCo
 }
 
 /**
- * @summary Queries the information of a ContextDB-X instance.
+ * @summary Queries the information of ContextDB-X instances.
  *
  * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
@@ -5214,7 +5219,7 @@ DescribeContextDBInfoResponse Client::describeContextDBInfoWithOptions(const Des
 }
 
 /**
- * @summary Queries the information of a ContextDB-X instance.
+ * @summary Queries the information of ContextDB-X instances.
  *
  * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
@@ -5227,9 +5232,9 @@ DescribeContextDBInfoResponse Client::describeContextDBInfo(const DescribeContex
 }
 
 /**
- * @summary Queries the whitelist of a ContextDB-X instance.
+ * @summary Queries the ContextDB-X whitelist.
  *
- * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data delivery. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeContextDBSecurityIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5264,9 +5269,9 @@ DescribeContextDBSecurityIpsResponse Client::describeContextDBSecurityIpsWithOpt
 }
 
 /**
- * @summary Queries the whitelist of a ContextDB-X instance.
+ * @summary Queries the ContextDB-X whitelist.
  *
- * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data delivery. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeContextDBSecurityIpsRequest
  * @return DescribeContextDBSecurityIpsResponse
@@ -5277,9 +5282,9 @@ DescribeContextDBSecurityIpsResponse Client::describeContextDBSecurityIps(const 
 }
 
 /**
- * @summary Queries the list of user-defined custom domain names.
+ * @summary Queries the list of custom endpoints.
  *
- * @description This operation retrieves the list of custom endpoints configured by the user, which facilitates the management and viewing of private connection or VPC endpoint service settings.
+ * @description Retrieves the list of custom endpoints configured by users to facilitate the management and viewing of private connections or VPC endpoint service settings.
  *
  * @param request DescribeCustomEndpointListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5322,9 +5327,9 @@ DescribeCustomEndpointListResponse Client::describeCustomEndpointListWithOptions
 }
 
 /**
- * @summary Queries the list of user-defined custom domain names.
+ * @summary Queries the list of custom endpoints.
  *
- * @description This operation retrieves the list of custom endpoints configured by the user, which facilitates the management and viewing of private connection or VPC endpoint service settings.
+ * @description Retrieves the list of custom endpoints configured by users to facilitate the management and viewing of private connections or VPC endpoint service settings.
  *
  * @param request DescribeCustomEndpointListRequest
  * @return DescribeCustomEndpointListResponse
@@ -5337,7 +5342,7 @@ DescribeCustomEndpointListResponse Client::describeCustomEndpointList(const Desc
 /**
  * @summary Retrieves the attributes of an instance.
  *
- * @description This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
+ * @description This operation retrieves the list of custom endpoints configured by users to facilitate the management and viewing of private connections or VPC endpoint service settings.
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5378,7 +5383,7 @@ DescribeDBInstanceAttributeResponse Client::describeDBInstanceAttributeWithOptio
 /**
  * @summary Retrieves the attributes of an instance.
  *
- * @description This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
+ * @description This operation retrieves the list of custom endpoints configured by users to facilitate the management and viewing of private connections or VPC endpoint service settings.
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @return DescribeDBInstanceAttributeResponse
@@ -5389,7 +5394,7 @@ DescribeDBInstanceAttributeResponse Client::describeDBInstanceAttribute(const De
 }
 
 /**
- * @summary Calls the DescribeDBInstanceConfig operation to retrieve instance configuration parameters.
+ * @summary Queries the configuration parameters of an instance.
  *
  * @param request DescribeDBInstanceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5428,7 +5433,7 @@ DescribeDBInstanceConfigResponse Client::describeDBInstanceConfigWithOptions(con
 }
 
 /**
- * @summary Calls the DescribeDBInstanceConfig operation to retrieve instance configuration parameters.
+ * @summary Queries the configuration parameters of an instance.
  *
  * @param request DescribeDBInstanceConfigRequest
  * @return DescribeDBInstanceConfigResponse
@@ -5441,7 +5446,7 @@ DescribeDBInstanceConfigResponse Client::describeDBInstanceConfig(const Describe
 /**
  * @summary Queries custom endpoints.
  *
- * @description Queries the list of custom endpoints configured by a user, which helps manage and view private connection or VPC endpoint service settings.
+ * @description Retrieves a list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint services.
  *
  * @param request DescribeDBInstanceEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5486,7 +5491,7 @@ DescribeDBInstanceEndpointResponse Client::describeDBInstanceEndpointWithOptions
 /**
  * @summary Queries custom endpoints.
  *
- * @description Queries the list of custom endpoints configured by a user, which helps manage and view private connection or VPC endpoint service settings.
+ * @description Retrieves a list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint services.
  *
  * @param request DescribeDBInstanceEndpointRequest
  * @return DescribeDBInstanceEndpointResponse
@@ -5497,7 +5502,7 @@ DescribeDBInstanceEndpointResponse Client::describeDBInstanceEndpoint(const Desc
 }
 
 /**
- * @summary Queries the high availability information of an instance.
+ * @summary Queries the high availability (HA) information of an instance.
  *
  * @param request DescribeDBInstanceHARequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5532,7 +5537,7 @@ DescribeDBInstanceHAResponse Client::describeDBInstanceHAWithOptions(const Descr
 }
 
 /**
- * @summary Queries the high availability information of an instance.
+ * @summary Queries the high availability (HA) information of an instance.
  *
  * @param request DescribeDBInstanceHARequest
  * @return DescribeDBInstanceHAResponse
@@ -5589,7 +5594,7 @@ DescribeDBInstanceSSLResponse Client::describeDBInstanceSSL(const DescribeDBInst
 }
 
 /**
- * @summary Queries the details of Transparent Data Encryption (TDE) for an instance.
+ * @summary Retrieves the TDE details of an instance.
  *
  * @param request DescribeDBInstanceTDERequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5624,7 +5629,7 @@ DescribeDBInstanceTDEResponse Client::describeDBInstanceTDEWithOptions(const Des
 }
 
 /**
- * @summary Queries the details of Transparent Data Encryption (TDE) for an instance.
+ * @summary Retrieves the TDE details of an instance.
  *
  * @param request DescribeDBInstanceTDERequest
  * @return DescribeDBInstanceTDEResponse
@@ -5693,7 +5698,7 @@ DescribeDBInstanceTopologyResponse Client::describeDBInstanceTopology(const Desc
 }
 
 /**
- * @summary Retrieves the basic information of an instance by using the endpoint of the instance.
+ * @summary Queries the basic information of an instance based on its endpoint.
  *
  * @param request DescribeDBInstanceViaEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5728,7 +5733,7 @@ DescribeDBInstanceViaEndpointResponse Client::describeDBInstanceViaEndpointWithO
 }
 
 /**
- * @summary Retrieves the basic information of an instance by using the endpoint of the instance.
+ * @summary Queries the basic information of an instance based on its endpoint.
  *
  * @param request DescribeDBInstanceViaEndpointRequest
  * @return DescribeDBInstanceViaEndpointResponse
@@ -5739,7 +5744,7 @@ DescribeDBInstanceViaEndpointResponse Client::describeDBInstanceViaEndpoint(cons
 }
 
 /**
- * @summary Queries a list of database instances.
+ * @summary Queries a list of instances.
  *
  * @param request DescribeDBInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5806,7 +5811,7 @@ DescribeDBInstancesResponse Client::describeDBInstancesWithOptions(const Describ
 }
 
 /**
- * @summary Queries a list of database instances.
+ * @summary Queries a list of instances.
  *
  * @param request DescribeDBInstancesRequest
  * @return DescribeDBInstancesResponse
@@ -5820,8 +5825,8 @@ DescribeDBInstancesResponse Client::describeDBInstances(const DescribeDBInstance
  * @summary Queries the performance data of an instance.
  *
  * @description Note: 
- * - The **endpoint** differs from other API operations. For Chinese mainland regions and Singapore, use **polardbx.aliyuncs.com**. For other regions, use **polardbx.{region id}.aliyunc.com**.
- * - When debugging this API operation, if you receive a service unavailable error, verify that the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** and change the **endpoint** to **polardbx.aliyuncs.com**.
+ * - The **endpoint** for this operation is different from other operations. Use **polardbx.aliyuncs.com** for the Chinese mainland and Singapore regions, and use **polardbx.{region id}.aliyunc.com** for other regions.
+ * - If a "service unavailable" error occurs when debugging this API operation, check whether the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** to change the **endpoint** to **polardbx.aliyuncs.com**.
  *
  * @param request DescribeDBNodePerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5883,8 +5888,8 @@ DescribeDBNodePerformanceResponse Client::describeDBNodePerformanceWithOptions(c
  * @summary Queries the performance data of an instance.
  *
  * @description Note: 
- * - The **endpoint** differs from other API operations. For Chinese mainland regions and Singapore, use **polardbx.aliyuncs.com**. For other regions, use **polardbx.{region id}.aliyunc.com**.
- * - When debugging this API operation, if you receive a service unavailable error, verify that the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** and change the **endpoint** to **polardbx.aliyuncs.com**.
+ * - The **endpoint** for this operation is different from other operations. Use **polardbx.aliyuncs.com** for the Chinese mainland and Singapore regions, and use **polardbx.{region id}.aliyunc.com** for other regions.
+ * - If a "service unavailable" error occurs when debugging this API operation, check whether the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** to change the **endpoint** to **polardbx.aliyuncs.com**.
  *
  * @param request DescribeDBNodePerformanceRequest
  * @return DescribeDBNodePerformanceResponse
@@ -6103,7 +6108,7 @@ DescribeEnabledCrossRegionsResponse Client::describeEnabledCrossRegions(const De
 }
 
 /**
- * @summary Queries the list of PolarDB-X assessment import tasks. (single)
+ * @summary Queries the list of PolarDB-X assessment import tasks.
  *
  * @param request DescribeEvaluateAndImportTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6138,7 +6143,7 @@ DescribeEvaluateAndImportTaskResponse Client::describeEvaluateAndImportTaskWithO
 }
 
 /**
- * @summary Queries the list of PolarDB-X assessment import tasks. (single)
+ * @summary Queries the list of PolarDB-X assessment import tasks.
  *
  * @param request DescribeEvaluateAndImportTaskRequest
  * @return DescribeEvaluateAndImportTaskResponse
@@ -6149,9 +6154,9 @@ DescribeEvaluateAndImportTaskResponse Client::describeEvaluateAndImportTask(cons
 }
 
 /**
- * @summary Queries a list of assessment import tasks for PolarDB-X.
+ * @summary Queries the list of PolarDB-X assessment import tasks.
  *
- * @description The CreateDataImportTask operation creates a data import task. You can use this operation to import SQL or CSV files stored in OSS or ECS, or directly provided, into a destination database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
+ * @description The CreateDataImportTask operation creates a data import task. It supports importing SQL or CSV files stored in OSS, on ECS instances, or directly passed in the request into a target database instance. By specifying the instance ID, database name, engine type, data source (such as the OSS path), and import type, the system asynchronously or synchronously writes data. This operation is suitable for scenarios such as data migration, initialization, and data backfilling. It returns a task ID for subsequent status query and management.
  *
  * @param request DescribeEvaluateAndImportTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6190,9 +6195,9 @@ DescribeEvaluateAndImportTasksResponse Client::describeEvaluateAndImportTasksWit
 }
 
 /**
- * @summary Queries a list of assessment import tasks for PolarDB-X.
+ * @summary Queries the list of PolarDB-X assessment import tasks.
  *
- * @description The CreateDataImportTask operation creates a data import task. You can use this operation to import SQL or CSV files stored in OSS or ECS, or directly provided, into a destination database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
+ * @description The CreateDataImportTask operation creates a data import task. It supports importing SQL or CSV files stored in OSS, on ECS instances, or directly passed in the request into a target database instance. By specifying the instance ID, database name, engine type, data source (such as the OSS path), and import type, the system asynchronously or synchronously writes data. This operation is suitable for scenarios such as data migration, initialization, and data backfilling. It returns a task ID for subsequent status query and management.
  *
  * @param request DescribeEvaluateAndImportTasksRequest
  * @return DescribeEvaluateAndImportTasksResponse
@@ -6241,7 +6246,7 @@ DescribeEventsResponse Client::describeEvents(const DescribeEventsRequest &reque
 }
 
 /**
- * @summary Queries the list of global database network (GDN) instances.
+ * @summary Queries a list of global database network (GDN) instances.
  *
  * @param request DescribeGdnInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6292,7 +6297,7 @@ DescribeGdnInstancesResponse Client::describeGdnInstancesWithOptions(const Descr
 }
 
 /**
- * @summary Queries the list of global database network (GDN) instances.
+ * @summary Queries a list of global database network (GDN) instances.
  *
  * @param request DescribeGdnInstancesRequest
  * @return DescribeGdnInstancesResponse
@@ -6303,9 +6308,9 @@ DescribeGdnInstancesResponse Client::describeGdnInstances(const DescribeGdnInsta
 }
 
 /**
- * @summary View Memory Engine Information
+ * @summary Retrieves the memory engine information.
  *
- * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Log Service charges fees for storage space, read traffic, the number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeMem0InfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6340,9 +6345,9 @@ DescribeMem0InfoResponse Client::describeMem0InfoWithOptions(const DescribeMem0I
 }
 
 /**
- * @summary View Memory Engine Information
+ * @summary Retrieves the memory engine information.
  *
- * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Log Service charges fees for storage space, read traffic, the number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeMem0InfoRequest
  * @return DescribeMem0InfoResponse
@@ -6453,7 +6458,7 @@ DescribeOpenBackupSetResponse Client::describeOpenBackupSet(const DescribeOpenBa
 }
 
 /**
- * @summary Queries the account information of PolarDB-X Search.
+ * @summary Queries the account information of PolarDBX Search.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -6490,7 +6495,7 @@ DescribeOpenSearchAccountInfoResponse Client::describeOpenSearchAccountInfoWithO
 }
 
 /**
- * @summary Queries the account information of PolarDB-X Search.
+ * @summary Queries the account information of PolarDBX Search.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -6503,9 +6508,9 @@ DescribeOpenSearchAccountInfoResponse Client::describeOpenSearchAccountInfo(cons
 }
 
 /**
- * @summary Queries the connection information of PolarDB-X Search, including internal, public, and Dashboard endpoints and protocols.
+ * @summary Queries the connection information of PolarDB-X Search, including internal, public, and dashboard endpoints and protocols.
  *
- * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, replication interruption, or data inconsistency.
+ * @description During the data synchronization phase, initiates a diagnostic task for the replication task to check for anomalies such as latency, interruptions, and data inconsistency.
  *
  * @param request DescribeOpenSearchConnectionInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6540,9 +6545,9 @@ DescribeOpenSearchConnectionInfoResponse Client::describeOpenSearchConnectionInf
 }
 
 /**
- * @summary Queries the connection information of PolarDB-X Search, including internal, public, and Dashboard endpoints and protocols.
+ * @summary Queries the connection information of PolarDB-X Search, including internal, public, and dashboard endpoints and protocols.
  *
- * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, replication interruption, or data inconsistency.
+ * @description During the data synchronization phase, initiates a diagnostic task for the replication task to check for anomalies such as latency, interruptions, and data inconsistency.
  *
  * @param request DescribeOpenSearchConnectionInfoRequest
  * @return DescribeOpenSearchConnectionInfoResponse
@@ -6603,9 +6608,9 @@ DescribeOpenSearchInfoResponse Client::describeOpenSearchInfo(const DescribeOpen
 }
 
 /**
- * @summary Queries the list of PolarDBX Search instances.
+ * @summary Queries PolarDB-X Search instances.
  *
- * @description Queries the list of custom endpoints that you have configured. This operation helps you manage and view the settings of private connections or VPC endpoint services.
+ * @description Retrieves a list of custom endpoints configured by the user to facilitate the management and viewing of private connection or VPC endpoint service settings.
  *
  * @param request DescribeOpenSearchInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6656,9 +6661,9 @@ DescribeOpenSearchInstancesResponse Client::describeOpenSearchInstancesWithOptio
 }
 
 /**
- * @summary Queries the list of PolarDBX Search instances.
+ * @summary Queries PolarDB-X Search instances.
  *
- * @description Queries the list of custom endpoints that you have configured. This operation helps you manage and view the settings of private connections or VPC endpoint services.
+ * @description Retrieves a list of custom endpoints configured by the user to facilitate the management and viewing of private connection or VPC endpoint service settings.
  *
  * @param request DescribeOpenSearchInstancesRequest
  * @return DescribeOpenSearchInstancesResponse
@@ -6671,7 +6676,7 @@ DescribeOpenSearchInstancesResponse Client::describeOpenSearchInstances(const De
 /**
  * @summary Queries the list of PolarDB-X Search nodes.
  *
- * @description Retrieves the list of virtual private clouds (VPCs) available under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
+ * @description This operation retrieves the list of virtual private clouds (VPCs) available under your account for instances, allowing you to select an appropriate network environment when creating or managing database instances.
  *
  * @param request DescribeOpenSearchNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6708,7 +6713,7 @@ DescribeOpenSearchNodesResponse Client::describeOpenSearchNodesWithOptions(const
 /**
  * @summary Queries the list of PolarDB-X Search nodes.
  *
- * @description Retrieves the list of virtual private clouds (VPCs) available under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
+ * @description This operation retrieves the list of virtual private clouds (VPCs) available under your account for instances, allowing you to select an appropriate network environment when creating or managing database instances.
  *
  * @param request DescribeOpenSearchNodesRequest
  * @return DescribeOpenSearchNodesResponse
@@ -6772,8 +6777,8 @@ DescribeOpenSearchResourceUsageResponse Client::describeOpenSearchResourceUsage(
  * @summary Queries the node topology of a PolarDB-X Search cluster.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list contains all log records whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
- * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DescribeOpenSearchTopologyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6811,8 +6816,8 @@ DescribeOpenSearchTopologyResponse Client::describeOpenSearchTopologyWithOptions
  * @summary Queries the node topology of a PolarDB-X Search cluster.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list contains all log records whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
- * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DescribeOpenSearchTopologyRequest
  * @return DescribeOpenSearchTopologyResponse
@@ -6823,11 +6828,11 @@ DescribeOpenSearchTopologyResponse Client::describeOpenSearchTopology(const Desc
 }
 
 /**
- * @summary Queries the whitelist of a PolarDB-X Search instance. You can filter the results by network type.
+ * @summary Queries the PolarDB-X Search whitelists. You can filter the whitelists by network type.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
- * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+ * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DescribeOpenSearchWhitelistsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6862,11 +6867,11 @@ DescribeOpenSearchWhitelistsResponse Client::describeOpenSearchWhitelistsWithOpt
 }
 
 /**
- * @summary Queries the whitelist of a PolarDB-X Search instance. You can filter the results by network type.
+ * @summary Queries the PolarDB-X Search whitelists. You can filter the whitelists by network type.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
- * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+ * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+ * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for two days after it is generated. Download the file before it expires.
  *
  * @param request DescribeOpenSearchWhitelistsRequest
  * @return DescribeOpenSearchWhitelistsResponse
@@ -6877,7 +6882,7 @@ DescribeOpenSearchWhitelistsResponse Client::describeOpenSearchWhitelists(const 
 }
 
 /**
- * @summary Queries the list of database parameter templates created by users or supported by the system, including basic information, associated engine types, and modification times of each parameter template.
+ * @summary Queries the list of database parameter groups created by users or supported by the system, including the basic information, associated engine types, and modification time of each parameter group.
  *
  * @param request DescribeParameterGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6904,7 +6909,7 @@ DescribeParameterGroupsResponse Client::describeParameterGroupsWithOptions(const
 }
 
 /**
- * @summary Queries the list of database parameter templates created by users or supported by the system, including basic information, associated engine types, and modification times of each parameter template.
+ * @summary Queries the list of database parameter groups created by users or supported by the system, including the basic information, associated engine types, and modification time of each parameter group.
  *
  * @param request DescribeParameterGroupsRequest
  * @return DescribeParameterGroupsResponse
@@ -6915,7 +6920,7 @@ DescribeParameterGroupsResponse Client::describeParameterGroups(const DescribePa
 }
 
 /**
- * @summary Queries the instance parameter templates.
+ * @summary Queries the parameter templates of an instance.
  *
  * @param request DescribeParameterTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6958,7 +6963,7 @@ DescribeParameterTemplatesResponse Client::describeParameterTemplatesWithOptions
 }
 
 /**
- * @summary Queries the instance parameter templates.
+ * @summary Queries the parameter templates of an instance.
  *
  * @param request DescribeParameterTemplatesRequest
  * @return DescribeParameterTemplatesResponse
@@ -7019,7 +7024,7 @@ DescribeParametersResponse Client::describeParameters(const DescribeParametersRe
 }
 
 /**
- * @summary Queries the details of all data nodes (Data Nodes) in a PolarDB-X instance, including node status, storage usage, and network addresses, to facilitate operations management and monitoring.
+ * @summary Queries the details of all data nodes in a PolarDB-X instance, including node status, storage usage, and network addresses, to facilitate operations management and monitoring.
  *
  * @param request DescribePolarxDataNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7066,7 +7071,7 @@ DescribePolarxDataNodesResponse Client::describePolarxDataNodesWithOptions(const
 }
 
 /**
- * @summary Queries the details of all data nodes (Data Nodes) in a PolarDB-X instance, including node status, storage usage, and network addresses, to facilitate operations management and monitoring.
+ * @summary Queries the details of all data nodes in a PolarDB-X instance, including node status, storage usage, and network addresses, to facilitate operations management and monitoring.
  *
  * @param request DescribePolarxDataNodesRequest
  * @return DescribePolarxDataNodesResponse
@@ -7077,9 +7082,9 @@ DescribePolarxDataNodesResponse Client::describePolarxDataNodes(const DescribePo
 }
 
 /**
- * @summary Queries the access token for the Agent file service.
+ * @summary Queries the access token for the agent file service.
  *
- * @description Queries the access token for the Agent file service.
+ * @description Queries the access token for the agent file service.
  *
  * @param request DescribePxfsAccessTokensRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7122,9 +7127,9 @@ DescribePxfsAccessTokensResponse Client::describePxfsAccessTokensWithOptions(con
 }
 
 /**
- * @summary Queries the access token for the Agent file service.
+ * @summary Queries the access token for the agent file service.
  *
- * @description Queries the access token for the Agent file service.
+ * @description Queries the access token for the agent file service.
  *
  * @param request DescribePxfsAccessTokensRequest
  * @return DescribePxfsAccessTokensResponse
@@ -7135,9 +7140,9 @@ DescribePxfsAccessTokensResponse Client::describePxfsAccessTokens(const Describe
 }
 
 /**
- * @summary Queries the information about an Agent file service instance.
+ * @summary Queries the information of an Agent file service instance.
  *
- * @description Queries the information about an Agent file service instance.
+ * @description Queries the information of an Agent file service instance.
  *
  * @param request DescribePxfsInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7172,9 +7177,9 @@ DescribePxfsInfoResponse Client::describePxfsInfoWithOptions(const DescribePxfsI
 }
 
 /**
- * @summary Queries the information about an Agent file service instance.
+ * @summary Queries the information of an Agent file service instance.
  *
- * @description Queries the information about an Agent file service instance.
+ * @description Queries the information of an Agent file service instance.
  *
  * @param request DescribePxfsInfoRequest
  * @return DescribePxfsInfoResponse
@@ -7185,9 +7190,9 @@ DescribePxfsInfoResponse Client::describePxfsInfo(const DescribePxfsInfoRequest 
 }
 
 /**
- * @summary Queries the whitelist for the Agent file service.
+ * @summary Queries the whitelist for the agent file service.
  *
- * @description Queries the whitelist for the Agent file service.
+ * @description Queries the whitelist for the agent file service.
  *
  * @param request DescribePxfsSecurityIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7222,9 +7227,9 @@ DescribePxfsSecurityIpsResponse Client::describePxfsSecurityIpsWithOptions(const
 }
 
 /**
- * @summary Queries the whitelist for the Agent file service.
+ * @summary Queries the whitelist for the agent file service.
  *
- * @description Queries the whitelist for the Agent file service.
+ * @description Queries the whitelist for the agent file service.
  *
  * @param request DescribePxfsSecurityIpsRequest
  * @return DescribePxfsSecurityIpsResponse
@@ -7443,9 +7448,9 @@ DescribePxfuseSecurityIpsResponse Client::describePxfuseSecurityIps(const Descri
 }
 
 /**
- * @summary Queries the list of VPCs for PolarDB-X.
+ * @summary Queries the list of virtual private clouds (VPCs) available for PolarDB-X.
  *
- * @description Queries the list of virtual private clouds (VPCs) available under your account. You can use this operation to select an appropriate network environment when creating or managing database instances.
+ * @description Retrieves the list of virtual private clouds (VPCs) available in your account for instances, so that you can select an appropriate network environment when creating or managing database instances.
  *
  * @param request DescribeRdsVpcsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7480,9 +7485,9 @@ DescribeRdsVpcsResponse Client::describeRdsVpcsWithOptions(const DescribeRdsVpcs
 }
 
 /**
- * @summary Queries the list of VPCs for PolarDB-X.
+ * @summary Queries the list of virtual private clouds (VPCs) available for PolarDB-X.
  *
- * @description Queries the list of virtual private clouds (VPCs) available under your account. You can use this operation to select an appropriate network environment when creating or managing database instances.
+ * @description Retrieves the list of virtual private clouds (VPCs) available in your account for instances, so that you can select an appropriate network environment when creating or managing database instances.
  *
  * @param request DescribeRdsVpcsRequest
  * @return DescribeRdsVpcsResponse
@@ -7493,9 +7498,9 @@ DescribeRdsVpcsResponse Client::describeRdsVpcs(const DescribeRdsVpcsRequest &re
 }
 
 /**
- * @summary Queries the list of available vSwitches in a virtual private cloud (VPC) for an ApsaraDB RDS instance.
+ * @summary Queries the list of vSwitches available for an ApsaraDB RDS instance in a virtual private cloud (VPC).
  *
- * @description Queries the list of available virtual private clouds (VPCs) under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
+ * @description Retrieves the list of virtual private clouds (VPCs) available in your account to help you select an appropriate network environment when you create or manage database instances.
  *
  * @param request DescribeRdsVswitchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7534,9 +7539,9 @@ DescribeRdsVswitchesResponse Client::describeRdsVswitchesWithOptions(const Descr
 }
 
 /**
- * @summary Queries the list of available vSwitches in a virtual private cloud (VPC) for an ApsaraDB RDS instance.
+ * @summary Queries the list of vSwitches available for an ApsaraDB RDS instance in a virtual private cloud (VPC).
  *
- * @description Queries the list of available virtual private clouds (VPCs) under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
+ * @description Retrieves the list of virtual private clouds (VPCs) available in your account to help you select an appropriate network environment when you create or manage database instances.
  *
  * @param request DescribeRdsVswitchesRequest
  * @return DescribeRdsVswitchesResponse
@@ -7547,7 +7552,7 @@ DescribeRdsVswitchesResponse Client::describeRdsVswitches(const DescribeRdsVswit
 }
 
 /**
- * @summary Calls the DescribeRegions operation to retrieve the list of regions.
+ * @summary Queries the list of regions.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRegionsResponse
@@ -7569,7 +7574,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const Darabonba::Runt
 }
 
 /**
- * @summary Calls the DescribeRegions operation to retrieve the list of regions.
+ * @summary Queries the list of regions.
  *
  * @return DescribeRegionsResponse
  */
@@ -7579,9 +7584,9 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
- * @summary Queries the details of the replication lag inspection task for an instance.
+ * @summary Queries the details of the replication latency inspection task for an instance.
  *
- * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, interruption, or data inconsistency.
+ * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for anomalies such as latency, interruption, and data inconsistency.
  *
  * @param request DescribeRplInspectionTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7632,9 +7637,9 @@ DescribeRplInspectionTaskResponse Client::describeRplInspectionTaskWithOptions(c
 }
 
 /**
- * @summary Queries the details of the replication lag inspection task for an instance.
+ * @summary Queries the details of the replication latency inspection task for an instance.
  *
- * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, interruption, or data inconsistency.
+ * @description During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for anomalies such as latency, interruption, and data inconsistency.
  *
  * @param request DescribeRplInspectionTaskRequest
  * @return DescribeRplInspectionTaskResponse
@@ -7645,7 +7650,7 @@ DescribeRplInspectionTaskResponse Client::describeRplInspectionTask(const Descri
 }
 
 /**
- * @summary Retrieves the progress of a scale-out migration task.
+ * @summary Displays the progress of a scale-out migration task.
  *
  * @param request DescribeScaleOutMigrateTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7696,7 +7701,7 @@ DescribeScaleOutMigrateTaskListResponse Client::describeScaleOutMigrateTaskListW
 }
 
 /**
- * @summary Retrieves the progress of a scale-out migration task.
+ * @summary Displays the progress of a scale-out migration task.
  *
  * @param request DescribeScaleOutMigrateTaskListRequest
  * @return DescribeScaleOutMigrateTaskListResponse
@@ -7707,7 +7712,7 @@ DescribeScaleOutMigrateTaskListResponse Client::describeScaleOutMigrateTaskList(
 }
 
 /**
- * @summary Queries the IP whitelist of an instance.
+ * @summary Queries the IP address whitelists of an instance.
  *
  * @param request DescribeSecurityIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7742,7 +7747,7 @@ DescribeSecurityIpsResponse Client::describeSecurityIpsWithOptions(const Describ
 }
 
 /**
- * @summary Queries the IP whitelist of an instance.
+ * @summary Queries the IP address whitelists of an instance.
  *
  * @param request DescribeSecurityIpsRequest
  * @return DescribeSecurityIpsResponse
@@ -7803,7 +7808,7 @@ DescribeServiceAccountResponse Client::describeServiceAccount(const DescribeServ
 }
 
 /**
- * @summary Queries the storage usage details of an instance, including total capacity, used space, and remaining space.
+ * @summary Queries the storage space usage details of an instance, including the total capacity, used space, and remaining space.
  *
  * @param request DescribeShowStorageInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7842,7 +7847,7 @@ DescribeShowStorageInfoResponse Client::describeShowStorageInfoWithOptions(const
 }
 
 /**
- * @summary Queries the storage usage details of an instance, including total capacity, used space, and remaining space.
+ * @summary Queries the storage space usage details of an instance, including the total capacity, used space, and remaining space.
  *
  * @param request DescribeShowStorageInfoRequest
  * @return DescribeShowStorageInfoResponse
@@ -7927,9 +7932,9 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecords(const DescribeSlow
 }
 
 /**
- * @summary Queries SQL audit information.
+ * @summary Retrieves SQL audit information.
  *
- * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data delivery. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeSqlAuditInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7972,9 +7977,9 @@ DescribeSqlAuditInfoResponse Client::describeSqlAuditInfoWithOptions(const Descr
 }
 
 /**
- * @summary Queries SQL audit information.
+ * @summary Retrieves SQL audit information.
  *
- * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data delivery. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+ * @description > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
  *
  * @param request DescribeSqlAuditInfoRequest
  * @return DescribeSqlAuditInfoResponse
@@ -8031,7 +8036,7 @@ DescribeSqlFlashbackTaskListResponse Client::describeSqlFlashbackTaskList(const 
 }
 
 /**
- * @summary Queries the details of a storage pool, including capacity, usage, and status.
+ * @summary Queries the details of storage pools, including capacity, usage, and status.
  *
  * @param request DescribeStoragePoolInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8070,7 +8075,7 @@ DescribeStoragePoolInfoResponse Client::describeStoragePoolInfoWithOptions(const
 }
 
 /**
- * @summary Queries the details of a storage pool, including capacity, usage, and status.
+ * @summary Queries the details of storage pools, including capacity, usage, and status.
  *
  * @param request DescribeStoragePoolInfoRequest
  * @return DescribeStoragePoolInfoResponse
@@ -8081,9 +8086,9 @@ DescribeStoragePoolInfoResponse Client::describeStoragePoolInfo(const DescribeSt
 }
 
 /**
- * @summary Queries the details of a database schema import task.
+ * @summary Queries the details of a database structure import task.
  *
- * @description The CreateDataImportTask operation creates a data import task. This operation supports importing SQL or CSV files stored in OSS or ECS, or directly provided, into a destination database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
+ * @description The CreateDataImportTask operation creates a data import task. It supports importing SQL or CSV files stored in OSS, on ECS instances, or directly passed in the request into a target database instance. By specifying the instance ID, database name, engine type, data source (such as the OSS path), and import type, the system asynchronously or synchronously performs data write operations. This operation is applicable to scenarios such as data migration, initialization, and data backfilling. It returns a task ID for subsequent status query and management.
  *
  * @param request DescribeStructureImportTaskInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8118,9 +8123,9 @@ DescribeStructureImportTaskInfoResponse Client::describeStructureImportTaskInfoW
 }
 
 /**
- * @summary Queries the details of a database schema import task.
+ * @summary Queries the details of a database structure import task.
  *
- * @description The CreateDataImportTask operation creates a data import task. This operation supports importing SQL or CSV files stored in OSS or ECS, or directly provided, into a destination database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
+ * @description The CreateDataImportTask operation creates a data import task. It supports importing SQL or CSV files stored in OSS, on ECS instances, or directly passed in the request into a target database instance. By specifying the instance ID, database name, engine type, data source (such as the OSS path), and import type, the system asynchronously or synchronously performs data write operations. This operation is applicable to scenarios such as data migration, initialization, and data backfilling. It returns a task ID for subsequent status query and management.
  *
  * @param request DescribeStructureImportTaskInfoRequest
  * @return DescribeStructureImportTaskInfoResponse
@@ -8134,8 +8139,8 @@ DescribeStructureImportTaskInfoResponse Client::describeStructureImportTaskInfo(
  * @summary Queries the Supabase API key.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
- * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before it expires.
+ * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before it expires.
  *
  * @param request DescribeSupabaseApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8173,8 +8178,8 @@ DescribeSupabaseApiKeyResponse Client::describeSupabaseApiKeyWithOptions(const D
  * @summary Queries the Supabase API key.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
- * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before it expires.
+ * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+ * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before it expires.
  *
  * @param request DescribeSupabaseApiKeyRequest
  * @return DescribeSupabaseApiKeyResponse
@@ -8308,8 +8313,8 @@ DescribeSupabaseInstancesResponse Client::describeSupabaseInstances(const Descri
  * @summary Queries the Supabase IP whitelist.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all log records whose record end time is after the query start time and whose record start time is before the query end time.
- * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
+ * - The returned log list includes all log records whose log record end time is after the query start time and whose log record start time is before the query end time.
+ * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
  *
  * @param request DescribeSupabaseIpWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8351,8 +8356,8 @@ DescribeSupabaseIpWhitelistResponse Client::describeSupabaseIpWhitelistWithOptio
  * @summary Queries the Supabase IP whitelist.
  *
  * @description - Binary log files are retained for 15 days by default.
- * - The returned log list includes all log records whose record end time is after the query start time and whose record start time is before the query end time.
- * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
+ * - The returned log list includes all log records whose log record end time is after the query start time and whose log record start time is before the query end time.
+ * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
  *
  * @param request DescribeSupabaseIpWhitelistRequest
  * @return DescribeSupabaseIpWhitelistResponse
@@ -8413,7 +8418,7 @@ DescribeTagsResponse Client::describeTags(const DescribeTagsRequest &request) {
 }
 
 /**
- * @summary Retrieves the list of tasks for an instance.
+ * @summary Retrieves the task list of an instance.
  *
  * @param request DescribeTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8480,7 +8485,7 @@ DescribeTasksResponse Client::describeTasksWithOptions(const DescribeTasksReques
 }
 
 /**
- * @summary Retrieves the list of tasks for an instance.
+ * @summary Retrieves the task list of an instance.
  *
  * @param request DescribeTasksRequest
  * @return DescribeTasksResponse
@@ -8491,7 +8496,7 @@ DescribeTasksResponse Client::describeTasks(const DescribeTasksRequest &request)
 }
 
 /**
- * @summary Queries the current status of a task that upgrades or converts a standard instance to an Enterprise instance.
+ * @summary Queries the current status of an upgrade or conversion task from a standard instance to an enterprise instance.
  *
  * @param request DescribeTransformStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8530,7 +8535,7 @@ DescribeTransformStatusResponse Client::describeTransformStatusWithOptions(const
 }
 
 /**
- * @summary Queries the current status of a task that upgrades or converts a standard instance to an Enterprise instance.
+ * @summary Queries the current status of an upgrade or conversion task from a standard instance to an enterprise instance.
  *
  * @param request DescribeTransformStatusRequest
  * @return DescribeTransformStatusResponse
@@ -8541,7 +8546,7 @@ DescribeTransformStatusResponse Client::describeTransformStatus(const DescribeTr
 }
 
 /**
- * @summary Calls the DescribeUserEncryptionKeyList operation to retrieve the list of Transparent Data Encryption (TDE) keys for a user.
+ * @summary Retrieves the list of user TDE keys.
  *
  * @param request DescribeUserEncryptionKeyListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8576,7 +8581,7 @@ DescribeUserEncryptionKeyListResponse Client::describeUserEncryptionKeyListWithO
 }
 
 /**
- * @summary Calls the DescribeUserEncryptionKeyList operation to retrieve the list of Transparent Data Encryption (TDE) keys for a user.
+ * @summary Retrieves the list of user TDE keys.
  *
  * @param request DescribeUserEncryptionKeyListRequest
  * @return DescribeUserEncryptionKeyListResponse
@@ -8641,7 +8646,7 @@ DisableOpenSearchPublicEndpointResponse Client::disableOpenSearchPublicEndpoint(
 }
 
 /**
- * @summary Disables three-role mode.
+ * @summary Disables the three-role mode.
  *
  * @param request DisableRightsSeparationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8684,7 +8689,7 @@ DisableRightsSeparationResponse Client::disableRightsSeparationWithOptions(const
 }
 
 /**
- * @summary Disables three-role mode.
+ * @summary Disables the three-role mode.
  *
  * @param request DisableRightsSeparationRequest
  * @return DisableRightsSeparationResponse
@@ -8753,7 +8758,7 @@ DisableSqlAuditResponse Client::disableSqlAudit(const DisableSqlAuditRequest &re
 }
 
 /**
- * @summary Enables public network access for PolarDBX Search.
+ * @summary Enables public network access for PolarDB-X Search.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -8794,7 +8799,7 @@ EnableOpenSearchPublicEndpointResponse Client::enableOpenSearchPublicEndpointWit
 }
 
 /**
- * @summary Enables public network access for PolarDBX Search.
+ * @summary Enables public network access for PolarDB-X Search.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -8807,7 +8812,7 @@ EnableOpenSearchPublicEndpointResponse Client::enableOpenSearchPublicEndpoint(co
 }
 
 /**
- * @summary Enables three-role mode.
+ * @summary Enables the three-role mode.
  *
  * @param request EnableRightsSeparationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8866,7 +8871,7 @@ EnableRightsSeparationResponse Client::enableRightsSeparationWithOptions(const E
 }
 
 /**
- * @summary Enables three-role mode.
+ * @summary Enables the three-role mode.
  *
  * @param request EnableRightsSeparationRequest
  * @return EnableRightsSeparationResponse
@@ -8941,7 +8946,7 @@ EnableSqlAuditResponse Client::enableSqlAudit(const EnableSqlAuditRequest &reque
 /**
  * @summary Executes a metadata query.
  *
- * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+ * @description Deletes the custom endpoint of a specified database instance and disables access to the domain name.
  *
  * @param request ExecuteMetaQueryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8990,7 +8995,7 @@ ExecuteMetaQueryResponse Client::executeMetaQueryWithOptions(const ExecuteMetaQu
 /**
  * @summary Executes a metadata query.
  *
- * @description Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+ * @description Deletes the custom endpoint of a specified database instance and disables access to the domain name.
  *
  * @param request ExecuteMetaQueryRequest
  * @return ExecuteMetaQueryResponse
@@ -9001,7 +9006,57 @@ ExecuteMetaQueryResponse Client::executeMetaQuery(const ExecuteMetaQueryRequest 
 }
 
 /**
- * @summary Retrieves a list of labels.
+ * @summary Queries the PXFS tenants.
+ *
+ * @description Queries the PXFS tenants of a specified PolarDB-X instance and returns the quota, throttling, and usage information of the tenants.
+ *
+ * @param request ListPxfsTenantsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPxfsTenantsResponse
+ */
+ListPxfsTenantsResponse Client::listPxfsTenantsWithOptions(const ListPxfsTenantsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPxfsTenants"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPxfsTenantsResponse>();
+}
+
+/**
+ * @summary Queries the PXFS tenants.
+ *
+ * @description Queries the PXFS tenants of a specified PolarDB-X instance and returns the quota, throttling, and usage information of the tenants.
+ *
+ * @param request ListPxfsTenantsRequest
+ * @return ListPxfsTenantsResponse
+ */
+ListPxfsTenantsResponse Client::listPxfsTenants(const ListPxfsTenantsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listPxfsTenantsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves a list of tags.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9048,7 +9103,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Retrieves a list of labels.
+ * @summary Retrieves a list of tags.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -10225,7 +10280,7 @@ ModifyEngineMigrationResponse Client::modifyEngineMigration(const ModifyEngineMi
 }
 
 /**
- * @summary Modifies the whitelist of a memory engine.
+ * @summary Modifies the memory engine whitelist.
  *
  * @description ****
  *
@@ -10274,7 +10329,7 @@ ModifyMem0SecurityIpsResponse Client::modifyMem0SecurityIpsWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the whitelist of a memory engine.
+ * @summary Modifies the memory engine whitelist.
  *
  * @description ****
  *
@@ -10341,7 +10396,7 @@ ModifyOpenSearchAccessProtocolResponse Client::modifyOpenSearchAccessProtocol(co
 }
 
 /**
- * @summary Modifies the specifications of a PolarDBX Search instance.
+ * @summary Modifies the specifications of a PolarDB-X Search instance.
  *
  * @description ****
  *
@@ -10386,7 +10441,7 @@ ModifyOpenSearchClassResponse Client::modifyOpenSearchClassWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the specifications of a PolarDBX Search instance.
+ * @summary Modifies the specifications of a PolarDB-X Search instance.
  *
  * @description ****
  *
@@ -10523,9 +10578,9 @@ ModifyParameterResponse Client::modifyParameter(const ModifyParameterRequest &re
 }
 
 /**
- * @summary Modifies the whitelist of the Agent file service.
+ * @summary Modifies the whitelist for the Agent file service.
  *
- * @description Modifies the whitelist of the Agent file service.
+ * @description Modifies the whitelist for the Agent file service.
  *
  * @param request ModifyPxfsSecurityIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10572,9 +10627,9 @@ ModifyPxfsSecurityIpsResponse Client::modifyPxfsSecurityIpsWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the whitelist of the Agent file service.
+ * @summary Modifies the whitelist for the Agent file service.
  *
- * @description Modifies the whitelist of the Agent file service.
+ * @description Modifies the whitelist for the Agent file service.
  *
  * @param request ModifyPxfsSecurityIpsRequest
  * @return ModifyPxfsSecurityIpsResponse
@@ -10585,7 +10640,77 @@ ModifyPxfsSecurityIpsResponse Client::modifyPxfsSecurityIps(const ModifyPxfsSecu
 }
 
 /**
- * @summary Modifies the PXFuse node whitelist.
+ * @summary Adjusts the quotas of a PXFS tenant.
+ *
+ * @description Adjusts the storage capacity quota, file count quota, maximum request rate, and maximum write bandwidth of a specified PXFS tenant. Parameters that are not passed remain unchanged.
+ *
+ * @param request ModifyPxfsTenantQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyPxfsTenantQuotaResponse
+ */
+ModifyPxfsTenantQuotaResponse Client::modifyPxfsTenantQuotaWithOptions(const ModifyPxfsTenantQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasQuotaBytes()) {
+    query["QuotaBytes"] = request.getQuotaBytes();
+  }
+
+  if (!!request.hasQuotaFiles()) {
+    query["QuotaFiles"] = request.getQuotaFiles();
+  }
+
+  if (!!request.hasRateLimitRps()) {
+    query["RateLimitRps"] = request.getRateLimitRps();
+  }
+
+  if (!!request.hasRateLimitWbps()) {
+    query["RateLimitWbps"] = request.getRateLimitWbps();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.getTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyPxfsTenantQuota"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyPxfsTenantQuotaResponse>();
+}
+
+/**
+ * @summary Adjusts the quotas of a PXFS tenant.
+ *
+ * @description Adjusts the storage capacity quota, file count quota, maximum request rate, and maximum write bandwidth of a specified PXFS tenant. Parameters that are not passed remain unchanged.
+ *
+ * @param request ModifyPxfsTenantQuotaRequest
+ * @return ModifyPxfsTenantQuotaResponse
+ */
+ModifyPxfsTenantQuotaResponse Client::modifyPxfsTenantQuota(const ModifyPxfsTenantQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyPxfsTenantQuotaWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the whitelist of a PXFuse node.
  *
  * @description ****
  *
@@ -10634,7 +10759,7 @@ ModifyPxfuseSecurityIpsResponse Client::modifyPxfuseSecurityIpsWithOptions(const
 }
 
 /**
- * @summary Modifies the PXFuse node whitelist.
+ * @summary Modifies the whitelist of a PXFuse node.
  *
  * @description ****
  *
@@ -10705,7 +10830,7 @@ ModifySecurityIpsResponse Client::modifySecurityIps(const ModifySecurityIpsReque
 }
 
 /**
- * @summary Modifies the Supabase Dashboard password.
+ * @summary Modifies the password for the Supabase dashboard.
  *
  * @description ****
  *
@@ -10746,7 +10871,7 @@ ModifySupabaseDashboardPasswordResponse Client::modifySupabaseDashboardPasswordW
 }
 
 /**
- * @summary Modifies the Supabase Dashboard password.
+ * @summary Modifies the password for the Supabase dashboard.
  *
  * @description ****
  *
@@ -10759,7 +10884,7 @@ ModifySupabaseDashboardPasswordResponse Client::modifySupabaseDashboardPassword(
 }
 
 /**
- * @summary Modifies the IP whitelist for Supabase.
+ * @summary Modifies the Supabase IP whitelist.
  *
  * @description ****
  *
@@ -10808,7 +10933,7 @@ ModifySupabaseSecurityIPListResponse Client::modifySupabaseSecurityIPListWithOpt
 }
 
 /**
- * @summary Modifies the IP whitelist for Supabase.
+ * @summary Modifies the Supabase IP whitelist.
  *
  * @description ****
  *
@@ -11150,9 +11275,9 @@ ReleaseColdDataVolumeResponse Client::releaseColdDataVolume(const ReleaseColdDat
 }
 
 /**
- * @summary Shuts down the public network connection of a specified physical ReplicaSet for the context service.
+ * @summary Initiates a shutdown of the public network connection for a specified physical ReplicaSet of the context service.
  *
- * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+ * @description This API operation confirms that no active connections exist before a rollback task to ensure operational security.
  *
  * @param request ReleaseContext0PublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11195,9 +11320,9 @@ ReleaseContext0PublicConnectionResponse Client::releaseContext0PublicConnectionW
 }
 
 /**
- * @summary Shuts down the public network connection of a specified physical ReplicaSet for the context service.
+ * @summary Initiates a shutdown of the public network connection for a specified physical ReplicaSet of the context service.
  *
- * @description This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+ * @description This API operation confirms that no active connections exist before a rollback task to ensure operational security.
  *
  * @param request ReleaseContext0PublicConnectionRequest
  * @return ReleaseContext0PublicConnectionResponse
@@ -11318,7 +11443,7 @@ ReleaseInstancePublicConnectionResponse Client::releaseInstancePublicConnection(
 /**
  * @summary Releases the public domain name for a Mem0 instance.
  *
- * @description This operation is used to verify that no active connections exist before a rollback task to ensure operational safety.
+ * @description This operation verifies that no active connections exist before a rollback task to ensure operational security.
  *
  * @param request ReleaseMem0PublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11359,7 +11484,7 @@ ReleaseMem0PublicConnectionResponse Client::releaseMem0PublicConnectionWithOptio
 /**
  * @summary Releases the public domain name for a Mem0 instance.
  *
- * @description This operation is used to verify that no active connections exist before a rollback task to ensure operational safety.
+ * @description This operation verifies that no active connections exist before a rollback task to ensure operational security.
  *
  * @param request ReleaseMem0PublicConnectionRequest
  * @return ReleaseMem0PublicConnectionResponse
@@ -11602,7 +11727,7 @@ ResetMem0AccountPasswordResponse Client::resetMem0AccountPassword(const ResetMem
 }
 
 /**
- * @summary Resets the password of a PolarDB-X Search instance without requiring the old password (RAM permission check required).
+ * @summary Resets the password of a PolarDB-X Search instance without requiring the old password. RAM permission verification is required.
  *
  * @description ****
  *
@@ -11647,7 +11772,7 @@ ResetOpenSearchPasswordResponse Client::resetOpenSearchPasswordWithOptions(const
 }
 
 /**
- * @summary Resets the password of a PolarDB-X Search instance without requiring the old password (RAM permission check required).
+ * @summary Resets the password of a PolarDB-X Search instance without requiring the old password. RAM permission verification is required.
  *
  * @description ****
  *
@@ -12134,7 +12259,7 @@ RevokePxfsAccessTokenResponse Client::revokePxfsAccessToken(const RevokePxfsAcce
 }
 
 /**
- * @summary Scales in nodes of a PolarDB-X Search cluster.
+ * @summary Scales down nodes in a PolarDB-X Search cluster.
  *
  * @description ****
  *
@@ -12175,7 +12300,7 @@ ScaleInOpenSearchResponse Client::scaleInOpenSearchWithOptions(const ScaleInOpen
 }
 
 /**
- * @summary Scales in nodes of a PolarDB-X Search cluster.
+ * @summary Scales down nodes in a PolarDB-X Search cluster.
  *
  * @description ****
  *
@@ -12688,7 +12813,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Deletes tags from a resource.
+ * @summary Removes tags from resources.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12735,7 +12860,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Deletes tags from a resource.
+ * @summary Removes tags from resources.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -12868,7 +12993,7 @@ UpdateBackupPolicyResponse Client::updateBackupPolicy(const UpdateBackupPolicyRe
 }
 
 /**
- * @summary Updates instance labels.
+ * @summary Modifies instance labels.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -12913,7 +13038,7 @@ UpdateCustinsParamResponse Client::updateCustinsParamWithOptions(const UpdateCus
 }
 
 /**
- * @summary Updates instance labels.
+ * @summary Modifies instance labels.
  *
  * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
  *
@@ -13112,7 +13237,7 @@ UpdatePolarDBXInstanceNodeResponse Client::updatePolarDBXInstanceNode(const Upda
 }
 
 /**
- * @summary Upgrades the CDC node version of a PolarDB-X instance.
+ * @summary Upgrades the version of a PolarDB-X CDC node.
  *
  * @param request UpgradeCDCVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13163,7 +13288,7 @@ UpgradeCDCVersionResponse Client::upgradeCDCVersionWithOptions(const UpgradeCDCV
 }
 
 /**
- * @summary Upgrades the CDC node version of a PolarDB-X instance.
+ * @summary Upgrades the version of a PolarDB-X CDC node.
  *
  * @param request UpgradeCDCVersionRequest
  * @return UpgradeCDCVersionResponse

@@ -84,7 +84,7 @@ namespace Models
       shared_ptr<string> DBInstanceName_ {};
       // The name of the whitelist group.
       shared_ptr<string> groupName_ {};
-      // The IP whitelist.
+      // The IP addresses in the whitelist.
       shared_ptr<string> securityIPList_ {};
     };
 
@@ -180,9 +180,9 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic message.
+      // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the no permission error.
+      // The type of the permission denial.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -216,7 +216,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denied error.
+    // The details of the access denial.
     shared_ptr<ModifySupabaseSecurityIPListResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The operation result.
     shared_ptr<ModifySupabaseSecurityIPListResponseBody::Data> data_ {};

@@ -63,8 +63,8 @@ namespace Models
     shared_ptr<string> DBInstanceName_ {};
     // The access protocol. Valid values:
     // 
-    // - **http**: HTTP protocol.
-    // - **https**: HTTPS protocol.
+    // - **http**: HTTP.
+    // - **https**: HTTPS.
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};

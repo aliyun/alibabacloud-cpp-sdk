@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The end time. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+    // The end time. The time must be in UTC and in the YYYY-MM-DDTHH:mm:ssZ format.
     shared_ptr<string> endTime_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -85,7 +85,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start time. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+    // The start time. The time must be in UTC and in the YYYY-MM-DDTHH:mm:ssZ format.
     shared_ptr<string> startTime_ {};
   };
 

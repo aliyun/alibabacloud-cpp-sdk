@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The backup set ID.
+    // The ID of the backup set.
     // 
     // This parameter is required.
     shared_ptr<string> backupSetId_ {};

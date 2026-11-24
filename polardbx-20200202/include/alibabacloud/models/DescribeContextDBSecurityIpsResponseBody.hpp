@@ -104,11 +104,11 @@ namespace Models
 
 
       protected:
-        // The whitelist group name.
+        // The name of the whitelist group.
         shared_ptr<string> groupName_ {};
         // The group tag.
         shared_ptr<string> groupTag_ {};
-        // The details of the whitelist group.
+        // The whitelist details of the group.
         shared_ptr<string> securityIPList_ {};
       };
 
@@ -138,11 +138,11 @@ namespace Models
 
 
     protected:
-      // The context service instance name.
+      // The name of the context service instance.
       shared_ptr<string> contextDBInstanceName_ {};
       // The instance name.
       shared_ptr<string> DBInstanceName_ {};
-      // The whitelist group list.
+      // The list of whitelist groups.
       shared_ptr<vector<Data::GroupItems>> groupItems_ {};
     };
 
@@ -232,13 +232,13 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The name of the authenticated principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the authentication principal.
+      // The owner ID of the authenticated principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The authentication principal type.
+      // The type of the authenticated principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic information.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // NoPermissionType
       shared_ptr<string> noPermissionType_ {};
@@ -274,7 +274,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<DescribeContextDBSecurityIpsResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The paginated result of the instance list.
     shared_ptr<DescribeContextDBSecurityIpsResponseBody::Data> data_ {};

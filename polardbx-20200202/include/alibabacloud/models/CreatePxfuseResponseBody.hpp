@@ -89,7 +89,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the resource already exists.
+      // Indicates whether the instance already exists.
       shared_ptr<bool> alreadyExists_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
@@ -193,7 +193,7 @@ namespace Models
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of access denial.
+      // The type of the missing permission.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -227,9 +227,9 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<CreatePxfuseResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The details of the returned policy.
+    // The returned policy details.
     shared_ptr<CreatePxfuseResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

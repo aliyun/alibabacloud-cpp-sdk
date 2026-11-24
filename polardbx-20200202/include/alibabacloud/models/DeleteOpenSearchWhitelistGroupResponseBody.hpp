@@ -61,7 +61,7 @@ namespace Models
 
 
     protected:
-      // The response message. "success" is returned if the request is successful. Otherwise, the corresponding error code is returned.
+      // The returned message. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
       shared_ptr<string> message_ {};
     };
 
@@ -157,7 +157,7 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic information.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // The type of the permission denial.
       shared_ptr<string> noPermissionType_ {};

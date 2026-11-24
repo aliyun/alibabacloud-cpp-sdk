@@ -135,23 +135,23 @@ namespace Models
 
 
     protected:
-      // Indicates whether the task can be canceled.
+      // Specifies whether the task can be canceled.
       shared_ptr<bool> canCancel_ {};
       // Indicates whether the current task is completed.
       shared_ptr<bool> canFinish_ {};
-      // Indicates whether a migration switchover can be performed. Valid values:
+      // Specifies whether a migration switchover can be performed. Valid values:
       // - **true**: Yes.
       // - **false**: No.
       // 
       // > This parameter is used by the one-click upgrade feature of PolarDB.
       shared_ptr<bool> canSwitch_ {};
-      // Indicates whether the switchover operation can be undone.
+      // Specifies whether the switchover operation can be undone.
       shared_ptr<bool> canUndoSwitch_ {};
-      // The name of the Enterprise instance.
+      // The name of the enterprise instance.
       shared_ptr<string> enterpriseInsName_ {};
       // The current migration or upgrade phase.
       shared_ptr<string> phase_ {};
-      // The report summary.
+      // The report summary information.
       Darabonba::Json reportSummary_ {};
       // The generation date of the data report.
       shared_ptr<int64_t> reportTime_ {};

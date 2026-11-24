@@ -159,17 +159,17 @@ namespace Models
 
 
       protected:
-        // The specification type of the instance (the specification code).
+        // The instance type, which is the specification code.
         shared_ptr<string> class_ {};
         // The list of DNs.
         shared_ptr<vector<string>> dnIdList_ {};
         // DN id
         shared_ptr<string> dnIdString_ {};
-        // A reserved field.
+        // The reserved field.
         shared_ptr<string> extra_ {};
         // The time when the account was created.
         shared_ptr<string> gmtCreated_ {};
-        // The time when the storage pool was last modified, in timestamp format.
+        // The modification time, in timestamp format.
         shared_ptr<string> gmtModified_ {};
         // The list of idle DNs.
         shared_ptr<vector<string>> idleDNIdList_ {};
@@ -222,7 +222,7 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The instance details.
+    // The list of instance details.
     shared_ptr<DescribeStoragePoolInfoResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

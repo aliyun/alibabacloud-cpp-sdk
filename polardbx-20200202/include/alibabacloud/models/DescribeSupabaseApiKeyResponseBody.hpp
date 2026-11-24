@@ -174,7 +174,7 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The authentication principal name.
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
@@ -182,7 +182,7 @@ namespace Models
       shared_ptr<string> authPrincipalType_ {};
       // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The no permission type.
+      // The access denied type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};

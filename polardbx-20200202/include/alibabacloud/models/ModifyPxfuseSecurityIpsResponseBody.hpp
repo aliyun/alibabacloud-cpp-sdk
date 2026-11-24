@@ -149,20 +149,20 @@ namespace Models
 
 
     protected:
-      // The name of the operation.
+      // The name of the API operation.
       shared_ptr<string> authAction_ {};
-      // The display name of the authenticated principal.
+      // The display name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the authenticated principal.
+      // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of the identity used for authentication in the request. Valid values:
+      // The type of identity used for authentication in the request. Valid values:
       // - SubUser: RAM user.
       // - AssumedRoleUser: RAM role.
       // - Federated: SSO federated identity.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic information.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The type of access denial.
       shared_ptr<string> noPermissionType_ {};
       // PolicyType
       shared_ptr<string> policyType_ {};

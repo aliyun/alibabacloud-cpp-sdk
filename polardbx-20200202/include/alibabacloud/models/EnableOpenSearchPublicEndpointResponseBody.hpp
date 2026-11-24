@@ -125,7 +125,7 @@ namespace Models
       shared_ptr<string> authAction_ {};
       // The display name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The description is the same as above.
+      // The description is as described above.
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
@@ -181,9 +181,9 @@ namespace Models
     shared_ptr<EnableOpenSearchPublicEndpointResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The host required for upload.
     shared_ptr<string> host_ {};
-    // The additional information returned by the operation. "success" is returned if the operation is successful. Otherwise, the corresponding error code is returned.
+    // The additional information returned by the API operation. If the request is successful, success is returned. If an error occurs, the corresponding error code is returned.
     shared_ptr<string> message_ {};
-    // The public endpoint port.
+    // The port of the public endpoint.
     shared_ptr<int32_t> port_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -87,7 +87,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IP whitelist. Separate multiple IP addresses with commas.
+    // The list of IP addresses in the whitelist. Separate multiple IP addresses with commas.
     // 
     // This parameter is required.
     shared_ptr<string> securityIPList_ {};

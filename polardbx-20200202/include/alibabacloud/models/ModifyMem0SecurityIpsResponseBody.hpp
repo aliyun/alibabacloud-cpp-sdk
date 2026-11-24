@@ -151,22 +151,22 @@ namespace Models
     protected:
       // The API operation name.
       shared_ptr<string> authAction_ {};
-      // The identity used for authentication in the request.
+      // The identity identifier used for authentication in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The ID of the Alibaba Cloud account to which the identity used for authentication belongs.
+      // The ID of the Alibaba Cloud account to which the authenticated principal belongs.
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of identity used for authentication in the request. Valid values:
-      // - SubUser: RAM user.
-      // - AssumedRoleUser: RAM role.
-      // - Federated: SSO federated identity.
+      // - SubUser: RAM user
+      // - AssumedRoleUser: RAM role
+      // - Federated: SSO federated identity
       shared_ptr<string> authPrincipalType_ {};
-      // The encrypted complete diagnostic information.
+      // The encoded complete diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial. Valid values:
-      // - **ImplicitDeny**: The resource owner has not granted the required permissions to the current user. Unauthorized operations are denied by default.
+      // The type of access policy denial. Valid values:
+      // - **ImplicitDeny**: The resource owner has not configured a relevant access policy for the current user, and unauthorized operations are denied by default.
       // - **ExplicitDeny**: The RAM policy configured by the resource owner explicitly denies the current user access to the corresponding resource.
       shared_ptr<string> noPermissionType_ {};
-      // The policy type.
+      // PolicyType
       shared_ptr<string> policyType_ {};
     };
 
@@ -198,9 +198,9 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The detailed reason for access denial.
     shared_ptr<ModifyMem0SecurityIpsResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The data structure.
+    // The data struct.
     shared_ptr<ModifyMem0SecurityIpsResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

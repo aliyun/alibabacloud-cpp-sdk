@@ -106,7 +106,7 @@ namespace Models
         shared_ptr<string> groupName_ {};
         // The tag of the whitelist group.
         shared_ptr<string> groupTag_ {};
-        // The IP addresses.
+        // The list of IP addresses.
         shared_ptr<string> ipLists_ {};
       };
 
@@ -131,7 +131,7 @@ namespace Models
     protected:
       // The name of the managed instance.
       shared_ptr<string> custinsName_ {};
-      // The whitelist groups.
+      // The list of whitelist groups.
       shared_ptr<vector<Data::Groups>> groups_ {};
     };
 
@@ -225,9 +225,9 @@ namespace Models
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The description is as described above.
+      // Same as above.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // The no-permission type.
       shared_ptr<string> noPermissionType_ {};

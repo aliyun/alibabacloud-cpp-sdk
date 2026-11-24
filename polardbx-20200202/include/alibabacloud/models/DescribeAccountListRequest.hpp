@@ -68,10 +68,9 @@ namespace Models
   protected:
     // The name of the account. Specify this parameter to query a specific account.
     shared_ptr<string> accountName_ {};
-    // The type of the account. Specify this parameter to query accounts of a specific type. If you set this parameter to null, all accounts are returned.
-    // 
-    // - Before three-role mode is enabled: 0 indicates a standard account, and 1 indicates a privileged user account.
-    // - After three-role mode is enabled: 0 indicates a standard account, 2 indicates a system administrator account, 3 indicates a security administrator account, and 4 indicates an audit administrator account.
+    // The type of the account. Specify this parameter to query accounts of a specific type. If this parameter is left empty, all accounts are returned. Valid values:
+    // - Before the three-role mode is enabled: 0 indicates a standard account, and 1 indicates a privileged account.
+    // - After the three-role mode is enabled: 0 indicates a standard account, 2 indicates a system administrator account, 3 indicates a security administrator account, and 4 indicates an audit administrator account.
     shared_ptr<string> accountType_ {};
     // The name of the instance.
     // 

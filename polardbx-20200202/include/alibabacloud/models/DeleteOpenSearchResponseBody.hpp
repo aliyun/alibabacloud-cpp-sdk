@@ -71,7 +71,7 @@ namespace Models
 
 
     protected:
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> DBInstanceName_ {};
       // The task ID.
       shared_ptr<int32_t> taskId_ {};
@@ -171,7 +171,7 @@ namespace Models
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The no-permission type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};

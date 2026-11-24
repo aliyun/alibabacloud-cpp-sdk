@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The key of the label.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The value of the label.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -130,13 +130,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource IDs. You can specify up to 50 subkeys.
+    // The IDs of the resources. You can specify up to 50 resource IDs.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. Set this parameter to PolarDBXInstance.
+    // The resource type. Set the value to PolarDBXInstance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The list of labels. You can specify up to 20 subkeys.
+    // The list of tags. You can specify up to 20 tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

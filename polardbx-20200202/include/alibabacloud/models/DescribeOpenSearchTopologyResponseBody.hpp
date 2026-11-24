@@ -103,9 +103,9 @@ namespace Models
 
       protected:
         // The number of secondary nodes in the primary zone.
-        // > The **ReplicaCount** and **SlaveReplicaCount** parameters apply only to cloud-native instances. If the instance uses the cluster architecture, these parameters indicate the number of secondary nodes of a **single shard** in the primary and secondary zones.
+        // > The **ReplicaCount** and **SlaveReplicaCount** parameters apply only to cloud-native instances. If the instance uses a cluster architecture, these parameters indicate the number of secondary nodes in the primary and secondary zones for a **single shard**.
         shared_ptr<int32_t> replicaCount_ {};
-        // The total storage capacity of the node. Unit: GB.
+        // The total storage capacity of the node, in GB.
         shared_ptr<int32_t> storageTotalGB_ {};
         // The storage type.
         shared_ptr<string> storageType_ {};
@@ -208,15 +208,15 @@ namespace Models
         shared_ptr<string> availabilityZone_ {};
         // The total number of CPU cores in the cluster.
         shared_ptr<int32_t> cpu_ {};
-        // The Origin Domain Name that you configured in the DCDN console, including IPv4 addresses, IPv6 addresses, common domain names, and OSS domain names.
+        // The origin domain name that you configured in the DCDN console, including IPv4 addresses, IPv6 addresses, regular domain names, and OSS domain names.
         shared_ptr<string> host_ {};
         // Indicates whether the current node is the primary node.
         shared_ptr<bool> isLeader_ {};
-        // The memory size.
+        // The configured memory size.
         shared_ptr<int32_t> memoryGB_ {};
         // The node ID.
         shared_ptr<string> nodeId_ {};
-        // The role of a node in the three-node RDS cluster. Valid values:
+        // The role of a node in the three-node RDS architecture. Valid values:
         // 
         // - **leader**: primary node
         // - **follower**: secondary node
@@ -224,13 +224,13 @@ namespace Models
         shared_ptr<string> role_ {};
         // The node status. Valid values:
         // 
-        // - **0**: Running
-        // - **1**: Creating
-        // - **2**: Abnormal
-        // - **3**: Expired
-        // - **4**: Releasing
-        // - **5**: Released
-        // - **6**: Locked
+        // - **0**: running
+        // - **1**: creating
+        // - **2**: abnormal
+        // - **3**: expired
+        // - **4**: releasing
+        // - **5**: released
+        // - **6**: locked
         shared_ptr<string> status_ {};
       };
 
@@ -257,7 +257,7 @@ namespace Models
     protected:
       // The node IDs.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
-      // The configuration of the automatic storage scaling feature for the instance.
+      // The configuration information of the Automatic storage scaling feature for instance storage.
       shared_ptr<Data::Storage> storage_ {};
     };
 
@@ -347,13 +347,13 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the authentication principal.
+      // The OwnerId of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The authentication principal type.
+      // The description as above.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // NoPermissionType
       shared_ptr<string> noPermissionType_ {};
@@ -389,9 +389,9 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<DescribeOpenSearchTopologyResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The data struct.
+    // The data structure.
     shared_ptr<DescribeOpenSearchTopologyResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

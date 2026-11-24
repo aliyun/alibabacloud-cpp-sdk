@@ -104,18 +104,17 @@ namespace Models
 
 
       protected:
-        // The account status. Valid values: 
-        // 
+        // The account status. Valid values:
         // - **Creating**: The account is being created.
         // - **Available**: The account is available.
         // - **Deleting**: The account is being deleted.
         shared_ptr<string> accountStatus_ {};
         // The account type.
         // 
-        // - Before three-role mode is enabled: 0 indicates a standard account, and 1 indicates a privileged account.
-        // - After three-role mode is enabled: 0 indicates a standard account, 2 indicates a system administrator account, 3 indicates a security administrator account, and 4 indicates an audit administrator account.
+        // - Before the three-role mode is enabled: 0 indicates a standard account, and 1 indicates a privileged account.
+        // - After the three-role mode is enabled: 0 indicates a standard account, 2 indicates a system administrator account, 3 indicates a security administrator account, and 4 indicates an audit administrator account.
         shared_ptr<string> accountType_ {};
-        // The account name of the OpenSearch instance.
+        // The username of the OpenSearch instance account.
         shared_ptr<string> username_ {};
       };
 
@@ -149,7 +148,7 @@ namespace Models
       shared_ptr<vector<Data::Accounts>> accounts_ {};
       // The time when the password was last modified.
       shared_ptr<string> passwordLastModified_ {};
-      // The account name of the OpenSearch instance.
+      // The username of the OpenSearch instance account.
       shared_ptr<string> username_ {};
     };
 
@@ -243,9 +242,9 @@ namespace Models
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The authentication principal type.
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic information.
+      // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // NoPermissionType
       shared_ptr<string> noPermissionType_ {};

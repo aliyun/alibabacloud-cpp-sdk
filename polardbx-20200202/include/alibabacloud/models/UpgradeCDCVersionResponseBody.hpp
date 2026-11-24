@@ -97,7 +97,7 @@ namespace Models
       protected:
         // The instance ID.
         shared_ptr<string> dbInstanceName_ {};
-        // The target task ID.
+        // The task ID.
         shared_ptr<int32_t> taskId_ {};
       };
 
@@ -120,7 +120,7 @@ namespace Models
 
 
     protected:
-      // The target version number.
+      // The target minor version.
       shared_ptr<string> minorVersion_ {};
       // The list of upgrade tasks.
       shared_ptr<vector<Data::TaskList>> taskList_ {};
@@ -159,9 +159,9 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // The returned data.
     shared_ptr<UpgradeCDCVersionResponseBody::Data> data_ {};
-    // The response message.
+    // The message returned in the response.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

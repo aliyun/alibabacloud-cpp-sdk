@@ -82,9 +82,9 @@ namespace Models
     protected:
       // Indicates whether the identity is deleted.
       shared_ptr<bool> deleted_ {};
-      // The identity name.
+      // The name of the identity.
       shared_ptr<string> identityName_ {};
-      // The tenant ID.
+      // The ID of the tenant.
       shared_ptr<string> tenantId_ {};
     };
 
@@ -172,17 +172,17 @@ namespace Models
 
 
     protected:
-      // The authorization action.
+      // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authorization principal.
+      // The display name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The description is the same as above.
+      // Same as above.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of the authorization principal.
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the no-permission error.
+      // The no-permission type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -220,7 +220,7 @@ namespace Models
     shared_ptr<DeletePxfsUserResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The response data.
     shared_ptr<DeletePxfsUserResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

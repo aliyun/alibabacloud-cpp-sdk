@@ -198,15 +198,15 @@ namespace Models
       shared_ptr<string> authAction_ {};
       // The identity used for authentication in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the authentication principal.
+      // The OwnerId of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of the authentication principal.
+      // The description is as above.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // NoPermissionType
       shared_ptr<string> noPermissionType_ {};
-      // The policy type.
+      // The type of the policy.
       shared_ptr<string> policyType_ {};
     };
 

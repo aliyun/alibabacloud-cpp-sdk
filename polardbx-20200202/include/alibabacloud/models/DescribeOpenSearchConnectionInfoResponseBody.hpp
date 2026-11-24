@@ -109,7 +109,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable dead-letter message delivery.
+        // Specifies whether dead-letter message delivery is enabled.
         shared_ptr<bool> enabled_ {};
         // The machine.
         shared_ptr<string> host_ {};
@@ -164,7 +164,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable the echo feature. This parameter is required. Valid values: true/false.
+        // Specifies whether additional features are enabled. This parameter is required. Valid values: true and false.
         shared_ptr<bool> enabled_ {};
         // The OSS domain name.
         shared_ptr<string> host_ {};
@@ -229,15 +229,14 @@ namespace Models
 
       protected:
         // The service activation status. Valid values:
-        // 
         // - **on**: Activated.
         // - **off**: Not activated.
         shared_ptr<bool> enabled_ {};
-        // The hostname. Retrieves data under the specified host.
+        // The hostname.
         shared_ptr<string> host_ {};
         // The port.
         shared_ptr<int32_t> port_ {};
-        // The URL.
+        // The article URL.
         shared_ptr<string> url_ {};
       };
 
@@ -297,13 +296,13 @@ namespace Models
 
 
       protected:
-        // Specifies whether static frame check is enabled. Default value: false.
+        // Specifies whether still frame checking is enabled. Default value: false.
         shared_ptr<bool> enabled_ {};
         // The host address.
         shared_ptr<string> host_ {};
         // The port.
         shared_ptr<int32_t> port_ {};
-        // The URL.
+        // The article URL.
         shared_ptr<string> url_ {};
       };
 
@@ -360,21 +359,21 @@ namespace Models
 
 
     protected:
-      // The internal endpoint of the OpenSearch Dashboard.
+      // The internal endpoint of OpenSearch Dashboard.
       shared_ptr<Data::DashboardEndpoint> dashboardEndpoint_ {};
-      // The public network access endpoint of the OpenSearch Dashboard.
+      // The public network access endpoint of OpenSearch Dashboard.
       shared_ptr<Data::DashboardPublicEndpoint> dashboardPublicEndpoint_ {};
-      // The default account name of OpenSearch.
+      // The default username for OpenSearch.
       shared_ptr<string> defaultUsername_ {};
       // The VPC endpoint of the instance.
       shared_ptr<Data::PrivateEndpoint> privateEndpoint_ {};
-      // The protocol of the monitoring task. Valid values:
+      // The protocol of the probe task. Valid values:
       // 
-      // - **ICMP**.
-      // - **TCP**.
-      // - **HTTP**.
+      // - **ICMP**
+      // - **TCP**
+      // - **HTTP**
       // 
-      // > Private network monitoring supports only the ICMP and TCP protocols.
+      // > Internal network probing supports only the ICMP and TCP protocols.
       shared_ptr<string> protocol_ {};
       // The public endpoint of the instance.
       shared_ptr<Data::PublicEndpoint> publicEndpoint_ {};
@@ -466,11 +465,11 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The display name of the authenticated principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the authentication principal.
+      // The owner ID of the authenticated principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The description is the same as above.
+      // The description is as above.
       shared_ptr<string> authPrincipalType_ {};
       // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
@@ -508,9 +507,9 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denied details.
     shared_ptr<DescribeOpenSearchConnectionInfoResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The data struct.
+    // The data structure.
     shared_ptr<DescribeOpenSearchConnectionInfoResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -206,7 +206,7 @@ namespace Models
         shared_ptr<int32_t> coordinatorNodeCount_ {};
         // The number of CPU cores per coordinator node.
         shared_ptr<int32_t> coordinatorNodeCpu_ {};
-        // Indicates whether the coordinator node is enabled.
+        // Specifies whether the coordinator node is enabled.
         shared_ptr<bool> coordinatorNodeEnabled_ {};
         // The memory size per coordinator node, in GB.
         shared_ptr<int32_t> coordinatorNodeMemoryGB_ {};
@@ -217,12 +217,12 @@ namespace Models
         // The memory size per data node, in GB.
         shared_ptr<int32_t> dataNodeMemoryGB_ {};
         // The master node type. Valid values:
-        // - **0**: single-node master
-        // - **2**: cluster-edition master
+        // - **0**: The master node is a single node.
+        // - **2**: The master node is of the Cluster Edition.
         shared_ptr<int32_t> masterNodeCount_ {};
         // The number of CPU cores per dedicated master node.
         shared_ptr<int32_t> masterNodeCpu_ {};
-        // Indicates whether the dedicated master node is enabled.
+        // Specifies whether the dedicated master node is enabled.
         shared_ptr<bool> masterNodeEnabled_ {};
         // The memory size per dedicated master node, in GB.
         shared_ptr<int32_t> masterNodeMemoryGB_ {};
@@ -412,7 +412,7 @@ namespace Models
         shared_ptr<string> regionId_ {};
         // The instance status.
         shared_ptr<string> status_ {};
-        // The last task update time in UNIX timestamp format.
+        // The last task update time in timestamp format.
         shared_ptr<string> updateTime_ {};
         // The ID of the virtual private cloud (VPC) where the access endpoint resides.
         shared_ptr<string> vpcId_ {};
@@ -531,17 +531,17 @@ namespace Models
 
 
     protected:
-      // The authorization action.
+      // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The identity used for authorization in the request.
+      // The identity used for authentication in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The ID of the owner of the authorization principal.
+      // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of the authorization principal.
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
       // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of access denial.
+      // The type of the missing permission.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};

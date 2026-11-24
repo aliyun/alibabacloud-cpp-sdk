@@ -61,8 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The name of the instance cluster. You can call the DescribeDBInstanceTopology operation to query the name.
     shared_ptr<string> instanceClusterName_ {};
-    // The region where the instance resides.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

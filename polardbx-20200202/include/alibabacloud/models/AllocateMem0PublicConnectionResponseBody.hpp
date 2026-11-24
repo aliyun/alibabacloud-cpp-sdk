@@ -117,7 +117,7 @@ namespace Models
     protected:
       // Same as above.
       shared_ptr<string> authAction_ {};
-      // The identity used for authentication in the request.
+      // The identity identifier used for authentication in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // Same as above.
       shared_ptr<string> authPrincipalOwnerId_ {};

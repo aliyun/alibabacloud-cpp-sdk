@@ -308,15 +308,13 @@ namespace Models
 
 
     protected:
-      // Indicates whether the event can be canceled. Valid values:
-      // 
-      // - **0**: No.
-      // - **1**: Yes.
+      // Indicates whether cancellation is allowed. Valid values:
+      // - **0**: no
+      // - **1**: yes
       shared_ptr<string> allowCancel_ {};
-      // Indicates whether the time can be modified. Valid values:
-      // 
-      // - **0**: No.
-      // - **1**: Yes.
+      // Indicates whether modification is allowed. Valid values:
+      // - **0**: no
+      // - **1**: yes
       shared_ptr<string> allowChange_ {};
       // The change level. This parameter can be ignored.
       shared_ptr<string> changeLevel_ {};
@@ -324,7 +322,7 @@ namespace Models
       shared_ptr<string> changeLevelEn_ {};
       // The change level in Chinese.
       shared_ptr<string> changeLevelZh_ {};
-      // The creation time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The creation time. The time is in UTC and follows the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createdTime_ {};
       // The current availability zone.
       shared_ptr<string> currentAVZ_ {};
@@ -346,7 +344,7 @@ namespace Models
       shared_ptr<string> insComment_ {};
       // The instance name.
       shared_ptr<string> insName_ {};
-      // The modification time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The modification time. The time is in UTC and follows the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> modifiedTime_ {};
       // The preparation interval.
       shared_ptr<string> prepareInterval_ {};
@@ -354,16 +352,15 @@ namespace Models
       shared_ptr<string> region_ {};
       // The result information. This parameter can be ignored.
       shared_ptr<string> resultInfo_ {};
-      // The start time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The start time. The time is in UTC and follows the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> startTime_ {};
       // The status. Valid values:
-      // 
-      // - **3**: pending 
+      // - **3**: pending
       // - **4**: running
       shared_ptr<int64_t> status_ {};
       // The list of child instances.
       shared_ptr<vector<string>> subInsNames_ {};
-      // The switchover time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The switchover time. The time is in UTC and follows the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> switchTime_ {};
       // The task type.
       shared_ptr<string> taskType_ {};

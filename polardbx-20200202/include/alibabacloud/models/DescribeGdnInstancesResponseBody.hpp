@@ -328,7 +328,7 @@ namespace Models
           // - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
           // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB
           shared_ptr<string> cnNodeClassCode_ {};
-          // The number of compute nodes (CNs).
+          // The number of CNs.
           shared_ptr<string> cnNodeCount_ {};
           // The commodity code.
           shared_ptr<string> commodityCode_ {};
@@ -352,9 +352,9 @@ namespace Models
           // - **mysql.st.8xlarge.25**: 60 cores, 470 GB
           // - **mysql.st.12xlarge.25**: 90 cores, 720 GB
           shared_ptr<string> dnNodeClassCode_ {};
-          // The number of data nodes (DNs).
+          // The number of DNs.
           shared_ptr<string> dnNodeCount_ {};
-          // The expiration time. The format is YYYY-MM-DDTHH:mm:ss.SSS±HHmm, which includes the time zone offset.
+          // The expiration time. The time is in the YYYY-MM-DDTHH:mm:ss.SSS±HHmm format, which includes the time zone offset.
           shared_ptr<string> expireTime_ {};
           // The creation time.
           shared_ptr<string> gmtCreated_ {};
@@ -362,8 +362,8 @@ namespace Models
           shared_ptr<string> memberName_ {};
           // The billing method of the instance. Valid values:
           // 
-          // - **Postpaid**: pay-as-you-go
-          // - **Prepaid**: subscription
+          // - **Postpaid**: pay-as-you-go.
+          // - **Prepaid**: subscription.
           shared_ptr<string> payType_ {};
           // The primary zone.
           shared_ptr<string> primaryZone_ {};
@@ -381,7 +381,7 @@ namespace Models
           shared_ptr<string> status_ {};
           // The status of the switchover task.
           shared_ptr<string> taskStatus_ {};
-          // The third active zone in a three-zone deployment.
+          // The third active zone in a Three-zone deployment.
           shared_ptr<string> tertiaryZone_ {};
           // The zone ID.
           shared_ptr<string> zoneId_ {};
@@ -474,7 +474,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The name of the GDN instance.
         shared_ptr<string> gdnInstanceName_ {};
-        // The replication mode of the GDN. Valid values: gdn_mode_master_slave and gdn_mode_bidirectional.
+        // The GDN replication mode. Valid values: gdn_mode_master_slave and gdn_mode_bidirectional.
         shared_ptr<string> gdnMode_ {};
         // The creation time.
         shared_ptr<string> gmtCreated_ {};
@@ -490,7 +490,7 @@ namespace Models
         shared_ptr<bool> rplSyncDdl_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The switchover logs.
+        // The switchover log.
         shared_ptr<string> switchHistory_ {};
       };
 
@@ -531,7 +531,7 @@ namespace Models
       shared_ptr<vector<Data::GdnInstanceList>> gdnInstanceList_ {};
       // The page number.
       shared_ptr<string> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<string> pageSize_ {};
       // The total number of entries.
       shared_ptr<string> totalNumber_ {};
@@ -572,8 +572,7 @@ namespace Models
   protected:
     // The list of instance details.
     shared_ptr<DescribeGdnInstancesResponseBody::Data> data_ {};
-    // The message returned for the request.
-    // > This parameter is empty if the request is successful. If the request fails, an error message such as an error code is returned.
+    // The returned message. If the request is successful, this parameter is empty. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

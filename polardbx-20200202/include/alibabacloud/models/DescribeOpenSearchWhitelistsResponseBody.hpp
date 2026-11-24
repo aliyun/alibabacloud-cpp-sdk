@@ -143,13 +143,13 @@ namespace Models
         shared_ptr<string> groupId_ {};
         // The name of the whitelist group.
         shared_ptr<string> groupName_ {};
-        // The IP address list.
+        // The list of IP addresses.
         shared_ptr<string> ips_ {};
-        // The network type. Only VPC is supported.
+        // The network type. Only VPC networks are supported.
         shared_ptr<string> networkType_ {};
-        // The policy remarks.
+        // The policy remark.
         shared_ptr<string> remark_ {};
-        // The time when the task was last updated, in timestamp format.
+        // The last update time of the task in timestamp format.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -254,15 +254,15 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the authentication principal.
+      // The OwnerId of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The authentication principal type.
+      // The description is the same as above.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the missing permission.
+      // The no-permission type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -296,7 +296,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<DescribeOpenSearchWhitelistsResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The monitoring data.
     shared_ptr<DescribeOpenSearchWhitelistsResponseBody::Data> data_ {};

@@ -66,15 +66,13 @@ namespace Models
 
 
   protected:
-    // The public network connection string to release. If this parameter is not specified, the Mem0 public address is subject to automatic release.
+    // The public connection string to release. This parameter is optional. If you do not specify this parameter, the Mem0 public endpoint is automatically released.
     shared_ptr<string> currentConnectionString_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The target node type. Valid values:
-    // - service
-    // - dashboard
+    // The type of the target node. Valid values: service, dashboard.
     shared_ptr<string> nodeType_ {};
     // The region ID of the instance.
     // 

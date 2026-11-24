@@ -153,31 +153,33 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The ID of the instance on which the target SQL statement is executed. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of the target SQL statement, including the instance ID.
+    // The ID of the instance that executes the target SQL statement. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of the target SQL statement, including the instance ID.
     shared_ptr<string> dstDb_ {};
-    // The password of the target SQL statement. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of the target SQL statement, including the password.
+    // The password of the target SQL statement.
     shared_ptr<string> dstPassword_ {};
     // The ID of the target SQL statement. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of the target SQL statement, including the ID.
     shared_ptr<string> dstResId_ {};
-    // The username of the destination instance.
+    // The destination username.
     shared_ptr<string> dstUserName_ {};
-    // The region ID of the instance. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+    // The region ID of the instance. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the details of regions supported by PolarDB-X, including region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The description of the target SQL statement.
     shared_ptr<string> slinkTaskDesc_ {};
-    // The task ID for executing the target SQL statement. > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the IDs of target SQL statements supported by PolarDB-X.
+    // The ID of the task that executes the target SQL statement. > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the IDs of target SQL statements supported by PolarDB-X.
     shared_ptr<string> slinkTaskId_ {};
-    // Specifies whether to enable the source ApsaraDB RDS instance. Valid values: **enable**: enables the source ApsaraDB RDS instance. **disabled**: disables the source ApsaraDB RDS instance.
+    // Specifies whether the source ApsaraDB RDS instance is enabled. Valid values:
+    // - **enable**: The source ApsaraDB RDS instance is enabled.
+    // - **disabled**: The source ApsaraDB RDS instance is disabled.
     shared_ptr<string> srcDb_ {};
-    // The port number of the source instance. Valid values: 3200 to 3999. > This parameter is available and required only when **DBEndpointInstanceType** is set to **polardb-o**.
+    // The source port number. Valid values: 3200 to 3999. > This parameter is available and required only when **dbendpointinstancetype** is set to **polardb-o**.
     shared_ptr<string> srcPassword_ {};
     // The ID of the source ApsaraDB RDS instance. > You can call the [DescribeDropSystemEventMetaList](https://help.aliyun.com/document_detail/196836.html) operation to query the details of all source ApsaraDB RDS instances in the target region, including instance IDs.
     shared_ptr<string> srcResId_ {};
-    // The type of the source instance. Valid values: RDS_MYSQL, POLARX1, POLARX2_STANDARD, POLARX2_ENTERPRISE, and POLARDB_M.
+    // The source instance type. Valid values: RDS_MYSQL, POLARX1, POLARX2_STANDARD, POLARX2_ENTERPRISE, and POLARDB_M.
     shared_ptr<string> srcResType_ {};
-    // The username of the source instance.
+    // The source username.
     shared_ptr<string> srcUserName_ {};
   };
 

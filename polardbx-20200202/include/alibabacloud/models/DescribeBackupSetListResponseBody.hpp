@@ -121,28 +121,25 @@ namespace Models
 
     protected:
       // The backup mode. Valid values:
-      // 
-      // - **0**: automatic backup.
-      // - **1**: manual backup.
+      // - **0**: automatic backup
+      // - **1**: manual backup
       shared_ptr<int32_t> backupModel_ {};
-      // The backup set ID.
+      // The ID of the backup set.
       shared_ptr<string> backupSetId_ {};
       // The size of the backup set, in bytes.
       shared_ptr<int64_t> backupSetSize_ {};
       // The backup type. Valid values:
-      // 
-      // - **0**: fast backup.
-      // - **1**: consistent backup.
+      // - **0**: quick backup
+      // - **1**: consistent backup
       shared_ptr<int32_t> backupType_ {};
-      // The backup start time.
+      // The start time of the backup.
       shared_ptr<int64_t> beginTime_ {};
-      // The backup end time.
+      // The end time of the backup.
       shared_ptr<int64_t> endTime_ {};
       // The status of the backup set. Valid values:
-      // 
-      // - **0**: Backing up.
-      // - **1**: Backup succeeded.
-      // - **2**: Backup failed.
+      // - **0**: The backup is in progress.
+      // - **1**: The backup was successful.
+      // - **2**: The backup failed.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -181,11 +178,11 @@ namespace Models
   protected:
     // The data struct.
     shared_ptr<vector<DescribeBackupSetListResponseBody::Data>> data_ {};
-    // The returned message. "success" is returned if the request is successful. Otherwise, an error code is returned.
+    // The returned message. If the request is successful, success is returned. If the request fails, an error code is returned.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

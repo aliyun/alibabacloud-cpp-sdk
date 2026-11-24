@@ -123,11 +123,11 @@ namespace Models
       shared_ptr<string> contextDBInstanceName_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
-      // The name of the context service dashboard instance.
+      // The name of the context service dashboard replica set.
       shared_ptr<string> dashboardReplicaSetName_ {};
       // The name of the PolarDB-X Search instance.
       shared_ptr<string> openSearchInstanceName_ {};
-      // The name of the context service service instance.
+      // The name of the context service replica set.
       shared_ptr<string> serviceReplicaSetName_ {};
       // The task ID.
       shared_ptr<int32_t> taskId_ {};
@@ -217,7 +217,7 @@ namespace Models
 
 
     protected:
-      // As described above.
+      // The description as above.
       shared_ptr<string> authAction_ {};
       // The display name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};

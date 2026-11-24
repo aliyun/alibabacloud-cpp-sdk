@@ -100,13 +100,13 @@ namespace Models
     protected:
       // The total number of documents in the cluster.
       shared_ptr<int64_t> docCount_ {};
-      // The number of indexes. This is a filter condition for the number of indexes that the missing index table currently has. The input format is `operator + separator "" + index count`, for example, `>=100`.
+      // The number of indexes.
       shared_ptr<int32_t> indexCount_ {};
       // The used storage space, in bytes.
       shared_ptr<int64_t> storageSizeInBytes_ {};
       // The total storage capacity, in bytes.
       shared_ptr<int64_t> storageTotalInBytes_ {};
-      // The storage space usage.
+      // The storage usage percentage.
       shared_ptr<double> storageUsagePercent_ {};
     };
 
@@ -202,7 +202,7 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic information.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // NoPermissionType
       shared_ptr<string> noPermissionType_ {};
@@ -238,7 +238,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<DescribeOpenSearchResourceUsageResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The returned data.
     shared_ptr<DescribeOpenSearchResourceUsageResponseBody::Data> data_ {};

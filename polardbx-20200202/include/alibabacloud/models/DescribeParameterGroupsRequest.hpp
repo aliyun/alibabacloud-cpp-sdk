@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The region where the instance resides.
+    // The region of the instance.
     shared_ptr<string> regionId_ {};
   };
 

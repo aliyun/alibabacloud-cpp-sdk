@@ -126,7 +126,7 @@ namespace Models
 
 
     protected:
-      // The context service instance name.
+      // The name of the context service instance.
       shared_ptr<string> context0InstanceName_ {};
       // The instance ID.
       shared_ptr<int32_t> DBInstanceId_ {};
@@ -134,13 +134,13 @@ namespace Models
       shared_ptr<string> DBInstanceName_ {};
       // The network type.
       shared_ptr<int32_t> netType_ {};
-      // The query node type. Valid values:
+      // The type of the queried node. Valid values:
       // - service
       // - dashboard
       shared_ptr<string> nodeType_ {};
       // The database endpoint before the switchover.
       shared_ptr<string> oldConnectionString_ {};
-      // The previous port value.
+      // The previous port number.
       shared_ptr<string> oldPort_ {};
       // The task ID.
       shared_ptr<int32_t> taskId_ {};
@@ -230,13 +230,13 @@ namespace Models
 
 
     protected:
-      // The description is as above.
+      // The description as mentioned above.
       shared_ptr<string> authAction_ {};
       // The identity used for authentication in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The description is as above.
+      // The description as mentioned above.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The description is as above.
+      // The description as mentioned above.
       shared_ptr<string> authPrincipalType_ {};
       // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
@@ -274,7 +274,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The detailed reasons for the access denial.
     shared_ptr<ReleaseContext0PublicConnectionResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The task details.
     shared_ptr<ReleaseContext0PublicConnectionResponseBody::Data> data_ {};

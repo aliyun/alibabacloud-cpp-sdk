@@ -214,50 +214,53 @@ namespace Models
 
   protected:
     // Specifies whether to enable auto-renewal. Default value: true. Valid values:
-    // - **true**: enables auto-renewal
-    // - **false**: disables auto-renewal
+    // 
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> autoRenew_ {};
-    // The idempotency token. Make sure that the value is unique for each creation request.
+    // The client token that is used to ensure the idempotence of the request. Keep the value unique for each request.
     shared_ptr<string> clientToken_ {};
     // The description of the instance.
     shared_ptr<string> DBInstanceDescription_ {};
-    // The code for the node specifications of the PolarDBX Search data node. The active node specifications vary by region and sales configuration. Use a PolarDBX Search node specifications code that is available for purchase in the current region.
+    // The node specification code of the PolarDB-X Search data node. Available specifications vary by region and sales configuration. Use a PolarDB-X Search node specification code that is available for purchase in the current region.
     // 
     // This parameter is required.
     shared_ptr<string> DBNodeClass_ {};
-    // The database engine version of PolarDBX Search. The current fixed DPI engine version is 3.0. If this parameter is not specified, 3.0 is used.
+    // The PolarDB-X Search engine version. The value is fixed to 3.0. If you do not specify this parameter, 3.0 is used.
     shared_ptr<string> engineVersion_ {};
-    // A compatible parameter. This parameter does not take effect. Specify the node specifications of the PolarDBX Search data node by using DBNodeClass.
+    // A compatible parameter. This parameter does not take effect. Specify the node specification of the PolarDB-X Search data node by using DBNodeClass.
     shared_ptr<string> instanceSpec_ {};
-    // The number of PolarDBX Search data nodes. The value must be a positive integer and an integer multiple of the number of selected zones.
+    // The number of PolarDB-X Search data nodes. The value must be a positive integer and an integer multiple of the number of selected zones.
     // 
     // This parameter is required.
     shared_ptr<int32_t> nodeCount_ {};
     // The billing method of the instance. Valid values:
-    // - **PREPAY**: subscription
-    // - **POSTPAY**: pay-as-you-go
+    // 
+    // - **PREPAY**: Subscription.
+    // - **POSTPAY**: Pay-as-you-go.
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The billing cycle. For subscription instances, only Year and Month are supported. For pay-as-you-go instances, the default value is Hour.
+    // The billing cycle. For subscription instances, valid values are Year and Month. For pay-as-you-go instances, the default value is Hour.
     shared_ptr<string> period_ {};
-    // The region ID.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. This parameter can be left empty and is not currently supported.
+    // The resource group ID. This parameter can be left empty. Resource groups are not currently supported.
     shared_ptr<string> resourceGroupId_ {};
-    // The storage space per node, in GB. The value must be a positive integer.
+    // The storage space per node. Unit: GB. The value must be a positive integer.
     shared_ptr<int32_t> storageSpace_ {};
     // The storage type. Default value: cloud_auto.
     shared_ptr<string> storageType_ {};
-    // The active topology type. Valid values:
-    // - **1azone**: single-zone.
+    // The topology type. Valid values:
+    // 
+    // - **1azone**: Single zone.
     // - **3azones**: Three-zone deployment.
     shared_ptr<string> topologyType_ {};
-    // The subscription duration. You can specify a duration in months or years for subscription instances.
+    // Specifies the subscription duration in months or years.
     // 
-    // > When Period is set to Year, valid values for this parameter are 1, 2, and 3.
+    // > If Period is set to Year, valid values for this parameter are 1, 2, and 3.
     shared_ptr<int32_t> usedTime_ {};
     // The VPC ID.
     // 
@@ -267,11 +270,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
-    // The secondary zone. This parameter is required when TopologyType is set to 3azones, and the value must be different from other zones.
+    // The secondary zone. This parameter is required when TopologyType is set to 3azones, and it cannot be the same as other zones.
     shared_ptr<string> zone2_ {};
-    // The third zone for Three-zone deployment. This parameter is required when TopologyType is set to 3azones, and the value must be different from other active zones.
+    // The third zone. This parameter is required when TopologyType is set to 3azones, and it cannot be the same as other zones.
     shared_ptr<string> zone3_ {};
-    // The zone of the instance.
+    // The zone ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

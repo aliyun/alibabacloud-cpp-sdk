@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The custom endpoint prefix.
     shared_ptr<string> connectionString_ {};
-    // The instance name.
+    // The name of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};

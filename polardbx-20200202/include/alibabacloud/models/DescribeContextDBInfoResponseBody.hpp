@@ -61,6 +61,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
           DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
           DARABONBA_PTR_TO_JSON(NodeCount, nodeCount_);
           DARABONBA_PTR_TO_JSON(OpenSearchInstanceName, openSearchInstanceName_);
           DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -77,6 +78,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
           DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
           DARABONBA_PTR_FROM_JSON(NodeCount, nodeCount_);
           DARABONBA_PTR_FROM_JSON(OpenSearchInstanceName, openSearchInstanceName_);
           DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -219,20 +221,20 @@ namespace Models
           protected:
             // The endpoint.
             shared_ptr<string> connectionString_ {};
-            // The target node type: service or dashboard.
+            // The type of the target node. Valid values: service and dashboard.
             shared_ptr<string> nodeType_ {};
-            // The port.
+            // The port number.
             shared_ptr<int32_t> port_ {};
             // The instance type. Valid values:
             // 
-            // - **ReadWrite**: primary instance.
-            // - **ReadOnly**: read-only instance.
+            // - **ReadWrite**: primary instance
+            // - **ReadOnly**: read-only instance
             shared_ptr<string> type_ {};
             // VPC ID
             shared_ptr<string> VPCId_ {};
             // The vSwitch ID.
             shared_ptr<string> vSwitchId_ {};
-            // The VPC-connected instance ID.
+            // The VPC instance ID.
             shared_ptr<string> vpcInstanceId_ {};
           };
 
@@ -305,7 +307,7 @@ namespace Models
 
 
         protected:
-          // The instance specifications.
+          // The instance type.
           shared_ptr<string> classCode_ {};
           // The endpoint type.
           shared_ptr<vector<ReplicaSets::ConnAddrs>> connAddrs_ {};
@@ -315,17 +317,17 @@ namespace Models
           shared_ptr<string> instanceId_ {};
           // The number of nodes.
           shared_ptr<int32_t> nodeCount_ {};
-          // The target node type: service or dashboard.
+          // The type of the target node. Valid values: service and dashboard.
           shared_ptr<string> nodeType_ {};
           // The node status. Valid values:
           // 
-          // - **0**: Running.
-          // - **1**: Creating.
-          // - **2**: Abnormal.
-          // - **3**: Expired.
-          // - **4**: Releasing.
-          // - **5**: Released.
-          // - **6**: Locked.
+          // - **0**: running
+          // - **1**: creating
+          // - **2**: abnormal
+          // - **3**: expired
+          // - **4**: releasing
+          // - **5**: released
+          // - **6**: locked
           shared_ptr<string> status_ {};
           // The storage type.
           shared_ptr<string> storageType_ {};
@@ -419,9 +421,9 @@ namespace Models
         protected:
           // The endpoint.
           shared_ptr<string> connectionString_ {};
-          // The target node type: service or dashboard.
+          // The type of the target node. Valid values: service and dashboard.
           shared_ptr<string> nodeType_ {};
-          // The port.
+          // The port number.
           shared_ptr<int32_t> port_ {};
           // The endpoint type.
           shared_ptr<string> type_ {};
@@ -429,14 +431,14 @@ namespace Models
           shared_ptr<string> VPCId_ {};
           // The vSwitch ID.
           shared_ptr<string> vSwitchId_ {};
-          // The VPC-connected instance ID.
+          // The VPC instance ID.
           shared_ptr<string> vpcInstanceId_ {};
         };
 
         virtual bool empty() const override { return this->classCode_ == nullptr
-        && this->connAddrs_ == nullptr && this->createTime_ == nullptr && this->DBInstanceName_ == nullptr && this->instanceId_ == nullptr && this->nodeCount_ == nullptr
-        && this->openSearchInstanceName_ == nullptr && this->regionId_ == nullptr && this->replicaSets_ == nullptr && this->status_ == nullptr && this->storageType_ == nullptr
-        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->connAddrs_ == nullptr && this->createTime_ == nullptr && this->DBInstanceName_ == nullptr && this->instanceId_ == nullptr && this->minorVersion_ == nullptr
+        && this->nodeCount_ == nullptr && this->openSearchInstanceName_ == nullptr && this->regionId_ == nullptr && this->replicaSets_ == nullptr && this->status_ == nullptr
+        && this->storageType_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
         // classCode Field Functions 
         bool hasClassCode() const { return this->classCode_ != nullptr;};
         void deleteClassCode() { this->classCode_ = nullptr;};
@@ -472,6 +474,13 @@ namespace Models
         void deleteInstanceId() { this->instanceId_ = nullptr;};
         inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
         inline Instance& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+        // minorVersion Field Functions 
+        bool hasMinorVersion() const { return this->minorVersion_ != nullptr;};
+        void deleteMinorVersion() { this->minorVersion_ = nullptr;};
+        inline string getMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(minorVersion_, "") };
+        inline Instance& setMinorVersion(string minorVersion) { DARABONBA_PTR_SET_VALUE(minorVersion_, minorVersion) };
 
 
         // nodeCount Field Functions 
@@ -540,23 +549,25 @@ namespace Models
 
 
       protected:
-        // The instance specifications.
+        // The instance type.
         shared_ptr<string> classCode_ {};
         // The list of endpoints.
         shared_ptr<vector<Instance::ConnAddrs>> connAddrs_ {};
         // The creation time.
         shared_ptr<string> createTime_ {};
-        // The database instance name.
+        // The name of the database instance.
         shared_ptr<string> DBInstanceName_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The full tag of the minor version currently confirmed by the service. This parameter is empty if the version is unknown.
+        shared_ptr<string> minorVersion_ {};
         // The number of nodes.
         shared_ptr<int32_t> nodeCount_ {};
-        // The PolarDB-X Search instance name.
+        // The name of the PolarDB-X Search instance.
         shared_ptr<string> openSearchInstanceName_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The VPC instance ID of the replica set node.
+        // The VPC instance IDs of the replica set nodes.
         // > This parameter is returned only when the network type of the instance is VPC.
         shared_ptr<vector<Instance::ReplicaSets>> replicaSets_ {};
         // The instance status.
@@ -676,11 +687,11 @@ namespace Models
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The authentication principal type.
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic information.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of missing permission.
+      // The type of the permission denial.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};

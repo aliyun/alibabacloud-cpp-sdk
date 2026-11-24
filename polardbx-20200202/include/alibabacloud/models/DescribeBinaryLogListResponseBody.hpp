@@ -175,17 +175,15 @@ namespace Models
       // The last update time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> modifiedTime_ {};
       // The cleanup status. Valid values:
-      // 
-      // - 0: Not deleted. 
-      // - 1: Deleted.
+      // - 0: not deleted
+      // - 1: deleted
       shared_ptr<int32_t> purgeStatus_ {};
       // The backup host.
       shared_ptr<string> uploadHost_ {};
       // The backup status. Valid values:
-      // 
-      // - 0: Not backed up. 
-      // - 1: Being backed up. 
-      // - 2: Backed up.
+      // - 0: not backed up
+      // - 1: being backed up
+      // - 2: backed up
       shared_ptr<int32_t> uploadStatus_ {};
     };
 
@@ -231,7 +229,7 @@ namespace Models
   protected:
     // The list of binary log files.
     shared_ptr<vector<DescribeBinaryLogListResponseBody::LogList>> logList_ {};
-    // The current page number.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of binary logs returned on the current page.
     shared_ptr<int32_t> pageSize_ {};

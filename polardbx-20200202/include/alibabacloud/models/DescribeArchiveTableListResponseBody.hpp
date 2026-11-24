@@ -231,9 +231,9 @@ namespace Models
       shared_ptr<int64_t> pageIndex_ {};
       // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The number of tables in the PAUSE state.
+      // The number of tables whose archiving is paused.
       shared_ptr<int32_t> pausedCount_ {};
-      // The number of tables being archived.
+      // The number of tables currently being archived.
       shared_ptr<int32_t> runningCount_ {};
       // The number of successfully archived tables.
       shared_ptr<int32_t> successCount_ {};

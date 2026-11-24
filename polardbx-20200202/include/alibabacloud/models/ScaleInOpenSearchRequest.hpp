@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The total number of data nodes after the scale-in. The value must be a positive integer and less than the current number of data nodes.
+    // The total number of data nodes after the scale-down. The value must be a positive integer and less than the current number of data nodes.
     // 
     // This parameter is required.
     shared_ptr<string> searchNodeCount_ {};

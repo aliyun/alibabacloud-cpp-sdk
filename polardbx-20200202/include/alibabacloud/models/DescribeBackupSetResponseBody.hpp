@@ -125,13 +125,13 @@ namespace Models
 
 
       protected:
-        // The OSS file name.
+        // The name of the OSS file.
         shared_ptr<string> backupSetFile_ {};
-        // The public download URL.
+        // The Internet download URL.
         shared_ptr<string> downloadLink_ {};
-        // The internal network OSS download URL.
+        // The internal OSS download URL.
         shared_ptr<string> intranetDownloadLink_ {};
-        // The expiration time of the OSS file link.
+        // The expiration time of the OSS file download link.
         shared_ptr<string> linkExpiredTime_ {};
       };
 
@@ -198,30 +198,27 @@ namespace Models
 
     protected:
       // The backup mode. Valid values:
-      // 
-      // - **0**: Automatic backup.
-      // - **1**: Manual backup.
+      // - **0**: automatic backup
+      // - **1**: manual backup
       shared_ptr<int32_t> backupModel_ {};
-      // The backup set ID.
+      // The ID of the backup set.
       shared_ptr<int64_t> backupSetId_ {};
-      // The size of the backup set, in bytes.
+      // The size of the backup set. Unit: bytes.
       shared_ptr<int64_t> backupSetSize_ {};
       // The backup type. Valid values:
-      // 
-      // - **0**: Fast backup.
-      // - **1**: Consistent backup.
+      // - **0**: quick backup
+      // - **1**: consistent backup
       shared_ptr<int32_t> backupType_ {};
-      // The backup start time.
+      // The start time of the backup.
       shared_ptr<int64_t> beginTime_ {};
-      // The backup end time.
+      // The end time of the backup.
       shared_ptr<int64_t> endTime_ {};
       // The list of OSS information for the backup set.
       shared_ptr<vector<Data::OSSList>> OSSList_ {};
       // The status of the backup set. Valid values:
-      // 
-      // - **0**: Backing up.
-      // - **1**: Backup succeeded.
-      // - **2**: Backup failed.
+      // - **0**: in progress
+      // - **1**: successful
+      // - **2**: failed
       shared_ptr<int32_t> status_ {};
     };
 
@@ -258,13 +255,13 @@ namespace Models
 
 
   protected:
-    // The data list.
+    // The list of data.
     shared_ptr<vector<DescribeBackupSetResponseBody::Data>> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

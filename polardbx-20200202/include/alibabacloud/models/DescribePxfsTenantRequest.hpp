@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The tenant ID.
+    // The ID of the tenant.
     // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};

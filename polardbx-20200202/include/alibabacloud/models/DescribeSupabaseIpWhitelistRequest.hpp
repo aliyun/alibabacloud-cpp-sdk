@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The name of the whitelist group.
+    // The whitelist group name.
     shared_ptr<string> groupName_ {};
     // The region ID.
     // 

@@ -102,9 +102,9 @@ namespace Models
       shared_ptr<string> context0InstanceName_ {};
       // The name of the instance.
       shared_ptr<string> DBInstanceName_ {};
-      // The name of the context service dashboard instance.
+      // The name of the dashboard instance for the context service.
       shared_ptr<string> dashboardReplicaSetName_ {};
-      // The name of the context service instance.
+      // The name of the service instance for the context service.
       shared_ptr<string> serviceReplicaSetName_ {};
       // The task ID.
       shared_ptr<int32_t> taskId_ {};
@@ -202,7 +202,7 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // NoPermissionType
       shared_ptr<string> noPermissionType_ {};
@@ -240,7 +240,7 @@ namespace Models
   protected:
     // The details of the access denial.
     shared_ptr<DeleteContext0ResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The data struct.
+    // The data structure.
     shared_ptr<DeleteContext0ResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

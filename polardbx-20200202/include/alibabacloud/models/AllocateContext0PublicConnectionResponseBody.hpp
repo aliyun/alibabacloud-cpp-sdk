@@ -141,17 +141,17 @@ namespace Models
       shared_ptr<string> context0InstanceName_ {};
       // The instance ID.
       shared_ptr<int32_t> DBInstanceId_ {};
-      // The instance name.
+      // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
       // The network type of the connection string.
       shared_ptr<int32_t> DBInstanceNetType_ {};
-      // The target node type. Valid values: service and dashboard.
+      // The target node type. Valid values: service, dashboard.
       shared_ptr<string> nodeType_ {};
       // The port number.
       shared_ptr<string> port_ {};
       // The task ID.
       shared_ptr<int32_t> taskId_ {};
-      // The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance protected by the policy.
+      // The IP address of the Anti-DDoS instance protected by the policy.
       shared_ptr<string> vip_ {};
     };
 
@@ -239,13 +239,13 @@ namespace Models
 
 
     protected:
-      // The action that is evaluated.
+      // The authorization action.
       shared_ptr<string> authAction_ {};
-      // The identity used for authentication in the request.
+      // The identity identifier used for authentication in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The action that is evaluated.
+      // The authorization action.
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};

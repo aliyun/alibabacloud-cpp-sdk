@@ -101,7 +101,7 @@ namespace Models
 
 
     protected:
-      // The context service instance name.
+      // The name of the context service instance.
       shared_ptr<string> contextDBInstanceName_ {};
       // The instance ID.
       shared_ptr<int32_t> DBInstanceId_ {};
@@ -199,18 +199,18 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The ID of the Alibaba Cloud account to which the authentication principal belongs.
+      // The Alibaba Cloud account ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The identity type used for authentication in the request. Valid values:
+      // The type of identity used for authentication in the request. Valid values:
       // - SubUser: RAM user.
       // - AssumedRoleUser: RAM role.
       // - Federated: SSO federated identity.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic information.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The no permission type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -244,9 +244,9 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<ModifyContextDBSecurityIpsResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The data struct.
+    // The data structure.
     shared_ptr<ModifyContextDBSecurityIpsResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

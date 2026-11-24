@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The group ID.
+    // The ID of the group.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
@@ -87,11 +87,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> IPs_ {};
-    // The region of the instance.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The remark.
+    // The description.
     shared_ptr<string> remark_ {};
   };
 

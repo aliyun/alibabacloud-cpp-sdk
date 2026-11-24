@@ -104,7 +104,7 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The name of the instance.
     shared_ptr<string> instanceName_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};

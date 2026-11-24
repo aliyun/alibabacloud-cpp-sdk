@@ -125,9 +125,9 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encrypted complete diagnostic message.
+      // The encoded complete diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The type of the access denial.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -159,7 +159,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The details of the access denied error.
     shared_ptr<ScaleInOpenSearchResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

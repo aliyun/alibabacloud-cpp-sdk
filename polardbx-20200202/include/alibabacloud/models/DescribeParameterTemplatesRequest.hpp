@@ -71,8 +71,8 @@ namespace Models
     // The DPI engine version. Default value: 2.0.
     shared_ptr<string> engineVersion_ {};
     // The parameter level. Valid values:
-    // - **compute**: the compute layer.
-    // - **storage**: the storage layer.
+    // - **compute**: compute layer
+    // - **storage**: storage layer
     shared_ptr<string> paramLevel_ {};
     // The region ID of the instance.
     // 

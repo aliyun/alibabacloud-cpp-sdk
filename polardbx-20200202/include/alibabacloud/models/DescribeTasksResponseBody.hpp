@@ -160,25 +160,26 @@ namespace Models
     protected:
       // The start time of the task. The format is yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
       shared_ptr<string> beginTime_ {};
-      // The name of the database associated with the task. This field is usually empty.
+      // The name of the database associated with the task. This parameter is usually empty.
       shared_ptr<string> DBName_ {};
       // The end time of the task. The format is yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
       shared_ptr<string> finishTime_ {};
       // The task progress, in percentage.
       shared_ptr<string> progress_ {};
-      // The detailed progress of the task. This field is usually empty.
+      // The detailed task progress. This parameter is usually empty.
       shared_ptr<string> progressInfo_ {};
-      // The scale-out token. If the task is a scale-out task, this field returns a scale-out ID, which is a unique backend key.
+      // The scale-out ID, which is a unique backend key. This parameter is returned only for scale-out tasks.
       shared_ptr<string> scaleOutToken_ {};
       // The task status. Valid values:
+      // 
       // - **RUNNING**: The task is running.
       // - **FAILED**: The task failed and was interrupted.
       shared_ptr<string> status_ {};
-      // The task action. This is a unique key for the backend task type.
+      // The task action, which is a unique key for the backend task type.
       shared_ptr<string> taskAction_ {};
-      // The error code of the failed task.
+      // The error code returned when the task fails.
       shared_ptr<string> taskErrorCode_ {};
-      // The error message of the failed task.
+      // The error message returned when the task fails.
       shared_ptr<string> taskErrorMessage_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -224,11 +225,11 @@ namespace Models
 
 
   protected:
-    // The list of result items.
+    // The list of items.
     shared_ptr<vector<DescribeTasksResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -89,7 +89,7 @@ namespace Models
 
 
     protected:
-      // The endpoint.
+      // The connection endpoint.
       shared_ptr<string> connectionString_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
@@ -191,9 +191,9 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The no permission type.
+      // The access denial type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -227,7 +227,7 @@ namespace Models
 
 
   protected:
-    // The access denied details.
+    // The access denial details.
     shared_ptr<CreatePolardbxSupabaseInstanceResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The creation result.
     shared_ptr<CreatePolardbxSupabaseInstanceResponseBody::Data> data_ {};

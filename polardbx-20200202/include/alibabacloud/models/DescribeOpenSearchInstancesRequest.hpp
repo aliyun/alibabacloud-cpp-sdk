@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The instance name.
+    // The name of the instance.
     shared_ptr<string> DBInstanceName_ {};
-    // The maximum number of entries per page for a paging query. Maximum value: 100. Default value: If you do not specify a value or the value is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
+    // The number of entries per page for paging in a paged query. Maximum value: 100. Default value: 10 if no Settings are specified or the Settings value is less than 10. If the Settings value is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};

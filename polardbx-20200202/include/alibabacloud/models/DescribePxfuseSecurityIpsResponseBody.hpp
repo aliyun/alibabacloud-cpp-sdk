@@ -106,11 +106,11 @@ namespace Models
         shared_ptr<string> groupName_ {};
         // The group tag.
         shared_ptr<string> groupTag_ {};
-        // Specifies whether an IP address that is already used for a DNAT entry can also be used for an SNAT entry. Valid values:
+        // Specifies whether an IP address that is already used in a DNAT entry can also be used in an SNAT entry. Valid values:
         // 
-        // - **true**: Destination IP address can also be used for an SNAT entry.
+        // - **true**: Destination IP address can also be used in an SNAT entry.
         // 
-        // - **false**: Destination IP address cannot be used for an SNAT entry.
+        // - **false**: Destination IP address cannot be used in an SNAT entry.
         shared_ptr<string> ipLists_ {};
       };
 
@@ -135,7 +135,7 @@ namespace Models
     protected:
       // The name of the memory engine instance.
       shared_ptr<string> custinsName_ {};
-      // The groups corresponding to the consumed service.
+      // The groups corresponding to the consumed services.
       shared_ptr<vector<Data::Groups>> groups_ {};
     };
 
@@ -223,17 +223,17 @@ namespace Models
 
 
     protected:
-      // The description is the same as above.
+      // The description as mentioned above.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the no-permission error.
+      // The no-permission type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -267,9 +267,9 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The details of the access denial.
     shared_ptr<DescribePxfuseSecurityIpsResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The instance details.
+    // The list of instance details.
     shared_ptr<DescribePxfuseSecurityIpsResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

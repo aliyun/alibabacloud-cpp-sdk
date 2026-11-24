@@ -240,37 +240,37 @@ namespace Models
       shared_ptr<string> bid_ {};
       // The creator of the import task.
       shared_ptr<string> creator_ {};
-      // Indicates whether the task is deleted.
+      // Specifies whether the task is deleted.
       shared_ptr<bool> deleted_ {};
       // The timestamp when the task was created. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreated_ {};
-      // The time when the metadata information was last modified.
+      // The time when the metadata was modified.
       shared_ptr<int64_t> gmtModified_ {};
       // The task ID.
       shared_ptr<int64_t> id_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The name of the slink destination database.
+      // The name of the destination Slink database.
       shared_ptr<string> slinkDstDb_ {};
-      // The instance ID of the destination.
+      // The destination instance ID.
       shared_ptr<string> slinkDstResId_ {};
-      // The username for the data connection of the destination.
+      // The username for the destination data connection.
       shared_ptr<string> slinkDstUserName_ {};
-      // The name of the slink source database.
+      // The name of the source Slink database.
       shared_ptr<string> slinkSrcDb_ {};
-      // The instance ID of the source.
+      // The source instance ID.
       shared_ptr<string> slinkSrcResId_ {};
-      // The resource type of the source.
+      // The type of the source resource.
       shared_ptr<string> slinkSrcResType_ {};
-      // The username for the data connection of the source.
+      // The username for the source data connection.
       shared_ptr<string> slinkSrcUserName_ {};
-      // The stage of the synchronization task.
+      // The stage of the synchronization.
       shared_ptr<string> slinkStage_ {};
-      // The running status of the synchronization task.
+      // The running status of the synchronization.
       shared_ptr<string> slinkStatus_ {};
-      // The description of the slink task.
+      // The description of the Slink task.
       shared_ptr<string> slinkTaskDesc_ {};
-      // The slink task ID.
+      // The Slink task ID.
       shared_ptr<string> slinkTaskId_ {};
       // The synchronization type.
       shared_ptr<string> slinkType_ {};
@@ -331,9 +331,9 @@ namespace Models
 
 
   protected:
-    // The details of the restoration tasks.
+    // The recovery task details.
     shared_ptr<vector<DescribeEvaluateAndImportTasksResponseBody::Data>> data_ {};
-    // The returned message. > This parameter is empty when the request succeeds. When the request fails, exception information such as an error code is returned.
+    // The returned message. > This parameter is empty if the request is successful. If the request fails, an error message (such as an error code) is returned.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
@@ -341,7 +341,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalNumber_ {};

@@ -91,7 +91,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The description of the group.
+    // The description of the whitelist group.
     shared_ptr<string> remark_ {};
   };
 

@@ -166,9 +166,9 @@ namespace Models
       shared_ptr<string> eventPayload_ {};
       // The reason.
       shared_ptr<string> eventReason_ {};
-      // The record time. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+      // The record time. The time must be in UTC and in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> eventRecordTime_ {};
-      // The event time. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+      // The event time. The time must be in UTC and in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> eventTime_ {};
       // The event type.
       shared_ptr<string> eventType_ {};

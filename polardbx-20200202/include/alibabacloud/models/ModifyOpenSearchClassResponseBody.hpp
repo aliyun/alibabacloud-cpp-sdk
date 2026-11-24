@@ -149,20 +149,20 @@ namespace Models
 
 
     protected:
-      // The authorization action.
+      // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authorization principal.
+      // The display name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the authorization principal.
+      // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of identity used for authorization in the request. Valid values:
-      // - SubUser: RAM user.
-      // - AssumedRoleUser: RAM role.
-      // - Federated: SSO federated identity.
+      // The type of identity used for authentication in the request. Valid values:
+      // - SubUser: RAM user
+      // - AssumedRoleUser: RAM role
+      // - Federated: SSO federated identity
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded full diagnostic message.
+      // The encoded complete diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The no permission type.
+      // The permission denial type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -196,7 +196,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<ModifyOpenSearchClassResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The returned result.
     shared_ptr<ModifyOpenSearchClassResponseBody::Data> data_ {};

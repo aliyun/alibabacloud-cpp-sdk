@@ -155,7 +155,7 @@ namespace Models
 
 
       protected:
-        // The specification type (specification code) of the instance.
+        // The instance type (specification code).
         shared_ptr<string> class_ {};
         // The number of databases.
         shared_ptr<int64_t> dbCount_ {};
@@ -164,10 +164,9 @@ namespace Models
         // The number of node groups.
         shared_ptr<int64_t> groupCount_ {};
         // The role type of the instance. Valid values:
-        // 
-        // - MASTER: primary instance.
-        // - READONLY: read-only instance.
-        // - STANDBY: standby instance (high-availability scenario).
+        // - MASTER: primary instance
+        // - READONLY: read-only instance
+        // - STANDBY: secondary instance in high-availability scenarios
         shared_ptr<string> instKind_ {};
         // Indicates whether the instance or cluster is currently in a healthy state.
         shared_ptr<bool> isHealthy_ {};
@@ -220,7 +219,7 @@ namespace Models
 
 
   protected:
-    // The return code of the request. > This parameter is empty when the request is successful. When the request fails, exception information such as error codes is returned.
+    // The return code of the request. This parameter is empty if the request is successful. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> code_ {};
     // The data.
     shared_ptr<DescribeShowStorageInfoResponseBody::Data> data_ {};

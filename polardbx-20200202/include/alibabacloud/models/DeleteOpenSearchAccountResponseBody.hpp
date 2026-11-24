@@ -71,7 +71,7 @@ namespace Models
 
 
     protected:
-      // The account name.
+      // The name of the account.
       shared_ptr<string> accountName_ {};
       // The task ID.
       shared_ptr<int32_t> taskId_ {};
@@ -169,7 +169,7 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // NoPermissionType
       shared_ptr<string> noPermissionType_ {};
@@ -205,9 +205,9 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<DeleteOpenSearchAccountResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The data struct.
+    // The data structure.
     shared_ptr<DeleteOpenSearchAccountResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

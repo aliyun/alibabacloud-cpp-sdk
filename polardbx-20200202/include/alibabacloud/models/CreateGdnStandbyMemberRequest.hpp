@@ -250,20 +250,20 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable auto-renewal. Default value: true.
+    // Specifies whether to enable auto-renewal. Default value: true. Valid values:
     // 
-    // - **true**: Enabled.
-    // - **false**: Disabled.
+    // - **true**: yes
+    // - **false**: no
     shared_ptr<bool> autoRenew_ {};
     // The number of compute nodes.
     shared_ptr<string> CNNodeCount_ {};
-    // The client token that is used to ensure the idempotence of the request. Make sure that the value is different for each request.
+    // The client token that is used to ensure the idempotence of the request. Make sure that the token is unique for each request.
     shared_ptr<string> clientToken_ {};
     // The name of the source instance.
     // 
     // This parameter is required.
     shared_ptr<string> cloneInstanceName_ {};
-    // The compute node specifications. This parameter is required for Enterprise Edition instances and is not required for Standard Edition instances.
+    // The compute node specifications. This parameter is required when you create an Enterprise Edition instance and is not required when you create a Standard Edition instance.
     // 
     // Enterprise Edition with local disks:
     // 
@@ -299,9 +299,9 @@ namespace Models
     shared_ptr<string> cnClass_ {};
     // The number of storage nodes.
     shared_ptr<string> DNNodeCount_ {};
-    // The description of the instance.
+    // The description.
     shared_ptr<string> description_ {};
-    // The storage node specifications. This parameter is required for Enterprise Edition instances and is not required for Standard Edition instances.
+    // The storage node specifications. This parameter is required when you create an Enterprise Edition instance and is not required when you create a Standard Edition instance.
     // 
     // Enterprise Edition with local disks:
     // 
@@ -344,61 +344,56 @@ namespace Models
     // - **polarx.mysql.x8.45xlarge.c25**: 180 cores, 1440 GB (dedicated)
     // - **polarx.mysql.x8.60xlarge.c25**: 240 cores, 1920 GB (dedicated)
     shared_ptr<string> dnClass_ {};
-    // The MySQL DPI engine version. Valid values: 5.7 and 8.0.
+    // The MySQL DPI engine version. Valid values: 5.7 or 8.0
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
     // The network type. Only VPC is supported.
     shared_ptr<string> networkType_ {};
-    // The billing method of the instance.
+    // The billing method of the instance. Valid values:
     // 
     // - **PREPAY**: subscription
     // - **POSTPAY**: pay-as-you-go
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The unit of the subscription duration. Valid values:
-    // 
-    // - Year
-    // - Month
-    // 
-    // For pay-as-you-go instances, the default value is Hour.
+    // The billing cycle. Valid values for the subscription billing method are Year and Month. The default value for the pay-as-you-go billing method is Hour.
     shared_ptr<string> period_ {};
     // The primary zone.
     shared_ptr<string> primaryZone_ {};
-    // The region in which the instance resides.
+    // The region where the instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. This parameter can be left empty. This parameter is not supported.
+    // The resource group ID. This parameter can be left empty. Resource groups are not supported.
     shared_ptr<string> resourceGroupId_ {};
     // The secondary zone.
     shared_ptr<string> secondaryZone_ {};
     // The edition of the instance. Valid values:
     // 
-    // - enterprise: Enterprise Edition.
-    // - standard: Standard Edition.
+    // - **enterprise**: Enterprise Edition
+    // - **standard**: Standard Edition
     shared_ptr<string> series_ {};
-    // The region in which the source instance resides.
+    // The region where the source instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> sourceInstanceRegion_ {};
     // The storage type.
     shared_ptr<string> storageType_ {};
-    // The zone for Three-zone deployment.
+    // The third active zone in a Three-zone deployment.
     shared_ptr<string> tertiaryZone_ {};
     // The topology type. Valid values:
     // 
-    // - **3azones**: three-zone deployment.
-    // - **1azone**: single-zone deployment.
+    // - **3azones**: three-zone deployment
+    // - **1azone**: single-zone deployment
     // 
     // This parameter is required.
     shared_ptr<string> topologyType_ {};
-    // The subscription duration. Unit: months or years.
+    // The subscription duration. You can specify a duration in months or years.
     // 
-    // > If Period is set to Year, valid values of this parameter are 1, 2, and 3.
+    // > If Period is set to Year, valid values are 1, 2, and 3.
     shared_ptr<int32_t> usedTime_ {};
-    // VPC ID。
+    // The VPC ID.
     shared_ptr<string> VPCId_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};

@@ -71,7 +71,7 @@ namespace Models
 
 
     protected:
-      // The additional information returned by the operation. "success" is returned if the operation is successful. Otherwise, the corresponding error code is returned.
+      // The additional information returned by the API operation. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
       shared_ptr<string> message_ {};
       // The time when the password was last modified.
       shared_ptr<string> passwordLastModified_ {};
@@ -169,7 +169,7 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // The type of the missing permission.
       shared_ptr<string> noPermissionType_ {};
@@ -205,7 +205,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The detailed reasons for access denial.
     shared_ptr<ResetOpenSearchPasswordResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The monitoring data.
     shared_ptr<ResetOpenSearchPasswordResponseBody::Data> data_ {};

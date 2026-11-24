@@ -84,17 +84,15 @@ namespace Models
 
 
   protected:
-    // The message filter type.
+    // The filter type.
     shared_ptr<string> filterType_ {};
-    // The filter value used when querying resources.
-    // 
-    // This parameter is used in conjunction with FilterKey.
+    // The filter value used to query resources. This parameter is used in conjunction with FilterKey.
     shared_ptr<string> filterValue_ {};
     // The GDN ID.
     shared_ptr<string> GDNId_ {};
     // The page number. Valid values: an integer greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: 1.
     shared_ptr<string> pageNum_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

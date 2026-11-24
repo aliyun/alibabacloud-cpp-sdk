@@ -225,11 +225,11 @@ namespace Models
         shared_ptr<int32_t> dataNodeCount_ {};
         // The instance description.
         shared_ptr<string> description_ {};
-        // The DPI engine version. Default value: 2.0.
+        // The database engine version of the DPI engine. Default value: 2.0.
         shared_ptr<string> engineVersion_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The memory size. Unit: GB.
+        // The configured memory size, in GB.
         shared_ptr<int32_t> memoryGB_ {};
         // The network type of the connection string. Valid values:
         // * **Public**: public endpoint.
@@ -238,11 +238,11 @@ namespace Models
         shared_ptr<string> netType_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The display name of the instance specifications.
+        // The display name of the instance type.
         shared_ptr<string> specDisplay_ {};
         // The instance status.
         shared_ptr<string> status_ {};
-        // The storage size of a single data node. Unit: GB.
+        // The storage space of a single data node, in GB.
         shared_ptr<int32_t> storageSizeGB_ {};
       };
 
@@ -295,7 +295,7 @@ namespace Models
     protected:
       // The cluster ID.
       shared_ptr<vector<Data::Instances>> instances_ {};
-      // The maximum number of entries per page for a paging query. Maximum value: 100. Default value: If you do not specify a value or the value is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
+      // The number of entries per page for paging in a paged query. Maximum value: 100. Default value: 10 if no Settings are specified or the Settings value is less than 10. If the Settings value is greater than 100, the default value is 100.
       shared_ptr<int32_t> maxResults_ {};
       // The token for the next query.
       shared_ptr<string> nextToken_ {};
@@ -399,9 +399,9 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The access denial type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};

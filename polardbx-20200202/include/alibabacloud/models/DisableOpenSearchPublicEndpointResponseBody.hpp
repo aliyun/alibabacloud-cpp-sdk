@@ -119,11 +119,11 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The display name of the principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the authentication principal.
+      // The ID of the principal owner.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of the authentication principal.
+      // The type of the authenticated principal.
       shared_ptr<string> authPrincipalType_ {};
       // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
@@ -159,7 +159,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The detailed reason for the access denial.
     shared_ptr<DisableOpenSearchPublicEndpointResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The error message.
     shared_ptr<string> message_ {};

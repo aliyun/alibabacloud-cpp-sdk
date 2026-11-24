@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The public network connection endpoint.
+      // The public endpoint.
       shared_ptr<string> connectionString_ {};
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> DBInstanceName_ {};
       // The task ID.
       shared_ptr<int32_t> taskId_ {};
@@ -174,11 +174,11 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The security principal name.
+      // The display name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the security principal.
+      // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The security principal type.
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
@@ -216,7 +216,7 @@ namespace Models
 
 
   protected:
-    // The access denial details.
+    // The access denied details.
     shared_ptr<CreateSupabaseNetTypeResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The operation result.
     shared_ptr<CreateSupabaseNetTypeResponseBody::Data> data_ {};

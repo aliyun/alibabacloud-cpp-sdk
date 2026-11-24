@@ -163,7 +163,7 @@ namespace Models
     protected:
       // The description is as above.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
@@ -205,7 +205,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denied error.
+    // The details of the access denial.
     shared_ptr<CreateOpenSearchAccountResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The returned policy details.
     shared_ptr<CreateOpenSearchAccountResponseBody::Data> data_ {};

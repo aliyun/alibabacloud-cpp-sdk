@@ -144,8 +144,9 @@ namespace Models
         // The validation constraint.
         shared_ptr<string> checkingCode_ {};
         // Specifies whether the parameter is dynamic. Valid values:
-        // - **0**: no.
-        // - **1**: yes.
+        // 
+        // - **0**: no
+        // - **1**: yes
         shared_ptr<int32_t> dynamic_ {};
         // The parameter description.
         shared_ptr<string> parameterDescription_ {};
@@ -154,10 +155,11 @@ namespace Models
         // The parameter value.
         shared_ptr<string> parameterValue_ {};
         // Specifies whether the parameter can be modified. Valid values:
-        // - **0**: The parameter cannot be modified.
-        // - **1**: The parameter can be modified.
+        // 
+        // - **0**: cannot be modified
+        // - **1**: can be modified
         shared_ptr<int32_t> revisable_ {};
-        // Specifies whether the parameter can be modified by the user.
+        // Specifies whether the parameter can be modified by users.
         shared_ptr<int32_t> userChangable_ {};
       };
 
@@ -200,7 +202,7 @@ namespace Models
       shared_ptr<string> engineVersion_ {};
       // The number of parameters.
       shared_ptr<int32_t> parameterCount_ {};
-      // The list of parameters.
+      // The parameter list.
       shared_ptr<vector<Data::Parameters>> parameters_ {};
     };
 

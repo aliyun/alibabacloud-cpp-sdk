@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // A reserved parameter. You do not need to specify this parameter.
+    // The reserved parameter. You do not need to specify this parameter.
     shared_ptr<string> category_ {};
     // The product. Default value: polarx.
     shared_ptr<string> product_ {};

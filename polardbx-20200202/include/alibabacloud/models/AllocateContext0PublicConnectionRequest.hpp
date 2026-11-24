@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The prefix of the public network connection string.
+    // The prefix of the public connection string.
     shared_ptr<string> connectionStringPrefix_ {};
     // The instance name.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The target node type. Valid values: service and dashboard.
+    // The target node type. Valid values: service, dashboard.
     shared_ptr<string> nodeType_ {};
     // The port number.
     shared_ptr<string> port_ {};

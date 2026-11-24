@@ -259,9 +259,9 @@ namespace Models
         shared_ptr<string> id_ {};
         // The node specifications.
         shared_ptr<string> nodeClass_ {};
-        // The region ID of the node.
+        // The ID of the region where the node resides.
         shared_ptr<string> regionId_ {};
-        // The zone where the node resides.
+        // The name of the zone where the node resides.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -341,15 +341,15 @@ namespace Models
       protected:
         // The endpoint.
         shared_ptr<string> connectionString_ {};
-        // The port number.
+        // The connection port number.
         shared_ptr<int64_t> port_ {};
-        // The connection type. **VPC** indicates an internal network connection. **PUBLIC** indicates a public network connection.
+        // The connection type. **VPC** indicates an internal network connection, and **PUBLIC** indicates a public network connection.
         shared_ptr<string> type_ {};
-        // VPC ID。
+        // The VPC ID.
         shared_ptr<string> VPCId_ {};
         // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The internal CloudInstanceId within the VPC. This parameter can be ignored.
+        // The internal CloudInstanceId in the VPC. You can ignore this parameter.
         shared_ptr<string> vpcInstanceId_ {};
       };
 
@@ -669,6 +669,7 @@ namespace Models
 
     protected:
       // The CN node specifications. Valid values:
+      // 
       // - **polarx.x4.medium.2e**: 2 cores, 8 GB
       // - **polarx.x4.large.2e**: 4 cores, 16 GB
       // - **polarx.x8.large.2e**: 4 cores, 32 GB
@@ -683,7 +684,7 @@ namespace Models
       shared_ptr<string> cnNodeClassCode_ {};
       // The number of CN nodes.
       shared_ptr<int32_t> cnNodeCount_ {};
-      // The commodity code of the instance. The value is fixed as drds_polarxpost_public_cn.
+      // The commodity type of the instance. The value is fixed as drds_polarxpost_public_cn.
       shared_ptr<string> commodityCode_ {};
       // The endpoint information.
       shared_ptr<vector<DBInstance::ConnAddrs>> connAddrs_ {};
@@ -693,22 +694,23 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The instance type. Valid values:
       // 
-      // - **ReadWrite**: primary instance.
-      // - **ReadOnly**: read-only instance.
+      // - **ReadWrite**: primary instance
+      // - **ReadOnly**: read-only instance
       shared_ptr<string> DBInstanceType_ {};
       // The node specifications of the instance.
       shared_ptr<string> DBNodeClass_ {};
-      // The number of instance nodes.
+      // The number of nodes in the instance.
       shared_ptr<int32_t> DBNodeCount_ {};
       // The database node information.
       shared_ptr<vector<DBInstance::DBNodes>> DBNodes_ {};
-      // The database type. The value is fixed as polarx.
+      // The database engine type. The value is fixed as polarx.
       shared_ptr<string> DBType_ {};
-      // The database version.
+      // The database engine version.
       shared_ptr<string> DBVersion_ {};
-      // The instance description.
+      // The description of the instance.
       shared_ptr<string> description_ {};
       // The DN node specifications. Valid values:
+      // 
       // - **mysql.n2.medium.25**: 2 cores, 4 GB
       // - **mysql.n4.medium.25**: 2 cores, 8 GB
       // - **mysql.x8.medium.25**: 2 cores, 16 GB
@@ -727,50 +729,50 @@ namespace Models
       shared_ptr<string> dnNodeClassCode_ {};
       // The number of DN nodes.
       shared_ptr<int32_t> dnNodeCount_ {};
-      // The database type. The value is fixed as MySQL.
+      // The database engine. The value is fixed as MySQL.
       shared_ptr<string> engine_ {};
-      // The expiration time. The time is in the yyyy-MM-ddTHH:mm:ss.sss+0000 format (UTC).
+      // The expiration time. The format is yyyy-MM-ddTHH:mm:ss.sss+0000 (UTC).
       shared_ptr<string> expireDate_ {};
       // Indicates whether the instance has expired. Valid values:
       // 
-      // - **true**: Expired.
-      // - **false**: Not expired.
+      // - **true**: The instance has expired.
+      // - **false**: The instance has not expired.
       shared_ptr<string> expired_ {};
       // The ID of the primary instance. If this parameter is not returned, the instance is a primary instance.
       shared_ptr<string> id_ {};
       // The DPI engine version of the instance. This is an internal parameter.
       shared_ptr<int32_t> kindCode_ {};
-      // The LTS version numbers.
+      // The LTS version number.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> LTSVersions_ {};
-      // The latest kernel version supported by the instance.
+      // The latest kernel version supported by the current instance.
       shared_ptr<string> latestMinorVersion_ {};
       // The lock mode of the instance. Valid values:
       // 
-      // - **Unlock**: Normal.
-      // - **ManualLock**: Manually locked.
-      // - **LockByExpiration**: Automatically locked due to instance expiration.
-      // - **LockByRestoration**: Automatically locked before instance rollback.
-      // - **LockByDiskQuota**: Automatically locked due to insufficient disk space.
-      // - **LockReadInstanceByDiskQuota**: Read-only instance automatically locked due to insufficient disk space.
+      // - **Unlock**: normal
+      // - **ManualLock**: manually locked
+      // - **LockByExpiration**: automatically locked due to expiration
+      // - **LockByRestoration**: automatically locked before a rollback
+      // - **LockByDiskQuota**: automatically locked due to full storage space
+      // - **LockReadInstanceByDiskQuota**: automatically locked due to full storage space of the read-only instance
       shared_ptr<string> lockMode_ {};
-      // The end time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
+      // The end time of the maintenance window for the instance. The time is in UTC. Add 8 hours to the time to obtain the maintenance window displayed in the console.
       shared_ptr<string> maintainEndTime_ {};
-      // The start time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
+      // The start time of the maintenance window for the instance. The time is in UTC. Add 8 hours to the time to obtain the maintenance window displayed in the console.
       shared_ptr<string> maintainStartTime_ {};
       // The current kernel version.
       shared_ptr<string> minorVersion_ {};
-      // The network type of the instance. Only VPC is supported, which indicates a virtual private cloud (VPC).
+      // The network type of the instance. The only valid value is VPC, which indicates a VPC.
       shared_ptr<string> network_ {};
       // The billing method of the instance. Valid values:
       // 
-      // - **Postpaid**: pay-as-you-go.
-      // - **Prepaid**: subscription.
+      // - **Postpaid**: pay-as-you-go
+      // - **Prepaid**: subscription
       shared_ptr<string> payType_ {};
-      // The port of the instance endpoint.
+      // The connection port of the instance.
       shared_ptr<string> port_ {};
-      // The names of read-only instances.
+      // The names of the read-only instances.
       shared_ptr<vector<string>> readDBInstances_ {};
       // The region where the instance resides.
       shared_ptr<string> regionId_ {};
@@ -778,22 +780,22 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // Indicates whether the three-role mode is enabled. Valid values:
       // 
-      // - **false**: Disabled.
-      // - **true**: Enabled.
+      // - **false**: The three-role mode is not enabled.
+      // - **true**: The three-role mode is enabled.
       shared_ptr<bool> rightsSeparationEnabled_ {};
       // The three-role mode status. Valid values:
       // 
-      // - **disabled**: Disabled.
-      // - **enabled**: Enabled.
-      // - **processing**: Being processed.
-      // - **unknown**: Unknown. This may be caused by the instance being unreachable.
+      // - **disabled**: not enabled
+      // - **enabled**: enabled
+      // - **processing**: processing
+      // - **unknown**: unknown, which may be caused by the inability to connect to the instance
       shared_ptr<string> rightsSeparationStatus_ {};
       // The instance edition. Valid values:
       // 
-      // - **enterprise**: Enterprise Edition.
-      // - **standard**: Standard Edition.
+      // - **enterprise**: Enterprise Edition
+      // - **standard**: Standard Edition
       shared_ptr<string> series_ {};
-      // The instance status. For more information, see [Instance status](https://help.aliyun.com/document_detail/339826.html).
+      // The instance status. For more information, see [Instance status table](https://help.aliyun.com/document_detail/339826.html).
       shared_ptr<string> status_ {};
       // The used storage space, in bytes.
       shared_ptr<int64_t> storageUsed_ {};
@@ -801,10 +803,10 @@ namespace Models
       shared_ptr<vector<DBInstance::TagSet>> tagSet_ {};
       // The instance type. Valid values:
       // 
-      // - **ReadWrite**: primary instance.
-      // - **ReadOnly**: read-only instance.
+      // - **ReadWrite**: primary instance
+      // - **ReadOnly**: read-only instance
       shared_ptr<string> type_ {};
-      // VPC ID。
+      // The VPC ID.
       shared_ptr<string> VPCId_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};

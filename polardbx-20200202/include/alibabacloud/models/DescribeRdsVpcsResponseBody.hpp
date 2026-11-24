@@ -185,17 +185,17 @@ namespace Models
         protected:
           // The vSwitch CIDR block.
           shared_ptr<string> cidrBlock_ {};
-          // The time when the vSwitch was created. The value is a UNIX timestamp accurate to milliseconds.
+          // The creation time, which is a UNIX timestamp accurate to milliseconds.
           shared_ptr<string> gmtCreate_ {};
-          // The time when the vSwitch was last modified. The value is a UNIX timestamp.
+          // The last modification time. The value is a UNIX timestamp.
           shared_ptr<string> gmtModified_ {};
           // Indicates whether the vSwitch is the default vSwitch.
           shared_ptr<bool> isDefault_ {};
           // The zone ID.
           shared_ptr<string> izNo_ {};
-          // The vSwitch status.
+          // The status of the vSwitch.
           shared_ptr<string> status_ {};
-          // The vSwitch ID.
+          // The ID of the vSwitch.
           shared_ptr<string> vSwitchId_ {};
           // The name of the vSwitch.
           shared_ptr<string> vSwitchName_ {};
@@ -294,11 +294,13 @@ namespace Models
         shared_ptr<string> gmtCreate_ {};
         // The time when the VPC was last modified.
         shared_ptr<string> gmtModified_ {};
-        // Indicates whether the VPC is the default VPC. Valid values: **true**: The VPC is the default VPC. **false**: The VPC is not the default VPC.
+        // Indicates whether the VPC is the default VPC. Valid values:
+        // - true: The VPC is the default VPC.
+        // - false: The VPC is not the default VPC.
         shared_ptr<bool> isDefault_ {};
-        // The region in which the VPC resides.
+        // The region where the VPC resides.
         shared_ptr<string> regionNo_ {};
-        // The VPC status.
+        // The status of the VPC.
         shared_ptr<string> status_ {};
         // The vSwitch information of the VPC.
         shared_ptr<vector<Vpc::VSwitchs>> vSwitchs_ {};

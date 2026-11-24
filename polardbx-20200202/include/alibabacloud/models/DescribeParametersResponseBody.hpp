@@ -211,7 +211,7 @@ namespace Models
 
 
     protected:
-      // The list of original parameters.
+      // The original parameter list.
       shared_ptr<vector<Data::ConfigParameters>> configParameters_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
@@ -219,7 +219,7 @@ namespace Models
       shared_ptr<string> engine_ {};
       // The DPI engine version. Default value: 2.0.
       shared_ptr<string> engineVersion_ {};
-      // The list of running parameter details.
+      // The list of running parameters.
       shared_ptr<vector<Data::RunningParameters>> runningParameters_ {};
     };
 

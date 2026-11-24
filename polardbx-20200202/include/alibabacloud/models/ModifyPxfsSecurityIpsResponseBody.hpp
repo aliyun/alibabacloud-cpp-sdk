@@ -149,13 +149,13 @@ namespace Models
 
 
     protected:
-      // The authorization action.
+      // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The identity used for authentication in the request.
+      // The identity identifier used for authentication in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the authorization principal.
+      // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The description is the same as above.
+      // Same as above.
       shared_ptr<string> authPrincipalType_ {};
       // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
@@ -193,7 +193,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The details of the access denied error.
     shared_ptr<ModifyPxfsSecurityIpsResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The response data.
     shared_ptr<ModifyPxfsSecurityIpsResponseBody::Data> data_ {};

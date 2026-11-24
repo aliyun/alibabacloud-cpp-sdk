@@ -123,7 +123,7 @@ namespace Models
   protected:
     // The database version.
     shared_ptr<string> dbVersion_ {};
-    // The description or remark of the database.
+    // The description or remarks of the database.
     shared_ptr<string> description_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};

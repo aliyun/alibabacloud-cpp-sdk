@@ -255,9 +255,9 @@ namespace Models
 
 
       protected:
-        // The name of the Search engine instance.
+        // The name of the search engine instance.
         shared_ptr<string> instanceId_ {};
-        // The status of the Search engine.
+        // The status of the search engine.
         shared_ptr<string> status_ {};
       };
 
@@ -978,13 +978,13 @@ namespace Models
       // - **polarx.st.8xlarge.2e**: 60 cores and 470 GB of memory
       // - **polarx.st.12xlarge.2e**: 90 cores and 720 GB of memory
       shared_ptr<string> cnNodeClassCode_ {};
-      // The number of CN nodes.
+      // The number of compute nodes (CNs).
       shared_ptr<int32_t> cnNodeCount_ {};
       // The name of the column store engine instance.
       shared_ptr<string> columnarInstanceName_ {};
       // The information about the column store read-only instances.
       shared_ptr<vector<string>> columnarReadDBInstances_ {};
-      // The commodity type of the instance. The value is fixed to drds_polarxpost_public_cn.
+      // The commodity type of the instance. The value is fixed as drds_polarxpost_public_cn.
       shared_ptr<string> commodityCode_ {};
       // The endpoint information.
       shared_ptr<vector<DBInstance::ConnAddrs>> connAddrs_ {};
@@ -1004,13 +1004,13 @@ namespace Models
       shared_ptr<int32_t> DBNodeCount_ {};
       // The database node information.
       shared_ptr<vector<DBInstance::DBNodes>> DBNodes_ {};
-      // The database type. The value is fixed to polarx.
+      // The database type. The value is fixed as polarx.
       shared_ptr<string> DBType_ {};
       // The database version.
       shared_ptr<string> DBVersion_ {};
       // The instance description.
       shared_ptr<string> description_ {};
-      // Indicates whether the specifications of the DN nodes in the instance are different. Valid values:
+      // Indicates whether the specifications of the data nodes (DNs) in the instance are different. Valid values:
       // - true: The specifications are different.
       // - false: The specifications are the same.
       shared_ptr<bool> differentDNSpec_ {};
@@ -1031,51 +1031,51 @@ namespace Models
       // - **mysql.st.8xlarge.25**: 60 cores and 470 GB of memory
       // - **mysql.st.12xlarge.25**: 90 cores and 720 GB of memory
       shared_ptr<string> dnNodeClassCode_ {};
-      // The number of DN nodes.
+      // The number of data nodes (DNs).
       shared_ptr<int32_t> dnNodeCount_ {};
       // The disk space size of the storage node, in GB.
       shared_ptr<string> dnStorageSpace_ {};
-      // The database type. The value is fixed to polarx.
+      // The database type. The value is fixed as polarx.
       shared_ptr<string> engine_ {};
-      // The DPI engine version. Default value: 2.0.
+      // The database DPI engine version. Default value: 2.0.
       shared_ptr<string> engineVersion_ {};
-      // The expiration time. The format is yyyy-MM-ddTHH:mm:ss.sss+0000 (UTC).
+      // The expiration time. The format is yyyy-MM-ddTHH:mm:ss.sss+0000 (UTC time).
       shared_ptr<string> expireDate_ {};
       // Indicates whether the instance has expired. Valid values:
-      // - **true**: expired
-      // - **false**: normal
+      // - **true**: The instance has expired.
+      // - **false**: The instance is running normally.
       shared_ptr<string> expired_ {};
-      // The name of the GDN instance.
+      // The name of the global database network (GDN) instance.
       shared_ptr<string> gdnInstanceName_ {};
-      // The GDN member list.
+      // The list of GDN members.
       shared_ptr<vector<DBInstance::GdnMemberList>> gdnMemberList_ {};
       // The GDN role.
       shared_ptr<string> gdnRole_ {};
       // The ID of the primary instance. If this parameter is not returned, the instance is a primary instance.
       shared_ptr<string> id_ {};
-      // The instance DPI engine version. This is an internal parameter.
+      // The DPI engine version of the instance. This is an internal parameter.
       shared_ptr<int32_t> kindCode_ {};
-      // The instance versions.
+      // The instance version.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> LTSVersions_ {};
-      // The latest Milvus version supported by the current instance.
+      // The latest kernel version supported by the instance.
       shared_ptr<string> latestMinorVersion_ {};
       // The lock mode of the instance. Valid values:
-      // - **Unlock**: normal
-      // - **ManualLock**: manually locked
-      // - **LockByExpiration**: automatically locked due to expiration
-      // - **LockByRestoration**: automatically locked before rollback
-      // - **LockByDiskQuota**: automatically locked due to full disk space
-      // - **LockReadInstanceByDiskQuota**: automatically locked due to full disk space of the read-only instance
+      // - **Unlock**: The instance is running normally.
+      // - **ManualLock**: The instance is manually locked.
+      // - **LockByExpiration**: The instance is automatically locked upon expiration.
+      // - **LockByRestoration**: The instance is automatically locked before a rollback.
+      // - **LockByDiskQuota**: The instance is automatically locked when the storage space is exhausted.
+      // - **LockReadInstanceByDiskQuota**: The read-only instance is automatically locked when the storage space is exhausted.
       shared_ptr<string> lockMode_ {};
       // The end time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
       shared_ptr<string> maintainEndTime_ {};
       // The start time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
       shared_ptr<string> maintainStartTime_ {};
-      // The current Milvus version.
+      // The current kernel version.
       shared_ptr<string> minorVersion_ {};
-      // The network type of the instance. Only VPC is supported, which indicates a virtual private cloud.
+      // The network type of the instance. Only VPC is supported, which indicates a virtual private cloud (VPC).
       shared_ptr<string> network_ {};
       // The billing method of the instance. Valid values:
       // - **Postpaid**: pay-as-you-go
@@ -1100,14 +1100,14 @@ namespace Models
       // - **true**: enabled
       shared_ptr<bool> rightsSeparationEnabled_ {};
       // The status of the three-role mode. Valid values:
-      // - **disabled**: disabled
-      // - **enabled**: enabled
-      // - **processing**: processing
-      // - **unknown**: unknown, which may be caused by the inability to connect to the instance
+      // - **disabled**: The feature is disabled.
+      // - **enabled**: The feature is enabled.
+      // - **processing**: The feature is being configured.
+      // - **unknown**: The status is unknown, which may be caused by a connection failure to the instance.
       shared_ptr<string> rightsSeparationStatus_ {};
-      // Indicates whether an associated Search instance that is not deleted exists, including instances that are being created or deleted.
+      // Indicates whether the search engine is activated.
       shared_ptr<bool> searchEnabled_ {};
-      // The unique Search instance associated with the current primary instance. This parameter is empty if the feature is not enabled.
+      // Indicates whether the search engine is activated.
       shared_ptr<DBInstance::SearchInstance> searchInstance_ {};
       // The secondary zone.
       shared_ptr<string> secondaryZone_ {};
@@ -1115,20 +1115,22 @@ namespace Models
       // - **enterprise**: Enterprise Edition
       // - **standard**: Standard Edition
       shared_ptr<string> series_ {};
-      // exclusive: Exclusive.
-      // general: General.
+      // Valid values:
+      // - exclusive: Exclusive.
+      // - general: General.
       shared_ptr<string> specCategory_ {};
       // The instance status. For more information, see the following description.
       shared_ptr<string> status_ {};
       // The storage type.
       shared_ptr<string> storageType_ {};
-      // The used storage capacity, in bytes.
+      // The amount of storage used, in bytes.
       shared_ptr<int64_t> storageUsed_ {};
       // The tag set.
       shared_ptr<vector<DBInstance::TagSet>> tagSet_ {};
       // The third zone.
       shared_ptr<string> tertiaryZone_ {};
       // The topology type. Valid values:
+      // 
       // - **3azones**: Three-zone deployment.
       // - **1azone**: Single-zone deployment.
       // 

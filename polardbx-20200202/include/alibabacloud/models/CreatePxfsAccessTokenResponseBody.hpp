@@ -138,7 +138,7 @@ namespace Models
       shared_ptr<int32_t> port_ {};
       // The tenant ID.
       shared_ptr<string> tenantId_ {};
-      // The plaintext of the token.
+      // The plaintext token.
       shared_ptr<string> token_ {};
       // Token ID
       shared_ptr<string> tokenId_ {};
@@ -236,7 +236,7 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // The type of the missing permission.
       shared_ptr<string> noPermissionType_ {};

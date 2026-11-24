@@ -183,11 +183,11 @@ namespace Models
     shared_ptr<string> dbPassword_ {};
     // The node specifications.
     shared_ptr<string> nodeSpec_ {};
-    // The billing method. Valid values: PREPAY and POSTPAY.
+    // The billing method.
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The billing cycle. Valid values: Year, Month, and Hour.
+    // The billing cycle.
     shared_ptr<string> period_ {};
     // The region ID.
     // 
@@ -195,7 +195,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Specifies whether to enable multi-tenant mode.
+    // Specifies whether to enable the multi-tenant mode.
     shared_ptr<bool> tenantMode_ {};
     // The subscription duration.
     shared_ptr<int32_t> usedTime_ {};

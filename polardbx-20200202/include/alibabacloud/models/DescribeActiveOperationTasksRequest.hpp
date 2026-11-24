@@ -140,21 +140,19 @@ namespace Models
 
 
   protected:
-    // Specifies whether the event can be canceled. Valid values:
-    // - **-1**: All O&M events can be canceled.
-    // - **0**: The event cannot be canceled. 
-    // - **1**: The event can be canceled.
+    // Specifies whether cancellation is allowed. Valid values:
+    // - **-1**: allows canceling all O&M events
+    // - **0**: not allowed 
+    // - **1**: allowed
     shared_ptr<int64_t> allowCancel_ {};
     // Specifies whether the time can be modified. Valid values:
-    // 
-    // - **-1**: The time of all O&M events can be modified.
-    // - **0**: The time cannot be modified. 
-    // - **1**: The time can be modified.
+    // - **-1**: allows modifying the time of all O&M events
+    // - **0**: not allowed
+    // - **1**: allowed
     shared_ptr<int64_t> allowChange_ {};
     // The change level. Default value: all. Valid values:
-    // 
-    // - **all**: all exception fix and system O&M levels
-    // - **S0**: exception fix
+    // - **all**: all anomaly fix and system O&M levels
+    // - **S0**: anomaly fix
     // - **S1**: system O&M
     shared_ptr<string> changeLevel_ {};
     // The database type. Set the value to polarx.
@@ -174,12 +172,11 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The task status. Valid values:
-    // 
-    // - **-1**: all pending and running tasks  
-    // - **3**: pending 
+    // - **-1**: all pending and running tasks
+    // - **3**: pending
     // - **4**: running
     shared_ptr<int64_t> status_ {};
-    // The task type. Set the value to all to query all tasks under the current account.
+    // The task type. Set the value to all to query all tasks of the current user.
     shared_ptr<string> taskType_ {};
   };
 

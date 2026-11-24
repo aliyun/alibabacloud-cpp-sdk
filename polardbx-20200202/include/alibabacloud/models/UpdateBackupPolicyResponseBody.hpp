@@ -238,25 +238,56 @@ namespace Models
 
 
     protected:
+      // The backup cycle. Specify at least two days. The value is a 7-digit string, where each digit from left to right represents whether backups are enabled for Monday through Sunday. A value of 0 indicates that backups are disabled, and a value of 1 indicates that backups are enabled:
+      // 
+      // - First digit: Monday
+      // - Second digit: Tuesday
+      // - Third digit: Wednesday
+      // - Fourth digit: Thursday
+      // - Fifth digit: Friday
+      // - Sixth digit: Saturday
+      // - Seventh digit: Sunday
       shared_ptr<string> backupPeriod_ {};
+      // The time when the daily backup starts, in UTC.
       shared_ptr<string> backupPlanBegin_ {};
+      // The retention period of the backup set, in days.
       shared_ptr<int32_t> backupSetRetention_ {};
+      // The backup type. A value of 0 indicates a quick backup.
       shared_ptr<string> backupType_ {};
+      // The backup method. Valid values:
+      // 
+      // - **P**: physical backup
+      // - **L**: logical backup
       shared_ptr<string> backupWay_ {};
+      // The interval at which cold data is backed up, in days. Valid values: 1 to 59.
       shared_ptr<int32_t> coldDataBackupInterval_ {};
+      // The retention period of cold data backups, in days.
       shared_ptr<int32_t> coldDataBackupRetention_ {};
+      // The retention period of cross-region data backups, in days.
       shared_ptr<int32_t> crossRegionDataBackupRetention_ {};
+      // The number of days selected for cross-region backups.
       shared_ptr<string> crossRegionFilterValue_ {};
+      // The retention period of cross-region log backups, in days.
       shared_ptr<int32_t> crossRegionLogBackupRetention_ {};
+      // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
+      // The destination region for cross-region backups.
       shared_ptr<string> destCrossRegion_ {};
+      // Specifies whether to forcibly clear binary logs when the storage usage of the instance is excessively high. A value of 1 indicates yes, and a value of 0 indicates no.
       shared_ptr<int32_t> forceCleanOnHighSpaceUsage_ {};
+      // Specifies whether to enable cross-region data backups. Default value: false.
       shared_ptr<bool> isCrossRegionDataBackupEnabled_ {};
+      // Specifies whether to enable cross-region log backups. Default value: false.
       shared_ptr<bool> isCrossRegionLogBackupEnabled_ {};
+      // Specifies whether to enable backups. The fixed value is 1, which indicates that backups are enabled.
       shared_ptr<int32_t> isEnabled_ {};
+      // The local retention period of log backups, in hours. Valid values: 0 to 168. A value of 0 indicates that log backups are not retained. Default value: 7.
       shared_ptr<int32_t> localLogRetention_ {};
+      // The number of local binary logs to retain. Valid values: 6 to 100. Default value: 60.
       shared_ptr<int32_t> localLogRetentionNumber_ {};
+      // The maximum space usage for binary logs. The parameter value ranges from 0 to 50. This is a loop space. Default value: 30.
       shared_ptr<int32_t> logLocalRetentionSpace_ {};
+      // The remote retention period of log backups, in days. Valid values: 7 to 730. Default value: 7.
       shared_ptr<int32_t> removeLogRetention_ {};
     };
 
@@ -293,9 +324,9 @@ namespace Models
 
 
   protected:
-    // The backup policy details.
+    // The returned policy details.
     shared_ptr<UpdateBackupPolicyResponseBody::Data> data_ {};
-    // The response message. "success" is returned if the request is successful. Otherwise, the corresponding error code is returned.
+    // The returned message. If the call is successful, success is returned. If the call fails, the corresponding error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

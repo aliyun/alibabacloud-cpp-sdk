@@ -81,11 +81,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The type of the target node. Valid values: service and dashboard.
+    // The target node type. Valid values: service and dashboard.
     shared_ptr<string> nodeType_ {};
-    // The port.
+    // The port number.
     shared_ptr<string> port_ {};
-    // The region in which the instance resides.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

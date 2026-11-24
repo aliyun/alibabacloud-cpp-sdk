@@ -157,7 +157,7 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal, such as RAM user SubUser or RAM role AssumedRoleUser.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // The no-permission type.
       shared_ptr<string> noPermissionType_ {};
@@ -193,7 +193,7 @@ namespace Models
 
 
   protected:
-    // The detailed reasons for the access denial.
+    // The details of the access denial.
     shared_ptr<CreateMem0ResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The data struct.
     shared_ptr<CreateMem0ResponseBody::Data> data_ {};

@@ -66,7 +66,7 @@ namespace Models
     // - compute: compute layer
     // - storage: storage layer
     shared_ptr<string> paramLevel_ {};
-    // The region ID of the instance.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

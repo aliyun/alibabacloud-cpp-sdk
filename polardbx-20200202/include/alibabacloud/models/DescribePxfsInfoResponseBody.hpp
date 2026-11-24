@@ -204,19 +204,19 @@ namespace Models
         protected:
           // The connection string.
           shared_ptr<string> connectionString_ {};
-          // The endpoint.
+          // The access endpoint.
           shared_ptr<string> endpoint_ {};
-          // The port number.
+          // The port.
           shared_ptr<int32_t> port_ {};
           // The access protocol.
           shared_ptr<string> protocol_ {};
-          // Indicates whether TLS is enabled.
+          // Specifies whether TLS is enabled.
           shared_ptr<bool> tlsEnabled_ {};
           // The transport protocol.
           shared_ptr<string> transport_ {};
           // The connection type.
           shared_ptr<string> type_ {};
-          // The virtual private cloud (VPC) ID.
+          // The VPC ID.
           shared_ptr<string> VPCId_ {};
           // The vSwitch ID.
           shared_ptr<string> vSwitchId_ {};
@@ -334,9 +334,9 @@ namespace Models
 
 
       protected:
-        // The node specification.
+        // The node specifications.
         shared_ptr<string> classCode_ {};
-        // The list of connection addresses.
+        // The list of endpoints.
         shared_ptr<vector<Instance::ConnAddrs>> connAddrs_ {};
         // The creation time.
         shared_ptr<string> createTime_ {};
@@ -352,11 +352,11 @@ namespace Models
         shared_ptr<string> regionId_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The storage size.
+        // The storage capacity.
         shared_ptr<int64_t> storageSize_ {};
         // The storage type.
         shared_ptr<string> storageType_ {};
-        // The virtual private cloud (VPC) ID.
+        // The VPC ID.
         shared_ptr<string> VPCId_ {};
         // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
@@ -465,17 +465,17 @@ namespace Models
 
 
     protected:
-      // The authorization action. Same as described above.
+      // Same as above.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The authorization action. Same as described above.
+      // Same as above.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of missing permission.
+      // The type of the permission denial.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -509,9 +509,9 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The details of the access denial.
     shared_ptr<DescribePxfsInfoResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The response data.
+    // The returned data.
     shared_ptr<DescribePxfsInfoResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

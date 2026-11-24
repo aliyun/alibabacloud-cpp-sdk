@@ -62,7 +62,7 @@ namespace Models
 
 
     protected:
-      // The key list.
+      // The list of keys.
       shared_ptr<vector<string>> keyIds_ {};
     };
 

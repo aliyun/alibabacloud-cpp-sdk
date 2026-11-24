@@ -170,7 +170,7 @@ namespace Models
           shared_ptr<string> connectionString_ {};
           // The port.
           shared_ptr<int32_t> port_ {};
-          // The endpoint type.
+          // The type of the endpoint.
           shared_ptr<string> type_ {};
           // VPC ID
           shared_ptr<string> VPCId_ {};
@@ -392,11 +392,11 @@ namespace Models
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The authentication principal type.
+      // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic information.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of missing permission.
+      // The no permission type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -430,7 +430,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<DescribePxfuseInfoResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The monitoring data.
     shared_ptr<DescribePxfuseInfoResponseBody::Data> data_ {};

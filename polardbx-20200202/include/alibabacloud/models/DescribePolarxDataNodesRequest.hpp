@@ -76,19 +76,19 @@ namespace Models
 
   protected:
     // The type of nodes to query. Valid values:
-    // - all: queries both dn and gms nodes.
-    // - gms: queries only gms nodes.
-    // - dn: queries only dn nodes.
+    // - all: Queries both dn and gms nodes.
+    // - gms: Queries only gms nodes.
+    // - dn: Queries only dn nodes.
     shared_ptr<string> nodeType_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the integer data type. Default value: **1**.
+    // The page number. The value must be an integer greater than 0 and less than or equal to the maximum value of the INTEGER data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region in which the instance resides.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The keyword for filtering results.
+    // The keyword.
     shared_ptr<string> searchKey_ {};
   };
 

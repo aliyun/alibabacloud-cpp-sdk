@@ -116,7 +116,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The zone ID of the primary zone for a multi-zone instance. **This parameter is required if you want to create a multi-zone instance.**
+    // The zone ID of the primary zone for a multi-zone instance. **This parameter is required to create a multi-zone instance.**
     // 
     // This parameter is required.
     shared_ptr<string> primaryZoneId_ {};
@@ -124,15 +124,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The secondary zone ID.
-    // > This parameter cannot be the same as the ZoneId property.
+    // The zone ID of the secondary zone.
+    // > This parameter cannot have the same value as the ZoneId property.
     shared_ptr<string> secondaryZoneId_ {};
-    // The switch mode. Valid values:
+    // The switchover mode. Valid values:
     // 
     // - 0: Immediate switchover.
     // - 1: Switchover within the O&M window.
     shared_ptr<string> switchMode_ {};
-    // The third active zone.
+    // The tertiary zone for a Three-zone deployment. The zone must be active.
     shared_ptr<string> tertiaryZoneId_ {};
     // The topology type. Valid values:
     // 
@@ -141,7 +141,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> topologyType_ {};
-    // The ID of the VPC where the access endpoint resides.
+    // The ID of the VPC where the access endpoint is located.
     shared_ptr<string> vpcId_ {};
     // The vSwitch ID. This parameter is required when you create a DRDS instance of the VPC network type.
     shared_ptr<string> vswitchId_ {};

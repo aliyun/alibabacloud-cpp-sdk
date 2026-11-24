@@ -113,11 +113,11 @@ namespace Models
     protected:
       // The account name.
       shared_ptr<string> accountName_ {};
-      // Indicates whether the account already exists.
+      // Indicates whether it already exists.
       shared_ptr<bool> alreadyExists_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
-      // The type of the service account.
+      // The service account type.
       shared_ptr<string> serviceAccountType_ {};
       // The instance status.
       shared_ptr<string> status_ {};
@@ -192,7 +192,7 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The authentication principal type.
+      // The type of the authenticated principal.
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
@@ -248,7 +248,7 @@ namespace Models
     shared_ptr<CreateServiceAccountResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The returned policy details.
     shared_ptr<CreateServiceAccountResponseBody::Data> data_ {};
-    // The additional information returned. If the request is successful, **success** is returned. If the request fails, the corresponding error code is returned.
+    // The additional information returned by the API. success is returned for a successful request, and an error code is returned for a failed request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

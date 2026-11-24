@@ -155,9 +155,9 @@ namespace Models
 
 
   protected:
-    // The token used to start the next query. An empty value of NextToken indicates that no more results exist.
+    // The token used to start the next query. If this parameter is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };

@@ -145,7 +145,7 @@ namespace Models
 
 
       protected:
-        // The class code.
+        // The specification code.
         shared_ptr<string> classCode_ {};
         // The node ID.
         shared_ptr<string> id_ {};
@@ -364,25 +364,25 @@ namespace Models
 
 
     protected:
-      // The list of endpoints.
+      // The endpoints.
       shared_ptr<vector<Data::ConnAddrs>> connAddrs_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
       // The instance name.
       shared_ptr<string> DBInstanceName_ {};
-      // The database engine version.
+      // The DPI engine version.
       shared_ptr<string> engineVersion_ {};
       // Indicates whether the instance has expired.
       shared_ptr<bool> expired_ {};
       // The lock mode.
       shared_ptr<string> lockMode_ {};
-      // The minor engine version.
+      // The minor version.
       shared_ptr<string> minorVersion_ {};
       // The node specifications.
       shared_ptr<string> nodeClass_ {};
       // The number of nodes.
       shared_ptr<int32_t> nodeCount_ {};
-      // The list of nodes.
+      // The nodes.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
       // The name of the associated PolarDB-X instance.
       shared_ptr<string> polarDBXDBInstanceName_ {};
@@ -390,7 +390,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The instance status.
       shared_ptr<string> status_ {};
-      // The Supabase class code.
+      // The Supabase specification code.
       shared_ptr<string> supabaseClassCode_ {};
       // The multi-tenant mode.
       shared_ptr<bool> tenantMode_ {};
@@ -490,15 +490,15 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the authentication principal.
+      // The name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The authentication principal type.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The no permission type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -532,7 +532,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denied details.
     shared_ptr<DescribeSupabaseInstanceAttributeResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The instance details.
     shared_ptr<DescribeSupabaseInstanceAttributeResponseBody::Data> data_ {};

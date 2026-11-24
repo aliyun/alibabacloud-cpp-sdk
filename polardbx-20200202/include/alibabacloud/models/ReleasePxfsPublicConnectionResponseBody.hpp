@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The instance ID of the PolarDB-X instance.
+      // The PolarDB-X instance ID.
       shared_ptr<string> DBInstanceName_ {};
-      // The instance ID of the Agent file service.
+      // The Agent file service instance ID.
       shared_ptr<string> pxfsInstanceId_ {};
       // The task ID.
       shared_ptr<int32_t> taskId_ {};
@@ -180,7 +180,7 @@ namespace Models
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The type of the authentication principal.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic information.
+      // The diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
       // NoPermissionType
       shared_ptr<string> noPermissionType_ {};
@@ -216,7 +216,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The detailed cause of the access denial.
     shared_ptr<ReleasePxfsPublicConnectionResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The response data.
     shared_ptr<ReleasePxfsPublicConnectionResponseBody::Data> data_ {};

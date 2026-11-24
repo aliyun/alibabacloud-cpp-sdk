@@ -61,12 +61,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The type of the target node. Valid values:
+    // The type of the destination node. Valid values:
     // 
     // - **search**: data node. This is the default value.
     // - **dashboard**: dashboard node.
     shared_ptr<string> nodeType_ {};
-    // The region ID of the instance.
+    // The region where the instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

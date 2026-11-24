@@ -95,7 +95,7 @@ namespace Models
       shared_ptr<string> minorVersion_ {};
       // The Agent file service instance ID.
       shared_ptr<string> pxfsInstanceId_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<int32_t> taskId_ {};
     };
 
@@ -185,17 +185,17 @@ namespace Models
     protected:
       // The authorization action.
       shared_ptr<string> authAction_ {};
-      // The identity used for authorization in the request.
+      // The identity used for authentication in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The owner ID of the authorization principal.
+      // The owner ID of the authenticated principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The authorization principal type.
+      // The type of the authenticated principal.
       shared_ptr<string> authPrincipalType_ {};
       // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of missing permission.
+      // The type of the access denial.
       shared_ptr<string> noPermissionType_ {};
-      // The policy type.
+      // The type of the policy.
       shared_ptr<string> policyType_ {};
     };
 
@@ -227,11 +227,11 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The details of the unauthorized access.
     shared_ptr<UpgradePxfsVersionResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The response data.
     shared_ptr<UpgradePxfsVersionResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

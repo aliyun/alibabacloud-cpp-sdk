@@ -315,157 +315,162 @@ namespace Models
 
   protected:
     // Specifies whether to enable auto-renewal. Default value: true. Valid values:
-    // - **true**: Enables auto-renewal.
-    // - **false**: Disables auto-renewal.
+    // - **true**: yes
+    // - **false**: no
     shared_ptr<bool> autoRenew_ {};
     // The number of compute nodes.
     shared_ptr<int32_t> CNNodeCount_ {};
-    // The client token that is used to ensure the idempotence of the request. You must specify a unique token for each request.
+    // The client token that is used to ensure the idempotence of the request. You can specify a unique value for each creation request.
     shared_ptr<string> clientToken_ {};
-    // The specifications of compute nodes. Required when you create an Enterprise Edition instance. Not required for a Standard Edition instance.
+    // The compute node specifications. This parameter is required when you create an Enterprise Edition instance and is not required when you create a Standard Edition instance.
     // 
-    // Local node specifications for Enterprise Edition:
-    // - **polarx.x4.medium.2e**: 2 vCPUs, 8 GB (general-purpose)
-    // - **polarx.x4.large.2e**: 4 vCPUs, 16 GB (general-purpose)
-    // - **polarx.x4.xlarge.2e**: 8 vCPUs, 32 GB (general-purpose)
-    // - **polarx.x4.2xlarge.2e**: 16 vCPUs, 64 GB (general-purpose)
-    // - **polarx.x8.large.2e**: 4 vCPUs, 32 GB (dedicated)
-    // - **polarx.x2.large.2x**: 8 vCPUs, 16 GB (dedicated)
-    // - **polarx.x4.xlarge.2x**: 8 vCPUs, 32 GB (dedicated)
-    // - **polarx.x8.xlarge.2e**: 8 vCPUs, 64 GB (dedicated)
-    // - **polarx.x8.2xlarge.2e**: 16 vCPUs, 128 GB (dedicated)
-    // - **polarx.x4.4xlarge.2e**: 32 vCPUs, 128 GB (dedicated)
-    // - **polarx.x8.4xlarge.2e**: 32 vCPUs, 256 GB (dedicated)
-    // - **polarx.st.8xlarge.2e**: 60 vCPUs, 470 GB (dedicated)
-    // - **polarx.st.12xlarge.2e**: 90 vCPUs, 720 GB (dedicated)
+    // Local SSD specifications for Enterprise Edition:
     // 
-    // Cloud node specifications for Enterprise Edition:
-    // - **polarx.x4.medium.c2e**: 2 vCPUs, 8 GB (general-purpose)
-    // - **polarx.x4.large.c2e**: 4 vCPUs, 16 GB (general-purpose)
-    // - **polarx.x4.xlarge.c2e**: 8 vCPUs, 32 GB (general-purpose)
-    // - **polarx.x4.2xlarge.c2e**: 16 vCPUs, 64 GB (general-purpose)
-    // - **polarx.x8.large.c2e**: 4 vCPUs, 32 GB (dedicated)
-    // - **polarx.x2.large.c2x**: 8 vCPUs, 16 GB (dedicated)
-    // - **polarx.x4.xlarge.c2x**: 8 vCPUs, 32 GB (dedicated)
-    // - **polarx.x8.xlarge.c2e**: 8 vCPUs, 64 GB (dedicated)
-    // - **polarx.x8.2xlarge.c2e**: 16 vCPUs, 128 GB (dedicated)
-    // - **polarx.x4.4xlarge.c2e**: 32 vCPUs, 128 GB (dedicated)
-    // - **polarx.x8.4xlarge.c2e**: 32 vCPUs, 256 GB (dedicated)
-    // - **polarx.st.8xlarge.c2e**: 60 vCPUs, 470 GB (dedicated)
-    // - **polarx.st.12xlarge.c2e**: 90 vCPUs, 720 GB (dedicated)
+    // - **polarx.x4.medium.2e**: 2 cores, 8 GB (general-purpose)
+    // - **polarx.x4.large.2e**: 4 cores, 16 GB (general-purpose)
+    // - **polarx.x4.xlarge.2e**: 8 cores, 32 GB (general-purpose)
+    // - **polarx.x4.2xlarge.2e**: 16 cores, 64 GB (general-purpose)
+    // - **polarx.x8.large.2e**: 4 cores, 32 GB (dedicated)
+    // - **polarx.x2.large.2x**: 8 cores, 16 GB (dedicated)
+    // - **polarx.x4.xlarge.2x**: 8 cores, 32 GB (dedicated)
+    // - **polarx.x8.xlarge.2e**: 8 cores, 64 GB (dedicated)
+    // - **polarx.x8.2xlarge.2e**: 16 cores, 128 GB (dedicated)
+    // - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB (dedicated)
+    // - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB (dedicated)
+    // - **polarx.st.8xlarge.2e**: 60 cores, 470 GB (dedicated)
+    // - **polarx.st.12xlarge.2e**: 90 cores, 720 GB (dedicated)
+    // 
+    // 
+    // Cloud disk specifications for Enterprise Edition:
+    // - **polarx.x4.medium.c2e**: 2 cores, 8 GB (general-purpose)
+    // - **polarx.x4.large.c2e**: 4 cores, 16 GB (general-purpose)
+    // - **polarx.x4.xlarge.c2e**: 8 cores, 32 GB (general-purpose)
+    // - **polarx.x4.2xlarge.c2e**: 16 cores, 64 GB (general-purpose)
+    // - **polarx.x8.large.c2e**: 4 cores, 32 GB (dedicated)
+    // - **polarx.x2.large.c2x**: 8 cores, 16 GB (dedicated)
+    // - **polarx.x4.xlarge.c2x**: 8 cores, 32 GB (dedicated)
+    // - **polarx.x8.xlarge.c2e**: 8 cores, 64 GB (dedicated)
+    // - **polarx.x8.2xlarge.c2e**: 16 cores, 128 GB (dedicated)
+    // - **polarx.x4.4xlarge.c2e**: 32 cores, 128 GB (dedicated)
+    // - **polarx.x8.4xlarge.c2e**: 32 cores, 256 GB (dedicated)
+    // - **polarx.st.8xlarge.c2e**: 60 cores, 470 GB (dedicated)
+    // - **polarx.st.12xlarge.c2e**: 90 cores, 720 GB (dedicated)
     shared_ptr<string> cnClass_ {};
-    // Required when you create a Standard Edition instance. Not required for an Enterprise Edition instance.
+    // The instance type of the node. This parameter is required when you create a Standard Edition instance and is not required when you create an Enterprise Edition instance.
     // 
-    // Local disk specifications for Standard Edition:
-    // - **mysql.n8.small.25**: 1 vCPU, 8 GB (general-purpose)
-    // - **mysql.n2.medium.25**: 2 vCPUs, 4 GB (general-purpose)
-    // - **mysql.n4.medium.25**: 2 vCPUs, 8 GB (general-purpose)
-    // - **mysql.n8.medium.25**: 2 vCPUs, 16 GB (general-purpose)
-    // - **mysql.n2.large.25**: 4 vCPUs, 8 GB (general-purpose)
-    // - **mysql.n4.large.25**: 4 vCPUs, 16 GB (general-purpose)
-    // - **mysql.n8.large.25**: 4 vCPUs, 32 GB (general-purpose)
-    // - **mysql.n2.xlarge.25**: 8 vCPUs, 16 GB (general-purpose)
-    // - **mysql.n4.xlarge.25**: 8 vCPUs, 32 GB (general-purpose)
-    // - **mysql.n8.xlarge.25**: 8 vCPUs, 64 GB (general-purpose)
-    // - **mysql.n2.2xlarge.25**: 16 vCPUs, 32 GB (general-purpose)
-    // - **mysql.n4.2xlarge.25**: 16 vCPUs, 64 GB (general-purpose)
-    // - **mysql.n8.2xlarge.25**: 16 vCPUs, 128 GB (general-purpose)
-    // - **mysql.x2.medium.25**: 2 vCPUs, 4 GB (dedicated)
-    // - **mysql.x4.medium.25**: 2 vCPUs, 8 GB (dedicated)
-    // - **mysql.x8.medium.25**: 2 vCPUs, 16 GB (dedicated)
-    // - **mysql.x2.large.25**: 4 vCPUs, 8 GB (dedicated)
-    // - **mysql.x4.large.25**: 4 vCPUs, 16 GB (dedicated)
-    // - **mysql.x8.large.25**: 4 vCPUs, 32 GB (dedicated)
-    // - **mysql.x2.xlarge.25**: 8 vCPUs, 16 GB (dedicated)
-    // - **mysql.x4.xlarge.25**: 8 vCPUs, 32 GB (dedicated)
-    // - **mysql.x8.xlarge.25**: 8 vCPUs, 64 GB (dedicated)
-    // - **mysql.x2.2xlarge.25**: 16 vCPUs, 32 GB (dedicated)
-    // - **mysql.x4.2xlarge.25**: 16 vCPUs, 64 GB (dedicated)
-    // - **mysql.x8.2xlarge.25**: 16 vCPUs, 128 GB (dedicated)
-    // - **mysql.x4.4xlarge.25**: 32 vCPUs, 128 GB (dedicated)
-    // - **mysql.x8.4xlarge.25**: 32 vCPUs, 256 GB (dedicated)
-    // - **mysql.x4.8xlarge.25**: 64 vCPUs, 256 GB (dedicated)
-    // - **mysql.x8.8xlarge.25**: 64 vCPUs, 512 GB (dedicated)
-    // - **mysql.st.12xlarge.25**: 90 vCPUs, 720 GB (dedicated)
+    // Local SSD specifications for Standard Edition:
+    // - **mysql.n8.small.25**: 1 core, 8 GB (general-purpose)
+    // - **mysql.n2.medium.25**: 2 cores, 4 GB (general-purpose)
+    // - **mysql.n4.medium.25**: 2 cores, 8 GB (general-purpose)
+    // - **mysql.n8.medium.25**: 2 cores, 16 GB (general-purpose)
+    // - **mysql.n2.large.25**: 4 cores, 8 GB (general-purpose)
+    // - **mysql.n4.large.25**: 4 cores, 16 GB (general-purpose)
+    // - **mysql.n8.large.25**: 4 cores, 32 GB (general-purpose)
+    // - **mysql.n2.xlarge.25**: 8 cores, 16 GB (general-purpose)
+    // - **mysql.n4.xlarge.25**: 8 cores, 32 GB (general-purpose)
+    // - **mysql.n8.xlarge.25**: 8 cores, 64 GB (general-purpose)
+    // - **mysql.n2.2xlarge.25**: 16 cores, 32 GB (general-purpose)
+    // - **mysql.n4.2xlarge.25**: 16 cores, 64 GB (general-purpose)
+    // - **mysql.n8.2xlarge.25**: 16 cores, 128 GB (general-purpose)
+    // - **mysql.x2.medium.25**: 2 cores, 4 GB (dedicated)
+    // - **mysql.x4.medium.25**: 2 cores, 8 GB (dedicated)
+    // - **mysql.x8.medium.25**: 2 cores, 16 GB (dedicated)
+    // - **mysql.x2.large.25**: 4 cores, 8 GB (dedicated)
+    // - **mysql.x4.large.25**: 4 cores, 16 GB (dedicated)
+    // - **mysql.x8.large.25**: 4 cores, 32 GB (dedicated)
+    // - **mysql.x2.xlarge.25**: 8 cores, 16 GB (dedicated)
+    // - **mysql.x4.xlarge.25**: 8 cores, 32 GB (dedicated)
+    // - **mysql.x8.xlarge.25**: 8 cores, 64 GB (dedicated)
+    // - **mysql.x2.2xlarge.25**: 16 cores, 32 GB (dedicated)
+    // - **mysql.x4.2xlarge.25**: 16 cores, 64 GB (dedicated)
+    // - **mysql.x8.2xlarge.25**: 16 cores, 128 GB (dedicated)
+    // - **mysql.x4.4xlarge.25**: 32 cores, 128 GB (dedicated)
+    // - **mysql.x8.4xlarge.25**: 32 cores, 256 GB (dedicated)
+    // - **mysql.x4.8xlarge.25**: 64 cores, 256 GB (dedicated)
+    // - **mysql.x8.8xlarge.25**: 64 cores, 512 GB (dedicated)
+    // - **mysql.st.12xlarge.25**: 90 cores, 720 GB (dedicated)
     // 
     // Cloud disk specifications for Standard Edition:
-    // - **polarx.mysql.n2.medium.c25**: 2 vCPUs, 4 GB (general-purpose)
-    // - **polarx.mysql.n4.medium.c25**: 2 vCPUs, 8 GB (general-purpose)
-    // - **polarx.mysql.n8.medium.c25**: 2 vCPUs, 16 GB (general-purpose)
-    // - **polarx.mysql.n2.large.c25**: 4 vCPUs, 8 GB (general-purpose)
-    // - **polarx.mysql.n4.large.c25**: 4 vCPUs, 16 GB (general-purpose)
-    // - **polarx.mysql.n8.large.c25**: 4 vCPUs, 32 GB (general-purpose)
-    // - **polarx.mysql.n2.xlarge.c25**: 8 vCPUs, 16 GB (general-purpose)
-    // - **polarx.mysql.n4.xlarge.c25**: 8 vCPUs, 32 GB (general-purpose)
-    // - **polarx.mysql.n8.xlarge.c25**: 8 vCPUs, 64 GB (general-purpose)
-    // - **polarx.mysql.x2.medium.c25**: 2 vCPUs, 4 GB (dedicated)
-    // - **polarx.mysql.x4.medium.c25**: 2 vCPUs, 8 GB (dedicated)
-    // - **polarx.mysql.x8.medium.c25**: 2 vCPUs, 16 GB (dedicated)
-    // - **polarx.mysql.x2.large.c25**: 4 vCPUs, 8 GB (dedicated)
-    // - **polarx.mysql.x4.large.c25**: 4 vCPUs, 16 GB (dedicated)
-    // - **polarx.mysql.x8.large.c25**: 4 vCPUs, 32 GB (dedicated)
-    // - **polarx.mysql.x2.xlarge.c25**: 8 vCPUs, 16 GB (dedicated)
-    // - **polarx.mysql.x4.xlarge.c25**: 8 vCPUs, 32 GB (dedicated)
-    // - **polarx.mysql.x8.xlarge.c25**: 8 vCPUs, 64 GB (dedicated)
-    // - **polarx.mysql.x2.2xlarge.c25**: 16 vCPUs, 32 GB (dedicated)
-    // - **polarx.mysql.x4.2xlarge.c25**: 16 vCPUs, 64 GB (dedicated)
-    // - **polarx.mysql.x8.2xlarge.c25**: 16 vCPUs, 128 GB (dedicated)
-    // - **polarx.mysql.x2.4xlarge.c25**: 32 vCPUs, 64 GB (dedicated)
-    // - **polarx.mysql.x4.4xlarge.c25**: 32 vCPUs, 128 GB (dedicated)
-    // - **polarx.mysql.x8.4xlarge.c25**: 32 vCPUs, 256 GB (dedicated)
-    // - **polarx.mysql.x2.8xlarge.c25**: 64 vCPUs, 128 GB (dedicated)
-    // - **polarx.mysql.x4.8xlarge.c25**: 64 vCPUs, 256 GB (dedicated)
-    // - **polarx.mysql.x8.8xlarge.c25**: 64 vCPUs, 512 GB (dedicated)
+    // - **polarx.mysql.n2.medium.c25**: 2 cores, 4 GB (general-purpose)
+    // - **polarx.mysql.n4.medium.c25**: 2 cores, 8 GB (general-purpose)
+    // - **polarx.mysql.n8.medium.c25**: 2 cores, 16 GB (general-purpose)
+    // - **polarx.mysql.n2.large.c25**: 4 cores, 8 GB (general-purpose)
+    // - **polarx.mysql.n4.large.c25**: 4 cores, 16 GB (general-purpose)
+    // - **polarx.mysql.n8.large.c25**: 4 cores, 32 GB (general-purpose)
+    // - **polarx.mysql.n2.xlarge.c25**: 8 cores, 16 GB (general-purpose)
+    // - **polarx.mysql.n4.xlarge.c25**: 8 cores, 32 GB (general-purpose)
+    // - **polarx.mysql.n8.xlarge.c25**: 8 cores, 64 GB (general-purpose)
+    // - **polarx.mysql.x2.medium.c25**: 2 cores, 4 GB (dedicated)
+    // - **polarx.mysql.x4.medium.c25**: 2 cores, 8 GB (dedicated)
+    // - **polarx.mysql.x8.medium.c25**: 2 cores, 16 GB (dedicated)
+    // - **polarx.mysql.x2.large.c25**: 4 cores, 8 GB (dedicated)
+    // - **polarx.mysql.x4.large.c25**: 4 cores, 16 GB (dedicated)
+    // - **polarx.mysql.x8.large.c25**: 4 cores, 32 GB (dedicated)
+    // - **polarx.mysql.x2.xlarge.c25**: 8 cores, 16 GB (dedicated)
+    // - **polarx.mysql.x4.xlarge.c25**: 8 cores, 32 GB (dedicated)
+    // - **polarx.mysql.x8.xlarge.c25**: 8 cores, 64 GB (dedicated)
+    // - **polarx.mysql.x2.2xlarge.c25**: 16 cores, 32 GB (dedicated)
+    // - **polarx.mysql.x4.2xlarge.c25**: 16 cores, 64 GB (dedicated)
+    // - **polarx.mysql.x8.2xlarge.c25**: 16 cores, 128 GB (dedicated)
+    // - **polarx.mysql.x2.4xlarge.c25**: 32 cores, 64 GB (dedicated)
+    // - **polarx.mysql.x4.4xlarge.c25**: 32 cores, 128 GB (dedicated)
+    // - **polarx.mysql.x8.4xlarge.c25**: 32 cores, 256 GB (dedicated)
+    // - **polarx.mysql.x2.8xlarge.c25**: 64 cores, 128 GB (dedicated)
+    // - **polarx.mysql.x4.8xlarge.c25**: 64 cores, 256 GB (dedicated)
+    // - **polarx.mysql.x8.8xlarge.c25**: 64 cores, 512 GB (dedicated)
     shared_ptr<string> DBNodeClass_ {};
-    // The number of nodes in the instance. Valid values:
+    // The number of nodes in the instance.
     // * Standard Edition: 1
-    // * Enterprise Edition: 2 or greater
+    // * Enterprise Edition: >=2
     shared_ptr<int32_t> DBNodeCount_ {};
     // The number of storage nodes.
     shared_ptr<int32_t> DNNodeCount_ {};
     // The description of the database.
     shared_ptr<string> description_ {};
-    // The specifications of storage nodes. Required when you create an Enterprise Edition instance. Not required for a Standard Edition instance.
+    // The storage node specifications. This parameter is required when you create an Enterprise Edition instance and is not required when you create a Standard Edition instance.
     // 
-    // Local node specifications for Enterprise Edition:
-    // - **mysql.n2.medium.25**: 2 vCPUs, 4 GB (general-purpose)
-    // - **mysql.n4.medium.25**: 2 vCPUs, 8 GB (general-purpose)
-    // - **mysql.n2.large.25**: 4 vCPUs, 8 GB (general-purpose)
-    // - **mysql.n4.large.25**: 4 vCPUs, 16 GB (general-purpose)
-    // - **mysql.n4.xlarge.25**: 8 vCPUs, 32 GB (general-purpose)
-    // - **mysql.n4.2xlarge.25**: 16 vCPUs, 64 GB (general-purpose)
-    // - **mysql.x4.large.25**: 4 vCPUs, 16 GB (dedicated)
-    // - **mysql.x8.large.25**: 4 vCPUs, 32 GB (dedicated)
-    // - **mysql.x2.xlarge.25**: 8 vCPUs, 16 GB (dedicated)
-    // - **mysql.x8.xlarge.25**: 8 vCPUs, 64 GB (dedicated)
-    // - **mysql.x8.2xlarge.25**: 16 vCPUs, 128 GB (dedicated)
-    // - **mysql.x4.4xlarge.25**: 32 vCPUs, 128 GB (dedicated)
-    // - **mysql.x8.4xlarge.25**: 32 vCPUs, 256 GB (dedicated)
-    // - **mysql.st.8xlarge.25**: 60 vCPUs, 470 GB (dedicated)
-    // - **mysql.st.12xlarge.25**: 90 vCPUs, 720 GB (dedicated)
-    // - **mysql.x8.45xlarge.25**: 180 vCPUs, 1440 GB (dedicated)
-    // - **mysql.x8.60xlarge.25**: 240 vCPUs, 1920 GB (dedicated)
+    // Local SSD specifications for Enterprise Edition:
     // 
-    // Cloud node specifications for Enterprise Edition:
-    // - **polarx.mysql.n2.medium.c25**: 2 vCPUs, 4 GB (general-purpose)
-    // - **polarx.mysql.n4.medium.c25**: 2 vCPUs, 8 GB (general-purpose)
-    // - **polarx.mysql.n2.large.c25**: 4 vCPUs, 8 GB (general-purpose)
-    // - **polarx.mysql.n4.large.c25**: 4 vCPUs, 16 GB (general-purpose)
-    // - **polarx.mysql.n4.xlarge.c25**: 8 vCPUs, 32 GB (general-purpose)
-    // - **polarx.mysql.n4.2xlarge.c25**: 16 vCPUs, 64 GB (general-purpose)
-    // - **polarx.mysql.x4.large.c25**: 4 vCPUs, 16 GB (dedicated)
-    // - **polarx.mysql.x8.large.c25**: 4 vCPUs, 32 GB (dedicated)
-    // - **polarx.mysql.x2.xlarge.c25**: 8 vCPUs, 16 GB (dedicated)
-    // - **polarx.mysql.x8.xlarge.c25**: 8 vCPUs, 64 GB (dedicated)
-    // - **polarx.mysql.x8.2xlarge.c25**: 16 vCPUs, 128 GB (dedicated)
-    // - **polarx.mysql.x4.4xlarge.c25**: 32 vCPUs, 128 GB (dedicated)
-    // - **polarx.mysql.x8.4xlarge.c25**: 32 vCPUs, 256 GB (dedicated)
-    // - **polarx.mysql.st.8xlarge.c25**: 60 vCPUs, 470 GB (dedicated)
-    // - **polarx.mysql.st.12xlarge.c25**: 90 vCPUs, 720 GB (dedicated)
-    // - **polarx.mysql.x8.45xlarge.c25**: 180 vCPUs, 1440 GB (dedicated)
-    // - **polarx.mysql.x8.60xlarge.c25**: 240 vCPUs, 1920 GB (dedicated)
+    // - **mysql.n2.medium.25**: 2 cores, 4 GB (general-purpose)
+    // - **mysql.n4.medium.25**: 2 cores, 8 GB (general-purpose)
+    // - **mysql.n2.large.25**: 4 cores, 8 GB (general-purpose)
+    // - **mysql.n4.large.25**: 4 cores, 16 GB (general-purpose)
+    // - **mysql.n4.xlarge.25**: 8 cores, 32 GB (general-purpose)
+    // - **mysql.n4.2xlarge.25**: 16 cores, 64 GB (general-purpose)
+    // - **mysql.x4.large.25**: 4 cores, 16 GB (dedicated)
+    // - **mysql.x8.large.25**: 4 cores, 32 GB (dedicated)
+    // - **mysql.x2.xlarge.25**: 8 cores, 16 GB (dedicated)
+    // - **mysql.x8.xlarge.25**: 8 cores, 64 GB (dedicated)
+    // - **mysql.x8.2xlarge.25**: 16 cores, 128 GB (dedicated)
+    // - **mysql.x4.4xlarge.25**: 32 cores, 128 GB (dedicated)
+    // - **mysql.x8.4xlarge.25**: 32 cores, 256 GB (dedicated)
+    // - **mysql.st.8xlarge.25**: 60 cores, 470 GB (dedicated)
+    // - **mysql.st.12xlarge.25**: 90 cores, 720 GB (dedicated)
+    // - **mysql.x8.45xlarge.25**: 180 cores, 1440 GB (dedicated)
+    // - **mysql.x8.60xlarge.25**: 240 cores, 1920 GB (dedicated)
+    // 
+    // 
+    // Cloud disk specifications for Enterprise Edition:
+    // 
+    // - **polarx.mysql.n2.medium.c25**: 2 cores, 4 GB (general-purpose)
+    // - **polarx.mysql.n4.medium.c25**: 2 cores, 8 GB (general-purpose)
+    // - **polarx.mysql.n2.large.c25**: 4 cores, 8 GB (general-purpose)
+    // - **polarx.mysql.n4.large.c25**: 4 cores, 16 GB (general-purpose)
+    // - **polarx.mysql.n4.xlarge.c25**: 8 cores, 32 GB (general-purpose)
+    // - **polarx.mysql.n4.2xlarge.c25**: 16 cores, 64 GB (general-purpose)
+    // - **polarx.mysql.x4.large.c25**: 4 cores, 16 GB (dedicated)
+    // - **polarx.mysql.x8.large.c25**: 4 cores, 32 GB (dedicated)
+    // - **polarx.mysql.x2.xlarge.c25**: 8 cores, 16 GB (dedicated)
+    // - **polarx.mysql.x8.xlarge.c25**: 8 cores, 64 GB (dedicated)
+    // - **polarx.mysql.x8.2xlarge.c25**: 16 cores, 128 GB (dedicated)
+    // - **polarx.mysql.x4.4xlarge.c25**: 32 cores, 128 GB (dedicated)
+    // - **polarx.mysql.x8.4xlarge.c25**: 32 cores, 256 GB (dedicated)
+    // - **polarx.mysql.st.8xlarge.c25**: 60 cores, 470 GB (dedicated)
+    // - **polarx.mysql.st.12xlarge.c25**: 90 cores, 720 GB (dedicated)
+    // - **polarx.mysql.x8.45xlarge.c25**: 180 cores, 1440 GB (dedicated)
+    // - **polarx.mysql.x8.60xlarge.c25**: 240 cores, 1920 GB (dedicated)
     shared_ptr<string> dnClass_ {};
-    // The disk space of the storage nodes.
+    // The disk space size of the storage node.
     shared_ptr<string> dnStorageSpace_ {};
     // The MySQL DPI engine version. Valid values: 5.7 and 8.0.
     // 
@@ -476,8 +481,8 @@ namespace Models
     // Specifies whether the instance to be created is a column store read-only instance.
     shared_ptr<bool> isColumnarReadDBInstance_ {};
     // Specifies whether the instance is a read-only instance. Valid values:
-    // - **true**: Yes.
-    // - **false**: No.
+    // - **true**: yes
+    // - **false**: no
     shared_ptr<bool> isReadDBInstance_ {};
     // The network type of the instance. Only VPC is supported.
     shared_ptr<string> networkType_ {};
@@ -489,13 +494,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The billing cycle. Valid values for subscription instances: Year and Month. Default value for pay-as-you-go instances: Hour.
+    // The billing cycle. Valid values: Year and Month for subscription, and Hour for pay-as-you-go.
     shared_ptr<string> period_ {};
     // The name of the primary instance. This parameter is required if the instance is a read-only instance.
     shared_ptr<string> primaryDBInstanceName_ {};
     // The primary zone.
     shared_ptr<string> primaryZone_ {};
-    // The region of the instance.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -508,18 +513,18 @@ namespace Models
     // - standard: Standard Edition
     shared_ptr<string> series_ {};
     // The storage type. Valid values:
-    // * custom_local_ssd: local disk
+    // * custom_local_ssd: local SSD
     // * cloud_auto: cloud disk
     shared_ptr<string> storageType_ {};
-    // The third active zone in a Three-zone deployment.
+    // The tertiary zone. This is the third active zone in a Three-zone deployment.
     shared_ptr<string> tertiaryZone_ {};
     // The topology type. Valid values:
-    // - **3azones**: Three-zone deployment (three active zones).
-    // - **1azone**: Single active zone.
+    // - **3azones**: Three-zone deployment
+    // - **1azone**: single active zone
     // 
     // This parameter is required.
     shared_ptr<string> topologyType_ {};
-    // The subscription duration. This parameter is required when the billing method is set to subscription.
+    // The subscription duration. You can specify a duration in months or years when the billing method is set to subscription.
     // 
     // > If Period is set to Year, valid values are 1, 2, and 3.
     shared_ptr<int32_t> usedTime_ {};
@@ -527,7 +532,7 @@ namespace Models
     shared_ptr<string> VPCId_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
-    // The zone of the instance.
+    // The zone ID of the instance.
     shared_ptr<string> zoneId_ {};
   };
 

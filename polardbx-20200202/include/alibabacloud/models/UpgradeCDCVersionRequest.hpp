@@ -84,20 +84,20 @@ namespace Models
 
 
   protected:
-    // The target database version to which you want to upgrade. > You can call the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/196830.html) operation to query the upgrade instructions for all database versions in the specified region.
+    // The target database version for the upgrade. You can call the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/196830.html) operation to view the upgrade instructions for all database versions in the target region.
     shared_ptr<string> cdcDbVersion_ {};
-    // The target version number to which you want to upgrade.
+    // The target minor version for the upgrade.
     shared_ptr<string> cdcMinorVersion_ {};
-    // The instance ID. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the specified region, including instance IDs.
+    // The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in a specific region, including instance IDs.
     shared_ptr<string> DBInstanceName_ {};
     // The instance name.
     shared_ptr<string> instanceName_ {};
-    // The region in which the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+    // The region where the instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the details of regions supported by PolarDB-X, including region IDs.
     shared_ptr<string> regionId_ {};
-    // The switch mode. Valid values:
+    // The switchover mode. Valid values:
     // 
-    // - 0: immediately switches.
-    // - 1: switches within the O&M window.
+    // - 0: Switches immediately.
+    // - 1: Switches within the O&M window.
     shared_ptr<string> switchMode_ {};
   };
 

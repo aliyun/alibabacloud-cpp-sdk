@@ -166,17 +166,17 @@ namespace Models
 
 
         protected:
-          // Connection address
+          // The endpoint.
           shared_ptr<string> connectionString_ {};
-          // Port
+          // The port.
           shared_ptr<int32_t> port_ {};
-          // Connection address type
+          // The endpoint type.
           shared_ptr<string> type_ {};
           // VPC ID
           shared_ptr<string> VPCId_ {};
-          // vSwitch ID
+          // The vSwitch ID.
           shared_ptr<string> vSwitchId_ {};
-          // VPC instance ID
+          // The VPC instance ID.
           shared_ptr<string> vpcInstanceId_ {};
         };
 
@@ -263,27 +263,27 @@ namespace Models
 
 
       protected:
-        // Instance specifications
+        // The instance type.
         shared_ptr<string> classCode_ {};
-        // Connection address list
+        // The list of endpoints.
         shared_ptr<vector<Instance::ConnAddrs>> connAddrs_ {};
         // The creation time.
         shared_ptr<string> createTime_ {};
-        // Instance ID
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Number of nodes
+        // The number of nodes.
         shared_ptr<int32_t> nodeCount_ {};
-        // Region ID
+        // The region ID.
         shared_ptr<string> regionId_ {};
-        // Instance status
+        // The instance status.
         shared_ptr<string> status_ {};
-        // Storage type
+        // The storage type.
         shared_ptr<string> storageType_ {};
         // VPC ID
         shared_ptr<string> VPCId_ {};
-        // vSwitch ID
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // Zone ID
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -298,7 +298,7 @@ namespace Models
 
 
     protected:
-      // Instance information
+      // The instance information.
       shared_ptr<Data::Instance> instance_ {};
     };
 
@@ -424,9 +424,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeMem0InfoResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // Response data
+    // The returned data.
     shared_ptr<DescribeMem0InfoResponseBody::Data> data_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

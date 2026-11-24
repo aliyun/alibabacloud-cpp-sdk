@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the link task.
+    // The ID of the slink task.
     shared_ptr<string> slinkTaskId_ {};
   };
 

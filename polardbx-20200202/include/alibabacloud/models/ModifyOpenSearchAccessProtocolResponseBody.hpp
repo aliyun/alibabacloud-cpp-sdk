@@ -125,14 +125,14 @@ namespace Models
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The identity type used for authentication in the request. Valid values:
+      // The type of identity used for authentication in the request. Valid values:
       // - SubUser: RAM user
       // - AssumedRoleUser: RAM role
       // - Federated: SSO federated identity
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The permission denial type.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};
@@ -171,17 +171,17 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The details of the access denied error.
     shared_ptr<ModifyOpenSearchAccessProtocolResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The response message. "success" is returned for a successful request. An error code is returned for a failed request.
+    // The response message. If the request is successful, success is returned. If an error occurs, the corresponding error code is returned.
     shared_ptr<string> message_ {};
     // The backend protocol. Valid values:
     // 
-    // - **HTTP** (default): supports association with HTTPS, HTTP, and QUIC listeners.
+    // - **HTTP** (default): Supports association with HTTPS, HTTP, and QUIC listeners.
     // 
-    // - **HTTPS**: supports association with HTTPS listeners.
+    // - **HTTPS**: Supports association with HTTPS listeners.
     // 
-    // - **gRPC**: supports association with HTTPS and QUIC listeners.
+    // - **gRPC**: Supports association with HTTPS and QUIC listeners.
     // 
     // > If **ServerGroupType** is set to **Fc**, you do not need to configure the backend protocol.
     shared_ptr<string> protocol_ {};

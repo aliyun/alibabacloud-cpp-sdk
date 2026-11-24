@@ -135,7 +135,7 @@ namespace Models
 
 
     protected:
-      // The endpoint.
+      // The connection string.
       shared_ptr<string> connectionString_ {};
       // The name of the context service instance.
       shared_ptr<string> contextDBInstanceName_ {};
@@ -143,15 +143,15 @@ namespace Models
       shared_ptr<int32_t> DBInstanceId_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
-      // The network type of the endpoint.
+      // The network type of the connection string.
       shared_ptr<int32_t> DBInstanceNetType_ {};
-      // The type of the target node. Valid values: service and dashboard.
+      // The target node type. Valid values: service and dashboard.
       shared_ptr<string> nodeType_ {};
-      // The port of the endpoint.
+      // The port number.
       shared_ptr<string> port_ {};
       // The backend task ID.
       shared_ptr<int32_t> taskId_ {};
-      // The IP address of the Anti-DDoS Proxy instance protected by the policy.
+      // The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance protected by the policy.
       shared_ptr<string> vip_ {};
     };
 
@@ -243,13 +243,13 @@ namespace Models
       shared_ptr<string> authAction_ {};
       // The identity used for authentication in the request.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The type of the authentication principal.
+      // See the preceding description.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of the authentication principal.
+      // See the preceding description.
       shared_ptr<string> authPrincipalType_ {};
-      // The encoded diagnostic message.
+      // The diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the permission denial.
+      // The type of the missing permission.
       shared_ptr<string> noPermissionType_ {};
       // PolicyType
       shared_ptr<string> policyType_ {};

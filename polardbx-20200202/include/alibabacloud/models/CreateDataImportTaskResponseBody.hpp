@@ -102,11 +102,11 @@ namespace Models
   protected:
     // The returned result.
     shared_ptr<CreateDataImportTaskResponseBody::Data> data_ {};
-    // The response message.
+    // The message returned by the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 
