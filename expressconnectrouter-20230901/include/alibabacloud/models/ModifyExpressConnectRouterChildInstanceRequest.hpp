@@ -94,13 +94,31 @@ namespace Models
 
 
   protected:
+    // The instance ID of the VBR.
+    // 
     // This parameter is required.
     shared_ptr<string> childInstanceId_ {};
+    // The type of the network instance. Valid values:
+    // - **VBR**: VBR instance.
+    // 
     // This parameter is required.
     shared_ptr<string> childInstanceType_ {};
+    // The client token that is used to ensure the idempotence of the request.
+    // 
+    // You can generate a parameter value from your client to ensure that the parameter value is unique among different requests. The client token only supports ASCII characters.
+    // 
+    // > 
+    // > - If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request is different.
     shared_ptr<string> clientToken_ {};
+    // The description of the child instance. The description must be 0 to 128 characters in length.
     shared_ptr<string> description_ {};
+    // Specifies whether the request is a dry run only. Valid values:
+    // 
+    // - **true**: performs a dry run and does not modify service resources.
+    // - **false** (default): sends a normal request.
     shared_ptr<bool> dryRun_ {};
+    // The instance ID of the Express Connect Router (ECR).
+    // 
     // This parameter is required.
     shared_ptr<string> ecrId_ {};
     shared_ptr<string> version_ {};

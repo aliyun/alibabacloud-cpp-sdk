@@ -76,12 +76,13 @@ namespace Models
 
 
     protected:
-      // The cross-domain forwarding mode of the ECR. Valid values:
+      // The inter-region forwarding mode of the ECR. Valid values:
       // 
-      // *   **ECMP**: the load balancing mode.
-      // *   **NearBy**: the nearby forwarding mode.
+      // - **ECMP**: The load balancing mode.
+      // 
+      // - **NearBy**: The nearby forwarding mode.
       shared_ptr<string> mode_ {};
-      // The region ID of the ECR.
+      // The region where the ECR instance is deployed.
       shared_ptr<string> regionId_ {};
     };
 
@@ -127,20 +128,21 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // Generate a unique value from your client for this parameter. ClientToken supports only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system uses the **RequestId** as the **ClientToken**. The **RequestId** is different for each request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: performs only a dry run.
-    // *   **false** (default): performs a dry run and performs the actual request.
+    // - **true**: Sends a check request without modifying the service resource.
+    // 
+    // - **false** (default): Sends a normal request.
     shared_ptr<bool> dryRun_ {};
-    // The ECR ID.
+    // The ID of the Express Connect Router (ECR) instance.
     // 
     // This parameter is required.
     shared_ptr<string> ecrId_ {};
-    // The cross-region forwarding modes.
+    // The list of inter-region forwarding modes.
     shared_ptr<vector<ModifyExpressConnectRouterInterRegionTransitModeRequest::TransitModeList>> transitModeList_ {};
     shared_ptr<string> version_ {};
   };

@@ -117,15 +117,15 @@ namespace Models
 
 
     protected:
-      // The destination CIDR block of the route.
+      // The destination CIDR block of the route entry.
       shared_ptr<string> destinationCidrBlock_ {};
-      // The ECR ID.
+      // The instance ID of the Express Connect Router (ECR).
       shared_ptr<string> ecrId_ {};
       // The time when the route entry was created.
       shared_ptr<string> gmtCreate_ {};
-      // The ID of the next-hop instance.
+      // The instance ID of the next hop.
       shared_ptr<string> nexthopInstanceId_ {};
-      // The region ID of the next-hop instance.
+      // The region ID of the next hop instance.
       shared_ptr<string> nexthopInstanceRegionId_ {};
     };
 
@@ -222,35 +222,34 @@ namespace Models
   protected:
     // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+    // The status code. A value of 200 indicates that the call was successful. Other values indicate that the call failed. For more information about the causes of failure, see error codes.
     shared_ptr<string> code_ {};
-    // The routes that are queried.
+    // The list of queried route entries.
     shared_ptr<vector<DescribeDisabledExpressConnectRouterRouteEntriesResponseBody::DisabledRouteEntryList>> disabledRouteEntryList_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
     // 
-    // >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsInstanceId**, the request parameter **DtsInstanceId** is invalid.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsInstanceId**, it indicates that the **DtsInstanceId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The total number of entries returned. Valid values: 1 to 2147483647. Default value: 10.
+    // The maximum number of entries to return. Valid values: 1 to 2147483647. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned message.
+    // The message returned by the operation.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+    // The token for the next query. Valid values:
     // 
-    // *   If NextToken is empty, no next page exists.
-    // *   If a value of NextToken is returned, the value indicates the token that is used for the next query.
+    // - If NextToken is empty, no next query is required.
+    // - If NextToken is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether routes are disabled by the ECR. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the disabled Express Connect Router (ECR) routing is successfully queried. Valid values:
+    // - **True**: The query was successful.
+    // - **False**: The query failed.
     shared_ptr<bool> success_ {};
-    // The total number of routes.
+    // The total number of route entry.
     shared_ptr<int32_t> totalCount_ {};
   };
 

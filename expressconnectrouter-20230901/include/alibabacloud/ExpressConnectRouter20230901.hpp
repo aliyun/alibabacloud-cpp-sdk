@@ -21,7 +21,7 @@ namespace ExpressConnectRouter20230901
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Enables log delivery for flow logs.
+       * @summary Enables log delivery for a flow log.
        *
        * @param request ActivateFlowLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace ExpressConnectRouter20230901
       Models::ActivateFlowLogResponse activateFlowLogWithOptions(const Models::ActivateFlowLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables log delivery for flow logs.
+       * @summary Enables log delivery for a flow log.
        *
        * @param request ActivateFlowLogRequest
        * @return ActivateFlowLogResponse
@@ -38,9 +38,9 @@ namespace ExpressConnectRouter20230901
       Models::ActivateFlowLogResponse activateFlowLog(const Models::ActivateFlowLogRequest &request);
 
       /**
-       * @summary Associates a virtual border router (VBR) with an Express Connect router (ECR).
+       * @summary Attaches a child instance (VBR) to an Express Connect Router (ECR).
        *
-       * @description Before you call the **AttachExpressConnectRouterChildInstance** operation to associate a VBR with an ECR, make sure that the ECR is in the **Active** state.
+       * @description Before you invoke the **AttachExpressConnectRouterChildInstance** operation to load a child instance (VBR) to an Express Connect Router (ECR), make sure that the Express Connect Router (ECR) is in the **Active** state.
        *
        * @param request AttachExpressConnectRouterChildInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -49,9 +49,9 @@ namespace ExpressConnectRouter20230901
       Models::AttachExpressConnectRouterChildInstanceResponse attachExpressConnectRouterChildInstanceWithOptions(const Models::AttachExpressConnectRouterChildInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates a virtual border router (VBR) with an Express Connect router (ECR).
+       * @summary Attaches a child instance (VBR) to an Express Connect Router (ECR).
        *
-       * @description Before you call the **AttachExpressConnectRouterChildInstance** operation to associate a VBR with an ECR, make sure that the ECR is in the **Active** state.
+       * @description Before you invoke the **AttachExpressConnectRouterChildInstance** operation to load a child instance (VBR) to an Express Connect Router (ECR), make sure that the Express Connect Router (ECR) is in the **Active** state.
        *
        * @param request AttachExpressConnectRouterChildInstanceRequest
        * @return AttachExpressConnectRouterChildInstanceResponse
@@ -59,7 +59,7 @@ namespace ExpressConnectRouter20230901
       Models::AttachExpressConnectRouterChildInstanceResponse attachExpressConnectRouterChildInstance(const Models::AttachExpressConnectRouterChildInstanceRequest &request);
 
       /**
-       * @summary Checks the Cloud Data Transfer (CDT) service required to add a region to an Express Connect router (ECR).
+       * @summary Checks the Cloud Data Transfer (CDT) service required to add a specified region to an Express Connect Router (ECR).
        *
        * @param request CheckAddRegionToExpressConnectRouterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -68,7 +68,7 @@ namespace ExpressConnectRouter20230901
       Models::CheckAddRegionToExpressConnectRouterResponse checkAddRegionToExpressConnectRouterWithOptions(const Models::CheckAddRegionToExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks the Cloud Data Transfer (CDT) service required to add a region to an Express Connect router (ECR).
+       * @summary Checks the Cloud Data Transfer (CDT) service required to add a specified region to an Express Connect Router (ECR).
        *
        * @param request CheckAddRegionToExpressConnectRouterRequest
        * @return CheckAddRegionToExpressConnectRouterResponse
@@ -78,7 +78,7 @@ namespace ExpressConnectRouter20230901
       /**
        * @summary Creates an Express Connect Router (ECR).
        *
-       * @description After you create an ECR, it enters the **Active** state.
+       * @description After you create an Express Connect Router (ECR) instance, the instance status is **Active**.
        *
        * @param request CreateExpressConnectRouterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -89,7 +89,7 @@ namespace ExpressConnectRouter20230901
       /**
        * @summary Creates an Express Connect Router (ECR).
        *
-       * @description After you create an ECR, it enters the **Active** state.
+       * @description After you create an Express Connect Router (ECR) instance, the instance status is **Active**.
        *
        * @param request CreateExpressConnectRouterRequest
        * @return CreateExpressConnectRouterResponse
@@ -97,7 +97,7 @@ namespace ExpressConnectRouter20230901
       Models::CreateExpressConnectRouterResponse createExpressConnectRouter(const Models::CreateExpressConnectRouterRequest &request);
 
       /**
-       * @summary Associates a virtual private cloud (VPC) or a transit router (TR) with an Express Connect router (ECR).
+       * @summary Associates an Express Connect Router (ECR) with a virtual private cloud (VPC) or a transit router (TR).
        *
        * @param request CreateExpressConnectRouterAssociationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -106,7 +106,7 @@ namespace ExpressConnectRouter20230901
       Models::CreateExpressConnectRouterAssociationResponse createExpressConnectRouterAssociationWithOptions(const Models::CreateExpressConnectRouterAssociationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates a virtual private cloud (VPC) or a transit router (TR) with an Express Connect router (ECR).
+       * @summary Associates an Express Connect Router (ECR) with a virtual private cloud (VPC) or a transit router (TR).
        *
        * @param request CreateExpressConnectRouterAssociationRequest
        * @return CreateExpressConnectRouterAssociationResponse
@@ -114,7 +114,7 @@ namespace ExpressConnectRouter20230901
       Models::CreateExpressConnectRouterAssociationResponse createExpressConnectRouterAssociation(const Models::CreateExpressConnectRouterAssociationRequest &request);
 
       /**
-       * @summary Creates a flow log and enables log delivery.
+       * @summary Creates a flow log and enables log delivery by default.
        *
        * @param request CreateFlowLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -123,7 +123,7 @@ namespace ExpressConnectRouter20230901
       Models::CreateFlowLogResponse createFlowLogWithOptions(const Models::CreateFlowLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a flow log and enables log delivery.
+       * @summary Creates a flow log and enables log delivery by default.
        *
        * @param request CreateFlowLogRequest
        * @return CreateFlowLogResponse
@@ -131,7 +131,24 @@ namespace ExpressConnectRouter20230901
       Models::CreateFlowLogResponse createFlowLog(const Models::CreateFlowLogRequest &request);
 
       /**
-       * @summary Disables log delivery.
+       * @summary Creates an association between an Express Connect Router (ECR) and a route map.
+       *
+       * @param request CreateRouteMapAssociationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRouteMapAssociationResponse
+       */
+      Models::CreateRouteMapAssociationResponse createRouteMapAssociationWithOptions(const Models::CreateRouteMapAssociationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an association between an Express Connect Router (ECR) and a route map.
+       *
+       * @param request CreateRouteMapAssociationRequest
+       * @return CreateRouteMapAssociationResponse
+       */
+      Models::CreateRouteMapAssociationResponse createRouteMapAssociation(const Models::CreateRouteMapAssociationRequest &request);
+
+      /**
+       * @summary Stops log delivery for a flow log.
        *
        * @param request DeactivateFlowLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -140,7 +157,7 @@ namespace ExpressConnectRouter20230901
       Models::DeactivateFlowLogResponse deactivateFlowLogWithOptions(const Models::DeactivateFlowLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables log delivery.
+       * @summary Stops log delivery for a flow log.
        *
        * @param request DeactivateFlowLogRequest
        * @return DeactivateFlowLogResponse
@@ -148,11 +165,11 @@ namespace ExpressConnectRouter20230901
       Models::DeactivateFlowLogResponse deactivateFlowLog(const Models::DeactivateFlowLogRequest &request);
 
       /**
-       * @summary Deletes an Express Connect router (ECR).
+       * @summary Deletes an Express Connect Router (ECR).
        *
-       * @description Take note of the following items:
-       * *   Before you call this operation, make sure that all resources are disassociated from the ECR.
-       * *   You can delete only ECRs that are in the **Active** state.
+       * @description Before you invoke the DeleteExpressConnectRouter operation to delete an Express Connect Router (ECR) instance, note the following:
+       * - Before you delete an Express Connect Router (ECR) instance, you must delete the resources associated with the Express Connect Router (ECR) instance.
+       * - You can delete only Express Connect Router (ECR) instances that are in the **Active** state.
        *
        * @param request DeleteExpressConnectRouterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -161,11 +178,11 @@ namespace ExpressConnectRouter20230901
       Models::DeleteExpressConnectRouterResponse deleteExpressConnectRouterWithOptions(const Models::DeleteExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an Express Connect router (ECR).
+       * @summary Deletes an Express Connect Router (ECR).
        *
-       * @description Take note of the following items:
-       * *   Before you call this operation, make sure that all resources are disassociated from the ECR.
-       * *   You can delete only ECRs that are in the **Active** state.
+       * @description Before you invoke the DeleteExpressConnectRouter operation to delete an Express Connect Router (ECR) instance, note the following:
+       * - Before you delete an Express Connect Router (ECR) instance, you must delete the resources associated with the Express Connect Router (ECR) instance.
+       * - You can delete only Express Connect Router (ECR) instances that are in the **Active** state.
        *
        * @param request DeleteExpressConnectRouterRequest
        * @return DeleteExpressConnectRouterResponse
@@ -173,7 +190,7 @@ namespace ExpressConnectRouter20230901
       Models::DeleteExpressConnectRouterResponse deleteExpressConnectRouter(const Models::DeleteExpressConnectRouterRequest &request);
 
       /**
-       * @summary Disassociates an Express Connect router (ECR) from a virtual private cloud (VPC) or a transit router (TR).
+       * @summary Disassociates an Express Connect Router (ECR) from a virtual private cloud (VPC) or a transit router.
        *
        * @param request DeleteExpressConnectRouterAssociationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -182,7 +199,7 @@ namespace ExpressConnectRouter20230901
       Models::DeleteExpressConnectRouterAssociationResponse deleteExpressConnectRouterAssociationWithOptions(const Models::DeleteExpressConnectRouterAssociationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disassociates an Express Connect router (ECR) from a virtual private cloud (VPC) or a transit router (TR).
+       * @summary Disassociates an Express Connect Router (ECR) from a virtual private cloud (VPC) or a transit router.
        *
        * @param request DeleteExpressConnectRouterAssociationRequest
        * @return DeleteExpressConnectRouterAssociationResponse
@@ -207,7 +224,24 @@ namespace ExpressConnectRouter20230901
       Models::DeleteFlowlogResponse deleteFlowlog(const Models::DeleteFlowlogRequest &request);
 
       /**
-       * @summary Queries the route entries that are disabled on an Express Connect router (ECR).
+       * @summary Deletes the association between an Express Connect Router (ECR) and a route policy.
+       *
+       * @param request DeleteRouteMapAssociationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRouteMapAssociationResponse
+       */
+      Models::DeleteRouteMapAssociationResponse deleteRouteMapAssociationWithOptions(const Models::DeleteRouteMapAssociationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes the association between an Express Connect Router (ECR) and a route policy.
+       *
+       * @param request DeleteRouteMapAssociationRequest
+       * @return DeleteRouteMapAssociationResponse
+       */
+      Models::DeleteRouteMapAssociationResponse deleteRouteMapAssociation(const Models::DeleteRouteMapAssociationRequest &request);
+
+      /**
+       * @summary Queries the disabled route entry of an Express Connect Router (ECR).
        *
        * @param request DescribeDisabledExpressConnectRouterRouteEntriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -216,7 +250,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeDisabledExpressConnectRouterRouteEntriesResponse describeDisabledExpressConnectRouterRouteEntriesWithOptions(const Models::DescribeDisabledExpressConnectRouterRouteEntriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the route entries that are disabled on an Express Connect router (ECR).
+       * @summary Queries the disabled route entry of an Express Connect Router (ECR).
        *
        * @param request DescribeDisabledExpressConnectRouterRouteEntriesRequest
        * @return DescribeDisabledExpressConnectRouterRouteEntriesResponse
@@ -224,7 +258,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeDisabledExpressConnectRouterRouteEntriesResponse describeDisabledExpressConnectRouterRouteEntries(const Models::DescribeDisabledExpressConnectRouterRouteEntriesRequest &request);
 
       /**
-       * @summary Queries a list of Express Connect routers (ECRs).
+       * @summary Queries a list of Express Connect Router (ECR) instances.
        *
        * @param request DescribeExpressConnectRouterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -233,7 +267,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterResponse describeExpressConnectRouterWithOptions(const Models::DescribeExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of Express Connect routers (ECRs).
+       * @summary Queries a list of Express Connect Router (ECR) instances.
        *
        * @param request DescribeExpressConnectRouterRequest
        * @return DescribeExpressConnectRouterResponse
@@ -241,7 +275,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterResponse describeExpressConnectRouter(const Models::DescribeExpressConnectRouterRequest &request);
 
       /**
-       * @summary Queries the historical route prefixes of an Express Connect router (ECR).
+       * @summary Queries the history of prefix routes for an Express Connect Router (ECR).
        *
        * @param request DescribeExpressConnectRouterAllowedPrefixHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -250,7 +284,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterAllowedPrefixHistoryResponse describeExpressConnectRouterAllowedPrefixHistoryWithOptions(const Models::DescribeExpressConnectRouterAllowedPrefixHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the historical route prefixes of an Express Connect router (ECR).
+       * @summary Queries the history of prefix routes for an Express Connect Router (ECR).
        *
        * @param request DescribeExpressConnectRouterAllowedPrefixHistoryRequest
        * @return DescribeExpressConnectRouterAllowedPrefixHistoryResponse
@@ -258,7 +292,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterAllowedPrefixHistoryResponse describeExpressConnectRouterAllowedPrefixHistory(const Models::DescribeExpressConnectRouterAllowedPrefixHistoryRequest &request);
 
       /**
-       * @summary Queries the virtual private clouds (VPCs) and transit routers (TRs) associated with an Express Connect router (ECR).
+       * @summary Queries the virtual private clouds (VPCs) and transit routers (TRs) associated with an Express Connect Router (ECR).
        *
        * @param request DescribeExpressConnectRouterAssociationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -267,7 +301,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterAssociationResponse describeExpressConnectRouterAssociationWithOptions(const Models::DescribeExpressConnectRouterAssociationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the virtual private clouds (VPCs) and transit routers (TRs) associated with an Express Connect router (ECR).
+       * @summary Queries the virtual private clouds (VPCs) and transit routers (TRs) associated with an Express Connect Router (ECR).
        *
        * @param request DescribeExpressConnectRouterAssociationRequest
        * @return DescribeExpressConnectRouterAssociationResponse
@@ -275,7 +309,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterAssociationResponse describeExpressConnectRouterAssociation(const Models::DescribeExpressConnectRouterAssociationRequest &request);
 
       /**
-       * @summary Queries the virtual border routers (VBRs) that are associated with an Express Connect router (ECR).
+       * @summary Queries the virtual border routers (VBRs) associated with an Express Connect Router (ECR).
        *
        * @param request DescribeExpressConnectRouterChildInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -284,7 +318,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterChildInstanceResponse describeExpressConnectRouterChildInstanceWithOptions(const Models::DescribeExpressConnectRouterChildInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the virtual border routers (VBRs) that are associated with an Express Connect router (ECR).
+       * @summary Queries the virtual border routers (VBRs) associated with an Express Connect Router (ECR).
        *
        * @param request DescribeExpressConnectRouterChildInstanceRequest
        * @return DescribeExpressConnectRouterChildInstanceResponse
@@ -292,7 +326,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterChildInstanceResponse describeExpressConnectRouterChildInstance(const Models::DescribeExpressConnectRouterChildInstanceRequest &request);
 
       /**
-       * @summary Queries the cross-region forwarding modes of an Express Connect router (ECR).
+       * @summary Queries the cross-region forwarding mode of an Express Connect Router (ECR).
        *
        * @param request DescribeExpressConnectRouterInterRegionTransitModeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -301,7 +335,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterInterRegionTransitModeResponse describeExpressConnectRouterInterRegionTransitModeWithOptions(const Models::DescribeExpressConnectRouterInterRegionTransitModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the cross-region forwarding modes of an Express Connect router (ECR).
+       * @summary Queries the cross-region forwarding mode of an Express Connect Router (ECR).
        *
        * @param request DescribeExpressConnectRouterInterRegionTransitModeRequest
        * @return DescribeExpressConnectRouterInterRegionTransitModeResponse
@@ -309,7 +343,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterInterRegionTransitModeResponse describeExpressConnectRouterInterRegionTransitMode(const Models::DescribeExpressConnectRouterInterRegionTransitModeRequest &request);
 
       /**
-       * @summary Queries a list of regions in which resources related to an Express Connect router (ECR) are deployed.
+       * @summary Queries the regions where Express Connect Router (ECR) resources are located.
        *
        * @param request DescribeExpressConnectRouterRegionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -318,7 +352,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterRegionResponse describeExpressConnectRouterRegionWithOptions(const Models::DescribeExpressConnectRouterRegionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of regions in which resources related to an Express Connect router (ECR) are deployed.
+       * @summary Queries the regions where Express Connect Router (ECR) resources are located.
        *
        * @param request DescribeExpressConnectRouterRegionRequest
        * @return DescribeExpressConnectRouterRegionResponse
@@ -326,7 +360,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterRegionResponse describeExpressConnectRouterRegion(const Models::DescribeExpressConnectRouterRegionRequest &request);
 
       /**
-       * @summary Queries the route entries of an Express Connect router (ECR).
+       * @summary Queries the route entries of an Express Connect Router (ECR).
        *
        * @param request DescribeExpressConnectRouterRouteEntriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -335,7 +369,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeExpressConnectRouterRouteEntriesResponse describeExpressConnectRouterRouteEntriesWithOptions(const Models::DescribeExpressConnectRouterRouteEntriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the route entries of an Express Connect router (ECR).
+       * @summary Queries the route entries of an Express Connect Router (ECR).
        *
        * @param request DescribeExpressConnectRouterRouteEntriesRequest
        * @return DescribeExpressConnectRouterRouteEntriesResponse
@@ -360,7 +394,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeFlowLogsResponse describeFlowLogs(const Models::DescribeFlowLogsRequest &request);
 
       /**
-       * @summary Queries the network instances whose permissions are granted to an Express Connect router (ECR).
+       * @summary Queries the network instances authorized to an Express Connect Router (ECR).
        *
        * @param request DescribeInstanceGrantedToExpressConnectRouterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -369,7 +403,7 @@ namespace ExpressConnectRouter20230901
       Models::DescribeInstanceGrantedToExpressConnectRouterResponse describeInstanceGrantedToExpressConnectRouterWithOptions(const Models::DescribeInstanceGrantedToExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the network instances whose permissions are granted to an Express Connect router (ECR).
+       * @summary Queries the network instances authorized to an Express Connect Router (ECR).
        *
        * @param request DescribeInstanceGrantedToExpressConnectRouterRequest
        * @return DescribeInstanceGrantedToExpressConnectRouterResponse
@@ -377,9 +411,9 @@ namespace ExpressConnectRouter20230901
       Models::DescribeInstanceGrantedToExpressConnectRouterResponse describeInstanceGrantedToExpressConnectRouter(const Models::DescribeInstanceGrantedToExpressConnectRouterRequest &request);
 
       /**
-       * @summary Disassociates a virtual border router (VBR) from an Express Connect router (ECR).
+       * @summary Detaches a virtual border router (VBR) from an Express Connect Router (ECR).
        *
-       * @description Before you call the **DetachExpressConnectRouterChildInstance** operation to uninstall a VBR from an ECR, make sure that the ECR is in the **Active** state.
+       * @description Before you call the **DetachExpressConnectRouterChildInstance** operation to detach a VBR instance from an Express Connect Router (ECR), ensure that the ECR is in the **Active** state.
        *
        * @param request DetachExpressConnectRouterChildInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -388,9 +422,9 @@ namespace ExpressConnectRouter20230901
       Models::DetachExpressConnectRouterChildInstanceResponse detachExpressConnectRouterChildInstanceWithOptions(const Models::DetachExpressConnectRouterChildInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disassociates a virtual border router (VBR) from an Express Connect router (ECR).
+       * @summary Detaches a virtual border router (VBR) from an Express Connect Router (ECR).
        *
-       * @description Before you call the **DetachExpressConnectRouterChildInstance** operation to uninstall a VBR from an ECR, make sure that the ECR is in the **Active** state.
+       * @description Before you call the **DetachExpressConnectRouterChildInstance** operation to detach a VBR instance from an Express Connect Router (ECR), ensure that the ECR is in the **Active** state.
        *
        * @param request DetachExpressConnectRouterChildInstanceRequest
        * @return DetachExpressConnectRouterChildInstanceResponse
@@ -398,7 +432,7 @@ namespace ExpressConnectRouter20230901
       Models::DetachExpressConnectRouterChildInstanceResponse detachExpressConnectRouterChildInstance(const Models::DetachExpressConnectRouterChildInstanceRequest &request);
 
       /**
-       * @summary Disables route entries of an Express Connect router (ECR).
+       * @summary Disables a route entry of an Express Connect Router (ECR).
        *
        * @param request DisableExpressConnectRouterRouteEntriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -407,7 +441,7 @@ namespace ExpressConnectRouter20230901
       Models::DisableExpressConnectRouterRouteEntriesResponse disableExpressConnectRouterRouteEntriesWithOptions(const Models::DisableExpressConnectRouterRouteEntriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables route entries of an Express Connect router (ECR).
+       * @summary Disables a route entry of an Express Connect Router (ECR).
        *
        * @param request DisableExpressConnectRouterRouteEntriesRequest
        * @return DisableExpressConnectRouterRouteEntriesResponse
@@ -415,7 +449,7 @@ namespace ExpressConnectRouter20230901
       Models::DisableExpressConnectRouterRouteEntriesResponse disableExpressConnectRouterRouteEntries(const Models::DisableExpressConnectRouterRouteEntriesRequest &request);
 
       /**
-       * @summary Enables route entries of an Express Connect router (ECR).
+       * @summary Enables route entries for an Express Connect Router (ECR).
        *
        * @param request EnableExpressConnectRouterRouteEntriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -424,7 +458,7 @@ namespace ExpressConnectRouter20230901
       Models::EnableExpressConnectRouterRouteEntriesResponse enableExpressConnectRouterRouteEntriesWithOptions(const Models::EnableExpressConnectRouterRouteEntriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables route entries of an Express Connect router (ECR).
+       * @summary Enables route entries for an Express Connect Router (ECR).
        *
        * @param request EnableExpressConnectRouterRouteEntriesRequest
        * @return EnableExpressConnectRouterRouteEntriesResponse
@@ -432,10 +466,10 @@ namespace ExpressConnectRouter20230901
       Models::EnableExpressConnectRouterRouteEntriesResponse enableExpressConnectRouterRouteEntries(const Models::EnableExpressConnectRouterRouteEntriesRequest &request);
 
       /**
-       * @summary Deletes an Express Connect router (ECR) and disassociates the virtual private cloud (VPC), transit router (TR), and virtual border router (VBR) associated with the ECR.
+       * @summary Force deletes an Express Connect Router (ECR) and detaches its associated virtual private clouds (VPCs), Transit Routers (TRs), and virtual border routers (VBRs).
        *
-       * @description *   If you forcefully delete an ECR, all the resources associated with the ECR are disassociated at a time. Make sure that the disassociation does not affect the stability of your business.
-       * *   You can delete only ECRs that are in the **Active** state.
+       * @description - Force deleting an Express Connect Router (ECR) instance detaches all associated resources. Before you proceed, confirm that this operation does not disrupt your services.
+       * - You can delete only ECR instances that are in the **Active** state.
        *
        * @param request ForceDeleteExpressConnectRouterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -444,10 +478,10 @@ namespace ExpressConnectRouter20230901
       Models::ForceDeleteExpressConnectRouterResponse forceDeleteExpressConnectRouterWithOptions(const Models::ForceDeleteExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an Express Connect router (ECR) and disassociates the virtual private cloud (VPC), transit router (TR), and virtual border router (VBR) associated with the ECR.
+       * @summary Force deletes an Express Connect Router (ECR) and detaches its associated virtual private clouds (VPCs), Transit Routers (TRs), and virtual border routers (VBRs).
        *
-       * @description *   If you forcefully delete an ECR, all the resources associated with the ECR are disassociated at a time. Make sure that the disassociation does not affect the stability of your business.
-       * *   You can delete only ECRs that are in the **Active** state.
+       * @description - Force deleting an Express Connect Router (ECR) instance detaches all associated resources. Before you proceed, confirm that this operation does not disrupt your services.
+       * - You can delete only ECR instances that are in the **Active** state.
        *
        * @param request ForceDeleteExpressConnectRouterRequest
        * @return ForceDeleteExpressConnectRouterResponse
@@ -455,9 +489,9 @@ namespace ExpressConnectRouter20230901
       Models::ForceDeleteExpressConnectRouterResponse forceDeleteExpressConnectRouter(const Models::ForceDeleteExpressConnectRouterRequest &request);
 
       /**
-       * @summary Grants permissions on a virtual private cloud (VPC) or a virtual border router (VBR) to an Express Connect router (ECR) of another account.
+       * @summary Grants a virtual private cloud (VPC) or virtual border router (VBR) authorization to a cross-account Express Connect Router (ECR).
        *
-       * @description When you associate a network instance of another account with an ECR, you must grant permissions on the network instance to the ECR.
+       * @description To associate a cross-account network instance with an Express Connect Router (ECR) instance, you must grant the network instance authorization to the Express Connect Router (ECR) instance.
        *
        * @param request GrantInstanceToExpressConnectRouterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -466,9 +500,9 @@ namespace ExpressConnectRouter20230901
       Models::GrantInstanceToExpressConnectRouterResponse grantInstanceToExpressConnectRouterWithOptions(const Models::GrantInstanceToExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Grants permissions on a virtual private cloud (VPC) or a virtual border router (VBR) to an Express Connect router (ECR) of another account.
+       * @summary Grants a virtual private cloud (VPC) or virtual border router (VBR) authorization to a cross-account Express Connect Router (ECR).
        *
-       * @description When you associate a network instance of another account with an ECR, you must grant permissions on the network instance to the ECR.
+       * @description To associate a cross-account network instance with an Express Connect Router (ECR) instance, you must grant the network instance authorization to the Express Connect Router (ECR) instance.
        *
        * @param request GrantInstanceToExpressConnectRouterRequest
        * @return GrantInstanceToExpressConnectRouterResponse
@@ -476,7 +510,7 @@ namespace ExpressConnectRouter20230901
       Models::GrantInstanceToExpressConnectRouterResponse grantInstanceToExpressConnectRouter(const Models::GrantInstanceToExpressConnectRouterRequest &request);
 
       /**
-       * @summary Queries a list of regions in which the Express Connect router (ECR) feature is activated.
+       * @summary Queries the regions that support Express Connect Router (ECR).
        *
        * @param request ListExpressConnectRouterSupportedRegionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -485,7 +519,7 @@ namespace ExpressConnectRouter20230901
       Models::ListExpressConnectRouterSupportedRegionResponse listExpressConnectRouterSupportedRegionWithOptions(const Models::ListExpressConnectRouterSupportedRegionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of regions in which the Express Connect router (ECR) feature is activated.
+       * @summary Queries the regions that support Express Connect Router (ECR).
        *
        * @param request ListExpressConnectRouterSupportedRegionRequest
        * @return ListExpressConnectRouterSupportedRegionResponse
@@ -493,7 +527,24 @@ namespace ExpressConnectRouter20230901
       Models::ListExpressConnectRouterSupportedRegionResponse listExpressConnectRouterSupportedRegion(const Models::ListExpressConnectRouterSupportedRegionRequest &request);
 
       /**
-       * @summary Queries a list of tags that are added to an Express Connect router (ECR).
+       * @summary Queries the association between an Express Connect Router (ECR) and a route map.
+       *
+       * @param request ListRouteMapAssociationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRouteMapAssociationsResponse
+       */
+      Models::ListRouteMapAssociationsResponse listRouteMapAssociationsWithOptions(const Models::ListRouteMapAssociationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the association between an Express Connect Router (ECR) and a route map.
+       *
+       * @param request ListRouteMapAssociationsRequest
+       * @return ListRouteMapAssociationsResponse
+       */
+      Models::ListRouteMapAssociationsResponse listRouteMapAssociations(const Models::ListRouteMapAssociationsRequest &request);
+
+      /**
+       * @summary Queries the list of tags bound to an Express Connect Router (ECR).
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -502,7 +553,7 @@ namespace ExpressConnectRouter20230901
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of tags that are added to an Express Connect router (ECR).
+       * @summary Queries the list of tags bound to an Express Connect Router (ECR).
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -510,9 +561,9 @@ namespace ExpressConnectRouter20230901
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Modifies the properties such as the name of an Express Connect router (ECR).
+       * @summary Modifies the properties of an Express Connect Router (ECR), such as its name.
        *
-       * @description You can modify only properties of ECRs in the **Active** state.
+       * @description You can modify an Express Connect Router (ECR) instance only when it is in the **Active** state.
        *
        * @param request ModifyExpressConnectRouterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -521,9 +572,9 @@ namespace ExpressConnectRouter20230901
       Models::ModifyExpressConnectRouterResponse modifyExpressConnectRouterWithOptions(const Models::ModifyExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the properties such as the name of an Express Connect router (ECR).
+       * @summary Modifies the properties of an Express Connect Router (ECR), such as its name.
        *
-       * @description You can modify only properties of ECRs in the **Active** state.
+       * @description You can modify an Express Connect Router (ECR) instance only when it is in the **Active** state.
        *
        * @param request ModifyExpressConnectRouterRequest
        * @return ModifyExpressConnectRouterResponse
@@ -531,7 +582,7 @@ namespace ExpressConnectRouter20230901
       Models::ModifyExpressConnectRouterResponse modifyExpressConnectRouter(const Models::ModifyExpressConnectRouterRequest &request);
 
       /**
-       * @summary 修改专线网关关联的属性
+       * @summary Modifies the attributes of a child instance associated with an Express Connect Router (ECR).
        *
        * @param request ModifyExpressConnectRouterAssociationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +591,7 @@ namespace ExpressConnectRouter20230901
       Models::ModifyExpressConnectRouterAssociationResponse modifyExpressConnectRouterAssociationWithOptions(const Models::ModifyExpressConnectRouterAssociationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改专线网关关联的属性
+       * @summary Modifies the attributes of a child instance associated with an Express Connect Router (ECR).
        *
        * @param request ModifyExpressConnectRouterAssociationRequest
        * @return ModifyExpressConnectRouterAssociationResponse
@@ -548,7 +599,7 @@ namespace ExpressConnectRouter20230901
       Models::ModifyExpressConnectRouterAssociationResponse modifyExpressConnectRouterAssociation(const Models::ModifyExpressConnectRouterAssociationRequest &request);
 
       /**
-       * @summary Modifies the route prefixes of a virtual private cloud (VPC) or a transit router (TR) that is associated with an Express Connect router (ECR).
+       * @summary Modifies the prefixes for a virtual private cloud (VPC) or a transit router that is attached to an Express Connect Router (ECR).
        *
        * @param request ModifyExpressConnectRouterAssociationAllowedPrefixRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +608,7 @@ namespace ExpressConnectRouter20230901
       Models::ModifyExpressConnectRouterAssociationAllowedPrefixResponse modifyExpressConnectRouterAssociationAllowedPrefixWithOptions(const Models::ModifyExpressConnectRouterAssociationAllowedPrefixRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the route prefixes of a virtual private cloud (VPC) or a transit router (TR) that is associated with an Express Connect router (ECR).
+       * @summary Modifies the prefixes for a virtual private cloud (VPC) or a transit router that is attached to an Express Connect Router (ECR).
        *
        * @param request ModifyExpressConnectRouterAssociationAllowedPrefixRequest
        * @return ModifyExpressConnectRouterAssociationAllowedPrefixResponse
@@ -565,7 +616,7 @@ namespace ExpressConnectRouter20230901
       Models::ModifyExpressConnectRouterAssociationAllowedPrefixResponse modifyExpressConnectRouterAssociationAllowedPrefix(const Models::ModifyExpressConnectRouterAssociationAllowedPrefixRequest &request);
 
       /**
-       * @summary 修改专线网关子实例的属性
+       * @summary Modifies the attributes of a child instance (VBR) associated with an Express Connect Router (ECR).
        *
        * @param request ModifyExpressConnectRouterChildInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +625,7 @@ namespace ExpressConnectRouter20230901
       Models::ModifyExpressConnectRouterChildInstanceResponse modifyExpressConnectRouterChildInstanceWithOptions(const Models::ModifyExpressConnectRouterChildInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改专线网关子实例的属性
+       * @summary Modifies the attributes of a child instance (VBR) associated with an Express Connect Router (ECR).
        *
        * @param request ModifyExpressConnectRouterChildInstanceRequest
        * @return ModifyExpressConnectRouterChildInstanceResponse
@@ -582,7 +633,7 @@ namespace ExpressConnectRouter20230901
       Models::ModifyExpressConnectRouterChildInstanceResponse modifyExpressConnectRouterChildInstance(const Models::ModifyExpressConnectRouterChildInstanceRequest &request);
 
       /**
-       * @summary Modifies the cross-region forwarding mode of an Express Connect router (ECR).
+       * @summary Modifies the inter-region forwarding mode of an Express Connect Router (ECR).
        *
        * @param request ModifyExpressConnectRouterInterRegionTransitModeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +642,7 @@ namespace ExpressConnectRouter20230901
       Models::ModifyExpressConnectRouterInterRegionTransitModeResponse modifyExpressConnectRouterInterRegionTransitModeWithOptions(const Models::ModifyExpressConnectRouterInterRegionTransitModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the cross-region forwarding mode of an Express Connect router (ECR).
+       * @summary Modifies the inter-region forwarding mode of an Express Connect Router (ECR).
        *
        * @param request ModifyExpressConnectRouterInterRegionTransitModeRequest
        * @return ModifyExpressConnectRouterInterRegionTransitModeResponse
@@ -599,7 +650,7 @@ namespace ExpressConnectRouter20230901
       Models::ModifyExpressConnectRouterInterRegionTransitModeResponse modifyExpressConnectRouterInterRegionTransitMode(const Models::ModifyExpressConnectRouterInterRegionTransitModeRequest &request);
 
       /**
-       * @summary Modifies the name, description, sampling rate, and sampling interval.
+       * @summary Modifies the name, description, sampling rate, and sampling interval of a flow log.
        *
        * @param request ModifyFlowLogAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +659,7 @@ namespace ExpressConnectRouter20230901
       Models::ModifyFlowLogAttributeResponse modifyFlowLogAttributeWithOptions(const Models::ModifyFlowLogAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the name, description, sampling rate, and sampling interval.
+       * @summary Modifies the name, description, sampling rate, and sampling interval of a flow log.
        *
        * @param request ModifyFlowLogAttributeRequest
        * @return ModifyFlowLogAttributeResponse
@@ -616,7 +667,7 @@ namespace ExpressConnectRouter20230901
       Models::ModifyFlowLogAttributeResponse modifyFlowLogAttribute(const Models::ModifyFlowLogAttributeRequest &request);
 
       /**
-       * @summary Modifies the resource group to which an Express Connect router (ECR) belongs.
+       * @summary Modifies the resource group to which an Express Connect Router (ECR) belongs.
        *
        * @param request MoveResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +676,7 @@ namespace ExpressConnectRouter20230901
       Models::MoveResourceGroupResponse moveResourceGroupWithOptions(const Models::MoveResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the resource group to which an Express Connect router (ECR) belongs.
+       * @summary Modifies the resource group to which an Express Connect Router (ECR) belongs.
        *
        * @param request MoveResourceGroupRequest
        * @return MoveResourceGroupResponse
@@ -633,7 +684,7 @@ namespace ExpressConnectRouter20230901
       Models::MoveResourceGroupResponse moveResourceGroup(const Models::MoveResourceGroupRequest &request);
 
       /**
-       * @summary Revokes permissions on a virtual private cloud (VPC) or a virtual border router (VBR) from an Express Connect router (ECR) owned by another account.
+       * @summary Revokes the authorization of a virtual private cloud (VPC) or virtual border router (VBR) on a cross-account Express Connect Router (ECR).
        *
        * @param request RevokeInstanceFromExpressConnectRouterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +693,7 @@ namespace ExpressConnectRouter20230901
       Models::RevokeInstanceFromExpressConnectRouterResponse revokeInstanceFromExpressConnectRouterWithOptions(const Models::RevokeInstanceFromExpressConnectRouterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes permissions on a virtual private cloud (VPC) or a virtual border router (VBR) from an Express Connect router (ECR) owned by another account.
+       * @summary Revokes the authorization of a virtual private cloud (VPC) or virtual border router (VBR) on a cross-account Express Connect Router (ECR).
        *
        * @param request RevokeInstanceFromExpressConnectRouterRequest
        * @return RevokeInstanceFromExpressConnectRouterResponse
@@ -650,9 +701,9 @@ namespace ExpressConnectRouter20230901
       Models::RevokeInstanceFromExpressConnectRouterResponse revokeInstanceFromExpressConnectRouter(const Models::RevokeInstanceFromExpressConnectRouterRequest &request);
 
       /**
-       * @summary Synchronizes the forwarding bandwidth limit between regions for an Express Connect router (ECR).
+       * @summary Synchronizes the inter-region bandwidth limits for an Express Connect Router (ECR).
        *
-       * @description Updates are allowed only when the ECR is in the **Active** state.
+       * @description You can update an ECR instance only when it is in the **Active** state.
        *
        * @param request SynchronizeExpressConnectRouterInterRegionBandwidthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -661,9 +712,9 @@ namespace ExpressConnectRouter20230901
       Models::SynchronizeExpressConnectRouterInterRegionBandwidthResponse synchronizeExpressConnectRouterInterRegionBandwidthWithOptions(const Models::SynchronizeExpressConnectRouterInterRegionBandwidthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Synchronizes the forwarding bandwidth limit between regions for an Express Connect router (ECR).
+       * @summary Synchronizes the inter-region bandwidth limits for an Express Connect Router (ECR).
        *
-       * @description Updates are allowed only when the ECR is in the **Active** state.
+       * @description You can update an ECR instance only when it is in the **Active** state.
        *
        * @param request SynchronizeExpressConnectRouterInterRegionBandwidthRequest
        * @return SynchronizeExpressConnectRouterInterRegionBandwidthResponse
@@ -671,7 +722,7 @@ namespace ExpressConnectRouter20230901
       Models::SynchronizeExpressConnectRouterInterRegionBandwidthResponse synchronizeExpressConnectRouterInterRegionBandwidth(const Models::SynchronizeExpressConnectRouterInterRegionBandwidthRequest &request);
 
       /**
-       * @summary Adds tags to an Express Connect router (ECR). You can add tags to only one ECR each time you call this operation. You can add multiple tags at a time.
+       * @summary Binds tags to an Express Connect Router (ECR). Each call to this operation binds tags to a single ECR instance, but you can bind multiple tags at a time.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -680,7 +731,7 @@ namespace ExpressConnectRouter20230901
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tags to an Express Connect router (ECR). You can add tags to only one ECR each time you call this operation. You can add multiple tags at a time.
+       * @summary Binds tags to an Express Connect Router (ECR). Each call to this operation binds tags to a single ECR instance, but you can bind multiple tags at a time.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -688,7 +739,7 @@ namespace ExpressConnectRouter20230901
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Removes tags from an Express Connect router (ECR).
+       * @summary Unbinds tags from an Express Connect Router (ECR).
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -697,12 +748,29 @@ namespace ExpressConnectRouter20230901
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from an Express Connect router (ECR).
+       * @summary Unbinds tags from an Express Connect Router (ECR).
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
        */
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
+       * @summary Updates the association between an Express Connect Router (ECR) and a routing policy.
+       *
+       * @param request UpdateRouteMapAssociationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateRouteMapAssociationResponse
+       */
+      Models::UpdateRouteMapAssociationResponse updateRouteMapAssociationWithOptions(const Models::UpdateRouteMapAssociationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the association between an Express Connect Router (ECR) and a routing policy.
+       *
+       * @param request UpdateRouteMapAssociationRequest
+       * @return UpdateRouteMapAssociationResponse
+       */
+      Models::UpdateRouteMapAssociationResponse updateRouteMapAssociation(const Models::UpdateRouteMapAssociationRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace ExpressConnectRouter20230901

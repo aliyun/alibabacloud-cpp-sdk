@@ -87,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+    // The status code. A value of 200 indicates that the call was successful. For more information about other values, see the error codes.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -95,12 +95,13 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   True
-    // *   False
+    // - True: The call was successful.
+    // 
+    // - False: The call failed.
     shared_ptr<bool> success_ {};
-    // The regions in which the ECR feature is activated.
+    // The list of supported regions.
     shared_ptr<vector<string>> supportedRegionIdList_ {};
   };
 

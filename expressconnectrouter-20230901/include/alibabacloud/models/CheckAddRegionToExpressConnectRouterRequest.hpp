@@ -77,20 +77,21 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can generate the parameter value on your client and ensure that the value is unique across different requests. The ClientToken parameter only supports ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+    // Specifies whether to perform only a dry run on this request. Valid values:
     // 
-    // *   true: performs only a dry run.
-    // *   false (default): performs a dry run and performs the actual request.
+    // - true: sends a check request and does not modify EPS resources.
+    // 
+    // - false: sends a normal request. This is the default value.
     shared_ptr<bool> dryRun_ {};
-    // The ECR ID.
+    // The instance ID of the Express Connect Router (ECR).
     // 
     // This parameter is required.
     shared_ptr<string> ecrId_ {};
-    // The ID of the region for which you want to check whether the CDT service is enabled for the ECR feature.
+    // The region for which you want to check whether the Cloud Data Transfer (CDT) service is enabled for the Express Connect Router (ECR) feature.
     // 
     // This parameter is required.
     shared_ptr<string> freshRegionId_ {};

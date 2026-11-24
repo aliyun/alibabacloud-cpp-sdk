@@ -20,6 +20,9 @@
 #include <alibabacloud/models/CreateFlowLogRequest.hpp>
 #include <alibabacloud/models/CreateFlowLogResponseBody.hpp>
 #include <alibabacloud/models/CreateFlowLogResponse.hpp>
+#include <alibabacloud/models/CreateRouteMapAssociationRequest.hpp>
+#include <alibabacloud/models/CreateRouteMapAssociationResponseBody.hpp>
+#include <alibabacloud/models/CreateRouteMapAssociationResponse.hpp>
 #include <alibabacloud/models/DeactivateFlowLogRequest.hpp>
 #include <alibabacloud/models/DeactivateFlowLogResponseBody.hpp>
 #include <alibabacloud/models/DeactivateFlowLogResponse.hpp>
@@ -32,6 +35,9 @@
 #include <alibabacloud/models/DeleteFlowlogRequest.hpp>
 #include <alibabacloud/models/DeleteFlowlogResponseBody.hpp>
 #include <alibabacloud/models/DeleteFlowlogResponse.hpp>
+#include <alibabacloud/models/DeleteRouteMapAssociationRequest.hpp>
+#include <alibabacloud/models/DeleteRouteMapAssociationResponseBody.hpp>
+#include <alibabacloud/models/DeleteRouteMapAssociationResponse.hpp>
 #include <alibabacloud/models/DescribeDisabledExpressConnectRouterRouteEntriesRequest.hpp>
 #include <alibabacloud/models/DescribeDisabledExpressConnectRouterRouteEntriesResponseBody.hpp>
 #include <alibabacloud/models/DescribeDisabledExpressConnectRouterRouteEntriesResponse.hpp>
@@ -80,6 +86,9 @@
 #include <alibabacloud/models/ListExpressConnectRouterSupportedRegionRequest.hpp>
 #include <alibabacloud/models/ListExpressConnectRouterSupportedRegionResponseBody.hpp>
 #include <alibabacloud/models/ListExpressConnectRouterSupportedRegionResponse.hpp>
+#include <alibabacloud/models/ListRouteMapAssociationsRequest.hpp>
+#include <alibabacloud/models/ListRouteMapAssociationsResponseBody.hpp>
+#include <alibabacloud/models/ListRouteMapAssociationsResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
@@ -116,5 +125,8 @@
 #include <alibabacloud/models/UntagResourcesRequest.hpp>
 #include <alibabacloud/models/UntagResourcesResponseBody.hpp>
 #include <alibabacloud/models/UntagResourcesResponse.hpp>
+#include <alibabacloud/models/UpdateRouteMapAssociationRequest.hpp>
+#include <alibabacloud/models/UpdateRouteMapAssociationResponseBody.hpp>
+#include <alibabacloud/models/UpdateRouteMapAssociationResponse.hpp>
 
 #endif

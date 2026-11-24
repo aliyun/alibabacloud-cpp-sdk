@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The route prefix.
+      // The prefix route.
       shared_ptr<vector<string>> allowedPrefix_ {};
-      // The time when the historical route prefix entry was created.
+      // The time when the historical route entry was created.
       shared_ptr<string> gmtCreate_ {};
     };
 
@@ -161,28 +161,26 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The historical route prefixes.
+    // The list of historical prefix routes.
     shared_ptr<vector<DescribeExpressConnectRouterAllowedPrefixHistoryResponseBody::AllowedPrefixHistoryList>> allowedPrefixHistoryList_ {};
-    // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+    // Indicates whether the call was successful. A value of 200 indicates that the operation was successful. Other values indicate that the operation failed. For more information about the causes of failures, see error codes.
     shared_ptr<string> code_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
-    // 
-    // >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message.
+    // The message returned for the operation.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **True**: Successful.
+    // - **False**: Failed.
     shared_ptr<bool> success_ {};
   };
 

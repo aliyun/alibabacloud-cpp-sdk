@@ -77,20 +77,20 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can generate the value from your client to ensure that the value is unique among different requests. The ClientToken parameter supports only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-    // 
-    // *   **true**: performs only a dry run.
-    // *   **false** (default): performs a dry run and performs the actual request.
+    // Specifies whether it is a dry run for this request. Valid values:
+    // - **true**: sends a check request without modifying any EPS resource.
+    // - **false** (default): sends a normal request.
     shared_ptr<bool> dryRun_ {};
-    // The ECR ID.
+    // The Express Connect Router (ECR) instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> ecrId_ {};
-    // The ID of the flow log.
+    // The flow log instance ID.
+    // > The flow log must be in the DEACTIVATE state. After you invoke the DeactivateFlowLog operation, the flow log enters the DEACTIVATING transitional state. You must invoke the DescribeFlowLogs operation for polling and wait until the state changes to DEACTIVATE before you invoke this operation.
     // 
     // This parameter is required.
     shared_ptr<string> flowLogId_ {};

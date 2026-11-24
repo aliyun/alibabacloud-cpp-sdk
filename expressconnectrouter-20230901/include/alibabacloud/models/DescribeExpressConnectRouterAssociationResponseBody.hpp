@@ -145,7 +145,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -292,54 +294,63 @@ namespace Models
 
 
     protected:
-      // The allowed route prefixes.
+      // The allowed route prefix list.
       shared_ptr<vector<string>> allowedPrefixes_ {};
-      // The prefix route mode. Valid values:
-      // 
-      // *   MatchMode
-      // *   IncrementalMode
+      // The prefix routing mode. Valid values:
+      // - MatchMode: match mode.
+      // - IncrementalMode: incremental mode.
       shared_ptr<string> allowedPrefixesMode_ {};
-      // The ID of the association between the ECR and the VPC or TR.
+      // The ID used to associate the Express Connect Router (ECR) with a VPC or TR.
       shared_ptr<string> associationId_ {};
       // The type of the associated resource. Valid values:
       // 
-      // *   **VPC**
-      // *   **TR**
+      // - **VPC**: VPC.
+      // 
+      // - **TR**: transit router.
       shared_ptr<string> associationNodeType_ {};
-      // The ID of the CEN instance.
+      // The instance ID of the Cloud Enterprise Network (CEN).
       shared_ptr<string> cenId_ {};
       // The description of the associated resource.
       shared_ptr<string> description_ {};
-      // The ECR ID.
+      // The instance ID of the Express Connect Router (ECR).
       shared_ptr<string> ecrId_ {};
-      // The time when the association was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the association was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the association was modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the association was modified. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
       shared_ptr<string> gmtModified_ {};
-      // The ID of the Alibaba Cloud account that owns the resource.
+      // The Alibaba Cloud account ID to which the resource belongs.
       shared_ptr<int64_t> ownerId_ {};
-      // The region ID of the resource.
+      // The region where the resource resides.
       shared_ptr<string> regionId_ {};
-      // The deployment state of the associated resource. Valid values:
+      // The deployment status of the associated resource. Valid values:
       // 
-      // *   **CREATING**: The resource is being created.
-      // *   **ACTIVE**: The resource is created.
-      // *   **INACTIVE**: The TR is pending to be associated with the ECR.
-      // *   **ASSOCIATING**: The resource is being associated.
-      // *   **DISSOCIATING**: The resource is being disassociated.
-      // *   **UPDATING**: The resource is being modified.
-      // *   **DELETING**: The resource is being deleted.
+      // - **CREATING**: The resource is being created.
+      // 
+      // - **ACTIVE**: The resource is created.
+      // 
+      // - **INACTIVE**: The Express Connect Router (ECR) is associated with the transit router, and the transit router is pending association with the ECR for forward routing.
+      // 
+      // - **ASSOCIATING**: The resource is being attached.
+      // 
+      // - **DISSOCIATING**: The resource is being disassociated.
+      // 
+      // - **UPDATING**: The resource is being modified.
+      // 
+      // - **DELETING**: The resource is being deleted.
       shared_ptr<string> status_ {};
+      // The list of tags added to the associated resource.
       shared_ptr<vector<AssociationList::Tags>> tags_ {};
-      // The TR ID.
+      // The ID of the transit router.
       shared_ptr<string> transitRouterId_ {};
+      // The name of the transit router.
       shared_ptr<string> transitRouterName_ {};
-      // The ID of the Alibaba Cloud account that owns the TR.
+      // The Alibaba Cloud account ID to which the transit router for forward routing belongs.
       shared_ptr<int64_t> transitRouterOwnerId_ {};
-      // The VPC ID.
+      // The ID of the VPC-connected instance.
       shared_ptr<string> vpcId_ {};
+      // The name of the VPC-connected instance.
       shared_ptr<string> vpcName_ {};
-      // The ID of the Alibaba Cloud account to which the VPC belongs.
+      // The Alibaba Cloud account ID to which the VPC belongs.
       shared_ptr<int64_t> vpcOwnerId_ {};
     };
 
@@ -436,33 +447,32 @@ namespace Models
   protected:
     // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The associated resources.
+    // The list of associated resources.
     shared_ptr<vector<DescribeExpressConnectRouterAssociationResponseBody::AssociationList>> associationList_ {};
-    // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+    // The status code. A value of 200 indicates that the call was successful. Other values indicate that the call failed. For more information about the causes of failures, see Error codes.
     shared_ptr<string> code_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
     // 
-    // >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of DynamicMessage is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The total number of entries returned. Valid values: 1 to 2147483647. Default value: 20.
+    // The maximum number of entries to return. Valid values: 1 to 2147483647. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // The token for the next query. Valid values:
+    // - If **NextToken** is empty, no next query is required.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **True**: successful.
+    // - **False**: failed.
     shared_ptr<bool> success_ {};
     // The total number of associated resources.
     shared_ptr<int32_t> totalCount_ {};

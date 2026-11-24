@@ -85,11 +85,10 @@ namespace Models
 
     protected:
       // The cross-region forwarding mode of the ECR. Valid values:
-      // 
-      // *   **ECMP**: the load balancing mode.
-      // *   **NearBy**: the nearby forwarding mode.
+      // - **ECMP**: load balancing mode.
+      // - **NearBy**: nearest forwarding mode.
       shared_ptr<string> mode_ {};
-      // The region ID of the ECR.
+      // The ID of the region to which the Express Connect Router (ECR) belongs.
       shared_ptr<string> regionId_ {};
     };
 
@@ -164,26 +163,24 @@ namespace Models
   protected:
     // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+    // Indicates whether the call was successful. A return value of 200 indicates success, and any other value indicates failure. For the cause of failure, see error codes.
     shared_ptr<string> code_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
-    // 
-    // >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The cross-region forwarding modes.
+    // The list of cross-region forwarding modes.
     shared_ptr<vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBody::InterRegionTransitModeList>> interRegionTransitModeList_ {};
-    // The returned message.
+    // The message returned for the operation.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **True**: The call was successful.
+    // - **False**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

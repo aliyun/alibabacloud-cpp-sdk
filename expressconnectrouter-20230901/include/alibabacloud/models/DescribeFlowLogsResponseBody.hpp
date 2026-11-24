@@ -139,13 +139,13 @@ namespace Models
 
 
       protected:
-        // The key of tag N of the instance. The tag key cannot be an empty string.
+        // The tag key of the instance. If you specify this parameter, it cannot be an empty string.
         // 
-        // > It can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+        // > The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
         shared_ptr<string> key_ {};
         // The tag value.
         // 
-        // > It can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. The tag value can be an empty string.
+        // > The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. If you specify this parameter, it can be an empty string.
         shared_ptr<string> value_ {};
       };
 
@@ -268,38 +268,37 @@ namespace Models
 
 
     protected:
-      // The time when the flow log was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
+      // The time when the flow log was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
       shared_ptr<string> creationTime_ {};
-      // The description of the flow log.
+      // The description of the Express Connect Router (ECR) instance.
       shared_ptr<string> description_ {};
-      // The ECR ID.
+      // The instance ID of the Express Connect Router (ECR).
       shared_ptr<string> ecrId_ {};
-      // The ID of the flow log.
+      // The instance ID of the flow log instance.
       shared_ptr<string> flowLogId_ {};
       // The name of the flow log.
       shared_ptr<string> flowLogName_ {};
-      // The ID of the network instance.
+      // The ID of the authorized instance.
       shared_ptr<string> instanceId_ {};
       // The type of the network instance. Valid values:
-      // 
-      // - **VBR**: virtual border router (VBR)
+      // - **VBR**: virtual border router (VBR) instance.
       shared_ptr<string> instanceType_ {};
-      // The time window for collecting log data. Unit: seconds. Valid values:
+      // The capture window duration for the traffic captured by the flow log. Unit: seconds. Valid values:
       // 
-      // - **60**
+      // - **60** 
       // - **600**
       // 
       // Default value: **600**.
       shared_ptr<int32_t> interval_ {};
-      // The Logstore that stores the captured traffic data.
+      // The name of the Logstore that stores the captured traffic.
       shared_ptr<string> logStoreName_ {};
-      // The name of the project that stores the captured traffic data.
+      // The name of the Simple Log Service project that stores the captured traffic.
       shared_ptr<string> projectName_ {};
-      // The region ID of the flow log.
+      // The region ID of the Express Connect Router.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group to which the ECR belongs.
+      // The ID of the resource group to which the Express Connect Router (ECR) instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The sampling proportion. Valid values:
+      // The sampling ratio. Valid values:
       // 
       // - **1:4096**
       // - **1:2048**
@@ -307,15 +306,13 @@ namespace Models
       // 
       // Default value: **1:4096**.
       shared_ptr<string> samplingRate_ {};
-      // The ID of the region where Log Service is deployed.
+      // The region ID of Simple Log Service.
       shared_ptr<string> slsRegionId_ {};
       // The status of the flow log. Valid values:
-      // 
-      // *   **Active**
-      // 
-      // *   **Inactive**
+      // - **Active**: The flow log is started.
+      // - **Inactive**: The flow log is not started.
       shared_ptr<string> status_ {};
-      // The tag key.
+      // The tags of the Express Connect Router (ECR) instance.
       shared_ptr<vector<FlowLogs::Tags>> tags_ {};
     };
 
@@ -410,37 +407,35 @@ namespace Models
 
 
   protected:
-    // The queried information about the request denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+    // The status code that indicates whether the call was successful. A value of 200 indicates that the call was successful. Other values indicate that the call failed. For more information about the failure causes, see the error codes.
     shared_ptr<string> code_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
-    // 
-    // >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The information about the flow logs.
+    // The list of flow logs.
     shared_ptr<vector<DescribeFlowLogsResponseBody::FlowLogs>> flowLogs_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The total number of entries returned. Valid values: 1 to 2147483647. Default value: 10.
+    // The maximum number of entries returned. Valid values: 1 to 2147483647. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned message.
+    // The message returned by the operation.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // The token for the next query. Valid values:
+    // - If **NextToken** is empty, no next query is available.
+    // - If **NextToken** has a return value, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // - **True**
-    // - **False**
+    // - **True**: The call was successful.
+    // - **False**: The call failed.
     shared_ptr<bool> success_ {};
-    // The total number of records that meet the query conditions.
+    // The total number of entries that meet the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

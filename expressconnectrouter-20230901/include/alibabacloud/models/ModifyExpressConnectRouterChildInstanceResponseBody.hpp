@@ -103,13 +103,25 @@ namespace Models
 
 
   protected:
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether the call was successful. A return value of 200 indicates success, and other values indicate failure. For the cause of failure, see the error codes.
     shared_ptr<string> code_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+    // 
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - **True**: The call was successful.
+    // - **False**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -136,23 +136,22 @@ namespace Models
 
 
     protected:
-      // The AS path of the route.
+      // The AS path traversed by the route entry.
       shared_ptr<string> asPath_ {};
-      // The community value that is carried in the BGP route.
+      // The community value carried by the BGP route entry.
       shared_ptr<string> community_ {};
-      // The destination CIDR block of the route.
+      // The destination CIDR block of the route entry.
       shared_ptr<string> destinationCidrBlock_ {};
-      // The MED value of the BGP route, which is used between the ECR and the transit router.
-      // 
-      // *   You can set the MED value to 2000. In this case, the transit router and the ECR are used as default paths.
-      // *   If a non-default path is used, the MED value is empty.
-      // *   You can set the MED value to 2000 only for one object associated with a transit router of a CEN instance.
+      // The MED value carried by the BGP route entry, which takes effect for routing between the Express Connect Router (ECR) and the TR. 
+      // - The MED value can be set to 2000. After the configuration, the TR and the Express Connect Router (ECR) serve as the default path. 
+      // - For a non-default path, the MED value is empty. 
+      // - For TRs in the same Cloud Enterprise Network (CEN), only one associated object can have the MED value set to 2000.
       shared_ptr<int64_t> med_ {};
-      // The ID of the next-hop instance.
+      // The next hop instance ID.
       shared_ptr<string> nexthopInstanceId_ {};
-      // The region ID of the next-hop instance.
+      // The region where the next hop instance resides.
       shared_ptr<string> nexthopInstanceRegionId_ {};
-      // The state of the ECR.
+      // The status of the Express Connect Router (ECR) instance.
       shared_ptr<string> status_ {};
     };
 
@@ -247,37 +246,36 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+    // The status code that indicates whether the call is successful. A value of 200 indicates success. Other values indicate failure. For more information about the cause of failure, see Error codes.
     shared_ptr<string> code_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
     // 
-    // >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The total number of entries returned. Valid values: 1 to 2147483647. Default value: 10
+    // The maximum number of entries returned. Valid values: 1 to 2147483647. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned message.
+    // The message returned for the instance operation.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+    // The token for the next query. Valid values:
     // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // - If **NextToken** is empty, no subsequent query is required.
+    // - If **NextToken** has a return value, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The routes.
+    // The list of route entries.
     shared_ptr<vector<DescribeExpressConnectRouterRouteEntriesResponseBody::RouteEntriesList>> routeEntriesList_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **True**: The call was successful.
+    // - **False**: The call failed.
     shared_ptr<bool> success_ {};
-    // The total number of route entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -191,37 +191,43 @@ namespace Models
 
 
     protected:
-      // The ID of the association between the ECR and the VPC or TR.
+      // The ID used to associate the Express Connect Router (ECR) with the VBR.
       shared_ptr<string> associationId_ {};
-      // The VBR ID.
+      // The instance ID of the border router for routing.
       shared_ptr<string> childInstanceId_ {};
+      // The name of the child instance.
       shared_ptr<string> childInstanceName_ {};
-      // The ID of the Alibaba Cloud account that owns the VBR.
+      // The Alibaba Cloud account ID to which the child instance belongs.
       shared_ptr<int64_t> childInstanceOwnerId_ {};
-      // The region ID of the VBR.
+      // The region where the child instance resides.
       shared_ptr<string> childInstanceRegionId_ {};
-      // The type of the VBR. The value is **VBR**.
+      // The type of the child instance. Valid values: **VBR**: virtual border router.
       shared_ptr<string> childInstanceType_ {};
-      // The description of the ECR.
+      // The description of the child instance.
       shared_ptr<string> description_ {};
-      // The ECR ID.
+      // The instance ID of the Express Connect Router (ECR).
       shared_ptr<string> ecrId_ {};
-      // The time when the association was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the association was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the association was modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the association was modified. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
       shared_ptr<string> gmtModified_ {};
-      // The ID of the Alibaba Cloud account that owns the VBR.
+      // The Alibaba Cloud account ID to which the border router for routing belongs.
       shared_ptr<int64_t> ownerId_ {};
-      // The region ID of the VBR.
+      // The region where the VBR resides.
       shared_ptr<string> regionId_ {};
-      // The deployment state of the associated resource. Valid values:
+      // The deployment status of the associated resource. Valid values:
       // 
-      // - **CREATING**: The resource is being created.
-      // - **ACTIVE**: The resource is created.
-      // - **ASSOCIATING**: The resource is being associated.
-      // - **DISSOCIATING**: The resource is being disassociated.
-      // - **UPDATING**: The resource is being modified.
-      // - **DELETING**: The resource is being deleted.
+      // - **CREATING**: creating.
+      // 
+      // - **ACTIVE**: created.
+      // 
+      // - **ASSOCIATING**: associating.
+      // 
+      // - **DISSOCIATING**: dissociating.
+      // 
+      // - **UPDATING**: updating.
+      // 
+      // - **DELETING**: deleting.
       shared_ptr<string> status_ {};
     };
 
@@ -316,35 +322,33 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The VBRs.
+    // The list of child instances.
     shared_ptr<vector<DescribeExpressConnectRouterChildInstanceResponseBody::ChildInstanceList>> childInstanceList_ {};
-    // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+    // The status code that indicates whether the call was successful. A value of 200 indicates that the attachment was successful. Other values indicate that the attachment failed. For more information about the causes of failures, see the error codes.
     shared_ptr<string> code_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
-    // 
-    // >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The total number of entries returned. Valid values: 1 to 2147483647. Default value: 20.
+    // The maximum number of entries returned. Valid values: 1 to 2147483647. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned message.
+    // The message returned by the operation.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+    // The token for the next query. Valid values:
     // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // - If NextToken is empty, no next query is required.
+    // - If NextToken is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **True**: successful.
+    // - **False**: failed.
     shared_ptr<bool> success_ {};
     // The total number of associated resources.
     shared_ptr<int32_t> totalCount_ {};

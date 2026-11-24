@@ -102,11 +102,15 @@ namespace Models
     protected:
       // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The resource type. The value is **EXPRESSCONNECTROUTER**.
+      // The resource type. Valid values:
+      // - **EXPRESSCONNECTROUTER**: Express Connect Router (ECR) instance.
+      // - **EXPRESSCONNECTROUTERVPCASSOCIATION**: association between an ECR and a VPC.
+      // - **EXPRESSCONNECTROUTERTRASSOCIATION**: association between an ECR and a transit router.
+      // - **ECRFLOWLOG**: ECR flow log.
       shared_ptr<string> resourceType_ {};
-      // The tag key.
+      // The tag key of the resource.
       shared_ptr<string> tagKey_ {};
-      // The tag value.
+      // The label value of the Express Connect Router (ECR).
       shared_ptr<string> tagValue_ {};
     };
 
@@ -172,27 +176,26 @@ namespace Models
 
 
   protected:
-    // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+    // The response code. A value of 200 indicates success. Other values indicate failure. For more information, see error codes.
     shared_ptr<string> code_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+    // The pagination token. Valid values:
     // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **True**: The call was successful.
+    // - **False**: The call failed.
     shared_ptr<bool> success_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
-    // The total number of records that meet the query conditions.
+    // The total number of records that match the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

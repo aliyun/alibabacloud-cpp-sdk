@@ -103,26 +103,27 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+    // The response code. A value of 200 indicates that the request was successful. For more information about other response codes, see Error codes.
     shared_ptr<string> code_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+    // The dynamic error message that is used to replace the `%s` placeholder in the value of the **ErrMessage** parameter.
     // 
-    // >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // > If the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, it indicates that the specified **DtsJobId** parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **True**: The request was successful.
+    // 
+    // - **False**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

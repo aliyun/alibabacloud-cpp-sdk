@@ -149,51 +149,57 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether the ECR is used to establish connections between regions in the Chinese mainland and regions outside China. Valid values:
+    // Indicates whether the Express Connect Router (ECR) instance has cross-border connections between the Chinese mainland and regions outside the Chinese mainland. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Yes.
+    // 
+    // - **false**: No.
     shared_ptr<bool> anyCrossBorderLink_ {};
-    // Indicates whether the ECR is used to establish connections between regions in the Chinese mainland. Valid values:
+    // Indicates whether the Express Connect Router (ECR) instance has cross-region connections in the Chinese mainland. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Yes.
+    // 
+    // - **false**: No.
     shared_ptr<bool> anyInterRegionLink_ {};
-    // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+    // Indicates whether the call was successful. A return value of 200 indicates that the request was successful. Any other value indicates that the request failed. For more information about the causes of failure, see Error codes.
     shared_ptr<string> code_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
     // 
-    // >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsInstanceId**, the request parameter **DtsInstanceId** is invalid.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsInstanceId**, it indicates that the **DtsInstanceId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Indicates whether the cross-border CDT service is activated for the account to which the ECR belongs. Valid values:
+    // Indicates whether the cross-border Cloud Data Transfer (CDT) service is enabled for the account to which the Express Connect Router (ECR) instance belongs. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Yes.
+    // 
+    // - **false**: No.
     shared_ptr<bool> isCdtCrossBorderEnabled_ {};
-    // Indicates whether the CDT service is activated for the account to which the ECR belongs. Valid values:
+    // Indicates whether the Cloud Data Transfer (CDT) service is enabled for the account to which the Express Connect Router (ECR) instance belongs. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Yes.
+    // 
+    // - **false**: No.
     shared_ptr<bool> isCdtInterRegionEnabled_ {};
-    // Indicates whether the account to which the ECR belongs can create cross-border connections. Valid values:
+    // Indicates whether the account to which the Express Connect Router (ECR) instance belongs is allowed to create cross-border connections. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Yes.
+    // 
+    // - **false**: No.
     shared_ptr<bool> isUserAllowedToCreateCrossBorderLink_ {};
-    // The returned message.
+    // The message returned for the operation.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **True**: The call was successful.
+    // 
+    // - **False**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

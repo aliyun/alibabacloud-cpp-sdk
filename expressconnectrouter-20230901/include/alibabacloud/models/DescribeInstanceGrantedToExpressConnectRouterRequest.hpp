@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // The tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
       // 
-      // The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+      // The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> tagKey_ {};
-      // The tag value. You can specify up to 20 tag values. The tag value cannot be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you cannot specify an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -200,47 +200,49 @@ namespace Models
 
 
   protected:
-    // The type of the user account. Valid values:
+    // The type of the caller. Valid values:
     // 
-    // *   **sub**: a Resource Access Management (RAM) user.
-    // *   **parent**: an Alibaba Cloud account.
+    // - ECR
+    // - OTHER
+    // 
+    // Default value: ECR.
     shared_ptr<string> callerType_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can generate the parameter value from your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: performs only a dry run.
-    // *   **false** (default): performs a dry run and performs the actual request.
+    // - **true**: performs a dry run. The request is checked but EPS resources are not modified.
+    // 
+    // - **false** (default): sends a normal request.
     shared_ptr<bool> dryRun_ {};
-    // The ECR ID.
+    // The instance ID of the Express Connect Router (ECR).
     // 
     // This parameter is required.
     shared_ptr<string> ecrId_ {};
-    // The ID of the network instance.
+    // The ID of the authorized instance.
     shared_ptr<string> instanceId_ {};
-    // The ID of the Alibaba Cloud account that owns the network instance.
+    // The ID of the Alibaba Cloud account to which the authorized network instance belongs.
     shared_ptr<int64_t> instanceOwnerId_ {};
-    // The region ID of the network instance.
+    // The region where the authorized network instance resides.
     shared_ptr<string> instanceRegionId_ {};
     // The type of the network instance. Valid values:
-    // 
-    // *   **VBR**
-    // *   **VPC**
+    // - **VBR**: VBR instance.
+    // - **VPC**: VPC instance.
     shared_ptr<string> instanceType_ {};
-    // The maximum number of entries to read. Valid values: 1 to 2147483647. Default value: 20.
+    // The maximum number of entries to return. Valid values: 1 to 2147483647. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The pagination token. Valid values:
     // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   You must specify the token that is obtained from the previous query as the value of NextToken.
+    // - If this is the first query or no next query is available, leave this parameter empty.
+    // - If a next query is available, set the value to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the resource group to which the network instance belongs.
+    // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<DescribeInstanceGrantedToExpressConnectRouterRequest::TagModels>> tagModels_ {};
     shared_ptr<string> version_ {};
   };

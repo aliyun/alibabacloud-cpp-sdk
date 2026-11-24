@@ -114,36 +114,36 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can generate the token on your client. Make sure that the token is unique across different requests. The client token supports only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
     shared_ptr<string> clientToken_ {};
-    // The description of the flow log.
-    // The description can be empty or 0 to 256 characters in length.
+    // The description of the flow log. The description can be empty or 0 to 256 characters in length.
     shared_ptr<string> description_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+    // Specifies whether to perform a dry run on the request. Valid values:
     // 
-    // *   **true**: performs only a dry run.
-    // *   **false** (default): performs a dry run and performs the actual request.
+    // - **true**: sends a dry run request. No EPS resource is modified.
+    // 
+    // - **false**: sends a normal request. This is the default value.
     shared_ptr<bool> dryRun_ {};
-    // The ECR ID.
+    // The instance ID of the Express Connect Router (ECR).
     // 
     // This parameter is required.
     shared_ptr<string> ecrId_ {};
-    // The ID of the flow log.
+    // The instance ID of the flow log instance.
     // 
     // This parameter is required.
     shared_ptr<string> flowLogId_ {};
     // The new name of the flow log. The name must be 0 to 128 characters in length.
     shared_ptr<string> flowLogName_ {};
-    // The time window for collecting log data. Unit: seconds. Valid values:
+    // The duration of the capture window for the flow log to capture traffic. Unit: seconds. Valid values:
     // 
-    // - **60**
+    // - **60** 
     // - **600**
     // 
     // Default value: **600**.
     shared_ptr<int32_t> interval_ {};
-    // The sampling proportion. Valid values:
+    // The sampling rate. Valid values:
     // 
     // - **1:4096**
     // - **1:2048**
