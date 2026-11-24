@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GENERALREPHOTOGRAPHYDETECTIONRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GENERALREPHOTOGRAPHYDETECTIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
 #include <map>
 using namespace std;
 using json = nlohmann::json;
@@ -63,12 +62,10 @@ namespace Models
       class Result : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Result& obj) { 
-          DARABONBA_PTR_TO_JSON(Grounding, grounding_);
           DARABONBA_PTR_TO_JSON(IsFake, isFake_);
           DARABONBA_PTR_TO_JSON(Type, type_);
         };
         friend void from_json(const Darabonba::Json& j, Result& obj) { 
-          DARABONBA_PTR_FROM_JSON(Grounding, grounding_);
           DARABONBA_PTR_FROM_JSON(IsFake, isFake_);
           DARABONBA_PTR_FROM_JSON(Type, type_);
         };
@@ -83,122 +80,8 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        class Grounding : public Darabonba::Model {
-        public:
-          friend void to_json(Darabonba::Json& j, const Grounding& obj) { 
-            DARABONBA_PTR_TO_JSON(Coverage, coverage_);
-            DARABONBA_PTR_TO_JSON(Regions, regions_);
-          };
-          friend void from_json(const Darabonba::Json& j, Grounding& obj) { 
-            DARABONBA_PTR_FROM_JSON(Coverage, coverage_);
-            DARABONBA_PTR_FROM_JSON(Regions, regions_);
-          };
-          Grounding() = default ;
-          Grounding(const Grounding &) = default ;
-          Grounding(Grounding &&) = default ;
-          Grounding(const Darabonba::Json & obj) { from_json(obj, *this); };
-          virtual ~Grounding() = default ;
-          Grounding& operator=(const Grounding &) = default ;
-          Grounding& operator=(Grounding &&) = default ;
-          virtual void validate() const override {
-          };
-          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          class Regions : public Darabonba::Model {
-          public:
-            friend void to_json(Darabonba::Json& j, const Regions& obj) { 
-              DARABONBA_PTR_TO_JSON(Bbox2d, bbox2d_);
-              DARABONBA_PTR_TO_JSON(Label, label_);
-              DARABONBA_PTR_TO_JSON(Text, text_);
-            };
-            friend void from_json(const Darabonba::Json& j, Regions& obj) { 
-              DARABONBA_PTR_FROM_JSON(Bbox2d, bbox2d_);
-              DARABONBA_PTR_FROM_JSON(Label, label_);
-              DARABONBA_PTR_FROM_JSON(Text, text_);
-            };
-            Regions() = default ;
-            Regions(const Regions &) = default ;
-            Regions(Regions &&) = default ;
-            Regions(const Darabonba::Json & obj) { from_json(obj, *this); };
-            virtual ~Regions() = default ;
-            Regions& operator=(const Regions &) = default ;
-            Regions& operator=(Regions &&) = default ;
-            virtual void validate() const override {
-            };
-            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->bbox2d_ == nullptr
-        && this->label_ == nullptr && this->text_ == nullptr; };
-            // bbox2d Field Functions 
-            bool hasBbox2d() const { return this->bbox2d_ != nullptr;};
-            void deleteBbox2d() { this->bbox2d_ = nullptr;};
-            inline const vector<float> & getBbox2d() const { DARABONBA_PTR_GET_CONST(bbox2d_, vector<float>) };
-            inline vector<float> getBbox2d() { DARABONBA_PTR_GET(bbox2d_, vector<float>) };
-            inline Regions& setBbox2d(const vector<float> & bbox2d) { DARABONBA_PTR_SET_VALUE(bbox2d_, bbox2d) };
-            inline Regions& setBbox2d(vector<float> && bbox2d) { DARABONBA_PTR_SET_RVALUE(bbox2d_, bbox2d) };
-
-
-            // label Field Functions 
-            bool hasLabel() const { return this->label_ != nullptr;};
-            void deleteLabel() { this->label_ = nullptr;};
-            inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
-            inline Regions& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
-
-
-            // text Field Functions 
-            bool hasText() const { return this->text_ != nullptr;};
-            void deleteText() { this->text_ = nullptr;};
-            inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
-            inline Regions& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
-
-
-          protected:
-            // The bounding box coordinates.
-            shared_ptr<vector<float>> bbox2d_ {};
-            // The target category. For valid values, see the following table.
-            shared_ptr<string> label_ {};
-            // The confirmed short name or text of up to 24 characters. This is an empty string if the text is unclear.
-            shared_ptr<string> text_ {};
-          };
-
-          virtual bool empty() const override { return this->coverage_ == nullptr
-        && this->regions_ == nullptr; };
-          // coverage Field Functions 
-          bool hasCoverage() const { return this->coverage_ != nullptr;};
-          void deleteCoverage() { this->coverage_ = nullptr;};
-          inline string getCoverage() const { DARABONBA_PTR_GET_DEFAULT(coverage_, "") };
-          inline Grounding& setCoverage(string coverage) { DARABONBA_PTR_SET_VALUE(coverage_, coverage) };
-
-
-          // regions Field Functions 
-          bool hasRegions() const { return this->regions_ != nullptr;};
-          void deleteRegions() { this->regions_ = nullptr;};
-          inline const vector<Grounding::Regions> & getRegions() const { DARABONBA_PTR_GET_CONST(regions_, vector<Grounding::Regions>) };
-          inline vector<Grounding::Regions> getRegions() { DARABONBA_PTR_GET(regions_, vector<Grounding::Regions>) };
-          inline Grounding& setRegions(const vector<Grounding::Regions> & regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
-          inline Grounding& setRegions(vector<Grounding::Regions> && regions) { DARABONBA_PTR_SET_RVALUE(regions_, regions) };
-
-
-        protected:
-          // The coverage. Valid values:
-          // - `complete`: The relevant visible targets are complete.
-          // - `partial`: Only some targets are valid or recognizable.
-          shared_ptr<string> coverage_ {};
-          // The target array. A maximum of 12 items are returned. This can be empty if no relevant targets are found.
-          shared_ptr<vector<Grounding::Regions>> regions_ {};
-        };
-
-        virtual bool empty() const override { return this->grounding_ == nullptr
-        && this->isFake_ == nullptr && this->type_ == nullptr; };
-        // grounding Field Functions 
-        bool hasGrounding() const { return this->grounding_ != nullptr;};
-        void deleteGrounding() { this->grounding_ = nullptr;};
-        inline const Result::Grounding & getGrounding() const { DARABONBA_PTR_GET_CONST(grounding_, Result::Grounding) };
-        inline Result::Grounding getGrounding() { DARABONBA_PTR_GET(grounding_, Result::Grounding) };
-        inline Result& setGrounding(const Result::Grounding & grounding) { DARABONBA_PTR_SET_VALUE(grounding_, grounding) };
-        inline Result& setGrounding(Result::Grounding && grounding) { DARABONBA_PTR_SET_RVALUE(grounding_, grounding) };
-
-
+        virtual bool empty() const override { return this->isFake_ == nullptr
+        && this->type_ == nullptr; };
         // isFake Field Functions 
         bool hasIsFake() const { return this->isFake_ != nullptr;};
         void deleteIsFake() { this->isFake_ = nullptr;};
@@ -214,11 +97,9 @@ namespace Models
 
 
       protected:
-        // The supplementary element localization result.
-        shared_ptr<Result::Grounding> grounding_ {};
         // Indicates whether the image is recaptured.
         shared_ptr<bool> isFake_ {};
-        // The detection type. Fixed to general.
+        // Fixed to general.
         shared_ptr<string> type_ {};
       };
 
@@ -297,7 +178,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -88,11 +88,11 @@ namespace Models
 
 
     protected:
-      // The HTTP or HTTPS URL of the product image.
+      // The HTTP(S) URL of the product image.
       shared_ptr<string> imageUrl_ {};
       // The record ID.
       shared_ptr<int64_t> recordId_ {};
-      // The SKU ID. If this parameter is not empty, the original value is overwritten.
+      // The SKU ID. If specified, this value overwrites the original value.
       shared_ptr<string> skuId_ {};
       // The SKU name.
       shared_ptr<string> skuName_ {};

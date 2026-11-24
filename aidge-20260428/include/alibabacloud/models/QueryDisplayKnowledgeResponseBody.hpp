@@ -182,23 +182,23 @@ namespace Models
 
 
       protected:
-        // The description of the failure reason. This parameter is returned only when the status is FAILED.
+        // The failure reason description. This parameter is returned only when the status is FAILED.
         shared_ptr<string> failureMessage_ {};
-        // The code of the failure reason. This parameter is returned only when the status is FAILED.
+        // The failure reason code. This parameter is returned only when the status is FAILED.
         shared_ptr<string> failureReason_ {};
         // The last modified time.
         shared_ptr<string> gmtModified_ {};
-        // The 24-hour signed URL of the transferred image.
+        // The signed URL of the transferred image, valid for 24 hours.
         shared_ptr<string> imageUrl_ {};
         // The expiration time of the signed URL.
         shared_ptr<string> imageUrlExpireTime_ {};
-        // The ID of the record.
+        // The record ID.
         shared_ptr<int64_t> recordId_ {};
         // SKU ID
         shared_ptr<string> skuId_ {};
-        // The name of the SKU.
+        // The SKU name.
         shared_ptr<string> skuName_ {};
-        // The status of the record.
+        // The record status.
         shared_ptr<string> status_ {};
       };
 
@@ -305,13 +305,13 @@ namespace Models
       shared_ptr<int32_t> pageNum_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The ID of the knowledge base.
+      // The knowledge base ID.
       shared_ptr<string> ragId_ {};
       // The records on the current page.
       shared_ptr<vector<Data::Records>> records_ {};
-      // Indicates whether the business processing is successful.
+      // Indicates whether the business processing was successful.
       shared_ptr<bool> success_ {};
-      // The ID of the asynchronous task. This parameter is empty for synchronous API operations.
+      // The asynchronous task ID. This parameter is empty for synchronous API operations.
       shared_ptr<string> taskId_ {};
       // The total number of records.
       shared_ptr<int32_t> total_ {};
@@ -367,9 +367,9 @@ namespace Models
     shared_ptr<QueryDisplayKnowledgeResponseBody::Data> data_ {};
     // The returned message or failure description.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

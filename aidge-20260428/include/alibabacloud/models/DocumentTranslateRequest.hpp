@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // Supports PDF, WORD, and EXCEL formats. Use uppercase letters when specifying this parameter.
+    // Supports PDF, WORD, and EXCEL formats. Use uppercase letters for the input parameter.
     // 
     // This parameter is required.
     shared_ptr<string> fileType_ {};
@@ -74,8 +74,8 @@ namespace Models
     // ● Supports custom translation results, including:   
     // ○ Do-not-translate (ABC-ABC).   
     // ○ Specified translation (ABC-DEF).   
-    // ○ Translation omission (ABC-null value).
-    // This is commonly used in scenarios such as brand word protection.   
+    // ○ Translation omission (ABC-null).
+    // Commonly used in scenarios such as brand word protection.   
     // Example value: "glossary_1"
     shared_ptr<string> glossary_ {};
     // The target language.

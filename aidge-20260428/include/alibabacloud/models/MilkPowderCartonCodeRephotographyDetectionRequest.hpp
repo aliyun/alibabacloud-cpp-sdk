@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The HTTP(S) URL of the image to be analyzed.
+    // The HTTP or HTTPS URL of the image to be analyzed.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};

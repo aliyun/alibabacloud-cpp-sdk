@@ -60,13 +60,13 @@ namespace Models
 
 
   protected:
-    // The list of column names (such as Size, Bust, and Length).
+    // The list of column names, such as Size, Bust, and Length.
     shared_ptr<vector<string>> columnNameList_ {};
-    // The URL of the size chart image to extract.
+    // The URL of the image from which the size chart is extracted.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // The language model (such as en and cn).
+    // The language model, such as en and cn.
     shared_ptr<string> languageModel_ {};
   };
 

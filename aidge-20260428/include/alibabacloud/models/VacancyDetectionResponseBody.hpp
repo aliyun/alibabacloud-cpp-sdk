@@ -80,7 +80,7 @@ namespace Models
     protected:
       // The ID of the asynchronous task. You can use this ID to query the result by calling QueryAsyncTaskResult later.
       shared_ptr<string> taskId_ {};
-      // The usage details. This parameter is left empty during asynchronous commit and is populated by scheduling after the node reaches the desired state.
+      // The usage details. This field is left empty during asynchronous commit and is populated by scheduling after the node reaches the desired state.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 

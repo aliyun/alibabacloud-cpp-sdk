@@ -112,19 +112,29 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // The elements to detect outside the image subject. Valid values: 1 (watermark), 2 (logo), 3 (text), and 4 (text-containing color block). You can specify multiple values. This parameter and ObjectDetectElements cannot be empty at the same time.
+    // Specifies the elements to detect on the non-subject area of the image. Valid values: 1 for watermark, 2 for logo, 3 for text, and 4 for text-containing color block. You can specify multiple element types. This parameter and ObjectDetectElements cannot be empty at the same time.
     shared_ptr<vector<int32_t>> nonObjectDetectElements_ {};
-    // The elements to detect on the image subject. Valid values: 1 (watermark), 2 (logo), 3 (text), and 4 (text-containing color block). You can specify multiple values.
+    // Specifies the elements to detect on the image subject. Valid values: 1 for watermark, 2 for logo, 3 for text, and 4 for text-containing color block. You can specify multiple element types.
     shared_ptr<vector<int32_t>> objectDetectElements_ {};
-    // Specifies whether to return border pixel information. Valid values: 1 (return) and 0 (do not return).
+    // Specifies whether to return border pixel information. Valid values:
+    // - 1: Return border pixel information.
+    // - 0: Do not return border pixel information.
     shared_ptr<int32_t> returnBorderPixel_ {};
-    // Specifies whether to return text information. Valid values: 1 (return) and 0 (do not return).
+    // Specifies whether to return text information. Valid values:
+    // - 1: Return text information.
+    // - 0: Do not return text information.
     shared_ptr<int32_t> returnCharacter_ {};
-    // Specifies whether to return text attribute information. Valid values: 1 (return) and 0 (do not return).
+    // Specifies whether to return text property information. Valid values:
+    // - 1: Return text property information.
+    // - 0: Do not return text property information.
     shared_ptr<int32_t> returnCharacterProp_ {};
-    // Specifies whether to return the product quantity. Valid values: 1 (return) and 0 (do not return).
+    // Specifies whether to return the product quantity. Valid values:
+    // - 1: Return the product quantity.
+    // - 0: Do not return the product quantity.
     shared_ptr<int32_t> returnProductNum_ {};
-    // Specifies whether to return product attribute information. Valid values: 1 (return) and 0 (do not return).
+    // Specifies whether to return product property information. Valid values:
+    // - 1: Return product property information.
+    // - 0: Do not return product property information.
     shared_ptr<int32_t> returnProductProp_ {};
   };
 

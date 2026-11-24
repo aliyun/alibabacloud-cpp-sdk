@@ -77,7 +77,7 @@ namespace Models
   protected:
     // apiId
     shared_ptr<string> apiId_ {};
-    // The URL of the reference image. This parameter is optional. If it is not empty, the multi-image difference comparison mode is used.
+    // The URL of the reference image. This parameter is optional. If it is not empty, multi-image difference comparison is used.
     shared_ptr<string> imageRefer_ {};
     // The URL of the target image.
     // 

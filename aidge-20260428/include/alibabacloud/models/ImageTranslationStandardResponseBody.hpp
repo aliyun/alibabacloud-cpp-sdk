@@ -709,9 +709,9 @@ namespace Models
     protected:
       // The edit information.
       shared_ptr<Data::EditInfo> editInfo_ {};
-      // The URL of the generated translated image.
+      // The URL of the image generated after image translation.
       shared_ptr<string> imageUrl_ {};
-      // The usage information, such as the number of processed images.
+      // The usage information, including the number of processed images.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -755,9 +755,9 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
+    // The response code. A value of 200 indicates a successful call. For other response codes, see the error codes.
     shared_ptr<string> code_ {};
-    // The translation result data, which includes the URL of the translated image and usage information.
+    // The translation result data, including the translated image URL and usage information.
     shared_ptr<ImageTranslationStandardResponseBody::Data> data_ {};
     // The error message. "Success" is returned for a successful call, and specific error details are returned when an exception occurs.
     shared_ptr<string> message_ {};

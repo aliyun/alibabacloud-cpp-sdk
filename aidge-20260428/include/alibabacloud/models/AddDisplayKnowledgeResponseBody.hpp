@@ -164,13 +164,13 @@ namespace Models
         shared_ptr<string> errorCode_ {};
         // The reason for the failure.
         shared_ptr<string> errorMessage_ {};
-        // The index in the original request array.
+        // The index of the original request array.
         shared_ptr<int32_t> index_ {};
         // The record ID.
         shared_ptr<int64_t> recordId_ {};
         // The effective SKU ID.
         shared_ptr<string> skuId_ {};
-        // The record status.
+        // The status of the record.
         shared_ptr<string> status_ {};
         // Indicates whether the record was accepted.
         shared_ptr<bool> success_ {};
@@ -262,11 +262,11 @@ namespace Models
       shared_ptr<string> errorMessage_ {};
       // The number of failed records.
       shared_ptr<int32_t> failedCount_ {};
-      // The knowledge base status.
+      // The status of the knowledge base.
       shared_ptr<string> knowledgeBaseStatus_ {};
       // The knowledge base ID.
       shared_ptr<string> ragId_ {};
-      // The processing results for each record.
+      // The processing result of each record.
       shared_ptr<vector<Data::Results>> results_ {};
       // Indicates whether the business processing was successful.
       shared_ptr<bool> success_ {};
@@ -320,7 +320,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The result of adding content to the display knowledge base.
     shared_ptr<AddDisplayKnowledgeResponseBody::Data> data_ {};
-    // The response message or failure description.
+    // The returned message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

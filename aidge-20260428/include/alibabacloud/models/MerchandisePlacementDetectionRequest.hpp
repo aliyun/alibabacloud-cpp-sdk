@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Specifies the ID of a custom API. Pass this parameter if you need to specify a custom version of the API. If you created a custom API during the trial phase, you can query the ApiId of the corresponding feature in the product console by choosing Intelligent Inspection > API Management > My APIs.
+    // The ID of the custom API. Pass this parameter if you need to specify a custom version of the API. If you created a custom API during the trial phase, you can query the ApiId of the corresponding feature in the product console by choosing Intelligent Inspection > API Management > My APIs.
     shared_ptr<string> apiId_ {};
     // The URL of the original shelf or floor display image to be recognized. The URL must be accessible over the Internet or from OSS.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // The ID of the customer-specific SKU vector database. This parameter determines which database is used for retrieval. The database must be created through the database creation process in advance.
+    // The ID of the customer-specific SKU vector database, which determines the database used for retrieval. The database must be created through the database creation process in advance.
     shared_ptr<string> ragId_ {};
-    // The custom rule. You can enter a detection prompt, which is passed as the rule input parameter to the workflow. If this parameter is specified, the type parameter is not required, and the independent rule branch is used. If this parameter is left empty, you must specify the type parameter to start detection.
+    // The custom rule. You can enter a detection prompt, which is passed as the `rule` input parameter to the workflow. If this parameter is specified, the `type` parameter is not required and the independent rule branch is used. If this parameter is left empty, you must specify the `type` parameter to start detection.
     shared_ptr<string> rule_ {};
     // The business type. This parameter is reserved for future routing based on business lines. Currently, only skincare products are supported.
     shared_ptr<string> type_ {};

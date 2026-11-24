@@ -147,7 +147,7 @@ namespace Models
         protected:
           // The retrieval rank.
           shared_ptr<int32_t> rank_ {};
-          // The similarity score. Valid values: 0 to 1.
+          // The similarity score, which ranges from 0 to 1.
           shared_ptr<float> score_ {};
           // The ID of the retrieved product.
           shared_ptr<string> skuId_ {};
@@ -202,7 +202,7 @@ namespace Models
 
 
         protected:
-          // The similarity score. Valid values: 0 to 1.
+          // The similarity score, which ranges from 0 to 1.
           shared_ptr<float> score_ {};
           // The ID of the retrieved product.
           shared_ptr<string> skuId_ {};
@@ -254,15 +254,15 @@ namespace Models
 
 
       protected:
-        // The coordinates of the detection box in the [x1,y1,x2,y2] format.
+        // The coordinates of the bounding box in the [x1,y1,x2,y2] format.
         shared_ptr<vector<float>> bbox_ {};
-        // The reason for the failure of the detection box. This parameter is null if the detection is successful.
+        // The reason why the bounding box processing failed. This parameter is null if the processing is successful.
         shared_ptr<string> error_ {};
-        // The index of the detection box.
+        // The index of the bounding box.
         shared_ptr<int32_t> idx_ {};
-        // The top-1 retrieved product for the detection box.
+        // The top-1 retrieved product for the bounding box.
         shared_ptr<DataItem::Top1> top1_ {};
-        // The list of top-K retrieved products for the detection box.
+        // The list of top-K retrieved products for the bounding box.
         shared_ptr<vector<DataItem::Topk>> topk_ {};
       };
 
@@ -294,9 +294,9 @@ namespace Models
 
 
     protected:
-      // The number of valid detection boxes.
+      // The number of valid bounding boxes.
       shared_ptr<int32_t> boxCount_ {};
-      // The list of retrieval details for each detection box.
+      // The list of retrieval details for each bounding box.
       shared_ptr<vector<Data::DataItem>> data_ {};
       // The usage information. The key is the usage metric name and the value is the count.
       shared_ptr<map<string, int64_t>> usageMap_ {};

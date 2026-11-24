@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the asynchronous task. You can call the queryTaskResult API operation to poll the task result later.
+      // The ID of the asynchronous task. You can use this ID to poll the result by calling the queryTaskResult operation.
       shared_ptr<string> taskId_ {};
     };
 
@@ -117,9 +117,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call fails.
+    // Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

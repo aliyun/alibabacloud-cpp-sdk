@@ -223,9 +223,9 @@ namespace Models
         shared_ptr<string> nameEn_ {};
         // The description of the matching reason.
         shared_ptr<string> reason_ {};
-        // The list of selected attribute value texts, such as ["iOS","Android"].
+        // The list of selected attribute value texts, such as ["iOS","Android"\\].
         shared_ptr<vector<string>> selectedValues_ {};
-        // The list of selected attribute value IDs, such as [30127,30128].
+        // The list of selected attribute value IDs, such as [30127,30128\\].
         shared_ptr<vector<int32_t>> selectedVids_ {};
       };
 
@@ -351,11 +351,11 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned when the call is successful.
+    // The error code. This parameter is not returned for successful calls.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<CategoryAttributeMatchResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned when the call is successful.
+    // The error message. This parameter is not returned for successful calls.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

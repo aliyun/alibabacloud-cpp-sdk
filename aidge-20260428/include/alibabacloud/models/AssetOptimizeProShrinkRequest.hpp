@@ -140,37 +140,37 @@ namespace Models
 
 
   protected:
-    // The list of column names to be recognized in the size chart. This parameter is optional.
+    // The list of column names to be recognized in the size chart. Optional.
     shared_ptr<string> columnNameListShrink_ {};
-    // The ID of the intervention glossary. This parameter is optional. You must create the glossary in the console and provide its ID. If this parameter is left empty, the translation results are not modified.
+    // The ID of the intervention glossary. Optional. You must create the glossary in the console and provide its ID. If this parameter is left empty, the translation results are not modified.
     shared_ptr<string> glossary_ {};
     // Specifies whether to translate the text on the main subject of the image. This helps protect embedded information such as product names from being translated. Default value: false.
     shared_ptr<bool> includingProductArea_ {};
-    // The output language format for the size chart. If this parameter is left empty, the original language is used. Valid values: en for English, cn for Chinese.
+    // The output language format for the size chart. If this parameter is left empty, the original language is used. Set this parameter to en for English output or cn for Chinese output.
     shared_ptr<string> languageModel_ {};
     // Specifies whether translation is required. Valid values: true and false. If this parameter is set to true, SourceLanguage and TargetLanguage are required.
     // 
     // This parameter is required.
     shared_ptr<bool> needTrans_ {};
-    // The product URL. This parameter is required. Currently, only 1688 product links are supported.
+    // The product URL. Required. Only 1688 product links are supported.
     // 
     // This parameter is required.
     shared_ptr<string> productUrl_ {};
-    // The source language code. This parameter is optional. For supported language pairs, see the list of supported translation languages. This parameter is required if NeedTrans is set to true.
+    // The source language code. Optional. For supported language pairs, refer to the list of supported translation language pairs. Required if NeedTrans is set to true.
     shared_ptr<string> sourceLanguage_ {};
-    // The source platform. Currently, only 1688 is supported.
+    // The source platform. Only 1688 is supported.
     // 
     // This parameter is required.
     shared_ptr<string> sourcePlatform_ {};
-    // The target language code. This parameter is optional. For supported language pairs, see the list of supported translation languages. This parameter is required if NeedTrans is set to true.
+    // The target language code. Optional. For supported language pairs, refer to the list of supported translation language pairs. Required if NeedTrans is set to true.
     shared_ptr<string> targetLanguage_ {};
-    // The target platform for product listing. Currently, only TEMU is supported.
+    // The target platform for listing. Only TEMU is supported.
     // 
     // This parameter is required.
     shared_ptr<string> targetPlatform_ {};
     // The confidence threshold for size chart detection. Default value: 0.4. If this parameter is set to 0, all images are considered size charts. If this parameter is set to 1, no images are considered size charts.
     shared_ptr<double> threshold_ {};
-    // Specifies whether to translate brand names in images. This parameter is optional. Default value: false. This helps protect brand names from being translated.
+    // Specifies whether to translate the brand name in the image. Optional. Default value: false. This helps protect brand name information from being translated.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The video variation input parameters.
+    // The input parameters for video variation generation.
     // 
     // This parameter is required.
     shared_ptr<string> inputShrink_ {};
-    // The final video output specifications.
+    // The output specifications for the final video.
     shared_ptr<string> outputShrink_ {};
   };
 

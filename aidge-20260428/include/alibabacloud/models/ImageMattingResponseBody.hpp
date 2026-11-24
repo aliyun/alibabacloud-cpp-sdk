@@ -116,17 +116,17 @@ namespace Models
 
 
     protected:
-      // The height of the result image. Unit: pixels.
+      // The height of the result image, in pixels.
       shared_ptr<int32_t> height_ {};
-      // The URL of the result image.
+      // The URL of the matting result image.
       shared_ptr<string> imageUrl_ {};
       // The matting quality score.
       shared_ptr<double> score_ {};
-      // The returned layer information. This includes the URL of the original image, the URL of the matting result, and the matting area information.
+      // The returned layer information, which includes the original image URL, the matting result URL, and the matting area information.
       Darabonba::Json structData_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
-      // The width of the result image. Unit: pixels.
+      // The width of the result image, in pixels.
       shared_ptr<int32_t> width_ {};
     };
 
@@ -172,15 +172,15 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The image matting result.
+    // The matting result.
     shared_ptr<ImageMattingResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call fails.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

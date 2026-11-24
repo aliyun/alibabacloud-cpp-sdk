@@ -106,17 +106,17 @@ namespace Models
 
 
   protected:
-    // The caller business ID. The ID can be up to 128 characters in length and is passed through in the translation results. This parameter is used only for asynchronous text translation and is returned as is in the task results.
+    // The caller business ID. It is used only for asynchronous text translation and returned as-is in the task result. It can be up to 128 characters in length and is passed through in the translation results.
     shared_ptr<string> bizId_ {};
-    // This field represents your identity and facilitates communication for various issues. If you are an internal Alibaba organization, we recommend that you specify this field based on the actual scenario, such as BU name-product or BU name-chat. If you are an external Alibaba partner, we recommend that you specify the full name of your company. The company name must be the same as the one you used when registering your Alibaba Cloud account.
+    // The name of the caller\\"s business, which represents your identity and facilitates subsequent communication. If you are an internal Alibaba team, specify this parameter based on the actual scenario, such as BU name-product or BU name-chat. If you are an external partner, specify the full name of your company. The company name must be the same as the one used when you registered your Alibaba Cloud account.
     shared_ptr<string> bizName_ {};
     // The format type of the source text. Valid values: text and html.
     shared_ptr<string> formatType_ {};
     // The ID of the intervention glossary. You must create the glossary in the console and provide its ID in the input parameters. If the intervention glossary ID is empty, the translation results are not modified.
     shared_ptr<string> glossary_ {};
-    // The source language code. For more information, see the supported language list below. If you do not specify this parameter, the source language is automatically detected.
+    // The source language code. For more information, see the supported language list below. If this parameter is not specified, the source language is automatically detected.
     shared_ptr<string> sourceLanguage_ {};
-    // The list of text to be translated.
+    // The list of texts to be translated.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> sourceTextList_ {};
@@ -124,13 +124,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // The business scenario identifier. You can specify only one of the following values. After you specify a value, the translation engine uses the terminology library and style policy of the corresponding industry to output industry-specific translations. If this field is not specified or is invalid, the general translation policy is used. Valid values:
-    // - e-commerce-title: Cross-border e-commerce product title translation.
-    // - e-commerce-description: Cross-border e-commerce product description translation.
-    // - e-commerce-chat: Cross-border e-commerce conversation translation.
-    // - e-commerce-cpv: Cross-border e-commerce product CPV attribute translation.
-    // - novel: Novel translation.
-    // - game: Game translation.
+    // The business scenario identifier. You can specify only one of the following values. After a value is specified, the translation engine invokes the terminology library and style strategy of the corresponding industry to output more industry-aligned translations. If this field is not specified or an invalid value is specified, the general translation strategy is used. Valid values: e-commerce-title for cross-border e-commerce product title translation, e-commerce-description for cross-border e-commerce product description translation, e-commerce-chat for cross-border e-commerce session translation, e-commerce-cpv for cross-border e-commerce product CPV attribute translation, novel for novel translation, and game for game translation.
     shared_ptr<string> translateScene_ {};
   };
 

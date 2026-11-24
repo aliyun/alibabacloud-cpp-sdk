@@ -220,7 +220,7 @@ namespace Models
           shared_ptr<PriceTags::Location> location_ {};
           // The original price.
           shared_ptr<string> originalPrice_ {};
-          // The selling price, retained as a string.
+          // The selling price, retained as a character string.
           shared_ptr<string> price_ {};
           // The code of the associated product.
           shared_ptr<string> skuCode_ {};
@@ -361,9 +361,9 @@ namespace Models
       protected:
         // The grounding information.
         shared_ptr<Result::Grounding> grounding_ {};
-        // The list of price tags. This can be an empty array if no price tags are recognized.
+        // The list of price tags. This can be an empty array if no price tags are recognized under normal conditions.
         shared_ptr<vector<Result::PriceTags>> priceTags_ {};
-        // Fixed to priceTag.
+        // The fixed value priceTag.
         shared_ptr<string> type_ {};
       };
 
@@ -388,7 +388,7 @@ namespace Models
 
 
     protected:
-      // The details of the detection and recognition result.
+      // The detection and recognition result details.
       shared_ptr<Data::Result> result_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
@@ -436,13 +436,13 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The recognition result.
+    // The scenario recognition result.
     shared_ptr<MerchandisePriceTagDetectionResponseBody::Data> data_ {};
-    // The returned message or failure description.
+    // The response message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

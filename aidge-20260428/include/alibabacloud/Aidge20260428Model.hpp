@@ -152,6 +152,9 @@
 #include <alibabacloud/models/QueryDisplayKnowledgeShrinkRequest.hpp>
 #include <alibabacloud/models/QueryDisplayKnowledgeResponseBody.hpp>
 #include <alibabacloud/models/QueryDisplayKnowledgeResponse.hpp>
+#include <alibabacloud/models/RealtimeSpeechTranslationRequest.hpp>
+#include <alibabacloud/models/RealtimeSpeechTranslationResponseBody.hpp>
+#include <alibabacloud/models/RealtimeSpeechTranslationResponse.hpp>
 #include <alibabacloud/models/SizeChartDetectRequest.hpp>
 #include <alibabacloud/models/SizeChartDetectResponseBody.hpp>
 #include <alibabacloud/models/SizeChartDetectResponse.hpp>

@@ -120,7 +120,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<bool> needTrans_ {};
-    // The product URL.
+    // The product link URL.
     // 
     // This parameter is required.
     shared_ptr<string> productUrl_ {};

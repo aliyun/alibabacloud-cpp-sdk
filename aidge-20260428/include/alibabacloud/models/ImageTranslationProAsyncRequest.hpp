@@ -103,18 +103,18 @@ namespace Models
 
 
   protected:
-    // The business order ID of the caller. This ID is recorded when the request is accepted and returned as-is when you query the asynchronous task result.
+    // The business order number of the caller. It is recorded when the request is accepted and returned as-is when you query the asynchronous task result.
     shared_ptr<string> bizId_ {};
     // The ID of the intervention glossary. You must create the glossary in the console and provide its ID. If this parameter is left empty, the translation results are not modified.
     shared_ptr<string> glossary_ {};
     // • Image URL: The URL must be publicly accessible over the Internet.   
-    // • Formats: PNG, JPEG, JPG, BMP, and WebP.   
+    // • Format: PNG, JPEG, JPG, BMP, and WEBP.   
     // • Pixels: The width and height must not exceed 4,000 pixels.  
     // • File size: The original file size must be less than or equal to 10 MB.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specifies whether to translate the text on the image subject. Set this parameter to false to protect the subject information, such as the product name, from being translated. Default value: false.
+    // Specifies whether to translate the text on the product subject in the image. If you set this parameter to false, the subject information, such as the product name, is protected from being translated. Default value: false.
     shared_ptr<bool> includingProductArea_ {};
     // The source language code. The value auto is supported for automatic detection.
     // 
@@ -124,9 +124,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // Specifies whether to translate brand names in the image. Default value: false, which indicates that brand names are not translated.
+    // Specifies whether to translate the brand names in the image. Default value: false, which indicates that brand names are not translated.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
-    // Specifies whether to return layout information such as the position, font, and color of the text. If you set this parameter to true, layer information is returned, which can be used for secondary editing when you integrate an image editor. Default value: true.
+    // Specifies whether to return layout information such as the position, font, and color of the text. If you set this parameter to true, layer information is returned, which allows you to integrate an image editor for secondary editing. Default value: true.
     shared_ptr<bool> useImageEditor_ {};
   };
 

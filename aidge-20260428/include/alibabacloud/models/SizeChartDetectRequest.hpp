@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The URL of the image to detect.
+    // The URL of the image to be detected.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};

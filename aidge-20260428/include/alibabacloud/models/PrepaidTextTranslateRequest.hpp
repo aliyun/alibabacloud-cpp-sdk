@@ -103,17 +103,17 @@ namespace Models
     shared_ptr<string> formatType_ {};
     // The ID of the intervention glossary. This parameter is optional. You must create the glossary in the console and provide its ID. If the provided intervention glossary ID is empty, the translation results are not modified.
     shared_ptr<string> glossary_ {};
-    // The source language code. This parameter is optional. If you do not specify this parameter, the language is automatically detected. You can set this parameter to auto for language detection.
+    // The source language code. This parameter is optional. If you do not specify this parameter, the language is automatically detected. You can set this parameter to auto to enable language detection.
     shared_ptr<string> sourceLanguage_ {};
-    // The list of text to be translated. This parameter is required. The total character length cannot exceed 50,000, and the list length cannot exceed 50.
+    // The list of text to translate. This parameter is required. The total character length cannot exceed 50,000, and the list length cannot exceed 50.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> sourceTextList_ {};
-    // The target language code. This parameter is required. More than 100 language pairs are supported. For details, see the supported language pairs list.
+    // The target language code. This parameter is required. More than 100 language pairs are supported. For details, see the list of supported language pairs.
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // The format of the translated text. Valid values: html (web page format. Setting this parameter processes the source and translated text in HTML format) and text (text format. Setting this parameter processes the source and translated text as plain text without format processing).
+    // The format of the text to translate. **html**: web page format. If you set this parameter to html, the source text and translated text are processed in HTML format. **text**: text format. If you set this parameter to text, the source text and translated text are processed as plain text without format processing.
     shared_ptr<string> translateScene_ {};
   };
 

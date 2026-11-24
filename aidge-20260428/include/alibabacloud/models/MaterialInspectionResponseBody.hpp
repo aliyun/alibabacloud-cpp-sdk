@@ -125,7 +125,7 @@ namespace Models
 
 
         protected:
-          // The judgment result. Valid values: PASS, FAIL, and UNABLE_TO_JUDGE.
+          // The judgment result. Valid values: PASS, FAIL, UNABLE_TO_JUDGE.
           shared_ptr<string> result_ {};
           // The step ID.
           shared_ptr<string> stepId_ {};
@@ -171,9 +171,9 @@ namespace Models
 
 
       protected:
-        // The natural language summary, such as \\"1 rule: 1 PASS, all detection items are compliant\\".
+        // The natural language summary, such as "1 rule: 1 PASS, all detection items are compliant".
         shared_ptr<string> evidence_ {};
-        // The overall judgment. Valid values: PASS and FAIL.
+        // The overall judgment. Valid values: PASS, FAIL.
         shared_ptr<string> overallResult_ {};
         // The request ID returned as-is.
         shared_ptr<string> reqId_ {};

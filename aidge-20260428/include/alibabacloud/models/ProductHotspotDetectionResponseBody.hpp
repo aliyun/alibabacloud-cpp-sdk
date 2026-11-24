@@ -139,13 +139,13 @@ namespace Models
 
 
         protected:
-          // The bottom boundary of the bounding box.
+          // The bottom boundary of the detection box.
           shared_ptr<double> bottom_ {};
-          // The left boundary of the bounding box.
+          // The left boundary of the detection box.
           shared_ptr<double> left_ {};
-          // The right boundary of the bounding box.
+          // The right boundary of the detection box.
           shared_ptr<double> right_ {};
-          // The top boundary of the bounding box.
+          // The top boundary of the detection box.
           shared_ptr<double> top_ {};
         };
 
@@ -175,7 +175,7 @@ namespace Models
 
 
       protected:
-        // The bounding boxes of the detected product instances.
+        // The detection boxes for product instances.
         shared_ptr<vector<Products::Boxes>> boxes_ {};
         // The product name.
         shared_ptr<string> label_ {};
@@ -204,7 +204,7 @@ namespace Models
 
 
     protected:
-      // The list of detected products and their bounding boxes.
+      // The list of recognized products and detection boxes.
       shared_ptr<vector<Data::Products>> products_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
@@ -252,7 +252,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The product hotzone recognition result.
+    // The product hot zone recognition results.
     shared_ptr<ProductHotspotDetectionResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};

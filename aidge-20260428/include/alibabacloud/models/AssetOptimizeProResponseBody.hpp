@@ -109,11 +109,11 @@ namespace Models
 
 
   protected:
-    // The status code. A value of success is returned for successful calls.
+    // The status code. A value of success indicates a successful call.
     shared_ptr<string> code_ {};
     // The submission result of the asynchronous task, which includes the asynchronous task ID.
     shared_ptr<AssetOptimizeProResponseBody::Data> data_ {};
-    // The error message. A value of Success is returned for successful calls.
+    // The error message. A value of Success is returned for a successful call.
     shared_ptr<string> message_ {};
     // The request ID, which is used to identify a unique request.
     shared_ptr<string> requestId_ {};

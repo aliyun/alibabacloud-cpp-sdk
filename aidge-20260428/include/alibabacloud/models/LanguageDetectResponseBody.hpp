@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The detected language code.
+      // The code of the detected language.
       shared_ptr<string> detectedLanguage_ {};
-      // The usage information, including the number of input characters.
+      // The usage information, which includes the number of input characters.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -124,15 +124,15 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code documentation.
+    // The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
     shared_ptr<string> code_ {};
-    // The language identification result data, including the detected language and usage information.
+    // The language detection result data, which includes the detected language and usage information.
     shared_ptr<LanguageDetectResponseBody::Data> data_ {};
-    // The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call, such as "The parameters contain sensitive information. Try other input."
+    // The error message. "Success" is returned for normal calls. For exceptions, a specific error message is returned, such as "The parameter contains sensitive information. Try another input."
     shared_ptr<string> message_ {};
-    // The request ID, which uniquely identifies the request.
+    // The request ID, which is used to uniquely identify a request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

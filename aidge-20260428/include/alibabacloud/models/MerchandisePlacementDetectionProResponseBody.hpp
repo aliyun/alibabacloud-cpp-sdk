@@ -113,7 +113,7 @@ namespace Models
       protected:
         // The normalized bounding box coordinates in the [x1,y1,x2,y2] format. Valid values: 0 to 1000.
         shared_ptr<vector<int32_t>> bbox2d_ {};
-        // The name of the detected product. If the name cannot be determined, the value is unknown.
+        // The recognized product name. If the name cannot be determined, the value is unknown.
         shared_ptr<string> detectedSkuName_ {};
         // The index of the bounding box, starting from 1.
         shared_ptr<int32_t> idx_ {};
@@ -197,9 +197,9 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The detection result of the retail display detection Pro edition.
+    // The detection results of the Pro edition.
     shared_ptr<MerchandisePlacementDetectionProResponseBody::Data> data_ {};
-    // The returned message or failure description.
+    // The return message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

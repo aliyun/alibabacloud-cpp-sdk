@@ -84,11 +84,11 @@ namespace Models
 
 
     protected:
-      // The planning route written upon acceptance. Valid values: DIRECT (with script) and AUTO_PLAN (automatic planning).
+      // The planning path written upon acceptance. Valid values: DIRECT (with script) and AUTO_PLAN (automatic planning).
       shared_ptr<string> route_ {};
-      // The current status of the task.
+      // The current status.
       shared_ptr<string> status_ {};
-      // The task ID of the service.
+      // The task ID of this service.
       shared_ptr<string> taskId_ {};
     };
 
@@ -140,7 +140,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

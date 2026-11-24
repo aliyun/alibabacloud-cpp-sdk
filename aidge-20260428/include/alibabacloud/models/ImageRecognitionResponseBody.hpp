@@ -211,11 +211,11 @@ namespace Models
       shared_ptr<bool> objWatermark_ {};
       // The product quantity.
       shared_ptr<int32_t> pdNum_ {};
-      // The product proportion.
+      // The proportion of the product in the image.
       shared_ptr<string> pdProp_ {};
       // The list of recognized text.
       shared_ptr<vector<string>> recText_ {};
-      // The text proportion.
+      // The proportion of text in the image.
       shared_ptr<string> textProp_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};

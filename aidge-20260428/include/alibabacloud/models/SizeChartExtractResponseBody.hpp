@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The asynchronous task ID, which is used to query the result later.
+      // The ID of the asynchronous task. You can use this ID to query the task results.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,11 +109,11 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned if the call is successful.
+    // The error code. This parameter is not returned when the call is successful.
     shared_ptr<string> code_ {};
-    // The size chart extraction result.
+    // The size chart extraction results.
     shared_ptr<SizeChartExtractResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned if the call is successful.
+    // The error message. This parameter is not returned when the call is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

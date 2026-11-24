@@ -226,7 +226,7 @@ namespace Models
         protected:
           // The non-empty category name.
           shared_ptr<string> clazz_ {};
-          // A finite numerical value. The source document does not specify the value range.
+          // A finite numeric value. The value range is not specified.
           shared_ptr<float> confidence_ {};
         };
 
@@ -260,7 +260,7 @@ namespace Models
 
 
       protected:
-        // The classification details, which can be an empty array.
+        // The classification details. This can be an empty array.
         shared_ptr<vector<Result::Details>> details_ {};
         // The localization information.
         shared_ptr<Result::Grounding> grounding_ {};
@@ -339,7 +339,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The scene recognition result.
     shared_ptr<StorefrontSceneRecognitionResponseBody::Data> data_ {};
-    // The returned message or failure description.
+    // The response message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

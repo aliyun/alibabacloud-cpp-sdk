@@ -106,9 +106,9 @@ namespace Models
     protected:
       // The business ID.
       shared_ptr<string> bizId_ {};
-      // The task result.
+      // The node result.
       shared_ptr<string> result_ {};
-      // The task status.
+      // The status of the task.
       shared_ptr<string> status_ {};
       // The ID of the downstream task.
       shared_ptr<string> taskId_ {};
@@ -158,13 +158,15 @@ namespace Models
   protected:
     // The error code. This parameter is not returned when the call is successful.
     shared_ptr<string> code_ {};
-    // The result of the asynchronous task.
+    // The asynchronous node result.
     shared_ptr<QueryAsyncTaskResultResponseBody::Data> data_ {};
     // The error message. This parameter is not returned when the call is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
+    // Indicates whether the call is successful. Valid values:
+    // - true: The call is successful.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

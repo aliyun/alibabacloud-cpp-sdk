@@ -126,7 +126,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sourcePlatform_ {};
-    // The target platform. Currently, only TEMU is supported.
+    // The target platform for product listing. Currently, only TEMU is supported.
     // 
     // This parameter is required.
     shared_ptr<string> targetPlatform_ {};

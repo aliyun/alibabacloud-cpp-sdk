@@ -98,7 +98,7 @@ namespace Models
     protected:
       // The height of the result image, in pixels.
       shared_ptr<int32_t> height_ {};
-      // The URL of the result image after removal.
+      // The URL of the result image.
       shared_ptr<string> imageUrl_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
@@ -148,13 +148,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The intelligent removal result.
+    // The object removal result.
     shared_ptr<ImageRemoveResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

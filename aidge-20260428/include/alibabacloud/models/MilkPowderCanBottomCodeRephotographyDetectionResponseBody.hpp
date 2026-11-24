@@ -153,7 +153,7 @@ namespace Models
 
 
           protected:
-            // The bounding box coordinates in the format of `[top-left x, top-left y, bottom-right x, bottom-right y]`. The value range is 0 to 1000. The left coordinate is less than the right coordinate, and the top coordinate is less than the bottom coordinate.
+            // The bounding box coordinates in the format of `[top-left x, top-left y, bottom-right x, bottom-right y]`. The values range from 0 to 1000. The left coordinate is less than the right coordinate, and the top coordinate is less than the bottom coordinate.
             shared_ptr<vector<float>> bbox2d_ {};
             // The target category. For enumerations, see the following table.
             shared_ptr<string> label_ {};
@@ -216,9 +216,9 @@ namespace Models
       protected:
         // The localization information.
         shared_ptr<Result::Grounding> grounding_ {};
-        // Indicates whether the image is recaptured.
+        // Indicates whether the image is a recapture.
         shared_ptr<bool> isFake_ {};
-        // The detection type, which is fixed to canBottom.
+        // The detection type. Fixed to canBottom.
         shared_ptr<string> type_ {};
       };
 

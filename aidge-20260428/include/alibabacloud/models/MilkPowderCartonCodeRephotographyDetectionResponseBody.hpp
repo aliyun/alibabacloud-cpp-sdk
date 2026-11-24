@@ -161,12 +161,12 @@ namespace Models
           protected:
             // The bounding box coordinates.
             // - `[top-left x, top-left y, bottom-right x, bottom-right y]`
-            // - Value range: 0 to 1000.
-            // - The left value must be less than the right value, and the top value must be less than the bottom value.
+            // - Value range: 0–1000.
+            // - Left < right, top < bottom.
             shared_ptr<vector<float>> bbox2d_ {};
             // The target category. For valid values, see the following table.
             shared_ptr<string> label_ {};
-            // The confirmed short name or text, up to 24 characters. If the text is unclear, an empty string is returned.
+            // The recognized text. It contains up to 24 characters of a confirmed short name or text. It is an empty string if the text is unclear.
             shared_ptr<string> text_ {};
           };
 
@@ -193,7 +193,7 @@ namespace Models
           // - `complete`: The relevant visible targets are complete.
           // - `partial`: Only some targets are valid or recognizable.
           shared_ptr<string> coverage_ {};
-          // The target array, containing up to 12 items. This array can be empty if no relevant targets are found.
+          // The target array. It contains up to 12 items. It can be empty if no relevant targets are found.
           shared_ptr<vector<Grounding::Regions>> regions_ {};
         };
 
@@ -244,11 +244,11 @@ namespace Models
 
 
       protected:
-        // The supplementary element grounding result.
+        // The supplementary element localization result.
         shared_ptr<Result::Grounding> grounding_ {};
-        // Indicates whether the image is recaptured.
+        // Indicates whether the image is a recapture.
         shared_ptr<bool> isFake_ {};
-        // Indicates whether the image is suspected to be recaptured.
+        // Indicates whether the image is suspected to be a recapture.
         shared_ptr<bool> isSuspect_ {};
         // The recapture status. Valid values:
         // - `0`: Non-recapture.
@@ -257,7 +257,7 @@ namespace Models
         shared_ptr<int32_t> photoStatus_ {};
         // The recapture confidence score.
         shared_ptr<float> score_ {};
-        // Fixed to `boxCode`.
+        // The detection type. Fixed to `boxCode`.
         shared_ptr<string> type_ {};
       };
 
@@ -284,7 +284,7 @@ namespace Models
     protected:
       // The details of the recapture detection result.
       shared_ptr<Data::Result> result_ {};
-      // The usage information. If the call is successful, the value is `{"ProcessingCount":1}`. If the call fails, the value is an empty object.
+      // The usage information. It is `{"ProcessingCount":1}` if the call is successful, or an empty object if the call fails.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -332,7 +332,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The recapture detection result.
     shared_ptr<MilkPowderCartonCodeRephotographyDetectionResponseBody::Data> data_ {};
-    // The returned message or failure description.
+    // The response message or failure description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

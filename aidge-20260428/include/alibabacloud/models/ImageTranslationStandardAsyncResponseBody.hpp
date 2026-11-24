@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the task used to query the asynchronous task result.
+      // The task ID used to query the asynchronous task result.
       shared_ptr<string> taskId_ {};
     };
 

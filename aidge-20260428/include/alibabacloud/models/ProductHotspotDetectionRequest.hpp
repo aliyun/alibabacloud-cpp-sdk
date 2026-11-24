@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The HTTPS URLs of reference images that define the SKU whitelist. A maximum of 20 images are supported.
+    // The HTTPS URLs of the reference images that define the SKU whitelist. A maximum of 20 images are supported.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> referenceImageUrls_ {};
-    // The unique business ID for this single-scene call.
+    // The unique business ID for the single-scene call.
     shared_ptr<string> reqId_ {};
     // The HTTPS OSS or CDN URL of the target image to be annotated with bounding boxes.
     // 

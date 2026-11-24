@@ -71,6 +71,7 @@ find_package(CURL REQUIRED)
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Target Setup >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 set(SOURCE_FILES
     src/Client.cpp
+    src/RealtimeSpeechTranslation.cpp
 )
 
 # Create library target

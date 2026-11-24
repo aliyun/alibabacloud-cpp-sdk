@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Specifies the call type. Valid values:
+    // Specifies the invocation type. Valid values:
     // - true: Asynchronous.
     // - false: Synchronous.
     // Default value: false.

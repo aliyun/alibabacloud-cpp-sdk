@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The asynchronous task ID used to query the task result by calling QueryAsyncTaskResult.
+      // The ID of the asynchronous task, which is used to query the task result by calling QueryAsyncTaskResult.
       shared_ptr<string> taskId_ {};
     };
 
@@ -111,13 +111,13 @@ namespace Models
   protected:
     // The result code. A value of `success` indicates success. If the call fails, the corresponding error code is returned.
     shared_ptr<string> code_ {};
-    // The asynchronous task submission result.
+    // The submission result of the asynchronous task.
     shared_ptr<EcomVideoRecreationResponseBody::Data> data_ {};
     // The return message. If the call fails, an error description is returned.
     shared_ptr<string> message_ {};
     // The request ID, which is used to identify a unique call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the submission is successful.
+    // Indicates whether the submission was successful.
     shared_ptr<bool> success_ {};
   };
 

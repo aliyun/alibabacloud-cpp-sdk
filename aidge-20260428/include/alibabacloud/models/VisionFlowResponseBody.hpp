@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the asynchronous task, which is used to query the processing result by calling QueryAsyncTaskResult.
+      // The ID of the asynchronous task. You can use this ID to call QueryAsyncTaskResult to query the processing result.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,15 +109,15 @@ namespace Models
 
 
   protected:
-    // The status code. If the call is successful, "success" is returned.
+    // The status code. If the call is successful, success is returned.
     shared_ptr<string> code_ {};
-    // The submission result data of the asynchronous task, which includes the asynchronous task ID.
+    // The submission result of the asynchronous task, which includes the asynchronous task ID.
     shared_ptr<VisionFlowResponseBody::Data> data_ {};
-    // The error message. If the call is successful, "Success" is returned.
+    // The error message. If the call is successful, Success is returned.
     shared_ptr<string> message_ {};
-    // The request ID, which is used to identify a unique request.
+    // The ID of the request. It is used to identify a unique request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

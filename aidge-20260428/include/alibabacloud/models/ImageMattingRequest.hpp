@@ -87,9 +87,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // The height of the target image. Unit: pixels.
+    // The target height of the image, in pixels.
     shared_ptr<int32_t> targetHeight_ {};
-    // The width of the target image. Unit: pixels.
+    // The target width of the image, in pixels.
     shared_ptr<int32_t> targetWidth_ {};
   };
 

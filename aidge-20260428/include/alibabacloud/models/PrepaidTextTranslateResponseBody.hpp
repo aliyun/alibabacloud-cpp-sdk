@@ -182,13 +182,13 @@ namespace Models
 
 
   protected:
-    // The response code. If the call is successful, success is returned.
+    // The response code. success is returned for successful calls.
     shared_ptr<string> code_ {};
     // The translation result data, which includes the translation list and usage information.
     shared_ptr<PrepaidTextTranslateResponseBody::Data> data_ {};
-    // The error message. If the call is successful, Success is returned. If an exception occurs, a specific error message is returned, such as "The parameter contains sensitive information. Try another input".
+    // The error message. Success is returned for successful calls. If an exception occurs, a specific error message is returned, such as \\"The parameter contains sensitive information. Try another input.\\"
     shared_ptr<string> message_ {};
-    // The ID of the request, which is used to identify a unique API call.
+    // The ID of the request, which is used to identify a unique request call.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};

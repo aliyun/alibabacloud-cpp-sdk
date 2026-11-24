@@ -111,13 +111,13 @@ namespace Models
   protected:
     // The error code. This parameter is not returned for normal calls.
     shared_ptr<string> code_ {};
-    // The returned result struct.
+    // The returned data structure.
     shared_ptr<ImageRecognitionAsyncResponseBody::Data> data_ {};
-    // The error message, such as "The parameter contains sensitive information. Try another input."
+    // The error message, such as \\"The parameter contains sensitive information. Try another input.\\"
     shared_ptr<string> message_ {};
-    // The request ID, which is used to identify a unique request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values: true (successful) and false (failed).
+    // Indicates whether the call is successful. Valid values: true: Successful. false: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -77,7 +77,7 @@ namespace Models
     protected:
       // The time when the task was accepted, in ISO 8601 UTC format.
       shared_ptr<string> submittedAt_ {};
-      // The ID of the asynchronous task used to query the task result by calling QueryAsyncTaskResult.
+      // The asynchronous task ID used to query the task result by calling QueryAsyncTaskResult.
       shared_ptr<string> taskId_ {};
     };
 
@@ -121,17 +121,15 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned for normal calls.
+    // The error code. This parameter is not returned for successful calls.
     shared_ptr<string> code_ {};
-    // The submission result of the asynchronous task for identical product identification.
+    // The submission result of the asynchronous task for identical product recognition.
     shared_ptr<SubmitProductMatchResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned for normal calls.
+    // The error message. This parameter is not returned for successful calls.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // - true: Successful.
-    // - false: Failed.
+    // Indicates whether the call was successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

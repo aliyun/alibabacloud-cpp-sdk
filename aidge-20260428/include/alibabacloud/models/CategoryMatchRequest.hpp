@@ -98,7 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The product attributes and feature descriptions, such as the material of the product. Enter the product attribute name and attribute value.
+    // The product attributes and feature descriptions, such as the product material. Specify the attribute names and values.
     shared_ptr<string> itemSpec_ {};
     // The product SKU title.
     shared_ptr<string> sku_ {};
