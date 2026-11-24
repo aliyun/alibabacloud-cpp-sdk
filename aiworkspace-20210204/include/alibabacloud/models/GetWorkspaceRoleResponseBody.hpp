@@ -301,31 +301,26 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account UID of the creator.
+    // The UID of the Alibaba Cloud account of the creator.
     shared_ptr<string> creator_ {};
-    // The time when the role was created. It is specified in UTC and formatted in ISO 8601.
+    // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the role was last modified. It is specified in UTC and formatted in ISO 8601.
+    // The modification time in ISO 8601 format.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The permission configuration of the role.
+    // The permission configurations of the role.
     shared_ptr<vector<GetWorkspaceRoleResponseBody::ModulePermissions>> modulePermissions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The role ID.
+    // The ID of the role.
     shared_ptr<string> roleId_ {};
-    // The role name.
+    // The name of the role.
     shared_ptr<string> roleName_ {};
     // The task status. Valid values:
-    // 
-    // - `Creating`: The role is being created.
-    // 
-    // - `Updating`: The role is being updated.
-    // 
-    // - `Deleting`: The role is being deleted.
-    // 
-    // - `Succeeded`: The task succeeded.
-    // 
-    // - `Failed`: The task failed.
+    // - Creating: creating
+    // - Updating: updating
+    // - Deleting: deleting
+    // - Successful: succeeded (final state)
+    // - Failed: failed (final state)
     shared_ptr<string> status_ {};
   };
 

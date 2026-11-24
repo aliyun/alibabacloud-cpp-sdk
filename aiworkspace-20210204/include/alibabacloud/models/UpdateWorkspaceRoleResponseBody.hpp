@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The task ID.
+    // The ID of the task corresponding to the request.
     shared_ptr<string> instanceJobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

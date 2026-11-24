@@ -113,13 +113,13 @@ namespace Models
     shared_ptr<string> datasetId_ {};
     // The dataset version name.
     shared_ptr<string> datasetVersion_ {};
-    // The maximum number of results returned per request when using NextToken-based pagination.
+    // The maximum number of results to return per query when NextToken is used.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. If the number of results that match the query conditions exceeds the page size, this pagination token is returned. To retrieve the next page of data, pass the returned token value as a request parameter until no token value is returned, which indicates that all data has been retrieved.
+    // The pagination cursor. If the number of returned results that match the query conditions exceeds the page size, this pagination cursor is returned. To obtain the next page of data, use the returned cursor value as a request parameter until no cursor value is returned, which indicates that all data is retrieved.
     shared_ptr<string> nextToken_ {};
-    // The current page size.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageSize_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int32_t> totalCount_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

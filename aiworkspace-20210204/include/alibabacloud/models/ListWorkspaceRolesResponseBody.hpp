@@ -305,13 +305,13 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud account UID of the creator.
+      // The UID of the Alibaba Cloud account of the creator.
       shared_ptr<string> creator_ {};
-      // The creation time, in UTC and ISO 8601 format.
+      // The creation time. The time is in UTC and formatted in ISO 8601.
       shared_ptr<string> gmtCreateTime_ {};
-      // The modification time, in UTC and ISO 8601 format.
+      // The modification time. The time is in UTC and formatted in ISO 8601.
       shared_ptr<string> gmtModifiedTime_ {};
-      // The permission configuration of the role.
+      // The permission configurations of the role.
       shared_ptr<vector<Roles::ModulePermissions>> modulePermissions_ {};
       // The ID of the custom role.
       shared_ptr<string> roleId_ {};
@@ -349,7 +349,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The list of custom roles.
     shared_ptr<vector<ListWorkspaceRolesResponseBody::Roles>> roles_ {};
-    // The total count of matching entries.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

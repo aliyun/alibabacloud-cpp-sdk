@@ -89,27 +89,22 @@ namespace Models
 
 
   protected:
-    // The configuration of the connection, specified as key-value pairs. The configuration keys vary by connection type. For more information, see the supplementary information about the request parameters of the CreateConnection operation.
+    // The configuration information of the connection. The information is configured in key-value pairs. The keys in the configuration vary based on the connection type. For more information, see the supplementary description of request parameters for the CreateConnection operation.
     shared_ptr<map<string, string>> configs_ {};
-    // The connection ID. For more information about how to obtain the connection ID, see [ListConnections](url).
+    // The connection ID. For more information about how to obtain the connection ID, see [ListConnections](~~ListConnections~~).
     shared_ptr<string> connectionId_ {};
-    // The connection type. Only connection types that support public network access are available. Valid values:
-    // 
-    // - DashScopeConnection: a service connection for Alibaba Cloud Model Studio.
-    // 
-    // - DeepSeekConnection: a service connection for DeepSeek.
-    // 
-    // - FunctionAIMCPConnection: a connection for Function AI MCP.
-    // 
-    // - CustomMCPConnection: a custom MCP connection.
+    // The type of the connection. You can specify a connection type that supports public network access. Valid values:
+    // - DashScopeConnection: The Model Studio connection.
+    // - DeepSeekConnection: The DeepSeek connection.
+    // - FunctionAIMCPConnection: The Function AI MCP connection.
+    // - CustomMCPConnection: The custom MCP connection.
     shared_ptr<string> connectionType_ {};
-    // The key-value pairs to encrypt, such as a database logon password or a model connection key.
+    // The key-value configurations that require encryption, such as the database logon password and the key for the model connection.
     shared_ptr<map<string, string>> secrets_ {};
-    // The validation type. Set the value to:
-    // 
-    // - Connectivity: a connectivity test
+    // The validation type. Valid values:
+    // - Connectivity: The connectivity test.
     shared_ptr<string> validateType_ {};
-    // The workspace ID. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // The workspace ID. You can obtain the workspace ID by calling the [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

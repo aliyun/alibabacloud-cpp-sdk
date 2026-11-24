@@ -94,34 +94,26 @@ namespace Models
 
 
   protected:
-    // The creation time in UTC, in ISO 8601 format.
+    // The creation time. The time is in UTC and follows the ISO 8601 standard.
     shared_ptr<string> gmtCreateTime_ {};
-    // The instance ID. For example, if a job creates a custom role, this parameter returns the corresponding role ID.
+    // Instance ID of the task instance. For example, in a task that creates a custom role, this is instance ID of the generated role.
     shared_ptr<string> instanceId_ {};
-    // The job ID.
+    // The task ID.
     shared_ptr<string> instanceJobId_ {};
-    // A message providing details about the job.
+    // The detailed description of the task.
     shared_ptr<string> reasonMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the job. Valid values:
-    // 
-    // - Creating: The job is being created.
-    // 
-    // - Updating: The job is being updated.
-    // 
-    // - Deleting: The job is being deleted.
-    // 
-    // - Successful: The job completed successfully (a final state).
-    // 
-    // - Failed: The job failed (a final state).
+    // The task status. Valid values:
+    // - Creating: The task is being created.
+    // - Updating: The task is being updated.
+    // - Deleting: The task is being deleted.
+    // - Successful: The task succeeded. This is a desired state.
+    // - Failed: The task failed. This is a desired state.
     shared_ptr<string> status_ {};
-    // The job type. Valid values:
-    // 
+    // The task type. Valid values:
     // - CreateWorkspaceCustomRole
-    // 
     // - UpdateWorkspaceCustomRole
-    // 
     // - DeleteWorkspaceCustomRole
     shared_ptr<string> type_ {};
   };

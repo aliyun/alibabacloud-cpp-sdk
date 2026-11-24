@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The run parameter\\"s key.
+    // The parameter name.
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // The run parameter\\"s value.
+    // The parameter value.
     // 
     // This parameter is required.
     shared_ptr<string> value_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the code source configuration.
+    // The ID of the code configuration.
     shared_ptr<string> codeSourceId_ {};
-    // The request ID. Alibaba Cloud generates a unique identifier for the request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

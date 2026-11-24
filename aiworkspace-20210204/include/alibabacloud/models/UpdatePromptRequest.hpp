@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The description of the prompt.
     shared_ptr<string> description_ {};
-    // The prompt content.
+    // The content of the prompt.
     shared_ptr<string> frameworkContent_ {};
     // The framework type of the prompt template.
     shared_ptr<string> frameworkType_ {};
-    // The workspace ID. You can obtain the ID by calling the [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) operation.
+    // The ID of the workspace. You can obtain the ID by calling the [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

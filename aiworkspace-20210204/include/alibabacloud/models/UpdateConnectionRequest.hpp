@@ -98,18 +98,13 @@ namespace Models
       // The model identifier.
       shared_ptr<string> model_ {};
       // The model type. Valid values:
-      // 
       // - LLM
-      // 
       // - Embedding
-      // 
       // - ReRank
       shared_ptr<string> modelType_ {};
-      // Indicates whether tool calling is supported. Valid values:
-      // 
-      // - true: Tool calling is supported.
-      // 
-      // - false: Tool calling is not supported.
+      // Specifies whether tool calling is supported. Valid values:
+      // - true: Supported.
+      // - false: Not supported.
       shared_ptr<bool> toolCall_ {};
     };
 
@@ -150,13 +145,13 @@ namespace Models
 
 
   protected:
-    // The configuration of the connection, specified as key-value pairs. The keys in the Configs parameter vary based on the connection type. For more information, see the request parameters in the CreateConnection topic.
+    // The configuration information of the connection. The configurations are in key-value pairs. The keys in the Config parameter vary based on the connection type. For more information, see the supplementary description of the request parameters for the CreateConnection operation.
     shared_ptr<map<string, string>> configs_ {};
     // The description of the connection.
     shared_ptr<string> description_ {};
-    // A list of model information.
+    // The list of model information.
     shared_ptr<vector<UpdateConnectionRequest::Models>> models_ {};
-    // Key-value pairs that require encryption, such as database logon passwords and keys for model connections.
+    // The key-value configurations that need to be encrypted, such as the database logon password and the key for the model connection.
     shared_ptr<map<string, string>> secrets_ {};
   };
 

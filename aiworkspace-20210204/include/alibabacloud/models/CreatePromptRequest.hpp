@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // The workspace visibility. Valid values:
+    // The visibility of the workspace. Valid values:
     // - PRIVATE (default): Visible only to you and administrators in this workspace.
-    // - PUBLIC: Visible to everyone in this workspace.
+    // - PUBLIC: Visible to all users in this workspace.
     shared_ptr<string> accessibility_ {};
-    // The prompt description.
+    // The description of the prompt.
     shared_ptr<string> description_ {};
-    // The prompt framework content.
+    // The content of the prompt framework.
     shared_ptr<string> frameworkContent_ {};
     // The prompt optimization template.
     shared_ptr<string> frameworkType_ {};
-    // The prompt name.
+    // The name of the prompt.
     // 
     // This parameter is required.
     shared_ptr<string> promptName_ {};
-    // The workspace ID. You can obtain the ID by calling the [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) operation.
+    // The workspace ID. You can call the [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

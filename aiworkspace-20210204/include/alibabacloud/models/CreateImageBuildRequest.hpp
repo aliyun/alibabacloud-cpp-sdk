@@ -117,21 +117,18 @@ namespace Models
 
 
     protected:
-      // The default route.
-      // 
-      // - eth1: Indicates that the user\\"s elastic network interface (ENI) is used to access the external network through a private gateway. For more information, see [Configure a Distribution Switch (DSW) instance to access the Internet through a private NAT gateway](https://help.aliyun.com/zh/pai/user-guide/configure-a-dsw-instance-to-access-the-internet-through-a-private-nat-gateway?spm=a2c4g.11186623.0.0.3b3965f6SZWm85).
+      // The default routing of the network interface controller (NIC). Valid values:
+      // * eth1: Uses the user\\"s elastic network interfaces (ENIs) to access external networks through a private NAT gateway. For the configuration method, refer to [Configure a DSW instance to access the Internet through a private NAT gateway](https://www.alibabacloud.com/help/en/pai/user-guide/configure-a-dsw-instance-to-access-the-internet-through-a-private-nat-gateway).
       shared_ptr<string> defaultRoute_ {};
       // The extended CIDR blocks.
-      // 
-      // - If you do not specify a vSwitch ID, you can leave this parameter empty. The system automatically obtains all CIDR blocks of the VPC.
-      // 
-      // - If you specify a vSwitch ID, you must specify this parameter. For best results, include all CIDR blocks of the VPC.
+      // * If the vSwitch ID is empty, this parameter is optional and the system automatically retrieves all CIDR blocks under the VPC.
+      // * If the vSwitch ID is not empty, this parameter is required. We recommend that you specify all CIDR blocks under the VPC.
       shared_ptr<vector<string>> extendedCidrs_ {};
-      // The security group ID. This parameter is required when you configure a VPC.
+      // The security group ID. This parameter is required when you specify the VPC configuration.
       shared_ptr<string> securityGroupId_ {};
       // The vSwitch ID. This parameter is optional.
       shared_ptr<string> switchId_ {};
-      // The VPC ID. If the build task needs to access your ACR Enterprise Edition instance, specify a VPC that is in the access control list of the instance.
+      // The VPC ID. When the build task accesses a user\\"s Container Registry Enterprise Edition instance, you must specify a VPC that is added to the access control list of the instance.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -173,9 +170,9 @@ namespace Models
 
 
     protected:
-      // The ID of the image repository instance. This parameter is required when you use ACR as the image repository.
+      // The registry instance ID. This parameter is required when you use Container Registry (ACR) as the image service.
       shared_ptr<string> instanceId_ {};
-      // The type of the target image repository. Only ACR Enterprise Edition is supported.
+      // The registry type. Only Container Registry Enterprise Edition is supported as the target registry.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -246,7 +243,7 @@ namespace Models
       protected:
         // The number of CPU cores.
         shared_ptr<string> CPU_ {};
-        // The memory size.
+        // The memory capacity.
         shared_ptr<string> memory_ {};
       };
 
@@ -283,13 +280,13 @@ namespace Models
 
 
     protected:
-      // The instance type of the pay-as-you-go resource. This parameter is required when you use the public resource group.
+      // The pay-as-you-go resource specifications. This parameter is required when you use a public resource group.
       shared_ptr<string> ecsSpec_ {};
-      // The resource configuration. Specify this parameter when you use subscription resources. Leave it empty when you use the public resource group.
+      // The resource configuration. This parameter is required when you use subscription resources and must be left empty when you use a public resource group.
       shared_ptr<Resource::ResourceConfig> resourceConfig_ {};
-      // The resource quota ID. This parameter applies only to subscription resources. Do not set this parameter for pay-as-you-go resources.
+      // The resource quota ID. This parameter applies only to subscription resources and must not be specified when you use pay-as-you-go resources.
       shared_ptr<string> resourceId_ {};
-      // The type of the subscription resource. Currently, only Lingjun resources are supported. Specify this parameter when you use subscription resources.
+      // The subscription resource type. Only Lingjun resources are supported. This parameter is required when you use subscription resources.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -395,21 +392,18 @@ namespace Models
 
 
     protected:
-      // The description of the image.
+      // The image description.
       shared_ptr<string> description_ {};
       // The image labels.
       shared_ptr<vector<Image::Labels>> labels_ {};
-      // The name of the image. The name must meet the following requirements:
-      // 
-      // - The name must be 1 to 50 characters in length.
-      // 
-      // - The name can contain lowercase letters, digits, and hyphens (-). It must start with a letter.
-      // 
-      // - The name must be unique within the same workspace.
+      // The image name. The naming rules are as follows:
+      // * The name must be 1 to 50 characters in length.
+      // * The name can contain lowercase letters, digits, and hyphens (-), and must start with a letter.
+      // * The name must be unique within the same workspace.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The image URL.
+      // The image URI.
       // 
       // This parameter is required.
       shared_ptr<string> uri_ {};
@@ -419,12 +413,16 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const BuildConfig& obj) { 
         DARABONBA_PTR_TO_JSON(BuildType, buildType_);
+        DARABONBA_PTR_TO_JSON(DataSources, dataSources_);
         DARABONBA_PTR_TO_JSON(Dockerfile, dockerfile_);
+        DARABONBA_PTR_TO_JSON(DockerfilePath, dockerfilePath_);
         DARABONBA_ANY_TO_JSON(RegistryAuths, registryAuths_);
       };
       friend void from_json(const Darabonba::Json& j, BuildConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(BuildType, buildType_);
+        DARABONBA_PTR_FROM_JSON(DataSources, dataSources_);
         DARABONBA_PTR_FROM_JSON(Dockerfile, dockerfile_);
+        DARABONBA_PTR_FROM_JSON(DockerfilePath, dockerfilePath_);
         DARABONBA_ANY_FROM_JSON(RegistryAuths, registryAuths_);
       };
       BuildConfig() = default ;
@@ -438,8 +436,96 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class DataSources : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DataSources& obj) { 
+          DARABONBA_PTR_TO_JSON(DataSourceId, dataSourceId_);
+          DARABONBA_PTR_TO_JSON(DataSourceVersion, dataSourceVersion_);
+          DARABONBA_PTR_TO_JSON(MountAccess, mountAccess_);
+          DARABONBA_PTR_TO_JSON(MountPath, mountPath_);
+          DARABONBA_PTR_TO_JSON(Options, options_);
+          DARABONBA_PTR_TO_JSON(Uri, uri_);
+        };
+        friend void from_json(const Darabonba::Json& j, DataSources& obj) { 
+          DARABONBA_PTR_FROM_JSON(DataSourceId, dataSourceId_);
+          DARABONBA_PTR_FROM_JSON(DataSourceVersion, dataSourceVersion_);
+          DARABONBA_PTR_FROM_JSON(MountAccess, mountAccess_);
+          DARABONBA_PTR_FROM_JSON(MountPath, mountPath_);
+          DARABONBA_PTR_FROM_JSON(Options, options_);
+          DARABONBA_PTR_FROM_JSON(Uri, uri_);
+        };
+        DataSources() = default ;
+        DataSources(const DataSources &) = default ;
+        DataSources(DataSources &&) = default ;
+        DataSources(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DataSources() = default ;
+        DataSources& operator=(const DataSources &) = default ;
+        DataSources& operator=(DataSources &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->dataSourceId_ == nullptr
+        && this->dataSourceVersion_ == nullptr && this->mountAccess_ == nullptr && this->mountPath_ == nullptr && this->options_ == nullptr && this->uri_ == nullptr; };
+        // dataSourceId Field Functions 
+        bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
+        void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
+        inline string getDataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
+        inline DataSources& setDataSourceId(string dataSourceId) { DARABONBA_PTR_SET_VALUE(dataSourceId_, dataSourceId) };
+
+
+        // dataSourceVersion Field Functions 
+        bool hasDataSourceVersion() const { return this->dataSourceVersion_ != nullptr;};
+        void deleteDataSourceVersion() { this->dataSourceVersion_ = nullptr;};
+        inline string getDataSourceVersion() const { DARABONBA_PTR_GET_DEFAULT(dataSourceVersion_, "") };
+        inline DataSources& setDataSourceVersion(string dataSourceVersion) { DARABONBA_PTR_SET_VALUE(dataSourceVersion_, dataSourceVersion) };
+
+
+        // mountAccess Field Functions 
+        bool hasMountAccess() const { return this->mountAccess_ != nullptr;};
+        void deleteMountAccess() { this->mountAccess_ = nullptr;};
+        inline string getMountAccess() const { DARABONBA_PTR_GET_DEFAULT(mountAccess_, "") };
+        inline DataSources& setMountAccess(string mountAccess) { DARABONBA_PTR_SET_VALUE(mountAccess_, mountAccess) };
+
+
+        // mountPath Field Functions 
+        bool hasMountPath() const { return this->mountPath_ != nullptr;};
+        void deleteMountPath() { this->mountPath_ = nullptr;};
+        inline string getMountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
+        inline DataSources& setMountPath(string mountPath) { DARABONBA_PTR_SET_VALUE(mountPath_, mountPath) };
+
+
+        // options Field Functions 
+        bool hasOptions() const { return this->options_ != nullptr;};
+        void deleteOptions() { this->options_ = nullptr;};
+        inline string getOptions() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
+        inline DataSources& setOptions(string options) { DARABONBA_PTR_SET_VALUE(options_, options) };
+
+
+        // uri Field Functions 
+        bool hasUri() const { return this->uri_ != nullptr;};
+        void deleteUri() { this->uri_ = nullptr;};
+        inline string getUri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
+        inline DataSources& setUri(string uri) { DARABONBA_PTR_SET_VALUE(uri_, uri) };
+
+
+      protected:
+        // The ID of the dataset in the workspace. Example: d-************zbs.
+        shared_ptr<string> dataSourceId_ {};
+        // The dataset version. If you specify this parameter, you must also specify DataSourceId. Example: v1.
+        shared_ptr<string> dataSourceVersion_ {};
+        // The read and write permissions. Valid values: RW (default) and RO.
+        shared_ptr<string> mountAccess_ {};
+        // The mount path. Example: /mnt/data/.
+        shared_ptr<string> mountPath_ {};
+        // The mount property for the custom dataset. Only OSS is supported. Example: {"fs.oss.download.thread.concurrency":"10"}.
+        shared_ptr<string> options_ {};
+        // The storage path, including the endpoint. This parameter is mutually exclusive with DataSourceId. Example: OSS storage path oss://{bucket-name}.oss-{region}-internal.aliyuncs.com/{subPath}/.
+        shared_ptr<string> uri_ {};
+      };
+
       virtual bool empty() const override { return this->buildType_ == nullptr
-        && this->dockerfile_ == nullptr && this->registryAuths_ == nullptr; };
+        && this->dataSources_ == nullptr && this->dockerfile_ == nullptr && this->dockerfilePath_ == nullptr && this->registryAuths_ == nullptr; };
       // buildType Field Functions 
       bool hasBuildType() const { return this->buildType_ != nullptr;};
       void deleteBuildType() { this->buildType_ = nullptr;};
@@ -447,11 +533,27 @@ namespace Models
       inline BuildConfig& setBuildType(string buildType) { DARABONBA_PTR_SET_VALUE(buildType_, buildType) };
 
 
+      // dataSources Field Functions 
+      bool hasDataSources() const { return this->dataSources_ != nullptr;};
+      void deleteDataSources() { this->dataSources_ = nullptr;};
+      inline const vector<BuildConfig::DataSources> & getDataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<BuildConfig::DataSources>) };
+      inline vector<BuildConfig::DataSources> getDataSources() { DARABONBA_PTR_GET(dataSources_, vector<BuildConfig::DataSources>) };
+      inline BuildConfig& setDataSources(const vector<BuildConfig::DataSources> & dataSources) { DARABONBA_PTR_SET_VALUE(dataSources_, dataSources) };
+      inline BuildConfig& setDataSources(vector<BuildConfig::DataSources> && dataSources) { DARABONBA_PTR_SET_RVALUE(dataSources_, dataSources) };
+
+
       // dockerfile Field Functions 
       bool hasDockerfile() const { return this->dockerfile_ != nullptr;};
       void deleteDockerfile() { this->dockerfile_ = nullptr;};
       inline string getDockerfile() const { DARABONBA_PTR_GET_DEFAULT(dockerfile_, "") };
       inline BuildConfig& setDockerfile(string dockerfile) { DARABONBA_PTR_SET_VALUE(dockerfile_, dockerfile) };
+
+
+      // dockerfilePath Field Functions 
+      bool hasDockerfilePath() const { return this->dockerfilePath_ != nullptr;};
+      void deleteDockerfilePath() { this->dockerfilePath_ = nullptr;};
+      inline string getDockerfilePath() const { DARABONBA_PTR_GET_DEFAULT(dockerfilePath_, "") };
+      inline BuildConfig& setDockerfilePath(string dockerfilePath) { DARABONBA_PTR_SET_VALUE(dockerfilePath_, dockerfilePath) };
 
 
       // registryAuths Field Functions 
@@ -464,19 +566,19 @@ namespace Models
 
 
     protected:
-      // The build type. The following types are supported:
-      // 
-      // - **PackageInstallation**: Installs software packages based on a specified image.
-      // 
-      // - **CustomDockerfile**: Builds an image based on a custom Dockerfile.
+      // The build type. Valid values:
+      // * **PackageInstallation**: Installs software packages based on a specified image.
+      // * **CustomDockerfile**: Uses a custom Dockerfile.
       // 
       // This parameter is required.
       shared_ptr<string> buildType_ {};
+      // The list of data sources.
+      shared_ptr<vector<BuildConfig::DataSources>> dataSources_ {};
       // The content of the Dockerfile to be built.
-      // 
-      // This parameter is required.
       shared_ptr<string> dockerfile_ {};
-      // The authentication information for the private image repository. You can specify the authentication information for an ACR image repository that does not belong to you. The format is \\`{"user_registry_domain":{"Auth":"base64 encoded auth"}}\\`.
+      // The Dockerfile path, which is a relative path to the mounted context path. Example: docker/Dockerfile. If the mount path is /mnt/data/, the file is located at /mnt/data/docker/Dockerfile.
+      shared_ptr<string> dockerfilePath_ {};
+      // The authentication information for private image repositories. You can specify the authentication information for an ACR image repository that does not belong to the current user. Format: {"user_registry_domain":{"Auth":"base64 encoded auth"}}.
       Darabonba::Json registryAuths_ {};
     };
 
@@ -571,25 +673,23 @@ namespace Models
 
 
   protected:
-    // An idempotence token.
+    // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
-    // The visibility of the image.
-    // 
-    // - **PUBLIC**: The image is public.
-    // 
-    // - **PRIVATE**: The image is private.
+    // The visibility. Valid values:
+    // - **PUBLIC**: Public.
+    // - **PRIVATE**: Private.
     shared_ptr<string> accessibility_ {};
-    // **The build configuration. Specify the content of the Dockerfile to be built.**
+    // **The build configuration, which specifies the content of the Dockerfile to be built.**
     // 
     // This parameter is required.
     shared_ptr<CreateImageBuildRequest::BuildConfig> buildConfig_ {};
-    // The metadata of the image.
+    // The image metadata.
     // 
     // This parameter is required.
     shared_ptr<CreateImageBuildRequest::Image> image_ {};
     // The name of the image build task.
     shared_ptr<string> imageBuildJobName_ {};
-    // Specifies whether to overwrite an existing image version in the image repository.
+    // Specifies whether to overwrite the existing image version in the image repository.
     shared_ptr<bool> overwriteImageTag_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -597,11 +697,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<CreateImageBuildRequest::Resource> resource_ {};
-    // **The configuration of the target image repository.**
+    // **The target registry configuration.**
     // 
     // This parameter is required.
     shared_ptr<CreateImageBuildRequest::TargetRegistry> targetRegistry_ {};
-    // The information about the user\\"s virtual private cloud (VPC). This parameter is required when you use the public resource group.
+    // The user VPC information. This parameter is required when you use a public resource group.
     shared_ptr<CreateImageBuildRequest::UserVpc> userVpc_ {};
     // The workspace ID.
     // 

@@ -63,6 +63,9 @@ namespace AIWorkSpace20210204
       /**
        * @summary Adds labels to a specified image.
        *
+       * @description 为自定义镜像添加标签。
+       * 前置条件：仅支持为自定义镜像添加标签。请先调用 AddImage 将自定义镜像添加到工作空间，再使用其返回的 ImageId 调用本接口；传入官方镜像会返回错误码 201200010（Can\\"t update official images）。
+       *
        * @param request AddImageLabelsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -73,13 +76,16 @@ namespace AIWorkSpace20210204
       /**
        * @summary Adds labels to a specified image.
        *
+       * @description 为自定义镜像添加标签。
+       * 前置条件：仅支持为自定义镜像添加标签。请先调用 AddImage 将自定义镜像添加到工作空间，再使用其返回的 ImageId 调用本接口；传入官方镜像会返回错误码 201200010（Can\\"t update official images）。
+       *
        * @param request AddImageLabelsRequest
        * @return AddImageLabelsResponse
        */
       Models::AddImageLabelsResponse addImageLabels(const string &ImageId, const Models::AddImageLabelsRequest &request);
 
       /**
-       * @summary Assigns a role to a member in a workspace, granting that member the role\\"s permissions.
+       * @summary Assigns a role to a member in a workspace to grant the permissions associated with the role.
        *
        * @param request AddMemberRoleRequest
        * @param headers map
@@ -89,7 +95,7 @@ namespace AIWorkSpace20210204
       Models::AddMemberRoleResponse addMemberRoleWithOptions(const string &WorkspaceId, const string &MemberId, const string &RoleName, const Models::AddMemberRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Assigns a role to a member in a workspace, granting that member the role\\"s permissions.
+       * @summary Assigns a role to a member in a workspace to grant the permissions associated with the role.
        *
        * @param request AddMemberRoleRequest
        * @return AddMemberRoleResponse
@@ -169,7 +175,7 @@ namespace AIWorkSpace20210204
       Models::CreateDatasetResponse createDataset(const Models::CreateDatasetRequest &request);
 
       /**
-       * @summary Creates file metadata records in a dataset in batches.
+       * @summary Creates file metadata records for a dataset in batches.
        *
        * @param request CreateDatasetFileMetasRequest
        * @param headers map
@@ -179,7 +185,7 @@ namespace AIWorkSpace20210204
       Models::CreateDatasetFileMetasResponse createDatasetFileMetasWithOptions(const string &DatasetId, const Models::CreateDatasetFileMetasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates file metadata records in a dataset in batches.
+       * @summary Creates file metadata records for a dataset in batches.
        *
        * @param request CreateDatasetFileMetasRequest
        * @return CreateDatasetFileMetasResponse
@@ -307,9 +313,9 @@ namespace AIWorkSpace20210204
       Models::CreateExperimentResponse createExperiment(const Models::CreateExperimentRequest &request);
 
       /**
-       * @summary Builds a custom image based on the specified configuration. After the image is successfully built, it is added to the list of custom images in the current workspace.
+       * @summary Builds a custom image based on the specified configurations. After the build succeeds, the image is added to the custom images of the current workspace.
        *
-       * @description ## Description
+       * @description ## Request description.
        *
        * @param request CreateImageBuildRequest
        * @param headers map
@@ -319,9 +325,9 @@ namespace AIWorkSpace20210204
       Models::CreateImageBuildResponse createImageBuildWithOptions(const Models::CreateImageBuildRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Builds a custom image based on the specified configuration. After the image is successfully built, it is added to the list of custom images in the current workspace.
+       * @summary Builds a custom image based on the specified configurations. After the build succeeds, the image is added to the custom images of the current workspace.
        *
-       * @description ## Description
+       * @description ## Request description.
        *
        * @param request CreateImageBuildRequest
        * @return CreateImageBuildResponse
@@ -329,7 +335,7 @@ namespace AIWorkSpace20210204
       Models::CreateImageBuildResponse createImageBuild(const Models::CreateImageBuildRequest &request);
 
       /**
-       * @summary Adds one or more users to a workspace.
+       * @summary Adds one or more users to a workspace as members.
        *
        * @param request CreateMemberRequest
        * @param headers map
@@ -339,7 +345,7 @@ namespace AIWorkSpace20210204
       Models::CreateMemberResponse createMemberWithOptions(const string &WorkspaceId, const Models::CreateMemberRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds one or more users to a workspace.
+       * @summary Adds one or more users to a workspace as members.
        *
        * @param request CreateMemberRequest
        * @return CreateMemberResponse
@@ -513,7 +519,7 @@ namespace AIWorkSpace20210204
       Models::CreateWorkspaceResourceResponse createWorkspaceResource(const string &WorkspaceId, const Models::CreateWorkspaceResourceRequest &request);
 
       /**
-       * @summary Adds a role to a workspace.
+       * @summary Adds a workspace role.
        *
        * @param request CreateWorkspaceRoleRequest
        * @param headers map
@@ -523,7 +529,7 @@ namespace AIWorkSpace20210204
       Models::CreateWorkspaceRoleResponse createWorkspaceRoleWithOptions(const string &WorkspaceId, const Models::CreateWorkspaceRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a role to a workspace.
+       * @summary Adds a workspace role.
        *
        * @param request CreateWorkspaceRoleRequest
        * @return CreateWorkspaceRoleResponse
@@ -839,8 +845,8 @@ namespace AIWorkSpace20210204
       /**
        * @summary Deletes a prompt.
        *
-       * @description When calling this operation, note the following:
-       * - Tag keys and values are non-empty strings and cannot exceed 128 characters in length.
+       * @description When you call this operation, note the following items:
+       * - Tag keys and values must be non-empty strings and cannot exceed 128 characters in length.
        * - Tag keys cannot start with aliyun, acs, http://, or https://.
        *
        * @param request DeletePromptRequest
@@ -853,8 +859,8 @@ namespace AIWorkSpace20210204
       /**
        * @summary Deletes a prompt.
        *
-       * @description When calling this operation, note the following:
-       * - Tag keys and values are non-empty strings and cannot exceed 128 characters in length.
+       * @description When you call this operation, note the following items:
+       * - Tag keys and values must be non-empty strings and cannot exceed 128 characters in length.
        * - Tag keys cannot start with aliyun, acs, http://, or https://.
        *
        * @param request DeletePromptRequest
@@ -935,7 +941,7 @@ namespace AIWorkSpace20210204
       Models::DeleteWorkspaceResponse deleteWorkspace(const string &WorkspaceId, const Models::DeleteWorkspaceRequest &request);
 
       /**
-       * @summary Detaches a resource from a workspace. This operation does not delete the underlying resource.
+       * @summary Deletes references to resources from a workspace without deleting the underlying resources.
        *
        * @param request DeleteWorkspaceResourceRequest
        * @param headers map
@@ -945,7 +951,7 @@ namespace AIWorkSpace20210204
       Models::DeleteWorkspaceResourceResponse deleteWorkspaceResourceWithOptions(const string &WorkspaceId, const Models::DeleteWorkspaceResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detaches a resource from a workspace. This operation does not delete the underlying resource.
+       * @summary Deletes references to resources from a workspace without deleting the underlying resources.
        *
        * @param request DeleteWorkspaceResourceRequest
        * @return DeleteWorkspaceResourceResponse
@@ -953,7 +959,7 @@ namespace AIWorkSpace20210204
       Models::DeleteWorkspaceResourceResponse deleteWorkspaceResource(const string &WorkspaceId, const Models::DeleteWorkspaceResourceRequest &request);
 
       /**
-       * @summary Deletes one or more roles from a workspace.
+       * @summary Deletes workspace roles in batches.
        *
        * @param request DeleteWorkspaceRolesRequest
        * @param headers map
@@ -963,7 +969,7 @@ namespace AIWorkSpace20210204
       Models::DeleteWorkspaceRolesResponse deleteWorkspaceRolesWithOptions(const string &WorkspaceId, const Models::DeleteWorkspaceRolesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes one or more roles from a workspace.
+       * @summary Deletes workspace roles in batches.
        *
        * @param request DeleteWorkspaceRolesRequest
        * @return DeleteWorkspaceRolesResponse
@@ -1191,7 +1197,10 @@ namespace AIWorkSpace20210204
       Models::GetImageResponse getImage(const string &ImageId, const Models::GetImageRequest &request);
 
       /**
-       * @summary Gets the details of a job.
+       * @summary Retrieves a task.
+       *
+       * @description 查询异步任务（InstanceJobId）的执行状态和结果。
+       * InstanceJobId 由 CreateWorkspaceRole、UpdateWorkspaceRole 等异步接口在响应字段 InstanceJobId 中返回，对应的任务类型见响应字段 Type。
        *
        * @param request GetInstanceJobRequest
        * @param headers map
@@ -1201,7 +1210,10 @@ namespace AIWorkSpace20210204
       Models::GetInstanceJobResponse getInstanceJobWithOptions(const string &InstanceJobId, const Models::GetInstanceJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the details of a job.
+       * @summary Retrieves a task.
+       *
+       * @description 查询异步任务（InstanceJobId）的执行状态和结果。
+       * InstanceJobId 由 CreateWorkspaceRole、UpdateWorkspaceRole 等异步接口在响应字段 InstanceJobId 中返回，对应的任务类型见响应字段 Type。
        *
        * @param request GetInstanceJobRequest
        * @return GetInstanceJobResponse
@@ -1335,7 +1347,7 @@ namespace AIWorkSpace20210204
       Models::GetWorkspaceResponse getWorkspace(const string &WorkspaceId, const Models::GetWorkspaceRequest &request);
 
       /**
-       * @summary Gets information about a specific role within a workspace.
+       * @summary Retrieves workspace roles.
        *
        * @param request GetWorkspaceRoleRequest
        * @param headers map
@@ -1345,7 +1357,7 @@ namespace AIWorkSpace20210204
       Models::GetWorkspaceRoleResponse getWorkspaceRoleWithOptions(const string &WorkspaceId, const string &RoleId, const Models::GetWorkspaceRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets information about a specific role within a workspace.
+       * @summary Retrieves workspace roles.
        *
        * @param request GetWorkspaceRoleRequest
        * @return GetWorkspaceRoleResponse
@@ -1731,7 +1743,7 @@ namespace AIWorkSpace20210204
       Models::ListRunMetricsResponse listRunMetrics(const string &RunId, const Models::ListRunMetricsRequest &request);
 
       /**
-       * @summary Queries a list of runs.
+       * @summary Retrieves a list of runs.
        *
        * @param request ListRunsRequest
        * @param headers map
@@ -1741,7 +1753,7 @@ namespace AIWorkSpace20210204
       Models::ListRunsResponse listRunsWithOptions(const Models::ListRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of runs.
+       * @summary Retrieves a list of runs.
        *
        * @param request ListRunsRequest
        * @return ListRunsResponse
@@ -1767,7 +1779,7 @@ namespace AIWorkSpace20210204
       Models::ListUserConfigsResponse listUserConfigs(const Models::ListUserConfigsRequest &request);
 
       /**
-       * @summary Lists the roles in a specified workspace.
+       * @summary Lists workspace roles.
        *
        * @param request ListWorkspaceRolesRequest
        * @param headers map
@@ -1777,7 +1789,7 @@ namespace AIWorkSpace20210204
       Models::ListWorkspaceRolesResponse listWorkspaceRolesWithOptions(const string &WorkspaceId, const Models::ListWorkspaceRolesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the roles in a specified workspace.
+       * @summary Lists workspace roles.
        *
        * @param request ListWorkspaceRolesRequest
        * @return ListWorkspaceRolesResponse
@@ -1825,7 +1837,7 @@ namespace AIWorkSpace20210204
       Models::ListWorkspacesResponse listWorkspaces(const Models::ListWorkspacesRequest &request);
 
       /**
-       * @summary Records the metrics of a run in a batch.
+       * @summary Records metrics for a run in batches.
        *
        * @param request LogRunMetricsRequest
        * @param headers map
@@ -1835,7 +1847,7 @@ namespace AIWorkSpace20210204
       Models::LogRunMetricsResponse logRunMetricsWithOptions(const string &RunId, const Models::LogRunMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Records the metrics of a run in a batch.
+       * @summary Records metrics for a run in batches.
        *
        * @param request LogRunMetricsRequest
        * @return LogRunMetricsResponse
@@ -1881,6 +1893,10 @@ namespace AIWorkSpace20210204
       /**
        * @summary Publishes an image and changes its visibility from PRIVATE to PUBLIC.
        *
+       * @description 将镜像的可见性从 PRIVATE 改为 PUBLIC。
+       * - 仅支持对可见性为 PRIVATE 的镜像调用；已是 PUBLIC 的镜像无需再次发布，直接调用会返回 400 错误。
+       * - 若当前工作空间没有 PRIVATE 镜像，请先调用 AddImage 添加自定义镜像（Accessibility 设为 PRIVATE），再使用其返回的 ImageId 调用本接口。
+       *
        * @param request PublishImageRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1891,6 +1907,10 @@ namespace AIWorkSpace20210204
       /**
        * @summary Publishes an image and changes its visibility from PRIVATE to PUBLIC.
        *
+       * @description 将镜像的可见性从 PRIVATE 改为 PUBLIC。
+       * - 仅支持对可见性为 PRIVATE 的镜像调用；已是 PUBLIC 的镜像无需再次发布，直接调用会返回 400 错误。
+       * - 若当前工作空间没有 PRIVATE 镜像，请先调用 AddImage 添加自定义镜像（Accessibility 设为 PRIVATE），再使用其返回的 ImageId 调用本接口。
+       *
        * @param request PublishImageRequest
        * @return PublishImageResponse
        */
@@ -1898,6 +1918,10 @@ namespace AIWorkSpace20210204
 
       /**
        * @summary Deletes an image.
+       *
+       * @description 删除镜像。
+       * - 仅支持删除用户自建（自定义）镜像，传入官方镜像会返回错误码 201200013。
+       * - 若账号下尚无自建镜像，需先调用 AddImage 创建自定义镜像，再使用其返回的 ImageId 调用本接口。
        *
        * @param request RemoveImageRequest
        * @param headers map
@@ -1908,6 +1932,10 @@ namespace AIWorkSpace20210204
 
       /**
        * @summary Deletes an image.
+       *
+       * @description 删除镜像。
+       * - 仅支持删除用户自建（自定义）镜像，传入官方镜像会返回错误码 201200013。
+       * - 若账号下尚无自建镜像，需先调用 AddImage 创建自定义镜像，再使用其返回的 ImageId 调用本接口。
        *
        * @param request RemoveImageRequest
        * @return RemoveImageResponse
@@ -1933,7 +1961,7 @@ namespace AIWorkSpace20210204
       Models::RemoveImageLabelsResponse removeImageLabels(const string &ImageId, const string &LabelKey, const Models::RemoveImageLabelsRequest &request);
 
       /**
-       * @summary Removes a role from a member.
+       * @summary Deletes a member role.
        *
        * @param request RemoveMemberRoleRequest
        * @param headers map
@@ -1943,7 +1971,7 @@ namespace AIWorkSpace20210204
       Models::RemoveMemberRoleResponse removeMemberRoleWithOptions(const string &WorkspaceId, const string &MemberId, const string &RoleName, const Models::RemoveMemberRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a role from a member.
+       * @summary Deletes a member role.
        *
        * @param request RemoveMemberRoleRequest
        * @return RemoveMemberRoleResponse
@@ -2005,7 +2033,7 @@ namespace AIWorkSpace20210204
       Models::StopDatasetJobResponse stopDatasetJob(const string &DatasetId, const string &DatasetJobId, const Models::StopDatasetJobRequest &request);
 
       /**
-       * @summary Updates a code source configuration.
+       * @summary Updates the code configuration.
        *
        * @param request UpdateCodeSourceRequest
        * @param headers map
@@ -2015,7 +2043,7 @@ namespace AIWorkSpace20210204
       Models::UpdateCodeSourceResponse updateCodeSourceWithOptions(const string &CodeSourceId, const Models::UpdateCodeSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a code source configuration.
+       * @summary Updates the code configuration.
        *
        * @param request UpdateCodeSourceRequest
        * @return UpdateCodeSourceResponse
@@ -2059,7 +2087,7 @@ namespace AIWorkSpace20210204
       Models::UpdateConfigsResponse updateConfigs(const string &WorkspaceId, const Models::UpdateConfigsRequest &request);
 
       /**
-       * @summary Updates a connection configuration.
+       * @summary Updates the connection configuration.
        *
        * @param request UpdateConnectionRequest
        * @param headers map
@@ -2069,7 +2097,7 @@ namespace AIWorkSpace20210204
       Models::UpdateConnectionResponse updateConnectionWithOptions(const string &ConnectionId, const Models::UpdateConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a connection configuration.
+       * @summary Updates the connection configuration.
        *
        * @param request UpdateConnectionRequest
        * @return UpdateConnectionResponse
@@ -2095,7 +2123,7 @@ namespace AIWorkSpace20210204
       Models::UpdateDatasetResponse updateDataset(const string &DatasetId, const Models::UpdateDatasetRequest &request);
 
       /**
-       * @summary Updates multiple file metadata records in a dataset.
+       * @summary Updates the file metadata records of a dataset in batches.
        *
        * @param request UpdateDatasetFileMetasRequest
        * @param headers map
@@ -2105,7 +2133,7 @@ namespace AIWorkSpace20210204
       Models::UpdateDatasetFileMetasResponse updateDatasetFileMetasWithOptions(const string &DatasetId, const Models::UpdateDatasetFileMetasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates multiple file metadata records in a dataset.
+       * @summary Updates the file metadata records of a dataset in batches.
        *
        * @param request UpdateDatasetFileMetasRequest
        * @return UpdateDatasetFileMetasResponse
@@ -2171,7 +2199,7 @@ namespace AIWorkSpace20210204
       Models::UpdateDatasetVersionResponse updateDatasetVersion(const string &DatasetId, const string &VersionName, const Models::UpdateDatasetVersionRequest &request);
 
       /**
-       * @summary Sets a workspace as the default.
+       * @summary Sets a workspace as the default workspace.
        *
        * @param request UpdateDefaultWorkspaceRequest
        * @param headers map
@@ -2181,7 +2209,7 @@ namespace AIWorkSpace20210204
       Models::UpdateDefaultWorkspaceResponse updateDefaultWorkspaceWithOptions(const Models::UpdateDefaultWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets a workspace as the default.
+       * @summary Sets a workspace as the default workspace.
        *
        * @param request UpdateDefaultWorkspaceRequest
        * @return UpdateDefaultWorkspaceResponse
@@ -2243,9 +2271,9 @@ namespace AIWorkSpace20210204
       Models::UpdateModelVersionResponse updateModelVersion(const string &ModelId, const string &VersionName, const Models::UpdateModelVersionRequest &request);
 
       /**
-       * @summary Updates the prompt of a dataset.
+       * @summary Update a prompt
        *
-       * @description ## Request description.
+       * @description ## Request description
        *
        * @param request UpdatePromptRequest
        * @param headers map
@@ -2255,9 +2283,9 @@ namespace AIWorkSpace20210204
       Models::UpdatePromptResponse updatePromptWithOptions(const string &PromptId, const Models::UpdatePromptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the prompt of a dataset.
+       * @summary Update a prompt
        *
-       * @description ## Request description.
+       * @description ## Request description
        *
        * @param request UpdatePromptRequest
        * @return UpdatePromptResponse
@@ -2301,7 +2329,7 @@ namespace AIWorkSpace20210204
       Models::UpdateWorkspaceResponse updateWorkspace(const string &WorkspaceId, const Models::UpdateWorkspaceRequest &request);
 
       /**
-       * @summary Updates resources in a workspace.
+       * @summary Updates the resources of a workspace.
        *
        * @param request UpdateWorkspaceResourceRequest
        * @param headers map
@@ -2311,7 +2339,7 @@ namespace AIWorkSpace20210204
       Models::UpdateWorkspaceResourceResponse updateWorkspaceResourceWithOptions(const string &WorkspaceId, const Models::UpdateWorkspaceResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates resources in a workspace.
+       * @summary Updates the resources of a workspace.
        *
        * @param request UpdateWorkspaceResourceRequest
        * @return UpdateWorkspaceResourceResponse
@@ -2319,7 +2347,7 @@ namespace AIWorkSpace20210204
       Models::UpdateWorkspaceResourceResponse updateWorkspaceResource(const string &WorkspaceId, const Models::UpdateWorkspaceResourceRequest &request);
 
       /**
-       * @summary Updates a role in a workspace.
+       * @summary Updates the workspace role.
        *
        * @param request UpdateWorkspaceRoleRequest
        * @param headers map
@@ -2329,7 +2357,7 @@ namespace AIWorkSpace20210204
       Models::UpdateWorkspaceRoleResponse updateWorkspaceRoleWithOptions(const string &WorkspaceId, const string &RoleId, const Models::UpdateWorkspaceRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a role in a workspace.
+       * @summary Updates the workspace role.
        *
        * @param request UpdateWorkspaceRoleRequest
        * @return UpdateWorkspaceRoleResponse

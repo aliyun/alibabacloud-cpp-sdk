@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The image build ID.
     shared_ptr<string> imageBuildId_ {};
-    // The build task ID.
+    // The build job ID.
     shared_ptr<string> imageBuildJobId_ {};
   };
 

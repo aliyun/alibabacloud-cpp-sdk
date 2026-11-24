@@ -70,15 +70,15 @@ namespace Models
 
 
   protected:
-    // A list of dataset file metadata to update.
+    // The list of dataset file metadata to be updated.
     // 
     // This parameter is required.
     shared_ptr<vector<DatasetFileMetaConentUpdate>> datasetFileMetas_ {};
     // The name of the dataset version.
     shared_ptr<string> datasetVersion_ {};
-    // The ID of the tagging job for updating metadata tags.
+    // The ID of the tagging task associated with updating the tags in the dataset file metadata.
     shared_ptr<string> tagJobId_ {};
-    // The ID of the workspace that contains the dataset. For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // The ID of the workspace to which the dataset belongs. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

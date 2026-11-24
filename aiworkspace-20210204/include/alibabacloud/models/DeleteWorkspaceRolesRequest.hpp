@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the roles to delete.
+    // (Required) The list of role IDs.
     shared_ptr<vector<string>> roleIds_ {};
   };
 

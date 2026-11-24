@@ -112,43 +112,30 @@ namespace Models
 
 
   protected:
-    // The sort order for the specified sort field. Valid values:
+    // The sorting order for the specified sorting field in paging. Valid values:
     // 
-    // - `ASC` (default): Ascending order.
-    // 
-    // - `DESC`: Descending order.
+    // - ASC: Ascending order. Default value.
+    // - DESC: Descending order.
     shared_ptr<string> order_ {};
-    // The page number. Pages start from 1. The default value is 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The default value is 20.
+    // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // A comma-separated list of role IDs.
+    // The list of role IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> roleIds_ {};
     // The role name.
     shared_ptr<string> roleName_ {};
-    // The role type.
-    // 
-    // - `custom`: A custom role.
+    // The role type. Valid values:
+    // - custom: custom role.
     shared_ptr<string> roleType_ {};
-    // The sort field for paginated queries. Valid values:
+    // The sorting field for paging. Valid values:
     // 
-    // - `GmtCreateTime` (default): Sorts by creation time.
-    // 
-    // - `GmtModifiedTime`: Sorts by modification time.
+    // - GmtCreateTime: Sort by creation time. Default value.
+    // - GmtModifiedTime: Sort by modification time.
     shared_ptr<string> sortBy_ {};
-    // The status. Valid values:
-    // 
-    // - `Creating`
-    // 
-    // - `Updating`
-    // 
-    // - `Deleting`
-    // 
-    // - `Succeeded`: A terminal state.
-    // 
-    // - `Failed`: A terminal state.
+    // **[Deprecated]** The status.
     shared_ptr<string> status_ {};
-    // A comma-separated list of fields to return. Currently, only `ModulePermissions` is supported, which returns the permission configuration of the role.
+    // The comma-separated list of fields to return. Currently, only ModulePermissions is supported, which indicates whether to return the permission configurations of the role.
     shared_ptr<string> verboseFields_ {};
   };
 

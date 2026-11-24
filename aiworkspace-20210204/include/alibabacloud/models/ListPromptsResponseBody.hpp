@@ -65,7 +65,7 @@ namespace Models
     shared_ptr<vector<Prompt>> prompts_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned under the current request conditions. This parameter is optional and may not be returned by default.
+    // The total number of entries that meet the query conditions. This parameter is optional and is not returned by default.
     shared_ptr<int32_t> totalCount_ {};
   };
 

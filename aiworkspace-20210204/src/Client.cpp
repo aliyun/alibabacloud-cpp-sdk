@@ -2,12 +2,14 @@
 #include <alibabacloud/AIWorkSpace20210204.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -18,6 +20,9 @@ namespace AIWorkSpace20210204
 {
 
 AlibabaCloud::AIWorkSpace20210204::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "AIWorkSpace";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"ap-northeast-2-pop" , "aiworkspace.aliyuncs.com"},
@@ -220,6 +225,9 @@ AddImageResponse Client::addImage(const AddImageRequest &request) {
 /**
  * @summary Adds labels to a specified image.
  *
+ * @description 为自定义镜像添加标签。
+ * 前置条件：仅支持为自定义镜像添加标签。请先调用 AddImage 将自定义镜像添加到工作空间，再使用其返回的 ImageId 调用本接口；传入官方镜像会返回错误码 201200010（Can\\"t update official images）。
+ *
  * @param request AddImageLabelsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -253,6 +261,9 @@ AddImageLabelsResponse Client::addImageLabelsWithOptions(const string &ImageId, 
 /**
  * @summary Adds labels to a specified image.
  *
+ * @description 为自定义镜像添加标签。
+ * 前置条件：仅支持为自定义镜像添加标签。请先调用 AddImage 将自定义镜像添加到工作空间，再使用其返回的 ImageId 调用本接口；传入官方镜像会返回错误码 201200010（Can\\"t update official images）。
+ *
  * @param request AddImageLabelsRequest
  * @return AddImageLabelsResponse
  */
@@ -263,7 +274,7 @@ AddImageLabelsResponse Client::addImageLabels(const string &ImageId, const AddIm
 }
 
 /**
- * @summary Assigns a role to a member in a workspace, granting that member the role\\"s permissions.
+ * @summary Assigns a role to a member in a workspace to grant the permissions associated with the role.
  *
  * @param request AddMemberRoleRequest
  * @param headers map
@@ -290,7 +301,7 @@ AddMemberRoleResponse Client::addMemberRoleWithOptions(const string &WorkspaceId
 }
 
 /**
- * @summary Assigns a role to a member in a workspace, granting that member the role\\"s permissions.
+ * @summary Assigns a role to a member in a workspace to grant the permissions associated with the role.
  *
  * @param request AddMemberRoleRequest
  * @return AddMemberRoleResponse
@@ -670,7 +681,7 @@ CreateDatasetResponse Client::createDataset(const CreateDatasetRequest &request)
 }
 
 /**
- * @summary Creates file metadata records in a dataset in batches.
+ * @summary Creates file metadata records for a dataset in batches.
  *
  * @param request CreateDatasetFileMetasRequest
  * @param headers map
@@ -711,7 +722,7 @@ CreateDatasetFileMetasResponse Client::createDatasetFileMetasWithOptions(const s
 }
 
 /**
- * @summary Creates file metadata records in a dataset in batches.
+ * @summary Creates file metadata records for a dataset in batches.
  *
  * @param request CreateDatasetFileMetasRequest
  * @return CreateDatasetFileMetasResponse
@@ -1105,9 +1116,9 @@ CreateExperimentResponse Client::createExperiment(const CreateExperimentRequest 
 }
 
 /**
- * @summary Builds a custom image based on the specified configuration. After the image is successfully built, it is added to the list of custom images in the current workspace.
+ * @summary Builds a custom image based on the specified configurations. After the build succeeds, the image is added to the custom images of the current workspace.
  *
- * @description ## Description
+ * @description ## Request description.
  *
  * @param request CreateImageBuildRequest
  * @param headers map
@@ -1182,9 +1193,9 @@ CreateImageBuildResponse Client::createImageBuildWithOptions(const CreateImageBu
 }
 
 /**
- * @summary Builds a custom image based on the specified configuration. After the image is successfully built, it is added to the list of custom images in the current workspace.
+ * @summary Builds a custom image based on the specified configurations. After the build succeeds, the image is added to the custom images of the current workspace.
  *
- * @description ## Description
+ * @description ## Request description.
  *
  * @param request CreateImageBuildRequest
  * @return CreateImageBuildResponse
@@ -1196,7 +1207,7 @@ CreateImageBuildResponse Client::createImageBuild(const CreateImageBuildRequest 
 }
 
 /**
- * @summary Adds one or more users to a workspace.
+ * @summary Adds one or more users to a workspace as members.
  *
  * @param request CreateMemberRequest
  * @param headers map
@@ -1229,7 +1240,7 @@ CreateMemberResponse Client::createMemberWithOptions(const string &WorkspaceId, 
 }
 
 /**
- * @summary Adds one or more users to a workspace.
+ * @summary Adds one or more users to a workspace as members.
  *
  * @param request CreateMemberRequest
  * @return CreateMemberResponse
@@ -1830,7 +1841,7 @@ CreateWorkspaceResourceResponse Client::createWorkspaceResource(const string &Wo
 }
 
 /**
- * @summary Adds a role to a workspace.
+ * @summary Adds a workspace role.
  *
  * @param request CreateWorkspaceRoleRequest
  * @param headers map
@@ -1875,7 +1886,7 @@ CreateWorkspaceRoleResponse Client::createWorkspaceRoleWithOptions(const string 
 }
 
 /**
- * @summary Adds a role to a workspace.
+ * @summary Adds a workspace role.
  *
  * @param request CreateWorkspaceRoleRequest
  * @return CreateWorkspaceRoleResponse
@@ -2612,8 +2623,8 @@ DeleteModelVersionLabelsResponse Client::deleteModelVersionLabels(const string &
 /**
  * @summary Deletes a prompt.
  *
- * @description When calling this operation, note the following:
- * - Tag keys and values are non-empty strings and cannot exceed 128 characters in length.
+ * @description When you call this operation, note the following items:
+ * - Tag keys and values must be non-empty strings and cannot exceed 128 characters in length.
  * - Tag keys cannot start with aliyun, acs, http://, or https://.
  *
  * @param request DeletePromptRequest
@@ -2649,8 +2660,8 @@ DeletePromptResponse Client::deletePromptWithOptions(const string &PromptId, con
 /**
  * @summary Deletes a prompt.
  *
- * @description When calling this operation, note the following:
- * - Tag keys and values are non-empty strings and cannot exceed 128 characters in length.
+ * @description When you call this operation, note the following items:
+ * - Tag keys and values must be non-empty strings and cannot exceed 128 characters in length.
  * - Tag keys cannot start with aliyun, acs, http://, or https://.
  *
  * @param request DeletePromptRequest
@@ -2829,7 +2840,7 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &WorkspaceId, const
 }
 
 /**
- * @summary Detaches a resource from a workspace. This operation does not delete the underlying resource.
+ * @summary Deletes references to resources from a workspace without deleting the underlying resources.
  *
  * @param request DeleteWorkspaceResourceRequest
  * @param headers map
@@ -2882,7 +2893,7 @@ DeleteWorkspaceResourceResponse Client::deleteWorkspaceResourceWithOptions(const
 }
 
 /**
- * @summary Detaches a resource from a workspace. This operation does not delete the underlying resource.
+ * @summary Deletes references to resources from a workspace without deleting the underlying resources.
  *
  * @param request DeleteWorkspaceResourceRequest
  * @return DeleteWorkspaceResourceResponse
@@ -2894,7 +2905,7 @@ DeleteWorkspaceResourceResponse Client::deleteWorkspaceResource(const string &Wo
 }
 
 /**
- * @summary Deletes one or more roles from a workspace.
+ * @summary Deletes workspace roles in batches.
  *
  * @param request DeleteWorkspaceRolesRequest
  * @param headers map
@@ -2927,7 +2938,7 @@ DeleteWorkspaceRolesResponse Client::deleteWorkspaceRolesWithOptions(const strin
 }
 
 /**
- * @summary Deletes one or more roles from a workspace.
+ * @summary Deletes workspace roles in batches.
  *
  * @param request DeleteWorkspaceRolesRequest
  * @return DeleteWorkspaceRolesResponse
@@ -3493,7 +3504,10 @@ GetImageResponse Client::getImage(const string &ImageId, const GetImageRequest &
 }
 
 /**
- * @summary Gets the details of a job.
+ * @summary Retrieves a task.
+ *
+ * @description 查询异步任务（InstanceJobId）的执行状态和结果。
+ * InstanceJobId 由 CreateWorkspaceRole、UpdateWorkspaceRole 等异步接口在响应字段 InstanceJobId 中返回，对应的任务类型见响应字段 Type。
  *
  * @param request GetInstanceJobRequest
  * @param headers map
@@ -3520,7 +3534,10 @@ GetInstanceJobResponse Client::getInstanceJobWithOptions(const string &InstanceJ
 }
 
 /**
- * @summary Gets the details of a job.
+ * @summary Retrieves a task.
+ *
+ * @description 查询异步任务（InstanceJobId）的执行状态和结果。
+ * InstanceJobId 由 CreateWorkspaceRole、UpdateWorkspaceRole 等异步接口在响应字段 InstanceJobId 中返回，对应的任务类型见响应字段 Type。
  *
  * @param request GetInstanceJobRequest
  * @return GetInstanceJobResponse
@@ -3885,7 +3902,7 @@ GetWorkspaceResponse Client::getWorkspace(const string &WorkspaceId, const GetWo
 }
 
 /**
- * @summary Gets information about a specific role within a workspace.
+ * @summary Retrieves workspace roles.
  *
  * @param request GetWorkspaceRoleRequest
  * @param headers map
@@ -3912,7 +3929,7 @@ GetWorkspaceRoleResponse Client::getWorkspaceRoleWithOptions(const string &Works
 }
 
 /**
- * @summary Gets information about a specific role within a workspace.
+ * @summary Retrieves workspace roles.
  *
  * @param request GetWorkspaceRoleRequest
  * @return GetWorkspaceRoleResponse
@@ -5563,7 +5580,7 @@ ListRunMetricsResponse Client::listRunMetrics(const string &RunId, const ListRun
 }
 
 /**
- * @summary Queries a list of runs.
+ * @summary Retrieves a list of runs.
  *
  * @param request ListRunsRequest
  * @param headers map
@@ -5652,7 +5669,7 @@ ListRunsResponse Client::listRunsWithOptions(const ListRunsRequest &request, con
 }
 
 /**
- * @summary Queries a list of runs.
+ * @summary Retrieves a list of runs.
  *
  * @param request ListRunsRequest
  * @return ListRunsResponse
@@ -5713,7 +5730,7 @@ ListUserConfigsResponse Client::listUserConfigs(const ListUserConfigsRequest &re
 }
 
 /**
- * @summary Lists the roles in a specified workspace.
+ * @summary Lists workspace roles.
  *
  * @param request ListWorkspaceRolesRequest
  * @param headers map
@@ -5778,7 +5795,7 @@ ListWorkspaceRolesResponse Client::listWorkspaceRolesWithOptions(const string &W
 }
 
 /**
- * @summary Lists the roles in a specified workspace.
+ * @summary Lists workspace roles.
  *
  * @param request ListWorkspaceRolesRequest
  * @return ListWorkspaceRolesResponse
@@ -5936,7 +5953,7 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
 }
 
 /**
- * @summary Records the metrics of a run in a batch.
+ * @summary Records metrics for a run in batches.
  *
  * @param request LogRunMetricsRequest
  * @param headers map
@@ -5969,7 +5986,7 @@ LogRunMetricsResponse Client::logRunMetricsWithOptions(const string &RunId, cons
 }
 
 /**
- * @summary Records the metrics of a run in a batch.
+ * @summary Records metrics for a run in batches.
  *
  * @param request LogRunMetricsRequest
  * @return LogRunMetricsResponse
@@ -6061,6 +6078,10 @@ PublishDatasetResponse Client::publishDataset(const string &DatasetId, const Pub
 /**
  * @summary Publishes an image and changes its visibility from PRIVATE to PUBLIC.
  *
+ * @description 将镜像的可见性从 PRIVATE 改为 PUBLIC。
+ * - 仅支持对可见性为 PRIVATE 的镜像调用；已是 PUBLIC 的镜像无需再次发布，直接调用会返回 400 错误。
+ * - 若当前工作空间没有 PRIVATE 镜像，请先调用 AddImage 添加自定义镜像（Accessibility 设为 PRIVATE），再使用其返回的 ImageId 调用本接口。
+ *
  * @param request PublishImageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6088,6 +6109,10 @@ PublishImageResponse Client::publishImageWithOptions(const string &ImageId, cons
 /**
  * @summary Publishes an image and changes its visibility from PRIVATE to PUBLIC.
  *
+ * @description 将镜像的可见性从 PRIVATE 改为 PUBLIC。
+ * - 仅支持对可见性为 PRIVATE 的镜像调用；已是 PUBLIC 的镜像无需再次发布，直接调用会返回 400 错误。
+ * - 若当前工作空间没有 PRIVATE 镜像，请先调用 AddImage 添加自定义镜像（Accessibility 设为 PRIVATE），再使用其返回的 ImageId 调用本接口。
+ *
  * @param request PublishImageRequest
  * @return PublishImageResponse
  */
@@ -6099,6 +6124,10 @@ PublishImageResponse Client::publishImage(const string &ImageId, const PublishIm
 
 /**
  * @summary Deletes an image.
+ *
+ * @description 删除镜像。
+ * - 仅支持删除用户自建（自定义）镜像，传入官方镜像会返回错误码 201200013。
+ * - 若账号下尚无自建镜像，需先调用 AddImage 创建自定义镜像，再使用其返回的 ImageId 调用本接口。
  *
  * @param request RemoveImageRequest
  * @param headers map
@@ -6126,6 +6155,10 @@ RemoveImageResponse Client::removeImageWithOptions(const string &ImageId, const 
 
 /**
  * @summary Deletes an image.
+ *
+ * @description 删除镜像。
+ * - 仅支持删除用户自建（自定义）镜像，传入官方镜像会返回错误码 201200013。
+ * - 若账号下尚无自建镜像，需先调用 AddImage 创建自定义镜像，再使用其返回的 ImageId 调用本接口。
  *
  * @param request RemoveImageRequest
  * @return RemoveImageResponse
@@ -6176,7 +6209,7 @@ RemoveImageLabelsResponse Client::removeImageLabels(const string &ImageId, const
 }
 
 /**
- * @summary Removes a role from a member.
+ * @summary Deletes a member role.
  *
  * @param request RemoveMemberRoleRequest
  * @param headers map
@@ -6203,7 +6236,7 @@ RemoveMemberRoleResponse Client::removeMemberRoleWithOptions(const string &Works
 }
 
 /**
- * @summary Removes a role from a member.
+ * @summary Deletes a member role.
  *
  * @param request RemoveMemberRoleRequest
  * @return RemoveMemberRoleResponse
@@ -6354,7 +6387,7 @@ StopDatasetJobResponse Client::stopDatasetJob(const string &DatasetId, const str
 }
 
 /**
- * @summary Updates a code source configuration.
+ * @summary Updates the code configuration.
  *
  * @param request UpdateCodeSourceRequest
  * @param headers map
@@ -6419,7 +6452,7 @@ UpdateCodeSourceResponse Client::updateCodeSourceWithOptions(const string &CodeS
 }
 
 /**
- * @summary Updates a code source configuration.
+ * @summary Updates the code configuration.
  *
  * @param request UpdateCodeSourceRequest
  * @return UpdateCodeSourceResponse
@@ -6533,7 +6566,7 @@ UpdateConfigsResponse Client::updateConfigs(const string &WorkspaceId, const Upd
 }
 
 /**
- * @summary Updates a connection configuration.
+ * @summary Updates the connection configuration.
  *
  * @param request UpdateConnectionRequest
  * @param headers map
@@ -6578,7 +6611,7 @@ UpdateConnectionResponse Client::updateConnectionWithOptions(const string &Conne
 }
 
 /**
- * @summary Updates a connection configuration.
+ * @summary Updates the connection configuration.
  *
  * @param request UpdateConnectionRequest
  * @return UpdateConnectionResponse
@@ -6663,7 +6696,7 @@ UpdateDatasetResponse Client::updateDataset(const string &DatasetId, const Updat
 }
 
 /**
- * @summary Updates multiple file metadata records in a dataset.
+ * @summary Updates the file metadata records of a dataset in batches.
  *
  * @param request UpdateDatasetFileMetasRequest
  * @param headers map
@@ -6708,7 +6741,7 @@ UpdateDatasetFileMetasResponse Client::updateDatasetFileMetasWithOptions(const s
 }
 
 /**
- * @summary Updates multiple file metadata records in a dataset.
+ * @summary Updates the file metadata records of a dataset in batches.
  *
  * @param request UpdateDatasetFileMetasRequest
  * @return UpdateDatasetFileMetasResponse
@@ -6895,7 +6928,7 @@ UpdateDatasetVersionResponse Client::updateDatasetVersion(const string &DatasetI
 }
 
 /**
- * @summary Sets a workspace as the default.
+ * @summary Sets a workspace as the default workspace.
  *
  * @param request UpdateDefaultWorkspaceRequest
  * @param headers map
@@ -6928,7 +6961,7 @@ UpdateDefaultWorkspaceResponse Client::updateDefaultWorkspaceWithOptions(const U
 }
 
 /**
- * @summary Sets a workspace as the default.
+ * @summary Sets a workspace as the default workspace.
  *
  * @param request UpdateDefaultWorkspaceRequest
  * @return UpdateDefaultWorkspaceResponse
@@ -7163,9 +7196,9 @@ UpdateModelVersionResponse Client::updateModelVersion(const string &ModelId, con
 }
 
 /**
- * @summary Updates the prompt of a dataset.
+ * @summary Update a prompt
  *
- * @description ## Request description.
+ * @description ## Request description
  *
  * @param request UpdatePromptRequest
  * @param headers map
@@ -7210,9 +7243,9 @@ UpdatePromptResponse Client::updatePromptWithOptions(const string &PromptId, con
 }
 
 /**
- * @summary Updates the prompt of a dataset.
+ * @summary Update a prompt
  *
- * @description ## Request description.
+ * @description ## Request description
  *
  * @param request UpdatePromptRequest
  * @return UpdatePromptResponse
@@ -7326,7 +7359,7 @@ UpdateWorkspaceResponse Client::updateWorkspace(const string &WorkspaceId, const
 }
 
 /**
- * @summary Updates resources in a workspace.
+ * @summary Updates the resources of a workspace.
  *
  * @param request UpdateWorkspaceResourceRequest
  * @param headers map
@@ -7383,7 +7416,7 @@ UpdateWorkspaceResourceResponse Client::updateWorkspaceResourceWithOptions(const
 }
 
 /**
- * @summary Updates resources in a workspace.
+ * @summary Updates the resources of a workspace.
  *
  * @param request UpdateWorkspaceResourceRequest
  * @return UpdateWorkspaceResourceResponse
@@ -7395,7 +7428,7 @@ UpdateWorkspaceResourceResponse Client::updateWorkspaceResource(const string &Wo
 }
 
 /**
- * @summary Updates a role in a workspace.
+ * @summary Updates the workspace role.
  *
  * @param request UpdateWorkspaceRoleRequest
  * @param headers map
@@ -7432,7 +7465,7 @@ UpdateWorkspaceRoleResponse Client::updateWorkspaceRoleWithOptions(const string 
 }
 
 /**
- * @summary Updates a role in a workspace.
+ * @summary Updates the workspace role.
  *
  * @param request UpdateWorkspaceRoleRequest
  * @return UpdateWorkspaceRoleResponse

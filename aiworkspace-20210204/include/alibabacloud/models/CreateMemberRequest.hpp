@@ -74,7 +74,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<vector<string>> roles_ {};
-      // The member IDs. Use commas (,) to separate multiple IDs. For more information, see [ListMembers](https://help.aliyun.com/document_detail/449135.html).
+      // The list of member IDs. Separate multiple member IDs with commas (,). For information about how to obtain a member ID, see [ListMembers](https://help.aliyun.com/document_detail/449135.html).
       // 
       // This parameter is required.
       shared_ptr<string> userId_ {};

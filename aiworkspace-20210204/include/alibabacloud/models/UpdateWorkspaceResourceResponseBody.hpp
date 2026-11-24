@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of IDs for the resources that were updated.
+    // The collection of resource IDs updated in this request.
     shared_ptr<vector<string>> resourceIds_ {};
   };
 
