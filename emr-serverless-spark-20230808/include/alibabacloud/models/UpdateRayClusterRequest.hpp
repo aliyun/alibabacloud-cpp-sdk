@@ -191,22 +191,23 @@ namespace Models
     protected:
       // The number of CPU cores.
       shared_ptr<string> cpu_ {};
-      // The DPI engine version.
+      // The database engine version of the DPI engine.
       shared_ptr<string> displayReleaseVersion_ {};
       // The Ray environment variables.
       shared_ptr<string> env_ {};
+      // The GPU driver version.
       shared_ptr<string> gpuDriverVersion_ {};
       // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
-      // The worker group name.
+      // The name of the worker group.
       shared_ptr<string> groupName_ {};
       // The maximum number of workers. Minimum value: 1.
       shared_ptr<int32_t> maxReplica_ {};
-      // The memory size. Unit: GiB.
+      // The memory size. Unit: Gi.
       shared_ptr<string> memory_ {};
       // The minimum number of workers. Minimum value: 1. The value must be less than or equal to the value of maxReplica.
       shared_ptr<int32_t> minReplica_ {};
-      // The queue name.
+      // The name of the queue.
       shared_ptr<string> queueName_ {};
       // The Ray startup parameters.
       shared_ptr<string> rayStartParams_ {};
@@ -306,7 +307,7 @@ namespace Models
       protected:
         // The Redis password.
         shared_ptr<string> redisPassword_ {};
-        // The Redis address.
+        // The Redis endpoint.
         shared_ptr<string> redisUrl_ {};
         // The Redis username.
         shared_ptr<string> redisUsername_ {};
@@ -405,7 +406,7 @@ namespace Models
     protected:
       // The number of CPU cores.
       shared_ptr<string> cpu_ {};
-      // The Ray DPI engine version.
+      // The database engine version of the Ray DPI engine.
       shared_ptr<string> displayReleaseVersion_ {};
       // Specifies whether to enable auto scaling.
       shared_ptr<bool> enableAutoScaling_ {};
@@ -415,14 +416,15 @@ namespace Models
       shared_ptr<HeadSpec::GftConfig> gftConfig_ {};
       // Specifies whether to enable GCS fault tolerance.
       shared_ptr<bool> gftEnabled_ {};
+      // The GPU driver version.
       shared_ptr<string> gpuDriverVersion_ {};
       // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
       // The idle timeout period for workers after auto scaling is enabled.
       shared_ptr<int32_t> idleTimeoutSeconds_ {};
-      // The memory size. Unit: GiB.
+      // The memory size. Unit: Gi.
       shared_ptr<string> memory_ {};
-      // The queue name.
+      // The name of the queue.
       shared_ptr<string> queueName_ {};
       // The Ray startup parameters.
       shared_ptr<string> rayStartParams_ {};
@@ -517,22 +519,25 @@ namespace Models
   protected:
     // The description.
     shared_ptr<string> description_ {};
-    // The Ray DPI engine version.
+    // The database engine version of the Ray DPI engine.
     shared_ptr<string> displayReleaseVersion_ {};
+    // Specifies whether to upload metrics.
     shared_ptr<bool> enableMetricsUpload_ {};
     // The extra parameters. The value must be in JSON format.
     shared_ptr<string> extraParam_ {};
-    // The head node information for the Ray cluster.
+    // The head node information of the Ray cluster.
     shared_ptr<UpdateRayClusterRequest::HeadSpec> headSpec_ {};
     // The name of the Ray cluster. The name must be 1 to 64 characters in length.
     shared_ptr<string> name_ {};
-    // The network connection name.
+    // The name of the network connectivity.
     shared_ptr<string> networkServiceName_ {};
+    // The SLS Logstore used to upload metrics.
     shared_ptr<string> slsLogStore_ {};
+    // The Simple Log Service (SLS) project used to upload metrics.
     shared_ptr<string> slsProject_ {};
-    // The list of managed directory IDs to mount.
+    // The IDs of the managed directories to mount.
     shared_ptr<vector<string>> volumeIds_ {};
-    // The worker node information for the Ray cluster. A maximum of 50 worker groups are supported.
+    // The worker node information of the Ray cluster. A maximum of 50 worker groups are supported.
     shared_ptr<vector<UpdateRayClusterRequest::WorkerSpec>> workerSpec_ {};
   };
 

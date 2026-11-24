@@ -255,6 +255,24 @@ namespace EmrServerlessSpark20230808
       Models::CreateRayClusterResponse createRayCluster(const string &workspaceId, const Models::CreateRayClusterRequest &request);
 
       /**
+       * @summary Creates a ciphertext.
+       *
+       * @param request CreateSecretValueRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSecretValueResponse
+       */
+      Models::CreateSecretValueResponse createSecretValueWithOptions(const string &workspaceId, const Models::CreateSecretValueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a ciphertext.
+       *
+       * @param request CreateSecretValueRequest
+       * @return CreateSecretValueResponse
+       */
+      Models::CreateSecretValueResponse createSecretValue(const string &workspaceId, const Models::CreateSecretValueRequest &request);
+
+      /**
        * @summary Creates a session.
        *
        * @param request CreateSessionClusterRequest
@@ -411,6 +429,24 @@ namespace EmrServerlessSpark20230808
        * @return DeleteRayClusterResponse
        */
       Models::DeleteRayClusterResponse deleteRayCluster(const string &workspaceId, const string &clusterId);
+
+      /**
+       * @summary Deletes a ciphertext.
+       *
+       * @param request DeleteSecretValueRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSecretValueResponse
+       */
+      Models::DeleteSecretValueResponse deleteSecretValueWithOptions(const string &workspaceId, const string &secretId, const Models::DeleteSecretValueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a ciphertext.
+       *
+       * @param request DeleteSecretValueRequest
+       * @return DeleteSecretValueResponse
+       */
+      Models::DeleteSecretValueResponse deleteSecretValue(const string &workspaceId, const string &secretId, const Models::DeleteSecretValueRequest &request);
 
       /**
        * @summary Deletes a workspace queue.
@@ -1127,6 +1163,24 @@ namespace EmrServerlessSpark20230808
        * @return ListReleaseVersionsResponse
        */
       Models::ListReleaseVersionsResponse listReleaseVersions(const Models::ListReleaseVersionsRequest &request);
+
+      /**
+       * @summary Lists secrets.
+       *
+       * @param request ListSecretValueRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSecretValueResponse
+       */
+      Models::ListSecretValueResponse listSecretValueWithOptions(const string &workspaceId, const Models::ListSecretValueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists secrets.
+       *
+       * @param request ListSecretValueRequest
+       * @return ListSecretValueResponse
+       */
+      Models::ListSecretValueResponse listSecretValue(const string &workspaceId, const Models::ListSecretValueRequest &request);
 
       /**
        * @summary Retrieves a list of sessions.

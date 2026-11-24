@@ -182,6 +182,7 @@ namespace Models
     shared_ptr<vector<string>> environments_ {};
     // The list of GPU instance types.
     shared_ptr<vector<string>> gpuSpec_ {};
+    // The ID of the subscription GPU quota instance.
     shared_ptr<string> instanceId_ {};
     // The resource specifications.
     shared_ptr<EditWorkspaceQueueRequest::ResourceSpec> resourceSpec_ {};

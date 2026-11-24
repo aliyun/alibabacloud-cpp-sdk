@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The CU hours consumed by the specified queue during the query period. This value is an estimate and the final value is subject to the bill.
+      // The CU hours consumed by the queried queue during the query period. This value is an estimate, and the final amount is subject to the bill.
       shared_ptr<string> cuHours_ {};
     };
 

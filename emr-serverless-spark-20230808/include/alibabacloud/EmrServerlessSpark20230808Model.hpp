@@ -65,6 +65,9 @@
 #include <alibabacloud/models/CreateRayClusterRequest.hpp>
 #include <alibabacloud/models/CreateRayClusterResponseBody.hpp>
 #include <alibabacloud/models/CreateRayClusterResponse.hpp>
+#include <alibabacloud/models/CreateSecretValueRequest.hpp>
+#include <alibabacloud/models/CreateSecretValueResponseBody.hpp>
+#include <alibabacloud/models/CreateSecretValueResponse.hpp>
 #include <alibabacloud/models/CreateSessionClusterRequest.hpp>
 #include <alibabacloud/models/CreateSessionClusterResponseBody.hpp>
 #include <alibabacloud/models/CreateSessionClusterResponse.hpp>
@@ -90,6 +93,9 @@
 #include <alibabacloud/models/DeleteLivyComputeTokenResponse.hpp>
 #include <alibabacloud/models/DeleteRayClusterResponseBody.hpp>
 #include <alibabacloud/models/DeleteRayClusterResponse.hpp>
+#include <alibabacloud/models/DeleteSecretValueRequest.hpp>
+#include <alibabacloud/models/DeleteSecretValueResponseBody.hpp>
+#include <alibabacloud/models/DeleteSecretValueResponse.hpp>
 #include <alibabacloud/models/DeleteWorkspaceQueueRequest.hpp>
 #include <alibabacloud/models/DeleteWorkspaceQueueResponseBody.hpp>
 #include <alibabacloud/models/DeleteWorkspaceQueueResponse.hpp>
@@ -211,6 +217,9 @@
 #include <alibabacloud/models/ListReleaseVersionsRequest.hpp>
 #include <alibabacloud/models/ListReleaseVersionsResponseBody.hpp>
 #include <alibabacloud/models/ListReleaseVersionsResponse.hpp>
+#include <alibabacloud/models/ListSecretValueRequest.hpp>
+#include <alibabacloud/models/ListSecretValueResponseBody.hpp>
+#include <alibabacloud/models/ListSecretValueResponse.hpp>
 #include <alibabacloud/models/ListSessionClustersRequest.hpp>
 #include <alibabacloud/models/ListSessionClustersResponseBody.hpp>
 #include <alibabacloud/models/ListSessionClustersResponse.hpp>

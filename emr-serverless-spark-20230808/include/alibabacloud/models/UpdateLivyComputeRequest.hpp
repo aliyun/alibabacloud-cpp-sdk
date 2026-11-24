@@ -99,7 +99,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to allow automatic stopping.
+      // Specifies whether to allow automatic stopping. Valid values:
       // - true: Yes.
       // - false: No.
       shared_ptr<bool> enable_ {};
@@ -135,7 +135,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to automatically start the gateway after creation.
+      // Specifies whether to automatically start the gateway after creation. Valid values:
       // - true: Yes.
       // - false: No.
       shared_ptr<bool> enable_ {};
@@ -276,12 +276,12 @@ namespace Models
     shared_ptr<UpdateLivyComputeRequest::AutoStartConfiguration> autoStartConfiguration_ {};
     // The auto-stop configuration.
     shared_ptr<UpdateLivyComputeRequest::AutoStopConfiguration> autoStopConfiguration_ {};
-    // The number of CPU cores for the Livy server.
+    // The number of CPU cores for the Livy server. Valid values:
     // - 1
     // - 2
     // - 4
     shared_ptr<string> cpuLimit_ {};
-    // The Spark DPI engine database engine version number.
+    // The Spark DPI engine version number.
     shared_ptr<string> displayReleaseVersion_ {};
     // The status of the public endpoint switch.
     shared_ptr<bool> enablePublic_ {};
@@ -289,6 +289,7 @@ namespace Models
     shared_ptr<string> environmentId_ {};
     // Specifies whether to enable Fusion engine acceleration.
     shared_ptr<bool> fusion_ {};
+    // The Livy DPI engine version. This is a new parameter used to replace livyVersion.
     shared_ptr<string> livyReleaseVersion_ {};
     // The Livy gateway configuration in JSON format. The following files are supported:
     // 
@@ -299,18 +300,18 @@ namespace Models
     shared_ptr<string> livyServerConf_ {};
     // The Livy version.
     shared_ptr<string> livyVersion_ {};
-    // The memory size of the Livy server.
+    // The memory size of the Livy server. Valid values:
     // - 4Gi
     // - 8Gi
     // - 16Gi
     shared_ptr<string> memoryLimit_ {};
     // The name.
     shared_ptr<string> name_ {};
-    // The network connectivity name.
+    // The network connection name.
     shared_ptr<string> networkName_ {};
     // The queue name.
     shared_ptr<string> queueName_ {};
-    // **[Deprecated]** The Spark DPI engine database engine version number. Use displayReleaseVersion instead.
+    // **[Deprecated]** The Spark DPI engine version number. Use displayReleaseVersion instead.
     shared_ptr<string> releaseVersion_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

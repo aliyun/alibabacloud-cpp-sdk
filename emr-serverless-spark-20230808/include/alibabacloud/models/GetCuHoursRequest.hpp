@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The end time of the query time range.
+    // The end time of the query range.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The start time of the query time range.
+    // The start time of the query range.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

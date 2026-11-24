@@ -923,6 +923,59 @@ CreateRayClusterResponse Client::createRayCluster(const string &workspaceId, con
 }
 
 /**
+ * @summary Creates a ciphertext.
+ *
+ * @param request CreateSecretValueRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSecretValueResponse
+ */
+CreateSecretValueResponse Client::createSecretValueWithOptions(const string &workspaceId, const CreateSecretValueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasComment()) {
+    body["comment"] = request.getComment();
+  }
+
+  if (!!request.hasContent()) {
+    body["content"] = request.getContent();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSecretValue"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/secret")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSecretValueResponse>();
+}
+
+/**
+ * @summary Creates a ciphertext.
+ *
+ * @param request CreateSecretValueRequest
+ * @return CreateSecretValueResponse
+ */
+CreateSecretValueResponse Client::createSecretValue(const string &workspaceId, const CreateSecretValueRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createSecretValueWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Creates a session.
  *
  * @param request CreateSessionClusterRequest
@@ -1499,6 +1552,45 @@ DeleteRayClusterResponse Client::deleteRayCluster(const string &workspaceId, con
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteRayClusterWithOptions(workspaceId, clusterId, headers, runtime);
+}
+
+/**
+ * @summary Deletes a ciphertext.
+ *
+ * @param request DeleteSecretValueRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSecretValueResponse
+ */
+DeleteSecretValueResponse Client::deleteSecretValueWithOptions(const string &workspaceId, const string &secretId, const DeleteSecretValueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSecretValue"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/secret/" , Darabonba::Encode::Encoder::percentEncode(secretId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSecretValueResponse>();
+}
+
+/**
+ * @summary Deletes a ciphertext.
+ *
+ * @param request DeleteSecretValueRequest
+ * @return DeleteSecretValueResponse
+ */
+DeleteSecretValueResponse Client::deleteSecretValue(const string &workspaceId, const string &secretId, const DeleteSecretValueRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteSecretValueWithOptions(workspaceId, secretId, request, headers, runtime);
 }
 
 /**
@@ -3619,6 +3711,45 @@ ListReleaseVersionsResponse Client::listReleaseVersions(const ListReleaseVersion
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listReleaseVersionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Lists secrets.
+ *
+ * @param request ListSecretValueRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSecretValueResponse
+ */
+ListSecretValueResponse Client::listSecretValueWithOptions(const string &workspaceId, const ListSecretValueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSecretValue"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/secret")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSecretValueResponse>();
+}
+
+/**
+ * @summary Lists secrets.
+ *
+ * @param request ListSecretValueRequest
+ * @return ListSecretValueResponse
+ */
+ListSecretValueResponse Client::listSecretValue(const string &workspaceId, const ListSecretValueRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSecretValueWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**
