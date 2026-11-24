@@ -130,35 +130,31 @@ namespace Models
 
 
   protected:
-    // The cluster ID. Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in the destination region, including cluster IDs.
+    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query all clusters in the specified region, including cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. The format is \\`yyyy-MM-dd hh:mm:ss\\`. The time is in UTC.
-    // 
-    // > The end time must be later than the start time. The interval between the start time and the end time cannot exceed 7 days.
+    // The end time of the query. Format: yyyy-MM-dd hh:mm:ss (UTC).
+    // >The end time must be later than the start time, and the interval between the start time and the end time must be less than 7 days.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be a positive integer. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
-    // 
-    // - **30** (Default)
-    // 
+    // The number of entries per page. Valid values:
+    // - **30** (default)
     // - **50**
-    // 
     // - **100**
     shared_ptr<int32_t> pageSize_ {};
-    // The minimum query duration, in milliseconds. The minimum value is **1000**. The default value is **1000**. The response returns information about queries that take longer than the specified duration.
+    // The minimum query duration. Minimum value: **1000**. Default value: **1000**. Unit: milliseconds. The response includes queries that exceed this duration.
     shared_ptr<int32_t> queryDurationMs_ {};
-    // The region ID. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. The format is \\`yyyy-MM-dd hh:mm:ss\\`. The time is in UTC.
+    // The start time of the query. Format: yyyy-MM-dd hh:mm:ss (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

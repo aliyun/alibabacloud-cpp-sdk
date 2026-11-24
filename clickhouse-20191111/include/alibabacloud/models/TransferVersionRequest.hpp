@@ -180,21 +180,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The time windows during which writes are disabled.
+    // The write suspension window.
     shared_ptr<string> disableWriteWindows_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
+    // The number of entries per page. Valid values:
     // 
-    // - **30** (Default)
-    // 
+    // - **30** (default)
     // - **50**
-    // 
     // - **100**
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent list of regions.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -204,14 +202,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sourceAccount_ {};
-    // The name of the self-managed ClickHouse cluster.
-    // To obtain the name, execute `SELECT * FROM system.clusters`.
+    // The cluster name of the self-managed ClickHouse cluster. You can execute the `SELECT * FROM system.clusters` statement to obtain the cluster name.
     shared_ptr<string> sourceClusterName_ {};
     // The password of the source account.
     // 
     // This parameter is required.
     shared_ptr<string> sourcePassword_ {};
-    // The addresses and TCP ports of the shards in the self-managed ClickHouse cluster.
+    // The address and TCP port information of the self-managed ClickHouse cluster.
     shared_ptr<string> sourceShards_ {};
     // The destination account.
     // 

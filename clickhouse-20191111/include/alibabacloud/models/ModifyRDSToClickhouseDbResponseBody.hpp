@@ -68,16 +68,14 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<int64_t> errorCode_ {};
-    // - This parameter is not returned if **Status** is **1**.
-    // 
-    // - If **Status** is **0**, this parameter indicates the reason why the modification failed.
+    // - This parameter is not returned when **Status** is **1**.
+    // - When **Status** is **0**, this parameter indicates the cause of the modification failure.
     shared_ptr<string> errorMsg_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the modification was successful. Valid values:
     // 
     // - **1**: The modification was successful.
-    // 
     // - **0**: The modification failed.
     shared_ptr<int64_t> status_ {};
   };

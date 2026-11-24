@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
-    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in the specified region, including cluster IDs.
+    // The ID of the cluster. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query all clusters in a specified region and obtain the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

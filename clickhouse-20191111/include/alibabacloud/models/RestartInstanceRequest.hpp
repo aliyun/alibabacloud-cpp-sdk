@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The cluster ID. Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in the destination region, including cluster IDs.
+    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query all clusters in the specified region, including cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
@@ -121,22 +121,18 @@ namespace Models
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // 
     // - 30 (default)
-    // 
     // - 50
-    // 
     // - 100
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query available region IDs.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The scheduled restart time. The time must be in the yyyy-MM-ddTHH:mmZ format and in UTC.
-    // 
-    // > If this parameter is empty or specifies a time earlier than the current time, the cluster is restarted immediately.
+    // The scheduled restart time. Format: yyyy-MM-ddTHH:mmZ (UTC).
+    // >If this parameter is left empty or set to a time earlier than the current time, the cluster restarts immediately.
     shared_ptr<string> restartTime_ {};
   };
 

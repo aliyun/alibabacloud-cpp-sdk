@@ -103,22 +103,21 @@ namespace Models
 
 
   protected:
-    // The O\\&M task IDs. Separate multiple IDs with commas (,).
+    // The IDs of the O&M tasks. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> ids_ {};
-    // Specifies whether to immediately execute the O\\&M task. Valid values:
+    // Specifies whether to immediately execute the O&M tasks. Valid values:
     // 
-    // - **1**: Execute immediately.
-    // 
-    // - **0**: Execute at the specified time.
+    // - **1**: Executes the tasks immediately.
+    // - **0**: Executes the tasks at the specified time.
     shared_ptr<int32_t> immediateStart_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The time to initiate the switch operation. The time is in UTC and the format is YYYY-MM-DDTHH:mm:ssZ.
+    // The time when the backend initiates the switchover operation. The time is in UTC and follows the YYYY-MM-DDTHH:mm:ssZ format.
     // 
     // This parameter is required.
     shared_ptr<string> switchTime_ {};

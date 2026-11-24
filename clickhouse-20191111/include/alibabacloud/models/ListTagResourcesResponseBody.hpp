@@ -90,19 +90,15 @@ namespace Models
 
 
     protected:
-      // <props="china">
+      // <props="china">The ID of the Community-Compatible Edition cluster.
       // 
-      // The cluster ID.
-      // 
-      // 
-      // 
-      // <props="intl">
+      // <props="intl">The cluster ID.
       shared_ptr<string> resourceId_ {};
-      // The resource type. The value is **DBCLUSTER**.
+      // The resource type. Valid value: **DBCLUSTER**.
       shared_ptr<string> resourceType_ {};
       // The tag key.
       shared_ptr<string> tagKey_ {};
-      // The value of the tag.
+      // The tag value corresponding to the tag key.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -132,11 +128,11 @@ namespace Models
 
 
   protected:
-    // The token that is used to retrieve the next page of results. This parameter is returned only if the results are not fully returned in the current request. You can use this token in a subsequent request to retrieve the next page of results.
+    // The token used to return more results. If not all results are returned in the current query, you can pass the NextToken value returned in the previous response to continue the query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Information about the clusters and their tags.
+    // The information about the queried clusters and tags.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

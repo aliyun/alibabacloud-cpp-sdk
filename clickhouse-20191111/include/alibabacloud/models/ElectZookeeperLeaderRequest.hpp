@@ -125,25 +125,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to disable writes.
+    // Specifies whether to disable write operations.
     shared_ptr<bool> disableWrite_ {};
-    // The time to perform the leader switchover.
+    // The time when the primary switchover is performed. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> electTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
-    // 
-    // - **30** (Default)
-    // 
+    // The number of entries per page. Valid values:
+    // - **30** (default)
     // - **50**
-    // 
     // - **100**
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID.
-    // 
-    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

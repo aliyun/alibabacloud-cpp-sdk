@@ -153,11 +153,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The list of databases to authorize. Separate multiple database names with commas (,).
+    // The databases to which you want to grant permissions. Separate multiple databases with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> allowDatabases_ {};
-    // The list of dictionaries to authorize. Separate multiple dictionary names with commas (,).
+    // The dictionaries to which you want to grant permissions. Separate multiple dictionaries with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> allowDictionaries_ {};
@@ -165,31 +165,29 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to grant DDL permissions to the database account. Valid values:
+    // Specifies whether to grant Data Definition Language (DDL) permissions to the database account. Valid values:
     // 
-    // - **true**: Allows DDL operations.
-    // 
-    // - **false**: Denies DDL operations.
+    // - **true**: allows DDL operations.
+    // - **false**: prohibits DDL operations.
     // 
     // This parameter is required.
     shared_ptr<bool> ddlAuthority_ {};
-    // The DML permissions granted to the database account. Valid values:
+    // Specifies whether to grant Data Manipulation Language (DML) permissions to the database account. Valid values:
     // 
-    // - **all**: Grants read, write, and modify permissions.
-    // 
-    // - **readonly,modify**: Grants read and modify permissions.
+    // - **all**: read, write, and settings permissions.
+    // - **readonly,modify**: read and settings permissions.
     // 
     // This parameter is required.
     shared_ptr<string> dmlAuthority_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // All databases in the cluster. Separate multiple database names with commas (,).
+    // The list of all databases. Separate multiple databases with commas (,).
     shared_ptr<string> totalDatabases_ {};
-    // All dictionaries in the cluster. Separate multiple dictionary names with commas (,).
+    // The list of all dictionaries. Separate multiple dictionaries with commas (,).
     shared_ptr<string> totalDictionaries_ {};
   };
 

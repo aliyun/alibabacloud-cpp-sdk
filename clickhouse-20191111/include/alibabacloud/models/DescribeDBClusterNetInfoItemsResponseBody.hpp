@@ -217,11 +217,9 @@ namespace Models
   protected:
     // The network type. Only VPC is supported.
     shared_ptr<string> clusterNetworkType_ {};
-    // Indicates whether Server Load Balancer (SLB) is enabled in the VPC. Valid values:
-    // 
-    // - true: enabled.
-    // 
-    // - false: disabled.
+    // Indicates whether SLB is enabled in the VPC. Valid values:
+    // - true: Enabled.
+    // - false: Disabled.
     // 
     // This parameter is required.
     shared_ptr<bool> enableSLB_ {};

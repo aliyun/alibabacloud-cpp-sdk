@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The prefix of the public endpoint. The value is the cluster ID.
+    // The prefix of the endpoint used to connect to the database. The value is fixed as the cluster ID.
     shared_ptr<string> connectionStringPrefix_ {};
     // The cluster ID.
     // 

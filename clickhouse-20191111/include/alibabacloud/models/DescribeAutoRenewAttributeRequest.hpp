@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The cluster IDs.
     shared_ptr<string> DBClusterIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

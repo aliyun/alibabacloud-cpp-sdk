@@ -57,17 +57,15 @@ namespace Models
 
 
   protected:
-    // - This parameter is returned only if the connection fails (**Status** is **false**).
-    // 
-    // - It indicates the reason for the connection failure.
+    // - This parameter is not returned when **Status** is **true**.
+    // - When **Status** is **false**, this parameter indicates the cause of the connection failure.
     shared_ptr<string> errorCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether a connection can be established. Valid values:
+    // Indicates whether the connection is successful. Valid values:
     // 
-    // - **true**: A connection can be established.
-    // 
-    // - **false**: A connection cannot be established.
+    // - **true**: The connection is successful.
+    // - **false**: The connection fails.
     shared_ptr<bool> status_ {};
   };
 

@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The cluster ID. Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query the information about all clusters in a specific region, including cluster IDs.
+    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query all clusters in a specific region, including their cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. Use the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
+    // The end time of the query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The start of the time range to query. Use the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
+    // The start time of the query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

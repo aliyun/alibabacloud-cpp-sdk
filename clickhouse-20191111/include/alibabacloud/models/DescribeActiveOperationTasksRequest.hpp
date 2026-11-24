@@ -177,24 +177,17 @@ namespace Models
 
   protected:
     // Specifies whether the task can be canceled. Valid values:
-    // 
-    // - **0**: The task cannot be canceled.
-    // 
-    // - **1**: The task can be canceled.
+    // - **0**: not allowed.
+    // - **1**: allowed.
     shared_ptr<int32_t> allowCancel_ {};
-    // Specifies whether the time can be changed. Valid values:
-    // 
-    // - **0**: The time cannot be changed.
-    // 
-    // - **1**: The time can be changed.
+    // Specifies whether the execution time can be modified. Valid values:
+    // - **0**: not allowed.
+    // - **1**: allowed.
     shared_ptr<int32_t> allowChange_ {};
     // The task level. Valid values:
-    // 
-    // - **all** (Default): All levels.
-    // 
-    // - **S0**: Returns tasks for fixing exceptions.
-    // 
-    // - **S1**: Returns tasks for system O\\&M.
+    // - **all** (default): all levels.
+    // - **S0**: exception fix tasks.
+    // - **S1**: system O&M tasks.
     shared_ptr<string> changeLevel_ {};
     // The database type.
     shared_ptr<string> dbType_ {};
@@ -204,40 +197,29 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
-    // 
-    // - **30** (Default)
-    // 
+    // The number of entries per page. Valid values:
+    // - **30** (default)
     // - **50**
-    // 
     // - **100**
     shared_ptr<int32_t> pageSize_ {};
     // The product ID.
     shared_ptr<string> productId_ {};
-    // The region ID.
+    // The region.
     shared_ptr<string> region_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The task status. This parameter is used to filter tasks.
-    // 
-    // - **-1:** All tasks.
-    // 
-    // - **3:** Tasks to be processed.
-    // 
-    // - **4:** Tasks in progress.
-    // 
-    // - **5:** Successfully completed tasks.
-    // 
-    // - **6:** Failed tasks.
-    // 
-    // - **7:** Canceled tasks.
+    // The task status, which is used to filter returned tasks. Valid values:
+    // - **-1**: all tasks.
+    // - **3**: pending tasks.
+    // - **4**: in-progress tasks.
+    // - **5**: successfully completed tasks.
+    // - **6**: failed tasks.
+    // - **7**: canceled tasks.
     shared_ptr<int32_t> status_ {};
     // The task type. Valid values:
-    // 
-    // - **rds_apsaradb_upgrade**: Minor version upgrade.
-    // 
-    // - **all**: All task types.
+    // - **rds_apsaradb_upgrade**: minor version update.
+    // - **all**: all task types.
     shared_ptr<string> taskType_ {};
   };
 

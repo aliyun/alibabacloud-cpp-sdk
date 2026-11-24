@@ -68,16 +68,14 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<int64_t> errorCode_ {};
-    // - This parameter is not returned if **Status** is **true**.
-    // 
-    // - If **Status** is **false**, this parameter indicates the reason for the failure.
+    // - If **Status** is **true**, this parameter is not returned.
+    // - If **Status** is **false**, this parameter indicates the cause of the deletion failure.
     shared_ptr<string> errorMsg_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the deletion was successful. Valid values:
     // 
     // - **true**: The deletion was successful.
-    // 
     // - **false**: The deletion failed.
     shared_ptr<bool> status_ {};
   };

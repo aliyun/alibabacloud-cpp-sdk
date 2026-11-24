@@ -181,11 +181,11 @@ namespace Models
 
 
       protected:
-        // The size of the scanned data, in bytes.
+        // The size of the scanned data. Unit: bytes.
         shared_ptr<int32_t> bytesRead_ {};
-        // The elapsed time.
+        // The average response time. Unit: milliseconds.
         shared_ptr<float> elapsedTime_ {};
-        // The number of rows scanned.
+        // The number of scanned data rows.
         shared_ptr<int32_t> rowsRead_ {};
       };
 
@@ -349,11 +349,11 @@ namespace Models
 
     protected:
       shared_ptr<ProcessList::Data> data_ {};
-      // The number of rows returned for the query.
+      // The number of data rows returned by the query.
       shared_ptr<string> rows_ {};
-      // The page size in rows.
+      // The page size.
       shared_ptr<string> rowsBeforeLimitAtLeast_ {};
-      // The statistics of the query result.
+      // The statistics information of the query results.
       shared_ptr<ProcessList::Statistics> statistics_ {};
       shared_ptr<ProcessList::TableSchema> tableSchema_ {};
     };
@@ -377,7 +377,7 @@ namespace Models
 
 
   protected:
-    // The list of tasks.
+    // The process list.
     shared_ptr<DescribeProcessListResponseBody::ProcessList> processList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

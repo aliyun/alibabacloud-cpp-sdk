@@ -113,38 +113,27 @@ namespace Models
 
   protected:
     // The description of the database account.
-    // 
-    // - It cannot start with http\\:// or https\\://.
-    // 
-    // - It can be 0 to 256 characters in length.
+    // - The description cannot start with http:// or https://.
+    // - The description must be 0 to 256 characters in length.
     shared_ptr<string> accountDescription_ {};
     // The name of the database account.
-    // 
     // - The name must be unique.
-    // 
-    // - It must consist of lowercase letters, digits, or underscores (_).
-    // 
-    // - It must start with a lowercase letter and end with a lowercase letter or a digit.
-    // 
-    // - It must be 2 to 64 characters in length.
+    // - The name can contain lowercase letters, digits, and underscores (_).
+    // - The name must start with a lowercase letter and end with a lowercase letter or a digit.
+    // - The name must be 2 to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The password for the database account.
-    // 
-    // - It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-    // 
-    // - The following characters are special characters: !@#$%^&\\*()_+-=
-    // 
-    // - It must be 8 to 32 characters in length.
+    // The password of the database account.
+    // - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+    // - Special characters include !@#$%^&*()_+-=.
+    // - The password must be 8 to 32 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
     // The type of the database account. Valid values:
-    // 
-    // - **Super**: a privileged account.
-    // 
-    // - **Normal**: a standard account.
+    // - **Super**: privileged account
+    // - **Normal**: standard account
     // 
     // This parameter is required.
     shared_ptr<string> accountType_ {};

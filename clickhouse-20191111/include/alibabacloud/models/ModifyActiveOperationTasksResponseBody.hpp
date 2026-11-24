@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The O\\&M event IDs. Multiple IDs are separated by commas (,).
+    // The IDs of the O&M events. Separate multiple IDs with commas (,).
     shared_ptr<string> ids_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

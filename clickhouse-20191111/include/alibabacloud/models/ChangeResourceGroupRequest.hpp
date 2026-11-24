@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the destination resource group.
+    // The target resource group.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};

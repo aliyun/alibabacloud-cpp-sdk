@@ -186,7 +186,7 @@ namespace Models
 
 
   protected:
-    // The password for the database account of the ApsaraDB for ClickHouse cluster.
+    // The password of the database account for the ApsaraDB for ClickHouse cluster.
     // 
     // This parameter is required.
     shared_ptr<string> ckPassword_ {};
@@ -200,15 +200,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbClusterId_ {};
-    // The maximum number of rows to sync per second.
+    // The maximum number of rows to synchronize per second.
     shared_ptr<int64_t> limitUpper_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the ApsaraDB RDS for MySQL instance.
+    // The instance ID of the ApsaraDB RDS for MySQL database.
     // 
     // This parameter is required.
     shared_ptr<string> rdsId_ {};
-    // The password for the database account of the ApsaraDB RDS for MySQL instance.
+    // The password of the database account for the ApsaraDB RDS for MySQL instance.
     // 
     // This parameter is required.
     shared_ptr<string> rdsPassword_ {};
@@ -220,19 +220,18 @@ namespace Models
     shared_ptr<string> rdsUserName_ {};
     // The VPC ID of the ApsaraDB RDS for MySQL instance.
     shared_ptr<string> rdsVpcId_ {};
-    // The internal endpoint of the ApsaraDB RDS instance.
+    // The internal endpoint of ApsaraDB RDS.
     shared_ptr<string> rdsVpcUrl_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to skip unsupported table schemas. Valid values:
+    // Specifies whether to ignore table schemas that are not supported for synchronization. Valid values:
     // 
-    // - **true**: Skip.
-    // 
-    // - **false**: Do not skip.
+    // - **true**: Ignore.
+    // - **false**: Do not ignore.
     // 
     // This parameter is required.
     shared_ptr<bool> skipUnsupported_ {};
-    // The tables to sync.
+    // The tables to be synchronized.
     // 
     // This parameter is required.
     shared_ptr<string> synDbTables_ {};

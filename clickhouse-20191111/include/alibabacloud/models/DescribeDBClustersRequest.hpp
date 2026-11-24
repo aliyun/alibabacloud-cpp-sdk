@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
+      DARABONBA_PTR_TO_JSON(VpcIds, vpcIds_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDBClustersRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterDescription, DBClusterDescription_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
+      DARABONBA_PTR_FROM_JSON(VpcIds, vpcIds_);
     };
     DescribeDBClustersRequest() = default ;
     DescribeDBClustersRequest(const DescribeDBClustersRequest &) = default ;
@@ -90,16 +92,16 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->DBClusterDescription_ == nullptr
         && this->DBClusterIds_ == nullptr && this->DBClusterStatus_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr
         && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->tag_ == nullptr; };
+        && this->tag_ == nullptr && this->vpcIds_ == nullptr; };
     // DBClusterDescription Field Functions 
     bool hasDBClusterDescription() const { return this->DBClusterDescription_ != nullptr;};
     void deleteDBClusterDescription() { this->DBClusterDescription_ = nullptr;};
@@ -186,35 +188,33 @@ namespace Models
     inline DescribeDBClustersRequest& setTag(vector<DescribeDBClustersRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
+    // vpcIds Field Functions 
+    bool hasVpcIds() const { return this->vpcIds_ != nullptr;};
+    void deleteVpcIds() { this->vpcIds_ = nullptr;};
+    inline string getVpcIds() const { DARABONBA_PTR_GET_DEFAULT(vpcIds_, "") };
+    inline DescribeDBClustersRequest& setVpcIds(string vpcIds) { DARABONBA_PTR_SET_VALUE(vpcIds_, vpcIds) };
+
+
   protected:
-    // The cluster description.
+    // The description of the cluster.
     shared_ptr<string> DBClusterDescription_ {};
-    // The cluster ID.
-    // 
-    // > If you do not specify this parameter, information about all clusters is queried by default.
+    // The cluster IDs.
+    // >If you do not specify this parameter, the information about all clusters is queried by default.
     shared_ptr<string> DBClusterIds_ {};
-    // The state of the cluster. Valid values:
-    // 
-    // - **Preparing**: The cluster is being prepared.
-    // 
-    // - **Creating**: The cluster is being created.
-    // 
-    // - **Running**: The cluster is running.
-    // 
-    // - **Deleting**: The cluster is being deleted.
-    // 
-    // - **SCALING_OUT**: The cluster is being scaled out.
+    // The status of the cluster. Valid values:
+    // - **Preparing**: preparing
+    // - **Creating**: creating
+    // - **Running**: running
+    // - **Deleting**: deleting
+    // - **SCALING_OUT**: scaling out
     shared_ptr<string> DBClusterStatus_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // 
-    // - **30** (Default)
-    // 
+    // - **30** (default)
     // - **50**
-    // 
     // - **100**
     shared_ptr<int32_t> pageSize_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
@@ -227,6 +227,8 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The tags.
     shared_ptr<vector<DescribeDBClustersRequest::Tag>> tag_ {};
+    // The VPC IDs.
+    shared_ptr<string> vpcIds_ {};
   };
 
   } // namespace Models

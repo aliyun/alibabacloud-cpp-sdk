@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The number of days to retain data backups. Valid values: 7 to 730.
+    // The data backup retention period in days. Valid values: 7 to 730.
     shared_ptr<string> backupRetentionPeriod_ {};
     // The cluster ID.
     // 
@@ -111,27 +111,21 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The backup cycle. If you specify multiple values, separate them with commas. Valid values:
+    // The backup cycle. Separate multiple values with commas (,). Valid values:
     // 
-    // - **Monday**
-    // 
-    // - **Tuesday**
-    // 
-    // - **Wednesday**
-    // 
-    // - **Thursday**
-    // 
-    // - **Friday**
-    // 
-    // - **Saturday**
-    // 
-    // - **Sunday**
+    // - **Monday**: Monday.
+    // - **Tuesday**: Tuesday.
+    // - **Wednesday**: Wednesday.
+    // - **Thursday**: Thursday.
+    // - **Friday**: Friday.
+    // - **Saturday**: Saturday.
+    // - **Sunday**: Sunday.
     // 
     // This parameter is required.
     shared_ptr<string> preferredBackupPeriod_ {};
-    // The backup time in UTC. The format is HH:mmZ-HH:mmZ.
+    // The backup time in UTC. Format: HH:mmZ-HH:mmZ.
     // 
-    // Example: 00:00Z-01:00Z. This means that data backup can be performed from 00:00 to 01:00 UTC. This corresponds to 08:00 to 09:00 UTC+8.
+    // Example: 00:00Z-01:00Z indicates that data backup can be performed from 00:00 to 01:00 UTC (08:00 to 09:00 UTC+8).
     // 
     // This parameter is required.
     shared_ptr<string> preferredBackupTime_ {};

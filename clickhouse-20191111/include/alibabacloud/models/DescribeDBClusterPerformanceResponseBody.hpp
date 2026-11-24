@@ -114,7 +114,7 @@ namespace Models
 
 
         protected:
-          // The value of the performance metric.
+          // The performance value.
           shared_ptr<vector<string>> point_ {};
         };
 
@@ -137,9 +137,9 @@ namespace Models
 
 
       protected:
-        // The name of the time series.
+        // The name of the performance data list.
         shared_ptr<string> name_ {};
-        // The values of the performance metrics, each associated with a sampling timestamp.
+        // The performance metric values. Each value corresponds to a collection time point.
         shared_ptr<vector<Series::Values>> values_ {};
       };
 
@@ -176,13 +176,13 @@ namespace Models
 
 
     protected:
-      // The name of the performance metric.
+      // The name of the performance metrics.
       shared_ptr<string> key_ {};
-      // The name of the performance metric.
+      // The name of the performance value.
       shared_ptr<string> name_ {};
-      // The time series data for the metric.
+      // The collection of performance metrics.
       shared_ptr<vector<Performances::Series>> series_ {};
-      // The unit of the metric.
+      // The data unit.
       shared_ptr<string> unit_ {};
     };
 
@@ -228,13 +228,13 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range that was queried. The time is in UTC, formatted as `yyyy-MM-ddTHH:mmZ`.
+    // The end time of the query. Format: yyyy-MM-ddTHH:mmZ (UTC time).
     shared_ptr<string> endTime_ {};
-    // The list of performance metrics for the cluster.
+    // The list of cluster performance metric values.
     shared_ptr<vector<DescribeDBClusterPerformanceResponseBody::Performances>> performances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range that was queried. The time is in UTC, formatted as `yyyy-MM-ddTHH:mmZ`.
+    // The start time of the query. Format: yyyy-MM-ddTHH:mmZ (UTC time).
     shared_ptr<string> startTime_ {};
   };
 

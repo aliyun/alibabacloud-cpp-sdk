@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The database account name.
+    // The database account.
     shared_ptr<string> accountName_ {};
     // The list of authorized databases.
     shared_ptr<vector<string>> allowDatabases_ {};
@@ -120,21 +120,19 @@ namespace Models
     shared_ptr<vector<string>> allowDictionaries_ {};
     // Indicates whether the account has DDL permissions. Valid values:
     // 
-    // - **true**: DDL permissions are granted.
-    // 
-    // - **false**: DDL permissions are denied.
+    // - **true**: DDL is allowed.
+    // - **false**: DDL is not allowed.
     shared_ptr<bool> ddlAuthority_ {};
-    // The DML permission level for the account. Valid values:
+    // Indicates whether the account has DML permissions. Valid values:
     // 
-    // - **all**: read, write, and settings permissions.
-    // 
-    // - **readOnly,modify**: read and settings permissions.
+    // - **all**: Read, write, and settings permissions.
+    // - **readOnly,modify**: Read and settings permissions.
     shared_ptr<string> dmlAuthority_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of all databases in the cluster.
+    // The list of all databases.
     shared_ptr<vector<string>> totalDatabases_ {};
-    // A list of all dictionaries in the cluster.
+    // The list of all dictionaries.
     shared_ptr<vector<string>> totalDictionaries_ {};
   };
 

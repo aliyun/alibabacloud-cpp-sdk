@@ -127,7 +127,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. Format: yyyy-MM-ddTHH:mmZ (UTC).
+    // The end time of the query. Format: yyyy-MM-ddTHH:mmZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -143,7 +143,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Format: yyyy-MM-ddTHH:mmZ (UTC).
+    // The start time of the query. Format: yyyy-MM-ddTHH:mmZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

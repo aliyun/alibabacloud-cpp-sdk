@@ -88,7 +88,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The upgrade type. Set this parameter to **false** for manual upgrades.
+    // The update type. A value of **false** indicates a manual update.
     // 
     // This parameter is required.
     shared_ptr<bool> maintainAutoType_ {};

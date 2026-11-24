@@ -50,9 +50,9 @@ namespace Models
   protected:
     // Indicates whether a restart is required after the configuration parameters are modified. Valid values:
     // - **true**: A restart is required.
-    // - **false**: A restart is not required.
+    // - **false**: No restart is required.
     shared_ptr<bool> needRestart_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

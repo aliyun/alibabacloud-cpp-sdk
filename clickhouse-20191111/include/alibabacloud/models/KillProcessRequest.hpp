@@ -98,13 +98,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The search statement to stop. To stop multiple statements, separate them with commas (,).
-    // 
-    // > If you do not specify this parameter, all search statements are stopped by default.
+    // The query statements to stop. Separate multiple statements with commas (,).
+    // > If this parameter is not specified, all query statements are stopped by default.
     shared_ptr<string> initialQueryId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -101,15 +101,13 @@ namespace Models
       shared_ptr<string> changeId_ {};
       // The UID of the Alibaba Cloud account.
       shared_ptr<string> ownerId_ {};
-      // The reason for the parameter change.
+      // The description of the configuration parameter change.
       shared_ptr<string> reason_ {};
-      // Indicates whether the parameter change took effect. Valid values:
-      // 
+      // Indicates whether the configuration parameter change took effect. Valid values:
       // - **true**: The change took effect.
-      // 
       // - **false**: The change did not take effect.
       shared_ptr<bool> success_ {};
-      // The time when the change was made. Use the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
+      // The time when the change occurred. The time is in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
       shared_ptr<string> time_ {};
     };
 
@@ -132,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The change history of the configuration parameters.
+    // The change history of configuration parameters.
     shared_ptr<vector<DescribeConfigHistoryResponseBody::ConfigHistoryItems>> configHistoryItems_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

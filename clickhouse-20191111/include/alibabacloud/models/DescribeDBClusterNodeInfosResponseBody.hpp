@@ -87,7 +87,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether a disaster recovery test is in progress.
+      // Indicates whether a disaster recovery drill is in progress.
       shared_ptr<bool> failoverTesting_ {};
       // The node name.
       shared_ptr<string> nodeName_ {};
@@ -160,9 +160,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether a disaster recovery test is in progress.
+      // Indicates whether a disaster recovery drill is in progress.
       shared_ptr<bool> failoverTesting_ {};
-      // The IP address of the node.
+      // The node IP address.
       shared_ptr<string> nodeIp_ {};
       // The node name.
       shared_ptr<string> nodeName_ {};
@@ -221,23 +221,20 @@ namespace Models
 
 
   protected:
-    // The information about the ClickHouse nodes.
+    // The ApsaraDB for ClickHouse node information.
     shared_ptr<vector<DescribeDBClusterNodeInfosResponseBody::NodeInfos>> nodeInfos_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // 
     // - **30** (default)
-    // 
     // - **50**
-    // 
     // - **100**
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of nodes.
     shared_ptr<int32_t> totalNodeCount_ {};
-    // The information about the ZooKeeper nodes.
+    // The ZooKeeper node information.
     shared_ptr<vector<DescribeDBClusterNodeInfosResponseBody::ZkNodeInfos>> zkNodeInfos_ {};
   };
 

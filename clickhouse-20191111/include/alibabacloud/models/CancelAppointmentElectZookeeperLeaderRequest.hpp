@@ -111,12 +111,9 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
-    // 
+    // The number of entries per page. Valid values:
     // - 30 (default)
-    // 
     // - 50
-    // 
     // - 100
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.

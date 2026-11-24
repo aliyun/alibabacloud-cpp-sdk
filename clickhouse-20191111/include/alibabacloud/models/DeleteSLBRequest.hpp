@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to view the cluster ID.
+    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

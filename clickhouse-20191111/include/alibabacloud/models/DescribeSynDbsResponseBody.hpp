@@ -112,22 +112,20 @@ namespace Models
 
 
     protected:
-      // - This parameter is not returned if **SynStatus** is **true**.
-      // 
-      // - If **SynStatus** is **false**, this parameter indicates the reason for the synchronization failure.
+      // - This parameter is not returned when **SynStatus** is **true**.
+      // - When **SynStatus** is **false**, this parameter indicates the cause of the synchronization failure.
       shared_ptr<string> errorMsg_ {};
-      // The instance ID of the ApsaraDB RDS for MySQL instance.
+      // The instance ID of the ApsaraDB RDS for MySQL database.
       shared_ptr<string> rdsId_ {};
-      // The database account for the ApsaraDB RDS for MySQL instance.
+      // The database account of the ApsaraDB RDS for MySQL instance.
       shared_ptr<string> rdsUserName_ {};
-      // The internal endpoint of the ApsaraDB RDS for MySQL instance.
+      // The internal network connection endpoint of the ApsaraDB RDS for MySQL database.
       shared_ptr<string> rdsVpcUrl_ {};
-      // The database in the ApsaraDB RDS for MySQL instance.
+      // The database of the ApsaraDB RDS for MySQL instance.
       shared_ptr<string> synDb_ {};
-      // Indicates whether the synchronization was successful. Valid values:
+      // Indicates whether the synchronization is successful. Valid values:
       // 
-      // - **true**: The synchronization was successful.
-      // 
+      // - **true**: The synchronization is successful.
       // - **false**: The synchronization failed.
       shared_ptr<bool> synStatus_ {};
     };
@@ -174,13 +172,13 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The synchronized data.
+    // The synchronization data.
     shared_ptr<vector<DescribeSynDbsResponseBody::SynDbs>> synDbs_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -158,33 +158,33 @@ namespace Models
 
 
   protected:
-    // The password for the ApsaraDB for ClickHouse database account.
+    // The password of the database account for the ApsaraDB for ClickHouse cluster.
     // 
     // This parameter is required.
     shared_ptr<string> ckPassword_ {};
-    // The database account for the ApsaraDB for ClickHouse cluster.
+    // The database account of the ApsaraDB for ClickHouse cluster.
     // 
     // This parameter is required.
     shared_ptr<string> ckUserName_ {};
     // The port number of the ApsaraDB for ClickHouse cluster.
     shared_ptr<int64_t> clickhousePort_ {};
-    // The ID of the community-compatible ApsaraDB for ClickHouse cluster.
+    // The ID of the ApsaraDB for ClickHouse Community-compatible Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> dbClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the ApsaraDB RDS instance.
+    // The instance ID of the ApsaraDB RDS database.
     // 
     // This parameter is required.
     shared_ptr<string> rdsId_ {};
-    // The password for the ApsaraDB RDS database account.
+    // The password of the database account for the ApsaraDB RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> rdsPassword_ {};
     // The port number of the ApsaraDB RDS instance.
     shared_ptr<int64_t> rdsPort_ {};
-    // The database account for the ApsaraDB RDS instance.
+    // The database account of the ApsaraDB RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> rdsUserName_ {};

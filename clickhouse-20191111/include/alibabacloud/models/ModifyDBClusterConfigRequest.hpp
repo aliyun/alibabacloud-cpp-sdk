@@ -103,21 +103,19 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in a specific region. This information includes the cluster IDs.
+    // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query the information about all clusters in the specified region, including cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The reason for the modification.
+    // The description of the modification.
     shared_ptr<string> reason_ {};
-    // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent list of regions.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The configuration parameters to modify.
-    // 
-    // > You can modify a single configuration parameter. Parameters that are not specified in the request are not affected.
+    // The configuration parameters to be modified. > You can modify a single configuration parameter. Configuration parameters that are not specified remain unaffected.
     // 
     // This parameter is required.
     shared_ptr<string> userConfig_ {};

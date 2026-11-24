@@ -186,7 +186,7 @@ namespace Models
 
 
   protected:
-    // The password of the ApsaraDB for ClickHouse database account.
+    // The password of the database account for the ApsaraDB for ClickHouse cluster.
     // 
     // This parameter is required.
     shared_ptr<string> ckPassword_ {};
@@ -200,21 +200,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbClusterId_ {};
-    // The maximum number of rows to sync per second.
+    // The maximum number of rows that can be synchronized per second.
     shared_ptr<int64_t> limitUpper_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The instance ID of the ApsaraDB RDS for MySQL instance.
+    // The instance ID of the ApsaraDB RDS for MySQL database.
     // 
     // This parameter is required.
     shared_ptr<string> rdsId_ {};
-    // The password of the ApsaraDB RDS for MySQL database account.
+    // The password of the database account for the ApsaraDB RDS for MySQL instance.
     // 
     // This parameter is required.
     shared_ptr<string> rdsPassword_ {};
     // The port number of the ApsaraDB RDS for MySQL instance.
     shared_ptr<int64_t> rdsPort_ {};
-    // The database in the ApsaraDB RDS for MySQL instance.
+    // The databases in the ApsaraDB RDS for MySQL instance.
     // 
     // This parameter is required.
     shared_ptr<string> rdsSynDb_ {};
@@ -232,9 +232,8 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to ignore databases that do not support synchronization. Valid values:
     // 
-    // - **true**: Ignore the databases.
-    // 
-    // - **false**: Do not ignore the databases.
+    // - **true**: Ignore.
+    // - **false**: Do not ignore.
     // 
     // This parameter is required.
     shared_ptr<bool> skipUnsupported_ {};

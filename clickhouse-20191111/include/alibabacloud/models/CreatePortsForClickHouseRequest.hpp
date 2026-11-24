@@ -100,11 +100,11 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The port type. The value must be \\`mysql_port\\`.
+    // The port type. Set the value to mysql_port.
     // 
     // This parameter is required.
     shared_ptr<string> portType_ {};
-    // The region ID. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the available region IDs.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

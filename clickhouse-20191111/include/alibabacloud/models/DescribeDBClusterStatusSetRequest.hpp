@@ -78,8 +78,7 @@ namespace Models
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
-    // 
-    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
+    // >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

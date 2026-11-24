@@ -117,27 +117,28 @@ namespace Models
 
 
     protected:
-      // The time when the configuration was created.
+      // The creation time.
       shared_ptr<string> createdTime_ {};
-      // The day of the cycle.
+      // The cycle time.
       // 
-      // - If CycleType is Month, this parameter returns one or more numbers from 1 to 28 that indicate the day of the month. Multiple numbers are separated by commas (,).
-      // 
-      // - If CycleType is Week, this parameter returns one or more numbers from 1 to 7 that indicate the day of the week. Multiple numbers are separated by commas (,).
+      // - If CycleType is set to Month, the return value is a number from 1 to 28, which indicates the day of the month. Multiple values are separated by commas (,).
+      // - If CycleType is set to Week, the return value is a number from 1 to 7, which indicates the day of the week. Multiple values are separated by commas (,).
       shared_ptr<string> cycleTime_ {};
-      // The cycle type.
+      // The cycle type. Valid values:
       // 
-      // - Month
-      // 
-      // - Week
+      // - Month: Monthly.
+      // - Week: Weekly.
       shared_ptr<string> cycleType_ {};
       // The end time of the maintenance window.
       shared_ptr<string> maintainEndTime_ {};
       // The start time of the maintenance window.
       shared_ptr<string> maintainStartTime_ {};
-      // The time when the configuration was last modified.
+      // The modification time.
       shared_ptr<string> modifiedTime_ {};
-      // The status of the configuration. A value of 1 indicates that the configuration is enabled. A value of 2 indicates that the configuration is disabled.
+      // Indicates whether the configuration takes effect. Valid values:
+      // 
+      // - 1: Yes.
+      // - 2: No.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -167,13 +168,12 @@ namespace Models
 
 
   protected:
-    // The active O\\&M configuration items.
+    // The proactive maintenance configuration.
     shared_ptr<DescribeActiveOperationMaintainConfResponseBody::Config> config_ {};
-    // Indicates whether a configuration is set.
+    // Indicates whether proactive maintenance is configured. Valid values:
     // 
-    // - 1: A configuration is set.
-    // 
-    // - 0: No configuration is set.
+    // - 1: Configured.
+    // - 0: Not configured.
     shared_ptr<int32_t> hasConfig_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

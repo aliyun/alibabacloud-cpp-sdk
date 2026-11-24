@@ -123,7 +123,7 @@ namespace Models
     // The number of entries per page. Valid values:
     // - **30** (default)
     // - **50**
-    // - **100**.
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
     // 
@@ -131,11 +131,11 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The specification change type. Valid values:
-    // - ScaleOut: horizontal scale-out
+    // The upgrade/downgrade type. Valid values:
+    // - ScaleOut: horizontal scaling
     // - ScaleIn: horizontal scale-in
-    // - MultiAzUpgrade: upgrade to multi-active zone deployment
-    // - DiskDownGrade: cloud disk downgrade.
+    // - MultiAzUpgrade: upgrade to multi-zone deployment
+    // - DiskDownGrade: decrease the quota for disks
     shared_ptr<string> scalingType_ {};
   };
 

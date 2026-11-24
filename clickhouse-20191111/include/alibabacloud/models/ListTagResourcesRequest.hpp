@@ -84,12 +84,10 @@ namespace Models
 
 
     protected:
-      // The tag key. You can specify from 1 to **20** tag keys.
-      // 
+      // The tag key. You can specify up to N tag keys. N is an integer and ranges from **1 to 20**.
       // > If you specify the **ResourceId.N** parameter, you can leave this parameter empty.
       shared_ptr<string> key_ {};
-      // The value of the tag. You can specify from 1 to **20** tag values.
-      // 
+      // The tag value corresponding to the tag key. You can specify up to N tag values. N is an integer and ranges from **1 to 20**.
       // > You can leave this parameter empty.
       shared_ptr<string> value_ {};
     };
@@ -165,12 +163,11 @@ namespace Models
 
 
   protected:
-    // The token that is used to retrieve the next page of results. You do not need to specify this parameter for the first query. If a query does not return all results, a NextToken value is returned. You can use this token in a subsequent query to retrieve the next page of results.
+    // The token used to return more results. You do not need to specify this parameter for the first query. If not all results are returned in the first query, you can pass the NextToken value returned in the previous response to continue the query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
-    // 
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query region IDs.
     // 
     // This parameter is required.
@@ -179,7 +176,7 @@ namespace Models
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The resource type. Set the value to **DBCLUSTER**.
+    // The resource type. Valid value: **DBCLUSTER**.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

@@ -201,12 +201,12 @@ namespace Models
     // The number of entries per page. Valid values:
     // - **30** (default)
     // - **50**
-    // - **100**.
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<CheckScaleOutBalancedResponseBody::TableDetails> tableDetails_ {};
-    // The time required for the migration scale-out. Unit: minutes.
+    // The time required for migration and scaling. Unit: minutes.
     shared_ptr<string> timeDuration_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

@@ -75,25 +75,22 @@ namespace Models
 
 
   protected:
-    // Indicates whether tiered storage for hot and cold data can be enabled. Valid values:
+    // Indicates whether hot and cold tiered storage is supported. Valid values:
     // 
-    // - **true**: Tiered storage can be enabled.
-    // 
-    // - **false**: Tiered storage cannot be enabled.
+    // - **true**: Supported.
+    // - **false**: Not supported.
     shared_ptr<bool> coldStorage_ {};
-    // The parameters of the tiered storage policy for hot and cold data.
+    // The parameters of the hot and cold tiered storage policy.
     shared_ptr<string> policy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of tiered storage for hot and cold data. Valid values:
+    // The status of the hot and cold tiered storage. Valid values:
     // 
-    // - **CREATING**: Tiered storage is being enabled.
-    // 
-    // - **DISABLE**: Tiered storage is disabled.
-    // 
-    // - **ENABLE**: Tiered storage is enabled.
+    // - **CREATING**: Enabling.
+    // - **DISABLE**: Disabled.
+    // - **ENABLE**: Enabled.
     shared_ptr<string> state_ {};
-    // The cold storage space used. Unit: GB.
+    // The amount of storage space used by cold data. Unit: GB.
     shared_ptr<string> storageUsage_ {};
   };
 

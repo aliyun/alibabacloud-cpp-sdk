@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The configuration parameters after the change.
+    // The configuration parameters after the changes.
     shared_ptr<string> newConfigXML_ {};
-    // The configuration parameters before the change.
+    // The configuration parameters before the changes.
     shared_ptr<string> oldConfigXML_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
