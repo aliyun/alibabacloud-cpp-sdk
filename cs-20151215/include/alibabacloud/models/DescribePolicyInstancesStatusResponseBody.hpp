@@ -97,7 +97,7 @@ namespace Models
 
 
     protected:
-      // The policy type. For more information about supported policy types and their descriptions, see [Container security policy rules](https://help.aliyun.com/document_detail/359819.html).
+      // The policy type. For supported policy types and their descriptions, see [Container security policy rules](https://help.aliyun.com/document_detail/359819.html).
       shared_ptr<string> policyCategory_ {};
       // The policy description.
       shared_ptr<string> policyDescription_ {};
@@ -132,7 +132,7 @@ namespace Models
   protected:
     // The number of policy instances deployed at different governance levels in the cluster.
     Darabonba::Json instancesSeverityCount_ {};
-    // The list of policy instance counts by policy type.
+    // The list of policy instance counts for different policy types.
     shared_ptr<vector<DescribePolicyInstancesStatusResponseBody::PolicyInstances>> policyInstances_ {};
   };
 

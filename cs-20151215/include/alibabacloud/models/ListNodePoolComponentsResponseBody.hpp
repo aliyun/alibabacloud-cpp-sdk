@@ -81,7 +81,7 @@ namespace Models
 
 
     protected:
-      // The parameter schema of the node component, including custom parameters and system parameters.
+      // The configuration schema of the node component, including custom parameters and system parameters.
       shared_ptr<string> configSchema_ {};
       // The name of the node component.
       shared_ptr<string> name_ {};
@@ -115,11 +115,11 @@ namespace Models
 
 
   protected:
-    // The node components.
+    // The list of node components.
     shared_ptr<vector<ListNodePoolComponentsResponseBody::Components>> components_ {};
-    // The maximum number of results per page. Default value: 200.
+    // The maximum number of results to return. Default value: 200.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token.
+    // The next token for pagination.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -18,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AttachInstancesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(cpu_policy, cpuPolicy_);
       DARABONBA_PTR_TO_JSON(format_disk, formatDisk_);
+      DARABONBA_PTR_TO_JSON(format_disk_option, formatDiskOption_);
       DARABONBA_PTR_TO_JSON(image_id, imageId_);
       DARABONBA_PTR_TO_JSON(instances, instances_);
       DARABONBA_PTR_TO_JSON(is_edge_worker, isEdgeWorker_);
@@ -33,6 +34,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, AttachInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(cpu_policy, cpuPolicy_);
       DARABONBA_PTR_FROM_JSON(format_disk, formatDisk_);
+      DARABONBA_PTR_FROM_JSON(format_disk_option, formatDiskOption_);
       DARABONBA_PTR_FROM_JSON(image_id, imageId_);
       DARABONBA_PTR_FROM_JSON(instances, instances_);
       DARABONBA_PTR_FROM_JSON(is_edge_worker, isEdgeWorker_);
@@ -57,9 +59,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cpuPolicy_ == nullptr
-        && this->formatDisk_ == nullptr && this->imageId_ == nullptr && this->instances_ == nullptr && this->isEdgeWorker_ == nullptr && this->keepInstanceName_ == nullptr
-        && this->keyPair_ == nullptr && this->nodepoolId_ == nullptr && this->password_ == nullptr && this->rdsInstances_ == nullptr && this->runtime_ == nullptr
-        && this->tags_ == nullptr && this->userData_ == nullptr; };
+        && this->formatDisk_ == nullptr && this->formatDiskOption_ == nullptr && this->imageId_ == nullptr && this->instances_ == nullptr && this->isEdgeWorker_ == nullptr
+        && this->keepInstanceName_ == nullptr && this->keyPair_ == nullptr && this->nodepoolId_ == nullptr && this->password_ == nullptr && this->rdsInstances_ == nullptr
+        && this->runtime_ == nullptr && this->tags_ == nullptr && this->userData_ == nullptr; };
     // cpuPolicy Field Functions 
     bool hasCpuPolicy() const { return this->cpuPolicy_ != nullptr;};
     void deleteCpuPolicy() { this->cpuPolicy_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     void deleteFormatDisk() { this->formatDisk_ = nullptr;};
     inline bool getFormatDisk() const { DARABONBA_PTR_GET_DEFAULT(formatDisk_, false) };
     inline AttachInstancesRequest& setFormatDisk(bool formatDisk) { DARABONBA_PTR_SET_VALUE(formatDisk_, formatDisk) };
+
+
+    // formatDiskOption Field Functions 
+    bool hasFormatDiskOption() const { return this->formatDiskOption_ != nullptr;};
+    void deleteFormatDiskOption() { this->formatDiskOption_ = nullptr;};
+    inline string getFormatDiskOption() const { DARABONBA_PTR_GET_DEFAULT(formatDiskOption_, "") };
+    inline AttachInstancesRequest& setFormatDiskOption(string formatDiskOption) { DARABONBA_PTR_SET_VALUE(formatDiskOption_, formatDiskOption) };
 
 
     // imageId Field Functions 
@@ -160,28 +169,30 @@ namespace Models
 
 
   protected:
-    // The CPU management policy for the node. The following two policies are supported when the cluster version is 1.12.6 or later:
+    // The CPU management policy for the node. The following policies are supported if the cluster version is 1.12.6 or later. Valid values:
     // 
-    // - `static`: allows you to enhance CPU affinity and exclusivity for pods with specific resource characteristics on the node.
-    // - `none`: uses the existing default CPU affinity policy.
+    // - static: allows you to enhance CPU affinity and exclusivity for pods with specific resource characteristics on the node.
+    // - none: uses the existing default CPU affinity policy.
     // 
-    // Default value: `none`.
+    // Default value: none.
     // 
     // > This parameter is not supported if nodepool_id is specified.
     shared_ptr<string> cpuPolicy_ {};
     // Specifies whether to store container data and images on a data cloud disk. Valid values:
     // 
-    // - `true`: stores container data and images on a data cloud disk.
-    // - `false`: does not store container data and images on a data cloud disk.
+    // - true: stores container data and images on a data cloud disk.
+    // - false: does not store container data and images on a data cloud disk.
     // 
-    // Default value: `false`.
+    // Default value: false.
     // 
     // Data cloud disk mounting rules:
     // 
     // - If the ECS instance has data cloud disks attached and the file system of the last data cloud disk is not initialized, the system automatically formats the data cloud disk to EXT4 to store the /var/lib/docker and /var/lib/kubelet directories, which are the default data directories for the Docker container runtime and kubelet component.
     // - If the ECS instance does not have data cloud disks attached, no new data cloud disk is attached.
-    // > If you choose to store data on a data cloud disk and the ECS instance already has data cloud disks attached, the existing data on the data cloud disks will be lost. Back up your data first.
+    // > If you choose to store data on a data cloud disk and the ECS instance already has data cloud disks attached, the existing data on the data cloud disks will be lost. Back up your data in advance.
     shared_ptr<bool> formatDisk_ {};
+    // The disk formatting method. This parameter is mutually exclusive with format_disk.
+    shared_ptr<string> formatDiskOption_ {};
     // The custom image ID.
     // 
     // - If you specify a custom image ID, the system cloud disk image of the instance is replaced with the custom image.
@@ -195,30 +206,30 @@ namespace Models
     shared_ptr<vector<string>> instances_ {};
     // Specifies whether the node to be added is an edge node, namely an ENS node. Valid values:
     // 
-    // - `true`: The node to be added is an edge node.
-    // - `false`: The node to be added is not an edge node.
+    // - true: The node to be added is an edge node.
+    // - false: The node to be added is not an edge node.
     // 
-    // Default value: `false`.
+    // Default value: false.
     // 
-    // > If the node is an edge node, you must set this parameter to `true` to identify the node type as an ENS node.
+    // > If the node is an edge node, you must set this parameter to true to identify the node type as an ENS node.
     shared_ptr<bool> isEdgeWorker_ {};
     // Specifies whether to retain the original instance name. Valid values:
     // 
-    // - `true`: retains the instance name.
-    // - `false`: does not retain the instance name.
+    // - true: retains the instance name.
+    // - false: does not retain the instance name.
     // 
-    // Default value: `false`.
+    // Default value: false.
     shared_ptr<bool> keepInstanceName_ {};
-    // The name of the key pair for the instances to be added. You can specify either the key_pair or password parameter, or leave both empty.
+    // The name of the key pair for the instances to be added. You can specify either key_pair or password, or leave both empty.
     // > This parameter is not supported if nodepool_id is specified.
     shared_ptr<string> keyPair_ {};
     // The node pool ID. If you do not specify this parameter, the node is added to the default node pool.
     shared_ptr<string> nodepoolId_ {};
-    // The SSH logon password for the instances to be added. You can specify either the key_pair or password parameter, or leave both empty.
+    // The SSH logon password for the instances to be added. You can specify either key_pair or password, or leave both empty.
     // 
     // The password must meet the following requirements:
-    // - The password must be 8 to 30 characters in length.
-    // - The password must contain uppercase letters, lowercase letters, digits, and special characters.
+    // - The password is 8 to 30 characters in length.
+    // - The password contains uppercase letters, lowercase letters, digits, and special characters.
     // - The password cannot contain backslashes (\\) or double quotation marks (").
     // 
     // For security purposes, the password is encrypted during transmission.
@@ -245,7 +256,7 @@ namespace Models
     // - A label is a case-sensitive key-value pair. You can configure up to 20 labels.
     // - Label keys must be unique and can be up to 64 characters in length.
     // - Label values can be empty and can be up to 128 characters in length.
-    // - Label keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`.
+    // - Label keys and values cannot start with aliyun, acs:, https://, or http://.
     // 
     // For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
     // > This parameter is not supported if nodepool_id is specified.

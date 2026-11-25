@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The maximum number of nodes that are allowed to fail during the rolling update. Default value: 0, which indicates that the task fails if any node fails. If the value is greater than 0, the task fails and stops when the cumulative number of failed nodes exceeds this value.
+      // The maximum number of nodes that are allowed to fail during a rolling update. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
       shared_ptr<int64_t> maxFailedNodes_ {};
-      // Node updates in the node pool are performed in batches. This parameter specifies the maximum number of nodes that can be updated in parallel per batch.
+      // Nodes in the node pool are updated in batches. This parameter specifies the maximum number of nodes that can be updated in parallel in each batch.
       // 
-      // Valid values: [1,10].
+      // Valid values: 1 to 10.
       // 
       // Default value: 10.
       shared_ptr<int64_t> maxParallelism_ {};
@@ -131,7 +131,7 @@ namespace Models
 
 
     protected:
-      // The hugepage configuration.
+      // The hugepage configurations.
       shared_ptr<Hugepage> hugepage_ {};
       // The custom sysctl parameter settings.
       Darabonba::Json sysctl_ {};
@@ -185,11 +185,11 @@ namespace Models
 
 
   protected:
-    // The containerd runtime configuration.
+    // The containerd runtime configurations.
     shared_ptr<ContainerdConfig> containerdConfig_ {};
     // The kubelet parameter settings.
     shared_ptr<KubeletConfig> kubeletConfig_ {};
-    // The list of nodes to upgrade.
+    // The list of specified nodes to upgrade.
     shared_ptr<vector<string>> nodeNames_ {};
     // The operating system parameter settings.
     shared_ptr<ModifyNodePoolNodeConfigRequest::OsConfig> osConfig_ {};

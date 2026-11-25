@@ -81,7 +81,7 @@ namespace Models
 
 
     protected:
-      // The page number for paging in the paged query.
+      // The page number for paging.
       shared_ptr<int64_t> pageNumber_ {};
       // The maximum number of results to return per page.
       shared_ptr<int64_t> pageSize_ {};
@@ -168,9 +168,9 @@ namespace Models
 
       protected:
         // The event level. Valid values:
-        // - info: Information.
-        // - warning: Warning.
-        // - error: Error.
+        // - info: informational
+        // - warning: warning
+        // - error: error
         shared_ptr<string> level_ {};
         // The event details.
         shared_ptr<string> message_ {};
@@ -246,22 +246,22 @@ namespace Models
       // The start time of the event in ISO 8601 format, including the time zone.
       shared_ptr<string> time_ {};
       // The event type. Valid values:
-      // - `cluster_create`: Cluster creation.
-      // - `cluster_scaleout`: Cluster scale-out.
-      // - `cluster_attach`: Addition of existing nodes.
-      // - `cluster_delete`: Cluster deletion.
-      // - `cluster_upgrade`: Cluster upgrade.
-      // - `cluster_migrate`: Cluster migration.
-      // - `cluster_node_delete`: Node removal.
-      // - `cluster_node_drain`: Node draining.
-      // - `cluster_modify`: Cluster modification.
-      // - `cluster_configuration_modify`: Cluster control configuration modification.
-      // - `cluster_addon_install`: Add-on installation.
-      // - `cluster_addon_upgrade`: Add-on upgrade.
-      // - `cluster_addon_uninstall`: Add-on uninstallation.
-      // - `runtime_upgrade`: Runtime upgrade.
-      // - `nodepool_upgrade`: Node pool upgrade.
-      // - `nodepool_update`: Node pool update.
+      // - `cluster_create`: cluster creation
+      // - `cluster_scaleout`: cluster scale-out
+      // - `cluster_attach`: adding existing nodes
+      // - `cluster_delete`: cluster deletion
+      // - `cluster_upgrade`: cluster upgrade
+      // - `cluster_migrate`: cluster migration
+      // - `cluster_node_delete`: node removal
+      // - `cluster_node_drain`: node draining
+      // - `cluster_modify`: cluster modification
+      // - `cluster_configuration_modify`: cluster management configuration modification
+      // - `cluster_addon_install`: add-on installation
+      // - `cluster_addon_upgrade`: add-on upgrade
+      // - `cluster_addon_uninstall`: add-on uninstallation
+      // - `runtime_upgrade`: runtime upgrade
+      // - `nodepool_upgrade`: node pool upgrade
+      // - `nodepool_update`: node pool update
       shared_ptr<string> type_ {};
     };
 
@@ -295,7 +295,7 @@ namespace Models
   protected:
     // The event details.
     shared_ptr<vector<DescribeEventsResponseBody::Events>> events_ {};
-    // The pagination token. Set this parameter to the next_token value returned from the previous API call.
+    // The query token, which is the value of the next_token parameter returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The pagination information.
     shared_ptr<DescribeEventsResponseBody::PageInfo> pageInfo_ {};

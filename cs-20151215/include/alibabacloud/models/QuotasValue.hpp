@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> quota_ {};
     // The quota code.
     shared_ptr<string> operationCode_ {};
-    // Indicates whether the quota can be adjusted.
+    // Specifies whether the quota can be adjusted.
     shared_ptr<bool> adjustable_ {};
     // The unit.
     shared_ptr<string> unit_ {};

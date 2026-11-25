@@ -127,19 +127,19 @@ namespace Models
       shared_ptr<string> clusterId_ {};
       // The trigger project name.
       // 
-      // It consists of the namespace and application name in the `${namespace}/${name}` format. Example: default/test-app.
+      // It consists of the namespace and application name, in the `${namespace}/${name}` format. Example: default/test-app.
       shared_ptr<string> projectId_ {};
       // The trigger type.
       // 
       // Valid values:
       // 
-      // - `deployment`: the trigger for stateless applications. 
+      // - `deployment`: trigger for stateless applications. 
       // 
-      // - `application`: the trigger for Hybrid Cloud Application Center applications.
+      // - `application`: trigger for Hybrid Cloud Application Center applications.
       shared_ptr<string> type_ {};
       // The trigger action. Valid values:
       // 
-      // `redeploy`: redeploys the application.
+      // `redeploy`: Redeploys the application.
       shared_ptr<string> action_ {};
       // The token information.
       shared_ptr<string> token_ {};

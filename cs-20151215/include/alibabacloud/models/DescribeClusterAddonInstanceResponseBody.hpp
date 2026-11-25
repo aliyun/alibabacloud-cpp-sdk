@@ -66,20 +66,21 @@ namespace Models
 
 
   protected:
-    // The add-on configuration.
+    // The configuration of the add-on.
     shared_ptr<string> config_ {};
-    // The add-on name.
+    // The name of the add-on.
     shared_ptr<string> name_ {};
-    // The add-on state. Valid values:
-    // - initial: Installing.
-    // - active: Installed.
-    // - unhealthy: Abnormal.
-    // - upgrading: Upgrading.
-    // - updating: Updating.
-    // - deleting: Uninstalling.
-    // - deleted: Deleted.
+    // The state of the add-on. Valid values:
+    // 
+    // - initial: The add-on is being installed.
+    // - active: The add-on is installed.
+    // - unhealthy: The add-on is in an abnormal state.
+    // - upgrading: The add-on is being upgraded.
+    // - updating: The add-on is being updated.
+    // - deleting: The add-on is being uninstalled.
+    // - deleted: The add-on is deleted.
     shared_ptr<string> state_ {};
-    // The add-on version.
+    // The version of the add-on.
     shared_ptr<string> version_ {};
   };
 

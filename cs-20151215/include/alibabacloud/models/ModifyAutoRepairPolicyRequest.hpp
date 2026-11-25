@@ -139,9 +139,9 @@ namespace Models
 
 
           protected:
-            // The key of the label.
+            // The `key` of the label.
             shared_ptr<string> key_ {};
-            // The value of the label.
+            // The `value` of the label.
             shared_ptr<string> value_ {};
           };
 
@@ -183,9 +183,9 @@ namespace Models
 
 
           protected:
-            // The key of the label.
+            // The `key` of the label.
             shared_ptr<string> key_ {};
-            // The value of the label.
+            // The `value` of the label.
             shared_ptr<string> value_ {};
           };
 
@@ -224,7 +224,7 @@ namespace Models
 
 
         protected:
-          // The label configuration for authorization confirmation. When you add the following labels to the node, you authorize ACK to execute the operation for this stage. After completing the operation for this stage, ACK automatically removes the authorization inquiry and confirmation labels corresponding to this stage. If you do not add the following labels in time to grant authorization, ACK will not execute the action for this stage and subsequent actions, and the node may remain in a damaged state.
+          // The label configuration for authorization confirmation. Adding the following labels to the node authorizes ACK to execute the operation for this stage. After completing the operation for this stage, ACK automatically removes the authorization inquiry and confirmation labels for this stage. If you do not promptly add the following labels to grant authorization, ACK does not execute the action for this stage or subsequent actions, and the node may remain in an impaired state.
           shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
           // Specifies whether to enable manual approval.
           shared_ptr<bool> enable_ {};
@@ -262,7 +262,7 @@ namespace Models
 
 
       protected:
-        // The parameter settings of the flow.
+        // The parameter settings for the flow.
         Darabonba::Json config_ {};
         // The configuration for the manual intervention procedure.
         shared_ptr<RepairProcedure::Intervention> intervention_ {};

@@ -176,7 +176,7 @@ namespace Models
 
 
     protected:
-      // The memory resources limit.
+      // The limits on memory resources.
       Darabonba::Json limits_ {};
       // The NUMA node.
       shared_ptr<int32_t> numaNode_ {};
@@ -437,70 +437,70 @@ namespace Models
   protected:
     // The whitelist of allowed unsafe sysctl patterns.
     shared_ptr<vector<string>> allowedUnsafeSysctls_ {};
-    // The list of IP addresses for the cluster DNS servers.
+    // The list of IP addresses of cluster DNS servers.
     shared_ptr<vector<string>> clusterDNS_ {};
-    // The maximum number of log files that can exist per container.
+    // The maximum number of log files that can exist for each container.
     shared_ptr<int64_t> containerLogMaxFiles_ {};
-    // The maximum size a log file can reach before log rotation is performed.
+    // The maximum size that a log file can reach before it is rotated.
     shared_ptr<string> containerLogMaxSize_ {};
-    // The maximum number of concurrent workers for log rotation operations.
+    // Specifies the maximum number of concurrent workers required to perform log rotation operations.
     shared_ptr<int32_t> containerLogMaxWorkers_ {};
-    // The interval for monitoring container logs to perform log rotation.
+    // Specifies the duration for monitoring container logs to perform log rotation operations.
     shared_ptr<string> containerLogMonitorInterval_ {};
-    // Specifies whether to enable CPU CFS quota enforcement.
+    // The switch for CPU CFS quota enforcement.
     shared_ptr<bool> cpuCFSQuota_ {};
     // The CPU CFS quota period value.
     shared_ptr<string> cpuCFSQuotaPeriod_ {};
     // The CPU manager policy.
     shared_ptr<string> cpuManagerPolicy_ {};
-    // The maximum burst size for event records.
+    // The burst limit for the number of event records.
     shared_ptr<int64_t> eventBurst_ {};
-    // The maximum number of events that can be generated per second.
+    // The number of events that can be generated per second.
     shared_ptr<int64_t> eventRecordQPS_ {};
-    // The set of hard eviction thresholds that trigger pod eviction.
+    // The set of hard thresholds that trigger pod eviction.
     Darabonba::Json evictionHard_ {};
     // The set of soft eviction thresholds.
     Darabonba::Json evictionSoft_ {};
-    // The set of eviction grace periods.
+    // The set of soft eviction grace periods.
     Darabonba::Json evictionSoftGracePeriod_ {};
-    // The feature gates configuration used to enable experimental features.
+    // The feature gates used to enable experimental features.
     Darabonba::Json featureGates_ {};
-    // The threshold above which image garbage collection runs continuously.
+    // The threshold above which image garbage collection is continuously performed.
     shared_ptr<int32_t> imageGCHighThresholdPercent_ {};
     // The threshold below which image garbage collection is not performed.
     shared_ptr<int32_t> imageGCLowThresholdPercent_ {};
-    // The maximum number of burst requests sent to the API server per second.
+    // The burst limit for the number of requests sent to the API server per second.
     shared_ptr<int64_t> kubeAPIBurst_ {};
-    // The number of queries per second when communicating with the API server.
+    // The number of queries per second for communication with the API server.
     shared_ptr<int64_t> kubeAPIQPS_ {};
-    // The resource configuration reserved for Kubernetes system components.
+    // The resource configuration reserved for the Kubernetes system.
     Darabonba::Json kubeReserved_ {};
-    // The maximum number of pods that can run on the node.
+    // The maximum number of running pods.
     shared_ptr<int64_t> maxPods_ {};
-    // The policy used by the memory management manager.
+    // The memory management policy to use.
     shared_ptr<string> memoryManagerPolicy_ {};
     // The maximum number of PIDs that can be used in a pod.
     shared_ptr<int64_t> podPidsLimit_ {};
     // The read-only port number.
     shared_ptr<int64_t> readOnlyPort_ {};
-    // The maximum number of burst image pulls.
+    // The burst limit for the number of image pulls.
     shared_ptr<int64_t> registryBurst_ {};
     // The QPS limit for the image registry.
     shared_ptr<int64_t> registryPullQPS_ {};
     // The memory reserved for NUMA nodes.
     shared_ptr<vector<KubeletConfig::ReservedMemory>> reservedMemory_ {};
-    // Specifies whether to pull images one at a time.
+    // Specifies whether to pull images one by one.
     shared_ptr<bool> serializeImagePulls_ {};
-    // Enables automatic issuance and rotation of kubelet server certificates. When enabled, you must also set "RotateKubeletServerCertificate": true in the kubelet featureGates configuration.
+    // Enables the automatic issuance and rotation of Kubelet server certificates. When enabled, you must also configure "RotateKubeletServerCertificate": true in the featureGates of the Kubelet.
     // 
-    // > - Available only for clusters running version 1.30 or later.
-    // > - For clusters running version 1.30 to v1.33, submit a ticket to apply for this feature.
+    // > - Only applicable to clusters of version 1.30 and later.
+    // > - Clusters of versions 1.30 to v1.33 must commit a ticket to apply.
     shared_ptr<bool> serverTLSBootstrap_ {};
     // The resource configuration reserved for the system.
     Darabonba::Json systemReserved_ {};
-    // The Policy Name of the topology management manager to use.
+    // The topology manager policy name to use.
     shared_ptr<string> topologyManagerPolicy_ {};
-    // The versioned configuration for the OpenTelemetry tracing client.
+    // The versioned configuration information for OpenTelemetry tracing client settings.
     shared_ptr<KubeletConfig::Tracing> tracing_ {};
   };
 

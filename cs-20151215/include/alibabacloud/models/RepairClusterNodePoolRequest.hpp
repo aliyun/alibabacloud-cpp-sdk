@@ -117,7 +117,7 @@ namespace Models
 
 
   protected:
-    // **[Deprecated]** Specifies whether to restart the instance.
+    // **[Deprecated]** Specifies whether to allow restarting instances.
     shared_ptr<bool> autoRestart_ {};
     // The list of nodes.
     shared_ptr<vector<string>> nodes_ {};

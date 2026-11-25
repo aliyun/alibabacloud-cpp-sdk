@@ -94,9 +94,9 @@ namespace Models
       shared_ptr<int64_t> batchInterval_ {};
       // The maximum number of nodes allowed to fail during the rolling update. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
       shared_ptr<int64_t> maxFailedNodes_ {};
-      // The maximum number of parallel updates per batch. Default value: 1.
+      // The maximum number of parallel operations per batch. Default value: 1.
       shared_ptr<int64_t> maxParallelism_ {};
-      // The auto-pause policy during the node upgrade process. Valid values: NotPause, FirstBatch, and EveryBatch. Default value: NotPause.
+      // The automatic pause policy during the node upgrade. Valid values: NotPause, FirstBatch, and EveryBatch. Default value: NotPause.
       shared_ptr<string> pausePolicy_ {};
     };
 
@@ -182,9 +182,9 @@ namespace Models
 
 
         protected:
-          // The name of the environment variable.
+          // The environment variable name.
           shared_ptr<string> name_ {};
-          // The value of the environment variable.
+          // The environment variable value.
           shared_ptr<string> value_ {};
         };
 
@@ -241,13 +241,13 @@ namespace Models
 
 
     protected:
-      // The configuration of the component.
+      // The component configuration.
       shared_ptr<Components::Config> config_ {};
-      // The name of the component.
+      // The component name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The version of the component.
+      // The component version.
       // 
       // This parameter is required.
       shared_ptr<string> version_ {};

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The message returned when the execution fails.
     shared_ptr<string> msg_ {};
-    // The execution status.
+    // The execution status. Valid values:
     // - True: The execution succeeded.
     // - False: The execution failed.
     shared_ptr<bool> status_ {};

@@ -112,7 +112,7 @@ namespace Models
 
 
         protected:
-          // The name of the package.
+          // The package name.
           shared_ptr<string> name_ {};
         };
 
@@ -169,11 +169,11 @@ namespace Models
         shared_ptr<string> aliasName_ {};
         // The list of CVEs corresponding to the vulnerability.
         shared_ptr<vector<string>> cveList_ {};
-        // The name of the vulnerability.
+        // The vulnerability name.
         shared_ptr<string> name_ {};
         // The vulnerability level.
         shared_ptr<string> necessity_ {};
-        // Indicates whether a restart is required.
+        // Specifies whether a restart is required.
         shared_ptr<bool> needReboot_ {};
         // The list of packages affected by the vulnerability.
         shared_ptr<vector<VulList::PackageList>> packageList_ {};
@@ -207,7 +207,7 @@ namespace Models
     protected:
       // The node instance ID.
       shared_ptr<string> instanceId_ {};
-      // The name of the node, which identifies the node in the cluster.
+      // The node name, which identifies the node in the cluster.
       shared_ptr<string> nodeName_ {};
       // The list of vulnerabilities.
       shared_ptr<vector<VulRecords::VulList>> vulList_ {};
@@ -234,9 +234,10 @@ namespace Models
   protected:
     // The list of vulnerabilities in the node pool.
     shared_ptr<vector<DescribeNodePoolVulsResponseBody::VulRecords>> vulRecords_ {};
-    // Indicates whether the Security Center CVE fix service is purchased. Valid values:
+    // Specifies whether the Security Center CVE fix service is purchased.
     // 
     // - true: Purchased.
+    // 
     // - false: Not purchased.
     shared_ptr<bool> vulsFixServicePurchased_ {};
   };

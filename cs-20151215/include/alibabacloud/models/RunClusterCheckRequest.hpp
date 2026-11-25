@@ -62,7 +62,11 @@ namespace Models
   protected:
     // The check options.
     shared_ptr<map<string, string>> options_ {};
-    // The check target. If the type parameter is set to NodePoolUpgrade, this parameter must be set to the node pool ID. For other check types, this parameter is not required.
+    // The check target.
+    // 
+    // If the type parameter is set to NodePoolUpgrade, this parameter must be set to the node pool ID.
+    // 
+    // For other check types, this parameter is not required.
     shared_ptr<string> target_ {};
     // The check type.
     // 

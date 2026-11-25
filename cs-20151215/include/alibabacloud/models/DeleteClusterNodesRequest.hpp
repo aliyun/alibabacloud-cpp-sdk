@@ -69,9 +69,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically drain pods from the nodes. Valid values:
-    // - `true`: Automatically drains pods from the nodes.
-    // - `false`: Does not automatically drain pods from the nodes.
+    // Specifies whether to automatically drain the pods on the node. Valid values:
+    // - `true`: Automatically drains the pods on the node.
+    // - `false`: Does not automatically drain the pods on the node.
     // 
     // Default value: `false`.
     shared_ptr<bool> drainNode_ {};
@@ -83,12 +83,12 @@ namespace Models
     shared_ptr<vector<string>> nodes_ {};
     // Specifies whether to release the associated ECS instances. Valid values:
     // 
-    // - `true`: Releases the associated ECS instances.
-    // - `false`: Retains the associated ECS instances.
+    // - `true`: Releases the ECS instances.
+    // - `false`: Retains the ECS instances.
     // 
     // Default value: `false`.
     // 
-    // > When a node is a subscription instance, you cannot release the associated ECS instance.
+    // > You cannot release the ECS instance if the node is a subscription instance.
     shared_ptr<bool> releaseNode_ {};
   };
 

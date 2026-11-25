@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The bucket endpoint.
+    // The access endpoint of the bucket.
     shared_ptr<string> ossBucketEndpoint_ {};
-    // The bucket name.
+    // The name of the bucket.
     shared_ptr<string> ossBucketName_ {};
   };
 

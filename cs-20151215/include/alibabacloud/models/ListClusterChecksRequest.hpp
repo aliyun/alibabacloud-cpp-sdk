@@ -48,15 +48,12 @@ namespace Models
 
 
   protected:
-    // Filters specific check objects.
+    // Filters the specified check objects.
     shared_ptr<string> target_ {};
     // The check type. Valid values:
     // - ClusterMigrate: cluster migration
-    // 
     // - MasterUpgrade: cluster control plane upgrade
-    // 
     // - NodePoolUpgrade: node pool upgrade
-    // 
     // - ClusterUpgrade: cluster upgrade
     shared_ptr<string> type_ {};
   };

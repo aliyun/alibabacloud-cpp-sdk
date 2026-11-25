@@ -143,13 +143,13 @@ namespace Models
     protected:
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The creation time of the execution plan.
+      // The time when the execution plan was created.
       shared_ptr<string> created_ {};
-      // The expected end time in ISO 8601 format, including time zone information.
+      // The expected end time in ISO 8601 format, including the time zone information.
       shared_ptr<string> endTime_ {};
       // The execution plan ID.
       shared_ptr<string> planId_ {};
-      // The expected start time in ISO 8601 format, including time zone information.
+      // The expected start time in ISO 8601 format, including the time zone information.
       shared_ptr<string> startTime_ {};
       // The status. Valid values:
       // - scheduled: Scheduled.

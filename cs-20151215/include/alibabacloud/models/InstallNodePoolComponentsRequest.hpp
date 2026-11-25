@@ -211,7 +211,7 @@ namespace Models
       protected:
         // The custom configuration of the component.
         Darabonba::Json customConfig_ {};
-        // The environment variables for the node component.
+        // The environment variables of the node component.
         shared_ptr<vector<Config::Envs>> envs_ {};
       };
 

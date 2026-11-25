@@ -57,21 +57,21 @@ namespace Models
 
 
   protected:
-    // The page number of the returned results.
+    // The page number of the returned page. 
     // 
     // Default value: 1.
     shared_ptr<int64_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of entries to return on each page. 
     // 
     // Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The templatetype. Valid values:
+    // The templatetype. 
     // 
     // - `kubernetes`: The template is displayed on the Orchestration Templates page in the console.
     // 
-    // - If this parameter is left empty or set to other values: The template is not displayed on the Orchestration Templates page in the console.
+    // - If this parameter is left empty or set to other values, the template is not displayed on the Orchestration Templates page in the console.
     // 
-    // Recommended settings: `kubernetes`.
+    // Recommended Settings: `kubernetes`.
     shared_ptr<string> templateType_ {};
   };
 

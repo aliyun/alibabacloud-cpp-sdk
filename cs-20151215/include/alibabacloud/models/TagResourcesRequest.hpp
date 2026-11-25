@@ -80,15 +80,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceIds_ {};
-    // The resource type. Valid values:
+    // The resource type.
     // 
-    // - CLUSTER: cluster.
+    // CLUSTER: cluster.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
     // The tag key-value pairs of the resource. You can add up to 20 tag key-value pairs. Take note of the following items:
     // 
-    // - If a value is specified, it cannot be an empty string and can be up to 128 characters in length.
+    // - The value cannot be an empty string and can be up to 128 characters in length.
     // - The value cannot start with `aliyun` or `acs:`.
     // - The value cannot contain `http://` or `https://`.
     // 

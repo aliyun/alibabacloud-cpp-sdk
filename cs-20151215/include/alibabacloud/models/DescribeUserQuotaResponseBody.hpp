@@ -152,16 +152,16 @@ namespace Models
 
 
   protected:
-    // The managed cluster quota. Default value: 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
+    // The quota for managed clusters. The default value is 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> amkClusterQuota_ {};
-    // The ASK cluster quota. Default value: 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
+    // The quota for ASK clusters. The default value is 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> askClusterQuota_ {};
-    // The node pool quota per cluster. Default value: 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
+    // The node pool quota per cluster. The default value is 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> clusterNodepoolQuota_ {};
-    // The total cluster quota per account. Default value: 50. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
+    // The total cluster quota per account. The default value is 50. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> clusterQuota_ {};
     shared_ptr<DescribeUserQuotaResponseBody::EdgeImprovedNodepoolQuota> edgeImprovedNodepoolQuota_ {};
-    // The node quota per cluster. Default value: 100. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
+    // The node quota per cluster. The default value is 100. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
     shared_ptr<int64_t> nodeQuota_ {};
     // The new quota items. If this field is present, it takes precedence.
     shared_ptr<map<string, QuotasValue>> quotas_ {};

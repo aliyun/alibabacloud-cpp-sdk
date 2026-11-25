@@ -56,7 +56,7 @@ namespace Models
     // 
     // Default value: `containerd`.
     shared_ptr<string> name_ {};
-    // The container runtime version. By default, the latest version is used. For more information about the release notes, see [Container runtime release notes](https://help.aliyun.com/document_detail/207829.html).
+    // The container runtime version. Default value: the latest version. For more information, see [Runtime release notes](https://help.aliyun.com/document_detail/207829.html).
     shared_ptr<string> version_ {};
   };
 

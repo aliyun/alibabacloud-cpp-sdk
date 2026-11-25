@@ -42,7 +42,7 @@ namespace Models
 
 
   protected:
-    // The data to be updated.
+    // The data to modify.
     shared_ptr<vector<Tag>> body_ {};
   };
 

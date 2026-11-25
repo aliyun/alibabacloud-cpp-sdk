@@ -83,7 +83,7 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The maximum number of results to return per page.
+      // The maximum number of results to display per page.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of results.
       shared_ptr<int64_t> totalCount_ {};

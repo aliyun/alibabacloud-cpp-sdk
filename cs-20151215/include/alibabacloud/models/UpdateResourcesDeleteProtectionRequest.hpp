@@ -83,9 +83,9 @@ namespace Models
     shared_ptr<string> namespace_ {};
     // The type of the resource to update. Valid values:
     // 
-    // - namespaces: namespace.
+    // - namespaces: namespace
     // 
-    // - services: service.
+    // - services: service
     shared_ptr<string> resourceType_ {};
     // The list of target resources.
     shared_ptr<vector<string>> resources_ {};

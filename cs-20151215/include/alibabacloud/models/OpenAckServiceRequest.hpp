@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The type of the service to activate. Valid values:
+    // The type of service to activate. Valid values:
     // 
     // - `propayasgo`: Container Service for Kubernetes (including ACK managed clusters and ACK dedicated clusters), ACK Serverless, and registered clusters.
     // - `edgepayasgo`: ACK Edge.

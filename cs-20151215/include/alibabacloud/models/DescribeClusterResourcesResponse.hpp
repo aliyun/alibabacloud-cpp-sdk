@@ -114,14 +114,16 @@ namespace Models
 
 
       protected:
-        // Specifies whether the resource is deleted by default when the cluster is deleted. Valid values:
+        // Specifies whether the resource is deleted by default when the cluster is deleted.
         // 
         // - true: The resource is deleted by default.
+        // 
         // - false: The resource is not deleted.
         shared_ptr<bool> deleteByDefault_ {};
-        // Specifies whether the default behavior returned in `delete_by_default` can be changed. Valid values:
+        // Specifies whether the default behavior returned in `delete_by_default` can be changed.
         // 
         // - true: The default behavior can be changed.
+        // 
         // - false: The default behavior cannot be changed.
         shared_ptr<bool> changeable_ {};
       };
@@ -339,22 +341,22 @@ namespace Models
       shared_ptr<string> created_ {};
       // The resource ID.
       shared_ptr<string> instanceId_ {};
-      // The resource information. For more information about the source information of resources, see [ListStackResources](https://help.aliyun.com/document_detail/133836.html).
+      // The resource metadata. For more information about the source information of resources, see [ListStackResources](https://help.aliyun.com/document_detail/133836.html).
       shared_ptr<string> resourceInfo_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
       // The resource state. Valid values:
       // 
       // - `CREATE_COMPLETE`: The resource is created.
-      // - `CREATE_FAILED`: The resource fails to be created.
+      // - `CREATE_FAILED`: The resource failed to be created.
       // - `CREATE_IN_PROGRESS`: The resource is being created.
-      // - `DELETE_FAILED`: The resource fails to be deleted.
+      // - `DELETE_FAILED`: The resource failed to be deleted.
       // - `DELETE_IN_PROGRESS`: The resource is being deleted.
       // - `ROLLBACK_COMPLETE`: The rollback is successful.
-      // - `ROLLBACK_FAILED`: The rollback fails.
+      // - `ROLLBACK_FAILED`: The rollback failed.
       // - `ROLLBACK_IN_PROGRESS`: The rollback is in progress.
       shared_ptr<string> state_ {};
-      // Specifies whether the resource is created by ACK. Valid values:
+      // Specifies whether the resource is created by ACK:
       // 
       // - 1: The resource is created by ACK.
       // - 0: The resource is an existing resource.
@@ -365,7 +367,7 @@ namespace Models
       shared_ptr<Body::AssociatedObject> associatedObject_ {};
       // The deletion behavior of the resource when the cluster is deleted.
       shared_ptr<Body::DeleteBehavior> deleteBehavior_ {};
-      // The type of the creator of the resource. Valid values:
+      // The type of the resource creator. Valid values:
       // - user: The resource is created by the user.
       // - system: The resource is created by the ACK control system.
       // - addon: The resource is created by a cluster component.

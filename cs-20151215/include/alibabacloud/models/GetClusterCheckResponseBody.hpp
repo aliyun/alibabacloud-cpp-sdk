@@ -102,7 +102,7 @@ namespace Models
     shared_ptr<string> checkId_ {};
     // The check items.
     shared_ptr<map<string, vector<Darabonba::Json>>> checkItems_ {};
-    // The creation time in ISO 8601 format with time zone information.
+    // The creation time in ISO 8601 format, including the time zone.
     shared_ptr<string> createdAt_ {};
     // The completion time.
     shared_ptr<string> finishedAt_ {};

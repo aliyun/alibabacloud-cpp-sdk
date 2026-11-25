@@ -253,11 +253,11 @@ namespace Models
 
 
           protected:
-            // The label configuration for authorization confirmation. When you add the following labels to a node, you authorize ACK to perform operations in this phase. After completing the operations in this phase, ACK automatically removes the inquiry and confirmation labels for this phase. If you do not add the following labels in time, ACK will not perform the actions in this phase and subsequent phases, and the node may remain in a damaged state.
+            // The label configuration for authorization confirmation. When you add the following labels to the node, you authorize ACK to execute the operations in this stage. After completing the operations in this stage, ACK automatically removes the authorization inquiry and confirmation labels for this stage. If you do not add the following labels in time, ACK will not execute the actions in this stage and subsequent stages, and the node may remain in a damaged state.
             shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
-            // Specifies whether manual approval is enabled.
+            // Specifies whether to enable manual approval.
             shared_ptr<bool> enable_ {};
-            // The label configuration for authorization inquiry. When this phase is entered, ACK adds the following labels to your node and waits for your authorization to perform the actions in this phase.
+            // The label configuration for authorization inquiry. When this stage is reached, ACK adds the following labels to your node and waits for your authorization to execute the actions in this stage.
             shared_ptr<Intervention::InquiringLabel> inquiringLabel_ {};
             // The type of manual approval.
             shared_ptr<string> type_ {};
@@ -293,7 +293,7 @@ namespace Models
         protected:
           // The configuration parameters of the procedure.
           Darabonba::Json config_ {};
-          // The manual intervention configuration for the procedure.
+          // The configuration for the manual intervention procedure.
           shared_ptr<RepairProcedure::Intervention> intervention_ {};
           // The name of the procedure.
           shared_ptr<string> name_ {};
@@ -339,7 +339,7 @@ namespace Models
         protected:
           // The name of the incident.
           shared_ptr<string> name_ {};
-          // The diagnostic type.
+          // The diagnosis type.
           shared_ptr<string> type_ {};
         };
 
@@ -433,15 +433,15 @@ namespace Models
       shared_ptr<string> name_ {};
       // The list of resources bound to the self-healing rule.
       shared_ptr<vector<string>> resourceIds_ {};
-      // The resource subtype bound to the self-healing rule.
+      // The subtype of the resource bound to the self-healing rule.
       shared_ptr<string> resourceSubType_ {};
-      // The resource type bound to the self-healing rule.
+      // The type of the resource bound to the self-healing rule.
       shared_ptr<string> resourceType_ {};
       // The list of self-healing sub-rules.
       shared_ptr<vector<Items::Rules>> rules_ {};
       // The rule type. The value is case-sensitive. Valid values:
-      // - custom: user-defined rules that support modification and deletion
-      // - builtin: built-in system rules that are read-only and do not support creation, modification, or deletion
+      // - custom: User-defined rules. You can modify and delete these rules.
+      // - builtin: Built-in system rules. These rules are read-only and cannot be created, modified, or deleted.
       shared_ptr<string> type_ {};
     };
 

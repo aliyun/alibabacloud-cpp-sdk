@@ -103,7 +103,7 @@ namespace Models
       shared_ptr<string> kind_ {};
       // The name of the object.
       shared_ptr<string> name_ {};
-      // The namespace to which the object belongs.
+      // The namespace of the object.
       shared_ptr<string> namespace_ {};
       // The Kubernetes API version of the object.
       shared_ptr<string> version_ {};
@@ -196,7 +196,7 @@ namespace Models
 
 
   protected:
-    // The Helm release instance information corresponding to the component.
+    // The information about the Helm release instance corresponding to the component.
     shared_ptr<ListClusterAddonInstanceResourcesResponseBody::HelmRelease> helmRelease_ {};
     // The list of Kubernetes objects contained in the component.
     shared_ptr<vector<ListClusterAddonInstanceResourcesResponseBody::KubernetesObjects>> kubernetesObjects_ {};

@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The cluster type.
     shared_ptr<string> clusterType_ {};
-    // The cluster name used for fuzzy matching.
+    // Performs a fuzzy match based on the cluster name.
     shared_ptr<string> name_ {};
     // The ID of the resource group used to filter clusters.
     shared_ptr<string> resourceGroupId_ {};

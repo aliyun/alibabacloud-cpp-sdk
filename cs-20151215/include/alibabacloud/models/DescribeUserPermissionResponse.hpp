@@ -109,37 +109,37 @@ namespace Models
 
 
     protected:
-      // The cluster access configuration. The format varies based on the authorization scope:
+      // The cluster access configuration. The format is as follows:
       // 
-      // - Cluster-level authorization: `{cluster_id}`.
-      // - Namespace-level authorization: `{cluster_id}/{namespace}`.
-      // - All-cluster authorization: `all-clusters`.
+      // - For cluster-level authorization, the format is `{cluster_id}`.
+      // - For namespace-level authorization, the format is `{cluster_id}/{namespace}`.
+      // - For authorization across all clusters, the value is fixed as `all-clusters`.
       shared_ptr<string> resourceId_ {};
       // The authorization type. Valid values:
       // 
-      // - `cluster`: cluster-level.
-      // - `namespace`: namespace-level.
-      // - `console`: all-cluster-level authorization.
+      // - `cluster`: cluster level.
+      // - `namespace`: namespace level.
+      // - `console`: authorization across all clusters.
       shared_ptr<string> resourceType_ {};
-      // The custom role name. When a custom role is authorized, this field specifies the name of the custom cluster management role.
+      // The name of the custom role. When a custom role is authorized, this field specifies the name of the custom cluster management role.
       shared_ptr<string> roleName_ {};
       // The preset role type. Valid values:
       // 
-      // - `admin`: Administrator.
+      // - `admin`: administrator.
       // - `ops`: O&M engineer.
-      // - `dev`: Developer.
-      // - `restricted`: Restricted user.
-      // - `custom`: Custom cluster management role.
+      // - `dev`: developer.
+      // - `restricted`: restricted user.
+      // - `custom`: custom cluster management role.
       shared_ptr<string> roleType_ {};
-      // Indicates whether the authorization belongs to the cluster creator. Valid values:
+      // Indicates whether the authorization is granted to the cluster creator. Valid values:
       // 
       // - `0`: The authorization record does not belong to the cluster creator.
-      // - `1`: The authorization record represents the administrator permissions of the cluster creator.
+      // - `1`: The authorization record grants administrator permissions to the cluster creator.
       shared_ptr<int64_t> isOwner_ {};
-      // Indicates whether the authorization is for a RAM role. Valid values:
+      // Indicates whether the authorization is granted to a RAM role. Valid values:
       // 
-      // - `0`: The record is not a RAM role authorization.
-      // - `1`: The record is a RAM role authorization.
+      // - `0`: The current record is not a RAM role authorization.
+      // - `1`: The current record is a RAM role authorization.
       shared_ptr<int64_t> isRamRole_ {};
     };
 

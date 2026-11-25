@@ -105,30 +105,26 @@ namespace Models
   protected:
     // The list of node instance IDs. Separate multiple values with commas (,).
     shared_ptr<string> instanceIds_ {};
-    // The list of node IP addresses used for filtering. Separate multiple values with commas (,).
+    // The list of node IP addresses. Separate multiple values with commas (,). This parameter is used to filter nodes by IP address.
     shared_ptr<string> nodeIps_ {};
-    // The node labels used for filtering. Specify the labels as key=value pairs separated by commas (,). Multiple labels are evaluated with the AND operator. Only nodes that match all specified labels are returned.
+    // The labels used to filter nodes. Specify the labels as key=value pairs separated by commas (,). Multiple labels are evaluated by using the logical AND operator. Only nodes that match all specified labels are returned.
     shared_ptr<string> nodeLabels_ {};
-    // The list of node names used for filtering. Separate multiple values with commas (,).
+    // The list of node names. Separate multiple values with commas (,). This parameter is used to filter nodes by name.
     shared_ptr<string> nodeNames_ {};
     // The node pool ID.
     shared_ptr<string> nodepoolId_ {};
     // The page number of the current query.
-    // 
     // Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The maximum number of records to return per page. Valid values: 1 to 100.
-    // 
+    // The maximum number of entries to return on each page. Valid values: 1 to 100.
     // Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // The running states of the cluster nodes used for filtering. Valid values:
-    // 
-    // - `all`: does not filter nodes by running state and queries nodes in all states.
-    // - `running`: the cluster nodes that are running.
-    // - `removing`: the cluster nodes that are being removed.
-    // - `initial`: the cluster nodes that are being initialized.
-    // - `failed`: the cluster nodes that failed to be created.
-    // 
+    // The state of the cluster nodes. This parameter is used to filter nodes by their running state. Valid values:
+    // - `all`: all nodes.
+    // - `running`: running nodes.
+    // - `removing`: nodes that are being removed.
+    // - `initial`: nodes that are being initialized.
+    // - `failed`: nodes that failed to be created.
     // Default value: `all`.
     shared_ptr<string> state_ {};
   };

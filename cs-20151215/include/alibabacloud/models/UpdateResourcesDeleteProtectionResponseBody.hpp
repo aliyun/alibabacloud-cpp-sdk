@@ -82,11 +82,11 @@ namespace Models
     shared_ptr<string> namespace_ {};
     // The deletion protection status of the resource.
     shared_ptr<string> protection_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};
-    // The list of resources for which the deletion protection status is updated.
+    // The list of resources whose deletion protection status is updated.
     shared_ptr<vector<string>> resources_ {};
   };
 

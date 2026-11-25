@@ -96,8 +96,8 @@ namespace Models
       // The minimum cluster version required by this component version.
       shared_ptr<string> minimumClusterVersion_ {};
       // Indicates whether the component can be upgraded to this version. Valid values:
-      // - true: Supported.
-      // - false: Not supported.
+      // - true: The component can be upgraded to this version.
+      // - false: The component cannot be upgraded to this version.
       shared_ptr<bool> upgradable_ {};
       // The latest version number of the component.
       shared_ptr<string> version_ {};

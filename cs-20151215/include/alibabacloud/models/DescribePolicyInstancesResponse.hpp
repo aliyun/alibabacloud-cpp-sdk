@@ -208,11 +208,7 @@ namespace Models
       shared_ptr<string> policyParameters_ {};
       // The governance level of the rule instance.
       shared_ptr<string> policySeverity_ {};
-      // The enforcement scope of the policy instance.
-      // 
-      // A value of "*" indicates all namespaces in the cluster.
-      // 
-      // Otherwise, the names of the target namespaces are returned, separated by commas (,).
+      // The enforcement scope of the policy instance. A value of "*" indicates all namespaces in the cluster. Otherwise, the names of the target namespaces are returned, separated by commas (,).
       shared_ptr<string> policyScope_ {};
       // The governance action of the rule. Valid values:
       // 
@@ -226,7 +222,7 @@ namespace Models
       shared_ptr<string> updated_ {};
       // **[Deprecated]** The resource ID. Do not use this parameter.
       shared_ptr<string> resourceId_ {};
-      // **[Deprecated]** The number of processed violations in the cluster. Do not use this parameter.
+      // **[Deprecated]** The count of processed violations in the cluster. Do not use this parameter.
       shared_ptr<int64_t> totalViolations_ {};
       // **[Deprecated]** The deletion status. Do not use this parameter.
       shared_ptr<int64_t> isDeleted_ {};

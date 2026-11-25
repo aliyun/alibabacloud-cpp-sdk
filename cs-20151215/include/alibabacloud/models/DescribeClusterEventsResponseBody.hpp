@@ -83,7 +83,7 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The maximum number of results to display on each page.
+      // The maximum number of results to return per page.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of results.
       shared_ptr<int64_t> totalCount_ {};
@@ -238,28 +238,28 @@ namespace Models
       shared_ptr<string> eventId_ {};
       // The event source.
       shared_ptr<string> source_ {};
-      // The object associated with the event.
+      // The operation object associated with the event.
       shared_ptr<string> subject_ {};
-      // The start time of the event. The time is in ISO 8601 format and includes time zone information.
+      // The start time of the event in ISO 8601 format, including the time zone.
       shared_ptr<string> time_ {};
       // The event type. Valid values:
       // 
-      // - cluster_create: cluster creation
-      // - cluster_scaleout: cluster scale-out
-      // - cluster_attach: addition of existing nodes
-      // - cluster_delete: cluster deletion
-      // - cluster_upgrade: cluster upgrade
-      // - cluster_migrate: cluster migration
-      // - cluster_node_delete: node removal
-      // - cluster_node_drain: node draining
-      // - cluster_modify: cluster modification
-      // - cluster_configuration_modify: cluster management configuration modification
-      // - cluster_addon_install: add-on installation
-      // - cluster_addon_upgrade: add-on upgrade
-      // - cluster_addon_uninstall: add-on uninstallation
-      // - runtime_upgrade: runtime upgrade
-      // - nodepool_upgrade: node pool upgrade
-      // - nodepool_update: node pool update
+      // - cluster_create: Cluster creation.
+      // - cluster_scaleout: Cluster scale-out.
+      // - cluster_attach: Addition of existing nodes.
+      // - cluster_delete: Cluster deletion.
+      // - cluster_upgrade: Cluster upgrade.
+      // - cluster_migrate: Cluster migration.
+      // - cluster_node_delete: Node removal.
+      // - cluster_node_drain: Node draining.
+      // - cluster_modify: Cluster modification.
+      // - cluster_configuration_modify: Cluster management configuration modification.
+      // - cluster_addon_install: Add-on installation.
+      // - cluster_addon_upgrade: Add-on upgrade.
+      // - cluster_addon_uninstall: Add-on uninstallation.
+      // - runtime_upgrade: Runtime upgrade.
+      // - nodepool_upgrade: Node pool upgrade.
+      // - nodepool_update: Node pool update.
       shared_ptr<string> type_ {};
     };
 

@@ -171,16 +171,18 @@ namespace Models
         // The architecture of the image.
         shared_ptr<string> architecture_ {};
         // The category of the image. Valid values:
-        // - `system`: public images
-        // - `self`: custom images
-        // - `others`: public images from other users
-        // - `marketplace`: marketplace images
+        // 
+        // - `system`: public image
+        // - `self`: custom image
+        // - `others`: shared image
+        // - `marketplace`: Alibaba Cloud Marketplace image
         shared_ptr<string> imageCategory_ {};
         // The ID of the image.
         shared_ptr<string> imageId_ {};
         // The name of the image.
         shared_ptr<string> imageName_ {};
-        // The operating system distribution type. Use this field to specify the node operating system. Valid values:
+        // The type of the operating system distribution. Use this field to specify the operating system for nodes. Valid values:
+        // 
         // - `CentOS`
         // - `AliyunLinux`
         // - `AliyunLinux Qboot`
@@ -191,7 +193,8 @@ namespace Models
         // - `AliyunLinux3Arm64`
         // - `ContainerOS`
         shared_ptr<string> imageType_ {};
-        // The operating system type. Valid values:
+        // The type of the operating system. Examples:
+        // 
         // - `Windows`
         // - `Linux`
         shared_ptr<string> osType_ {};
@@ -298,7 +301,7 @@ namespace Models
     protected:
       // The features of the Kubernetes version.
       Darabonba::Json capabilities_ {};
-      // Indicates whether the Kubernetes version can be created.
+      // Specifies whether the Kubernetes version is available for cluster creation.
       shared_ptr<bool> creatable_ {};
       // The expiration time of the Kubernetes version, in ISO 8601 format with time zone information.
       shared_ptr<string> expirationDate_ {};
@@ -306,20 +309,20 @@ namespace Models
       shared_ptr<string> extendedExpirationDate_ {};
       // The list of system images.
       shared_ptr<vector<Body::Images>> images_ {};
-      // The metadata information of the Kubernetes version.
+      // The metadata of the Kubernetes version.
       Darabonba::Json metaData_ {};
       // The release time of the Kubernetes version, in ISO 8601 format with time zone information.
       shared_ptr<string> releaseDate_ {};
       // The container runtime configurations.
       shared_ptr<vector<Runtime>> runtimes_ {};
-      // The support policy required to obtain this patch version. The value is case-sensitive. Valid values:
-      // - Standard: regular patch versions
-      // - Extended: patch versions exclusive to the extended support period, which include backported CVE and critical bug fixes. Only clusters with extended support enabled can be upgraded to these versions.
+      // The support policy required to obtain the patch version. The values are case-sensitive. Valid values:
+      // - Standard: regular patch version
+      // - Extended: patch version exclusive to the extended support period, which includes backported CVE and critical bug fixes, and is only available for clusters with extended support enabled
       // This field always has a value. It shares the same name and value range as the support_policy of the cluster. You can directly compare the policy enabled for the cluster with the policy required for this version.
       shared_ptr<string> supportPolicy_ {};
       // The list of upgradable versions.
       shared_ptr<vector<string>> upgradableVersions_ {};
-      // The Kubernetes version released by ACK. For more version information, see [Kubernetes version release overview](https://help.aliyun.com/document_detail/185269.html).
+      // The Kubernetes version released by ACK. For more information about versions, see [Kubernetes version release overview](https://help.aliyun.com/document_detail/185269.html).
       shared_ptr<string> version_ {};
     };
 

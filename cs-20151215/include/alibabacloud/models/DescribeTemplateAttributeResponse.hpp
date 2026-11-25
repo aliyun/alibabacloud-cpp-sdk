@@ -146,7 +146,7 @@ namespace Models
 
 
     protected:
-      // The ID of the orchestration template. A new template ID is generated each time the template is modified.
+      // The ID of the orchestration template. This ID changes every time the template is modified.
       shared_ptr<string> id_ {};
       // The access permissions of the orchestration template. Valid values:
       // 

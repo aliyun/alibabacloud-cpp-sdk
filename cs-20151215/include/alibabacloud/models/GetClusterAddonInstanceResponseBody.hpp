@@ -93,21 +93,21 @@ namespace Models
 
 
     protected:
-      // Specifies whether the add-on supports the log feature. Valid values:
+      // Indicates whether the component supports the logging feature. Valid values:
       // 
       // - true: Supported.
       // 
       // - false: Not supported.
       shared_ptr<bool> capable_ {};
-      // Specifies whether the log feature is enabled. Valid values:
+      // Indicates whether the logging feature is enabled. Valid values:
       // 
       // - true: Enabled.
       // 
       // - false: Disabled.
       shared_ptr<bool> enabled_ {};
-      // The Log Service project used by the add-on log feature.
+      // The log project used by the component logging feature.
       shared_ptr<string> logProject_ {};
-      // The Logstore used by the add-on log feature.
+      // The Logstore used by the component logging feature.
       shared_ptr<string> logstore_ {};
     };
 
@@ -151,19 +151,19 @@ namespace Models
 
 
   protected:
-    // The custom parameter settings of the add-on.
+    // The custom parameter settings of the component.
     shared_ptr<string> config_ {};
-    // The log feature status of the add-on.
+    // The logging status of the component.
     shared_ptr<GetClusterAddonInstanceResponseBody::Logging> logging_ {};
-    // The name of the add-on instance.
+    // The name of the component instance.
     shared_ptr<string> name_ {};
-    // The state of the add-on. Valid values:
+    // The component state. Valid values:
     // - active: Installed.
     // - updating: Updating.
     // - upgrading: Upgrading.
     // - deleting: Uninstalling.
     shared_ptr<string> state_ {};
-    // The version of the add-on instance.
+    // The version of the component instance.
     shared_ptr<string> version_ {};
   };
 

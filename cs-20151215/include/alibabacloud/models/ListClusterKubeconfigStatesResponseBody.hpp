@@ -128,8 +128,8 @@ namespace Models
         // Specifies whether the content is consistent with the default cluster role template.
         // 
         // Valid values:
-        // - true: The content is consistent with the default cluster role template.
-        // - false: The content is inconsistent with the default cluster role template.
+        // - true: Consistent.
+        // - false: Inconsistent.
         shared_ptr<bool> isDefaultTemplate_ {};
         // The name of the cluster role associated with the cloud service role in the cluster.
         shared_ptr<string> roleName_ {};
@@ -221,7 +221,7 @@ namespace Models
       shared_ptr<string> accountId_ {};
       // The logon name of the Resource Access Management (RAM) user or the name of the RAM role.
       shared_ptr<string> accountName_ {};
-      // The account state.
+      // The account status.
       // 
       // Valid values:
       // - Active: The account is active.
@@ -235,14 +235,14 @@ namespace Models
       // - RamUser: Resource Access Management (RAM) user.
       // - RamRole: RAM role.
       shared_ptr<string> accountType_ {};
-      // The expiration time of the KubeConfig client certificate. The time is displayed in ISO 8601 format and includes time zone information.
+      // The expiration time of the KubeConfig client certificate. The time is in ISO 8601 format and includes time zone information.
       shared_ptr<string> certExpireTime_ {};
-      // The state of the KubeConfig client certificate.
+      // The status of the KubeConfig client certificate.
       // 
       // Valid values:
-      // - Unexpired: The certificate is not expired.
-      // - Expired: The certificate is expired.
-      // - Unknown: The certificate state is unknown (abnormal state).
+      // - Unexpired: The certificate has not expired.
+      // - Expired: The certificate has expired.
+      // - Unknown: The status is unknown, which indicates an exception.
       shared_ptr<string> certState_ {};
       // The name of the cloud service.
       shared_ptr<string> cloudServiceName_ {};
@@ -303,7 +303,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The maximum number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries.
+      // The total number of results.
       shared_ptr<int32_t> totalCount_ {};
     };
 

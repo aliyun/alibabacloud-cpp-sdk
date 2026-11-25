@@ -73,7 +73,7 @@ namespace Models
     shared_ptr<vector<string>> disabledCheckItems_ {};
     // Indicates whether inspection is enabled.
     shared_ptr<bool> enabled_ {};
-    // The inspection recurrence defined by using the RFC5545 recurrence rule syntax. You must specify BYHOUR and BYMINUTE. Only FREQ=DAILY is supported. COUNT and UNTIL are not supported.
+    // The inspection recurrence defined by using the RFC5545 recurrence rule syntax. BYHOUR and BYMINUTE must be specified. Only FREQ=DAILY is supported. COUNT or UNTIL cannot be specified.
     shared_ptr<string> recurrence_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

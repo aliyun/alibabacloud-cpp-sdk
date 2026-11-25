@@ -143,7 +143,7 @@ namespace Models
 
 
     protected:
-      // The access permissions of the deployment template. Valid values:
+      // The access permissions of the user deployment template. Valid values:
       // 
       // - `private`: Private.
       // - `public`: Public.
@@ -157,17 +157,17 @@ namespace Models
       shared_ptr<string> id_ {};
       // The name of the orchestration template.
       shared_ptr<string> name_ {};
-      // The tags of the orchestration template. If no tag is explicitly specified, the template name is used as the default tag.
+      // The tags of the orchestration template. If not explicitly specified, the default value is the template name.
       shared_ptr<string> tags_ {};
-      // The content of the orchestration template in YAML format.
+      // The content of the template in YAML format.
       shared_ptr<string> template_ {};
-      // The templatetype. Valid values:
+      // The templatetype.
       // 
       // - `kubernetes`: The template is displayed on the Orchestration Templates page in the console.
       // 
-      // - If this parameter is left empty or set to other values: The template is not displayed on the Orchestration Templates page in the console.
+      // - If this parameter is left empty or set to other values, the template is not displayed on the Orchestration Templates page in the console.
       shared_ptr<string> templateType_ {};
-      // The ID of the parent template associated with the orchestration template. This ID is used to implement the multi-version feature for templates. Different versions of the same template share the same `template_with_hist_id` value.
+      // The ID of the parent template associated with the template. This parameter is used to implement the multi-version feature for templates. Different versions of the same template share the same `template_with_hist_id` value.
       shared_ptr<string> templateWithHistId_ {};
       // The time when the orchestration template was updated.
       shared_ptr<string> updated_ {};

@@ -85,7 +85,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of results.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -237,12 +237,14 @@ namespace Models
 
 
         protected:
-          // The auto-upgrade channel for the cluster. For more information, refer to [Upgrade channels](https://help.aliyun.com/document_detail/2712866.html). Valid values:
+          // The cluster auto-upgrade channel. For more information, see [Upgrade channels](https://help.aliyun.com/document_detail/2712866.html).
+          // 
+          // Valid values:
           // - patch: The latest patch version.
           // - stable: The second latest minor version.
           // - rapid: The latest minor version.
           shared_ptr<string> channel_ {};
-          // Specifies whether auto-upgrade is enabled for the cluster.
+          // Indicates whether cluster auto-upgrade is enabled.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -257,7 +259,7 @@ namespace Models
 
 
       protected:
-        // The auto-upgrade settings for the cluster.
+        // The cluster auto-upgrade.
         shared_ptr<OperationPolicy::ClusterAutoUpgrade> clusterAutoUpgrade_ {};
       };
 
@@ -540,7 +542,7 @@ namespace Models
     protected:
       // The local domain name of the cluster.
       shared_ptr<string> clusterDomain_ {};
-      // The cluster ID.
+      // The ID of the cluster.
       shared_ptr<string> clusterId_ {};
       // The cluster specifications.
       shared_ptr<string> clusterSpec_ {};
@@ -548,41 +550,39 @@ namespace Models
       shared_ptr<string> clusterType_ {};
       // The Pod network CIDR block for Flannel network configuration.
       shared_ptr<string> containerCidr_ {};
-      // The time when the cluster was created.
+      // The cluster creation time.
       shared_ptr<string> created_ {};
       // The current version of the cluster.
       shared_ptr<string> currentVersion_ {};
-      // Specifies whether deletion protection is enabled for the cluster to prevent accidental deletion through the console or API. Valid values:
+      // Indicates whether deletion protection is enabled for the cluster to prevent accidental deletion through the console or API operations. Valid values:
       // 
-      // - true: Deletion protection is enabled. The cluster cannot be deleted through the console or API.
-      // - false: Deletion protection is disabled. The cluster can be deleted through the console or API.
+      // - `true`: Deletion protection is enabled. The cluster cannot be deleted through the console or API operations.
+      // - `false`: Deletion protection is disabled. The cluster can be deleted through the console or API operations.
       shared_ptr<bool> deletionProtection_ {};
-      // The Docker version used by the cluster.
+      // The Docker version of the cluster.
       shared_ptr<string> dockerVersion_ {};
-      // The ID of the Server Load Balancer (SLB) instance for the Ingress in the cluster.
-      // 
-      // Default instance type: guaranteed-performance instance (slb.s1.small).
+      // The Ingress Server Load Balancer (SLB) instance in the cluster. Default instance type: guaranteed-performance (slb.s1.small).
       shared_ptr<string> externalLoadbalancerId_ {};
-      // The initial version of the cluster. For the Kubernetes versions supported by ACK, refer to [Overview of Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
+      // The cluster version. For the Kubernetes versions supported by ACK, see [Kubernetes version overview](https://help.aliyun.com/document_detail/185269.html).
       shared_ptr<string> initVersion_ {};
       // The IP protocol stack of the cluster. Valid values:
-      // - ipv4: Creates a cluster that supports only the IPv4 protocol stack.
-      // - dual: Creates a cluster that supports both IPv4 and IPv6 protocol stacks.
+      // - `ipv4`: Creates a cluster that supports only the IPv4 protocol stack.
+      // - `dual`: Creates a cluster that supports the dual-stack IPv4/IPv6 protocol stack.
       shared_ptr<string> ipStack_ {};
-      // The maintenance window of the cluster. This feature takes effect only in ACK managed clusters and ACK Serverless clusters.
+      // The cluster maintenance window. This feature takes effect only in ACK managed clusters and ACK Serverless clusters.
       shared_ptr<MaintenanceWindow> maintenanceWindow_ {};
-      // The access endpoints of the cluster API server, including the internal network access address and the public network access address.
+      // The access addresses of the cluster API server, including the internal network access address and the public network access address.
       shared_ptr<string> masterUrl_ {};
-      // The metadata of the cluster.
+      // The metadata information of the cluster.
       shared_ptr<string> metaData_ {};
       // The cluster name. Fuzzy match is supported.
       shared_ptr<string> name_ {};
       // The network mode of the cluster. Valid values:
       // 
-      // - classic: classic network
-      // - vpc: VPC
-      // - overlay: overlay network
-      // - calico: Calico network
+      // - `classic`: Classic network.
+      // - `vpc`: Virtual private cloud (VPC).
+      // - `overlay`: Overlay network.
+      // - `calico`: Calico network.
       shared_ptr<string> networkMode_ {};
       // The version to which the cluster can be upgraded.
       shared_ptr<string> nextVersion_ {};
@@ -590,15 +590,15 @@ namespace Models
       shared_ptr<Clusters::OperationPolicy> operationPolicy_ {};
       // The Private Zone configuration of the cluster. Valid values:
       // 
-      // - true: Private Zone is enabled.
-      // - false: Private Zone is disabled.
+      // - `true`: Private Zone is enabled.
+      // - `false`: Private Zone is disabled.
       shared_ptr<bool> privateZone_ {};
-      // The subtype of the cluster.
+      // The cluster subtype.
       shared_ptr<string> profile_ {};
       // The kube-proxy mode. Valid values:
       // 
-      // - iptables: The mature and stable kube-proxy mode. Service discovery and load balancing for Kubernetes services are configured by using iptables rules. This mode provides average performance and is affected by the cluster scale. It is suitable for clusters with a small number of services.
-      // - ipvs: The high-performance kube-proxy mode. Service discovery and load balancing for Kubernetes services are configured by using the Linux IPVS module. This mode is suitable for clusters with a large number of services and scenarios that require high-performance load balancing.
+      // - `iptables`: The mature and stable kube-proxy mode. Service discovery and load balancing for Kubernetes services are configured by using iptables rules. However, the performance is average and heavily affected by the scale. This mode is suitable for clusters with a small number of services.
+      // - `ipvs`: The high-performance kube-proxy mode. Service discovery and load balancing for Kubernetes services are configured by using the Linux IPVS module. This mode is suitable for clusters with a large number of services and scenarios that require high-performance load balancing.
       shared_ptr<string> proxyMode_ {};
       // The ID of the region where the cluster is deployed.
       shared_ptr<string> regionId_ {};
@@ -606,29 +606,29 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // The ID of the security group to which the cluster belongs.
       shared_ptr<string> securityGroupId_ {};
-      // The CIDR block of the service network.
+      // The service network CIDR block.
       // 
       // This parameter is required.
       shared_ptr<string> serviceCidr_ {};
-      // The current number of nodes in the cluster, including the master node and worker nodes.
+      // The current number of nodes in the cluster, including master nodes and worker nodes.
       shared_ptr<int64_t> size_ {};
       // The running status of the cluster. Valid values:
       // 
-      // - initial: The cluster is being created.
-      // - failed: The cluster failed to be created.
-      // - running: The cluster is running.
-      // - updating: The cluster is being updated.
-      // - upgrading: The cluster is being upgraded.
-      // - removing: Nodes are being removed.
-      // - draining: Nodes are being drained.
-      // - scaling: The cluster is being scaled.
-      // - inactive: The cluster is inactive.
-      // - unavailable: The cluster is unavailable.
-      // - deleting: The cluster is being deleted.
-      // - deleted: The cluster is deleted.
-      // - delete_failed: The cluster failed to be deleted.
-      // - waiting: The cluster is waiting for the accessed state.
-      // - disconnected: The cluster is disconnected.
+      // - `initial`: The cluster is being created.
+      // - `failed`: The cluster failed to be created.
+      // - `running`: The cluster is running.
+      // - `updating`: The cluster is being updated.
+      // - `upgrading`: The cluster is being upgraded.
+      // - `removing`: Nodes are being removed.
+      // - `draining`: Nodes are being drained.
+      // - `scaling`: The cluster is being scaled.
+      // - `inactive`: The cluster is inactive.
+      // - `unavailable`: The cluster is unavailable.
+      // - `deleting`: The cluster is being deleted.
+      // - `deleted`: The cluster is deleted.
+      // - `delete_failed`: The cluster failed to be deleted.
+      // - `waiting`: The cluster is waiting to be connected.
+      // - `disconnected`: The cluster is disconnected.
       shared_ptr<string> state_ {};
       // **[Deprecated]** Use container_cidr to obtain the Pod network CIDR block.
       shared_ptr<string> subnetCidr_ {};
@@ -636,17 +636,17 @@ namespace Models
       shared_ptr<vector<Tag>> tags_ {};
       // The time zone.
       shared_ptr<string> timezone_ {};
-      // The time when the cluster was last updated.
+      // The time when the cluster was updated.
       shared_ptr<string> updated_ {};
       // The ID of the virtual private cloud (VPC) where the cluster is deployed.
       shared_ptr<string> vpcId_ {};
       // The ID of the vSwitch used by the cluster.
       shared_ptr<string> vswitchId_ {};
-      // The vSwitches of the cluster control plane.
+      // The vSwitches for the cluster control plane.
       shared_ptr<vector<string>> vswitchIds_ {};
-      // The name of the worker RAM role, which authorizes ECS instances to serve as worker nodes in the cluster.
+      // The name of the worker RAM role, which is used to authorize ECS instances as worker nodes of the cluster.
       shared_ptr<string> workerRamRoleName_ {};
-      // The ID of the zone to which the cluster belongs.
+      // The ID of the zone where the cluster is deployed.
       shared_ptr<string> zoneId_ {};
     };
 

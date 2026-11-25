@@ -69,7 +69,7 @@ namespace Models
     shared_ptr<string> action_ {};
     // The namespaces where the policy is enforced. If this parameter is left empty, the policy is enforced in all namespaces.
     shared_ptr<vector<string>> namespaces_ {};
-    // The parameter settings of the current rule instance. For more information about the parameters supported by each policy governance rule and the corresponding metric description, see [Container security policy rule library](https://www.alibabacloud.com/help/doc-detail/359819.html).
+    // The parameter settings of the current rule instance. For more information about the parameters supported by each policy governance rule and the corresponding metric descriptions, see [Container security policy rule library](https://www.alibabacloud.com/help/doc-detail/359819.html).
     Darabonba::Json parameters_ {};
   };
 

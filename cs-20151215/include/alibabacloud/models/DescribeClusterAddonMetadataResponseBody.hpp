@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The component parameter schema.
+    // The schema of the add-on parameters.
     shared_ptr<string> configSchema_ {};
-    // The component name.
+    // The name of the add-on.
     shared_ptr<string> name_ {};
-    // The component version.
+    // The version of the add-on.
     shared_ptr<string> version_ {};
   };
 

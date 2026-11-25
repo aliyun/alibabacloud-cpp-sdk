@@ -129,7 +129,7 @@ namespace Models
 
 
   protected:
-    // The list of checks.
+    // The check list.
     shared_ptr<vector<ListClusterChecksResponseBody::Checks>> checks_ {};
   };
 

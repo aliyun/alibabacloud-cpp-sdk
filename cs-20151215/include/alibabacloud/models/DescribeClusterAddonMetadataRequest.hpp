@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The component version.
+    // The version of the add-on.
     shared_ptr<string> version_ {};
   };
 

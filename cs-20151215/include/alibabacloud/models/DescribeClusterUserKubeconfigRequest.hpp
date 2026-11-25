@@ -54,8 +54,8 @@ namespace Models
     // 
     // Default value: `false`.
     shared_ptr<bool> privateIpAddress_ {};
-    // The validity period of the temporary kubeconfig file, in minutes. Valid values: 15 to 4320.
-    // > If you do not specify this parameter, the system automatically determines a longer validity period. You can determine the specific expiration time based on the value of the `expiration` field in the response.
+    // The validity period of the temporary kubeconfig. Unit: minutes. Valid values: 15 to 4320.
+    // > If you do not specify this parameter, the system automatically determines a longer validity period. The specific expiration time is determined by the value of the expiration field in the response.
     shared_ptr<int64_t> temporaryDurationMinutes_ {};
   };
 

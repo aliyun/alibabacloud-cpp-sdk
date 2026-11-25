@@ -82,10 +82,10 @@ namespace Models
 
 
     protected:
-      // The deletion status.
+      // The deletion status. Valid values:
       // 
-      // * true: Deletion succeeded.
-      // * false: Deletion failed.
+      // * true: The deletion succeeded.
+      // * false: The deletion failed.
       shared_ptr<bool> status_ {};
       // The message returned when the execution fails.
       shared_ptr<string> msg_ {};

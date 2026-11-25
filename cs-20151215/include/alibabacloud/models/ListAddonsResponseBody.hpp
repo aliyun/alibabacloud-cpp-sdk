@@ -127,33 +127,32 @@ namespace Models
 
 
     protected:
-      // The CPU architectures supported by the component.
+      // The CPU architectures supported by the add-on.
       shared_ptr<vector<string>> architecture_ {};
-      // The category of the component. Valid values:
-      // - core: core component
-      // - network: network component
-      // - security: security component
-      // - storage: storage component
-      // - monitor: logging and monitoring component
-      // - application: application component
-      // 
-      // An empty value indicates that the component belongs to another category.
+      // The category of the add-on. Valid values:
+      // - core: Core add-on.
+      // - network: Network add-on.
+      // - security: Security add-on.
+      // - storage: Storage add-on.
+      // - monitor: Logging and monitoring add-on.
+      // - application: Application add-on.
+      // An empty value indicates that the add-on type is other.
       shared_ptr<string> category_ {};
-      // The schema of custom parameters for the component.
+      // The schema of custom parameters for the add-on.
       shared_ptr<string> configSchema_ {};
-      // Indicates whether the component is installed by default. Valid values:
-      // - true: The component is installed by default when the cluster is created.
-      // - false: The component is not installed by default.
+      // Indicates whether the add-on is installed by default. Valid values:
+      // - true: The add-on is installed by default when the cluster is created.
+      // - false: The add-on is not installed by default.
       shared_ptr<bool> installByDefault_ {};
-      // Indicates whether the component is managed. Valid values:
-      // - true: The component is managed.
-      // - false: The component is not managed.
+      // Indicates whether the add-on is managed. Valid values:
+      // - true: The add-on is managed.
+      // - false: The add-on is not managed.
       shared_ptr<bool> managed_ {};
-      // The name of the component.
+      // The name of the add-on.
       shared_ptr<string> name_ {};
-      // The operations supported by the component.
+      // The operations supported by the add-on.
       shared_ptr<vector<string>> supportedActions_ {};
-      // The version of the component.
+      // The version of the add-on.
       shared_ptr<string> version_ {};
     };
 
@@ -168,7 +167,7 @@ namespace Models
 
 
   protected:
-    // The list of available components.
+    // The list of available add-ons.
     shared_ptr<vector<ListAddonsResponseBody::Addons>> addons_ {};
   };
 

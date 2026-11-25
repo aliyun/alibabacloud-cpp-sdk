@@ -106,26 +106,26 @@ namespace Models
     // The cluster type. Valid values:
     // 
     // - `Kubernetes`: ACK dedicated cluster.
-    // - `ManagedKubernetes`: ACK managed cluster, including ACK Pro clusters, ACK Basic clusters, ACK Serverless Pro clusters, ACK Serverless Basic clusters, ACK Edge Pro clusters, and ACK Edge Basic clusters.
+    // - `ManagedKubernetes`: ACK managed cluster, including ACK Pro clusters, ACK basic clusters, ACK Serverless Pro clusters, ACK Serverless basic clusters, ACK Edge Pro clusters, and ACK Edge basic clusters.
     // 
     // This parameter is required.
     shared_ptr<string> clusterType_ {};
     // The Kubernetes version of the cluster, which is consistent with the Kubernetes community baseline version. We recommend that you select the latest version. If you do not specify this parameter, the latest version is used by default.
     // 
-    // For more information about the Kubernetes versions supported by ACK, see [Overview of Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
+    // For more information about the Kubernetes versions supported by ACK, see [Overview of Kubernetes releases](https://help.aliyun.com/document_detail/185269.html).
     shared_ptr<string> kubernetesVersion_ {};
     // The query mode. Valid values:
     // - `supported`: queries supported versions.
     // - `creatable`: queries versions available for cluster creation.
     // 
-    // If you specify KubernetesVersion, the query mode is ignored.
+    // If you specify `KubernetesVersion`, the query mode is ignored.
     // 
     // If you do not specify a query mode, versions available for cluster creation are returned by default.
     shared_ptr<string> mode_ {};
-    // The cluster profile used to differentiate cluster scenarios. Valid values:
+    // The cluster profile that indicates the scenario. Valid values:
     // 
-    // - `Default`: non-edge cluster.
-    // - `Edge`: edge cluster.
+    // - `Default`: non-edge scenario cluster.
+    // - `Edge`: edge scenario cluster.
     // - `Serverless`: ASK cluster.
     // 
     // Default value: `Default`.
@@ -140,11 +140,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The version support policy. The value is case-sensitive. Valid values:
+    // The version support policy. The values are case-sensitive. Valid values:
     // - Standard: standard support. This is the default value.
     // - Extended: extended support.
-    // If you set this parameter to Extended: when Mode is set to `supported`, versions in the extended support period are additionally returned; when Mode is set to `creatable`, the latest extended support patch version of the major version in the extended support period is additionally returned; upgradable_versions returns the extended support patch versions of the major version.
-    // Extended support applies only to ACK Pro managed clusters (where ClusterSpec is set to `ack.pro.*` and Profile is set to `Default`). Other cluster types (ACK Standard, ACS, ACK Edge managed, and ACK dedicated clusters) do not support extended support. If you specify a version in the extended support period to create or upgrade these clusters, the request will be rejected.
+    // When this parameter is set to Extended: if Mode is set to supported, versions in the extended support period are additionally returned; if Mode is set to creatable, the latest extended support patch version of the major version in the extended support period is additionally returned; upgradable_versions returns the extended support patch versions of the major version.
+    // Extended support applies only to ACK Pro managed clusters (ClusterSpec is set to ack.pro.* and Profile is set to Default). Other cluster types (ACK standard clusters, ACS clusters, ACK Edge managed clusters, and ACK dedicated clusters) do not support extended support. If you specify a version in the extended support period to create or upgrade these clusters, the request will be rejected.
     shared_ptr<string> supportPolicy_ {};
     // The runtime type. You can specify a runtime type to filter the system images supported by the runtime. Valid values:
     // 

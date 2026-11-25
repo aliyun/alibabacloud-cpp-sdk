@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
-    // The expiration time of the KubeConfig. Format: UTC time in RFC 3339 format.
+    // The expiration time of the KubeConfig. The time is displayed in UTC and follows the RFC 3339 standard.
     shared_ptr<string> expiration_ {};
   };
 

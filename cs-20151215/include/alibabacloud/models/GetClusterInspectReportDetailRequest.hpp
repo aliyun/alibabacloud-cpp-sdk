@@ -103,7 +103,7 @@ namespace Models
     shared_ptr<string> category_ {};
     // Specifies whether to filter inspection items. If set to true, only abnormal inspection items with a result of true are returned.
     shared_ptr<bool> enableFilter_ {};
-    // The query language. Valid values:
+    // The query language.
     // - zh_CN
     // - en_US
     shared_ptr<string> language_ {};
@@ -117,7 +117,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The object type. Only check items that match the object type are returned.
+    // The inspection object type. Only inspection items that match the specified object type are returned.
     shared_ptr<string> targetType_ {};
   };
 

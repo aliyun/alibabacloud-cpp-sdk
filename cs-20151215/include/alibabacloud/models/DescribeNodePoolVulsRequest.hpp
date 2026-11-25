@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The necessity levels of the vulnerability fixes to query. Separate multiple levels with commas (,). Valid values:
+    // The necessity levels of vulnerability fixes to query. Separate multiple levels with commas (,). Valid values:
     // 
     // - `asap`: high
     // - `later`: medium

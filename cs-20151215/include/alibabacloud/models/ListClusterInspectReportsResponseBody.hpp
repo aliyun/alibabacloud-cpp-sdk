@@ -186,7 +186,7 @@ namespace Models
       shared_ptr<string> startTime_ {};
       // The generation status of the inspection report.
       shared_ptr<string> status_ {};
-      // The inspection report summary.
+      // The summary of the inspection report.
       shared_ptr<Reports::Summary> summary_ {};
     };
 
