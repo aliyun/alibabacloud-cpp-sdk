@@ -249,59 +249,56 @@ namespace Models
 
 
     protected:
-      // The RAM user ID.
+      // The ID of the Resource Access Management (RAM) user.
       shared_ptr<string> aliUid_ {};
-      // The time when the result set export job was created. The time follows the ISO 8601 standard in the *yyyy-mm-ddThh:mm:ssZ* format. The time is displayed in UTC.
+      // The time when the result set export task was created. Specify the time in the <i>yyyy-mm-ddThh:mm:ssZ</i> format. The time must be in UTC.
       shared_ptr<string> createTime_ {};
-      // The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+      // The ID of the AnalyticDB for MySQL Data Lakehouse Edition (3.0) cluster.
       shared_ptr<string> DBClusterId_ {};
-      // The name of the database account that is associated with the RAM user.
+      // The name of the database account associated with the Resource Access Management (RAM) user.
       shared_ptr<string> databaseUser_ {};
-      // The end time of the result set export job. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
-      // 
-      // >  The end time must be later than the start time.
+      // The end time of the query. Specify the time in the <i>yyyy-MM-ddTHH:mm:ssZ</i> format. The time must be in UTC.
+      // > The end time must be later than the start time.
       shared_ptr<string> endTime_ {};
-      // The engine that is used to execute the result set export job. Only XIHE is returned.
+      // The engine used to execute the task. Only XIHE is supported.
       shared_ptr<string> engine_ {};
-      // The unique identifier of the result set export job.
+      // The unique identifier of the result set export task.
       shared_ptr<string> exportJobId_ {};
-      // The complete URL of the path to store the exported result set.
+      // The complete address of the result set.
       shared_ptr<string> exportPath_ {};
-      // The number of exported rows. This parameter is returned only when the request was successful.
+      // The number of exported rows. This parameter is returned only when the operation call is successful.
       shared_ptr<string> exportRows_ {};
-      // The type of the result set export job.
+      // The export type.
       shared_ptr<string> exportType_ {};
-      // Indicates whether the result set export job has expired. Valid values:
+      // Indicates whether the task has expired. Valid values:
       // 
-      // *   **false**
-      // *   **true**
+      // - **false**: The task has not expired.
+      // - **true**: The task has expired.
       shared_ptr<bool> isExpired_ {};
-      // The returned message. This parameter is returned only when the request failed.
+      // The error message of the SQL execution for the result set export. This message is returned only when the task fails.
       shared_ptr<string> message_ {};
-      // The query ID that can be used for diagnostics.
-      // 
-      // >  You can call the [DescribeDiagnosisSQLInfo](https://help.aliyun.com/document_detail/612337.html) operation to query the execution information about a query.
+      // The SQL query ID returned for diagnostics.
+      // > You can call the [DescribeDiagnosisSQLInfo](https://help.aliyun.com/document_detail/612495.html) operation to diagnose the query.
       shared_ptr<string> processId_ {};
-      // The progress of the result set export job. Unit: %. Valid values: 0 to 100.
+      // The export progress. Unit: percentage (%). Valid values: 0 to 100.
       shared_ptr<string> progress_ {};
-      // The name of the resource group that runs the result set export job.
+      // The resource group in which the task is executed.
       shared_ptr<string> resourceGroup_ {};
       // The name of the database.
       shared_ptr<string> schema_ {};
-      // The SQL statement that is used in the result set export job.
+      // The details of the SQL statement used in the result set export task.
       shared_ptr<string> sql_ {};
-      // The start time of the result set export job. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The start time of the task. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
       shared_ptr<string> startTime_ {};
-      // The execution status of the result set export job. Valid values:
-      // 
-      // 1.  **SUBMITTED**
-      // 2.  **RUNNING**
-      // 3.  **SUCCEEDED**
-      // 4.  **FAILED**
+      // The execution status of the export task. Valid values:
+      // 1. **SUBMITTED**: The task is submitted.
+      // 2. **RUNNING**: The task is running.
+      // 3. **SUCCEEDED**: The task succeeded.
+      // 4. **FAILED**: The task failed.
       shared_ptr<string> status_ {};
-      // The amount of time consumed to export execution records. Unit: milliseconds.
+      // The time consumed for data export, in milliseconds.
       // 
-      // >  The value is the duration between the time when the result set export job starts and the time when the result set export job ends.
+      // > The time is calculated from the start of the data export task to the end of the export.
       shared_ptr<int64_t> timeCost_ {};
     };
 
@@ -374,29 +371,27 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The operation status code or POP error code.
     shared_ptr<string> code_ {};
-    // The response code. The status code 200 indicates that the request was successful.
+    // The HTTP status code returned. A status code of 200 indicates that the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The queried result set export jobs.
+    // The list details.
     shared_ptr<vector<ListResultExportJobHistoryResponseBody::Items>> items_ {};
-    // The returned message. Valid values:
-    // 
-    // *   If the request was successful, an **OK** message is returned.
-    // *   If the request failed, an error message is returned.
+    // The additional information about the call result. Valid values:
+    // - **Ok**: The request is normal.                                
+    // - Specific error code: An exception occurred.
     shared_ptr<string> message_ {};
-    // The page number.
+    // The page number, which is the same as the value passed in the request.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

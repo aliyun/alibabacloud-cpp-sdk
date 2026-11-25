@@ -116,35 +116,28 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The owner.
     shared_ptr<string> filterOwner_ {};
-    // The view name.
+    // The name of the view.
     shared_ptr<string> filterViewName_ {};
-    // The view type.
-    // 
-    // Valid values:
-    // 
+    // The view type. Valid values:
     // - VIRTUAL_VIEW
     // - MATERIALIZED_VIEW
-    // 
     // Default value: empty.
     shared_ptr<string> filterViewType_ {};
-    // The sort field.
-    // 
-    // Valid values for the sort order:
+    // The sort field. Valid values for the sort order:
     // - Asc
     // - Desc
-    // 
-    // Valid values for the sort field:
+    // Valid values for the field:
     // - StartTime
     // - EndTime
     // - ScheduledStartTime
     shared_ptr<string> orderBy_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The database name.
+    // The name of the database.
     shared_ptr<string> schemaName_ {};
   };
 

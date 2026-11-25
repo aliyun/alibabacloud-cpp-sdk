@@ -96,7 +96,7 @@ namespace Models
 
 
     protected:
-      // The page number. The value is a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
+      // The page number. Valid values: an integer greater than 0 and up to the maximum value of the Integer data type. Default value: 1.
       shared_ptr<int64_t> pageNumber_ {};
       // The number of entries per page. Valid values:
       // * **30** (default)
@@ -105,7 +105,7 @@ namespace Models
       shared_ptr<int64_t> pageSize_ {};
       // The details of the table.
       shared_ptr<TableDetailModel> table_ {};
-      // The total number of entries in the result.
+      // The total number of entries returned.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -151,7 +151,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<GetTableColumnsResponseBody::Data> data_ {};
-    // The page number. The value is a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
+    // The page number. Valid values: an integer greater than 0 and up to the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // * **30** (default)
@@ -160,7 +160,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the result.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

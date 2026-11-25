@@ -156,7 +156,7 @@ namespace Models
       protected:
         // The name of the resource group.
         shared_ptr<string> groupName_ {};
-        // The threshold for query execution time. Unit: milliseconds.
+        // The threshold for query execution time, in milliseconds.
         shared_ptr<string> queryTime_ {};
         // The name of the destination resource group.
         shared_ptr<string> targetGroupName_ {};
@@ -301,7 +301,7 @@ namespace Models
           shared_ptr<int32_t> minWorkerQuantity_ {};
           // The disk size of each worker.
           shared_ptr<string> workerDiskCapacity_ {};
-          // The specification of the worker.
+          // The resource specification of the worker.
           shared_ptr<string> workerSpecName_ {};
           // The resource type of the Ray worker.
           shared_ptr<string> workerSpecType_ {};
@@ -436,7 +436,7 @@ namespace Models
             shared_ptr<string> image_ {};
             // The inference engine.
             shared_ptr<string> inferenceEngine_ {};
-            // The large language model (LLM).
+            // The LLM model.
             shared_ptr<string> llmModel_ {};
           };
 
@@ -585,13 +585,13 @@ namespace Models
       protected:
         // The Ray application configuration.
         shared_ptr<RayConfig::AppConfig> appConfig_ {};
-        // The Ray cluster type. Valid values:
+        // The type of the Ray cluster. Valid values:
         // 
-        // - **BASIC**: the basic type, which is not highly available.
+        // - BASIC: The basic type. High availability is not supported.
         // 
-        // - **HIGH_AVAILABILITY**: the high-availability type.
+        // - HIGH_AVAILABILITY: The high-availability type.
         shared_ptr<string> category_ {};
-        // Specifies whether to enable the elastic network interface (ENI).
+        // Specifies whether to enable ENIs.
         shared_ptr<bool> enableUserEni_ {};
         // The allocation unit of the head node.
         shared_ptr<string> headAllocateUnit_ {};
@@ -611,7 +611,7 @@ namespace Models
         shared_ptr<string> rayServePublicAddress_ {};
         // The list of mounted storage.
         shared_ptr<vector<RayConfig::StorageMounts>> storageMounts_ {};
-        // The custom Python dependencies for RayCluster. Specify the content in the requirements.txt format, with one pip dependency per line. A maximum of 200 lines are allowed, and each line cannot exceed 512 characters. Version constraints, extras, PEP 440 direct URLs, and # comments are supported, but shell metacharacters are not supported. This parameter applies only to AI resource groups of the RayCluster type.
+        // The custom Python dependencies for RayCluster. Specify the content in the requirements.txt format, with one pip dependency per line. A maximum of 200 lines are supported, and each line cannot exceed 512 characters. Version constraints, extras, PEP 440 direct URLs, and # comments are supported. Shell metacharacters are not supported. This parameter applies only to AI resource groups of the RayCluster type.
         shared_ptr<string> userDefinedRequirements_ {};
         // The list of Ray worker groups.
         shared_ptr<vector<RayConfig::WorkerGroups>> workerGroups_ {};
@@ -676,9 +676,9 @@ namespace Models
 
 
         protected:
-          // The end time in cron expression format. The interval must be no less than 1 hour.
+          // The end time specified by a cron expression. The interval must be at least 1 hour.
           shared_ptr<string> endCronExpression_ {};
-          // The start time in cron expression format. The interval must be no less than 1 hour.
+          // The start time specified by a cron expression. The interval must be at least 1 hour.
           shared_ptr<string> startCronExpression_ {};
         };
 
@@ -701,7 +701,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether the GPU time-based elastic plan is enabled.
+        // Specifies whether the plan is enabled.
         shared_ptr<bool> enabled_ {};
         // The list of rules.
         shared_ptr<vector<GpuElasticPlan::Rules>> rules_ {};
@@ -831,19 +831,19 @@ namespace Models
         shared_ptr<string> authNodeNum_ {};
         // The authentication node specifications.
         shared_ptr<string> authNodeSpec_ {};
-        // The number of insert nodes.
+        // The number of write nodes.
         shared_ptr<string> insertNodeNum_ {};
-        // The insert node specifications.
+        // The write node specifications.
         shared_ptr<string> insertNodeSpec_ {};
-        // The cache size of the query node.
+        // The cache size of query nodes.
         shared_ptr<string> selectNodeCacheSize_ {};
         // The number of query nodes.
         shared_ptr<string> selectNodeNum_ {};
         // The query node specifications.
         shared_ptr<string> selectNodeSpec_ {};
-        // The disk size of the storage node.
+        // The disk size of storage nodes.
         shared_ptr<string> storageNodeDiskSize_ {};
-        // The disk type of the storage node.
+        // The disk type of storage nodes.
         shared_ptr<string> storageNodeDiskType_ {};
         // The number of storage nodes.
         shared_ptr<string> storageNodeNum_ {};
@@ -1088,11 +1088,11 @@ namespace Models
       shared_ptr<string> clusterSizeResource_ {};
       // The time when the resource group was created. The time is displayed in UTC in the <i>yyyy-MM-ddTHH:mm:ssZ</i> format.
       shared_ptr<string> createTime_ {};
-      // The minimum elastic compute resources. Unit: ACU.
+      // The minimum elastic computing resources, in ACUs.
       shared_ptr<string> elasticMinComputeResource_ {};
       // Specifies whether to enable the spot instance feature for the resource group. After you enable this feature, the unit price of resources decreases, but the instances may be released. Valid values:
-      // - **True**: enables the spot instance feature.
-      // - **False**: disables the spot instance feature.
+      // - **True**: Enables the spot instance feature.
+      // - **False**: Disables the spot instance feature.
       // 
       // This parameter can be set to True only for Job resource groups.
       shared_ptr<string> enableSpot_ {};
@@ -1107,29 +1107,29 @@ namespace Models
       // The resource group type. Valid values:
       // - **Interactive**
       // - **Job**
-      // > For more information about Data Lakehouse Edition resource groups, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+      // > For more information about resource groups in Data Lakehouse Edition, see [Resource groups in Data Lakehouse Edition](https://help.aliyun.com/document_detail/428610.html).
       shared_ptr<string> groupType_ {};
       // The Resource Access Management (RAM) users attached to the resource group.
       shared_ptr<string> groupUsers_ {};
       // The reserved parameter. This parameter is not applicable.
       shared_ptr<int32_t> maxClusterCount_ {};
-      // The maximum reserved compute resources. Unit: ACU.
+      // The maximum reserved computing resources, in ACUs.
       shared_ptr<string> maxComputeResource_ {};
       // The maximum number of GPUs.
       shared_ptr<int32_t> maxGpuQuantity_ {};
-      // The message of the job delivery rule.
+      // The message of the job routing rule.
       // 
       // This parameter is required.
       shared_ptr<string> message_ {};
       // The reserved parameter. This parameter is not applicable.
       shared_ptr<int32_t> minClusterCount_ {};
-      // The minimum reserved compute resources. Unit: ACU.
+      // The minimum reserved computing resources, in ACUs.
       shared_ptr<string> minComputeResource_ {};
       // The minimum number of GPUs.
       shared_ptr<int32_t> minGpuQuantity_ {};
       // The Ray configuration information.
       shared_ptr<GroupsInfo::RayConfig> rayConfig_ {};
-      // The job delivery rules.
+      // The job routing rules.
       shared_ptr<vector<GroupsInfo::Rules>> rules_ {};
       // The reserved parameter. This parameter is not applicable.
       shared_ptr<int32_t> runningClusterCount_ {};

@@ -203,43 +203,31 @@ namespace Models
       shared_ptr<string> appId_ {};
       // The source IP address.
       shared_ptr<string> clientIp_ {};
-      // The SQL execution error message.
+      // The error message of the SQL execution.
       shared_ptr<string> errorMsg_ {};
-      // The SQL execution error stack trace.
+      // The error stack trace of the SQL execution.
       shared_ptr<string> errorTrace_ {};
-      // The start time of the SQL statement. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
+      // The start time of the SQL execution. The time is in UTC and follows the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> executeTime_ {};
-      // The ID of the query executed within the Spark application.
+      // The internal query execution ID of the Spark application.
       shared_ptr<string> innerQueryId_ {};
-      // Whether it can be diagnosed.
+      // Indicates whether the SQL statement can be diagnosed.
       shared_ptr<bool> isDiagnosable_ {};
       // The query ID.
       shared_ptr<string> processId_ {};
-      // The resource group name.
+      // The name of the resource group.
       shared_ptr<string> resourceGroupName_ {};
-      // The SQL statement.
+      // The details of the SQL statement.
       shared_ptr<string> SQLText_ {};
-      // The ID of the statement.
+      // The statement ID.
       shared_ptr<string> statementId_ {};
-      // The source from which the query was initiated.
-      // 
-      // Valid values:
-      // 
-      // *   SQL_EDITOR: SQL_EDITOR.
-      // *   JDBC: JDBC.
+      // The source from which the query is initiated.
       shared_ptr<string> statementSource_ {};
       // The execution status of the SQL statement.
-      // 
-      // Valid values:
-      // 
-      // *   cancel: The task is canceled .
-      // *   finished: The execution succeeds .
-      // *   error: The execution fails .
-      // *   timeout: The execution of the command timed out.
       shared_ptr<string> status_ {};
-      // The duration of the SQL statement. Unit: milliseconds.
+      // The execution duration of the SQL statement. Unit: milliseconds.
       shared_ptr<int64_t> totalTime_ {};
-      // The username that is used to execute SQL statements.
+      // The username that executed the SQL statement.
       shared_ptr<string> user_ {};
     };
 
@@ -298,19 +286,19 @@ namespace Models
 
 
   protected:
-    // The details about the access denial. This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+    // The details of the access denial. This field is returned only when RAM authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The list of SQL audit logs.
+    // The list of SQL records.
     shared_ptr<vector<DescribeSparkAuditLogRecordsResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return per page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<string> totalCount_ {};
   };
 

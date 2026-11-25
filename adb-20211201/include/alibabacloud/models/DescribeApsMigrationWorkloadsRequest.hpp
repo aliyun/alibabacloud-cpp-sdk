@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The instance ID. This parameter is required. You can call the DescribeDBClusters operation to query the instance ID in the destination region.
     shared_ptr<string> DBClusterId_ {};
-    // The end time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time of the query. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> endTime_ {};
     // The OSS address.
     shared_ptr<string> ossLocation_ {};
@@ -108,7 +108,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time of the query. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> startTime_ {};
     // The name of the workload.
     shared_ptr<string> workloadName_ {};

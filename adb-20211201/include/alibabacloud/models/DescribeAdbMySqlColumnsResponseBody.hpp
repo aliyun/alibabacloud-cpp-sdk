@@ -89,7 +89,7 @@ namespace Models
 
 
     protected:
-      // The column comment.
+      // The comment of the column.
       shared_ptr<string> comment_ {};
       // The name of the column.
       shared_ptr<string> name_ {};
@@ -156,8 +156,8 @@ namespace Models
     shared_ptr<int32_t> columnCount_ {};
     // The column information.
     shared_ptr<vector<DescribeAdbMySqlColumnsResponseBody::Columns>> columns_ {};
-    // The additional information about the call result. Valid values:
-    // - If the request is successful, **Success** is returned.
+    // The additional information about the call result.
+    // - If the request is successful, **Success** is returned. 
     // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The ID of the request.

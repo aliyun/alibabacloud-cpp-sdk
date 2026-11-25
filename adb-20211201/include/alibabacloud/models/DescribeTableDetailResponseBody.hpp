@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // The shard ID. Only the numeric part of the shard name is returned.
+        // The shard number. Only the numeric part of the shard name is returned.
         shared_ptr<int32_t> id_ {};
-        // The number of rows in the table.
+        // The table size and number of rows.
         shared_ptr<int64_t> size_ {};
       };
 
@@ -116,7 +116,7 @@ namespace Models
 
 
     protected:
-      // The queried shards.
+      // The list of shards.
       shared_ptr<vector<Items::Shard>> shard_ {};
     };
 
@@ -175,19 +175,19 @@ namespace Models
 
 
   protected:
-    // The detailed reason why the access was denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The average number of rows in a shard.
+    // The average number of rows per shard.
     shared_ptr<string> avgSize_ {};
-    // The queried data distribution.
+    // The details.
     shared_ptr<DescribeTableDetailResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The number of records per page.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<string> totalCount_ {};
   };
 

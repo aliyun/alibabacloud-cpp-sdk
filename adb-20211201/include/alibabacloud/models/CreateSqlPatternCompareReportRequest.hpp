@@ -94,26 +94,26 @@ namespace Models
 
 
   protected:
-    // The end time of time window 2. Specify the time in UTC in the yyyy-MM-ddTHH:mmZ or yyyy-MM-ddTHH:mm:ssZ format.
+    // The end time of the second time window. The time is in the yyyy-MM-ddTHH:mmZ or yyyy-MM-ddTHH:mm:ssZ format and must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> compareEndTime_ {};
-    // The start time of time window 2. Specify the time in UTC in the yyyy-MM-ddTHH:mmZ or yyyy-MM-ddTHH:mm:ssZ format.
+    // The start time of the second time window. The time is in the yyyy-MM-ddTHH:mmZ or yyyy-MM-ddTHH:mm:ssZ format and must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> compareStartTime_ {};
-    // The ID of the AnalyticDB for MySQL cluster.
+    // The ID of the AnalyticDB for MySQL instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end time of time window 1. Specify the time in UTC in the yyyy-MM-ddTHH:mmZ or yyyy-MM-ddTHH:mm:ssZ format.
+    // The end time of the first time window. The time is in the yyyy-MM-ddTHH:mmZ or yyyy-MM-ddTHH:mm:ssZ format and must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     // The report type. Valid values:
     // 
-    // - `NEW`: Patterns that are new in time window 2.
-    // - `CHANGED`: Patterns that exist in both time windows and have an increased average value in at least one metric.
+    // - `NEW`: SQL patterns added in the second time window
+    // - `CHANGED`: SQL patterns that exist in both time windows and have an increased average value in at least one dimension
     // 
     // This parameter is required.
     shared_ptr<string> patternType_ {};
@@ -121,7 +121,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start time of time window 1. Specify the time in UTC in the yyyy-MM-ddTHH:mmZ or yyyy-MM-ddTHH:mm:ssZ format.
+    // The start time of the first time window. The time is in the yyyy-MM-ddTHH:mmZ or yyyy-MM-ddTHH:mm:ssZ format and must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

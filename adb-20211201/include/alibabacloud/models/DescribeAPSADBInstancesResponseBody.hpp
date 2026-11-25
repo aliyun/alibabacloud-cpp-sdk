@@ -130,17 +130,17 @@ namespace Models
 
 
     protected:
-      // The specifications of the reserved computing resources.
+      // The specifications of reserved compute resources.
       shared_ptr<string> computeResource_ {};
       // The description of the cluster.
       shared_ptr<string> DBClusterDescription_ {};
-      // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+      // The ID of the AnalyticDB for MySQL Data Lakehouse Edition (3.0) cluster.
       shared_ptr<string> DBClusterId_ {};
       // The status of the cluster.
       shared_ptr<string> DBClusterStatus_ {};
-      // The amount of remaining reserved computing resources that are available in the cluster.
+      // The remaining allocatable reserved compute resources of the cluster.
       shared_ptr<string> reservedACU_ {};
-      // The specifications of the reserved storage resources.
+      // The specifications of reserved storage resources.
       shared_ptr<int64_t> storageResource_ {};
       // The zone ID of the cluster.
       shared_ptr<string> zoneId_ {};
@@ -215,16 +215,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the error code.
+    // The status code or POP error code.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The queried clusters.
+    // The list of items.
     shared_ptr<vector<DescribeAPSADBInstancesResponseBody::Items>> items_ {};
-    // The returned message. Valid values:
-    // 
-    // *   If the request was successful, a success message is returned.****
-    // *   If the request failed, an error message is returned.
+    // The additional information about the call result. Valid values:
+    // - If the request is normal, **Success** is returned. 
+    // - If the request is abnormal, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
@@ -232,12 +231,11 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<string> totalCount_ {};
   };
 

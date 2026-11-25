@@ -118,23 +118,23 @@ namespace Models
 
 
   protected:
-    // Indicates whether the storage description is compressed.
+    // Specifies whether the data is compressed.
     shared_ptr<bool> compressed_ {};
-    // The input format of the storage description.
+    // The input format.
     shared_ptr<string> inputFormat_ {};
-    // The location of the storage description.
+    // The storage location.
     shared_ptr<string> location_ {};
     // The number of buckets.
     shared_ptr<int64_t> numBuckets_ {};
-    // The output format of the storage description.
+    // The output format.
     shared_ptr<string> outputFormat_ {};
-    // The storage configuration parameter.
+    // The storage configuration parameters.
     shared_ptr<map<string, string>> parameters_ {};
-    // The ID of the storage description.
+    // The storage ID of the description.
     shared_ptr<int64_t> sdId_ {};
-    // The information about serialization or deserialization.
+    // The serialization and deserialization sequence information.
     shared_ptr<SerDeInfoModel> serDeInfo_ {};
-    // Indicates whether the storage description is stored in subdirectories.
+    // Specifies whether the data is stored in subdirectories.
     shared_ptr<bool> storedAsSubDirectories_ {};
   };
 

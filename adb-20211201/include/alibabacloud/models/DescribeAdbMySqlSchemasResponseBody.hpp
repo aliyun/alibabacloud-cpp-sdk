@@ -69,9 +69,9 @@ namespace Models
 
 
   protected:
-    // The additional information about the call result. Valid values:
-    // - **Success**: The request is successful. 
-    // - Specific error code: An exception occurred.
+    // The additional information about the call result.
+    // - If the request is successful, **Success** is returned. 
+    // - If an exception occurs, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

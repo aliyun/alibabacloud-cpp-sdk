@@ -145,22 +145,23 @@ namespace Models
 
 
     protected:
+      // The type of the SQL execution engine.
       shared_ptr<string> executionType_ {};
-      // The total input data size of the stage, in bytes.
+      // The total amount of input data for the stage. Unit: bytes.
       shared_ptr<int64_t> inputDataSize_ {};
-      // The total number of input rows in the stage.
+      // The total number of input rows for the stage.
       shared_ptr<int64_t> inputRows_ {};
-      // The cumulative operator duration of the stage, in milliseconds.
+      // The cumulative execution duration of operators for the stage. Unit: milliseconds.
       shared_ptr<int64_t> operatorCost_ {};
-      // The total output data size of the stage, in bytes.
+      // The total amount of output data for the stage. Unit: bytes.
       shared_ptr<int64_t> outputDataSize_ {};
-      // The total number of output rows in the stage.
+      // The total number of output rows for the stage.
       shared_ptr<int64_t> outputRows_ {};
-      // The total peak memory of the stage, in bytes.
+      // The peak memory usage for the stage. Unit: bytes.
       shared_ptr<int64_t> peakMemory_ {};
       // The execution progress of the stage.
       shared_ptr<double> progress_ {};
-      // StageID。
+      // The stage ID.
       shared_ptr<string> stageId_ {};
       // The status of the stage.
       shared_ptr<string> state_ {};
@@ -192,11 +193,11 @@ namespace Models
 
 
   protected:
-    // The execution details of the SQL statement, including the detailed SQL statement, statistics information, execution plan, and operator information.
+    // The execute details of the SQL statement, including the detailed SQL statement, statistics information, execute plan, and operator information.
     shared_ptr<string> diagnosisSQLInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The stage-level execution information of the query.
+    // The staged execution information of the query.
     shared_ptr<vector<DescribeDiagnosisSQLInfoResponseBody::StageInfos>> stageInfos_ {};
   };
 

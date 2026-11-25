@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};

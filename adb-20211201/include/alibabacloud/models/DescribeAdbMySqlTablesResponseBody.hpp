@@ -79,10 +79,10 @@ namespace Models
 
   protected:
     // The additional information about the call result. Valid values:
-    // - If the request is successful, **Success** is returned.
-    // - If the request fails, a specific error code is returned.
+    // - **Success**: The request is successful. 
+    // - Specific error code: The request is abnormal.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The name of the database.
     shared_ptr<string> schema_ {};

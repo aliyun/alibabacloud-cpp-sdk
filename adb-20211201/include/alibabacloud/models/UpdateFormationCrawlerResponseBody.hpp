@@ -100,15 +100,16 @@ namespace Models
     shared_ptr<bool> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The additional information about the call result.
+    // The additional information about the call result. Valid values:
+    // 
     // - If the request is normal, OK is returned.
     // - If an exception occurs, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
-    // - **true**: The call was successful.
-    // - **false**: The call failed.
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
     // The task ID.
     shared_ptr<int64_t> taskId_ {};

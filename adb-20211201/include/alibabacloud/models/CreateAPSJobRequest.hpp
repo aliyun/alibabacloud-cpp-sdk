@@ -158,8 +158,7 @@ namespace Models
     shared_ptr<string> destinationEndpointUserName_ {};
     // The list of partitions.
     shared_ptr<string> partitionList_ {};
-    // The region ID.
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region ID.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -173,7 +172,7 @@ namespace Models
     shared_ptr<string> sourceEndpointRegion_ {};
     // The username of the source endpoint.
     shared_ptr<string> sourceEndpointUserName_ {};
-    // The destination table mode.
+    // The mode of the destination table.
     shared_ptr<string> targetTableMode_ {};
   };
 

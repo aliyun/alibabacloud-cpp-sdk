@@ -103,16 +103,16 @@ namespace Models
 
 
     protected:
-      // Specifies whether to use a cross-account resource as the data source. Valid values:
+      // Specifies whether the resource is cross-account. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The current network instance is a cross-account resource.
+      // - **false**: The current network instance is a resource within the current account.
       shared_ptr<bool> across_ {};
-      // The name of the cross-account role.
+      // The cross-account role.
       shared_ptr<string> acrossRole_ {};
       // The cross-account UID.
       shared_ptr<string> acrossUid_ {};
-      // The region ID.
+      // The source region ID.
       shared_ptr<string> sourceRegionId_ {};
     };
 
@@ -172,13 +172,13 @@ namespace Models
 
 
     protected:
-      // The parameter is no longer supported.
+      // -
       shared_ptr<string> connectUrl_ {};
-      // The parameter is no longer supported.
+      // -
       shared_ptr<string> password_ {};
-      // The parameter is no longer supported.
+      // -
       shared_ptr<string> regionId_ {};
-      // The parameter is no longer supported.
+      // -
       shared_ptr<string> userName_ {};
     };
 
@@ -238,13 +238,13 @@ namespace Models
 
 
     protected:
-      // The parameter is no longer supported.
+      // -
       shared_ptr<string> connectUrl_ {};
-      // The parameter is no longer supported.
+      // -
       shared_ptr<string> password_ {};
-      // The parameter is no longer supported.
+      // -
       shared_ptr<string> regionId_ {};
-      // The parameter is no longer supported.
+      // -
       shared_ptr<string> userName_ {};
     };
 
@@ -295,11 +295,11 @@ namespace Models
 
 
     protected:
-      // The name of the security group.
+      // The security group name.
       shared_ptr<string> securityGroup_ {};
-      // The virtual private cloud (VPC) ID.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
-      // The name of the vSwitch.
+      // The vSwitch name.
       shared_ptr<string> vswitch_ {};
     };
 
@@ -341,9 +341,9 @@ namespace Models
 
 
     protected:
-      // The ID of the Kafka instance.
+      // The Kafka instance ID.
       shared_ptr<string> kafkaClusterId_ {};
-      // The topic of the Kafka instance.
+      // The Kafka topic name.
       shared_ptr<string> kafkaTopic_ {};
     };
 
@@ -435,27 +435,27 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The description of the data source.
+    // The data source description.
     shared_ptr<string> datasourceDescription_ {};
     // The data source ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> datasourceId_ {};
-    // The name of the data source.
+    // The data source name.
     shared_ptr<string> datasourceName_ {};
-    // The information about the Kafka instance.
+    // The Kafka data source information.
     shared_ptr<ModifyApsDatasoureRequest::KafkaInfo> kafkaInfo_ {};
-    // The lakehouse ID.
+    // The Lakehouse ID.
     shared_ptr<ModifyApsDatasoureRequest::LakehouseId> lakehouseId_ {};
-    // The parameter is no longer supported.
+    // The deprecated data source information.
     shared_ptr<ModifyApsDatasoureRequest::PolarDBMysqlInfo> polarDBMysqlInfo_ {};
-    // The parameter is no longer supported.
+    // The deprecated data source information.
     shared_ptr<ModifyApsDatasoureRequest::RdsMysqlInfo> rdsMysqlInfo_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The information about Simple Log Service (SLS).
+    // The Simple Log Service (SLS) information.
     shared_ptr<ModifyApsDatasoureRequest::SlsInfo> slsInfo_ {};
   };
 

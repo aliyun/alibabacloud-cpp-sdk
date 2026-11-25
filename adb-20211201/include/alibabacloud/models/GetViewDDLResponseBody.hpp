@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The SQL statement.
+    // The details of the SQL statement.
     shared_ptr<string> SQL_ {};
   };
 

@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The name of the serialization or deserialization information.
+    // The name of the serialization information.
     shared_ptr<string> name_ {};
-    // The serialization or deserialization configuration parameter.
+    // The configuration parameters for the serialization and deserialization sequence.
     shared_ptr<map<string, string>> parameters_ {};
-    // The ID of the serialization or deserialization information.
+    // The ID.
     shared_ptr<int64_t> serDeId_ {};
-    // The library that is used for serialization.
+    // The library used for serialization.
     shared_ptr<string> serializationLib_ {};
   };
 

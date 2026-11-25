@@ -534,21 +534,21 @@ namespace Models
     shared_ptr<int64_t> currentVersion_ {};
     // The logical database name.
     shared_ptr<string> dbName_ {};
-    // Indicates whether encryption is enabled.
+    // Specifies whether encryption is enabled.
     shared_ptr<bool> dictEncode_ {};
     // The distribution columns.
     shared_ptr<vector<FieldSchemaModel>> distributeColumns_ {};
     // The distribution type.
     shared_ptr<string> distributeType_ {};
-    // Indicates whether DFS is enabled.
+    // Specifies whether DFS is enabled.
     shared_ptr<bool> enableDfs_ {};
     // The number of hot partitions.
     shared_ptr<int64_t> hotPartitionCount_ {};
     // The indexes.
     shared_ptr<vector<CstoreIndexModel>> indexes_ {};
-    // Indicates whether full indexing is enabled.
+    // Specifies whether full indexing is enabled.
     shared_ptr<bool> isAllIndex_ {};
-    // Indicates whether it is a full-text index dictionary.
+    // Specifies whether it is a full-text index dictionary.
     shared_ptr<bool> isFulltextDict_ {};
     // The maximum column ID.
     shared_ptr<int64_t> maxColumnId_ {};
@@ -578,11 +578,11 @@ namespace Models
     shared_ptr<string> routeType_ {};
     // The routing engine type.
     shared_ptr<string> rtEngineType_ {};
-    // Indicates whether all indexes are routed.
+    // Specifies whether all indexes are routed.
     shared_ptr<bool> rtIndexAll_ {};
     // The routing mode type.
     shared_ptr<string> rtModeType_ {};
-    // The storage description.
+    // The storage descriptor information.
     shared_ptr<StorageDescriptorModel> sd_ {};
     // The storage policy.
     shared_ptr<string> storagePolicy_ {};
@@ -600,7 +600,7 @@ namespace Models
     shared_ptr<string> tableType_ {};
     // The table ID.
     shared_ptr<int64_t> tblId_ {};
-    // Indicates whether the table is a temporary table.
+    // Specifies whether the table is a temporary table.
     shared_ptr<bool> temporary_ {};
     // The update time.
     shared_ptr<string> updateTime_ {};
@@ -608,7 +608,7 @@ namespace Models
     shared_ptr<string> viewExpandedText_ {};
     // The SQL statement entered when creating the view.
     shared_ptr<string> viewOriginalText_ {};
-    // The view safe mode pattern.
+    // The view security pattern.
     shared_ptr<string> viewSecurityMode_ {};
   };
 

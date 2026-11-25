@@ -84,20 +84,19 @@ namespace Models
 
 
   protected:
-    // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // Indicates whether the delete operation was successful.
+    // The deletion result.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message. If the operation is asynchronously implemented, the job ID is returned.
+    // The job ID returned if the creation API is implemented asynchronously.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call is successful.
+    // - **true**: The call is successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

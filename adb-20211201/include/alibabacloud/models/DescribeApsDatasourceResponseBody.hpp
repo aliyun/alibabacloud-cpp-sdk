@@ -144,7 +144,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether the resource is cross-account. Valid values:
+        // Specifies whether the resource belongs to a different account. Valid values:
         // 
         // - **true**: The current network instance is a cross-account resource.
         // - **false**: The current network instance belongs to the current account.
@@ -449,13 +449,13 @@ namespace Models
 
 
       protected:
-        // The ID of the E-MapReduce (EMR) cluster.
+        // The ID of the EMR cluster.
         shared_ptr<string> emrClusterId_ {};
         // The Hive metastore URL.
         shared_ptr<string> metaStoreUri_ {};
-        // The ID of the security group.
+        // The security group ID.
         shared_ptr<string> securityGroup_ {};
-        // The ID of the vSwitch.
+        // The vSwitch ID.
         shared_ptr<string> vswitch_ {};
       };
 
@@ -639,7 +639,7 @@ namespace Models
 
 
   protected:
-    // -
+    // The APS data source information.
     shared_ptr<DescribeApsDatasourceResponseBody::ApsDatasource> apsDatasource_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

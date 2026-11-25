@@ -102,7 +102,7 @@ namespace Models
       shared_ptr<string> appName_ {};
       // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
-      // The alert message returned, such as task execution failure or insufficient resources. This parameter is empty if no alerts are generated.
+      // The alert message, such as task execution failure or insufficient resources. This field is empty if no alerts are triggered.
       shared_ptr<string> message_ {};
       // The execution status of the application. Valid values:
       // - **SUBMITTED**: Submitted.

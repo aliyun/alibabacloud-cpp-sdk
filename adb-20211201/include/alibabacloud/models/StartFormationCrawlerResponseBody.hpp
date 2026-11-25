@@ -68,13 +68,13 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<string> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
-    // - **true**: Successful.
-    // - **false**: Failed.
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
-    // The task ID.
+    // The ID of the task.
     shared_ptr<int64_t> taskId_ {};
   };
 

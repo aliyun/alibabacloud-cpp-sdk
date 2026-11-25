@@ -129,18 +129,20 @@ namespace Models
     shared_ptr<string> filterOwner_ {};
     // The view name.
     shared_ptr<string> filterViewName_ {};
-    // The view type. Valid values:
+    // The view type.
+    // 
+    // Valid values:
     // - VIRTUAL_VIEW
     // - MATERIALIZED_VIEW
     // 
-    // Default value: empty.
+    // Default value: null.
     shared_ptr<string> filterViewType_ {};
     // The sort field.
-    // Valid values for the sort type:
+    // Valid values for Type:
     // - Asc
     // - Desc
     // 
-    // Valid values for the sort field:
+    // Valid values for Field:
     // - ViewName
     // - CreateTime
     // - UpdateTime
@@ -160,7 +162,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The database name.
     shared_ptr<string> schemaName_ {};
-    // Specifies whether to display the base table information of materialized views.
+    // Specifies whether to display the base table information of the materialized view.
     shared_ptr<bool> showMvBaseTable_ {};
   };
 

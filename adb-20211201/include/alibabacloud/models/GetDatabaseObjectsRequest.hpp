@@ -101,18 +101,18 @@ namespace Models
     // The database name.
     shared_ptr<string> filterSchemaName_ {};
     // The sort field.
-    // Valid values for Type:
+    // Valid values for the sort type:
     // - Asc
     // - Desc
     // 
-    // Valid values for Field:
+    // Valid values for the sort field:
     // - DatabseName
     // - CreateTime
     // - UpdateTime
     // 
     // Default value: {"Type": "Desc","Field": "DatabaseName"}.
     shared_ptr<string> orderBy_ {};
-    // The page number. The value must be greater than 0 and no greater than the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 

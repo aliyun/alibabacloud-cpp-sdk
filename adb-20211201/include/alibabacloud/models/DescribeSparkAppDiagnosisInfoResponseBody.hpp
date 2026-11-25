@@ -153,37 +153,35 @@ namespace Models
 
 
   protected:
-    // The information about the request denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The application ID.
-    // 
-    // >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query all application IDs.
+    // > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query all application IDs.
     shared_ptr<string> appId_ {};
-    // The CPU utilization. Unit: %.
+    // The CPU utilization. Unit: percentage (%).
     shared_ptr<double> cpuUtilization_ {};
-    // The queried diagnostic information.
+    // The list of Spark analysis information.
     shared_ptr<vector<Adb4MysqlSparkDiagnosisInfo>> diagnosisInfoList_ {};
-    // The execution duration of the application. Unit: milliseconds.
+    // The execution duration of the Spark application. Unit: milliseconds.
     shared_ptr<int64_t> durationInMillis_ {};
-    // The amount of time consumed by the Java virtual machine to perform garbage collection operations. Unit: milliseconds.
+    // The time consumed by the Java Virtual Machine (JVM) to perform garbage collection. Unit: milliseconds.
     shared_ptr<int64_t> JVMGcCostInMillis_ {};
     // The peak memory usage. Unit: bytes.
     shared_ptr<int64_t> peakMemoryInByte_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The amount of data used for shuffle reads. Unit: bytes.
+    // The amount of data read during the shuffle process. Unit: bytes.
     shared_ptr<int64_t> shuffleReadInByte_ {};
-    // The amount of data used for shuffle writes. Unit: bytes.
+    // The amount of data written during the shuffle process. Unit: bytes.
     shared_ptr<int64_t> shuffleWriteInByte_ {};
-    // The amount of data spilled to disks when the memory is insufficient. Unit: bytes.
+    // The data volume spilled to disk when out of memory. Unit: bytes.
     shared_ptr<int64_t> spillInByte_ {};
-    // The time when the application started to be executed.
+    // The start time of the execution.
     shared_ptr<int64_t> startedTime_ {};
-    // The status of the asynchronous import or export job. Valid values:
-    // 
-    // *   **RUNNING**
-    // *   **FINISHED**
-    // *   **FAILED**
+    // The status of the asynchronous import or export task to query. Valid values:
+    // * **RUNNING**: The task is in progress.
+    // * **FINISHED**: The task succeeded.
+    // * **FAILED**: The task failed.
     shared_ptr<string> state_ {};
   };
 

@@ -376,7 +376,7 @@ namespace Adb20211201
       /**
        * @summary Creates an APS task.
        *
-       * @description For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request CreateAPSJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +387,7 @@ namespace Adb20211201
       /**
        * @summary Creates an APS task.
        *
-       * @description For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request CreateAPSJobRequest
        * @return CreateAPSJobResponse
@@ -435,7 +435,7 @@ namespace Adb20211201
       /**
        * @summary Creates an APS data source.
        *
-       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param tmpReq CreateApsDatasoureRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -446,7 +446,7 @@ namespace Adb20211201
       /**
        * @summary Creates an APS data source.
        *
-       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request CreateApsDatasoureRequest
        * @return CreateApsDatasoureResponse
@@ -475,7 +475,7 @@ namespace Adb20211201
       Models::CreateApsHiveJobResponse createApsHiveJob(const Models::CreateApsHiveJobRequest &request);
 
       /**
-       * @summary Creates an APS Kafka lakehouse ingestion task.
+       * @summary Creates an APS Kafka data lake ingestion task.
        *
        * @param tmpReq CreateApsKafkaHudiJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -484,7 +484,7 @@ namespace Adb20211201
       Models::CreateApsKafkaHudiJobResponse createApsKafkaHudiJobWithOptions(const Models::CreateApsKafkaHudiJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an APS Kafka lakehouse ingestion task.
+       * @summary Creates an APS Kafka data lake ingestion task.
        *
        * @param request CreateApsKafkaHudiJobRequest
        * @return CreateApsKafkaHudiJobResponse
@@ -492,7 +492,7 @@ namespace Adb20211201
       Models::CreateApsKafkaHudiJobResponse createApsKafkaHudiJob(const Models::CreateApsKafkaHudiJobRequest &request);
 
       /**
-       * @summary Creates an APS link from Simple Log Service (SLS) to an AnalyticDB data warehouse.
+       * @summary Creates an APS pipeline from SLS to an ADB data warehouse.
        *
        * @param tmpReq CreateApsSlsADBJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -501,7 +501,7 @@ namespace Adb20211201
       Models::CreateApsSlsADBJobResponse createApsSlsADBJobWithOptions(const Models::CreateApsSlsADBJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an APS link from Simple Log Service (SLS) to an AnalyticDB data warehouse.
+       * @summary Creates an APS pipeline from SLS to an ADB data warehouse.
        *
        * @param request CreateApsSlsADBJobRequest
        * @return CreateApsSlsADBJobResponse
@@ -509,7 +509,7 @@ namespace Adb20211201
       Models::CreateApsSlsADBJobResponse createApsSlsADBJob(const Models::CreateApsSlsADBJobRequest &request);
 
       /**
-       * @summary Creates a webhook for a specified database cluster and task type.
+       * @summary Creates a new webhook for a specified database cluster and job type.
        *
        * @param tmpReq CreateApsWebhookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -518,7 +518,7 @@ namespace Adb20211201
       Models::CreateApsWebhookResponse createApsWebhookWithOptions(const Models::CreateApsWebhookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a webhook for a specified database cluster and task type.
+       * @summary Creates a new webhook for a specified database cluster and job type.
        *
        * @param request CreateApsWebhookRequest
        * @return CreateApsWebhookResponse
@@ -576,7 +576,7 @@ namespace Adb20211201
       /**
        * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
        *
-       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param tmpReq CreateDBResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -587,7 +587,7 @@ namespace Adb20211201
       /**
        * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
        *
-       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request CreateDBResourceGroupRequest
        * @return CreateDBResourceGroupResponse
@@ -616,18 +616,18 @@ namespace Adb20211201
       Models::CreateElasticPlanResponse createElasticPlan(const Models::CreateElasticPlanRequest &request);
 
       /**
-       * @summary Creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL (ADB) instance.
+       * @summary Creates a Formation Crawler metadata discovery task in an ADB instance.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * - This operation creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL instance.
-       * - The created task configuration is not executed immediately. Call `StartFormationCrawler` to start the task.
-       * - The `CrawlerInfo` field is a JSON string that contains the core configuration of the task, such as the target database name and data source type.
-       * - Some parameters, such as `classifiers` and `frequency`, require double JSON encoding.
-       * - The database name specified in `dbName` is automatically converted to lowercase by the server.
-       * - `schemaChangePolicy` is required. You must specify both `updateRule` and `deleteRule`.
+       * - The created task configuration is not executed immediately. You must call `StartFormationCrawler` to start the task.
+       * - The `CrawlerInfo` field is a JSON string that contains the core configuration information of the task, such as the target database name and data source type.
+       * - Note that some parameters, such as `classifiers` and `frequency`, require double JSON encoding.
+       * - The database name `dbName` is automatically converted to lowercase by the server.
+       * - `schemaChangePolicy` is required. You must provide both `updateRule` and `deleteRule`.
        * - Use the `RUN_ON_DEMAND` scheduling mode to avoid unnecessary repeated scans.
-       * - Make sure the product name is `adb` and the endpoint format is `adb.{regionId}.aliyuncs.com`.
-       * - After the task is created, manually call `StartFormationCrawler` to trigger the first metadata discovery.
+       * - Make sure that the product name is `adb` and the domain name format is `adb.{regionId}.aliyuncs.com`.
+       * - After the task is created, you must manually call `StartFormationCrawler` to trigger the first metadata discovery.
        *
        * @param request CreateFormationCrawlerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -636,18 +636,18 @@ namespace Adb20211201
       Models::CreateFormationCrawlerResponse createFormationCrawlerWithOptions(const Models::CreateFormationCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL (ADB) instance.
+       * @summary Creates a Formation Crawler metadata discovery task in an ADB instance.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * - This operation creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL instance.
-       * - The created task configuration is not executed immediately. Call `StartFormationCrawler` to start the task.
-       * - The `CrawlerInfo` field is a JSON string that contains the core configuration of the task, such as the target database name and data source type.
-       * - Some parameters, such as `classifiers` and `frequency`, require double JSON encoding.
-       * - The database name specified in `dbName` is automatically converted to lowercase by the server.
-       * - `schemaChangePolicy` is required. You must specify both `updateRule` and `deleteRule`.
+       * - The created task configuration is not executed immediately. You must call `StartFormationCrawler` to start the task.
+       * - The `CrawlerInfo` field is a JSON string that contains the core configuration information of the task, such as the target database name and data source type.
+       * - Note that some parameters, such as `classifiers` and `frequency`, require double JSON encoding.
+       * - The database name `dbName` is automatically converted to lowercase by the server.
+       * - `schemaChangePolicy` is required. You must provide both `updateRule` and `deleteRule`.
        * - Use the `RUN_ON_DEMAND` scheduling mode to avoid unnecessary repeated scans.
-       * - Make sure the product name is `adb` and the endpoint format is `adb.{regionId}.aliyuncs.com`.
-       * - After the task is created, manually call `StartFormationCrawler` to trigger the first metadata discovery.
+       * - Make sure that the product name is `adb` and the domain name format is `adb.{regionId}.aliyuncs.com`.
+       * - After the task is created, you must manually call `StartFormationCrawler` to trigger the first metadata discovery.
        *
        * @param request CreateFormationCrawlerRequest
        * @return CreateFormationCrawlerResponse
@@ -733,6 +733,12 @@ namespace Adb20211201
       /**
        * @summary Creates a semantic view.
        *
+       * @description 创建语义视图。调用前请确认已满足以下条件：
+       * 1. 已创建 ADB 集群，可通过 DescribeDBClusters 获取集群 ID（DBClusterId）。
+       * 2. 集群中已存在 Super 类型的数据库账号，可通过 CreateAccount 创建。
+       * 3. 当前 RAM 用户已绑定到该数据库账号：BindAccount 仅支持绑定数据库普通账号；若目标账号为 Super 类型，建议通过 CreateAccount 的 RamUserList 参数完成绑定。
+       * 4. SchemaName 指定的数据库已存在。
+       *
        * @param request CreateSemanticViewRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateSemanticViewResponse
@@ -741,6 +747,12 @@ namespace Adb20211201
 
       /**
        * @summary Creates a semantic view.
+       *
+       * @description 创建语义视图。调用前请确认已满足以下条件：
+       * 1. 已创建 ADB 集群，可通过 DescribeDBClusters 获取集群 ID（DBClusterId）。
+       * 2. 集群中已存在 Super 类型的数据库账号，可通过 CreateAccount 创建。
+       * 3. 当前 RAM 用户已绑定到该数据库账号：BindAccount 仅支持绑定数据库普通账号；若目标账号为 Super 类型，建议通过 CreateAccount 的 RamUserList 参数完成绑定。
+       * 4. SchemaName 指定的数据库已存在。
        *
        * @param request CreateSemanticViewRequest
        * @return CreateSemanticViewResponse
@@ -773,13 +785,13 @@ namespace Adb20211201
       Models::CreateSparkTemplateResponse createSparkTemplate(const Models::CreateSparkTemplateRequest &request);
 
       /**
-       * @summary Creates a SQL pattern comparison report.
+       * @summary Creates an SQL pattern comparison report.
        *
-       * @description Compares two time windows and asynchronously generates a SQL pattern comparison report.
-       * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows of the same duration and similar business cycles.
-       * > - The returned `ReportId` only indicates that the request has been accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
-       * > - Only one report can be generated for an instance at a time.
-       * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+       * @description Compares two time windows and asynchronously generates an SQL pattern comparison report.
+       * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows with the same duration and similar business cycles.
+       * > - The returned `ReportId` only indicates that the request is accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
+       * > - Only one report can be generated for the same instance at a time.
+       * > - The report is valid for 7 days and is isolated by instance and Alibaba Cloud account.
        *
        * @param request CreateSqlPatternCompareReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -788,13 +800,13 @@ namespace Adb20211201
       Models::CreateSqlPatternCompareReportResponse createSqlPatternCompareReportWithOptions(const Models::CreateSqlPatternCompareReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a SQL pattern comparison report.
+       * @summary Creates an SQL pattern comparison report.
        *
-       * @description Compares two time windows and asynchronously generates a SQL pattern comparison report.
-       * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows of the same duration and similar business cycles.
-       * > - The returned `ReportId` only indicates that the request has been accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
-       * > - Only one report can be generated for an instance at a time.
-       * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+       * @description Compares two time windows and asynchronously generates an SQL pattern comparison report.
+       * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows with the same duration and similar business cycles.
+       * > - The returned `ReportId` only indicates that the request is accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
+       * > - Only one report can be generated for the same instance at a time.
+       * > - The report is valid for 7 days and is isolated by instance and Alibaba Cloud account.
        *
        * @param request CreateSqlPatternCompareReportRequest
        * @return CreateSqlPatternCompareReportResponse
@@ -1016,9 +1028,9 @@ namespace Adb20211201
       Models::DeleteKnowledgeFileResponse deleteKnowledgeFile(const Models::DeleteKnowledgeFileRequest &request);
 
       /**
-       * @summary Deletes a lake storage.
+       * @summary Deletes lake storage.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DeleteLakeStorageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1027,9 +1039,9 @@ namespace Adb20211201
       Models::DeleteLakeStorageResponse deleteLakeStorageWithOptions(const Models::DeleteLakeStorageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a lake storage.
+       * @summary Deletes lake storage.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DeleteLakeStorageRequest
        * @return DeleteLakeStorageResponse
@@ -1138,9 +1150,9 @@ namespace Adb20211201
       Models::DeleteSparkTemplateFileResponse deleteSparkTemplateFile(const Models::DeleteSparkTemplateFileRequest &request);
 
       /**
-       * @summary Queries a list of AnalyticDB for MySQL clusters for AnalyticDB Pipeline Service (APS) federated analytics.
+       * @summary Retrieves the list of AnalyticDB for MySQL instances for APS federated analytics.
        *
-       * @description You can call this operation to query the performance data of a cluster over a time range based on performance metrics. The collection granularity is 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
+       * @description Queries the performance monitoring data of a specific cluster within a specified time range based on performance parameters. The collection granularity is 30 seconds. This operation supports querying slow SQL statements and provides monitoring content such as SQL query duration, number of scanned rows, and scanned data volume.
        *
        * @param request DescribeAPSADBInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1149,9 +1161,9 @@ namespace Adb20211201
       Models::DescribeAPSADBInstancesResponse describeAPSADBInstancesWithOptions(const Models::DescribeAPSADBInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of AnalyticDB for MySQL clusters for AnalyticDB Pipeline Service (APS) federated analytics.
+       * @summary Retrieves the list of AnalyticDB for MySQL instances for APS federated analytics.
        *
-       * @description You can call this operation to query the performance data of a cluster over a time range based on performance metrics. The collection granularity is 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
+       * @description Queries the performance monitoring data of a specific cluster within a specified time range based on performance parameters. The collection granularity is 30 seconds. This operation supports querying slow SQL statements and provides monitoring content such as SQL query duration, number of scanned rows, and scanned data volume.
        *
        * @param request DescribeAPSADBInstancesRequest
        * @return DescribeAPSADBInstancesResponse
@@ -1197,9 +1209,9 @@ namespace Adb20211201
       Models::DescribeAccountAllPrivilegesResponse describeAccountAllPrivileges(const Models::DescribeAccountAllPrivilegesRequest &request);
 
       /**
-       * @summary Queries the databases, tables, and columns on which a database account has permissions.
+       * @summary Retrieves the databases, tables, and columns visible to a specified account.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeAccountPrivilegeObjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1208,9 +1220,9 @@ namespace Adb20211201
       Models::DescribeAccountPrivilegeObjectsResponse describeAccountPrivilegeObjectsWithOptions(const Models::DescribeAccountPrivilegeObjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the databases, tables, and columns on which a database account has permissions.
+       * @summary Retrieves the databases, tables, and columns visible to a specified account.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeAccountPrivilegeObjectsRequest
        * @return DescribeAccountPrivilegeObjectsResponse
@@ -1218,9 +1230,9 @@ namespace Adb20211201
       Models::DescribeAccountPrivilegeObjectsResponse describeAccountPrivilegeObjects(const Models::DescribeAccountPrivilegeObjectsRequest &request);
 
       /**
-       * @summary Retrieves the permissions of a specified database account at a specific level.
+       * @summary Queries the permissions granted to a specified database account at a specific level.
        *
-       * @description See [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeAccountPrivilegesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1229,9 +1241,9 @@ namespace Adb20211201
       Models::DescribeAccountPrivilegesResponse describeAccountPrivilegesWithOptions(const Models::DescribeAccountPrivilegesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the permissions of a specified database account at a specific level.
+       * @summary Queries the permissions granted to a specified database account at a specific level.
        *
-       * @description See [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeAccountPrivilegesRequest
        * @return DescribeAccountPrivilegesResponse
@@ -1241,7 +1253,7 @@ namespace Adb20211201
       /**
        * @summary Queries the database accounts of a cluster.
        *
-       * @description For the service registration endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1252,7 +1264,7 @@ namespace Adb20211201
       /**
        * @summary Queries the database accounts of a cluster.
        *
-       * @description For the service registration endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeAccountsRequest
        * @return DescribeAccountsResponse
@@ -1283,7 +1295,7 @@ namespace Adb20211201
       Models::DescribeAdbMySqlColumnsResponse describeAdbMySqlColumns(const Models::DescribeAdbMySqlColumnsRequest &request);
 
       /**
-       * @summary Queries the information about table indexes.
+       * @summary Queries the index information of a table.
        *
        * @param request DescribeAdbMySqlIndexesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1292,7 +1304,7 @@ namespace Adb20211201
       Models::DescribeAdbMySqlIndexesResponse describeAdbMySqlIndexesWithOptions(const Models::DescribeAdbMySqlIndexesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about table indexes.
+       * @summary Queries the index information of a table.
        *
        * @param request DescribeAdbMySqlIndexesRequest
        * @return DescribeAdbMySqlIndexesResponse
@@ -1302,8 +1314,8 @@ namespace Adb20211201
       /**
        * @summary Lists all databases in a specified cluster.
        *
-       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request DescribeAdbMySqlSchemasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1314,8 +1326,8 @@ namespace Adb20211201
       /**
        * @summary Lists all databases in a specified cluster.
        *
-       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request DescribeAdbMySqlSchemasRequest
        * @return DescribeAdbMySqlSchemasResponse
@@ -1323,7 +1335,7 @@ namespace Adb20211201
       Models::DescribeAdbMySqlSchemasResponse describeAdbMySqlSchemas(const Models::DescribeAdbMySqlSchemasRequest &request);
 
       /**
-       * @summary Queries the information about table metadata.
+       * @summary Queries the metadata of a table.
        *
        * @param request DescribeAdbMySqlTableMetaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1332,7 +1344,7 @@ namespace Adb20211201
       Models::DescribeAdbMySqlTableMetaResponse describeAdbMySqlTableMetaWithOptions(const Models::DescribeAdbMySqlTableMetaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about table metadata.
+       * @summary Queries the metadata of a table.
        *
        * @param request DescribeAdbMySqlTableMetaRequest
        * @return DescribeAdbMySqlTableMetaResponse
@@ -1342,8 +1354,8 @@ namespace Adb20211201
       /**
        * @summary Lists all tables in a specified database of a cluster.
        *
-       * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request DescribeAdbMySqlTablesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1354,8 +1366,8 @@ namespace Adb20211201
       /**
        * @summary Lists all tables in a specified database of a cluster.
        *
-       * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request DescribeAdbMySqlTablesRequest
        * @return DescribeAdbMySqlTablesResponse
@@ -1365,7 +1377,7 @@ namespace Adb20211201
       /**
        * @summary Queries whether the advisory service is enabled.
        *
-       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeAdviceServiceEnabledRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1376,7 +1388,7 @@ namespace Adb20211201
       /**
        * @summary Queries whether the advisory service is enabled.
        *
-       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeAdviceServiceEnabledRequest
        * @return DescribeAdviceServiceEnabledResponse
@@ -1407,7 +1419,7 @@ namespace Adb20211201
       Models::DescribeAllDataSourceResponse describeAllDataSource(const Models::DescribeAllDataSourceRequest &request);
 
       /**
-       * @summary Shows applied recommendations.
+       * @summary Queries the accepted optimization suggestions.
        *
        * @param request DescribeAppliedAdvicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1416,7 +1428,7 @@ namespace Adb20211201
       Models::DescribeAppliedAdvicesResponse describeAppliedAdvicesWithOptions(const Models::DescribeAppliedAdvicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Shows applied recommendations.
+       * @summary Queries the accepted optimization suggestions.
        *
        * @param request DescribeAppliedAdvicesRequest
        * @return DescribeAppliedAdvicesResponse
@@ -1424,11 +1436,11 @@ namespace Adb20211201
       Models::DescribeAppliedAdvicesResponse describeAppliedAdvices(const Models::DescribeAppliedAdvicesRequest &request);
 
       /**
-       * @summary Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL cluster.
+       * @summary Queries the detailed log information of real-time data ingestion tasks for a cluster.
        *
-       * @description *   General endpoint: `adb.aliyuncs.com`.
-       * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The central public endpoint: `adb.aliyuncs.com`.
+       * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request DescribeApsActionLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1437,11 +1449,11 @@ namespace Adb20211201
       Models::DescribeApsActionLogsResponse describeApsActionLogsWithOptions(const Models::DescribeApsActionLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL cluster.
+       * @summary Queries the detailed log information of real-time data ingestion tasks for a cluster.
        *
-       * @description *   General endpoint: `adb.aliyuncs.com`.
-       * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The central public endpoint: `adb.aliyuncs.com`.
+       * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request DescribeApsActionLogsRequest
        * @return DescribeApsActionLogsResponse
@@ -1466,7 +1478,7 @@ namespace Adb20211201
       Models::DescribeApsDatasourceResponse describeApsDatasource(const Models::DescribeApsDatasourceRequest &request);
 
       /**
-       * @summary Queries APS data sources.
+       * @summary Queries the list of APS data sources.
        *
        * @param request DescribeApsDatasourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1475,7 +1487,7 @@ namespace Adb20211201
       Models::DescribeApsDatasourcesResponse describeApsDatasourcesWithOptions(const Models::DescribeApsDatasourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries APS data sources.
+       * @summary Queries the list of APS data sources.
        *
        * @param request DescribeApsDatasourcesRequest
        * @return DescribeApsDatasourcesResponse
@@ -1517,7 +1529,7 @@ namespace Adb20211201
       Models::DescribeApsJobDetailResponse describeApsJobDetail(const Models::DescribeApsJobDetailRequest &request);
 
       /**
-       * @summary Queries a list of APS tasks.
+       * @summary Queries APS tasks.
        *
        * @param request DescribeApsJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1526,7 +1538,7 @@ namespace Adb20211201
       Models::DescribeApsJobsResponse describeApsJobsWithOptions(const Models::DescribeApsJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of APS tasks.
+       * @summary Queries APS tasks.
        *
        * @param request DescribeApsJobsRequest
        * @return DescribeApsJobsResponse
@@ -1890,9 +1902,9 @@ namespace Adb20211201
       Models::DescribeDBClusterAttributeResponse describeDBClusterAttribute(const Models::DescribeDBClusterAttributeRequest &request);
 
       /**
-       * @summary View a cluster\\"s health status.
+       * @summary Checks the health status of a cluster.
        *
-       * @description For the service access address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDBClusterHealthStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1901,9 +1913,9 @@ namespace Adb20211201
       Models::DescribeDBClusterHealthStatusResponse describeDBClusterHealthStatusWithOptions(const Models::DescribeDBClusterHealthStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View a cluster\\"s health status.
+       * @summary Checks the health status of a cluster.
        *
-       * @description For the service access address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDBClusterHealthStatusRequest
        * @return DescribeDBClusterHealthStatusResponse
@@ -1913,7 +1925,7 @@ namespace Adb20211201
       /**
        * @summary Queries the performance data of a specified cluster.
        *
-       * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDBClusterPerformanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1924,7 +1936,7 @@ namespace Adb20211201
       /**
        * @summary Queries the performance data of a specified cluster.
        *
-       * @description For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDBClusterPerformanceRequest
        * @return DescribeDBClusterPerformanceResponse
@@ -1933,6 +1945,8 @@ namespace Adb20211201
 
       /**
        * @summary Queries the SSL configurations of a cluster.
+       *
+       * @description >Warning: 目前该功能处于内测阶段，控制台界面展示及API调用接口尚未稳定，可能持续变化。
        *
        * @param request DescribeDBClusterSSLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1943,15 +1957,17 @@ namespace Adb20211201
       /**
        * @summary Queries the SSL configurations of a cluster.
        *
+       * @description >Warning: 目前该功能处于内测阶段，控制台界面展示及API调用接口尚未稳定，可能持续变化。
+       *
        * @param request DescribeDBClusterSSLRequest
        * @return DescribeDBClusterSSLResponse
        */
       Models::DescribeDBClusterSSLResponse describeDBClusterSSL(const Models::DescribeDBClusterSSLRequest &request);
 
       /**
-       * @summary Queries the storage overview of an instance, including the total data volume, hot data volume, cold data volume, and data growth.
+       * @summary Retrieves the storage overview of an instance, including the total data size, hot data size, cold data size, and data growth.
        *
-       * @description For the service registration endpoint of the current service, see [service registration](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDBClusterSpaceSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1960,9 +1976,9 @@ namespace Adb20211201
       Models::DescribeDBClusterSpaceSummaryResponse describeDBClusterSpaceSummaryWithOptions(const Models::DescribeDBClusterSpaceSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the storage overview of an instance, including the total data volume, hot data volume, cold data volume, and data growth.
+       * @summary Retrieves the storage overview of an instance, including the total data size, hot data size, cold data size, and data growth.
        *
-       * @description For the service registration endpoint of the current service, see [service registration](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDBClusterSpaceSummaryRequest
        * @return DescribeDBClusterSpaceSummaryResponse
@@ -2014,7 +2030,7 @@ namespace Adb20211201
       /**
        * @summary Queries the resource group information of a cluster.
        *
-       * @description For the endpoint of this service, see [service registration endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDBResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2025,7 +2041,7 @@ namespace Adb20211201
       /**
        * @summary Queries the resource group information of a cluster.
        *
-       * @description For the endpoint of this service, see [service registration endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDBResourceGroupRequest
        * @return DescribeDBResourceGroupResponse
@@ -2033,9 +2049,9 @@ namespace Adb20211201
       Models::DescribeDBResourceGroupResponse describeDBResourceGroup(const Models::DescribeDBResourceGroupRequest &request);
 
       /**
-       * @summary Queries the deduplicated statistics of resource groups, databases, usernames, and source IP addresses about SQL statements that meet a query condition for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+       * @summary Queries the deduplicated statistics information of SQL statements that meet the specified conditional retrieve in an AnalyticDB for MySQL Data Lakehouse Edition (3.0) cluster across dimensions such as resource groups, database names, usernames, and access source addresses.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of this service, see [Service registration endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDiagnosisDimensionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2044,9 +2060,9 @@ namespace Adb20211201
       Models::DescribeDiagnosisDimensionsResponse describeDiagnosisDimensionsWithOptions(const Models::DescribeDiagnosisDimensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the deduplicated statistics of resource groups, databases, usernames, and source IP addresses about SQL statements that meet a query condition for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+       * @summary Queries the deduplicated statistics information of SQL statements that meet the specified conditional retrieve in an AnalyticDB for MySQL Data Lakehouse Edition (3.0) cluster across dimensions such as resource groups, database names, usernames, and access source addresses.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of this service, see [Service registration endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDiagnosisDimensionsRequest
        * @return DescribeDiagnosisDimensionsResponse
@@ -2054,9 +2070,9 @@ namespace Adb20211201
       Models::DescribeDiagnosisDimensionsResponse describeDiagnosisDimensions(const Models::DescribeDiagnosisDimensionsRequest &request);
 
       /**
-       * @summary Queries the summary of SQL statements that meet specified conditions in an AnalyticDB for MySQL cluster.
+       * @summary Queries the SQL summary information that meets specified conditions in a specified AnalyticDB for MySQL cluster.
        *
-       * @description For information about service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDiagnosisRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2065,9 +2081,9 @@ namespace Adb20211201
       Models::DescribeDiagnosisRecordsResponse describeDiagnosisRecordsWithOptions(const Models::DescribeDiagnosisRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the summary of SQL statements that meet specified conditions in an AnalyticDB for MySQL cluster.
+       * @summary Queries the SQL summary information that meets specified conditions in a specified AnalyticDB for MySQL cluster.
        *
-       * @description For information about service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDiagnosisRecordsRequest
        * @return DescribeDiagnosisRecordsResponse
@@ -2075,9 +2091,9 @@ namespace Adb20211201
       Models::DescribeDiagnosisRecordsResponse describeDiagnosisRecords(const Models::DescribeDiagnosisRecordsRequest &request);
 
       /**
-       * @summary Queries the execution details of a specific SQL statement, including the execution plan, runtime information, resource usage, and self-diagnostics results.
+       * @summary Retrieves the execution details of a specific SQL statement, including the execution plan, runtime information, resource usage, and self-diagnosis results.
        *
-       * @description For the service registration addresses of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDiagnosisSQLInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2086,9 +2102,9 @@ namespace Adb20211201
       Models::DescribeDiagnosisSQLInfoResponse describeDiagnosisSQLInfoWithOptions(const Models::DescribeDiagnosisSQLInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution details of a specific SQL statement, including the execution plan, runtime information, resource usage, and self-diagnostics results.
+       * @summary Retrieves the execution details of a specific SQL statement, including the execution plan, runtime information, resource usage, and self-diagnosis results.
        *
-       * @description For the service registration addresses of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeDiagnosisSQLInfoRequest
        * @return DescribeDiagnosisSQLInfoResponse
@@ -2201,11 +2217,11 @@ namespace Adb20211201
       Models::DescribeElasticPlansResponse describeElasticPlans(const Models::DescribeElasticPlansRequest &request);
 
       /**
-       * @summary Retrieves the supported permission levels and the list of permissions.
+       * @summary Retrieves the supported permission levels and permissions.
        *
-       * @description - Central public endpoint: `adb.aliyuncs.com`.
-       * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-       * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+       * @description - The global public endpoint: `adb.aliyuncs.com`.
+       * - The public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request DescribeEnabledPrivilegesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2214,11 +2230,11 @@ namespace Adb20211201
       Models::DescribeEnabledPrivilegesResponse describeEnabledPrivilegesWithOptions(const Models::DescribeEnabledPrivilegesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the supported permission levels and the list of permissions.
+       * @summary Retrieves the supported permission levels and permissions.
        *
-       * @description - Central public endpoint: `adb.aliyuncs.com`.
-       * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-       * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+       * @description - The global public endpoint: `adb.aliyuncs.com`.
+       * - The public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request DescribeEnabledPrivilegesRequest
        * @return DescribeEnabledPrivilegesResponse
@@ -2317,7 +2333,7 @@ namespace Adb20211201
       /**
        * @summary Queries the disk usage of all storage nodes.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of the current service, refer to [service registration](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeInclinedNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2328,7 +2344,7 @@ namespace Adb20211201
       /**
        * @summary Queries the disk usage of all storage nodes.
        *
-       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of the current service, refer to [service registration](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeInclinedNodesRequest
        * @return DescribeInclinedNodesResponse
@@ -2353,9 +2369,9 @@ namespace Adb20211201
       Models::DescribeInclinedTablesResponse describeInclinedTables(const Models::DescribeInclinedTablesRequest &request);
 
       /**
-       * @summary Retrieves job resource usage statistics.
+       * @summary Retrieves the resource usage statistics of jobs.
        *
-       * @description For the endpoint of the current service, refer to [service registration](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeJobResourceUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2364,9 +2380,9 @@ namespace Adb20211201
       Models::DescribeJobResourceUsageResponse describeJobResourceUsageWithOptions(const Models::DescribeJobResourceUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves job resource usage statistics.
+       * @summary Retrieves the resource usage statistics of jobs.
        *
-       * @description For the endpoint of the current service, refer to [service registration](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeJobResourceUsageRequest
        * @return DescribeJobResourceUsageResponse
@@ -2429,7 +2445,7 @@ namespace Adb20211201
       Models::DescribeMVRecommendResultsResponse describeMVRecommendResults(const Models::DescribeMVRecommendResultsRequest &request);
 
       /**
-       * @summary Queries the execution list of subtasks for a materialized view recommendation task.
+       * @summary Queries the list of subtask executions for a materialized view recommendation task.
        *
        * @param request DescribeMvRecommendSubTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2438,7 +2454,7 @@ namespace Adb20211201
       Models::DescribeMvRecommendSubTasksResponse describeMvRecommendSubTasksWithOptions(const Models::DescribeMvRecommendSubTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution list of subtasks for a materialized view recommendation task.
+       * @summary Queries the list of subtask executions for a materialized view recommendation task.
        *
        * @param request DescribeMvRecommendSubTasksRequest
        * @return DescribeMvRecommendSubTasksResponse
@@ -2497,9 +2513,9 @@ namespace Adb20211201
       Models::DescribeOversizeNonPartitionTableInfosResponse describeOversizeNonPartitionTableInfos(const Models::DescribeOversizeNonPartitionTableInfosRequest &request);
 
       /**
-       * @summary View metric details (such as query time and average memory consumption) for SQL patterns over a specified time range in a cluster.
+       * @summary Queries the details of various metrics, such as query time and average memory consumption, for SQL patterns in a cluster within a specified time period.
        *
-       * @description For the endpoint of this service, see [endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribePatternPerformanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2508,9 +2524,9 @@ namespace Adb20211201
       Models::DescribePatternPerformanceResponse describePatternPerformanceWithOptions(const Models::DescribePatternPerformanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View metric details (such as query time and average memory consumption) for SQL patterns over a specified time range in a cluster.
+       * @summary Queries the details of various metrics, such as query time and average memory consumption, for SQL patterns in a cluster within a specified time period.
        *
-       * @description For the endpoint of this service, see [endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribePatternPerformanceRequest
        * @return DescribePatternPerformanceResponse
@@ -2552,7 +2568,7 @@ namespace Adb20211201
       Models::DescribePerformanceViewsResponse describePerformanceViews(const Models::DescribePerformanceViewsRequest &request);
 
       /**
-       * @summary Call the DescribeProcessList operation to view the running queries of an instance.
+       * @summary Queries the running queries of an instance.
        *
        * @param request DescribeProcessListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2561,7 +2577,7 @@ namespace Adb20211201
       Models::DescribeProcessListResponse describeProcessListWithOptions(const Models::DescribeProcessListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the DescribeProcessList operation to view the running queries of an instance.
+       * @summary Queries the running queries of an instance.
        *
        * @param request DescribeProcessListRequest
        * @return DescribeProcessListResponse
@@ -2571,7 +2587,7 @@ namespace Adb20211201
       /**
        * @summary Queries the regions and zones supported by AnalyticDB for MySQL Data Lakehouse Edition.
        *
-       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of this service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2582,7 +2598,7 @@ namespace Adb20211201
       /**
        * @summary Queries the regions and zones supported by AnalyticDB for MySQL Data Lakehouse Edition.
        *
-       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration endpoint of this service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -2613,7 +2629,7 @@ namespace Adb20211201
       Models::DescribeResourceGroupSpecResponse describeResourceGroupSpec(const Models::DescribeResourceGroupSpecRequest &request);
 
       /**
-       * @summary Queries the user-configured result set export settings.
+       * @summary Retrieves the result set export configurations.
        *
        * @param request DescribeResultExportConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2622,7 +2638,7 @@ namespace Adb20211201
       Models::DescribeResultExportConfigResponse describeResultExportConfigWithOptions(const Models::DescribeResultExportConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the user-configured result set export settings.
+       * @summary Retrieves the result set export configurations.
        *
        * @param request DescribeResultExportConfigRequest
        * @return DescribeResultExportConfigResponse
@@ -2630,11 +2646,11 @@ namespace Adb20211201
       Models::DescribeResultExportConfigResponse describeResultExportConfig(const Models::DescribeResultExportConfigRequest &request);
 
       /**
-       * @summary Queries the list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition cluster within a specified time range.
+       * @summary Queries the list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition cluster within a specified date range.
        *
-       * @description - Central public endpoint: `adb.aliyuncs.com`.
-       * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint for the center: `adb.aliyuncs.com`.
+       * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request DescribeSQLPatternsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2643,11 +2659,11 @@ namespace Adb20211201
       Models::DescribeSQLPatternsResponse describeSQLPatternsWithOptions(const Models::DescribeSQLPatternsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition cluster within a specified time range.
+       * @summary Queries the list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition cluster within a specified date range.
        *
-       * @description - Central public endpoint: `adb.aliyuncs.com`.
-       * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint for the center: `adb.aliyuncs.com`.
+       * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request DescribeSQLPatternsRequest
        * @return DescribeSQLPatternsResponse
@@ -2695,7 +2711,7 @@ namespace Adb20211201
       Models::DescribeSchemasResponse describeSchemas(const Models::DescribeSchemasRequest &request);
 
       /**
-       * @summary Queries the diagnostic information about a Spark application.
+       * @summary Queries the diagnostic information of a Spark application.
        *
        * @param request DescribeSparkAppDiagnosisInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2704,7 +2720,7 @@ namespace Adb20211201
       Models::DescribeSparkAppDiagnosisInfoResponse describeSparkAppDiagnosisInfoWithOptions(const Models::DescribeSparkAppDiagnosisInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the diagnostic information about a Spark application.
+       * @summary Queries the diagnostic information of a Spark application.
        *
        * @param request DescribeSparkAppDiagnosisInfoRequest
        * @return DescribeSparkAppDiagnosisInfoResponse
@@ -2729,10 +2745,10 @@ namespace Adb20211201
       Models::DescribeSparkAppTypeResponse describeSparkAppType(const Models::DescribeSparkAppTypeRequest &request);
 
       /**
-       * @summary Queries the SQL audit logs for a Spark Interactive resource group.
+       * @summary Queries the SQL audit logs of a Spark Interactive resource group.
        *
-       * @description SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL auditing is turned off midway, when it is re-enabled, you can only query the SQL audit logs generated after it was turned back on.
-       * >  You can query only SQL audit logs that are executed by using Spark Interactive Resource Group.
+       * @description SQL audit logs can be queried only when the SQL audit feature is enabled, and only logs generated within the last 30 days are supported. If the SQL audit feature is disabled and then re-enabled, only the logs generated after it is re-enabled can be queried.
+       * >Notice: This operation can only query SQL audit logs executed through **Spark Interactive resource groups**.
        *
        * @param request DescribeSparkAuditLogRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2741,10 +2757,10 @@ namespace Adb20211201
       Models::DescribeSparkAuditLogRecordsResponse describeSparkAuditLogRecordsWithOptions(const Models::DescribeSparkAuditLogRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the SQL audit logs for a Spark Interactive resource group.
+       * @summary Queries the SQL audit logs of a Spark Interactive resource group.
        *
-       * @description SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL auditing is turned off midway, when it is re-enabled, you can only query the SQL audit logs generated after it was turned back on.
-       * >  You can query only SQL audit logs that are executed by using Spark Interactive Resource Group.
+       * @description SQL audit logs can be queried only when the SQL audit feature is enabled, and only logs generated within the last 30 days are supported. If the SQL audit feature is disabled and then re-enabled, only the logs generated after it is re-enabled can be queried.
+       * >Notice: This operation can only query SQL audit logs executed through **Spark Interactive resource groups**.
        *
        * @param request DescribeSparkAuditLogRecordsRequest
        * @return DescribeSparkAuditLogRecordsResponse
@@ -2838,7 +2854,7 @@ namespace Adb20211201
       Models::DescribeSparkSQLDiagnosisAttributeResponse describeSparkSQLDiagnosisAttribute(const Models::DescribeSparkSQLDiagnosisAttributeRequest &request);
 
       /**
-       * @summary Queries the Spark SQL diagnostics list.
+       * @summary Queries the list of Spark SQL diagnostics.
        *
        * @param request DescribeSparkSQLDiagnosisListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2847,7 +2863,7 @@ namespace Adb20211201
       Models::DescribeSparkSQLDiagnosisListResponse describeSparkSQLDiagnosisListWithOptions(const Models::DescribeSparkSQLDiagnosisListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Spark SQL diagnostics list.
+       * @summary Queries the list of Spark SQL diagnostics.
        *
        * @param request DescribeSparkSQLDiagnosisListRequest
        * @return DescribeSparkSQLDiagnosisListResponse
@@ -2857,7 +2873,7 @@ namespace Adb20211201
       /**
        * @summary Queries the details of SQL patterns for an AnalyticDB for MySQL cluster on a specified date.
        *
-       * @description For the service registration address of the current service, see [service registration](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeSqlPatternRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2868,7 +2884,7 @@ namespace Adb20211201
       /**
        * @summary Queries the details of SQL patterns for an AnalyticDB for MySQL cluster on a specified date.
        *
-       * @description For the service registration address of the current service, see [service registration](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeSqlPatternRequest
        * @return DescribeSqlPatternResponse
@@ -2979,9 +2995,9 @@ namespace Adb20211201
       Models::DescribeStorageResourceUsageResponse describeStorageResourceUsage(const Models::DescribeStorageResourceUsageRequest &request);
 
       /**
-       * @summary Queries the number of times a specified table or all tables in a cluster are accessed within a specified date range.
+       * @summary Queries the access count of a specified table or all tables in a cluster within a specified date range.
        *
-       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of the current service, refer to [service registration](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeTableAccessCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2990,9 +3006,9 @@ namespace Adb20211201
       Models::DescribeTableAccessCountResponse describeTableAccessCountWithOptions(const Models::DescribeTableAccessCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the number of times a specified table or all tables in a cluster are accessed within a specified date range.
+       * @summary Queries the access count of a specified table or all tables in a cluster within a specified date range.
        *
-       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the endpoint of the current service, refer to [service registration](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request DescribeTableAccessCountRequest
        * @return DescribeTableAccessCountResponse
@@ -3000,7 +3016,7 @@ namespace Adb20211201
       Models::DescribeTableAccessCountResponse describeTableAccessCount(const Models::DescribeTableAccessCountRequest &request);
 
       /**
-       * @summary Queries the information about data distribution among shards of a table.
+       * @summary Queries the data distribution of a table across shards.
        *
        * @param request DescribeTableDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3009,7 +3025,7 @@ namespace Adb20211201
       Models::DescribeTableDetailResponse describeTableDetailWithOptions(const Models::DescribeTableDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about data distribution among shards of a table.
+       * @summary Queries the data distribution of a table across shards.
        *
        * @param request DescribeTableDetailRequest
        * @return DescribeTableDetailResponse
@@ -3017,7 +3033,7 @@ namespace Adb20211201
       Models::DescribeTableDetailResponse describeTableDetail(const Models::DescribeTableDetailRequest &request);
 
       /**
-       * @summary Queries the information about partition diagnostics.
+       * @summary Queries partition diagnostics information.
        *
        * @param request DescribeTablePartitionDiagnoseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3026,7 +3042,7 @@ namespace Adb20211201
       Models::DescribeTablePartitionDiagnoseResponse describeTablePartitionDiagnoseWithOptions(const Models::DescribeTablePartitionDiagnoseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about partition diagnostics.
+       * @summary Queries partition diagnostics information.
        *
        * @param request DescribeTablePartitionDiagnoseRequest
        * @return DescribeTablePartitionDiagnoseResponse
@@ -3283,6 +3299,10 @@ namespace Adb20211201
       /**
        * @summary Executes Spark SQL statements in batches.
        *
+       * @description - 地域的公网接入地址：`adb.<region-id>.aliyuncs.com`。示例：`adb.cn-hangzhou.aliyuncs.com`。
+       * - 地域的VPC接入地址：`adb-vpc.<region-id>.aliyuncs.com`。示例：`adb-vpc.cn-hangzhou.aliyuncs.com`。
+       * > 如果华北1（青岛）、华南1（深圳）、华南3（广州）、中国香港发起请求时，遇到409错误，请联系技术支持。
+       *
        * @param request ExecuteSparkWarehouseBatchSQLRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ExecuteSparkWarehouseBatchSQLResponse
@@ -3291,6 +3311,10 @@ namespace Adb20211201
 
       /**
        * @summary Executes Spark SQL statements in batches.
+       *
+       * @description - 地域的公网接入地址：`adb.<region-id>.aliyuncs.com`。示例：`adb.cn-hangzhou.aliyuncs.com`。
+       * - 地域的VPC接入地址：`adb-vpc.<region-id>.aliyuncs.com`。示例：`adb-vpc.cn-hangzhou.aliyuncs.com`。
+       * > 如果华北1（青岛）、华南1（深圳）、华南3（广州）、中国香港发起请求时，遇到409错误，请联系技术支持。
        *
        * @param request ExecuteSparkWarehouseBatchSQLRequest
        * @return ExecuteSparkWarehouseBatchSQLResponse
@@ -3329,6 +3353,8 @@ namespace Adb20211201
       /**
        * @summary Creates a reference record for a knowledge base file.
        *
+       * @description 创建知识库文件引用记录。调用前需确保当前 RAM 用户已绑定到该 ADB 实例的数据库账号，可通过 CreateAccount 的 RamUserList 参数或 BindAccount 完成绑定；未绑定时接口返回错误码 119。
+       *
        * @param request ForkKnowledgeFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ForkKnowledgeFileResponse
@@ -3337,6 +3363,8 @@ namespace Adb20211201
 
       /**
        * @summary Creates a reference record for a knowledge base file.
+       *
+       * @description 创建知识库文件引用记录。调用前需确保当前 RAM 用户已绑定到该 ADB 实例的数据库账号，可通过 CreateAccount 的 RamUserList 参数或 BindAccount 完成绑定；未绑定时接口返回错误码 119。
        *
        * @param request ForkKnowledgeFileRequest
        * @return ForkKnowledgeFileResponse
@@ -3361,9 +3389,9 @@ namespace Adb20211201
       Models::GenerateSqlBySemanticSqlResponse generateSqlBySemanticSql(const Models::GenerateSqlBySemanticSqlRequest &request);
 
       /**
-       * @summary Retrieves the diagnostic report on basic Spark permissions for the current user.
+       * @summary Retrieves the Spark basic permission diagnostic report for the current user.
        *
-       * @description The diagnostic report for this API indicates whether the current user has all the permissions required for ADB Spark features. The scope of the checked permissions may exceed the minimum business requirements. This diagnostic report is used for quick environment initialization of ADB Spark. To configure fine-grained permissions, refer to [ADB Spark fine-grained permission configuration documentation](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko).
+       * @description The API diagnostic report indicates whether the current user has all the permissions required for ADB Spark-related features. The scope of the checked permissions may exceed the minimum business requirements. The diagnostic report of this API is used for the quick environment initialization scenario of ADB Spark. For fine-grained permission configuration, refer to the [ADB Spark fine-grained permission configuration documentation](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko).
        *
        * @param request GetADBSparkNecessaryRAMPermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3372,9 +3400,9 @@ namespace Adb20211201
       Models::GetADBSparkNecessaryRAMPermissionsResponse getADBSparkNecessaryRAMPermissionsWithOptions(const Models::GetADBSparkNecessaryRAMPermissionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the diagnostic report on basic Spark permissions for the current user.
+       * @summary Retrieves the Spark basic permission diagnostic report for the current user.
        *
-       * @description The diagnostic report for this API indicates whether the current user has all the permissions required for ADB Spark features. The scope of the checked permissions may exceed the minimum business requirements. This diagnostic report is used for quick environment initialization of ADB Spark. To configure fine-grained permissions, refer to [ADB Spark fine-grained permission configuration documentation](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko).
+       * @description The API diagnostic report indicates whether the current user has all the permissions required for ADB Spark-related features. The scope of the checked permissions may exceed the minimum business requirements. The diagnostic report of this API is used for the quick environment initialization scenario of ADB Spark. For fine-grained permission configuration, refer to the [ADB Spark fine-grained permission configuration documentation](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko).
        *
        * @param request GetADBSparkNecessaryRAMPermissionsRequest
        * @return GetADBSparkNecessaryRAMPermissionsResponse
@@ -3382,7 +3410,7 @@ namespace Adb20211201
       Models::GetADBSparkNecessaryRAMPermissionsResponse getADBSparkNecessaryRAMPermissions(const Models::GetADBSparkNecessaryRAMPermissionsRequest &request);
 
       /**
-       * @summary Queries the table creation statement for tables.
+       * @summary Queries the CREATE TABLE statement of a specified table.
        *
        * @param request GetCreateTableSQLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3391,7 +3419,7 @@ namespace Adb20211201
       Models::GetCreateTableSQLResponse getCreateTableSQLWithOptions(const Models::GetCreateTableSQLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the table creation statement for tables.
+       * @summary Queries the CREATE TABLE statement of a specified table.
        *
        * @param request GetCreateTableSQLRequest
        * @return GetCreateTableSQLResponse
@@ -3401,8 +3429,8 @@ namespace Adb20211201
       /**
        * @summary Queries database information.
        *
-       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetDatabaseObjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3413,8 +3441,8 @@ namespace Adb20211201
       /**
        * @summary Queries database information.
        *
-       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetDatabaseObjectsRequest
        * @return GetDatabaseObjectsResponse
@@ -3540,11 +3568,11 @@ namespace Adb20211201
       Models::GetSparkAppAttemptLogResponse getSparkAppAttemptLog(const Models::GetSparkAppAttemptLogRequest &request);
 
       /**
-       * @summary Queries the information about an Spark application.
+       * @summary Retrieves the information about a Spark application.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-       * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 error when making requests in China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request GetSparkAppInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3553,11 +3581,11 @@ namespace Adb20211201
       Models::GetSparkAppInfoResponse getSparkAppInfoWithOptions(const Models::GetSparkAppInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an Spark application.
+       * @summary Retrieves the information about a Spark application.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-       * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 error when making requests in China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request GetSparkAppInfoRequest
        * @return GetSparkAppInfoResponse
@@ -3567,8 +3595,8 @@ namespace Adb20211201
       /**
        * @summary Queries the logs of a Spark application.
        *
-       * @description - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request GetSparkAppLogRequest
@@ -3580,8 +3608,8 @@ namespace Adb20211201
       /**
        * @summary Queries the logs of a Spark application.
        *
-       * @description - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request GetSparkAppLogRequest
@@ -3619,8 +3647,8 @@ namespace Adb20211201
       /**
        * @summary Queries the status of a Spark application.
        *
-       * @description - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request GetSparkAppStateRequest
@@ -3632,8 +3660,8 @@ namespace Adb20211201
       /**
        * @summary Queries the status of a Spark application.
        *
-       * @description - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request GetSparkAppStateRequest
@@ -3717,7 +3745,7 @@ namespace Adb20211201
       Models::GetSparkLogAnalyzeTaskResponse getSparkLogAnalyzeTask(const Models::GetSparkLogAnalyzeTaskRequest &request);
 
       /**
-       * @summary Queries the status of a Spark session.
+       * @summary Retrieves the session status.
        *
        * @param request GetSparkReplSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3726,7 +3754,7 @@ namespace Adb20211201
       Models::GetSparkReplSessionResponse getSparkReplSessionWithOptions(const Models::GetSparkReplSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of a Spark session.
+       * @summary Retrieves the session status.
        *
        * @param request GetSparkReplSessionRequest
        * @return GetSparkReplSessionResponse
@@ -3734,7 +3762,7 @@ namespace Adb20211201
       Models::GetSparkReplSessionResponse getSparkReplSession(const Models::GetSparkReplSessionRequest &request);
 
       /**
-       * @summary Queries the execution result of a code block.
+       * @summary Retrieves the execution result of a code snippet.
        *
        * @param request GetSparkReplStatementRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3743,7 +3771,7 @@ namespace Adb20211201
       Models::GetSparkReplStatementResponse getSparkReplStatementWithOptions(const Models::GetSparkReplStatementRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution result of a code block.
+       * @summary Retrieves the execution result of a code snippet.
        *
        * @param request GetSparkReplStatementRequest
        * @return GetSparkReplStatementResponse
@@ -3753,11 +3781,11 @@ namespace Adb20211201
       /**
        * @deprecated OpenAPI GetSparkSQLEngineState is deprecated
        *
-       * @summary Queries the state information about the Spark SQL engine.
+       * @summary Queries the status of the Spark SQL engine.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-       * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+       * @description - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request GetSparkSQLEngineStateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3768,11 +3796,11 @@ namespace Adb20211201
       /**
        * @deprecated OpenAPI GetSparkSQLEngineState is deprecated
        *
-       * @summary Queries the state information about the Spark SQL engine.
+       * @summary Queries the status of the Spark SQL engine.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-       * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+       * @description - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request GetSparkSQLEngineStateRequest
        * @return GetSparkSQLEngineStateResponse
@@ -3855,11 +3883,11 @@ namespace Adb20211201
       Models::GetSparkTemplateFullTreeResponse getSparkTemplateFullTree(const Models::GetSparkTemplateFullTreeRequest &request);
 
       /**
-       * @summary Retrieves the execution results of a Spark SQL statement.
+       * @summary Retrieves the execution results of Spark SQL.
        *
-       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
-       * > If you encounter a 409 error when sending requests from China North 1 (Qingdao), China South 1 (Shenzhen), China South 3 (Guangzhou), or Hong Kong (China), contact technical support.
+       * @description - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 fault when sending requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request GetSparkWarehouseBatchSQLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3868,11 +3896,11 @@ namespace Adb20211201
       Models::GetSparkWarehouseBatchSQLResponse getSparkWarehouseBatchSQLWithOptions(const Models::GetSparkWarehouseBatchSQLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the execution results of a Spark SQL statement.
+       * @summary Retrieves the execution results of Spark SQL.
        *
-       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
-       * > If you encounter a 409 error when sending requests from China North 1 (Qingdao), China South 1 (Shenzhen), China South 3 (Guangzhou), or Hong Kong (China), contact technical support.
+       * @description - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 fault when sending requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request GetSparkWarehouseBatchSQLRequest
        * @return GetSparkWarehouseBatchSQLResponse
@@ -3882,8 +3910,8 @@ namespace Adb20211201
       /**
        * @summary Retrieves table information.
        *
-       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3894,8 +3922,8 @@ namespace Adb20211201
       /**
        * @summary Retrieves table information.
        *
-       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetTableRequest
        * @return GetTableResponse
@@ -3905,8 +3933,8 @@ namespace Adb20211201
       /**
        * @summary Queries column information.
        *
-       * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-       * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetTableColumnsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3917,8 +3945,8 @@ namespace Adb20211201
       /**
        * @summary Queries column information.
        *
-       * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-       * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetTableColumnsRequest
        * @return GetTableColumnsResponse
@@ -3926,10 +3954,10 @@ namespace Adb20211201
       Models::GetTableColumnsResponse getTableColumns(const Models::GetTableColumnsRequest &request);
 
       /**
-       * @summary Queries the statement that is used to create a table.
+       * @summary Queries the CREATE TABLE statement.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetTableDDLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3938,10 +3966,10 @@ namespace Adb20211201
       Models::GetTableDDLResponse getTableDDLWithOptions(const Models::GetTableDDLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the statement that is used to create a table.
+       * @summary Queries the CREATE TABLE statement.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetTableDDLRequest
        * @return GetTableDDLResponse
@@ -3972,10 +4000,10 @@ namespace Adb20211201
       Models::GetTableObjectsResponse getTableObjects(const Models::GetTableObjectsRequest &request);
 
       /**
-       * @summary Queries the statement that is used to create a view.
+       * @summary Queries the creation statement of a view.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetViewDDLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3984,10 +4012,10 @@ namespace Adb20211201
       Models::GetViewDDLResponse getViewDDLWithOptions(const Models::GetViewDDLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the statement that is used to create a view.
+       * @summary Queries the creation statement of a view.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetViewDDLRequest
        * @return GetViewDDLResponse
@@ -3997,8 +4025,8 @@ namespace Adb20211201
       /**
        * @summary Queries view information.
        *
-       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetViewObjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4009,8 +4037,8 @@ namespace Adb20211201
       /**
        * @summary Queries view information.
        *
-       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
        *
        * @param request GetViewObjectsRequest
        * @return GetViewObjectsResponse
@@ -4222,7 +4250,7 @@ namespace Adb20211201
       Models::ListLakeStoragesResponse listLakeStorages(const Models::ListLakeStoragesRequest &request);
 
       /**
-       * @summary Queries the execution records of result set export jobs of a Resource Access Management (RAM) user.
+       * @summary Queries the execution history of result set export jobs for the current Resource Access Management (RAM) user.
        *
        * @param tmpReq ListResultExportJobHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4231,7 +4259,7 @@ namespace Adb20211201
       Models::ListResultExportJobHistoryResponse listResultExportJobHistoryWithOptions(const Models::ListResultExportJobHistoryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution records of result set export jobs of a Resource Access Management (RAM) user.
+       * @summary Queries the execution history of result set export jobs for the current Resource Access Management (RAM) user.
        *
        * @param request ListResultExportJobHistoryRequest
        * @return ListResultExportJobHistoryResponse
@@ -4262,9 +4290,9 @@ namespace Adb20211201
       /**
        * @summary Queries the retry information of a specified Spark application.
        *
-       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
-       * > If you encounter a 409 fault when initiating a request from Hong Kong (China), submit a ticket or contact technical support.
+       * @description - The public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 error when initiating a request in China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request ListSparkAppAttemptsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4275,9 +4303,9 @@ namespace Adb20211201
       /**
        * @summary Queries the retry information of a specified Spark application.
        *
-       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
-       * > If you encounter a 409 fault when initiating a request from Hong Kong (China), submit a ticket or contact technical support.
+       * @description - The public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 error when initiating a request in China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request ListSparkAppAttemptsRequest
        * @return ListSparkAppAttemptsResponse
@@ -4287,9 +4315,9 @@ namespace Adb20211201
       /**
        * @summary Queries the list of Spark applications.
        *
-       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
-       * > If you encounter a 409 fault when initiating a request from Hong Kong (China), contact technical support.
+       * @description - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request ListSparkAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4300,9 +4328,9 @@ namespace Adb20211201
       /**
        * @summary Queries the list of Spark applications.
        *
-       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
-       * > If you encounter a 409 fault when initiating a request from Hong Kong (China), contact technical support.
+       * @description - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request ListSparkAppsRequest
        * @return ListSparkAppsResponse
@@ -4360,7 +4388,11 @@ namespace Adb20211201
       Models::ListSparkTemplateFileIdsResponse listSparkTemplateFileIds(const Models::ListSparkTemplateFileIdsRequest &request);
 
       /**
-       * @summary Queries a list of Spark SQL statements.
+       * @summary Queries all executed Spark SQL statements by paging.
+       *
+       * @description - The public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 error when sending requests from the China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China) regions, contact technical support.
        *
        * @param request ListSparkWarehouseBatchSQLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4369,7 +4401,11 @@ namespace Adb20211201
       Models::ListSparkWarehouseBatchSQLResponse listSparkWarehouseBatchSQLWithOptions(const Models::ListSparkWarehouseBatchSQLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of Spark SQL statements.
+       * @summary Queries all executed Spark SQL statements by paging.
+       *
+       * @description - The public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - The VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 error when sending requests from the China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China) regions, contact technical support.
        *
        * @param request ListSparkWarehouseBatchSQLRequest
        * @return ListSparkWarehouseBatchSQLResponse
@@ -4457,11 +4493,11 @@ namespace Adb20211201
       Models::ModifyAccountPrivilegesResponse modifyAccountPrivileges(const Models::ModifyAccountPrivilegesRequest &request);
 
       /**
-       * @summary Modifies an AnalyticDB Pipeline Service (APS) data source.
+       * @summary Modifies an APS data source.
        *
-       * @description ### [](#)
-       * *   You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-       * *   You cannot modify the number of nodes for the USER_DEFAULT resource group.
+       * @description ### Precautions
+       * - This operation is applicable only to elastic mode Cluster Edition (new version) clusters with 32 or more cores.
+       * - You cannot modify the number of nodes in the default resource group USER_DEFAULT.
        *
        * @param tmpReq ModifyApsDatasoureRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4470,11 +4506,11 @@ namespace Adb20211201
       Models::ModifyApsDatasoureResponse modifyApsDatasoureWithOptions(const Models::ModifyApsDatasoureRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an AnalyticDB Pipeline Service (APS) data source.
+       * @summary Modifies an APS data source.
        *
-       * @description ### [](#)
-       * *   You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-       * *   You cannot modify the number of nodes for the USER_DEFAULT resource group.
+       * @description ### Precautions
+       * - This operation is applicable only to elastic mode Cluster Edition (new version) clusters with 32 or more cores.
+       * - You cannot modify the number of nodes in the default resource group USER_DEFAULT.
        *
        * @param request ModifyApsDatasoureRequest
        * @return ModifyApsDatasoureResponse
@@ -4503,7 +4539,12 @@ namespace Adb20211201
       Models::ModifyApsJobResponse modifyApsJob(const Models::ModifyApsJobRequest &request);
 
       /**
-       * @summary Modifies an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
+       * @summary Modifies a Simple Log Service (SLS) data shipping task to an AnalyticDB data warehouse.
+       *
+       * @description 修改 SLS 投递 ADB 数仓任务。调用前需确认：
+       * 1. 已创建并处于运行中的 ADB 集群，可通过 CreateDBCluster 创建、DescribeDBClusters 查询状态。
+       * 2. 集群已创建数据库账号，可通过 CreateAccount 创建。
+       * 3. 已通过 CreateApsSlsADBJob 创建 SLS 数据链路任务，并从响应获取 WorkloadId。
        *
        * @param tmpReq ModifyApsSlsADBJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4512,7 +4553,12 @@ namespace Adb20211201
       Models::ModifyApsSlsADBJobResponse modifyApsSlsADBJobWithOptions(const Models::ModifyApsSlsADBJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
+       * @summary Modifies a Simple Log Service (SLS) data shipping task to an AnalyticDB data warehouse.
+       *
+       * @description 修改 SLS 投递 ADB 数仓任务。调用前需确认：
+       * 1. 已创建并处于运行中的 ADB 集群，可通过 CreateDBCluster 创建、DescribeDBClusters 查询状态。
+       * 2. 集群已创建数据库账号，可通过 CreateAccount 创建。
+       * 3. 已通过 CreateApsSlsADBJob 创建 SLS 数据链路任务，并从响应获取 WorkloadId。
        *
        * @param request ModifyApsSlsADBJobRequest
        * @return ModifyApsSlsADBJobResponse
@@ -4783,7 +4829,7 @@ namespace Adb20211201
       /**
        * @summary Modifies the resource group of a cluster.
        *
-       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param tmpReq ModifyDBResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4794,7 +4840,7 @@ namespace Adb20211201
       /**
        * @summary Modifies the resource group of a cluster.
        *
-       * @description For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ModifyDBResourceGroupRequest
        * @return ModifyDBResourceGroupResponse
@@ -4996,7 +5042,7 @@ namespace Adb20211201
       Models::PreloadSparkAppMetricsResponse preloadSparkAppMetrics(const Models::PreloadSparkAppMetricsRequest &request);
 
       /**
-       * @summary Queries a list of metadata discovery task instances.
+       * @summary Queries the metadata discovery task instances.
        *
        * @param request QueryFormationInstsByTaskIDRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5005,7 +5051,7 @@ namespace Adb20211201
       Models::QueryFormationInstsByTaskIDResponse queryFormationInstsByTaskIDWithOptions(const Models::QueryFormationInstsByTaskIDRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of metadata discovery task instances.
+       * @summary Queries the metadata discovery task instances.
        *
        * @param request QueryFormationInstsByTaskIDRequest
        * @return QueryFormationInstsByTaskIDResponse
@@ -5030,7 +5076,7 @@ namespace Adb20211201
       Models::QueryFormationTaskByIDResponse queryFormationTaskByID(const Models::QueryFormationTaskByIDRequest &request);
 
       /**
-       * @summary Queries metadata discovery tasks by task type.
+       * @summary Query metadata discovery tasks by task type
        *
        * @param request QueryFormationTasksByTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5039,7 +5085,7 @@ namespace Adb20211201
       Models::QueryFormationTasksByTypeResponse queryFormationTasksByTypeWithOptions(const Models::QueryFormationTasksByTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries metadata discovery tasks by task type.
+       * @summary Query metadata discovery tasks by task type
        *
        * @param request QueryFormationTasksByTypeRequest
        * @return QueryFormationTasksByTypeResponse
@@ -5252,8 +5298,8 @@ namespace Adb20211201
       /**
        * @summary Manually triggers a metadata discovery task.
        *
-       * @description ### Operation description
-       * When you use a cloud-native data repository AnalyticDB for MySQL cluster and require Alibaba Cloud technical support, if the helpdesk needs to perform operations on your cluster during the support procedure, authorize the service account of the AnalyticDB for MySQL cluster so that the helpdesk can provide technical support through the service account. After the authorization expires, the permissions of the service account are automatically revoked.
+       * @description ### Usage notes
+       * When you use a cloud-native data repository AnalyticDB for MySQL cluster and require technical support from Alibaba Cloud, if the helpdesk needs to perform operations on your cluster during the support procedure, you must authorize the service account of the AnalyticDB for MySQL cluster. This allows the helpdesk to provide technical support through the service account. After the authorization validity period expires, the permissions of the service account are automatically revoked.
        *
        * @param request StartFormationCrawlerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5264,8 +5310,8 @@ namespace Adb20211201
       /**
        * @summary Manually triggers a metadata discovery task.
        *
-       * @description ### Operation description
-       * When you use a cloud-native data repository AnalyticDB for MySQL cluster and require Alibaba Cloud technical support, if the helpdesk needs to perform operations on your cluster during the support procedure, authorize the service account of the AnalyticDB for MySQL cluster so that the helpdesk can provide technical support through the service account. After the authorization expires, the permissions of the service account are automatically revoked.
+       * @description ### Usage notes
+       * When you use a cloud-native data repository AnalyticDB for MySQL cluster and require technical support from Alibaba Cloud, if the helpdesk needs to perform operations on your cluster during the support procedure, you must authorize the service account of the AnalyticDB for MySQL cluster. This allows the helpdesk to provide technical support through the service account. After the authorization validity period expires, the permissions of the service account are automatically revoked.
        *
        * @param request StartFormationCrawlerRequest
        * @return StartFormationCrawlerResponse
@@ -5319,9 +5365,9 @@ namespace Adb20211201
       Models::StartSparkSQLEngineResponse startSparkSQLEngine(const Models::StartSparkSQLEngineRequest &request);
 
       /**
-       * @summary Stops a metadata discovery task that is currently running.
+       * @summary Stops the currently running metadata discovery task.
        *
-       * @description Stops only the currently running task without canceling subsequent cron-scheduled executions.
+       * @description Stops only the currently running task without stopping subsequent cron schedules.
        *
        * @param request StopFormationCrawlerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5330,9 +5376,9 @@ namespace Adb20211201
       Models::StopFormationCrawlerResponse stopFormationCrawlerWithOptions(const Models::StopFormationCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a metadata discovery task that is currently running.
+       * @summary Stops the currently running metadata discovery task.
        *
-       * @description Stops only the currently running task without canceling subsequent cron-scheduled executions.
+       * @description Stops only the currently running task without stopping subsequent cron schedules.
        *
        * @param request StopFormationCrawlerRequest
        * @return StopFormationCrawlerResponse
@@ -5342,6 +5388,8 @@ namespace Adb20211201
       /**
        * @summary Submits an SQL query and exports a result set.
        *
+       * @description 提交结果集导出任务。调用前须先调用 ConfigureResultExport 配置导出目标（SLS 或 OSS），否则接口返回 APS.NotExists 错误。
+       *
        * @param request SubmitResultExportJobRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitResultExportJobResponse
@@ -5350,6 +5398,8 @@ namespace Adb20211201
 
       /**
        * @summary Submits an SQL query and exports a result set.
+       *
+       * @description 提交结果集导出任务。调用前须先调用 ConfigureResultExport 配置导出目标（SLS 或 OSS），否则接口返回 APS.NotExists 错误。
        *
        * @param request SubmitResultExportJobRequest
        * @return SubmitResultExportJobResponse
@@ -5500,7 +5550,7 @@ namespace Adb20211201
       Models::UpdateApsWebhookResponse updateApsWebhook(const Models::UpdateApsWebhookRequest &request);
 
       /**
-       * @summary Updates the information of a metadata discovery task.
+       * @summary Updates the metadata discovery task information.
        *
        * @param request UpdateFormationCrawlerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5509,7 +5559,7 @@ namespace Adb20211201
       Models::UpdateFormationCrawlerResponse updateFormationCrawlerWithOptions(const Models::UpdateFormationCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information of a metadata discovery task.
+       * @summary Updates the metadata discovery task information.
        *
        * @param request UpdateFormationCrawlerRequest
        * @return UpdateFormationCrawlerResponse
@@ -5517,7 +5567,7 @@ namespace Adb20211201
       Models::UpdateFormationCrawlerResponse updateFormationCrawler(const Models::UpdateFormationCrawlerRequest &request);
 
       /**
-       * @summary Pauses or resumes the periodic scheduling of metadata discovery.
+       * @summary Pause or resume periodic scheduling for metadata discovery
        *
        * @param request UpdateFormationCrawlerScheduleStateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5526,7 +5576,7 @@ namespace Adb20211201
       Models::UpdateFormationCrawlerScheduleStateResponse updateFormationCrawlerScheduleStateWithOptions(const Models::UpdateFormationCrawlerScheduleStateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Pauses or resumes the periodic scheduling of metadata discovery.
+       * @summary Pause or resume periodic scheduling for metadata discovery
        *
        * @param request UpdateFormationCrawlerScheduleStateRequest
        * @return UpdateFormationCrawlerScheduleStateResponse
@@ -5534,7 +5584,9 @@ namespace Adb20211201
       Models::UpdateFormationCrawlerScheduleStateResponse updateFormationCrawlerScheduleState(const Models::UpdateFormationCrawlerScheduleStateRequest &request);
 
       /**
-       * @summary Updates a lake storage.
+       * @summary Updates the lake storage.
+       *
+       * @description 更新湖存储。LakeStorageId 和 DBClusterId 为更新湖存储的必要标识，实际调用时需同时传入，未传时请求会被拒绝。
        *
        * @param tmpReq UpdateLakeStorageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5543,7 +5595,9 @@ namespace Adb20211201
       Models::UpdateLakeStorageResponse updateLakeStorageWithOptions(const Models::UpdateLakeStorageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a lake storage.
+       * @summary Updates the lake storage.
+       *
+       * @description 更新湖存储。LakeStorageId 和 DBClusterId 为更新湖存储的必要标识，实际调用时需同时传入，未传时请求会被拒绝。
        *
        * @param request UpdateLakeStorageRequest
        * @return UpdateLakeStorageResponse

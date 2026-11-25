@@ -84,23 +84,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the error code.
+    // The API status code or POP error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The list of resource group information.
     shared_ptr<string> data_ {};
-    // The response code. The status code 200 indicates that the request was successful.
+    // The HTTP status code returned. A status code of 200 indicates that the request was successful.
     shared_ptr<string> httpStatusCode_ {};
-    // The returned message. Valid values:
-    // 
-    // *   If the request was successful, a success message is returned.****
-    // *   If the request failed, an error message is returned.
+    // The execution result of the application suggestion. Valid values:
+    // - If the request is normal, **SUCCESS** is returned. 
+    // - If the request is abnormal, the specific error message is returned.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Specifies whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<string> success_ {};
   };
 

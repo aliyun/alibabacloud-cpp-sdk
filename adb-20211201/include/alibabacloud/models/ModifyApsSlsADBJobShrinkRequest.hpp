@@ -149,9 +149,9 @@ namespace Models
 
 
   protected:
-    // The information about columns.
+    // The column information.
     shared_ptr<string> columnsShrink_ {};
-    // The cluster ID.
+    // The ID of the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
@@ -159,23 +159,23 @@ namespace Models
     shared_ptr<string> dbName_ {};
     // The dirty data processing mode.
     shared_ptr<string> dirtyDataProcessPattern_ {};
-    // Specifies whether to enable the consistency check.
+    // Specifies whether exactly-once processing is enabled.
     shared_ptr<string> exactlyOnce_ {};
-    // The password of the database account.
+    // The password.
     shared_ptr<string> password_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start offset.
+    // The starting offset.
     shared_ptr<string> startingOffsets_ {};
     // The name of the table.
     shared_ptr<string> tableName_ {};
     // The timestamp conversion.
     shared_ptr<string> unixTimestampConvert_ {};
-    // The name of the database account.
+    // The username.
     shared_ptr<string> userName_ {};
-    // The job ID.
+    // The ID of the data link task.
     // 
     // This parameter is required.
     shared_ptr<string> workloadId_ {};

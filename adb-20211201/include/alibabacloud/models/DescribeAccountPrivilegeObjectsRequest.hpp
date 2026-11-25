@@ -116,25 +116,26 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The column name that is used to filter columns.
+    // The column name used to filter the results.
     shared_ptr<string> columnPrivilegeObject_ {};
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The database name that is used to filter databases.
+    // The database name used to filter the results.
     shared_ptr<string> databasePrivilegeObject_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page. Default value: 20.
+    // The maximum number of entries per page. Default value: 20.
     shared_ptr<string> pageSize_ {};
-    // The permission level. Valid values: Database, Table, and Column. Global is not supported.
+    // The privilege level. Only the Database, Table, and Column levels are supported. The Global level is not supported.
     shared_ptr<string> privilegeType_ {};
-    // The region ID of the cluster.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The table name that is used to filter tables.
+    // The table name used to filter the results.
     shared_ptr<string> tablePrivilegeObject_ {};
   };
 

@@ -129,7 +129,7 @@ namespace Models
     protected:
       // Specifies whether cross-account access is used.
       shared_ptr<bool> across_ {};
-      // The name of the cross-account role.
+      // The cross-account role name.
       shared_ptr<string> acrossRole_ {};
       // The cross-account UID.
       shared_ptr<string> acrossUid_ {};
@@ -137,7 +137,7 @@ namespace Models
       shared_ptr<string> project_ {};
       // The region ID of the source cluster.
       shared_ptr<string> sourceRegionId_ {};
-      // The Simple Log Service Logstore.
+      // The Simple Log Service (SLS) Logstore.
       shared_ptr<string> store_ {};
     };
 
@@ -372,7 +372,7 @@ namespace Models
       shared_ptr<string> acrossRole_ {};
       // The cross-account UID.
       shared_ptr<string> acrossUid_ {};
-      // The endpoint of the private custom RDS instance.
+      // The private custom RDS endpoint.
       shared_ptr<string> connectUrl_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -426,7 +426,7 @@ namespace Models
     protected:
       // The Kafka instance ID.
       shared_ptr<string> kafkaClusterId_ {};
-      // The name of the allocated Kafka topic.
+      // The assigned Kafka topic name.
       shared_ptr<string> kafkaTopic_ {};
     };
 

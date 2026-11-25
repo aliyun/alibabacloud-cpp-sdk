@@ -226,81 +226,63 @@ namespace Models
     shared_ptr<string> clientIp_ {};
     // The cluster ID.
     // 
-    // > 
-    // 
-    // *   You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query cluster IDs.
+    // > - You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Query end time. The end time must be later than the start time, and the interval between them must be less than 1 day. Format: yyyy-MM-ddTHH:mmZ (UTC time).
+    // The end time of the query. The end time must be later than the start time, and the interval between the start time and the end time must be less than one day.
+    // Format: yyyy-MM-ddTHH:mmZ (UTC).
     shared_ptr<string> endTime_ {};
-    // Sort the SQL statements based on specified fields. The format is a JSON array that preserves order, and composite sorting is performed according to the sequence of objects in the array. Each object contains two fields: `Field` and `Type`. For example:`[{"Field":"CreateTime", "Type": "desc" }]`. Where:
+    // The sorting rule for SQL statements based on specified fields. The value is a JSON array that specifies composite sorting in the order of the input array. The array contains the `Field` and `Type` fields. Example: `[{"Field":"TotalTime", "Type": "desc" }]`.
     // 
-    // *   `Field` specifies the field that is used to sort the SQL statements. Valid values:
+    // - `Field`: the name of the field to sort by. Valid values:
+    //     - `ResourceGroupName`: the name of the resource group.
+    //     - `Status`: the execution status of the SQL statement.
+    //     - `User`: the username that executed the SQL statement.
+    //     - `ExecuteTime`: the start time of the SQL execution.
+    //     - `TotalTime`: the execution duration of the SQL statement.
+    //     - `ProcessId`: the query ID.
+    //     - `ClientIp`: the source IP address.
+    //     - `StatementSource`: the source from which the query is initiated.
     // 
-    //     *   `ResourceGroupName`: The name of the resource group.
-    //     *   `Status` :SQL execution status.
-    //     *   `User`: The username that is used to execute the SQL statement.
-    //     *   `ExecuteTime`: The start time of SQL execution.
-    //     *   `TotalTime`: The amount of time consumed to execute the SQL statement.
-    //     *   `ProcessId`: Query ID.
-    //     *   `ClientIp`: The source IP address.
-    //     *   `StatementSource`: The source from which the query was initiated.
-    // 
-    // *   `Type` specifies the sorting order. Valid values (case-insensitive):
-    // 
-    //     *   `Desc`: Descending order.
-    //     *   `Asc`: Ascending order.
+    // - `Type`: the sorting type. Valid values (case-insensitive):
+    //     - `Desc`: descending order.
+    //     - `Asc`: ascending order.
     shared_ptr<string> order_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The query ID.
     shared_ptr<string> processId_ {};
-    // This parameter is deprecated.
+    // **[Deprecated]** This parameter is deprecated.
     shared_ptr<string> proxyUser_ {};
     // The region ID.
-    // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to query the available regions and zones, including region ID.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to view the regions and zones supported by AnalyticDB for MySQL, including region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group name.
-    // 
-    // >  You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/612410.html) operation to query the resource group ID within a cluster.
+    // The name of the resource group.
+    // > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/612410.html) operation to view the resource group ID of the cluster.
     shared_ptr<string> resourceGroupName_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The keyword in the SQL statement.
     shared_ptr<string> SQLText_ {};
-    // Query start time. Format: *yyyy-MM-ddTHH:mmZ* (UTC time).
-    // 
-    // >  We recommend that you set the query start time to any point in time within 30 days.
+    // The start time of the query. Format: <i>yyyy-MM-ddTHH:mmZ</i> (UTC).
+    // > Set the start time to a point in time within the last 30 days.
     shared_ptr<string> startTime_ {};
-    // The ID of the statement.
+    // The statement ID.
     shared_ptr<string> statementId_ {};
-    // The source from which the query was initiated.
-    // 
-    // Valid values:
-    // 
-    // *   SQL_EDITOR: SQL_EDITOR.
-    // *   JDBC: JDBC.
+    // The source from which the query is initiated.
     shared_ptr<string> statementSource_ {};
     // The execution status of the SQL statement.
-    // 
-    // Valid values:
-    // 
-    // *   cancel: The task is canceled .
-    // *   finished: The execution succeeds .
-    // *   error:The execution fails .
-    // *   timeout: The execution timed out .
     shared_ptr<string> status_ {};
-    // The duration of the SQL statement. Unit: milliseconds.
+    // The execution duration of the SQL statement. Unit: milliseconds.
     shared_ptr<string> totalTime_ {};
-    // The username that is used to execute SQL statements.
+    // The username that executed the SQL statement.
     shared_ptr<string> user_ {};
   };
 

@@ -192,42 +192,38 @@ namespace Models
 
 
     protected:
-      // The time when the table was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // The distribution key column.
       shared_ptr<string> distributeColumn_ {};
       // The distribution type.
       shared_ptr<string> distributeType_ {};
-      // Indicates whether full-column indexes are used.
+      // Indicates whether full indexing is enabled.
       shared_ptr<bool> isAllIndex_ {};
-      // Indicates whether dictionary encoding is used.
+      // Indicates whether dictionary encoding is enabled.
       shared_ptr<bool> isDictEncode_ {};
-      // Indicates whether full-text indexes are used.
+      // Indicates whether full-text indexing is enabled.
       shared_ptr<bool> isFullTextDict_ {};
-      // Indicates whether pages are hidden.
-      // 
-      // *   **false**
-      // *   **true**
+      // Indicates whether the page is hidden. Valid values:
+      // - **false**: The page is not hidden.
+      // - **true**: The page is hidden.
       shared_ptr<bool> isHidden_ {};
-      // The partition key column.
+      // The partition column information.
       shared_ptr<string> partitionColumn_ {};
-      // The type of the partition.
+      // The partition type.
       shared_ptr<string> partitionType_ {};
       // The primary key column.
       shared_ptr<string> primaryKeyColumn_ {};
       // The table engine.
       shared_ptr<string> tableEngine_ {};
       // The name of the table.
-      // 
-      // **
-      // 
-      // ****
+      // > If this parameter is left empty, the usage frequency data of all tables in the specified cluster on the current day is returned.
       shared_ptr<string> tableName_ {};
       // The database to which the table belongs.
       shared_ptr<string> tableSchema_ {};
       // The type of the table.
       shared_ptr<string> tableType_ {};
-      // The time when the table was updated.
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -264,19 +260,17 @@ namespace Models
 
 
   protected:
-    // The returned message. Valid values:
-    // 
-    // *   If the request was successful, a success message is returned.****
-    // *   If the request failed, an error message is returned.
+    // The additional information about the call result. Valid values:
+    // - **Success**: The request is successful. 
+    // - Specific error code: The request is abnormal.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
-    // The queried table metadata.
+    // The table metadata.
     shared_ptr<DescribeAdbMySqlTableMetaResponseBody::TableMeta> tableMeta_ {};
   };
 

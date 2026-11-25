@@ -105,11 +105,11 @@ namespace Models
     protected:
       // The number of times the table was accessed.
       shared_ptr<string> accessCount_ {};
-      // The cluster ID of the cluster to which the table belongs.
+      // The ID of the cluster to which the table belongs.
       shared_ptr<string> instanceName_ {};
-      // The date on which the table was used.
+      // The date when the table was used.
       shared_ptr<string> reportDate_ {};
-      // The table name.
+      // The name of the table.
       shared_ptr<string> tableName_ {};
       // The database to which the table belongs.
       shared_ptr<string> tableSchema_ {};
@@ -163,7 +163,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -76,7 +76,7 @@ namespace Models
 
   protected:
     // The application ID.
-    // > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query the ID of the Spark application.
+    // > Call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query the ID of the Spark application.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
@@ -89,7 +89,7 @@ namespace Models
     shared_ptr<int64_t> logLength_ {};
     // The page number for reading logs.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of data rows per page.
+    // The number of rows per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

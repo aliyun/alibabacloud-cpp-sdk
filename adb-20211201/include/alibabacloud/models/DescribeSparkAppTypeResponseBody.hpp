@@ -57,14 +57,13 @@ namespace Models
 
 
   protected:
-    // The detailed reason why the access was denied.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The type of the Spark application. Valid values:
-    // 
-    // *   BATCH
-    // *   SQLENGINE
+    // - BATCH: batch application.
+    // - SQLENGINE: SQL engine application.
     shared_ptr<string> type_ {};
   };
 

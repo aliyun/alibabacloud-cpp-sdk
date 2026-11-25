@@ -49,7 +49,7 @@ namespace Models
 
   protected:
     // The application ID.
-    // > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query the ID of the Spark application.
+    // > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query the Spark application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};

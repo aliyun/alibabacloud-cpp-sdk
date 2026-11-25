@@ -94,7 +94,7 @@ namespace Models
       shared_ptr<string> logContent_ {};
       // The number of log lines. A value of 0 indicates that no valid logs exist.
       shared_ptr<int32_t> logSize_ {};
-      // The alert information, such as task execution failure or insufficient resources. If no alerts are triggered, an empty value is returned.
+      // The alert information, such as task execution failure or insufficient resources. This parameter is empty if no alerts are generated.
       shared_ptr<string> message_ {};
     };
 

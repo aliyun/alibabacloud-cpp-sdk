@@ -101,9 +101,9 @@ namespace Models
       shared_ptr<vector<OpenStructRefreshJobModel>> mvRefreshJobModels_ {};
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of records per page.
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -151,11 +151,11 @@ namespace Models
     shared_ptr<DescribeViewJobsResponseBody::Data> data_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

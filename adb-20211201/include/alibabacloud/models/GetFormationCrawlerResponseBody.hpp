@@ -90,9 +90,9 @@ namespace Models
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. OK is returned if the call was successful.
+    // The returned message. The value is OK if the call is successful.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
     // - **true**: Successful.

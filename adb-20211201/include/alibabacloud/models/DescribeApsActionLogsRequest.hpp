@@ -158,59 +158,60 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    // <props="china">The ID of the cluster. The cluster must be of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mmZ** format. The time must be in UTC.
+    // The end time of the logs. Specify the time in the **yyyy-MM-ddTHH:mmZ** format. The time must be in UTC.
     // 
-    // >  The end time must be later than the start time. The maximum time range that can be specified is 30 days.
+    // > When you query logs, the end time must be later than the start time, and the time span between the start time and the end time cannot exceed 30 days.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The keyword that you want to use for fuzzy match in the query.
+    // The keyword for the query. Fuzzy matching is applied during log query.
     shared_ptr<string> keyword_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value must be a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default)
+    // - **50**
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the cluster.
+    // The region ID.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The phase during which the logs to be queried were generated. Valid values:
+    // The task stage. Valid values:
     // 
-    // *   **StructureMigrate**: schema migration.
-    // *   **FullDataSync**: full data synchronization.
-    // *   **IncrementalSync**: incremental data synchronization.
+    // - **StructureMigrate**: Schema migration.
+    // - **FullDataSync**: Full data synchronization.
+    // - **IncrementalSync**: Incremental data synchronization.
     // 
-    // >  If you do not specify this parameter, logs of all the phases are queried.
+    // > If you do not specify this parameter, logs of all task stages are queried by default.
     shared_ptr<string> stage_ {};
-    // The start time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mmZ** format. The time must be in UTC.
+    // The start time of the logs. Specify the time in the **yyyy-MM-ddTHH:mmZ** format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The types of the logs. Separate multiple log types with commas (,). Valid values:
+    // The log type. Separate multiple log types with commas (,). Valid values:
     // 
-    // *   **INFO**
-    // *   **WARN**
-    // *   **ERROR**
+    // - **INFO**: Information.
+    // - **WARN**: Warning.
+    // - **ERROR**: Error.
     // 
-    // >  If you do not specify this parameter, logs of all types are queried.
+    // > If you do not specify this parameter, logs of all types are queried by default.
     shared_ptr<string> state_ {};
-    // The ID of the real-time data ingestion job.
+    // The ID of the data link task.
     // 
     // This parameter is required.
     shared_ptr<string> workloadId_ {};

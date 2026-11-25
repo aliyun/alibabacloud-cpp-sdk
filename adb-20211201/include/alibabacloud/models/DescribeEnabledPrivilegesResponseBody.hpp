@@ -158,7 +158,7 @@ namespace Models
 
 
   protected:
-    // The supported permission levels and the list of permissions.
+    // The supported permission levels and permissions.
     shared_ptr<vector<DescribeEnabledPrivilegesResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

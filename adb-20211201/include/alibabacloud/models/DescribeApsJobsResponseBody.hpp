@@ -161,7 +161,7 @@ namespace Models
       shared_ptr<string> apsJobId_ {};
       // The name of the task.
       shared_ptr<string> apsJobName_ {};
-      // The creation time in the yyyy-MM-dd HH:mm:ss format.
+      // The creation time. The time is in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The synchronization latency.
       shared_ptr<int64_t> delay_ {};
@@ -248,15 +248,15 @@ namespace Models
 
 
   protected:
-    // The list of APS tasks.
+    // The list of tasks.
     shared_ptr<vector<DescribeApsJobsResponseBody::APSJobs>> APSJobs_ {};
     // The backend error code.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned for the request. A value of 200 indicates that the request was successful.
+    // The HTTP status code. A status code of 200 indicates that the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The additional information about the call result. Valid values:
-    // - If the request is successful, **Success** is returned. 
-    // - If the request fails, a specific error code is returned.
+    // - If the request is normal, **Success** is returned. 
+    // - If the request is abnormal, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
@@ -265,8 +265,8 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
-    // - **true**: Successful.
-    // - **false**: Failed.
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
     // The total number of entries.
     shared_ptr<string> totalCount_ {};

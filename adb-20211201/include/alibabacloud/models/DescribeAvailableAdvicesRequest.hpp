@@ -121,13 +121,13 @@ namespace Models
 
 
   protected:
-    // The generation date of the suggestion, in the yyyyMMdd format.
+    // The generation date of the suggestions, in the yyyyMMdd format.
     // 
-    // > Data is generated after daily analysis in the early morning. Therefore, you must specify a date of T-1 or earlier to query the data. For example, if today is 20240627, you must specify 20240626 or an earlier date.
+    // > Data is generated after daily analysis in the early morning. Therefore, you must specify a date of T-1 or earlier to query the data. For example, if today is 20240627, you should pass 20240626 or an earlier date.
     shared_ptr<int64_t> adviceDate_ {};
     // The type of the suggestion. Valid values:
-    // - **INDEX**: Index optimization.
-    // - **TIERING**: Hot and cold data optimization.
+    // - **INDEX**: index optimization.
+    // - **TIERING**: hot and cold data optimization.
     shared_ptr<string> adviceType_ {};
     // The cluster ID.
     // 
@@ -141,7 +141,7 @@ namespace Models
     // - **ja**: Japanese.
     // - **zh-tw**: Traditional Chinese.
     shared_ptr<string> lang_ {};
-    // The field by which to sort the query results. The value is a JSON string. Example: `[{"Field":"SchemaName","Type":"Asc"}]`. Parameters:
+    // The field by which to sort the query results. The value must be a JSON string. Example: `[{"Field":"SchemaName","Type":"Asc"}]`. Parameters:
     // - `Field`: the sort field. Valid values:
     //     - `SchemaName`: the database name.
     //     - `TableName`: the table name.
@@ -163,7 +163,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The concatenated string of the database name and table name.
+    // The concatenated string of the database name and the table name.
     shared_ptr<string> schemaTableName_ {};
   };
 

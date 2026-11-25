@@ -122,19 +122,19 @@ namespace Models
 
 
     protected:
-      // The improper partitions.
+      // The unreasonable partitions.
       shared_ptr<string> partitionDetail_ {};
       // The number of partitions.
       shared_ptr<int32_t> partitionNumber_ {};
-      // The name of the database.
+      // The database name.
       shared_ptr<string> schemaName_ {};
-      // The storage percentage of the table. Unit: %.
+      // The table storage proportion. Unit: %.
       // 
-      // >  Formula: Table storage percentage = Total data size of a table/Total data size of the cluster × 100%.
+      // > Calculation formula: Table storage proportion = Total data volume of the table / Total data volume of the instance × 100.
       shared_ptr<double> spaceRatio_ {};
-      // The name of the table.
+      // The table name.
       shared_ptr<string> tableName_ {};
-      // The total data size of the table. Unit: bytes.
+      // The total data volume. Unit: bytes.
       shared_ptr<int64_t> totalSize_ {};
     };
 
@@ -185,15 +185,15 @@ namespace Models
 
 
     protected:
-      // The detection result.
+      // The check result message.
       shared_ptr<string> message_ {};
-      // The name of the detection item.
+      // The name of the check item.
       shared_ptr<string> name_ {};
-      // The severity level of the detection result. Valid values:
+      // The status of the check result. Valid values:
       // 
-      // *   NORMAL
-      // *   WARNING
-      // *   CRITICAL
+      // - NORMAL
+      // - WARNING
+      // - CRITICAL
       shared_ptr<string> status_ {};
     };
 
@@ -275,13 +275,13 @@ namespace Models
 
 
   protected:
-    // The information about the request denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The queried detection items and detection results.
+    // The list of check items and check results.
     shared_ptr<vector<DescribeTablePartitionDiagnoseResponseBody::DetectionItems>> detectionItems_ {};
-    // The queried partition diagnostic information.
+    // The details.
     shared_ptr<vector<DescribeTablePartitionDiagnoseResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -289,11 +289,11 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The recommended maximum number of rows in each partition.
+    // The recommended maximum number of rows for subpartitions.
     shared_ptr<int64_t> suggestMaxRecordsPerPartition_ {};
-    // The recommended minimum number of rows in each partition.
+    // The recommended minimum number of rows for subpartitions.
     shared_ptr<int64_t> suggestMinRecordsPerPartition_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

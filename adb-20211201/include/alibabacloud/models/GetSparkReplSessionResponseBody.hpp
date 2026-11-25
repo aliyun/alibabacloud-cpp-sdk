@@ -116,25 +116,23 @@ namespace Models
 
     protected:
       // Indicates whether the session is active. Valid values:
-      // 
-      // *   true
-      // *   false
+      // - true: Active.
+      // - false: Inactive.
       shared_ptr<string> active_ {};
-      // The ID of the Alibaba Cloud account that owns the cluster.
+      // The ID of the Alibaba Cloud account to which the instance belongs.
       shared_ptr<string> aliyunUid_ {};
-      // The attempt ID of the Spark application.
+      // The retry ID of the Spark application.
       shared_ptr<string> attemptId_ {};
       // The error message.
       shared_ptr<string> error_ {};
-      // The ID of the session that executes the code.
+      // The ID of the session for code execution.
       shared_ptr<int64_t> sessionId_ {};
-      // The status of the session. Valid values:
-      // 
-      // *   IDLE
-      // *   BUSY
-      // *   DEAD
+      // The current session status. Valid values:
+      // - IDLE: The session is idle.
+      // - BUSY: The session is busy and executing a task.
+      // - DEAD: The session is closed.
       shared_ptr<string> state_ {};
-      // The URL of the web UI for the Spark application.
+      // The Web UI address of the Spark application.
       shared_ptr<string> webUiAddress_ {};
     };
 

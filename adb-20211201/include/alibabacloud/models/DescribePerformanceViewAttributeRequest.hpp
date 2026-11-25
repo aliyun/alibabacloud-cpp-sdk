@@ -104,7 +104,7 @@ namespace Models
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the supported regions and zones, including region IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query information about supported regions and zones, including region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

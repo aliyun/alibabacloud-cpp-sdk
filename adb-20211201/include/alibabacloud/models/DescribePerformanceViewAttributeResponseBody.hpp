@@ -162,7 +162,7 @@ namespace Models
           shared_ptr<vector<string>> groupType_ {};
           // The key of the metric.
           shared_ptr<string> keyName_ {};
-          // Indicates whether the metric is selected. Valid values:
+          // Specifies whether the metric is selected. Valid values:
           // 
           // - true
           // - false
@@ -226,7 +226,7 @@ namespace Models
     protected:
       // The list of metric categories.
       shared_ptr<vector<ViewDetail::Categories>> categories_ {};
-      // Indicates whether it is a linkage chart. Valid values:
+      // Specifies whether it is a linkage chart. Valid values:
       // 
       // - true
       // - false
@@ -299,7 +299,7 @@ namespace Models
     shared_ptr<string> createFromViewType_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // Indicates whether the keys completed in the original monitoring view are populated when you view the monitoring view. Valid values:
+    // Specifies whether to populate the keys from the original monitoring view when querying the monitoring view. Valid values:
     // 
     // - true
     // - false

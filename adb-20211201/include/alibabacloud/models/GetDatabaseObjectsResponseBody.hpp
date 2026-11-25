@@ -99,7 +99,7 @@ namespace Models
     protected:
       // The result array.
       shared_ptr<vector<DatabaseSummaryModel>> databaseSummaryModels_ {};
-      // The page number. The value must be greater than 0 and no greater than the maximum value of the Integer data type. Default value: **1**.
+      // The page number. The value must be greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: **1**.
       shared_ptr<int64_t> pageNumber_ {};
       // The number of entries per page. Valid values:
       // 

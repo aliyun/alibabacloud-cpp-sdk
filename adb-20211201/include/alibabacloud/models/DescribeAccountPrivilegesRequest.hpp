@@ -112,30 +112,30 @@ namespace Models
 
 
   protected:
-    // The name of the database account whose privileges you want to query.
+    // The name of the database account whose permissions you want to query.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // Filters the results by column name. This parameter is used only when `PrivilegeType` is set to `Column`.
+    // Filters the results by column name. This parameter is available only when the privilege level is column.
     shared_ptr<string> columnPrivilegeObject_ {};
-    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Lakehouse Edition cluster.
-    // <props="intl">The ID of the Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Filters the results by database name. This parameter is used only when `PrivilegeType` is set to `Database`, `Table`, or `Column`.
+    // Filters the results by database name. This parameter is available only when the privilege level is database, table, or column.
     shared_ptr<string> databasePrivilegeObject_ {};
-    // The page number. Pages start at 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<string> pageNumber_ {};
     // The number of entries per page. Default value: 20.
     shared_ptr<string> pageSize_ {};
-    // The privilege level to query. To obtain the valid values for this parameter, call the `DescribeEnabledPrivileges` operation.
+    // The privilege level to query. This value is returned by the DescribeEnabledPrivileges operation.
     shared_ptr<string> privilegeType_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Filters the results by table name. You can use this parameter with `DatabasePrivilegeObject` to refine the search. This parameter is used only when `PrivilegeType` is set to `Table` or `Column`.
+    // Filters the results by table name. You can use this parameter together with the database name for joint filtering. This parameter is available only when the privilege level is table or column.
     shared_ptr<string> tablePrivilegeObject_ {};
   };
 

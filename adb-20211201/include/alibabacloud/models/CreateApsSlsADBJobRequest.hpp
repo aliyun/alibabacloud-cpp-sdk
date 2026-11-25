@@ -139,11 +139,11 @@ namespace Models
 
 
     protected:
-      // The conversion method.
+      // The conversion.
       shared_ptr<string> convert_ {};
       // The format.
       shared_ptr<string> format_ {};
-      // Specifies whether to enable conversion.
+      // Specifies whether to enable the conversion.
       shared_ptr<bool> transform_ {};
     };
 
@@ -209,7 +209,7 @@ namespace Models
       shared_ptr<string> mapType_ {};
       // The column name.
       shared_ptr<string> name_ {};
-      // The column data type.
+      // The data type of the column.
       shared_ptr<string> type_ {};
     };
 
@@ -452,9 +452,9 @@ namespace Models
 
 
   protected:
-    // The role name for cross-account access.
+    // The cross-account role name.
     shared_ptr<string> acrossRole_ {};
-    // The UID for cross-account access.
+    // The cross-account UID.
     shared_ptr<string> acrossUid_ {};
     // The advanced configuration.
     shared_ptr<string> advancedConfig_ {};
@@ -478,19 +478,19 @@ namespace Models
     shared_ptr<string> dirtyDataHandleMode_ {};
     // The dirty data processing mode.
     shared_ptr<string> dirtyDataProcessPattern_ {};
-    // Specifies whether to enable exactly-once semantics.
+    // Specifies whether exactly-once semantics is enabled.
     shared_ptr<string> exactlyOnce_ {};
-    // The number of AnalyticDB compute units (ACUs) for full data synchronization.
+    // The full ACUs.
     shared_ptr<string> fullComputeUnit_ {};
     // The Hudi advanced configuration.
     shared_ptr<string> hudiAdvancedConfig_ {};
-    // The number of AnalyticDB compute units (ACUs) for incremental data synchronization.
+    // The incremental ACUs.
     shared_ptr<string> incrementalComputeUnit_ {};
-    // lakehosue ID。
+    // The lakehouse ID.
     shared_ptr<int64_t> lakehouseId_ {};
-    // The maximum offset.
+    // The maximum number of offsets per trigger.
     shared_ptr<int64_t> maxOffsetsPerTrigger_ {};
-    // The OSS address.
+    // The OSS location.
     shared_ptr<string> ossLocation_ {};
     // The output format.
     shared_ptr<string> outputFormat_ {};
@@ -512,21 +512,21 @@ namespace Models
     shared_ptr<string> resourceGroup_ {};
     // The region ID of the source cluster.
     shared_ptr<string> sourceRegionId_ {};
-    // The starting offset for delivery.
+    // The starting offset.
     // 
     // This parameter is required.
     shared_ptr<string> startingOffsets_ {};
-    // sls Store。
+    // The SLS store.
     shared_ptr<string> store_ {};
     // The table name.
     // 
     // This parameter is required.
     shared_ptr<string> tableName_ {};
-    // The generation rule for the destination.
+    // The destination generation rule.
     shared_ptr<string> targetGenerateRule_ {};
     // The destination type.
     shared_ptr<string> targetType_ {};
-    // The UNIX timestamp conversion configuration.
+    // The UNIX timestamp conversion.
     shared_ptr<CreateApsSlsADBJobRequest::UnixTimestampConvert> unixTimestampConvert_ {};
     // The username.
     // 

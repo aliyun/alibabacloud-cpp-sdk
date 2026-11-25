@@ -155,11 +155,11 @@ namespace Models
 
 
     protected:
-      // The privilege object, which specifies the database, table, column, and description.
+      // The privilege object, which is a triplet of database, table, and column, along with additional description information.
       shared_ptr<Data::PrivilegeObject> privilegeObject_ {};
-      // The privilege level. Valid values: `Global`, `Database`, `Table`, and `Column`. The `DescribeEnabledPrivileges` API returns this value.
+      // The privilege level, which can be Global, Databae, Table, or Column. This value is returned by the DescribeEnabledPrivileges operation.
       shared_ptr<string> privilegeType_ {};
-      // A list of privileges.
+      // The list of permissions.
       shared_ptr<vector<string>> privileges_ {};
     };
 
@@ -203,15 +203,15 @@ namespace Models
 
 
   protected:
-    // A list of privilege details.
+    // The list of permission details.
     shared_ptr<vector<DescribeAccountPrivilegesResponseBody::Data>> data_ {};
-    // The page number. This value matches the `PageNumber` input parameter.
+    // The page number, which is the same as the page number in the request.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. This value matches the `PageSize` input parameter.
+    // The number of entries per page, which is the same as the page size in the request.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total count of privileges at the specified privilege level.
+    // The total number of permissions that the user has at the privilege level.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -188,47 +188,40 @@ namespace Models
 
 
     protected:
-      // The advice ID.
+      // The suggestion ID.
       shared_ptr<string> adviceId_ {};
-      // The benefit of the advice.
+      // The benefit of the suggestion.
       shared_ptr<string> benefit_ {};
-      // The SQL statement of the build task.
+      // The SQL statement used to execute the build task.
       shared_ptr<string> buildSQL_ {};
       // The index fields.
       shared_ptr<string> indexFields_ {};
-      // The status of the task that is used to apply the advice. Valid values:
-      // 
-      // - **SUCCEED**: The task is successful.
-      // 
-      // - **FAILED**: The task has failed.
+      // The status of the task that executes the suggestion. Valid values:
+      // - **SUCCEED**: Succeeded.
+      // - **FAILED**: Failed.
       shared_ptr<string> jobStatus_ {};
-      // The page number of the returned page. The value must be an integer that is greater than 0. Default value: 1.
+      // The page number. The value must be greater than 0 and no more than the maximum value of the Integer data type. Default value: 1.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries to return on each page. Valid values:
-      // 
-      // - **30** (Default)
-      // 
+      // The number of entries per page. Valid values:
+      // - **30** (default)
       // - **50**
-      // 
       // - **100**
       shared_ptr<int64_t> pageSize_ {};
-      // The SQL statement that is used to roll back the advice.
+      // The rollback SQL statement for the suggestion.
       shared_ptr<string> rollbackSQL_ {};
-      // The SQL statement that is used to apply the advice.
+      // The SQL statement used to apply the suggestion.
       shared_ptr<string> SQL_ {};
       // The database name.
       shared_ptr<string> schemaName_ {};
-      // The submission status of the advice. Valid values:
-      // 
-      // - **SUCCEED**: The advice is submitted.
-      // 
-      // - **FAILED**: The advice fails to be submitted.
+      // The delivery status of the suggestion. Valid values:
+      // - **SUCCEED**: Succeeded.
+      // - **FAILED**: Failed.
       shared_ptr<string> submitStatus_ {};
-      // The time when the advice was submitted. The time is in the `yyMMddHHmm` format. The time is displayed in UTC.
+      // The time when the suggestion was issued. Format: yyMMddHHmm (UTC).
       shared_ptr<string> submitTime_ {};
       // The table name.
       shared_ptr<string> tableName_ {};
-      // The total number of entries returned. The value must be an integer that is greater than or equal to 0. Default value: 0.
+      // The total number of returned results. The value must be greater than or equal to 0 and no more than the maximum value of the Integer data type. Default value: 0.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -281,23 +274,20 @@ namespace Models
 
 
   protected:
-    // Details.
+    // The details.
     shared_ptr<vector<DescribeAppliedAdvicesResponseBody::Items>> items_ {};
-    // The page number of the returned page. The value must be an integer that is greater than 0. Default value: 1.
+    // The page number. The value must be greater than 0 and no more than the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
-    // 
-    // - **30** (Default)
-    // 
+    // The number of entries per page. Valid values:
+    // - **30** (default)
     // - **50**
-    // 
     // - **100**
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The concatenated strings of database and table names.
+    // The concatenated string of the database name and table name.
     shared_ptr<vector<string>> schemaTableNames_ {};
-    // The total number of entries returned. The value must be an integer that is greater than or equal to 0. Default value: 0.
+    // The total number of returned results. The value must be greater than or equal to 0 and no more than the maximum value of the Integer data type. Default value: 0.
     shared_ptr<int64_t> totalCount_ {};
   };
 

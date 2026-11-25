@@ -126,13 +126,13 @@ namespace Models
     protected:
       // The list of synchronization objects.
       shared_ptr<string> dbList_ {};
-      // The target database instance ID.
+      // The instance ID of the destination database.
       shared_ptr<string> destinationEndpointInstanceID_ {};
       // The region of the target instance.
       shared_ptr<string> destinationEndpointRegion_ {};
-      // The list of partitions.
+      // The partition list.
       shared_ptr<string> partitionList_ {};
-      // The source database instance ID.
+      // The instance ID of the source database.
       shared_ptr<string> sourceEndpointInstanceID_ {};
       // The region of the source database.
       shared_ptr<string> sourceEndpointRegion_ {};

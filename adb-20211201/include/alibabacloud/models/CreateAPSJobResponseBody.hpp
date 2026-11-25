@@ -86,9 +86,9 @@ namespace Models
   protected:
     // The ID of the task.
     shared_ptr<string> apsJobId_ {};
-    // The operation status code or POP error code.
+    // The API status code or POP error code.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned. A value of 200 indicates that the request was sent successfully.
+    // The HTTP status code. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The additional information about the call result. Valid values:
     // - If the request is normal, **OK** is returned.                                

@@ -82,11 +82,11 @@ namespace Models
     shared_ptr<int64_t> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The detailed table information.
+    // The details of the table.
     shared_ptr<TableModel> table_ {};
   };
 

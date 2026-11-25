@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The task ID.
+    // The ID of the task.
     // 
     // This parameter is required.
     shared_ptr<int64_t> crawlerTaskId_ {};
-    // The task name.
+    // The name of the task.
     // 
     // This parameter is required.
     shared_ptr<string> crawlerTaskName_ {};
-    // The instance ID.
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

@@ -58,10 +58,9 @@ namespace Models
 
   protected:
     // The application ID.
-    // 
-    // >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query Spark application IDs.
+    // > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query the Spark application ID.
     shared_ptr<string> appId_ {};
-    // The ID of the session that executes the code.
+    // The ID of the session in which the code is executed.
     shared_ptr<int64_t> sessionId_ {};
     // The unique ID of the code block in the Spark job.
     shared_ptr<int64_t> statementId_ {};

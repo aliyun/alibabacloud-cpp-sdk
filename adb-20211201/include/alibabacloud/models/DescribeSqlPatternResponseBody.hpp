@@ -205,13 +205,13 @@ namespace Models
 
     protected:
       // The client IP address.
-      // > This parameter is returned only when the Type parameter is set to accessip.
+      // > This parameter is returned only when the **Type** parameter is set to **accessip**.
       shared_ptr<string> accessIP_ {};
       // The average execution time. Unit: milliseconds.
       shared_ptr<string> avgCpuTime_ {};
-      // The average peak memory. Unit: KB.
+      // The average peak memory usage. Unit: KB.
       shared_ptr<string> avgPeakMemory_ {};
-      // The average scan size. Unit: KB.
+      // The average scanned data size. Unit: KB.
       shared_ptr<string> avgScanSize_ {};
       // The average number of scanned rows.
       shared_ptr<string> avgStageCount_ {};
@@ -223,7 +223,7 @@ namespace Models
       shared_ptr<string> maxCpuTime_ {};
       // The Peak Volume memory. Unit: KB.
       shared_ptr<string> maxPeakMemory_ {};
-      // The maximum scan size. Unit: KB.
+      // The maximum scanned data size. Unit: KB.
       shared_ptr<string> maxScanSize_ {};
       // The maximum number of stages.
       shared_ptr<string> maxStageCount_ {};
@@ -236,7 +236,7 @@ namespace Models
       // The query date.
       shared_ptr<string> reportDate_ {};
       // The username.
-      // > This parameter is returned only when the Type parameter is left empty or set to user.
+      // > This parameter is returned only when the **Type** parameter is left empty or set to **user**.
       shared_ptr<string> user_ {};
     };
 

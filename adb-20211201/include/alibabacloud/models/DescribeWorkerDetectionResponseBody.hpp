@@ -183,17 +183,17 @@ namespace Models
 
 
           protected:
-            // The number of times the table was accessed.
+            // The number of times the table is accessed.
             shared_ptr<int64_t> accessCount_ {};
-            // The average scan duration. Unit: ms.
+            // The average scan duration. Unit: milliseconds.
             shared_ptr<double> avgScanCost_ {};
-            // The average table read size. Unit: bytes.
+            // The average amount of data read from the table. Unit: bytes.
             shared_ptr<double> avgScanSize_ {};
-            // The maximum scan duration. Unit: ms.
+            // The maximum scan duration. Unit: milliseconds.
             shared_ptr<int64_t> maxScanCost_ {};
-            // The maximum data read size. Unit: bytes.
+            // The maximum amount of data read. Unit: bytes.
             shared_ptr<int64_t> maxScanSize_ {};
-            // The table name.
+            // The name of the table.
             shared_ptr<string> tableName_ {};
           };
 
@@ -333,23 +333,23 @@ namespace Models
 
 
         protected:
-          // The CREATE TABLE statement.
+          // The table creation statement.
           shared_ptr<string> DDL_ {};
           // The number of partitions.
           shared_ptr<int32_t> partitionCount_ {};
-          // The database name.
+          // The name of the database.
           shared_ptr<string> schemaName_ {};
           // The number of skewed rows in the table.
           shared_ptr<string> shardSkewedRows_ {};
-          // The table name.
+          // The name of the table.
           shared_ptr<string> tableName_ {};
           // The total data size of the table. Unit: bytes.
           shared_ptr<int64_t> totalDataSize_ {};
-          // The local data size. Unit: bytes.
+          // The size of local data. Unit: bytes.
           shared_ptr<string> totalLocalDataSize_ {};
-          // The total primary key data size of the table. Unit: bytes.
+          // The data size of the primary key in the table. Unit: bytes.
           shared_ptr<int64_t> totalPkSize_ {};
-          // The cold data size. Unit: bytes.
+          // The size of cold data. Unit: bytes.
           shared_ptr<int64_t> totalRemoteDataSize_ {};
           // The total number of rows in the table.
           shared_ptr<int64_t> totalRowCount_ {};
@@ -429,15 +429,15 @@ namespace Models
 
 
         protected:
-          // The CREATE TABLE statement.
+          // The table creation statement.
           shared_ptr<string> DDL_ {};
           // The number of partitions.
           shared_ptr<string> partitionCount_ {};
-          // The IDs of unreasonable partitions.
+          // The IDs of the improper partitions.
           shared_ptr<string> partitionIds_ {};
-          // The database name.
+          // The name of the database.
           shared_ptr<string> schemaName_ {};
-          // The table name.
+          // The name of the table.
           shared_ptr<string> tableName_ {};
           // The total data size of the table.
           shared_ptr<int64_t> totalDataSize_ {};
@@ -575,23 +575,23 @@ namespace Models
 
 
           protected:
-            // The number of input rows of the operator.
+            // The number of input rows for the operator.
             shared_ptr<int64_t> inputRows_ {};
-            // The input data size of the operator. Unit: bytes.
+            // The amount of input data for the operator. Unit: bytes.
             shared_ptr<int64_t> inputSize_ {};
-            // The total operator duration within the stage, which is equivalent to the CPU time of the stage. You can use this value to determine which parts of the query consume more compute resources. Unit: ms.
+            // The total operator duration within the stage, which is equivalent to the CPU time of the stage. This metric can be actively used to determine which parts of the query consume the most compute resources. Unit: milliseconds.
             shared_ptr<int64_t> operatorCost_ {};
-            // The operator property information.
+            // The property information of the operator.
             shared_ptr<string> operatorInfo_ {};
-            // The operator name.
+            // The name of the operator.
             shared_ptr<string> operatorName_ {};
-            // The number of output rows of the operator.
+            // The number of output rows for the operator.
             shared_ptr<int64_t> outputRows_ {};
-            // The output data size of the operator. Unit: bytes.
+            // The amount of output data for the operator. Unit: bytes.
             shared_ptr<int64_t> outputSize_ {};
             // The peak memory consumed by the operator. Unit: bytes.
             shared_ptr<int64_t> peakMemory_ {};
-            // The SQL query ID, which can be used for diagnostics.
+            // The SQL query ID returned for diagnostics.
             shared_ptr<string> processId_ {};
             // The stage ID.
             shared_ptr<string> stageId_ {};
@@ -616,7 +616,7 @@ namespace Models
 
 
         protected:
-          // The metric name.
+          // The name of the metric.
           shared_ptr<string> metricName_ {};
           // The collection of search results.
           shared_ptr<vector<OperatorDetails::SearchResults>> searchResults_ {};
@@ -714,9 +714,9 @@ namespace Models
             shared_ptr<int64_t> maxValue_ {};
             // The number of times the operator appears.
             shared_ptr<int64_t> operatorCount_ {};
-            // The operator name.
+            // The name of the operator.
             shared_ptr<string> operatorName_ {};
-            // The cumulative value of the operator metric.
+            // The accumulated value of the operator metric.
             shared_ptr<int64_t> totalValue_ {};
           };
 
@@ -739,9 +739,9 @@ namespace Models
 
 
         protected:
-          // The name of the aggregated operator metric detection item.
+          // The name of the aggregation detection item for operator metrics.
           shared_ptr<string> metricName_ {};
-          // The collection of aggregated operator metric search results.
+          // The collection of search results for aggregated operator metrics.
           shared_ptr<vector<OperatorAgg::SearchResults>> searchResults_ {};
         };
 
@@ -793,13 +793,13 @@ namespace Models
 
 
       protected:
-        // The aggregated operator metric detection results.
+        // The aggregation detection result of operator metrics.
         shared_ptr<vector<Results::OperatorAgg>> operatorAgg_ {};
         // The collection of operator detection results.
         shared_ptr<vector<Results::OperatorDetails>> operatorDetails_ {};
-        // The collection of tables with unreasonable partitions.
+        // The list of tables with improper partitions.
         shared_ptr<vector<Results::PartitionedTables>> partitionedTables_ {};
-        // The table skew detection results.
+        // The table skew detection.
         shared_ptr<vector<Results::SkewedTables>> skewedTables_ {};
         // The collection of table access detection results.
         shared_ptr<vector<Results::TopAccessTables>> topAccessTables_ {};
@@ -844,7 +844,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The detection result.
       shared_ptr<DetectionItems::Results> results_ {};
-      // The detection result status. Valid values:
+      // The status of the detection result. Valid values:
       // 
       // - NORMAL
       // - WARNING

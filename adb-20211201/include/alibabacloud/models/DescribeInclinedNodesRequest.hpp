@@ -98,18 +98,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The language of file titles and error messages. Valid values:
-    // 
-    // *   **zh**: simplified Chinese.
-    // *   **en**: English.
-    // *   **ja**: Japanese.
-    // *   **zh-tw**: traditional Chinese.
+    // Specifies the language for the title of the downloaded file and some error messages. Valid values:
+    // - **zh**: Simplified Chinese.
+    // - **en**: English.
+    // - **ja**: Japanese.
+    // - **zh-tw**: Traditional Chinese.
     shared_ptr<string> lang_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
-    // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+    // >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

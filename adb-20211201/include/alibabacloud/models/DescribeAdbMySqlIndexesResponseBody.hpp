@@ -93,7 +93,7 @@ namespace Models
       shared_ptr<string> column_ {};
       // The name of the index.
       shared_ptr<string> name_ {};
-      // The index type.
+      // The type of the index.
       shared_ptr<string> type_ {};
     };
 
@@ -152,27 +152,23 @@ namespace Models
 
 
   protected:
-    // The number of indexes.````
+    // The filter condition for the number of indexes (the number of indexes currently owned by the table with missing indexes). The input format is `operator + separator "" + number of indexes`, such as `>=100`.
     shared_ptr<int32_t> indexCount_ {};
-    // The queried indexes.
+    // The list of indexes.
     shared_ptr<vector<DescribeAdbMySqlIndexesResponseBody::Indexes>> indexes_ {};
-    // The returned message. Valid values:
-    // 
-    // *   If the request was successful, a success message is returned.****
-    // *   If the request failed, an error message is returned.
+    // The message returned for the call. Valid values:
+    // - **Success**: The request is successful. 
+    // - Specific error message: returned when the request fails.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The name of the database.
+    // The name of the database.  
     // 
-    // **
-    // 
-    // ****\\
+    // > <br>If this parameter is specified, subsequent migration or synchronization operations are performed only on this database.
     shared_ptr<string> schema_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
     // The name of the table.
     shared_ptr<string> tableName_ {};

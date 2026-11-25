@@ -160,7 +160,7 @@ namespace Models
     protected:
       // The number of ACUs.
       shared_ptr<int32_t> acuCount_ {};
-      // The time when the task was created. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
+      // The time when the task was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The error message.
       shared_ptr<string> failedMsg_ {};
@@ -168,7 +168,7 @@ namespace Models
       shared_ptr<string> id_ {};
       // The maximum response time.
       shared_ptr<string> maxRT_ {};
-      // The time when the task was modified. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
+      // The time when the task was modified. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> modifyTime_ {};
       // The name.
       shared_ptr<string> name_ {};

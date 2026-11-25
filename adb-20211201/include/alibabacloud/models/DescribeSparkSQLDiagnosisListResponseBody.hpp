@@ -156,7 +156,7 @@ namespace Models
       shared_ptr<string> appId_ {};
       // The actual running time. Unit: milliseconds.
       shared_ptr<int64_t> elapsedTime_ {};
-      // The internal query execution ID within the Spark application.
+      // The internal query execution ID of the Spark application.
       shared_ptr<int64_t> innerQueryId_ {};
       // The maximum operator execution time. Unit: milliseconds.
       shared_ptr<int64_t> maxExclusiveTime_ {};
@@ -170,10 +170,10 @@ namespace Models
       shared_ptr<string> startTime_ {};
       // The final execution state of the query. Valid values:
       // 
-      // - COMPLETED: The query is completed.
-      // - CANCELED: The query is canceled.
-      // - ABORTED: The query is aborted.
-      // - FAILED: The query failed.
+      // - COMPLETED: completed.
+      // - CANCELED: canceled.
+      // - ABORTED: aborted.
+      // - FAILED: failed.
       shared_ptr<string> state_ {};
       // The unique ID of the code block in the Spark job.
       shared_ptr<int64_t> statementId_ {};
@@ -234,7 +234,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The SQL diagnostics information collection.
+    // The collection of SQL diagnostic information.
     shared_ptr<vector<DescribeSparkSQLDiagnosisListResponseBody::SQLDiagnosisList>> SQLDiagnosisList_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

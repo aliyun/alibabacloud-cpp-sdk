@@ -78,15 +78,15 @@ namespace Models
     // The database account.
     // > If you do not specify this parameter, the information about all database accounts is returned by default.
     shared_ptr<string> accountName_ {};
-    // <props="china">The ID of the cluster. The cluster can be of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition.
-    // <props="intl">The ID of the Data Lakehouse Edition cluster.
+    // <props="china">The ID of the cluster. The cluster runs Enterprise Edition, Basic Edition, or Data Lakehouse Edition.
+    // <props="intl">The ID of the cluster. The cluster runs Data Lakehouse Edition.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The database engine. Valid values:
     // 
     // - **AnalyticDB** (default): AnalyticDB for MySQL engine
-    // - **Clickhouse**: wide-table engine
+    // - **Clickhouse**: wide table engine
     shared_ptr<string> engine_ {};
     shared_ptr<string> ownerId_ {};
     // The name of the resource group.

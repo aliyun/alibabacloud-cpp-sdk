@@ -89,9 +89,9 @@ namespace Models
 
 
     protected:
-      // The operator queue sorted by execution time.
+      // The list of operators sorted by execution time.
       shared_ptr<vector<SparkOperatorInfo>> operatorListSortedByExclusiveTime_ {};
-      // The operator queue sorted by maximum memory consumption.
+      // The list of operators sorted by maximum memory consumption.
       shared_ptr<vector<SparkOperatorInfo>> operatorListSortedByMaxMemory_ {};
     };
 
@@ -166,13 +166,13 @@ namespace Models
     // The application ID.
     // > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query the ID of the Spark application.
     shared_ptr<string> appId_ {};
-    // The collection of diagnostic suggestions.
+    // The diagnostic suggestions.
     shared_ptr<vector<Adb4MysqlSparkDiagnosisInfo>> diagnosisInfos_ {};
     // The actual execution time, in milliseconds.
     shared_ptr<int64_t> elapsedTime_ {};
     // The internal query execution ID of the Spark application.
     shared_ptr<int64_t> innerQueryId_ {};
-    // The operator queue sorted by metrics.
+    // The list of operators sorted by metrics.
     shared_ptr<DescribeSparkSQLDiagnosisAttributeResponseBody::OperatorListSortedByMetrics> operatorListSortedByMetrics_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

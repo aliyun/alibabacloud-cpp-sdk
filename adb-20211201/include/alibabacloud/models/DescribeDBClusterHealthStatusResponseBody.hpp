@@ -104,21 +104,18 @@ namespace Models
 
 
     protected:
-      // The number of healthy worker node groups.
+      // The number of healthy storage node groups.
       shared_ptr<int64_t> activeCount_ {};
-      // The total number of worker node groups.
+      // The total number of storage node groups.
       shared_ptr<int64_t> expectedCount_ {};
-      // The number of worker node groups at risk.
+      // The number of storage node groups at risk.
       shared_ptr<int64_t> riskCount_ {};
-      // The health status of the worker node groups. Valid values:
-      // 
-      // - **RISK**: The worker node groups are at risk.
-      // 
-      // - **NORMAL**: The worker node groups are healthy.
-      // 
-      // - **UNAVAILABLE**: The worker node groups are unavailable.
+      // The health status of storage node groups. Valid values:
+      // - **RISK**: At risk.
+      // - **NORMAL**: Healthy.
+      // - **UNAVAILABLE**: Unavailable.
       shared_ptr<string> status_ {};
-      // The number of unavailable worker node groups.
+      // The number of unavailable storage node groups.
       shared_ptr<int64_t> unavailableCount_ {};
     };
 
@@ -187,21 +184,18 @@ namespace Models
 
 
     protected:
-      // The number of healthy executor nodes.
+      // The number of healthy nodes.
       shared_ptr<int64_t> activeCount_ {};
-      // The total number of executor nodes.
+      // The total number of compute nodes.
       shared_ptr<int64_t> expectedCount_ {};
-      // The number of executor nodes at risk.
+      // The number of nodes at risk.
       shared_ptr<int64_t> riskCount_ {};
-      // The health status of the executor groups. Valid values:
-      // 
-      // - **RISK**: The executor groups are at risk.
-      // 
-      // - **NORMAL**: The executor groups are healthy.
-      // 
-      // - **UNAVAILABLE**: The executor groups are unavailable.
+      // The health status of compute node groups. Valid values:
+      // - **RISK**: At risk.
+      // - **NORMAL**: Healthy.
+      // - **UNAVAILABLE**: Unavailable.
       shared_ptr<string> status_ {};
-      // The number of unavailable executor nodes.
+      // The number of unavailable nodes.
       shared_ptr<int64_t> unavailableCount_ {};
     };
 
@@ -270,21 +264,18 @@ namespace Models
 
 
     protected:
-      // The number of healthy instance access nodes.
+      // The number of healthy nodes.
       shared_ptr<int64_t> activeCount_ {};
-      // The total number of instance access nodes.
+      // The total number of access nodes.
       shared_ptr<int64_t> expectedCount_ {};
-      // The number of instance access nodes at risk.
+      // The number of nodes at risk.
       shared_ptr<int64_t> riskCount_ {};
-      // The health status of the instance access nodes. Valid values:
-      // 
-      // - **RISK**: The instance access nodes are at risk.
-      // 
-      // - **NORMAL**: The instance access nodes are healthy.
-      // 
-      // - **UNAVAILABLE**: The instance access nodes are unavailable.
+      // The status of instance access nodes. Valid values:
+      // - **RISK**: At risk.
+      // - **NORMAL**: Healthy.
+      // - **UNAVAILABLE**: Unavailable.
       shared_ptr<string> status_ {};
-      // The number of unavailable instance access nodes.
+      // The number of unavailable nodes.
       shared_ptr<int64_t> unavailableCount_ {};
     };
 
@@ -339,25 +330,21 @@ namespace Models
 
 
   protected:
-    // Details of the authentication failure.
+    // The details of the authentication failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The health status of the instance access nodes.
+    // The list of instance access node statuses.
     shared_ptr<DescribeDBClusterHealthStatusResponseBody::CS> CS_ {};
-    // The health status of the executor groups.
+    // The list of health statuses for compute node groups.
     shared_ptr<DescribeDBClusterHealthStatusResponseBody::Executor> executor_ {};
     // The health status of the cluster. Valid values:
-    // 
-    // - **RISK**: The cluster is at risk.
-    // 
-    // - **NORMAL**: The cluster is healthy.
-    // 
-    // - **UNAVAILABLE**: The cluster is unavailable.
-    // 
-    // > The cluster health status is considered **NORMAL** only if the instance access nodes, executor groups, and worker node groups are all **NORMAL**, and the instance is responsive. If any of these components has a **RISK** status, the cluster status is **RISK**. If any component has an **UNAVAILABLE** status, the cluster status is **UNAVAILABLE**.
+    // - **RISK**: At risk.
+    // - **NORMAL**: Healthy.
+    // - **UNAVAILABLE**: Unavailable.
+    // > If the instance access node status, compute node group health status, and storage node group health status are all **Healthy** and the instance health check succeeds, the cluster health status is **Healthy**. If any of the three statuses is **At risk**, the cluster health status is **At risk**. If any of the three statuses is **Unavailable**, the cluster health status is **Unavailable**.
     shared_ptr<string> instanceStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The health status of the worker node groups.
+    // The list of health statuses for storage node groups.
     shared_ptr<DescribeDBClusterHealthStatusResponseBody::Worker> worker_ {};
   };
 

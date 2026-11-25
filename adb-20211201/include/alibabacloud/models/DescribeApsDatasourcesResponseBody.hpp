@@ -118,11 +118,11 @@ namespace Models
       shared_ptr<string> datasourceDescription_ {};
       // The ID of the data source.
       shared_ptr<int64_t> datasourceId_ {};
-      // The name of the data source.
+      // The name of the target data source.
       shared_ptr<string> datasourceName_ {};
       // The type of the data source.
       shared_ptr<string> datasourceType_ {};
-      // Indicates whether a job is using the data source.
+      // Indicates whether a task is using the data source.
       shared_ptr<bool> hasJob_ {};
     };
 
@@ -166,7 +166,7 @@ namespace Models
 
 
   protected:
-    // The data sources.
+    // The array of data sources.
     shared_ptr<vector<DescribeApsDatasourcesResponseBody::ApsDatasources>> apsDatasources_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
@@ -174,7 +174,7 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of returned results.
     shared_ptr<string> totalCount_ {};
   };
 

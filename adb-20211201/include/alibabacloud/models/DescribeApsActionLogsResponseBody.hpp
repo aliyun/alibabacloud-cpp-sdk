@@ -100,21 +100,21 @@ namespace Models
 
 
     protected:
-      // The content of the log.
+      // The log content.
       shared_ptr<string> context_ {};
-      // The phase during which the log was generated. Valid values:
+      // The task stage. Valid values:
       // 
-      // *   **StructureMigrate**: schema migration.
-      // *   **FullDataSync**: full data synchronization.
-      // *   **IncrementalSync**: incremental data synchronization.
+      // - **StructureMigrate**: Schema migration.
+      // - **FullDataSync**: Full data synchronization.
+      // - **IncrementalSync**: Incremental data synchronization.
       shared_ptr<string> stage_ {};
-      // The type of the log. Multiple log types are separated by commas (,). Valid values:
+      // The log type. Separate multiple log types with commas (,). Valid values:
       // 
-      // *   **INFO**
-      // *   **WARN**
-      // *   **ERROR**
+      // - **INFO**: Information.
+      // - **WARN**: Warning.
+      // - **ERROR**: Error.
       shared_ptr<string> state_ {};
-      // The time when the log was generated. The time follows the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time is displayed in UTC.
+      // The log time. The time is in the **yyyy-MM-ddTHH:mm:ssZ** format and must be in UTC.
       shared_ptr<string> time_ {};
     };
 
@@ -180,11 +180,11 @@ namespace Models
 
 
   protected:
-    // The information about the request denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The queried logs.
+    // The list of logs.
     shared_ptr<vector<DescribeApsActionLogsResponseBody::ActionLogs>> actionLogs_ {};
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
@@ -192,9 +192,9 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
-    // The ID of the real-time data ingestion job.
+    // The ID of the data link task.
     shared_ptr<string> workloadId_ {};
   };
 

@@ -243,9 +243,9 @@ namespace Models
 
 
     protected:
-      // The advanced configurations.
+      // The advanced configuration.
       shared_ptr<string> advancedConfig_ {};
-      // The handling strategy when a database or table with the same name exists at the destination.
+      // The handling strategy for databases or tables with the same name in the destination.
       shared_ptr<string> conflictStrategy_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
@@ -257,7 +257,7 @@ namespace Models
       shared_ptr<string> datasourceName_ {};
       // The EMR cluster ID.
       shared_ptr<string> emrClusterId_ {};
-      // The number of ACUs required for migration.
+      // The number of ACUs required for the migration.
       shared_ptr<string> fullComputeUnit_ {};
       // The Hive metastore URL.
       shared_ptr<string> metaStoreUri_ {};
@@ -267,7 +267,7 @@ namespace Models
       shared_ptr<int64_t> parallelism_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The resource pool to which the SQL statement belongs.
+      // The resource pool to which the SQL statements belong.
       shared_ptr<string> resourceGroup_ {};
       // The status.
       shared_ptr<string> state_ {};
@@ -283,7 +283,7 @@ namespace Models
       shared_ptr<string> workloadId_ {};
       // The workload name.
       shared_ptr<string> workloadName_ {};
-      // The workload name.
+      // The workload type name.
       shared_ptr<string> workloadTypeName_ {};
     };
 

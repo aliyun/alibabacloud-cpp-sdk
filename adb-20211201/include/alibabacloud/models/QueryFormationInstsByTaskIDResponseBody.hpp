@@ -192,9 +192,7 @@ namespace Models
       shared_ptr<string> scheduleState_ {};
       // The schema ID assigned to the instance by the system.
       shared_ptr<string> schema_ {};
-      // The task source. Valid values:
-      // - **system**: System.
-      // - **custom**: Custom.
+      // The task source. Valid values: - **system**: System. - **custom**: Custom.
       shared_ptr<string> sourceType_ {};
       // The synchronization time, accurate to milliseconds. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> syncTime_ {};
@@ -292,15 +290,15 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The task list.
     shared_ptr<vector<Darabonba::Json>> items_ {};
-    // The message. The value is OK when the request is successful.
+    // The message. The value is OK if the request is successful.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The total number of pages.
+    // The page size.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
     // The total number of records.
     shared_ptr<string> totalCount_ {};

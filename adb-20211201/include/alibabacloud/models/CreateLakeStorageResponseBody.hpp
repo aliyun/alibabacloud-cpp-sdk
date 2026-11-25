@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The API status or POP error code.
+    // The API status code or POP error code.
     shared_ptr<string> code_ {};
-    // The resource usage details of the cluster.
+    // The details of cluster resource usage.
     shared_ptr<string> data_ {};
-    // The HTTP status code returned. A value of 200 indicates that the request was successful.
+    // The HTTP status code returned. 200 indicates that the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // If the creation operation is implemented asynchronously, a specific JobId is returned.
+    // The explicit job ID returned if the creation operation is asynchronous.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
-    // - **true**: Successful.
-    // - **false**: Failed.
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

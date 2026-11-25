@@ -98,7 +98,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> account_ {};
-      // The read permissions.
+      // The read permission.
       // 
       // This parameter is required.
       shared_ptr<bool> read_ {};
@@ -106,7 +106,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
-      // The write permissions.
+      // The write permission.
       // 
       // This parameter is required.
       shared_ptr<bool> write_ {};
@@ -152,13 +152,13 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL cluster that is associated with the lake storage.
+    // The ADB instance ID.
     shared_ptr<string> DBClusterId_ {};
     // The description of the lake storage.
     shared_ptr<string> description_ {};
     // The unique identifier of the lake storage.
     shared_ptr<string> lakeStorageId_ {};
-    // The permissions on the lake storage.
+    // The permissions of the lake storage.
     shared_ptr<vector<UpdateLakeStorageRequest::Permissions>> permissions_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

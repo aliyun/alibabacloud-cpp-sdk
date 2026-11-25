@@ -140,40 +140,32 @@ namespace Models
 
 
   protected:
-    // The cluster ID of the AnalyticDB for MySQL Data Lakehouse Edition.
-    // 
-    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to view details of all AnalyticDB for MySQL Data Lakehouse Edition clusters in the destination region, including cluster IDs.
+    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the details of all AnalyticDB for MySQL Data Lakehouse Edition clusters in a specified region, including cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Filter keyword. Currently, only **SELECT** is supported.
+    // The filter keyword. Only **SELECT** is supported.
     shared_ptr<string> keyword_ {};
-    // Sort by the specified field in JSON format, `[{"Field":"Time","Type":"Desc" },{ "Field":"User", "Type":"Asc" }]`. Values:
-    // 
-    // - **Field**: The name of the field to sort by. Supports Time, User, Host, and DB fields.
-    // 
-    // - **Type**: Sort type. **Desc** for descending order, **Asc** for ascending order.
+    // The sorting rule in JSON format. Example: `[{"Field":"Time","Type":"Desc" },{ "Field":"User", "Type":"Asc" }]`. Parameters:
+    // - **Field**: The field name used for sorting. Valid values: Time, User, Host, and DB.
+    // - **Type**: The sort order. Valid values: **Desc** (descending) and **Asc** (ascending).
     shared_ptr<string> order_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Page number. Must be a positive integer. Default value: **1**.
+    // The page number. The value must be a positive integer. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of records per page. Values:
-    // 
-    // - **30** (Default value)
-    // 
+    // The number of entries per page. Valid values:
+    // - **30** (default)
     // - **50**
-    // 
     // - **100**
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Filter by running time. Displays queries that have run longer than the specified time. Unit: seconds.
+    // Filters queries by runtime and displays only queries whose runtime exceeds the specified value. Unit: seconds.
     shared_ptr<int32_t> runningTime_ {};
-    // Specifies whether to display the full SQL statement. Values:
-    // 
+    // Specifies whether to display the full SQL statement. Valid values:
     // - **True**: Displays the full SQL statement.
-    // 
     // - **False**: Displays only the first 100 characters of the SQL statement.
     // 
     // > Default value: False.

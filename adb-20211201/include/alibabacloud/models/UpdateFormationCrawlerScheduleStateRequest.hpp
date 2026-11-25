@@ -92,11 +92,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The scheduling state. Valid values:
+    // The schedule state. Valid values:
     // 
-    // - NORMAL: resume.
+    // - NORMAL: resumes the schedule.
     // 
-    // - DISABLED: pause.
+    // - DISABLED: pauses the schedule.
     // 
     // This parameter is required.
     shared_ptr<string> scheduleState_ {};

@@ -103,23 +103,22 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+    // The cluster ID of the AnalyticDB for MySQL Data Lakehouse Edition (3.0) cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the cluster.
-    // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+    // The region ID.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region IDs supported by AnalyticDB for MySQL.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> schemaName_ {};
-    // The name of the table.
+    // The table name.
     shared_ptr<string> tableName_ {};
   };
 

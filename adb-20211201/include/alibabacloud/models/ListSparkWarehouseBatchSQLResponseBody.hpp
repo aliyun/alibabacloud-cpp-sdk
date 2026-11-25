@@ -95,7 +95,7 @@ namespace Models
       shared_ptr<int64_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The queried Spark SQL statements.
+      // The list of executed Spark SQL statements.
       shared_ptr<vector<SparkBatchSQL>> queries_ {};
       // The total number of entries.
       shared_ptr<int64_t> total_ {};

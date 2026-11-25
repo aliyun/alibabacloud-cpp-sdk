@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The task ID.
+    // The ID of the task.
     // 
     // This parameter is required.
     shared_ptr<int64_t> crawlerTaskId_ {};
-    // The task name.
+    // The name of the task.
     shared_ptr<string> crawlerTaskName_ {};
-    // The cluster ID.
+    // The ID of the cluster.
     shared_ptr<string> DBClusterId_ {};
     // The region ID.
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query available region IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the IDs of available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

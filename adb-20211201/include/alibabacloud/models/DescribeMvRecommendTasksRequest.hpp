@@ -94,11 +94,11 @@ namespace Models
 
 
   protected:
-    // A fixed value. This parameter cannot be modified.
+    // A fixed value that cannot be modified.
     shared_ptr<string> actionInner_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // A fixed value. This parameter cannot be modified.
+    // A fixed value that cannot be modified.
     shared_ptr<string> from_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

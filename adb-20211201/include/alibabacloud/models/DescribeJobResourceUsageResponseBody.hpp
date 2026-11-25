@@ -167,7 +167,7 @@ namespace Models
           shared_ptr<float> reservedAcuNumber_ {};
           // The number of spot instance ACUs.
           shared_ptr<float> spotAcuNumber_ {};
-          // The percentage of spot instance resources in the total elastic resources.
+          // The ratio of spot instance resources to total elastic resources.
           shared_ptr<float> spotAcuPercentage_ {};
           // The total number of ACUs.
           shared_ptr<float> totalAcuNumber_ {};
@@ -228,7 +228,7 @@ namespace Models
 
 
       protected:
-        // The ACU resource usage details.
+        // The ACU resource usage.
         shared_ptr<JobAcuUsage::AcuUsageDetail> acuUsageDetail_ {};
         // The end time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC time).
         shared_ptr<string> jobEndTime_ {};
@@ -240,7 +240,7 @@ namespace Models
         shared_ptr<string> resourceGroupName_ {};
         // The name of the Spark application.
         shared_ptr<string> sparkAppName_ {};
-        // Indicates whether the cache pool is used.
+        // Indicates whether the hot pool is used.
         shared_ptr<bool> useCachePool_ {};
       };
 
@@ -304,7 +304,7 @@ namespace Models
       shared_ptr<string> DBClusterId_ {};
       // The end time. Format: yyyy-MM-ddTHH:mmZ (UTC time).
       shared_ptr<string> endTime_ {};
-      // The ACU usage of the job resource group.
+      // The ACU usage of job resource groups.
       shared_ptr<vector<Data::JobAcuUsage>> jobAcuUsage_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
@@ -344,7 +344,7 @@ namespace Models
   protected:
     // The API status code or POP error code.
     shared_ptr<int32_t> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<DescribeJobResourceUsageResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

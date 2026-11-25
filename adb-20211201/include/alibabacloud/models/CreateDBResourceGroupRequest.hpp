@@ -128,7 +128,7 @@ namespace Models
       // - The name must start with a digit, an uppercase letter, or a lowercase letter.
       // - The name can contain digits, uppercase letters, lowercase letters, hyphens (-), and underscores (_).
       shared_ptr<string> groupName_ {};
-      // The query execution time threshold, in milliseconds (ms).
+      // The query execution time threshold, in milliseconds.
       shared_ptr<string> queryTime_ {};
       // The name of the target resource group.
       shared_ptr<string> targetGroupName_ {};
@@ -318,8 +318,11 @@ namespace Models
 
 
       protected:
+        // The storage mount path.
         shared_ptr<string> mountPath_ {};
+        // The ID of the storage resource to mount.
         shared_ptr<int64_t> storageId_ {};
+        // The name of the storage resource to mount. This parameter and StorageId are mutually exclusive.
         shared_ptr<string> storageName_ {};
       };
 
@@ -405,9 +408,9 @@ namespace Models
       shared_ptr<string> authToken_ {};
       // The Ray cluster type. Valid values:
       // 
-      // - BASIC: basic type, non-high-availability.
+      // - BASIC: the basic type, which is not highly available.
       // 
-      // - HIGH_AVAILABILITY: high-availability type.
+      // - HIGH_AVAILABILITY: the high-availability type.
       shared_ptr<string> category_ {};
       // Specifies whether to enable user ENI connectivity.
       shared_ptr<bool> enableUserEni_ {};
@@ -419,10 +422,11 @@ namespace Models
       shared_ptr<string> headSpec_ {};
       // The resource type of the head node.
       shared_ptr<string> headSpecType_ {};
+      // The list of storage resources to mount.
       shared_ptr<vector<RayConfig::StorageMounts>> storageMounts_ {};
-      // The custom Python dependencies for RayCluster. The content follows the requirements.txt format, with one pip dependency per line. A maximum of 200 lines are supported, and each line can be up to 512 characters in length. Version constraints, extras, PEP 440 direct URLs, and # comments are supported. Shell metacharacters are not supported. This parameter applies only to AI resource groups of the RayCluster type.
+      // The custom Python dependencies for RayCluster. Specify the content in the requirements.txt format, with one pip dependency per line. A maximum of 200 lines are allowed, and each line cannot exceed 512 characters. Version constraints, extras, PEP 440 direct URLs, and # comments are supported. Shell metacharacters are not supported. This parameter applies only to AI resource groups of the RayCluster type.
       shared_ptr<string> userDefinedRequirements_ {};
-      // The list of Ray worker group configurations.
+      // The list of Ray worker group configuration information.
       shared_ptr<vector<RayConfig::WorkerGroups>> workerGroups_ {};
     };
 
@@ -485,9 +489,9 @@ namespace Models
 
 
       protected:
-        // The end time, specified as a cron expression. The interval must be at least 1 hour.
+        // The end time, specified as a cron expression. The interval must be no less than 1 hour.
         shared_ptr<string> endCronExpression_ {};
-        // The start time, specified as a cron expression. The interval must be at least 1 hour.
+        // The start time, specified as a cron expression. The interval must be no less than 1 hour.
         shared_ptr<string> startCronExpression_ {};
       };
 
@@ -511,8 +515,8 @@ namespace Models
 
     protected:
       // Specifies whether to enable the elastic plan immediately after creation. Valid values:
-      // - true: Enables the elastic plan immediately.
-      // - false: Does not enable the elastic plan.
+      // - true: enables the elastic plan immediately.
+      // - false: does not enable the elastic plan.
       shared_ptr<bool> enabled_ {};
       // The list of rules.
       shared_ptr<vector<GpuElasticPlan::Rules>> rules_ {};
@@ -640,25 +644,25 @@ namespace Models
     protected:
       // The number of authentication nodes.
       shared_ptr<int32_t> authNodeNum_ {};
-      // The node specifications of authentication nodes ([0-9+]ACU).
+      // The node specifications of the authentication node ([0-9+] ACUs).
       shared_ptr<string> authNodeSpec_ {};
       // The number of insert nodes.
       shared_ptr<int32_t> insertNodeNum_ {};
-      // The node specifications of insert nodes ([0-9+]ACU).
+      // The node specifications of the insert node ([0-9+] ACUs).
       shared_ptr<string> insertNodeSpec_ {};
-      // The cache size of query nodes (GB).
+      // The cache size of the query node, in GB.
       shared_ptr<int32_t> selectNodeCacheSize_ {};
       // The number of query nodes.
       shared_ptr<int32_t> selectNodeNum_ {};
-      // The node specifications of query nodes ([0-9+]ACU).
+      // The node specifications of the query node ([0-9+] ACUs).
       shared_ptr<string> selectNodeSpec_ {};
-      // The disk size of storage nodes.
+      // The disk size of the storage node.
       shared_ptr<int32_t> storageNodeDiskSize_ {};
-      // The disk type of storage nodes (essd_pl1, essd_pl2).
+      // The disk type of the storage node (essd_pl1 or essd_pl2).
       shared_ptr<string> storageNodeDiskType_ {};
       // The number of storage nodes.
       shared_ptr<int32_t> storageNodeNum_ {};
-      // The node specifications of storage nodes ([0-9+]ACU).
+      // The storage node specifications ([0-9+] ACUs).
       shared_ptr<string> storageNodeSpec_ {};
     };
 
@@ -849,7 +853,7 @@ namespace Models
   protected:
     // The PromQL resource group configuration.
     shared_ptr<CreateDBResourceGroupRequest::AtmConfig> atmConfig_ {};
-    // The automatic stop interval, in minutes (m).
+    // The auto-stop time, in minutes.
     shared_ptr<string> autoStopInterval_ {};
     // The classification of the resource group. Valid values:
     // - SQL
@@ -857,26 +861,26 @@ namespace Models
     // - MultiCluster
     // - AI
     shared_ptr<string> classification_ {};
-    // A reserved parameter (not applicable).
+    // The reserved parameter. This parameter is not applicable.
     shared_ptr<string> clusterMode_ {};
-    // A reserved parameter (not applicable).
+    // The reserved parameter. This parameter is not applicable.
     shared_ptr<string> clusterSizeResource_ {};
     // The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to enable the spot instance feature for the resource group. After the spot instance feature is enabled, the unit price of resources is reduced, but the resources may be released. Only Job resource groups support this feature. Valid values:
-    // - **True**: Enables the spot instance feature.
-    // - **False**: Disables the spot instance feature.
+    // Specifies whether to enable the spot instance feature for the resource group. After you enable spot instances, the unit price of resources decreases, but the instances may be released. This feature can be enabled only for Job resource groups. Valid values:
+    // - **True**: enables the spot instance feature.
+    // - **False**: disables the spot instance feature.
     shared_ptr<bool> enableSpot_ {};
     // The database engine. Valid values:
     // 
     // - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
     // - **SparkWarehouse**: the SparkWarehouse engine.
     shared_ptr<string> engine_ {};
-    // The engine configuration.
+    // The engine configurations.
     Darabonba::Json engineParams_ {};
-    // The GPU time-sharing elastic plan.
+    // The GPU time-based elastic plan.
     shared_ptr<CreateDBResourceGroupRequest::GpuElasticPlan> gpuElasticPlan_ {};
     // The name of the resource group.
     // - The name can be up to 255 characters in length.
@@ -888,19 +892,19 @@ namespace Models
     // The type of the resource group. Valid values:
     // - **Interactive**
     // - **Job**
-    // > For more information about Data Lakehouse Edition resource groups, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+    // > For more information about resource groups in Data Lakehouse Edition, refer to [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
     // 
     // This parameter is required.
     shared_ptr<string> groupType_ {};
-    // A reserved parameter (not applicable).
+    // The reserved parameter. This parameter is not applicable.
     shared_ptr<int32_t> maxClusterCount_ {};
     // The maximum reserved computing resources, in ACUs.
-    // - If the resource group type is Interactive, the maximum reserved computing resources are the current unallocated resources of the cluster, with a step size of 16 ACUs.
-    // - If the resource group type is Job, the maximum reserved computing resources are the current unallocated resources of the cluster, with a step size of 8 ACUs.
+    // - If the resource group type is Interactive, the maximum reserved computing resources are the currently unallocated resources of the cluster, and the step size is 16 ACUs.
+    // - If the resource group type is Job, the maximum reserved computing resources are the currently unallocated resources of the cluster, and the step size is 8 ACUs.
     shared_ptr<string> maxComputeResource_ {};
     // The maximum number of GPUs.
     shared_ptr<int32_t> maxGpuQuantity_ {};
-    // A reserved parameter (not applicable).
+    // The reserved parameter. This parameter is not applicable.
     shared_ptr<int32_t> minClusterCount_ {};
     // The minimum reserved computing resources, in ACUs.
     // - If the resource group type is Interactive, the minimum reserved computing resources are 16 ACUs.
@@ -913,14 +917,14 @@ namespace Models
     shared_ptr<CreateDBResourceGroupRequest::RayConfig> rayConfig_ {};
     // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the region IDs of AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the region ID of an AnalyticDB for MySQL Data Lakehouse Edition (3.0) cluster.
     shared_ptr<string> regionId_ {};
     // The job routing rules.
     shared_ptr<vector<CreateDBResourceGroupRequest::Rules>> rules_ {};
-    // The scaling policy of the resource group. Valid values:
-    // - AutoScaling: enables the AutoScaling automatic scaling policy.
-    // - Disable: disables automatic scaling.
-    // - MultiCluster: enables the MultiCluster automatic scaling policy.
+    // The scale-out policy for the resource group. Valid values:
+    // - AutoScaling: enables the AutoScaling policy for auto scaling.
+    // - Disable: disables auto scaling.
+    // - MultiCluster: enables the MultiCluster policy for auto scaling.
     shared_ptr<string> scalePolicy_ {};
     // The specification name.
     shared_ptr<string> specName_ {};

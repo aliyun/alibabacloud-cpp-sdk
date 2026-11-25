@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The queried source IP addresses.
+    // The source IP addresses.
     shared_ptr<vector<string>> clientIps_ {};
-    // The queried database names.
+    // The database names.
     shared_ptr<vector<string>> databases_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried resource group names.
+    // The resource group names.
     shared_ptr<vector<string>> resourceGroups_ {};
-    // The queried usernames.
+    // The usernames.
     shared_ptr<vector<string>> userNames_ {};
   };
 

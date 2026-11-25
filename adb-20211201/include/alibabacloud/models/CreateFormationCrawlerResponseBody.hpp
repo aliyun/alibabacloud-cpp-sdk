@@ -96,19 +96,19 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is processed.
+    // Indicates whether the request was processed successfully.
     shared_ptr<bool> data_ {};
     // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. A value of OK indicates success.
+    // The returned message. The value is OK if the request is successful.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // - **true**: The call is successful.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
     // - **false**: The call failed.
     shared_ptr<bool> success_ {};
-    // The operation result. A value of true indicates that the task is created.
+    // The operation result. A value of true indicates that the task was created successfully.
     shared_ptr<string> taskId_ {};
   };
 

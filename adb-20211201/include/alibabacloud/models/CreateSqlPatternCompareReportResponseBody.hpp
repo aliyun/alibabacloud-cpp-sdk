@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the created report. This value only indicates that the request has been accepted.
+    // The ID of the newly created report. The returned value only indicates that the request is accepted.
     shared_ptr<int64_t> reportId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

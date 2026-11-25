@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The diagnostic code.
     shared_ptr<string> diagnosisCode_ {};
+    // The diagnostic cause.
     shared_ptr<string> diagnosisCodeLabel_ {};
+    // The diagnostic suggestion.
     shared_ptr<string> diagnosisMsg_ {};
+    // The diagnostic information type.
     shared_ptr<string> diagnosisType_ {};
   };
 

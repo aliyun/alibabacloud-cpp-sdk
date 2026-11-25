@@ -86,9 +86,9 @@ namespace Models
   protected:
     // The name of the task.
     shared_ptr<string> apsJobName_ {};
-    // The end time of creation.
+    // The end of the creation time range.
     shared_ptr<string> createTimeEnd_ {};
-    // The start time of creation.
+    // The start of the creation time range.
     shared_ptr<string> createTimeStart_ {};
     // The page number.
     // 

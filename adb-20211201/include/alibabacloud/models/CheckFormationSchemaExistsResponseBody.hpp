@@ -86,15 +86,15 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // Indicates whether the schema exists.
+    // Indicates whether the metadata discovery schema exists.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message. OK is returned if the request is successful.
+    // The returned message. The value is OK if the request is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

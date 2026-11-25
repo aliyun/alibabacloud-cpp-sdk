@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL cluster.
+    // The ADB instance ID.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the lake storage.
+    // The ID of the lake storage instance.
     // 
     // This parameter is required.
     shared_ptr<string> lakeStorageId_ {};

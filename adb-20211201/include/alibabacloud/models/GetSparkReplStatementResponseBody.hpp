@@ -154,40 +154,33 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account that owns the cluster.
+      // The ID of the Alibaba Cloud account to which the instance belongs.
       shared_ptr<int64_t> aliyunUid_ {};
-      // The code that is executed.
+      // The executed code.
       shared_ptr<string> code_ {};
-      // The code execution status. Valid values:
-      // 
-      // *   CANCELLED
-      // *   RUNNING
-      // *   SUCCEEDED
-      // *   ERROR
+      // The execution status of the code. Valid values:
+      // - CANCELLED: The execution is canceled.
+      // - RUNNING: The execution is in progress.
+      // - SUCCEEDED: The execution is completed.
+      // - ERROR: The execution failed.
       shared_ptr<string> codeState_ {};
-      // The code type. Valid values:
-      // 
-      // *   PYTHON
-      // *   SCALA
+      // The type of the code. Valid values:
+      // - PYTHON
+      // - SCALA
       shared_ptr<string> codeType_ {};
-      // The column names.
+      // The array of column names.
       shared_ptr<vector<string>> columns_ {};
-      // The end time of the query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The end time of the task. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The error message.
       shared_ptr<string> error_ {};
-      // The code execution result, which is a JSON string.
+      // The output result, which is a string in JSON format.
       shared_ptr<string> output_ {};
-      // The execution result type.
-      // 
-      // Valid values:
-      // 
-      // *   TABLE
-      // *   TEXT
+      // The type of the output result.
       shared_ptr<string> outputType_ {};
-      // The start time of the query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The start time of the task. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The unique ID of the code block in the Spark job.
+      // The unique ID of the code block in this Spark job.
       shared_ptr<int64_t> statementId_ {};
     };
 

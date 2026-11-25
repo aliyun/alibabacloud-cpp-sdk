@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The ADB instance ID. This parameter is required. You can invoke the DescribeDBClusters operation to query the cluster ID in the specified region.
+    // The ADB instance ID. This parameter is required when you invoke the operation. You can invoke the DescribeDBClusters operation to query the cluster ID in the target region.
     shared_ptr<string> DBClusterId_ {};
     // The name of the data source.
     shared_ptr<string> datasourceName_ {};

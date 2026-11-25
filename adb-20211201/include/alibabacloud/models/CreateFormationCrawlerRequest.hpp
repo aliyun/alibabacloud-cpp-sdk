@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The JSON string that contains the complete crawler configuration. This is the most important parameter. For the internal JSON structure, see the CrawlerInfo structure definition section.
+    // The JSON string that contains the complete configuration information of the crawler. This field is the core parameter. For more information about its internal JSON structure, see the CrawlerInfo structure definition section.
     // 
     // This parameter is required.
     shared_ptr<string> crawlerInfo_ {};
-    // The ADB instance ID. This specifies the resource-level scope of the operation.
+    // The ID of the ADB instance. This parameter specifies the resource-level scope of the operation.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

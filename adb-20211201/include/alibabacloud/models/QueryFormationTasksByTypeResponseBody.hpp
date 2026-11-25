@@ -172,13 +172,13 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<string> createTime_ {};
-      // The execution duration of the most recent task.
+      // The execution time of the most recent task.
       shared_ptr<string> lastTaskInstCostTime_ {};
       // The instance ID of the most recent task.
       shared_ptr<string> lastTaskInstID_ {};
       // The error message of the most recent task.
       shared_ptr<string> lastTaskInstMessage_ {};
-      // The instance status of the most recent node.
+      // The status of the most recent task instance.
       shared_ptr<string> lastTaskInstState_ {};
       // The scheduling status.
       shared_ptr<string> scheduleState_ {};
@@ -249,11 +249,11 @@ namespace Models
     shared_ptr<vector<QueryFormationTasksByTypeResponseBody::Data>> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. OK is returned if the call was successful.
+    // The message returned. The value is OK if the call is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
+    // Indicates whether the call was successful.
     // - **true**: The call was successful.
     // - **false**: The call failed.
     shared_ptr<bool> success_ {};

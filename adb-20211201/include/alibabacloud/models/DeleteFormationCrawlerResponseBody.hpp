@@ -86,9 +86,7 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // Indicates whether the task is deleted. Valid values:
-    // - true: The task is deleted.
-    // - false: The task failed to be deleted.
+    // Indicates whether the deletion is successful. Valid values: - true: The deletion is successful. - false: The deletion fails.
     shared_ptr<bool> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

@@ -125,27 +125,27 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The description of the data source.
+    // The data source description.
     shared_ptr<string> datasourceDescription_ {};
     // The data source ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> datasourceId_ {};
-    // The name of the data source.
+    // The data source name.
     shared_ptr<string> datasourceName_ {};
-    // The information about the Kafka instance.
+    // The Kafka data source information.
     shared_ptr<string> kafkaInfoShrink_ {};
-    // The lakehouse ID.
+    // The Lakehouse ID.
     shared_ptr<string> lakehouseIdShrink_ {};
-    // The parameter is no longer supported.
+    // The deprecated data source information.
     shared_ptr<string> polarDBMysqlInfoShrink_ {};
-    // The parameter is no longer supported.
+    // The deprecated data source information.
     shared_ptr<string> rdsMysqlInfoShrink_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The information about Simple Log Service (SLS).
+    // The Simple Log Service (SLS) information.
     shared_ptr<string> slsInfoShrink_ {};
   };
 

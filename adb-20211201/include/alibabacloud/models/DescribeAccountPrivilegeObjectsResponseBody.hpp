@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The name of the column. This parameter is returned when PrivilegeType is set to Column.
+      // The column name. This field is returned when the privilege level is Column.
       shared_ptr<string> column_ {};
-      // The name of the database. This parameter is returned when PrivilegeType is set to Database, Table, or Column.
+      // The database name. This field is returned when the privilege level is Database, Table, or Column.
       shared_ptr<string> database_ {};
-      // The description that is specified when you create a table or column. This parameter is returned only when PrivilegeType is set to Database or Table, indicating the database description or table description.
+      // The description specified when the table or column is created. This field has a value only when the privilege level is Database or Table, representing the description of the database or table, respectively.
       shared_ptr<string> description_ {};
-      // The name of the table. This parameter is returned when PrivilegeType is set to Table or Column.
+      // The table name. This field is returned when the privilege level is Table or Column.
       shared_ptr<string> table_ {};
     };
 
@@ -144,11 +144,11 @@ namespace Models
 
 
   protected:
-    // The permissions.
+    // The list of privileges.
     shared_ptr<vector<DescribeAccountPrivilegeObjectsResponseBody::Data>> data_ {};
-    // The page number.
+    // The page number, which is the same as the value passed in the request.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size, which is the same as the value passed in the request.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

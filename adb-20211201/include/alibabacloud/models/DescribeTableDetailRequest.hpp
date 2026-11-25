@@ -72,9 +72,9 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> schemaName_ {};
-    // The name of the table.
+    // The table name.
     shared_ptr<string> tableName_ {};
   };
 

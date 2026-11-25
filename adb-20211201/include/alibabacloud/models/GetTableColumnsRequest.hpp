@@ -94,13 +94,13 @@ namespace Models
 
 
   protected:
-    // The name of the column.
+    // The column name.
     shared_ptr<string> columnName_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. Valid values: an integer greater than 0 and up to the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // * **30** (default)
@@ -111,9 +111,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> schemaName_ {};
-    // The name of the table.
+    // The table name.
     shared_ptr<string> tableName_ {};
   };
 

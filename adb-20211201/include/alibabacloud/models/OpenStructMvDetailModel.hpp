@@ -118,7 +118,7 @@ namespace Models
 
 
     protected:
-      // Whether the base table is a materialized view.
+      // Specifies whether the base table is a materialized view.
       shared_ptr<bool> baseTableIsMv_ {};
       // The database name.
       shared_ptr<string> schemaName_ {};
@@ -257,21 +257,19 @@ namespace Models
 
 
   protected:
-    // All direct parent base tables of the materialized view.
+    // All direct parent base tables of the current materialized view.
     shared_ptr<vector<OpenStructMvDetailModel::BaseTableInfos>> baseTableInfos_ {};
-    // All direct parent base tables of the materialized view.
+    // All direct parent base tables of the current materialized view.
     shared_ptr<vector<vector<string>>> baseTableNames_ {};
-    // Indicates whether to enable alerting for refresh latency. Valid values:
+    // Specifies whether to enable the refresh delay alert. Valid values:
     // 
-    // - true: Yes.
-    // 
-    // - false: No.
+    // - 1: Yes.
+    // - 0: No.
     shared_ptr<int32_t> enableDelayAlert_ {};
-    // Indicates whether to enable alerting for refresh task failures. Valid values:
+    // Specifies whether to enable the refresh task failure alert. Valid values:
     // 
-    // - true: Yes.
-    // 
-    // - false: No.
+    // - 1: Yes.
+    // - 0: No.
     shared_ptr<int32_t> enableFailureAlert_ {};
     // The total number of explicit query hits in the last 7 days.
     shared_ptr<int64_t> explicitHit_ {};
@@ -279,21 +277,21 @@ namespace Models
     shared_ptr<string> firstRefreshTime_ {};
     // The total number of implicit query hits in the last 7 days.
     shared_ptr<int64_t> implicitHit_ {};
-    // Indicates whether the materialized view has not been accessed by explicit or implicit queries for more than 30 days since its creation.
+    // Indicates whether the current materialized view has not been accessed (including explicit and implicit queries) for more than 30 days since its creation.
     shared_ptr<bool> isInactive_ {};
-    // The refresh latency toleration, in minutes.
+    // The refresh delay tolerance, in minutes.
     shared_ptr<int32_t> latencyTolerance_ {};
-    // The disk space that the materialized view occupies for hot data, in bytes.
+    // The hot data disk space occupied by the materialized view, in bytes.
     shared_ptr<int64_t> localSize_ {};
-    // Whether query rewrite is enabled for the materialized view.
+    // Specifies whether query rewrite is enabled for the current materialized view.
     shared_ptr<bool> queryRewriteEnabled_ {};
     // The refresh interval.
     shared_ptr<string> refreshInterval_ {};
     // The refresh model of the materialized view.
     shared_ptr<string> refreshState_ {};
-    // The disk space that the materialized view occupies for cold data, in bytes.
+    // The cold data disk space occupied by the materialized view, in bytes.
     shared_ptr<int64_t> remoteSize_ {};
-    // The resource group on which the refresh depends.
+    // The resource group that the refresh depends on.
     shared_ptr<string> resourceGroup_ {};
     // The table engine.
     shared_ptr<string> tableEngine_ {};

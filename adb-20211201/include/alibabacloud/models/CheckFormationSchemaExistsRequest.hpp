@@ -71,7 +71,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to enable the prefix mode. Valid values:
+    // Specifies whether the prefix mode is enabled. Valid values:
     // - true: Yes.
     // - false: No.
     // 

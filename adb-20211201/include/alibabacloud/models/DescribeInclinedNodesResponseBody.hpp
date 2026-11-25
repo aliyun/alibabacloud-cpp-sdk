@@ -72,7 +72,7 @@ namespace Models
     protected:
       // The disk usage of the storage node.
       shared_ptr<string> diskUsageRatio_ {};
-      // The number of the storage node.
+      // The storage node number.
       shared_ptr<string> node_ {};
     };
 
@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The queried storage nodes.
+    // The list information.
     shared_ptr<vector<DescribeInclinedNodesResponseBody::Items>> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -225,13 +225,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeProcessListResponseBody::Items> items_ {};
-    // Page number.
+    // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of pages.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total records.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="china">The ID of the cluster. The cluster runs Enterprise Edition, Basic Edition, or Data Lakehouse Edition.
     // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.

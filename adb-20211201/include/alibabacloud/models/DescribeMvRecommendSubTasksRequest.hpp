@@ -112,18 +112,18 @@ namespace Models
 
 
   protected:
-    // A fixed value. This value cannot be modified.
+    // A fixed value. This parameter cannot be modified.
     shared_ptr<string> actionInner_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // A fixed value. This value cannot be modified.
+    // A fixed value. This parameter cannot be modified.
     shared_ptr<string> from_ {};
     // The sort field.
     // Valid values for the sort order:
     // - Asc
     // - Desc
     // 
-    // Valid values for the sort field:
+    // Valid values for the field:
     // - StartTime
     // - EndTime
     shared_ptr<string> orderBy_ {};

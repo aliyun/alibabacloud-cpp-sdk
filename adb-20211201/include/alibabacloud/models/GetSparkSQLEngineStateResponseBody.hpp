@@ -124,33 +124,32 @@ namespace Models
 
 
     protected:
-      // The ID of the Spark application.
+      // The application ID.
       shared_ptr<string> appId_ {};
       // The configuration of the Spark application.
       shared_ptr<string> config_ {};
-      // The third-party JAR package.
+      // The third-party JAR packages.
       shared_ptr<string> jars_ {};
-      // The maximum number of started Spark executors.
+      // The maximum number of Spark executors to start.
       shared_ptr<string> maxExecutor_ {};
-      // The minimum number of started Spark executors.
+      // The minimum number of Spark executors to start.
       shared_ptr<string> minExecutor_ {};
-      // The slot number of the Spark application.
+      // The slot value of the Spark application.
       shared_ptr<string> slotNum_ {};
-      // The execution state of the application. Valid values:
-      // 
-      // *   SUBMITTED
-      // *   STARTING
-      // *   RUNNING
-      // *   FAILING
-      // *   FAILED
-      // *   KILLING
-      // *   KILLED
-      // *   SUCCEEDING
-      // *   COMPLETED
-      // *   FATAL
-      // *   UNKNOWN
+      // The execution status of the application. Valid values:
+      // * SUBMITTED: Submitted.
+      // * STARTING: Starting.
+      // * RUNNING: Running.
+      // * FAILING: The task failed and the environment is being cleaned up.
+      // * FAILED: Failed.
+      // * KILLING: The task is being terminated and the environment is being cleaned up.
+      // * KILLED: Terminated.
+      // * SUCCEEDING: The task execution is complete and the environment is being cleaned up.
+      // * COMPLETED: Completed.
+      // * FATAL: Unexpected failure.
+      // * UNKNOWN: Unknown error.
       shared_ptr<string> state_ {};
-      // The timestamp when the Spark SQL application was submitted. Unit: milliseconds.
+      // The submission time of the Spark SQL application. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> submittedTimeInMillis_ {};
     };
 
@@ -173,9 +172,9 @@ namespace Models
 
 
   protected:
-    // The state information about the Spark SQL engine.
+    // The status details of the Spark SQL engine.
     shared_ptr<GetSparkSQLEngineStateResponseBody::Data> data_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

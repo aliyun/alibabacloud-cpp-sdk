@@ -101,7 +101,6 @@ namespace Models
       // This parameter is required.
       shared_ptr<string> url_ {};
       // The notification method. Valid values:
-      // 
       // - dingtalk: DingTalk.
       // - lark: Lark.
       // 
@@ -142,13 +141,12 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The task type. Valid values:
-    // 
-    // ResultExport: SLS/OSS export task.
+    // The node type. Valid values:
+    // - ResultExport: SLS or OSS export task.
     // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};

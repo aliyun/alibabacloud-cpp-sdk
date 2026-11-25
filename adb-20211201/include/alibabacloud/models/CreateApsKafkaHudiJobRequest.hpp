@@ -142,13 +142,13 @@ namespace Models
 
 
     protected:
-      // The name of the destination field.
+      // The name of the target field.
       shared_ptr<string> mapName_ {};
-      // The type of the destination field.
+      // The data type of the target field.
       shared_ptr<string> mapType_ {};
       // The name of the source field.
       shared_ptr<string> name_ {};
-      // The type of the source field.
+      // The data type of the source field.
       shared_ptr<string> type_ {};
     };
 
@@ -367,8 +367,7 @@ namespace Models
 
 
   protected:
-    // The RAM role whose trusted entity is an Alibaba Cloud account. For more information about how to create a RAM role, see Create a RAM role for a trusted Alibaba Cloud account.
-    // In the RAM role, the Alibaba Cloud account to which AnalyticDB for MySQL belongs must be configured as a trusted account for the Alibaba Cloud account to which the Kafka instance belongs.
+    // The RAM role whose trusted entity is an Alibaba Cloud account. For more information about how to create a RAM role, see Create a RAM role for a trusted Alibaba Cloud account. In the RAM role, the Alibaba Cloud account to which AnalyticDB for MySQL belongs is configured as a trusted account for the Alibaba Cloud account to which Kafka belongs.
     shared_ptr<string> acrossRole_ {};
     // The ID of the Alibaba Cloud account to which the source Kafka instance belongs.
     shared_ptr<string> acrossUid_ {};
@@ -379,15 +378,15 @@ namespace Models
     // This parameter is required.
     shared_ptr<vector<CreateApsKafkaHudiJobRequest::Columns>> columns_ {};
     // The cluster ID.
-    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (3.0) clusters in the specified region.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to view the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (3.0) clusters in the target region.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The Kafka message type. Valid values: json, general_canal_json, mongo_canal_json, dataworks_json, and shareplex_json.
     shared_ptr<string> dataFormatType_ {};
     // The data output format. Valid values:
-    // - Single: The source is a single-line JSON record.
-    // - Multi: The source is a JSON array. A single JSON record must be output.
+    // - Single: the source is a single-line JSON record.
+    // - Multi: the source is a JSON array. A single JSON record must be output.
     shared_ptr<string> dataOutputFormat_ {};
     // The data source ID.
     shared_ptr<int64_t> datasourceId_ {};
@@ -395,31 +394,31 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
-    // The full synchronization configurations.
+    // The full data synchronization configurations.
     shared_ptr<string> fullComputeUnit_ {};
-    // The destination Hudi configurations.
+    // The advanced HUDI configurations for the target.
     shared_ptr<string> hudiAdvancedConfig_ {};
-    // The incremental synchronization configurations.
+    // The incremental data synchronization configurations.
     // 
     // This parameter is required.
     shared_ptr<string> incrementalComputeUnit_ {};
-    // The nesting parse level for JSON. Valid values:
-    // - 0: No parsing.
-    // - 1: Parse one level.
-    // - 2: Parse two levels.
-    // - 3: Parse three levels.
-    // - 4: Parse four levels.
-    // Default value: 1. For more information about the JSON nesting parse strategy, see JSON parse levels and schema field inference examples.
+    // Specifies the JSON nesting parse level. Valid values:
+    // - 0: does not parse JSON.
+    // - 1: parses one level.
+    // - 2: parses two levels.
+    // - 3: parses three levels.
+    // - 4: parses four levels.
+    // Default value: 1. For more information about the JSON nesting parse strategy, see JSON parsing levels and schema field inference examples.
     shared_ptr<int32_t> jsonParseLevel_ {};
-    // Instance ID of the Kafka instance. You can obtain instance ID in the Kafka console.
+    // Instance ID of the Kafka instance. You can obtain instance ID from the Kafka console.
     shared_ptr<string> kafkaClusterId_ {};
-    // The ID of the Kafka topic. You can obtain the ID in the Kafka console.
+    // The ID of the Kafka topic. You can obtain the ID from the Kafka console.
     shared_ptr<string> kafkaTopic_ {};
     // The ID of the lakehouse.
     shared_ptr<int64_t> lakehouseId_ {};
     // The maximum number of messages to consume per trigger.
     shared_ptr<int64_t> maxOffsetsPerTrigger_ {};
-    // The destination lakehouse address, which is a complete OSS path.
+    // The destination data lakehouse address, which is the complete OSS path.
     shared_ptr<string> ossLocation_ {};
     // The output data format.
     shared_ptr<string> outputFormat_ {};
@@ -433,8 +432,8 @@ namespace Models
     //  "f1",
     //  "f2"
     // ],
-    // "RecordVersionField","xxx"
-    // RecordVersionField specifies the Hudi record version.
+    // "RecordVersionField":"xxx"
+    // RecordVersionField specifies the HUDI record version.
     shared_ptr<string> primaryKeyDefinition_ {};
     // The region ID.
     // 
@@ -447,9 +446,9 @@ namespace Models
     // The region ID.
     shared_ptr<string> sourceRegionId_ {};
     // The starting consumption offset for Kafka. Valid values:
-    // - begin_cursor: The earliest offset.
-    // - end_cursor: The latest offset.
-    // - timestamp: A specified time.
+    // - begin_cursor: the earliest offset.
+    // - end_cursor: the latest offset.
+    // - timestamp: a specified timestamp.
     // 
     // This parameter is required.
     shared_ptr<string> startingOffsets_ {};
@@ -457,9 +456,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> tableName_ {};
-    // The destination generation rule.
+    // The target generation rule.
     shared_ptr<string> targetGenerateRule_ {};
-    // The destination type.
+    // The target type.
     shared_ptr<string> targetType_ {};
     // The name of the workload.
     // 
