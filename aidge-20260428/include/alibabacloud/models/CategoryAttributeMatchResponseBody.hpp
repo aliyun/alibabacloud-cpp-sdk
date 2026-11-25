@@ -223,9 +223,9 @@ namespace Models
         shared_ptr<string> nameEn_ {};
         // The description of the matching reason.
         shared_ptr<string> reason_ {};
-        // The list of selected attribute value texts, such as ["iOS","Android"\\].
+        // The list of selected attribute value texts, such as ["iOS","Android"\].
         shared_ptr<vector<string>> selectedValues_ {};
-        // The list of selected attribute value IDs, such as [30127,30128\\].
+        // The list of selected attribute value IDs, such as [30127,30128\].
         shared_ptr<vector<int32_t>> selectedVids_ {};
       };
 

@@ -41,6 +41,10 @@
 #include <alibabacloud/models/EcomVideoRecreationShrinkRequest.hpp>
 #include <alibabacloud/models/EcomVideoRecreationResponseBody.hpp>
 #include <alibabacloud/models/EcomVideoRecreationResponse.hpp>
+#include <alibabacloud/models/GeneralImageGenerationRequest.hpp>
+#include <alibabacloud/models/GeneralImageGenerationShrinkRequest.hpp>
+#include <alibabacloud/models/GeneralImageGenerationResponseBody.hpp>
+#include <alibabacloud/models/GeneralImageGenerationResponse.hpp>
 #include <alibabacloud/models/GeneralRephotographyDetectionRequest.hpp>
 #include <alibabacloud/models/GeneralRephotographyDetectionResponseBody.hpp>
 #include <alibabacloud/models/GeneralRephotographyDetectionResponse.hpp>

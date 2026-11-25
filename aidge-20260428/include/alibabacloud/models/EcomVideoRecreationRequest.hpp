@@ -165,7 +165,7 @@ namespace Models
 
 
       protected:
-        // The product category. Example: Women\\"s clothing/Sun-protective clothing.
+        // The product category. Example: Women\"s clothing/Sun-protective clothing.
         shared_ptr<string> category_ {};
         // The actual product information, such as SKU, brand, color, material, size, specifications, logo, and usage instructions. This is used to constrain voiceover facts. Example: Pale yellow, cooling fabric, sun protection down to the back of the hand, UPF50+.
         shared_ptr<string> detail_ {};

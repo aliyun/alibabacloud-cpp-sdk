@@ -113,7 +113,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned data structure.
     shared_ptr<ImageRecognitionAsyncResponseBody::Data> data_ {};
-    // The error message, such as \\"The parameter contains sensitive information. Try another input.\\"
+    // The error message, such as \"The parameter contains sensitive information. Try another input.\"
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

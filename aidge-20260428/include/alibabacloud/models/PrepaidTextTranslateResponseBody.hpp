@@ -186,7 +186,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The translation result data, which includes the translation list and usage information.
     shared_ptr<PrepaidTextTranslateResponseBody::Data> data_ {};
-    // The error message. Success is returned for successful calls. If an exception occurs, a specific error message is returned, such as \\"The parameter contains sensitive information. Try another input.\\"
+    // The error message. Success is returned for successful calls. If an exception occurs, a specific error message is returned, such as \"The parameter contains sensitive information. Try another input.\"
     shared_ptr<string> message_ {};
     // The ID of the request, which is used to identify a unique request call.
     shared_ptr<string> requestId_ {};

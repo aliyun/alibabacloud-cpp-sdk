@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The caller business ID. It is used only for asynchronous text translation and returned as-is in the task result. It can be up to 128 characters in length and is passed through in the translation results.
     shared_ptr<string> bizId_ {};
-    // The name of the caller\\"s business, which represents your identity and facilitates subsequent communication. If you are an internal Alibaba team, specify this parameter based on the actual scenario, such as BU name-product or BU name-chat. If you are an external partner, specify the full name of your company. The company name must be the same as the one used when you registered your Alibaba Cloud account.
+    // The name of the caller\"s business, which represents your identity and facilitates subsequent communication. If you are an internal Alibaba team, specify this parameter based on the actual scenario, such as BU name-product or BU name-chat. If you are an external partner, specify the full name of your company. The company name must be the same as the one used when you registered your Alibaba Cloud account.
     shared_ptr<string> bizName_ {};
     // The format type of the source text. Valid values: text and html.
     shared_ptr<string> formatType_ {};

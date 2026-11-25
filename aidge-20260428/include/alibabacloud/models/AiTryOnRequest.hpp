@@ -134,7 +134,7 @@ namespace Models
     // This parameter is required for the model skin replacement scenario. Do not specify this parameter for the clothing replacement or posture replacement scenarios. For the clothing replacement, face replacement, and posture replacement modes, specify only one mode per call. Do not upload parameters for multiple modes at the same time.    
     // We recommend that you use the official model templates. Experience URL: [E-commerce Operation Assistant Aidge console](https://ecoa.console.aliyun.com/translate?category=assetOptimize&apiType=VirtualTryOn)
     shared_ptr<string> modelTemplateUrl_ {};
-    // The URL of the posture template image. You can specify only one image. This image provides a reference for the person\\"s posture.
+    // The URL of the posture template image. You can specify only one image. This image provides a reference for the person\"s posture.
     // This parameter is required for the posture fission scenario.
     // If this parameter is specified, the image is generated based on the template posture.
     // If this parameter is not specified, the posture in the scene image is used if a model scene image is provided. Otherwise, the posture in the model source image is preserved.
