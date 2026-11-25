@@ -40,6 +40,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AcwCookieStatus, acwCookieStatus_);
         DARABONBA_PTR_TO_JSON(AcwSecureStatus, acwSecureStatus_);
         DARABONBA_PTR_TO_JSON(AcwV3SecureStatus, acwV3SecureStatus_);
+        DARABONBA_PTR_TO_JSON(CookieConfig, cookieConfig_);
         DARABONBA_PTR_TO_JSON(CustomHeaders, customHeaders_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_ANY_TO_JSON(Detail, detail_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AcwCookieStatus, acwCookieStatus_);
         DARABONBA_PTR_FROM_JSON(AcwSecureStatus, acwSecureStatus_);
         DARABONBA_PTR_FROM_JSON(AcwV3SecureStatus, acwV3SecureStatus_);
+        DARABONBA_PTR_FROM_JSON(CookieConfig, cookieConfig_);
         DARABONBA_PTR_FROM_JSON(CustomHeaders, customHeaders_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_ANY_FROM_JSON(Detail, detail_);
@@ -127,17 +129,69 @@ namespace Models
 
 
       protected:
-        // The key of the custom response header.
+        // The key of the specified custom response header.
         shared_ptr<string> key_ {};
-        // The value of the custom response header.
+        // The value of the specified custom response header.
         shared_ptr<string> value_ {};
       };
 
+      class CookieConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CookieConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(AcwScV3SameSite, acwScV3SameSite_);
+          DARABONBA_PTR_TO_JSON(AcwTcSameSite, acwTcSameSite_);
+        };
+        friend void from_json(const Darabonba::Json& j, CookieConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(AcwScV3SameSite, acwScV3SameSite_);
+          DARABONBA_PTR_FROM_JSON(AcwTcSameSite, acwTcSameSite_);
+        };
+        CookieConfig() = default ;
+        CookieConfig(const CookieConfig &) = default ;
+        CookieConfig(CookieConfig &&) = default ;
+        CookieConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CookieConfig() = default ;
+        CookieConfig& operator=(const CookieConfig &) = default ;
+        CookieConfig& operator=(CookieConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->acwScV3SameSite_ == nullptr
+        && this->acwTcSameSite_ == nullptr; };
+        // acwScV3SameSite Field Functions 
+        bool hasAcwScV3SameSite() const { return this->acwScV3SameSite_ != nullptr;};
+        void deleteAcwScV3SameSite() { this->acwScV3SameSite_ = nullptr;};
+        inline string getAcwScV3SameSite() const { DARABONBA_PTR_GET_DEFAULT(acwScV3SameSite_, "") };
+        inline CookieConfig& setAcwScV3SameSite(string acwScV3SameSite) { DARABONBA_PTR_SET_VALUE(acwScV3SameSite_, acwScV3SameSite) };
+
+
+        // acwTcSameSite Field Functions 
+        bool hasAcwTcSameSite() const { return this->acwTcSameSite_ != nullptr;};
+        void deleteAcwTcSameSite() { this->acwTcSameSite_ = nullptr;};
+        inline string getAcwTcSameSite() const { DARABONBA_PTR_GET_DEFAULT(acwTcSameSite_, "") };
+        inline CookieConfig& setAcwTcSameSite(string acwTcSameSite) { DARABONBA_PTR_SET_VALUE(acwTcSameSite_, acwTcSameSite) };
+
+
+      protected:
+        // The SameSite policy of the slider cookie. Valid values:
+        // - **None**: None.
+        // - **Lax**: Lax.
+        // - **Strict**: Strict.
+        // > An empty string indicates that the SameSite attribute is not configured.
+        shared_ptr<string> acwScV3SameSite_ {};
+        // The SameSite policy of the tracking cookie. Valid values:
+        // - **None**: None.
+        // - **Lax**: Lax.
+        // - **Strict**: Strict.
+        // > An empty string indicates that the SameSite attribute is not configured.
+        shared_ptr<string> acwTcSameSite_ {};
+      };
+
       virtual bool empty() const override { return this->acwCookieStatus_ == nullptr
-        && this->acwSecureStatus_ == nullptr && this->acwV3SecureStatus_ == nullptr && this->customHeaders_ == nullptr && this->description_ == nullptr && this->detail_ == nullptr
-        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->instanceId_ == nullptr && this->ownerUserId_ == nullptr && this->pattern_ == nullptr
-        && this->product_ == nullptr && this->resource_ == nullptr && this->resourceGroup_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->resourceOrigin_ == nullptr
-        && this->resourceStatus_ == nullptr && this->responseHeaders_ == nullptr && this->xffStatus_ == nullptr; };
+        && this->acwSecureStatus_ == nullptr && this->acwV3SecureStatus_ == nullptr && this->cookieConfig_ == nullptr && this->customHeaders_ == nullptr && this->description_ == nullptr
+        && this->detail_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->instanceId_ == nullptr && this->ownerUserId_ == nullptr
+        && this->pattern_ == nullptr && this->product_ == nullptr && this->resource_ == nullptr && this->resourceGroup_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr
+        && this->resourceOrigin_ == nullptr && this->resourceStatus_ == nullptr && this->responseHeaders_ == nullptr && this->xffStatus_ == nullptr; };
       // acwCookieStatus Field Functions 
       bool hasAcwCookieStatus() const { return this->acwCookieStatus_ != nullptr;};
       void deleteAcwCookieStatus() { this->acwCookieStatus_ = nullptr;};
@@ -157,6 +211,15 @@ namespace Models
       void deleteAcwV3SecureStatus() { this->acwV3SecureStatus_ = nullptr;};
       inline int32_t getAcwV3SecureStatus() const { DARABONBA_PTR_GET_DEFAULT(acwV3SecureStatus_, 0) };
       inline Resources& setAcwV3SecureStatus(int32_t acwV3SecureStatus) { DARABONBA_PTR_SET_VALUE(acwV3SecureStatus_, acwV3SecureStatus) };
+
+
+      // cookieConfig Field Functions 
+      bool hasCookieConfig() const { return this->cookieConfig_ != nullptr;};
+      void deleteCookieConfig() { this->cookieConfig_ = nullptr;};
+      inline const Resources::CookieConfig & getCookieConfig() const { DARABONBA_PTR_GET_CONST(cookieConfig_, Resources::CookieConfig) };
+      inline Resources::CookieConfig getCookieConfig() { DARABONBA_PTR_GET(cookieConfig_, Resources::CookieConfig) };
+      inline Resources& setCookieConfig(const Resources::CookieConfig & cookieConfig) { DARABONBA_PTR_SET_VALUE(cookieConfig_, cookieConfig) };
+      inline Resources& setCookieConfig(Resources::CookieConfig && cookieConfig) { DARABONBA_PTR_SET_RVALUE(cookieConfig_, cookieConfig) };
 
 
       // customHeaders Field Functions 
@@ -278,25 +341,27 @@ namespace Models
 
 
     protected:
-      // The status of the tracking cookie.
+      // The status of the tracking cookie. Valid values:
       // 
-      // - **0**: Disabled.
+      // - **0**: disabled.
       // 
-      // - **1**: Enabled.
+      // - **1**: enabled.
       shared_ptr<int32_t> acwCookieStatus_ {};
-      // The status of the secure attribute for the tracking cookie.
+      // The status of the Secure attribute for the tracking cookie. Valid values:
       // 
-      // - **0**: Disabled.
+      // - **0**: disabled.
       // 
-      // - **1**: Enabled.
+      // - **1**: enabled.
       shared_ptr<int32_t> acwSecureStatus_ {};
-      // The status of the secure attribute for the slider cookie.
+      // The status of the Secure attribute for the slider cookie. Valid values:
       // 
-      // - **0**: Disabled.
+      // - **0**: disabled.
       // 
-      // - **1**: Enabled.
+      // - **1**: enabled.
       shared_ptr<int32_t> acwV3SecureStatus_ {};
-      // The custom XFF headers used to obtain the originating IP address of the client. If XFF is set to 1 and this field is empty, the first IP address in the XFF header is used as the originating IP address of the client.
+      // The cookie attribute aggregation configuration.
+      shared_ptr<Resources::CookieConfig> cookieConfig_ {};
+      // The custom X-Forwarded-For (XFF) header used to obtain the actual originating IP address of the client. If XFF is set to 1 and this field is empty, the first IP address in the XFF header is used as the originating IP address of the client.
       shared_ptr<vector<string>> customHeaders_ {};
       // The description.
       shared_ptr<string> description_ {};
@@ -304,11 +369,11 @@ namespace Models
       Darabonba::Json detail_ {};
       // The time when the protected object was created. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The time when the protected object was last modified. Unit: milliseconds.
+      // The time when the protected object was modified. Unit: milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
       // The instance ID of the WAF instance.
       shared_ptr<string> instanceId_ {};
-      // The Alibaba Cloud account to which the protected object asset belongs in a multi-account management feature scenario.
+      // The account to which the protected object Asset belongs when the multi-account management feature is used.
       shared_ptr<string> ownerUserId_ {};
       // The protection mode of the protected object.
       shared_ptr<string> pattern_ {};
@@ -320,19 +385,19 @@ namespace Models
       shared_ptr<string> resourceGroup_ {};
       // The ID of the Alibaba Cloud resource group.
       shared_ptr<string> resourceManagerResourceGroupId_ {};
-      // The origin of the protected object.
+      // The source of the protected object.
       shared_ptr<string> resourceOrigin_ {};
       // The status of the protected object. Valid values:
       // 
-      // - **initializing**: Default protection is being initialized.
+      // - **initializing**: The default protection is being initialized.
       // 
-      // - **active**: Running normally.
+      // - **active**: The protected object is running normally.
       // 
-      // - **init_failed**: Default protection initialization failed.
+      // - **init_failed**: The default protection initialization failed.
       shared_ptr<string> resourceStatus_ {};
       // The response header parameters.
       shared_ptr<vector<Resources::ResponseHeaders>> responseHeaders_ {};
-      // Indicates whether XFF proxy is enabled for the protected object.
+      // Indicates whether the X-Forwarded-For (XFF) proxy feature is enabled for the protected object.
       shared_ptr<int32_t> xffStatus_ {};
     };
 
@@ -366,7 +431,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The list of protected objects.
     shared_ptr<vector<DescribeDefenseResourcesResponseBody::Resources>> resources_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

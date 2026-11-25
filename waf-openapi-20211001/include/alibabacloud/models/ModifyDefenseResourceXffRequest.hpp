@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AcwCookieStatus, acwCookieStatus_);
       DARABONBA_PTR_TO_JSON(AcwSecureStatus, acwSecureStatus_);
       DARABONBA_PTR_TO_JSON(AcwV3SecureStatus, acwV3SecureStatus_);
+      DARABONBA_PTR_TO_JSON(CookieConfig, cookieConfig_);
       DARABONBA_PTR_TO_JSON(CustomHeaders, customHeaders_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AcwCookieStatus, acwCookieStatus_);
       DARABONBA_PTR_FROM_JSON(AcwSecureStatus, acwSecureStatus_);
       DARABONBA_PTR_FROM_JSON(AcwV3SecureStatus, acwV3SecureStatus_);
+      DARABONBA_PTR_FROM_JSON(CookieConfig, cookieConfig_);
       DARABONBA_PTR_FROM_JSON(CustomHeaders, customHeaders_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -86,15 +88,77 @@ namespace Models
 
 
     protected:
-      // The key of the custom response header.
+      // The key of the specified custom response header.
       shared_ptr<string> key_ {};
-      // The value of the custom response header.
+      // The value of the specified custom response header.
       shared_ptr<string> value_ {};
     };
 
+    class CookieConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CookieConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(AcwScV3SameSite, acwScV3SameSite_);
+        DARABONBA_PTR_TO_JSON(AcwTcSameSite, acwTcSameSite_);
+      };
+      friend void from_json(const Darabonba::Json& j, CookieConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(AcwScV3SameSite, acwScV3SameSite_);
+        DARABONBA_PTR_FROM_JSON(AcwTcSameSite, acwTcSameSite_);
+      };
+      CookieConfig() = default ;
+      CookieConfig(const CookieConfig &) = default ;
+      CookieConfig(CookieConfig &&) = default ;
+      CookieConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CookieConfig() = default ;
+      CookieConfig& operator=(const CookieConfig &) = default ;
+      CookieConfig& operator=(CookieConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->acwScV3SameSite_ == nullptr
+        && this->acwTcSameSite_ == nullptr; };
+      // acwScV3SameSite Field Functions 
+      bool hasAcwScV3SameSite() const { return this->acwScV3SameSite_ != nullptr;};
+      void deleteAcwScV3SameSite() { this->acwScV3SameSite_ = nullptr;};
+      inline string getAcwScV3SameSite() const { DARABONBA_PTR_GET_DEFAULT(acwScV3SameSite_, "") };
+      inline CookieConfig& setAcwScV3SameSite(string acwScV3SameSite) { DARABONBA_PTR_SET_VALUE(acwScV3SameSite_, acwScV3SameSite) };
+
+
+      // acwTcSameSite Field Functions 
+      bool hasAcwTcSameSite() const { return this->acwTcSameSite_ != nullptr;};
+      void deleteAcwTcSameSite() { this->acwTcSameSite_ = nullptr;};
+      inline string getAcwTcSameSite() const { DARABONBA_PTR_GET_DEFAULT(acwTcSameSite_, "") };
+      inline CookieConfig& setAcwTcSameSite(string acwTcSameSite) { DARABONBA_PTR_SET_VALUE(acwTcSameSite_, acwTcSameSite) };
+
+
+    protected:
+      // The SameSite policy of the slider cookie. Valid values:
+      // 
+      // - **None**: None.
+      // 
+      // - **Lax**: Lax.
+      // 
+      // - **Strict**: Strict.
+      // 
+      // > An empty string indicates that the SameSite attribute is not configured.   
+      // If the SameSite policy is set to None, the Secure attribute must be enabled for the cookie.
+      shared_ptr<string> acwScV3SameSite_ {};
+      // The SameSite policy of the tracking cookie. Valid values:
+      // 
+      // - **None**: None.
+      // 
+      // - **Lax**: Lax.
+      // 
+      // - **Strict**: Strict.
+      // 
+      // > An empty string indicates that the SameSite attribute is not configured.  
+      // If the SameSite policy is set to None, the Secure attribute must be enabled for the cookie.
+      shared_ptr<string> acwTcSameSite_ {};
+    };
+
     virtual bool empty() const override { return this->acwCookieStatus_ == nullptr
-        && this->acwSecureStatus_ == nullptr && this->acwV3SecureStatus_ == nullptr && this->customHeaders_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr
-        && this->resource_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->responseHeaders_ == nullptr && this->xffStatus_ == nullptr; };
+        && this->acwSecureStatus_ == nullptr && this->acwV3SecureStatus_ == nullptr && this->cookieConfig_ == nullptr && this->customHeaders_ == nullptr && this->instanceId_ == nullptr
+        && this->regionId_ == nullptr && this->resource_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->responseHeaders_ == nullptr && this->xffStatus_ == nullptr; };
     // acwCookieStatus Field Functions 
     bool hasAcwCookieStatus() const { return this->acwCookieStatus_ != nullptr;};
     void deleteAcwCookieStatus() { this->acwCookieStatus_ = nullptr;};
@@ -114,6 +178,15 @@ namespace Models
     void deleteAcwV3SecureStatus() { this->acwV3SecureStatus_ = nullptr;};
     inline int32_t getAcwV3SecureStatus() const { DARABONBA_PTR_GET_DEFAULT(acwV3SecureStatus_, 0) };
     inline ModifyDefenseResourceXffRequest& setAcwV3SecureStatus(int32_t acwV3SecureStatus) { DARABONBA_PTR_SET_VALUE(acwV3SecureStatus_, acwV3SecureStatus) };
+
+
+    // cookieConfig Field Functions 
+    bool hasCookieConfig() const { return this->cookieConfig_ != nullptr;};
+    void deleteCookieConfig() { this->cookieConfig_ = nullptr;};
+    inline const ModifyDefenseResourceXffRequest::CookieConfig & getCookieConfig() const { DARABONBA_PTR_GET_CONST(cookieConfig_, ModifyDefenseResourceXffRequest::CookieConfig) };
+    inline ModifyDefenseResourceXffRequest::CookieConfig getCookieConfig() { DARABONBA_PTR_GET(cookieConfig_, ModifyDefenseResourceXffRequest::CookieConfig) };
+    inline ModifyDefenseResourceXffRequest& setCookieConfig(const ModifyDefenseResourceXffRequest::CookieConfig & cookieConfig) { DARABONBA_PTR_SET_VALUE(cookieConfig_, cookieConfig) };
+    inline ModifyDefenseResourceXffRequest& setCookieConfig(ModifyDefenseResourceXffRequest::CookieConfig && cookieConfig) { DARABONBA_PTR_SET_RVALUE(cookieConfig_, cookieConfig) };
 
 
     // customHeaders Field Functions 
@@ -170,27 +243,29 @@ namespace Models
 
 
   protected:
-    // The status of the tracking cookie switch.
+    // The status of the tracking cookie switch. Valid values:
     // 
-    // - **0**: disabled.
+    // - **0**: Disabled.
     // 
-    // - **1 (default)**: enabled.
+    // - **1** (default): Enabled.
     shared_ptr<int32_t> acwCookieStatus_ {};
-    // The status of the secure attribute of the tracking cookie.
+    // The status of the Secure attribute for the tracking cookie. Valid values:
     // 
-    // - **0 (default)**: disabled.
+    // - **0** (default): Disabled.
     // 
-    // - **1**: enabled.
+    // - **1**: Enabled.
     shared_ptr<int32_t> acwSecureStatus_ {};
-    // The status of the secure attribute of the slider cookie.
+    // The status of the Secure attribute for the slider cookie. Valid values:
     // 
-    // - **0 (default)**: disabled.
+    // - **0** (default): Disabled.
     // 
-    // - **1**: enabled.
+    // - **1**: Enabled.
     shared_ptr<int32_t> acwV3SecureStatus_ {};
+    // The aggregated configuration of cookie attributes.
+    shared_ptr<ModifyDefenseResourceXffRequest::CookieConfig> cookieConfig_ {};
     // The list of specified header fields.
     // 
-    // > The first IP address in the specified header field is used as the client source IP address to prevent XFF spoofing. If multiple headers are specified, the system attempts to obtain the source IP address from the headers in order. If the first header does not contain an IP address, the system tries the second header, and so on. If none of the specified headers contain an IP address, the first IP address in the X-Forwarded-For header is used.
+    // > The first IP address in the specified header field is used as the source IP address of the client to prevent X-Forwarded-For (XFF) spoofing. If multiple headers are specified, the system attempts to obtain the source IP address in sequence. If the first header does not contain an IP address, the system checks the second header, and so on. If no IP address is found in any of the specified headers, the first IP address in the X-Forwarded-For header is used.
     shared_ptr<vector<string>> customHeaders_ {};
     // Instance ID of the WAF instance.
     // 
@@ -198,7 +273,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
@@ -206,7 +281,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The name of the protected object.
     // 
-    // > The protected object must have been added to WAF. You can call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the name of the protected object.
+    // > The protected object must be added to WAF. You can call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the name of the protected object.
     // 
     // This parameter is required.
     shared_ptr<string> resource_ {};
@@ -214,11 +289,11 @@ namespace Models
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The response header parameters.
     shared_ptr<vector<ModifyDefenseResourceXffRequest::ResponseHeaders>> responseHeaders_ {};
-    // Specifies whether a Layer 7 proxy (Anti-DDoS Pro, CDN, or similar) is deployed in front of WAF. Valid values:
+    // Specifies whether a Layer 7 proxy, such as Anti-DDoS or CDN, is enabled before WAF. Valid values:
     // 
-    // - **0 (default)**: No Layer 7 proxy is deployed.
+    // - **0** (default): The proxy is disabled.
     // 
-    // - **1**: A Layer 7 proxy is deployed.
+    // - **1**: The proxy is enabled.
     // 
     // This parameter is required.
     shared_ptr<int32_t> xffStatus_ {};

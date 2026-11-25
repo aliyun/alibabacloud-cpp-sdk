@@ -144,7 +144,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> eventId_ {};
-    // The filter conditions. Exact match is used, and multiple conditions are connected by the AND operator.
+    // The filter conditions. Exact match is used, and multiple conditions are connected by the AND logical operator.
     shared_ptr<string> filterShrink_ {};
     // The ID of the WAF instance.
     // 
@@ -152,11 +152,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language of the response.
+    // The response language.
     shared_ptr<string> language_ {};
-    // The number of entries to return per page in a paged query. This parameter is used for paging. Valid values: 1 to 100. Default value: 20.
+    // The number of entries to return per page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. The value is the **NextToken** parameter value returned by the previous API call. You do not need to specify this parameter for the first query.
+    // The pagination token for the next page. The value is the **NextToken** parameter value returned by the previous API call. You do not need to specify this parameter for the first query.
     shared_ptr<string> nextToken_ {};
     // The region where the WAF instance resides.
     shared_ptr<string> regionId_ {};

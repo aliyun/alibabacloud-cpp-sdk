@@ -94,17 +94,16 @@ namespace Models
 
 
   protected:
-    // The name of the defense group to query.
-    // 
-    // > Leave this parameter empty to query for protected objects that can be associated with a new defense group.
+    // The name of the protection group to query.
+    // > If you do not specify this parameter, this operation queries the protection objects that can be associated with a protection group when you create the protection group.
     shared_ptr<string> groupName_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the current page returned by paging in a paged query. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
@@ -114,7 +113,7 @@ namespace Models
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The name of the protected object that you want to use as a filter for the query results.
+    // The protection object to query.
     shared_ptr<string> resource_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

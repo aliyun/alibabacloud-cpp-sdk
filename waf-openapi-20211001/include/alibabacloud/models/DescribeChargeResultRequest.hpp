@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The billing module code.
+      // The identifier of the billing module.
       shared_ptr<string> moduleCode_ {};
       // The usage of the billing module.
       shared_ptr<int64_t> usage_ {};
-      // The usage of the billing module, which supports integers and decimals. If the billing module is log storage capacity, the usage supports up to one decimal place, such as 10.5. This parameter is optional and has no default value. If this parameter is specified, it takes precedence even if the value is 0. If this parameter is not specified, Usage is used.
+      // The usage of the billing module, which supports integers and decimals. If the billing module is log storage capacity, the usage supports up to one decimal place, such as 10.5. This parameter is optional and has no default value. If this parameter is specified, it takes precedence. A value of 0 is also considered as specified. If this parameter is not specified, Usage is used.
       shared_ptr<double> usageDecimal_ {};
     };
 
@@ -143,9 +143,9 @@ namespace Models
 
   protected:
     // The billing cycle. Valid values:
-    // - **Year**: calculates the billing result for one year
-    // - **Month**: calculates the billing result for one month
-    // - **Day**: calculates the billing result for one day
+    // - **Year**: calculates the billing result for one year.
+    // - **Month**: calculates the billing result for one month.
+    // - **Day**: calculates the billing result for one day.
     shared_ptr<string> chargeCycle_ {};
     // The list of billing modules to be calculated.
     // 
@@ -154,17 +154,17 @@ namespace Models
     // The metering unit.
     shared_ptr<string> chargeUnit_ {};
     // The billing method of the instance. Valid values:
-    // - **POSTPAY**: pay-as-you-go WAF instances
+    // - **POSTPAY**: pay-as-you-go WAF instances.
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
     // The region of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland
+    // - **cn-hangzhou**: the Chinese mainland.
     // 
-    // - **ap-southeast-1**: outside the Chinese mainland
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

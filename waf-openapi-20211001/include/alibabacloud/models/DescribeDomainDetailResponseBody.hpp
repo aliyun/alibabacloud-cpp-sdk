@@ -126,7 +126,7 @@ namespace Models
     protected:
       // The common name (CN).
       shared_ptr<string> commonName_ {};
-      // The time when the certificate expires. The value is a UNIX timestamp in UTC. Unit: milliseconds.
+      // The time when the certificate expires. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The ID of the SSL certificate.
       shared_ptr<string> id_ {};
@@ -134,7 +134,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // All domain names bound to the certificate.
       shared_ptr<vector<string>> sans_ {};
-      // The effective period of the certificate. The format is a UNIX timestamp in UTC. Unit: milliseconds.
+      // The effective period of the certificate. The format is a UNIX timestamp (UTC time) in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -142,6 +142,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Redirect& obj) { 
         DARABONBA_PTR_TO_JSON(BackUpBackendList, backUpBackendList_);
+        DARABONBA_PTR_TO_JSON(BackendConfig, backendConfig_);
         DARABONBA_PTR_TO_JSON(BackendList, backendList_);
         DARABONBA_PTR_TO_JSON(BackendPorts, backendPorts_);
         DARABONBA_PTR_TO_JSON(Backends, backends_);
@@ -170,6 +171,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Redirect& obj) { 
         DARABONBA_PTR_FROM_JSON(BackUpBackendList, backUpBackendList_);
+        DARABONBA_PTR_FROM_JSON(BackendConfig, backendConfig_);
         DARABONBA_PTR_FROM_JSON(BackendList, backendList_);
         DARABONBA_PTR_FROM_JSON(BackendPorts, backendPorts_);
         DARABONBA_PTR_FROM_JSON(Backends, backends_);
@@ -247,7 +249,7 @@ namespace Models
       protected:
         // The specified custom request header field.
         shared_ptr<string> key_ {};
-        // The value set for the specified custom request header field.
+        // The value of the specified custom request header field.
         shared_ptr<string> value_ {};
       };
 
@@ -372,12 +374,57 @@ namespace Models
         shared_ptr<string> protocol_ {};
       };
 
+      class BackendConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const BackendConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(Backend, backend_);
+          DARABONBA_PTR_TO_JSON(Weight, weight_);
+        };
+        friend void from_json(const Darabonba::Json& j, BackendConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(Backend, backend_);
+          DARABONBA_PTR_FROM_JSON(Weight, weight_);
+        };
+        BackendConfig() = default ;
+        BackendConfig(const BackendConfig &) = default ;
+        BackendConfig(BackendConfig &&) = default ;
+        BackendConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~BackendConfig() = default ;
+        BackendConfig& operator=(const BackendConfig &) = default ;
+        BackendConfig& operator=(BackendConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->backend_ == nullptr
+        && this->weight_ == nullptr; };
+        // backend Field Functions 
+        bool hasBackend() const { return this->backend_ != nullptr;};
+        void deleteBackend() { this->backend_ = nullptr;};
+        inline string getBackend() const { DARABONBA_PTR_GET_DEFAULT(backend_, "") };
+        inline BackendConfig& setBackend(string backend) { DARABONBA_PTR_SET_VALUE(backend_, backend) };
+
+
+        // weight Field Functions 
+        bool hasWeight() const { return this->weight_ != nullptr;};
+        void deleteWeight() { this->weight_ = nullptr;};
+        inline int32_t getWeight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
+        inline BackendConfig& setWeight(int32_t weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
+
+
+      protected:
+        // The origin server.
+        shared_ptr<string> backend_ {};
+        // The weight.
+        shared_ptr<int32_t> weight_ {};
+      };
+
       virtual bool empty() const override { return this->backUpBackendList_ == nullptr
-        && this->backendList_ == nullptr && this->backendPorts_ == nullptr && this->backends_ == nullptr && this->backupBackends_ == nullptr && this->connectTimeout_ == nullptr
-        && this->focusHttpBackend_ == nullptr && this->http2Origin_ == nullptr && this->http2OriginMaxConcurrency_ == nullptr && this->keepalive_ == nullptr && this->keepaliveRequests_ == nullptr
-        && this->keepaliveTimeout_ == nullptr && this->loadbalance_ == nullptr && this->maxBodySize_ == nullptr && this->proxyProtocol_ == nullptr && this->readTimeout_ == nullptr
-        && this->requestHeaders_ == nullptr && this->retry_ == nullptr && this->sniEnabled_ == nullptr && this->sniHost_ == nullptr && this->WLProxyClientIp_ == nullptr
-        && this->webServerType_ == nullptr && this->writeTimeout_ == nullptr && this->XClientIp_ == nullptr && this->XTrueIp_ == nullptr && this->xffProto_ == nullptr; };
+        && this->backendConfig_ == nullptr && this->backendList_ == nullptr && this->backendPorts_ == nullptr && this->backends_ == nullptr && this->backupBackends_ == nullptr
+        && this->connectTimeout_ == nullptr && this->focusHttpBackend_ == nullptr && this->http2Origin_ == nullptr && this->http2OriginMaxConcurrency_ == nullptr && this->keepalive_ == nullptr
+        && this->keepaliveRequests_ == nullptr && this->keepaliveTimeout_ == nullptr && this->loadbalance_ == nullptr && this->maxBodySize_ == nullptr && this->proxyProtocol_ == nullptr
+        && this->readTimeout_ == nullptr && this->requestHeaders_ == nullptr && this->retry_ == nullptr && this->sniEnabled_ == nullptr && this->sniHost_ == nullptr
+        && this->WLProxyClientIp_ == nullptr && this->webServerType_ == nullptr && this->writeTimeout_ == nullptr && this->XClientIp_ == nullptr && this->XTrueIp_ == nullptr
+        && this->xffProto_ == nullptr; };
       // backUpBackendList Field Functions 
       bool hasBackUpBackendList() const { return this->backUpBackendList_ != nullptr;};
       void deleteBackUpBackendList() { this->backUpBackendList_ = nullptr;};
@@ -385,6 +432,15 @@ namespace Models
       inline vector<string> getBackUpBackendList() { DARABONBA_PTR_GET(backUpBackendList_, vector<string>) };
       inline Redirect& setBackUpBackendList(const vector<string> & backUpBackendList) { DARABONBA_PTR_SET_VALUE(backUpBackendList_, backUpBackendList) };
       inline Redirect& setBackUpBackendList(vector<string> && backUpBackendList) { DARABONBA_PTR_SET_RVALUE(backUpBackendList_, backUpBackendList) };
+
+
+      // backendConfig Field Functions 
+      bool hasBackendConfig() const { return this->backendConfig_ != nullptr;};
+      void deleteBackendConfig() { this->backendConfig_ = nullptr;};
+      inline const vector<Redirect::BackendConfig> & getBackendConfig() const { DARABONBA_PTR_GET_CONST(backendConfig_, vector<Redirect::BackendConfig>) };
+      inline vector<Redirect::BackendConfig> getBackendConfig() { DARABONBA_PTR_GET(backendConfig_, vector<Redirect::BackendConfig>) };
+      inline Redirect& setBackendConfig(const vector<Redirect::BackendConfig> & backendConfig) { DARABONBA_PTR_SET_VALUE(backendConfig_, backendConfig) };
+      inline Redirect& setBackendConfig(vector<Redirect::BackendConfig> && backendConfig) { DARABONBA_PTR_SET_RVALUE(backendConfig_, backendConfig) };
 
 
       // backendList Field Functions 
@@ -575,31 +631,33 @@ namespace Models
     protected:
       // The list of IP addresses of secondary origin servers or back-to-origin domain names for the domain name.
       shared_ptr<vector<string>> backUpBackendList_ {};
+      // The custom back-to-origin configurations.
+      shared_ptr<vector<Redirect::BackendConfig>> backendConfig_ {};
       // The list of IP addresses of the origin servers or back-to-origin domain names of the servers for the domain name.
       shared_ptr<vector<string>> backendList_ {};
-      // The custom port configurations. By default, the ports are the same as the listening ports.
+      // The custom port configurations. By default, the configurations are the same as the listening ports.
       shared_ptr<vector<Redirect::BackendPorts>> backendPorts_ {};
       // The back-to-origin addresses for the domain name.
       // 
-      // > This parameter will be deprecated. We recommend that you use **BackendList** to obtain the relevant information.
+      // > This parameter will be deprecated soon. We recommend that you use **BackendList** to obtain the relevant information.
       shared_ptr<vector<Redirect::Backends>> backends_ {};
       // The secondary back-to-origin addresses for the domain name.
       // 
-      // > This parameter will be deprecated. We recommend that you use **BackUpBackendList** to obtain the relevant information.
+      // > This parameter will be deprecated soon. We recommend that you use **BackUpBackendList** to obtain the relevant information.
       shared_ptr<vector<Redirect::BackupBackends>> backupBackends_ {};
       // The connection timeout period, in seconds. Valid values: 5 to 120.
       shared_ptr<int32_t> connectTimeout_ {};
-      // Specifies whether forcible back-to-origin routing over HTTP is enabled. Valid values:
+      // Specifies whether forcible HTTP back-to-origin routing is enabled. Valid values:
       // 
-      // - **true**: Forcible back-to-origin routing over HTTP is enabled.
+      // - **true**: Forcible HTTP back-to-origin routing is enabled.
       // 
-      // - **false**: Forcible back-to-origin routing over HTTP is not enabled.
+      // - **false**: Forcible HTTP back-to-origin routing is not enabled.
       shared_ptr<bool> focusHttpBackend_ {};
       // The HTTP/2 back-to-origin configuration.
       shared_ptr<bool> http2Origin_ {};
       // The maximum number of concurrent connections for HTTP/2 back-to-origin routing.
       shared_ptr<int32_t> http2OriginMaxConcurrency_ {};
-      // Specifies whether to maintain persistent connections. Valid values:
+      // Specifies whether persistent connections are maintained. Valid values:
       // 
       // - **true**: Persistent connections are maintained. This is the default value.
       // 
@@ -607,25 +665,26 @@ namespace Models
       shared_ptr<bool> keepalive_ {};
       // The number of requests that reuse a persistent connection. Valid values: 60 to 1000.
       // 
-      // > This parameter specifies the number of requests that can reuse a persistent connection after persistent connections are enabled.
+      // > This parameter specifies the number of persistent connections that can be reused after persistent connections are enabled.
       shared_ptr<int32_t> keepaliveRequests_ {};
-      // The timeout period for idle persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+      // The timeout period for idle persistent connections, in seconds. Valid values: 1 to 60. Default value: 15.
       // 
-      // > This parameter specifies the duration after which an idle persistent connection is released.
+      // > This parameter specifies the duration after which an idle reused persistent connection is released.
       shared_ptr<int32_t> keepaliveTimeout_ {};
       // The load balancing algorithm used for back-to-origin routing. Valid values:
       // 
-      // - **iphash**: IP hash algorithm.
+      // - **iphash**: IP hash algorithm
       // 
-      //  - **roundRobin**: Round-robin algorithm.
+      // - **roundRobin**: round-robin algorithm
       // 
-      // - **leastTime**: Least time algorithm.
+      // - **leastTime**: least time algorithm
       shared_ptr<string> loadbalance_ {};
-      // The maximum request body size. Valid values: 2 to 10. Default value: 2. Unit: GB.
-      // > This parameter is supported only by the Ultimate Edition.
+      // The maximum request body size, in GB. Valid values: 2 to 10. Default value: 2.
+      // 
+      // > This feature is supported only by the Enterprise Edition.
       shared_ptr<int32_t> maxBodySize_ {};
       // Specifies whether the feature to preserve the originating IP address of the client is enabled. Valid values:
-      // - **true**: The feature is enabled. After this feature is enabled, backend services can view the originating IP address of the client.
+      // - **true**: The feature is enabled. After this feature is enabled, backend services can view the original IP address of the client.
       // - **false**: The feature is not enabled.
       shared_ptr<bool> proxyProtocol_ {};
       // The read timeout period, in seconds. Valid values: 5 to 1800.
@@ -672,7 +731,7 @@ namespace Models
       // 
       // - **false**: WAF is not allowed to overwrite the header.
       shared_ptr<bool> XTrueIp_ {};
-      // Specifies whether the X-Forwarded-Proto header passes the protocol used by WAF. Valid values:
+      // Specifies whether the X-Forwarded-Proto header is used to pass the protocol used by WAF. Valid values:
       // 
       // - **true**: The protocol used by WAF is passed. This is the default value.
       // 
@@ -895,11 +954,11 @@ namespace Models
       shared_ptr<string> certId_ {};
       // The cipher suite type. Valid values:
       // 
-      // - **1**: All cipher suites.
+      // - **1**: All cipher suites are added.
       // 
-      // - **2**: Strong cipher suites. This value is available only when TLSVersion is set to tlsv1.2.
+      // - **2**: Strong cipher suites are added. This value is available only when TLSVersion is set to tlsv1.2.
       // 
-      // - **99**: Custom cipher suites. This value is available only when TLSVersion is not set to tlsv1.3.
+      // - **99**: Custom cipher suites are added. This value is available only when TLSVersion is not set to tlsv1.3.
       shared_ptr<int64_t> cipherSuite_ {};
       // The custom cipher suites.
       shared_ptr<vector<string>> customCiphers_ {};
@@ -917,11 +976,11 @@ namespace Models
       // 
       // - **false**: An exclusive IP address is not enabled.
       shared_ptr<bool> exclusiveIp_ {};
-      // Specifies whether forcible redirect to HTTPS is enabled. Valid values:
+      // Specifies whether forcible HTTPS redirects are enabled. Valid values:
       // 
-      // - **true**: Forcible redirect to HTTPS is enabled.
+      // - **true**: Forcible HTTPS redirects are enabled.
       // 
-      // - **false**: Forcible redirect to HTTPS is not enabled.
+      // - **false**: Forcible HTTPS redirects are not enabled.
       shared_ptr<bool> focusHttps_ {};
       // Specifies whether HTTP Strict Transport Security (HSTS) includes subdomains. Valid values:
       // 
@@ -953,23 +1012,23 @@ namespace Models
       shared_ptr<bool> IPv6Enabled_ {};
       // The type of protection resource to be used. Valid values:
       // 
-      // - **share**: Shared cluster.
+      // - **share**: shared cluster
       // 
-      // - **gslb**: Intelligent load balancing for shared clusters.
+      // - **gslb**: shared cluster with intelligent load balancing
       shared_ptr<string> protectionResource_ {};
-      // Specifies whether only SM2 clients are allowed to access. This parameter is used only when SM2Enabled is set to true. Valid values:
+      // Specifies whether only SM clients are allowed to access the domain name. This parameter is used only when SM2Enabled is set to true. Valid values:
       // 
-      // - **true**: Only SM2 clients can access.
+      // - **true**: Only SM clients are allowed to access the domain name.
       // 
-      // - **false**: Both SM2 and non-SM2 clients can access.
+      // - **false**: Both SM and non-SM clients are allowed to access the domain name.
       shared_ptr<bool> SM2AccessOnly_ {};
-      // The ID of the SM2 certificate to be added. This parameter is used only when SM2Enabled is set to true.
+      // The ID of the SM certificate to be added. This parameter is used only when SM2Enabled is set to true.
       shared_ptr<string> SM2CertId_ {};
-      // Specifies whether the SM2 certificate is enabled. Valid values:
+      // Specifies whether SM certificates are enabled. Valid values:
       // 
-      // - **true**: The SM2 certificate is enabled.
+      // - **true**: SM certificates are enabled.
       // 
-      // - **false**: The SM2 certificate is not enabled.
+      // - **false**: SM certificates are not enabled.
       shared_ptr<bool> SM2Enabled_ {};
       // The TLS version. Valid values:
       // 
@@ -983,13 +1042,13 @@ namespace Models
       shared_ptr<string> TLSVersion_ {};
       // The method used by WAF to obtain the actual IP address of the client. Valid values:
       // 
-      // - **0**: The client access traffic is not forwarded by other Layer 7 proxies before reaching WAF.
+      // - **0**: The client access traffic is not forwarded by other Layer 7 proxies before it reaches WAF.
       // 
       // - **1**: WAF reads the first value of the X-Forwarded-For (XFF) field in the request header as the client IP address.
       // 
       // - **2**: WAF reads the value of a custom field that you specified in the request header as the client IP address.
       // 
-      // - **3**: WAF reads the Client IP in the Proxy Protocol header as the client IP address.
+      // - **3**: WAF reads the Client IP address in the Proxy Protocol header as the client IP address.
       shared_ptr<int64_t> xffHeaderMode_ {};
       // The list of custom fields used to obtain the client IP address.
       shared_ptr<vector<string>> xffHeaders_ {};
@@ -1073,7 +1132,7 @@ namespace Models
     protected:
       // The common name (CN).
       shared_ptr<string> commonName_ {};
-      // The time when the certificate expires. The value is a UNIX timestamp in UTC. Unit: milliseconds.
+      // The time when the certificate expires. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The ID of the SSL certificate.
       shared_ptr<string> id_ {};
@@ -1081,7 +1140,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // All domain names bound to the certificate.
       shared_ptr<vector<string>> sans_ {};
-      // The effective period of the certificate. The format is a UNIX timestamp in UTC. Unit: milliseconds.
+      // The effective period of the certificate. The format is a UNIX timestamp (UTC time) in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 

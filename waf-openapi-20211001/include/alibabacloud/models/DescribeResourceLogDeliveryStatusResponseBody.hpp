@@ -88,20 +88,20 @@ namespace Models
 
 
     protected:
-      // The name of the delivery configuration.
+      // The name of the log forwarding configuration.
       shared_ptr<string> deliveryName_ {};
-      // The delivery type of the protected object. Valid values:
+      // The log forwarding type for the protected object. Valid values:
       // 
-      // - **syslog**: delivered to a syslog service.
-      // - **kafka**: delivered to a Kafka service.
+      // - **syslog**: syslog service.
+      // - **kafka**: Kafka service.
       shared_ptr<string> deliveryType_ {};
       // The protected object.
       shared_ptr<string> resource_ {};
       // The log delivery status of the protected object. Valid values:
       // 
-      // - **true**: enabled.
+      // - **true**: Enabled.
       // 
-      // - **false**: disabled.
+      // - **false**: shutdown.
       shared_ptr<bool> status_ {};
     };
 
@@ -124,7 +124,7 @@ namespace Models
 
 
   protected:
-    // The list of log delivery configurations for protected objects.
+    // The log forwarding configurations for the protected objects.
     shared_ptr<vector<DescribeResourceLogDeliveryStatusResponseBody::LogConfigs>> logConfigs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

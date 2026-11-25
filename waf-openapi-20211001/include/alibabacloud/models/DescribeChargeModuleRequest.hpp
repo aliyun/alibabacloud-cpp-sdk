@@ -66,20 +66,20 @@ namespace Models
 
 
   protected:
-    // The pricing unit.
+    // The billing unit.
     shared_ptr<string> chargeUnit_ {};
-    // The billing type of the instance. Valid values:
-    // - **POSTPAY**: pay-as-you-go WAF instance.
+    // The billing method of the instance. Valid values:
+    // - **POSTPAY**: pay-as-you-go WAF instances.
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region of the WAF instance. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

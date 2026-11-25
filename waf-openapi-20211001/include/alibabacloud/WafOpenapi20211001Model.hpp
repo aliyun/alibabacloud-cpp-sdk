@@ -669,6 +669,7 @@
 #include <alibabacloud/models/ModifyDefenseResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/ModifyDefenseResourceGroupResponse.hpp>
 #include <alibabacloud/models/ModifyDefenseResourceXffRequest.hpp>
+#include <alibabacloud/models/ModifyDefenseResourceXffShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyDefenseResourceXffResponseBody.hpp>
 #include <alibabacloud/models/ModifyDefenseResourceXffResponse.hpp>
 #include <alibabacloud/models/ModifyDefenseRuleRequest.hpp>

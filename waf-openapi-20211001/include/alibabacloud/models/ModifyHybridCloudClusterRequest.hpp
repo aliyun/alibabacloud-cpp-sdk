@@ -188,8 +188,8 @@ namespace Models
   protected:
     // The network access mode. Valid values:
     // 
-    // - **internet**: public network access.
-    // - **vpc**: Express Connect private network access.
+    // - **internet**: Internet access.
+    // - **vpc**: Private network access over Express Connect.
     // 
     // This parameter is required.
     shared_ptr<string> accessMode_ {};
@@ -202,11 +202,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterName_ {};
-    // The list of available ports for the HTTP protocol. The value is a string. If multiple ports are specified, they are returned in the format of **port1,port2,port3**.
+    // The list of available ports for the HTTP protocol. The value is a string. For multiple ports, use the **port1,port2,port3** format.
     // 
     // This parameter is required.
     shared_ptr<string> httpPorts_ {};
-    // The list of available ports for the HTTPS protocol. The value is a string. If multiple ports are specified, they are returned in the format of **port1,port2,port3**.
+    // The list of available ports for the HTTPS protocol. The value is a string. For multiple ports, use the **port1,port2,port3** format.
     // 
     // This parameter is required.
     shared_ptr<string> httpsPorts_ {};
@@ -220,7 +220,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The log fields to be returned.
+    // The log fields that are not returned.
     shared_ptr<string> logFieldsNotReturned_ {};
     // The number of protection nodes that can be added to the cluster.
     // 
@@ -228,32 +228,32 @@ namespace Models
     shared_ptr<int32_t> protectionServerCount_ {};
     // The proxy gateway mode. Valid values:
     // 
-    // - on: enabled.
-    // - off: disabled.
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> proxyStatus_ {};
     // The cluster type. Valid values:
-    // - **cname**: reverse proxy cluster.
-    // - **service**: service-based cluster.
+    // - **cname**: Reverse proxy cluster.
+    // - **service**: Service cluster.
     shared_ptr<string> proxyType_ {};
     // The region where the WAF instance resides. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
+    // - **cn-hangzhou**: The Chinese mainland.
     // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // - **ap-southeast-1**: Outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The remarks.
+    // The remark.
     shared_ptr<string> remark_ {};
     // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The rule configuration.
     shared_ptr<string> ruleConfig_ {};
     // The rule status. Valid values:
-    // - **on**: enabled.
-    // - **off**: disabled.
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> ruleStatus_ {};
     // The rule type. Valid values:
     // 
-    // bypass: bypasses security checks and directly allows the request.
+    // bypass: Skips security checks and directly allows traffic.
     shared_ptr<string> ruleType_ {};
   };
 

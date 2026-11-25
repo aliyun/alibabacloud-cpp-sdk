@@ -62,9 +62,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The names of the protected objects.
+    // The names of the protection objects.
     shared_ptr<vector<string>> resources_ {};
-    // The total number of entries returned.
+    // The total number of returned results.
     shared_ptr<int64_t> totalCount_ {};
   };
 

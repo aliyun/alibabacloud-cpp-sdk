@@ -963,9 +963,9 @@ CreateDefenseTemplateResponse Client::createDefenseTemplate(const CreateDefenseT
 /**
  * @summary Adds a website config to a WAF instance for protection.
  *
- * @description Before you call this operation, the domain name (**Domain**) must meet the following requirements:
- * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
- * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
+ * @description Before you call this operation, the domain name (**Domain**) must meet the following requirements.
+ * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
+ * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
  *
  * @param tmpReq CreateDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1036,9 +1036,9 @@ CreateDomainResponse Client::createDomainWithOptions(const CreateDomainRequest &
 /**
  * @summary Adds a website config to a WAF instance for protection.
  *
- * @description Before you call this operation, the domain name (**Domain**) must meet the following requirements:
- * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
- * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
+ * @description Before you call this operation, the domain name (**Domain**) must meet the following requirements.
+ * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
+ * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
  *
  * @param request CreateDomainRequest
  * @return CreateDomainResponse
@@ -3497,7 +3497,7 @@ DescribeAlarmBannerResponse Client::describeAlarmBanner(const DescribeAlarmBanne
 }
 
 /**
- * @summary Queries a list of alerts.
+ * @summary Queries the alert list.
  *
  * @param request DescribeAlarmListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3536,7 +3536,7 @@ DescribeAlarmListResponse Client::describeAlarmListWithOptions(const DescribeAla
 }
 
 /**
- * @summary Queries a list of alerts.
+ * @summary Queries the alert list.
  *
  * @param request DescribeAlarmListRequest
  * @return DescribeAlarmListResponse
@@ -4133,7 +4133,7 @@ DescribeApisecEventDomainStatisticResponse Client::describeApisecEventDomainStat
 }
 
 /**
- * @summary Queries the list of API security events.
+ * @summary Queries API security events.
  *
  * @param request DescribeApisecEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4248,7 +4248,7 @@ DescribeApisecEventsResponse Client::describeApisecEventsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the list of API security events.
+ * @summary Queries API security events.
  *
  * @param request DescribeApisecEventsRequest
  * @return DescribeApisecEventsResponse
@@ -5451,7 +5451,7 @@ DescribeCertsResponse Client::describeCerts(const DescribeCertsRequest &request)
 }
 
 /**
- * @summary Queries the pricing module information of WAF.
+ * @summary Queries the billing module information of WAF.
  *
  * @param request DescribeChargeModuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5494,7 +5494,7 @@ DescribeChargeModuleResponse Client::describeChargeModuleWithOptions(const Descr
 }
 
 /**
- * @summary Queries the pricing module information of WAF.
+ * @summary Queries the billing module information of WAF.
  *
  * @param request DescribeChargeModuleRequest
  * @return DescribeChargeModuleResponse
@@ -5505,7 +5505,7 @@ DescribeChargeModuleResponse Client::describeChargeModule(const DescribeChargeMo
 }
 
 /**
- * @summary Queries the billing results of WAF billing modules.
+ * @summary Queries the pricing results of WAF billing modules.
  *
  * @param request DescribeChargeResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5556,7 +5556,7 @@ DescribeChargeResultResponse Client::describeChargeResultWithOptions(const Descr
 }
 
 /**
- * @summary Queries the billing results of WAF billing modules.
+ * @summary Queries the pricing results of WAF billing modules.
  *
  * @param request DescribeChargeResultRequest
  * @return DescribeChargeResultResponse
@@ -6139,7 +6139,7 @@ DescribeDefaultHttpsResponse Client::describeDefaultHttps(const DescribeDefaultH
 }
 
 /**
- * @summary Queries a paginated list of protected objects that can be associated with a defense group.
+ * @summary Queries the protection objects to associate with a protection group by using a paged query with paging.
  *
  * @param request DescribeDefenseGroupValidResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6194,7 +6194,7 @@ DescribeDefenseGroupValidResourcesResponse Client::describeDefenseGroupValidReso
 }
 
 /**
- * @summary Queries a paginated list of protected objects that can be associated with a defense group.
+ * @summary Queries the protection objects to associate with a protection group by using a paged query with paging.
  *
  * @param request DescribeDefenseGroupValidResourcesRequest
  * @return DescribeDefenseGroupValidResourcesResponse
@@ -6205,7 +6205,7 @@ DescribeDefenseGroupValidResourcesResponse Client::describeDefenseGroupValidReso
 }
 
 /**
- * @summary Query a single protected object.
+ * @summary Queries a single protected object.
  *
  * @param request DescribeDefenseResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6248,7 +6248,7 @@ DescribeDefenseResourceResponse Client::describeDefenseResourceWithOptions(const
 }
 
 /**
- * @summary Query a single protected object.
+ * @summary Queries a single protected object.
  *
  * @param request DescribeDefenseResourceRequest
  * @return DescribeDefenseResourceResponse
@@ -6635,7 +6635,7 @@ DescribeDefenseResourceTemplatesResponse Client::describeDefenseResourceTemplate
 }
 
 /**
- * @summary Queries protected objects by paging.
+ * @summary Performs a paged query of protected objects by using paging.
  *
  * @param request DescribeDefenseResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6690,7 +6690,7 @@ DescribeDefenseResourcesResponse Client::describeDefenseResourcesWithOptions(con
 }
 
 /**
- * @summary Queries protected objects by paging.
+ * @summary Performs a paged query of protected objects by using paging.
  *
  * @param request DescribeDefenseResourcesRequest
  * @return DescribeDefenseResourcesResponse
@@ -7307,7 +7307,7 @@ DescribeDomainDNSRecordResponse Client::describeDomainDNSRecord(const DescribeDo
 }
 
 /**
- * @summary Queries the details of the website config.
+ * @summary Queries the details of a website configuration.
  *
  * @param request DescribeDomainDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7350,7 +7350,7 @@ DescribeDomainDetailResponse Client::describeDomainDetailWithOptions(const Descr
 }
 
 /**
- * @summary Queries the details of the website config.
+ * @summary Queries the details of a website configuration.
  *
  * @param request DescribeDomainDetailRequest
  * @return DescribeDomainDetailResponse
@@ -7925,9 +7925,9 @@ DescribeFreeUserEventsResponse Client::describeFreeUserEvents(const DescribeFree
 }
 
 /**
- * @summary Queries the system status of hybrid cloud cluster nodes.
+ * @summary Queries the system status of nodes in a hybrid cloud cluster.
  *
- * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+ * @description Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.HybridCloud parameter in the response is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
  *
  * @param request DescribeHybridCloudBasicMonitorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7970,9 +7970,9 @@ DescribeHybridCloudBasicMonitorResponse Client::describeHybridCloudBasicMonitorW
 }
 
 /**
- * @summary Queries the system status of hybrid cloud cluster nodes.
+ * @summary Queries the system status of nodes in a hybrid cloud cluster.
  *
- * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+ * @description Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.HybridCloud parameter in the response is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
  *
  * @param request DescribeHybridCloudBasicMonitorRequest
  * @return DescribeHybridCloudBasicMonitorResponse
@@ -7983,9 +7983,9 @@ DescribeHybridCloudBasicMonitorResponse Client::describeHybridCloudBasicMonitor(
 }
 
 /**
- * @summary Retrieves the rule information of a hybrid cloud cluster.
+ * @summary Retrieves the hybrid cloud cluster rule information.
  *
- * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+ * @description Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.HybridCloud parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
  *
  * @param request DescribeHybridCloudClusterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8012,9 +8012,9 @@ DescribeHybridCloudClusterRuleResponse Client::describeHybridCloudClusterRuleWit
 }
 
 /**
- * @summary Retrieves the rule information of a hybrid cloud cluster.
+ * @summary Retrieves the hybrid cloud cluster rule information.
  *
- * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+ * @description Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.HybridCloud parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
  *
  * @param request DescribeHybridCloudClusterRuleRequest
  * @return DescribeHybridCloudClusterRuleResponse
@@ -10037,7 +10037,7 @@ DescribeResourceInstanceCertsResponse Client::describeResourceInstanceCerts(cons
 /**
  * @summary Queries the log delivery status of protected objects.
  *
- * @description Before calling this operation, make sure that the WAF instance has hybrid cloud extension nodes purchased. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloudNodeExtend is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
+ * @description Before calling this operation, ensure that you have purchased hybrid cloud extension nodes for your Web Application Firewall (WAF) instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned value of the Details.HybridCloudNodeExtend parameter is greater than 0, hybrid cloud extension nodes have been purchased. Otherwise, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
  *
  * @param request DescribeResourceLogDeliveryStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10082,7 +10082,7 @@ DescribeResourceLogDeliveryStatusResponse Client::describeResourceLogDeliverySta
 /**
  * @summary Queries the log delivery status of protected objects.
  *
- * @description Before calling this operation, make sure that the WAF instance has hybrid cloud extension nodes purchased. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloudNodeExtend is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
+ * @description Before calling this operation, ensure that you have purchased hybrid cloud extension nodes for your Web Application Firewall (WAF) instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned value of the Details.HybridCloudNodeExtend parameter is greater than 0, hybrid cloud extension nodes have been purchased. Otherwise, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
  *
  * @param request DescribeResourceLogDeliveryStatusRequest
  * @return DescribeResourceLogDeliveryStatusResponse
@@ -10093,7 +10093,7 @@ DescribeResourceLogDeliveryStatusResponse Client::describeResourceLogDeliverySta
 }
 
 /**
- * @summary Queries the log field configuration for a protected object.
+ * @summary Queries the log field configuration of a protected object.
  *
  * @param request DescribeResourceLogFieldConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10140,7 +10140,7 @@ DescribeResourceLogFieldConfigResponse Client::describeResourceLogFieldConfigWit
 }
 
 /**
- * @summary Queries the log field configuration for a protected object.
+ * @summary Queries the log field configuration of a protected object.
  *
  * @param request DescribeResourceLogFieldConfigRequest
  * @return DescribeResourceLogFieldConfigResponse
@@ -12169,7 +12169,7 @@ DescribeThreatEventDetailResponse Client::describeThreatEventDetail(const Descri
 }
 
 /**
- * @summary Queries the top 5 statistics of security events aggregated by different statistical objects and sorted in descending order.
+ * @summary Queries the top 5 statistics for security events, aggregated and sorted in descending order based on different metrics.
  *
  * @param request DescribeThreatEventTopMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12216,7 +12216,7 @@ DescribeThreatEventTopMetricResponse Client::describeThreatEventTopMetricWithOpt
 }
 
 /**
- * @summary Queries the top 5 statistics of security events aggregated by different statistical objects and sorted in descending order.
+ * @summary Queries the top 5 statistics for security events, aggregated and sorted in descending order based on different metrics.
  *
  * @param request DescribeThreatEventTopMetricRequest
  * @return DescribeThreatEventTopMetricResponse
@@ -12831,7 +12831,7 @@ DescribeUserWafLogStatusResponse Client::describeUserWafLogStatus(const Describe
 }
 
 /**
- * @summary Queries the domain ownership verification content of a Web Application Firewall (WAF) instance.
+ * @summary Queries the ownership verification content.
  *
  * @param request DescribeVerifyContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12870,7 +12870,7 @@ DescribeVerifyContentResponse Client::describeVerifyContentWithOptions(const Des
 }
 
 /**
- * @summary Queries the domain ownership verification content of a Web Application Firewall (WAF) instance.
+ * @summary Queries the ownership verification content.
  *
  * @param request DescribeVerifyContentRequest
  * @return DescribeVerifyContentResponse
@@ -13755,7 +13755,7 @@ ModifyApisecLogDeliveryStatusResponse Client::modifyApisecLogDeliveryStatus(cons
 /**
  * @summary Modifies the status of protected objects or protected object groups for the API security protection module.
  *
- * @description Before calling this operation, make sure that protected objects or protected object groups already exist. For protected objects that have been added to WAF, call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query their names. For created protected object groups, call the [DescribeDefenseResourceGroups](https://help.aliyun.com/document_detail/2773860.html) operation to query them. If no protected object group has been created, call the [CreateDefenseResourceGroup](https://help.aliyun.com/document_detail/461739.html) operation to create one first.
+ * @description Before calling this operation, ensure that protected objects or protected object groups exist. For protected objects added to WAF, you can call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query their names. For existing protected object groups, you can call the [DescribeDefenseResourceGroups](https://help.aliyun.com/document_detail/2773860.html) operation to query them. If no protected object group exists, you must first call the [CreateDefenseResourceGroup](https://help.aliyun.com/document_detail/461739.html) operation to create one.
  *
  * @param request ModifyApisecModuleStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13812,7 +13812,7 @@ ModifyApisecModuleStatusResponse Client::modifyApisecModuleStatusWithOptions(con
 /**
  * @summary Modifies the status of protected objects or protected object groups for the API security protection module.
  *
- * @description Before calling this operation, make sure that protected objects or protected object groups already exist. For protected objects that have been added to WAF, call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query their names. For created protected object groups, call the [DescribeDefenseResourceGroups](https://help.aliyun.com/document_detail/2773860.html) operation to query them. If no protected object group has been created, call the [CreateDefenseResourceGroup](https://help.aliyun.com/document_detail/461739.html) operation to create one first.
+ * @description Before calling this operation, ensure that protected objects or protected object groups exist. For protected objects added to WAF, you can call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query their names. For existing protected object groups, you can call the [DescribeDefenseResourceGroups](https://help.aliyun.com/document_detail/2773860.html) operation to query them. If no protected object group exists, you must first call the [CreateDefenseResourceGroup](https://help.aliyun.com/document_detail/461739.html) operation to create one.
  *
  * @param request ModifyApisecModuleStatusRequest
  * @return ModifyApisecModuleStatusResponse
@@ -14217,16 +14217,22 @@ ModifyDefenseResourceGroupResponse Client::modifyDefenseResourceGroup(const Modi
 }
 
 /**
- * @summary Modifies the client IP and cookie settings of a protected object.
+ * @summary Modifies the client IP address and cookie settings of a protected object.
  *
- * @description Before you invoke this operation, make sure that a protected object has been added to WAF. You can invoke the [CreateDomain](https://help.aliyun.com/document_detail/461413.html) operation to create a CNAME-based resource, invoke the [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) operation to create a cloud native mode resource, or invoke the [CreateDefenseResource](https://help.aliyun.com/document_detail/2930080.html) operation to create a custom protected object. You can invoke the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the protected objects that have been added to WAF.
+ * @description Before invoking this operation, make sure that a protected object is added to WAF. You can invoke the [CreateDomain](https://help.aliyun.com/document_detail/461413.html) operation to create a CNAME access resource, invoke the [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) operation to create a cloud native mode resource, or invoke the [CreateDefenseResource](https://help.aliyun.com/document_detail/2930080.html) operation to create a custom protected object. You can invoke the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the protected objects added to WAF.
  *
- * @param request ModifyDefenseResourceXffRequest
+ * @param tmpReq ModifyDefenseResourceXffRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyDefenseResourceXffResponse
  */
-ModifyDefenseResourceXffResponse Client::modifyDefenseResourceXffWithOptions(const ModifyDefenseResourceXffRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ModifyDefenseResourceXffResponse Client::modifyDefenseResourceXffWithOptions(const ModifyDefenseResourceXffRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyDefenseResourceXffShrinkRequest request = ModifyDefenseResourceXffShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCookieConfig()) {
+    request.setCookieConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCookieConfig(), "CookieConfig", "json"));
+  }
+
   json query = {};
   if (!!request.hasAcwCookieStatus()) {
     query["AcwCookieStatus"] = request.getAcwCookieStatus();
@@ -14238,6 +14244,10 @@ ModifyDefenseResourceXffResponse Client::modifyDefenseResourceXffWithOptions(con
 
   if (!!request.hasAcwV3SecureStatus()) {
     query["AcwV3SecureStatus"] = request.getAcwV3SecureStatus();
+  }
+
+  if (!!request.hasCookieConfigShrink()) {
+    query["CookieConfig"] = request.getCookieConfigShrink();
   }
 
   if (!!request.hasCustomHeaders()) {
@@ -14286,9 +14296,9 @@ ModifyDefenseResourceXffResponse Client::modifyDefenseResourceXffWithOptions(con
 }
 
 /**
- * @summary Modifies the client IP and cookie settings of a protected object.
+ * @summary Modifies the client IP address and cookie settings of a protected object.
  *
- * @description Before you invoke this operation, make sure that a protected object has been added to WAF. You can invoke the [CreateDomain](https://help.aliyun.com/document_detail/461413.html) operation to create a CNAME-based resource, invoke the [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) operation to create a cloud native mode resource, or invoke the [CreateDefenseResource](https://help.aliyun.com/document_detail/2930080.html) operation to create a custom protected object. You can invoke the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the protected objects that have been added to WAF.
+ * @description Before invoking this operation, make sure that a protected object is added to WAF. You can invoke the [CreateDomain](https://help.aliyun.com/document_detail/461413.html) operation to create a CNAME access resource, invoke the [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) operation to create a cloud native mode resource, or invoke the [CreateDefenseResource](https://help.aliyun.com/document_detail/2930080.html) operation to create a custom protected object. You can invoke the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the protected objects added to WAF.
  *
  * @param request ModifyDefenseResourceXffRequest
  * @return ModifyDefenseResourceXffResponse
@@ -14713,7 +14723,7 @@ ModifyDefenseTemplateStatusResponse Client::modifyDefenseTemplateStatus(const Mo
 }
 
 /**
- * @summary Modifies a domain name added in CNAME mode.
+ * @summary Modifies a domain name that is added to WAF in CNAME access mode.
  *
  * @param tmpReq ModifyDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14778,7 +14788,7 @@ ModifyDomainResponse Client::modifyDomainWithOptions(const ModifyDomainRequest &
 }
 
 /**
- * @summary Modifies a domain name added in CNAME mode.
+ * @summary Modifies a domain name that is added to WAF in CNAME access mode.
  *
  * @param request ModifyDomainRequest
  * @return ModifyDomainResponse
@@ -14919,7 +14929,7 @@ ModifyDomainPunishStatusResponse Client::modifyDomainPunishStatus(const ModifyDo
 /**
  * @summary Modifies cluster information.
  *
- * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the Web Application Firewall (WAF) instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+ * @description Before calling this operation, ensure that the Hybrid Cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the Hybrid Cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable it.
  *
  * @param request ModifyHybridCloudClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15016,7 +15026,7 @@ ModifyHybridCloudClusterResponse Client::modifyHybridCloudClusterWithOptions(con
 /**
  * @summary Modifies cluster information.
  *
- * @description Before calling this operation, make sure that the hybrid cloud feature is enabled for the Web Application Firewall (WAF) instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+ * @description Before calling this operation, ensure that the Hybrid Cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the Hybrid Cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable it.
  *
  * @param request ModifyHybridCloudClusterRequest
  * @return ModifyHybridCloudClusterResponse
@@ -16177,7 +16187,7 @@ ModifyUserWafLogStatusResponse Client::modifyUserWafLogStatus(const ModifyUserWa
 }
 
 /**
- * @summary Re-onboards a cloud service to WAF. This operation is used only when the protection status of the cloud service in cloud native mode is abnormal.
+ * @summary Reconnects a cloud service to WAF. This operation is applicable only when the protection status of the cloud service in cloud native mode is abnormal.
  *
  * @param request ReCreateCloudResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16232,7 +16242,7 @@ ReCreateCloudResourceResponse Client::reCreateCloudResourceWithOptions(const ReC
 }
 
 /**
- * @summary Re-onboards a cloud service to WAF. This operation is used only when the protection status of the cloud service in cloud native mode is abnormal.
+ * @summary Reconnects a cloud service to WAF. This operation is applicable only when the protection status of the cloud service in cloud native mode is abnormal.
  *
  * @param request ReCreateCloudResourceRequest
  * @return ReCreateCloudResourceResponse

@@ -45,6 +45,7 @@ namespace Models
     class Redirect : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Redirect& obj) { 
+        DARABONBA_PTR_TO_JSON(BackendConfig, backendConfig_);
         DARABONBA_PTR_TO_JSON(BackendPorts, backendPorts_);
         DARABONBA_PTR_TO_JSON(Backends, backends_);
         DARABONBA_PTR_TO_JSON(BackupBackends, backupBackends_);
@@ -73,6 +74,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(XffProto, xffProto_);
       };
       friend void from_json(const Darabonba::Json& j, Redirect& obj) { 
+        DARABONBA_PTR_FROM_JSON(BackendConfig, backendConfig_);
         DARABONBA_PTR_FROM_JSON(BackendPorts, backendPorts_);
         DARABONBA_PTR_FROM_JSON(Backends, backends_);
         DARABONBA_PTR_FROM_JSON(BackupBackends, backupBackends_);
@@ -149,9 +151,9 @@ namespace Models
 
 
       protected:
-        // The specified custom request header field.
+        // The custom request header field.
         shared_ptr<string> key_ {};
-        // The value set for the specified custom request header field.
+        // The value of the custom request header field.
         shared_ptr<string> value_ {};
       };
 
@@ -208,18 +210,72 @@ namespace Models
         shared_ptr<int32_t> listenPort_ {};
         // The protocol of the listening port. Valid values:
         // 
-        // - **http**: the protocol of the listening port is HTTP.
+        // - **http**: HTTP.
         // 
-        // - **https**: the protocol of the listening port is HTTPS.
+        // - **https**: HTTPS.
         shared_ptr<string> protocol_ {};
       };
 
-      virtual bool empty() const override { return this->backendPorts_ == nullptr
-        && this->backends_ == nullptr && this->backupBackends_ == nullptr && this->cnameEnabled_ == nullptr && this->connectTimeout_ == nullptr && this->focusHttpBackend_ == nullptr
-        && this->http2Origin_ == nullptr && this->http2OriginMaxConcurrency_ == nullptr && this->keepalive_ == nullptr && this->keepaliveRequests_ == nullptr && this->keepaliveTimeout_ == nullptr
-        && this->loadbalance_ == nullptr && this->maxBodySize_ == nullptr && this->proxyProtocol_ == nullptr && this->readTimeout_ == nullptr && this->requestHeaders_ == nullptr
-        && this->retry_ == nullptr && this->routingRules_ == nullptr && this->sniEnabled_ == nullptr && this->sniHost_ == nullptr && this->WLProxyClientIp_ == nullptr
-        && this->webServerType_ == nullptr && this->writeTimeout_ == nullptr && this->XClientIp_ == nullptr && this->XTrueIp_ == nullptr && this->xffProto_ == nullptr; };
+      class BackendConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const BackendConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(Backend, backend_);
+          DARABONBA_PTR_TO_JSON(Weight, weight_);
+        };
+        friend void from_json(const Darabonba::Json& j, BackendConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(Backend, backend_);
+          DARABONBA_PTR_FROM_JSON(Weight, weight_);
+        };
+        BackendConfig() = default ;
+        BackendConfig(const BackendConfig &) = default ;
+        BackendConfig(BackendConfig &&) = default ;
+        BackendConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~BackendConfig() = default ;
+        BackendConfig& operator=(const BackendConfig &) = default ;
+        BackendConfig& operator=(BackendConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->backend_ == nullptr
+        && this->weight_ == nullptr; };
+        // backend Field Functions 
+        bool hasBackend() const { return this->backend_ != nullptr;};
+        void deleteBackend() { this->backend_ = nullptr;};
+        inline string getBackend() const { DARABONBA_PTR_GET_DEFAULT(backend_, "") };
+        inline BackendConfig& setBackend(string backend) { DARABONBA_PTR_SET_VALUE(backend_, backend) };
+
+
+        // weight Field Functions 
+        bool hasWeight() const { return this->weight_ != nullptr;};
+        void deleteWeight() { this->weight_ = nullptr;};
+        inline int32_t getWeight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
+        inline BackendConfig& setWeight(int32_t weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
+
+
+      protected:
+        // The origin server.
+        shared_ptr<string> backend_ {};
+        // The weight.
+        shared_ptr<int32_t> weight_ {};
+      };
+
+      virtual bool empty() const override { return this->backendConfig_ == nullptr
+        && this->backendPorts_ == nullptr && this->backends_ == nullptr && this->backupBackends_ == nullptr && this->cnameEnabled_ == nullptr && this->connectTimeout_ == nullptr
+        && this->focusHttpBackend_ == nullptr && this->http2Origin_ == nullptr && this->http2OriginMaxConcurrency_ == nullptr && this->keepalive_ == nullptr && this->keepaliveRequests_ == nullptr
+        && this->keepaliveTimeout_ == nullptr && this->loadbalance_ == nullptr && this->maxBodySize_ == nullptr && this->proxyProtocol_ == nullptr && this->readTimeout_ == nullptr
+        && this->requestHeaders_ == nullptr && this->retry_ == nullptr && this->routingRules_ == nullptr && this->sniEnabled_ == nullptr && this->sniHost_ == nullptr
+        && this->WLProxyClientIp_ == nullptr && this->webServerType_ == nullptr && this->writeTimeout_ == nullptr && this->XClientIp_ == nullptr && this->XTrueIp_ == nullptr
+        && this->xffProto_ == nullptr; };
+      // backendConfig Field Functions 
+      bool hasBackendConfig() const { return this->backendConfig_ != nullptr;};
+      void deleteBackendConfig() { this->backendConfig_ = nullptr;};
+      inline const vector<Redirect::BackendConfig> & getBackendConfig() const { DARABONBA_PTR_GET_CONST(backendConfig_, vector<Redirect::BackendConfig>) };
+      inline vector<Redirect::BackendConfig> getBackendConfig() { DARABONBA_PTR_GET(backendConfig_, vector<Redirect::BackendConfig>) };
+      inline Redirect& setBackendConfig(const vector<Redirect::BackendConfig> & backendConfig) { DARABONBA_PTR_SET_VALUE(backendConfig_, backendConfig) };
+      inline Redirect& setBackendConfig(vector<Redirect::BackendConfig> && backendConfig) { DARABONBA_PTR_SET_RVALUE(backendConfig_, backendConfig) };
+
+
       // backendPorts Field Functions 
       bool hasBackendPorts() const { return this->backendPorts_ != nullptr;};
       void deleteBackendPorts() { this->backendPorts_ = nullptr;};
@@ -411,39 +467,41 @@ namespace Models
 
 
     protected:
+      // The custom back-to-origin configurations.
+      shared_ptr<vector<Redirect::BackendConfig>> backendConfig_ {};
       // The custom port configurations.
       shared_ptr<vector<Redirect::BackendPorts>> backendPorts_ {};
-      // The IP addresses of the origin servers or the back-to-origin domain names for the domain name. You can specify either origin server IP addresses or back-to-origin domain names. If the back-to-origin address is a domain name, only IPv4 is supported. IPv6 is not supported.
+      // The IP addresses of the origin servers or the domain names to which requests are forwarded for the domain name. You can specify either IP addresses or domain names. If you specify domain names, only IPv4 addresses are supported. IPv6 addresses are not supported.
       // 
-      // - To specify origin server IP addresses, use the [**"ip1","ip2",...**] format. You can add up to 20 IP addresses.
+      // - To specify IP addresses of origin servers, use the [**"ip1","ip2",...**] format. You can add up to 20 IP addresses.
       // 
-      // - To specify back-to-origin domain names, use the [**"domain"**] format. You can add up to 20 domain names.
+      // - To specify domain names, use the [**"domain"**] format. You can add up to 20 domain names.
       shared_ptr<vector<string>> backends_ {};
-      // The IP addresses of the secondary origin servers or the secondary back-to-origin domain names for the domain name.
+      // The IP addresses of the secondary origin servers or the secondary domain names to which requests are forwarded for the domain name.
       shared_ptr<vector<string>> backupBackends_ {};
-      // Specifies whether to enable public cloud disaster recovery. Valid values:
+      // Specifies whether to enable disaster recovery on Alibaba Cloud. Valid values:
       // 
-      // - **true**: enables public cloud disaster recovery.
+      // - **true**: enables disaster recovery on Alibaba Cloud.
       // 
-      // - **false**: disables public cloud disaster recovery. This is the default value.
+      // - **false**: disables disaster recovery on Alibaba Cloud. This is the default value.
       shared_ptr<bool> cnameEnabled_ {};
       // The connection timeout period. Unit: seconds.
       // Valid values: 1 to 3600.
       // Default value: 5.
       shared_ptr<int32_t> connectTimeout_ {};
-      // Specifies whether to enable force back-to-origin over HTTP. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // Specifies whether to enable force redirect to HTTP for back-to-origin requests. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
       // 
-      // - **true**: enables force back-to-origin over HTTP.
+      // - **true**: enables force redirect to HTTP for back-to-origin requests.
       // 
-      // - **false**: disables force back-to-origin over HTTP.
+      // - **false**: disables force redirect to HTTP for back-to-origin requests.
       shared_ptr<bool> focusHttpBackend_ {};
-      // Specifies whether to enable HTTP/2 back-to-origin. Valid values:
+      // Specifies whether to enable HTTP/2 for back-to-origin requests. Valid values:
       // 
-      // - **true**: enables HTTP/2 back-to-origin.
+      // - **true**: enables HTTP/2 for back-to-origin requests.
       // 
-      // - **false**: disables HTTP/2 back-to-origin.
+      // - **false**: disables HTTP/2 for back-to-origin requests.
       shared_ptr<bool> http2Origin_ {};
-      // The maximum number of concurrent HTTP/2 back-to-origin connections. Valid values: 1 to 512. Default value: 2. Unit: connections.
+      // The maximum number of concurrent HTTP/2 back-to-origin connections. Valid values: 1 to 512. Default value: 2.
       shared_ptr<int32_t> http2OriginMaxConcurrency_ {};
       // Specifies whether to maintain persistent connections. Valid values:
       // 
@@ -451,11 +509,11 @@ namespace Models
       // 
       // - **false**: does not maintain persistent connections.
       shared_ptr<bool> keepalive_ {};
-      // The number of requests that reuse a persistent connection. Valid values: 60 to 1000. Default value: 1000. Unit: requests.
+      // The number of requests that can be reused over a persistent connection. Valid values: 60 to 1000. Default value: 1000.
       // 
-      // > This parameter specifies the number of requests that can reuse a persistent connection after persistent connections are enabled.
+      // > This parameter specifies the number of requests that can be multiplexed over a persistent connection after persistent connections are enabled.
       shared_ptr<int32_t> keepaliveRequests_ {};
-      // The timeout period for idle persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+      // The timeout period for an idle persistent connection. Valid values: 1 to 60. Default value: 15. Unit: seconds.
       // 
       // > This parameter specifies the duration after which an idle persistent connection is released.
       shared_ptr<int32_t> keepaliveTimeout_ {};
@@ -470,7 +528,7 @@ namespace Models
       // This parameter is required.
       shared_ptr<string> loadbalance_ {};
       // The maximum size of the request body. Valid values: 2 to 10. Default value: 2. Unit: GB.
-      // > This parameter is supported only by the Ultimate Edition.
+      // > This parameter is supported only by WAF Ultimate Edition.
       shared_ptr<int32_t> maxBodySize_ {};
       // Specifies whether to enable the feature of preserving the originating IP address of the client. Valid values:
       // 
@@ -484,7 +542,7 @@ namespace Models
       shared_ptr<int32_t> readTimeout_ {};
       // The traffic marking fields and values for the domain name, which are used to mark the traffic processed by WAF.
       // 
-      // By specifying custom request header fields and their corresponding values, WAF automatically adds the specified custom field values to the request headers as traffic marks when the access traffic of the domain name passes through WAF. This facilitates the collection of relevant information by backend services.
+      // By specifying custom request header fields and their values, WAF automatically adds the specified custom field values to the request headers as traffic marks when the access traffic of the domain name passes through WAF. This facilitates the collection of related information by backend services.
       shared_ptr<vector<Redirect::RequestHeaders>> requestHeaders_ {};
       // Specifies whether to retry when WAF fails to forward requests to the origin server. Valid values:
       // 
@@ -492,25 +550,25 @@ namespace Models
       // 
       // - **false**: does not retry.
       shared_ptr<bool> retry_ {};
-      // The hybrid cloud forwarding rules. The value is a string transformed from a JSON array. Each element in the JSON array is a struct that contains the following fields:
-      // - **rs**: Array | The list of back-to-origin IP addresses or back-to-origin CNAMEs.
+      // The forwarding rules for Hybrid Cloud WAF. The value is a string transformed from a JSON array. Each element in the JSON array is a struct that contains the following fields:
+      // - **rs**: Array | The list of back-to-origin IP addresses or CNAME records.
       // 
-      // - **backupRs**: Array | The list of secondary back-to-origin IP addresses or back-to-origin CNAMEs. This field is required. An empty array [] indicates that no secondary back-to-origin addresses are set.
+      // - **backupRs**: Array | The list of secondary back-to-origin IP addresses or CNAME records. This field is required. An empty array [] indicates that no secondary back-to-origin addresses are configured.
       // 
       // - **location**: String | The name of the protection node.
       // 
       // - **locationId**: Long | The ID of the protection node.
       shared_ptr<string> routingRules_ {};
-      // Specifies whether to enable back-to-origin Server Name Indication (SNI). This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // Specifies whether to enable Server Name Indication (SNI) for back-to-origin requests. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
       // 
-      // - **true**: enables back-to-origin SNI.
+      // - **true**: enables SNI for back-to-origin requests.
       // 
-      // - **false**: disables back-to-origin SNI. This is the default value.
+      // - **false**: disables SNI for back-to-origin requests. This is the default value.
       shared_ptr<bool> sniEnabled_ {};
-      // The value of the custom SNI extension field. If you do not set this parameter, the value of the **Host** field in the request header is used as the value of the SNI extension field by default.
-      // In most cases, you do not need to customize the SNI unless your service has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in the back-to-origin request.
+      // The value of the custom SNI extension field. If you do not specify this parameter, the value of the **Host** field in the request header is used as the value of the SNI extension field by default.
+      // In most cases, you do not need to customize the SNI. You can customize the SNI only when your service has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in back-to-origin requests.
       // 
-      // > You need to set this parameter only when **SniEnabled** is set to true, which indicates that a custom back-to-origin SNI is used.
+      // > You must specify this parameter only when **SniEnabled** is set to true, which indicates that a custom SNI is used for back-to-origin requests.
       shared_ptr<string> sniHost_ {};
       // Specifies whether to allow WAF to overwrite the WL-Proxy-Client-IP header. Valid values:
       // 
@@ -540,11 +598,11 @@ namespace Models
       // 
       // - **false**: does not allow WAF to overwrite the header.
       shared_ptr<bool> XTrueIp_ {};
-      // Specifies whether to pass the WAF protocol in the X-Forwarded-Proto header. Valid values:
+      // Specifies whether to pass the protocol used by WAF in the X-Forwarded-Proto header. Valid values:
       // 
-      // - **true**: passes the WAF protocol. This is the default value.
+      // - **true**: passes the protocol used by WAF. This is the default value.
       // 
-      // - **false**: does not pass the WAF protocol.
+      // - **false**: does not pass the protocol used by WAF.
       shared_ptr<bool> xffProto_ {};
     };
 
@@ -759,9 +817,9 @@ namespace Models
 
 
     protected:
-      // The ID of the certificate to add.
+      // The ID of the certificate to be added.
       shared_ptr<string> certId_ {};
-      // The type of cipher suite to add. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // The type of cipher suite to be added. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
       // 
       // - **1**: adds all cipher suites.
       // 
@@ -769,7 +827,7 @@ namespace Models
       // 
       // - **99**: adds custom cipher suites. You can select this value only when **TLSVersion** is not set to **tlsv1.3**.
       shared_ptr<int32_t> cipherSuite_ {};
-      // The custom cipher suites to add. This parameter takes effect only when **CipherSuite** is set to **99**.
+      // The custom cipher suites to be added. This parameter takes effect only when **CipherSuite** is set to **99**.
       shared_ptr<vector<string>> customCiphers_ {};
       // Specifies whether to support TLS 1.3. Valid values:
       // 
@@ -799,7 +857,7 @@ namespace Models
       shared_ptr<bool> hstsIncludeSubDomain_ {};
       // The expiration time of HSTS. Unit: seconds.
       shared_ptr<int64_t> hstsMaxAge_ {};
-      // Specifies whether to enable HSTS preload. Default value: false. Valid values:
+      // Specifies whether to enable HSTS preload. By default, this feature is disabled. Valid values:
       // - true: enables HSTS preload.
       // - false: disables HSTS preload.
       shared_ptr<bool> hstsPreload_ {};
@@ -819,33 +877,33 @@ namespace Models
       // 
       // - **false**: disables IPv6. This is the default value.
       shared_ptr<bool> IPv6Enabled_ {};
-      // The type of protection resource to use. Valid values:
+      // The type of protection resource to be used. Valid values:
       // 
       // - **share**: uses a shared cluster. This is the default value.
       // 
       // - **gslb**: uses intelligent load balancing of a shared cluster.
       shared_ptr<string> protectionResource_ {};
-      // Specifies whether to allow access only from SM2 clients. This parameter takes effect only when SM2Enabled is set to true. Valid values:
+      // Specifies whether to allow access only from clients that support SM2. This parameter takes effect only when SM2Enabled is set to true. Valid values:
       // 
-      // - true: allows access only from SM2 clients.
+      // - true: allows access only from clients that support SM2.
       // 
-      // - false: allows access from both SM2 and non-SM2 clients.
+      // - false: allows access from clients that support SM2 and clients that do not support SM2.
       shared_ptr<bool> SM2AccessOnly_ {};
-      // The ID of the SM2 certificate to add. This parameter takes effect only when SM2Enabled is set to true.
+      // The ID of the SM2 certificate to be added. This parameter takes effect only when SM2Enabled is set to true.
       shared_ptr<string> SM2CertId_ {};
       // Specifies whether to enable the SM2 certificate.
       shared_ptr<bool> SM2Enabled_ {};
-      // The TLS version to add. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // The TLS version. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
       // - **tlsv1**: supports TLS 1.0 and later. This version provides the highest compatibility but lower security.
       // - **tlsv1.1**: supports TLS 1.1 and later. This version provides good compatibility and security.
       // - **tlsv1.2**: supports TLS 1.2 and later. This version provides good compatibility and the highest security.
       // - **tlsv1.3**: supports only TLS 1.3. This version provides the highest security but lower compatibility.
       shared_ptr<string> TLSVersion_ {};
-      // The method that WAF uses to obtain the actual IP address of the client.
+      // The method for WAF to obtain the actual IP address of the client.
       shared_ptr<int32_t> xffHeaderMode_ {};
       // The list of custom fields used to obtain the client IP address. Specify the fields in the [**"header1","header2",...**] format.
       // 
-      // > You need to set this parameter only when **XffHeaderMode** is set to 2, which indicates that WAF reads the value of a custom field that you specified in the request header as the client IP address.
+      // > You must specify this parameter only when **XffHeaderMode** is set to 2, which indicates that WAF reads the value of a custom field that you specify in the request header as the client IP address.
       shared_ptr<vector<string>> xffHeaders_ {};
     };
 
@@ -910,9 +968,9 @@ namespace Models
     // 
     // - **share**: CNAME access. This is the default value.
     // 
-    // - **hybrid_cloud_cname**: hybrid cloud CNAME access.
+    // - **hybrid_cloud_cname**: Hybrid Cloud CNAME access.
     shared_ptr<string> accessType_ {};
-    // The domain name to manage.
+    // The domain name.
     shared_ptr<string> domain_ {};
     // The ID of the domain name.
     shared_ptr<string> domainId_ {};
@@ -922,11 +980,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listener settings.
+    // The listener configurations.
     // 
     // This parameter is required.
     shared_ptr<ModifyDomainRequest::Listen> listen_ {};
-    // The forwarding settings.
+    // The forwarding configurations.
     // 
     // This parameter is required.
     shared_ptr<ModifyDomainRequest::Redirect> redirect_ {};

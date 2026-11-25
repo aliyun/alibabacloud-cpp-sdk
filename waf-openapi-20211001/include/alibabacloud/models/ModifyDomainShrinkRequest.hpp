@@ -98,9 +98,9 @@ namespace Models
     // 
     // - **share**: CNAME access. This is the default value.
     // 
-    // - **hybrid_cloud_cname**: hybrid cloud CNAME access.
+    // - **hybrid_cloud_cname**: Hybrid Cloud CNAME access.
     shared_ptr<string> accessType_ {};
-    // The domain name to manage.
+    // The domain name.
     shared_ptr<string> domain_ {};
     // The ID of the domain name.
     shared_ptr<string> domainId_ {};
@@ -110,11 +110,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listener settings.
+    // The listener configurations.
     // 
     // This parameter is required.
     shared_ptr<string> listenShrink_ {};
-    // The forwarding settings.
+    // The forwarding configurations.
     // 
     // This parameter is required.
     shared_ptr<string> redirectShrink_ {};

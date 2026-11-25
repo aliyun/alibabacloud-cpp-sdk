@@ -163,7 +163,7 @@ namespace Models
 
 
       protected:
-        // The list of sources for this type.
+        // The list of sources of this type.
         shared_ptr<vector<AttackSources::Sources>> sources_ {};
         // The attack source type.
         shared_ptr<string> type_ {};
@@ -262,7 +262,7 @@ namespace Models
     protected:
       // The list of attack source groups for the request.
       shared_ptr<vector<Items::AttackSources>> attackSources_ {};
-      // The evidence ID. The value can be up to 64 ASCII characters in length.
+      // The evidence ID.
       shared_ptr<string> evidenceId_ {};
       // The host of the request.
       shared_ptr<string> host_ {};
@@ -270,32 +270,32 @@ namespace Models
       shared_ptr<int32_t> httpStatus_ {};
       // The evidence impact tag. Valid values:
       // 
-      // - **block**: The request is blocked.
+      // - **block**: Indicates that the request is blocked.
       // 
-      // - **challenge**: A challenge is triggered.
+      // - **challenge**: Indicates that the request is challenged.
       // 
-      // - **monitor**: The request is monitored.
+      // - **monitor**: Indicates that the request is monitored.
       // 
-      // - **bypass**: A suspected bypass is detected.
+      // - **bypass**: Indicates a suspected bypass.
       // 
-      // - **attempt**: Reconnaissance or probing is detected.
+      // - **attempt**: Indicates reconnaissance or probing.
       shared_ptr<string> impactType_ {};
       // The HTTP method.
       shared_ptr<string> method_ {};
-      // The ID of the associated node. This ID corresponds to the NodeId in the node list.
+      // The ID of the associated node. This corresponds to the NodeId in the node list.
       shared_ptr<string> nodeId_ {};
-      // The masked request path.
+      // The masked path of the request.
       shared_ptr<string> requestPath_ {};
-      // The time when the original request was made. The time is displayed as a UNIX timestamp in milliseconds.
+      // The time when the original request was made. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> requestTime_ {};
-      // The ID of the protected object to which the request belongs.
+      // The protected object to which the request belongs.
       shared_ptr<string> resource_ {};
-      // Indicates whether the request is a suspected bypass. Valid values:
+      // Specifies whether the request is a suspected bypass. Valid values:
       // 
-      // - **1**: The request is a suspected bypass.
-      // - **0**: The request is not a suspected bypass.
+      // - **1**: Indicates a suspected bypass.
+      // - **0**: Indicates that the request is not a bypass.
       shared_ptr<int32_t> suspectedBypass_ {};
-      // The trace ID of the original request. The value can be up to 128 ASCII characters in length.
+      // The trace ID of the original request.
       shared_ptr<string> traceId_ {};
     };
 
@@ -341,10 +341,10 @@ namespace Models
   protected:
     // The list of evidence requests.
     shared_ptr<vector<DescribeAiEngineEvidenceRequestsResponseBody::Items>> items_ {};
-    // The number of entries to return on each page in a paged query. Valid values: 1 to 100. Default value: 20.
+    // The number of entries to return on each page in a paging query. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page. If a next page exists, this field returns a value.
-    // > If this parameter returns a value, it indicates that a next page exists. You can use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
+    // > If this parameter returns a value, a next page exists. You can use the returned **NextToken** as a request parameter to retrieve the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

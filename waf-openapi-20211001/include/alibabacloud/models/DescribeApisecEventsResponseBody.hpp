@@ -293,72 +293,72 @@ namespace Models
       shared_ptr<string> apiFormat_ {};
       // The ID of the API associated with the security event.
       shared_ptr<string> apiId_ {};
-      // The business purpose of the API.
+      // The API business purpose.
       // 
       // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported business purposes.
       shared_ptr<string> apiTag_ {};
       // The attack client.
       shared_ptr<string> attackClient_ {};
-      // The attack count information, which is a string converted from a JSON object. The key is a timestamp in seconds, and the value is the number of attacks.
+      // The attack count information, converted to a string in JSON format constructed by a series of parameters. The key is a timestamp in seconds, and the value is the number of attacks.
       shared_ptr<string> attackCntInfo_ {};
-      // The attack IP address.
-      // >Notice: This parameter is deprecated. Use the AttackIps parameter instead.</notice>
+      // The attack IP address.<notice>This parameter is deprecated. Use the AttackIps parameter instead.</notice>
       shared_ptr<string> attackIp_ {};
-      // The attack IP information, which is a string converted from a JSON object constructed with the following parameters:
-      // - **ip**: the IP address.
-      // - **country_id**: the country to which the IP address belongs.
-      // - **region_id**: the region to which the IP address belongs.
-      // - **cnt**: the number of attacks.
+      // The attack IP address information, converted to a string in JSON format constructed by a series of parameters. Includes:
+      // - **ip**: The IP address.
+      // - **country_id**: The country.
+      // - **region_id**: The region.
+      // - **cnt**: The number of attacks.
       shared_ptr<string> attackIpInfo_ {};
       // The list of attack IP addresses.
       shared_ptr<vector<string>> attackIps_ {};
-      // The Attacker list associated with the event.
+      // The attacker list corresponding to the event.
       shared_ptr<vector<string>> attackerList_ {};
-      // The end time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
+      // The end time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
       shared_ptr<int64_t> endTs_ {};
       // The event ID.
       shared_ptr<string> eventId_ {};
-      // The event details, which is a string converted from a JSON object constructed with the following parameters:
-      // - **ip_info**: the attack IP information. Refer to the response parameter **AttackIpInfo** of this operation.
-      // - **rule_id**: the rule ID associated with the event.
-      // - **rule_tag**: the rule information associated with the event.
+      // The detailed event information, converted to a string in JSON format constructed by a series of parameters. Includes:
+      // - **ip_info**: The attack IP address information. You can refer to the **AttackIpInfo** response parameter of this operation.
+      // - **rule_id**: The ID of the rule corresponding to the event.
+      // - **rule_tag**: The rule information corresponding to the event.
       shared_ptr<string> eventInfo_ {};
-      // The event level. Valid values:
-      // - **high**: High-risk.
-      // - **medium**: Medium-risk.
-      // - **low**: Low-risk.
+      // The severity level of the event. Valid values:
+      // - **high**: high risk.
+      // - **medium**: medium risk.
+      // - **low**: low risk.
       shared_ptr<string> eventLevel_ {};
       // The event type.
       // 
       // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported event types.
       shared_ptr<string> eventTag_ {};
-      // Indicates whether the event is followed. Valid values:
+      // Specifies whether the event is followed. Valid values:
       // - **1**: Followed.
       // - **0**: Not followed.
       shared_ptr<int32_t> follow_ {};
       // The domain name or IP address to which the API operation belongs.
       shared_ptr<string> matchedHost_ {};
-      // The remarks.
+      // The note.
       shared_ptr<string> note_ {};
-      // The source of the event type. Valid values:
-      // - **custom**: Custom.
-      // - **default**: Built-in.
+      // The origin of the event type. Valid values:
+      // - **custom**: custom.
+      // - **default**: built-in.
       shared_ptr<string> origin_ {};
       // The country to which the attack IP address belongs.
       shared_ptr<string> remoteCountry_ {};
       // The region to which the attack IP address belongs.
       shared_ptr<string> remoteRegion_ {};
-      // A sample API request data, which is a string converted from a JSON object constructed with a series of parameters.
+      // The API request data instance, converted to a string in JSON format constructed by a series of parameters.
       shared_ptr<string> requestData_ {};
-      // A sample API response data, which is a string converted from a JSON object constructed with a series of parameters.
+      // The API response data example, converted to a string in JSON format constructed by a series of parameters.
       shared_ptr<string> responseData_ {};
-      // The start time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
+      // The start time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
       shared_ptr<int64_t> startTs_ {};
-      // The event status. Valid values:
-      // - **toBeConfirmed**: To be confirmed.
-      // - **confirmed**: Confirmed.
-      // - **actioned**: Handled.
-      // - **ignored**: Ignored.
+      // The status of the event. Valid values:
+      // 
+      // - **toBeConfirmed**: pending confirmation.
+      // - **confirmed**: confirmed.
+      // - **actioned**: handled.
+      // - **ignored**: ignored.
       shared_ptr<string> userStatus_ {};
     };
 
@@ -392,7 +392,7 @@ namespace Models
     shared_ptr<vector<DescribeApisecEventsResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned results.
     shared_ptr<int64_t> totalCount_ {};
   };
 

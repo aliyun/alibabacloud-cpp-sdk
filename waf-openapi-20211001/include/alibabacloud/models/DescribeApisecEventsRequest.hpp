@@ -239,67 +239,68 @@ namespace Models
     // The ID of the API.
     shared_ptr<string> apiId_ {};
     // The business purpose of the API.
-    // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported business purposes.
+    // > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query supported business purposes.
     shared_ptr<string> apiTag_ {};
     // The attack IP address.
     shared_ptr<string> attackIp_ {};
-    // The hybrid cloud cluster ID.
-    // > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
+    // The ID of the hybrid cloud cluster.
+    // > This parameter is applicable only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The end time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
+    // The end time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
     shared_ptr<int64_t> endTs_ {};
     // The ID of the API security event.
     shared_ptr<string> eventId_ {};
-    // The event level. Valid values:
-    // - **high**: High-risk.
-    // - **medium**: Medium-risk.
-    // - **low**: Low-risk.
+    // The severity level of the event. Valid values:
+    // - **high**: high risk.
+    // - **medium**: medium risk.
+    // - **low**: low risk.
     shared_ptr<string> eventLevel_ {};
     // The dimension of the security event.
     shared_ptr<string> eventScope_ {};
     // The event type.
-    // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported event types.
+    // > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query supported event types.
     shared_ptr<string> eventTag_ {};
     // The ID of the WAF instance.
     // 
-    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The domain name or IP address to which the API operation belongs.
     shared_ptr<string> matchedHost_ {};
-    // The name of the field used for sorting. Valid values:
-    // - **allCnt**: attack count.
-    // - **startTs**: event start time.
-    // - **endTs**: event end time.
+    // The name of the field by which to sort. Valid values:
+    // - **allCnt**: the number of attacks.
+    // - **startTs**: the start time of the event.
+    // - **endTs**: the end time of the event.
     shared_ptr<string> orderKey_ {};
     // The sort order. Valid values:
-    // - **desc**: Descending order (default).
-    // - **asc**: Ascending order.
+    // - **desc**: descending order (default).
+    // - **asc**: ascending order.
     shared_ptr<string> orderWay_ {};
-    // The source of the event type. Valid values:
-    // - **custom**: Custom.
-    // - **default**: Built-in.
+    // The origin of the event type. Valid values:
+    // - **custom**: custom.
+    // - **default**: built-in.
     shared_ptr<string> origin_ {};
-    // The page number to return in a paged query. Default value: **1**, which indicates the first page.
+    // The page number to return for a paged query. Default value: **1**, which indicates that the first page is returned during paging.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Default value: **10**, which indicates 10 entries per page.
+    // The number of entries to return on each page in a paged query. Default value: **10**, which indicates that 10 entries are returned on each page during paging.
     shared_ptr<int64_t> pageSize_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The start time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
+    // The start time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
     shared_ptr<int64_t> startTs_ {};
-    // The event status. Valid values:
-    // - **toBeConfirmed**: To be confirmed.
-    // - **confirmed**: Confirmed.
-    // - **actioned**: Handled.
-    // - **ignored**: Ignored.
+    // The status of the event. Valid values:
+    // 
+    // - **toBeConfirmed**: pending confirmation.
+    // - **confirmed**: confirmed.
+    // - **actioned**: handled.
+    // - **ignored**: ignored.
     shared_ptr<string> userStatus_ {};
   };
 

@@ -143,17 +143,17 @@ namespace Models
   protected:
     // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     shared_ptr<string> instanceId_ {};
-    // The page number to return when paging is used. Default value: **1**, which indicates the first page.
+    // The number of the page to return for the paged query. Default value: **1**, which indicates the first page during paging.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page when paging is used. Default value: **10**, which indicates that 10 entries are returned on each page.
+    // The number of entries to return on each page for the paged query. Default value: **10**, which indicates 10 entries per page during paging.
     shared_ptr<int32_t> pageSize_ {};
     // The query conditions. The value is a JSON string.
     // 
-    // > The query results vary based on the query conditions. For more information, see **Query parameter description**.
+    // > The returned protected objects vary based on the query conditions. For more information, see **Description of the Query parameter**.
     shared_ptr<string> query_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 

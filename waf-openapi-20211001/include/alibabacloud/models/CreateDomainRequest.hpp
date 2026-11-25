@@ -91,6 +91,7 @@ namespace Models
     class Redirect : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Redirect& obj) { 
+        DARABONBA_PTR_TO_JSON(BackendConfig, backendConfig_);
         DARABONBA_PTR_TO_JSON(BackendPorts, backendPorts_);
         DARABONBA_PTR_TO_JSON(Backends, backends_);
         DARABONBA_PTR_TO_JSON(BackupBackends, backupBackends_);
@@ -119,6 +120,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(XffProto, xffProto_);
       };
       friend void from_json(const Darabonba::Json& j, Redirect& obj) { 
+        DARABONBA_PTR_FROM_JSON(BackendConfig, backendConfig_);
         DARABONBA_PTR_FROM_JSON(BackendPorts, backendPorts_);
         DARABONBA_PTR_FROM_JSON(Backends, backends_);
         DARABONBA_PTR_FROM_JSON(BackupBackends, backupBackends_);
@@ -195,7 +197,7 @@ namespace Models
 
 
       protected:
-        // The specified custom request header field.
+        // The custom request header field.
         shared_ptr<string> key_ {};
         // The value set for the custom request header field.
         shared_ptr<string> value_ {};
@@ -254,18 +256,72 @@ namespace Models
         shared_ptr<int32_t> listenPort_ {};
         // The protocol of the listening port. Valid values:
         // 
-        // - **http**: The protocol of the listening port is HTTP.
+        // - **http**: the HTTP protocol.
         // 
-        // - **https**: The protocol of the listening port is HTTPS.
+        // - **https**: the HTTPS protocol.
         shared_ptr<string> protocol_ {};
       };
 
-      virtual bool empty() const override { return this->backendPorts_ == nullptr
-        && this->backends_ == nullptr && this->backupBackends_ == nullptr && this->cnameEnabled_ == nullptr && this->connectTimeout_ == nullptr && this->focusHttpBackend_ == nullptr
-        && this->http2Origin_ == nullptr && this->http2OriginMaxConcurrency_ == nullptr && this->keepalive_ == nullptr && this->keepaliveRequests_ == nullptr && this->keepaliveTimeout_ == nullptr
-        && this->loadbalance_ == nullptr && this->maxBodySize_ == nullptr && this->proxyProtocol_ == nullptr && this->readTimeout_ == nullptr && this->requestHeaders_ == nullptr
-        && this->retry_ == nullptr && this->routingRules_ == nullptr && this->sniEnabled_ == nullptr && this->sniHost_ == nullptr && this->WLProxyClientIp_ == nullptr
-        && this->webServerType_ == nullptr && this->writeTimeout_ == nullptr && this->XClientIp_ == nullptr && this->XTrueIp_ == nullptr && this->xffProto_ == nullptr; };
+      class BackendConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const BackendConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(Backend, backend_);
+          DARABONBA_PTR_TO_JSON(Weight, weight_);
+        };
+        friend void from_json(const Darabonba::Json& j, BackendConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(Backend, backend_);
+          DARABONBA_PTR_FROM_JSON(Weight, weight_);
+        };
+        BackendConfig() = default ;
+        BackendConfig(const BackendConfig &) = default ;
+        BackendConfig(BackendConfig &&) = default ;
+        BackendConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~BackendConfig() = default ;
+        BackendConfig& operator=(const BackendConfig &) = default ;
+        BackendConfig& operator=(BackendConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->backend_ == nullptr
+        && this->weight_ == nullptr; };
+        // backend Field Functions 
+        bool hasBackend() const { return this->backend_ != nullptr;};
+        void deleteBackend() { this->backend_ = nullptr;};
+        inline string getBackend() const { DARABONBA_PTR_GET_DEFAULT(backend_, "") };
+        inline BackendConfig& setBackend(string backend) { DARABONBA_PTR_SET_VALUE(backend_, backend) };
+
+
+        // weight Field Functions 
+        bool hasWeight() const { return this->weight_ != nullptr;};
+        void deleteWeight() { this->weight_ = nullptr;};
+        inline int32_t getWeight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
+        inline BackendConfig& setWeight(int32_t weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
+
+
+      protected:
+        // The origin server.
+        shared_ptr<string> backend_ {};
+        // The weight.
+        shared_ptr<int32_t> weight_ {};
+      };
+
+      virtual bool empty() const override { return this->backendConfig_ == nullptr
+        && this->backendPorts_ == nullptr && this->backends_ == nullptr && this->backupBackends_ == nullptr && this->cnameEnabled_ == nullptr && this->connectTimeout_ == nullptr
+        && this->focusHttpBackend_ == nullptr && this->http2Origin_ == nullptr && this->http2OriginMaxConcurrency_ == nullptr && this->keepalive_ == nullptr && this->keepaliveRequests_ == nullptr
+        && this->keepaliveTimeout_ == nullptr && this->loadbalance_ == nullptr && this->maxBodySize_ == nullptr && this->proxyProtocol_ == nullptr && this->readTimeout_ == nullptr
+        && this->requestHeaders_ == nullptr && this->retry_ == nullptr && this->routingRules_ == nullptr && this->sniEnabled_ == nullptr && this->sniHost_ == nullptr
+        && this->WLProxyClientIp_ == nullptr && this->webServerType_ == nullptr && this->writeTimeout_ == nullptr && this->XClientIp_ == nullptr && this->XTrueIp_ == nullptr
+        && this->xffProto_ == nullptr; };
+      // backendConfig Field Functions 
+      bool hasBackendConfig() const { return this->backendConfig_ != nullptr;};
+      void deleteBackendConfig() { this->backendConfig_ = nullptr;};
+      inline const vector<Redirect::BackendConfig> & getBackendConfig() const { DARABONBA_PTR_GET_CONST(backendConfig_, vector<Redirect::BackendConfig>) };
+      inline vector<Redirect::BackendConfig> getBackendConfig() { DARABONBA_PTR_GET(backendConfig_, vector<Redirect::BackendConfig>) };
+      inline Redirect& setBackendConfig(const vector<Redirect::BackendConfig> & backendConfig) { DARABONBA_PTR_SET_VALUE(backendConfig_, backendConfig) };
+      inline Redirect& setBackendConfig(vector<Redirect::BackendConfig> && backendConfig) { DARABONBA_PTR_SET_RVALUE(backendConfig_, backendConfig) };
+
+
       // backendPorts Field Functions 
       bool hasBackendPorts() const { return this->backendPorts_ != nullptr;};
       void deleteBackendPorts() { this->backendPorts_ = nullptr;};
@@ -457,6 +513,8 @@ namespace Models
 
 
     protected:
+      // The custom back-to-origin configuration.
+      shared_ptr<vector<Redirect::BackendConfig>> backendConfig_ {};
       // The custom port configuration.
       shared_ptr<vector<Redirect::BackendPorts>> backendPorts_ {};
       // The IP addresses of the origin servers or the back-to-origin domain names for the domain name.
@@ -473,11 +531,11 @@ namespace Models
       // Valid values: 1 to 3600.
       // Default value: 5.
       shared_ptr<int32_t> connectTimeout_ {};
-      // Specifies whether to enable force back-to-origin over HTTP. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // Specifies whether to enable forced HTTP back-to-origin. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
       // 
-      // - **true**: enables force back-to-origin over HTTP.
+      // - **true**: enables forced HTTP back-to-origin.
       // 
-      // - **false**: disables force back-to-origin over HTTP.
+      // - **false**: disables forced HTTP back-to-origin.
       shared_ptr<bool> focusHttpBackend_ {};
       // Specifies whether to enable HTTP/2 back-to-origin. Valid values:
       // 
@@ -495,7 +553,7 @@ namespace Models
       shared_ptr<bool> keepalive_ {};
       // The number of requests that reuse a persistent connection. Valid values: 60 to 1000. Default value: 1000.
       // 
-      // > The maximum number of requests that can be served over a single persistent connection after persistent connections are enabled.
+      // > The number of requests that can reuse a persistent connection after persistent connections are enabled.
       shared_ptr<int32_t> keepaliveRequests_ {};
       // The timeout period for idle persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
       // 
@@ -511,12 +569,12 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> loadbalance_ {};
-      // The maximum size of the request body. Valid values: 2 to 10. Default value: 2. Unit: GB.
+      // The maximum request body size. Valid values: 2 to 10. Default value: 2. Unit: GB.
       // > This parameter is supported only by the Ultimate Edition.
       shared_ptr<int32_t> maxBodySize_ {};
-      // Specifies whether the feature to preserve the client source IP address is enabled. Valid values:
-      // - **true**: The feature is enabled. After this feature is enabled, backend services can view the original IP address of the client.
-      // - **false**: The feature is disabled.
+      // Specifies whether to enable the feature of preserving the client source IP address. Valid values:
+      // - **true**: enables the feature. After this feature is enabled, backend services can view the original IP address of the client.
+      // - **false**: disables the feature.
       shared_ptr<bool> proxyProtocol_ {};
       // The read timeout period. Unit: seconds.
       // Valid values: 1 to 3600.
@@ -541,46 +599,46 @@ namespace Models
       // 
       // - **locationId**: Long | The ID of the protection node.
       shared_ptr<string> routingRules_ {};
-      // Specifies whether to enable back-to-origin Server Name Indication (SNI). This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // Specifies whether to enable back-to-origin Server Name Indication (SNI). This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
       // 
       // - **true**: enables back-to-origin SNI.
       // 
       // - **false** (default): disables back-to-origin SNI.
       shared_ptr<bool> sniEnabled_ {};
       // The value of the custom SNI extension field. If you do not specify this parameter, the value of the **Host** field in the request header is used as the value of the SNI extension field by default.
-      // In most cases, you do not need to customize the SNI unless your business has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in back-to-origin requests.
+      // In most cases, you do not need to customize SNI unless your service has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in back-to-origin requests.
       // 
       // > This parameter is required only when **SniEnabled** is set to **true**, which indicates that back-to-origin SNI is enabled.
       shared_ptr<string> sniHost_ {};
-      // Specifies whether to allow WAF to overwrite the WL-Proxy-Client-IP header. Valid values:
+      // Specifies whether to allow WAF to overwrite WL-Proxy-Client-IP. Valid values:
       // 
-      // - **true** (default): allows WAF to overwrite the header.
+      // - **true** (default): allows WAF to overwrite WL-Proxy-Client-IP.
       // 
-      // - **false**: does not allow WAF to overwrite the header.
+      // - **false**: does not allow WAF to overwrite WL-Proxy-Client-IP.
       shared_ptr<bool> WLProxyClientIp_ {};
-      // Specifies whether to allow WAF to overwrite the Web-Server-Type header. Valid values:
+      // Specifies whether to allow WAF to overwrite Web-Server-Type. Valid values:
       // 
-      // - **true** (default): allows WAF to overwrite the header.
+      // - **true** (default): allows WAF to overwrite Web-Server-Type.
       // 
-      // - **false**: does not allow WAF to overwrite the header.
+      // - **false**: does not allow WAF to overwrite Web-Server-Type.
       shared_ptr<bool> webServerType_ {};
       // The write timeout period. Unit: seconds.
       // Valid values: 1 to 3600.
       // Default value: 120.
       shared_ptr<int32_t> writeTimeout_ {};
-      // Specifies whether to allow WAF to overwrite the X-Client-IP header. Valid values:
+      // Specifies whether to allow WAF to overwrite X-Client-IP. Valid values:
       // 
-      // - **true** (default): allows WAF to overwrite the header.
+      // - **true** (default): allows WAF to overwrite X-Client-IP.
       // 
-      // - **false**: does not allow WAF to overwrite the header.
+      // - **false**: does not allow WAF to overwrite X-Client-IP.
       shared_ptr<bool> XClientIp_ {};
-      // Specifies whether to allow WAF to overwrite the X-True-IP header. Valid values:
+      // Specifies whether to allow WAF to overwrite X-True-IP. Valid values:
       // 
-      // - **true** (default): allows WAF to overwrite the header.
+      // - **true** (default): allows WAF to overwrite X-True-IP.
       // 
-      // - **false**: does not allow WAF to overwrite the header.
+      // - **false**: does not allow WAF to overwrite X-True-IP.
       shared_ptr<bool> XTrueIp_ {};
-      // Specifies whether to pass the WAF protocol in the X-Forwarded-Proto header. Valid values:
+      // Specifies whether to pass the WAF protocol by using X-Forwarded-Proto. Valid values:
       // 
       // - **true** (default): passes the WAF protocol.
       // 
@@ -799,9 +857,9 @@ namespace Models
 
 
     protected:
-      // The ID of the certificate to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS.
+      // The ID of the certificate to be added. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol.
       shared_ptr<string> certId_ {};
-      // The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // The type of cipher suite to be added. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
       // 
       // - **1**: adds all cipher suites.
       // 
@@ -809,7 +867,7 @@ namespace Models
       // 
       // - **99**: adds custom cipher suites. This value is available only when **TLSVersion** is not set to **tlsv1.3**.
       shared_ptr<int32_t> cipherSuite_ {};
-      // The custom cipher suites to add.
+      // The custom cipher suites to be added.
       shared_ptr<vector<string>> customCiphers_ {};
       // Specifies whether to support TLS 1.3. Valid values:
       // 
@@ -817,7 +875,7 @@ namespace Models
       // 
       // - **false**: does not support TLS 1.3.
       // 
-      // > This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses HTTPS. When TLSVersion is set to tlsv1.3, this parameter must be set to true.
+      // > This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses the HTTPS protocol. When TLSVersion is set to tlsv1.3, this value must be set to true.
       shared_ptr<bool> enableTLSv3_ {};
       // Specifies whether to enable an exclusive IP address. This parameter is used only when **IPv6Enabled** is set to **false**, which indicates that IPv6 is disabled, and **ProtectionResource** is set to **share**, which indicates that a shared cluster is used. Valid values:
       // 
@@ -825,33 +883,33 @@ namespace Models
       // 
       // - **false** (default): disables an exclusive IP address.
       shared_ptr<bool> exclusiveIp_ {};
-      // Specifies whether to enable force redirect to HTTPS. This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses HTTPS, and HttpPorts is empty, which indicates that the domain name does not use HTTP. Valid values:
+      // Specifies whether to enable forced HTTPS redirection. This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses the HTTPS protocol, and HttpPorts is empty, which indicates that the domain name does not use the HTTP protocol. Valid values:
       // 
-      // - **true**: enables force redirect to HTTPS.
+      // - **true**: enables forced HTTPS redirection.
       // 
-      // - **false**: disables force redirect to HTTPS.
+      // - **false**: disables forced HTTPS redirection.
       shared_ptr<bool> focusHttps_ {};
       // Specifies whether HTTP Strict Transport Security (HSTS) includes subdomains. Valid values:
       // 
-      // - **true**: enabled.
+      // - **true**: includes subdomains.
       // 
-      // - **false**: disabled.
+      // - **false**: does not include subdomains.
       shared_ptr<bool> hstsIncludeSubDomain_ {};
       // The HSTS expiration time. Unit: seconds.
       shared_ptr<int64_t> hstsMaxAge_ {};
-      // Specifies whether to enable HSTS preload. Default value: disabled. Valid values:
-      // - true: enabled.
-      // - false: disabled.
+      // Specifies whether to enable HSTS preload. Default value: false. Valid values:
+      // - true: enables HSTS preload.
+      // - false: disables HSTS preload.
       shared_ptr<bool> hstsPreload_ {};
-      // Specifies whether to enable HTTP/2. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // Specifies whether to enable HTTP/2. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
       // 
       // - **true**: enables HTTP/2.
       // 
       // - **false** (default): disables HTTP/2.
       shared_ptr<bool> http2Enabled_ {};
-      // The listening ports for HTTP.
+      // The listening ports for the HTTP protocol.
       shared_ptr<vector<int32_t>> httpPorts_ {};
-      // The listening ports for HTTPS.
+      // The listening ports for the HTTPS protocol.
       shared_ptr<vector<int32_t>> httpsPorts_ {};
       // Specifies whether to enable IPv6. Valid values:
       // 
@@ -859,7 +917,7 @@ namespace Models
       // 
       // - **false** (default): disables IPv6.
       shared_ptr<bool> IPv6Enabled_ {};
-      // The type of protection resource to use. Valid values:
+      // The type of protection resource to be used. Valid values:
       // 
       // - **share** (default): uses a shared cluster.
       // 
@@ -871,17 +929,17 @@ namespace Models
       // 
       // - false: allows access from both SM2 and non-SM2 clients.
       shared_ptr<bool> SM2AccessOnly_ {};
-      // The ID of the SM2 certificate to add. This parameter is used only when SM2Enabled is set to true.
+      // The ID of the SM2 certificate to be added. This parameter is used only when SM2Enabled is set to true.
       shared_ptr<string> SM2CertId_ {};
       // Specifies whether to enable the SM2 certificate.
       shared_ptr<bool> SM2Enabled_ {};
-      // The TLS version to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // The TLS version to be added. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
       // - **tlsv1**: supports TLS 1.0 and later versions. This value provides the highest compatibility but lower security.
       // - **tlsv1.1**: supports TLS 1.1 and later versions. This value provides good compatibility and security.
       // - **tlsv1.2**: supports TLS 1.2 and later versions. This value provides good compatibility and the highest security.
       // - **tlsv1.3**: supports only TLS 1.3. This value provides the highest security but lower compatibility.
       shared_ptr<string> TLSVersion_ {};
-      // The method for WAF to obtain the actual IP address of the client. Valid values:
+      // The method used by WAF to obtain the actual IP address of the client. Valid values:
       // 
       // - **0** (default): The client access traffic is not forwarded by other Layer 7 proxies before it reaches WAF.
       // 
@@ -889,7 +947,7 @@ namespace Models
       // 
       // - **2**: WAF reads the value of a custom field that you specified in the request header as the client IP address.
       // 
-      // - **3**: WAF reads the Client IP field in the Proxy Protocol header as the client IP address.
+      // - **3**: WAF reads the Client IP address in the Proxy Protocol header as the client IP address.
       shared_ptr<int32_t> xffHeaderMode_ {};
       // The list of custom fields used to obtain the client IP address.
       shared_ptr<vector<string>> xffHeaders_ {};
@@ -967,11 +1025,11 @@ namespace Models
     // 
     // - **hybrid_cloud_cname**: hybrid cloud CNAME access.
     // 
-    // > If the value is **share**, or the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, you must invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to authenticate the domain name ownership first. If the website config is added to a region in the Chinese mainland, it must also have an ICP filing.
+    // > If the value is **share**, or the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, you must first invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to authenticate the domain name ownership. If the website config is added to a region in the Chinese mainland, it must also have an ICP filing.
     // >
     // > If the value is **hybrid_cloud_cname** and public cloud disaster recovery is disabled, you do not need to authenticate the domain name ownership and can directly invoke this operation.
     shared_ptr<string> accessType_ {};
-    // The domain name to query.
+    // The name of the domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
@@ -998,7 +1056,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The list of tags, which can contain up to 20 items.
+    // The list of tags. A maximum of 20 tags are supported.
     shared_ptr<vector<CreateDomainRequest::Tag>> tag_ {};
   };
 

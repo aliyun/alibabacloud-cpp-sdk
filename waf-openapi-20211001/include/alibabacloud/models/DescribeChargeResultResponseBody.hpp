@@ -85,7 +85,7 @@ namespace Models
     protected:
       // The number of credits for the billing module.
       shared_ptr<double> credit_ {};
-      // The billing module code.
+      // The identifier of the billing module.
       shared_ptr<string> moduleCode_ {};
       // The number of SeCUs for the billing module.
       shared_ptr<double> seCu_ {};
@@ -126,7 +126,7 @@ namespace Models
   protected:
     // The calculation results.
     shared_ptr<vector<DescribeChargeResultResponseBody::ModuleDetails>> moduleDetails_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of calculated credits.
     shared_ptr<double> totalCredit_ {};
