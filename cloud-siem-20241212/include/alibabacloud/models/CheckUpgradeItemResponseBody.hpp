@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The check result of the check item. Example values: OK and FAIL.
+      // The check result of the check item. Possible values include OK and FAIL.
       shared_ptr<string> checkResult_ {};
       // The checkpoint status.
       shared_ptr<string> checkStatus_ {};
-      // The upgrade item ID.
+      // The ID of the upgrade item.
       shared_ptr<string> upgradeItemId_ {};
     };
 
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The upgrade item.
     shared_ptr<CheckUpgradeItemResponseBody::UpgradeItem> upgradeItem_ {};

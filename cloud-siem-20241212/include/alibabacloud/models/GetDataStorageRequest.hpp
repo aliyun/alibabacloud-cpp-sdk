@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RoleFor, roleFor_);
+      DARABONBA_PTR_TO_JSON(WithAutoKeyDetect, withAutoKeyDetect_);
     };
     friend void from_json(const Darabonba::Json& j, GetDataStorageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RoleFor, roleFor_);
+      DARABONBA_PTR_FROM_JSON(WithAutoKeyDetect, withAutoKeyDetect_);
     };
     GetDataStorageRequest() = default ;
     GetDataStorageRequest(const GetDataStorageRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && this->regionId_ == nullptr && this->roleFor_ == nullptr; };
+        && this->regionId_ == nullptr && this->roleFor_ == nullptr && this->withAutoKeyDetect_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -56,19 +58,28 @@ namespace Models
     inline GetDataStorageRequest& setRoleFor(int64_t roleFor) { DARABONBA_PTR_SET_VALUE(roleFor_, roleFor) };
 
 
+    // withAutoKeyDetect Field Functions 
+    bool hasWithAutoKeyDetect() const { return this->withAutoKeyDetect_ != nullptr;};
+    void deleteWithAutoKeyDetect() { this->withAutoKeyDetect_ = nullptr;};
+    inline bool getWithAutoKeyDetect() const { DARABONBA_PTR_GET_DEFAULT(withAutoKeyDetect_, false) };
+    inline GetDataStorageRequest& setWithAutoKeyDetect(bool withAutoKeyDetect) { DARABONBA_PTR_SET_VALUE(withAutoKeyDetect_, withAutoKeyDetect) };
+
+
   protected:
-    // The language of the returned message. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     // 
-    // Note: This parameter is required for actual API calls. If you do not specify this parameter, the service returns a 400 error with the message "The specified Lang can not be empty.". Explicitly specify the language code.
+    // Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error with the message "The specified Lang can not be empty." Explicitly pass the language code.
     shared_ptr<string> lang_ {};
-    // The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: The assets reside in the Chinese mainland.
-    // - ap-southeast-1: The assets reside outside the Chinese mainland.
+    // The region where the data management center for threat analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland.
+    // - ap-southeast-1: Assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
+    // Specifies whether to read the auto-discovered index configuration of each Logstore. This operation requires accessing Simple Log Service (SLS) for each Logstore. Default value: false. Set this parameter to true only on the storage management page.
+    shared_ptr<bool> withAutoKeyDetect_ {};
   };
 
   } // namespace Models

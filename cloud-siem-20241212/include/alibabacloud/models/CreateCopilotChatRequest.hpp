@@ -98,9 +98,9 @@ namespace Models
 
 
     protected:
-      // The content of the message.
+      // The message content.
       shared_ptr<string> content_ {};
-      // The role of the message.
+      // The message role.
       shared_ptr<string> role_ {};
     };
 
@@ -177,7 +177,7 @@ namespace Models
       shared_ptr<string> projectId_ {};
       // The deep thinking configuration.
       shared_ptr<string> thinkingMode_ {};
-      // The session title.
+      // The conversation title.
       shared_ptr<string> title_ {};
     };
 
@@ -302,17 +302,17 @@ namespace Models
 
 
   protected:
-    // The client session ID.
+    // The client conversation ID.
     shared_ptr<string> clientConversationId_ {};
     // The client message ID.
     // 
     // This parameter is required.
     shared_ptr<string> clientMessageId_ {};
-    // The session ID.
+    // The conversation ID.
     shared_ptr<string> conversationId_ {};
-    // The session creation configuration.
+    // The conversation creation configuration.
     shared_ptr<CreateCopilotChatRequest::CreateConversation> createConversation_ {};
-    // The language of the returned message. Valid values:
+    // The language of the returned messages. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
@@ -326,9 +326,9 @@ namespace Models
     shared_ptr<string> planMode_ {};
     // The security project ID.
     shared_ptr<string> projectId_ {};
-    // The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: Assets reside in the Chinese mainland.
-    // - ap-southeast-1: Assets reside outside the Chinese mainland.
+    // The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland.
+    // - ap-southeast-1: Assets are located in regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the replaced conversation turn.
     shared_ptr<string> replaceTurnId_ {};

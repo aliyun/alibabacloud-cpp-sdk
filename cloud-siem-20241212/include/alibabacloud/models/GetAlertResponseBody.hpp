@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The alert content.
+      // The content of the alert.
       shared_ptr<string> alertRecord_ {};
-      // The alert UUID.
+      // The UUID of the alert.
       shared_ptr<string> alertUuid_ {};
     };
 
@@ -94,11 +94,11 @@ namespace Models
 
 
   protected:
-    // If this value is true, the minor engine version is not the latest version.
+    // Indicates whether the minor version is not the latest version.
     // 
-    // > If the minor engine version of your server is not the latest version, the sampling logs may be inaccurate, which causes imprecise IP statistics. We recommend that you upgrade the minor engine version at your earliest convenience.
+    // > If the minor version of your server is not the latest, the sampled logs may be inaccurate, resulting in inaccurate IP address statistics. Therefore, we recommend that you upgrade the minor version of your server as soon as possible.
     shared_ptr<GetAlertResponseBody::Alert> alert_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -218,37 +218,37 @@ namespace Models
 
 
     protected:
-      // The configuration item ID of the collector access object in the multi-cloud configuration.
+      // The ID of the configuration item for the data connector access object in the multi-cloud configuration.
       shared_ptr<string> authConfigId_ {};
-      // The cloud product to which the authentication configuration belongs.
+      // The cloud service to which the authentication configuration belongs.
       shared_ptr<string> authConfigProduct_ {};
-      // The cloud vendor to which the authentication configuration belongs.
+      // The cloud provider to which the authentication configuration belongs.
       shared_ptr<string> authConfigVendor_ {};
       // The creation time.
       shared_ptr<int64_t> creationTime_ {};
-      // The collector configuration information.
+      // The configuration information of the data connector.
       shared_ptr<string> dataConnectorConfig_ {};
-      // The collector ID.
+      // The data connector ID.
       shared_ptr<string> dataConnectorId_ {};
-      // The data connector name.
+      // The name of the data connector.
       shared_ptr<string> dataConnectorName_ {};
-      // The connector status.
+      // The enabled status of the data connector.
       shared_ptr<string> dataConnectorStatus_ {};
-      // The connector type.
+      // The type of the data connector.
       shared_ptr<string> dataConnectorType_ {};
-      // The destination data source ID. This parameter is required only for synchronization.
+      // The ID of the destination data source. This parameter is required only for synchronization.
       shared_ptr<string> destDataSourceId_ {};
-      // The Simple Log Service project name.
+      // The name of the Simple Log Service project.
       shared_ptr<string> logProjectName_ {};
       // The log storage region ID.
       shared_ptr<string> logRegionId_ {};
-      // The Simple Log Service Logstore name.
+      // The name of the Simple Log Service Logstore.
       shared_ptr<string> logStoreName_ {};
-      // The name of the SLS data import job for the collector.
+      // The name of the Simple Log Service (SLS) data import job for the data connector.
       shared_ptr<string> slsIngestionJobName_ {};
-      // The status of the SLS data import job for the collector.
+      // The status of the Simple Log Service (SLS) data import job for the data connector.
       shared_ptr<string> slsIngestionJobState_ {};
-      // The source data type.
+      // The type of the source data source.
       shared_ptr<string> srcDataType_ {};
       // The update time.
       shared_ptr<int64_t> updateTime_ {};
@@ -309,19 +309,19 @@ namespace Models
 
 
   protected:
-    // The list of collectors.
+    // The list of data connectors.
     shared_ptr<vector<ListDataConnectorsResponseBody::DataConnector>> dataConnector_ {};
-    // The maximum number of records returned in this query.
+    // The maximum number of entries returned in the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query.
+    // The token used to query the next page.
     shared_ptr<string> nextToken_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

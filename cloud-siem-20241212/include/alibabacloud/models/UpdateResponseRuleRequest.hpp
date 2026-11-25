@@ -153,9 +153,9 @@ namespace Models
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The maximum number of data records to read in the current request.
+    // The maximum number of data records to return in the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that specifies the position from which to start reading. If this parameter is left empty, the reading starts from the beginning.
+    // The token that indicates the position from which to start reading. An empty value indicates that the reading starts from the beginning.
     shared_ptr<string> nextToken_ {};
     // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
     // - cn-hangzhou: The assets are located in the Chinese mainland.
@@ -171,7 +171,7 @@ namespace Models
     // - deleteEventTag: Deletes an event tag.
     // - alertWhitelist: Adds an alert to the whitelist.
     shared_ptr<string> responseActionType_ {};
-    // The rule trigger condition configuration.
+    // The trigger condition configuration of the rule.
     shared_ptr<string> responseExecutionCondition_ {};
     // The ID of the automated response rule.
     shared_ptr<string> responseRuleId_ {};
@@ -179,7 +179,7 @@ namespace Models
     shared_ptr<string> responseRuleName_ {};
     // The execution priority of the automated response rule.
     shared_ptr<int32_t> responseRulePriority_ {};
-    // The remarks of the response rule.
+    // The remarks for the response rule.
     shared_ptr<string> responseRuleRemark_ {};
     // The status of the automated response rule. Valid values:
     // - 0: Disabled.

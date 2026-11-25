@@ -207,13 +207,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to pack non-standard fields into the extended field extend_content. Valid values:
+    // Specifies whether to pack non-standard fields into the extend_content extension field. Valid values:
     // - enabled: Enabled.
     // - disabled: Disabled.
     shared_ptr<string> extendContentPacked_ {};
-    // The storage mode for extended fields. Valid values: flat, pack, reject.
+    // The storage mode for extension fields. Valid values: flat, pack, and reject.
     shared_ptr<string> extendFieldStoreMode_ {};
-    // The language of the response messages. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
@@ -225,7 +225,7 @@ namespace Models
     shared_ptr<string> normalizationRuleExpression_ {};
     // The format of the normalization rule.
     shared_ptr<string> normalizationRuleFormat_ {};
-    // The list of normalization rule IDs.
+    // The IDs of the normalization rules.
     shared_ptr<vector<string>> normalizationRuleIds_ {};
     // The mode of the normalization rule. Valid values:
     // - both
@@ -235,8 +235,8 @@ namespace Models
     // The name of the normalization rule.
     shared_ptr<string> normalizationRuleName_ {};
     // The type of the normalization rule. Valid values:
-    // - predefined: predefined normalization rule.
-    // - custom: custom normalization rule.
+    // - predefined: Predefined normalization rule.
+    // - custom: Custom normalization rule.
     shared_ptr<string> normalizationRuleType_ {};
     // The version of the normalization rule.
     shared_ptr<int32_t> normalizationRuleVersion_ {};
@@ -245,18 +245,18 @@ namespace Models
     // The ID of the normalization security domain.
     shared_ptr<string> normalizationSecurityDomainId_ {};
     // The field used to sort the rule list. Valid values:
-    // - GmtModified: sorts by modification time.
-    // - Id: sorts by rule ID (default).
+    // - GmtModified: Sorts by modification time.
+    // - Id: Sorts by rule ID. This is the default value.
     shared_ptr<string> orderField_ {};
     // The product ID.
     shared_ptr<string> productId_ {};
-    // The region where the data management center of Cloud Threat Detection and Response (CTDR) is located. Select the management center region based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: Assets are located in the Chinese mainland.
-    // - ap-southeast-1: Assets are located outside China.
+    // The region where the data management center of Threat Analysis is located. Select the region based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the member accounts in the resource folder.
+    // The ID of the member account in the resource directory.
     shared_ptr<int64_t> roleFor_ {};
-    // The vendor ID associated with the normalization rule.
+    // The ID of the vendor associated with the normalization rule.
     shared_ptr<string> vendorId_ {};
   };
 

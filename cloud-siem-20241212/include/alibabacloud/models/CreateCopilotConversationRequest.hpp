@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The language of the response messages. Valid values:
+    // The language of the returned message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
@@ -111,15 +111,15 @@ namespace Models
     shared_ptr<string> model_ {};
     // The planning configuration.
     shared_ptr<string> planMode_ {};
-    // The security project ID.
+    // The ID of the security project.
     shared_ptr<string> projectId_ {};
-    // The region where the data management center for threat analysis is located. Select the management center region based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: Assets are located in the Chinese mainland.
-    // - ap-southeast-1: Assets are located outside China.
+    // The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Assets reside in the Chinese mainland.
+    // - ap-southeast-1: Assets reside outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The thinking mode configuration.
+    // The deep thinking configuration.
     shared_ptr<string> thinkingMode_ {};
-    // The session title.
+    // The title of the session.
     shared_ptr<string> title_ {};
     // The trace ID of the created span object.
     shared_ptr<string> traceId_ {};

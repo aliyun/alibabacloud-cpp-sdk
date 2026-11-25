@@ -153,9 +153,9 @@ namespace Models
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The maximum number of data records to return in the current read operation.
+    // The maximum number of data records to return in the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the position from which the current read operation starts. If you leave this parameter empty, the read operation starts from the beginning.
+    // The token that marks the position from which to start reading. If this parameter is left empty, the reading starts from the beginning.
     shared_ptr<string> nextToken_ {};
     // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
     // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
@@ -164,7 +164,6 @@ namespace Models
     // The action configuration of the automated response rule.
     shared_ptr<string> responseActionConfig_ {};
     // The action type of the automated response rule. Valid values:
-    // 
     // - doPlaybook: Executes a playbook.
     // - changeEventStatus: Updates the event status.
     // - changeThreatLevel: Updates the threat level of the event.
@@ -181,7 +180,6 @@ namespace Models
     // The remarks of the response rule.
     shared_ptr<string> responseRuleRemark_ {};
     // The trigger type of the automated response rule. Valid values:
-    // 
     // - event: An event occurs.
     // - event_update: An event is updated.
     // - alert: An alert is triggered.
@@ -189,7 +187,6 @@ namespace Models
     // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
     // The view type. Valid values:
-    // 
     // - 0: The view of the current Alibaba Cloud account.
     // - 1: The view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};

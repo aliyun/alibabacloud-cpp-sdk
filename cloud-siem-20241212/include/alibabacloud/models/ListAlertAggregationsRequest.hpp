@@ -159,9 +159,9 @@ namespace Models
     shared_ptr<string> lang_ {};
     // The maximum number of entries to return for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. If this is the first query or no subsequent query is required, you do not need to specify this parameter. If a subsequent query is required, set the value to the NextToken value returned by the previous API call.
+    // The token for the next query. If this is the first query or no subsequent query is required, you do not need to specify this parameter. If a subsequent query is required, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The current page number.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
@@ -170,25 +170,23 @@ namespace Models
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     // The query filter conditions in JSON format. Valid values:
-    // 
-    // - `{"Type":"maxCost", "Value":"100"}`: The top 100 queries that take the longest time.
+    // - `{"Type":"maxCost", "Value":"100"}`: The top 100 queries with the longest execution duration.
     // - `{"Type":"status","Value":"finished"}`: Completed queries.
     // - `{"Type":"status","Value":"running"}`: Running queries.
-    // - `{"Type":"cost","Min":"30","Max":"50"}`: Custom duration queries. You can specify the minimum and maximum query durations. **Min** specifies the minimum duration, and **Max** specifies the maximum duration. Unit: milliseconds.
-    //     - If only **Min** is specified, the query returns queries whose execution duration is greater than the specified value.
-    //     - If only **Max** is specified, the query returns queries whose execution duration is less than the specified value.
-    //     - If both **Min** and **Max** are specified, the query returns queries whose execution duration is greater than or equal to the value of **Min** and less than or equal to the value of **Max**.
+    // - `{"Type":"cost","Min":"30","Max":"50"}`: Custom execution duration queries. You can specify the minimum and maximum execution duration. **Min** specifies the minimum execution duration. **Max** specifies the maximum execution duration. Unit: milliseconds.
+    //     - If only **Min** is specified, the system queries the queries whose execution duration is greater than the specified value.
+    //     - If only **Max** is specified, the system queries the queries whose execution duration is less than the specified value.
+    //     - If both **Min** and **Max** are specified, the system queries the queries whose execution duration is greater than or equal to the value of **Min** and less than or equal to the value of **Max**.
     shared_ptr<string> queryCondition_ {};
     // The unique identifier of the query view.
     shared_ptr<string> queryViewId_ {};
     // The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
-    // - cn-hangzhou: Assets are located in the Chinese mainland.
-    // - ap-southeast-1: Assets are located outside the Chinese mainland.
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the member whose view the administrator switches to.
+    // The ID of the member whose view the administrator assumes.
     shared_ptr<int64_t> roleFor_ {};
     // The view type. Valid values:
-    // 
     // - 0: The view of the current Alibaba Cloud account.
     // - 1: The view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};

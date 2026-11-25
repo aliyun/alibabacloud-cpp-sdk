@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The session ID.
+    // The conversation ID.
     // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
-    // The language of the response messages. Valid values:
+    // The language of the returned message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The region where the data management center for threat analysis is located. Select the management center region based on the region where your assets reside. Valid values:
+    // The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets are located. Valid values:
     // - cn-hangzhou: Assets are located in the Chinese mainland.
-    // - ap-southeast-1: Assets are located outside China.
+    // - ap-southeast-1: Assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The trace ID used to track service requests.
+    // The trace ID used to track the service request.
     shared_ptr<string> traceId_ {};
-    // The conversation turn ID, obtained from the streaming response of CreateCopilotChat.
+    // The turn ID, which is obtained from the streaming response of CreateCopilotChat.
     // 
     // This parameter is required.
     shared_ptr<string> turnId_ {};

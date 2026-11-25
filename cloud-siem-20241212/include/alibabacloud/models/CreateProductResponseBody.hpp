@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The product ID.
     shared_ptr<string> productId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

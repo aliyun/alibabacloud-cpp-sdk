@@ -81,7 +81,7 @@ namespace Models
     shared_ptr<string> lang_ {};
     // The maximum number of data records to return in the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that specifies the position to start reading. If this parameter is left empty, the reading starts from the beginning.
+    // The token that specifies the starting position for reading. Leave this parameter empty to start reading from the beginning.
     shared_ptr<string> nextToken_ {};
     // The region where the data management center for threat analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
     // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).

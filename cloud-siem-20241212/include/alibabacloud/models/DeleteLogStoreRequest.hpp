@@ -94,25 +94,25 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
-    // > Note: This parameter is required in practice. If this parameter is not specified, the API returns a 400 error: "The specified Lang can not be empty."
+    // Note: This parameter is actually required. If it is not provided, the API returns a 400 error with the message "The specified Lang can not be empty.".
     shared_ptr<string> lang_ {};
-    // The Simple Log Service project name.
-    // > Note: This parameter is required in practice. If this parameter is not specified, the API returns a 400 error: "SLS log project name is empty."
+    // The name of the Simple Log Service project.
+    // Note: This parameter is actually required. If it is not provided, the API returns a 400 error with the message "SLS log project name is empty.".
     shared_ptr<string> logProjectName_ {};
-    // The log storage region ID.
+    // The ID of the log storage region.
     shared_ptr<string> logRegionId_ {};
-    // The Simple Log Service LogStore name.
+    // The name of the Simple Log Service Logstore.
     shared_ptr<string> logStoreName_ {};
-    // The user ID for data access.
+    // The ID of the user for data ingestion.
     shared_ptr<int64_t> logUserId_ {};
-    // The region where the Cloud Threat Detection and Response (CTDR) data management center is located. Specify the management center based on the region of your assets. Valid values:
-    // - cn-hangzhou: Your assets belong to the Chinese mainland.
-    // - ap-southeast-1: Your assets belong to regions outside China.
+    // The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The user ID that the administrator switches to when viewing from the perspective of another member.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

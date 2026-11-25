@@ -355,32 +355,32 @@ namespace Models
     shared_ptr<string> alertAttCk_ {};
     // The MITRE ATT&CK technique mapping.
     shared_ptr<string> alertAttCkMapping_ {};
-    // The alert description. You can use $$ to reference query output fields.
+    // The description of the alert. You can use $$ to reference query output fields.
     shared_ptr<string> alertDescription_ {};
     // The threat level of the alert. Valid values:
-    // - 5: critical.
-    // - 4: high.
-    // - 3: medium.
-    // - 2: low.
-    // - 1: informational.
+    // - 5: critical
+    // - 4: high
+    // - 3: medium
+    // - 2: low
+    // - 1: informational
     shared_ptr<string> alertLevel_ {};
     // The alert level mapping.
     shared_ptr<string> alertLevelMapping_ {};
-    // The alert name. You can use $$ to reference query output fields.
+    // The name of the alert. You can use $$ to reference query output fields.
     shared_ptr<string> alertName_ {};
     // The ID of the alert template for the detection rule.
     shared_ptr<string> alertSchemaId_ {};
-    // The ATT&CK tactic phase of the alert.
+    // The tactic phase of the alert.
     shared_ptr<string> alertTacticId_ {};
     // The alert threshold count.
     shared_ptr<int32_t> alertThresholdCount_ {};
-    // The list of alert threshold fields, separated by commas.
+    // The list of fields for the alert threshold. Separate multiple fields with commas (,).
     shared_ptr<string> alertThresholdGroup_ {};
     // The length of the alert threshold period.
     shared_ptr<string> alertThresholdPeriod_ {};
-    // The Alarm Metric for alerting.
+    // The alerting type.
     shared_ptr<string> alertType_ {};
-    // The Alarm Metric mapping for alerting.
+    // The alerting type mapping.
     shared_ptr<string> alertTypeMapping_ {};
     // The expression content of the detection rule.
     shared_ptr<string> detectionExpressionContent_ {};
@@ -397,9 +397,9 @@ namespace Models
     // The status of the detection rule.
     shared_ptr<string> detectionRuleStatus_ {};
     // The type of the detection rule. Valid values:
-    // - preset: preset detection rule.
-    // - custom: custom detection rule.
-    // - custom_template: rule template.
+    // - preset: preset detection rule
+    // - custom: custom detection rule
+    // - custom_template: rule template
     // 
     // This parameter is required.
     shared_ptr<string> detectionRuleType_ {};
@@ -407,14 +407,14 @@ namespace Models
     shared_ptr<string> entityMappings_ {};
     // The event aggregation period configuration.
     shared_ptr<string> incidentAggregationExpression_ {};
-    // The event aggregation type. Valid values:
-    // - none: no event is generated.
-    // - graph_compute: graph computing (supported by predefined rules).
-    // - expert: expert rule.
-    // - passthrough: alert pass-through (one-to-one).
-    // - window: same-type aggregation (window).
+    // The event summaries type. Valid values:
+    // - none: No event is generated.
+    // - graph_compute: graph computing (supported by preset rules)
+    // - expert: expert rule
+    // - passthrough: alerting pass-through (one-to-one)
+    // - window: homogeneous aggregation (window)
     shared_ptr<string> incidentAggregationType_ {};
-    // The language of the response messages. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
@@ -422,25 +422,25 @@ namespace Models
     shared_ptr<string> logCategoryId_ {};
     // The ID of the log normalization schema.
     shared_ptr<string> logSchemaId_ {};
-    // The user-defined parameters of the playbook.
+    // The custom parameters for the playbook.
     shared_ptr<string> playbookParameters_ {};
-    // The unique identifier of the playbook.
+    // The UUID of the playbook.
     shared_ptr<string> playbookUuid_ {};
-    // The region where the data management center of Cloud Threat Detection and Response is located. Select the management center region based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: Your assets reside in the Chinese mainland.
-    // - ap-southeast-1: Your assets reside outside China.
+    // The region of the data management center for Threat Analysis. Select the region of the management center based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland.
+    // - ap-southeast-1: Assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The scheduling start time, expressed as a 13-digit timestamp.
+    // The start time of the schedule. The value is a 13-digit timestamp.
     shared_ptr<int64_t> scheduleBeginTime_ {};
-    // The cron expression for scheduling. Required when ScheduleType is set to cron.
+    // The cron expression for scheduling. This parameter is required when ScheduleType is set to cron.
     shared_ptr<string> scheduleExpression_ {};
-    // The maximum number of retries on timeout. Valid values: 1 to 100.
+    // The maximum number of retries after a timeout. Valid values: 1 to 100.
     shared_ptr<int32_t> scheduleMaxRetries_ {};
-    // The maximum timeout duration, in seconds. Valid values: 60 to 1800.
+    // The maximum timeout period. Unit: seconds. Valid values: 60 to 1800.
     shared_ptr<int32_t> scheduleMaxTimeout_ {};
     // The scheduling type. Valid values:
-    // - fixed_rate: fixed interval.
-    // - cron: cron expression.
+    // - fixed_rate: fixed interval
+    // - cron: cron expression
     shared_ptr<string> scheduleType_ {};
     // The length of the scheduling window.
     shared_ptr<string> scheduleWindow_ {};

@@ -134,7 +134,7 @@ namespace Models
         shared_ptr<string> logStoreName_ {};
         // The data retention period.
         shared_ptr<int32_t> logStoreTtl_ {};
-        // The amount of hot storage used.
+        // The used capacity of hot storage.
         shared_ptr<double> usedCapacity_ {};
       };
 
@@ -142,6 +142,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const SasLogStores& obj) { 
           DARABONBA_PTR_TO_JSON(AccountDeliveries, accountDeliveries_);
+          DARABONBA_PTR_TO_JSON(AutoKeyDetect, autoKeyDetect_);
           DARABONBA_PTR_TO_JSON(LogCode, logCode_);
           DARABONBA_PTR_TO_JSON(LogDeliveryGroup, logDeliveryGroup_);
           DARABONBA_PTR_TO_JSON(LogDeliveryPermission, logDeliveryPermission_);
@@ -156,6 +157,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, SasLogStores& obj) { 
           DARABONBA_PTR_FROM_JSON(AccountDeliveries, accountDeliveries_);
+          DARABONBA_PTR_FROM_JSON(AutoKeyDetect, autoKeyDetect_);
           DARABONBA_PTR_FROM_JSON(LogCode, logCode_);
           DARABONBA_PTR_FROM_JSON(LogDeliveryGroup, logDeliveryGroup_);
           DARABONBA_PTR_FROM_JSON(LogDeliveryPermission, logDeliveryPermission_);
@@ -244,26 +246,24 @@ namespace Models
 
 
         protected:
-          // The UID of the source cloud account. This field is an int64 number.
+          // The UID of the source Alibaba Cloud account for the logs. This field is an int64 number.
           shared_ptr<int64_t> accountId_ {};
-          // The display name of the source account. If the name is not obtained, the account UID string is used.
+          // The display name of the source account. If the name is unavailable, the account UID string is used.
           shared_ptr<string> accountName_ {};
-          // Indicates whether the account is the current management or target account (the current account). A value of true indicates the current account. A value of false indicates a member source account.
+          // Indicates whether the account is the current management or target account. A value of true indicates the current account, and a value of false indicates a member source account.
           shared_ptr<bool> isDaAccount_ {};
-          // The recorded delivery status of the source account. Valid values:
-          // - enable: Enabled.
-          // - disable: Disabled.
+          // The recorded delivery status for the source account. Valid values: enable (enabled) and disable (disabled).
           shared_ptr<string> logDeliveryStatus_ {};
-          // The last update time of the delivery status for the source account. If no record is generated, this field is empty or not returned.
+          // The last update time of the delivery status for the source account. This field is empty or not returned if no records are generated.
           // 
           // Use the UTC time format: yyyy-MM-ddTHH:mmZ
           shared_ptr<string> logDeliveryUpdateTime_ {};
         };
 
         virtual bool empty() const override { return this->accountDeliveries_ == nullptr
-        && this->logCode_ == nullptr && this->logDeliveryGroup_ == nullptr && this->logDeliveryPermission_ == nullptr && this->logDeliveryStatus_ == nullptr && this->logDeliveryUpdateTime_ == nullptr
-        && this->logName_ == nullptr && this->logSearchConditions_ == nullptr && this->logStoreExisted_ == nullptr && this->logStoreName_ == nullptr && this->logStoreTtl_ == nullptr
-        && this->usedCapacity_ == nullptr; };
+        && this->autoKeyDetect_ == nullptr && this->logCode_ == nullptr && this->logDeliveryGroup_ == nullptr && this->logDeliveryPermission_ == nullptr && this->logDeliveryStatus_ == nullptr
+        && this->logDeliveryUpdateTime_ == nullptr && this->logName_ == nullptr && this->logSearchConditions_ == nullptr && this->logStoreExisted_ == nullptr && this->logStoreName_ == nullptr
+        && this->logStoreTtl_ == nullptr && this->usedCapacity_ == nullptr; };
         // accountDeliveries Field Functions 
         bool hasAccountDeliveries() const { return this->accountDeliveries_ != nullptr;};
         void deleteAccountDeliveries() { this->accountDeliveries_ = nullptr;};
@@ -271,6 +271,13 @@ namespace Models
         inline vector<SasLogStores::AccountDeliveries> getAccountDeliveries() { DARABONBA_PTR_GET(accountDeliveries_, vector<SasLogStores::AccountDeliveries>) };
         inline SasLogStores& setAccountDeliveries(const vector<SasLogStores::AccountDeliveries> & accountDeliveries) { DARABONBA_PTR_SET_VALUE(accountDeliveries_, accountDeliveries) };
         inline SasLogStores& setAccountDeliveries(vector<SasLogStores::AccountDeliveries> && accountDeliveries) { DARABONBA_PTR_SET_RVALUE(accountDeliveries_, accountDeliveries) };
+
+
+        // autoKeyDetect Field Functions 
+        bool hasAutoKeyDetect() const { return this->autoKeyDetect_ != nullptr;};
+        void deleteAutoKeyDetect() { this->autoKeyDetect_ = nullptr;};
+        inline bool getAutoKeyDetect() const { DARABONBA_PTR_GET_DEFAULT(autoKeyDetect_, false) };
+        inline SasLogStores& setAutoKeyDetect(bool autoKeyDetect) { DARABONBA_PTR_SET_VALUE(autoKeyDetect_, autoKeyDetect) };
 
 
         // logCode Field Functions 
@@ -351,27 +358,29 @@ namespace Models
 
 
       protected:
-        // The delivery records of this log type expanded by source account, including the current account and member accounts with existing records.
+        // The delivery records of the log type expanded by source account, including the current account and member accounts with existing records.
         shared_ptr<vector<SasLogStores::AccountDeliveries>> accountDeliveries_ {};
+        // Indicates whether automatic index discovery is enabled for the full-text index of the Logstore in Simple Log Service. This field is returned only when WithAutoKeyDetect=true is specified in the request, and is not returned if the read operation fails.
+        shared_ptr<bool> autoKeyDetect_ {};
         // The log code.
         shared_ptr<string> logCode_ {};
         // The group to which the log belongs. Valid values:
         // - host: Host logs.
         // - security: Security logs.
         shared_ptr<string> logDeliveryGroup_ {};
-        // Specifies whether the log delivery switch can be operated. Log delivery is unavailable if the service is not purchased. Valid values:
+        // Specifies whether you are allowed to toggle the log delivery switch. Log delivery is unavailable if the service is not purchased. Valid values:
         // - allow: Allowed.
         // - deny: Not allowed.
         shared_ptr<string> logDeliveryPermission_ {};
         // The log delivery status. Valid values:
-        // - enable: Log delivery is enabled.
-        // - disable: Log delivery is disabled.
+        // - enable: Delivery is enabled for the log.
+        // - disable: Delivery is disabled for the log.
         shared_ptr<string> logDeliveryStatus_ {};
         // The time of the last log delivery operation. The format is YYYY-MM-DDTHH:mm:ss.
         shared_ptr<string> logDeliveryUpdateTime_ {};
         // The log name.
         shared_ptr<string> logName_ {};
-        // The default query conditions for the log. When multiple logs are stored in a single Logstore, you must use query conditions to perform a log query for a specific log.
+        // The default query conditions for the log. When multiple logs are stored in a single Logstore, you must use query conditions to perform a log query.
         shared_ptr<string> logSearchConditions_ {};
         // Indicates whether the Logstore where the log is stored exists. Valid values:
         // - true: Exists.
@@ -381,7 +390,7 @@ namespace Models
         shared_ptr<string> logStoreName_ {};
         // The storage duration of the Logstore where the log is stored. The minimum storage duration is 30 days.
         shared_ptr<int32_t> logStoreTtl_ {};
-        // The amount of hot storage used.
+        // The used capacity of hot storage.
         shared_ptr<double> usedCapacity_ {};
       };
 
@@ -535,19 +544,19 @@ namespace Models
 
 
       protected:
-        // The log type of the normalized logs.
+        // The log type of the normalized log.
         shared_ptr<string> activityName_ {};
-        // The category of the normalized logs.
+        // The category of the normalized log.
         shared_ptr<string> categoryName_ {};
-        // The number of times this normalized dataset is referenced in Threat Analysis and Response.
+        // The number of times the normalized dataset is referenced in the threat analysis integration center.
         shared_ptr<int32_t> detectionRuleReferenceCount_ {};
-        // The list of products that reference this normalized dataset in Threat Analysis and Response.
+        // The list of products that reference the normalized dataset in the threat analysis integration center.
         shared_ptr<vector<string>> detectionRuleReferenceProductIds_ {};
         // The query statement used to query log types in the normalized dataset.
         shared_ptr<string> logSearchConditions_ {};
-        // The Logstore where Threat Analysis and Response stores normalized logs.
+        // The Logstore in threat analysis that stores normalized logs.
         shared_ptr<string> logStoreName_ {};
-        // Specifies whether the normalized dataset exists. Valid values:
+        // Indicates whether the normalized dataset exists. Valid values:
         // - true: The dataset exists.
         // - false: The dataset does not exist.
         shared_ptr<bool> logViewExisted_ {};
@@ -558,11 +567,15 @@ namespace Models
       class NormalizationLogStores : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const NormalizationLogStores& obj) { 
+          DARABONBA_PTR_TO_JSON(AutoKeyDetect, autoKeyDetect_);
+          DARABONBA_PTR_TO_JSON(LogStoreExisted, logStoreExisted_);
           DARABONBA_PTR_TO_JSON(LogStoreName, logStoreName_);
           DARABONBA_PTR_TO_JSON(LogStoreTtl, logStoreTtl_);
           DARABONBA_PTR_TO_JSON(UsedCapacity, usedCapacity_);
         };
         friend void from_json(const Darabonba::Json& j, NormalizationLogStores& obj) { 
+          DARABONBA_PTR_FROM_JSON(AutoKeyDetect, autoKeyDetect_);
+          DARABONBA_PTR_FROM_JSON(LogStoreExisted, logStoreExisted_);
           DARABONBA_PTR_FROM_JSON(LogStoreName, logStoreName_);
           DARABONBA_PTR_FROM_JSON(LogStoreTtl, logStoreTtl_);
           DARABONBA_PTR_FROM_JSON(UsedCapacity, usedCapacity_);
@@ -578,8 +591,22 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->logStoreName_ == nullptr
-        && this->logStoreTtl_ == nullptr && this->usedCapacity_ == nullptr; };
+        virtual bool empty() const override { return this->autoKeyDetect_ == nullptr
+        && this->logStoreExisted_ == nullptr && this->logStoreName_ == nullptr && this->logStoreTtl_ == nullptr && this->usedCapacity_ == nullptr; };
+        // autoKeyDetect Field Functions 
+        bool hasAutoKeyDetect() const { return this->autoKeyDetect_ != nullptr;};
+        void deleteAutoKeyDetect() { this->autoKeyDetect_ = nullptr;};
+        inline bool getAutoKeyDetect() const { DARABONBA_PTR_GET_DEFAULT(autoKeyDetect_, false) };
+        inline NormalizationLogStores& setAutoKeyDetect(bool autoKeyDetect) { DARABONBA_PTR_SET_VALUE(autoKeyDetect_, autoKeyDetect) };
+
+
+        // logStoreExisted Field Functions 
+        bool hasLogStoreExisted() const { return this->logStoreExisted_ != nullptr;};
+        void deleteLogStoreExisted() { this->logStoreExisted_ = nullptr;};
+        inline bool getLogStoreExisted() const { DARABONBA_PTR_GET_DEFAULT(logStoreExisted_, false) };
+        inline NormalizationLogStores& setLogStoreExisted(bool logStoreExisted) { DARABONBA_PTR_SET_VALUE(logStoreExisted_, logStoreExisted) };
+
+
         // logStoreName Field Functions 
         bool hasLogStoreName() const { return this->logStoreName_ != nullptr;};
         void deleteLogStoreName() { this->logStoreName_ = nullptr;};
@@ -602,11 +629,15 @@ namespace Models
 
 
       protected:
+        // Indicates whether automatic index discovery is enabled for the full-text index of the Logstore in Simple Log Service. This field is returned only when WithAutoKeyDetect=true is specified in the request, and is not returned if the read operation fails.
+        shared_ptr<bool> autoKeyDetect_ {};
+        // Indicates whether the corresponding Logstore in Simple Log Service exists. A value of true indicates that the Logstore exists. A value of false indicates that the Logstore is not created and delivery is not enabled. In this case, automatic index discovery cannot be configured. This field is returned only when WithAutoKeyDetect=true is specified in the request.
+        shared_ptr<bool> logStoreExisted_ {};
         // The name of the Logstore that stores normalized data.
         shared_ptr<string> logStoreName_ {};
-        // The storage duration of the normalized data.
+        // The storage duration for normalized data.
         shared_ptr<int32_t> logStoreTtl_ {};
-        // The amount of hot storage used.
+        // The used capacity of hot storage.
         shared_ptr<double> usedCapacity_ {};
       };
 
@@ -730,13 +761,16 @@ namespace Models
 
 
           protected:
-            // The UID of the source account for this delivery record, which is a decimal string.
+            // The UID of the source account for this delivery record. The value is a decimal string.
             shared_ptr<string> accountId_ {};
-            // A reserved compatibility field. The current implementation does not populate historical execution error codes, so this field is usually empty or not returned. If execution fails, read the error code returned by the corresponding write operation.
+            // A reserved compatibility field. The current implementation does not populate historical execution error codes. This field is usually empty or not returned. If execution fails, read the error code returned by the corresponding write operation.
             shared_ptr<string> errorCode_ {};
-            // The recorded delivery status. RUNNING indicates that the status is recorded as enabled after the last successful operation. STOPPED indicates that the status is recorded as disabled. This field does not indicate real-time log arrival.
+            // The recorded delivery status. Valid values:
+            // - RUNNING: The delivery is recorded as enabled after the last successful operation.
+            // - STOPPED: The delivery is recorded as disabled.
+            // This field does not indicate real-time log arrival.
             shared_ptr<string> status_ {};
-            // The last update time of the delivery status, which is a UNIX timestamp in milliseconds. This field is empty or not returned if the record has no update time.
+            // The time when the delivery status was last updated. The value is a UNIX timestamp in milliseconds. If the record has no update time, this field is empty or not returned.
             shared_ptr<int64_t> updateTime_ {};
           };
 
@@ -775,13 +809,13 @@ namespace Models
 
 
         protected:
-          // Specifies whether to automatically add subsequent new and available managed members to the selection scope of this log type.
+          // Indicates whether to automatically add subsequent new and available managed members to the selection scope of this log type.
           shared_ptr<bool> autoIncludeNewAccounts_ {};
-          // The status list of existing source delivery records for this log type.
+          // The list of statuses for existing source delivery records of this log type.
           shared_ptr<vector<Types::Executions>> executions_ {};
-          // The unique identifier of the log type, which corresponds to UpdateDataStorageDelivery.LogCode.
+          // The unique identifier of the log type. This corresponds to UpdateDataStorageDelivery.LogCode.
           shared_ptr<string> logCode_ {};
-          // The array of UIDs of the selected source accounts for this log type, including the current account. The response is a JSON string array. When you write an array(simple) request, you must serialize it into comma-separated values.
+          // The array of UIDs of the source accounts selected for this log type, including the local account. The response is a JSON string array. When you write an array(simple) request, serialize the value as comma-separated values.
           shared_ptr<vector<string>> selectedAccountIds_ {};
         };
 
@@ -841,13 +875,13 @@ namespace Models
 
 
         protected:
-          // The UID of the source Alibaba Cloud account, which is a decimal string.
+          // The UID of the source cloud account. The value is a decimal string.
           shared_ptr<string> accountId_ {};
           // The display name of the account. If the name is missing, the UID string is returned.
           shared_ptr<string> accountName_ {};
-          // Specifies whether the account has the authorization required for log delivery. This parameter must be set to true when you add a selected member.
+          // Indicates whether the account has the authorization required for log delivery. This parameter must be set to true when you add a member.
           shared_ptr<bool> authorized_ {};
-          // Specifies whether the account is the current management and delivery target account, which is the current account.
+          // Indicates whether the account is the current management and delivery target account, which is the local account.
           shared_ptr<bool> daAccount_ {};
         };
 
@@ -936,19 +970,19 @@ namespace Models
 
 
       protected:
-        // The account directory of the current account and managed member accounts.
+        // The account directory of the current local account and managed members.
         shared_ptr<vector<DeliverySettings::Accounts>> accounts_ {};
-        // Specifies whether the current account meets the conditions for delivery setting operations. This is determined based on authorization, target project availability, capacity orders, and the current account identity. The PrerequisiteEnabled parameter must also be met.
+        // Indicates whether the current account meets the conditions for configuring delivery settings. This is determined based on authorization, target project availability, capacity orders, and the current account identity. The PrerequisiteEnabled parameter must also be set to true.
         shared_ptr<bool> canConfigure_ {};
-        // The current version of the delivery settings. When you modify multi-account configurations or specify member delivery, pass this value back as ConfigurationVersion. You must query this value again after each modification and cannot use a fixed example value.
+        // The version of the current delivery settings. When you modify multi-account configurations or specify member delivery, pass this value back as the ConfigurationVersion parameter. Query this value again after each modification. Do not use a fixed sample value.
         shared_ptr<int64_t> configurationVersion_ {};
-        // The UID of the current management and delivery target account, which is a decimal string. This is also the current account that is permanently retained in the account selection list.
+        // The UID of the current management and delivery target account. The value is a decimal string. This account is also the fixed local account in the account selection list.
         shared_ptr<string> daAccountId_ {};
-        // The master switch for the saved multi-account centralized delivery. A value of true indicates that the switch is turned on. A value of false indicates that the switch is turned off.
+        // The master switch for saved multi-account centralized delivery. A value of true indicates that the switch is turned on. A value of false indicates that the switch is turned off.
         shared_ptr<bool> enabled_ {};
-        // Specifies whether the initialization of the account scope and automatic inclusion settings is completed when the feature is enabled for the first time.
+        // Indicates whether the initialization of the account scope and automatic inclusion settings upon the first enabling is complete.
         shared_ptr<bool> initialized_ {};
-        // Specifies whether the prerequisite of enabling multi-account security management in Security Center is met.
+        // Indicates whether the prerequisite of enabling multi-account security management in Security Center is met.
         shared_ptr<bool> prerequisiteEnabled_ {};
         // The name of the current Simple Log Service project for centralized delivery. When you modify multi-account settings or specify member delivery, pass this value back as the TargetProject request parameter.
         shared_ptr<string> targetProject_ {};
@@ -956,7 +990,12 @@ namespace Models
         shared_ptr<string> targetRegion_ {};
         // The account selection, automatic inclusion settings, and existing delivery status categorized by log type.
         shared_ptr<vector<DeliverySettings::Types>> types_ {};
-        // The reason code for being unconfigurable. Valid values: DA_UNAUTHORIZED (the management account is not authorized), TARGET_PROJECT_UNAVAILABLE (the target project is unavailable), LOG_CAPACITY_UNAVAILABLE (no valid capacity order exists), and NOT_CURRENT_ACCOUNT (the operation is not performed by the current account). This field is empty or not returned if the conditions are met.
+        // The reason code for why the configuration is unavailable. Valid values:
+        // - DA_UNAUTHORIZED: The management account is not authorized.
+        // - TARGET_PROJECT_UNAVAILABLE: The target project is unavailable.
+        // - LOG_CAPACITY_UNAVAILABLE: No valid capacity order exists.
+        // - NOT_CURRENT_ACCOUNT: The operation is not performed by the current account.
+        // If the conditions are met, this parameter is empty or not returned.
         shared_ptr<string> unavailableReason_ {};
       };
 
@@ -1099,39 +1138,39 @@ namespace Models
     protected:
       // The amount of cold storage used for user logs.
       shared_ptr<double> coldStorageUsedCapacity_ {};
-      // The storage region of user logs.
+      // The storage region for user-side logs.
       shared_ptr<string> dataStorageRegionId_ {};
-      // Specifies whether the storage region can be modified. By default, the region cannot be modified. You can contact the product manager to reset the region, and the region can be reset only once. Valid values:
-      // - allow: The region can be modified.
-      // - deny: The region cannot be modified.
+      // Indicates whether the storage region can be modified. By default, modification is not allowed. Contact the product manager to reset the region. The region can be reset only once. Valid values:
+      // - allow: The storage region can be modified.
+      // - deny: The storage region cannot be modified.
       shared_ptr<string> dataStorageRegionPermission_ {};
-      // The storage capacity purchased for subscription.
+      // The storage capacity purchased in subscription scenarios.
       shared_ptr<int64_t> dataStorageTotalCapacity_ {};
-      // The amount of storage used in user log management.
+      // The storage capacity used in user log management.
       shared_ptr<double> dataStorageUsedCapacity_ {};
-      // The storage usage details of the log management user.
+      // The details of storage usage by log management users.
       shared_ptr<string> dataStorageUsedCapacityDetail_ {};
-      // The multi-account delivery settings for the current storage resources. Returned when the query is successful. If the read operation fails, see DeliverySettingsError.
+      // The multi-account delivery settings for the current storage resource. This parameter is returned when the query is successful. If the read operation fails, refer to DeliverySettingsError.
       shared_ptr<Data::DeliverySettings> deliverySettings_ {};
-      // The read error code for the optional multi-account delivery settings. If the read operation fails, DELIVERY_SETTINGS_UNAVAILABLE is returned. If the read operation is successful, this field is empty or not returned, and does not affect other storage fields.
+      // The read fault code for optional multi-account delivery settings. If the read failed, DELIVERY_SETTINGS_UNAVAILABLE is returned. If the read is successful, this field is empty or not returned and does not affect other storage fields.
       shared_ptr<string> deliverySettingsError_ {};
-      // The name of the Simple Log Service project where user logs are stored.
+      // The name of the Simple Log Service project that stores user logs.
       shared_ptr<string> logProject_ {};
       // The status of the log project.
       shared_ptr<string> logProjectState_ {};
-      // Specifies whether the status of the log project can be changed.
+      // Indicates whether the status of the log project can be changed.
       shared_ptr<bool> logProjectStateChangeAllowed_ {};
-      // Specifies whether Simple Log Service is disabled.
+      // Indicates whether the log service is disabled.
       shared_ptr<bool> logServiceDisabled_ {};
-      // The details of the Logstores for normalized data.
+      // The Logstore details for normalized data.
       shared_ptr<vector<Data::NormalizationLogStores>> normalizationLogStores_ {};
-      // The details of the normalized datasets.
+      // The details of normalized datasets.
       shared_ptr<vector<Data::NormalizationLogViews>> normalizationLogViews_ {};
-      // The list of Record Logstores.
+      // The list of record Logstores.
       shared_ptr<vector<Data::RecordLogStores>> recordLogStores_ {};
-      // The storage details of raw logs in Security Center.
+      // The storage details of raw logs from Security Center.
       shared_ptr<vector<Data::SasLogStores>> sasLogStores_ {};
-      // The list of legacy Logstores in SIEM V1.
+      // The list of legacy SIEM V1 Logstores.
       shared_ptr<vector<Data::UnusedLogStores>> unusedLogStores_ {};
     };
 
@@ -1154,9 +1193,9 @@ namespace Models
 
 
   protected:
-    // The detailed information returned.
+    // The detailed response content.
     shared_ptr<GetDataStorageResponseBody::Data> data_ {};
-    // The request ID.
+    // The request message ID.
     shared_ptr<string> requestId_ {};
   };
 

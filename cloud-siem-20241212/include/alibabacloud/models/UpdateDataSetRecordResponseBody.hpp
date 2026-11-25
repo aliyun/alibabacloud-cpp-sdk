@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The result of the dataset update.
+    // The dataset update results.
     shared_ptr<UpdateDataSetRecordResponseBody::DataSetRecordStatistic> dataSetRecordStatistic_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

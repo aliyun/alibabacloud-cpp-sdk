@@ -562,7 +562,7 @@ namespace Models
       // - ALERT_ACTIVITY: other alerts
       // - EDR_ALERT_ACTIVITY: endpoint detection and response alerts
       // - FIREWALL_ALERT_ACTIVITY: firewall alerts
-      // - WAF_ALERT_ACTIVITY: Web Application Firewall alerts
+      // - WAF_ALERT_ACTIVITY: web application firewall alerts
       shared_ptr<string> alertSchemaId_ {};
       // The tactic phase of the alert.
       shared_ptr<string> alertTacticId_ {};
@@ -576,7 +576,7 @@ namespace Models
       shared_ptr<string> alertType_ {};
       // The alerting type mapping.
       shared_ptr<string> alertTypeMapping_ {};
-      // The creation time. The format is YYYY-MM-DD HH:mm:ss.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
       // The expression content of the detection rule.
       shared_ptr<string> detectionExpressionContent_ {};
@@ -600,14 +600,14 @@ namespace Models
       shared_ptr<string> detectionRuleType_ {};
       // The entity mapping configuration.
       shared_ptr<vector<DetectionRules::EntityMappings>> entityMappings_ {};
-      // The incident aggregation period configuration.
+      // The event aggregation period configuration.
       shared_ptr<string> incidentAggregationExpression_ {};
-      // The incident aggregation type. Valid values:
-      // - none: no event generated
+      // The event aggregation type. Valid values:
+      // - none: no event generation
       // - graph_compute: graph computing (supported by predefined rules)
-      // - expert: expert rule
+      // - expert: expert rules
       // - passthrough: alerting pass-through (one-to-one)
-      // - window: similar aggregation (window)
+      // - window: similar event aggregation (window)
       shared_ptr<string> incidentAggregationType_ {};
       // The ID of the log normalization category.
       shared_ptr<string> logCategoryId_ {};
@@ -615,7 +615,7 @@ namespace Models
       shared_ptr<string> logSchemaId_ {};
       // The XML configuration of the playbook.
       shared_ptr<DetectionRules::Playbook> playbook_ {};
-      // The user-defined parameters of the playbook.
+      // The custom parameters of the playbook.
       shared_ptr<string> playbookParameters_ {};
       // The UUID of the playbook.
       shared_ptr<string> playbookUuid_ {};
@@ -623,7 +623,7 @@ namespace Models
       shared_ptr<int64_t> scheduleBeginTime_ {};
       // The cron expression for scheduling. This parameter is required when ScheduleType is set to cron.
       shared_ptr<string> scheduleExpression_ {};
-      // The maximum number of retries upon timeout. Valid values: 1 to 100.
+      // The maximum number of retries for a timeout. Valid values: 1 to 100.
       shared_ptr<int32_t> scheduleMaxRetries_ {};
       // The maximum timeout period in seconds. Valid values: 60 to 1800.
       shared_ptr<int32_t> scheduleMaxTimeout_ {};
@@ -633,7 +633,7 @@ namespace Models
       shared_ptr<string> scheduleType_ {};
       // The length of the schedule window.
       shared_ptr<string> scheduleWindow_ {};
-      // The update time. The format is YYYY-MM-DD HH:mm:ss.
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -694,7 +694,7 @@ namespace Models
   protected:
     // The list of detection rules.
     shared_ptr<vector<ListDetectionRulesResponseBody::DetectionRules>> detectionRules_ {};
-    // The maximum number of data entries to return in this request.
+    // The maximum number of results to return in this request.
     shared_ptr<int32_t> maxResults_ {};
     // The token used to start the next query.
     shared_ptr<string> nextToken_ {};

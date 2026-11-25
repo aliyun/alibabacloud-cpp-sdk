@@ -186,17 +186,15 @@ namespace Models
       // - OperationDenied.TheValueLessThanMin: The field value is less than the specified minimum value.
       // - OperationDenied.TheValueMoreThanMax: The field value is greater than the specified maximum value.
       // - OperationDenied.TheValueNotMatchRegularExpression: The field value fails the regular expression match.
-      // - success: The validation is passed.
+      // - success: The validation passed.
       shared_ptr<string> message_ {};
-      // The source of the normalized field. Valid values:
-      // - preset: Built-in.
-      // - custom: Custom.
+      // The source of the normalized field. Valid values: preset and custom.
       shared_ptr<string> normalizationFieldFrom_ {};
       // The name of the normalized field.
       shared_ptr<string> normalizationFieldName_ {};
       // Specifies whether the normalized field is required.
       shared_ptr<bool> normalizationFieldRequired_ {};
-      // Specifies whether the normalized field name is built into the system.
+      // Indicates whether the normalized field name is built into the system.
       shared_ptr<bool> normalizationFieldReserved_ {};
       // The type of the normalized field. Valid values: text, long, double, and json.
       shared_ptr<string> normalizationFieldType_ {};
@@ -205,9 +203,9 @@ namespace Models
       // The validation status of the normalized field. Valid values: pass and fail.
       shared_ptr<string> normalizationFieldValidationStatus_ {};
       // The validation result. Valid values:
-      // - 1: The validation is passed.
+      // - 1: The validation passed.
       // - 0: A warning is returned.
-      // - 1: The validation fails.
+      // - 1: The validation failed.
       shared_ptr<int32_t> result_ {};
     };
 

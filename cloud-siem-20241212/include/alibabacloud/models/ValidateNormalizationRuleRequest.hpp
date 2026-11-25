@@ -142,13 +142,13 @@ namespace Models
   protected:
     // The ID of the rule.
     shared_ptr<string> data_ {};
-    // The storage mode of extended fields. Valid values: flat, pack, and reject.
+    // The storage mode for extended fields. Valid values: flat, pack, and reject.
     shared_ptr<string> extendFieldStoreMode_ {};
     // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     // 
-    // Note: This parameter is required in actual API calls. If this parameter is not provided, the service returns a 400 error with the message \\"The specified Lang can not be empty.\\" Explicitly specify the language code.
+    // Note: This parameter is required in actual API calls. If this parameter is not provided, the service returns a 400 error with the message "The specified Lang can not be empty." Explicitly pass the language code.
     shared_ptr<string> lang_ {};
     // The log sample in JSON format.
     shared_ptr<string> logSample_ {};
@@ -162,7 +162,7 @@ namespace Models
     shared_ptr<string> normalizationSchemaId_ {};
     // The ID of the product.
     shared_ptr<string> productId_ {};
-    // The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+    // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
     // - cn-hangzhou: The assets are located in the Chinese mainland.
     // - ap-southeast-1: The assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};

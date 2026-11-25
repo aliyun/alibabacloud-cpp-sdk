@@ -155,23 +155,23 @@ namespace Models
     protected:
       // The client message ID.
       shared_ptr<string> clientMessageId_ {};
-      // The session ID.
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
-      // The creation time. The time follows the ISO 8601 standard in UTC.
+      // The creation time in ISO 8601 format and the UTC time zone.
       shared_ptr<string> createdAt_ {};
-      // The conversation feedback information.
+      // The returned conversation information.
       shared_ptr<int64_t> feedback_ {};
-      // The number of tokens used for input.
+      // The number of input tokens used.
       shared_ptr<int64_t> inputTokens_ {};
       // The model ID.
       shared_ptr<string> modelId_ {};
-      // The number of tokens used for output.
+      // The number of output tokens.
       shared_ptr<int64_t> outputTokens_ {};
       // The number of reasoning tokens used on the current day.
       shared_ptr<int64_t> reasoningTokens_ {};
-      // Indicates whether a retry is allowed.
+      // Specifies whether retries are allowed.
       shared_ptr<bool> retryAllowed_ {};
-      // The status of the conversation turn.
+      // The status.
       shared_ptr<string> status_ {};
       // The primary key ID.
       shared_ptr<string> turnId_ {};
@@ -203,11 +203,11 @@ namespace Models
 
 
   protected:
-    // The API version number. The value is 1.0.0.
+    // The API version number, which is "1.0.0".
     shared_ptr<string> apiVersion_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The security operations Agent conversation turn.
+    // The conversation turn of the security operations agent.
     shared_ptr<CancelCopilotTurnResponseBody::Turn> turn_ {};
   };
 

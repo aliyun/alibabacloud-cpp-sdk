@@ -94,27 +94,23 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The storage duration for cold storage in Simple Log Service. This setting is not yet available.
+    // The cold storage duration in Simple Log Service. This parameter is not available for configuration.
     shared_ptr<string> logStoreColdTtl_ {};
-    // The storage duration for hot storage in Simple Log Service.
+    // The hot storage duration in Simple Log Service.
     shared_ptr<string> logStoreHotTtl_ {};
-    // The name of the Logstore for threat analysis.
+    // The name of the Logstore for Threat Analysis.
     shared_ptr<string> logStoreName_ {};
     // The storage duration of the Logstore.
     shared_ptr<string> logStoreTtl_ {};
-    // The region of the Data Management Center for threat analysis. Select a region based on the location of your assets. Valid values:
-    // 
-    // - cn-hangzhou: The Chinese mainland.
-    // 
-    // - ap-southeast-1: Regions outside the Chinese mainland.
+    // The region of the data management center for Threat Analysis. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member whose perspective the administrator assumes.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

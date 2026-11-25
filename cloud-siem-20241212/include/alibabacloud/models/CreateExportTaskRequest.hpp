@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The export task parameters, which are concatenated based on query conditions in JSON format.
+    // The parameters of the export task. The parameters are concatenated based on query conditions and formatted in JSON.
     shared_ptr<string> exportTaskParameter_ {};
     // The export type. Valid values:
-    // - incident_list: Event list.
+    // - incident_list: incident list.
     shared_ptr<string> exportTaskType_ {};
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
-    // > Note: This parameter is required. If you do not specify this parameter, the API returns a 400 error: "The specified Lang can not be empty."
+    // Note: This parameter is required. If it is not provided, the API returns a 400 error with the message "The specified Lang can not be empty.".
     shared_ptr<string> lang_ {};
-    // The region where the threat analysis data management center resides. Specify the management center region based on the region of your assets. Valid values:
-    // - cn-hangzhou: Your assets reside in the Chinese mainland.
-    // - ap-southeast-1: Your assets reside outside China.
+    // The region of the data management center for Threat Analysis. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the member to which the administrator switches the view.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

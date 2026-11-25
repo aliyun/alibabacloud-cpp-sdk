@@ -179,21 +179,21 @@ namespace Models
 
 
       protected:
-        // The key description for a standard field of the JSON type.
+        // The description of the key for the JSON normalization field.
         shared_ptr<string> normalizationFieldDescription_ {};
-        // The key example for a standard field of the JSON type.
+        // The example of the key for the JSON normalization field.
         shared_ptr<string> normalizationFieldExample_ {};
-        // The key source for a standard field of the JSON type.
+        // The source of the key for the JSON normalization field.
         shared_ptr<string> normalizationFieldFrom_ {};
-        // The key name for a standard field of the JSON type.
+        // The name of the key for the JSON normalization field.
         // 
         // This parameter is required.
         shared_ptr<string> normalizationFieldName_ {};
-        // Specifies whether the key for a standard field of the JSON type is required.
+        // Specifies whether the key for the JSON normalization field is required.
         shared_ptr<bool> normalizationFieldRequired_ {};
-        // Specifies whether the key for a standard field of the JSON type is tokenized.
+        // Specifies whether the key for the JSON normalization field is tokenized.
         shared_ptr<bool> normalizationFieldTokenize_ {};
-        // The key type for a standard field of the JSON type. Valid values: text, long, double, and json.
+        // The type of the key for the JSON normalization field. Valid values: text, long, double, and json.
         // 
         // This parameter is required.
         shared_ptr<string> normalizationFieldType_ {};
@@ -282,29 +282,29 @@ namespace Models
 
 
     protected:
-      // The standard field description.
+      // The description of the normalization field.
       shared_ptr<string> normalizationFieldDescription_ {};
-      // The standard field example.
+      // The example of the normalization field.
       shared_ptr<string> normalizationFieldExample_ {};
-      // The key source for a standard field of the JSON type.
+      // The source of the key for the JSON normalization field.
       shared_ptr<string> normalizationFieldFrom_ {};
-      // Specifies whether to create indexes for all keys in a standard field of the JSON type.
+      // Specifies whether to create indexes for all keys of the JSON normalization field.
       shared_ptr<bool> normalizationFieldJsonIndexAll_ {};
-      // The key list for a standard field of the JSON type.
+      // The list of keys for the JSON normalization field.
       shared_ptr<vector<NormalizationFields::NormalizationFieldJsonKeys>> normalizationFieldJsonKeys_ {};
-      // The normalization field name.
+      // The name of the normalization field.
       // 
       // This parameter is required.
       shared_ptr<string> normalizationFieldName_ {};
-      // Specifies whether the standard field is required.
+      // Specifies whether the normalization field is required.
       shared_ptr<bool> normalizationFieldRequired_ {};
       // Specifies whether the normalization field is required.
       shared_ptr<bool> normalizationFieldRequirement_ {};
       // Specifies whether the normalization field is reserved.
       shared_ptr<bool> normalizationFieldReserved_ {};
-      // Specifies whether the standard field is tokenized.
+      // Specifies whether the normalization field is tokenized.
       shared_ptr<bool> normalizationFieldTokenize_ {};
-      // The standard field type. Valid values: text, long, double, and json.
+      // The type of the normalization field. Valid values: text, long, double, and json.
       // 
       // This parameter is required.
       shared_ptr<string> normalizationFieldType_ {};
@@ -415,49 +415,49 @@ namespace Models
 
 
   protected:
-    // The language of the response messages. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     // 
-    // Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error: "The specified Lang can not be empty." Pass the language code explicitly.
+    // Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error "The specified Lang can not be empty.". Explicitly pass the language code.
     shared_ptr<string> lang_ {};
-    // The normalization category ID.
+    // The ID of the normalization category.
     shared_ptr<string> normalizationCategoryId_ {};
-    // The field source.
+    // The source of the field.
     shared_ptr<string> normalizationFieldSource_ {};
     // The normalization fields.
     shared_ptr<vector<CreateNormalizationSchemaRequest::NormalizationFields>> normalizationFields_ {};
-    // The normalization schema description.
+    // The description of the normalization schema.
     shared_ptr<string> normalizationSchemaDescription_ {};
-    // The normalization schema ID. When creating a custom schema, the ID must start with custom- and can contain only lowercase letters, digits, and hyphens. Example: custom-my-log-schema.
+    // The ID of the normalization schema. When you create a custom schema, the ID must start with custom- and can contain only lowercase letters, digits, and hyphens. Example: custom-my-log-schema.
     // 
     // This parameter is required.
     shared_ptr<string> normalizationSchemaId_ {};
-    // The normalization schema name.
+    // The name of the normalization schema.
     // 
     // This parameter is required.
     shared_ptr<string> normalizationSchemaName_ {};
-    // The normalization schema type. Valid values:
-    // - log: log.
-    // - entity: entity.
+    // The type of the normalization schema. Valid values:
+    // - log: Log.
+    // - entity: Entity.
     // 
     // This parameter is required.
     shared_ptr<string> normalizationSchemaType_ {};
-    // The security domain ID.
+    // The ID of the security domain.
     shared_ptr<string> normalizationSecurityDomainId_ {};
-    // The product ID.
+    // The ID of the product.
     shared_ptr<string> productId_ {};
-    // The region where the data management center of Cloud Threat Detection and Response (CTDR) is located. Select the management center region based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: assets in the Chinese mainland or Hong Kong (China).
-    // - ap-southeast-1: assets in regions outside China.
+    // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: Assets are located in regions outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID that the administrator uses to switch to the view of another member account.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The Simple Log Service LogStore.
+    // The Logstore of Simple Log Service.
     // 
     // This parameter is required.
     shared_ptr<string> targetLogStore_ {};
-    // The vendor ID.
+    // The ID of the vendor.
     shared_ptr<string> vendorId_ {};
   };
 

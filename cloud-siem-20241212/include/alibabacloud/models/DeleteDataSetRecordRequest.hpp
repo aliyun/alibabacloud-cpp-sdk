@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The dataset ID.
+    // The ID of the dataset.
     // 
     // This parameter is required.
     shared_ptr<string> dataSetId_ {};
-    // The list of dataset record IDs in JSON array format.
+    // The IDs of the dataset records, in JSON array format.
     // 
     // This parameter is required.
     shared_ptr<string> dataSetRecordIds_ {};
@@ -89,9 +89,9 @@ namespace Models
     shared_ptr<string> lang_ {};
     // The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets are located. Valid values:
     // - cn-hangzhou: Assets are located in the Chinese mainland.
-    // - ap-southeast-1: Assets are located outside the Chinese mainland.
+    // - ap-southeast-1: Assets are located in regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the user whose perspective the administrator assumes.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

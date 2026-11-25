@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The name of the exported file.
     shared_ptr<string> fileName_ {};
-    // The export task ID.
+    // The ID of the export task.
     shared_ptr<int64_t> id_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

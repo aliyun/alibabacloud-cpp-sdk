@@ -190,13 +190,13 @@ namespace Models
 
   protected:
     // The API version.
-    // >You can call the [DescribeGroupProductions](~~DescribeGroupProductions~~) operation to obtain this parameter.
+    // > You can call the [DescribeGroupProductions](~~DescribeGroupProductions~~) operation to obtain this parameter.
     shared_ptr<string> apiVersion_ {};
-    // The list of conversation messages.
+    // The list of session messages.
     shared_ptr<vector<ListCopilotMessagesResponseBody::Items>> items_ {};
-    // The maximum amount of data read in this query.
+    // The maximum amount of data read in the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query.
+    // The token for the start of the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
