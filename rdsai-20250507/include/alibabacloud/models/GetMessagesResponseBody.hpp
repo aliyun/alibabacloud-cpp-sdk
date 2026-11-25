@@ -140,7 +140,7 @@ namespace Models
         shared_ptr<string> id_ {};
         shared_ptr<string> previewUrl_ {};
         shared_ptr<string> type_ {};
-        // The upload file ID.
+        // The uploaded file ID.
         shared_ptr<string> uploadFileId_ {};
       };
 
@@ -257,19 +257,19 @@ namespace Models
 
 
       protected:
-        // The approval status of the tool calling.
+        // The tool invocation approval status.
         shared_ptr<string> approvalStatus_ {};
-        // The tool calling ID.
+        // The tool invocation ID.
         shared_ptr<string> callId_ {};
-        // The session ID.
+        // The conversation ID.
         shared_ptr<string> conversationId_ {};
-        // The description of the tool calling.
+        // The tool invocation description.
         shared_ptr<string> description_ {};
         // The message ID.
         shared_ptr<string> messageId_ {};
         // The tool approval round ID.
         shared_ptr<string> roundId_ {};
-        // The parameters of the tool calling.
+        // The tool invocation parameters.
         Darabonba::Json toolArguments_ {};
         // The tool name.
         shared_ptr<string> toolName_ {};
@@ -386,12 +386,13 @@ namespace Models
 
 
     protected:
-      // The answer.
+      // The reply.
       shared_ptr<string> answer_ {};
-      // The session ID.
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
-      // The creation time.
+      // The time when the message was created. The value is a UNIX timestamp in seconds.
       shared_ptr<string> createdAt_ {};
+      // The list of events.
       shared_ptr<vector<Data::Events>> events_ {};
       // The feedback.
       shared_ptr<string> feedback_ {};
@@ -404,7 +405,7 @@ namespace Models
       shared_ptr<vector<Data::MessageFiles>> messageFiles_ {};
       // The query statement.
       shared_ptr<string> query_ {};
-      // The retrieval resources.
+      // The retrieved resources.
       shared_ptr<vector<Darabonba::Json>> retrieverResources_ {};
       shared_ptr<string> streamKey_ {};
     };
@@ -442,11 +443,11 @@ namespace Models
 
 
   protected:
-    // The query result.
+    // The query results.
     shared_ptr<vector<GetMessagesResponseBody::Data>> data_ {};
     // Indicates whether there is a next page.
     shared_ptr<bool> hasMore_ {};
-    // The maximum number of entries returned.
+    // The maximum number of query results.
     shared_ptr<int64_t> limit_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

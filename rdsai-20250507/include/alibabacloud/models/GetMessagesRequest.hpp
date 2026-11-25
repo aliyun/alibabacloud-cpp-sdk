@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ConversationId, conversationId_);
       DARABONBA_PTR_TO_JSON(EventMode, eventMode_);
       DARABONBA_PTR_TO_JSON(FirstId, firstId_);
+      DARABONBA_PTR_TO_JSON(FlowId, flowId_);
       DARABONBA_PTR_TO_JSON(Limit, limit_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ConversationId, conversationId_);
       DARABONBA_PTR_FROM_JSON(EventMode, eventMode_);
       DARABONBA_PTR_FROM_JSON(FirstId, firstId_);
+      DARABONBA_PTR_FROM_JSON(FlowId, flowId_);
       DARABONBA_PTR_FROM_JSON(Limit, limit_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->conversationId_ == nullptr
-        && this->eventMode_ == nullptr && this->firstId_ == nullptr && this->limit_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->eventMode_ == nullptr && this->firstId_ == nullptr && this->flowId_ == nullptr && this->limit_ == nullptr && this->workspaceId_ == nullptr; };
     // conversationId Field Functions 
     bool hasConversationId() const { return this->conversationId_ != nullptr;};
     void deleteConversationId() { this->conversationId_ = nullptr;};
@@ -60,6 +62,13 @@ namespace Models
     inline GetMessagesRequest& setFirstId(string firstId) { DARABONBA_PTR_SET_VALUE(firstId_, firstId) };
 
 
+    // flowId Field Functions 
+    bool hasFlowId() const { return this->flowId_ != nullptr;};
+    void deleteFlowId() { this->flowId_ = nullptr;};
+    inline string getFlowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
+    inline GetMessagesRequest& setFlowId(string flowId) { DARABONBA_PTR_SET_VALUE(flowId_, flowId) };
+
+
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
@@ -77,10 +86,13 @@ namespace Models
   protected:
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
+    // The event output type. Valid values: inline and separate. Default value: inline. In inline mode, tool invocation events, child node events, and document events are unified into the answer field of the event where event = message. In separate mode, tool invocation events, child node events, and document events have their own respective events.
     shared_ptr<string> eventMode_ {};
     // The ID of the first message.
     shared_ptr<string> firstId_ {};
-    // The number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
+    // The flow instance ID.
+    shared_ptr<string> flowId_ {};
+    // The number of rows per page for paging. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int64_t> limit_ {};
     // The ContextDB workspace ID.
     shared_ptr<string> workspaceId_ {};

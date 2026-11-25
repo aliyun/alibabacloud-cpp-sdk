@@ -3992,7 +3992,7 @@ GetContextDatabaseUsageResponse Client::getContextDatabaseUsage(const GetContext
 }
 
 /**
- * @summary Queries the historical conversations of a user.
+ * @summary Queries the conversation history of a user.
  *
  * @param request GetConversationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4001,6 +4001,10 @@ GetContextDatabaseUsageResponse Client::getContextDatabaseUsage(const GetContext
 GetConversationsResponse Client::getConversationsWithOptions(const GetConversationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasFlowId()) {
+    query["FlowId"] = request.getFlowId();
+  }
+
   if (!!request.hasLastId()) {
     query["LastId"] = request.getLastId();
   }
@@ -4039,7 +4043,7 @@ GetConversationsResponse Client::getConversationsWithOptions(const GetConversati
 }
 
 /**
- * @summary Queries the historical conversations of a user.
+ * @summary Queries the conversation history of a user.
  *
  * @param request GetConversationsRequest
  * @return GetConversationsResponse
@@ -4142,7 +4146,7 @@ GetInspectionReportResponse Client::getInspectionReport(const GetInspectionRepor
 }
 
 /**
- * @summary Queries the details of specific conversation messages.
+ * @summary Retrieves the details of a specific conversation message.
  *
  * @param request GetMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4161,6 +4165,10 @@ GetMessagesResponse Client::getMessagesWithOptions(const GetMessagesRequest &req
 
   if (!!request.hasFirstId()) {
     query["FirstId"] = request.getFirstId();
+  }
+
+  if (!!request.hasFlowId()) {
+    query["FlowId"] = request.getFlowId();
   }
 
   if (!!request.hasLimit()) {
@@ -4189,7 +4197,7 @@ GetMessagesResponse Client::getMessagesWithOptions(const GetMessagesRequest &req
 }
 
 /**
- * @summary Queries the details of specific conversation messages.
+ * @summary Retrieves the details of a specific conversation message.
  *
  * @param request GetMessagesRequest
  * @return GetMessagesResponse

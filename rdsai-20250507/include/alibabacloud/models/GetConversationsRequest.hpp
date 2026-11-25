@@ -13,6 +13,7 @@ namespace Models
   class GetConversationsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetConversationsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(FlowId, flowId_);
       DARABONBA_PTR_TO_JSON(LastId, lastId_);
       DARABONBA_PTR_TO_JSON(Limit, limit_);
       DARABONBA_PTR_TO_JSON(Pinned, pinned_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, GetConversationsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(FlowId, flowId_);
       DARABONBA_PTR_FROM_JSON(LastId, lastId_);
       DARABONBA_PTR_FROM_JSON(Limit, limit_);
       DARABONBA_PTR_FROM_JSON(Pinned, pinned_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->lastId_ == nullptr
-        && this->limit_ == nullptr && this->pinned_ == nullptr && this->sortBy_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->flowId_ == nullptr
+        && this->lastId_ == nullptr && this->limit_ == nullptr && this->pinned_ == nullptr && this->sortBy_ == nullptr && this->workspaceId_ == nullptr; };
+    // flowId Field Functions 
+    bool hasFlowId() const { return this->flowId_ != nullptr;};
+    void deleteFlowId() { this->flowId_ = nullptr;};
+    inline string getFlowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
+    inline GetConversationsRequest& setFlowId(string flowId) { DARABONBA_PTR_SET_VALUE(flowId_, flowId) };
+
+
     // lastId Field Functions 
     bool hasLastId() const { return this->lastId_ != nullptr;};
     void deleteLastId() { this->lastId_ = nullptr;};
@@ -75,15 +84,17 @@ namespace Models
 
 
   protected:
+    // The ID of the flow.
+    shared_ptr<string> flowId_ {};
     // The ID of the last conversation record.
     shared_ptr<string> lastId_ {};
-    // The number of entries per page for a paged query. Valid values: 1 to 100.
+    // The paging Settings for the number of entries per page in a paged query. Valid values: 1 to 100.
     shared_ptr<string> limit_ {};
-    // The pinned bookmark flag for the application.
+    // The pin mark for application favorites.
     shared_ptr<string> pinned_ {};
     // The sorting criterion.
     shared_ptr<string> sortBy_ {};
-    // The ContextDB workspace ID.
+    // The ID of the ContextDB workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

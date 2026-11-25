@@ -171,15 +171,15 @@ namespace Models
   protected:
     // The answer content.
     shared_ptr<string> answer_ {};
-    // The tool calling invoke approval status.
+    // The tool invoke approval status.
     shared_ptr<string> approvalStatus_ {};
-    // The tool calling invoke ID.
+    // The tool invoke ID.
     shared_ptr<string> callId_ {};
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
     // The creation time.
     shared_ptr<int64_t> createdAt_ {};
-    // The tool calling invoke description.
+    // The tool invoke description.
     shared_ptr<string> description_ {};
     // The event.
     shared_ptr<string> event_ {};
@@ -195,7 +195,7 @@ namespace Models
     shared_ptr<string> roundId_ {};
     // The asynchronous task ID.
     shared_ptr<string> taskId_ {};
-    // The tool calling invoke parameters.
+    // The tool invoke parameters.
     Darabonba::Json toolArguments_ {};
     // The tool name.
     shared_ptr<string> toolName_ {};

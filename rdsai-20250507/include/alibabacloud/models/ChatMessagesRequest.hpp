@@ -45,6 +45,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Inputs& obj) { 
         DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
         DARABONBA_PTR_TO_JSON(EnableThinking, enableThinking_);
+        DARABONBA_PTR_TO_JSON(FlowId, flowId_);
         DARABONBA_PTR_TO_JSON(Language, language_);
         DARABONBA_PTR_TO_JSON(ModelId, modelId_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -57,6 +58,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Inputs& obj) { 
         DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
         DARABONBA_PTR_FROM_JSON(EnableThinking, enableThinking_);
+        DARABONBA_PTR_FROM_JSON(FlowId, flowId_);
         DARABONBA_PTR_FROM_JSON(Language, language_);
         DARABONBA_PTR_FROM_JSON(ModelId, modelId_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -78,8 +80,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && this->enableThinking_ == nullptr && this->language_ == nullptr && this->modelId_ == nullptr && this->regionId_ == nullptr && this->resumeCallId_ == nullptr
-        && this->thinkEffort_ == nullptr && this->timezone_ == nullptr && this->toolApprovalMode_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->enableThinking_ == nullptr && this->flowId_ == nullptr && this->language_ == nullptr && this->modelId_ == nullptr && this->regionId_ == nullptr
+        && this->resumeCallId_ == nullptr && this->thinkEffort_ == nullptr && this->timezone_ == nullptr && this->toolApprovalMode_ == nullptr && this->workspaceId_ == nullptr; };
       // customAgentId Field Functions 
       bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
       void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -92,6 +94,13 @@ namespace Models
       void deleteEnableThinking() { this->enableThinking_ = nullptr;};
       inline string getEnableThinking() const { DARABONBA_PTR_GET_DEFAULT(enableThinking_, "") };
       inline Inputs& setEnableThinking(string enableThinking) { DARABONBA_PTR_SET_VALUE(enableThinking_, enableThinking) };
+
+
+      // flowId Field Functions 
+      bool hasFlowId() const { return this->flowId_ != nullptr;};
+      void deleteFlowId() { this->flowId_ = nullptr;};
+      inline string getFlowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
+      inline Inputs& setFlowId(string flowId) { DARABONBA_PTR_SET_VALUE(flowId_, flowId) };
 
 
       // language Field Functions 
@@ -151,23 +160,25 @@ namespace Models
 
 
     protected:
-      // The custom agent ID for the user.
+      // The custom agent ID.
       shared_ptr<string> customAgentId_ {};
       // Specifies whether to enable the deep thinking mode.
       shared_ptr<string> enableThinking_ {};
+      // The IM flow ID. Used to bind messages to a registered IM channel when a conversation is initiated through an IM channel.
+      shared_ptr<string> flowId_ {};
       // The conversation language.
       shared_ptr<string> language_ {};
       // The model ID.
       shared_ptr<string> modelId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The tool approval call ID for resuming execution. Pass this parameter after the console completes all decisions for the current approval round to continue the interrupted ChatMessage loop. Do not pass this parameter for regular conversations.
+      // The tool approval call ID for resuming execution. Pass this parameter after the console completes all decisions for the current approval round to continue the interrupted ChatMessage loop. Do not pass this parameter for normal conversations.
       shared_ptr<string> resumeCallId_ {};
       // The thinking depth.
       shared_ptr<string> thinkEffort_ {};
       // The time zone. Default value: **Asia/Shanghai**.
       shared_ptr<string> timezone_ {};
-      // The tool approval mode for the current conversation. Valid values: read_only (read-only, rejects write tools), manual (write tools require manual approval), and auto (automatically determined by the approval sub-agent; escalated to manual approval when needs_human is returned). Passing this parameter updates the approval mode for the current conversation.
+      // Specifies the tool approval mode for the current conversation. Valid values: read_only (read-only, rejects write tools), manual (write tools require manual approval), and auto (automatically determined by the approval sub-agent; escalated to manual approval when needs_human is returned). If specified, updates the approval mode of the current conversation.
       shared_ptr<string> toolApprovalMode_ {};
       // The ContextDB workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -229,11 +240,11 @@ namespace Models
 
 
     protected:
-      // The file transfer method. Set this parameter to local_file when referencing an uploaded file, and provide the UploadFileId at the same time.
+      // The file transfer method. Set this parameter to local_file and provide the UploadFileId when referencing an uploaded file.
       shared_ptr<string> transferMethod_ {};
       // The attachment type. A value of image indicates an image. The actual supported types are determined by the file upload configuration of the application.
       shared_ptr<string> type_ {};
-      // The identifier of the uploaded file. The ContextDB management agent can use the UploadFileId returned by the current workspace knowledge base.
+      // The identifier of the uploaded file. The ContextDB management agent can use the UploadFileId returned by the knowledge base of the current workspace.
       shared_ptr<string> uploadFileId_ {};
       // The image URL.
       shared_ptr<string> url_ {};
@@ -290,7 +301,7 @@ namespace Models
   protected:
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
-    // The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool calling invoke events, child node events, and document events are unified into the answer field of the event = message. When set to separate, tool calling invoke events, child node events, and document events have their own respective events.
+    // The event output mode. Valid values: inline and separate. Default value: inline. When set to inline, tool invoke events, child node events, and document events are unified into the answer field of the event where event = message. When set to separate, tool invoke events, child node events, and document events have their own respective events.
     shared_ptr<string> eventMode_ {};
     // The list of attachments included in the current conversation round. References uploaded files by using UploadFileId.
     shared_ptr<vector<ChatMessagesRequest::Files>> files_ {};

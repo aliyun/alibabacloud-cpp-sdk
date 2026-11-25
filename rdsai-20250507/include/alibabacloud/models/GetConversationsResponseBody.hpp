@@ -122,20 +122,17 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The historical conversation ID.
+      // The ID of the historical conversation.
       shared_ptr<string> id_ {};
       // The conversation introduction.
       shared_ptr<string> introduction_ {};
+      // Indicates whether the session is running.
       shared_ptr<bool> isRunning_ {};
-      // The historical conversation name.
+      // The name of the historical conversation.
       shared_ptr<string> name_ {};
-      // The session status. Valid values:
-      // - idle: The session is idle.
-      // - running: The session is generating a response.
-      // - pending_approval: The session is waiting for approval or manual review.
-      // 
-      // If both pending_approval and running conditions are met, pending_approval is returned.
+      // The session status.
       shared_ptr<string> status_ {};
+      // The update time.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -174,11 +171,11 @@ namespace Models
   protected:
     // The request result.
     shared_ptr<vector<GetConversationsResponseBody::Data>> data_ {};
-    // Indicates whether there is a next page.
+    // Indicates whether more pages are available.
     shared_ptr<string> hasMore_ {};
-    // The number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
+    // The paging Settings for the number of entries per page in a paged query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int64_t> limit_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

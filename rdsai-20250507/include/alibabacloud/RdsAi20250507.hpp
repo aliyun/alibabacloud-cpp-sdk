@@ -1439,7 +1439,7 @@ namespace RdsAi20250507
       Models::GetContextDatabaseUsageResponse getContextDatabaseUsage(const Models::GetContextDatabaseUsageRequest &request);
 
       /**
-       * @summary Queries the historical conversations of a user.
+       * @summary Queries the conversation history of a user.
        *
        * @param request GetConversationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1448,7 +1448,7 @@ namespace RdsAi20250507
       Models::GetConversationsResponse getConversationsWithOptions(const Models::GetConversationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the historical conversations of a user.
+       * @summary Queries the conversation history of a user.
        *
        * @param request GetConversationsRequest
        * @return GetConversationsResponse
@@ -1490,7 +1490,7 @@ namespace RdsAi20250507
       Models::GetInspectionReportResponse getInspectionReport(const Models::GetInspectionReportRequest &request);
 
       /**
-       * @summary Queries the details of specific conversation messages.
+       * @summary Retrieves the details of a specific conversation message.
        *
        * @param request GetMessagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1499,7 +1499,7 @@ namespace RdsAi20250507
       Models::GetMessagesResponse getMessagesWithOptions(const Models::GetMessagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of specific conversation messages.
+       * @summary Retrieves the details of a specific conversation message.
        *
        * @param request GetMessagesRequest
        * @return GetMessagesResponse
