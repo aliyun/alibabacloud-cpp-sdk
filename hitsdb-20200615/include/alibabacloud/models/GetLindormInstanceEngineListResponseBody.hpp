@@ -115,27 +115,20 @@ namespace Models
       protected:
         // The connection method for LindormTable. Valid values:
         // 
-        // - **0**: This is the default value and can be ignored.
-        // 
-        // - **1**: Use the HBase Java API to access LindormTable.
-        // 
-        // - **2**: Use a non-Java HBase API to access LindormTable.
-        // 
-        // - **3**: Use CQL to access LindormTable.
-        // 
+        // - **0**: Default value. You can ignore this value.
+        // - **1**: Use the HBase Java API to access the LindormTable endpoint.
+        // - **2**: Use a non-Java HBase API to access the LindormTable endpoint.
+        // - **3**: Use CQL to access the LindormTable endpoint.
         // - **4**: Use the LindormTable SQL endpoint.
-        // 
-        // - **5**: Use the S3-compatible endpoint for LindormTable.
-        // 
-        // - **6**: Use the MySQL-compatible endpoint for LindormTable.
+        // - **5**: Use the LindormTable S3-compatible endpoint.
+        // - **6**: Use the LindormTable MySQL-compatible endpoint.
         shared_ptr<int32_t> accessType_ {};
         // The database endpoint.
         shared_ptr<string> connectionString_ {};
         // The network type of the database endpoint. Valid values:
         // 
         // - **0**: Internet.
-        // 
-        // - **2**: Virtual private cloud (VPC).
+        // - **2**: VPC.
         shared_ptr<string> netType_ {};
         // The port number of the database endpoint.
         shared_ptr<int32_t> port_ {};
@@ -163,12 +156,9 @@ namespace Models
       // The engine type. Valid values:
       // 
       // - **lindorm**: LindormTable.
-      // 
       // - **tsdb**: LindormTSDB.
-      // 
-      // - **solr**: Search engine.
-      // 
-      // - **store**: File engine.
+      // - **solr**: search engine.
+      // - **store**: file engine.
       shared_ptr<string> engineType_ {};
       // The list of database connection information for the engine.
       shared_ptr<vector<EngineList::NetInfoList>> netInfoList_ {};
@@ -207,7 +197,7 @@ namespace Models
 
 
   protected:
-    // The detailed reason why the access was denied.
+    // The detailed reason for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The list of engine types.
     shared_ptr<vector<GetLindormInstanceEngineListResponseBody::EngineList>> engineList_ {};

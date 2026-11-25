@@ -78,7 +78,7 @@ namespace Models
     protected:
       // The name of the whitelist group.
       shared_ptr<string> groupName_ {};
-      // The IP address whitelist.
+      // The list of IP addresses in the whitelist.
       shared_ptr<string> securityIpList_ {};
     };
 
@@ -124,15 +124,15 @@ namespace Models
 
 
   protected:
-    // The details about why the access was denied.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // A list of whitelist groups.
+    // The list of whitelist groups.
     shared_ptr<vector<GetInstanceIpWhiteListResponseBody::GroupList>> groupList_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // A list of IP addresses in the whitelist.
+    // The list of IP addresses in the whitelist.
     shared_ptr<vector<string>> ipList_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

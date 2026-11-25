@@ -94,15 +94,17 @@ namespace Models
 
 
   protected:
-    // The type of the operation. Valid values:
+    // The operation type.
     // 
-    // - 1: Enable
+    // Valid values:
     // 
-    // - 0: Disable
+    // - 1: Enable.
+    // 
+    // - 0: Disable.
     // 
     // This parameter is required.
     shared_ptr<int32_t> actionType_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

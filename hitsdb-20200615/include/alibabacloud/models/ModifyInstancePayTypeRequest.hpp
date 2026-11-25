@@ -114,11 +114,11 @@ namespace Models
   protected:
     // The subscription duration. This parameter is required when you change the billing method to subscription.
     // 
-    // - If \\`PricingCycle\\` is \\`Month\\`, the valid values are 1 to 9.
+    // - If PricingCycle is set to Month, valid values are [1, 9].
     // 
-    // - If \\`PricingCycle\\` is \\`Year\\`, the valid values are 1 to 3.
+    // - If PricingCycle is set to Year, valid values are [1, 3].
     shared_ptr<int32_t> duration_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -126,17 +126,16 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The billing method of the instance. Valid values:
     // 
-    // - **PREPAY**: subscription.
-    // 
-    // - **POSTPAY**: pay-as-you-go.
+    // - **PREPAY**: subscription
+    // - **POSTPAY**: pay-as-you-go
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The unit of the subscription duration. This parameter is required when you change the billing method to subscription.
+    // The unit of the subscription duration. This parameter is required when you change the billing method to subscription. Valid values:
     // 
-    // - Month: The unit is month.
+    // - Month: month
     // 
-    // - Year: The unit is year.
+    // - Year: year
     shared_ptr<string> pricingCycle_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

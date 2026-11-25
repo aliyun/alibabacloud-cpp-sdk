@@ -21,7 +21,7 @@ namespace Hitsdb20200615
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Moves a resource to a different resource group.
+       * @summary Transfers a resource to another resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Hitsdb20200615
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Moves a resource to a different resource group.
+       * @summary Transfers a resource to another resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -132,11 +132,11 @@ namespace Hitsdb20200615
       Models::CreateLdpsComputeGroupResponse createLdpsComputeGroup(const Models::CreateLdpsComputeGroupRequest &request);
 
       /**
-       * @summary Create a Lindorm instance.
+       * @summary Creates a Lindorm instance.
        *
-       * @description To create an instance, you must specify at least one data engine. For example, to create a wide table engine, you must specify both the **LindormNum** (node count) and **LindormSpec** (node specification) parameters. For details on data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
-       * >Notice: 
-       * If you do not specify any data engine parameters when you create an instance, the API call fails.
+       * @description When you create an instance, you must select at least one data engine.
+       * For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable engine nodes) and **LindormSpec** (LindormTable engine node specifications) parameters. For more information about data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
+       * >Notice: If you do not specify data engine parameters when creating an instance, the API invoke will fail.
        *
        * @param request CreateLindormInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -145,11 +145,11 @@ namespace Hitsdb20200615
       Models::CreateLindormInstanceResponse createLindormInstanceWithOptions(const Models::CreateLindormInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a Lindorm instance.
+       * @summary Creates a Lindorm instance.
        *
-       * @description To create an instance, you must specify at least one data engine. For example, to create a wide table engine, you must specify both the **LindormNum** (node count) and **LindormSpec** (node specification) parameters. For details on data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
-       * >Notice: 
-       * If you do not specify any data engine parameters when you create an instance, the API call fails.
+       * @description When you create an instance, you must select at least one data engine.
+       * For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable engine nodes) and **LindormSpec** (LindormTable engine node specifications) parameters. For more information about data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
+       * >Notice: If you do not specify data engine parameters when creating an instance, the API invoke will fail.
        *
        * @param request CreateLindormInstanceRequest
        * @return CreateLindormInstanceResponse
@@ -159,9 +159,8 @@ namespace Hitsdb20200615
       /**
        * @summary Creates a Lindorm V2 instance.
        *
-       * @description You must specify at least one DPI engine when you create an instance. For more information about DPI engines and storage specifications, see [How to select a DPI engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
-       * >Notice: 
-       * If you do not specify a DPI engine parameter when you create an instance, the API call fails.
+       * @description You must select at least one data engine when you create an instance. For more information about data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
+       * >Notice: If you do not specify the data engine parameter when you create an instance, the API call fails.
        *
        * @param request CreateLindormV2InstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -172,9 +171,8 @@ namespace Hitsdb20200615
       /**
        * @summary Creates a Lindorm V2 instance.
        *
-       * @description You must specify at least one DPI engine when you create an instance. For more information about DPI engines and storage specifications, see [How to select a DPI engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
-       * >Notice: 
-       * If you do not specify a DPI engine parameter when you create an instance, the API call fails.
+       * @description You must select at least one data engine when you create an instance. For more information about data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
+       * >Notice: If you do not specify the data engine parameter when you create an instance, the API call fails.
        *
        * @param request CreateLindormV2InstanceRequest
        * @return CreateLindormV2InstanceResponse
@@ -247,7 +245,7 @@ namespace Hitsdb20200615
       Models::DeployLdpsSemiManagedComponentResponse deployLdpsSemiManagedComponent(const Models::DeployLdpsSemiManagedComponentRequest &request);
 
       /**
-       * @summary Queries all regions where Lindorm is available.
+       * @summary Retrieves all regions supported by Lindorm.
        *
        * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -256,7 +254,7 @@ namespace Hitsdb20200615
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all regions where Lindorm is available.
+       * @summary Retrieves all regions supported by Lindorm.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -350,7 +348,7 @@ namespace Hitsdb20200615
       Models::GetEngineDefaultAuthResponse getEngineDefaultAuth(const Models::GetEngineDefaultAuthRequest &request);
 
       /**
-       * @summary Retrieves the access whitelist for a Lindorm instance.
+       * @summary Retrieves the access whitelist of a Lindorm instance.
        *
        * @param request GetInstanceIpWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -359,7 +357,7 @@ namespace Hitsdb20200615
       Models::GetInstanceIpWhiteListResponse getInstanceIpWhiteListWithOptions(const Models::GetInstanceIpWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the access whitelist for a Lindorm instance.
+       * @summary Retrieves the access whitelist of a Lindorm instance.
        *
        * @param request GetInstanceIpWhiteListRequest
        * @return GetInstanceIpWhiteListResponse
@@ -380,7 +378,7 @@ namespace Hitsdb20200615
       Models::GetInstanceSecurityGroupsResponse getInstanceSecurityGroups(const Models::GetInstanceSecurityGroupsRequest &request);
 
       /**
-       * @summary Retrieves a summary of Lindorm instances in your account.
+       * @summary Retrieves an overview of the Lindorm instance count for the current account.
        *
        * @param request GetInstanceSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -389,7 +387,7 @@ namespace Hitsdb20200615
       Models::GetInstanceSummaryResponse getInstanceSummaryWithOptions(const Models::GetInstanceSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a summary of Lindorm instances in your account.
+       * @summary Retrieves an overview of the Lindorm instance count for the current account.
        *
        * @param request GetInstanceSummaryRequest
        * @return GetInstanceSummaryResponse
@@ -453,9 +451,9 @@ namespace Hitsdb20200615
       Models::GetLindormEngineConfigResponse getLindormEngineConfig(const Models::GetLindormEngineConfigRequest &request);
 
       /**
-       * @summary Retrieves the storage details for each storage medium in a specified Lindorm instance.
+       * @summary Retrieves the storage details of each storage medium for a specific Lindorm instance.
        *
-       * @description For Lindorm clusters with a storage version of 4.1.9 or later, storage usage details are available in the list returned by `LStorageUsageList`.
+       * @description For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the list values returned by LStorageUsageList for storage usage details.
        *
        * @param request GetLindormFsUsedDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -464,9 +462,9 @@ namespace Hitsdb20200615
       Models::GetLindormFsUsedDetailResponse getLindormFsUsedDetailWithOptions(const Models::GetLindormFsUsedDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the storage details for each storage medium in a specified Lindorm instance.
+       * @summary Retrieves the storage details of each storage medium for a specific Lindorm instance.
        *
-       * @description For Lindorm clusters with a storage version of 4.1.9 or later, storage usage details are available in the list returned by `LStorageUsageList`.
+       * @description For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the list values returned by LStorageUsageList for storage usage details.
        *
        * @param request GetLindormFsUsedDetailRequest
        * @return GetLindormFsUsedDetailResponse
@@ -474,7 +472,7 @@ namespace Hitsdb20200615
       Models::GetLindormFsUsedDetailResponse getLindormFsUsedDetail(const Models::GetLindormFsUsedDetailRequest &request);
 
       /**
-       * @summary Retrieves detailed information about a Lindorm instance, including its instance type, billing method, and VPC.
+       * @summary Retrieves the details of a Lindorm instance, including the instance type, billing method, and associated virtual private cloud (VPC).
        *
        * @param request GetLindormInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -483,7 +481,7 @@ namespace Hitsdb20200615
       Models::GetLindormInstanceResponse getLindormInstanceWithOptions(const Models::GetLindormInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves detailed information about a Lindorm instance, including its instance type, billing method, and VPC.
+       * @summary Retrieves the details of a Lindorm instance, including the instance type, billing method, and associated virtual private cloud (VPC).
        *
        * @param request GetLindormInstanceRequest
        * @return GetLindormInstanceResponse
@@ -491,7 +489,7 @@ namespace Hitsdb20200615
       Models::GetLindormInstanceResponse getLindormInstance(const Models::GetLindormInstanceRequest &request);
 
       /**
-       * @summary Queries the engine types that a Lindorm instance supports.
+       * @summary Retrieves the engine types supported by a Lindorm instance.
        *
        * @param request GetLindormInstanceEngineListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -500,7 +498,7 @@ namespace Hitsdb20200615
       Models::GetLindormInstanceEngineListResponse getLindormInstanceEngineListWithOptions(const Models::GetLindormInstanceEngineListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the engine types that a Lindorm instance supports.
+       * @summary Retrieves the engine types supported by a Lindorm instance.
        *
        * @param request GetLindormInstanceEngineListRequest
        * @return GetLindormInstanceEngineListResponse
@@ -508,7 +506,7 @@ namespace Hitsdb20200615
       Models::GetLindormInstanceEngineListResponse getLindormInstanceEngineList(const Models::GetLindormInstanceEngineListRequest &request);
 
       /**
-       * @summary Queries a list of Lindorm instances.
+       * @summary Retrieves a list of Lindorm instances.
        *
        * @param request GetLindormInstanceListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -517,7 +515,7 @@ namespace Hitsdb20200615
       Models::GetLindormInstanceListResponse getLindormInstanceListWithOptions(const Models::GetLindormInstanceListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of Lindorm instances.
+       * @summary Retrieves a list of Lindorm instances.
        *
        * @param request GetLindormInstanceListRequest
        * @return GetLindormInstanceListResponse
@@ -542,9 +540,9 @@ namespace Hitsdb20200615
       Models::GetLindormV2InstanceResponse getLindormV2Instance(const Models::GetLindormV2InstanceRequest &request);
 
       /**
-       * @summary Queries the details of an instance that uses the new architecture.
+       * @summary Queries the details of a Lindorm V2 instance.
        *
-       * @description For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the values in the list returned by LStorageUsageList for storage usage details.
+       * @description For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the list values returned by LStorageUsageList for storage usage details.
        *
        * @param request GetLindormV2InstanceDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -553,9 +551,9 @@ namespace Hitsdb20200615
       Models::GetLindormV2InstanceDetailsResponse getLindormV2InstanceDetailsWithOptions(const Models::GetLindormV2InstanceDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an instance that uses the new architecture.
+       * @summary Queries the details of a Lindorm V2 instance.
        *
-       * @description For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the values in the list returned by LStorageUsageList for storage usage details.
+       * @description For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the list values returned by LStorageUsageList for storage usage details.
        *
        * @param request GetLindormV2InstanceDetailsRequest
        * @return GetLindormV2InstanceDetailsResponse
@@ -610,7 +608,7 @@ namespace Hitsdb20200615
       Models::GetLindormV2InstanceSecurityGroupsResponse getLindormV2InstanceSecurityGroups(const Models::GetLindormV2InstanceSecurityGroupsRequest &request);
 
       /**
-       * @summary Retrieves the storage details for each storage medium of a specific Lindorm instance that uses the new architecture.
+       * @summary Queries the storage details of each storage medium for a specific new-architecture Lindorm instance.
        *
        * @param request GetLindormV2StorageUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -619,7 +617,7 @@ namespace Hitsdb20200615
       Models::GetLindormV2StorageUsageResponse getLindormV2StorageUsageWithOptions(const Models::GetLindormV2StorageUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the storage details for each storage medium of a specific Lindorm instance that uses the new architecture.
+       * @summary Queries the storage details of each storage medium for a specific new-architecture Lindorm instance.
        *
        * @param request GetLindormV2StorageUsageRequest
        * @return GetLindormV2StorageUsageResponse
@@ -642,6 +640,23 @@ namespace Hitsdb20200615
        * @return GetLindormV2StreamEngineInfoResponse
        */
       Models::GetLindormV2StreamEngineInfoResponse getLindormV2StreamEngineInfo(const Models::GetLindormV2StreamEngineInfoRequest &request);
+
+      /**
+       * @summary 终止HBase查询
+       *
+       * @param request KillQueryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return KillQueryResponse
+       */
+      Models::KillQueryResponse killQueryWithOptions(const Models::KillQueryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 终止HBase查询
+       *
+       * @param request KillQueryRequest
+       * @return KillQueryResponse
+       */
+      Models::KillQueryResponse killQuery(const Models::KillQueryRequest &request);
 
       /**
        * @summary 查询弹性伸缩配置
@@ -708,6 +723,23 @@ namespace Hitsdb20200615
       Models::ListComputeEngineJobResponse listComputeEngineJob(const Models::ListComputeEngineJobRequest &request);
 
       /**
+       * @summary 查询HBase Quotas
+       *
+       * @param request ListHBaseQuotasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListHBaseQuotasResponse
+       */
+      Models::ListHBaseQuotasResponse listHBaseQuotasWithOptions(const Models::ListHBaseQuotasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询HBase Quotas
+       *
+       * @param request ListHBaseQuotasRequest
+       * @return ListHBaseQuotasResponse
+       */
+      Models::ListHBaseQuotasResponse listHBaseQuotas(const Models::ListHBaseQuotasRequest &request);
+
+      /**
        * @summary 获取计算引擎资源组列表
        *
        * @param request ListLdpsComputeGroupsRequest
@@ -725,7 +757,7 @@ namespace Hitsdb20200615
       Models::ListLdpsComputeGroupsResponse listLdpsComputeGroups(const Models::ListLdpsComputeGroupsRequest &request);
 
       /**
-       * @summary Get Lindorm instance-to-tag bindings.
+       * @summary Retrieves the associations between Lindorm instances and tags.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -734,7 +766,7 @@ namespace Hitsdb20200615
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Lindorm instance-to-tag bindings.
+       * @summary Retrieves the associations between Lindorm instances and tags.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -795,9 +827,9 @@ namespace Hitsdb20200615
       /**
        * @summary Changes the billing method of a Lindorm instance.
        *
-       * @description Switches the billing method of an instance between subscription and pay-as-you-go.
-       * Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn)
-       * <props="intl">[pricing](https://www.alibabacloud.com/zh/pricing-calculator?_p_lc=1\\&spm=a2796.7960336.3034855210.1.7396b91aC5VjZ7#/commodity/vm_intl) of Lindorm.
+       * @description Adjusts the billing method of an instance. You can switch between the subscription and pay-as-you-go billing methods.
+       * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm. Published only on the China site.
+       * <props="intl">[pricing](https://www.alibabacloud.com/zh/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7396b91aC5VjZ7#/commodity/vm_intl). Published only on the International site.
        *
        * @param request ModifyInstancePayTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -808,9 +840,9 @@ namespace Hitsdb20200615
       /**
        * @summary Changes the billing method of a Lindorm instance.
        *
-       * @description Switches the billing method of an instance between subscription and pay-as-you-go.
-       * Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn)
-       * <props="intl">[pricing](https://www.alibabacloud.com/zh/pricing-calculator?_p_lc=1\\&spm=a2796.7960336.3034855210.1.7396b91aC5VjZ7#/commodity/vm_intl) of Lindorm.
+       * @description Adjusts the billing method of an instance. You can switch between the subscription and pay-as-you-go billing methods.
+       * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm. Published only on the China site.
+       * <props="intl">[pricing](https://www.alibabacloud.com/zh/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7396b91aC5VjZ7#/commodity/vm_intl). Published only on the International site.
        *
        * @param request ModifyInstancePayTypeRequest
        * @return ModifyInstancePayTypeResponse
@@ -937,7 +969,7 @@ namespace Hitsdb20200615
       Models::ReleaseLindormInstanceResponse releaseLindormInstance(const Models::ReleaseLindormInstanceRequest &request);
 
       /**
-       * @summary Releases a Lindorm instance.
+       * @summary Releases an instance.
        *
        * @param request ReleaseLindormV2InstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -946,7 +978,7 @@ namespace Hitsdb20200615
       Models::ReleaseLindormV2InstanceResponse releaseLindormV2InstanceWithOptions(const Models::ReleaseLindormV2InstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a Lindorm instance.
+       * @summary Releases an instance.
        *
        * @param request ReleaseLindormV2InstanceRequest
        * @return ReleaseLindormV2InstanceResponse
@@ -956,8 +988,7 @@ namespace Hitsdb20200615
       /**
        * @summary Renews a subscription Lindorm instance.
        *
-       * @description You can renew a subscription instance for a specific duration. The renewal period can be specified in months (1 to 9) or years (1 to 3).
-       * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
+       * @description Renews a subscription instance. The renewal period can be measured in months or years. The renewal duration ranges from 1 to 9 months or 1 to 3 years. Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
        *
        * @param request RenewLindormInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -968,8 +999,7 @@ namespace Hitsdb20200615
       /**
        * @summary Renews a subscription Lindorm instance.
        *
-       * @description You can renew a subscription instance for a specific duration. The renewal period can be specified in months (1 to 9) or years (1 to 3).
-       * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
+       * @description Renews a subscription instance. The renewal period can be measured in months or years. The renewal duration ranges from 1 to 9 months or 1 to 3 years. Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
        *
        * @param request RenewLindormInstanceRequest
        * @return RenewLindormInstanceResponse
@@ -1003,12 +1033,46 @@ namespace Hitsdb20200615
       Models::SetDefaultOlapComputeGroupResponse setDefaultOlapComputeGroup(const Models::SetDefaultOlapComputeGroupRequest &request);
 
       /**
-       * @summary Enables or disables the Lindorm protocol that is compatible with MySQL.
+       * @summary 设置HBase Quotas
        *
-       * @description Before you call this operation, make sure that the following requirements are met:
-       * - The version of LindormTable for the instance is 2.6.0 or later.
-       * - LindormTable supports Lindorm SQL (LSQL) V3. You can check whether LSQL V3 is supported by calling the GetLindormInstance operation. If the EnableLsqlVersionV3 parameter in the response is true, LSQL V3 is supported. For instances that are purchased after October 24, 2023, this feature is enabled by default. For existing instances, contact Alibaba Cloud support for an evaluation before enabling this feature.
-       * You can enable the MySQL protocol only if the two preceding conditions are met.
+       * @param request SetHBaseQuotasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetHBaseQuotasResponse
+       */
+      Models::SetHBaseQuotasResponse setHBaseQuotasWithOptions(const Models::SetHBaseQuotasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置HBase Quotas
+       *
+       * @param request SetHBaseQuotasRequest
+       * @return SetHBaseQuotasResponse
+       */
+      Models::SetHBaseQuotasResponse setHBaseQuotas(const Models::SetHBaseQuotasRequest &request);
+
+      /**
+       * @summary 查询HBase处理列表
+       *
+       * @param request ShowProcessListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ShowProcessListResponse
+       */
+      Models::ShowProcessListResponse showProcessListWithOptions(const Models::ShowProcessListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询HBase处理列表
+       *
+       * @param request ShowProcessListRequest
+       * @return ShowProcessListResponse
+       */
+      Models::ShowProcessListResponse showProcessList(const Models::ShowProcessListRequest &request);
+
+      /**
+       * @summary Enables or disables the Lindorm MySQL-compatible protocol.
+       *
+       * @description Before you begin:
+       * - The LindormTable database engine version number must be 2.6.0 or later.
+       * - The LindormTable DPI engine must support LindormSQL V3. You can check this by verifying that the EnableLsqlVersionV3 field in the response of the GetLindormInstance operation is set to true. Instances purchased after October 24, 2023 support EnableLsqlVersionV3=true by default. For existing instances, contact technical support for evaluation before enabling this feature.
+       * Both conditions must be met before you can enable the MySQL-compatible protocol. You can call the [GetLindormInstance](https://help.aliyun.com/document_detail/2056440.html) operation to view instance details.
        *
        * @param request SwitchLSQLV3MySQLServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1017,12 +1081,12 @@ namespace Hitsdb20200615
       Models::SwitchLSQLV3MySQLServiceResponse switchLSQLV3MySQLServiceWithOptions(const Models::SwitchLSQLV3MySQLServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables the Lindorm protocol that is compatible with MySQL.
+       * @summary Enables or disables the Lindorm MySQL-compatible protocol.
        *
-       * @description Before you call this operation, make sure that the following requirements are met:
-       * - The version of LindormTable for the instance is 2.6.0 or later.
-       * - LindormTable supports Lindorm SQL (LSQL) V3. You can check whether LSQL V3 is supported by calling the GetLindormInstance operation. If the EnableLsqlVersionV3 parameter in the response is true, LSQL V3 is supported. For instances that are purchased after October 24, 2023, this feature is enabled by default. For existing instances, contact Alibaba Cloud support for an evaluation before enabling this feature.
-       * You can enable the MySQL protocol only if the two preceding conditions are met.
+       * @description Before you begin:
+       * - The LindormTable database engine version number must be 2.6.0 or later.
+       * - The LindormTable DPI engine must support LindormSQL V3. You can check this by verifying that the EnableLsqlVersionV3 field in the response of the GetLindormInstance operation is set to true. Instances purchased after October 24, 2023 support EnableLsqlVersionV3=true by default. For existing instances, contact technical support for evaluation before enabling this feature.
+       * Both conditions must be met before you can enable the MySQL-compatible protocol. You can call the [GetLindormInstance](https://help.aliyun.com/document_detail/2056440.html) operation to view instance details.
        *
        * @param request SwitchLSQLV3MySQLServiceRequest
        * @return SwitchLSQLV3MySQLServiceResponse
@@ -1047,7 +1111,7 @@ namespace Hitsdb20200615
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Detaches tags from Lindorm instances.
+       * @summary Removes tags from Lindorm instances.
        *
        * @description If a tag is not attached to any Lindorm instance, the tag is deleted.
        *
@@ -1058,7 +1122,7 @@ namespace Hitsdb20200615
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detaches tags from Lindorm instances.
+       * @summary Removes tags from Lindorm instances.
        *
        * @description If a tag is not attached to any Lindorm instance, the tag is deleted.
        *
@@ -1111,11 +1175,11 @@ namespace Hitsdb20200615
       Models::UpdateLdpsComputeGroupResponse updateLdpsComputeGroup(const Models::UpdateLdpsComputeGroupRequest &request);
 
       /**
-       * @summary Updates the name or deletion protection settings of an instance.
+       * @summary Updates the instance name or deletion protection.
        *
-       * @description You must select at least one data engine when you create an instance. For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable nodes) and **LindormSpec** (node specifications for LindormTable) parameters. For more information, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
-       * >Notice: 
-       * If you do not specify data engine parameters when you create an instance, the API call fails.
+       * @description When you create an instance, select at least one data engine.
+       * For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable engine nodes) and **LindormSpec** (LindormTable engine node specifications) parameters. For more information about data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
+       * >Notice: If you do not specify data engine parameters when creating an instance, the API call fails.
        *
        * @param request UpdateLindormInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1124,11 +1188,11 @@ namespace Hitsdb20200615
       Models::UpdateLindormInstanceAttributeResponse updateLindormInstanceAttributeWithOptions(const Models::UpdateLindormInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the name or deletion protection settings of an instance.
+       * @summary Updates the instance name or deletion protection.
        *
-       * @description You must select at least one data engine when you create an instance. For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable nodes) and **LindormSpec** (node specifications for LindormTable) parameters. For more information, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
-       * >Notice: 
-       * If you do not specify data engine parameters when you create an instance, the API call fails.
+       * @description When you create an instance, select at least one data engine.
+       * For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable engine nodes) and **LindormSpec** (LindormTable engine node specifications) parameters. For more information about data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
+       * >Notice: If you do not specify data engine parameters when creating an instance, the API call fails.
        *
        * @param request UpdateLindormInstanceAttributeRequest
        * @return UpdateLindormInstanceAttributeResponse
@@ -1136,7 +1200,7 @@ namespace Hitsdb20200615
       Models::UpdateLindormInstanceAttributeResponse updateLindormInstanceAttribute(const Models::UpdateLindormInstanceAttributeRequest &request);
 
       /**
-       * @summary Updates a Lindorm instance.
+       * @summary Updates a Lindorm V2 instance.
        *
        * @param request UpdateLindormV2InstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1145,7 +1209,7 @@ namespace Hitsdb20200615
       Models::UpdateLindormV2InstanceResponse updateLindormV2InstanceWithOptions(const Models::UpdateLindormV2InstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a Lindorm instance.
+       * @summary Updates a Lindorm V2 instance.
        *
        * @param request UpdateLindormV2InstanceRequest
        * @return UpdateLindormV2InstanceResponse
@@ -1166,7 +1230,7 @@ namespace Hitsdb20200615
       Models::UpdateLindormV2InstanceParameterResponse updateLindormV2InstanceParameter(const Models::UpdateLindormV2InstanceParameterRequest &request);
 
       /**
-       * @summary Modifies the IP whitelists for a LindormV2 instance.
+       * @summary Configures the access whitelist for a LindormV2 instance.
        *
        * @param request UpdateLindormV2WhiteIpListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1175,7 +1239,7 @@ namespace Hitsdb20200615
       Models::UpdateLindormV2WhiteIpListResponse updateLindormV2WhiteIpListWithOptions(const Models::UpdateLindormV2WhiteIpListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the IP whitelists for a LindormV2 instance.
+       * @summary Configures the access whitelist for a LindormV2 instance.
        *
        * @param request UpdateLindormV2WhiteIpListRequest
        * @return UpdateLindormV2WhiteIpListResponse
@@ -1183,9 +1247,9 @@ namespace Hitsdb20200615
       Models::UpdateLindormV2WhiteIpListResponse updateLindormV2WhiteIpList(const Models::UpdateLindormV2WhiteIpListRequest &request);
 
       /**
-       * @summary Enable cold storage for a Lindorm instance, change the node specification or the number of nodes, and adjust the storage space.
+       * @summary Enables cold storage for a Lindorm instance, changes node specifications or node counts, or changes the storage capacity.
        *
-       * @description For information about how to select the data engine and storage type for a Lindorm instance, see [Select a data engine](https://help.aliyun.com/document_detail/174643.html) and [Select a storage type](https://help.aliyun.com/document_detail/181971.html).
+       * @description For information about data engines and storage specifications of Lindorm instances, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
        *
        * @param request UpgradeLindormInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1194,9 +1258,9 @@ namespace Hitsdb20200615
       Models::UpgradeLindormInstanceResponse upgradeLindormInstanceWithOptions(const Models::UpgradeLindormInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enable cold storage for a Lindorm instance, change the node specification or the number of nodes, and adjust the storage space.
+       * @summary Enables cold storage for a Lindorm instance, changes node specifications or node counts, or changes the storage capacity.
        *
-       * @description For information about how to select the data engine and storage type for a Lindorm instance, see [Select a data engine](https://help.aliyun.com/document_detail/174643.html) and [Select a storage type](https://help.aliyun.com/document_detail/181971.html).
+       * @description For information about data engines and storage specifications of Lindorm instances, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
        *
        * @param request UpgradeLindormInstanceRequest
        * @return UpgradeLindormInstanceResponse

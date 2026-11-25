@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denied error.
+    // The details of the permission check failure.
     shared_ptr<string> accessDeniedDetail_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};

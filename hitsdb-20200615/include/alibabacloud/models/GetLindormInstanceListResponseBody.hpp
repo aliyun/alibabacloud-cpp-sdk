@@ -145,9 +145,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -342,120 +342,91 @@ namespace Models
 
 
     protected:
-      // The 16-digit ID of the Alibaba Cloud account.
+      // The 16-character AliUid of the Alibaba Cloud account.
       shared_ptr<int64_t> aliUid_ {};
-      // The reason why the instance failed to be created.
+      // The cause of the creation failure.
       shared_ptr<string> createErrorCode_ {};
-      // The timestamp of when the instance was created. The value is the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The number of milliseconds between the instance creation time and 00:00:00 on January 1, 1970.
       shared_ptr<int64_t> createMilliseconds_ {};
-      // The time when the instance was created.
+      // The creation time of the instance. The time is in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // Indicates whether the column store engine is enabled. Valid values:
       // 
       // - **true**: Enabled.
-      // 
       // - **false**: Not enabled.
       shared_ptr<bool> enableColumn_ {};
       // Indicates whether the compute engine is enabled for the instance. Valid values:
       // 
       // - **true**: Enabled.
-      // 
       // - **false**: Not enabled.
       shared_ptr<bool> enableCompute_ {};
-      // Indicates whether the LTS engine is enabled. Valid values:
+      // Indicates whether Lindorm Tunnel Service (LTS) is enabled. Valid values:
       // 
       // - **true**: Enabled.
-      // 
       // - **false**: Not enabled.
       shared_ptr<bool> enableLts_ {};
-      // Indicates whether the messaging engine is enabled. Valid values:
+      // Indicates whether the message engine is enabled. Valid values:
       // 
       // - **true**: Enabled.
-      // 
       // - **false**: Not enabled.
       shared_ptr<bool> enableMessage_ {};
-      // Indicates whether the LindormTable 3.0 engine is enabled. Valid values:
+      // Indicates whether LindormTable 3.0 is enabled. Valid values:
       // 
-      // true: Enabled.
-      // false: Not enabled.
+      // - **true**: Enabled.
+      // - **false**: Not enabled.
       shared_ptr<bool> enableRow_ {};
-      // Indicates whether the stream engine is enabled for the instance. Valid values:
+      // Indicates whether the streaming engine is enabled for the instance. Valid values:
       // 
-      // - **true**: The stream engine is enabled.
-      // 
-      // - **false**: The stream engine is not enabled.
+      // - **true**: The streaming engine is enabled.
+      // - **false**: The streaming engine is not enabled.
       shared_ptr<bool> enableStream_ {};
       // Indicates whether the vector engine is enabled. Valid values:
       // 
       // - **true**: Enabled.
-      // 
       // - **false**: Not enabled.
       shared_ptr<bool> enableVector_ {};
-      // The types of engines supported by the instance. The value of this parameter is the sum of the values of the supported engines.
+      // The engine types supported by the instance. The return value is the sum of the following engine type values:
       // 
-      // - **1**: search engine.
+      // - **1**: Search engine
+      // - **2**: LindormTSDB
+      // - **4**: LindormTable
+      // - **8**: File engine
       // 
-      // - **2**: LindormTSDB.
-      // 
-      // - **4**: LindormTable.
-      // 
-      // - **8**: file engine.
-      // 
-      // > For example, a value of 15 (8 + 4 + 2 + 1) indicates that the instance supports the file engine, LindormTable, LindormTSDB, and the search engine. A value of 6 (4 + 2) indicates that the instance supports LindormTSDB and LindormTable.
+      // > For example, if the value is 15 (15 = 8 + 4 + 2 + 1), the instance supports the search engine, LindormTSDB, LindormTable, and file engine. If the value is 6 (6 = 4 + 2), the instance supports LindormTSDB and LindormTable.
       shared_ptr<string> engineType_ {};
-      // The expiration time of the instance.
+      // The expiration time of the instance. The time is in the yyyy-MM-dd HH:mm:ss format.
       // 
-      // > This parameter is returned only for subscription instances.
+      // > This parameter is returned only when the billing method of the instance is subscription.
       shared_ptr<string> expireTime_ {};
-      // The timestamp of when the instance expires. The value is the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The number of milliseconds between the time when the instance expires and 00:00:00 on January 1, 1970.
       shared_ptr<int64_t> expiredMilliseconds_ {};
-      // The name of the instance.
+      // The instance name.
       shared_ptr<string> instanceAlias_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status of the instance. Valid values:
+      // The instance status. Valid values:
       // 
-      // - **CREATING**: The instance is being created.
-      // 
-      // - **ACTIVATION**: The instance is running.
-      // 
-      // - **COLD_EXPANDING**: The capacity of the storage-optimized instance is being expanded.
-      // 
-      // - **MINOR_VERSION_TRANSING**: The minor version of the instance is being upgraded.
-      // 
-      // - **RESIZING**: The instance is scaling up.
-      // 
-      // - **SHRINKING**: The instance is scaling down.
-      // 
-      // - **CLASS_CHANGING**: The instance class is being changed.
-      // 
-      // - **SSL_SWITCHING**: The SSL certificate is being changed.
-      // 
-      // - **CDC_OPENING**: The data subscription feature is being enabled.
-      // 
-      // - **TRANSFER**: Data migration is in progress.
-      // 
-      // - **DATABASE_TRANSFER**: Data is being migrated to the database.
-      // 
-      // - **GUARD_CREATING**: A disaster recovery instance is being created.
-      // 
-      // - **BACKUP_RECOVERING**: A backup is being restored.
-      // 
-      // - **DATABASE_IMPORTING**: Data is being imported.
-      // 
-      // - **NET_MODIFYING**: The network settings are being modified.
-      // 
-      // - **NET_SWITCHING**: The network type is being switched.
-      // 
-      // - **NET_CREATING**: A network connection is being created.
-      // 
-      // - **NET_DELETING**: A network connection is being deleted.
-      // 
-      // - **DELETING**: The instance is being deleted.
-      // 
-      // - **RESTARTING**: The instance is being restarted.
-      // 
-      // - **LOCKED**: The instance has expired and is locked.
+      // - **CREATING**: Creating.
+      // - **ACTIVATION**: Running.
+      // - **COLD_EXPANDING**: Performing storage expansion for storage-optimized cloud storage.
+      // - **MINOR_VERSION_TRANSING**: Upgrading the minor version.
+      // - **RESIZING**: Scaling out nodes.
+      // - **SHRINKING**: Scaling in nodes.
+      // - **CLASS_CHANGING**: Upgrading or downgrading specifications.
+      // - **SSL_SWITCHING**: Modifying SSL configurations.
+      // - **CDC_OPENING**: Enabling the data subscription feature.
+      // - **TRANSFER**: Migrating data.
+      // - **DATABASE_TRANSFER**: Migrating data to the database.
+      // - **GUARD_CREATING**: Creating a disaster recovery instance.
+      // - **BACKUP_RECOVERING**: Restoring from a backup.
+      // - **DATABASE_IMPORTING**: Importing data.
+      // - **NET_MODIFYING**: Modifying network configurations.
+      // - **NET_SWITCHING**: Switching between the internal network and the Internet.
+      // - **NET_CREATING**: Creating a network connection.
+      // - **NET_DELETING**: Performing a delete operation on the network connection.
+      // - **DELETING**: Performing a delete operation.
+      // - **RESTARTING**: Restarting.
+      // - **LOCKED**: Locked because the instance has expired.
       shared_ptr<string> instanceStatus_ {};
       // The storage capacity of the instance.
       shared_ptr<string> instanceStorage_ {};
@@ -463,29 +434,25 @@ namespace Models
       shared_ptr<string> networkType_ {};
       // The billing method of the instance. Valid values:
       // 
-      // - **PREPAY**: subscription.
-      // 
-      // - **POSTPAY**: pay-as-you-go.
+      // - **PREPAY**: Subscription
+      // - **POSTPAY**: Pay-as-you-go
       shared_ptr<string> payType_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The type of the instance. Valid values:
+      // The instance type. Valid values:
       // 
-      // - **lindorm**: a Lindorm instance.
-      // 
-      // - **serverless_lindorm**: a Lindorm Serverless instance.
-      // 
-      // - **lindorm_standalone**: a Lindorm standalone instance.
-      // 
-      // - **lts**: the Lindorm Tunnel Service type.
+      // - **lindorm**: Lindorm instance
+      // - **serverless_lindorm**: Lindorm Serverless instance
+      // - **lindorm_standalone**: Lindorm single-node instance
+      // - **lts**: Lindorm Tunnel Service
       shared_ptr<string> serviceType_ {};
       // The list of tags.
       shared_ptr<vector<InstanceList::Tags>> tags_ {};
-      // The ID of the virtual private cloud (VPC) in which the instance is deployed.
+      // The VPC ID of the instance.
       shared_ptr<string> vpcId_ {};
-      // The ID of the zone.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -531,13 +498,13 @@ namespace Models
   protected:
     // The list of instances.
     shared_ptr<vector<GetLindormInstanceListResponseBody::InstanceList>> instanceList_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on the page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of instances found.
+    // The total number of instances returned.
     shared_ptr<int32_t> total_ {};
   };
 

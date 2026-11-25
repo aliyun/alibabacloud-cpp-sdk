@@ -67,6 +67,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
+      DARABONBA_PTR_TO_JSON(SingleZoneRiskAlert, singleZoneRiskAlert_);
       DARABONBA_PTR_TO_JSON(StandbyVSwitchId, standbyVSwitchId_);
       DARABONBA_PTR_TO_JSON(StandbyZoneId, standbyZoneId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -127,6 +128,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
+      DARABONBA_PTR_FROM_JSON(SingleZoneRiskAlert, singleZoneRiskAlert_);
       DARABONBA_PTR_FROM_JSON(StandbyVSwitchId, standbyVSwitchId_);
       DARABONBA_PTR_FROM_JSON(StandbyZoneId, standbyZoneId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -144,6 +146,72 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SingleZoneRiskAlert : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SingleZoneRiskAlert& obj) { 
+        DARABONBA_PTR_TO_JSON(ConfirmDate, confirmDate_);
+        DARABONBA_PTR_TO_JSON(DispositionType, dispositionType_);
+        DARABONBA_PTR_TO_JSON(NeedAlert, needAlert_);
+        DARABONBA_PTR_TO_JSON(PlannedCompletionDate, plannedCompletionDate_);
+      };
+      friend void from_json(const Darabonba::Json& j, SingleZoneRiskAlert& obj) { 
+        DARABONBA_PTR_FROM_JSON(ConfirmDate, confirmDate_);
+        DARABONBA_PTR_FROM_JSON(DispositionType, dispositionType_);
+        DARABONBA_PTR_FROM_JSON(NeedAlert, needAlert_);
+        DARABONBA_PTR_FROM_JSON(PlannedCompletionDate, plannedCompletionDate_);
+      };
+      SingleZoneRiskAlert() = default ;
+      SingleZoneRiskAlert(const SingleZoneRiskAlert &) = default ;
+      SingleZoneRiskAlert(SingleZoneRiskAlert &&) = default ;
+      SingleZoneRiskAlert(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SingleZoneRiskAlert() = default ;
+      SingleZoneRiskAlert& operator=(const SingleZoneRiskAlert &) = default ;
+      SingleZoneRiskAlert& operator=(SingleZoneRiskAlert &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->confirmDate_ == nullptr
+        && this->dispositionType_ == nullptr && this->needAlert_ == nullptr && this->plannedCompletionDate_ == nullptr; };
+      // confirmDate Field Functions 
+      bool hasConfirmDate() const { return this->confirmDate_ != nullptr;};
+      void deleteConfirmDate() { this->confirmDate_ = nullptr;};
+      inline string getConfirmDate() const { DARABONBA_PTR_GET_DEFAULT(confirmDate_, "") };
+      inline SingleZoneRiskAlert& setConfirmDate(string confirmDate) { DARABONBA_PTR_SET_VALUE(confirmDate_, confirmDate) };
+
+
+      // dispositionType Field Functions 
+      bool hasDispositionType() const { return this->dispositionType_ != nullptr;};
+      void deleteDispositionType() { this->dispositionType_ = nullptr;};
+      inline string getDispositionType() const { DARABONBA_PTR_GET_DEFAULT(dispositionType_, "") };
+      inline SingleZoneRiskAlert& setDispositionType(string dispositionType) { DARABONBA_PTR_SET_VALUE(dispositionType_, dispositionType) };
+
+
+      // needAlert Field Functions 
+      bool hasNeedAlert() const { return this->needAlert_ != nullptr;};
+      void deleteNeedAlert() { this->needAlert_ = nullptr;};
+      inline bool getNeedAlert() const { DARABONBA_PTR_GET_DEFAULT(needAlert_, false) };
+      inline SingleZoneRiskAlert& setNeedAlert(bool needAlert) { DARABONBA_PTR_SET_VALUE(needAlert_, needAlert) };
+
+
+      // plannedCompletionDate Field Functions 
+      bool hasPlannedCompletionDate() const { return this->plannedCompletionDate_ != nullptr;};
+      void deletePlannedCompletionDate() { this->plannedCompletionDate_ = nullptr;};
+      inline string getPlannedCompletionDate() const { DARABONBA_PTR_GET_DEFAULT(plannedCompletionDate_, "") };
+      inline SingleZoneRiskAlert& setPlannedCompletionDate(string plannedCompletionDate) { DARABONBA_PTR_SET_VALUE(plannedCompletionDate_, plannedCompletionDate) };
+
+
+    protected:
+      // The confirmation date for risk handling. The date is displayed in the yyyy-MM-dd format.
+      shared_ptr<string> confirmDate_ {};
+      // The risk handling type for the single-zone deployment.
+      shared_ptr<string> dispositionType_ {};
+      // Indicates whether a risk alert for the single-zone deployment is required.
+      shared_ptr<bool> needAlert_ {};
+      // The planned completion date for risk handling. The date is displayed in the yyyy-MM-dd format.
+      shared_ptr<string> plannedCompletionDate_ {};
+    };
+
     class EngineList : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const EngineList& obj) { 
@@ -268,39 +336,32 @@ namespace Models
       shared_ptr<string> arbiterCoreCount_ {};
       // The number of engine nodes.
       shared_ptr<string> coreCount_ {};
-      // The number of vCPUs for the engine node.
+      // The number of CPUs for the engine node.
       shared_ptr<string> cpuCount_ {};
-      // The type of the engine. Valid values:
+      // The engine type. Valid values:
       // 
-      // - **lindorm**: the wide table engine.
-      // 
-      // - **tsdb**: the time series engine.
-      // 
-      // - **solr**: the search engine.
-      // 
-      // - **store**: the file engine.
-      // 
-      // - **bds**: the LTS engine.
-      // 
-      // - **compute**: the compute engine.
+      // - **lindorm**: LindormTable.
+      // - **tsdb**: LindormTSDB.
+      // - **solr**: search engine.
+      // - **store**: file engine.
+      // - **bds**: Lindorm Tunnel Service engine.
+      // - **compute**: compute engine.
       shared_ptr<string> engine_ {};
       // Indicates whether the engine is of the latest version. Valid values:
-      // 
-      // - **true**: The engine is of the latest version.
-      // 
-      // - **false**: The engine is not of the latest version.
+      // - **true**: latest version.
+      // - **false**: not the latest version.
       shared_ptr<bool> isLastVersion_ {};
-      // The latest version of the engine.
+      // The latest version number of the engine.
       shared_ptr<string> latestVersion_ {};
       // The memory size of the engine node.
       shared_ptr<string> memorySize_ {};
       // The number of nodes in the primary zone.
       shared_ptr<string> primaryCoreCount_ {};
-      // The specification of the engine nodes.
+      // The engine node specifications.
       shared_ptr<string> specification_ {};
       // The number of nodes in the secondary zone.
       shared_ptr<string> standbyCoreCount_ {};
-      // The version of the engine.
+      // The version number of the engine.
       shared_ptr<string> version_ {};
     };
 
@@ -315,8 +376,8 @@ namespace Models
         && this->instanceStatus_ == nullptr && this->instanceStorage_ == nullptr && this->logDiskCategory_ == nullptr && this->logNum_ == nullptr && this->logSingleStorage_ == nullptr
         && this->logSpec_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->multiZoneCombination_ == nullptr && this->networkType_ == nullptr
         && this->payType_ == nullptr && this->primaryVSwitchId_ == nullptr && this->primaryZoneId_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->serviceType_ == nullptr && this->standbyVSwitchId_ == nullptr && this->standbyZoneId_ == nullptr && this->vpcId_ == nullptr
-        && this->vswitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->serviceType_ == nullptr && this->singleZoneRiskAlert_ == nullptr && this->standbyVSwitchId_ == nullptr && this->standbyZoneId_ == nullptr
+        && this->vpcId_ == nullptr && this->vswitchId_ == nullptr && this->zoneId_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -690,6 +751,15 @@ namespace Models
     inline GetLindormInstanceResponseBody& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
 
 
+    // singleZoneRiskAlert Field Functions 
+    bool hasSingleZoneRiskAlert() const { return this->singleZoneRiskAlert_ != nullptr;};
+    void deleteSingleZoneRiskAlert() { this->singleZoneRiskAlert_ = nullptr;};
+    inline const GetLindormInstanceResponseBody::SingleZoneRiskAlert & getSingleZoneRiskAlert() const { DARABONBA_PTR_GET_CONST(singleZoneRiskAlert_, GetLindormInstanceResponseBody::SingleZoneRiskAlert) };
+    inline GetLindormInstanceResponseBody::SingleZoneRiskAlert getSingleZoneRiskAlert() { DARABONBA_PTR_GET(singleZoneRiskAlert_, GetLindormInstanceResponseBody::SingleZoneRiskAlert) };
+    inline GetLindormInstanceResponseBody& setSingleZoneRiskAlert(const GetLindormInstanceResponseBody::SingleZoneRiskAlert & singleZoneRiskAlert) { DARABONBA_PTR_SET_VALUE(singleZoneRiskAlert_, singleZoneRiskAlert) };
+    inline GetLindormInstanceResponseBody& setSingleZoneRiskAlert(GetLindormInstanceResponseBody::SingleZoneRiskAlert && singleZoneRiskAlert) { DARABONBA_PTR_SET_RVALUE(singleZoneRiskAlert_, singleZoneRiskAlert) };
+
+
     // standbyVSwitchId Field Functions 
     bool hasStandbyVSwitchId() const { return this->standbyVSwitchId_ != nullptr;};
     void deleteStandbyVSwitchId() { this->standbyVSwitchId_ = nullptr;};
@@ -726,294 +796,239 @@ namespace Models
 
 
   protected:
-    // The UID of the Alibaba Cloud account.
+    // The 16-character AliUid of the Alibaba Cloud account.
     shared_ptr<int64_t> aliUid_ {};
-    // The ID of the vSwitch in the arbiter zone for the multi-zone instance. The vSwitch must be deployed in the zone that is specified by `ArbiterZoneId`.
+    // The ID of the vSwitch in the arbiter zone for a multi-zone instance. The vSwitch must belong to the zone specified by ArbiterZoneId.
     shared_ptr<string> arbiterVSwitchId_ {};
-    // The arbiter zone ID of the multi-zone instance.
+    // The ID of the arbiter zone for a multi-zone instance.
     shared_ptr<string> arbiterZoneId_ {};
     // The deployment architecture. Valid values:
     // 
-    // - **1.0**: single-zone deployment.
-    // 
-    // - **2.0**: multi-zone deployment.
+    // - **1.0**: single-zone.
+    // - **2.0**: multi-zone.
     shared_ptr<string> archVersion_ {};
-    // The billable storage capacity of the archive storage. Unit: GB.
+    // The billable storage capacity of the archive storage type. Unit: GB.
     shared_ptr<int32_t> archiveStorage_ {};
-    // Indicates whether auto-renewal is enabled for the instance. Valid values:
+    // Indicates whether auto-renewal is enabled. Valid values:
     // 
-    // - **true**: Enabled.
+    // - **true**: enabled.
+    // - **false**: disabled.
     // 
-    // - **false**: Disabled.
-    // 
-    // > This parameter is returned only for subscription instances.
+    // > This parameter is returned only when the billing method of the instance is subscription.
     shared_ptr<bool> autoRenew_ {};
-    // The ID of the backup instance.
+    // The backup instance.
     shared_ptr<string> backupInstance_ {};
-    // The capacity of the cold storage.
+    // Storage capacity of storage capacity cloud storage.
     shared_ptr<int32_t> coldStorage_ {};
-    // The disk type of the core nodes in a multi-zone instance. Valid values:
+    // The disk type of the core node for a multi-zone instance. Valid values:
     // 
-    // - **cloud_efficiency**: Standard.
-    // 
-    // - **cloud_ssd**: Performance.
-    // 
-    // - **cloud_essd**: ESSD.
-    // 
-    // - **cloud_essd_pl0**: ESSD PL0.
+    // - **cloud_efficiency**: standard cloud storage.
+    // - **cloud_ssd**: performance cloud storage.
+    // - **cloud_essd**: enhanced performance cloud storage.
+    // - **cloud_essd_pl0**: performance cloud storage PL0.
     shared_ptr<string> coreDiskCategory_ {};
-    // The number of core nodes in the multi-zone instance.
+    // The number of core nodes for a multi-zone instance.
     shared_ptr<int32_t> coreNum_ {};
-    // The storage capacity of a single core node in the multi-zone instance.
+    // The disk capacity of a single core node for a multi-zone instance.
     shared_ptr<int32_t> coreSingleStorage_ {};
-    // The specification of the core nodes in the multi-zone instance.
+    // The core node specifications for a multi-zone instance.
     shared_ptr<string> coreSpec_ {};
-    // The time at which the instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The creation time of the instance, represented as the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createMilliseconds_ {};
-    // The time at which the instance was created. The time is displayed in the **yyyy-MM-dd HH:mm:ss** format.
+    // The time when the instance was created. The time is displayed in the **yyyy-MM-dd HH:mm:ss** format.
     shared_ptr<string> createTime_ {};
-    // Indicates whether release protection is enabled for the instance. Valid values:
+    // Indicates whether deletion protection is enabled. Valid values:
     // 
-    // - **true**: Enabled.
-    // 
-    // - **false**: Disabled.
+    // - **true**: enabled.
+    // - **false**: disabled.
     shared_ptr<string> deletionProtection_ {};
     // The storage type. Valid values:
     // 
-    // - **cloud_efficiency**: Standard.
-    // 
-    // - **cloud_ssd**: Performance.
-    // 
-    // - **cloud_essd**: Enhanced SSD (ESSD).
-    // 
-    // - **cloud_essd_pl0**: ESSD PL0.
-    // 
-    // - **capacity_cloud_storage**: Capacity.
-    // 
+    // - **cloud_efficiency**: standard cloud storage.
+    // - **cloud_ssd**: performance cloud storage.
+    // - **cloud_essd**: enhanced performance cloud storage.
+    // - **cloud_essd_pl0**: performance cloud storage PL0.
+    // - **capacity_cloud_storage**: capacity cloud storage.
     // - **local_ssd_pro**: local SSD.
-    // 
     // - **local_hdd_pro**: local HDD.
     shared_ptr<string> diskCategory_ {};
     // The disk space threshold.
     shared_ptr<string> diskThreshold_ {};
-    // The disk usage.
+    // The disk space usage.
     shared_ptr<string> diskUsage_ {};
-    // Indicates whether LBlob is enabled. Valid values:
+    // Indicates whether LBlob is enabled for the instance. Valid values:
     // 
-    // true: Enabled. false: Disabled.
+    // - true: enabled.
+    // - false: disabled.
     shared_ptr<bool> enableBlob_ {};
-    // Indicates whether Change Data Capture (CDC) is enabled for the instance. Valid values:
+    // Indicates whether the data subscription feature is enabled for the instance. Valid values:
     // 
-    // - **true**: Enabled.
-    // 
-    // - **false**: Disabled.
+    // - **true**: enabled.
+    // - **false**: disabled.
     shared_ptr<bool> enableCdc_ {};
     // Indicates whether the compute engine is enabled for the instance. Valid values:
     // 
-    // - **true**: Enabled.
-    // 
-    // - **false**: Disabled.
+    // - **true**: enabled.
+    // - **false**: disabled.
     shared_ptr<bool> enableCompute_ {};
     // Indicates whether Key Management Service (KMS) is enabled. Valid values:
     // 
-    // - **true**: Enabled.
-    // 
-    // - **false**: Disabled.
+    // - **true**: enabled.
+    // - **false**: disabled.
     shared_ptr<bool> enableKms_ {};
-    // Specifies whether the wide table engine supports the Thrift and CQL protocols. If this feature is disabled, you can call the SwitchLProxyService operation to enable it.
+    // Indicates whether LindormTable supports the Thrift and CQL protocols. If not supported, you can call the SwitchLProxyService operation to enable or disable the support. Valid values:
     // 
-    // true: Supported.
+    // - True: supported.
     // 
-    // false: Not supported.
+    // - False: not supported.
     shared_ptr<bool> enableLProxy_ {};
-    // Indicates whether the LTS engine is enabled for the instance. Valid values:
+    // Indicates whether Lindorm Tunnel Service is enabled for the instance. Valid values:
     // 
-    // - **true**: Enabled.
-    // 
-    // - **false**: Disabled.
+    // - **true**: enabled.
+    // - **false**: disabled.
     shared_ptr<bool> enableLTS_ {};
-    // Indicates whether LindormSQL V3.0, which is compatible with the MySQL protocol, is supported by the wide table engine.
-    // This feature is supported by default on instances created after October 24, 2023. For existing instances, contact technical support to enable this feature.
+    // Indicates whether LindormTable supports LindormSQL-V3, which is compatible with the MySQL protocol. Instances purchased after October 24, 2023 support this feature by default. For existing instances, contact technical support for evaluation before enabling this feature. Valid values:
     // 
-    // - true: Supported.
+    // - True: supported.
     // 
-    // - false: Not supported.
+    // - False: not supported.
     shared_ptr<bool> enableLsqlVersionV3_ {};
-    // Indicates whether the ML node is enabled. Valid values:
+    // Indicates whether the AI control node is enabled. Valid values:
     // 
-    // - true: Enabled.
+    // - True: enabled.
     // 
-    // - false: Disabled.
+    // - False: disabled.
     shared_ptr<bool> enableMLCtrl_ {};
     // Indicates whether SSL encryption is enabled. Valid values:
     // 
-    // - **true**: Enabled.
-    // 
-    // - **false**: Disabled.
+    // - **true**: enabled.
+    // - **false**: disabled.
     shared_ptr<bool> enableSSL_ {};
-    // Indicates whether the History Server is enabled for the compute engine.
+    // Indicates whether History Server for the compute engine is enabled.
     shared_ptr<bool> enableShs_ {};
-    // Indicates whether Transparent Data Encryption (TDE) is enabled. Valid values:
+    // Indicates whether storage encryption is enabled. Valid values:
     // 
-    // - true: Enabled.
+    // - true: enabled.
     // 
-    // - false: Disabled.
+    // - false: disabled.
     shared_ptr<bool> enableStoreTDE_ {};
-    // Indicates whether the stream engine is enabled for the instance. Valid values:
+    // Indicates whether the streaming engine is enabled for the instance. Valid values:
     // 
-    // - **true**: Enabled.
-    // 
-    // - **false**: Disabled.
+    // - **true**: enabled.
+    // - **false**: disabled.
     shared_ptr<bool> enableStream_ {};
-    // The information about the engines.
+    // The list of engine information.
     shared_ptr<vector<GetLindormInstanceResponseBody::EngineList>> engineList_ {};
-    // The types of the engines that are supported by the instance. The value of this parameter is the sum of the values of all supported engine types.
+    // The supported engine types. The return value is the sum of the values of the following engine types:
     // 
     // - 1: search engine
-    // 
-    // - 2: time series engine
-    // 
-    // - 4: wide table engine
-    // 
+    // - 2: LindormTSDB
+    // - 4: LindormTable
     // - 8: file engine
     // 
-    // > For example, if the value of this parameter is 15, it indicates that the instance supports the search, time series, wide table, and file engines because 1 + 2 + 4 + 8 = 15. If the value of this parameter is 6, it indicates that the instance supports the time series and wide table engines because 2 + 4 = 6.
+    // > For example, if the value of EngineType is 15 (15 = 8 + 4 + 2 + 1), the instance supports the search engine, LindormTSDB, LindormTable, and file engine. If the value of EngineType is 6 (6 = 4 + 2), the instance supports LindormTSDB and LindormTable.
     shared_ptr<int32_t> engineType_ {};
     // The expiration time of the instance. The time is displayed in the **yyyy-MM-dd HH:mm:ss** format.
     // 
-    // > This parameter is returned only for subscription instances.
+    // > This parameter is returned only when the billing method is subscription.
     shared_ptr<string> expireTime_ {};
-    // The expiration time of the instance. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The time when the instance expires, represented as the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> expiredMilliseconds_ {};
     // The name of the instance.
     shared_ptr<string> instanceAlias_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The status of the instance. Valid values:
+    // The instance status. Valid values:
     // 
     // - **CREATING**: The instance is being created.
-    // 
     // - **ACTIVATION**: The instance is running.
-    // 
-    // - **COLD_EXPANDING**: The capacity of the cold storage is being expanded.
-    // 
-    // - **MINOR_VERSION_TRANSITIONING**: The minor version of the instance is being changed.
-    // 
-    // - **RESIZING**: The number of nodes is being changed.
-    // 
-    // - **SHRINKING**: The number of nodes is being changed.
-    // 
-    // - **CLASS_CHANGING**: The specification of the instance is being changed.
-    // 
-    // - **SSL_SWITCHING**: SSL is being enabled or disabled.
-    // 
-    // - **CDC_OPENING**: The CDC feature is being enabled.
-    // 
-    // - **TRANSFER**: Data is being migrated.
-    // 
-    // - **DATABASE_TRANSFER**: Data is being migrated.
-    // 
+    // - **COLD_EXPANDING**: Capacity cloud storage expansion in progress.
+    // - **MINOR_VERSION_TRANSING**: The minor version is being upgraded.
+    // - **RESIZING**: The nodes are being scaled up.
+    // - **SHRINKING**: The nodes are being scaled down.
+    // - **CLASS_CHANGING**: Instance specification upgrade or downgrade in progress.
+    // - **SSL_SWITCHING**: The SSL certificate is being changed.
+    // - **CDC_OPENING**: The data subscription feature is being enabled.
+    // - **TRANSFER**: Data migration in progress.
+    // - **DATABASE_TRANSFER**: Data is being migrated to the database.
     // - **GUARD_CREATING**: A disaster recovery instance is being created.
-    // 
-    // - **BACKUP_RECOVERING**: Data is being restored from a backup.
-    // 
-    // - **DATABASE_IMPORTING**: Data is being imported.
-    // 
-    // - **NET_MODIFYING**: The network type is being changed.
-    // 
-    // - **NET_SWITCHING**: The network is being switched.
-    // 
+    // - **BACKUP_RECOVERING**: The backup is being restored.
+    // - **DATABASE_IMPORTING**: Data import in progress.
+    // - **NET_MODIFYING**: The network is being modified.
+    // - **NET_SWITCHING**: The network is being switched between the internal network and the Internet.
     // - **NET_CREATING**: A network connection is being created.
-    // 
     // - **NET_DELETING**: A network connection is being deleted.
-    // 
     // - **DELETING**: The instance is being deleted.
-    // 
     // - **RESTARTING**: The instance is being restarted.
-    // 
-    // - **LOCKED**: The instance is locked.
+    // - **LOCKED**: The instance has expired and is locked.
     shared_ptr<string> instanceStatus_ {};
     // The storage capacity of the instance.
     shared_ptr<string> instanceStorage_ {};
-    // The disk type of the log nodes in the multi-zone instance. Valid values:
+    // The disk type of the log node for a multi-zone instance. Valid values:
     // 
-    // - **cloud_efficiency**: Standard.
-    // 
-    // - **cloud_ssd**: Performance.
+    // - **cloud_efficiency**: standard cloud storage.
+    // - **cloud_ssd**: performance cloud storage.
     shared_ptr<string> logDiskCategory_ {};
-    // The number of log nodes in the multi-zone instance.
+    // The number of log nodes for a multi-zone instance.
     shared_ptr<int32_t> logNum_ {};
-    // The storage capacity of a single log node in the multi-zone instance.
+    // The disk capacity of a single log node for a multi-zone instance.
     shared_ptr<int32_t> logSingleStorage_ {};
-    // The specification of the log nodes in the multi-zone instance.
+    // The log node specifications for a multi-zone instance.
     shared_ptr<string> logSpec_ {};
-    // The end time of the maintenance window.
+    // The end time of the maintenance window. The time is displayed in the HH:mmZ format. UTC time is used.
     shared_ptr<string> maintainEndTime_ {};
-    // The start time of the maintenance window.
+    // The start time of the maintenance window. The time is displayed in the HH:mmZ format. UTC time is used.
     shared_ptr<string> maintainStartTime_ {};
-    // The combination of zones. For more information about the supported zone combinations, see the instance buy page.
+    // The multi-zone combination. You can go to the buy page to view the supported zone combinations. Valid values:
     // 
-    // - **ap-southeast-5abc-aliyun**: Indonesia (Jakarta) Zone A, B, and C.
-    // 
-    // - **cn-hangzhou-ehi-aliyun**: China (Hangzhou) Zone E, H, and I.
-    // 
-    // - **cn-beijing-acd-aliyun**: China (Beijing) Zone A, C, and D.
-    // 
-    // - **ap-southeast-1-abc-aliyun**: Singapore Zone A, B, and C.
-    // 
-    // - **cn-zhangjiakou-abc-aliyun**: China (Zhangjiakou) Zone A, B, and C.
-    // 
-    // - **cn-shanghai-efg-aliyun**: China (Shanghai) Zone E, F, and G.
-    // 
-    // - **cn-shanghai-abd-aliyun**: China (Shanghai) Zone A, B, and D.
-    // 
-    // - **cn-hangzhou-bef-aliyun**: China (Hangzhou) Zone B, E, and F.
-    // 
-    // - **cn-hangzhou-bce-aliyun**: China (Hangzhou) Zone B, C, and E.
-    // 
-    // - **cn-beijing-fgh-aliyun**: China (Beijing) Zone F, G, and H.
-    // 
-    // - **cn-shenzhen-abc-aliyun**: China (Shenzhen) Zone A, B, and C.
+    // - **ap-southeast-5abc-aliyun**: Indonesia (Jakarta) Zones A, B, and C.
+    // - **cn-hangzhou-ehi-aliyun**: China (Hangzhou) Zones E, H, and I.
+    // - **cn-beijing-acd-aliyun**: China (Beijing) Zones A, C, and D.
+    // - **ap-southeast-1-abc-aliyun**: Singapore Zones A, B, and C.
+    // - **cn-zhangjiakou-abc-aliyun**: China (Zhangjiakou) Zones A, B, and C.
+    // - **cn-shanghai-efg-aliyun**: China (Shanghai) Zones E, F, and G.
+    // - **cn-shanghai-abd-aliyun**: China (Shanghai) Zones A, B, and D.
+    // - **cn-hangzhou-bef-aliyun**: China (Hangzhou) Zones B, E, and F.
+    // - **cn-hangzhou-bce-aliyun**: China (Hangzhou) Zones B, C, and E.
+    // - **cn-beijing-fgh-aliyun**: China (Beijing) Zones F, G, and H.
+    // - **cn-shenzhen-abc-aliyun**: China (Shenzhen) Zones A, B, and C.
     shared_ptr<string> multiZoneCombination_ {};
     // The network type of the instance.
     shared_ptr<string> networkType_ {};
     // The billing method of the instance. Valid values:
     // 
-    // - **PREPAY**: subscription
-    // 
-    // - **POSTPAY**: pay-as-you-go
+    // - **PREPAY**: subscription.
+    // - **POSTPAY**: pay-as-you-go.
     shared_ptr<string> payType_ {};
-    // The ID of the vSwitch in the primary zone for the multi-zone instance. The vSwitch must be deployed in the zone that is specified by `PrimaryZoneId`.
+    // The ID of the vSwitch in the primary zone for a multi-zone instance. The vSwitch must belong to the zone specified by PrimaryZoneId.
     shared_ptr<string> primaryVSwitchId_ {};
-    // The primary zone ID of the multi-zone instance.
+    // The ID of the primary zone for a multi-zone instance.
     shared_ptr<string> primaryZoneId_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The type of the instance. Valid values:
+    // The instance type. Valid values:
     // 
-    // - **lindorm**: a single-zone instance.
-    // 
-    // - **lindorm_multizone**: a multi-zone instance.
-    // 
-    // - **serverless_lindorm**: a serverless instance.
-    // 
-    // - **lindorm_standalone**: a single-node instance.
-    // 
-    // - **lts**: a Lindorm Tunnel Service (LTS) instance.
+    // - **lindorm**: Lindorm single-zone instance.
+    // - **lindorm_multizone**: Lindorm multi-zone instance.
+    // - **serverless_lindorm**: Lindorm Serverless instance.
+    // - **lindorm_standalone**: Lindorm single-node instance.
+    // - **lts**: Lindorm Tunnel Service.
     shared_ptr<string> serviceType_ {};
-    // The ID of the vSwitch in the secondary zone for the multi-zone instance. The vSwitch must be deployed in the zone that is specified by `StandbyZoneId`.
+    // The risk alert information for the single-zone deployment.
+    shared_ptr<GetLindormInstanceResponseBody::SingleZoneRiskAlert> singleZoneRiskAlert_ {};
+    // The ID of the vSwitch in the secondary zone for a multi-zone instance. The vSwitch must belong to the zone specified by StandbyZoneId.
     shared_ptr<string> standbyVSwitchId_ {};
-    // The secondary zone ID of the multi-zone instance.
+    // The ID of the secondary zone for a multi-zone instance.
     shared_ptr<string> standbyZoneId_ {};
     // The ID of the virtual private cloud (VPC) to which the instance belongs.
     shared_ptr<string> vpcId_ {};
     // The ID of the vSwitch.
     shared_ptr<string> vswitchId_ {};
-    // The ID of the zone.
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

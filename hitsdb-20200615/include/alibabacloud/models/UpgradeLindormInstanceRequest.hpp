@@ -278,104 +278,90 @@ namespace Models
 
 
   protected:
-    // The new storage capacity of the instance. Unit: GB. Valid values: **480** to **1017600**.
+    // The storage capacity of the instance after the specification change. Unit: GB. Valid values: **480** to **1017600**.
     shared_ptr<int32_t> clusterStorage_ {};
-    // The new cold storage capacity of the instance. Unit: GB. Valid values: **800** to **1000000**.
+    // The cold storage capacity of the instance after the specification change. Unit: GB. Valid values: **800** to **1000000**.
     shared_ptr<int32_t> coldStorage_ {};
-    // The new storage capacity of a single core node in a multi-zone instance. Unit: GB. Valid values: 400 to 64000. **This parameter is optional.**
+    // The storage capacity per core node of the instance after the specification change for a multi-zone instance. Valid values: 400 to 64000. Unit: GB. **Specify this parameter if the target instance is a multi-zone instance.**
     shared_ptr<int32_t> coreSingleStorage_ {};
-    // The new number of file engine nodes. Valid values: **0** to **60**.
+    // The number of file engine nodes of the instance after the specification change. Valid values: **0** to **60**.
     shared_ptr<int32_t> filestoreNum_ {};
-    // The new specification of the file engine nodes. Valid value:
+    // The file engine node specifications of the instance after the specification change. Valid values:
     // 
-    // **lindorm.c.xlarge**: 4 CPU cores, 8 GB of memory (standard specification).
+    // **indorm.c.xlarge**: 4 cores and 8 GB of memory (standard specification).
     shared_ptr<string> filestoreSpec_ {};
-    // The ID of the instance. You can call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation to obtain this ID.
+    // The instance ID. You can call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The new number of wide table engine nodes. Valid values: **0** to **90**.
+    // The number of LindormTable nodes of the instance after the specification change. Valid values: **0** to **90**.
     // 
-    // > If you specify this parameter, the LindormSpec parameter is also required.
+    // > This parameter must be specified together with the LindormSpec parameter.
     shared_ptr<int32_t> lindormNum_ {};
-    // The new specification of the wide table engine nodes. Valid values:
+    // The LindormTable engine node specifications of the instance after the specification change. Valid values:
     // 
-    // - **lindorm.c.xlarge**: 4 CPU cores, 8 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.c.2xlarge**: 8 CPU cores, 16 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.c.4xlarge**: 16 CPU cores, 32 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.c.8xlarge**: 32 CPU cores, 64 GB of memory (dedicated specification).
+    // - **lindorm.c.xlarge**: 4 cores and 8 GB of memory (dedicated specification).
+    // - **lindorm.c.2xlarge**: 8 cores and 16 GB of memory (dedicated specification).
+    // - **lindorm.c.4xlarge**: 16 cores and 32 GB of memory (dedicated specification).
+    // - **lindorm.c.8xlarge**: 32 cores and 64 GB of memory (dedicated specification).
     shared_ptr<string> lindormSpec_ {};
-    // The new number of log nodes for a multi-zone instance. Valid values: 4 to 400. **This parameter is optional.**
+    // The number of log nodes of the instance after the specification change for a multi-zone instance. Valid values: 4 to 400. **Specify this parameter if the target instance is a multi-zone instance.**
     shared_ptr<int32_t> logNum_ {};
-    // The new disk capacity of a single log node for a multi-zone instance. Unit: GB. Valid values: 400 to 64000. **This parameter is optional.**
+    // The disk capacity per log node of the instance after the specification change for a multi-zone instance. Valid values: 400 to 64000. Unit: GB. **Specify this parameter if the target instance is a multi-zone instance.**
     shared_ptr<int32_t> logSingleStorage_ {};
-    // The new specification of the log nodes for a multi-zone instance. Valid values:
+    // The log node specifications of the instance after the specification change for a multi-zone instance. Valid values:
+    // - **lindorm.sn1.large**: 4 cores and 8 GB of memory (dedicated specification).
+    // - **lindorm.sn1.2xlarge**: 8 cores and 16 GB of memory (dedicated specification).
     // 
-    // - **lindorm.sn1.large**: 4 CPU cores, 8 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.sn1.2xlarge**: 8 CPU cores, 16 GB of memory (dedicated specification).
-    // 
-    // **This parameter is optional.**
+    // **Specify this parameter if the target instance is a multi-zone instance.**
     shared_ptr<string> logSpec_ {};
-    // The new number of LTS nodes. Valid values: **0** to **50**.
+    // The number of LTS nodes of the instance after the specification change. Valid values: **0** to **50**.
     shared_ptr<int32_t> ltsCoreNum_ {};
-    // The new specification of the LTS nodes. Valid values:
+    // The LTS node specifications of the instance after the specification change. Valid values:
     // 
-    // - **lindorm.g.xlarge**: 4 CPU cores, 16 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.g.2xlarge**: 8 CPU cores, 32 GB of memory (dedicated specification).
+    // - **lindorm.g.xlarge**: 4 cores and 16 GB of memory (dedicated specification).
+    // - **lindorm.g.2xlarge**: 8 cores and 32 GB of memory (dedicated specification).
     shared_ptr<string> ltsCoreSpec_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the instance is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to obtain the latest region list.
+    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The new number of search engine nodes. Valid values: **0** to **60**.
+    // The number of search index engine nodes of the instance after the specification change. Valid values: **0** to **60**.
     shared_ptr<int32_t> solrNum_ {};
-    // The new specification of the search engine nodes. Valid values:
+    // The search index engine node specifications of the instance after the specification change. Valid values:
     // 
-    // - **lindorm.g.xlarge**: 4 CPU cores, 16 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.g.2xlarge**: 8 CPU cores, 32 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.g.4xlarge**: 16 CPU cores, 64 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.g.8xlarg**e: 32 CPU cores, 128 GB of memory (dedicated specification).
+    // - **lindorm.g.xlarge**: 4 cores and 16 GB of memory (dedicated specification).
+    // - **lindorm.g.2xlarge**: 8 cores and 32 GB of memory (dedicated specification).
+    // - **lindorm.g.4xlarge**: 16 cores and 64 GB of memory (dedicated specification).
+    // - **lindorm.g.8xlarg**e: 32 cores and 128 GB of memory (dedicated specification).
     shared_ptr<string> solrSpec_ {};
-    // The new number of stream engine nodes. Valid values: **0** to **90**.
+    // The number of stream engine nodes of the instance after the specification change. Valid values: **0** to **90**.
     shared_ptr<int32_t> streamNum_ {};
-    // The new specification of the stream engine nodes. Valid values:
+    // The stream engine node specifications of the instance after the specification change. Valid values:
     // 
-    // - **lindorm.c.2xlarge**: 8 CPU cores, 16 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.c.4xlarge**: 16 CPU cores, 32 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.c.8xlarge**: 32 CPU cores, 64 GB of memory (dedicated specification).
+    // - **lindorm.c.2xlarge**: 8 cores and 16 GB of memory (dedicated specification).
+    // - **lindorm.c.4xlarge**: 16 cores and 32 GB of memory (dedicated specification).
+    // - **lindorm.c.8xlarge**: 32 cores and 64 GB of memory (dedicated specification).
     shared_ptr<string> streamSpec_ {};
-    // The new number of time series engine nodes. Valid values: **0** to **24**.
+    // The number of LindormTSDB nodes of the instance after the specification change. Valid values: **0** to **24**.
     shared_ptr<int32_t> tsdbNum_ {};
-    // The new specification of the time series engine nodes. Valid values:
+    // The LindormTSDB engine node specifications of the instance after the specification change. Valid values:
     // 
-    // - **lindorm.g.xlarge**: 4 CPU cores, 16 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.g.2xlarge**: 8 CPU cores, 32 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.g.4xlarge**: 16 CPU cores, 64 GB of memory (dedicated specification).
-    // 
-    // - **lindorm.g.8xlarge**: 32 CPU cores, 128 GB of memory (dedicated specification).
+    // - **lindorm.g.xlarge**: 4 cores and 16 GB of memory (dedicated specification).
+    // - **lindorm.g.2xlarge**: 8 cores and 32 GB of memory (dedicated specification).
+    // - **lindorm.g.4xlarge**: 16 cores and 64 GB of memory (dedicated specification).
+    // - **lindorm.g.8xlarge**: 32 cores and 128 GB of memory (dedicated specification).
     shared_ptr<string> tsdbSpec_ {};
-    // The type of the upgrade. For details about the supported types, see the description of the UpgradeType parameter in the "Additional information about request parameters" section.
+    // The type of specification change for the instance. For supported types, see the UpgradeType parameter description in the request parameters supplement.
     // 
     // This parameter is required.
     shared_ptr<string> upgradeType_ {};
-    // The ID of the availability zone. You can call the [GetLindormInstance](https://help.aliyun.com/document_detail/426067.html) operation to obtain this ID.
+    // The zone ID. You can call the [GetLindormInstance](https://help.aliyun.com/document_detail/426067.html) operation to query the zone ID.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

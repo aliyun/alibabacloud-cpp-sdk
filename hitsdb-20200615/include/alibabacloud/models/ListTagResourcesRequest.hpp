@@ -86,13 +86,11 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
-      // 
-      // > Each tag is a key-value pair. This parameter specifies the key.
+      // The tag key.
+      // > You can specify multiple tag keys. For example, the Key in the first pair specifies the first tag key, and the Key in the second pair specifies the second tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
-      // 
-      // > Each tag is a key-value pair. This parameter specifies the value.
+      // The tag value.
+      // > You can specify multiple tag values. For example, the Value in the first pair specifies the first tag value, and the Value in the second pair specifies the second tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -174,17 +172,17 @@ namespace Models
 
 
   protected:
-    // The token to retrieve the next page of results.
+    // The token that is used to start the next query to return more results.
     // 
-    // > Do not specify this parameter for your first request. If the response returns a **NextToken**, more results are available. To retrieve the next page, include the returned **NextToken** value in your next request.
+    // > You do not need to specify this parameter for the first query. If a query does not return all results, you can pass the **NextToken** value returned in the previous query to continue the query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the instance is located. Call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to get a list of available regions.
+    // The ID of the region where the instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // A list of resource IDs.
+    // The list of resource IDs.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
@@ -193,7 +191,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> securityToken_ {};
-    // A list of tags.
+    // The list of tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

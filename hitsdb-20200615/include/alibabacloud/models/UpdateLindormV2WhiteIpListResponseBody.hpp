@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Details about a failed permission check.
+    // The details of the failed permission check.
     shared_ptr<string> accessDeniedDetail_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

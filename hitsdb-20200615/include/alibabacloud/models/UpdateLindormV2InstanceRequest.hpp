@@ -153,27 +153,22 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<int32_t> nodeCount_ {};
-        // The disk size of a single node. This parameter is not required.
+        // The disk size per node. This parameter is not required.
         shared_ptr<int32_t> nodeDiskSize_ {};
-        // The disk type of the node. This parameter is not required. **This parameter is available only for specific scenarios and is accessible to users on a whitelist.**
+        // The cloud disk type of the node. This parameter is not required. **This parameter is used in special scenarios and is available only after your account is added to the whitelist.**
         shared_ptr<string> nodeDiskType_ {};
-        // The node specifications of the engine.
+        // The node specifications of the engine. Valid values:
         // 
-        // - **lindorm.c.2xlarge**: 8 cores and 16 GB of memory.
-        // 
-        // - **lindorm.g.2xlarge**: 8 cores and 32 GB of memory.
-        // 
-        // - **lindorm.c.4xlarge**: 16 cores and 32 GB of memory.
-        // 
-        // - **lindorm.g.4xlarge**: 16 cores and 64 GB of memory.
-        // 
-        // - **lindorm.c.8xlarge**: 32 cores and 64 GB of memory.
-        // 
-        // - **lindorm.g.8xlarge**: 32 cores and 128 GB of memory.
+        // - **lindorm.c.2xlarge**: 8 vCPUs and 16 GB of memory.
+        // - **lindorm.g.2xlarge**: 8 vCPUs and 32 GB of memory.
+        // - **lindorm.c.4xlarge**: 16 vCPUs and 32 GB of memory.
+        // - **lindorm.g.4xlarge**: 16 vCPUs and 64 GB of memory.
+        // - **lindorm.c.8xlarge**: 32 vCPUs and 64 GB of memory.
+        // - **lindorm.g.8xlarge**: 32 vCPUs and 128 GB of memory.
         // 
         // This parameter is required.
         shared_ptr<string> nodeSpec_ {};
-        // The name of the node group. **This parameter is required.** You can obtain the name by calling the GetLindormV2Instance operation.
+        // The name of the node group. You can call the GetLindormV2InstanceDetails operation to query the name.
         shared_ptr<string> resourceGroupName_ {};
       };
 
@@ -199,22 +194,16 @@ namespace Models
       // The engine type. Valid values:
       // 
       // - TABLE: LindormTable.
-      // 
       // - TSDB: LindormTSDB.
-      // 
       // - LSEARCH: search engine.
-      // 
-      // - LTS: LTS engine.
-      // 
+      // - LTS: Lindorm Tunnel Service.
       // - LVECTOR: vector engine.
-      // 
-      // - LCOLUMN: column store.
-      // 
+      // - LCOLUMN: column store engine.
       // - LAI: AI engine.
       // 
       // This parameter is required.
       shared_ptr<string> engineType_ {};
-      // A list of engine node groups.
+      // The list of engine node groups.
       shared_ptr<vector<EngineList::NodeGroupList>> nodeGroupList_ {};
     };
 
@@ -309,19 +298,17 @@ namespace Models
 
 
   protected:
-    // The capacity of the storage-optimized storage.
+    // The capacity storage space.
     shared_ptr<int32_t> capacityStorageSize_ {};
-    // The cloud storage capacity. Unit: GB.
+    // The cloud storage space. Unit: GB. When you modify the cloud storage space, you must also specify EngineList. The EngineType parameter in EngineList, and the NodeSpec and NodeCount parameters in NodeGroupList are required.
     shared_ptr<int32_t> cloudStorageSize_ {};
-    // The cloud storage class.
-    // 
-    // - **PerformanceStorage**: performance cloud storage.
-    // 
-    // - **StandardStorage**: standard cloud storage.
+    // The cloud storage type. Valid values:
+    // - **PerformanceStorage**: Performance cloud storage.
+    // - **StandardStorage**: Standard cloud storage.
     shared_ptr<string> cloudStorageType_ {};
-    // Specifies whether to enable storage-optimized storage.
+    // Specifies whether to enable capacity storage.
     shared_ptr<bool> enableCapacityStorage_ {};
-    // A list of engine types.
+    // The list of engine types.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateLindormV2InstanceRequest::EngineList>> engineList_ {};
@@ -331,7 +318,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the instance is located. To query the latest region list, call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation.
+    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID. Use this parameter to specify the region where you want to create the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

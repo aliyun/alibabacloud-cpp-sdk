@@ -84,10 +84,9 @@ namespace Models
 
 
   protected:
-    // The language to use for the region name (LocalName) in the response. Valid values:
+    // The display language of the region name (LocalName) in the response. Valid values:
     // 
     // - **zh-CN**: Chinese. This is the default value.
-    // 
     // - **en-US**: English.
     shared_ptr<string> acceptLanguage_ {};
     shared_ptr<string> ownerAccount_ {};

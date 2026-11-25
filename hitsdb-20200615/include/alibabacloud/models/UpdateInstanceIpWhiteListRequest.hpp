@@ -114,9 +114,9 @@ namespace Models
   protected:
     // Specifies whether to clear the whitelist.
     shared_ptr<bool> delete_ {};
-    // The name of the whitelist group. If you leave this parameter empty, the default value user is used.
+    // The name of the whitelist group. Default value: user.
     shared_ptr<string> groupName_ {};
-    // The ID of the instance. Call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation to obtain the ID.
+    // The instance ID. You can call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -126,7 +126,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The IP addresses to add to the whitelist.
     // 
-    // > Set this parameter to 127.0.0.1 to deny access from all IP addresses. For example, 192.168.0.0/24 allows all IP addresses in the 192.168.0.0/24 CIDR block to access the Lindorm instance. Separate multiple IP addresses or CIDR blocks with a comma (,).
+    // > A value of 127.0.0.1 indicates that access from all IP addresses is denied. For example, 192.168.0.0/24 allows access from all IP addresses in the 192.168.0.X CIDR block to the Lindorm instance. Separate multiple IP addresses with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> securityIpList_ {};

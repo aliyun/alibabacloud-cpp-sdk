@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The number of instances in `{RegionId}` that are about to expire.
+      // The number of instances that are about to expire in {RegionId}.
       shared_ptr<int32_t> lockingCount_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The number of running instances in `{RegionId}`.
+      // The number of running instances in {RegionId}.
       shared_ptr<int32_t> runningCount_ {};
-      // The total number of instances in `{RegionId}` that are running or about to expire.
+      // The total number of running instances and instances that are about to expire in {RegionId}.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -146,13 +146,13 @@ namespace Models
   protected:
     // The number of instances that are about to expire.
     shared_ptr<int32_t> lockingCount_ {};
-    // An array of region summaries.
+    // The collection of region information.
     shared_ptr<vector<GetInstanceSummaryResponseBody::RegionalSummary>> regionalSummary_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The number of running instances.
     shared_ptr<int32_t> runningCount_ {};
-    // The total number of instances that are running or about to expire.
+    // The total number of running instances and instances that are about to expire.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -86,13 +86,13 @@ namespace Models
     protected:
       // The tag key.
       // 
-      // > You can specify the keys for multiple tags. For example, the Key in the first pair is the key for the first tag, and the Key in the second pair is the key for the second tag.
+      // > You can specify multiple tag keys. For example, the Key in the first pair specifies the key of the first tag, and the Key in the second pair specifies the key of the second tag.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
-      // > You can specify the values for multiple tags. For example, the Value in the first pair is the value for the first tag, and the Value in the second pair is the value for the second tag.
+      // > You can specify multiple tag values. For example, the Value in the first pair specifies the value of the first tag, and the Value in the second pair specifies the value of the second tag.
       shared_ptr<string> value_ {};
     };
 
@@ -169,22 +169,22 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance. Call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to obtain the region ID.
+    // The ID of the region where the instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // A list of resource IDs.
+    // The list of resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Set the value to **INSTANCE**.
+    // The resource type. Set the value to **INSTANCE**.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> securityToken_ {};
-    // A list of tags.
+    // The list of tags.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

@@ -14,20 +14,24 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateLindormInstanceAttributeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DeletionProtection, deletionProtection_);
+      DARABONBA_PTR_TO_JSON(DispositionType, dispositionType_);
       DARABONBA_PTR_TO_JSON(InstanceAlias, instanceAlias_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(PlannedCompletionDate, plannedCompletionDate_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateLindormInstanceAttributeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DeletionProtection, deletionProtection_);
+      DARABONBA_PTR_FROM_JSON(DispositionType, dispositionType_);
       DARABONBA_PTR_FROM_JSON(InstanceAlias, instanceAlias_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(PlannedCompletionDate, plannedCompletionDate_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
@@ -44,13 +48,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deletionProtection_ == nullptr
-        && this->instanceAlias_ == nullptr && this->instanceId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->securityToken_ == nullptr; };
+        && this->dispositionType_ == nullptr && this->instanceAlias_ == nullptr && this->instanceId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->plannedCompletionDate_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityToken_ == nullptr; };
     // deletionProtection Field Functions 
     bool hasDeletionProtection() const { return this->deletionProtection_ != nullptr;};
     void deleteDeletionProtection() { this->deletionProtection_ = nullptr;};
     inline bool getDeletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, false) };
     inline UpdateLindormInstanceAttributeRequest& setDeletionProtection(bool deletionProtection) { DARABONBA_PTR_SET_VALUE(deletionProtection_, deletionProtection) };
+
+
+    // dispositionType Field Functions 
+    bool hasDispositionType() const { return this->dispositionType_ != nullptr;};
+    void deleteDispositionType() { this->dispositionType_ = nullptr;};
+    inline string getDispositionType() const { DARABONBA_PTR_GET_DEFAULT(dispositionType_, "") };
+    inline UpdateLindormInstanceAttributeRequest& setDispositionType(string dispositionType) { DARABONBA_PTR_SET_VALUE(dispositionType_, dispositionType) };
 
 
     // instanceAlias Field Functions 
@@ -81,6 +92,13 @@ namespace Models
     inline UpdateLindormInstanceAttributeRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
+    // plannedCompletionDate Field Functions 
+    bool hasPlannedCompletionDate() const { return this->plannedCompletionDate_ != nullptr;};
+    void deletePlannedCompletionDate() { this->plannedCompletionDate_ = nullptr;};
+    inline string getPlannedCompletionDate() const { DARABONBA_PTR_GET_DEFAULT(plannedCompletionDate_, "") };
+    inline UpdateLindormInstanceAttributeRequest& setPlannedCompletionDate(string plannedCompletionDate) { DARABONBA_PTR_SET_VALUE(plannedCompletionDate_, plannedCompletionDate) };
+
+
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
@@ -106,17 +124,20 @@ namespace Models
     // Specifies whether to enable deletion protection. Valid values:
     // 
     // - **true**: Enabled.
-    // 
     // - **false**: Disabled.
     shared_ptr<bool> deletionProtection_ {};
-    // The name of the instance.
+    // The risk disposition type for a single zone.
+    shared_ptr<string> dispositionType_ {};
+    // The instance name.
     shared_ptr<string> instanceAlias_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The planned completion date for risk disposition, in the yyyy-MM-dd format.
+    shared_ptr<string> plannedCompletionDate_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};

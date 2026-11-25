@@ -82,13 +82,12 @@ namespace Models
 
 
     protected:
-      // The name of the IP whitelist group.
+      // The name of the whitelist group.
       // 
       // This parameter is required.
       shared_ptr<string> groupName_ {};
-      // The IP addresses to add to the IP whitelist.
-      // 
-      // > The value 127.0.0.1 denies access from all IP addresses. For example, 192.168.0.0/24 allows all IP addresses in that range to access the Lindorm instance. Use a comma (,) to separate multiple IP addresses or CIDR blocks.
+      // The IP addresses to be added to the whitelist.
+      // > 127.0.0.1 indicates that access from all IP addresses is denied. For example, 192.168.0.0/24 indicates that access from all IP addresses in the 192.168.0.X CIDR block is allowed to the Lindorm instance. Separate multiple IP addresses with commas (,).
       // 
       // This parameter is required.
       shared_ptr<string> whiteIpList_ {};
@@ -156,18 +155,18 @@ namespace Models
 
 
   protected:
-    // The ID of the instance. You can call the GetLindormV2InstanceList operation to obtain the instance ID.
+    // The instance ID. You can call the GetLindormV2InstanceList operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the instance is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to obtain this ID.
+    // The ID of the region where the instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The list of IP whitelist groups.
+    // The list of whitelist groups.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateLindormV2WhiteIpListRequest::WhiteIpGroupList>> whiteIpGroupList_ {};

@@ -94,13 +94,13 @@ namespace Models
 
 
   protected:
-    // The ID of the instance. Call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) API to obtain it.
+    // The instance ID. You can call [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the instance is located. Call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) API to obtain it.
+    // The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

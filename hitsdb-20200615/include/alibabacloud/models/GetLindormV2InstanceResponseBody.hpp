@@ -45,6 +45,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
+      DARABONBA_PTR_TO_JSON(SingleZoneRiskAlert, singleZoneRiskAlert_);
       DARABONBA_PTR_TO_JSON(StandbyVSwitchId, standbyVSwitchId_);
       DARABONBA_PTR_TO_JSON(StandbyZoneId, standbyZoneId_);
       DARABONBA_PTR_TO_JSON(StorageUsage, storageUsage_);
@@ -86,6 +87,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
+      DARABONBA_PTR_FROM_JSON(SingleZoneRiskAlert, singleZoneRiskAlert_);
       DARABONBA_PTR_FROM_JSON(StandbyVSwitchId, standbyVSwitchId_);
       DARABONBA_PTR_FROM_JSON(StandbyZoneId, standbyZoneId_);
       DARABONBA_PTR_FROM_JSON(StorageUsage, storageUsage_);
@@ -192,6 +194,68 @@ namespace Models
     protected:
       shared_ptr<vector<Darabonba::Json>> capacityByDiskCategory_ {};
       Darabonba::Json engineUsage_ {};
+    };
+
+    class SingleZoneRiskAlert : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SingleZoneRiskAlert& obj) { 
+        DARABONBA_PTR_TO_JSON(ConfirmDate, confirmDate_);
+        DARABONBA_PTR_TO_JSON(DispositionType, dispositionType_);
+        DARABONBA_PTR_TO_JSON(NeedAlert, needAlert_);
+        DARABONBA_PTR_TO_JSON(PlannedCompletionDate, plannedCompletionDate_);
+      };
+      friend void from_json(const Darabonba::Json& j, SingleZoneRiskAlert& obj) { 
+        DARABONBA_PTR_FROM_JSON(ConfirmDate, confirmDate_);
+        DARABONBA_PTR_FROM_JSON(DispositionType, dispositionType_);
+        DARABONBA_PTR_FROM_JSON(NeedAlert, needAlert_);
+        DARABONBA_PTR_FROM_JSON(PlannedCompletionDate, plannedCompletionDate_);
+      };
+      SingleZoneRiskAlert() = default ;
+      SingleZoneRiskAlert(const SingleZoneRiskAlert &) = default ;
+      SingleZoneRiskAlert(SingleZoneRiskAlert &&) = default ;
+      SingleZoneRiskAlert(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SingleZoneRiskAlert() = default ;
+      SingleZoneRiskAlert& operator=(const SingleZoneRiskAlert &) = default ;
+      SingleZoneRiskAlert& operator=(SingleZoneRiskAlert &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->confirmDate_ == nullptr
+        && this->dispositionType_ == nullptr && this->needAlert_ == nullptr && this->plannedCompletionDate_ == nullptr; };
+      // confirmDate Field Functions 
+      bool hasConfirmDate() const { return this->confirmDate_ != nullptr;};
+      void deleteConfirmDate() { this->confirmDate_ = nullptr;};
+      inline string getConfirmDate() const { DARABONBA_PTR_GET_DEFAULT(confirmDate_, "") };
+      inline SingleZoneRiskAlert& setConfirmDate(string confirmDate) { DARABONBA_PTR_SET_VALUE(confirmDate_, confirmDate) };
+
+
+      // dispositionType Field Functions 
+      bool hasDispositionType() const { return this->dispositionType_ != nullptr;};
+      void deleteDispositionType() { this->dispositionType_ = nullptr;};
+      inline string getDispositionType() const { DARABONBA_PTR_GET_DEFAULT(dispositionType_, "") };
+      inline SingleZoneRiskAlert& setDispositionType(string dispositionType) { DARABONBA_PTR_SET_VALUE(dispositionType_, dispositionType) };
+
+
+      // needAlert Field Functions 
+      bool hasNeedAlert() const { return this->needAlert_ != nullptr;};
+      void deleteNeedAlert() { this->needAlert_ = nullptr;};
+      inline string getNeedAlert() const { DARABONBA_PTR_GET_DEFAULT(needAlert_, "") };
+      inline SingleZoneRiskAlert& setNeedAlert(string needAlert) { DARABONBA_PTR_SET_VALUE(needAlert_, needAlert) };
+
+
+      // plannedCompletionDate Field Functions 
+      bool hasPlannedCompletionDate() const { return this->plannedCompletionDate_ != nullptr;};
+      void deletePlannedCompletionDate() { this->plannedCompletionDate_ = nullptr;};
+      inline string getPlannedCompletionDate() const { DARABONBA_PTR_GET_DEFAULT(plannedCompletionDate_, "") };
+      inline SingleZoneRiskAlert& setPlannedCompletionDate(string plannedCompletionDate) { DARABONBA_PTR_SET_VALUE(plannedCompletionDate_, plannedCompletionDate) };
+
+
+    protected:
+      shared_ptr<string> confirmDate_ {};
+      shared_ptr<string> dispositionType_ {};
+      shared_ptr<string> needAlert_ {};
+      shared_ptr<string> plannedCompletionDate_ {};
     };
 
     class EngineList : public Darabonba::Model {
@@ -514,8 +578,8 @@ namespace Models
         && this->initialRootPassword_ == nullptr && this->instanceAlias_ == nullptr && this->instanceId_ == nullptr && this->instanceStatus_ == nullptr && this->instanceType_ == nullptr
         && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->networkType_ == nullptr && this->payType_ == nullptr && this->primaryVSwitchId_ == nullptr
         && this->primaryZoneId_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->serviceType_ == nullptr
-        && this->standbyVSwitchId_ == nullptr && this->standbyZoneId_ == nullptr && this->storageUsage_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr
-        && this->whiteIpList_ == nullptr && this->zoneEngineInfoMap_ == nullptr && this->zoneId_ == nullptr; };
+        && this->singleZoneRiskAlert_ == nullptr && this->standbyVSwitchId_ == nullptr && this->standbyZoneId_ == nullptr && this->storageUsage_ == nullptr && this->vpcId_ == nullptr
+        && this->vswitchId_ == nullptr && this->whiteIpList_ == nullptr && this->zoneEngineInfoMap_ == nullptr && this->zoneId_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -735,6 +799,15 @@ namespace Models
     inline GetLindormV2InstanceResponseBody& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
 
 
+    // singleZoneRiskAlert Field Functions 
+    bool hasSingleZoneRiskAlert() const { return this->singleZoneRiskAlert_ != nullptr;};
+    void deleteSingleZoneRiskAlert() { this->singleZoneRiskAlert_ = nullptr;};
+    inline const GetLindormV2InstanceResponseBody::SingleZoneRiskAlert & getSingleZoneRiskAlert() const { DARABONBA_PTR_GET_CONST(singleZoneRiskAlert_, GetLindormV2InstanceResponseBody::SingleZoneRiskAlert) };
+    inline GetLindormV2InstanceResponseBody::SingleZoneRiskAlert getSingleZoneRiskAlert() { DARABONBA_PTR_GET(singleZoneRiskAlert_, GetLindormV2InstanceResponseBody::SingleZoneRiskAlert) };
+    inline GetLindormV2InstanceResponseBody& setSingleZoneRiskAlert(const GetLindormV2InstanceResponseBody::SingleZoneRiskAlert & singleZoneRiskAlert) { DARABONBA_PTR_SET_VALUE(singleZoneRiskAlert_, singleZoneRiskAlert) };
+    inline GetLindormV2InstanceResponseBody& setSingleZoneRiskAlert(GetLindormV2InstanceResponseBody::SingleZoneRiskAlert && singleZoneRiskAlert) { DARABONBA_PTR_SET_RVALUE(singleZoneRiskAlert_, singleZoneRiskAlert) };
+
+
     // standbyVSwitchId Field Functions 
     bool hasStandbyVSwitchId() const { return this->standbyVSwitchId_ != nullptr;};
     void deleteStandbyVSwitchId() { this->standbyVSwitchId_ = nullptr;};
@@ -829,6 +902,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> serviceType_ {};
+    shared_ptr<GetLindormV2InstanceResponseBody::SingleZoneRiskAlert> singleZoneRiskAlert_ {};
     shared_ptr<string> standbyVSwitchId_ {};
     shared_ptr<string> standbyZoneId_ {};
     shared_ptr<GetLindormV2InstanceResponseBody::StorageUsage> storageUsage_ {};

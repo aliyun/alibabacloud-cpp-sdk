@@ -188,36 +188,33 @@ namespace Models
 
 
     protected:
-      // The total storage capacity for this storage medium, in bytes.
+      // The total storage capacity for the storage medium type. Unit: bytes.
       shared_ptr<string> capacity_ {};
       // The storage type of the cluster. Valid values:
-      // 
-      // - `StandardCloudStorage`: standard cloud storage.
-      // 
-      // - `PerformanceCloudStorage`: performance cloud storage.
-      // 
-      // - `CapacityCloudStorage`: capacity cloud storage.
-      // 
-      // - `LocalSsdStorage`: local SSD.
-      // 
-      // - `LocalHddStorage`: local HDD.
-      // 
-      // - `LocalEbsStorage`: local block storage.
+      // - StandardCloudStorage: standard cloud storage.
+      // - PerformanceCloudStorage: performance cloud storage.
+      // - CapacityCloudStorage: capacity cloud storage.
+      // - LocalSsdStorage: local SSD.
+      // - LocalHddStorage: local HDD.
+      // - LocalEbsStorage: local cloud storage.
       shared_ptr<string> diskType_ {};
-      // The storage used on this storage medium, in bytes.
+      // The storage usage for the storage medium type. Unit: bytes.
       shared_ptr<string> used_ {};
+      // The column store engine storage usage for the storage medium type. Unit: bytes.
       shared_ptr<string> usedLindormColumn3_ {};
+      // The message engine storage usage for the storage medium type. Unit: bytes.
       shared_ptr<string> usedLindormMessage3_ {};
-      // The storage used by the search engine on this storage medium, in bytes.
+      // The search index DPI engine storage usage for the storage medium type. Unit: bytes.
       shared_ptr<string> usedLindormSearch_ {};
-      // The storage used by the compute engine on this storage medium, in bytes.
+      // The compute engine storage usage for the storage medium type. Unit: bytes.
       shared_ptr<string> usedLindormSpark_ {};
-      // The storage used by the wide-column engine on this storage medium, in bytes.
+      // The LindormTable engine storage usage for the storage medium type. Unit: bytes.
       shared_ptr<string> usedLindormTable_ {};
-      // The storage used by the time series engine on this storage medium, in bytes.
+      // The LindormTSDB engine storage usage for the storage medium type. Unit: bytes.
       shared_ptr<string> usedLindormTsdb_ {};
+      // The vector engine storage usage for the storage medium type. Unit: bytes.
       shared_ptr<string> usedLindormVector3_ {};
-      // The storage used by other components, such as logs and trash, on this storage medium, in bytes.
+      // The storage usage for other purposes under the storage medium type, such as logs and the recycle bin. Unit: bytes.
       shared_ptr<string> usedOther_ {};
     };
 
@@ -369,45 +366,45 @@ namespace Models
 
 
   protected:
-    // Details on why access was denied.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The total storage capacity of the cluster, in bytes.
+    // The total storage capacity of the cluster. Unit: bytes.
     shared_ptr<string> fsCapacity_ {};
-    // The cold storage capacity of the cluster, in bytes.
+    // The cold storage capacity of the cluster. Unit: bytes.
     shared_ptr<string> fsCapacityCold_ {};
-    // The hot storage capacity of the cluster, in bytes.
+    // The hot storage capacity of the cluster. Unit: bytes.
     shared_ptr<string> fsCapacityHot_ {};
-    // The cold storage used by the cluster, in bytes.
+    // The cold storage usage of the cluster. Unit: bytes.
     shared_ptr<string> fsUsedCold_ {};
-    // The cold storage space used by table data of the search engine, in bytes.
+    // The cold storage usage of table data in the search index DPI engine. Unit: bytes.
     shared_ptr<string> fsUsedColdOnLindormSearch_ {};
-    // The cold storage space used by table data of the time series engine, in bytes.
+    // The cold storage usage of table data in the LindormTSDB engine. Unit: bytes.
     shared_ptr<string> fsUsedColdOnLindormTSDB_ {};
-    // The cold storage space used by table data of the wide-column engine, in bytes.
+    // The cold storage usage of table data in the LindormTable engine. Unit: bytes.
     shared_ptr<string> fsUsedColdOnLindormTable_ {};
-    // The hot storage used by the cluster, in bytes.
+    // The hot storage usage of the cluster. Unit: bytes.
     shared_ptr<string> fsUsedHot_ {};
-    // The hot storage space used by table data of the search engine, in bytes.
+    // The hot storage usage of table data in the search index DPI engine. Unit: bytes.
     shared_ptr<string> fsUsedHotOnLindormSearch_ {};
-    // The hot storage space used by table data of the time series engine, in bytes.
+    // The hot storage usage of table data in the LindormTSDB engine. Unit: bytes.
     shared_ptr<string> fsUsedHotOnLindormTSDB_ {};
-    // The hot storage space used by table data of the wide-column engine, in bytes.
+    // The hot storage usage of table data in the LindormTable engine. Unit: bytes.
     shared_ptr<string> fsUsedHotOnLindormTable_ {};
-    // The storage space used by the search engine in the cluster, in bytes.
+    // The storage usage of the search index DPI engine in the cluster. Unit: bytes.
     shared_ptr<string> fsUsedOnLindormSearch_ {};
-    // The storage space used by the time series engine in the cluster, in bytes.
+    // The storage usage of the LindormTSDB engine in the cluster. Unit: bytes.
     shared_ptr<string> fsUsedOnLindormTSDB_ {};
-    // The storage space used by the wide-column engine in the cluster, in bytes.
+    // The storage usage of the LindormTable engine in the cluster. Unit: bytes.
     shared_ptr<string> fsUsedOnLindormTable_ {};
-    // The storage space used by table data of the wide-column engine, in bytes.
+    // The storage usage of table data in the LindormTable engine. Unit: bytes.
     shared_ptr<string> fsUsedOnLindormTableData_ {};
-    // The storage space used by log data of the wide-column engine, in bytes.
+    // The storage usage of write-ahead log (wal) data in the LindormTable engine. Unit: bytes.
     shared_ptr<string> fsUsedOnLindormTableWAL_ {};
-    // For clusters that run storage engine v4.1.9 or later, this parameter provides authoritative storage details categorized by storage medium.
+    // For clusters with an underlying storage DPI engine version of 4.1.9 or later, this field is the authoritative source for storage details, categorized by storage medium categorization.
     shared_ptr<vector<GetLindormFsUsedDetailResponseBody::LStorageUsageList>> LStorageUsageList_ {};
-    // The ID of the request. This unique identifier is generated by Alibaba Cloud for each request and is used for troubleshooting.
+    // The request ID. It is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the response is valid. A value of `false` indicates that an error occurred, and you must provide the request ID for troubleshooting.
+    // Indicates whether the return value is valid. true indicates that the value is valid. false indicates that an exception occurred. Provide the request ID to troubleshoot the issue.
     shared_ptr<string> valid_ {};
   };
 

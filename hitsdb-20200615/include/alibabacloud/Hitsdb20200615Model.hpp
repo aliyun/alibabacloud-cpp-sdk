@@ -120,6 +120,9 @@
 #include <alibabacloud/models/GetLindormV2StreamEngineInfoRequest.hpp>
 #include <alibabacloud/models/GetLindormV2StreamEngineInfoResponseBody.hpp>
 #include <alibabacloud/models/GetLindormV2StreamEngineInfoResponse.hpp>
+#include <alibabacloud/models/KillQueryRequest.hpp>
+#include <alibabacloud/models/KillQueryResponseBody.hpp>
+#include <alibabacloud/models/KillQueryResponse.hpp>
 #include <alibabacloud/models/ListAutoScalingConfigsRequest.hpp>
 #include <alibabacloud/models/ListAutoScalingConfigsShrinkRequest.hpp>
 #include <alibabacloud/models/ListAutoScalingConfigsResponseBody.hpp>
@@ -134,6 +137,9 @@
 #include <alibabacloud/models/ListComputeEngineJobRequest.hpp>
 #include <alibabacloud/models/ListComputeEngineJobResponseBody.hpp>
 #include <alibabacloud/models/ListComputeEngineJobResponse.hpp>
+#include <alibabacloud/models/ListHBaseQuotasRequest.hpp>
+#include <alibabacloud/models/ListHBaseQuotasResponseBody.hpp>
+#include <alibabacloud/models/ListHBaseQuotasResponse.hpp>
 #include <alibabacloud/models/ListLdpsComputeGroupsRequest.hpp>
 #include <alibabacloud/models/ListLdpsComputeGroupsResponseBody.hpp>
 #include <alibabacloud/models/ListLdpsComputeGroupsResponse.hpp>
@@ -186,6 +192,12 @@
 #include <alibabacloud/models/SetDefaultOlapComputeGroupRequest.hpp>
 #include <alibabacloud/models/SetDefaultOlapComputeGroupResponseBody.hpp>
 #include <alibabacloud/models/SetDefaultOlapComputeGroupResponse.hpp>
+#include <alibabacloud/models/SetHBaseQuotasRequest.hpp>
+#include <alibabacloud/models/SetHBaseQuotasResponseBody.hpp>
+#include <alibabacloud/models/SetHBaseQuotasResponse.hpp>
+#include <alibabacloud/models/ShowProcessListRequest.hpp>
+#include <alibabacloud/models/ShowProcessListResponseBody.hpp>
+#include <alibabacloud/models/ShowProcessListResponse.hpp>
 #include <alibabacloud/models/SwitchLSQLV3MySQLServiceRequest.hpp>
 #include <alibabacloud/models/SwitchLSQLV3MySQLServiceResponseBody.hpp>
 #include <alibabacloud/models/SwitchLSQLV3MySQLServiceResponse.hpp>

@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The instance ID. Call [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) to obtain the ID.
+    // The ID of the instance. You can call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

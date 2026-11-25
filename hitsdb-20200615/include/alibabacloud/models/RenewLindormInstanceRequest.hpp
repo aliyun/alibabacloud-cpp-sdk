@@ -112,29 +112,25 @@ namespace Models
 
 
   protected:
-    // The subscription duration. Valid values:
-    // 
-    // - If you set PricingCycle to **Month**, the valid values for this parameter are **1** to **9**.
-    // 
-    // - If you set PricingCycle to **Year**, the valid values for this parameter are **1** to **3**.
+    // The subscription duration of the instance. Valid values:
+    // - If PricingCycle is set to **Month**, the instance is billed by month. Valid values: **1** to **9**.
+    // - If PricingCycle is set to **Year**, the instance is billed by year. Valid values: **1** to **3**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> duration_ {};
-    // The ID of the instance. Call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation to obtain the instance ID.
+    // The ID of the instance. You can call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation to query the instance ID. The instance must be in the ACTIVATION (Running) state to be renewed. Instances in other states, such as CREATING (Creating), cannot be renewed.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The billing cycle for the instance renewal. Valid values:
-    // 
-    // - **Month**: The instance is renewed by month.
-    // 
-    // - **Year**: The instance is renewed by year.
+    // The billing cycle of the instance. Valid values:
+    // - **Month**: months
+    // - **Year**: years
     // 
     // This parameter is required.
     shared_ptr<string> pricingCycle_ {};
-    // The ID of the region where the instance is located. Call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to obtain the region ID.
+    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

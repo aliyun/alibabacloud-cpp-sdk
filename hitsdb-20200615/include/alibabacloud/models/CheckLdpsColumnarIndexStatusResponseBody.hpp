@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CheckLdpsColumnarIndexStatusResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
+      DARABONBA_PTR_TO_JSON(Mode, mode_);
       DARABONBA_PTR_TO_JSON(Opened, opened_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, CheckLdpsColumnarIndexStatusResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
+      DARABONBA_PTR_FROM_JSON(Mode, mode_);
       DARABONBA_PTR_FROM_JSON(Opened, opened_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && this->opened_ == nullptr && this->requestId_ == nullptr; };
+        && this->mode_ == nullptr && this->opened_ == nullptr && this->requestId_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
     inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
     inline CheckLdpsColumnarIndexStatusResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+
+
+    // mode Field Functions 
+    bool hasMode() const { return this->mode_ != nullptr;};
+    void deleteMode() { this->mode_ = nullptr;};
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline CheckLdpsColumnarIndexStatusResponseBody& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // opened Field Functions 
@@ -58,6 +67,8 @@ namespace Models
 
   protected:
     shared_ptr<string> accessDeniedDetail_ {};
+    // Columnar index mode. Valid values: LAKE and OLAP.
+    shared_ptr<string> mode_ {};
     shared_ptr<bool> opened_ {};
     shared_ptr<string> requestId_ {};
   };
