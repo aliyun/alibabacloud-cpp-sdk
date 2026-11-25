@@ -126,6 +126,9 @@
 #include <alibabacloud/models/BatchDeleteConsumerAuthorizationRuleRequest.hpp>
 #include <alibabacloud/models/BatchDeleteConsumerAuthorizationRuleResponseBody.hpp>
 #include <alibabacloud/models/BatchDeleteConsumerAuthorizationRuleResponse.hpp>
+#include <alibabacloud/models/BatchDeleteHttpApiRoutesRequest.hpp>
+#include <alibabacloud/models/BatchDeleteHttpApiRoutesResponseBody.hpp>
+#include <alibabacloud/models/BatchDeleteHttpApiRoutesResponse.hpp>
 #include <alibabacloud/models/BatchDeployHttpApiRoutesRequest.hpp>
 #include <alibabacloud/models/BatchDeployHttpApiRoutesResponseBody.hpp>
 #include <alibabacloud/models/BatchDeployHttpApiRoutesResponse.hpp>
@@ -138,6 +141,9 @@
 #include <alibabacloud/models/BatchRemoveConsumerGroupConsumersRequest.hpp>
 #include <alibabacloud/models/BatchRemoveConsumerGroupConsumersResponseBody.hpp>
 #include <alibabacloud/models/BatchRemoveConsumerGroupConsumersResponse.hpp>
+#include <alibabacloud/models/BatchUndeployHttpApiRoutesRequest.hpp>
+#include <alibabacloud/models/BatchUndeployHttpApiRoutesResponseBody.hpp>
+#include <alibabacloud/models/BatchUndeployHttpApiRoutesResponse.hpp>
 #include <alibabacloud/models/BatchUpdateHttpApiOperationRequest.hpp>
 #include <alibabacloud/models/BatchUpdateHttpApiOperationResponseBody.hpp>
 #include <alibabacloud/models/BatchUpdateHttpApiOperationResponse.hpp>
@@ -353,6 +359,9 @@
 #include <alibabacloud/models/DetachAndDeletePolicyRequest.hpp>
 #include <alibabacloud/models/DetachAndDeletePolicyResponseBody.hpp>
 #include <alibabacloud/models/DetachAndDeletePolicyResponse.hpp>
+#include <alibabacloud/models/DetectHttpApiConflictsRequest.hpp>
+#include <alibabacloud/models/DetectHttpApiConflictsResponseBody.hpp>
+#include <alibabacloud/models/DetectHttpApiConflictsResponse.hpp>
 #include <alibabacloud/models/ExportHttpApiRequest.hpp>
 #include <alibabacloud/models/ExportHttpApiResponseBody.hpp>
 #include <alibabacloud/models/ExportHttpApiResponse.hpp>

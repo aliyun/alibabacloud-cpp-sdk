@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(routeId, routeId_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(errorMessage, errorMessage_);
+      DARABONBA_PTR_TO_JSON(skipReason, skipReason_);
     };
     friend void from_json(const Darabonba::Json& j, DataResultsValue& obj) { 
       DARABONBA_PTR_FROM_JSON(routeId, routeId_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(errorMessage, errorMessage_);
+      DARABONBA_PTR_FROM_JSON(skipReason, skipReason_);
     };
     DataResultsValue() = default ;
     DataResultsValue(const DataResultsValue &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->routeId_ == nullptr
-        && this->status_ == nullptr && this->errorMessage_ == nullptr; };
+        && this->status_ == nullptr && this->errorMessage_ == nullptr && this->skipReason_ == nullptr; };
     // routeId Field Functions 
     bool hasRouteId() const { return this->routeId_ != nullptr;};
     void deleteRouteId() { this->routeId_ = nullptr;};
@@ -56,13 +58,18 @@ namespace Models
     inline DataResultsValue& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
+    // skipReason Field Functions 
+    bool hasSkipReason() const { return this->skipReason_ != nullptr;};
+    void deleteSkipReason() { this->skipReason_ = nullptr;};
+    inline string getSkipReason() const { DARABONBA_PTR_GET_DEFAULT(skipReason_, "") };
+    inline DataResultsValue& setSkipReason(string skipReason) { DARABONBA_PTR_SET_VALUE(skipReason_, skipReason) };
+
+
   protected:
-    // The route ID corresponding to the result, which is the same as the key in results.
     shared_ptr<string> routeId_ {};
-    // For asynchronous publishing, Pending indicates that the request is accepted, and Rejected indicates that the request is rejected before submission. For synchronous publishing, Succeeded indicates that the route is successfully published, and Failed indicates that the publishing failed.
     shared_ptr<string> status_ {};
-    // The cause of the route being rejected or failing to be published. This parameter is returned when the status is Rejected or Failed.
     shared_ptr<string> errorMessage_ {};
+    shared_ptr<string> skipReason_ {};
   };
 
   } // namespace Models

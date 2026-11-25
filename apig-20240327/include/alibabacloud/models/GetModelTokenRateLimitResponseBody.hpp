@@ -110,7 +110,7 @@ namespace Models
       protected:
         // The ID of the consumer.
         shared_ptr<string> consumerId_ {};
-        // The maximum number of tokens per minute (TPM) for this consumer using this model.
+        // The maximum number of tokens per minute (TPM) allowed for this consumer to use this model.
         shared_ptr<int64_t> tpm_ {};
       };
 
@@ -178,7 +178,7 @@ namespace Models
 
 
     protected:
-      // The most recent configuration revision successfully delivered to the control plane.
+      // The version of the configuration that was last successfully delivered to the control plane.
       shared_ptr<int64_t> appliedRevision_ {};
       // The mapping from consumer IDs to model throttling rule IDs.
       shared_ptr<map<string, string>> consumerRuleIds_ {};
@@ -186,13 +186,13 @@ namespace Models
       shared_ptr<vector<Data::Consumers>> consumers_ {};
       // The instance ID of the dedicated AI gateway.
       shared_ptr<string> gatewayId_ {};
-      // The rule ID for the global model quota, which can be matched with the rule hits in the gateway throttling logs. This parameter is returned only when the global quota is configured.
+      // The rule ID for the global model quota, which can be matched with the rule hits in the gateway throttling logs. This field is returned only when a global quota is configured.
       shared_ptr<string> globalRuleId_ {};
       // The maximum number of tokens per minute (TPM) shared by all consumers for this model within the instance.
       shared_ptr<int64_t> globalTpm_ {};
-      // The actual model card ID (prefixed with msc-) or the logical model ID (prefixed with vm-).
+      // The physical model card ID that starts with msc- or the logical model ID that starts with vm-.
       shared_ptr<string> modelId_ {};
-      // The saved revision of the model throttling configuration. Pass this value as expectedRevision in subsequent modification requests.
+      // The saved version of the model throttling configuration. Pass this value as expectedRevision in subsequent modification requests.
       shared_ptr<int64_t> revision_ {};
     };
 
@@ -233,7 +233,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The saved quotas, versions, and rule IDs for the current model.
     shared_ptr<GetModelTokenRateLimitResponseBody::Data> data_ {};
-    // The cause of the error. This parameter is omitted if the request is successful.
+    // The cause of the error. This field can be omitted if the request is successful.
     shared_ptr<string> message_ {};
     // The unique identifier of the request, which can be used for troubleshooting.
     shared_ptr<string> requestId_ {};

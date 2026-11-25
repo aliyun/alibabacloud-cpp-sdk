@@ -40,6 +40,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(availablePaths, availablePaths_);
+        DARABONBA_PTR_TO_JSON(callName, callName_);
         DARABONBA_PTR_TO_JSON(credit, credit_);
         DARABONBA_ANY_TO_JSON(features, features_);
         DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
@@ -58,6 +59,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(availablePaths, availablePaths_);
+        DARABONBA_PTR_FROM_JSON(callName, callName_);
         DARABONBA_PTR_FROM_JSON(credit, credit_);
         DARABONBA_ANY_FROM_JSON(features, features_);
         DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
@@ -277,9 +279,10 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->availablePaths_ == nullptr
-        && this->credit_ == nullptr && this->features_ == nullptr && this->gatewayId_ == nullptr && this->meta_ == nullptr && this->modelCardId_ == nullptr
-        && this->modelName_ == nullptr && this->modelProvider_ == nullptr && this->modelSourceId_ == nullptr && this->modelSourceName_ == nullptr && this->modelSourceVersion_ == nullptr
-        && this->pricingStatus_ == nullptr && this->serviceId_ == nullptr && this->source_ == nullptr && this->updateTime_ == nullptr && this->version_ == nullptr; };
+        && this->callName_ == nullptr && this->credit_ == nullptr && this->features_ == nullptr && this->gatewayId_ == nullptr && this->meta_ == nullptr
+        && this->modelCardId_ == nullptr && this->modelName_ == nullptr && this->modelProvider_ == nullptr && this->modelSourceId_ == nullptr && this->modelSourceName_ == nullptr
+        && this->modelSourceVersion_ == nullptr && this->pricingStatus_ == nullptr && this->serviceId_ == nullptr && this->source_ == nullptr && this->updateTime_ == nullptr
+        && this->version_ == nullptr; };
       // availablePaths Field Functions 
       bool hasAvailablePaths() const { return this->availablePaths_ != nullptr;};
       void deleteAvailablePaths() { this->availablePaths_ = nullptr;};
@@ -287,6 +290,13 @@ namespace Models
       inline vector<Data::AvailablePaths> getAvailablePaths() { DARABONBA_PTR_GET(availablePaths_, vector<Data::AvailablePaths>) };
       inline Data& setAvailablePaths(const vector<Data::AvailablePaths> & availablePaths) { DARABONBA_PTR_SET_VALUE(availablePaths_, availablePaths) };
       inline Data& setAvailablePaths(vector<Data::AvailablePaths> && availablePaths) { DARABONBA_PTR_SET_RVALUE(availablePaths_, availablePaths) };
+
+
+      // callName Field Functions 
+      bool hasCallName() const { return this->callName_ != nullptr;};
+      void deleteCallName() { this->callName_ = nullptr;};
+      inline string getCallName() const { DARABONBA_PTR_GET_DEFAULT(callName_, "") };
+      inline Data& setCallName(string callName) { DARABONBA_PTR_SET_VALUE(callName_, callName) };
 
 
       // credit Field Functions 
@@ -403,6 +413,7 @@ namespace Models
     protected:
       // The protocols and invocation paths supported by the model.
       shared_ptr<vector<Data::AvailablePaths>> availablePaths_ {};
+      shared_ptr<string> callName_ {};
       // The credit pricing configuration of the model.
       shared_ptr<Data::Credit> credit_ {};
       // The set of capabilities declared by the model. The key is the capability name, and the value indicates whether the capability is supported.

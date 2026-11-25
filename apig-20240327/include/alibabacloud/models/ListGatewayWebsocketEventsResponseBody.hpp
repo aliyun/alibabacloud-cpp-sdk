@@ -105,13 +105,13 @@ namespace Models
     protected:
       // The data basis.
       shared_ptr<string> basis_ {};
-      // Indicates whether there is a next page.
+      // Indicates whether more pages are available.
       shared_ptr<bool> hasMore_ {};
       // The observability events.
       shared_ptr<vector<Darabonba::Json>> items_ {};
       // The actual number of results per page.
       shared_ptr<int32_t> maxResults_ {};
-      // The pagination token for the next page.
+      // The next pagination token.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -150,11 +150,11 @@ namespace Models
   protected:
     // The business response code.
     shared_ptr<string> code_ {};
-    // The query results.
+    // The query result.
     shared_ptr<ListGatewayWebsocketEventsResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

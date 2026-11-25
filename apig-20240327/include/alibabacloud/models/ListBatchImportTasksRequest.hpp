@@ -103,19 +103,19 @@ namespace Models
 
 
   protected:
-    // The end time of the creation time range. Specify the time in RFC 3339 format.
+    // The end time of the creation time range in RFC 3339 format.
     shared_ptr<string> endTime_ {};
     // The gateway instance ID. If specified, only tasks under this gateway are returned.
     shared_ptr<string> gatewayId_ {};
     // The maximum number of tasks to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // The start mark for the paging query.
+    // The starting token for the paging query.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time of the creation time range. Specify the time in RFC 3339 format.
+    // The start time of the creation time range in RFC 3339 format.
     shared_ptr<string> startTime_ {};
     // The list of task statuses. Separate multiple statuses with commas (,).
     shared_ptr<string> statuses_ {};

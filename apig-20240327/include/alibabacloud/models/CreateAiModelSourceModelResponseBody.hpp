@@ -40,6 +40,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(availablePaths, availablePaths_);
+        DARABONBA_PTR_TO_JSON(callName, callName_);
         DARABONBA_PTR_TO_JSON(credit, credit_);
         DARABONBA_ANY_TO_JSON(features, features_);
         DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
@@ -58,6 +59,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(availablePaths, availablePaths_);
+        DARABONBA_PTR_FROM_JSON(callName, callName_);
         DARABONBA_PTR_FROM_JSON(credit, credit_);
         DARABONBA_ANY_FROM_JSON(features, features_);
         DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
@@ -222,11 +224,11 @@ namespace Models
 
 
       protected:
-        // The number of credits per million cached input tokens. The value must be a non-negative number. A value of 0 indicates free.
+        // The number of credits per million input tokens that hit the cache. The value must be a non-negative number. A value of 0 indicates that cached input is free of charge.
         shared_ptr<float> cacheCost_ {};
-        // The number of credits per million input tokens. The value must be a non-negative number. A value of 0 indicates free.
+        // The number of credits per million input tokens. The value must be a non-negative number. A value of 0 indicates that the input is free of charge.
         shared_ptr<float> inputCost_ {};
-        // The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates free.
+        // The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates that the output is free of charge.
         shared_ptr<float> outputCost_ {};
         // The pricing method. Valid values: fixed (fixed credit pricing).
         shared_ptr<string> type_ {};
@@ -277,9 +279,10 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->availablePaths_ == nullptr
-        && this->credit_ == nullptr && this->features_ == nullptr && this->gatewayId_ == nullptr && this->meta_ == nullptr && this->modelCardId_ == nullptr
-        && this->modelName_ == nullptr && this->modelProvider_ == nullptr && this->modelSourceId_ == nullptr && this->modelSourceName_ == nullptr && this->modelSourceVersion_ == nullptr
-        && this->pricingStatus_ == nullptr && this->serviceId_ == nullptr && this->source_ == nullptr && this->updateTime_ == nullptr && this->version_ == nullptr; };
+        && this->callName_ == nullptr && this->credit_ == nullptr && this->features_ == nullptr && this->gatewayId_ == nullptr && this->meta_ == nullptr
+        && this->modelCardId_ == nullptr && this->modelName_ == nullptr && this->modelProvider_ == nullptr && this->modelSourceId_ == nullptr && this->modelSourceName_ == nullptr
+        && this->modelSourceVersion_ == nullptr && this->pricingStatus_ == nullptr && this->serviceId_ == nullptr && this->source_ == nullptr && this->updateTime_ == nullptr
+        && this->version_ == nullptr; };
       // availablePaths Field Functions 
       bool hasAvailablePaths() const { return this->availablePaths_ != nullptr;};
       void deleteAvailablePaths() { this->availablePaths_ = nullptr;};
@@ -287,6 +290,13 @@ namespace Models
       inline vector<Data::AvailablePaths> getAvailablePaths() { DARABONBA_PTR_GET(availablePaths_, vector<Data::AvailablePaths>) };
       inline Data& setAvailablePaths(const vector<Data::AvailablePaths> & availablePaths) { DARABONBA_PTR_SET_VALUE(availablePaths_, availablePaths) };
       inline Data& setAvailablePaths(vector<Data::AvailablePaths> && availablePaths) { DARABONBA_PTR_SET_RVALUE(availablePaths_, availablePaths) };
+
+
+      // callName Field Functions 
+      bool hasCallName() const { return this->callName_ != nullptr;};
+      void deleteCallName() { this->callName_ = nullptr;};
+      inline string getCallName() const { DARABONBA_PTR_GET_DEFAULT(callName_, "") };
+      inline Data& setCallName(string callName) { DARABONBA_PTR_SET_VALUE(callName_, callName) };
 
 
       // credit Field Functions 
@@ -403,6 +413,7 @@ namespace Models
     protected:
       // The protocols and invocation paths supported by the model.
       shared_ptr<vector<Data::AvailablePaths>> availablePaths_ {};
+      shared_ptr<string> callName_ {};
       // The credit pricing configuration of the model.
       shared_ptr<Data::Credit> credit_ {};
       // The set of capabilities declared by the model. The key is the capability name, and the value indicates whether the capability is supported.
@@ -417,21 +428,21 @@ namespace Models
       shared_ptr<string> modelName_ {};
       // The stable identifier of the provider to which the model belongs.
       shared_ptr<string> modelProvider_ {};
-      // The ID of the model source. Use the modelSourceId returned by CreateAiModelSource.
+      // The ID of the model source. Use the modelSourceId returned by the CreateAiModelSource operation.
       shared_ptr<string> modelSourceId_ {};
       // The display name of the model source.
       shared_ptr<string> modelSourceName_ {};
-      // The current version of the associated model source.
+      // The current version of the model source to which the model belongs.
       shared_ptr<int64_t> modelSourceVersion_ {};
-      // The synchronization status of the model pricing configuration. Valid values: Pending (the current version is not yet synchronized) and Ready (synchronized).
+      // The synchronization status of the model pricing configuration. A value of Pending indicates that the current version has not been synchronized. A value of Ready indicates that the current version has been synchronized.
       shared_ptr<string> pricingStatus_ {};
       // The ID of the actual AI service bound to the model source.
       shared_ptr<string> serviceId_ {};
-      // The source of the model asset. Valid values: user (user model) and builtin (system built-in model).
+      // The source of the model asset. A value of user indicates a user model, and a value of builtin indicates a system built-in model.
       shared_ptr<string> source_ {};
       // The time of the last business update. The time is in RFC 3339 format and in the UTC time zone.
       shared_ptr<string> updateTime_ {};
-      // The current version of the object. It is used for conditional validation during updates or deletions.
+      // The current version of the object. It is used for conditional validation during update or deletion.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -468,13 +479,13 @@ namespace Models
 
 
   protected:
-    // The response status code. Ok indicates success. A specific business error code is returned upon failure.
+    // The response status code. A value of Ok indicates success. If the request fails, a specific business error code is returned.
     shared_ptr<string> code_ {};
-    // The business result returned by the in-source model operation.
+    // The business result returned by the operation on the AI model in the model source.
     shared_ptr<CreateAiModelSourceModelResponseBody::Data> data_ {};
     // The response message that describes the request processing result.
     shared_ptr<string> message_ {};
-    // The request ID generated by the system to trace the call.
+    // The ID of the request. It is generated by the system and used to trace the call.
     shared_ptr<string> requestId_ {};
   };
 

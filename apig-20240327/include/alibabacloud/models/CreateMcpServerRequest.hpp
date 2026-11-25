@@ -621,7 +621,7 @@ namespace Models
     shared_ptr<CreateMcpServerRequest::McpServerConfig> mcpServerConfig_ {};
     // Specifies whether to enable MCP observability. Default value: false.
     shared_ptr<bool> mcpStatisticsEnable_ {};
-    // The name of the MCP server. The name must match the regular expression ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$ and cannot exceed 64 characters in length.
+    // The name of the MCP server. The name must match the regular expression ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$ and cannot exceed 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

@@ -87,7 +87,7 @@ namespace Models
     protected:
       // The data basis.
       shared_ptr<string> basis_ {};
-      // Indicates whether a next page is available.
+      // Indicates whether there is a next page.
       shared_ptr<bool> hasMore_ {};
       // The cycle usage.
       shared_ptr<vector<Darabonba::Json>> items_ {};

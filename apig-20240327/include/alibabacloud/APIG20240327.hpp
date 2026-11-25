@@ -77,7 +77,7 @@ namespace APIG20240327
       Models::AddGatewaySecurityGroupRuleResponse addGatewaySecurityGroupRule(const string &gatewayId, const Models::AddGatewaySecurityGroupRuleRequest &request);
 
       /**
-       * @summary Grants model card licenses to a consumer.
+       * @summary Grants model card licenses to consumers.
        *
        * @param request AuthorizeConsumerModelCardGrantsRequest
        * @param headers map
@@ -87,7 +87,7 @@ namespace APIG20240327
       Models::AuthorizeConsumerModelCardGrantsResponse authorizeConsumerModelCardGrantsWithOptions(const string &httpApiId, const Models::AuthorizeConsumerModelCardGrantsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Grants model card licenses to a consumer.
+       * @summary Grants model card licenses to consumers.
        *
        * @param request AuthorizeConsumerModelCardGrantsRequest
        * @return AuthorizeConsumerModelCardGrantsResponse
@@ -131,7 +131,25 @@ namespace APIG20240327
       Models::BatchDeleteConsumerAuthorizationRuleResponse batchDeleteConsumerAuthorizationRule(const Models::BatchDeleteConsumerAuthorizationRuleRequest &request);
 
       /**
-       * @summary Publishes specified routes or all visible routes under the same HTTP API in batches.
+       * @summary 批量删除HttpApi的路由
+       *
+       * @param request BatchDeleteHttpApiRoutesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchDeleteHttpApiRoutesResponse
+       */
+      Models::BatchDeleteHttpApiRoutesResponse batchDeleteHttpApiRoutesWithOptions(const string &httpApiId, const Models::BatchDeleteHttpApiRoutesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除HttpApi的路由
+       *
+       * @param request BatchDeleteHttpApiRoutesRequest
+       * @return BatchDeleteHttpApiRoutesResponse
+       */
+      Models::BatchDeleteHttpApiRoutesResponse batchDeleteHttpApiRoutes(const string &httpApiId, const Models::BatchDeleteHttpApiRoutesRequest &request);
+
+      /**
+       * @summary Publishes specified routes or all visible routes under the same HTTP API in a batch.
        *
        * @description Batch requests are processed individually after passing route ownership validation. If some routes fail to be published, other successfully published routes remain valid.
        *
@@ -143,7 +161,7 @@ namespace APIG20240327
       Models::BatchDeployHttpApiRoutesResponse batchDeployHttpApiRoutesWithOptions(const string &httpApiId, const Models::BatchDeployHttpApiRoutesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Publishes specified routes or all visible routes under the same HTTP API in batches.
+       * @summary Publishes specified routes or all visible routes under the same HTTP API in a batch.
        *
        * @description Batch requests are processed individually after passing route ownership validation. If some routes fail to be published, other successfully published routes remain valid.
        *
@@ -205,6 +223,24 @@ namespace APIG20240327
        * @return BatchRemoveConsumerGroupConsumersResponse
        */
       Models::BatchRemoveConsumerGroupConsumersResponse batchRemoveConsumerGroupConsumers(const string &consumerGroupId, const Models::BatchRemoveConsumerGroupConsumersRequest &request);
+
+      /**
+       * @summary 批量下线HttpApi的路由
+       *
+       * @param request BatchUndeployHttpApiRoutesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchUndeployHttpApiRoutesResponse
+       */
+      Models::BatchUndeployHttpApiRoutesResponse batchUndeployHttpApiRoutesWithOptions(const string &httpApiId, const Models::BatchUndeployHttpApiRoutesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量下线HttpApi的路由
+       *
+       * @param request BatchUndeployHttpApiRoutesRequest
+       * @return BatchUndeployHttpApiRoutesResponse
+       */
+      Models::BatchUndeployHttpApiRoutesResponse batchUndeployHttpApiRoutes(const string &httpApiId, const Models::BatchUndeployHttpApiRoutesRequest &request);
 
       /**
        * @summary Batch updates HTTP API operations.
@@ -319,7 +355,7 @@ namespace APIG20240327
       Models::CreateAiModelSourceResponse createAiModelSource(const Models::CreateAiModelSourceRequest &request);
 
       /**
-       * @summary Creates an in-source AI model.
+       * @summary Creates an AI model in a model source.
        *
        * @param request CreateAiModelSourceModelRequest
        * @param headers map
@@ -329,7 +365,7 @@ namespace APIG20240327
       Models::CreateAiModelSourceModelResponse createAiModelSourceModelWithOptions(const Models::CreateAiModelSourceModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an in-source AI model.
+       * @summary Creates an AI model in a model source.
        *
        * @param request CreateAiModelSourceModelRequest
        * @return CreateAiModelSourceModelResponse
@@ -717,7 +753,7 @@ namespace APIG20240327
       Models::CreateMigrationTaskResponse createMigrationTask(const Models::CreateMigrationTaskRequest &request);
 
       /**
-       * @summary Creates a model creation API.
+       * @summary Creates an API for model creation.
        *
        * @param request CreateModelApiRequest
        * @param headers map
@@ -727,7 +763,7 @@ namespace APIG20240327
       Models::CreateModelApiResponse createModelApiWithOptions(const Models::CreateModelApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a model creation API.
+       * @summary Creates an API for model creation.
        *
        * @param request CreateModelApiRequest
        * @return CreateModelApiResponse
@@ -1351,7 +1387,7 @@ namespace APIG20240327
       /**
        * @summary Deletes a model API.
        *
-       * @description Automatically stops the service and cleans up the resources owned by the API when a published new-version model API is deleted. A successful response indicates that the request is accepted or is an idempotent replay of a completed deletion, but does not indicate that all background steps are complete. Monitor the progress by checking the deleteStatus parameter of GetModelApi. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully complete. The object is retained during deletion or upon failure. Shared model sources, model groups, models, services, consumers, and keys are not deleted.
+       * @description When you delete a published new-version model API, the system automatically stops the service and cleans up the dedicated resources of the API. A successful response indicates that the request is accepted or is an idempotent replay of a completed deletion, but it does not indicate that all background steps are complete. Monitor the progress by checking the deleteStatus parameter of GetModelApi. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully complete. The object is retained if the deletion is in progress or fails. Shared model sources, model groups, models, services, consumers, and keys are not deleted.
        *
        * @param request DeleteModelApiRequest
        * @param headers map
@@ -1363,7 +1399,7 @@ namespace APIG20240327
       /**
        * @summary Deletes a model API.
        *
-       * @description Automatically stops the service and cleans up the resources owned by the API when a published new-version model API is deleted. A successful response indicates that the request is accepted or is an idempotent replay of a completed deletion, but does not indicate that all background steps are complete. Monitor the progress by checking the deleteStatus parameter of GetModelApi. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully complete. The object is retained during deletion or upon failure. Shared model sources, model groups, models, services, consumers, and keys are not deleted.
+       * @description When you delete a published new-version model API, the system automatically stops the service and cleans up the dedicated resources of the API. A successful response indicates that the request is accepted or is an idempotent replay of a completed deletion, but it does not indicate that all background steps are complete. Monitor the progress by checking the deleteStatus parameter of GetModelApi. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully complete. The object is retained if the deletion is in progress or fails. Shared model sources, model groups, models, services, consumers, and keys are not deleted.
        *
        * @param request DeleteModelApiRequest
        * @return DeleteModelApiResponse
@@ -1677,6 +1713,24 @@ namespace APIG20240327
       Models::DetachAndDeletePolicyResponse detachAndDeletePolicy(const string &policyId, const Models::DetachAndDeletePolicyRequest &request);
 
       /**
+       * @summary 检测HttpApi间的路由冲突
+       *
+       * @param request DetectHttpApiConflictsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DetectHttpApiConflictsResponse
+       */
+      Models::DetectHttpApiConflictsResponse detectHttpApiConflictsWithOptions(const string &httpApiId, const Models::DetectHttpApiConflictsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检测HttpApi间的路由冲突
+       *
+       * @param request DetectHttpApiConflictsRequest
+       * @return DetectHttpApiConflictsResponse
+       */
+      Models::DetectHttpApiConflictsResponse detectHttpApiConflicts(const string &httpApiId, const Models::DetectHttpApiConflictsRequest &request);
+
+      /**
        * @summary Exports a specified HTTP API.
        *
        * @param request ExportHttpApiRequest
@@ -1767,7 +1821,7 @@ namespace APIG20240327
       Models::GetAiModelSourceEditImpactResponse getAiModelSourceEditImpact(const string &modelSourceId, const Models::GetAiModelSourceEditImpactRequest &request);
 
       /**
-       * @summary Queries AI models in a model source.
+       * @summary Queries AI models in a source.
        *
        * @param request GetAiModelSourceModelRequest
        * @param headers map
@@ -1777,7 +1831,7 @@ namespace APIG20240327
       Models::GetAiModelSourceModelResponse getAiModelSourceModelWithOptions(const string &modelCardId, const Models::GetAiModelSourceModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries AI models in a model source.
+       * @summary Queries AI models in a source.
        *
        * @param request GetAiModelSourceModelRequest
        * @return GetAiModelSourceModelResponse
@@ -2207,7 +2261,7 @@ namespace APIG20240327
       /**
        * @summary Retrieves the current cycle usage of the configured metering policy for a dedicated Professional AI gateway. Returns a specific error if cycle metering is not configured, and does not pad with zeros when no cycle data is available.
        *
-       * @description Retrieves the current half-open cycle Redis summary for the configured metering policy of the current user\\"s dedicated Professional AI gateway. Only total instance counts are supported. Filters for time ranges, models, connections, or SLS destinations are not accepted. If data_present is false, it indicates that no cycle data is available, and the value is not padded with zeros.
+       * @description Retrieves the current half-open cycle Redis summary of the configured metering policy for the dedicated Professional AI gateway of the current user. It only supports the total number of instances and does not accept filtering by time range, model, connection, or SLS destination. A value of false for data_present indicates that no cycle data is available, and it is not padded with zero values.
        *
        * @param request GetGatewayWebsocketUsageRequest
        * @param headers map
@@ -2219,7 +2273,7 @@ namespace APIG20240327
       /**
        * @summary Retrieves the current cycle usage of the configured metering policy for a dedicated Professional AI gateway. Returns a specific error if cycle metering is not configured, and does not pad with zeros when no cycle data is available.
        *
-       * @description Retrieves the current half-open cycle Redis summary for the configured metering policy of the current user\\"s dedicated Professional AI gateway. Only total instance counts are supported. Filters for time ranges, models, connections, or SLS destinations are not accepted. If data_present is false, it indicates that no cycle data is available, and the value is not padded with zeros.
+       * @description Retrieves the current half-open cycle Redis summary of the configured metering policy for the dedicated Professional AI gateway of the current user. It only supports the total number of instances and does not accept filtering by time range, model, connection, or SLS destination. A value of false for data_present indicates that no cycle data is available, and it is not padded with zero values.
        *
        * @param request GetGatewayWebsocketUsageRequest
        * @return GetGatewayWebsocketUsageResponse
@@ -2281,7 +2335,7 @@ namespace APIG20240327
       Models::GetHttpApiResponse getHttpApi(const string &httpApiId, const Models::GetHttpApiRequest &request);
 
       /**
-       * @summary Retrieves API operation information.
+       * @summary Retrieves the API operation information.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2290,7 +2344,7 @@ namespace APIG20240327
       Models::GetHttpApiOperationResponse getHttpApiOperationWithOptions(const string &httpApiId, const string &operationId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves API operation information.
+       * @summary Retrieves the API operation information.
        *
        * @return GetHttpApiOperationResponse
        */
@@ -2331,7 +2385,7 @@ namespace APIG20240327
       Models::GetLogicalModelResponse getLogicalModel(const string &logicalModelId, const Models::GetLogicalModelRequest &request);
 
       /**
-       * @summary Queries the configuration delivery of a logical model.
+       * @summary Queries the logical model configuration delivery.
        *
        * @param request GetLogicalModelDeploymentRequest
        * @param headers map
@@ -2341,7 +2395,7 @@ namespace APIG20240327
       Models::GetLogicalModelDeploymentResponse getLogicalModelDeploymentWithOptions(const string &operationId, const Models::GetLogicalModelDeploymentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration delivery of a logical model.
+       * @summary Queries the logical model configuration delivery.
        *
        * @param request GetLogicalModelDeploymentRequest
        * @return GetLogicalModelDeploymentResponse
@@ -3087,7 +3141,7 @@ namespace APIG20240327
       Models::ListConsumerGroupsResponse listConsumerGroups(const Models::ListConsumerGroupsRequest &request);
 
       /**
-       * @summary Queries the list of model card entitlements for consumers.
+       * @summary Queries the list of consumer model card entitlements.
        *
        * @param request ListConsumerModelCardGrantsRequest
        * @param headers map
@@ -3097,7 +3151,7 @@ namespace APIG20240327
       Models::ListConsumerModelCardGrantsResponse listConsumerModelCardGrantsWithOptions(const string &httpApiId, const Models::ListConsumerModelCardGrantsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of model card entitlements for consumers.
+       * @summary Queries the list of consumer model card entitlements.
        *
        * @param request ListConsumerModelCardGrantsRequest
        * @return ListConsumerModelCardGrantsResponse
@@ -3331,7 +3385,7 @@ namespace APIG20240327
       Models::ListGatewayQuotaRulesResponse listGatewayQuotaRules(const string &gatewayId, const Models::ListGatewayQuotaRulesRequest &request);
 
       /**
-       * @summary Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+       * @summary Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. This operation supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
        *
        * @description Retrieves the historical events delivered by the dedicated Professional AI gateway of the current user to Simple Log Service (SLS). Standard user log delivery and the corresponding indexes must be enabled. The query time range is a left-closed and right-open interval. The time span cannot exceed 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results do not represent an online connection directory, and missing logs do not indicate that no calls occurred.
        *
@@ -3343,7 +3397,7 @@ namespace APIG20240327
       Models::ListGatewayWebsocketEventsResponse listGatewayWebsocketEventsWithOptions(const string &gatewayId, const Models::ListGatewayWebsocketEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+       * @summary Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. This operation supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
        *
        * @description Retrieves the historical events delivered by the dedicated Professional AI gateway of the current user to Simple Log Service (SLS). Standard user log delivery and the corresponding indexes must be enabled. The query time range is a left-closed and right-open interval. The time span cannot exceed 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results do not represent an online connection directory, and missing logs do not indicate that no calls occurred.
        *

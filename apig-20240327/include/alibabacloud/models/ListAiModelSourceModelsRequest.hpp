@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
-    // The query keyword used to match resources by name or identifier.
+    // The search keyword used to match resources by name or identifier.
     shared_ptr<string> keyword_ {};
     // The maximum number of results to return per page. Valid values: 1 to 100. This parameter is required. Token-based pagination does not use pageNumber or pageSize.
     // 
@@ -87,7 +87,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The ID of the model source. Use the modelSourceId returned by CreateAiModelSource.
     shared_ptr<string> modelSourceId_ {};
-    // The pagination token returned from the previous page. Omit this parameter for the first page. For the last page, this parameter is empty or omitted.
+    // The pagination token returned from the previous page. Omit this parameter for the first page. The token is empty or omitted for the last page.
     shared_ptr<string> nextToken_ {};
   };
 

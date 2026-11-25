@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The end time of the creation time range. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+    // The end time of the creation time range. Format: yyyy-MM-dd\"T\"HH:mm:ss\"Z\".
     shared_ptr<string> endTime_ {};
     // The instance ID of the gateway. If specified, only tasks under this gateway are returned.
     shared_ptr<string> gatewayId_ {};
@@ -115,7 +115,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time of the creation time range. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+    // The start time of the creation time range. Format: yyyy-MM-dd\"T\"HH:mm:ss\"Z\".
     shared_ptr<string> startTime_ {};
     // The list of task statuses. Separate multiple statuses with commas (,).
     shared_ptr<string> statuses_ {};

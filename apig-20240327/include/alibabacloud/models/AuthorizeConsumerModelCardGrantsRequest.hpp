@@ -73,7 +73,7 @@ namespace Models
   protected:
     // The collection of selected model card IDs for this API. This parameter can be empty or omitted, but at least one of modelCardIds and modelGroupIds must be non-empty.
     shared_ptr<vector<string>> modelCardIds_ {};
-    // The actual model group IDs of the current instance. The modelCardIds parameter can be empty only when group licenses are granted. Group licenses allow zero intersection with the current API, but principal relationships with both target types empty cannot be saved.
+    // The actual model group IDs of the current instance. modelCardIds can be empty only when group licenses are granted. Group licenses allow zero intersection with the current API, but principal relationships with both target types empty cannot be saved.
     shared_ptr<vector<string>> modelGroupIds_ {};
     // The immutable ID of the authorization principal, not the name.
     // 

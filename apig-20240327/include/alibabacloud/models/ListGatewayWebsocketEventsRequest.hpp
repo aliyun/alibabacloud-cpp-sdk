@@ -114,7 +114,7 @@ namespace Models
   protected:
     // The connection identifier.
     shared_ptr<string> connectionId_ {};
-    // The end time. The value is a UNIX timestamp in seconds since the UTC epoch. Example: 1793919600.
+    // The end time. The value is a UNIX timestamp in seconds (since the UTC epoch), such as 1793919600.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
@@ -122,13 +122,13 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The model.
     shared_ptr<string> model_ {};
-    // The pagination token for the next page.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
     // The provider.
     shared_ptr<string> provider_ {};
     // The log source.
     shared_ptr<string> source_ {};
-    // The start time. The value is a UNIX timestamp in seconds since the UTC epoch. Example: 1793916000.
+    // The start time. The value is a UNIX timestamp in seconds (since the UTC epoch), such as 1793916000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

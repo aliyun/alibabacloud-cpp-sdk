@@ -13,6 +13,7 @@ namespace Models
   class CreateAiModelSourceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateAiModelSourceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(callNamePrefix, callNamePrefix_);
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(provider, provider_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAiModelSourceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(callNamePrefix, callNamePrefix_);
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(provider, provider_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->displayName_ == nullptr
-        && this->gatewayId_ == nullptr && this->provider_ == nullptr && this->serviceId_ == nullptr && this->clientToken_ == nullptr; };
+    virtual bool empty() const override { return this->callNamePrefix_ == nullptr
+        && this->displayName_ == nullptr && this->gatewayId_ == nullptr && this->provider_ == nullptr && this->serviceId_ == nullptr && this->clientToken_ == nullptr; };
+    // callNamePrefix Field Functions 
+    bool hasCallNamePrefix() const { return this->callNamePrefix_ != nullptr;};
+    void deleteCallNamePrefix() { this->callNamePrefix_ = nullptr;};
+    inline string getCallNamePrefix() const { DARABONBA_PTR_GET_DEFAULT(callNamePrefix_, "") };
+    inline CreateAiModelSourceRequest& setCallNamePrefix(string callNamePrefix) { DARABONBA_PTR_SET_VALUE(callNamePrefix_, callNamePrefix) };
+
+
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
@@ -75,6 +84,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> callNamePrefix_ {};
     // The display name of the model source or model provider.
     // 
     // This parameter is required.

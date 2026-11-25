@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(addresses, addresses_);
       DARABONBA_PTR_TO_JSON(agentServiceConfig, agentServiceConfig_);
       DARABONBA_PTR_TO_JSON(aiServiceConfig, aiServiceConfig_);
+      DARABONBA_PTR_TO_JSON(apiKeyIndexToRemove, apiKeyIndexToRemove_);
       DARABONBA_PTR_TO_JSON(apiKeyReferencesToAdd, apiKeyReferencesToAdd_);
       DARABONBA_PTR_TO_JSON(apiKeysToAdd, apiKeysToAdd_);
       DARABONBA_PTR_TO_JSON(dnsServers, dnsServers_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(addresses, addresses_);
       DARABONBA_PTR_FROM_JSON(agentServiceConfig, agentServiceConfig_);
       DARABONBA_PTR_FROM_JSON(aiServiceConfig, aiServiceConfig_);
+      DARABONBA_PTR_FROM_JSON(apiKeyIndexToRemove, apiKeyIndexToRemove_);
       DARABONBA_PTR_FROM_JSON(apiKeyReferencesToAdd, apiKeyReferencesToAdd_);
       DARABONBA_PTR_FROM_JSON(apiKeysToAdd, apiKeysToAdd_);
       DARABONBA_PTR_FROM_JSON(dnsServers, dnsServers_);
@@ -180,9 +182,12 @@ namespace Models
       shared_ptr<int32_t> baseEjectionTime_ {};
       // Specifies whether to enable outlier detection.
       shared_ptr<bool> enable_ {};
-      // The panic threshold. When the proportion of healthy nodes in the service is greater than the panic threshold, health checks take effect normally, and requests are sent only to healthy nodes, not to ejected nodes. When the proportion of healthy nodes is less than or equal to the panic threshold, health checks are effectively disabled, and requests are sent to all nodes, including ejected ones.
+      // The panic threshold.
+      // 
+      // When the proportion of healthy nodes in the service is greater than the panic threshold, health checks take effect normally. Requests are sent only to healthy nodes and not to ejected nodes.
+      // When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled. Requests are sent to all nodes, including ejected nodes.
       shared_ptr<int32_t> failurePercentageMinimumHosts_ {};
-      // The failure rate threshold. When the proportion of failed requests for a node reaches this threshold, the system triggers the ejection mechanism for the node.
+      // The failure percentage threshold. When the proportion of failed requests for a node reaches this threshold, the system triggers the ejection mechanism for the node.
       shared_ptr<int32_t> failurePercentageThreshold_ {};
       // The detection interval.
       shared_ptr<int32_t> interval_ {};
@@ -313,9 +318,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->addresses_ == nullptr
-        && this->agentServiceConfig_ == nullptr && this->aiServiceConfig_ == nullptr && this->apiKeyReferencesToAdd_ == nullptr && this->apiKeysToAdd_ == nullptr && this->dnsServers_ == nullptr
-        && this->expectedConfigRevision_ == nullptr && this->healthCheckConfig_ == nullptr && this->healthyPanicThreshold_ == nullptr && this->modelProviderId_ == nullptr && this->outlierDetectionConfig_ == nullptr
-        && this->ports_ == nullptr && this->protocol_ == nullptr; };
+        && this->agentServiceConfig_ == nullptr && this->aiServiceConfig_ == nullptr && this->apiKeyIndexToRemove_ == nullptr && this->apiKeyReferencesToAdd_ == nullptr && this->apiKeysToAdd_ == nullptr
+        && this->dnsServers_ == nullptr && this->expectedConfigRevision_ == nullptr && this->healthCheckConfig_ == nullptr && this->healthyPanicThreshold_ == nullptr && this->modelProviderId_ == nullptr
+        && this->outlierDetectionConfig_ == nullptr && this->ports_ == nullptr && this->protocol_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};
@@ -341,6 +346,13 @@ namespace Models
     inline AiServiceConfig getAiServiceConfig() { DARABONBA_PTR_GET(aiServiceConfig_, AiServiceConfig) };
     inline UpdateServiceRequest& setAiServiceConfig(const AiServiceConfig & aiServiceConfig) { DARABONBA_PTR_SET_VALUE(aiServiceConfig_, aiServiceConfig) };
     inline UpdateServiceRequest& setAiServiceConfig(AiServiceConfig && aiServiceConfig) { DARABONBA_PTR_SET_RVALUE(aiServiceConfig_, aiServiceConfig) };
+
+
+    // apiKeyIndexToRemove Field Functions 
+    bool hasApiKeyIndexToRemove() const { return this->apiKeyIndexToRemove_ != nullptr;};
+    void deleteApiKeyIndexToRemove() { this->apiKeyIndexToRemove_ = nullptr;};
+    inline int32_t getApiKeyIndexToRemove() const { DARABONBA_PTR_GET_DEFAULT(apiKeyIndexToRemove_, 0) };
+    inline UpdateServiceRequest& setApiKeyIndexToRemove(int32_t apiKeyIndexToRemove) { DARABONBA_PTR_SET_VALUE(apiKeyIndexToRemove_, apiKeyIndexToRemove) };
 
 
     // apiKeyReferencesToAdd Field Functions 
@@ -432,13 +444,15 @@ namespace Models
     shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
     // The AI service configuration.
     shared_ptr<AiServiceConfig> aiServiceConfig_ {};
+    // Removes a custom upstream API key from the current configuration. The index starts from 1. You must specify expectedConfigRevision, maintain the order of the remaining keys, and retain at least one key.
+    shared_ptr<int32_t> apiKeyIndexToRemove_ {};
     // The list of KMS reference names to append. This parameter is only available in Reference mode. KMS content is not read.
     shared_ptr<vector<string>> apiKeyReferencesToAdd_ {};
     // The list of API keys to append. This parameter is only available in Custom API Key mode for AI services. It must be used with fully masked apiKeys or omitted apiKeys. Existing keys are not read or returned.
     shared_ptr<vector<string>> apiKeysToAdd_ {};
     // The DNS server addresses.
     shared_ptr<vector<string>> dnsServers_ {};
-    // The expected configuration revision for conditional updates of the AI service. If this parameter is not provided, backward compatibility with legacy calls is maintained. If the version changes, the Conflict.ServiceConfigurationChanged error is returned.
+    // The expected configuration revision for conditional updates of the AI service. If this parameter is not specified, the call is compatible with legacy versions. If the version changes, Conflict.ServiceConfigurationChanged is returned.
     shared_ptr<string> expectedConfigRevision_ {};
     // The health check configuration of the service.
     shared_ptr<UpdateServiceRequest::HealthCheckConfig> healthCheckConfig_ {};

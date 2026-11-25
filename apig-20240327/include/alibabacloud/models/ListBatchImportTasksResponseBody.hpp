@@ -162,7 +162,7 @@ namespace Models
         shared_ptr<string> createTime_ {};
         // The error message.
         shared_ptr<string> errorMessage_ {};
-        // The gateway instance ID associated with the task.
+        // The ID of the gateway instance associated with the task.
         shared_ptr<string> gatewayId_ {};
         // The number of processed items.
         shared_ptr<int32_t> processedCount_ {};
@@ -172,7 +172,7 @@ namespace Models
         shared_ptr<string> taskId_ {};
         // The type of the task.
         shared_ptr<string> taskType_ {};
-        // The total number of tasks.
+        // The total number of entries.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -209,13 +209,13 @@ namespace Models
 
 
     protected:
-      // The list of tasks. Tasks are returned in descending order of creation time, with the latest tasks first.
+      // The list of tasks. The tasks are returned in descending order of creation time, with the latest tasks first.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of tasks.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -270,11 +270,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<ListBatchImportTasksResponseBody::Data> data_ {};
-    // The maximum number of records returned in the current request.
+    // The maximum number of records returned in the current response.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The pagination token for the next query. This parameter is empty if no more results are available.
+    // The starting token for the next query. This parameter is empty when no more results are available.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

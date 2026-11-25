@@ -322,7 +322,7 @@ namespace Models
 
 
     protected:
-      // The task creation time. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+      // The task creation time. Format: yyyy-MM-dd\"T\"HH:mm:ss\"Z\".
       shared_ptr<string> createTime_ {};
       // The error message.
       shared_ptr<string> errorMessage_ {};

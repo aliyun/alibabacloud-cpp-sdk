@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The idempotency token. Using the original clientToken for the same tenant, model API, and parameters allows you to retry the deletion if a background deletion fails. A conflict is returned if an active operation is still in progress or if the configuration has been replaced by a newer operation. A replay of a fully completed deletion returns a successful response with empty content, but using the same token for a different target is still rejected.
+    // The idempotency token. For the same tenant, model API, and parameters, you can use the original clientToken to retry the deletion if a background deletion fails. A conflict is returned if an active operation is still in progress or if the configuration has been replaced by a newer operation. A replay of a fully completed deletion returns an empty success response. Using the same token for a different target is rejected.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run. If you set this parameter to true, the system performs the same synchronous validation checks as a real deletion, but does not create a deletion execution or idempotent record, stop the service, or delete the API or associated configurations. If you set this parameter to false or leave it empty, the actual deletion is accepted.
+    // Specifies whether to perform only a dry run. If you set this parameter to true, the system performs the same synchronous admission checks as an actual deletion, but does not create a deletion run or idempotent record, stop the service, or delete the API or associated configurations. If you set this parameter to false or omit it, the actual deletion is processed.
     shared_ptr<bool> dryRun_ {};
   };
 

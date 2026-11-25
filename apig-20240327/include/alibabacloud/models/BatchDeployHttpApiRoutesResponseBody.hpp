@@ -86,11 +86,11 @@ namespace Models
 
 
     protected:
-      // The number of routes that failed to be published in the batch. This parameter is returned only for synchronous publishing and can be 0.
+      // The number of routes that fail to be published in the batch. This parameter is returned only for a synchronous publish and can be 0.
       shared_ptr<int32_t> failedCount_ {};
-      // A result map with route IDs as keys. If some routes in the same batch fail, the routes that have been successfully published remain valid.
+      // A map of results with route IDs as keys. If other routes in the same batch fail, the successfully published routes remain valid.
       shared_ptr<map<string, DataResultsValue>> results_ {};
-      // The number of routes successfully published in the batch. This parameter is returned only for synchronous publishing and can be 0.
+      // The number of routes that are successfully published in the batch. This parameter is returned only for a synchronous publish and can be 0.
       shared_ptr<int32_t> successCount_ {};
     };
 
@@ -127,13 +127,13 @@ namespace Models
 
 
   protected:
-    // The response code of the API call. For the acceptance or publishing results of each route, see data.results.
+    // The response code of the API call. For the acceptance or publish result of each route, see data.results.
     shared_ptr<string> code_ {};
-    // The per-route results of the batch publishing operation. Synchronous publishing also returns the numbers of successful and failed routes, whereas asynchronous publishing returns only the per-route acceptance results.
+    // The route-level results of the batch publish. A synchronous publish also returns the number of successful and failed routes. An asynchronous publish returns only the route-level acceptance results.
     shared_ptr<BatchDeployHttpApiRoutesResponseBody::Data> data_ {};
     // The response message of the API call. If a route fails or is rejected, see the errorMessage of the corresponding route for the cause.
     shared_ptr<string> message_ {};
-    // The request ID of the API call. You can use the ID to locate the request.
+    // The request ID of the API call. You can invoke this ID to locate the active request.
     shared_ptr<string> requestId_ {};
   };
 

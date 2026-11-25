@@ -65,6 +65,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Items& obj) { 
           DARABONBA_PTR_TO_JSON(availablePaths, availablePaths_);
+          DARABONBA_PTR_TO_JSON(callName, callName_);
           DARABONBA_PTR_TO_JSON(credit, credit_);
           DARABONBA_ANY_TO_JSON(features, features_);
           DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
@@ -83,6 +84,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, Items& obj) { 
           DARABONBA_PTR_FROM_JSON(availablePaths, availablePaths_);
+          DARABONBA_PTR_FROM_JSON(callName, callName_);
           DARABONBA_PTR_FROM_JSON(credit, credit_);
           DARABONBA_ANY_FROM_JSON(features, features_);
           DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
@@ -253,7 +255,7 @@ namespace Models
           shared_ptr<float> inputCost_ {};
           // The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates that the output is free of charge.
           shared_ptr<float> outputCost_ {};
-          // The pricing method. Currently, only fixed is supported, which indicates fixed credit pricing.
+          // The pricing method. Valid values: fixed (fixed credit pricing).
           shared_ptr<string> type_ {};
         };
 
@@ -295,16 +297,17 @@ namespace Models
 
 
         protected:
-          // The invocation path of the model.
+          // The call path of the model.
           shared_ptr<string> path_ {};
-          // The protocol type used by the invocation path.
+          // The protocol type used by the call path.
           shared_ptr<string> type_ {};
         };
 
         virtual bool empty() const override { return this->availablePaths_ == nullptr
-        && this->credit_ == nullptr && this->features_ == nullptr && this->gatewayId_ == nullptr && this->meta_ == nullptr && this->modelCardId_ == nullptr
-        && this->modelName_ == nullptr && this->modelProvider_ == nullptr && this->modelSourceId_ == nullptr && this->modelSourceName_ == nullptr && this->modelSourceVersion_ == nullptr
-        && this->pricingStatus_ == nullptr && this->serviceId_ == nullptr && this->source_ == nullptr && this->updateTime_ == nullptr && this->version_ == nullptr; };
+        && this->callName_ == nullptr && this->credit_ == nullptr && this->features_ == nullptr && this->gatewayId_ == nullptr && this->meta_ == nullptr
+        && this->modelCardId_ == nullptr && this->modelName_ == nullptr && this->modelProvider_ == nullptr && this->modelSourceId_ == nullptr && this->modelSourceName_ == nullptr
+        && this->modelSourceVersion_ == nullptr && this->pricingStatus_ == nullptr && this->serviceId_ == nullptr && this->source_ == nullptr && this->updateTime_ == nullptr
+        && this->version_ == nullptr; };
         // availablePaths Field Functions 
         bool hasAvailablePaths() const { return this->availablePaths_ != nullptr;};
         void deleteAvailablePaths() { this->availablePaths_ = nullptr;};
@@ -312,6 +315,13 @@ namespace Models
         inline vector<Items::AvailablePaths> getAvailablePaths() { DARABONBA_PTR_GET(availablePaths_, vector<Items::AvailablePaths>) };
         inline Items& setAvailablePaths(const vector<Items::AvailablePaths> & availablePaths) { DARABONBA_PTR_SET_VALUE(availablePaths_, availablePaths) };
         inline Items& setAvailablePaths(vector<Items::AvailablePaths> && availablePaths) { DARABONBA_PTR_SET_RVALUE(availablePaths_, availablePaths) };
+
+
+        // callName Field Functions 
+        bool hasCallName() const { return this->callName_ != nullptr;};
+        void deleteCallName() { this->callName_ = nullptr;};
+        inline string getCallName() const { DARABONBA_PTR_GET_DEFAULT(callName_, "") };
+        inline Items& setCallName(string callName) { DARABONBA_PTR_SET_VALUE(callName_, callName) };
 
 
         // credit Field Functions 
@@ -426,8 +436,10 @@ namespace Models
 
 
       protected:
-        // The protocols and invocation paths supported by the model.
+        // The protocols and call paths supported by the model.
         shared_ptr<vector<Items::AvailablePaths>> availablePaths_ {};
+        // The full name used to call the model, in the format of Valid call name prefix of the model source/Model name. If the model source uses the default prefix, the prefix is the provider identifier.
+        shared_ptr<string> callName_ {};
         // The credit pricing configuration of the model.
         shared_ptr<Items::Credit> credit_ {};
         // The set of capabilities declared by the model. The key is the capability name, and the value indicates whether the capability is supported.
@@ -436,7 +448,7 @@ namespace Models
         shared_ptr<string> gatewayId_ {};
         // The token limits and input and output modality information of the model.
         shared_ptr<Items::Meta> meta_ {};
-        // The model identifier. Standard models use the source model card ID, and logical model entries use the vm- prefix.
+        // The model identifier. Standard models use the source model card ID, and logical model entries use the vm- identifier.
         shared_ptr<string> modelCardId_ {};
         // The actual model name used by the upstream service.
         shared_ptr<string> modelName_ {};
@@ -448,15 +460,15 @@ namespace Models
         shared_ptr<string> modelSourceName_ {};
         // The current version of the associated model source.
         shared_ptr<int64_t> modelSourceVersion_ {};
-        // The synchronization status of the model pricing configuration. Pending indicates that the current version is not synchronized, and Ready indicates that it is synchronized.
+        // The synchronization status of the model pricing configuration. A value of Pending indicates that the current version is not synchronized, and a value of Ready indicates that the current version is synchronized.
         shared_ptr<string> pricingStatus_ {};
         // The ID of the actual AI service bound to the model source.
         shared_ptr<string> serviceId_ {};
-        // The source of the model asset. A value of user indicates a user model, and builtin indicates a system built-in model.
+        // The source of the model asset. Valid values: user (user models) and builtin (system built-in models).
         shared_ptr<string> source_ {};
-        // The time of the last business update, in RFC 3339 format and UTC time zone.
+        // The time of the last business update. The time is in RFC 3339 format and in the UTC time zone.
         shared_ptr<string> updateTime_ {};
-        // The current version of the object, which is used for conditional validation during updates or deletions.
+        // The current version of the object, which is used for conditional checks during updates or deletions.
         shared_ptr<int64_t> version_ {};
       };
 
@@ -495,7 +507,7 @@ namespace Models
     protected:
       // The list of models in the source returned on the current page.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The maximum number of records returned per page.
+      // The maximum number of records to return per page.
       shared_ptr<int32_t> maxResults_ {};
       // The pagination token returned from the previous page. Do not specify this parameter when you query the first page.
       shared_ptr<string> nextToken_ {};
@@ -536,13 +548,13 @@ namespace Models
 
 
   protected:
-    // The response status code. Ok is returned for successful requests, and a specific business error code is returned for failed requests.
+    // The response status code. The value is Ok for successful requests, or a specific business error code for failed requests.
     shared_ptr<string> code_ {};
-    // The business result returned by the model source operation.
+    // The business result returned for the model source operation.
     shared_ptr<ListAiModelSourceModelsResponseBody::Data> data_ {};
-    // The response message, which describes the request processing result.
+    // The response message that describes the request processing result.
     shared_ptr<string> message_ {};
-    // The request ID, which is generated by the system to trace the call.
+    // The request ID generated by the system to trace the call.
     shared_ptr<string> requestId_ {};
   };
 

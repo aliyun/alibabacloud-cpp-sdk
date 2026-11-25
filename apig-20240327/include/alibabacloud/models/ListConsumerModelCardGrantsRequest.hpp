@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Filters results by model card ID.
+    // Filters by model card ID for reverse lookup.
     shared_ptr<string> modelCardId_ {};
     // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters results by principal ID. This parameter must be specified together with principalType.
+    // Filters by principal ID. This parameter must be paired with principalType.
     shared_ptr<string> principalId_ {};
-    // Filters results by principal type. Valid values: Consumer and ConsumerGroup. This parameter must be specified together with principalId.
+    // Filters by principal type. Valid values: Consumer and ConsumerGroup. This parameter must be paired with principalId.
     shared_ptr<string> principalType_ {};
   };
 
