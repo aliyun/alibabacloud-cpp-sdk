@@ -61,12 +61,14 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const PerformanceKeysItem& obj) { 
           DARABONBA_PTR_TO_JSON(BranchId, branchId_);
+          DARABONBA_PTR_TO_JSON(EndpointId, endpointId_);
           DARABONBA_PTR_TO_JSON(Measurement, measurement_);
           DARABONBA_PTR_TO_JSON(MetricName, metricName_);
           DARABONBA_PTR_TO_JSON(Points, points_);
         };
         friend void from_json(const Darabonba::Json& j, PerformanceKeysItem& obj) { 
           DARABONBA_PTR_FROM_JSON(BranchId, branchId_);
+          DARABONBA_PTR_FROM_JSON(EndpointId, endpointId_);
           DARABONBA_PTR_FROM_JSON(Measurement, measurement_);
           DARABONBA_PTR_FROM_JSON(MetricName, metricName_);
           DARABONBA_PTR_FROM_JSON(Points, points_);
@@ -158,12 +160,19 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->branchId_ == nullptr
-        && this->measurement_ == nullptr && this->metricName_ == nullptr && this->points_ == nullptr; };
+        && this->endpointId_ == nullptr && this->measurement_ == nullptr && this->metricName_ == nullptr && this->points_ == nullptr; };
         // branchId Field Functions 
         bool hasBranchId() const { return this->branchId_ != nullptr;};
         void deleteBranchId() { this->branchId_ = nullptr;};
         inline string getBranchId() const { DARABONBA_PTR_GET_DEFAULT(branchId_, "") };
         inline PerformanceKeysItem& setBranchId(string branchId) { DARABONBA_PTR_SET_VALUE(branchId_, branchId) };
+
+
+        // endpointId Field Functions 
+        bool hasEndpointId() const { return this->endpointId_ != nullptr;};
+        void deleteEndpointId() { this->endpointId_ = nullptr;};
+        inline string getEndpointId() const { DARABONBA_PTR_GET_DEFAULT(endpointId_, "") };
+        inline PerformanceKeysItem& setEndpointId(string endpointId) { DARABONBA_PTR_SET_VALUE(endpointId_, endpointId) };
 
 
         // measurement Field Functions 
@@ -191,6 +200,7 @@ namespace Models
 
       protected:
         shared_ptr<string> branchId_ {};
+        shared_ptr<string> endpointId_ {};
         shared_ptr<string> measurement_ {};
         shared_ptr<string> metricName_ {};
         shared_ptr<PerformanceKeysItem::Points> points_ {};
@@ -257,7 +267,7 @@ namespace Models
     shared_ptr<DescribeAgenticDBPerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and in UTC.
+    // The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

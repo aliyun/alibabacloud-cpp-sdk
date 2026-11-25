@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BranchId, branchId_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(EndpointId, endpointId_);
       DARABONBA_PTR_TO_JSON(Interval, interval_);
       DARABONBA_PTR_TO_JSON(Key, key_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BranchId, branchId_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(EndpointId, endpointId_);
       DARABONBA_PTR_FROM_JSON(Interval, interval_);
       DARABONBA_PTR_FROM_JSON(Key, key_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregate_ == nullptr
-        && this->branchId_ == nullptr && this->DBClusterId_ == nullptr && this->endTime_ == nullptr && this->interval_ == nullptr && this->key_ == nullptr
-        && this->startTime_ == nullptr; };
+        && this->branchId_ == nullptr && this->DBClusterId_ == nullptr && this->endTime_ == nullptr && this->endpointId_ == nullptr && this->interval_ == nullptr
+        && this->key_ == nullptr && this->startTime_ == nullptr; };
     // aggregate Field Functions 
     bool hasAggregate() const { return this->aggregate_ != nullptr;};
     void deleteAggregate() { this->aggregate_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     inline DescribeAgenticDBPerformanceRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
+    // endpointId Field Functions 
+    bool hasEndpointId() const { return this->endpointId_ != nullptr;};
+    void deleteEndpointId() { this->endpointId_ = nullptr;};
+    inline string getEndpointId() const { DARABONBA_PTR_GET_DEFAULT(endpointId_, "") };
+    inline DescribeAgenticDBPerformanceRequest& setEndpointId(string endpointId) { DARABONBA_PTR_SET_VALUE(endpointId_, endpointId) };
+
+
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
@@ -94,15 +103,14 @@ namespace Models
 
 
   protected:
-    // The statistical method for alerts. Valid values for different monitoring items:
-    // 
+    // The alert aggregation method. Valid values vary by metric:
     // - Value: The value of the HTTP status code.
     // - Average: The average HTTP wait time.
-    // - Value: The value of the TELNET status code.
-    // - TelnetLatency: The average TELNET wait time.
-    // - Average: The average PING packet loss rate.
+    // - Value: The value of the Telnet status code.
+    // - TelnetLatency: The average Telnet wait time.
+    // - Average: The average ping packet loss rate.
     shared_ptr<bool> aggregate_ {};
-    // The anchor branch ID. If this parameter is not specified, the main branch of the project is used by default.
+    // The anchor branch ID. If you do not specify this parameter, the main branch of the project is used by default.
     shared_ptr<string> branchId_ {};
     // The cluster ID.
     // 
@@ -112,7 +120,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The data granularity of performance data. Valid values:
+    // The endpoint ID.
+    shared_ptr<string> endpointId_ {};
+    // The granularity of performance data. Valid values:
     // 
     // - 5
     // - 30

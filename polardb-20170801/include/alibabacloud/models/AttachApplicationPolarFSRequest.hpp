@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AttachApplicationPolarFSRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
+      DARABONBA_PTR_TO_JSON(ContainerMountPath, containerMountPath_);
       DARABONBA_PTR_TO_JSON(PolarFSAccessKeyId, polarFSAccessKeyId_);
       DARABONBA_PTR_TO_JSON(PolarFSAccessKeySecret, polarFSAccessKeySecret_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
     };
     friend void from_json(const Darabonba::Json& j, AttachApplicationPolarFSRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
+      DARABONBA_PTR_FROM_JSON(ContainerMountPath, containerMountPath_);
       DARABONBA_PTR_FROM_JSON(PolarFSAccessKeyId, polarFSAccessKeyId_);
       DARABONBA_PTR_FROM_JSON(PolarFSAccessKeySecret, polarFSAccessKeySecret_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->polarFSAccessKeyId_ == nullptr && this->polarFSAccessKeySecret_ == nullptr && this->polarFSInstanceId_ == nullptr; };
+        && this->containerMountPath_ == nullptr && this->polarFSAccessKeyId_ == nullptr && this->polarFSAccessKeySecret_ == nullptr && this->polarFSInstanceId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
     inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline AttachApplicationPolarFSRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
+
+
+    // containerMountPath Field Functions 
+    bool hasContainerMountPath() const { return this->containerMountPath_ != nullptr;};
+    void deleteContainerMountPath() { this->containerMountPath_ = nullptr;};
+    inline string getContainerMountPath() const { DARABONBA_PTR_GET_DEFAULT(containerMountPath_, "") };
+    inline AttachApplicationPolarFSRequest& setContainerMountPath(string containerMountPath) { DARABONBA_PTR_SET_VALUE(containerMountPath_, containerMountPath) };
 
 
     // polarFSAccessKeyId Field Functions 
@@ -70,11 +79,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The AccessKey ID of the Alibaba Cloud account or RAM user. Ensure that the account or RAM user is authorized when you create the Polarlakebase instance.
+    // The mount point of the file system visible in the application container. If this parameter is not specified, the default value /mnt/<PolarFSInstanceId> is used for the first mount. For subsequent mounts, the current mount point of the instance remains unchanged. The value must be an absolute path that starts with a forward slash (/) but cannot be the root directory (/). It can only contain letters, digits, periods (.), underscores (_), hyphens (-), and forward slashes (/). The total length cannot exceed 128 characters, the directory depth cannot exceed 6 levels, and the length of a single level cannot exceed 63 characters. The mount point cannot be identical to or a subdirectory of the mount points of other file systems under the same application.
+    shared_ptr<string> containerMountPath_ {};
+    // The AccessKey ID of the Alibaba Cloud account or RAM user. Ensure that the account or RAM user is authorized when you create the PolarLakebase instance.
     shared_ptr<string> polarFSAccessKeyId_ {};
     // The AccessKey secret of the Alibaba Cloud account or RAM user.
     shared_ptr<string> polarFSAccessKeySecret_ {};
-    // The instance ID of the Polarlakebase cold storage instance.
+    // The PolarLakebase cold storage instance ID.
     // 
     // Currently, only the following applications support cold storage instances:
     // - supabase

@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AttachApplicationPolarFSResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
+      DARABONBA_PTR_TO_JSON(ContainerMountPath, containerMountPath_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, AttachApplicationPolarFSResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
+      DARABONBA_PTR_FROM_JSON(ContainerMountPath, containerMountPath_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->polarFSInstanceId_ == nullptr && this->requestId_ == nullptr; };
+        && this->containerMountPath_ == nullptr && this->polarFSInstanceId_ == nullptr && this->requestId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
     inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline AttachApplicationPolarFSResponseBody& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
+
+
+    // containerMountPath Field Functions 
+    bool hasContainerMountPath() const { return this->containerMountPath_ != nullptr;};
+    void deleteContainerMountPath() { this->containerMountPath_ = nullptr;};
+    inline string getContainerMountPath() const { DARABONBA_PTR_GET_DEFAULT(containerMountPath_, "") };
+    inline AttachApplicationPolarFSResponseBody& setContainerMountPath(string containerMountPath) { DARABONBA_PTR_SET_VALUE(containerMountPath_, containerMountPath) };
 
 
     // polarFSInstanceId Field Functions 
@@ -59,7 +68,9 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The Polarlakebase instance ID.
+    // The actual container path to which the file system is mounted. If ContainerMountPath is not specified, the effective default value /mnt/<PolarFSInstanceId> is returned. If the file system is repeatedly mounted without changing the path, the original mount point of the instance is returned.
+    shared_ptr<string> containerMountPath_ {};
+    // The ID of the PolarLakebase instance.
     shared_ptr<string> polarFSInstanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

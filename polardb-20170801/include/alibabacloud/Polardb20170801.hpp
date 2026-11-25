@@ -269,10 +269,10 @@ namespace Polardb20170801
       Models::ApprovePolarClawDevicePairResponse approvePolarClawDevicePair(const Models::ApprovePolarClawDevicePairRequest &request);
 
       /**
-       * @summary Mounts a specified Polarlakebase instance to a PolarDB application.
+       * @summary Mounts a specified PolarLakebase instance to a PolarDB application.
        *
        * @description ## Before you begin
-       * This section describes the prerequisites: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
+       * The Before you begin section specifies the following: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
        *
        * @param request AttachApplicationPolarFSRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -281,10 +281,10 @@ namespace Polardb20170801
       Models::AttachApplicationPolarFSResponse attachApplicationPolarFSWithOptions(const Models::AttachApplicationPolarFSRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Mounts a specified Polarlakebase instance to a PolarDB application.
+       * @summary Mounts a specified PolarLakebase instance to a PolarDB application.
        *
        * @description ## Before you begin
-       * This section describes the prerequisites: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
+       * The Before you begin section specifies the following: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
        *
        * @param request AttachApplicationPolarFSRequest
        * @return AttachApplicationPolarFSResponse
@@ -3656,9 +3656,9 @@ namespace Polardb20170801
       Models::DescribeApikeyAttributeResponse describeApikeyAttribute(const Models::DescribeApikeyAttributeRequest &request);
 
       /**
-       * @summary Retrieves the details of the specified PolarDB instance application.
+       * @summary Queries the details of a specified PolarDB application.
        *
-       * @description This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+       * @description This API operation queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
        *
        * @param request DescribeApplicationAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3667,9 +3667,9 @@ namespace Polardb20170801
       Models::DescribeApplicationAttributeResponse describeApplicationAttributeWithOptions(const Models::DescribeApplicationAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of the specified PolarDB instance application.
+       * @summary Queries the details of a specified PolarDB application.
        *
-       * @description This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+       * @description This API operation queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
        *
        * @param request DescribeApplicationAttributeRequest
        * @return DescribeApplicationAttributeResponse

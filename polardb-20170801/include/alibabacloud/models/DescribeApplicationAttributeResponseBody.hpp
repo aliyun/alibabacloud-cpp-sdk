@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(Expired, expired_);
+      DARABONBA_PTR_TO_JSON(HeadSchedulingMode, headSchedulingMode_);
       DARABONBA_PTR_TO_JSON(IsLatestVersion, isLatestVersion_);
       DARABONBA_PTR_TO_JSON(LatestVersion, latestVersion_);
       DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
@@ -33,12 +34,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaintainStartTime, maintainStartTime_);
       DARABONBA_PTR_TO_JSON(MemApplicationAttribute, memApplicationAttribute_);
       DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
+      DARABONBA_PTR_TO_JSON(MonitorCategory, monitorCategory_);
+      DARABONBA_PTR_TO_JSON(MonitorRegionId, monitorRegionId_);
       DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_TO_JSON(NatMappingSnatIpAddress, natMappingSnatIpAddress_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(PolarClawApplicationAttribute, polarClawApplicationAttribute_);
       DARABONBA_PTR_TO_JSON(PolarClawSaaSApplicationAttribute, polarClawSaaSApplicationAttribute_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
+      DARABONBA_PTR_TO_JSON(PrometheusVirtualInstanceId, prometheusVirtualInstanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SecurityGroups, securityGroups_);
@@ -67,6 +71,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(Expired, expired_);
+      DARABONBA_PTR_FROM_JSON(HeadSchedulingMode, headSchedulingMode_);
       DARABONBA_PTR_FROM_JSON(IsLatestVersion, isLatestVersion_);
       DARABONBA_PTR_FROM_JSON(LatestVersion, latestVersion_);
       DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
@@ -74,12 +79,15 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaintainStartTime, maintainStartTime_);
       DARABONBA_PTR_FROM_JSON(MemApplicationAttribute, memApplicationAttribute_);
       DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
+      DARABONBA_PTR_FROM_JSON(MonitorCategory, monitorCategory_);
+      DARABONBA_PTR_FROM_JSON(MonitorRegionId, monitorRegionId_);
       DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_FROM_JSON(NatMappingSnatIpAddress, natMappingSnatIpAddress_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(PolarClawApplicationAttribute, polarClawApplicationAttribute_);
       DARABONBA_PTR_FROM_JSON(PolarClawSaaSApplicationAttribute, polarClawSaaSApplicationAttribute_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
+      DARABONBA_PTR_FROM_JSON(PrometheusVirtualInstanceId, prometheusVirtualInstanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SecurityGroups, securityGroups_);
@@ -109,12 +117,14 @@ namespace Models
     class Storages : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Storages& obj) { 
+        DARABONBA_PTR_TO_JSON(ContainerMountPath, containerMountPath_);
         DARABONBA_PTR_TO_JSON(StorageCapacity, storageCapacity_);
         DARABONBA_PTR_TO_JSON(StorageInstanceId, storageInstanceId_);
         DARABONBA_PTR_TO_JSON(StoragePerformanceLevel, storagePerformanceLevel_);
         DARABONBA_PTR_TO_JSON(StorageType, storageType_);
       };
       friend void from_json(const Darabonba::Json& j, Storages& obj) { 
+        DARABONBA_PTR_FROM_JSON(ContainerMountPath, containerMountPath_);
         DARABONBA_PTR_FROM_JSON(StorageCapacity, storageCapacity_);
         DARABONBA_PTR_FROM_JSON(StorageInstanceId, storageInstanceId_);
         DARABONBA_PTR_FROM_JSON(StoragePerformanceLevel, storagePerformanceLevel_);
@@ -131,8 +141,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->storageCapacity_ == nullptr
-        && this->storageInstanceId_ == nullptr && this->storagePerformanceLevel_ == nullptr && this->storageType_ == nullptr; };
+      virtual bool empty() const override { return this->containerMountPath_ == nullptr
+        && this->storageCapacity_ == nullptr && this->storageInstanceId_ == nullptr && this->storagePerformanceLevel_ == nullptr && this->storageType_ == nullptr; };
+      // containerMountPath Field Functions 
+      bool hasContainerMountPath() const { return this->containerMountPath_ != nullptr;};
+      void deleteContainerMountPath() { this->containerMountPath_ = nullptr;};
+      inline string getContainerMountPath() const { DARABONBA_PTR_GET_DEFAULT(containerMountPath_, "") };
+      inline Storages& setContainerMountPath(string containerMountPath) { DARABONBA_PTR_SET_VALUE(containerMountPath_, containerMountPath) };
+
+
       // storageCapacity Field Functions 
       bool hasStorageCapacity() const { return this->storageCapacity_ != nullptr;};
       void deleteStorageCapacity() { this->storageCapacity_ = nullptr;};
@@ -162,6 +179,8 @@ namespace Models
 
 
     protected:
+      // The mount point of the file system in the application container. This field is returned only if ContainerMountPath is explicitly specified during mounting. If this field is not returned, the default value /mnt/<StorageInstanceId> is used. The default value is not stored in the database, so existing mount records do not include this field.
+      shared_ptr<string> containerMountPath_ {};
       // The storage capacity.
       shared_ptr<string> storageCapacity_ {};
       // The storage instance ID.
@@ -237,13 +256,13 @@ namespace Models
 
 
     protected:
-      // The name of the IP address group. Default value: `default`.
+      // The name of the IP address group. Default value: default.
       shared_ptr<string> securityIPArrayName_ {};
       // The tag of the IP address group.
       shared_ptr<string> securityIPArrayTag_ {};
-      // The whitelist IP addresses, separated by commas.
+      // The IP addresses in the whitelist, separated by commas.
       shared_ptr<string> securityIPList_ {};
-      // The network type of the whitelist IP addresses. Default value: `mix`.
+      // The network type of the IP addresses in the whitelist. Default value: mix.
       shared_ptr<string> securityIPNetType_ {};
       // The type of the IP address.
       shared_ptr<string> securityIPType_ {};
@@ -311,9 +330,9 @@ namespace Models
       shared_ptr<string> netType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The security group ID.
+      // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
-      // The security group name.
+      // The name of the security group.
       shared_ptr<string> securityGroupName_ {};
     };
 
@@ -368,9 +387,9 @@ namespace Models
     protected:
       // The authentication callback URL.
       shared_ptr<string> authCallbackURL_ {};
-      // The list of authentication providers for the application.
+      // The list of application authentication providers.
       shared_ptr<vector<string>> authProviders_ {};
-      // The identifier of the Supabase cluster.
+      // The Supabase cluster identifier.
       shared_ptr<string> supabaseClusterId_ {};
     };
 
@@ -467,17 +486,17 @@ namespace Models
 
 
       protected:
-        // The attachment effective period (UNIX timestamp).
+        // The effective period of the attachment (UNIX timestamp).
         shared_ptr<int64_t> activatedAt_ {};
         // The Langfuse API key ID.
         shared_ptr<string> apiKeyId_ {};
-        // The ID of the binding task.
+        // The binding task ID.
         shared_ptr<int32_t> bindingTaskId_ {};
-        // The ID of the Langfuse application.
+        // The Langfuse application ID.
         shared_ptr<string> langfuseApplicationId_ {};
-        // The phase of the binding.
+        // The binding phase.
         shared_ptr<string> phase_ {};
-        // The ID of the Langfuse project.
+        // The Langfuse project ID.
         shared_ptr<string> projectId_ {};
       };
 
@@ -603,7 +622,7 @@ namespace Models
         shared_ptr<string> DBClusterId_ {};
         // The name of the session database. This parameter is returned only when the status is ENABLED.
         shared_ptr<string> DBName_ {};
-        // The status of the session store. Valid values: DISABLED, ENABLING, ENABLED, and DISABLING.
+        // The session storage status. Valid values: DISABLED, ENABLING, ENABLED, and DISABLING.
         shared_ptr<string> status_ {};
       };
 
@@ -718,7 +737,7 @@ namespace Models
       shared_ptr<string> dbName_ {};
       // The embedder model name.
       shared_ptr<string> embedderModelName_ {};
-      // The graph LLM model support.
+      // The graph LLM model.
       shared_ptr<string> graphLlmModelName_ {};
       // The LLM model name.
       shared_ptr<string> llmModelName_ {};
@@ -726,19 +745,19 @@ namespace Models
       shared_ptr<string> memoryType_ {};
       // Indicates whether multimodal capabilities are enabled.
       shared_ptr<bool> multimodalEnabled_ {};
-      // The project name, which corresponds to the schema where project data is stored in the database.
+      // The project name, which corresponds to the schema where the database stores project data.
       shared_ptr<string> projectName_ {};
-      // The name of the reranker model.
+      // The reranker model name.
       shared_ptr<string> rerankerModelName_ {};
       // The Mem0 full session information storage configuration.
       shared_ptr<MemApplicationAttribute::SessionStore> sessionStore_ {};
       // The username.
       shared_ptr<string> userName_ {};
-      // The current dimensions of the VisualEmbedder.
+      // The current VisualEmbedder dimensions.
       shared_ptr<int32_t> visualEmbedderDimensions_ {};
       // The current VisualEmbedder model.
       shared_ptr<string> visualEmbedderModelName_ {};
-      // The currently enabled understanding modalities.
+      // The enabled understanding modalities.
       shared_ptr<vector<string>> visualLlmModalities_ {};
       // The current VisualLLM model.
       shared_ptr<string> visualLlmModelName_ {};
@@ -832,17 +851,17 @@ namespace Models
       shared_ptr<string> description_ {};
       // The domain name of the application endpoint.
       shared_ptr<string> domain_ {};
-      // The endpoint ID.
+      // The ID of the endpoint.
       shared_ptr<string> endpointId_ {};
       // The IP address.
       shared_ptr<string> IP_ {};
-      // The endpoint type. Valid values:
+      // The type of the endpoint. Valid values:
       // - Private: VPC address.
       // - Public: Internet address.
       shared_ptr<string> netType_ {};
       // The port.
       shared_ptr<string> port_ {};
-      // The port description.
+      // The description of the port.
       shared_ptr<string> portDescription_ {};
     };
 
@@ -920,7 +939,7 @@ namespace Models
 
 
     protected:
-      // The access address in the NatIp:FrontPort format, which can be directly used in the office network.
+      // The access address in the format of NatIp:FrontPort. It can be directly used on the corporate network.
       shared_ptr<string> accessAddress_ {};
       // The backend service port.
       shared_ptr<int32_t> backendPort_ {};
@@ -1024,11 +1043,11 @@ namespace Models
 
 
       protected:
-        // The list of topology child node IDs for the current application subcomponent, or the list of subcomponent types of the child nodes.
+        // The list of topology child node IDs or child node subcomponent types for the current application subcomponent.
         shared_ptr<vector<string>> children_ {};
         // The topology layer of the topology information for the current application subcomponent.
         shared_ptr<string> layer_ {};
-        // The list of topology parent node IDs for the current application subcomponent, or the list of subcomponent types of the parent nodes.
+        // The list of topology parent node IDs or parent node subcomponent types for the current application subcomponent.
         shared_ptr<vector<string>> parents_ {};
       };
 
@@ -1097,13 +1116,13 @@ namespace Models
 
 
       protected:
-        // The name of the IP address group. Default value: `default`.
+        // The name of the IP address group. Default value: default.
         shared_ptr<string> securityIPArrayName_ {};
         // The tag of the IP address group.
         shared_ptr<string> securityIPArrayTag_ {};
-        // The whitelist IP addresses, separated by commas.
+        // The IP addresses in the whitelist, separated by commas.
         shared_ptr<string> securityIPList_ {};
-        // The network type of the whitelist IP addresses. Default value: `mix`.
+        // The network type of the IP addresses in the whitelist. Default value: mix.
         shared_ptr<string> securityIPNetType_ {};
         // The type of the IP address.
         shared_ptr<string> securityIPType_ {};
@@ -1171,9 +1190,9 @@ namespace Models
         shared_ptr<string> netType_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The security group ID.
+        // The ID of the security group.
         shared_ptr<string> securityGroupId_ {};
-        // The security group name.
+        // The name of the security group.
         shared_ptr<string> securityGroupName_ {};
       };
 
@@ -1264,29 +1283,25 @@ namespace Models
 
 
     protected:
-      // The specifications of the application subcomponent.
+      // The specification of the application subcomponent.
       shared_ptr<string> componentClass_ {};
-      // The description of the specifications for the application subcomponent.
+      // The specification description of the application subcomponent.
       shared_ptr<string> componentClassDescription_ {};
-      // The subcomponent ID.
+      // The ID of the subcomponent.
       shared_ptr<string> componentId_ {};
       // The maximum number of replicas for the application subcomponent.
       shared_ptr<int64_t> componentMaxReplica_ {};
       // The number of replicas for the application subcomponent.
       shared_ptr<int64_t> componentReplica_ {};
-      // The replica group name of the application subcomponent.
+      // The name of the replica group for the application subcomponent.
       shared_ptr<string> componentReplicaGroupName_ {};
       // The type of the application subcomponent.
       shared_ptr<string> componentType_ {};
-      // The list of security groups at the subcomponent level.
-      // 
-      // If the security groups at the subcomponent level are the same as those at the application level, this return value is omitted.
+      // The list of security groups at the subcomponent level. If the security groups at the subcomponent level are the same as those at the application level, this parameter is not returned.
       shared_ptr<vector<Components::SecurityGroups>> securityGroups_ {};
-      // The list of whitelist IP addresses at the subcomponent level.
-      // 
-      // If the whitelist at the subcomponent level is the same as that at the application level, this return value is omitted.
+      // The list of whitelist IP addresses at the subcomponent level. If the whitelist at the subcomponent level is the same as that at the application level, this parameter is not returned.
       shared_ptr<vector<Components::SecurityIPArrays>> securityIPArrays_ {};
-      // The component status. The valid values are the same as the application status.
+      // The status of the component. The valid values are the same as those of the application status.
       shared_ptr<string> status_ {};
       // The topology information of the application subcomponent.
       shared_ptr<Components::Topology> topology_ {};
@@ -1295,12 +1310,13 @@ namespace Models
     virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->canDisableSnat_ == nullptr && this->components_ == nullptr && this->creationTime_ == nullptr
         && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dnatMappings_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr
-        && this->expired_ == nullptr && this->isLatestVersion_ == nullptr && this->latestVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr
-        && this->maintainStartTime_ == nullptr && this->memApplicationAttribute_ == nullptr && this->minorVersion_ == nullptr && this->natGatewayId_ == nullptr && this->natMappingSnatIpAddress_ == nullptr
-        && this->payType_ == nullptr && this->polarClawApplicationAttribute_ == nullptr && this->polarClawSaaSApplicationAttribute_ == nullptr && this->polarFSInstanceId_ == nullptr && this->regionId_ == nullptr
-        && this->requestId_ == nullptr && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr && this->serverlessType_ == nullptr && this->snatStatus_ == nullptr
-        && this->status_ == nullptr && this->storages_ == nullptr && this->upgradeAvailable_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr
-        && this->version_ == nullptr && this->vpcNatGatewayId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->expired_ == nullptr && this->headSchedulingMode_ == nullptr && this->isLatestVersion_ == nullptr && this->latestVersion_ == nullptr && this->lockMode_ == nullptr
+        && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->memApplicationAttribute_ == nullptr && this->minorVersion_ == nullptr && this->monitorCategory_ == nullptr
+        && this->monitorRegionId_ == nullptr && this->natGatewayId_ == nullptr && this->natMappingSnatIpAddress_ == nullptr && this->payType_ == nullptr && this->polarClawApplicationAttribute_ == nullptr
+        && this->polarClawSaaSApplicationAttribute_ == nullptr && this->polarFSInstanceId_ == nullptr && this->prometheusVirtualInstanceId_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr && this->serverlessType_ == nullptr && this->snatStatus_ == nullptr && this->status_ == nullptr
+        && this->storages_ == nullptr && this->upgradeAvailable_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr
+        && this->vpcNatGatewayId_ == nullptr && this->zoneId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -1391,6 +1407,13 @@ namespace Models
     inline DescribeApplicationAttributeResponseBody& setExpired(bool expired) { DARABONBA_PTR_SET_VALUE(expired_, expired) };
 
 
+    // headSchedulingMode Field Functions 
+    bool hasHeadSchedulingMode() const { return this->headSchedulingMode_ != nullptr;};
+    void deleteHeadSchedulingMode() { this->headSchedulingMode_ = nullptr;};
+    inline string getHeadSchedulingMode() const { DARABONBA_PTR_GET_DEFAULT(headSchedulingMode_, "") };
+    inline DescribeApplicationAttributeResponseBody& setHeadSchedulingMode(string headSchedulingMode) { DARABONBA_PTR_SET_VALUE(headSchedulingMode_, headSchedulingMode) };
+
+
     // isLatestVersion Field Functions 
     bool hasIsLatestVersion() const { return this->isLatestVersion_ != nullptr;};
     void deleteIsLatestVersion() { this->isLatestVersion_ = nullptr;};
@@ -1442,6 +1465,20 @@ namespace Models
     inline DescribeApplicationAttributeResponseBody& setMinorVersion(string minorVersion) { DARABONBA_PTR_SET_VALUE(minorVersion_, minorVersion) };
 
 
+    // monitorCategory Field Functions 
+    bool hasMonitorCategory() const { return this->monitorCategory_ != nullptr;};
+    void deleteMonitorCategory() { this->monitorCategory_ = nullptr;};
+    inline string getMonitorCategory() const { DARABONBA_PTR_GET_DEFAULT(monitorCategory_, "") };
+    inline DescribeApplicationAttributeResponseBody& setMonitorCategory(string monitorCategory) { DARABONBA_PTR_SET_VALUE(monitorCategory_, monitorCategory) };
+
+
+    // monitorRegionId Field Functions 
+    bool hasMonitorRegionId() const { return this->monitorRegionId_ != nullptr;};
+    void deleteMonitorRegionId() { this->monitorRegionId_ = nullptr;};
+    inline string getMonitorRegionId() const { DARABONBA_PTR_GET_DEFAULT(monitorRegionId_, "") };
+    inline DescribeApplicationAttributeResponseBody& setMonitorRegionId(string monitorRegionId) { DARABONBA_PTR_SET_VALUE(monitorRegionId_, monitorRegionId) };
+
+
     // natGatewayId Field Functions 
     bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
@@ -1486,6 +1523,13 @@ namespace Models
     void deletePolarFSInstanceId() { this->polarFSInstanceId_ = nullptr;};
     inline string getPolarFSInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polarFSInstanceId_, "") };
     inline DescribeApplicationAttributeResponseBody& setPolarFSInstanceId(string polarFSInstanceId) { DARABONBA_PTR_SET_VALUE(polarFSInstanceId_, polarFSInstanceId) };
+
+
+    // prometheusVirtualInstanceId Field Functions 
+    bool hasPrometheusVirtualInstanceId() const { return this->prometheusVirtualInstanceId_ != nullptr;};
+    void deletePrometheusVirtualInstanceId() { this->prometheusVirtualInstanceId_ = nullptr;};
+    inline string getPrometheusVirtualInstanceId() const { DARABONBA_PTR_GET_DEFAULT(prometheusVirtualInstanceId_, "") };
+    inline DescribeApplicationAttributeResponseBody& setPrometheusVirtualInstanceId(string prometheusVirtualInstanceId) { DARABONBA_PTR_SET_VALUE(prometheusVirtualInstanceId_, prometheusVirtualInstanceId) };
 
 
     // regionId Field Functions 
@@ -1595,20 +1639,18 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The application type.
+    // The type of the application.
     shared_ptr<string> applicationType_ {};
     // The CPU architecture. Valid values:
-    // - `x86`
+    // - x86
     shared_ptr<string> architecture_ {};
-    // Indicates whether SNAT can be disabled.
+    // Indicates whether disabling SNAT is supported.
     shared_ptr<bool> canDisableSnat_ {};
     // The list of subcomponents.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Components>> components_ {};
-    // The creation time.
-    // 
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The creation time. The time follows the ISO 8601 standard and is in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
     shared_ptr<string> creationTime_ {};
-    // The instance ID of the PolarDB instance that the application depends on.
+    // The PolarDB instance ID that the application depends on.
     shared_ptr<string> DBClusterId_ {};
     // The description of the application.
     shared_ptr<string> description_ {};
@@ -1616,38 +1658,36 @@ namespace Models
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::DnatMappings>> dnatMappings_ {};
     // The list of endpoints for the application.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Endpoints>> endpoints_ {};
-    // The expiration time.
-    // 
-    // This parameter is empty when the billing method is pay-as-you-go.
-    // 
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The expiration time. This field is empty if the billing method is Postpaid. The time follows the ISO 8601 standard and is in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the application has expired.
     shared_ptr<bool> expired_ {};
-    // Indicates whether the application is of the latest version.
+    // The Ray head scheduling mode. enable: allows head scheduling; disable: disables head scheduling. Returned only for Ray instances. Defaults to enable if not configured. Not returned if head metadata is not ready. Indicates that the configuration is persisted, but does not indicate that the head rebuild is complete.
+    shared_ptr<string> headSchedulingMode_ {};
+    // Indicates whether the current version is the latest version.
     shared_ptr<bool> isLatestVersion_ {};
     // The latest version number.
     shared_ptr<string> latestVersion_ {};
     // The lock mode. Valid values:
     // 
-    // - Unlock: Unlocked.
-    // - Lock: Locked.
+    // - Unlock: The application is not locked.
+    // - Lock: The application is locked.
     shared_ptr<string> lockMode_ {};
-    // The end time of the maintenance window.
-    // 
-    // The time is displayed in UTC in the HH:mmZ format.
+    // The end time of the maintenance window. The time is in UTC and follows the HH:mmZ format.
     shared_ptr<string> maintainEndTime_ {};
-    // The start time of the maintenance window.
-    // 
-    // The time is displayed in UTC in the HH:mmZ format.
+    // The start time of the maintenance window. The time is in UTC and follows the HH:mmZ format.
     shared_ptr<string> maintainStartTime_ {};
     // The Mem0 application attributes.
     shared_ptr<DescribeApplicationAttributeResponseBody::MemApplicationAttribute> memApplicationAttribute_ {};
     // The minor version number.
     shared_ptr<string> minorVersion_ {};
-    // The ID of the NAT gateway.
+    // The monitoring categorization used by CloudMonitor monitoring dashboard components, which is the namespace of the Prometheus virtual instance.
+    shared_ptr<string> monitorCategory_ {};
+    // The region ID used by CloudMonitor monitoring dashboard components.
+    shared_ptr<string> monitorRegionId_ {};
+    // The NAT gateway ID.
     shared_ptr<string> natGatewayId_ {};
-    // The SNAT IP address bound to the vSwitch where the application resides. This address is from a customer-managed SNAT entry, which is discovered and returned in real time by the control plane. It is independent of the SNAT configuration of the Internet NAT gateway.
+    // The SNAT IP address bound to the vSwitch where the application resides for NAT mapping. This refers to customer-managed SNAT entries that are discovered and returned in real time by the control plane, and is independent of the Internet NAT gateway SNAT.
     shared_ptr<string> natMappingSnatIpAddress_ {};
     // The billing method.
     shared_ptr<string> payType_ {};
@@ -1655,23 +1695,26 @@ namespace Models
     shared_ptr<DescribeApplicationAttributeResponseBody::PolarClawApplicationAttribute> polarClawApplicationAttribute_ {};
     // The PolarClaw SaaS application attributes.
     shared_ptr<DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute> polarClawSaaSApplicationAttribute_ {};
-    // The instance ID of the PolarFS Archive or High-performance Edition.
+    // The instance ID of the PolarFS cold storage or high-performance edition.
     shared_ptr<string> polarFSInstanceId_ {};
+    // The CloudMonitor Prometheus virtual instance ID, which the console uses to load CloudMonitor monitoring dashboard components. This field is not returned for applications without Grafana components.
+    shared_ptr<string> prometheusVirtualInstanceId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of application-level security groups.
+    // The list of security groups at the application level.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityGroups>> securityGroups_ {};
-    // The list of application-level whitelists.
+    // The list of whitelists at the application level.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
-    // The Serverless type. Valid values:
-    // - 2: Dynamic.
+    // The serverless type. Valid values:
+    // - 2: Agile.
     // - 3: Stable.
     shared_ptr<string> serverlessType_ {};
     // The SNAT status. Valid values: on and off.
     shared_ptr<string> snatStatus_ {};
-    // The application status. Valid values:
+    // The status of the application. Valid values:
+    // 
     // - Creating: The application is being created.
     // - Activated: The application is running.
     // - Maintaining: The application is under maintenance.
@@ -1687,19 +1730,19 @@ namespace Models
     // - Unlocking: The application is being unlocked.
     // - Deleting: The application is being deleted.
     shared_ptr<string> status_ {};
-    // The storage resources.
+    // The description of storage resources.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Storages>> storages_ {};
     // Indicates whether an upgrade is available.
     shared_ptr<string> upgradeAvailable_ {};
-    // The VPC ID.
+    // The ID of the virtual private cloud (VPC).
     shared_ptr<string> VPCId_ {};
-    // The vSwitch ID.
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
-    // The application version.
+    // The version of the application.
     shared_ptr<string> version_ {};
-    // The customer-managed VPC NAT gateway ID for NAT mapping.
+    // The VPC NAT gateway ID of the customer-managed VPC NAT gateway for NAT mapping.
     shared_ptr<string> vpcNatGatewayId_ {};
-    // The zone.
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

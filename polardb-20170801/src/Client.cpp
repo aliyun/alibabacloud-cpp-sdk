@@ -843,10 +843,10 @@ ApprovePolarClawDevicePairResponse Client::approvePolarClawDevicePair(const Appr
 }
 
 /**
- * @summary Mounts a specified Polarlakebase instance to a PolarDB application.
+ * @summary Mounts a specified PolarLakebase instance to a PolarDB application.
  *
  * @description ## Before you begin
- * This section describes the prerequisites: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
+ * The Before you begin section specifies the following: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
  *
  * @param request AttachApplicationPolarFSRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -857,6 +857,10 @@ AttachApplicationPolarFSResponse Client::attachApplicationPolarFSWithOptions(con
   json query = {};
   if (!!request.hasApplicationId()) {
     query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasContainerMountPath()) {
+    query["ContainerMountPath"] = request.getContainerMountPath();
   }
 
   if (!!request.hasPolarFSAccessKeyId()) {
@@ -889,10 +893,10 @@ AttachApplicationPolarFSResponse Client::attachApplicationPolarFSWithOptions(con
 }
 
 /**
- * @summary Mounts a specified Polarlakebase instance to a PolarDB application.
+ * @summary Mounts a specified PolarLakebase instance to a PolarDB application.
  *
  * @description ## Before you begin
- * This section describes the prerequisites: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
+ * The Before you begin section specifies the following: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
  *
  * @param request AttachApplicationPolarFSRequest
  * @return AttachApplicationPolarFSResponse
@@ -12971,6 +12975,10 @@ DescribeAgenticDBPerformanceResponse Client::describeAgenticDBPerformanceWithOpt
     query["EndTime"] = request.getEndTime();
   }
 
+  if (!!request.hasEndpointId()) {
+    query["EndpointId"] = request.getEndpointId();
+  }
+
   if (!!request.hasInterval()) {
     query["Interval"] = request.getInterval();
   }
@@ -13308,9 +13316,9 @@ DescribeApikeyAttributeResponse Client::describeApikeyAttribute(const DescribeAp
 }
 
 /**
- * @summary Retrieves the details of the specified PolarDB instance application.
+ * @summary Queries the details of a specified PolarDB application.
  *
- * @description This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+ * @description This API operation queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
  *
  * @param request DescribeApplicationAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13341,9 +13349,9 @@ DescribeApplicationAttributeResponse Client::describeApplicationAttributeWithOpt
 }
 
 /**
- * @summary Retrieves the details of the specified PolarDB instance application.
+ * @summary Queries the details of a specified PolarDB application.
  *
- * @description This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+ * @description This API operation queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
  *
  * @param request DescribeApplicationAttributeRequest
  * @return DescribeApplicationAttributeResponse
@@ -34107,6 +34115,14 @@ OperateApplicationResponse Client::operateApplicationWithOptions(const OperateAp
   json query = {};
   if (!!request.hasApplicationId()) {
     query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasComponentTypes()) {
+    query["ComponentTypes"] = request.getComponentTypes();
+  }
+
+  if (!!request.hasGroupNames()) {
+    query["GroupNames"] = request.getGroupNames();
   }
 
   if (!!request.hasOperation()) {
