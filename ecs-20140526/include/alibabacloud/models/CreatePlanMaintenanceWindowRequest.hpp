@@ -104,12 +104,12 @@ namespace Models
         // The end time of the O&M window.
         // - If PeriodUnit is set to Weekly, the format is Monday,22:00. You can replace Monday with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
         // - If PeriodUnit is set to Daily, the format is 22:00.
-        // - The comma (,) is used as a delimiter. The first part represents the hour, which ranges from 00 to 23. The second part represents the minute. Currently, only 00 is supported.
+        // - The comma (,) is used as a separator. The first part represents the hour, with valid values from 00 to 23. The second part represents the minute, and only 00 is supported.
         shared_ptr<string> endTime_ {};
         // The start time of the O&M window.
         // - If PeriodUnit is set to Weekly, the format is Monday,22:00. You can replace Monday with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
         // - If PeriodUnit is set to Daily, the format is 22:00.
-        // - The comma (,) is used as a delimiter. The first part represents the hour, which ranges from 00 to 23. The second part represents the minute. Currently, only 00 is supported.
+        // - The comma (,) is used as a separator. The first part represents the hour, with valid values from 00 to 23. The second part represents the minute, and only 00 is supported.
         shared_ptr<string> startTime_ {};
       };
 
@@ -132,11 +132,11 @@ namespace Models
 
 
     protected:
-      // The type of the recurrence cycle. Valid values: Daily and Weekly.
+      // The type of the cycle. Valid values: Daily and Weekly.
       // 
       // This parameter is required.
       shared_ptr<string> periodUnit_ {};
-      // The time ranges of the O&M window recurrence cycle in the UTC time zone.
+      // The time ranges of the recurrence cycle for the O&M window in UTC.
       // 
       // This parameter is required.
       shared_ptr<vector<TimePeriod::RangeList>> rangeList_ {};
@@ -237,7 +237,7 @@ namespace Models
     protected:
       // The ID of the resource group. This parameter is required when Scope is set to ResourceGroup.
       shared_ptr<string> resourceGroupId_ {};
-      // The type of resources configured for the O&M window.
+      // The resource type configured for the O&M window.
       // 
       // This parameter is required.
       shared_ptr<string> scope_ {};
@@ -302,7 +302,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the window. Valid values:
+    // Specifies whether to enable or disable the window. Valid values:
     // - **true**: Enabled.
     // - **false**: Disabled.
     // 
@@ -314,7 +314,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> planWindowName_ {};
-    // The region ID. This parameter is required for Alibaba Cloud SDK routing. However, specifying any region ID for this operation yields the same result. The O&M window applies to all ECS instances across the network that meet the resource filtering conditions.
+    // The region ID. This parameter is required for Alibaba Cloud SDK routing. However, setting any region ID for this operation makes no difference. The O&M window takes effect on all ECS instances across the network that meet the resource filtering conditions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -81,9 +81,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag to which the window applies.
+      // The key of the tag to which the O&M window applies.
       shared_ptr<string> key_ {};
-      // The value of the tag to which the window applies.
+      // The value of the tag to which the O&M window applies.
       shared_ptr<string> value_ {};
     };
 
@@ -151,15 +151,15 @@ namespace Models
   protected:
     // Specifies whether the window is enabled or disabled.
     shared_ptr<bool> enable_ {};
-    // The number of entries per page in a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
+    // The number of entries per page in a paging query. Maximum value: 100. Default value: 10. If no value is specified or the specified value is less than 10, the default value 10 is used. If the specified value is greater than 100, the default value 100 is used.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The pagination token. Set the value to the NextToken value returned in the last API call.
     shared_ptr<string> nextToken_ {};
     // The ID of the O&M window.
     shared_ptr<string> planWindowId_ {};
     // The name of the O&M window.
     shared_ptr<string> planWindowName_ {};
-    // The region ID. This parameter is required by the Alibaba Cloud SDK for routing purposes. However, setting any region ID for this operation makes no difference. The response returns all O&M windows that meet the specified conditions across all regions.
+    // The region ID. This parameter is required for Alibaba Cloud SDK routing. However, setting any region ID for this operation makes no difference, and the operation returns O&M windows that meet the conditions across the entire network.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

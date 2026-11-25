@@ -129,48 +129,44 @@ namespace Models
 
 
     protected:
-      // The communication pattern of the network interface controller (NIC). Valid values:
+      // The traffic pattern of the network interface controller (NIC). Valid values for the parameter:
       // 
-      // - Standard: uses the TCP communication pattern.
-      // - HighPerformance: enables the Elastic RDMA Interface (ERI) and uses the RDMA communication pattern.
+      // - Standard: uses the TCP traffic pattern.
+      // - HighPerformance: enables the Elastic RDMA Interface (ERI) and uses the RDMA traffic pattern.
       // 
-      // When the network interface controller (NIC) is in the attached state, take note of the following items:
-      // - The total number of RDMA network interface controllers (NICs) of an instance cannot exceed the RDMA network interface controller (NIC) quota allowed by the instance type. You can call DescribeInstanceTypes to query the EriQuantity field for the RDMA network interface controller (NIC) quota.
-      // 
-      // > This parameter is in invitational preview and is not publicly available.
+      // When the Elastic Network Interface (ENI) is attached to an instance, take note of the following item:
+      // - The total number of RDMA network interface controllers (NICs) for the instance cannot exceed the RDMA network interface controller (NIC) quota allowed by the instance type. You can invoke the DescribeInstanceTypes operation and query the EriQuantity field to obtain the RDMA network interface controller (NIC) quota for the instance type.
       shared_ptr<string> networkInterfaceTrafficMode_ {};
-      // The number of queues for the network interface controller (NIC).
-      // When the network interface controller (NIC) is in the attached state, take note of the following items:
-      // - The value cannot exceed the maximum number of queues per network interface controller (NIC) allowed by the instance type.
-      // - The total number of queues across all network interface controllers (NICs) of an instance cannot exceed the total queue quota allowed by the instance type. You can call DescribeInstanceTypes to query the MaximumQueueNumberPerEni and TotalEniQueueQuantity fields.
+      // The number of queues for the Elastic Network Interface (ENI).
+      // When the Elastic Network Interface (ENI) is attached to an instance, take note of the following items:
+      // - The number of queues cannot exceed the maximum number of queues per network interface controller (NIC) allowed by the instance type.
+      // - The total number of queues for all network interface controllers (NICs) attached to the instance cannot exceed the total queue quota allowed by the instance type. You can invoke the DescribeInstanceTypes operation and query the MaximumQueueNumberPerEni and TotalEniQueueQuantity fields to obtain the maximum number of queues per network interface controller (NIC) and the total queue quota for the instance type.
       // 
-      // > This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for public use.
       shared_ptr<int32_t> queueNumber_ {};
-      // The number of RDMA queues for the network interface controller (NIC).
-      // When the network interface controller (NIC) is in the attached state, take note of the following items:
-      // - The value cannot exceed the maximum number of queues per RDMA network interface controller (NIC) allowed by the instance type. You can call DescribeInstanceTypes to query the QueuePairNumber field for the maximum number of queues per RDMA network interface controller (NIC).
-      // 
-      // > This parameter is in invitational preview and is not publicly available.
+      // The number of queues for the RDMA network interface controller (NIC).
+      // When the Elastic Network Interface (ENI) is attached to an instance, take note of the following item:
+      // - The number of queues cannot exceed the maximum number of queues per RDMA network interface controller (NIC) allowed by the instance type. You can invoke the DescribeInstanceTypes operation and query the QueuePairNumber field to obtain the maximum number of queues per RDMA network interface controller (NIC) for the instance type.
       shared_ptr<int32_t> queuePairNumber_ {};
-      // The inbound queue depth of the network interface controller (NIC).
+      // The inbound queue depth of the Elastic Network Interface (ENI) (network interface controller (NIC)).
       // 
-      // > This parameter is in invitational preview and is not publicly available. To use this parameter, submit a ticket to request access.
+      // > This parameter is in invitational preview and is not available for public use. If you need to use this parameter, submit a ticket to apply for whitelist access.
       // 
       // Take note of the following items:
       // 
-      // - This parameter applies only to instances of the seventh generation or later.
+      // - This parameter applies only to seventh-generation and later ECS instance types.
       // - This parameter currently applies only to Linux images.
-      // - A larger inbound queue depth can improve inbound throughput and reduce packet loss, but consumes more memory.
+      // - A larger inbound queue depth can increase inbound throughput and reduce the packet loss rate, but it consumes more memory.
       shared_ptr<int32_t> rxQueueSize_ {};
-      // The outbound queue depth of the network interface controller (NIC).
+      // The outbound queue depth of the Elastic Network Interface (ENI) (network interface controller (NIC)).
       // 
-      // > This parameter is in invitational preview and is not publicly available. To use this parameter, submit a ticket to request access.
+      // > This parameter is in invitational preview and is not available for public use. If you need to use this parameter, submit a ticket to apply for whitelist access.
       // 
       // Take note of the following items:
       // 
-      // - This parameter applies only to instances of the seventh generation or later.
+      // - This parameter applies only to seventh-generation and later ECS instance types.
       // - This parameter currently applies only to Linux images.
-      // - A larger outbound queue depth can improve outbound throughput and reduce packet loss, but consumes more memory.
+      // - A larger outbound queue depth can increase outbound throughput and reduce the packet loss rate, but it consumes more memory.
       shared_ptr<int32_t> txQueueSize_ {};
     };
 
@@ -239,12 +235,15 @@ namespace Models
 
 
     protected:
+      // > This parameter is not available for public use.
       shared_ptr<bool> enableExpress_ {};
-      // > This parameter is not publicly available.
+      // > This parameter is not available for public use.
       shared_ptr<bool> enableRss_ {};
-      // This parameter is not publicly available.
+      // This parameter is not available for public use.
       shared_ptr<bool> enableSriov_ {};
+      // The number of virtual functions when SR-IOV is enabled. Valid values: 1 to 256.
       shared_ptr<int32_t> virtualFunctionQuantity_ {};
+      // The total number of queues for virtual functions when SR-IOV is enabled.
       shared_ptr<int32_t> virtualFunctionTotalQueueNumber_ {};
     };
 
@@ -295,21 +294,21 @@ namespace Models
 
 
     protected:
-      // The timeout period for TCP connections in the TIME_WAIT and CLOSED states. Unit: seconds. Valid values: integers from 3 to 15.
+      // The timeout period for closed and TIME_WAIT TCP connections. Unit: seconds. Valid values: integers from 3 to 15.
       // 
       // Default value: 3.
       // 
-      // > If your ECS instance is used with NLB or CLB, the default timeout period for connections in the `TIME_WAIT` state is 15 seconds.
+      // > If your ECS instance is used together with an NLB or CLB instance, the default timeout period for connections in the `TIME_WAIT` state is 15 seconds.
       shared_ptr<int32_t> tcpClosedAndTimeWaitTimeout_ {};
-      // The timeout period for established TCP connections. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
+      // The timeout period for established TCP connections. Unit: seconds. Valid values: 30, 60, 80, 100, 200, 300, 500, 700, and 910.
       // 
       // Default value: 910.
       shared_ptr<int32_t> tcpEstablishedTimeout_ {};
-      // The timeout period for UDP flows. Unit: seconds. Valid values: [10, 20, 30, 60, 80, 100].
+      // The timeout period for UDP flows. Unit: seconds. Valid values: 10, 20, 30, 60, 80, and 100.
       // 
       // Default value: 30.
       // 
-      // > If your ECS instance is used with NLB or CLB, the default value is 100 seconds.
+      // > If your ECS instance is used together with an NLB or CLB instance, the default value is 100 seconds.
       shared_ptr<int32_t> udpTimeout_ {};
     };
 
@@ -453,62 +452,63 @@ namespace Models
 
 
   protected:
-    // The network connectivity tracking configuration.
+    // The network connectivity tracking configuration information set.
     // 
-    // Before you use this parameter, read [Connection timeout management](https://help.aliyun.com/document_detail/2865958.html).
+    // Before using this parameter, read [Connection timeout management](https://help.aliyun.com/document_detail/2865958.html).
     shared_ptr<ModifyNetworkInterfaceAttributeRequest::ConnectionTrackingConfiguration> connectionTrackingConfiguration_ {};
-    // Specifies whether to retain the ENI when the associated instance is released. Valid values:
+    // Specifies whether to retain the ENI when the instance is released. Valid values:
     // 
     // - true: The ENI is not retained.
     // 
     // - false: The ENI is retained.
     shared_ptr<bool> deleteOnRelease_ {};
-    // The description of the network interface controller (NIC). The description must be 2 to 255 characters in length and cannot start with http:// or https://.
+    // The description of the Elastic Network Interface (ENI) (network interface controller (NIC)). The description must be 2 to 255 characters in length and cannot start with http:// or https://.
     // 
     // Default value: empty.
     shared_ptr<string> description_ {};
+    // Indicates whether the primary IPv6 address is enabled for the Elastic Network Interface (ENI) (network interface controller (NIC)).
     shared_ptr<bool> enablePrimaryIPv6_ {};
-    // This parameter is not publicly available.
+    // This parameter is not available for public use.
     shared_ptr<ModifyNetworkInterfaceAttributeRequest::EnhancedNetwork> enhancedNetwork_ {};
-    // The ID of the network interface controller (NIC).
+    // The ID of the Elastic Network Interface (ENI) (network interface controller (NIC)).
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
-    // The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters under the categorization of letter in Unicode, including English letters, Chinese characters, and digits. The name can also contain colons (:), underscores (_), periods (.), or hyphens (-).
+    // The name of the Elastic Network Interface (ENI) (network interface controller (NIC)). The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It supports Unicode characters in the letter categorization, including English letters, Chinese characters, and digits. It can contain colons (:), underscores (_), periods (.), and hyphens (-).
     // 
     // Default value: empty.
     shared_ptr<string> networkInterfaceName_ {};
-    // The communication parameter of the network interface controller (NIC).
+    // The traffic parameter of the Elastic Network Interface (ENI) (network interface controller (NIC)).
     shared_ptr<ModifyNetworkInterfaceAttributeRequest::NetworkInterfaceTrafficConfig> networkInterfaceTrafficConfig_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The number of queues for the ENI. Valid values: 1 to 2048.
     // 
-    // - You can modify the queue number of an ENI that is in the Available state, or an ENI that is in the InUse state but attached to an instance in the Stopped state.
+    // - You can modify the number of queues for an ENI that is in the `Available` state, or an ENI that is attached (`InUse`) to an instance that is in the `Stopped` state.
     // 
-    // - The queue number cannot exceed the maximum number of queues per ENI allowed by the instance type. The total number of queues across all ENIs of an instance cannot exceed the total queue quota allowed by the instance type. You can call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the MaximumQueueNumberPerEni and TotalEniQueueQuantity fields for the instance type.
+    // - The number of queues for the ENI cannot exceed the maximum number of queues per ENI allowed by the instance type. The total number of queues for all ENIs attached to the instance cannot exceed the total queue quota allowed by the instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and query the MaximumQueueNumberPerEni and TotalEniQueueQuantity fields to obtain the maximum number of queues per ENI and the total queue quota for the instance type.
     shared_ptr<int32_t> queueNumber_ {};
-    // The region ID of the network interface controller (NIC). You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the Elastic Network Interface (ENI) (network interface controller (NIC)). You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The inbound queue depth of the network interface controller (NIC).
+    // The inbound queue depth of the Elastic Network Interface (ENI) (network interface controller (NIC)).
     // 
-    // > This parameter is in invitational preview and is not publicly available. To use this parameter, submit a ticket to request access.
+    // > This parameter is in invitational preview and is not available for public use. If you need to use this parameter, submit a ticket to apply for whitelist access.
     // 
     // Take note of the following items:
     // 
-    // - This parameter applies only to instances of the seventh generation or later.
+    // - This parameter applies only to seventh-generation and later ECS instance types.
     // - This parameter currently applies only to Linux images.
-    // - A larger inbound queue depth can improve inbound throughput and reduce packet loss, but consumes more memory.
+    // - A larger inbound queue depth can increase inbound throughput and reduce the packet loss rate, but it consumes more memory.
     shared_ptr<int32_t> rxQueueSize_ {};
-    // The list of security group IDs. The secondary network interface controller (NIC) joins the specified security groups and is removed from the existing security groups.
+    // The list of security group IDs. The secondary Elastic Network Interface (ENI) (network interface controller (NIC)) will be added to the specified security groups and removed from its existing security groups.
     // 
-    // - Valid values of N depend on the maximum number of security groups to which a network interface controller (NIC) can belong. For more information, see [Limits](~~25412#SecurityGroupQuota~~).
+    // - The valid values of N depend on the quota of security groups that each Elastic Network Interface (ENI) can join. For more information, see [Limits](~~25412#SecurityGroupQuota~~).
     // 
-    // - The modification takes effect shortly, but a slight delay may occur.
+    // - Changes to security groups take effect shortly, but a slight delay may occur.
     shared_ptr<vector<string>> securityGroupId_ {};
     // Specifies whether to enable source/destination checking. We recommend that you enable this feature to improve network security. Valid values:
     // 
@@ -518,17 +518,17 @@ namespace Models
     // 
     // Default value: false.
     // 
-    // > Only specific regions support this feature. Before using this feature, read [Source/destination checking](https://help.aliyun.com/document_detail/2863210.html).
+    // > This feature is supported only in specific regions. Before you use this feature, read [Source/destination checking](https://help.aliyun.com/document_detail/2863210.html).
     shared_ptr<bool> sourceDestCheck_ {};
-    // The outbound queue depth of the network interface controller (NIC).
+    // The outbound queue depth of the Elastic Network Interface (ENI) (network interface controller (NIC)).
     // 
-    // > This parameter is in invitational preview and is not publicly available. To use this parameter, submit a ticket to request access.
+    // > This parameter is in invitational preview and is not available for public use. If you need to use this parameter, submit a ticket to apply for whitelist access.
     // 
     // Take note of the following items:
     // 
-    // - This parameter applies only to instances of the seventh generation or later.
+    // - This parameter applies only to seventh-generation and later ECS instance types.
     // - This parameter currently applies only to Linux images.
-    // - A larger outbound queue depth can improve outbound throughput and reduce packet loss, but consumes more memory.
+    // - A larger outbound queue depth can increase outbound throughput and reduce the packet loss rate, but it consumes more memory.
     shared_ptr<int32_t> txQueueSize_ {};
   };
 

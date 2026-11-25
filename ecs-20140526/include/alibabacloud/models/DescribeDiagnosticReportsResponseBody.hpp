@@ -323,7 +323,7 @@ namespace Models
 
 
   protected:
-    // The query token returned for the current call.
+    // The query token returned by the current call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<DescribeDiagnosticReportsResponseBody::Reports> reports_ {};
     // The request ID.

@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // > This parameter is not available for use.
+      // > This parameter is not available.
       shared_ptr<string> key_ {};
-      // > This parameter is not available for use.
+      // > This parameter is not available.
       shared_ptr<string> value_ {};
     };
 
@@ -150,27 +150,27 @@ namespace Models
 
 
   protected:
-    // The property of the Elastic Network Interface (ENI). Valid values:
+    // The property of the elastic network interface controller (NIC). Valid values:
     // 
-    // attachment: queries the attachment information of member network interface controllers (NICs) for a trunk network interface controller (NIC). This parameter is in invitational preview and is not available for use.
+    // attachment: Queries the attachment information of the member network interface controllers (NICs) of a trunk network interface controller (NIC). This parameter is in invitational preview and is not available.
     // 
-    // connectionTrackingConfiguration: queries the network connectivity tracking configuration.
+    // connectionTrackingConfiguration: The network connectivity tracking configuration.
     // 
-    // Default value: empty.
+    // Default value: none.
     shared_ptr<string> attribute_ {};
-    // The ID of the network interface controller (NIC).
+    // The ID of the elastic network interface controller (NIC).
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the network interface controller (NIC). You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the elastic network interface controller (NIC). You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // > This parameter is not available for use.
+    // > This parameter is not available.
     shared_ptr<vector<DescribeNetworkInterfaceAttributeRequest::Tag>> tag_ {};
   };
 

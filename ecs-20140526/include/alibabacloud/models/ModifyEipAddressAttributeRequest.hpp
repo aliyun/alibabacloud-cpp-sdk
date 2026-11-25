@@ -94,12 +94,17 @@ namespace Models
 
 
   protected:
+    // The ID of the EIP.
+    // 
     // This parameter is required.
     shared_ptr<string> allocationId_ {};
+    // The maximum bandwidth of the EIP. Unit: Mbit/s.
+    // 
     // This parameter is required.
     shared_ptr<string> bandwidth_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID of the EIP.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

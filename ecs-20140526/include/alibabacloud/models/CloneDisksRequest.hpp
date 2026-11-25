@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Arn, arn_);
       DARABONBA_PTR_TO_JSON(BurstingEnabled, burstingEnabled_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DestinationZoneId, destinationZoneId_);
       DARABONBA_PTR_TO_JSON(DiskCategory, diskCategory_);
       DARABONBA_PTR_TO_JSON(DiskName, diskName_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PerformanceLevel, performanceLevel_);
       DARABONBA_PTR_TO_JSON(ProvisionedIops, provisionedIops_);
+      DARABONBA_PTR_TO_JSON(ReadWriteMode, readWriteMode_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
@@ -37,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Arn, arn_);
       DARABONBA_PTR_FROM_JSON(BurstingEnabled, burstingEnabled_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DestinationZoneId, destinationZoneId_);
       DARABONBA_PTR_FROM_JSON(DiskCategory, diskCategory_);
       DARABONBA_PTR_FROM_JSON(DiskName, diskName_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
@@ -46,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PerformanceLevel, performanceLevel_);
       DARABONBA_PTR_FROM_JSON(ProvisionedIops, provisionedIops_);
+      DARABONBA_PTR_FROM_JSON(ReadWriteMode, readWriteMode_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
@@ -102,9 +106,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the cloud disk. Valid values of N: 1 to 20. If you specify Tag.N.Key, it cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+      // The tag key of the disk. Valid values of N: 1 to 20. If you specify Tag.N.Key, it cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
       shared_ptr<string> key_ {};
-      // The tag value of the cloud disk. Valid values of N: 1 to 20. If you specify Tag.N.Value, it can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
+      // The tag value of the disk. Valid values of N: 1 to 20. If you specify Tag.N.Value, it can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -164,10 +168,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->arn_ == nullptr
-        && this->burstingEnabled_ == nullptr && this->clientToken_ == nullptr && this->diskCategory_ == nullptr && this->diskName_ == nullptr && this->dryRun_ == nullptr
-        && this->encrypted_ == nullptr && this->kmsKeyId_ == nullptr && this->multiAttach_ == nullptr && this->ownerId_ == nullptr && this->performanceLevel_ == nullptr
-        && this->provisionedIops_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerId_ == nullptr && this->size_ == nullptr
-        && this->sourceDiskId_ == nullptr && this->tag_ == nullptr; };
+        && this->burstingEnabled_ == nullptr && this->clientToken_ == nullptr && this->destinationZoneId_ == nullptr && this->diskCategory_ == nullptr && this->diskName_ == nullptr
+        && this->dryRun_ == nullptr && this->encrypted_ == nullptr && this->kmsKeyId_ == nullptr && this->multiAttach_ == nullptr && this->ownerId_ == nullptr
+        && this->performanceLevel_ == nullptr && this->provisionedIops_ == nullptr && this->readWriteMode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->size_ == nullptr && this->sourceDiskId_ == nullptr && this->tag_ == nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};
@@ -189,6 +193,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CloneDisksRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // destinationZoneId Field Functions 
+    bool hasDestinationZoneId() const { return this->destinationZoneId_ != nullptr;};
+    void deleteDestinationZoneId() { this->destinationZoneId_ = nullptr;};
+    inline string getDestinationZoneId() const { DARABONBA_PTR_GET_DEFAULT(destinationZoneId_, "") };
+    inline CloneDisksRequest& setDestinationZoneId(string destinationZoneId) { DARABONBA_PTR_SET_VALUE(destinationZoneId_, destinationZoneId) };
 
 
     // diskCategory Field Functions 
@@ -254,6 +265,13 @@ namespace Models
     inline CloneDisksRequest& setProvisionedIops(int64_t provisionedIops) { DARABONBA_PTR_SET_VALUE(provisionedIops_, provisionedIops) };
 
 
+    // readWriteMode Field Functions 
+    bool hasReadWriteMode() const { return this->readWriteMode_ != nullptr;};
+    void deleteReadWriteMode() { this->readWriteMode_ = nullptr;};
+    inline string getReadWriteMode() const { DARABONBA_PTR_GET_DEFAULT(readWriteMode_, "") };
+    inline CloneDisksRequest& setReadWriteMode(string readWriteMode) { DARABONBA_PTR_SET_VALUE(readWriteMode_, readWriteMode) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -301,94 +319,98 @@ namespace Models
   protected:
     // > This parameter is not available.
     shared_ptr<vector<CloneDisksRequest::Arn>> arn_ {};
-    // Specifies whether to enable performance bursting for the new cloud disk. Valid values:
-    // - true: enables performance bursting.
-    // - false: disables performance bursting.
-    // > This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPLs](https://www.alibabacloud.com/help/en/ecs/user-guide/essd-autopl-disks).
+    // Specifies whether to enable the performance burst feature for the new disk. Valid values:
+    // - true: enables the feature.
+    // - false: disables the feature.
+    // > This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://www.alibabacloud.com/help/en/ecs/user-guide/essd-autopl-disks).
     shared_ptr<bool> burstingEnabled_ {};
-    // Ensures the idempotence of the request. You can generate a parameter value from your client to ensure that the value is unique across different requests. The ClientToken parameter only supports ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // Ensures the idempotence of the request. You can generate a parameter value from your client to ensure that the value is unique across different requests. The ClientToken parameter only supports ASCII characters and can be up to 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The category of the new cloud disk. Valid values:
+    // The destination zone of the new disk.
+    shared_ptr<string> destinationZoneId_ {};
+    // The type of the new disk. Valid values:
     // 
-    // - cloud_essd: ESSD.
-    // - cloud_auto: ESSD AutoPL.
-    // - cloud_essd_entry: ESSD Entry.
-    // - cloud_regional_disk_auto: zone-redundant ESSD.
+    // - cloud_essd: standard SSD.
+    // - cloud_auto: ESSD AutoPL disk.
+    // - cloud_essd_entry: ESSD Entry disk.
+    // - cloud_regional_disk_auto: zone-redundant enterprise SSD.
     // 
-    // > Limits on cloud disk categories for cloning
-    // > - Non-zone-redundant cloud disks can only be cloned to non-zone-redundant types.
-    // > - Zone-redundant cloud disks can only be cloned to zone-redundant types.
+    // > Disk type restrictions for cloud disk cloning:
+    // > - A non-zone-redundant cloud disk can only be cloned to a non-zone-redundant type.
+    // > - A zone-redundant cloud disk can only be cloned to a zone-redundant type.
     // 
     // This parameter is required.
     shared_ptr<string> diskCategory_ {};
-    // The name of the cloud disk. The name must be 2 to 128 characters in length and can contain letters in the Unicode letter category (including English and Chinese characters) and ASCII digits (0-9). It can contain colons (:), underscores (_), periods (.), and hyphens (-). It must start with a letter in the Unicode letter category.
+    // The name of the disk. The name must be 2 to 128 characters in length. It can contain letters in the Unicode Letter category (including English and Chinese characters) and ASCII digits (0 to 9). It can also contain colons (:), underscores (_), periods (.), and hyphens (-). It must start with a letter in the Unicode Letter category.
     // 
-    // Default value: empty.
+    // Default value: null.
     shared_ptr<string> diskName_ {};
-    // Specifies whether to only perform a dry run for this request. Valid values:
-    // - true: sends a check request and does not perform the actual operation. The check items include whether the AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
-    // - false (default): sends a Normal request. If the check succeeds, a 2XX HTTP status code is returned and the actual operation is performed.
+    // Specifies whether to only perform a dry run for the request. Valid values:
+    // - true: sends a check request and does not perform the actual operation. The check items include whether the AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
+    // - false (default): sends a normal request. After the check succeeds, the 2XX HTTP status code is returned and the actual operation is performed.
     shared_ptr<string> dryRun_ {};
-    // Specifies whether the new cloud disk is encrypted. Valid values:
-    // - true: The cloud disk is encrypted.
-    // - false: The cloud disk is not encrypted.
+    // Specifies whether the new disk is an encrypted cloud disk. Valid values:
+    // - true: yes.
+    // - false: no.
     // 
     // Default value: false.
     shared_ptr<bool> encrypted_ {};
-    // The KMS key ID used by the new cloud disk.
+    // The KMS key ID used by the new disk.
     shared_ptr<string> kmsKeyId_ {};
-    // Specifies whether to enable the multi-attach feature for the new cloud disk. Valid values:
+    // Specifies whether to enable the multi-attach attribute for the new disk. Valid values:
     // 
-    // - Disabled: disables the feature.
-    // - Enabled: enables the feature. Only ESSDs support this value.
+    // - Disabled: disables the attribute.
+    // - Enabled: enables the attribute. Currently, only standard SSDs support the Settings of `Enabled`.
     // 
     // This parameter is required.
     shared_ptr<string> multiAttach_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The performance level settings of the cloud disk when you create an ESSD. Valid values:
+    // The Settings of the performance level for a standard SSD. Valid values:
     // 
-    // - PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-    // - PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-    // - PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-    // - PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+    // - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
+    // - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
+    // - PL2: A single disk can deliver up to 100,000 random read/write IOPS.
+    // - PL3: A single disk can deliver up to 1,000,000 random read/write IOPS.
     // 
     // > If DiskCategory is set to cloud_essd, the PerformanceLevel parameter is required.
     // 
-    // For more information about how to select the performance level of an ESSD, see [ESSD standard SSDs](https://help.aliyun.com/document_detail/122389.html).
+    // For more information about how to select the performance level of an enterprise SSD, see [enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
     shared_ptr<string> performanceLevel_ {};
-    // The provisioned read and write IOPS for a single ESSD AutoPL. Valid values:
+    // The provisioned read and write IOPS of the ESSD AutoPL disk. Valid values:
     // - If the capacity is less than or equal to 3 GiB, provisioned performance is not supported.
-    // - If the capacity is greater than or equal to 4 GiB, the valid values are 0 to the minimum of (1,000 IOPS/GiB × Capacity - Baseline IOPS) and 50,000.
+    // - If the capacity is greater than or equal to 4 GiB, the valid values are 0 to min{(1,000 IOPS/GiB × Capacity - Baseline IOPS), 50,000}.
     // 
-    // Baseline performance = the maximum of the minimum of (1,800 + 50 × Capacity) and 50,000, and 3,000.
+    // Baseline performance = max{min{1,800 + 50 × Capacity, 50,000}, 3,000}.
     // 
-    // > This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPLs](https://www.alibabacloud.com/help/en/ecs/user-guide/essd-autopl-disks).
+    // > This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://www.alibabacloud.com/help/en/ecs/user-guide/essd-autopl-disks).
     shared_ptr<int64_t> provisionedIops_ {};
+    // The access mode of the cloud disk.
+    shared_ptr<string> readWriteMode_ {};
     // The region ID. You can call the [DescribeRegions](https://www.alibabacloud.com/help/en/ecs/api-regions-describeregions) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the cloud disk belongs.
+    // The ID of the resource group to which the disk belongs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The capacity of the new cloud disk. Unit: GiB. You must specify a value for this parameter. Valid values:
+    // The capacity of the new disk. Unit: GiB. You must specify this parameter. Valid values:
     // 
-    // - cloud_essd: The valid values vary based on the performance level.
-    //   - PL0: 1 to 65,536.
-    //   - PL1: 20 to 65,536.
-    //   - PL2: 461 to 65,536.
-    //   - PL3: 1,261 to 65,536.
+    // - cloud_essd: The valid values vary by performance level.
+    //     - PL0: 1 to 65,536.
+    //     - PL1: 20 to 65,536.
+    //     - PL2: 461 to 65,536.
+    //     - PL3: 1,261 to 65,536.
     // - cloud_auto: 1 to 65,536.
     // - cloud_essd_entry: 10 to 32,768.
     // - cloud_regional_disk_auto: 10 to 65,536.
     // 
     // This parameter is required.
     shared_ptr<int32_t> size_ {};
-    // The ID of the source cloud disk.
+    // The ID of the source disk.
     // 
     // This parameter is required.
     shared_ptr<string> sourceDiskId_ {};
-    // The list of tag information for the cloud disk.
+    // The list of tag information for the disk.
     shared_ptr<vector<CloneDisksRequest::Tag>> tag_ {};
   };
 

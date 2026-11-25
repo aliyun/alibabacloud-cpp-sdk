@@ -140,13 +140,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeElasticityAssuranceInstancesRequest::PrivatePoolOptions> privatePoolOptions_ {};
-    // The number of entries to return per page for paging.
+    // The number of entries to return per page for a paging query.
     // 
     // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the query. You can obtain the token from the response of the previous request.
+    // The pagination token for the elasticity assurance query. You can obtain the token from the response of the previous request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

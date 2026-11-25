@@ -142,7 +142,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The Cloud Assistant resource usage configuration. This setting takes effect only when the Cloud Assistant Agent version is not earlier than the following versions:
+    // The Cloud Assistant resource usage configuration. This parameter takes effect only when the Cloud Assistant Agent version is not earlier than the following versions:
     // 
     // - Windows: 2.1.4.1065
     // 
@@ -151,14 +151,14 @@ namespace Models
     // The Cloud Assistant session feature configuration.
     shared_ptr<string> sessionManagerConfigShrink_ {};
     // The service configuration type. Valid values:
-    // - SessionManagerDelivery: session operation log delivery.
-    // - InvocationDelivery: task execution log delivery.
-    // - AgentUpgradeConfig: Cloud Assistant Agent upgrade configuration.
-    // - SessionManagerConfig: Cloud Assistant SessionManager configuration.
+    // - SessionManagerDelivery: session operation record delivery
+    // - InvocationDelivery: task execution record delivery
+    // - AgentUpgradeConfig: Cloud Assistant Agent upgrade configuration
+    // - SessionManagerConfig: Cloud Assistant SessionManager configuration
     // 
     // This parameter is required.
     shared_ptr<string> settingType_ {};
-    // The Simple Log Service (SLS) delivery configuration.
+    // The SLS delivery configuration.
     shared_ptr<string> slsDeliveryConfigShrink_ {};
   };
 

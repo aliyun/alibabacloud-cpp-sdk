@@ -97,7 +97,7 @@ namespace Models
     shared_ptr<string> metricSetId_ {};
     // The name of the diagnostic metric set.
     shared_ptr<string> metricSetName_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the latest list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

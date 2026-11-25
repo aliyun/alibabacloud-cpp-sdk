@@ -1215,13 +1215,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeImagePipelinesResponseBody::ImagePipeline> imagePipeline_ {};
-    // The number of entries returned per page in a paging query.
+    // The number of rows returned per page during paging in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by this call. For more information, see the operation description.
+    // The pagination token returned by the current request. For more information, see the operation description.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of image templates returned.
+    // The number of image templates returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

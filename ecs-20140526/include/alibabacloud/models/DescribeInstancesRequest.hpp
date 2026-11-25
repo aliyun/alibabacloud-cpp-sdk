@@ -152,7 +152,7 @@ namespace Models
     protected:
       // The tag key of the instance. Valid values of N: 1 to 20.
       // 
-      // If you use a single tag to filter resources, the number of resources with this tag cannot exceed 1,000. If you use multiple tags to filter resources, the number of resources that are attached to all specified tags cannot exceed 1,000. If the resource count exceeds 1,000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
+      // When you use a single tag to filter resources, the resource count under the tag cannot exceed 1,000. When you use multiple tags to filter resources, the resource count of queried resources that are attached to all the specified tags cannot exceed 1,000. If the resource count exceeds 1,000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
       shared_ptr<string> key_ {};
       // The tag value of the instance. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
@@ -196,9 +196,9 @@ namespace Models
 
 
     protected:
-      // The key of filter 1 used to query resources. Set the value to `CreationStartTime`. You can specify both Filter.1.Key and Filter.1.Value to query resources that were created after the specified point in time.
+      // The filter key used when querying resources. The value must be `CreationStartTime`. If you specify both `Filter.1.Key` and `Filter.1.Value`, you can query resources created after a specified point in time.
       shared_ptr<string> key_ {};
-      // The value of filter 1 used to query resources. When you specify this parameter, you must also specify `Filter.1.Key`. Specify the time in the `yyyy-MM-ddTHH:mmZ` format in UTC.
+      // The filter value used when querying resources. If you specify this parameter, you must also specify the `Filter.1.Key` parameter. The value must be in the `yyyy-MM-ddTHH:mmZ` format and use the UTC+0 time zone.
       shared_ptr<string> value_ {};
     };
 
@@ -516,56 +516,56 @@ namespace Models
 
   protected:
     shared_ptr<vector<DescribeInstancesRequest::Filter>> filter_ {};
-    // The list of additional properties of the instance.
+    // The list of additional attributes of the instance.
     shared_ptr<vector<string>> additionalAttributes_ {};
-    // > This parameter is in invitational preview and is not publicly available.
+    // > This parameter is in invitational preview and is not supported.
     shared_ptr<bool> deviceAvailable_ {};
-    // Specifies whether to perform only a dry run. Valid values:
+    // Specifies whether to perform only a dry run on the request. Valid values:
     // 
-    // - true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.  
-    // - false: performs a dry run and sends the request. If the request passes the dry run, a 2XX HTTP status code is returned and the operation is performed. 
+    // - true: performs a dry run and does not query resources. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user has the required authorization, and whether required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.  
+    // - false: sends a normal request. If the request passes the dry run, a 2xx HTTP status code is returned and resources are queried. 
     // 
     // Default value: false.
     shared_ptr<bool> dryRun_ {};
-    // The elastic IP addresses (EIPs) of instances. This parameter takes effect when InstanceNetworkType is set to vpc. The value is a JSON array that consists of up to 100 IP addresses. Separate the IP addresses with commas (,).
+    // The elastic IP addresses (EIPs) of the instance. This parameter takes effect only when InstanceNetworkType is set to vpc. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
     shared_ptr<string> eipAddresses_ {};
-    // The ID of the HPC cluster to which the instance belongs.
+    // The ID of the High Performance Computing (HPC) cluster to which the instance belongs.
     shared_ptr<string> hpcClusterId_ {};
-    // Specifies whether the access channel for instance metadata is enabled. Valid values:
-    // - enabled: enabled.
-    // - disabled: disabled.
+    // Specifies whether to enable the access channel for instance metadata. Valid values:
+    // - enabled: enables the access channel.
+    // - disabled: disables the access channel.
     // 
     // Default value: enabled.
-    // > For more information about instance metadata, see [Overview of ECS instance metadata](https://help.aliyun.com/document_detail/49122.html).
+    // > For more information about instance metadata, see [Overview of instance metadata](https://help.aliyun.com/document_detail/49122.html).
     shared_ptr<string> httpEndpoint_ {};
-    // > This parameter is not yet available.
+    // > This parameter is not available.
     shared_ptr<int32_t> httpPutResponseHopLimit_ {};
-    // Specifies whether to forcefully use the hardened mode (IMDSv2) when accessing instance metadata. Valid values:
-    // - optional: The hardened mode is not forcefully used.
-    // - required: The hardened mode is forcefully used. After you set this parameter to required, you cannot access instance metadata in the normal pattern.
+    // Specifies whether to forcibly use the security access mode (IMDSv2) to access instance metadata. Valid values:
+    // - optional: does not forcibly use the security access mode.
+    // - required: forcibly uses the security access mode. After you set this value, you cannot access instance metadata in normal mode.
     // 
     // Default value: optional.
-    // > For more information about instance metadata access patterns, see [Instance metadata access modes](https://help.aliyun.com/document_detail/150575.html).
+    // > For more information about the modes of accessing instance metadata, see [Modes of accessing instance metadata](https://help.aliyun.com/document_detail/150575.html).
     shared_ptr<string> httpTokens_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
-    // The internal network IP addresses of instances with the classic network type. This parameter takes effect when InstanceNetworkType is set to classic. The value is a JSON array that consists of up to 100 IP addresses. Separate the IP addresses with commas (,). 
+    // The internal IP addresses of instances in the classic network. This parameter takes effect only when InstanceNetworkType is set to classic. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,). 
     // 
-    // > - The classic network feature has been retired. For details, see [Retirement notice](https://help.aliyun.com/document_detail/2833134.html).
+    // > - The classic network feature is retired. For more information, see [retirement announcement](https://help.aliyun.com/document_detail/2833134.html).
     shared_ptr<string> innerIpAddresses_ {};
     // The billing method of the instance. Valid values: 
     //          
     // - PostPaid: pay-as-you-go. 
     // - PrePaid: subscription.
     shared_ptr<string> instanceChargeType_ {};
-    // The IDs of the instances. The value is a JSON array that consists of up to 100 instance IDs. Separate the instance IDs with commas (,).
+    // The instance IDs. The value can be a JSON array that consists of up to 100 instance IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> instanceIds_ {};
-    // The name of the instance. Fuzzy search with the asterisk (\\*) wildcard is supported.
+    // The instance name. Wildcard characters (*) are supported for fuzzy search.
     shared_ptr<string> instanceName_ {};
     // The network type of the instance. Valid values:
     // 
     // - vpc: VPC.
-    // - classic: classic network. The classic network is no longer available. For more information, see [Retirement notice](https://help.aliyun.com/document_detail/2833134.html).
+    // - classic: classic network. The classic network feature is retired. For more information, see [retirement announcement](https://help.aliyun.com/document_detail/2833134.html).
     shared_ptr<string> instanceNetworkType_ {};
     // The instance type.
     shared_ptr<string> instanceType_ {};
@@ -576,77 +576,77 @@ namespace Models
     // - PayByBandwidth: pay-by-bandwidth.
     // - PayByTraffic: pay-by-traffic.
     // 
-    // > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as bandwidth upper limits and are not guaranteed. When resource contention occurs, the peak bandwidths may be limited. If you require guaranteed bandwidth for your workloads, use the **pay-by-bandwidth** mode.
+    // > In the **pay-by-traffic** mode, the peak inbound and outbound bandwidth values are upper limits and are not guaranteed service level indicators. When resource contention occurs, the peak bandwidth may be limited. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
     shared_ptr<string> internetChargeType_ {};
     // Specifies whether the instance is I/O optimized. Valid values:
     // 
-    // - true: The instance is I/O optimized.
-    // - false: The instance is not I/O optimized.
+    // - true: yes.
+    // - false: no.
     shared_ptr<bool> ioOptimized_ {};
-    // The IPv6 addresses assigned to Elastic Network Interfaces (ENIs).
+    // The IPv6 address specified for the Elastic Network Interface (ENI).
     shared_ptr<vector<string>> ipv6Address_ {};
-    // The name of the SSH key pair bound to the instance.
+    // The name of the SSH key pair used by the instance.
     shared_ptr<string> keyPairName_ {};
     // The reason why the resource is locked. Valid values:
     // 
-    // - financial: The resource is locked due to overdue payment.
+    // - financial: The resource is locked due to overdue payments.
     // 
     // - security: The resource is locked due to security reasons.
     // 
     // - Recycling: The spot instance is locked and pending release.
     // 
-    // - dedicatedhostfinancial: The ECS instance is locked because the dedicated host has an overdue payment.
+    // - dedicatedhostfinancial: The ECS instance is locked due to overdue payments for the dedicated host.
     // 
-    // - refunded: The resource is locked because a refund is made.
+    // - refunded: The resource is locked due to a refund.
     shared_ptr<string> lockReason_ {};
-    // The maximum number of entries per page for a paging query. Maximum value: 100.
+    // The number of entries per page for a paged query. Maximum value: 100.
     // 
-    // Default value:
+    // Default values:
     // 
-    // - If you do not set this parameter or set it to a value less than 10, the default value is 10.
-    // - If you set this parameter to a value greater than 100, the default value is 100.
+    // - If this parameter is not specified or the specified value is less than 10, the default value is 10.
+    // - If the specified value is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // > This parameter is in invitational preview and is not publicly available.
+    // > This parameter is in invitational preview and is not supported.
     shared_ptr<bool> needSaleCycle_ {};
-    // The query token. Set the value to the NextToken value returned in the previous API call.
+    // The query token. The value is the `NextToken` parameter value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
+    // > This parameter will be retired soon. We recommend that you use NextToken and MaxResults to perform paged query operations.
     shared_ptr<int32_t> pageNumber_ {};
-    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
+    // > This parameter will be retired soon. We recommend that you use NextToken and MaxResults to perform paged query operations.
     shared_ptr<int32_t> pageSize_ {};
-    // The private IP addresses of instances with the VPC network type. This parameter takes effect when InstanceNetworkType is set to vpc. The value is a JSON array that consists of up to 100 IP addresses. Separate the IP addresses with commas (,).
+    // The private IP addresses of instances in a VPC. This parameter takes effect only when InstanceNetworkType is set to vpc. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
     shared_ptr<string> privateIpAddresses_ {};
-    // The public IP addresses of instances. The value is a JSON array that consists of up to 100 IP addresses. Separate the IP addresses with commas (,).
+    // The public IP addresses of the instance. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
     shared_ptr<string> publicIpAddresses_ {};
-    // The RDMA IP addresses of the HPC instance.
+    // The Remote Direct Memory Access (RDMA) IP addresses of the HPC instance.
     shared_ptr<string> rdmaIpAddresses_ {};
     // The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the instance belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
+    // The ID of the enterprise resource group to which the instance belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
     // 
     // > Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the security group to which the instance belongs.
+    // The security group to which the instance belongs.
     shared_ptr<string> securityGroupId_ {};
     // The instance status. Valid values: 
     // 
-    // - Pending: being created.
+    // - Pending: creating.
     // - Running: running.
-    // - Starting: being started.
-    // - Stopping: being stopped.
+    // - Starting: starting.
+    // - Stopping: stopping.
     // - Stopped: stopped.
     shared_ptr<string> status_ {};
     // The tags.
     shared_ptr<vector<DescribeInstancesRequest::Tag>> tag_ {};
-    // The ID of the vSwitch.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the virtual private cloud (VPC).
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

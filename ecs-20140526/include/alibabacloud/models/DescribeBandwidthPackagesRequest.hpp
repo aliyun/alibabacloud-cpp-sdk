@@ -114,7 +114,7 @@ namespace Models
   protected:
     // The ID of the bandwidth package.
     shared_ptr<string> bandwidthPackageId_ {};
-    // The ID of the NAT gateway. If specified, only bandwidth packages associated with the NAT gateway are returned.
+    // The ID of the NAT gateway. If you specify this parameter, only bandwidth packages associated with the NAT gateway are returned.
     shared_ptr<string> natGatewayId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

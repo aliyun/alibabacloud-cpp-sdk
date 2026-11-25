@@ -108,7 +108,7 @@ namespace Models
 
 
     protected:
-      // The tag key of the dedicated host. If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key of the dedicated host. If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value of the dedicated host. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
@@ -271,17 +271,17 @@ namespace Models
   protected:
     // The ID of the dedicated host cluster.
     shared_ptr<string> dedicatedHostClusterId_ {};
-    // The IDs of the dedicated hosts. You can specify up to 100 IDs. Separate multiple IDs with commas (,).
+    // The list of dedicated host IDs. You can specify up to 100 IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> dedicatedHostIds_ {};
     // The name of the dedicated host.
     shared_ptr<string> dedicatedHostName_ {};
-    // The type of the dedicated host. You can call the [DescribeDedicatedHostTypes](https://help.aliyun.com/document_detail/134240.html) operation to query the most recent dedicated host type list.
+    // The dedicated host type. You can call the [DescribeDedicatedHostTypes](https://help.aliyun.com/document_detail/134240.html) operation to query the most recent list of dedicated host types.
     shared_ptr<string> dedicatedHostType_ {};
     // The reason why the dedicated host is locked. Valid values:
     // - financial: The dedicated host is locked due to overdue payments.
     // - security: The dedicated host is locked due to security reasons.
     shared_ptr<string> lockReason_ {};
-    // The maximum number of entries per page for a paged query. If you specify this parameter, the query uses the combination of MaxResults and NextToken for pagination.
+    // The maximum number of entries per page in a paged query. If this parameter is specified, the combination of MaxResults and NextToken is used for the query.
     // 
     // Maximum value: 100.
     // 
@@ -289,13 +289,13 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // Specifies whether to return the details of the dedicated host.
     shared_ptr<string> needHostDetail_ {};
-    // The query token. Set the value to the NextToken value returned in the previous call to this operation. You do not need to specify this parameter when you call this operation for the first time.
+    // The query token. Set the value to the NextToken value returned from the previous call to this operation. You do not need to specify this parameter when you call this operation for the first time.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults for pagination.
+    // > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults to perform paged queries.
     shared_ptr<int32_t> pageNumber_ {};
-    // > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults for pagination.
+    // > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults to perform paged queries.
     shared_ptr<int32_t> pageSize_ {};
     // Specifies whether to query the inventory information of the dedicated host.
     shared_ptr<bool> queryInventory_ {};
@@ -309,26 +309,26 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to display socket-level capacity information. You can view the remaining resource information (vCPU and memory usage, remaining capacity, and total capacity) at the socket level to determine whether ECS instances of the corresponding type can be created. Valid values:
+    // Specifies whether to display the capacity information at the socket level. You can view the remaining resource information (vCPU and memory usage, remaining amount, and total amount) at the socket level to determine whether ECS instances of the corresponding types can be created. Valid values:
     // 
-    // - true: Display the information. Only dedicated hosts of specific types support displaying socket-level resource information. For more information, see [View and export dedicated host information](https://help.aliyun.com/document_detail/68989.html).
-    // - false: Do not display the information.
+    // - true: Display the capacity information. Only dedicated hosts of specific types support displaying socket-level resource information. For more information, see [View and export dedicated host information](https://help.aliyun.com/document_detail/68989.html).
+    // - false: Do not display the capacity information.
     // 
     // >Notice: 
     // 
-    // Generally, each dedicated host has two CPUs, and the ID of each CPU is Socket 0 or Socket 1. On an exclusive dedicated host, to ensure that the ECS instances on the dedicated host deliver maximum performance, ECS instances are not created across sockets. This means that an ECS instance is created based on only one socket.
+    // Generally, each dedicated host has two CPUs, and the ID of each CPU is Socket 0 or Socket 1. On an exclusive dedicated host, to ensure the maximum performance of ECS instances, ECS instances are not created across sockets. This means that an ECS instance is created based on only one socket.
     // 
-    // - If the remaining computing resources of one socket are greater than or equal to the resources required by the ECS instance type to be created, the ECS instance is created.
-    // - If the remaining computing resources of each socket are less than the resources required by the ECS instance type to be created, the ECS instance fails to be created. Even if the total remaining resources of the two sockets on the dedicated host are greater than the resources required by the ECS instance type, the ECS instance still cannot be created.
+    // - If the remaining computing resources of one socket are greater than or equal to the requirements of the ECS instance type to be created, the ECS instance is created.
+    // - If the remaining computing resources of each socket are less than the requirements of the ECS instance type to be created, the ECS instance fails to be created. Even if the total remaining resources of the two sockets on the dedicated host meet the requirements of the ECS instance type, the ECS instance still cannot be created.
     // </notice>
     shared_ptr<string> socketDetails_ {};
-    // The status of the dedicated host. Valid values:
+    // The usage status of the dedicated host. Valid values:
     // 
-    // - Available: The dedicated host is running. This is the normal status of a dedicated host.
+    // - Available: The dedicated host is running. This is the normal running status of a dedicated host.
     // 
-    // - UnderAssessment: The physical machine has risks. The physical machine is available during the fault incubation period, but issues may occur on the ECS instances on the dedicated host.
+    // - UnderAssessment: The physical machine has risks, which indicates the incubation period of a fault. The physical machine is available but may cause issues for the ECS instances on the dedicated host.
     // 
-    // - PermanentFailure: A permanent failure occurred. The dedicated host is unavailable.
+    // - PermanentFailure: A permanent failure occurs and the dedicated host is unavailable.
     // 
     // - TempUnavailable: The dedicated host is temporarily unavailable.
     // 
@@ -336,7 +336,7 @@ namespace Models
     // 
     // Default value: Available.
     shared_ptr<string> status_ {};
-    // The list of tags. You can specify 0 to 20 tags.
+    // The list of tags. The list can contain 0 to 20 tags.
     shared_ptr<vector<DescribeDedicatedHostsRequest::Tag>> tag_ {};
     // The zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
     shared_ptr<string> zoneId_ {};

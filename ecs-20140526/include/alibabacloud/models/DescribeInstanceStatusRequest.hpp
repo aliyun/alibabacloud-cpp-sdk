@@ -124,33 +124,33 @@ namespace Models
 
 
   protected:
-    // The cluster ID of the instances.
+    // The ID of the cluster to which the ECS instances belong.
     // 
-    // >Notice: This parameter is deprecated and is not recommended.
+    // > This parameter is deprecated. We recommend that you do not use this parameter.
     shared_ptr<string> clusterId_ {};
-    // The instance ID array. Array length: 1 to 100.
+    // The IDs of ECS instances. You can specify 1 to 100 instance IDs.
     // 
-    // Example: ["i-bp1j4i2jdf3owlhe****", "i-bp1j4i2jdf3o1234****"].
+    // Example: ["i-bp1j4i2jdf3owlhe\\*\\*\\*\\*", "i-bp1j4i2jdf3o1234\\*\\*\\*\\*"].
     shared_ptr<vector<string>> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the instance status list.
+    // The page number.
     // 
-    // Minimum value: 1.
+    // Pages start from page 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging. Valid values: 1 to 50.
+    // The number of entries per page. Valid values: 1 to 50.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the instances. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the instances. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The zone to which the instances belong. You can call [DescribeZones](https://help.aliyun.com/document_detail/25610.html) to query the most recent zone list.
+    // The zone ID of the instances. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
     shared_ptr<string> zoneId_ {};
   };
 

@@ -114,31 +114,31 @@ namespace Models
 
 
     protected:
-      // The data disk category. You can specify this parameter when you need to query the price of a new subscription data disk attached to the ECS instance. Valid values of N: 1 to 16. Valid values:
+      // The data disk category. Specify this parameter when you need to query the price of a new subscription data disk attached to the ECS instance. Valid values of N: 1 to 16. Valid values:
       // 
       // - cloud_efficiency: ultra disk.
       // - cloud_ssd: standard SSD.
       // - cloud_essd: enterprise SSD.
       // - cloud: basic disk.
       // 
-      // Default value: None.
+      // Default value: none.
       // 
-      // > When you query the price, the instance type parameter (`InstanceType`) and the data disk parameter (`DataDisk.N.*`) cannot be both empty. You must specify at least one of them.
+      // > When you query the price, the instance type parameter (`InstanceType`) and the data disk parameter (`DataDisk.N.*`) cannot be empty at the same time. You must specify at least one of them.
       shared_ptr<string> category_ {};
       // The data disk ID.
-      // If DiskId is empty, a new data disk is added.
-      // If DiskId is not empty, the data disk is modified.
+      // If this parameter is left empty, a new data disk is added.
+      // If this parameter is specified, an existing data disk is modified.
       shared_ptr<string> diskId_ {};
-      // The performance level of the data disk when the data disk category is enterprise SSD. The value of N must be the same as the value of N in `DataDisk.N.Category=cloud_essd`. Valid values:
+      // The performance level of the data disk. This parameter is valid only when the data disk category is enterprise SSD. The value of N must be the same as the value of N in `DataDisk.N.Category=cloud_essd`. Valid values:
       // 
-      // - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
-      // - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
-      // - PL2: A single disk can deliver up to 100,000 random read/write IOPS.
-      // - PL3: A single disk can deliver up to 1,000,000 random read/write IOPS.
+      // - PL0: Up to 10,000 random read/write IOPS per disk.
+      // - PL1: Up to 50,000 random read/write IOPS per disk.
+      // - PL2: Up to 100,000 random read/write IOPS per disk.
+      // - PL3: Up to 1,000,000 random read/write IOPS per disk.
       // 
       // Default value: PL1.
       // 
-      // For more information about how to select an enterprise SSD performance level, see [enterprise SSD](https://help.aliyun.com/document_detail/122389.html).
+      // For more information about how to select the performance level of an enterprise SSD, see [enterprise SSD](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> performanceLevel_ {};
       // The size of the data disk. Valid values of N: 1 to 16. Unit: GiB. Valid values:
       // 
@@ -151,7 +151,7 @@ namespace Models
       //     - PL3: 1261 to 32768.
       // - cloud: 5 to 2000.
       // 
-      // Default value: the minimum size allowed for the specified data disk category.
+      // Default value: The minimum size allowed for the specified data disk category.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -327,20 +327,20 @@ namespace Models
     shared_ptr<DescribeInstanceModificationPriceRequest::SystemDisk> systemDisk_ {};
     // The data disk information.
     shared_ptr<vector<DescribeInstanceModificationPriceRequest::DataDisk>> dataDisk_ {};
-    // The end time of the temporary bandwidth change. The time is in ISO 8601 format and UTC time zone.
-    // This parameter takes effect only when InternetMaxBandwidthOut is not empty.
+    // The end time of the temporary bandwidth change. The time is in the ISO 8601 standard and UTC time zone.
+    // This parameter takes effect only when InternetMaxBandwidthOut is specified.
     shared_ptr<string> endTime_ {};
-    // The Internet service provider (ISP).
+    // The Internet Service Provider (ISP).
     shared_ptr<string> ISP_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
-    // The ID of the instance for which you want to query the upgrade price.
+    // The instance ID for which you want to query the upgrade price.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The target instance type for the instance upgrade. Before upgrading, call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in the specified zone.
     // 
-    // > When you query the price, the instance type parameter (`InstanceType`) and the data disk parameter (`DataDisk.N.*`) cannot be both empty. You must specify at least one of them.
+    // > When you query the price, the instance type parameter (`InstanceType`) and the data disk parameter (`DataDisk.N.*`) cannot be empty at the same time. You must specify at least one of them.
     shared_ptr<string> instanceType_ {};
     // The network billing method. Valid values:
     // - PayByBandwidth: pay-by-bandwidth.
@@ -356,8 +356,8 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start time of the temporary bandwidth change. The time is in ISO 8601 format and UTC time zone.
-    // This parameter takes effect only when InternetMaxBandwidthOut is not empty.
+    // The start time of the temporary bandwidth change. The time is in the ISO 8601 standard and UTC time zone.
+    // This parameter takes effect only when InternetMaxBandwidthOut is specified.
     shared_ptr<string> startTime_ {};
   };
 

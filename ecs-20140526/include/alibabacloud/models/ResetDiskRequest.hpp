@@ -94,14 +94,14 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud disk to be rolled back.
+    // The ID of the disk to be rolled back.
     // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};
     // Specifies whether to perform a dry run on the request. Valid values:
     // 
-    // - true: Performs a dry run. The system checks the required parameters, request format, and resource status. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // - false: Performs a normal request. If the request passes the dry run, the cloud disk is rolled back.
+    // - true: performs a dry run without rolling back the disk. The system checks the required parameters, request format, and resource status. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+    // - false: performs a normal request. If the request passes the check, the disk is rolled back.
     // 
     // Default value: false.
     shared_ptr<bool> dryRun_ {};
@@ -109,7 +109,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the historical snapshot used to roll back the cloud disk.
+    // The ID of the historical snapshot to which the disk is rolled back.
     // 
     // This parameter is required.
     shared_ptr<string> snapshotId_ {};

@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<string> bandwidthPackageId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the bandwidth package. You can call the DescribeRegions operation to query the latest region list.
+    // The ID of the region where the bandwidth package is located. You can call the DescribeRegions operation to query the latest region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

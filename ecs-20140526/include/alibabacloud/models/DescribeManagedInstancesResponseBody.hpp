@@ -129,7 +129,7 @@ namespace Models
       protected:
         // The tag key of the managed instance. Valid values of N: 1 to 20. The tag key cannot be an empty string.
         // 
-        // If you use a single tag to filter resources, the resource count for that tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count for resources attached to multiple tags cannot exceed 1,000. If the resource count exceeds 1,000, you must call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+        // If you use a single tag to filter resources, the number of returned resources cannot exceed 1,000. If you use multiple tags to filter resources, the number of returned resources that have multiple tags attached cannot exceed 1,000. If the number of resources exceeds 1,000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
         // 
         // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
         shared_ptr<string> tagKey_ {};
@@ -270,7 +270,7 @@ namespace Models
       shared_ptr<bool> connected_ {};
       // The hostname of the managed instance.
       shared_ptr<string> hostname_ {};
-      // The instance ID of the managed instance.
+      // The ID of the managed instance.
       shared_ptr<string> instanceId_ {};
       // The name of the managed instance.
       shared_ptr<string> instanceName_ {};
@@ -278,17 +278,17 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The internal IP address of the managed instance.
       shared_ptr<string> intranetIp_ {};
-      // The number of Cloud Assistant tasks executed on the managed instance.
+      // The number of times the managed instance executed Cloud Assistant tasks.
       shared_ptr<int64_t> invocationCount_ {};
-      // The time when the last Cloud Assistant task was executed. The time follows the ISO 8601 standard in the UTC time zone.
+      // The time when the Cloud Assistant task was last executed. The time is in ISO 8601 format and in UTC.
       shared_ptr<string> lastInvokedTime_ {};
-      // The machine ID of the managed instance.
+      // The machine code of the managed instance.
       shared_ptr<string> machineId_ {};
       // The operating system of the managed instance.
       shared_ptr<string> osType_ {};
       // The version information of the operating system.
       shared_ptr<string> osVersion_ {};
-      // The time when the managed instance was registered. The time follows the ISO 8601 standard in the UTC time zone.
+      // The time when the managed instance was registered. The time is in ISO 8601 format and in UTC.
       shared_ptr<string> registrationTime_ {};
       // The ID of the resource group to which the managed instance belongs.
       shared_ptr<string> resourceGroupId_ {};
@@ -349,7 +349,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The page number of the managed instance list.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

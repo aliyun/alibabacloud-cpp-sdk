@@ -1008,20 +1008,18 @@ namespace Models
 
   protected:
     shared_ptr<DescribeNetworkInterfacesResponseBody::NetworkInterfaceSets> networkInterfaceSets_ {};
-    // The pagination token returned by the current call.
+    // The pagination token returned by the current request.
     shared_ptr<string> nextToken_ {};
-    // The paging query parameter.
-    // 
-    // > This parameter will soon be deprecated. We recommend that you use the `NextToken` and `MaxResults` parameters for paging.
+    // The page number for paged queries.
+    // > This parameter will be deprecated soon. Use NextToken and MaxResults for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // The paging query parameter.
-    // 
-    // > This parameter will soon be deprecated. We recommend that you use the `NextToken` and `MaxResults` parameters for paging.
+    // The page size for paged queries.
+    // > This parameter will be deprecated soon. Use NextToken and MaxResults for pagination.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of Elastic Network Interface (ENI) resources returned.
-    // > When you use the `MaxResults` and `NextToken` parameters for a paging query, the returned `TotalCount` value is meaningless.
+    // The total number of returned ENIs.
+    // > When you use the `MaxResults` and `NextToken` parameters for pagination, the returned value of the `TotalCount` parameter is meaningless.
     shared_ptr<int32_t> totalCount_ {};
   };
 

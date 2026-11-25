@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The information about the managed instance.
+    // The collection of managed instance information.
     shared_ptr<ModifyManagedInstanceResponseBody::Instance> instance_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

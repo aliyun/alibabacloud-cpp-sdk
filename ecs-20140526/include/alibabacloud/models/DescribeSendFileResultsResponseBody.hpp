@@ -510,7 +510,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeSendFileResultsResponseBody::Invocations> invocations_ {};
-    // The query token returned by the current call.
+    // The pagination token returned by the current call.
     shared_ptr<string> nextToken_ {};
     // The current page number of the query result.
     shared_ptr<int64_t> pageNumber_ {};
@@ -518,8 +518,8 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of scripts.
-    // > When you use the MaxResults and NextToken parameters for paging, the returned TotalCount parameter value is meaningless.
+    // The total number of files.
+    // > If you use the MaxResults and NextToken parameters for paging in a paged query, the returned TotalCount value is meaningless.
     shared_ptr<int64_t> totalCount_ {};
   };
 

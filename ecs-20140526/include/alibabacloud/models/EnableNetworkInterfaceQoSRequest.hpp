@@ -108,23 +108,23 @@ namespace Models
     protected:
       // The maximum inbound internal bandwidth limit.
       // 
-      // Unit: Kbit/s. Step size: 1000 (1 Mbit/s). Valid values: [50000, +∞).
+      // Unit: Kbit/s. Step: 1000 (1 Mbit/s). Valid values: [50000, +∞).
       shared_ptr<int64_t> bandwidthRx_ {};
       // The maximum outbound internal bandwidth limit.
       // 
-      // Unit: Kbit/s. Step size: 1000 (1 Mbit/s). Valid values: [50000, +∞).
+      // Unit: Kbit/s. Step: 1000 (1 Mbit/s). Valid values: [50000, +∞).
       shared_ptr<int64_t> bandwidthTx_ {};
-      // The maximum number of sessions.
+      // The maximum number of concurrent connections.
       // 
-      // Step size: 10000. Valid values: [10000, +∞).
+      // Step: 10000. Valid values: [10000, +∞).
       shared_ptr<int64_t> concurrentConnections_ {};
       // The inbound internal packet forwarding rate.
       // 
-      // Unit: PPS. Step size: 10000. Valid values: [10000, +∞).
+      // Unit: PPS. Step: 10000. Valid values: [10000, +∞).
       shared_ptr<int64_t> ppsRx_ {};
       // The outbound internal packet forwarding rate.
       // 
-      // Unit: PPS. Step size: 10000. Valid values: [10000, +∞).
+      // Unit: PPS. Step: 10000. Valid values: [10000, +∞).
       shared_ptr<int64_t> ppsTx_ {};
     };
 

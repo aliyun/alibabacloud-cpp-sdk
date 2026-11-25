@@ -163,7 +163,7 @@ namespace Models
 
 
     protected:
-      // The toggle for the Cloud Assistant session feature. Valid values:
+      // The switch for the Cloud Assistant session feature. Valid values:
       // * true: Enabled.
       // * false: Disabled.
       // 
@@ -246,17 +246,17 @@ namespace Models
 
 
     protected:
-      // The maximum CPU usage allowed for the Cloud Assistant Agent main process.
+      // The maximum allowed CPU usage limit for the main process of the Cloud Assistant Agent.
       shared_ptr<int32_t> cpuLimit_ {};
-      // Indicates whether the script file is retained in the Cloud Assistant directory after command execution is complete.
+      // Specifies whether to retain script files in the Cloud Assistant directory after command execution is complete.
       shared_ptr<bool> keepScriptFile_ {};
       // The maximum number of Cloud Assistant log files to retain.
       shared_ptr<int32_t> logFileCountLimit_ {};
-      // The size limit of Cloud Assistant log files.
+      // The size limit for Cloud Assistant log files.
       shared_ptr<string> logSizeLimit_ {};
-      // The maximum memory usage allowed for the Cloud Assistant Agent main process.
+      // The maximum allowed memory usage limit for the main process of the Cloud Assistant Agent.
       shared_ptr<string> memoryLimit_ {};
-      // The maximum number of consecutive times that CPU or memory resources usage can exceed the limit. After this limit is reached, the Cloud Assistant Agent automatically stops running.
+      // The maximum number of consecutive times that CPU or memory resources exceed the limit. After reaching this limit, the Cloud Assistant Agent automatically stops.
       shared_ptr<int32_t> overloadLimit_ {};
     };
 
@@ -487,13 +487,13 @@ namespace Models
 
     protected:
       shared_ptr<AgentUpgradeConfig::AllowedUpgradeWindows> allowedUpgradeWindows_ {};
-      // Indicates whether the Cloud Assistant Agent checks for and performs updates immediately upon startup.
+      // Specifies whether to immediately check for and perform updates when the Cloud Assistant Agent starts.
       shared_ptr<bool> bootstrapUpgrade_ {};
-      // Indicates whether the Cloud Assistant Agent is prohibited from checking for and performing updates.
+      // Specifies whether to prohibit the Cloud Assistant Agent from checking for and performing updates.
       shared_ptr<bool> disableUpgrade_ {};
-      // Indicates whether the custom Agent upgrade configuration is enabled. If the query result is false or empty, the default behavior of attempting an upgrade every 30 minutes is retained.
+      // Specifies whether custom Agent upgrade configurations are enabled. If the query result is false or empty, the system attempts to upgrade the agent every 30 minutes by default.
       shared_ptr<bool> enabled_ {};
-      // The time zone of the allowed upgrade time windows.
+      // The time zone for the allowed upgrade time windows.
       shared_ptr<string> timeZone_ {};
     };
 

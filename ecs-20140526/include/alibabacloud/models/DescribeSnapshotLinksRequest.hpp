@@ -140,24 +140,24 @@ namespace Models
 
 
   protected:
-    // The disk IDs. You can specify up to 100 disk IDs at a time. Set the value of DiskIds to a JSON array. Separate multiple IDs with commas (,).
+    // The disk IDs. You can specify up to 100 disk IDs at a time. Set the DiskIds parameter to a JSON array. Separate multiple IDs with commas (,).
     shared_ptr<string> diskIds_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The paging Settings for the maximum number of entries per page in a paged query. Maximum value: 100.
+    // The number of entries per page in a paged query. Maximum value: 100.
     // Default value:
-    // - If you do not specify a value or the Settings value is less than 10, the default value is 10.
-    // - If the Settings value is greater than 100, the default value is 100.
+    // - If you do not specify this parameter or the specified value is less than 10, the default value is 10.
+    // - If the specified value is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set the value to the NextToken value returned from the last API call.
+    // The pagination token. Set the value to the NextToken value returned in the last API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the snapshot chain list. Pages start from 1.
+    // The page number of the list. Pages start from page 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The paging Settings for the number of entries per page in a paged query. Valid values: 1 to 100.
+    // The number of entries per page in a paged query. Valid values: 1 to 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
@@ -167,7 +167,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The snapshot chain IDs. You can specify up to 100 snapshot chain IDs at a time. Set the value of SnapshotLinkIds to a JSON array. Separate multiple IDs with commas (,).
+    // The snapshot chain IDs. You can specify up to 100 snapshot chain IDs at a time. Set the SnapshotLinkIds parameter to a JSON array. Separate multiple IDs with commas (,).
     shared_ptr<string> snapshotLinkIds_ {};
   };
 

@@ -136,7 +136,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeAutoSnapshotPolicyAssociationsResponseBody::AutoSnapshotPolicyAssociations> autoSnapshotPolicyAssociations_ {};
-    // The pagination token returned in this call.
+    // The query token returned by the current call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

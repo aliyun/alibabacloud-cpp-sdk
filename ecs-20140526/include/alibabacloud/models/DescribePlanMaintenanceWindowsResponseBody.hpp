@@ -132,9 +132,9 @@ namespace Models
 
 
         protected:
-          // The end time of the maintenance time window. Format: "Day of the week,HH:mm". Example: Monday,22:00.
+          // The end time of the maintenance time window. The format is DayOfWeek,HH:mm, such as Monday,22:00.
           shared_ptr<string> endTime_ {};
-          // The start time of the maintenance time window. Format: "Day of the week,HH:mm". Example: Monday,22:00.
+          // The start time of the maintenance time window. The format is DayOfWeek,HH:mm, such as Monday,22:00.
           shared_ptr<string> startTime_ {};
         };
 
@@ -157,11 +157,9 @@ namespace Models
 
 
       protected:
-        // The type of the recurrence cycle. Valid values:
-        // - Daily: daily recurrence.
-        // - Weekly: weekly recurrence.
+        // The type of the recurrence period. Valid values: Daily and Weekly.
         shared_ptr<string> periodUnit_ {};
-        // The time ranges within the recurrence cycle of the O&M window (in UTC).
+        // The time ranges of the recurrence period of the O&M window in UTC.
         shared_ptr<vector<TimePeriod::RangeList>> rangeList_ {};
       };
 
@@ -260,7 +258,7 @@ namespace Models
       protected:
         // The ID of the resource group to which the O&M window applies.
         shared_ptr<string> resourceGroupId_ {};
-        // The type of resource for which the O&M window is configured.
+        // The type of the resource for which the O&M window is configured.
         shared_ptr<string> scope_ {};
         // The tags to which the O&M window applies.
         shared_ptr<vector<TargetResource::Tags>> tags_ {};
@@ -337,26 +335,23 @@ namespace Models
 
 
     protected:
-      // The time when the O&M window was created.
-      // 
-      // The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The time when the O&M window was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // Indicates whether the O&M window is enabled.
       shared_ptr<bool> enable_ {};
+      // The minimum interval for scheduled O&M.
       shared_ptr<int32_t> minMaintenanceInterval_ {};
-      // The time when the O&M window was last modified.
-      // 
-      // The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The time when the O&M window was modified. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> modifiedTime_ {};
       // The ID of the O&M window.
       shared_ptr<string> planWindowId_ {};
       // The name of the O&M window.
       shared_ptr<string> planWindowName_ {};
-      // The supported maintenance action.
+      // The supported O&M actions.
       shared_ptr<string> supportMaintenanceAction_ {};
       // The resources to which the O&M window applies.
       shared_ptr<PlanMaintenanceWindowList::TargetResource> targetResource_ {};
-      // The recurrence cycle of the window.
+      // The recurrence period of the window.
       shared_ptr<PlanMaintenanceWindowList::TimePeriod> timePeriod_ {};
     };
 
@@ -400,15 +395,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page in a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
+    // The number of entries per page in a paging query. Maximum value: 100. Default value: 10. If no value is specified or the specified value is less than 10, the default value 10 is used. If the specified value is greater than 100, the default value 100 is used.
     shared_ptr<int32_t> maxResults_ {};
     // The query token returned by this call.
     shared_ptr<string> nextToken_ {};
     // The creation time.
     shared_ptr<vector<DescribePlanMaintenanceWindowsResponseBody::PlanMaintenanceWindowList>> planMaintenanceWindowList_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that match the request conditions. This is an optional parameter and may not be returned by default.
+    // The total number of entries returned for the current request. This parameter is optional and is not returned by default.
     shared_ptr<int32_t> totalCount_ {};
   };
 

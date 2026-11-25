@@ -419,6 +419,9 @@
 #include <alibabacloud/models/DescribeDiagnosticReportsRequest.hpp>
 #include <alibabacloud/models/DescribeDiagnosticReportsResponseBody.hpp>
 #include <alibabacloud/models/DescribeDiagnosticReportsResponse.hpp>
+#include <alibabacloud/models/DescribeDiskAttachmentsRequest.hpp>
+#include <alibabacloud/models/DescribeDiskAttachmentsResponseBody.hpp>
+#include <alibabacloud/models/DescribeDiskAttachmentsResponse.hpp>
 #include <alibabacloud/models/DescribeDiskDefaultKMSKeyIdRequest.hpp>
 #include <alibabacloud/models/DescribeDiskDefaultKMSKeyIdResponseBody.hpp>
 #include <alibabacloud/models/DescribeDiskDefaultKMSKeyIdResponse.hpp>

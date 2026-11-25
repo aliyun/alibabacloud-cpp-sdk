@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the window. Valid values:
+    // Specifies whether to enable or disable the window. Valid values:
     // - **true**: Enabled.
     // - **false**: Disabled.
     // 
@@ -106,7 +106,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> planWindowName_ {};
-    // The region ID. This parameter is required for Alibaba Cloud SDK routing. However, specifying any region ID for this operation yields the same result. The O&M window applies to all ECS instances across the network that meet the resource filtering conditions.
+    // The region ID. This parameter is required for Alibaba Cloud SDK routing. However, setting any region ID for this operation makes no difference. The O&M window takes effect on all ECS instances across the network that meet the resource filtering conditions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -133,31 +133,31 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can specify up to 50 instances in a single request. Valid values of N: 1 to 50.
+    // The instance ID. You can specify up to 50 instance IDs in a single request. Valid values of N: 1 to 50.
     shared_ptr<vector<string>> instanceId_ {};
-    // The maximum number of entries per page for a paged query.
+    // The maximum number of entries per page for a paging query.
     // 
     // Maximum value: 50.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The plugin name. Full character set is supported. The name can be up to 255 characters in length.
+    // The plugin name. All characters are supported. The name can be up to 255 characters in length.
     // 
     // - If you do not specify this parameter, the status of all installed plugins on the instance is queried.
     // 
     //     > If you do not specify this parameter, you can specify only one instance ID.
     // 
-    // - If you specify this parameter, the status of the specified plugin on the instances is queried.
+    // - If you specify this parameter, the status of the specified plugin on the instance is queried.
     shared_ptr<string> name_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The pagination token. Set the value to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > This parameter will be offline soon. Use NextToken and MaxResults to complete paged query operations. Paging is handled by these parameters instead.
+    // > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults for paging.
     shared_ptr<int64_t> pageNumber_ {};
-    // > This parameter will be offline soon. Use NextToken and MaxResults to complete paged query operations. Paging is handled by these parameters instead.
+    // > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults for paging.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

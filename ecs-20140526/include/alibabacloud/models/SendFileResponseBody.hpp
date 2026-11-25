@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The execution ID.
+    // The invocation ID.
     shared_ptr<string> invokeId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

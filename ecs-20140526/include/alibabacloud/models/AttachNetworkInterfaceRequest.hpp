@@ -125,26 +125,26 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The index of the network card specified for the ENI.
+    // The index of the physical network card specified for the ENI.
     // 
-    // >The valid values of NetworkCardIndex depend on the instance family. If the instance type does not support NetworkCard, you cannot specify this parameter. If the instance type supports NetworkCard, see [Instance families](https://help.aliyun.com/document_detail/25378.html) for valid values.
+    // > The valid values of NetworkCardIndex depend on the instance family. If the instance type does not support NetworkCard, this parameter cannot be specified. If it is supported, see [Instance families](https://help.aliyun.com/document_detail/25378.html) for valid values.
     shared_ptr<int32_t> networkCardIndex_ {};
-    // The network interface controller (NIC) ID.
+    // The ID of the Elastic Network Interface (ENI) network interface controller (NIC).
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The trunk ENI ID.
-    // >This parameter is not yet available.
+    // The ID of the trunk ENI.
+    // > This parameter is not available.
     shared_ptr<string> trunkNetworkInstanceId_ {};
-    // >This parameter is deprecated.
+    // > **[Deprecated]**
     shared_ptr<bool> waitForNetworkConfigurationReady_ {};
   };
 

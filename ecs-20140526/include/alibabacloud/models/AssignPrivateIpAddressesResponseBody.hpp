@@ -150,7 +150,7 @@ namespace Models
 
     protected:
       shared_ptr<AssignedPrivateIpAddressesSet::Ipv4PrefixSet> ipv4PrefixSet_ {};
-      // The elastic network interfaces (ENIs) ID.
+      // The ID of the Elastic Network Interface (ENI).
       shared_ptr<string> networkInterfaceId_ {};
       shared_ptr<AssignedPrivateIpAddressesSet::PrivateIpSet> privateIpSet_ {};
     };
@@ -174,7 +174,7 @@ namespace Models
 
 
   protected:
-    // The information about the elastic network interfaces (ENIs) to which secondary private IP addresses are assigned.
+    // The set of information about the Elastic Network Interfaces (ENIs) to which secondary private IP addresses (private IP addresses or private IPs) are allocated.
     shared_ptr<AssignPrivateIpAddressesResponseBody::AssignedPrivateIpAddressesSet> assignedPrivateIpAddressesSet_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

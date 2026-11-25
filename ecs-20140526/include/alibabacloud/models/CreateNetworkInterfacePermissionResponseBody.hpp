@@ -107,13 +107,13 @@ namespace Models
     protected:
       // The account ID of the Alibaba Cloud partner (certified ISV).
       shared_ptr<int64_t> accountId_ {};
-      // The ID of the Elastic network interface controller (NIC).
+      // The ID of the Elastic Network Interface (ENI).
       shared_ptr<string> networkInterfaceId_ {};
-      // The ID of the Elastic network interface controller (NIC) permission.
+      // The ID of the elastic network interface controller (NIC) permission.
       shared_ptr<string> networkInterfacePermissionId_ {};
-      // The Elastic network interface controller (NIC) permission.
+      // The elastic network interface controller (NIC) permission.
       shared_ptr<string> permission_ {};
-      // The state of the Elastic network interface controller (NIC) permission. Valid values:
+      // The state of the elastic network interface controller (NIC) permission. Valid values:
       // 
       // - Pending: The authorization is in progress.
       // - Granted: The authorization is granted.
@@ -143,7 +143,7 @@ namespace Models
 
 
   protected:
-    // The collection of information composed of the Elastic network interface controller (NIC) permission list.
+    // The collection of elastic network interface controller (NIC) permissions.
     shared_ptr<CreateNetworkInterfacePermissionResponseBody::NetworkInterfacePermission> networkInterfacePermission_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

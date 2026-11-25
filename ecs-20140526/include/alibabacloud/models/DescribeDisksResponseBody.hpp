@@ -97,6 +97,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Portable, portable_);
           DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
           DARABONBA_PTR_TO_JSON(ProvisionedIops, provisionedIops_);
+          DARABONBA_PTR_TO_JSON(ReadWriteMode, readWriteMode_);
           DARABONBA_PTR_TO_JSON(RegionId, regionId_);
           DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
           DARABONBA_PTR_TO_JSON(SerialNumber, serialNumber_);
@@ -150,6 +151,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Portable, portable_);
           DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
           DARABONBA_PTR_FROM_JSON(ProvisionedIops, provisionedIops_);
+          DARABONBA_PTR_FROM_JSON(ReadWriteMode, readWriteMode_);
           DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
           DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
           DARABONBA_PTR_FROM_JSON(SerialNumber, serialNumber_);
@@ -567,10 +569,11 @@ namespace Models
         && this->enableAutoSnapshot_ == nullptr && this->enableAutomatedSnapshotPolicy_ == nullptr && this->encrypted_ == nullptr && this->expiredTime_ == nullptr && this->IOPS_ == nullptr
         && this->IOPSRead_ == nullptr && this->IOPSWrite_ == nullptr && this->imageId_ == nullptr && this->instanceId_ == nullptr && this->KMSKeyId_ == nullptr
         && this->mountInstanceNum_ == nullptr && this->mountInstances_ == nullptr && this->multiAttach_ == nullptr && this->operationLocks_ == nullptr && this->performanceLevel_ == nullptr
-        && this->placement_ == nullptr && this->portable_ == nullptr && this->productCode_ == nullptr && this->provisionedIops_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->serialNumber_ == nullptr && this->size_ == nullptr && this->sourceDiskId_ == nullptr && this->sourceSnapshotId_ == nullptr
-        && this->status_ == nullptr && this->storageClusterId_ == nullptr && this->storageSetId_ == nullptr && this->storageSetPartitionNumber_ == nullptr && this->tags_ == nullptr
-        && this->throughput_ == nullptr && this->throughputRead_ == nullptr && this->throughputWrite_ == nullptr && this->type_ == nullptr && this->zoneId_ == nullptr; };
+        && this->placement_ == nullptr && this->portable_ == nullptr && this->productCode_ == nullptr && this->provisionedIops_ == nullptr && this->readWriteMode_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->serialNumber_ == nullptr && this->size_ == nullptr && this->sourceDiskId_ == nullptr
+        && this->sourceSnapshotId_ == nullptr && this->status_ == nullptr && this->storageClusterId_ == nullptr && this->storageSetId_ == nullptr && this->storageSetPartitionNumber_ == nullptr
+        && this->tags_ == nullptr && this->throughput_ == nullptr && this->throughputRead_ == nullptr && this->throughputWrite_ == nullptr && this->type_ == nullptr
+        && this->zoneId_ == nullptr; };
         // attachedTime Field Functions 
         bool hasAttachedTime() const { return this->attachedTime_ != nullptr;};
         void deleteAttachedTime() { this->attachedTime_ = nullptr;};
@@ -826,6 +829,13 @@ namespace Models
         inline Disk& setProvisionedIops(int64_t provisionedIops) { DARABONBA_PTR_SET_VALUE(provisionedIops_, provisionedIops) };
 
 
+        // readWriteMode Field Functions 
+        bool hasReadWriteMode() const { return this->readWriteMode_ != nullptr;};
+        void deleteReadWriteMode() { this->readWriteMode_ = nullptr;};
+        inline string getReadWriteMode() const { DARABONBA_PTR_GET_DEFAULT(readWriteMode_, "") };
+        inline Disk& setReadWriteMode(string readWriteMode) { DARABONBA_PTR_SET_VALUE(readWriteMode_, readWriteMode) };
+
+
         // regionId Field Functions 
         bool hasRegionId() const { return this->regionId_ != nullptr;};
         void deleteRegionId() { this->regionId_ = nullptr;};
@@ -976,6 +986,7 @@ namespace Models
         shared_ptr<bool> portable_ {};
         shared_ptr<string> productCode_ {};
         shared_ptr<int64_t> provisionedIops_ {};
+        shared_ptr<string> readWriteMode_ {};
         shared_ptr<string> regionId_ {};
         shared_ptr<string> resourceGroupId_ {};
         shared_ptr<string> serialNumber_ {};
@@ -1056,16 +1067,16 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDisksResponseBody::Disks> disks_ {};
-    // The pagination token returned by this request.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
-    // > **[Deprecated]** This parameter will soon go offline. We recommend that you use the NextToken and MaxResults parameters for paging to complete the paged query.
+    // > This parameter will be deprecated soon. Use the `NextToken` and `MaxResults` parameters for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // > **[Deprecated]** This parameter will soon go offline. We recommend that you use the NextToken and MaxResults parameters for paging to complete the paged query.
+    // > This parameter will be deprecated soon. Use the `NextToken` and `MaxResults` parameters for pagination.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of queried results.
-    // > When you use the MaxResults and NextToken parameters for paging to perform a paged query, the returned value of TotalCount is invalid.
+    // The total number of queried entries.
+    // > When you use the `MaxResults` and `NextToken` parameters for pagination, the returned value of the `TotalCount` parameter is invalid.
     shared_ptr<int32_t> totalCount_ {};
   };
 

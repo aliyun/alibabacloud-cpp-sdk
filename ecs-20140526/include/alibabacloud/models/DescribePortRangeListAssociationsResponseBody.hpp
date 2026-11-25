@@ -74,7 +74,7 @@ namespace Models
     protected:
       // The ID of the resource.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource. Valid values: SecurityGroup.
+      // The resource type. Valid value: SecurityGroup.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -104,9 +104,9 @@ namespace Models
 
 
   protected:
-    // The pagination token returned by the current call. If this value is empty, no more data is returned.
+    // The pagination token returned by the current call. If this value is empty, no more data is available.
     shared_ptr<string> nextToken_ {};
-    // The array of resources associated with the port list.
+    // The array of resources associated with the port range list.
     shared_ptr<vector<DescribePortRangeListAssociationsResponseBody::PortRangeListAssociations>> portRangeListAssociations_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

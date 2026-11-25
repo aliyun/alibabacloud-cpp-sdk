@@ -95,8 +95,6 @@ namespace Models
 
   protected:
     // The snapshot type.
-    // 
-    // - Archive: Archive snapshot
     shared_ptr<string> category_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -104,7 +102,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The retention period of the snapshot in days. The retention period starts from the time when the snapshot is created, which is specified by CreationTime. A standard snapshot must be retained for at least 14 days after it is created before it can be archived.
     // 
-    // Archive snapshots have a retention period limit and must be retained as archive snapshots for at least 60 days. When you calculate the retention period of an archive snapshot, the period during which the snapshot was retained as a standard snapshot is deducted. If you delete an archive snapshot before it is retained for 60 days, you are charged for 60 days of archive storage. For more information, see [Snapshot billing](https://help.aliyun.com/document_detail/56159.html).
+    // Archived snapshots have a minimum retention period of 60 days. When you calculate the retention period of an archived snapshot, the period during which the snapshot was retained as a standard snapshot is deducted. If you delete an archived snapshot before it is retained for 60 days, you are still charged for 60 days of archive storage. For more information, see [Snapshot billing](https://help.aliyun.com/document_detail/56159.html).
     // 
     // Valid values: 74 to 65536.
     // 

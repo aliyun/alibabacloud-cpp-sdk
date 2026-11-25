@@ -177,15 +177,13 @@ namespace Models
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The resource group ID. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
-      // 
-      // > Filtering by the default resource group is not supported.
+      // The ID of the resource group. If you use this parameter to filter resources, the resource count cannot exceed 1,000.
+      // > You cannot filter resources by the default resource group.
       shared_ptr<string> resourceGroupId_ {};
       // The status of the VSC. Valid values:
-      // 
       // - In_use: In use.
-      // - Attaching: Attaching.
-      // - Detaching: Detaching.
+      // - Attaching: Being attached.
+      // - Detaching: Being detached.
       // - AttachFailed: Attachment failed.
       // - DetachFailed: Detachment failed.
       shared_ptr<string> status_ {};
@@ -225,7 +223,7 @@ namespace Models
 
 
   protected:
-    // The query token. The value is the NextToken value returned by the previous API call.
+    // The query token. Set the value to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

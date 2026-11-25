@@ -187,7 +187,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The name of the template.
     shared_ptr<string> name_ {};
-    // The query token. Set the value to the NextToken value returned from the previous call. You do not need to specify this parameter for the first call.
+    // The query token. The value is the `NextToken` parameter value returned by the previous call to this operation. You do not need to specify this parameter for the first call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -195,7 +195,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
+    // The resource group ID. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
     // 
     // > Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};

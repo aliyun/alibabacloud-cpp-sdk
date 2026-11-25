@@ -376,37 +376,37 @@ namespace Models
   protected:
     // The extended attributes of the diagnostic report.
     shared_ptr<string> attributes_ {};
-    // The time when the diagnostic report was created. The time is in ISO 8601 format in UTC.
+    // The time when the diagnostic report was created. The time follows the ISO 8601 standard and is in UTC.
     shared_ptr<string> creationTime_ {};
-    // The end time. This is the parameter passed in when you called the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create the diagnostic report. The time is in ISO 8601 format in UTC.
+    // The end time. This is the parameter passed when you call the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create a diagnostic report. The time follows the ISO 8601 standard and is in UTC.
     shared_ptr<string> endTime_ {};
-    // The time when the diagnostic report was completed. The time is in ISO 8601 format in UTC.
+    // The time when the diagnostic report was completed. The time follows the ISO 8601 standard and is in UTC.
     shared_ptr<string> finishedTime_ {};
     shared_ptr<DescribeDiagnosticReportAttributesResponseBody::MetricResults> metricResults_ {};
     // The ID of the diagnostic metric set.
     shared_ptr<string> metricSetId_ {};
-    // The ID of the diagnostic report. This is the unique identifier of the resource diagnostic report.
+    // The ID of the diagnostic report, which uniquely identifies the resource diagnostic report.
     shared_ptr<string> reportId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource ID.
+    // The ID of the resource.
     shared_ptr<string> resourceId_ {};
-    // The resource type. The supported type is instance.
+    // The resource type. Valid value: instance.
     shared_ptr<string> resourceType_ {};
-    // The severity level of the report. This is the most severe level among all metrics. The severity levels in ascending order are:
+    // The severity level of the report. This is the highest severity level among all metrics. The severity levels in ascending order are:
     // 
-    // - Unknown: The initial state. The diagnosis has not started, or the diagnostic process exited abnormally. No diagnostic conclusion is available.
-    // - Normal: The diagnosis is normal. No issues were found.
-    // - Info: Related information is available and may be associated with an exception.
-    // - Warn: Related information is available and may cause an exception.
+    // - Unknown: The initial state, which indicates that the diagnosis has not started or the diagnostic program exited abnormally, and no diagnostic conclusion is available.
+    // - Normal: The diagnosis is normal and no issues are found.
+    // - Info: Associated information is available, which may be related to an exception.
+    // - Warn: Associated information is available, which may cause an exception.
     // - Critical: A critical exception exists.
     shared_ptr<string> severity_ {};
-    // The start time. This is the parameter passed in when you called the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create the diagnostic report. The time is in ISO 8601 format in UTC.
+    // The start time. This is the parameter passed when you call the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create a diagnostic report. The time follows the ISO 8601 standard and is in UTC.
     shared_ptr<string> startTime_ {};
     // The status of the diagnostic report. Valid values:
     // 
     // - InProgress: The diagnosis is in progress.
-    // - Finished: The diagnosis is complete.
+    // - Finished: The diagnosis is completed.
     // - Failed: The diagnosis failed.
     shared_ptr<string> status_ {};
   };

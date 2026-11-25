@@ -98,15 +98,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the managed instance. The name must be 2 to 128 characters in length and must start with a letter. It cannot start with a special character or a digit. The name can contain periods (.), underscores (_), hyphens (-), and colons (:). It cannot start with `http://` or `https://`.
+    // The name of the managed instance. The name must be 2 to 128 characters in length and must start with a letter. It cannot start with a special character or a digit. It can contain only the following special characters: periods (.), underscores (_), hyphens (-), and colons (:). It cannot start with `http://` or `https://`.
     // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), Hong Kong (China), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
+    // The region ID. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), Hong Kong (China), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the region IDs and other information.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query region IDs and other information.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

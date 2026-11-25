@@ -631,20 +631,20 @@ namespace Models
 
 
   protected:
-    // The description of the network interface controller (NIC).
+    // The description of the Elastic Network Interface (ENI).
     shared_ptr<string> description_ {};
     shared_ptr<CreateNetworkInterfaceResponseBody::Ipv4PrefixSets> ipv4PrefixSets_ {};
     shared_ptr<CreateNetworkInterfaceResponseBody::Ipv6PrefixSets> ipv6PrefixSets_ {};
     shared_ptr<CreateNetworkInterfaceResponseBody::Ipv6Sets> ipv6Sets_ {};
-    // The MAC address of the network interface controller (NIC).
+    // The MAC address of the Elastic Network Interface (ENI).
     shared_ptr<string> macAddress_ {};
-    // The ID of the network interface controller (NIC).
+    // The ID of the Elastic Network Interface (ENI).
     shared_ptr<string> networkInterfaceId_ {};
-    // The name of the network interface controller (NIC).
+    // The name of the Elastic Network Interface (ENI).
     shared_ptr<string> networkInterfaceName_ {};
-    // The ID of the account to which the network interface controller (NIC) belongs.
+    // The ID of the account to which the Elastic Network Interface (ENI) belongs.
     shared_ptr<string> ownerId_ {};
-    // The private IP address of the network interface controller (NIC).
+    // The private IP address of the Elastic Network Interface (ENI).
     shared_ptr<string> privateIpAddress_ {};
     shared_ptr<CreateNetworkInterfaceResponseBody::PrivateIpSets> privateIpSets_ {};
     // The request ID.
@@ -652,20 +652,20 @@ namespace Models
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<CreateNetworkInterfaceResponseBody::SecurityGroupIds> securityGroupIds_ {};
-    // The ID of the Virtual Network Operator (VNO) associated with the network interface controller (NIC).
+    // The ID of the Virtual Network Operator (VNO) corresponding to the Elastic Network Interface (ENI).
     shared_ptr<int64_t> serviceID_ {};
-    // Indicates whether the user of the network interface controller (NIC) is a cloud service or a VNO.
+    // Indicates whether the user of the Elastic Network Interface (ENI) is a cloud service or a VNO.
     shared_ptr<bool> serviceManaged_ {};
     // > This parameter is in invitational preview and is not yet available.
     shared_ptr<bool> sourceDestCheck_ {};
     // The status of the elastic network interface (ENI).
     shared_ptr<string> status_ {};
     shared_ptr<CreateNetworkInterfaceResponseBody::Tags> tags_ {};
-    // The type of the network interface controller (NIC).
+    // The type of the Elastic Network Interface (ENI).
     shared_ptr<string> type_ {};
     // The ID of the vSwitch in the VPC.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the virtual private cloud (VPC) to which the ENI belongs.
+    // The ID of the VPC to which the ENI belongs.
     shared_ptr<string> vpcId_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

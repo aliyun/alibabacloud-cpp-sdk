@@ -323,7 +323,7 @@ namespace Models
 
 
   protected:
-    // The pagination token returned in this call.
+    // The query token returned by the current call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

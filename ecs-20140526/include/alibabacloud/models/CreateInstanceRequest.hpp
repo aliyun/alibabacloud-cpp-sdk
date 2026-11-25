@@ -190,9 +190,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the instance, cloud disk, and primary ENI. Valid values of N: 1 to 20. If this parameter is specified, it cannot be an empty string. The tag key can be up to 128 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag key of the instance, cloud disk, and primary ENI. Valid values of N: 1 to 20. If specified, this parameter cannot be an empty string. It can be up to 128 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the instance, cloud disk, and primary ENI. Valid values of N: 1 to 20. If this parameter is specified, it can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+      // The tag value of the instance, cloud disk, and primary ENI. Valid values of N: 1 to 20. If specified, this parameter can be an empty string. It can be up to 128 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -326,57 +326,57 @@ namespace Models
 
 
     protected:
-      // The category of data cloud disk N. Valid values:
+      // The category of data disk N. Valid values:
       // 
-      // - cloud_efficiency: ultra cloud disk.
+      // - cloud_efficiency: ultra disk.
       // - cloud_ssd: standard SSD.
-      // - cloud_essd: ESSD.
-      // - cloud: basic cloud disk.
-      // - cloud_auto: ESSD AutoPL.
-      // - cloud_essd_entry: ESSD Entry.
-      //   > The cloud_essd_entry value is supported only when InstanceType is set to the ecs.u1 or ecs.e instance family.
-      // - elastic_ephemeral_disk_standard: standard ESSD Entry disk.
-      // - elastic_ephemeral_disk_premium: premium ESSD Entry disk.
+      // - cloud_essd: enterprise SSD.
+      // - cloud: basic disk.
+      // - cloud_auto: ESSD AutoPL disk.
+      // - cloud_essd_entry: ESSD Entry disk.
+      //   >The cloud_essd_entry value is supported only when the InstanceType parameter is set to the ecs.u1 or ecs.e family.
+      // - elastic_ephemeral_disk_standard: standard elastic ephemeral disk.
+      // - elastic_ephemeral_disk_premium: elastic ephemeral disk - Premium Edition.
       // 
-      // For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
+      // Default value for I/O optimized instances: cloud_efficiency. Default value for non-I/O optimized instances: cloud.
       shared_ptr<string> category_ {};
-      // Specifies whether to release data cloud disk N when the instance is released.
+      // Specifies whether to release the data disk when the instance is released.
       // 
-      // - true: releases the data cloud disk.
-      // - false: does not release the data cloud disk.
+      // - true: releases the data disk.
+      // - false: does not release the data disk.
       // 
       // Default value: true.
       shared_ptr<bool> deleteWithInstance_ {};
-      // The description of data cloud disk N. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+      // The description of the data disk. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
       shared_ptr<string> description_ {};
-      // The mount point of data cloud disk N.
+      // The mount point of the data disk.
       // 
-      // > This parameter is applicable only to full images. You can set this parameter to the mount point of the data cloud disk in the full image, and modify the DataDisk.N.Size and DataDisk.N.Category parameters to change the category and size of the data cloud disk in the full image.
+      // >This parameter is applicable only to full images. You can set this parameter to the mount point of the data disk in the full image, and modify the corresponding DataDisk.N.Size and DataDisk.N.Category parameters to change the disk category and size of the data disk in the full image.
       shared_ptr<string> device_ {};
-      // The name of data cloud disk N. The name must be 2 to 128 characters in length and can contain letters and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+      // The name of the data disk. The name must be 2 to 128 characters in length and can contain characters in the Unicode Letter category, such as English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
       shared_ptr<string> diskName_ {};
-      // > This parameter is not available.
+      // >This parameter is not available.
       shared_ptr<string> encryptAlgorithm_ {};
-      // Specifies whether to encrypt data cloud disk N.
+      // Specifies whether to encrypt data disk N.
       // 
-      // - true: encrypts the data cloud disk.
+      // - true: encrypts the data disk.
       // 
-      // - false: does not encrypt the data cloud disk.
+      // - false: does not encrypt the data disk.
       // 
       // Default value: false.
       shared_ptr<bool> encrypted_ {};
-      // The ID of the KMS key used by the cloud disk.
+      // The ID of the KMS key used by the disk.
       shared_ptr<string> KMSKeyId_ {};
-      // Settings of the performance level of the ESSD used as data cloud disk N. The value of N must be the same as the value of N in DataDisk.N.Category=cloud_essd. Valid values:
+      // The performance level of the ESSD used as the data disk. The value of N must be the same as the value of N in DataDisk.N.Category=cloud_essd. Valid values:
       // 
       // - PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-      // - PL1: A single ESSD can deliver up to 50,000 random read/write IOPS. This is the default value.
+      // - PL1 (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
       // - PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
       // - PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
       // 
-      // For more information about how to select the performance level of an ESSD, see [standard SSD](https://help.aliyun.com/document_detail/122389.html).
+      // For more information about how to select the performance level of an ESSD, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> performanceLevel_ {};
-      // The size of data cloud disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
+      // The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
       // 
       // -   cloud_efficiency: 20 to 32768.
       // -   cloud_ssd: 20 to 32768.
@@ -387,15 +387,15 @@ namespace Models
       //     - PL3: 1261 to 65,536.
       // -   cloud: 5 to 2000.
       // 
-      // > The value of this parameter must be greater than or equal to the size of the snapshot specified by the SnapshotId parameter.
+      // >The value of this parameter must be greater than or equal to the size of the snapshot specified by the SnapshotId parameter.
       shared_ptr<int32_t> size_ {};
-      // The ID of the snapshot used to create data cloud disk N. Valid values of N: 1 to 16.
+      // The ID of the snapshot used to create data disk N. Valid values of N: 1 to 16.
       // 
-      // - If you specify the DataDisk.N.SnapshotId parameter, the DataDisk.N.Size parameter is ignored, and the actual size of the created cloud disk is the size of the specified snapshot.
+      // - After you specify the DataDisk.N.SnapshotId parameter, the DataDisk.N.Size parameter is ignored, and the actual size of the created disk is the size of the specified snapshot.
       // 
-      // - You cannot use snapshots created on or before July 15, 2013. Otherwise, the request is rejected with an error.
+      // - You cannot use snapshots created on or before July 15, 2013. Otherwise, the request is rejected and an error is returned.
       shared_ptr<string> snapshotId_ {};
-      // The ID of the dedicated block storage cluster. If you want to use cloud disk resources in a dedicated block storage cluster as data cloud disks when you create an ECS instance, specify this parameter.
+      // The ID of the dedicated block storage cluster. If you want to use disk resources from a dedicated block storage cluster as data disks when you create an ECS instance, specify this parameter.
       shared_ptr<string> storageClusterId_ {};
     };
 
@@ -446,11 +446,11 @@ namespace Models
 
 
     protected:
-      // > This parameter is in invitational preview and is not supported.
+      // >This parameter is in invitational preview and is not supported.
       shared_ptr<int64_t> assumeRoleFor_ {};
-      // > This parameter is in invitational preview and is not supported.
+      // >This parameter is in invitational preview and is not supported.
       shared_ptr<string> roleType_ {};
-      // > This parameter is in invitational preview and is not supported.
+      // >This parameter is in invitational preview and is not supported.
       shared_ptr<string> rolearn_ {};
     };
 
@@ -528,46 +528,46 @@ namespace Models
 
 
     protected:
-      // The category of the system cloud disk. Valid values:
+      // The category of the system disk. Valid values:
       // 
-      // - cloud_efficiency: ultra cloud disk.
+      // - cloud_efficiency: ultra disk.
       // - cloud_ssd: standard SSD.
-      // - cloud_essd: ESSD.
-      // - cloud: basic cloud disk.
-      // - cloud_auto: ESSD AutoPL.
+      // - cloud_essd: enterprise SSD.
+      // - cloud: basic disk.
+      // - cloud_auto: ESSD AutoPL disk.
       // - cloud_essd_entry: ESSD Entry disk.
-      // > This parameter supports the cloud_essd_entry value only when the InstanceType Settings are [general computing power instance family u1](https://help.aliyun.com/document_detail/457079.html) (ecs.u1) or [Economy instance family e](https://help.aliyun.com/document_detail/108489.html) (ecs.e).
+      // > The cloud_essd_entry value is supported only when the InstanceType parameter is set to [u1, universal instance family](https://help.aliyun.com/document_detail/457079.html) (`ecs.u1`) or [e, economy instance family](https://help.aliyun.com/document_detail/108489.html) (`ecs.e`).
       // 
-      // For phased-out instance types that are not I/O optimized instances, the default value is cloud. For other instance types, the default value is cloud_efficiency.
+      // Default value: cloud for retired instance types that are not I/O optimized, and cloud_efficiency for other instance types.
       shared_ptr<string> category_ {};
-      // The description of the system cloud disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+      // The description of the system disk. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
       // 
       // Default value: empty.
       shared_ptr<string> description_ {};
-      // The name of the system cloud disk. The name must be 2 to 128 characters in length and can contain letters and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+      // The name of the system disk. The name must be 2 to 128 characters in length. It can contain characters in the Letter category of Unicode, such as English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
       // 
       // Default value: empty.
       shared_ptr<string> diskName_ {};
-      // Settings of the performance level of the ESSD used as the system cloud disk. Valid values:
+      // The performance level of the ESSD used as the system disk. Valid values:
       // 
       // - PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-      // - PL1: A single ESSD can deliver up to 50,000 random read/write IOPS. This is the default value.
+      // - PL1 (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
       // - PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
       // - PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
       // 
-      // For more information about how to select the performance level of an ESSD, see [standard SSD](https://help.aliyun.com/document_detail/122389.html).
+      // For more information about how to select the performance level of an ESSD, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> performanceLevel_ {};
-      // The size of the system cloud disk. Unit: GiB. Valid values:
+      // The size of the system disk. Unit: GiB. Valid values:
       // 
-      // - Basic cloud disk: 20 to 500.
+      // - Basic disk: 20 to 500.
       // 
-      // - Other cloud disk types: 20 to 2048.
+      // - Other disk types: 20 to 2048.
       // 
       // The value of this parameter must be greater than or equal to max{20, ImageSize}.
       // 
       // Default value: max{40, ImageSize}.
       shared_ptr<int32_t> size_ {};
-      // The dedicated block storage cluster ID. If you need to use a cloud disk in a dedicated block storage cluster as the system cloud disk when creating an ECS instance, specify this parameter.
+      // The ID of the dedicated block storage cluster. Specify this parameter if you want to use a cloud disk in a dedicated block storage cluster as the system disk when creating an ECS instance.
       shared_ptr<string> storageClusterId_ {};
     };
 
@@ -609,19 +609,19 @@ namespace Models
 
 
     protected:
-      // The ID of the private pool. It is the ID of the elasticity assurance or capacity reservation.
+      // The ID of the private pool, which is the ID of the elasticity assurance or capacity reservation.
       shared_ptr<string> id_ {};
-      // The private pool options for starting spot instance. After an elasticity assurance or a capacity reservation takes effect, a private pool is generated for you to select when you start spot instance. Valid values:
+      // The private pool options for starting spot instance. After the elasticity assurance or capacity reservation service takes effect, a private pool is generated for you to select when you start spot instance. Valid values:
       // 
       // - Open: open mode. The system automatically matches an open private pool. If no matching private pool is available, the system uses resources from the public pool to start spot instance. In this mode, you do not need to specify the PrivatePoolOptions.Id parameter.
-      // - Target: specified mode. The system uses the specified private pool to start spot instance. If the specified private pool is unavailable, spot instance fails to start. In this mode, you must specify the private pool ID, which means the PrivatePoolOptions.Id parameter is required.
-      // - None: no private pool. Spot instance is started without using private pool capacity.
+      // - Target: specified mode. The system uses the specified private pool to start spot instance. If the specified private pool is unavailable, spot instance fails to be started. In this mode, you must specify the private pool ID, which means the PrivatePoolOptions.Id parameter is required.
+      // - None: no private pool. Spot instance is started without using a private pool.
       // 
       // Default value: None.
       // 
-      // In any of the following scenarios, the private pool option for starting spot instance can only be set to None or left empty:
-      // - Create a preemptible instance.
-      // - Create an ECS instance on a dedicated host.
+      // In any of the following scenarios, the private pool options for starting spot instance can only be set to None or left empty:
+      // - Creating a preemptible instance.
+      // - Creating an ECS instance on a dedicated host.
       shared_ptr<string> matchCriteria_ {};
     };
 
@@ -653,7 +653,7 @@ namespace Models
 
 
     protected:
-      // > This parameter is in invitational preview and is not supported.
+      // >This parameter is in invitational preview and is not supported.
       shared_ptr<bool> configured_ {};
     };
 
@@ -1123,70 +1123,68 @@ namespace Models
     shared_ptr<CreateInstanceRequest::SystemDisk> systemDisk_ {};
     // Specifies whether to associate the instance on a dedicated host with the dedicated host. Valid values:
     // 
-    // - default: The instance is not associated with the dedicated host. If an instance in the economical mode is stopped and then started, and the original dedicated host has insufficient resources, the instance is deployed on another dedicated host in the automatic deployment resource pool.
+    // - default: The instance is not associated with the dedicated host. If an instance in economical mode is stopped and then started, and the original dedicated host has insufficient resources, the instance is automatically deployed on another dedicated host in the automatic deployment resource pool.
     // 
-    // - host: The instance is associated with the dedicated host. If an instance in the economical mode is stopped and then started, it is still deployed on the original dedicated host. If the original dedicated host has insufficient resources, the instance fails to start.
+    // - host: The instance is associated with the dedicated host. If an instance in economical mode is stopped and then started, the instance is still deployed on the original dedicated host. If the original dedicated host has insufficient resources, the instance fails to be restarted.
     // 
     // Default value: default.
     shared_ptr<string> affinity_ {};
-    // > This parameter is in invitational preview and is not supported.
+    // >This parameter is in invitational preview and is not supported.
     shared_ptr<vector<CreateInstanceRequest::Arn>> arn_ {};
-    // Specifies whether to enable auto-renewal. This parameter takes effect only when InstanceChargeType is set to PrePaid. Valid values:
+    // Specifies whether to enable auto-renewal. This parameter takes effect only when the InstanceChargeType parameter is set to PrePaid. Valid values:
     // 
     // - true: enables auto-renewal.
-    // - false: disables auto-renewal. This is the default value.
+    // - false (default): disables auto-renewal.
     shared_ptr<bool> autoRenew_ {};
-    // The auto-renewal duration. This parameter is required when AutoRenew is set to true.
+    // The auto-renewal duration. This parameter is required when the AutoRenew parameter is set to true.
     // 
     // <props="china">When PeriodUnit is set to Week, valid values of AutoRenewPeriod are 1, 2, and 3.
     // 
     // When PeriodUnit is set to Month, valid values of AutoRenewPeriod are 1, 2, 3, 6, and 12.
     shared_ptr<int32_t> autoRenewPeriod_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // The ID of the cluster to which the instance belongs.
     // 
-    // > This parameter is about to be deprecated. To improve compatibility, use other parameters instead.
+    // >This parameter will be deprecated. To improve compatibility, use other parameters instead.
     shared_ptr<string> clusterId_ {};
     // The performance mode of the burstable instance. Valid values:
     // 
-    // - Standard: standard mode. For more information about instance performance, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
-    // - Unlimited: unlimited mode. For more information about instance performance, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+    // - Standard: standard mode. For more information about the instance performance, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+    // - Unlimited: unlimited mode. For more information about the instance performance, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
     shared_ptr<string> creditSpecification_ {};
-    // The data cloud disks.
+    // The data disks.
     shared_ptr<vector<CreateInstanceRequest::DataDisk>> dataDisk_ {};
     // The ID of the dedicated host.
-    // <props="china">You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the list of dedicated host IDs.
+    // <props="china">You can invoke the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the list of dedicated host IDs.
     // 
-    // <props="intl">You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the list of dedicated host IDs.
+    // <props="intl">You can invoke the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the list of dedicated host IDs.
     // 
-    // >Notice: Dedicated hosts do not support spot instance. If you specify the DedicatedHostId parameter, the SpotStrategy and SpotPriceLimit Settings in the request are automatically ignored.</notice>
+    // >Notice: Dedicated hosts do not support spot instance. If you specify the DedicatedHostId parameter, the SpotStrategy and SpotPriceLimit settings in the request are automatically ignored.</notice>
     shared_ptr<string> dedicatedHostId_ {};
     // The release protection attribute of the instance. It specifies whether the instance can be released through the console or by calling the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation.
     // 
-    // -   true: enables release protection for the instance.
-    // -   false: disables release protection for the instance. This is the default value.
+    // -   true: enables release protection.
+    // -   false (default): disables release protection.
     // 
     // > This attribute applies only to pay-as-you-go instances and restricts only manual release operations. It does not take effect on system release operations.
     shared_ptr<bool> deletionProtection_ {};
-    // The group number of the instance in the deployment set. This parameter is valid when the deployment set uses the high availability group strategy (AvailabilityGroup). Valid values: 1 to 7.
+    // The group number of the instance in the deployment set. This parameter is valid when the deployment set uses the high availability strategy (AvailabilityGroup). Valid values: 1 to 7.
     shared_ptr<int32_t> deploymentSetGroupNo_ {};
     // The ID of the deployment set.
     shared_ptr<string> deploymentSetId_ {};
-    // The description of the instance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-    // 
-    // Default value: empty.
+    // The description of the instance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`. Default value: empty.
     shared_ptr<string> description_ {};
     // Specifies whether to perform only a dry run on the request. Valid values:
     // 
     // - true: performs a dry run and does not create the instance. The system checks whether required parameters are specified, the request format, service limits, and ECS inventory. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
-    // - false: performs a dry run and creates the instance if the check succeeds. This is the default value.
+    // - false (default): performs a dry run and creates the instance if the check succeeds.
     shared_ptr<bool> dryRun_ {};
-    // The hostname of the instance.
+    // The hostname of the Elastic Compute Service server.
     // 
     // - The hostname cannot start or end with a period (.) or a hyphen (-), and cannot contain consecutive periods (.) or hyphens (-).
-    // - For Windows instances: The hostname must be 2 to 15 characters in length and cannot contain periods (.). It cannot contain only digits. It can contain uppercase and lowercase letters, digits, and hyphens (-).
-    // - For other instances such as Linux instances: The hostname must be 2 to 64 characters in length and can contain multiple periods (.). The string between two consecutive periods is a segment, which can contain uppercase and lowercase letters, digits, and hyphens (-).
+    // - For a Windows instance: The hostname must be 2 to 15 characters in length and cannot contain periods (.). It cannot contain only digits. It can contain letters, digits, and hyphens (-).
+    // - For other instances such as Linux instances: The hostname must be 2 to 64 characters in length. It can contain multiple periods (.). The string between two periods is a segment, which can contain letters, digits, and hyphens (-).
     shared_ptr<string> hostName_ {};
     // The ID of the HPC cluster to which the instance belongs.
     shared_ptr<string> hpcClusterId_ {};
@@ -1195,43 +1193,43 @@ namespace Models
     // - disabled: disables the access channel.
     // 
     // Default value: enabled.
-    // > For more information about instance metadata, see [Overview of instance metadata](https://help.aliyun.com/document_detail/49122.html).
+    // >For more information about instance metadata, see [Overview of instance metadata](https://help.aliyun.com/document_detail/49122.html).
     shared_ptr<string> httpEndpoint_ {};
-    // > This parameter is not available.
+    // >This parameter is not available.
     shared_ptr<int32_t> httpPutResponseHopLimit_ {};
     // Specifies whether to forcibly use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
-    // - optional: does not forcibly use IMDSv2.
-    // - required: forcibly uses IMDSv2. After you set this value, you cannot access instance metadata in normal mode.
+    // - optional: IMDSv2 is not required.
+    // - required: IMDSv2 is required. After you set this value, you cannot access instance metadata in normal mode.
     // 
     // Default value: optional.
-    // > For more information about the modes for accessing instance metadata, see [Access modes of instance metadata](https://help.aliyun.com/document_detail/150575.html).
+    // >For more information about the modes for accessing instance metadata, see [Access modes of instance metadata](https://help.aliyun.com/document_detail/150575.html).
     shared_ptr<string> httpTokens_ {};
-    // The name of the image family. You can set this parameter to use the latest available image in the image family to create the instance.
+    // The name of the image family. You can set this parameter to use the latest available image in the specified image family to create the instance.
     // - If ImageId is specified, you cannot specify this parameter.
     // - If ImageId is not specified, you can specify this parameter.
     shared_ptr<string> imageFamily_ {};
-    // The ID of the image used to start the instance. To use an Alibaba Cloud Marketplace image, you can view the ImageId on the image details page in Alibaba Cloud Marketplace. This parameter is required unless you specify ImageFamily to use the latest available image in the image family.
+    // The ID of the image used to start the instance. To use an Alibaba Cloud Marketplace image, you can view the ImageId on the image details page in Alibaba Cloud Marketplace. This parameter is required if you do not specify the ImageFamily parameter to use the latest available image in an image family.
     shared_ptr<string> imageId_ {};
     // The internal IP address of the instance.
     shared_ptr<string> innerIpAddress_ {};
     // The billing method of the instance. Valid values:
     // 
     // - PrePaid: subscription. If you select this billing method, make sure that your account supports balance payment or credit payment. Otherwise, an InvalidPayMethod error is returned.
-    // - PostPaid: pay-as-you-go. This is the default value.
+    // - PostPaid (default): pay-as-you-go.
     shared_ptr<string> instanceChargeType_ {};
-    // The name of the instance. The name must be 2 to 128 characters in length and can contain letters and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-). If this parameter is not specified, the default value is the instance ID.
+    // The name of the instance. The name must be 2 to 128 characters in length and can contain letters and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-). If this parameter is not specified, the instance ID is used as the default value.
     shared_ptr<string> instanceName_ {};
     // The instance type.
     // 
-    // - Instance type selection: See [Instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to view the performance data of the target instance type. Alternatively, see [Instance type selection](https://help.aliyun.com/document_detail/58291.html) to learn how to select an instance type.
-    // - Inventory query: Call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) operation to check the resource availability in a specified region or zone.
+    // - Instance type selection: Refer to [instance family](https://help.aliyun.com/document_detail/25378.html) or invoke the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to view the performance data of the target instance type. You can also refer to [Selection Settings](https://help.aliyun.com/document_detail/58291.html) to learn how to select an instance type.
+    // - Inventory query: invoke the [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) operation to check the resource availability in a specified region or zone.
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
     // The billing method for network usage. Valid values:
     // 
     // - PayByBandwidth: pay-by-bandwidth.
-    // - PayByTraffic: pay-by-traffic. This is the default value.
+    // - PayByTraffic (default): pay-by-traffic.
     // 
     // > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are upper limits and are not guaranteed. When resource contention occurs, the peak bandwidths may be limited. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
     shared_ptr<string> internetChargeType_ {};
@@ -1244,26 +1242,26 @@ namespace Models
     // 
     // Default value: 0.
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-    // Specifies whether the instance is an I/O optimized instance. Valid values:
+    // Specifies whether the instance is I/O optimized. Valid values:
     // 
     // - none: The instance is not I/O optimized.
     // - optimized: The instance is I/O optimized.
     // 
-    // For [phased-out instance types](https://help.aliyun.com/document_detail/55263.html), the default value is none.
+    // Default value for [retired instance types](https://help.aliyun.com/document_detail/55263.html): none.
     // 
-    // For other instance types, the default value is optimized.
+    // Default value for other instance types: optimized.
     shared_ptr<string> ioOptimized_ {};
-    // The name of the key pair.
+    // The name of the SSH key pair.
     // 
-    // > For Windows instances, this parameter is ignored. Default value: empty. Even if you specify this parameter, only the Password parameter takes effect.
+    // >For a Windows instance, this parameter is ignored. Default value: empty. Even if you specify this parameter, only the Password parameter takes effect.
     shared_ptr<string> keyPairName_ {};
     // The unique identifier of the platform-managed host, such as mh-f2d3647ca21****.
     shared_ptr<string> managedHostId_ {};
-    // > This parameter is in invitational preview and is not supported.
+    // >This parameter is in invitational preview and is not supported.
     shared_ptr<string> nodeControllerId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The password of the instance. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
+    // The password of the instance. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
     // 
     // ```
     // ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
@@ -1272,12 +1270,12 @@ namespace Models
     // Note:
     // 
     // - If you specify the Password parameter, send requests over HTTPS to prevent password leaks.
-    // - For Windows instances, the password cannot start with a forward slash (/).
-    // - Instances running certain operating systems do not support password configuration and only support key pair configuration, such as Others Linux and Fedora CoreOS.
+    // - For a Windows instance, the password cannot start with a forward slash (/).
+    // - Instances of some operating systems do not support passwords and only support SSH key pairs. Examples: Others Linux and Fedora CoreOS.
     shared_ptr<string> password_ {};
-    // Specifies whether to use the preset password of the image. When you use this parameter, leave the Password parameter empty and make sure that the selected image has a preset password.
+    // Specifies whether to use the password preset in the image. When you specify this parameter, leave the Password parameter empty and make sure that the selected image has a preset password.
     shared_ptr<bool> passwordInherit_ {};
-    // The subscription period of the resource. The unit is specified by PeriodUnit. This parameter is required and takes effect only when InstanceChargeType is set to PrePaid. If DedicatedHostId is specified, the subscription period cannot exceed the subscription period of the dedicated host. Valid values:
+    // The subscription period of the resource. The unit is specified by PeriodUnit. This parameter takes effect and is required only when the InstanceChargeType parameter is set to PrePaid. If DedicatedHostId is specified, the subscription period cannot exceed the subscription period of the dedicated host. Valid values:
     // 
     // <props="china">
     // - When PeriodUnit is set to Week, valid values of Period are 1, 2, 3, and 4.
@@ -1292,8 +1290,8 @@ namespace Models
     // The unit of the subscription period. Valid values:
     // 
     // <props="china">
-    // - Week
-    // - Month
+    // - Week.
+    // - Month.
     // 
     // 
     // 
@@ -1303,7 +1301,7 @@ namespace Models
     // 
     // Default value: Month.
     shared_ptr<string> periodUnit_ {};
-    // The private IP address of the instance. The IP address must be an available IP address within the CIDR block of the vSwitch specified by VSwitchId.
+    // The private IP address of the instance. The IP address must be an idle IP address within the CIDR block of the vSwitch specified by VSwitchId.
     shared_ptr<string> privateIpAddress_ {};
     // The name of the instance RAM role. You can use the RAM API operation [ListRoles](https://help.aliyun.com/document_detail/28713.html) to query the instance RAM roles that you have created.
     shared_ptr<string> ramRoleName_ {};
@@ -1324,29 +1322,29 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
     // 
-    // - 1: Alibaba Cloud guarantees that spot instance will not undergo automatic release within 1 hour after it is created. After 1 hour, the system automatically compares the bid price with the marketplace price and checks resource inventory to determine whether to retain or revoke spot instance.
-    // - 0: Alibaba Cloud does not guarantee that spot instance runs for 1 hour after it is created. The system automatically compares the bid price with the marketplace price and checks resource inventory to determine whether to retain or revoke spot instance.
+    // - 1: Alibaba Cloud guarantees that the spot instance is not subject to automatic release within 1 hour after it is created. After 1 hour, the system automatically compares the bid price with the marketplace price and checks the resource inventory to determine whether to retain or revoke the spot instance.
+    // - 0: Alibaba Cloud does not guarantee that the spot instance runs for 1 hour after it is created. The system automatically compares the bid price with the marketplace price and checks the resource inventory to determine whether to retain or revoke the spot instance.
     // 
     // > 
-    // > - The Settings of this parameter can only be 0 or 1.
-    // > - Spot instances are billed by the second. Select an appropriate protection period based on the execution duration of your node.
-    // > - Alibaba Cloud sends you a notification through ECS system events 5 minutes before spot instance is revoked.
+    // > - This parameter can only be set to 0 or 1.
+    // > - Preemptible instances use billing by second. Select an appropriate protection period based on the execution duration of your task.
+    // > - Alibaba Cloud sends you a notification through ECS system events 5 minutes before the automatic release of the spot instance.
     shared_ptr<int32_t> spotDuration_ {};
-    // The interruption behavior of the preemptible instance. Valid values:
+    // The break mode of the preemptible instance. Valid values:
     // 
     // - Terminate: releases the instance.
     // 
-    // - Stop: puts the instance into the break mode.
+    // - Stop: puts the instance into economical mode.
     // 
-    //   For more information about the break mode, see [Break mode for pay-as-you-go instances](https://help.aliyun.com/document_detail/63353.html).
+    //   For more information about the economical mode, see [Economical mode for pay-as-you-go instances](https://help.aliyun.com/document_detail/63353.html).
     // 
     // Default value: Terminate.
     shared_ptr<string> spotInterruptionBehavior_ {};
-    // The maximum hourly price of the instance. The value can be accurate to three decimal places. This parameter takes effect when SpotStrategy is set to SpotWithPriceLimit.
+    // The maximum hourly price of the instance. This parameter supports up to three decimal places and takes effect when the SpotStrategy parameter is set to SpotWithPriceLimit.
     shared_ptr<float> spotPriceLimit_ {};
-    // The preemption policy for spot instance. This parameter takes effect when InstanceChargeType is set to PostPaid. Valid values:
+    // The preemption policy for spot instance. This parameter takes effect when the InstanceChargeType parameter is set to PostPaid. Valid values:
     // 
-    // - NoSpot: Spot instance is a regular pay-as-you-go instance. This is the default value.
+    // - NoSpot (default): Spot instance is a regular pay-as-you-go instance.
     // - SpotWithPriceLimit: Spot instance is a preemptible instance with a maximum hourly price.
     // - SpotAsPriceGo: Spot instance is a preemptible instance for which the market price is automatically used as the bid price.
     shared_ptr<string> spotStrategy_ {};
@@ -1358,9 +1356,9 @@ namespace Models
     shared_ptr<vector<CreateInstanceRequest::Tag>> tag_ {};
     // Specifies whether to create the instance on a dedicated host. Valid values:
     // 
-    // - default: The instance is created on a non-dedicated host.
+    // - default: creates the instance on a non-dedicated host.
     // 
-    // - host: The instance is created on a dedicated host. If you do not specify DedicatedHostId, Alibaba Cloud automatically selects a dedicated host to deploy the instance.
+    // - host: creates the instance on a dedicated host. If you do not specify DedicatedHostId, Alibaba Cloud automatically selects a dedicated host to deploy the instance.
     // 
     // Default value: default.
     shared_ptr<string> tenancy_ {};
@@ -1368,15 +1366,15 @@ namespace Models
     shared_ptr<bool> useAdditionalService_ {};
     // Instance user data of the instance. Instance user data must be encoded in Base64. The maximum size of the raw data is 32 KB.
     shared_ptr<string> userData_ {};
-    // The ID of the vSwitch. This parameter is required when you create a VPC-type instance. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query the information of created vSwitches.
+    // If you create a VPC instance, you must specify the vSwitch ID. You can invoke the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query the information about created vSwitches.
     // 
-    // > If you specify the VSwitchId parameter, the ZoneId parameter must match the zone of the vSwitch. You can also leave the ZoneId parameter empty, and the system automatically selects the zone of the specified vSwitch.
+    // > If you specify the VSwitchId parameter, the specified ZoneId parameter must match the zone of the vSwitch. You can also leave the ZoneId parameter empty, and the system automatically selects the zone of the specified vSwitch.
     shared_ptr<string> vSwitchId_ {};
     // The virtual local area network ID.
     shared_ptr<string> vlanId_ {};
     // The zone ID of the instance. For more information, see [DescribeZones](https://help.aliyun.com/document_detail/25610.html) to obtain the zone list.
     // 
-    // > If you specify the VSwitchId parameter, the ZoneId parameter must match the zone of the vSwitch. You can also leave the ZoneId parameter empty, and the system automatically selects the zone of the specified vSwitch.
+    // > If you specify the VSwitchId parameter, the specified ZoneId parameter must match the zone of the vSwitch. You can also leave the ZoneId parameter empty, and the system automatically selects the zone of the specified vSwitch.
     // 
     // Default value: empty. The system automatically selects a zone.
     shared_ptr<string> zoneId_ {};

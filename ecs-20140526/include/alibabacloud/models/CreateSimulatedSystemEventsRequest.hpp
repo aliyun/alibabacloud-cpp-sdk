@@ -118,35 +118,33 @@ namespace Models
     // The type of the system event. Valid values: 
     // 
     // - SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
-    // - SystemFailure.Reboot: The instance is restarted due to a system error.
-    // - InstanceFailure.Reboot: The instance is restarted due to an instance error.
+    // - SystemFailure.Reboot: The instance is restarted due to a system failure.
+    // - InstanceFailure.Reboot: The instance is restarted due to an instance failure.
     // - SystemMaintenance.Stop: The instance is stopped due to system maintenance.
     // - SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
-    // - SystemFailure.Redeploy: The instance is redeployed due to a system error.
-    // - SystemFailure.Stop: The instance is stopped due to a system error.
-    // - InstanceFailure.Reboot: The instance is restarted due to an instance error.
+    // - SystemFailure.Redeploy: The instance is redeployed due to a system failure.
+    // - SystemFailure.Stop: The instance is stopped due to a system failure.
+    // - InstanceFailure.Reboot: The instance is restarted due to an instance failure.
     // 
     // This parameter is required.
     shared_ptr<string> eventType_ {};
-    // The list of ECS instance IDs. You can specify up to 100 instance IDs.
+    // The IDs of the ECS instances. You can specify up to 100 instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceId_ {};
     // The scheduled start time of the event. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
-    // > For unexpected events caused by system errors or instance errors, the event is already in the Executing state after it is created. In this case, the NotBefore parameter specifies the time when the event enters the Executed state.
-    // 
-    // This parameter is required.
+    // > If the TriggerRealOps parameter is set to false, you must specify the NotBefore parameter.
     shared_ptr<string> notBefore_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to trigger real O&M operations. Valid values:<br>- true: Triggers real O&M operations. The system will actually stop or release the instance. Test with caution or use instances that do not run workloads.<br>- false (default): Only simulates event notifications without affecting the actual lifecycle of the instance.
+    // Specifies whether to trigger actual O&M operations. Valid values:<br>- true: Triggers actual O&M operations. The system actually stops or releases the instance. Proceed with caution during testing, or select an instance that does not run business workloads for testing. The O&M event is generated approximately 1 minute after the API call succeeds.<br>- false: Simulates only event notifications and does not affect the actual lifecycle of the instance. This is the default value.
     shared_ptr<bool> triggerRealOps_ {};
   };
 

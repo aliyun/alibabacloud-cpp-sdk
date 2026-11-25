@@ -270,15 +270,15 @@ namespace Models
 
   protected:
     shared_ptr<ListPluginStatusResponseBody::InstancePluginStatusSet> instancePluginStatusSet_ {};
-    // The pagination token returned in this call.
+    // The pagination token returned in the current response.
     shared_ptr<string> nextToken_ {};
-    // The page number of the query result.
+    // The page number of the query results.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the query conditions.
+    // The total number of entries that meet the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

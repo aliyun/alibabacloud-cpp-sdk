@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The ID of the cloud disk to be rolled back. Valid values of N: 1 to 10.
+      // The ID of the disk to be rolled back. Valid values of N: 1 to 10.
       shared_ptr<string> diskId_ {};
-      // The ID of the snapshot that corresponds to the cloud disk in the instance snapshot. Valid values of N: 1 to 10.
+      // The ID of the snapshot that corresponds to the disk in the instance snapshot. Valid values of N: 1 to 10.
       shared_ptr<string> snapshotId_ {};
     };
 
@@ -141,20 +141,20 @@ namespace Models
 
 
   protected:
-    // The list of cloud disks.
+    // The list of disks.
     // 
     // This parameter is required.
     shared_ptr<vector<ResetDisksRequest::Disk>> disk_ {};
     // Specifies whether to perform a dry run on the request. Valid values:
     // 
-    // - true: performs a dry run. The system checks the required parameters, request format, and resource status. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // - false: performs a standard request. If the request passes the dry run, the cloud disks are rolled back.
+    // - true: sends a dry run request and does not roll back the disk. The system checks whether required parameters are specified, the request format, and resource status limits. If the request fails the check, the corresponding error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+    // - false: sends a normal request and directly rolls back the disk after the request passes the check.
     // 
     // Default value: false.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

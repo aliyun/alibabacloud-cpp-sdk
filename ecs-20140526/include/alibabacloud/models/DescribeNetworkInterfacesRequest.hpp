@@ -112,11 +112,11 @@ namespace Models
 
 
     protected:
-      // The tag key of the Elastic Network Interface (ENI). Valid values of N: 1 to 20.
+      // The tag key of the ENI. Valid values of N: 1 to 20.
       shared_ptr<string> key_ {};
-      // The tag value of the Elastic Network Interface (ENI). Valid values of N: 1 to 20.
+      // The tag value of the ENI. Valid values of N: 1 to 20.
       // 
-      // If you use a single tag to filter resources, the number of resources that match the tag cannot exceed 1,000. If you use multiple tags to filter resources, the number of resources that are attached with multiple tags cannot exceed 1,000. If the number of resources exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+      // If you use a single tag to filter resources, the resource count returned cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources to which you attach multiple tags cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
       shared_ptr<string> value_ {};
     };
 
@@ -296,40 +296,40 @@ namespace Models
 
 
   protected:
-    // The instance ID to which the Elastic Network Interface (ENI) is currently attached.
+    // The ID of the instance to which the ENI is attached.
     shared_ptr<string> instanceId_ {};
-    // The IPv6 address of the Elastic Network Interface (ENI). N indicates that multiple IPv6 addresses can be configured. Valid values of N: 1 to 100.
+    // The IPv6 address of the ENI. N indicates that you can specify multiple IPv6 addresses. Valid values of N: 1 to 100.
     shared_ptr<vector<string>> ipv6Address_ {};
-    // The maximum number of entries per page for a paging query. Valid values: 10 to 500.
+    // The maximum number of entries per page for a paged query. Valid values: 10 to 500.
     // 
     // Default value:
     // 
     // - If this parameter is not specified or the specified value is less than 10, the default value is 10.
     // - If the specified value is greater than 500, the default value is 500.
     shared_ptr<int32_t> maxResults_ {};
-    // The Elastic Network Interface (ENI) ID. Valid values of N: 1 to 100.
+    // The ENI ID. Valid values of N: 1 to 100.
     shared_ptr<vector<string>> networkInterfaceId_ {};
-    // The name of the Elastic Network Interface (ENI). The name must be 2 to 128 characters in length, and can contain characters in the letter categorization of Unicode (including English, Chinese, and digits). It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+    // The name of the ENI. The name must be 2 to 128 characters in length and can contain Unicode letters, including English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> networkInterfaceName_ {};
     // The pagination token. Set the value to the `NextToken` value returned from the previous API call.
     // 
-    // For more information about how to configure the pagination parameters, see the "Operation description" section.
+    // For more information about how to configure the pagination parameters for this operation, see the "Operation description" section above.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > **[Deprecated]** We recommend that you use the `MaxResults` and `NextToken` parameters for pagination.
+    // > **[Deprecated]** Use the `MaxResults` or `NextToken` parameter for paged queries.
     shared_ptr<int32_t> pageNumber_ {};
-    // > **[Deprecated]** We recommend that you use the `MaxResults` and `NextToken` parameters for pagination.
+    // > **[Deprecated]** Use the `MaxResults` or `NextToken` parameter for paged queries.
     shared_ptr<int32_t> pageSize_ {};
-    // The primary private network IPv4 address of the Elastic Network Interface (ENI).
+    // The primary private IPv4 address of the ENI.
     shared_ptr<string> primaryIpAddress_ {};
-    // The secondary private IP IPv4 address of the Elastic Network Interface (ENI). Valid values of N: 1 to 100.
+    // The secondary private IPv4 address of the ENI. Valid values of N: 1 to 100.
     shared_ptr<vector<string>> privateIpAddress_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. When you use this parameter to filter resources, the number of resources cannot exceed 1,000.
+    // The resource group ID. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
     // 
     // > Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
@@ -340,30 +340,30 @@ namespace Models
     // - To query the information about secondary ENIs by security group ID, specify this parameter.
     // - To query the information about primary ENIs by security group ID, call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation and specify the `SecurityGroupId` parameter.
     shared_ptr<string> securityGroupId_ {};
-    // Specifies whether the Elastic Network Interface (ENI) is used by an Alibaba Cloud service or a Virtual Network Operator (VNO).
+    // Specifies whether the ENI is managed by an Alibaba Cloud service or a Virtual Network Operator (VNO).
     shared_ptr<bool> serviceManaged_ {};
-    // The status of the Elastic Network Interface (ENI). Valid values:
+    // The status of the ENI. Valid values:
     // 
-    // * Available: active.
-    // * Attaching: being attached.
-    // * InUse: attached.
-    // * Detaching: being detached.
-    // * Deleting: being deleted.
+    // * Available: available.
+    // * Attaching: attaching.
+    // * InUse: in use.
+    // * Detaching: detaching.
+    // * Deleting: deleting.
     // 
-    // Default value: empty, which indicates that Elastic Network Interfaces (ENIs) in all states are queried.
+    // Default value: empty. An empty value indicates that all statuses are queried.
     shared_ptr<string> status_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<DescribeNetworkInterfacesRequest::Tag>> tag_ {};
-    // The Elastic Network Interface (ENI) type. Valid values:
+    // The ENI type. Valid values:
     // 
-    // - Primary: primary network interface controller (NIC).
+    // - Primary: primary ENI.
     // - Secondary: secondary ENI.
     // 
-    // Default value: empty, which indicates that Elastic Network Interfaces (ENIs) of all types are queried.
+    // Default value: empty. An empty value indicates that all types are queried.
     shared_ptr<string> type_ {};
-    // The vSwitch ID of the Elastic Network Interface (ENI).
+    // The vSwitch ID of the ENI.
     shared_ptr<string> vSwitchId_ {};
-    // The VPC ID of the Elastic Network Interface (ENI).
+    // The VPC ID of the ENI.
     shared_ptr<string> vpcId_ {};
   };
 

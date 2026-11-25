@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud disk.
+    // The disk ID.
     shared_ptr<string> diskId_ {};
-    // The ID of the generated order.
+    // The order ID.
     // 
-    // > The order ID is returned only when you create a subscription cloud disk.
+    // > The order ID is returned only when you create a subscription disk.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

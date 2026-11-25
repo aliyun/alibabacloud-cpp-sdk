@@ -143,7 +143,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeElasticityAssuranceInstancesResponseBody::ElasticityAssuranceItem> elasticityAssuranceItem_ {};
-    // The number of entries returned per page for paging.
+    // The number of entries returned per page for a paging query.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};

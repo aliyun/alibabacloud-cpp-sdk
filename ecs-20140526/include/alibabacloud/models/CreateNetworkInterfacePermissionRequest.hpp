@@ -107,19 +107,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> accountId_ {};
-    // The ID of the Elastic network interface controller (NIC).
+    // The ID of the Elastic Network Interface (ENI).
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The Elastic network interface controller (NIC) permission action. Only InstanceAttach is supported.
+    // The action permitted by the elastic network interface controller (NIC) permission. Valid values:
     // 
-    // InstanceAttach: allows the authorized user to attach your Elastic network interface controller (NIC) to their ECS instance. The ECS instance and the Elastic network interface controller (NIC) must reside in the same active zone.
+    // - InstanceAttach: Allows the authorized user to attach your elastic network interface controller (NIC) to their ECS instance. The ECS instance and the elastic network interface controller (NIC) must reside in the same active zone.
     // 
     // This parameter is required.
     shared_ptr<string> permission_ {};
-    // The region of the Elastic network interface controller (NIC) permission. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
+    // The region of the elastic network interface controller (NIC) permission. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest Alibaba Cloud region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

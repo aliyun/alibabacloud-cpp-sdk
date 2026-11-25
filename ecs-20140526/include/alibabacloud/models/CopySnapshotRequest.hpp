@@ -98,9 +98,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the new snapshot. If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length, cannot start with aliyun or acs:, and cannot contain http:// or https://.
+      // The tag key of the new snapshot. If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
       shared_ptr<string> key_ {};
-      // The tag value of the new snapshot. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length, cannot start with aliyun or acs:, and cannot contain http:// or https://.
+      // The tag value of the new snapshot. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -282,7 +282,7 @@ namespace Models
   protected:
     // >This parameter is in invitational preview and is not supported.
     shared_ptr<vector<CopySnapshotRequest::Arn>> arn_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // The ID of the destination region for the new snapshot.
     // 
@@ -294,7 +294,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> destinationSnapshotDescription_ {};
-    // The name of the new snapshot. The name must be 2 to 128 characters in length, must start with a letter or a Chinese character, and cannot start with http:// or https://. It supports characters in the Letter category of Unicode, including English letters, Chinese characters, and digits. It can contain colons (:), underscores (_), periods (.), and hyphens (-).
+    // The name of the new snapshot. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with http:// or https://. It can contain letters, digits, and Chinese characters. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
     // 
     // Default value: empty.
     // 
@@ -328,7 +328,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> snapshotId_ {};
-    // The tag information of the new snapshot.
+    // The tags of the new snapshot.
     shared_ptr<vector<CopySnapshotRequest::Tag>> tag_ {};
   };
 

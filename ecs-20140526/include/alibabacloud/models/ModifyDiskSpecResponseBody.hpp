@@ -59,13 +59,13 @@ namespace Models
   protected:
     // The ID of the generated order.
     // 
-    // > The order ID is returned only when you change the specifications of a subscription disk.
+    // > This parameter is returned only when you change the specifications of a subscription disk.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task ID for changing the disk specifications.
+    // The ID of the disk specification change task.
     // 
-    // > This parameter is not returned if you only modify the performance level (PL) of an enterprise SSD.
+    // > This parameter is not returned if you only modify the performance level (PL) of an ESSD.
     shared_ptr<string> taskId_ {};
   };
 

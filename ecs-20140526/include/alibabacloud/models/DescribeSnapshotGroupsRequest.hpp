@@ -94,9 +94,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the snapshot-consistent group. Valid values of N: 1 to 20.
+      // The key of tag N of the snapshot-consistent group. Valid values of N: 1 to 20.
       shared_ptr<string> key_ {};
-      // The tag value of the snapshot-consistent group. Valid values of N: 1 to 20.
+      // The value of tag N of the snapshot-consistent group. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
     };
 
@@ -215,7 +215,7 @@ namespace Models
     shared_ptr<vector<string>> additionalAttributes_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries to return per page in a paging query.
     // 
     // Maximum value: 100.
     // 
@@ -223,7 +223,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The name of the snapshot-consistent group.
     shared_ptr<string> name_ {};
-    // The query token. Set the value to the NextToken value returned in the last API call.
+    // The query token. The value is the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -235,9 +235,9 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IDs of the snapshot-consistent groups. Valid values of N: 1 to 10.
+    // The ID of snapshot-consistent group N. Valid values of N: 1 to 10.
     shared_ptr<vector<string>> snapshotGroupId_ {};
-    // The status of the snapshot-consistent group. Valid values of N: 1 to 3. Valid values:
+    // The status of snapshot-consistent group N. Valid values of N: 1 to 3. Valid values:
     // 
     // - progressing: The snapshot-consistent group is being created.
     // 

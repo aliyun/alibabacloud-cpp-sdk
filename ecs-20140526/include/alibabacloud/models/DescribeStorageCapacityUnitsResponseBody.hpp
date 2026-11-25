@@ -323,7 +323,7 @@ namespace Models
   protected:
     // The page number of the SCU list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in paging queries.
+    // The number of entries per page for paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

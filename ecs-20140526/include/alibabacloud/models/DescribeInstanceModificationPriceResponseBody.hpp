@@ -205,17 +205,17 @@ namespace Models
 
 
         protected:
-          // The currency unit.
+          // The currency unit. Valid values:
           // 
-          // China site: CNY.
+          // - CNY: China site.
           // 
-          // International site: USD.
+          // - USD: international site.
           shared_ptr<string> currency_ {};
-          // The discount.
+          // The discount amount.
           shared_ptr<float> discountPrice_ {};
           // The original price.
           shared_ptr<float> originalPrice_ {};
-          // The final price, which is the original price minus the discount.
+          // The final price, which is the original price minus the discount amount.
           shared_ptr<float> tradePrice_ {};
         };
 
@@ -230,7 +230,7 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud Marketplace image price.
+        // The price of the Alibaba Cloud Marketplace image.
         shared_ptr<RelatedPrice::MarketplaceImagePrice> marketplaceImagePrice_ {};
       };
 
@@ -485,16 +485,16 @@ namespace Models
       protected:
         // The currency unit. Valid values:
         // 
-        // - China site: CNY.
+        // - CNY: China site.
         // 
-        // - International site: USD.
+        // - USD: international site.
         shared_ptr<string> currency_ {};
         shared_ptr<Price::DetailInfos> detailInfos_ {};
-        // The discount.
+        // The discount amount.
         shared_ptr<float> discountPrice_ {};
         // The original price.
         shared_ptr<float> originalPrice_ {};
-        // The final price, which is the original price minus the discount.
+        // The final price, which is the original price minus the discount amount.
         shared_ptr<float> tradePrice_ {};
       };
 
@@ -530,7 +530,7 @@ namespace Models
     protected:
       // The price.
       shared_ptr<PriceInfo::Price> price_ {};
-      // The associated price.
+      // The related price.
       shared_ptr<PriceInfo::RelatedPrice> relatedPrice_ {};
       shared_ptr<PriceInfo::Rules> rules_ {};
     };
@@ -554,7 +554,7 @@ namespace Models
 
 
   protected:
-    // The PriceInfo data type, which includes pricing and discount rule information.
+    // The pricing information, including the price and discount rule information.
     shared_ptr<DescribeInstanceModificationPriceResponseBody::PriceInfo> priceInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

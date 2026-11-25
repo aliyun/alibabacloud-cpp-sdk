@@ -224,11 +224,11 @@ namespace Models
 
 
     protected:
-      // > This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for public use.
       shared_ptr<string> bondNetworkInterfaceId_ {};
-      // > This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for public use.
       shared_ptr<string> slaveNetworkInterfaceId_ {};
-      // > This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for public use.
       shared_ptr<string> workState_ {};
     };
 
@@ -357,9 +357,9 @@ namespace Models
         shared_ptr<int64_t> bandwidthTx_ {};
         // The maximum number of sessions.
         shared_ptr<int64_t> concurrentConnections_ {};
-        // The inbound internal network packet forwarding rate.
+        // The inbound internal packet forwarding rate.
         shared_ptr<int64_t> ppsRx_ {};
-        // The outbound internal network packet forwarding rate.
+        // The outbound internal packet forwarding rate.
         shared_ptr<int64_t> ppsTx_ {};
       };
 
@@ -382,9 +382,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether QoS rate limiting is enabled.
+      // Indicates whether QoS throttling is enabled.
       shared_ptr<bool> enableQoS_ {};
-      // The QoS rate limit settings.
+      // The QoS throttling settings.
       shared_ptr<QoSConfig::QoS> qoS_ {};
     };
 
@@ -564,11 +564,11 @@ namespace Models
 
 
     protected:
-      // The communication mode of the network interface controller (NIC).
+      // The communication mode of the Elastic Network Interface (ENI).
       shared_ptr<string> networkInterfaceTrafficMode_ {};
-      // The number of queues for the network interface controller (NIC).
+      // The number of queues of the Elastic Network Interface (ENI).
       shared_ptr<int32_t> queueNumber_ {};
-      // The number of RDMA queue pairs.
+      // The number of queues of the RDMA network interface.
       shared_ptr<int32_t> queuePairNumber_ {};
     };
 
@@ -840,12 +840,15 @@ namespace Models
 
 
     protected:
+      // Indicates whether the network enhancement feature for the elastic network interface controller (NIC) is enabled.
       shared_ptr<bool> enableExpress_ {};
-      // > This parameter is not available for use.
+      // > This parameter is not available.
       shared_ptr<bool> enableRss_ {};
-      // This parameter is not publicly available.
+      // This parameter is not available for public use.
       shared_ptr<bool> enableSriov_ {};
+      // The number of virtual function features of the Elastic Network Interface (ENI).
       shared_ptr<int32_t> virtualFunctionQuantity_ {};
+      // The total number of queues for the virtual function feature of the Elastic Network Interface (ENI).
       shared_ptr<int32_t> virtualFunctionTotalQueueNumber_ {};
     };
 
@@ -896,15 +899,19 @@ namespace Models
 
 
     protected:
-      // The timeout period for TCP connections in the TIME_WAIT and CLOSED states. Unit: seconds. Valid values: an integer from 3 to 15.
+      // The timeout period for closed and TIME_WAIT TCP connections. Unit: seconds. Valid values: integers from 3 to 15.
       // 
-      // > If your ECS instance is used with NLB or CLB, the default timeout period for connections in the `TIME_WAIT` state is 15 seconds.
+      // 
+      // 
+      // > If your ECS instance is used together with NLB or CLB, the default timeout period for connections in the `TIME_WAIT` state is 15 seconds.
       shared_ptr<int32_t> tcpClosedAndTimeWaitTimeout_ {};
-      // The timeout period for TCP connections in the ESTABLISHED state. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
+      // The timeout period for established TCP connections. Unit: seconds. Valid values: 30, 60, 80, 100, 200, 300, 500, 700, and 910.
       shared_ptr<int32_t> tcpEstablishedTimeout_ {};
-      // The timeout period for UDP flows. Unit: seconds. Valid values: [10, 20, 30, 60, 80, 100].
+      // The timeout period for UDP flows. Unit: seconds. Valid values: 10, 20, 30, 60, 80, and 100.
       // 
-      // > If your ECS instance is used with NLB or CLB, the default value is 100 seconds.
+      // 
+      // 
+      // > If your ECS instance is used together with NLB or CLB, the default value is 100 seconds.
       shared_ptr<int32_t> udpTimeout_ {};
     };
 
@@ -1033,7 +1040,7 @@ namespace Models
 
 
     protected:
-      // > This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for public use.
       shared_ptr<string> bondMode_ {};
       shared_ptr<BondInterfaceSpecification::SlaveInterfaceSpecification> slaveInterfaceSpecification_ {};
     };
@@ -1138,16 +1145,16 @@ namespace Models
 
 
     protected:
-      // > This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for public use.
       shared_ptr<int32_t> deviceIndex_ {};
-      // > This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for public use.
       shared_ptr<string> instanceId_ {};
       shared_ptr<Attachment::MemberNetworkInterfaceIds> memberNetworkInterfaceIds_ {};
-      // The index of the network card to which the ENI is attached.
-      // - If the ENI is in the Available state or the index was not specified during attachment, this value is not returned.
-      // - If the ENI is in the InUse state and the index was specified during attachment, this value indicates the index of the network card to which the ENI is attached.
+      // The index of the physical network card to which the ENI is attached.
+      // - If the ENI is in the Available state or no index was specified during attachment, this value is not returned.
+      // - If the ENI is in the InUse state and an index was specified during attachment, this value indicates the index of the physical network card to which the ENI is attached.
       shared_ptr<int32_t> networkCardIndex_ {};
-      // > This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for public use.
       shared_ptr<string> trunkNetworkInterfaceId_ {};
     };
 
@@ -1191,7 +1198,7 @@ namespace Models
     protected:
       // The ID of the EIP.
       shared_ptr<string> allocationId_ {};
-      // The EIP address.
+      // The EIP.
       shared_ptr<string> publicIpAddress_ {};
     };
 
@@ -1492,108 +1499,109 @@ namespace Models
 
 
   protected:
-    // The Elastic IP Address (EIP) associated with the secondary private IP address of the network interface controller (NIC).
+    // The Elastic IP Address (EIP) associated with the secondary private IP address of the Elastic Network Interface (ENI).
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::AssociatedPublicIp> associatedPublicIp_ {};
-    // > This parameter is in invitational preview and is not publicly available.
+    // > This parameter is in invitational preview and is not available for public use.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Attachment> attachment_ {};
-    // > This parameter is in invitational preview and is not publicly available.
+    // > This parameter is in invitational preview and is not available for public use.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::BondInterfaceSpecification> bondInterfaceSpecification_ {};
-    // The collection of network connectivity tracking configuration information.
+    // The network connection tracking configuration information set.
     // 
-    // Before you use this parameter, read [Connection timeout management](https://help.aliyun.com/document_detail/2865958.html).
+    // Read [Connection timeout management](https://help.aliyun.com/document_detail/2865958.html) before using this parameter.
     // 
-    // > This parameter is returned only when the Attribute input parameter is set to connectionTrackingConfiguration.
+    // 
+    // > This parameter is returned only when the input parameter `Attribute` is set to `connectionTrackingConfiguration`.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::ConnectionTrackingConfiguration> connectionTrackingConfiguration_ {};
-    // The time when the network interface controller (NIC) was created. The time is in ISO 8601 format and displayed in UTC.
+    // The creation time of the elastic network interface (ENI). The time is displayed in ISO 8601 format in UTC.
     shared_ptr<string> creationTime_ {};
-    // Indicates whether the ENI is retained when the associated instance is released. Valid values:
+    // Indicates whether the ENI is retained when the instance is released. Valid values:
     // 
-    // - true: The ENI is not retained.
+    // - true: not retained
     // 
-    // - false: The ENI is retained.
+    // - false: retained
     shared_ptr<bool> deleteOnRelease_ {};
-    // The description of the network interface controller (NIC).
+    // The description of the Elastic Network Interface (ENI).
     shared_ptr<string> description_ {};
-    // This parameter is not publicly available.
+    // This parameter is not available for public use.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::EnhancedNetwork> enhancedNetwork_ {};
-    // The ID of the instance to which the network interface controller (NIC) is attached.
+    // The ID of the instance to which the Elastic Network Interface (ENI) is attached.
     // 
-    // > Network interface controllers (NICs) that are managed and controlled by other Alibaba Cloud services do not return instance IDs.
+    // > The instance ID is not returned for Elastic Network Interfaces (ENIs) that are managed and controlled by other Alibaba Cloud services.
     shared_ptr<string> instanceId_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Ipv4PrefixSets> ipv4PrefixSets_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Ipv6PrefixSets> ipv6PrefixSets_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Ipv6Sets> ipv6Sets_ {};
-    // The MAC address of the network interface controller (NIC).
+    // The MAC address of the Elastic Network Interface (ENI).
     shared_ptr<string> macAddress_ {};
-    // The ID of the network interface controller (NIC).
+    // The ID of the Elastic Network Interface (ENI).
     shared_ptr<string> networkInterfaceId_ {};
-    // The name of the network interface controller (NIC).
+    // The name of the Elastic Network Interface (ENI).
     shared_ptr<string> networkInterfaceName_ {};
-    // The traffic parameters of the network interface controller (NIC).
+    // The communication parameters of the Elastic Network Interface (ENI).
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::NetworkInterfaceTrafficConfig> networkInterfaceTrafficConfig_ {};
-    // The communication mode of the network interface controller (NIC). Valid values:
+    // The communication mode of the Elastic Network Interface (ENI). Valid values:
     // 
-    // - Standard: TCP communication mode is used.
-    // - HighPerformance: Elastic RDMA Interface (ERI) is enabled and RDMA communication mode is used.
+    // - Standard: TCP communication mode.
+    // - HighPerformance: Remote Direct Memory Access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
     // 
-    // > The HighPerformance parameter value is supported only by the c7re RDMA enhanced instance family.
+    // > The HighPerformance parameter value is supported only by the c7re RDMA-enhanced instance family.
     shared_ptr<string> networkInterfaceTrafficMode_ {};
-    // The ID of the account that owns the network interface controller (NIC).
+    // The ID of the account to which the Elastic Network Interface (ENI) belongs.
     shared_ptr<string> ownerId_ {};
-    // The private IP address of the network interface controller (NIC).
+    // The private IP address of the Elastic Network Interface (ENI).
     shared_ptr<string> privateIpAddress_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::PrivateIpSets> privateIpSets_ {};
-    // The QoS rate limit settings.
+    // The QoS throttling settings.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::QoSConfig> qoSConfig_ {};
-    // The number of queues for the Elastic Network Interface (ENI).
-    // * If the ENI is a primary network interface controller (NIC): the default number of queues for the primary NIC that the instance type allows is returned.
+    // The number of queues of the Elastic Network Interface (ENI).
+    // * If the Elastic Network Interface (ENI) is a primary ENI: returns the default number of queues for the primary ENI of the instance type.
     // 
-    // * If the ENI is a secondary ENI:
+    // * If the Elastic Network Interface (ENI) is a secondary ENI:
     //     * If the secondary ENI is in the InUse state:
-    //         * If the number of queues for the secondary ENI has not been modified, the default number of queues for the secondary ENI that the instance type allows is returned.
-    //         * If the number of queues for the secondary ENI has been modified, the modified number of queues is returned.
-    //     * If the secondary ENI is in the active (Available) state:
-    //         * If the number of queues for the secondary ENI has not been modified, an empty value is returned.
-    //         * If the number of queues for the secondary ENI has been modified, the modified number of queues is returned.
+    //         * If the number of queues of the secondary ENI has not been modified, the default number of queues for the secondary ENI of the instance type is returned.
+    //         * If the number of queues of the secondary ENI has been modified, the modified number of queues is returned.
+    //     * If the secondary ENI is in the Available state:
+    //         * If the number of queues of the secondary ENI has not been modified, an empty value is returned.
+    //         * If the number of queues of the secondary ENI has been modified, the modified number of queues is returned.
     shared_ptr<int32_t> queueNumber_ {};
-    // > This parameter is in invitational preview and is not publicly available.
+    // > This parameter is in invitational preview and is not available for public use.
     shared_ptr<int32_t> queuePairNumber_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the instance belongs. When you use this parameter to filter resources, the resource count cannot exceed 1000.
+    // The ID of the resource group to which the instance belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
     // 
     // > Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::SecurityGroupIds> securityGroupIds_ {};
-    // The Virtual Network Operator (VNO) ID associated with the network interface controller (NIC).
+    // The ID of the Virtual Network Operator (VNO) corresponding to the Elastic Network Interface (ENI).
     shared_ptr<int64_t> serviceID_ {};
-    // Indicates whether the user of the network interface controller (NIC) is an Alibaba Cloud service or a VNO.
+    // Indicates whether the user of the Elastic Network Interface (ENI) is a cloud service or a VNO.
     shared_ptr<bool> serviceManaged_ {};
-    // > This parameter is in invitational preview and is not publicly available.
+    // > This parameter is in invitational preview and is not available for public use.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::SlaveInterfaceSpecification> slaveInterfaceSpecification_ {};
-    // This parameter is not publicly available.
+    // This parameter is not available for public use.
     shared_ptr<bool> sourceDestCheck_ {};
-    // The status of the network interface controller (NIC). Valid values:
+    // The status of the Elastic Network Interface (ENI). Valid values:
     // 
     // * Available: active.
-    // * Attaching: being attached.
+    // * Attaching: attaching.
     // * InUse: in use.
-    // * Detaching: being detached.
-    // * Deleting: being deleted.
+    // * Detaching: detaching.
+    // * Deleting: deleting.
     // 
-    // Default value: empty, which indicates that network interface controllers (NICs) in all states are queried.
+    // Default value: null, which indicates that all states are queried.
     shared_ptr<string> status_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Tags> tags_ {};
-    // > This parameter is in invitational preview and is not publicly available.
+    // > This parameter is in invitational preview and is not available for public use.
     shared_ptr<string> tcpOptionAddressEnabled_ {};
-    // The type of the Elastic Network Interface (ENI). Valid values:
+    // The Elastic Network Interface (ENI) type. Valid values:
     // 
-    // * Primary: primary network interface controller (NIC).
-    // * Secondary: secondary Elastic Network Interface (ENI).
+    // * Primary: primary ENI.
+    // * Secondary: secondary ENI.
     shared_ptr<string> type_ {};
-    // The ID of the vSwitch to which the network interface controller (NIC) belongs.
+    // The ID of the vSwitch to which the Elastic Network Interface (ENI) belongs.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC to which the network interface controller (NIC) belongs.
+    // The ID of the virtual private cloud (VPC) to which the Elastic Network Interface (ENI) belongs.
     shared_ptr<string> vpcId_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

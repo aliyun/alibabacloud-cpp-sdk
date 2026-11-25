@@ -527,11 +527,11 @@ namespace Models
     shared_ptr<DescribeAutoSnapshotPolicyExResponseBody::AutoSnapshotPolicies> autoSnapshotPolicies_ {};
     // The page number of the automatic snapshot policy list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page when the automatic snapshot policies are displayed in paging mode.
+    // The number of entries per page when the returned automatic snapshot policy list is displayed in a paging manner.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of automatic snapshot policies.
+    // The total number of automatic snapshot policy records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

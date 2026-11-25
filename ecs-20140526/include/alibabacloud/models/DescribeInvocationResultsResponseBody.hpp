@@ -490,10 +490,10 @@ namespace Models
       shared_ptr<string> nextToken_ {};
       // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of rows per page for paging.
+      // The number of rows per page in a paging query.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of commands.
-      // > When you use the MaxResults and NextToken parameters for paging, the returned TotalCount value is meaningless.
+      // > If you use the MaxResults and NextToken parameters for a paging query, the returned TotalCount value is meaningless.
       shared_ptr<int64_t> totalCount_ {};
     };
 

@@ -191,7 +191,7 @@ namespace Models
 
 
     protected:
-      // The IP address of the cloud service, which is used for network connectivity between cloud services in the VPC.
+      // The IP address of the cloud service, which is used for network communication between cloud services in the VPC.
       shared_ptr<string> natIpAddress_ {};
       shared_ptr<VpcAttributes::PrivateIpAddress> privateIpAddress_ {};
       // The vSwitch ID.
@@ -228,7 +228,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether UEFI Secure Boot is enabled.
+      // Indicates whether UEFI Secure Boot is enabled.
       shared_ptr<bool> enableSecureBoot_ {};
     };
 
@@ -411,22 +411,20 @@ namespace Models
     protected:
       // The bandwidth weight.
       // 
-      // The supported values vary based on the instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation to query the bandwidth weight values supported by the current instance type.
+      // The supported values vary by instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation to query the supported bandwidth weight values for the current instance type.
       shared_ptr<string> bandwidthWeighting_ {};
-      // Specifies whether the jumbo frame feature is enabled for the instance. Valid values:
+      // Indicates whether the jumbo frame feature is enabled for the instance. Valid values:
       // 
       // - true: The feature is enabled.
       // 
       // - false: The feature is disabled.
       // 
       // For more information, see [ECS instance MTU](https://help.aliyun.com/document_detail/200512.html).
-      // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<bool> enableJumboFrame_ {};
-      // Specifies whether VPC network traffic encryption is enabled for the instance. Valid values:
+      // Indicates whether VPC network traffic encryption is enabled for the instance. Valid values:
       // 
-      // - true: Enabled.
-      // - false: Disabled.
-      // > This parameter is in invitational preview and is not publicly available.
+      // - true: The feature is enabled.
+      // - false: The feature is disabled.
       shared_ptr<bool> enableNetworkEncryption_ {};
     };
 
@@ -521,14 +519,14 @@ namespace Models
     protected:
       // The ID of the EIP.
       shared_ptr<string> allocationId_ {};
-      // The public bandwidth limit of the EIP. Unit: Mbit/s.
+      // The Internet bandwidth limit of the EIP. Unit: Mbit/s.
       shared_ptr<int32_t> bandwidth_ {};
       // The billing method for public bandwidth. Valid values:
       // 
       // - PayByBandwidth: pay-by-bandwidth.
       // - PayByTraffic: pay-by-traffic.
       // 
-      // > In the **pay-by-traffic** mode, the peak inbound and outbound bandwidth values are the maximum bandwidth values and are not guaranteed. When resource contention occurs, the peak bandwidth may be limited. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
+      // > In the **pay-by-traffic** mode, the peak inbound and outbound bandwidth values are upper limits and are not guaranteed. During resource contention, the peak bandwidth may be limited. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
       shared_ptr<string> internetChargeType_ {};
       // The EIP.
       shared_ptr<string> ipAddress_ {};
@@ -858,7 +856,7 @@ namespace Models
 
   protected:
     // The ID of the cluster to which the instance belongs.
-    // > **[Deprecated]** This parameter is about to be deprecated. To ensure compatibility, use other parameters instead.
+    // > This parameter will be deprecated. To improve compatibility, use other parameters.
     shared_ptr<string> clusterId_ {};
     // The number of vCPU cores.
     shared_ptr<int32_t> cpu_ {};
@@ -873,9 +871,9 @@ namespace Models
     shared_ptr<DescribeInstanceAttributeResponseBody::DedicatedHostAttribute> dedicatedHostAttribute_ {};
     // The description of the instance.
     shared_ptr<string> description_ {};
-    // The binding information of the elastic IP address (EIP).
+    // The Elastic IP Address (EIP) information.
     shared_ptr<DescribeInstanceAttributeResponseBody::EipAddress> eipAddress_ {};
-    // Specifies whether the jumbo frame feature is enabled for the ECS instance. Valid values:
+    // Indicates whether the jumbo frame feature is enabled for the ECS instance. Valid values:
     // 
     // - true: The feature is enabled.
     // 
@@ -883,11 +881,11 @@ namespace Models
     // 
     // For more information, see [ECS instance MTU](https://help.aliyun.com/document_detail/200512.html).
     shared_ptr<bool> enableJumboFrame_ {};
-    // Specifies whether VPC network traffic encryption is enabled for the instance. Valid values:
+    // Indicates whether VPC network traffic encryption is enabled for the instance. Valid values:
     // 
-    // - true: Enabled.
-    // - false: Disabled.
-    // > This parameter is in invitational preview and is not publicly available.
+    // - true: The feature is enabled.
+    // - false: The feature is disabled.
+    // > This parameter is in invitational preview and is not available for public use.
     shared_ptr<bool> enableNetworkEncryption_ {};
     // The expiration time. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
     shared_ptr<string> expiredTime_ {};
@@ -906,7 +904,7 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // The network type of the instance. Valid values: 
     //          
-    // - vpc: VPC.
+    // - vpc: Virtual Private Cloud (VPC).
     // - classic: classic network. The classic network is retired. For more information, see [Retirement notice](https://help.aliyun.com/document_detail/2833134.html).
     shared_ptr<string> instanceNetworkType_ {};
     // The instance type.
@@ -916,13 +914,13 @@ namespace Models
     // - PayByBandwidth: pay-by-bandwidth.
     // - PayByTraffic: pay-by-traffic.
     // 
-    // > In the **pay-by-traffic** mode, the peak inbound and outbound bandwidth values are the maximum bandwidth values and are not guaranteed. When resource contention occurs, the peak bandwidth may be limited. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
+    // > In the **pay-by-traffic** mode, the peak inbound and outbound bandwidth values are upper limits and are not guaranteed. During resource contention, the peak bandwidth may be limited. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
     shared_ptr<string> internetChargeType_ {};
     // The maximum inbound public bandwidth. Unit: Mbit/s.
     shared_ptr<int32_t> internetMaxBandwidthIn_ {};
     // The maximum outbound public bandwidth. Unit: Mbit/s.
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-    // Specifies whether the instance is I/O optimized. Valid values:
+    // Indicates whether the instance is I/O optimized. Valid values:
     // 
     // - optimized: The instance is I/O optimized.
     // 
@@ -931,7 +929,6 @@ namespace Models
     // The memory size of the instance. Unit: MiB.
     shared_ptr<int32_t> memory_ {};
     // The network-related attributes.
-    // > This parameter is in invitational preview and is not publicly available.
     shared_ptr<DescribeInstanceAttributeResponseBody::NetworkOptions> networkOptions_ {};
     shared_ptr<DescribeInstanceAttributeResponseBody::OperationLocks> operationLocks_ {};
     shared_ptr<DescribeInstanceAttributeResponseBody::PublicIpAddress> publicIpAddress_ {};
@@ -948,17 +945,17 @@ namespace Models
     // - Pending: The instance is being created.
     // - Running: The instance is running.
     // - Starting: The instance is starting.
-    // - Stopping: The instance is stopping.
+    // - Stopping: The instance is being stopped.
     // - Stopped: The instance is stopped.
     shared_ptr<string> status_ {};
-    // Specifies whether the instance continues to be billed after it is stopped. Valid values:
+    // Indicates whether the instance continues to be billed after it is stopped. Valid values:
     // 
     // - KeepCharging: The instance continues to be billed after it is stopped, and inventory resources are reserved.
-    // - StopCharging: The instance is not billed after it is stopped. After the instance is stopped, resources such as vCPUs, memory, and public IP addresses are released. Whether the instance can be restarted depends on the resource inventory in the current region.
+    // - StopCharging: The instance is not billed after it is stopped. After the instance is stopped, resources such as vCPUs, memory, and public IP addresses are released. Whether the instance can be restarted depends on the availability of resources in the current region.
     // - Not-applicable: The instance does not support the economical mode.
     shared_ptr<string> stoppedMode_ {};
     // The VLAN ID of the instance.
-    // > **[Deprecated]** This parameter is about to be deprecated. To ensure compatibility, use other parameters instead.
+    // > This parameter will be deprecated. To improve compatibility, use other parameters.
     shared_ptr<string> vlanId_ {};
     // The VPC attributes.
     shared_ptr<DescribeInstanceAttributeResponseBody::VpcAttributes> vpcAttributes_ {};

@@ -135,25 +135,25 @@ namespace Models
     protected:
       // The cool-off period in compliance mode. Unit: hours.
       shared_ptr<int32_t> coolOffPeriod_ {};
-      // The time when the cool-off period in compliance mode ends. The time follows the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The end time of the cool-off period in compliance mode. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format based on the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard. UTC+0 is used.
       shared_ptr<string> coolOffPeriodExpiredTime_ {};
-      // The time when the snapshot was locked. The time follows the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The lock time. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format based on the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard. UTC+0 is used.
       shared_ptr<string> lockCreationTime_ {};
       // The lock duration. The snapshot lock automatically expires after the lock duration ends. Unit: days.
       shared_ptr<int32_t> lockDuration_ {};
-      // The time when the lock duration starts. The time follows the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. 
+      // The start time of the lock duration. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format based on the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard. UTC+0 is used. 
       // 
       // If you lock a snapshot that is in the progressing state, the lock duration is calculated only after the snapshot enters the accomplished state.
       shared_ptr<string> lockDurationStartTime_ {};
-      // The time when the lock expires. The time follows the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The lock expiration time. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format based on the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard. UTC+0 is used.
       shared_ptr<string> lockExpiredTime_ {};
       // The lock mode. Valid values: 
-      // - compliance: the snapshot is locked in compliance mode. A snapshot locked in compliance mode cannot be unlocked by any user and can be deleted only after the lock duration expires. Users cannot shorten the lock duration, but users with the required RAM permissions can extend the lock duration at any time. When you lock a snapshot in compliance mode, you can optionally specify a cool-off period.
+      // - compliance: Locks the snapshot in compliance mode. A snapshot locked in compliance mode cannot be unlocked by any user and can be deleted only after the lock duration expires. Users cannot shorten the lock duration, but users with the required RAM permissions can extend the lock duration at any time. When you lock a snapshot in compliance mode, you can optionally specify a cool-off period.
       shared_ptr<string> lockMode_ {};
       // The lock status. Valid values: 
-      // - compliance-cooloff: the snapshot is locked in compliance mode and is still in the cool-off period. The snapshot cannot be deleted, but users with the required RAM permissions can unlock the snapshot, extend or shorten the cool-off period, and extend or shorten the lock duration. 
-      // - compliance: the snapshot is locked in compliance mode and the cool-off period has ended. The snapshot cannot be unlocked or deleted, but users with the required RAM permissions can extend the lock duration. 
-      // - expired: the snapshot was locked, but the lock duration has ended and the lock has expired. The snapshot is not locked and can be deleted.
+      // - compliance-cooloff: The snapshot is locked in compliance mode and is still in the cool-off period. The snapshot cannot be deleted, but users with the required RAM permissions can unlock the snapshot, extend or shorten the cool-off period, and extend or shorten the lock duration. 
+      // - compliance: The snapshot is locked in compliance mode and the cool-off period has ended. The snapshot cannot be unlocked or deleted, but users with the required RAM permissions can extend the lock duration. 
+      // - expired: The snapshot was locked, but the lock duration has ended and the lock has expired. The snapshot is not locked and can be deleted.
       shared_ptr<string> lockStatus_ {};
       // The snapshot ID.
       shared_ptr<string> snapshotId_ {};

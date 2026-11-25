@@ -90,13 +90,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the command. Valid values of N: 1 to 20. If you specify this parameter, it cannot be an empty string.
-      // 
-      // If you use a single tag to filter resources, the resource count returned cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources to which you attach multiple tags at the same time cannot exceed 1,000. If the resource count exceeds 1,000, you must call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
-      // 
-      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag key of the command. Valid values of N: 1 to 20. If you specify this parameter, it cannot be an empty string. If you use a single tag to filter resources, the resource count cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all the specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, you must call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources. The tag key can be up to 64 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
       shared_ptr<string> key_ {};
-      // The tag value. Valid values of N: 1 to 20. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value. Valid values of N: 1 to 20. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -197,7 +193,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The maximum number of entries to return. Valid values: 10 to 500. Default value: 10. If you do not specify this parameter or specify a value less than 10, the default value is 10. If you specify a value greater than 500, the default value is 500.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token returned for the current request.
+    // The query token returned by this request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -205,26 +201,22 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the instance belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000. Note: Filtering by the default resource group is not supported.
+    // The ID of the resource group to which the instance belongs. If you use this parameter to filter resources, the resource count cannot exceed 1,000. Note: You cannot filter resources by the default resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The status of the VSCs to be queried. If you do not specify this parameter, VSCs in all states are returned. Valid values:
-    // 
+    // The status of the VSCs to query. If you do not specify this parameter, VSCs in all states are returned. Valid values:
     // - In_use: In use.
-    // - Attaching: Attaching.
-    // - Detaching: Detaching.
+    // - Attaching: Being attached.
+    // - Detaching: Being detached.
     // - AttachFailed: Attachment failed.
     // - DetachFailed: Detachment failed.
-    // - All (default): All states.
-    // 
+    // - All: All states.
     // Default value: All.
     shared_ptr<string> status_ {};
-    // The list of tags.
+    // The tags.
     shared_ptr<vector<DescribeVscsRequest::Tag>> tag_ {};
-    // The IDs of the VSCs to be queried.
-    // 
-    // We recommend that you specify no more than 100 VSC IDs.
+    // The IDs of the VSCs to query. Specify up to 100 VSC IDs.
     shared_ptr<vector<string>> vscIds_ {};
   };
 

@@ -97,8 +97,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable delivery to SLS.
-      // Default value: false.
+      // Specifies whether to enable delivery to SLS. Default value: false.
       shared_ptr<bool> enabled_ {};
       // The name of the SLS Logstore.
       shared_ptr<string> logstoreName_ {};
@@ -135,8 +134,8 @@ namespace Models
 
     protected:
       // Specifies whether to enable the Cloud Assistant session feature. Valid values:
-      // * true: Enabled.
-      // * false: Disabled.
+      // * true: enabled
+      // * false: disabled
       // 
       // Precautions:
       // * Enabling or disabling the session feature takes effect in all regions.
@@ -217,7 +216,7 @@ namespace Models
 
 
     protected:
-      // The maximum CPU usage allowed for the Cloud Assistant Agent main process.
+      // The maximum allowed CPU usage limit for the main process of the Cloud Assistant Agent.
       // 
       // - Unit: percentage.
       // 
@@ -225,25 +224,24 @@ namespace Models
       // 
       // - Default value: 20.
       shared_ptr<int32_t> cpuLimit_ {};
-      // Specifies whether to retain the script file in the Cloud Assistant directory after command execution is complete.
-      // Default value: false.
+      // Specifies whether to retain the script file in the Cloud Assistant directory after the command execution is completed. Default value: false.
       shared_ptr<bool> keepScriptFile_ {};
       // The maximum number of Cloud Assistant log files to retain.
       // - Default value: 30.
       // - Minimum value: 7.
       // - Maximum value: 365.
       shared_ptr<int32_t> logFileCountLimit_ {};
-      // The size limit of a single Cloud Assistant log file. You must specify the unit (B|KB|MB).
+      // The size limit for a single Cloud Assistant log file. A unit (B, KB, or MB) must be specified.
       // - Default value: 100MB.
       // - Minimum value: 10MB.
       // - Maximum value: 1024MB.
       shared_ptr<string> logSizeLimit_ {};
-      // The maximum memory usage allowed for the Cloud Assistant Agent main process. You must specify the unit (B|KB|MB).
+      // The maximum allowed memory usage limit for the main process of the Cloud Assistant Agent. A unit (B, KB, or MB) must be specified.
       // - Default value: 50MB.
       // - Minimum value: 35MB.
       // - Maximum value: 1024MB.
       shared_ptr<string> memoryLimit_ {};
-      // The maximum number of consecutive times that CPU or memory resources usage can exceed the limit. When this limit is reached, the Cloud Assistant Agent automatically stops running.
+      // The maximum number of consecutive times that the usage of CPU or memory resources exceeds the limit. When this limit is reached, the Cloud Assistant Agent automatically stops.
       // - Default value: 3.
       // - Minimum value: 3.
       shared_ptr<int32_t> overloadLimit_ {};
@@ -331,18 +329,18 @@ namespace Models
       // - AES256
       // - SM4
       shared_ptr<string> encryptionAlgorithm_ {};
-      // The customer master key (CMK) ID when the encryption method is set to KMS.
+      // The ID of the customer master key (CMK) when the encryption method is KMS.
       shared_ptr<string> encryptionKeyId_ {};
       // The OSS encryption method. Valid values:
-      // - Inherit: Inherits the encryption method of the bucket.
-      // - OssManaged: Uses OSS-managed encryption.
-      // - KMS: Uses KMS-based encryption.
+      // - Inherit: inherit from the bucket
+      // - OssManaged: fully managed by OSS
+      // - KMS: KMS encryption
       shared_ptr<string> encryptionType_ {};
       // The directory prefix of the OSS bucket. Constraints:
-      // - The prefix cannot exceed 254 characters in length.
-      // - The prefix cannot start with a forward slash (/) or a backslash (\\).
+      // - The length cannot exceed 254 characters.
+      // - It cannot start with a forward slash (/) or a backslash (\\).
       // 
-      // > Note: Pass an empty string ("") to indicate that no directory prefix is required. If a prefix was previously set and is no longer needed, pass an empty string ("") to clear it.
+      // Note: Pass an empty string ("") if no directory prefix is required. If a directory prefix was previously set and is no longer needed, pass an empty string ("") to clear it.
       shared_ptr<string> prefix_ {};
     };
 
@@ -413,42 +411,26 @@ namespace Models
 
 
     protected:
-      // The list of time windows during which upgrades are allowed. The time can be specified down to the minute. The default time zone is UTC.
-      // 
-      // The interval between time windows cannot be less than 1 hour.
-      // 
-      // Format: start time (HH:mm)-end time (HH:mm).
-      // 
-      // For example, [
-      // "02:00-03:00",
-      // "05:00-06:00"
-      // ]
-      // indicates that upgrades are allowed daily from 02:00 to 03:00 and from 05:00 to 06:00 in the UTC time zone.
+      // The list of time windows allowed for upgrades, accurate to the minute. The default time zone is UTC. The interval between time windows cannot be less than 1 hour. Format: start time (HH:mm)-end time (HH:mm). For example, ["02:00-03:00", "05:00-06:00"] indicates that upgrades are allowed every day from 02:00 to 03:00 and from 05:00 to 06:00 in the UTC time zone.
       shared_ptr<vector<string>> allowedUpgradeWindow_ {};
-      // Specifies whether the Cloud Assistant Agent checks for version updates and performs upgrades immediately upon startup. Default value: true.
-      // 
-      // This setting takes effect only when the Cloud Assistant Agent version is not earlier than the following versions:
+      // Specifies whether to check the version and perform updates immediately when the Cloud Assistant Agent starts. Default value: true. This parameter takes effect only when the Cloud Assistant Agent version is not earlier than the following versions:
       // 
       // - Windows: 2.1.4.1065
       // 
       // - Linux: 2.2.4.1065
       shared_ptr<bool> bootstrapUpgrade_ {};
-      // Specifies whether to prevent the Cloud Assistant Agent from checking for and performing updates. Default value: false.
-      // 
-      // This setting takes effect only when the Cloud Assistant Agent version is not earlier than the following versions:
-      // 
-      // - Windows: 2.1.4.1065
-      // 
-      // - Linux: 2.2.4.1065
+      // Specifies whether to disable the Cloud Assistant Agent from checking and performing updates. Default value: false. Precautions:
+      // 1. Fully evaluate the security risks and business impacts caused by disabling upgrades or continuing to run an earlier version of the Agent. You are responsible for the resulting risks and impacts.
+      // 2. The disable upgrade configuration takes effect at the account level. It applies to all ECS instances under the account and does not support individual exemptions by instance. Therefore, the aforementioned risks cover all instances within the account.
+      // 3. This parameter takes effect only when the Cloud Assistant Agent version is not earlier than the following versions:
+      //    - Windows: 2.1.4.1065
+      //    - Linux: 2.2.4.1065
       shared_ptr<bool> disableUpgrade_ {};
-      // Specifies whether to enable custom Agent upgrade configuration. If set to false, the default behavior of attempting an upgrade every 30 minutes is retained.
-      // 
-      // Default value: false.
+      // Specifies whether to enable the custom Agent upgrade configuration. If set to false, the system attempts to upgrade the Agent every 30 minutes by default. Default value: false.
       shared_ptr<bool> enabled_ {};
-      // The time zone for the allowed upgrade time windows. The default time zone is UTC.
-      // The time zone can be specified in the following two formats:
-      // - Full time zone name: such as Asia/Shanghai or America/Los_Angeles.
-      // - GMT offset from Greenwich Mean Time: such as GMT+8:00 or GMT-7:00. Leading zeros are not supported for the hour value.
+      // The time zone for the allowed upgrade time windows. The default time zone is UTC. The time zone supports the following two formats:
+      // - Full time zone name: such as Asia/Shanghai (China/Shanghai time) and America/Los_Angeles (US/Los Angeles time).
+      // - Time zone offset from Greenwich Mean Time (GMT): such as GMT+8:00 (UTC+8) and GMT-7:00 (UTC-7). Leading zeros are not supported for the hour value.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -555,7 +537,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The Cloud Assistant resource usage configuration. This setting takes effect only when the Cloud Assistant Agent version is not earlier than the following versions:
+    // The Cloud Assistant resource usage configuration. This parameter takes effect only when the Cloud Assistant Agent version is not earlier than the following versions:
     // 
     // - Windows: 2.1.4.1065
     // 
@@ -564,14 +546,14 @@ namespace Models
     // The Cloud Assistant session feature configuration.
     shared_ptr<ModifyCloudAssistantSettingsRequest::SessionManagerConfig> sessionManagerConfig_ {};
     // The service configuration type. Valid values:
-    // - SessionManagerDelivery: session operation log delivery.
-    // - InvocationDelivery: task execution log delivery.
-    // - AgentUpgradeConfig: Cloud Assistant Agent upgrade configuration.
-    // - SessionManagerConfig: Cloud Assistant SessionManager configuration.
+    // - SessionManagerDelivery: session operation record delivery
+    // - InvocationDelivery: task execution record delivery
+    // - AgentUpgradeConfig: Cloud Assistant Agent upgrade configuration
+    // - SessionManagerConfig: Cloud Assistant SessionManager configuration
     // 
     // This parameter is required.
     shared_ptr<string> settingType_ {};
-    // The Simple Log Service (SLS) delivery configuration.
+    // The SLS delivery configuration.
     shared_ptr<ModifyCloudAssistantSettingsRequest::SlsDeliveryConfig> slsDeliveryConfig_ {};
   };
 
