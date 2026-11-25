@@ -163,27 +163,27 @@ namespace Models
 
 
     protected:
-      // The temporary STS `AccessKey ID`. This field is returned when `STS_TOKEN` is used.
+      // The temporary STS AccessKey ID. This field is returned when `STS_TOKEN` is used.
       shared_ptr<string> accessKeyId_ {};
-      // The temporary STS AccessKey secret. This field is returned when STS_TOKEN is used.
+      // The temporary STS AccessKey secret. This field is returned when `STS_TOKEN` is used.
       shared_ptr<string> accessKeySecret_ {};
-      // The OSS bucket. This field is returned when STS_TOKEN, POST_POLICY, or PRESIGNED_URL is used.
+      // The OSS bucket. This field is returned when `STS_TOKEN`, `POST_POLICY`, or `PRESIGNED_URL` is used.
       shared_ptr<string> bucket_ {};
-      // The expiration time of the credential. The time is in UTC and follows the ISO 8601 standard.
+      // The expiration time of the credential in UTC and ISO 8601 format.
       shared_ptr<string> expiration_ {};
-      // The Base64-encoded PostObject policy. This field is returned when POST_POLICY is used.
+      // The Base64-encoded PostObject policy. This field is returned when `POST_POLICY` is used.
       shared_ptr<string> policy_ {};
-      // The AccessKey ID used for the signature. This field is returned when POST_POLICY is used.
+      // The AccessKey ID used for the signature. This field is returned when `POST_POLICY` is used.
       shared_ptr<string> postAccessKeyId_ {};
-      // The target endpoint for the POST request. This field is returned when POST_POLICY is used.
+      // The destination endpoint for the POST request. This field is returned when `POST_POLICY` is used.
       shared_ptr<string> postEndpoint_ {};
       // The OSS region. This field is returned in all three credential modes.
       shared_ptr<string> region_ {};
-      // The STS security token. This field is returned when STS_TOKEN is used.
+      // The STS security token. This field is returned when `STS_TOKEN` is used.
       shared_ptr<string> securityToken_ {};
-      // The PostObject signature. This field is returned when POST_POLICY is used.
+      // The PostObject signature. This field is returned when `POST_POLICY` is used.
       shared_ptr<string> signature_ {};
-      // The pre-signed PUT URL. This field is returned when PRESIGNED_URL is used.
+      // The pre-signed PUT URL. This field is returned when `PRESIGNED_URL` is used.
       shared_ptr<string> signedUrl_ {};
     };
 
@@ -249,21 +249,21 @@ namespace Models
 
 
   protected:
-    // The unsigned OSS URL of the file. The format is `oss://bucket/objectKey`.
+    // The unsigned OSS URL of the file in the `oss://bucket/objectKey` format.
     shared_ptr<string> fileURL_ {};
     // The media asset ID.
     shared_ptr<string> mediaId_ {};
-    // The OSS object key. The format is `yike-v1/uid segment-ws segment/date/hour/type/mediaId+random string+source suffix.file name extension`.
+    // The OSS object key in the `yike-v1/uid segment-ws segment/date/hour/type/mediaId+random string+source suffix.file name extension` format.
     shared_ptr<string> objectKey_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The storage location identifier. The format is `bucket.endpoint`.
+    // The storage location identifier in the `bucket.endpoint` format.
     shared_ptr<string> storageLocation_ {};
-    // The expiration time of the ticket. The time is in UTC and follows the ISO 8601 standard. This field is returned when UPLOAD_TICKET is used.
+    // The expiration time of the ticket in UTC and ISO 8601 format. This field is returned when `UPLOAD_TICKET` is used.
     shared_ptr<string> ticketExpiration_ {};
     // The upload credentials. Some fields may be empty depending on the `CredentialType`.
     shared_ptr<CreateUploadMediaResponseBody::UploadCredentials> uploadCredentials_ {};
-    // The upload ticket. This field is returned when UPLOAD_TICKET is used. The ticket is a 27-character string in the format of UT1+region code+random string+check digit. A real credential is issued based on this ticket during a ticket exchange.
+    // The upload ticket. This field is returned when `UPLOAD_TICKET` is used. It is a 27-character string in the UT1+region code+random string+check digit format. A real credential is issued based on this ticket during a ticket exchange.
     shared_ptr<string> uploadTicket_ {};
   };
 

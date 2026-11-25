@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The client token.
+    // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};

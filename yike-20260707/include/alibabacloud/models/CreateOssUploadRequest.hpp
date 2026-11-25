@@ -79,13 +79,13 @@ namespace Models
     shared_ptr<string> bizConfig_ {};
     // The credential type. This is a reserved parameter. The current version always returns STS temporary credentials, and this parameter does not take effect.
     shared_ptr<string> credentialType_ {};
-    // The file name extension, such as mp4, wav, or png. Do not include the dot. If this parameter is not specified, `MissingParameter` is returned.
+    // The file name extension, such as mp4, wav, or png. Do not include the dot. If this parameter is missing, `MissingParameter` is returned.
     // 
     // This parameter is required.
     shared_ptr<string> fileExt_ {};
     // The file type. Valid values: `Media` (default), `StoryboardInput`, `ImageFusion`, `AIAppParams`, `Workflow`, and `CommonFile`. If an invalid value is specified, `InvalidParameter` is returned. This value is used as a path segment in the `ObjectKey` and is converted to lowercase.
     shared_ptr<string> fileType_ {};
-    // The explicitly specified destination bucket.
+    // The explicitly specified target bucket.
     shared_ptr<string> targetBucket_ {};
   };
 

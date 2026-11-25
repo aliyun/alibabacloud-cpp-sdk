@@ -161,21 +161,21 @@ namespace Models
       shared_ptr<string> accessKeySecret_ {};
       // OSS Bucket
       shared_ptr<string> bucket_ {};
-      // The expiration time of the credentials. The time is in UTC and follows the ISO 8601 standard. The actual return value prevails.
+      // The expiration time of the credential in UTC and ISO 8601 format. The actual return value prevails.
       shared_ptr<string> expiration_ {};
-      // The PostObject policy, which is Base64-encoded. This field is returned when POST_POLICY is used.
+      // The PostObject policy, which is Base64-encoded. This is returned when POST_POLICY is used.
       shared_ptr<string> policy_ {};
-      // The AccessKey ID used for signing. This field is returned when POST_POLICY is used.
+      // The AccessKey ID used for the signature. This is returned when POST_POLICY is used.
       shared_ptr<string> postAccessKeyId_ {};
-      // The destination endpoint for POST requests. This field is returned when POST_POLICY is used.
+      // The target endpoint for the POST request. This is returned when POST_POLICY is used.
       shared_ptr<string> postEndpoint_ {};
       // The OSS region, such as cn-shanghai.
       shared_ptr<string> region_ {};
       // The STS security token.
       shared_ptr<string> securityToken_ {};
-      // The PostObject signature. This field is returned when POST_POLICY is used.
+      // The PostObject signature. This is returned when POST_POLICY is used.
       shared_ptr<string> signature_ {};
-      // The presigned PUT URL. This field is returned when PRESIGNED_URL is used.
+      // The pre-signed PUT URL. This is returned when PRESIGNED_URL is used.
       shared_ptr<string> signedUrl_ {};
     };
 
@@ -214,7 +214,7 @@ namespace Models
   protected:
     // OSS ObjectKey
     shared_ptr<string> objectKey_ {};
-    // The **OSS presigned GET URL**, which is valid for 24 hours and uses the public endpoint. If signature generation fails, null is returned, which does not affect direct upload with the credentials.
+    // The **OSS pre-signed GET URL**, which is valid for 24 hours and uses the public endpoint. If the signature generation fails, null is returned, which does not affect direct upload using the credentials.
     shared_ptr<string> ossUrl_ {};
     // The **request ID**.
     shared_ptr<string> requestId_ {};

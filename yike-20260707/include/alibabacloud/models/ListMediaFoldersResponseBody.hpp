@@ -112,7 +112,7 @@ namespace Models
       shared_ptr<string> folderId_ {};
       // The folder name.
       shared_ptr<string> folderName_ {};
-      // Indicates whether the folder is the default folder. Each project has exactly one default folder.
+      // Indicates whether the folder is the default folder. Each project has one and only one default folder.
       shared_ptr<bool> isDefault_ {};
       // The modification time.
       shared_ptr<string> modifiedTime_ {};

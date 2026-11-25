@@ -47,6 +47,9 @@
 #include <alibabacloud/models/GenerateYikeLoginTokenRequest.hpp>
 #include <alibabacloud/models/GenerateYikeLoginTokenResponseBody.hpp>
 #include <alibabacloud/models/GenerateYikeLoginTokenResponse.hpp>
+#include <alibabacloud/models/GetAIAppJobRequest.hpp>
+#include <alibabacloud/models/GetAIAppJobResponseBody.hpp>
+#include <alibabacloud/models/GetAIAppJobResponse.hpp>
 #include <alibabacloud/models/GetAgentJobRequest.hpp>
 #include <alibabacloud/models/GetAgentJobResponseBody.hpp>
 #include <alibabacloud/models/GetAgentJobResponse.hpp>
@@ -122,6 +125,9 @@
 #include <alibabacloud/models/SearchMediaRequest.hpp>
 #include <alibabacloud/models/SearchMediaResponseBody.hpp>
 #include <alibabacloud/models/SearchMediaResponse.hpp>
+#include <alibabacloud/models/SubmitAIAppJobRequest.hpp>
+#include <alibabacloud/models/SubmitAIAppJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitAIAppJobResponse.hpp>
 #include <alibabacloud/models/SubmitAgentJobRequest.hpp>
 #include <alibabacloud/models/SubmitAgentJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitAgentJobResponse.hpp>

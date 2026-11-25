@@ -150,9 +150,9 @@ namespace Yike20260707
        * @summary Generates OSS upload credentials for client-side direct upload without registering media assets or creating media asset records.
        *
        * @description ## Request description
-       * - This API operation generates temporary OSS upload credentials so that clients can directly upload files to a specified OSS bucket.
+       * - This API operation generates a temporary OSS upload credential so that the client can directly upload files to a specified OSS bucket.
        * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
-       * - The `FileType` parameter is optional and defaults to `Media`. It affects the path segment in the returned `ObjectKey`.
+       * - The `FileType` parameter is optional. The default value is `Media`. This parameter affects the path segment in the returned `ObjectKey`.
        *
        * @param request CreateOssUploadRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -164,9 +164,9 @@ namespace Yike20260707
        * @summary Generates OSS upload credentials for client-side direct upload without registering media assets or creating media asset records.
        *
        * @description ## Request description
-       * - This API operation generates temporary OSS upload credentials so that clients can directly upload files to a specified OSS bucket.
+       * - This API operation generates a temporary OSS upload credential so that the client can directly upload files to a specified OSS bucket.
        * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
-       * - The `FileType` parameter is optional and defaults to `Media`. It affects the path segment in the returned `ObjectKey`.
+       * - The `FileType` parameter is optional. The default value is `Media`. This parameter affects the path segment in the returned `ObjectKey`.
        *
        * @param request CreateOssUploadRequest
        * @return CreateOssUploadResponse
@@ -198,7 +198,7 @@ namespace Yike20260707
        * @summary Creates or overwrites a media asset for upload and obtains upload credentials.
        *
        * @description ## Request description
-       * - This operation supports two modes: creating a new media asset and overwriting an existing media asset.
+       * - This operation supports two modes: creating a new media asset and overwriting an existing one.
        * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
        * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
        * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
@@ -213,7 +213,7 @@ namespace Yike20260707
        * @summary Creates or overwrites a media asset for upload and obtains upload credentials.
        *
        * @description ## Request description
-       * - This operation supports two modes: creating a new media asset and overwriting an existing media asset.
+       * - This operation supports two modes: creating a new media asset and overwriting an existing one.
        * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
        * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
        * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
@@ -348,6 +348,23 @@ namespace Yike20260707
        * @return GenerateYikeLoginTokenResponse
        */
       Models::GenerateYikeLoginTokenResponse generateYikeLoginToken(const Models::GenerateYikeLoginTokenRequest &request);
+
+      /**
+       * @summary Retrieves an intelligent workflow task.
+       *
+       * @param request GetAIAppJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAIAppJobResponse
+       */
+      Models::GetAIAppJobResponse getAIAppJobWithOptions(const Models::GetAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves an intelligent workflow task.
+       *
+       * @param request GetAIAppJobRequest
+       * @return GetAIAppJobResponse
+       */
+      Models::GetAIAppJobResponse getAIAppJob(const Models::GetAIAppJobRequest &request);
 
       /**
        * @summary Queries an asynchronous task of the agent node.
@@ -569,7 +586,7 @@ namespace Yike20260707
       Models::GetVideoDetextJobResponse getVideoDetextJob(const Models::GetVideoDetextJobRequest &request);
 
       /**
-       * @summary Queries a video generation job.
+       * @summary Queries a video generation task.
        *
        * @param request GetVideoGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -578,7 +595,7 @@ namespace Yike20260707
       Models::GetVideoGenerationJobResponse getVideoGenerationJobWithOptions(const Models::GetVideoGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a video generation job.
+       * @summary Queries a video generation task.
        *
        * @param request GetVideoGenerationJobRequest
        * @return GetVideoGenerationJobResponse
@@ -745,7 +762,7 @@ namespace Yike20260707
        * @summary Queries a paginated list of media folders in a specified project.
        *
        * @description ## Request description
-       * - This operation retrieves a list of all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+       * - This operation retrieves all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
        * - If `ProductionId` is not provided, the default project of the current account is used.
        *
        * @param request ListMediaFoldersRequest
@@ -758,7 +775,7 @@ namespace Yike20260707
        * @summary Queries a paginated list of media folders in a specified project.
        *
        * @description ## Request description
-       * - This operation retrieves a list of all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+       * - This operation retrieves all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
        * - If `ProductionId` is not provided, the default project of the current account is used.
        *
        * @param request ListMediaFoldersRequest
@@ -847,6 +864,23 @@ namespace Yike20260707
        * @return SearchMediaResponse
        */
       Models::SearchMediaResponse searchMedia(const Models::SearchMediaRequest &request);
+
+      /**
+       * @summary Starts an intelligent workflow.
+       *
+       * @param request SubmitAIAppJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitAIAppJobResponse
+       */
+      Models::SubmitAIAppJobResponse submitAIAppJobWithOptions(const Models::SubmitAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Starts an intelligent workflow.
+       *
+       * @param request SubmitAIAppJobRequest
+       * @return SubmitAIAppJobResponse
+       */
+      Models::SubmitAIAppJobResponse submitAIAppJob(const Models::SubmitAIAppJobRequest &request);
 
       /**
        * @summary Submits an asynchronous task for an agent node.

@@ -356,9 +356,9 @@ CreateInfiniteCanvasResponse Client::createInfiniteCanvas(const CreateInfiniteCa
  * @summary Generates OSS upload credentials for client-side direct upload without registering media assets or creating media asset records.
  *
  * @description ## Request description
- * - This API operation generates temporary OSS upload credentials so that clients can directly upload files to a specified OSS bucket.
+ * - This API operation generates a temporary OSS upload credential so that the client can directly upload files to a specified OSS bucket.
  * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
- * - The `FileType` parameter is optional and defaults to `Media`. It affects the path segment in the returned `ObjectKey`.
+ * - The `FileType` parameter is optional. The default value is `Media`. This parameter affects the path segment in the returned `ObjectKey`.
  *
  * @param request CreateOssUploadRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -408,9 +408,9 @@ CreateOssUploadResponse Client::createOssUploadWithOptions(const CreateOssUpload
  * @summary Generates OSS upload credentials for client-side direct upload without registering media assets or creating media asset records.
  *
  * @description ## Request description
- * - This API operation generates temporary OSS upload credentials so that clients can directly upload files to a specified OSS bucket.
+ * - This API operation generates a temporary OSS upload credential so that the client can directly upload files to a specified OSS bucket.
  * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
- * - The `FileType` parameter is optional and defaults to `Media`. It affects the path segment in the returned `ObjectKey`.
+ * - The `FileType` parameter is optional. The default value is `Media`. This parameter affects the path segment in the returned `ObjectKey`.
  *
  * @param request CreateOssUploadRequest
  * @return CreateOssUploadResponse
@@ -474,7 +474,7 @@ CreateProjectResponse Client::createProject(const CreateProjectRequest &request)
  * @summary Creates or overwrites a media asset for upload and obtains upload credentials.
  *
  * @description ## Request description
- * - This operation supports two modes: creating a new media asset and overwriting an existing media asset.
+ * - This operation supports two modes: creating a new media asset and overwriting an existing one.
  * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
  * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
  * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
@@ -543,7 +543,7 @@ CreateUploadMediaResponse Client::createUploadMediaWithOptions(const CreateUploa
  * @summary Creates or overwrites a media asset for upload and obtains upload credentials.
  *
  * @description ## Request description
- * - This operation supports two modes: creating a new media asset and overwriting an existing media asset.
+ * - This operation supports two modes: creating a new media asset and overwriting an existing one.
  * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
  * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
  * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
@@ -874,6 +874,52 @@ GenerateYikeLoginTokenResponse Client::generateYikeLoginTokenWithOptions(const G
 GenerateYikeLoginTokenResponse Client::generateYikeLoginToken(const GenerateYikeLoginTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return generateYikeLoginTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves an intelligent workflow task.
+ *
+ * @param request GetAIAppJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAIAppJobResponse
+ */
+GetAIAppJobResponse Client::getAIAppJobWithOptions(const GetAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasOnlyOutputs()) {
+    query["OnlyOutputs"] = request.getOnlyOutputs();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAIAppJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAIAppJobResponse>();
+}
+
+/**
+ * @summary Retrieves an intelligent workflow task.
+ *
+ * @param request GetAIAppJobRequest
+ * @return GetAIAppJobResponse
+ */
+GetAIAppJobResponse Client::getAIAppJob(const GetAIAppJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAIAppJobWithOptions(request, runtime);
 }
 
 /**
@@ -1383,7 +1429,7 @@ GetVideoDetextJobResponse Client::getVideoDetextJob(const GetVideoDetextJobReque
 }
 
 /**
- * @summary Queries a video generation job.
+ * @summary Queries a video generation task.
  *
  * @param request GetVideoGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1418,7 +1464,7 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJobWithOptions(const Get
 }
 
 /**
- * @summary Queries a video generation job.
+ * @summary Queries a video generation task.
  *
  * @param request GetVideoGenerationJobRequest
  * @return GetVideoGenerationJobResponse
@@ -1869,7 +1915,7 @@ ListInfiniteCanvasesResponse Client::listInfiniteCanvases(const ListInfiniteCanv
  * @summary Queries a paginated list of media folders in a specified project.
  *
  * @description ## Request description
- * - This operation retrieves a list of all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+ * - This operation retrieves all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
  * - If `ProductionId` is not provided, the default project of the current account is used.
  *
  * @param request ListMediaFoldersRequest
@@ -1912,7 +1958,7 @@ ListMediaFoldersResponse Client::listMediaFoldersWithOptions(const ListMediaFold
  * @summary Queries a paginated list of media folders in a specified project.
  *
  * @description ## Request description
- * - This operation retrieves a list of all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+ * - This operation retrieves all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
  * - If `ProductionId` is not provided, the default project of the current account is used.
  *
  * @param request ListMediaFoldersRequest
@@ -2147,6 +2193,62 @@ SearchMediaResponse Client::searchMediaWithOptions(const SearchMediaRequest &req
 SearchMediaResponse Client::searchMedia(const SearchMediaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return searchMediaWithOptions(request, runtime);
+}
+
+/**
+ * @summary Starts an intelligent workflow.
+ *
+ * @param request SubmitAIAppJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitAIAppJobResponse
+ */
+SubmitAIAppJobResponse Client::submitAIAppJobWithOptions(const SubmitAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  json body = {};
+  if (!!request.hasInputs()) {
+    body["Inputs"] = request.getInputs();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitAIAppJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitAIAppJobResponse>();
+}
+
+/**
+ * @summary Starts an intelligent workflow.
+ *
+ * @param request SubmitAIAppJobRequest
+ * @return SubmitAIAppJobResponse
+ */
+SubmitAIAppJobResponse Client::submitAIAppJob(const SubmitAIAppJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitAIAppJobWithOptions(request, runtime);
 }
 
 /**

@@ -181,15 +181,15 @@ namespace Models
     protected:
       // The aspect ratio.
       shared_ptr<string> aspectRatio_ {};
-      // The video duration, in seconds.
+      // The video duration. Unit: seconds.
       shared_ptr<string> duration_ {};
-      // The error message. The value is a string. This parameter is returned only when the job status is Failed.
+      // The error message. The value is a string and is returned when the task status is Failed.
       shared_ptr<string> errorMessage_ {};
-      // The job input.
+      // The task input.
       shared_ptr<string> input_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
-      // The job feature configurations. This parameter does not require configuration at this time.
+      // The task feature configuration. Currently, no configuration is required.
       shared_ptr<string> jobParameters_ {};
       // The job type.
       shared_ptr<string> jobType_ {};
@@ -198,8 +198,7 @@ namespace Models
       // The number of generated videos.
       shared_ptr<int32_t> n_ {};
       // The generation result. The value is a JSON string that contains the following fields:
-      // 
-      // Medias: the list of media information (Media objects). Fields of a Media object:
+      // Medias: the list of media information (Media objects). The Media object includes the following fields:
       // MediaId: String. The media asset ID.
       // OutputUrl: String. The media URL, including the authentication string.
       shared_ptr<string> output_ {};
@@ -207,12 +206,12 @@ namespace Models
       shared_ptr<string> resolution_ {};
       // The scene type. Currently, only general is supported.
       shared_ptr<string> scene_ {};
-      // The job status. Valid values:
-      // - Created: The job is created.
-      // - Queuing: The job is queued.
-      // - Executing: The job is executing.
-      // - Finished: The job succeeded.
-      // - Failed: The job failed.
+      // The task status. Valid values:
+      // - Created: The task is created.
+      // - Queuing: The task is queuing.
+      // - Executing: The task is executing.
+      // - Finished: The task ran successfully.
+      // - Failed: The task failed.
       shared_ptr<string> status_ {};
       // The user business information.
       shared_ptr<string> userData_ {};
@@ -239,7 +238,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The video generation job.
+    // The video generation task.
     shared_ptr<GetVideoGenerationJobResponseBody::VideoGenerationJob> videoGenerationJob_ {};
   };
 
