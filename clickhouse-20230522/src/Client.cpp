@@ -3813,7 +3813,7 @@ ResetLangfuseUserPasswordResponse Client::resetLangfuseUserPassword(const ResetL
 }
 
 /**
- * @summary Restarts an ApsaraDB for ClickHouse cluster.
+ * @summary Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request RestartDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3822,8 +3822,16 @@ ResetLangfuseUserPasswordResponse Client::resetLangfuseUserPassword(const ResetL
 RestartDBInstanceResponse Client::restartDBInstanceWithOptions(const RestartDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasComputingGroupId()) {
+    query["ComputingGroupId"] = request.getComputingGroupId();
+  }
+
   if (!!request.hasDBInstanceId()) {
     query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasNodeList()) {
+    query["NodeList"] = request.getNodeList();
   }
 
   if (!!request.hasRegionId()) {
@@ -3848,7 +3856,7 @@ RestartDBInstanceResponse Client::restartDBInstanceWithOptions(const RestartDBIn
 }
 
 /**
- * @summary Restarts an ApsaraDB for ClickHouse cluster.
+ * @summary Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request RestartDBInstanceRequest
  * @return RestartDBInstanceResponse

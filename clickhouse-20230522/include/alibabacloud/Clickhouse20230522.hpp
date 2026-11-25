@@ -1157,7 +1157,7 @@ namespace Clickhouse20230522
       Models::ResetLangfuseUserPasswordResponse resetLangfuseUserPassword(const Models::ResetLangfuseUserPasswordRequest &request);
 
       /**
-       * @summary Restarts an ApsaraDB for ClickHouse cluster.
+       * @summary Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
        *
        * @param request RestartDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1166,7 +1166,7 @@ namespace Clickhouse20230522
       Models::RestartDBInstanceResponse restartDBInstanceWithOptions(const Models::RestartDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts an ApsaraDB for ClickHouse cluster.
+       * @summary Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
        *
        * @param request RestartDBInstanceRequest
        * @return RestartDBInstanceResponse
