@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The prohibited software ID.
+    // The ID of the prohibited software.
     shared_ptr<string> softwareIdShrink_ {};
   };
 

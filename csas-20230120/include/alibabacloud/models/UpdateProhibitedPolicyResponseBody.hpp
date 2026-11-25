@@ -133,9 +133,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether the prohibited software is a system built-in entry. Valid values:
-        // - **true**: A system built-in prohibited software entry shared across all Alibaba Cloud accounts. It cannot be modified or deleted.
-        // - **false**: A custom prohibited software entry under the current Alibaba Cloud account.
+        // Specifies whether the prohibited software is built-in. Valid values:
+        // - **true**: The software is built-in, shared by all Alibaba Cloud accounts, and cannot be modified or deleted.
+        // - **false**: The software is custom prohibited software under the current Alibaba Cloud account.
         shared_ptr<bool> isDefault_ {};
         // The ID of the prohibited software.
         shared_ptr<string> softwareId_ {};
@@ -317,62 +317,62 @@ namespace Models
 
 
     protected:
-      // Specifies whether endpoint users are allowed to submit a filing request for this policy. Valid values:
-      // - **true**: Filing is allowed. A filing entry is provided in the pop-up notification on the endpoint.
-      // - **false**: Filing is not allowed.
+      // Specifies whether to allow endpoint users to submit exemption requests for the policy. Valid values:
+      // - **true**: Exemption requests are allowed. The endpoint pop-up window provides an entry for submitting requests.
+      // - **false**: Exemption requests are not allowed.
       shared_ptr<bool> allowReport_ {};
-      // The time when the software prohibition policy was created, in the yyyy-MM-dd HH:mm:ss format. The time is in the UTC+8 time zone.
+      // The time when the software prohibition policy was created. The time is in the yyyy-MM-dd HH:mm:ss format and uses the UTC+8 time zone.
       shared_ptr<string> createTime_ {};
       // The description of the software prohibition policy.
       shared_ptr<string> description_ {};
       // Specifies whether the policy is enabled. Valid values:
-      // - **true**: Enabled. The policy is delivered to endpoints and takes effect.
-      // - **false**: Disabled. The policy configuration is retained but not delivered to endpoints.
+      // - **true**: The policy is enabled and delivered to endpoints to take effect.
+      // - **false**: The policy is disabled. The configuration is retained but not delivered to endpoints.
       shared_ptr<bool> enabled_ {};
       // Specifies whether to forcibly terminate running software processes. Valid values:
-      // - **true**: The endpoint immediately terminates the running processes of the software when the policy is triggered.
-      // - **false**: Running processes are not terminated. Only subsequent launches are blocked.
+      // - **true**: The endpoint immediately terminates the running processes of the software when the policy is matched.
+      // - **false**: Running processes are not terminated. Only subsequent startups are blocked.
       shared_ptr<bool> forceKill_ {};
-      // The Chinese text of the primary button in the pop-up notification on the endpoint.
+      // The Chinese text of the primary button in the endpoint pop-up window.
       shared_ptr<string> mainButtonTextCh_ {};
-      // The English text of the primary button in the pop-up notification on the endpoint.
+      // The English text of the primary button in the endpoint pop-up window.
       shared_ptr<string> mainButtonTextEn_ {};
-      // The scope in which the policy takes effect. Valid values:
-      // - **UserGroupAll**: Takes effect for all users under the current Alibaba Cloud account. No user group needs to be specified.
-      // - **UserGroupNormal**: Takes effect only for users in the user groups specified by UserGroupIds.
+      // The effective scope. Valid values:
+      // - **UserGroupAll**: applies to all users under the current Alibaba Cloud account. You do not need to specify user groups.
+      // - **UserGroupNormal**: applies only to users in the user groups specified by UserGroupIds.
       shared_ptr<string> matchMode_ {};
-      // The Chinese text of the secondary button in the pop-up notification on the endpoint.
+      // The Chinese text of the secondary button in the endpoint pop-up window.
       shared_ptr<string> minorButtonTextCh_ {};
-      // The English text of the secondary button in the pop-up notification on the endpoint.
+      // The English text of the secondary button in the endpoint pop-up window.
       shared_ptr<string> minorButtonTextEn_ {};
-      // The name of the software prohibition policy.
+      // The policy name of the software prohibition policy.
       shared_ptr<string> name_ {};
       // The object type. Valid values:
-      // - **App**: Controls by prohibited software. The controlled objects are specified by SoftwareIds.
-      // - **Tag**: Controls by prohibited software tag. The controlled objects are specified by TagIds. All prohibited software under the specified tags is controlled.
+      // - **App**: manages prohibited software. The managed objects are specified by SoftwareIds.
+      // - **Tag**: manages prohibited software tags. The managed objects are specified by TagIds. All prohibited software under the tags are managed.
       shared_ptr<string> objectType_ {};
       // The ID of the software prohibition policy.
       shared_ptr<string> policyId_ {};
       // The action to take. Valid values:
-      // - **Ban**: Blocks the software from running and displays a pop-up notification on the endpoint to alert the user.
-      // - **BanSilent**: Blocks the software from running without notifying the user (silent blocking).
-      // - **Warn**: Displays a pop-up notification on the endpoint to alert the user without blocking the software from running.
+      // - **Ban**: blocks the software from running and displays a pop-up window on the endpoint to notify the user.
+      // - **BanSilent**: blocks the software from running without notifying the user.
+      // - **Warn**: displays a pop-up window on the endpoint to notify the user without blocking the software from running.
       shared_ptr<string> policyType_ {};
       // The policy priority. Valid values: 0 to 99. A smaller value indicates a higher priority.
       shared_ptr<int32_t> priority_ {};
-      // The Chinese prompt content displayed in the pop-up notification on the endpoint.
+      // The Chinese prompt content in the endpoint pop-up window.
       shared_ptr<string> promptCh_ {};
-      // The English prompt content displayed in the pop-up notification on the endpoint.
+      // The English prompt content in the endpoint pop-up window.
       shared_ptr<string> promptEn_ {};
-      // The collection of prohibited software directly controlled by this policy.
+      // The collection of prohibited software directly managed by the policy.
       shared_ptr<vector<Policy::SoftwareIds>> softwareIds_ {};
-      // The collection of prohibited software tag IDs controlled by this policy.
+      // The collection of prohibited software tag IDs managed by the policy.
       shared_ptr<vector<string>> tagIds_ {};
-      // The Chinese title of the pop-up notification on the endpoint.
+      // The Chinese title of the endpoint pop-up window.
       shared_ptr<string> titleCh_ {};
-      // The English title of the pop-up notification on the endpoint.
+      // The English title of the endpoint pop-up window.
       shared_ptr<string> titleEn_ {};
-      // The collection of user group IDs for which the policy takes effect.
+      // The collection of user group IDs to which the policy applies.
       shared_ptr<vector<string>> userGroupIds_ {};
       // The list of exempted usernames.
       shared_ptr<vector<string>> whitelist_ {};

@@ -115,20 +115,20 @@ namespace Models
 
 
     protected:
-      // The policy description.
+      // The description of the policy.
       shared_ptr<string> description_ {};
       // The target instance ID.
       shared_ptr<string> destinationId_ {};
       // The destination type. Valid values:
-      // - **Connector**: connector.
+      // - **Connector**: Connector.
       shared_ptr<string> destinationType_ {};
-      // The forwarding rule ID.
+      // The ID of the forwarding rule.
       shared_ptr<string> forwardId_ {};
       // The policy name.
       shared_ptr<string> name_ {};
-      // The policy priority. The value 1 indicates the highest priority, and the value 100 indicates the lowest priority.
+      // The policy priority. A value of 1 indicates the highest priority, and a value of 100 indicates the lowest priority.
       shared_ptr<int64_t> priority_ {};
-      // The policy status. Valid values:
+      // The status of the policy. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> status_ {};

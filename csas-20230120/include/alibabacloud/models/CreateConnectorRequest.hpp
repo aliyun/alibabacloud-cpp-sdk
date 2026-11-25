@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The bandwidth value in Mbit/s.
+    // The bandwidth value (Mbps).
     shared_ptr<int32_t> bandwidth_ {};
-    // The name of the connector. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
+    // The name of the connector. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase English letters, digits, periods (.), underscores (_), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

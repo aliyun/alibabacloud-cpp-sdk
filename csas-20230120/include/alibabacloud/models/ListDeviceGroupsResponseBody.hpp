@@ -132,25 +132,25 @@ namespace Models
 
 
     protected:
-      // The device label description.
+      // The description of the device tag.
       shared_ptr<string> description_ {};
-      // The device label ID.
+      // The ID of the device tag.
       shared_ptr<string> deviceGroupId_ {};
-      // The rule operator of the dynamic device group.
+      // The operator for the dynamic device group rule.
       shared_ptr<string> dynamicOperator_ {};
-      // The matching rule of the dynamic device label.
+      // The matching rule for the dynamic device tag.
       shared_ptr<Rule> dynamicRule_ {};
-      // The device label type. Valid values:
-      // - **static**: A static device label. Members consist of manually added terminal devices.
-      // - **dynamic**: A dynamic device label. Members are automatically calculated by matching rules when terminal devices report heartbeats.
+      // The type of the device tag. Valid values:
+      // - **static**: Static device tag. Members consist of manually added terminal devices.
+      // - **dynamic**: Dynamic device tag. Members are automatically calculated based on matching rules when terminal devices report heartbeats.
       shared_ptr<string> groupType_ {};
-      // Indicates whether the device label is a system built-in device label. Valid values:
-      // - **true**: A system built-in device label.
-      // - **false**: A user-defined device label.
+      // Specifies whether the device tag is a built-in system device tag. Valid values:
+      // - **true**: Built-in system device tag.
+      // - **false**: Custom device tag.
       shared_ptr<string> isDefault_ {};
-      // The collection of terminal device IDs associated with the device label.
+      // The IDs of the terminal devices that are associated with the device tag.
       shared_ptr<vector<string>> matchDevTags_ {};
-      // The device label name.
+      // The name of the device tag.
       shared_ptr<string> name_ {};
     };
 
@@ -180,11 +180,11 @@ namespace Models
 
 
   protected:
-    // The list of device labels.
+    // The list of device tags.
     shared_ptr<vector<ListDeviceGroupsResponseBody::DeviceGroups>> deviceGroups_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of device labels.
+    // The total number of device tags.
     shared_ptr<int64_t> totalNum_ {};
   };
 

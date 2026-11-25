@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The description of the employee tag.
+    // The description of the user tag.
     shared_ptr<string> description_ {};
     // The name of the user tag.
     shared_ptr<string> name_ {};

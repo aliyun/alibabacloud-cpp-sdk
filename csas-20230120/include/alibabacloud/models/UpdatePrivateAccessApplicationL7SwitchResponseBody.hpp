@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SrcIpMarkStatus, srcIpMarkStatus_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TimeoutSec, timeoutSec_);
+        DARABONBA_PTR_TO_JSON(UrlAccessPaths, urlAccessPaths_);
         DARABONBA_PTR_TO_JSON(UserMarkStatus, userMarkStatus_);
         DARABONBA_PTR_TO_JSON(ZeroTrustStatus, zeroTrustStatus_);
       };
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SrcIpMarkStatus, srcIpMarkStatus_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TimeoutSec, timeoutSec_);
+        DARABONBA_PTR_FROM_JSON(UrlAccessPaths, urlAccessPaths_);
         DARABONBA_PTR_FROM_JSON(UserMarkStatus, userMarkStatus_);
         DARABONBA_PTR_FROM_JSON(ZeroTrustStatus, zeroTrustStatus_);
       };
@@ -67,6 +69,52 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class UrlAccessPaths : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const UrlAccessPaths& obj) { 
+          DARABONBA_PTR_TO_JSON(AllowMethods, allowMethods_);
+          DARABONBA_PTR_TO_JSON(Urls, urls_);
+        };
+        friend void from_json(const Darabonba::Json& j, UrlAccessPaths& obj) { 
+          DARABONBA_PTR_FROM_JSON(AllowMethods, allowMethods_);
+          DARABONBA_PTR_FROM_JSON(Urls, urls_);
+        };
+        UrlAccessPaths() = default ;
+        UrlAccessPaths(const UrlAccessPaths &) = default ;
+        UrlAccessPaths(UrlAccessPaths &&) = default ;
+        UrlAccessPaths(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~UrlAccessPaths() = default ;
+        UrlAccessPaths& operator=(const UrlAccessPaths &) = default ;
+        UrlAccessPaths& operator=(UrlAccessPaths &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->allowMethods_ == nullptr
+        && this->urls_ == nullptr; };
+        // allowMethods Field Functions 
+        bool hasAllowMethods() const { return this->allowMethods_ != nullptr;};
+        void deleteAllowMethods() { this->allowMethods_ = nullptr;};
+        inline const vector<string> & getAllowMethods() const { DARABONBA_PTR_GET_CONST(allowMethods_, vector<string>) };
+        inline vector<string> getAllowMethods() { DARABONBA_PTR_GET(allowMethods_, vector<string>) };
+        inline UrlAccessPaths& setAllowMethods(const vector<string> & allowMethods) { DARABONBA_PTR_SET_VALUE(allowMethods_, allowMethods) };
+        inline UrlAccessPaths& setAllowMethods(vector<string> && allowMethods) { DARABONBA_PTR_SET_RVALUE(allowMethods_, allowMethods) };
+
+
+        // urls Field Functions 
+        bool hasUrls() const { return this->urls_ != nullptr;};
+        void deleteUrls() { this->urls_ = nullptr;};
+        inline const vector<string> & getUrls() const { DARABONBA_PTR_GET_CONST(urls_, vector<string>) };
+        inline vector<string> getUrls() { DARABONBA_PTR_GET(urls_, vector<string>) };
+        inline UrlAccessPaths& setUrls(const vector<string> & urls) { DARABONBA_PTR_SET_VALUE(urls_, urls) };
+        inline UrlAccessPaths& setUrls(vector<string> && urls) { DARABONBA_PTR_SET_RVALUE(urls_, urls) };
+
+
+      protected:
+        shared_ptr<vector<string>> allowMethods_ {};
+        shared_ptr<vector<string>> urls_ {};
+      };
+
       class PortRanges : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const PortRanges& obj) { 
@@ -113,7 +161,7 @@ namespace Models
 
       virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->devTagMarkStatus_ == nullptr && this->downloadAuditStatus_ == nullptr && this->portRanges_ == nullptr && this->srcIpMarkStatus_ == nullptr && this->status_ == nullptr
-        && this->timeoutSec_ == nullptr && this->userMarkStatus_ == nullptr && this->zeroTrustStatus_ == nullptr; };
+        && this->timeoutSec_ == nullptr && this->urlAccessPaths_ == nullptr && this->userMarkStatus_ == nullptr && this->zeroTrustStatus_ == nullptr; };
       // applicationId Field Functions 
       bool hasApplicationId() const { return this->applicationId_ != nullptr;};
       void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -165,6 +213,15 @@ namespace Models
       inline L7Switch& setTimeoutSec(int32_t timeoutSec) { DARABONBA_PTR_SET_VALUE(timeoutSec_, timeoutSec) };
 
 
+      // urlAccessPaths Field Functions 
+      bool hasUrlAccessPaths() const { return this->urlAccessPaths_ != nullptr;};
+      void deleteUrlAccessPaths() { this->urlAccessPaths_ = nullptr;};
+      inline const vector<L7Switch::UrlAccessPaths> & getUrlAccessPaths() const { DARABONBA_PTR_GET_CONST(urlAccessPaths_, vector<L7Switch::UrlAccessPaths>) };
+      inline vector<L7Switch::UrlAccessPaths> getUrlAccessPaths() { DARABONBA_PTR_GET(urlAccessPaths_, vector<L7Switch::UrlAccessPaths>) };
+      inline L7Switch& setUrlAccessPaths(const vector<L7Switch::UrlAccessPaths> & urlAccessPaths) { DARABONBA_PTR_SET_VALUE(urlAccessPaths_, urlAccessPaths) };
+      inline L7Switch& setUrlAccessPaths(vector<L7Switch::UrlAccessPaths> && urlAccessPaths) { DARABONBA_PTR_SET_RVALUE(urlAccessPaths_, urlAccessPaths) };
+
+
       // userMarkStatus Field Functions 
       bool hasUserMarkStatus() const { return this->userMarkStatus_ != nullptr;};
       void deleteUserMarkStatus() { this->userMarkStatus_ = nullptr;};
@@ -180,33 +237,34 @@ namespace Models
 
 
     protected:
-      // The ID of the internal-facing application.
+      // The ID of the internal access application.
       shared_ptr<string> applicationId_ {};
-      // The device tag mark switch. Valid values:
+      // The device tag marking switch. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> devTagMarkStatus_ {};
-      // The sensitive application download audit switch. Valid values:
+      // The download audit switch for sensitive applications. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> downloadAuditStatus_ {};
-      // The collection of port ranges that are effective for Layer 7 access. This is the intersection of the ports specified in this request and the port ranges already configured for the internal-facing application. An empty collection is returned when Status is set to **Disabled**.
+      // The effective port ranges for Layer 7 access, which are the intersection of the ports specified in this request and the configured port ranges of the internal access application. If Status is set to **Disabled**, an empty set is returned.
       shared_ptr<vector<L7Switch::PortRanges>> portRanges_ {};
-      // The source IP mark switch. Valid values:
+      // The source IP marking switch. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> srcIpMarkStatus_ {};
-      // The master switch for Layer 7 access of the internal-facing application. Valid values:
+      // The master switch for the Layer 7 access switch of the internal access application. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> status_ {};
       // The request timeout period, in seconds.
       shared_ptr<int32_t> timeoutSec_ {};
-      // The user mark switch. Valid values:
+      shared_ptr<vector<L7Switch::UrlAccessPaths>> urlAccessPaths_ {};
+      // The user marking switch. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> userMarkStatus_ {};
-      // The host bypass prevention switch. Valid values:
+      // The Host bypass prevention switch. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> zeroTrustStatus_ {};
@@ -231,9 +289,9 @@ namespace Models
 
 
   protected:
-    // The Layer 7 access switch configuration of the internal-facing application after this update.
+    // The Layer 7 access switch configurations of the internal access application after the update.
     shared_ptr<UpdatePrivateAccessApplicationL7SwitchResponseBody::L7Switch> l7Switch_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

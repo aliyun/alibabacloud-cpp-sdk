@@ -80,15 +80,15 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The maximum size of a single virus file that can be uploaded, in KB. A value of 0 indicates no size limit.
+    // The maximum allowed upload size for a single virus file, in KB. A value of 0 indicates that the size is not limited.
     shared_ptr<int64_t> uploadFileMaxSize_ {};
-    // The maximum upload rate for virus files, in KB/s. A value of 0 indicates no rate limit.
+    // The maximum upload speed for virus files, in KB/s. A value of 0 indicates that the speed is not limited.
     shared_ptr<int64_t> uploadFileMaxSpeed_ {};
-    // The collection of file types that are prohibited from being uploaded. Files that match these types are not uploaded even if the upload feature is enabled. An empty list is returned if no file types are configured.
+    // The set of file types that are prohibited from upload. Matched files are not uploaded even if the upload feature is enabled. An empty list is returned if this parameter is not configured.
     shared_ptr<vector<string>> uploadFileSuffixBlacklist_ {};
-    // Indicates whether user terminal devices are allowed to upload detected virus files to the cloud for further analysis. Valid values:
-    // - **true**: Upload is allowed.
-    // - **false**: Upload is not allowed.
+    // Specifies whether user terminal devices are allowed to upload detected virus files to the cloud for further analysis. Valid values:
+    // - **true**: Allowed.
+    // - **false**: Not allowed.
     shared_ptr<bool> virusFileUpload_ {};
   };
 

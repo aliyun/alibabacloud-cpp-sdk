@@ -87,7 +87,7 @@ namespace Models
 
 
     protected:
-      // The creation time of the prohibited software tag, in the yyyy-MM-dd HH:mm:ss format. The time is displayed in UTC+8.
+      // The time when the prohibited software tag was created. The time is in the yyyy-MM-dd HH:mm:ss format and is in the UTC+8 time zone.
       shared_ptr<string> createTime_ {};
       // The description of the prohibited software tag.
       shared_ptr<string> description_ {};

@@ -216,45 +216,43 @@ namespace Models
 
 
     protected:
-      // AccessKey ID for the IDaaS identity provider.
+      // The AccessKey ID of the IDaaS identity source.
       shared_ptr<string> accessKey_ {};
-      // AccessKey for the IDaaS identity provider.
+      // The AccessKey secret of the IDaaS identity source.
       shared_ptr<string> accessKeySecret_ {};
-      // Description of the identity provider configuration.
+      // The description of the identity source configuration.
       shared_ptr<string> description_ {};
-      // URL to query the organizational structure from a custom identity provider.
+      // The URL used to query the organizational structure of a self-managed identity source.
       shared_ptr<string> getGroupUrl_ {};
-      // ID of the identity provider configuration.
+      // The ID of the identity source configuration.
       shared_ptr<string> id_ {};
-      // Metadata of the identity provider (IdP).
+      // The metadata of the identity provider (IdP).
       shared_ptr<string> idpMetadata_ {};
-      // Type of multi-factor authentication (MFA) configuration.
+      // The configuration type of secondary authentication.
       shared_ptr<string> mfaConfigType_ {};
-      // Login type for mobile clients.
+      // The logon type for mobile devices.
       shared_ptr<string> mobileLoginType_ {};
-      // Type of MFA configuration for mobile clients.
+      // The configuration type of secondary authentication for mobile devices.
       shared_ptr<string> mobileMfaConfigType_ {};
-      // List of IDs for multiple identity providers.
+      // The IDs of multiple identity source configurations.
       shared_ptr<string> multiIdpInfo_ {};
-      // Name of the identity provider configuration.
+      // The name of the identity source configuration.
       shared_ptr<string> name_ {};
-      // Login type for PC clients.
+      // The logon type for PCs.
       shared_ptr<string> pcLoginType_ {};
-      // Status of the identity provider configuration. Valid values:
-      // 
+      // The enabling status of the identity source configuration. Valid values:
       // - **Enabled**: Enabled.
-      // 
       // - **Disabled**: Disabled.
       shared_ptr<string> status_ {};
-      // Type of the identity provider configuration.
+      // The type of the identity source configuration.
       shared_ptr<string> type_ {};
-      // Time when the configuration was last updated.
+      // The update time.
       shared_ptr<string> updateTime_ {};
-      // AES key used to encrypt requests to a custom MFA service.
+      // The encryption key used for requests to a self-managed secondary authentication service.
       shared_ptr<string> verifyAesKey_ {};
-      // Token used to verify signatures in requests to a custom MFA service.
+      // The token used to verify the request signature of a self-managed secondary authentication service.
       shared_ptr<string> verifyToken_ {};
-      // URL used to verify one-time passwords with a custom MFA service.
+      // The verification URL of a self-managed secondary authentication service.
       shared_ptr<string> verifyUrl_ {};
     };
 
@@ -277,9 +275,9 @@ namespace Models
 
 
   protected:
-    // Identity provider configuration.
+    // The identity source configuration.
     shared_ptr<GetIdpConfigResponseBody::Data> data_ {};
-    // ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

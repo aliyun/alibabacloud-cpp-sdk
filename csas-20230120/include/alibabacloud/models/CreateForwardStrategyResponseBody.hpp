@@ -115,22 +115,22 @@ namespace Models
 
 
     protected:
-      // The description of the traffic forwarding rule.
+      // The description of the forwarding rule.
       shared_ptr<string> description_ {};
-      // The target instance ID.
+      // The instance ID of the target instance.
       shared_ptr<string> destinationId_ {};
       // The destination type. Valid values:
       // - **Connector**: connector.
       shared_ptr<string> destinationType_ {};
-      // The ID of the traffic forwarding rule.
+      // The ID of the forwarding rule.
       shared_ptr<string> forwardId_ {};
       // The policy name.
       shared_ptr<string> name_ {};
       // The policy priority.
       shared_ptr<int64_t> priority_ {};
-      // The status of the internal-facing access application. Valid values:
-      // - **Enabled**: enabled.
-      // - **Disabled**: disabled.
+      // The status of the internal network access application. Valid values:
+      // - **Enabled**: The application is enabled.
+      // - **Disabled**: The application is disabled.
       shared_ptr<string> status_ {};
     };
 
@@ -153,7 +153,7 @@ namespace Models
 
 
   protected:
-    // The traffic forwarding rule.
+    // The forwarding rule.
     shared_ptr<CreateForwardStrategyResponseBody::ForwardStrategy> forwardStrategy_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

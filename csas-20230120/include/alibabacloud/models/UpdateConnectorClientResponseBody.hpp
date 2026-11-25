@@ -213,12 +213,12 @@ namespace Models
       // The number of CPUs of the ConnectorClient.
       shared_ptr<string> CPUSize_ {};
       // The connection status of the ConnectorClient. Valid values:
-      // - **Connected**: connected.
-      // - **Disconnected**: disconnected.
+      // - **Connected**: Connected.
+      // - **Disconnected**: Disconnected.
       shared_ptr<string> connectionStatus_ {};
-      // ConnectorID。
+      // The connector ID.
       shared_ptr<string> connectorId_ {};
-      // The time when the connector was created.
+      // The time when the connector was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The unique identifier of the ConnectorClient device.
       shared_ptr<string> devTag_ {};
@@ -231,28 +231,28 @@ namespace Models
       // The O&M status. Valid values:
       // - **Running**: O&M in progress.
       // - **Failed**: O&M failed.
-      // - (empty string): not in O&M status.
+      // - **(Empty string)**: Not in an O&M state.
       shared_ptr<string> operationStatus_ {};
       // The private IP address of the ConnectorClient.
       shared_ptr<string> privateIp_ {};
-      // The program runtime. Unit: seconds.
+      // The runtime of the program. Unit: seconds.
       shared_ptr<int32_t> processRunTime_ {};
       // The public IP address of the ConnectorClient.
       shared_ptr<string> publicIp_ {};
       // The version number.
       shared_ptr<vector<string>> releaseNotes_ {};
-      // The enabled status of the ConnectorClient, which can be used to force the client offline. Valid values:
-      // - **Enabled**: enabled.
-      // - **Disabled**: disabled.
+      // The enabled status of the ConnectorClient, which controls whether the client is forced offline. Valid values:
+      // - **Enabled**: Enabled.
+      // - **Disabled**: Disabled.
       shared_ptr<string> status_ {};
-      // The version status of the connector. Valid values:
+      // The upgrade status of the connector. Valid values:
       // 
-      // - **Latest**: the current version is the latest version.
-      // - **NewVersionAvailable**: a newer version is available for upgrade.
+      // - **Latest**: The connector is updated to the latest version.
+      // - **NewVersionAvailable**: A new version is available for upgrade.
       shared_ptr<string> upgradeStatus_ {};
       // The blockchain version.
       shared_ptr<string> version_ {};
-      // The version to roll back to.
+      // The version to be rolled back.
       shared_ptr<string> versionToRollback_ {};
     };
 
@@ -275,9 +275,9 @@ namespace Models
 
 
   protected:
-    // ConnectorClient。
+    // The ConnectorClient.
     shared_ptr<UpdateConnectorClientResponseBody::ConnectorClient> connectorClient_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

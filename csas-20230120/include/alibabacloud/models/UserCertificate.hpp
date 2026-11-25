@@ -115,14 +115,23 @@ namespace Models
 
 
   protected:
+    // The certificate ID.
     shared_ptr<string> certId_ {};
+    // The certificate content in PEM format.
     shared_ptr<string> certificate_ {};
+    // The certificate description.
     shared_ptr<string> description_ {};
+    // The domain names for which the certificate is valid.
     shared_ptr<vector<string>> dnsNames_ {};
+    // The expiration time.
     shared_ptr<int64_t> expTimeUnix_ {};
+    // The creation timestamp.
     shared_ptr<int64_t> gmtCreateUnix_ {};
+    // The update timestamp.
     shared_ptr<int64_t> gmtModifiedUnix_ {};
+    // The certificate name.
     shared_ptr<string> name_ {};
+    // The PEM private key.
     shared_ptr<string> privateKey_ {};
   };
 

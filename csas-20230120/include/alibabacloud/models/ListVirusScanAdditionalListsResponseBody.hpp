@@ -121,11 +121,11 @@ namespace Models
 
 
         protected:
-          // The creation time of the list entry, in the yyyy-MM-dd HH:mm:ss format. The time is in the UTC+8 time zone.
+          // The creation time of the list entry. The time is in the yyyy-MM-dd HH:mm:ss format and uses the UTC+8 time zone.
           shared_ptr<string> createTime_ {};
           // The content of the list entry. The meaning is determined by the AdditionalType to which it belongs.
           shared_ptr<string> detail_ {};
-          // The list entry ID.
+          // The ID of the list entry.
           shared_ptr<string> listId_ {};
         };
 
@@ -148,11 +148,11 @@ namespace Models
 
 
       protected:
-        // The list of entries.
+        // The list of list entries.
         shared_ptr<vector<Lists::ListDetail>> listDetail_ {};
         // The list type. Valid values:
-        // - **Blacklist**: Blacklist. Files that match are directly identified as virus files.
-        // - **Whitelist**: Whitelist. Files that match are excluded from virus detection.
+        // - **Blacklist**: Blacklist. Matched files are directly identified as virus files.
+        // - **Whitelist**: Whitelist. Matched files are excluded from virus detection.
         shared_ptr<string> listType_ {};
       };
 
@@ -175,14 +175,14 @@ namespace Models
 
 
     protected:
-      // The matching dimension of the list entry. Valid values:
+      // The match dimension of the list entry. Valid values:
       // - **FileSuffix**: Matches by file name extension.
       // - **FileName**: Matches by file name.
       // - **FolderName**: Matches by folder name.
       // - **FilePath**: Matches by file path.
-      // - **FileMd5**: Matches by file MD5 hash.
+      // - **FileMd5**: Matches by file MD5 value.
       shared_ptr<string> additionalType_ {};
-      // The lists grouped by list type under this matching dimension.
+      // The lists grouped by list type under the match dimension.
       shared_ptr<vector<AdditionalLists::Lists>> lists_ {};
     };
 
@@ -205,9 +205,9 @@ namespace Models
 
 
   protected:
-    // The blacklists and whitelists grouped by matching dimension. If a matching dimension contains no list entries, that dimension does not appear in the list.
+    // The list of blacklists and whitelists grouped by match dimension. If a match dimension does not contain any list entries, the dimension is not included in the list.
     shared_ptr<vector<ListVirusScanAdditionalListsResponseBody::AdditionalLists>> additionalLists_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

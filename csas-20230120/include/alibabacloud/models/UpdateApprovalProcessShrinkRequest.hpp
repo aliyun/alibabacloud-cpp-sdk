@@ -115,11 +115,15 @@ namespace Models
 
 
   protected:
+    // The approval type. Valid values: 0 (built-in approval), 1 (DingTalk approval), 2 (WeCom approval), and 3 (Lark approval). Default value: 0.
     shared_ptr<int32_t> approvalType_ {};
-    // The description of the approval process. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
+    // The description of the approval process. The description must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
     shared_ptr<string> description_ {};
+    // The event callback identifier. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter is used to generate the event callback URL for the external platform. You can pass a complete callback URL, and the server retains only the part after the callback path prefix.
     shared_ptr<string> eventLabel_ {};
+    // The integration configuration for the external approval platform. This parameter is required when the approval type is 1 (DingTalk approval) or 3 (Lark approval). It includes integration parameters such as appKey and appSecret, and must be passed as a JSON string.
     shared_ptr<string> externalConfig_ {};
+    // The external approval template configurations. Configure the approval template ID, external approval process ID, and field mappings based on the policy type. This parameter is used only when ApprovalType is set to 1 (DingTalk approval), 2 (WeCom approval), or 3 (Lark approval). If this parameter is not passed, the existing template associations of the approval process are cleared. The approval templates associated with business policies cannot be cleared.
     shared_ptr<string> matchSchemaConfigsShrink_ {};
     // The matched approval templates.
     shared_ptr<string> matchSchemasShrink_ {};
@@ -127,7 +131,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> processId_ {};
-    // The name of the approval process. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+    // The name of the approval process. The name must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> processName_ {};
     // The list of approval nodes. You can define up to 5 approval nodes.
     shared_ptr<vector<vector<string>>> processNodes_ {};

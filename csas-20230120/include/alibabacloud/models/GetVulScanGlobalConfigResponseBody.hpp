@@ -71,11 +71,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to prohibit shutdown during the fix process to prevent system exceptions caused by shutting down during patch installation. Valid values:
+      // Specifies whether to prohibit shutdown during the fix process to prevent system exceptions caused by shutdown during patch installation. Valid values:
       // - **true**: Shutdown is prohibited.
       // - **false**: Shutdown is not prohibited.
       shared_ptr<bool> antiShutdownSwitch_ {};
-      // Specifies whether to create a snapshot for the cloud desktop before the fix, which can be used for rollback if the fix fails. Valid values:
+      // Specifies whether to create a snapshot for the Cloud Desktop before the fix process to allow rollback if the fix fails. Valid values:
       // - **true**: A snapshot is created.
       // - **false**: No snapshot is created.
       shared_ptr<bool> snapshotSwitch_ {};
@@ -107,11 +107,11 @@ namespace Models
 
 
   protected:
-    // The maximum download speed for vulnerability patches on a single user terminal device. Unit: bytes per second. A value of 0 indicates no speed limit.
+    // The maximum download rate of vulnerability patches for a single user terminal device. Unit: Byte/s. A value of 0 indicates no rate limit.
     shared_ptr<int32_t> maxDownloadSpeed_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The vulnerability fix configuration for WUYING Workspace. This configuration takes effect only on user terminal devices of the Cloud Desktop type.
+    // The vulnerability fix configuration for WUYING Cloud Desktop. This configuration takes effect only for user terminal devices of the WUYING Cloud Desktop type.
     shared_ptr<GetVulScanGlobalConfigResponseBody::WuyingVulFixConfig> wuyingVulFixConfig_ {};
   };
 

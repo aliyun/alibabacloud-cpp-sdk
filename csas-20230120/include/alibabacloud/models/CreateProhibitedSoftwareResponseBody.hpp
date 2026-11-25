@@ -121,9 +121,9 @@ namespace Models
 
 
       protected:
-        // The bundle ID of the application. This parameter is required only for macOS processes.
+        // The bundle ID. This field is applicable only to macOS processes.
         shared_ptr<string> bundleId_ {};
-        // The command line parameters for starting the process.
+        // The command-line arguments used to start the process.
         shared_ptr<string> cmdline_ {};
         // The directory where the process is located.
         shared_ptr<string> directory_ {};
@@ -187,9 +187,9 @@ namespace Models
 
 
       protected:
-        // The bundle ID of the application. This parameter is required only for macOS processes.
+        // The bundle ID. This field is applicable only to macOS processes.
         shared_ptr<string> bundleId_ {};
-        // The command line parameters for starting the process.
+        // The command-line arguments used to start the process.
         shared_ptr<string> cmdline_ {};
         // The directory where the process is located.
         shared_ptr<string> directory_ {};
@@ -253,9 +253,9 @@ namespace Models
 
 
       protected:
-        // The bundle ID of the application. This parameter is required only for macOS processes.
+        // The bundle ID. This field is applicable only to macOS processes.
         shared_ptr<string> bundleId_ {};
-        // The command line parameters for starting the process.
+        // The command-line arguments used to start the process.
         shared_ptr<string> cmdline_ {};
         // The directory where the process is located.
         shared_ptr<string> directory_ {};
@@ -331,19 +331,19 @@ namespace Models
 
 
     protected:
-      // The creation time of the disabled software, in the yyyy-MM-dd HH:mm:ss format. The time is in the UTC+8 time zone.
+      // The time when the blocked software was created. The time is displayed in the yyyy-MM-dd HH:mm:ss format and uses the UTC+8 time zone.
       shared_ptr<string> createTime_ {};
-      // The description of the disabled software.
+      // The description of the blocked software.
       shared_ptr<string> description_ {};
       // The list of process configurations for the Linux operating system.
       shared_ptr<vector<Software::LinuxProcesses>> linuxProcesses_ {};
       // The list of process configurations for the macOS operating system.
       shared_ptr<vector<Software::MacOSProcesses>> macOSProcesses_ {};
-      // The software name.
+      // The name of the software.
       shared_ptr<string> name_ {};
-      // The ID of the disabled software.
+      // The ID of the blocked software.
       shared_ptr<string> softwareId_ {};
-      // The IDs of disabled software tags associated with this disabled software.
+      // The IDs of the blocked software tags associated with the blocked software.
       shared_ptr<vector<string>> tagIds_ {};
       // The list of process configurations for the Windows operating system.
       shared_ptr<vector<Software::WindowsProcesses>> windowsProcesses_ {};
@@ -370,7 +370,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The details of the disabled software.
+    // The details of the blocked software.
     shared_ptr<CreateProhibitedSoftwareResponseBody::Software> software_ {};
   };
 

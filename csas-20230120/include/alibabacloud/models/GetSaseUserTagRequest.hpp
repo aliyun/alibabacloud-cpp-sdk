@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The user tag ID. You can obtain this value from the following operations:
+    // The ID of the user tag. Related operations:
     // - [ListSaseUserTags](~~ListSaseUserTags~~): Lists user tags.
     // - [CreateSaseUserTag](~~CreateSaseUserTag~~): Creates a user tag.
     shared_ptr<string> tagId_ {};

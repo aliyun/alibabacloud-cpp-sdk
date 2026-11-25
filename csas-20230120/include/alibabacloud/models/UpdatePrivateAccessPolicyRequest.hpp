@@ -128,37 +128,27 @@ namespace Models
 
 
     protected:
-      // The identity provider ID for the custom user attribute. This parameter is required when UserGroupType is **department**.
+      // The ID of the identity source for the custom user group. This parameter is required when the custom user group type is **department**.
       shared_ptr<int32_t> idpId_ {};
-      // The relation used to match the custom user attribute. Valid values:
-      // 
+      // The relation of the custom user group. Valid values:
       // - **Equal**: Equal to.
-      // 
       // - **Unequal**: Not equal to.
       // 
       // This parameter is required.
       shared_ptr<string> relation_ {};
-      // The type of the custom user attribute. Valid values:
-      // 
+      // The type of the custom user group. Valid values:
       // - **username**: Username.
-      // 
       // - **department**: Department.
-      // 
       // - **email**: Email address.
-      // 
-      // - **telephone**: Phone number.
+      // - **telephone**: Mobile phone number.
       // 
       // This parameter is required.
       shared_ptr<string> userGroupType_ {};
-      // The value of the custom user attribute.
-      // 
-      // - If UserGroupType is **username**, this is the username. The value must be 1 to 128 characters in length. It can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
-      // 
-      // - If UserGroupType is **department**, this is the department name. Example: OU=Department 1,OU=SASE DingTalk.
-      // 
-      // - If UserGroupType is **email**, this is the email address. Example: username\\@example.com.
-      // 
-      // - If UserGroupType is **telephone**, this is the phone number. Example: 13900001234.
+      // The value of the custom user group attribute.
+      // - If the user group type is **username**, this parameter specifies the username. The value must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (*), at signs (@), and spaces.
+      // - If the user group type is **department**, this parameter specifies the department. Example: OU=Department 1,OU=SASE DingTalk.
+      // - If the user group type is **email**, this parameter specifies the email address. Example: username@example.com.
+      // - If the user group type is **telephone**, this parameter specifies the mobile phone number. Example: 13900001234.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -337,86 +327,69 @@ namespace Models
 
 
   protected:
-    // The IDs of applications associated with the internal network access policy. A single policy supports up to 100 application IDs.
+    // The IDs of the applications in the private access policy. A single policy supports up to 100 private access application IDs.
     shared_ptr<vector<string>> applicationIds_ {};
-    // The application type for the internal network access policy. Valid values:
-    // 
+    // The application type of the private access policy. Valid values:
     // - **Application**: Application.
-    // 
     // - **Tag**: Tag.
     shared_ptr<string> applicationType_ {};
-    // This parameter specifies a collection of custom user groups for the private network access policy. It is required when the user group type is **Custom**. This collection is mutually exclusive with the user group ID collection, and you can specify a maximum of 10 custom user groups.
+    // The custom user groups in the private access policy. This parameter is required when the user group type is **Custom**. This parameter is mutually exclusive with the user group IDs. You can specify up to 10 custom user groups.
     shared_ptr<vector<UpdatePrivateAccessPolicyRequest::CustomUserAttributes>> customUserAttributes_ {};
-    // A description of the internal network access policy. The description must be 1 to 128 characters in length. It can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
+    // The description of the private access policy. The description must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
     shared_ptr<string> description_ {};
-    // The action taken when a device does not meet the security baseline. Valid values:
-    // 
-    // - **Block**: Block access.
-    // 
-    // - **Observe**: Monitor access.
+    // The action to take when the security baseline is not met. Valid values:
+    // - **Block**: Blocks.
+    // - **Observe**: Observes.
     shared_ptr<string> deviceAttributeAction_ {};
     // The ID of the security baseline policy.
     shared_ptr<string> deviceAttributeId_ {};
-    // The method used to update the internal network access policy. Valid values:
-    // 
-    // - **Cover** (default): Replace the existing application IDs, user group IDs, and custom user attributes with the values specified in **ApplicationIds**, **UserGroupIds**, and **CustomUserAttributes**.
-    // 
-    // - **Append**: Add the values specified in **ApplicationIds**, **UserGroupIds**, and **CustomUserAttributes** to the existing application IDs, user group IDs, and custom user attributes.
+    // The modification type of the private access policy. Valid values:
+    // - **Cover** (default): Overwrites the original application IDs, user group IDs, and custom user groups with the values of the **ApplicationIds**, **UserGroupIds**, and **CustomUserAttributes** parameters.
+    // - **Append**: Appends the values of the **ApplicationIds**, **UserGroupIds**, and **CustomUserAttributes** parameters to the original application IDs, user group IDs, and custom user groups.
     shared_ptr<string> modifyType_ {};
+    // The Policy Name.
     shared_ptr<string> name_ {};
-    // The action that the internal network access policy takes. Valid values:
-    // 
-    // - **Block**: Block access.
-    // 
-    // - **Allow**: Allow access.
+    // The action of the private access policy. Valid values:
+    // - **Block**: Blocks.
+    // - **Allow**: Allows.
     shared_ptr<string> policyAction_ {};
-    // The ID of the internal network access policy. Get this value from one of the following operations:
-    // 
-    // - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): List internal network access policies in batches.
-    // 
-    // - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): Create an internal network access policy.
+    // The ID of the private access policy. You can obtain the value from the following operations:
+    // - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Queries private access policies.
+    // - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): Creates a private access policy.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
-    // The priority of the internal network access policy. Priority 1 is the highest. Valid values: 1 to 1000. The maximum value is the total number of internal network access policies minus 1.
+    // The policy priority of the internal network access policy. A value of 1 indicates the highest priority. Valid values: 1 to 1000. The maximum value is the total number of internal network access policies minus one.
     shared_ptr<int32_t> priority_ {};
-    // The status of the internal network access policy. Valid values:
-    // 
+    // The status of the private access policy. Valid values:
     // - **Enabled**: Enabled.
-    // 
     // - **Disabled**: Disabled.
     shared_ptr<string> status_ {};
-    // The IDs of tags associated with the internal network access policy. A single policy supports up to 100 tag IDs.
+    // The IDs of the tags in the private access policy. A single policy supports up to 100 private access tag IDs.
     shared_ptr<vector<string>> tagIds_ {};
     // The ID of the trigger template.
     shared_ptr<string> triggerTemplateId_ {};
-    // The IDs of trusted process groups.
+    // The IDs of the trusted process groups.
     shared_ptr<vector<string>> trustedProcessGroupIds_ {};
-    // The status of the trusted process feature. Valid values:
-    // 
+    // The status of the trusted process switch. Valid values:
     // - **Enabled**: Enabled.
-    // 
     // - **Disabled**: Disabled.
     shared_ptr<string> trustedProcessStatus_ {};
-    // The IDs of trusted software.
+    // The IDs of the trusted software.
     shared_ptr<vector<string>> trustedSoftwareIds_ {};
-    // The IDs of user groups associated with the internal network access policy. This parameter is required when UserGroupMode is set to Normal. This parameter is mutually exclusive with **CustomUserAttributes**. A single policy supports up to 10,000 user groups. You can update up to 2,000 user group IDs at a time.
+    // The IDs of the user groups in the private access policy. This parameter is required when the user group type is **Normal**. This parameter is mutually exclusive with the custom user groups. A single policy supports up to 10,000 user groups, and you can modify up to 2,000 user group IDs at a time.
     shared_ptr<vector<string>> userGroupIds_ {};
-    // The user group type for the internal network access policy. Valid values:
-    // 
+    // The user group type of the private access policy. Valid values:
     // - **Normal**: Regular user group.
-    // 
     // - **Custom**: Custom user group.
     shared_ptr<string> userGroupMode_ {};
-    // The start time of the zero-trust policy\\"s effective period, in seconds since the Unix epoch.
+    // The start time when the zero trust policy takes effect. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> validFrom_ {};
-    // The status of the effective time feature. Valid values:
-    // 
+    // The status of the effective period switch. Valid values:
     // - **Enabled**: Enabled.
-    // 
-    // - **Disabled**: Disabled.
+    // - **Disabled**: Shutdown.
     shared_ptr<string> validTimeStatus_ {};
-    // The end time of the zero-trust policy\\"s effective period, in seconds since the Unix epoch.
+    // The end time when the zero trust policy takes effect. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> validUntil_ {};
   };
 

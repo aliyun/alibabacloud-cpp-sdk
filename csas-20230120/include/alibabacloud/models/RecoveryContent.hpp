@@ -54,7 +54,13 @@ namespace Models
 
 
   protected:
+    // The validity period configuration after authentication-based recovery. This parameter is used when RecoveryActions includes auth.
     shared_ptr<AuthReportInterval> authReportInterval_ {};
+    // The set of recovery methods after mitigation. Valid values:
+    // - **auto**: Automatic recovery.
+    // - **auth**: Recovery after the user completes authentication.
+    // - **console**: Manual recovery by an administrator in the console.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> recoveryActions_ {};
   };

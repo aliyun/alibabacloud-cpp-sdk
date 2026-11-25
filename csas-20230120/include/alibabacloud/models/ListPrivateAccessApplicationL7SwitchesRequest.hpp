@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The IDs of internal-facing applications. You can specify up to 100 internal-facing application IDs.
+    // The IDs of the internal-facing applications. You can specify up to 100 internal-facing application IDs.
     shared_ptr<vector<string>> applicationIds_ {};
   };
 

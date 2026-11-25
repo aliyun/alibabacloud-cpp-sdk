@@ -57,17 +57,17 @@ namespace Models
 
 
   protected:
-    // The connector ID. You can call [ListConnectors](~~ListConnectors~~) to query connector IDs.
+    // The connector ID. You can obtain the value by calling the [ListConnectors](~~ListConnectors~~) operation.
     // 
     // This parameter is required.
     shared_ptr<string> connectorId_ {};
-    // The unique identifier of the ConnectorClient device. You can call [ListConnectors](~~ListConnectors~~) to query connector information.
+    // The unique identifier of the ConnectorClient device. You can obtain the value by calling the [ListConnectors](~~ListConnectors~~) operation.
     // 
     // This parameter is required.
     shared_ptr<string> devTag_ {};
     // The connection status of the ConnectorClient. Valid values:
-    // - **Enabled**: connected.
-    // - **Disabled**: disconnected.
+    // - **Enabled**: Connected.
+    // - **Disabled**: Disconnected.
     shared_ptr<string> status_ {};
   };
 

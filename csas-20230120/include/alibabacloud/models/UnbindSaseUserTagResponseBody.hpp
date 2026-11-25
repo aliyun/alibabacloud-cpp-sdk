@@ -58,12 +58,12 @@ namespace Models
 
   protected:
     // The API status code or POP error code. Valid values:
-    // - **2xx**: Success.
-    // - **3xx**: Redirection.
-    // - **4xx**: Request error.
-    // - **5xx**: Server error.
+    // - **2xx**: success
+    // - **3xx**: redirection
+    // - **4xx**: request error
+    // - **5xx**: server error
     shared_ptr<int32_t> code_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};

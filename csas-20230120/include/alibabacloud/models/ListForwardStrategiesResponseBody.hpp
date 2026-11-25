@@ -122,8 +122,8 @@ namespace Models
       shared_ptr<string> description_ {};
       // The ID of the destination instance.
       shared_ptr<string> destinationId_ {};
-      // The type of the access destination. Valid values:
-      // - **Connector**: connector.
+      // The destination type. Valid values:
+      // - **Connector**: Connector.
       shared_ptr<string> destinationType_ {};
       // The ID of the forwarding rule.
       shared_ptr<string> forwardId_ {};
@@ -131,7 +131,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The policy priority.
       shared_ptr<string> priority_ {};
-      // The status of the policy. Valid values:
+      // The status of the forwarding rule. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> status_ {};
@@ -163,11 +163,11 @@ namespace Models
 
 
   protected:
-    // The list of forwarding rules.
+    // The forwarding rules.
     shared_ptr<vector<ListForwardStrategiesResponseBody::ForwardStrategies>> forwardStrategies_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of policies.
+    // The total number of forwarding rules.
     shared_ptr<int64_t> totalNum_ {};
   };
 

@@ -251,11 +251,11 @@ namespace Models
         // The operating system applicable to the software package. Valid values:
         // - **Windows**: Windows.
         // - **Mac(Apple)**: macOS with Apple silicon.
-        // - **Mac(Intel)**: macOS with Intel chips.
+        // - **Mac(Intel)**: macOS with Intel processors.
         shared_ptr<string> os_ {};
-        // The software publisher type. Valid values:
-        // - **local**: local upload.
-        // - **thirdparty**: third-party link.
+        // The type of the software publisher. Valid values:
+        // - **local**: Local upload.
+        // - **thirdparty**: Third-party link.
         shared_ptr<string> publisherType_ {};
         // The ID of the software to which the version belongs.
         shared_ptr<string> softwareId_ {};
@@ -266,12 +266,12 @@ namespace Models
         // The download URL of the software package.
         shared_ptr<string> softwareUrl_ {};
         // The release status of the version. Valid values:
-        // - **published**: published.
-        // - **unpublished**: unpublished.
+        // - **published**: Published.
+        // - **unpublished**: Unpublished.
         shared_ptr<string> status_ {};
         // The software version number.
         shared_ptr<string> version_ {};
-        // The software version ID.
+        // The ID of the software version.
         shared_ptr<string> versionId_ {};
       };
 
@@ -457,13 +457,13 @@ namespace Models
       shared_ptr<string> checkBundleId_ {};
       // The software name used for verification.
       shared_ptr<string> checkSoftwareName_ {};
-      // The software category ID.
+      // The ID of the software category.
       shared_ptr<string> classifyId_ {};
       // The time when the software was created. The value is a UNIX timestamp accurate to seconds.
       shared_ptr<string> createTime_ {};
-      // The software description.
+      // The description of the software.
       shared_ptr<string> description_ {};
-      // The list of associated endpoint device IDs.
+      // The list of associated terminal device IDs.
       shared_ptr<vector<string>> devTags_ {};
       // The list of associated device group IDs.
       shared_ptr<vector<string>> deviceGroupIds_ {};
@@ -475,33 +475,33 @@ namespace Models
       shared_ptr<string> logoUrl_ {};
       // The maximum software version number for macOS with Apple silicon.
       shared_ptr<string> macAppleVersion_ {};
-      // The maximum software version number for macOS with Intel chips.
+      // The maximum software version number for macOS with Intel processors.
       shared_ptr<string> macIntelVersion_ {};
-      // The policy match target type. Valid values:
-      // - **UserGroupAll**: all users.
-      // - **UserGroupNormal**: specified user groups.
-      // - **DevTagNormal**: specified devices.
-      // - **DeviceGroupNormal**: specified device groups.
-      // - **DevTagAll**: all devices.
-      // - **None**: not configured.
+      // The target type for policy matching. Valid values:
+      // - **UserGroupAll**: All users.
+      // - **UserGroupNormal**: Specified user groups.
+      // - **DevTagNormal**: Specified devices.
+      // - **DeviceGroupNormal**: Specified device groups.
+      // - **DevTagAll**: All devices.
+      // - **None**: Not configured.
       shared_ptr<string> matchMode_ {};
       // The official download URL of the software.
       shared_ptr<string> officialDownloadUrl_ {};
       // The execution account. Only Windows is supported.
       shared_ptr<string> runAsAccount_ {};
-      // The software ID.
+      // The ID of the software.
       shared_ptr<string> softwareId_ {};
-      // The software name.
+      // The name of the software.
       shared_ptr<string> softwareName_ {};
-      // Indicates whether the built-in library source is deleted.
+      // Indicates whether the source in the built-in library is deleted.
       shared_ptr<bool> sourceRemoved_ {};
-      // The software source. Valid values:
-      // - **custom**: custom software.
-      // - **builtin**: built-in software library.
+      // The source of the software. Valid values:
+      // - **custom**: Custom software.
+      // - **builtin**: Built-in software library.
       shared_ptr<string> sourceType_ {};
       // The list of associated user group IDs.
       shared_ptr<vector<string>> userGroupIds_ {};
-      // The software version list. This field is not returned by the current operation. Call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~) to query software versions.
+      // The list of software versions. This field is not returned by the current API operation. For more information about how to view and manage software versions, see [Software management](https://www.alibabacloud.com/help/en/sase/user-guide/software-management).
       shared_ptr<vector<DataList::Versions>> versions_ {};
       // The maximum software version number for Windows.
       shared_ptr<string> windowsVersion_ {};
@@ -547,13 +547,13 @@ namespace Models
 
 
   protected:
-    // The software list.
+    // The list of software packages.
     shared_ptr<vector<ListSoftwarelibSoftwareResponseBody::DataList>> dataList_ {};
-    // The maximum number of entries per page. This parameter is not returned by the current operation.
+    // The maximum number of entries returned on each page. This parameter is not returned by the current API operation.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token. This parameter is not returned by the current operation.
+    // The query token. This parameter is not returned by the current API operation.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of software packages that meet the query conditions.
     shared_ptr<int32_t> totalCount_ {};

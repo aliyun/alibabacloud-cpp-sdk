@@ -134,20 +134,20 @@ namespace Models
 
   protected:
     // The access mode. Valid values:
-    // - **app**: application access. Filters applications that support application access.
-    // - **browser**: browser access. Filters applications that support browser access.
+    // - **app**: Application access. Filters applications that support application access.
+    // - **browser**: Browser access. Filters applications that support browser access.
     shared_ptr<string> accessModes_ {};
     // The address of the private access application. The address must be 1 to 128 characters in length, and can be an IPv4 address, a CIDR block, a domain name, or a wildcard domain name.
     shared_ptr<string> address_ {};
-    // The IDs of the private access applications. You can specify up to 100 IDs.
+    // The IDs of the private access applications. You can enter up to 100 private access application IDs.
     shared_ptr<vector<string>> applicationIds_ {};
-    // The ID of the connector. You can obtain the ID from the following operation: [ListConnectors](~~ListConnectors~~): List connectors.
+    // The ID of the connector. You can obtain the value from the following operation: [ListConnectors](~~ListConnectors~~): List connectors.
     shared_ptr<string> connectorId_ {};
-    // The page number of the current page in a paging query. Valid values: 1 to 10000.
+    // The page number of the current page in a paged query. Valid values: 1 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // Filters applications by health check status. Valid values:
+    // Filters by health check status. Valid values:
     // * normal: The success rate of the last check is greater than or equal to 95%.
     // * partialError: The success rate of the last check is greater than 0 and less than 95%.
     // * error: The success rate of the last check is 0.
@@ -155,19 +155,19 @@ namespace Models
     shared_ptr<string> healthCheckStatus_ {};
     // The name of the private access application. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
-    // The Settings for the number of entries per page in a paging query. Valid values: 1 to 1000.
+    // The number of entries per page in a paged query. Valid values: 1 to 1000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the private access policy. You can obtain the ID from the following operations:
+    // The ID of the private access policy. You can obtain the value from the following operations:
     // - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): List private access policies.
     // - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): Create a private access policy.
     shared_ptr<string> policyId_ {};
     // The status of the private access application. Valid values:
-    // - **Enabled**: enabled.
-    // - **Disabled**: disabled.
+    // - **Enabled**: Enabled.
+    // - **Disabled**: Disabled.
     shared_ptr<string> status_ {};
-    // The ID of the private access tag. You can obtain the ID from the following operations:
+    // The ID of the private access tag. You can obtain the value from the following operations:
     // - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): List private access tags.
     // - [CreatePrivateAccessTag](~~CreatePrivateAccessTag~~): Create a private access tag.
     shared_ptr<string> tagId_ {};

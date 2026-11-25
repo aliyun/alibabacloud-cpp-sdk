@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The agent ID of the WeCom application.
     shared_ptr<string> agentId_ {};
+    // The schema used to launch the application from the WeCom Android client.
     shared_ptr<string> appSchema_ {};
+    // The secret of the WeCom application.
     shared_ptr<string> appSecret_ {};
+    // The WeCom enterprise ID (CorpId).
     shared_ptr<string> corpId_ {};
+    // The AES encryption key for WeCom event callbacks.
     shared_ptr<string> eventAesKey_ {};
+    // The label (callback URL) for WeCom event callbacks.
     shared_ptr<string> eventLabel_ {};
+    // The verification token for WeCom event callbacks.
     shared_ptr<string> eventVerifyToken_ {};
+    // The callback URL for WeCom logon authorization.
     shared_ptr<string> redirectUri_ {};
   };
 

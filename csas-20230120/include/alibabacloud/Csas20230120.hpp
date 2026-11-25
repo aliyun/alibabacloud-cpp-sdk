@@ -21,7 +21,7 @@ namespace Csas20230120
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Appends associated terminal devices to a static device label in batches.
+       * @summary Adds associated terminal devices to a static device tag in batches.
        *
        * @param request AddDeviceGroupMatchDevicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Csas20230120
       Models::AddDeviceGroupMatchDevicesResponse addDeviceGroupMatchDevicesWithOptions(const Models::AddDeviceGroupMatchDevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Appends associated terminal devices to a static device label in batches.
+       * @summary Adds associated terminal devices to a static device tag in batches.
        *
        * @param request AddDeviceGroupMatchDevicesRequest
        * @return AddDeviceGroupMatchDevicesResponse
@@ -38,7 +38,7 @@ namespace Csas20230120
       Models::AddDeviceGroupMatchDevicesResponse addDeviceGroupMatchDevices(const Models::AddDeviceGroupMatchDevicesRequest &request);
 
       /**
-       * @summary Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+       * @summary Adds entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. The quota is calculated independently for each combination of matching dimension and list type. For each combination, the whitelist supports up to 10,000 entries and the blacklist supports up to 1,000 entries. If the quota is exceeded after the addition, the entire batch fails.
        *
        * @param request AddVirusScanAdditionalListsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Csas20230120
       Models::AddVirusScanAdditionalListsResponse addVirusScanAdditionalListsWithOptions(const Models::AddVirusScanAdditionalListsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+       * @summary Adds entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. The quota is calculated independently for each combination of matching dimension and list type. For each combination, the whitelist supports up to 10,000 entries and the blacklist supports up to 1,000 entries. If the quota is exceeded after the addition, the entire batch fails.
        *
        * @param request AddVirusScanAdditionalListsRequest
        * @return AddVirusScanAdditionalListsResponse
@@ -91,7 +91,7 @@ namespace Csas20230120
       /**
        * @summary Inserts domain name entries into a domain name list in batches.
        *
-       * @description Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+       * @description Appends domain name entries to a specified domain name list (`ListId`) in batches. Domain names must be second-level or higher-level domain names. Wildcard domain names such as `*.example.com` are supported, but overly broad formats such as `*.com` and `*.com.cn` are prohibited.
        *
        * @param request BatchCreateDomainItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -102,7 +102,7 @@ namespace Csas20230120
       /**
        * @summary Inserts domain name entries into a domain name list in batches.
        *
-       * @description Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+       * @description Appends domain name entries to a specified domain name list (`ListId`) in batches. Domain names must be second-level or higher-level domain names. Wildcard domain names such as `*.example.com` are supported, but overly broad formats such as `*.com` and `*.com.cn` are prohibited.
        *
        * @param request BatchCreateDomainItemsRequest
        * @return BatchCreateDomainItemsResponse
@@ -110,9 +110,9 @@ namespace Csas20230120
       Models::BatchCreateDomainItemsResponse batchCreateDomainItems(const Models::BatchCreateDomainItemsRequest &request);
 
       /**
-       * @summary Batch deletes domain name entries from a domain name list.
+       * @summary Deletes multiple domain name entries from a domain name list.
        *
-       * @description Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+       * @description Deletes multiple domain name entries from a specified domain name list based on entry IDs (`ItemIds`, obtained from the `ItemId` returned by ListDomainItems).
        *
        * @param request BatchDeleteDomainItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -121,9 +121,9 @@ namespace Csas20230120
       Models::BatchDeleteDomainItemsResponse batchDeleteDomainItemsWithOptions(const Models::BatchDeleteDomainItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch deletes domain name entries from a domain name list.
+       * @summary Deletes multiple domain name entries from a domain name list.
        *
-       * @description Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+       * @description Deletes multiple domain name entries from a specified domain name list based on entry IDs (`ItemIds`, obtained from the `ItemId` returned by ListDomainItems).
        *
        * @param request BatchDeleteDomainItemsRequest
        * @return BatchDeleteDomainItemsResponse
@@ -131,11 +131,11 @@ namespace Csas20230120
       Models::BatchDeleteDomainItemsResponse batchDeleteDomainItems(const Models::BatchDeleteDomainItemsRequest &request);
 
       /**
-       * @summary Deletes internal-facing applications in batches.
+       * @summary Deletes multiple private access applications.
        *
-       * @description Applications that are referenced by office network recognition or policies cannot be deleted. References:
-       * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
-       * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+       * @description Deletion is not allowed when office area identification or policy references exist. References:
+       * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists private access applications.
+       * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists private access policies.
        *
        * @param request BatchDeletePrivateAccessApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -144,11 +144,11 @@ namespace Csas20230120
       Models::BatchDeletePrivateAccessApplicationResponse batchDeletePrivateAccessApplicationWithOptions(const Models::BatchDeletePrivateAccessApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes internal-facing applications in batches.
+       * @summary Deletes multiple private access applications.
        *
-       * @description Applications that are referenced by office network recognition or policies cannot be deleted. References:
-       * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
-       * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+       * @description Deletion is not allowed when office area identification or policy references exist. References:
+       * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists private access applications.
+       * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists private access policies.
        *
        * @param request BatchDeletePrivateAccessApplicationRequest
        * @return BatchDeletePrivateAccessApplicationResponse
@@ -156,7 +156,7 @@ namespace Csas20230120
       Models::BatchDeletePrivateAccessApplicationResponse batchDeletePrivateAccessApplication(const Models::BatchDeletePrivateAccessApplicationRequest &request);
 
       /**
-       * @summary Deletes internal network access policies in batches.
+       * @summary Deletes multiple internal network access policies.
        *
        * @param request BatchDeletePrivateAccessPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -165,7 +165,7 @@ namespace Csas20230120
       Models::BatchDeletePrivateAccessPolicyResponse batchDeletePrivateAccessPolicyWithOptions(const Models::BatchDeletePrivateAccessPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes internal network access policies in batches.
+       * @summary Deletes multiple internal network access policies.
        *
        * @param request BatchDeletePrivateAccessPolicyRequest
        * @return BatchDeletePrivateAccessPolicyResponse
@@ -173,7 +173,7 @@ namespace Csas20230120
       Models::BatchDeletePrivateAccessPolicyResponse batchDeletePrivateAccessPolicy(const Models::BatchDeletePrivateAccessPolicyRequest &request);
 
       /**
-       * @summary Associates user labels.
+       * @summary Associates user tags.
        *
        * @param request BindSaseUserTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -182,7 +182,7 @@ namespace Csas20230120
       Models::BindSaseUserTagResponse bindSaseUserTagWithOptions(const Models::BindSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates user labels.
+       * @summary Associates user tags.
        *
        * @param request BindSaseUserTagRequest
        * @return BindSaseUserTagResponse
@@ -190,7 +190,7 @@ namespace Csas20230120
       Models::BindSaseUserTagResponse bindSaseUserTag(const Models::BindSaseUserTagRequest &request);
 
       /**
-       * @summary Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+       * @summary Cancels multiple active instant virus scan tasks in batches. After cancellation, endpoints no longer pull or execute the tasks, and scans already running on the endpoints are not interrupted.
        *
        * @param request CancelVirusScanTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -199,7 +199,7 @@ namespace Csas20230120
       Models::CancelVirusScanTasksResponse cancelVirusScanTasksWithOptions(const Models::CancelVirusScanTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+       * @summary Cancels multiple active instant virus scan tasks in batches. After cancellation, endpoints no longer pull or execute the tasks, and scans already running on the endpoints are not interrupted.
        *
        * @param request CancelVirusScanTasksRequest
        * @return CancelVirusScanTasksResponse
@@ -207,7 +207,7 @@ namespace Csas20230120
       Models::CancelVirusScanTasksResponse cancelVirusScanTasks(const Models::CancelVirusScanTasksRequest &request);
 
       /**
-       * @summary Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+       * @summary Cancels multiple active on-demand vulnerability scanning nodes.
        *
        * @param request CancelVulScanTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -216,7 +216,7 @@ namespace Csas20230120
       Models::CancelVulScanTasksResponse cancelVulScanTasksWithOptions(const Models::CancelVulScanTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+       * @summary Cancels multiple active on-demand vulnerability scanning nodes.
        *
        * @param request CancelVulScanTasksRequest
        * @return CancelVulScanTasksResponse
@@ -241,7 +241,7 @@ namespace Csas20230120
       Models::CreateApprovalProcessResponse createApprovalProcess(const Models::CreateApprovalProcessRequest &request);
 
       /**
-       * @summary Creates a backend filing.
+       * @summary Creates a backend report.
        *
        * @param request CreateBackendReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -250,7 +250,7 @@ namespace Csas20230120
       Models::CreateBackendReportResponse createBackendReportWithOptions(const Models::CreateBackendReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a backend filing.
+       * @summary Creates a backend report.
        *
        * @param request CreateBackendReportRequest
        * @return CreateBackendReportResponse
@@ -292,7 +292,7 @@ namespace Csas20230120
       Models::CreateConnectorResponse createConnector(const Models::CreateConnectorRequest &request);
 
       /**
-       * @summary Creates a device label.
+       * @summary Creates a device tag.
        *
        * @param tmpReq CreateDeviceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -301,7 +301,7 @@ namespace Csas20230120
       Models::CreateDeviceGroupResponse createDeviceGroupWithOptions(const Models::CreateDeviceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a device label.
+       * @summary Creates a device tag.
        *
        * @param request CreateDeviceGroupRequest
        * @return CreateDeviceGroupResponse
@@ -311,7 +311,7 @@ namespace Csas20230120
       /**
        * @summary Creates a domain name list.
        *
-       * @description Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+       * @description Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
        *
        * @param request CreateDomainMetaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -322,7 +322,7 @@ namespace Csas20230120
       /**
        * @summary Creates a domain name list.
        *
-       * @description Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+       * @description Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
        *
        * @param request CreateDomainMetaRequest
        * @return CreateDomainMetaResponse
@@ -385,7 +385,7 @@ namespace Csas20230120
       Models::CreateEnterpriseAccelerateTargetResponse createEnterpriseAccelerateTarget(const Models::CreateEnterpriseAccelerateTargetRequest &request);
 
       /**
-       * @summary Creates a traffic forwarding rule.
+       * @summary Creates a forwarding rule.
        *
        * @param request CreateForwardStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -394,7 +394,7 @@ namespace Csas20230120
       Models::CreateForwardStrategyResponse createForwardStrategyWithOptions(const Models::CreateForwardStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a traffic forwarding rule.
+       * @summary Creates a forwarding rule.
        *
        * @param request CreateForwardStrategyRequest
        * @return CreateForwardStrategyResponse
@@ -419,7 +419,7 @@ namespace Csas20230120
       Models::CreateIdpDepartmentResponse createIdpDepartment(const Models::CreateIdpDepartmentRequest &request);
 
       /**
-       * @summary Creates a diagnostic task for internal network access.
+       * @summary Creates an internal network access diagnostic task.
        *
        * @param tmpReq CreatePADiagnosisTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -428,7 +428,7 @@ namespace Csas20230120
       Models::CreatePADiagnosisTaskResponse createPADiagnosisTaskWithOptions(const Models::CreatePADiagnosisTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a diagnostic task for internal network access.
+       * @summary Creates an internal network access diagnostic task.
        *
        * @param request CreatePADiagnosisTaskRequest
        * @return CreatePADiagnosisTaskResponse
@@ -499,7 +499,7 @@ namespace Csas20230120
       Models::CreatePrivateAccessTagResponse createPrivateAccessTag(const Models::CreatePrivateAccessTagRequest &request);
 
       /**
-       * @summary Creates a software ban policy.
+       * @summary Creates a prohibited software policy.
        *
        * @param request CreateProhibitedPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -508,7 +508,7 @@ namespace Csas20230120
       Models::CreateProhibitedPolicyResponse createProhibitedPolicyWithOptions(const Models::CreateProhibitedPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a software ban policy.
+       * @summary Creates a prohibited software policy.
        *
        * @param request CreateProhibitedPolicyRequest
        * @return CreateProhibitedPolicyResponse
@@ -516,7 +516,7 @@ namespace Csas20230120
       Models::CreateProhibitedPolicyResponse createProhibitedPolicy(const Models::CreateProhibitedPolicyRequest &request);
 
       /**
-       * @summary Creates a custom disabled software entry.
+       * @summary Creates custom blocked software.
        *
        * @param request CreateProhibitedSoftwareRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -525,7 +525,7 @@ namespace Csas20230120
       Models::CreateProhibitedSoftwareResponse createProhibitedSoftwareWithOptions(const Models::CreateProhibitedSoftwareRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom disabled software entry.
+       * @summary Creates custom blocked software.
        *
        * @param request CreateProhibitedSoftwareRequest
        * @return CreateProhibitedSoftwareResponse
@@ -533,7 +533,7 @@ namespace Csas20230120
       Models::CreateProhibitedSoftwareResponse createProhibitedSoftware(const Models::CreateProhibitedSoftwareRequest &request);
 
       /**
-       * @summary Creates a custom disabled software tag.
+       * @summary Creates a custom prohibited software tag.
        *
        * @param request CreateProhibitedTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -542,7 +542,7 @@ namespace Csas20230120
       Models::CreateProhibitedTagResponse createProhibitedTagWithOptions(const Models::CreateProhibitedTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom disabled software tag.
+       * @summary Creates a custom prohibited software tag.
        *
        * @param request CreateProhibitedTagRequest
        * @return CreateProhibitedTagResponse
@@ -587,8 +587,8 @@ namespace Csas20230120
        * @summary Creates a software distribution task.
        *
        * @description - After a task is created, its initial status is disabled.
-       * - MatchMode determines how to specify the matching target parameters: when set to UserGroupNormal, you must pass only UserGroupIds. When set to DeviceGroupNormal, you must pass only DeviceGroupIds. When set to DevTagNormal, you must pass only DevTags. Requests that contain parameters not matching the MatchMode value are rejected.
-       * - SupportOs supports only a single operating system value.
+       * - MatchMode determines how target parameters are specified. If MatchMode is set to UserGroupNormal, you must specify only UserGroupIds. If MatchMode is set to DeviceGroupNormal, you must specify only DeviceGroupIds. If MatchMode is set to DevTagNormal, you must specify only DevTags. Requests with parameters that do not match the specified MatchMode are rejected.
+       * - SupportOs supports only a single operating system.
        *
        * @param request CreateSoftwarelibDistributeTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -600,8 +600,8 @@ namespace Csas20230120
        * @summary Creates a software distribution task.
        *
        * @description - After a task is created, its initial status is disabled.
-       * - MatchMode determines how to specify the matching target parameters: when set to UserGroupNormal, you must pass only UserGroupIds. When set to DeviceGroupNormal, you must pass only DeviceGroupIds. When set to DevTagNormal, you must pass only DevTags. Requests that contain parameters not matching the MatchMode value are rejected.
-       * - SupportOs supports only a single operating system value.
+       * - MatchMode determines how target parameters are specified. If MatchMode is set to UserGroupNormal, you must specify only UserGroupIds. If MatchMode is set to DeviceGroupNormal, you must specify only DeviceGroupIds. If MatchMode is set to DevTagNormal, you must specify only DevTags. Requests with parameters that do not match the specified MatchMode are rejected.
+       * - SupportOs supports only a single operating system.
        *
        * @param request CreateSoftwarelibDistributeTaskRequest
        * @return CreateSoftwarelibDistributeTaskResponse
@@ -655,7 +655,7 @@ namespace Csas20230120
       Models::CreateUserGroupResponse createUserGroup(const Models::CreateUserGroupRequest &request);
 
       /**
-       * @summary Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+       * @summary Creates a scheduled virus scan policy that automatically delivers scan tasks to user endpoints within the effective scope based on the configured schedule.
        *
        * @param request CreateVirusScanScheduledStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -664,7 +664,7 @@ namespace Csas20230120
       Models::CreateVirusScanScheduledStrategyResponse createVirusScanScheduledStrategyWithOptions(const Models::CreateVirusScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+       * @summary Creates a scheduled virus scan policy that automatically delivers scan tasks to user endpoints within the effective scope based on the configured schedule.
        *
        * @param request CreateVirusScanScheduledStrategyRequest
        * @return CreateVirusScanScheduledStrategyResponse
@@ -757,9 +757,9 @@ namespace Csas20230120
       Models::CreateWmBaseImageResponse createWmBaseImage(const Models::CreateWmBaseImageRequest &request);
 
       /**
-       * @summary Creates a digital watermarking embedding task.
+       * @summary Creates a digital watermarking embedding node.
        *
-       * @description You can create a maximum of 500 user groups by default.
+       * @description By default, you can create up to 500 user groups.
        *
        * @param tmpReq CreateWmEmbedTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -768,9 +768,9 @@ namespace Csas20230120
       Models::CreateWmEmbedTaskResponse createWmEmbedTaskWithOptions(const Models::CreateWmEmbedTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a digital watermarking embedding task.
+       * @summary Creates a digital watermarking embedding node.
        *
-       * @description You can create a maximum of 500 user groups by default.
+       * @description By default, you can create up to 500 user groups.
        *
        * @param request CreateWmEmbedTaskRequest
        * @return CreateWmEmbedTaskResponse
@@ -778,7 +778,7 @@ namespace Csas20230120
       Models::CreateWmEmbedTaskResponse createWmEmbedTask(const Models::CreateWmEmbedTaskRequest &request);
 
       /**
-       * @summary Creates a digital watermarking extraction task.
+       * @summary Creates a digital watermarking fetch node.
        *
        * @param tmpReq CreateWmExtractTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -787,7 +787,7 @@ namespace Csas20230120
       Models::CreateWmExtractTaskResponse createWmExtractTaskWithOptions(const Models::CreateWmExtractTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a digital watermarking extraction task.
+       * @summary Creates a digital watermarking fetch node.
        *
        * @param request CreateWmExtractTaskRequest
        * @return CreateWmExtractTaskResponse
@@ -1541,7 +1541,7 @@ namespace Csas20230120
       Models::GetConnectorClientResponse getConnectorClient(const Models::GetConnectorClientRequest &request);
 
       /**
-       * @summary Queries the details of a specified device label.
+       * @summary Queries the details of a specified device group.
        *
        * @param request GetDeviceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1550,7 +1550,7 @@ namespace Csas20230120
       Models::GetDeviceGroupResponse getDeviceGroupWithOptions(const Models::GetDeviceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified device label.
+       * @summary Queries the details of a specified device group.
        *
        * @param request GetDeviceGroupRequest
        * @return GetDeviceGroupResponse
@@ -1594,7 +1594,7 @@ namespace Csas20230120
       /**
        * @summary Queries the details of a forwarding rule.
        *
-       * @description Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+       * @description Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
        *
        * @param request GetForwardStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1605,7 +1605,7 @@ namespace Csas20230120
       /**
        * @summary Queries the details of a forwarding rule.
        *
-       * @description Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+       * @description Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
        *
        * @param request GetForwardStrategyRequest
        * @return GetForwardStrategyResponse
@@ -1613,7 +1613,7 @@ namespace Csas20230120
       Models::GetForwardStrategyResponse getForwardStrategy(const Models::GetForwardStrategyRequest &request);
 
       /**
-       * @summary Retrieve the configuration details of a specified identity provider for your Alibaba Cloud account.
+       * @summary Queries the details of a specified identity source configuration for the current Alibaba Cloud account.
        *
        * @param request GetIdpConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1622,7 +1622,7 @@ namespace Csas20230120
       Models::GetIdpConfigResponse getIdpConfigWithOptions(const Models::GetIdpConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve the configuration details of a specified identity provider for your Alibaba Cloud account.
+       * @summary Queries the details of a specified identity source configuration for the current Alibaba Cloud account.
        *
        * @param request GetIdpConfigRequest
        * @return GetIdpConfigResponse
@@ -1651,7 +1651,7 @@ namespace Csas20230120
       Models::GetNacPortalSmsPhoneWhitelistResponse getNacPortalSmsPhoneWhitelist(const Models::GetNacPortalSmsPhoneWhitelistRequest &request);
 
       /**
-       * @summary Retrieves the details of a private access diagnostic task.
+       * @summary Queries the details of an internal network access diagnostic task.
        *
        * @param request GetPADiagnosisTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1660,7 +1660,7 @@ namespace Csas20230120
       Models::GetPADiagnosisTaskResponse getPADiagnosisTaskWithOptions(const Models::GetPADiagnosisTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a private access diagnostic task.
+       * @summary Queries the details of an internal network access diagnostic task.
        *
        * @param request GetPADiagnosisTaskRequest
        * @return GetPADiagnosisTaskResponse
@@ -1668,7 +1668,7 @@ namespace Csas20230120
       Models::GetPADiagnosisTaskResponse getPADiagnosisTask(const Models::GetPADiagnosisTaskRequest &request);
 
       /**
-       * @summary Queries the details of a private access application under the current Alibaba Cloud account.
+       * @summary Queries the details of a private access application within the current Alibaba Cloud account.
        *
        * @param request GetPrivateAccessApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1677,7 +1677,7 @@ namespace Csas20230120
       Models::GetPrivateAccessApplicationResponse getPrivateAccessApplicationWithOptions(const Models::GetPrivateAccessApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a private access application under the current Alibaba Cloud account.
+       * @summary Queries the details of a private access application within the current Alibaba Cloud account.
        *
        * @param request GetPrivateAccessApplicationRequest
        * @return GetPrivateAccessApplicationResponse
@@ -1702,7 +1702,7 @@ namespace Csas20230120
       Models::GetPrivateAccessPolicyResponse getPrivateAccessPolicy(const Models::GetPrivateAccessPolicyRequest &request);
 
       /**
-       * @summary Queries the details of a specified software prohibition policy.
+       * @summary Queries the details of a specified prohibited software policy.
        *
        * @param request GetProhibitedPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1711,7 +1711,7 @@ namespace Csas20230120
       Models::GetProhibitedPolicyResponse getProhibitedPolicyWithOptions(const Models::GetProhibitedPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified software prohibition policy.
+       * @summary Queries the details of a specified prohibited software policy.
        *
        * @param request GetProhibitedPolicyRequest
        * @return GetProhibitedPolicyResponse
@@ -1719,7 +1719,7 @@ namespace Csas20230120
       Models::GetProhibitedPolicyResponse getProhibitedPolicy(const Models::GetProhibitedPolicyRequest &request);
 
       /**
-       * @summary Queries the details of a specified prohibited software.
+       * @summary Queries the details of the specified prohibited software.
        *
        * @param tmpReq GetProhibitedSoftwareRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1728,7 +1728,7 @@ namespace Csas20230120
       Models::GetProhibitedSoftwareResponse getProhibitedSoftwareWithOptions(const Models::GetProhibitedSoftwareRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified prohibited software.
+       * @summary Queries the details of the specified prohibited software.
        *
        * @param request GetProhibitedSoftwareRequest
        * @return GetProhibitedSoftwareResponse
@@ -1770,7 +1770,7 @@ namespace Csas20230120
       Models::GetSaseUserTagResponse getSaseUserTag(const Models::GetSaseUserTagRequest &request);
 
       /**
-       * @summary Queries the details of user terminal devices under the current Alibaba Cloud account.
+       * @summary Queries the details of user terminal devices in the current Alibaba Cloud account.
        *
        * @param request GetUserDeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1779,7 +1779,7 @@ namespace Csas20230120
       Models::GetUserDeviceResponse getUserDeviceWithOptions(const Models::GetUserDeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of user terminal devices under the current Alibaba Cloud account.
+       * @summary Queries the details of user terminal devices in the current Alibaba Cloud account.
        *
        * @param request GetUserDeviceRequest
        * @return GetUserDeviceResponse
@@ -1821,7 +1821,7 @@ namespace Csas20230120
       Models::GetUserGroupResponse getUserGroup(const Models::GetUserGroupRequest &request);
 
       /**
-       * @summary Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+       * @summary Queries the global antivirus configuration for the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have a custom configuration record, the system default configurations are returned.
        *
        * @param request GetVirusScanGlobalConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1830,7 +1830,7 @@ namespace Csas20230120
       Models::GetVirusScanGlobalConfigResponse getVirusScanGlobalConfigWithOptions(const Models::GetVirusScanGlobalConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+       * @summary Queries the global antivirus configuration for the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have a custom configuration record, the system default configurations are returned.
        *
        * @param request GetVirusScanGlobalConfigRequest
        * @return GetVirusScanGlobalConfigResponse
@@ -1855,7 +1855,7 @@ namespace Csas20230120
       Models::GetVirusScanScheduledStrategyResponse getVirusScanScheduledStrategy(const Models::GetVirusScanScheduledStrategyRequest &request);
 
       /**
-       * @summary Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+       * @summary Queries the global vulnerability scanning configuration for the current Alibaba Cloud account.
        *
        * @param request GetVulScanGlobalConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1864,7 +1864,7 @@ namespace Csas20230120
       Models::GetVulScanGlobalConfigResponse getVulScanGlobalConfigWithOptions(const Models::GetVulScanGlobalConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+       * @summary Queries the global vulnerability scanning configuration for the current Alibaba Cloud account.
        *
        * @param request GetVulScanGlobalConfigRequest
        * @return GetVulScanGlobalConfigResponse
@@ -1872,7 +1872,7 @@ namespace Csas20230120
       Models::GetVulScanGlobalConfigResponse getVulScanGlobalConfig(const Models::GetVulScanGlobalConfigRequest &request);
 
       /**
-       * @summary Queries the complete configuration of a specified vulnerability scheduled scan policy.
+       * @summary Queries the complete configuration of a specified scheduled vulnerability scanning policy.
        *
        * @param request GetVulScanScheduledStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1881,7 +1881,7 @@ namespace Csas20230120
       Models::GetVulScanScheduledStrategyResponse getVulScanScheduledStrategyWithOptions(const Models::GetVulScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the complete configuration of a specified vulnerability scheduled scan policy.
+       * @summary Queries the complete configuration of a specified scheduled vulnerability scanning policy.
        *
        * @param request GetVulScanScheduledStrategyRequest
        * @return GetVulScanScheduledStrategyResponse
@@ -1957,7 +1957,7 @@ namespace Csas20230120
       Models::ImportEnterpriseAccelerateTargetsResponse importEnterpriseAccelerateTargets(const Models::ImportEnterpriseAccelerateTargetsRequest &request);
 
       /**
-       * @summary Immediately invalidates an approval.
+       * @summary Immediately invalidates a report.
        *
        * @param request InvalidateApprovalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1966,7 +1966,7 @@ namespace Csas20230120
       Models::InvalidateApprovalResponse invalidateApprovalWithOptions(const Models::InvalidateApprovalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Immediately invalidates an approval.
+       * @summary Immediately invalidates a report.
        *
        * @param request InvalidateApprovalRequest
        * @return InvalidateApprovalResponse
@@ -2110,7 +2110,9 @@ namespace Csas20230120
       Models::ListClientUsersResponse listClientUsers(const Models::ListClientUsersRequest &request);
 
       /**
-       * @summary Queries connectors in batches.
+       * @summary Queries the details of connectors under the current Alibaba Cloud account.
+       *
+       * @description Filters connectors by name, connection status, instance status, and connector ID, and returns a paginated list of matched connectors along with the total count.
        *
        * @param request ListConnectorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2119,7 +2121,9 @@ namespace Csas20230120
       Models::ListConnectorsResponse listConnectorsWithOptions(const Models::ListConnectorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries connectors in batches.
+       * @summary Queries the details of connectors under the current Alibaba Cloud account.
+       *
+       * @description Filters connectors by name, connection status, instance status, and connector ID, and returns a paginated list of matched connectors along with the total count.
        *
        * @param request ListConnectorsRequest
        * @return ListConnectorsResponse
@@ -2127,7 +2131,7 @@ namespace Csas20230120
       Models::ListConnectorsResponse listConnectors(const Models::ListConnectorsRequest &request);
 
       /**
-       * @summary Queries the list of device groups under the current Alibaba Cloud account by using paging.
+       * @summary Queries the list of device groups under the current Alibaba Cloud account by using paging in a paged query.
        *
        * @param request ListDeviceGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2136,7 +2140,7 @@ namespace Csas20230120
       Models::ListDeviceGroupsResponse listDeviceGroupsWithOptions(const Models::ListDeviceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of device groups under the current Alibaba Cloud account by using paging.
+       * @summary Queries the list of device groups under the current Alibaba Cloud account by using paging in a paged query.
        *
        * @param request ListDeviceGroupsRequest
        * @return ListDeviceGroupsResponse
@@ -2144,7 +2148,7 @@ namespace Csas20230120
       Models::ListDeviceGroupsResponse listDeviceGroups(const Models::ListDeviceGroupsRequest &request);
 
       /**
-       * @summary Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+       * @summary Queries the user terminal devices affected by a specified vulnerability and their remediation statuses by using paging in a paged query.
        *
        * @param request ListDevicesForVulnerabilityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2153,7 +2157,7 @@ namespace Csas20230120
       Models::ListDevicesForVulnerabilityResponse listDevicesForVulnerabilityWithOptions(const Models::ListDevicesForVulnerabilityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+       * @summary Queries the user terminal devices affected by a specified vulnerability and their remediation statuses by using paging in a paged query.
        *
        * @param request ListDevicesForVulnerabilityRequest
        * @return ListDevicesForVulnerabilityResponse
@@ -2358,7 +2362,7 @@ namespace Csas20230120
       Models::ListExcessiveDeviceRegistrationApplicationsResponse listExcessiveDeviceRegistrationApplications(const Models::ListExcessiveDeviceRegistrationApplicationsRequest &request);
 
       /**
-       * @summary Queries forwarding rules in batches.
+       * @summary Lists forwarding rules.
        *
        * @param request ListForwardStrategiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2367,7 +2371,7 @@ namespace Csas20230120
       Models::ListForwardStrategiesResponse listForwardStrategiesWithOptions(const Models::ListForwardStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries forwarding rules in batches.
+       * @summary Lists forwarding rules.
        *
        * @param request ListForwardStrategiesRequest
        * @return ListForwardStrategiesResponse
@@ -2443,9 +2447,9 @@ namespace Csas20230120
       Models::ListNacUserCertResponse listNacUserCert(const Models::ListNacUserCertRequest &request);
 
       /**
-       * @summary Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+       * @summary Performs a paging query on the bandwidth configurations of VPC and Connector network instances connected to the current tenant.
        *
-       * @description Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+       * @description Queries the bandwidth configurations of available network instances within the current account. You can filter the results by network type (NetType) and instance IDs (InstanceIds), and paginate the results by using CurrentPage and PageSize.
        *
        * @param request ListNetBandwidthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2454,9 +2458,9 @@ namespace Csas20230120
       Models::ListNetBandwidthResponse listNetBandwidthWithOptions(const Models::ListNetBandwidthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+       * @summary Performs a paging query on the bandwidth configurations of VPC and Connector network instances connected to the current tenant.
        *
-       * @description Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+       * @description Queries the bandwidth configurations of available network instances within the current account. You can filter the results by network type (NetType) and instance IDs (InstanceIds), and paginate the results by using CurrentPage and PageSize.
        *
        * @param request ListNetBandwidthRequest
        * @return ListNetBandwidthResponse
@@ -2467,10 +2471,10 @@ namespace Csas20230120
        * @summary Queries administrator operation audit logs in batches.
        *
        * @description - StartTime and EndTime are UNIX timestamps in seconds. StartTime must be earlier than EndTime. The interval between them cannot exceed 30 days, and StartTime cannot be more than 31 days before the current time.
-       * - If OperationStatus is not specified, only successful operation records are returned.
-       * - Results are sorted by operation time in descending order.
+       * - If OperationStatus is not specified, only records of successful operations are returned.
+       * - The returned results are sorted in descending order of operation time.
        * - The return values of OperationFunc, OperationPage, and OperationType are localized based on the request language.
-       * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\\\). Otherwise, an InvalidParameter error is returned.
+       * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\). Otherwise, an InvalidParameter error is returned.
        *
        * @param request ListOperationAuditLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2482,10 +2486,10 @@ namespace Csas20230120
        * @summary Queries administrator operation audit logs in batches.
        *
        * @description - StartTime and EndTime are UNIX timestamps in seconds. StartTime must be earlier than EndTime. The interval between them cannot exceed 30 days, and StartTime cannot be more than 31 days before the current time.
-       * - If OperationStatus is not specified, only successful operation records are returned.
-       * - Results are sorted by operation time in descending order.
+       * - If OperationStatus is not specified, only records of successful operations are returned.
+       * - The returned results are sorted in descending order of operation time.
        * - The return values of OperationFunc, OperationPage, and OperationType are localized based on the request language.
-       * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\\\). Otherwise, an InvalidParameter error is returned.
+       * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\). Otherwise, an InvalidParameter error is returned.
        *
        * @param request ListOperationAuditLogsRequest
        * @return ListOperationAuditLogsResponse
@@ -2578,7 +2582,7 @@ namespace Csas20230120
       Models::ListPrivateAccessApplicationL7SwitchesResponse listPrivateAccessApplicationL7Switches(const Models::ListPrivateAccessApplicationL7SwitchesRequest &request);
 
       /**
-       * @summary Queries the details of all private access applications in the current Alibaba Cloud account.
+       * @summary Queries the information about all private access applications under the current Alibaba Cloud account.
        *
        * @param request ListPrivateAccessApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2587,7 +2591,7 @@ namespace Csas20230120
       Models::ListPrivateAccessApplicationsResponse listPrivateAccessApplicationsWithOptions(const Models::ListPrivateAccessApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of all private access applications in the current Alibaba Cloud account.
+       * @summary Queries the information about all private access applications under the current Alibaba Cloud account.
        *
        * @param request ListPrivateAccessApplicationsRequest
        * @return ListPrivateAccessApplicationsResponse
@@ -2815,11 +2819,11 @@ namespace Csas20230120
       Models::ListSoftwareForUserDeviceResponse listSoftwareForUserDevice(const Models::ListSoftwareForUserDeviceRequest &request);
 
       /**
-       * @summary Queries software in the software library.
+       * @summary Queries software in the software library in batches.
        *
-       * @description - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
+       * @description - Pagination is implemented by using CurrentPage and PageSize. NextToken and MaxResults do not take effect.
        * - SoftwareName supports fuzzy match.
-       * - The Versions field (software version list) in the response is not returned. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+       * - The Versions field (software version list) in the response is not returned. For more information about how to view and manage software versions, see [Software management](https://www.alibabacloud.com/help/en/sase/user-guide/software-management).
        *
        * @param request ListSoftwarelibSoftwareRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2828,11 +2832,11 @@ namespace Csas20230120
       Models::ListSoftwarelibSoftwareResponse listSoftwarelibSoftwareWithOptions(const Models::ListSoftwarelibSoftwareRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries software in the software library.
+       * @summary Queries software in the software library in batches.
        *
-       * @description - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
+       * @description - Pagination is implemented by using CurrentPage and PageSize. NextToken and MaxResults do not take effect.
        * - SoftwareName supports fuzzy match.
-       * - The Versions field (software version list) in the response is not returned. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+       * - The Versions field (software version list) in the response is not returned. For more information about how to view and manage software versions, see [Software management](https://www.alibabacloud.com/help/en/sase/user-guide/software-management).
        *
        * @param request ListSoftwarelibSoftwareRequest
        * @return ListSoftwarelibSoftwareResponse
@@ -2908,7 +2912,7 @@ namespace Csas20230120
       Models::ListUserApplicationsResponse listUserApplications(const Models::ListUserApplicationsRequest &request);
 
       /**
-       * @summary Queries a list of user endpoint devices under the current Alibaba Cloud account.
+       * @summary Queries the list of user terminal devices under the current Alibaba Cloud account.
        *
        * @param request ListUserDevicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2917,7 +2921,7 @@ namespace Csas20230120
       Models::ListUserDevicesResponse listUserDevicesWithOptions(const Models::ListUserDevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of user endpoint devices under the current Alibaba Cloud account.
+       * @summary Queries the list of user terminal devices under the current Alibaba Cloud account.
        *
        * @param request ListUserDevicesRequest
        * @return ListUserDevicesResponse
@@ -3027,7 +3031,7 @@ namespace Csas20230120
       Models::ListVirusFileStatusesResponse listVirusFileStatuses(const Models::ListVirusFileStatusesRequest &request);
 
       /**
-       * @summary Queries the virus scan blacklists and whitelists for a specified operating system, and returns the results grouped by matching dimension and list type. The blacklists and whitelists are global lists scoped to the Alibaba Cloud account and operating system dimensions, and take effect for all on-demand scans, scheduled scans, and real-time protection under the account.
+       * @summary Queries the virus scan blacklists and whitelists for a specified operating system, and returns them grouped by match dimension and list type. The blacklists and whitelists are global lists at the Alibaba Cloud account and operating system dimensions, and take effect for all instant scans, scheduled scans, and real-time protection under the account.
        *
        * @param request ListVirusScanAdditionalListsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3036,7 +3040,7 @@ namespace Csas20230120
       Models::ListVirusScanAdditionalListsResponse listVirusScanAdditionalListsWithOptions(const Models::ListVirusScanAdditionalListsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the virus scan blacklists and whitelists for a specified operating system, and returns the results grouped by matching dimension and list type. The blacklists and whitelists are global lists scoped to the Alibaba Cloud account and operating system dimensions, and take effect for all on-demand scans, scheduled scans, and real-time protection under the account.
+       * @summary Queries the virus scan blacklists and whitelists for a specified operating system, and returns them grouped by match dimension and list type. The blacklists and whitelists are global lists at the Alibaba Cloud account and operating system dimensions, and take effect for all instant scans, scheduled scans, and real-time protection under the account.
        *
        * @param request ListVirusScanAdditionalListsRequest
        * @return ListVirusScanAdditionalListsResponse
@@ -3303,7 +3307,7 @@ namespace Csas20230120
       Models::RevokeUserSessionResponse revokeUserSession(const Models::RevokeUserSessionRequest &request);
 
       /**
-       * @summary Unbinds user labels.
+       * @summary Disassociates user tags.
        *
        * @param request UnbindSaseUserTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3312,7 +3316,7 @@ namespace Csas20230120
       Models::UnbindSaseUserTagResponse unbindSaseUserTagWithOptions(const Models::UnbindSaseUserTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbinds user labels.
+       * @summary Disassociates user tags.
        *
        * @param request UnbindSaseUserTagRequest
        * @return UnbindSaseUserTagResponse
@@ -3339,6 +3343,8 @@ namespace Csas20230120
       /**
        * @summary Updates an approval process under the current Alibaba Cloud account.
        *
+       * @description Updates the configuration of a specified approval process under the current Alibaba Cloud account. You can modify the name, description, approval nodes, associated approval templates, approval type, and integration configurations with external approval platforms such as DingTalk and Lark. The approval process ID is specified by ProcessId, and other fields are optional. Fields that are not passed retain their original values.
+       *
        * @param tmpReq UpdateApprovalProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateApprovalProcessResponse
@@ -3347,6 +3353,8 @@ namespace Csas20230120
 
       /**
        * @summary Updates an approval process under the current Alibaba Cloud account.
+       *
+       * @description Updates the configuration of a specified approval process under the current Alibaba Cloud account. You can modify the name, description, approval nodes, associated approval templates, approval type, and integration configurations with external approval platforms such as DingTalk and Lark. The approval process ID is specified by ProcessId, and other fields are optional. Fields that are not passed retain their original values.
        *
        * @param request UpdateApprovalProcessRequest
        * @return UpdateApprovalProcessResponse
@@ -3617,7 +3625,7 @@ namespace Csas20230120
       Models::UpdatePrivateAccessApplicationResponse updatePrivateAccessApplication(const Models::UpdatePrivateAccessApplicationRequest &request);
 
       /**
-       * @summary Updates the Layer 7 access switch for an internal-facing application.
+       * @summary Updates the Layer 7 access switch for an internal access application.
        *
        * @param request UpdatePrivateAccessApplicationL7SwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3626,7 +3634,7 @@ namespace Csas20230120
       Models::UpdatePrivateAccessApplicationL7SwitchResponse updatePrivateAccessApplicationL7SwitchWithOptions(const Models::UpdatePrivateAccessApplicationL7SwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the Layer 7 access switch for an internal-facing application.
+       * @summary Updates the Layer 7 access switch for an internal access application.
        *
        * @param request UpdatePrivateAccessApplicationL7SwitchRequest
        * @return UpdatePrivateAccessApplicationL7SwitchResponse
@@ -3634,7 +3642,7 @@ namespace Csas20230120
       Models::UpdatePrivateAccessApplicationL7SwitchResponse updatePrivateAccessApplicationL7Switch(const Models::UpdatePrivateAccessApplicationL7SwitchRequest &request);
 
       /**
-       * @summary Update an internal network access policy for your Alibaba Cloud account.
+       * @summary Modifies a private access policy under the current Alibaba Cloud account.
        *
        * @param request UpdatePrivateAccessPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3643,7 +3651,7 @@ namespace Csas20230120
       Models::UpdatePrivateAccessPolicyResponse updatePrivateAccessPolicyWithOptions(const Models::UpdatePrivateAccessPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update an internal network access policy for your Alibaba Cloud account.
+       * @summary Modifies a private access policy under the current Alibaba Cloud account.
        *
        * @param request UpdatePrivateAccessPolicyRequest
        * @return UpdatePrivateAccessPolicyResponse
@@ -3668,7 +3676,7 @@ namespace Csas20230120
       Models::UpdateProhibitedPolicyResponse updateProhibitedPolicy(const Models::UpdateProhibitedPolicyRequest &request);
 
       /**
-       * @summary Updates a custom prohibited software entry.
+       * @summary Updates custom prohibited software.
        *
        * @param request UpdateProhibitedSoftwareRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3677,7 +3685,7 @@ namespace Csas20230120
       Models::UpdateProhibitedSoftwareResponse updateProhibitedSoftwareWithOptions(const Models::UpdateProhibitedSoftwareRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a custom prohibited software entry.
+       * @summary Updates custom prohibited software.
        *
        * @param request UpdateProhibitedSoftwareRequest
        * @return UpdateProhibitedSoftwareResponse
@@ -3852,7 +3860,7 @@ namespace Csas20230120
       Models::UpdateUsersStatusResponse updateUsersStatus(const Models::UpdateUsersStatusRequest &request);
 
       /**
-       * @summary Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+       * @summary Quarantines or marks a virus file on a specified user terminal device as trusted. The DevTag, FilePath, and FileMd5 parameters are used together to locate a virus file record. If the record does not exist, the call fails. Quarantine is an asynchronous operation. The server creates a processing task, which is then pulled and executed by the user terminal device. You can process the same virus file record only once within 1 minute.
        *
        * @param request UpdateVirusFileStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3861,7 +3869,7 @@ namespace Csas20230120
       Models::UpdateVirusFileStatusResponse updateVirusFileStatusWithOptions(const Models::UpdateVirusFileStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+       * @summary Quarantines or marks a virus file on a specified user terminal device as trusted. The DevTag, FilePath, and FileMd5 parameters are used together to locate a virus file record. If the record does not exist, the call fails. Quarantine is an asynchronous operation. The server creates a processing task, which is then pulled and executed by the user terminal device. You can process the same virus file record only once within 1 minute.
        *
        * @param request UpdateVirusFileStatusRequest
        * @return UpdateVirusFileStatusResponse
@@ -3886,7 +3894,7 @@ namespace Csas20230120
       Models::UpdateVirusScanGlobalConfigResponse updateVirusScanGlobalConfig(const Models::UpdateVirusScanGlobalConfigRequest &request);
 
       /**
-       * @summary Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+       * @summary Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter fully overwrites the existing exception user list of the policy with the provided list.
        *
        * @param request UpdateVirusScanScheduledStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3895,7 +3903,7 @@ namespace Csas20230120
       Models::UpdateVirusScanScheduledStrategyResponse updateVirusScanScheduledStrategyWithOptions(const Models::UpdateVirusScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+       * @summary Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter fully overwrites the existing exception user list of the policy with the provided list.
        *
        * @param request UpdateVirusScanScheduledStrategyRequest
        * @return UpdateVirusScanScheduledStrategyResponse
@@ -3920,7 +3928,7 @@ namespace Csas20230120
       Models::UpdateVulScanGlobalConfigResponse updateVulScanGlobalConfig(const Models::UpdateVulScanGlobalConfigRequest &request);
 
       /**
-       * @summary Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+       * @summary Modifies the configuration of a specified scheduled vulnerability scan policy and returns the updated full configuration.
        *
        * @param request UpdateVulScanScheduledStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3929,7 +3937,7 @@ namespace Csas20230120
       Models::UpdateVulScanScheduledStrategyResponse updateVulScanScheduledStrategyWithOptions(const Models::UpdateVulScanScheduledStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+       * @summary Modifies the configuration of a specified scheduled vulnerability scan policy and returns the updated full configuration.
        *
        * @param request UpdateVulScanScheduledStrategyRequest
        * @return UpdateVulScanScheduledStrategyResponse

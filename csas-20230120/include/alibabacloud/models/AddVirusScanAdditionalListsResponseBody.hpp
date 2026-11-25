@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The list of IDs for the newly added entries. The order is consistent with AdditionalLists in the request.
+    // The IDs of the added list entries. The order of the IDs is the same as the order of the entries in the AdditionalLists parameter of the request.
     shared_ptr<vector<string>> listIds_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

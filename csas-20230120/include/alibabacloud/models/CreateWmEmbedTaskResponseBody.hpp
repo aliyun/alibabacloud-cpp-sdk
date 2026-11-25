@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The task ID, which is used to query the task execution result.
+      // The ID of the task. You can use the task ID to query the task execution result later.
       shared_ptr<string> taskId_ {};
     };
 
@@ -84,7 +84,7 @@ namespace Models
   protected:
     // The task information.
     shared_ptr<CreateWmEmbedTaskResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -78,18 +78,17 @@ namespace Models
 
 
   protected:
-    // The description of the device label. The description can contain letters, digits, Chinese characters, spaces, periods (.), underscores (_), and hyphens (-). This parameter can be left empty.
+    // The description of the device tag. The description can contain Chinese characters, uppercase and lowercase letters, digits, spaces, periods (.), underscores (_), and hyphens (-). This parameter can be left empty.
     shared_ptr<string> description_ {};
-    // The operator of the dynamic device group rule.
+    // The operator for dynamic device group rules.
     shared_ptr<string> dynamicOperator_ {};
-    // The matching rule of the dynamic device label.
+    // The matching rule for the dynamic device tag.
     shared_ptr<Rule> dynamicRule_ {};
-    // The type of the device label. Valid values:
-    // 
-    // - **static**: static device label. After creation, manually add terminal devices by calling [AddDeviceGroupMatchDevices](~~AddDeviceGroupMatchDevices~~).
-    // - **dynamic**: dynamic device label. Members are automatically matched by the DynamicRule matching rule.
+    // The type of the device tag. Valid values:
+    // - **static**: static device tag. After the tag is created, you can manually add terminal devices by calling the [AddDeviceGroupMatchDevices](~~AddDeviceGroupMatchDevices~~) operation.
+    // - **dynamic**: dynamic device tag. Members are automatically matched based on the DynamicRule matching rule.
     shared_ptr<string> groupType_ {};
-    // The name of the device label. The name must be 1 to 128 characters in length and can contain letters, digits, Chinese characters, periods (.), underscores (_), and hyphens (-). Spaces are not supported.
+    // The name of the device tag. The name must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-). Spaces are not allowed.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

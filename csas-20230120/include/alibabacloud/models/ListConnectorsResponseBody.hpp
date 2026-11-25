@@ -334,18 +334,18 @@ namespace Models
 
     protected:
       // Specifies whether global acceleration is enabled. Valid values:
-      // - **Enabled**: Enabled.
-      // - **Disabled**: Disabled.
+      // - **Enabled**: enabled.
+      // - **Disabled**: disabled.
       shared_ptr<string> accelerateStatus_ {};
       // The internal access applications associated with the connector.
       shared_ptr<vector<Connectors::Applications>> applications_ {};
-      // The IP address of the cluster.
+      // The cluster IP address.
       shared_ptr<string> clusterIP_ {};
-      // The port of the cluster.
+      // The cluster port.
       shared_ptr<string> clusterPort_ {};
       // The deployed connector clients.
       shared_ptr<vector<Connectors::ConnectorClients>> connectorClients_ {};
-      // The connector ID.
+      // The unique ID of the connector.
       shared_ptr<string> connectorId_ {};
       // The time when the connector was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
@@ -354,15 +354,16 @@ namespace Models
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The connection status of the connector. Valid values:
-      // - **Online**: Online.
-      // - **Offline**: Offline.
+      // - **Online**: online.
+      // - **Offline**: offline.
       shared_ptr<string> status_ {};
-      // The connector instance status. Valid values:
-      // - **Enabled**: Enabled.
-      // - **Disabled**: Shutdown.
+      // The instance status of the connector. Valid values:
+      // - **Enabled**: enabled.
+      // - **Disabled**: shutdown.
       shared_ptr<string> switchStatus_ {};
       // The upgrade time of the connector.
       shared_ptr<Connectors::UpgradeTime> upgradeTime_ {};
+      // The CIDR block of the virtual IP address.
       shared_ptr<string> vipCidr_ {};
     };
 

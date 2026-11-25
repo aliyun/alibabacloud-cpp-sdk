@@ -119,7 +119,9 @@ namespace Models
 
 
       protected:
+        // The list of software hardening policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -209,7 +211,9 @@ namespace Models
 
 
       protected:
+        // The list of internal network access application IDs.
         shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -299,7 +303,9 @@ namespace Models
 
 
       protected:
+        // The list of endpoint hardening policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -527,7 +533,7 @@ namespace Models
 
 
       protected:
-        // The list of endpoint uninstallation policy IDs.
+        // The list of application uninstallation policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
         // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
@@ -665,7 +671,7 @@ namespace Models
 
 
     protected:
-      // The list of policies associated with endpoint uninstallation.
+      // The list of policies associated with application uninstallation.
       shared_ptr<Process::AppUninstallPolicies> appUninstallPolicies_ {};
       // The time when the approval process was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
@@ -679,9 +685,11 @@ namespace Models
       shared_ptr<Process::DomainBlacklistPolicies> domainBlacklistPolicies_ {};
       // The list of policies associated with the domain name whitelist.
       shared_ptr<Process::DomainWhitelistPolicies> domainWhitelistPolicies_ {};
+      // The list of policies associated with endpoint hardening.
       shared_ptr<Process::EndpointHardeningPolicies> endpointHardeningPolicies_ {};
       // The list of policies associated with peripheral control.
       shared_ptr<Process::PeripheralBlockPolicies> peripheralBlockPolicies_ {};
+      // The list of policies associated with internal network access control.
       shared_ptr<Process::PrivateAccessBlockPolicies> privateAccessBlockPolicies_ {};
       // The ID of the approval process.
       shared_ptr<string> processId_ {};
@@ -691,6 +699,7 @@ namespace Models
       shared_ptr<vector<vector<Process::ProcessNodes>>> processNodes_ {};
       // The list of policies associated with software blocking.
       shared_ptr<Process::SoftwareBlockPolicies> softwareBlockPolicies_ {};
+      // The list of policies associated with software hardening.
       shared_ptr<Process::SoftwareHardeningPolicies> softwareHardeningPolicies_ {};
     };
 

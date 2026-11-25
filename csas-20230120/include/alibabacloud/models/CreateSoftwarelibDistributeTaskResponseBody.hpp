@@ -105,24 +105,24 @@ namespace Models
 
 
     protected:
-      // The task creation time as a second-level UNIX timestamp.
+      // The time when the task was created. The value is a UNIX timestamp in seconds.
       shared_ptr<string> createTime_ {};
-      // The task name.
+      // The name of the task.
       shared_ptr<string> name_ {};
-      // The software name.
+      // The name of the software.
       shared_ptr<string> softwareName_ {};
-      // The task status. Valid values:
-      // - **enabled**: enabled.
-      // - **disabled**: disabled.
+      // The status of the task. Valid values:
+      // - **enabled**: Enabled.
+      // - **disabled**: Disabled.
       // 
-      // The initial status of a task after creation is disabled.
+      // After a task is created, its initial status is disabled.
       shared_ptr<string> status_ {};
       // The operating system to which the task applies. Valid values:
       // - **Windows**: Windows.
-      // - **Mac(Apple)**: macOS with Apple silicon.
-      // - **Mac(Intel)**: macOS with Intel processors.
+      // - **Mac(Apple)**: macOS on Apple silicon.
+      // - **Mac(Intel)**: macOS on Intel processors.
       shared_ptr<string> supportOs_ {};
-      // The task ID, which is used to query the task execution result.
+      // The ID of the task. You can use the ID to query the task execution result.
       shared_ptr<string> taskId_ {};
     };
 
@@ -145,7 +145,7 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The information about the created task.
     shared_ptr<CreateSoftwarelibDistributeTaskResponseBody::Task> task_ {};

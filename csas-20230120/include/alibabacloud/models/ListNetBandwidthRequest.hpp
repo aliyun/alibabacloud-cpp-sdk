@@ -75,7 +75,7 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The network type. If this parameter is left empty, both VPC and Connector instances are queried.
+    // The network type. If this parameter is left empty, both VPC and Connector network instances are queried.
     shared_ptr<string> netType_ {};
     // The number of entries per page.
     // 

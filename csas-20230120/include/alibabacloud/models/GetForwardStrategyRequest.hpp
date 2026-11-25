@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The forwarding rule ID.
+    // The ID of the forwarding rule.
     // 
     // This parameter is required.
     shared_ptr<string> forwardId_ {};

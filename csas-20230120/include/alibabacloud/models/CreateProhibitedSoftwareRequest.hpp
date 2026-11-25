@@ -96,13 +96,13 @@ namespace Models
 
 
     protected:
-      // The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of BundleId and Process. Maximum length: 1024 characters.
+      // The bundle ID. This parameter is required only for macOS processes. You must specify at least one of the BundleId and Process parameters. The value can be up to 1,024 characters in length.
       shared_ptr<string> bundleId_ {};
-      // The command line parameters for starting the process. If specified, only processes whose command line contains this content are matched. If left empty, the command line is not checked. Maximum length: 1024 characters.
+      // The command-line arguments used to start the process. If you specify this parameter, only processes whose command lines contain the specified content are matched. If you leave this parameter empty, the command line is not verified. The value can be up to 1,024 characters in length.
       shared_ptr<string> cmdline_ {};
-      // The directory where the process is located. If specified, only processes with the same name in this directory are matched. If left empty, processes in any directory are matched. Maximum length: 1024 characters.
+      // The directory where the process is located. If you specify this parameter, only processes with the same name in this directory are matched. If you leave this parameter empty, processes in any directory are matched. The value can be up to 1,024 characters in length.
       shared_ptr<string> directory_ {};
-      // The process name. Maximum length: 1024 characters.
+      // The process name. The value can be up to 1,024 characters in length.
       shared_ptr<string> process_ {};
     };
 
@@ -162,13 +162,13 @@ namespace Models
 
 
     protected:
-      // The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of BundleId and Process. Maximum length: 1024 characters.
+      // The bundle ID. This parameter is required only for macOS processes. You must specify at least one of the BundleId and Process parameters. The value can be up to 1,024 characters in length.
       shared_ptr<string> bundleId_ {};
-      // The command line parameters for starting the process. If specified, only processes whose command line contains this content are matched. If left empty, the command line is not checked. Maximum length: 1024 characters.
+      // The command-line arguments used to start the process. If you specify this parameter, only processes whose command lines contain the specified content are matched. If you leave this parameter empty, the command line is not verified. The value can be up to 1,024 characters in length.
       shared_ptr<string> cmdline_ {};
-      // The directory where the process is located. If specified, only processes with the same name in this directory are matched. If left empty, processes in any directory are matched. Maximum length: 1024 characters.
+      // The directory where the process is located. If you specify this parameter, only processes with the same name in this directory are matched. If you leave this parameter empty, processes in any directory are matched. The value can be up to 1,024 characters in length.
       shared_ptr<string> directory_ {};
-      // The process name. Maximum length: 1024 characters.
+      // The process name. The value can be up to 1,024 characters in length.
       shared_ptr<string> process_ {};
     };
 
@@ -228,13 +228,13 @@ namespace Models
 
 
     protected:
-      // The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of BundleId and Process. Maximum length: 1024 characters.
+      // The bundle ID. This parameter is required only for macOS processes. You must specify at least one of the BundleId and Process parameters. The value can be up to 1,024 characters in length.
       shared_ptr<string> bundleId_ {};
-      // The command line parameters for starting the process. If specified, only processes whose command line contains this content are matched. If left empty, the command line is not checked. Maximum length: 1024 characters.
+      // The command-line arguments used to start the process. If you specify this parameter, only processes whose command lines contain the specified content are matched. If you leave this parameter empty, the command line is not verified. The value can be up to 1,024 characters in length.
       shared_ptr<string> cmdline_ {};
-      // The directory where the process is located. If specified, only processes with the same name in this directory are matched. If left empty, processes in any directory are matched. Maximum length: 1024 characters.
+      // The directory where the process is located. If you specify this parameter, only processes with the same name in this directory are matched. If you leave this parameter empty, processes in any directory are matched. The value can be up to 1,024 characters in length.
       shared_ptr<string> directory_ {};
-      // The process name. Maximum length: 1024 characters.
+      // The process name. The value can be up to 1,024 characters in length.
       shared_ptr<string> process_ {};
     };
 
@@ -291,17 +291,17 @@ namespace Models
 
 
   protected:
-    // The description of the disabled software.
+    // The description of the blocked software.
     shared_ptr<string> description_ {};
     // The list of process configurations for the Linux operating system.
     shared_ptr<vector<CreateProhibitedSoftwareRequest::LinuxProcesses>> linuxProcesses_ {};
     // The list of process configurations for the macOS operating system.
     shared_ptr<vector<CreateProhibitedSoftwareRequest::MacOSProcesses>> macOSProcesses_ {};
-    // The name of the disabled software.
+    // The name of the blocked software.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The IDs of custom disabled software tags to associate. Duplicate values are not allowed.
+    // The IDs of the custom blocked software tags to associate. Duplicate IDs are not allowed.
     shared_ptr<vector<string>> tagIds_ {};
     // The list of process configurations for the Windows operating system.
     shared_ptr<vector<CreateProhibitedSoftwareRequest::WindowsProcesses>> windowsProcesses_ {};

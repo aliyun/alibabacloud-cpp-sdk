@@ -123,13 +123,13 @@ namespace Models
 
 
       protected:
-        // The bundle ID of the application. This parameter is required only for macOS processes.
+        // The bundle ID of the application. This field is applicable only to macOS processes.
         shared_ptr<string> bundleId_ {};
-        // The command line parameters for starting the process.
+        // The command-line arguments used to start the process.
         shared_ptr<string> cmdline_ {};
         // The directory where the process is located.
         shared_ptr<string> directory_ {};
-        // The process name.
+        // The name of the process.
         shared_ptr<string> process_ {};
       };
 
@@ -189,13 +189,13 @@ namespace Models
 
 
       protected:
-        // The bundle ID of the application. This parameter is required only for macOS processes.
+        // The bundle ID of the application. This field is applicable only to macOS processes.
         shared_ptr<string> bundleId_ {};
-        // The command line parameters for starting the process.
+        // The command-line arguments used to start the process.
         shared_ptr<string> cmdline_ {};
         // The directory where the process is located.
         shared_ptr<string> directory_ {};
-        // The process name.
+        // The name of the process.
         shared_ptr<string> process_ {};
       };
 
@@ -255,13 +255,13 @@ namespace Models
 
 
       protected:
-        // The bundle ID of the application. This parameter is required only for macOS processes.
+        // The bundle ID of the application. This field is applicable only to macOS processes.
         shared_ptr<string> bundleId_ {};
-        // The command line parameters for starting the process.
+        // The command-line arguments used to start the process.
         shared_ptr<string> cmdline_ {};
         // The directory where the process is located.
         shared_ptr<string> directory_ {};
-        // The process name.
+        // The name of the process.
         shared_ptr<string> process_ {};
       };
 
@@ -342,7 +342,7 @@ namespace Models
 
 
     protected:
-      // The time when the prohibited software was created, in the yyyy-MM-dd HH:mm:ss format. The time is displayed in UTC+8.
+      // The time when the prohibited software was created. The time is in the yyyy-MM-dd HH:mm:ss format and displayed in the UTC+8 time zone.
       shared_ptr<string> createTime_ {};
       // The description of the prohibited software.
       shared_ptr<string> description_ {};
@@ -352,11 +352,11 @@ namespace Models
       shared_ptr<vector<Software::MacOSProcesses>> macOSProcesses_ {};
       // The name of the prohibited software.
       shared_ptr<string> name_ {};
-      // The IDs of the software prohibition policies that directly reference this prohibited software.
+      // The IDs of the software prohibition policies that directly reference the prohibited software.
       shared_ptr<vector<string>> policyIds_ {};
       // The ID of the prohibited software.
       shared_ptr<string> softwareId_ {};
-      // The IDs of the prohibited software tags associated with this prohibited software.
+      // The IDs of the prohibited software tags associated with the prohibited software.
       shared_ptr<vector<string>> tagIds_ {};
       // The list of process configurations for the Windows operating system.
       shared_ptr<vector<Software::WindowsProcesses>> windowsProcesses_ {};

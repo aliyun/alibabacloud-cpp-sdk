@@ -98,13 +98,13 @@ namespace Models
 
 
     protected:
-      // The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of this parameter and Process. The value can be up to 1024 characters in length.
+      // The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of the BundleId and Process parameters. The bundle ID can be up to 1,024 characters in length.
       shared_ptr<string> bundleId_ {};
-      // The command line parameters for starting the process. If specified, only processes whose command line contains this content are matched. If left empty, the command line is not checked. The value can be up to 1024 characters in length.
+      // The command-line arguments used to start the process. If you specify this parameter, only processes whose command lines contain this content are matched. If you leave this parameter empty, the command line is not verified. The arguments can be up to 1,024 characters in length.
       shared_ptr<string> cmdline_ {};
-      // The directory where the process is located. If specified, only processes with the same name in this directory are matched. If left empty, processes in any directory are matched. The value can be up to 1024 characters in length.
+      // The directory where the process is located. If you specify this parameter, only processes with the same name in this directory are matched. If you leave this parameter empty, processes in any directory are matched. The directory can be up to 1,024 characters in length.
       shared_ptr<string> directory_ {};
-      // The process name. The value can be up to 1024 characters in length.
+      // The name of the process. The name can be up to 1,024 characters in length.
       shared_ptr<string> process_ {};
     };
 
@@ -164,13 +164,13 @@ namespace Models
 
 
     protected:
-      // The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of this parameter and Process. The value can be up to 1024 characters in length.
+      // The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of the BundleId and Process parameters. The bundle ID can be up to 1,024 characters in length.
       shared_ptr<string> bundleId_ {};
-      // The command line parameters for starting the process. If specified, only processes whose command line contains this content are matched. If left empty, the command line is not checked. The value can be up to 1024 characters in length.
+      // The command-line arguments used to start the process. If you specify this parameter, only processes whose command lines contain this content are matched. If you leave this parameter empty, the command line is not verified. The arguments can be up to 1,024 characters in length.
       shared_ptr<string> cmdline_ {};
-      // The directory where the process is located. If specified, only processes with the same name in this directory are matched. If left empty, processes in any directory are matched. The value can be up to 1024 characters in length.
+      // The directory where the process is located. If you specify this parameter, only processes with the same name in this directory are matched. If you leave this parameter empty, processes in any directory are matched. The directory can be up to 1,024 characters in length.
       shared_ptr<string> directory_ {};
-      // The process name. The value can be up to 1024 characters in length.
+      // The name of the process. The name can be up to 1,024 characters in length.
       shared_ptr<string> process_ {};
     };
 
@@ -230,13 +230,13 @@ namespace Models
 
 
     protected:
-      // The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of this parameter and Process. The value can be up to 1024 characters in length.
+      // The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of the BundleId and Process parameters. The bundle ID can be up to 1,024 characters in length.
       shared_ptr<string> bundleId_ {};
-      // The command line parameters for starting the process. If specified, only processes whose command line contains this content are matched. If left empty, the command line is not checked. The value can be up to 1024 characters in length.
+      // The command-line arguments used to start the process. If you specify this parameter, only processes whose command lines contain this content are matched. If you leave this parameter empty, the command line is not verified. The arguments can be up to 1,024 characters in length.
       shared_ptr<string> cmdline_ {};
-      // The directory where the process is located. If specified, only processes with the same name in this directory are matched. If left empty, processes in any directory are matched. The value can be up to 1024 characters in length.
+      // The directory where the process is located. If you specify this parameter, only processes with the same name in this directory are matched. If you leave this parameter empty, processes in any directory are matched. The directory can be up to 1,024 characters in length.
       shared_ptr<string> directory_ {};
-      // The process name. The value can be up to 1024 characters in length.
+      // The name of the process. The name can be up to 1,024 characters in length.
       shared_ptr<string> process_ {};
     };
 
@@ -309,13 +309,13 @@ namespace Models
     shared_ptr<vector<UpdateProhibitedSoftwareRequest::MacOSProcesses>> macOSProcesses_ {};
     // The name of the prohibited software.
     shared_ptr<string> name_ {};
-    // The ID of the custom prohibited software to update. Only custom prohibited software under the current Alibaba Cloud account can be updated. Built-in prohibited software cannot be updated. You can obtain the value from the following operations:
-    // - [ListProhibitedSoftware](~~ListProhibitedSoftware~~): queries prohibited software entries in batches.
-    // - [CreateProhibitedSoftware](~~CreateProhibitedSoftware~~): creates a custom prohibited software entry.
+    // The ID of the custom prohibited software to update. You can update only custom prohibited software within the current Alibaba Cloud account. Built-in prohibited software cannot be updated. You can obtain the value from the following operations:
+    // - [ListProhibitedSoftware](~~ListProhibitedSoftware~~): List prohibited software.
+    // - [CreateProhibitedSoftware](~~CreateProhibitedSoftware~~): Create custom prohibited software.
     // 
     // This parameter is required.
     shared_ptr<string> softwareId_ {};
-    // The IDs of the custom prohibited software tags to associate. Duplicate values are not allowed.
+    // The IDs of the custom prohibited software tags to associate. Duplicate IDs are not allowed.
     shared_ptr<vector<string>> tagIds_ {};
     // The list of process configurations for the Windows operating system.
     shared_ptr<vector<UpdateProhibitedSoftwareRequest::WindowsProcesses>> windowsProcesses_ {};

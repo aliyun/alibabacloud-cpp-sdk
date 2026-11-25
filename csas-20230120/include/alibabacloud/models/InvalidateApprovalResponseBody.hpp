@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The ID of the invalidated approval instance.
     shared_ptr<string> approvalId_ {};
-    // The effective status of the approval. When the invalidation succeeds, the value is fixed as Expired, which indicates that the approval has been invalidated.
+    // The effective status of the report. If the invalidation succeeds, Expired is returned to indicate that the report is invalidated.
     shared_ptr<string> effectStatus_ {};
-    // The approval type. Valid values:
-    // * ApprovalReport: approval.
-    // * BackendReport: backend approval.
+    // The report type. Valid values:
+    // * ApprovalReport: approval report.
+    // * BackendReport: backend report.
     shared_ptr<string> reportType_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

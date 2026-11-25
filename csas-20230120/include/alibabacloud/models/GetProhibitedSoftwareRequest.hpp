@@ -67,12 +67,12 @@ namespace Models
 
 
     protected:
-      // Indicates whether the prohibited software is a system built-in prohibited software. Valid values:
-      // - **true**: A system built-in prohibited software that is shared across all Alibaba Cloud accounts and cannot be modified or deleted.
-      // - **false**: A custom prohibited software under the current Alibaba Cloud account.
+      // Specifies whether the prohibited software is a built-in prohibited software. Valid values:
+      // - **true**: The software is a built-in prohibited software. It is shared by all Alibaba Cloud accounts and cannot be modified or deleted.
+      // - **false**: The software is a custom prohibited software within the current Alibaba Cloud account.
       shared_ptr<bool> isDefault_ {};
-      // The prohibited software ID. You can obtain the value from the following operations:
-      // - [ListProhibitedSoftware](~~ListProhibitedSoftware~~): Lists prohibited software.
+      // The ID of the prohibited software. You can obtain the value from the following operations:
+      // - [ListProhibitedSoftware](~~ListProhibitedSoftware~~): Queries prohibited software in batches.
       // - [CreateProhibitedSoftware](~~CreateProhibitedSoftware~~): Creates custom prohibited software.
       shared_ptr<string> softwareId_ {};
     };
@@ -88,7 +88,7 @@ namespace Models
 
 
   protected:
-    // The prohibited software ID.
+    // The ID of the prohibited software.
     shared_ptr<GetProhibitedSoftwareRequest::SoftwareId> softwareId_ {};
   };
 

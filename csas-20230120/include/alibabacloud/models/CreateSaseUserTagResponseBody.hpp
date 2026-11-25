@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The user tag ID.
+    // The ID of the user tag.
     shared_ptr<string> tagId_ {};
   };
 

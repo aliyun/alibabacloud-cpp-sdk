@@ -125,13 +125,13 @@ namespace Models
 
 
       protected:
-        // The application bundle identifier (Bundle ID). This parameter is required only for macOS processes.
+        // The bundle ID of the application. This parameter is required only for macOS processes.
         shared_ptr<string> bundleId_ {};
-        // The command-line arguments for starting the process.
+        // The command-line arguments used to start the process.
         shared_ptr<string> cmdline_ {};
         // The directory where the process is located.
         shared_ptr<string> directory_ {};
-        // The process name.
+        // The name of the process.
         shared_ptr<string> process_ {};
       };
 
@@ -191,13 +191,13 @@ namespace Models
 
 
       protected:
-        // The application bundle identifier (Bundle ID). This parameter is required only for macOS processes.
+        // The bundle ID of the application. This parameter is required only for macOS processes.
         shared_ptr<string> bundleId_ {};
-        // The command-line arguments for starting the process.
+        // The command-line arguments used to start the process.
         shared_ptr<string> cmdline_ {};
         // The directory where the process is located.
         shared_ptr<string> directory_ {};
-        // The process name.
+        // The name of the process.
         shared_ptr<string> process_ {};
       };
 
@@ -257,13 +257,13 @@ namespace Models
 
 
       protected:
-        // The application bundle identifier (Bundle ID). This parameter is required only for macOS processes.
+        // The bundle ID of the application. This parameter is required only for macOS processes.
         shared_ptr<string> bundleId_ {};
-        // The command-line arguments for starting the process.
+        // The command-line arguments used to start the process.
         shared_ptr<string> cmdline_ {};
         // The directory where the process is located.
         shared_ptr<string> directory_ {};
-        // The process name.
+        // The name of the process.
         shared_ptr<string> process_ {};
       };
 
@@ -351,27 +351,27 @@ namespace Models
 
 
     protected:
-      // The creation time of the prohibited software, in the yyyy-MM-dd HH:mm:ss format. The time is displayed in UTC+8.
+      // The time when the prohibited software was created. The time is in the yyyy-MM-dd HH:mm:ss format and follows the UTC+8 time zone.
       shared_ptr<string> createTime_ {};
       // The description of the prohibited software.
       shared_ptr<string> description_ {};
-      // Indicates whether the prohibited software is a system built-in prohibited software. Valid values:
-      // - **true**: A system built-in prohibited software that is shared across all Alibaba Cloud accounts and cannot be modified or deleted.
-      // - **false**: A custom prohibited software under the current Alibaba Cloud account.
+      // Specifies whether the prohibited software is a built-in prohibited software. Valid values:
+      // - **true**: The software is a built-in prohibited software. It is shared by all Alibaba Cloud accounts and cannot be modified or deleted.
+      // - **false**: The software is a custom prohibited software within the current Alibaba Cloud account.
       shared_ptr<bool> isDefault_ {};
-      // The list of process configurations for the Linux operating system.
+      // The list of process configurations in the Linux operating system.
       shared_ptr<vector<Software::LinuxProcesses>> linuxProcesses_ {};
-      // The list of process configurations for the macOS operating system.
+      // The list of process configurations in the macOS operating system.
       shared_ptr<vector<Software::MacOSProcesses>> macOSProcesses_ {};
       // The name of the prohibited software.
       shared_ptr<string> name_ {};
       // The IDs of the software prohibition policies that directly reference the prohibited software.
       shared_ptr<vector<string>> policyIds_ {};
-      // The prohibited software ID.
+      // The ID of the prohibited software.
       shared_ptr<string> softwareId_ {};
-      // The IDs of the prohibited software tags associated with the prohibited software.
+      // The IDs of the prohibited software tags that are associated with the prohibited software.
       shared_ptr<vector<string>> tagIds_ {};
-      // The list of process configurations for the Windows operating system.
+      // The list of process configurations in the Windows operating system.
       shared_ptr<vector<Software::WindowsProcesses>> windowsProcesses_ {};
     };
 
@@ -396,7 +396,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The prohibited software details.
+    // The details of the prohibited software.
     shared_ptr<GetProhibitedSoftwareResponseBody::Software> software_ {};
   };
 

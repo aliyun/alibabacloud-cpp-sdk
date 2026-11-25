@@ -258,9 +258,9 @@ namespace Models
 
 
   protected:
-    // The application address groups. You can specify this parameter when ConfigMode is Precise. You cannot specify this parameter when ConfigMode is an empty string.
+    // The application address groups. You can specify this parameter when ConfigMode is set to Precise. You cannot specify this parameter when ConfigMode is an empty string.
     shared_ptr<vector<AddressGroup>> addressGroups_ {};
-    // The collection of private access application addresses. You can enter up to 1,000 private access application addresses.
+    // The addresses of the private access application. You can specify up to 1,000 addresses.
     shared_ptr<vector<string>> addresses_ {};
     // The ID of the private access application. You can obtain the value from the following operations:
     // - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists private access applications.
@@ -269,16 +269,16 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
     // The configuration mode. Valid values:
-    // * Empty string: the default mode.
-    // * Precise: the precise mode.
+    // * Empty string: Default mode.
+    // * Precise: Precise mode.
     shared_ptr<string> configMode_ {};
     // The description of the private access application. The description must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
     shared_ptr<string> description_ {};
-    // The health check configuration. This parameter is valid only when HealthCheckMode is set to Continuous. You cannot specify this parameter when HealthCheckMode is set to OnAccess.
+    // The health check configuration. This parameter takes effect only when HealthCheckMode is set to Continuous. You cannot specify this parameter when HealthCheckMode is set to OnAccess.
     shared_ptr<HealthCheckConfig> healthCheckConfig_ {};
     // The health check mode. Valid values:
-    // * OnAccess: Checks upon access without active probing.
-    // * Continuous: Performs continuous checks and periodically probes based on the configurations in HealthCheckConfig.
+    // * OnAccess: Checks health upon access without active probing.
+    // * Continuous: Performs continuous health checks and periodically probes based on the configuration in HealthCheckConfig.
     // If this parameter is not specified, the default value is OnAccess. When the application addresses include wildcard domain names or CIDR blocks, or when the number of application addresses exceeds 10, only OnAccess is supported.
     shared_ptr<string> healthCheckMode_ {};
     // The Layer 7 application configuration in browser access mode.
@@ -291,11 +291,11 @@ namespace Models
     shared_ptr<string> l7ProxyDomainPrivate_ {};
     // The modification type of the private access application. Valid values:
     // - **Cover** (default): Overwrites the original addresses, port ranges, and tag IDs with the values of the **Addresses**, **PortRanges**, and **TagIds** parameters.
-    // - **Append**: Appends the values specified in the **Addresses**, **PortRanges**, and **TagIds** parameters to the original addresses, port ranges, and tag IDs.
+    // - **Append**: Appends the values of the **Addresses**, **PortRanges**, and **TagIds** parameters to the original addresses, port ranges, and tag IDs.
     shared_ptr<string> modifyType_ {};
     // The name of the application.
     shared_ptr<string> name_ {};
-    // The collection of port ranges for the private access application. You can enter up to 65,535 port ranges. Multiple port ranges cannot be duplicate or overlap.
+    // The port ranges of the private access application. You can specify up to 65,535 port ranges. Multiple port ranges cannot be duplicate or overlap.
     shared_ptr<vector<UpdatePrivateAccessApplicationRequest::PortRanges>> portRanges_ {};
     // The protocol of the private access application. Valid values:
     // - **All**: All protocols.
@@ -306,7 +306,7 @@ namespace Models
     // - **Enabled**: Enabled.
     // - **Disabled**: Disabled.
     shared_ptr<string> status_ {};
-    // The collection of private access tag IDs. You can associate up to six custom private access tags with a single private access application.
+    // The IDs of the private access tags. You can associate up to six custom private access tags with a private access application.
     shared_ptr<vector<string>> tagIds_ {};
     // The configuration for unauthorized application access requests.
     shared_ptr<PAApplicationUnauthorizedAccessConfig> unauthorizedAccessConfig_ {};

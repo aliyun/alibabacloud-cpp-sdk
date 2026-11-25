@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The time when the disabled software tag was created, in the yyyy-MM-dd HH:mm:ss format. The time is displayed in UTC+8.
+      // The time when the prohibited software tag was created. The time is in the yyyy-MM-dd HH:mm:ss format and uses the UTC+8 time zone.
       shared_ptr<string> createTime_ {};
-      // The description of the disabled software tag.
+      // The description of the prohibited software tag.
       shared_ptr<string> description_ {};
-      // The name of the disabled software tag.
+      // The name of the prohibited software tag.
       shared_ptr<string> name_ {};
-      // The ID of the disabled software tag.
+      // The ID of the prohibited software tag.
       shared_ptr<string> tagId_ {};
     };
 
@@ -118,7 +118,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The disabled software tag.
+    // The prohibited software tag.
     shared_ptr<CreateProhibitedTagResponseBody::Tag> tag_ {};
   };
 

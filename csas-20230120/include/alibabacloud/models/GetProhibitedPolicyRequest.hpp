@@ -38,9 +38,9 @@ namespace Models
 
 
   protected:
-    // The software prohibition policy ID. You can obtain this value from the following operations:
-    // - [ListProhibitedPolicies](~~ListProhibitedPolicies~~): Lists software prohibition policies.
-    // - [CreateProhibitedPolicy](~~CreateProhibitedPolicy~~): Creates a software prohibition policy.
+    // The ID of the prohibited software policy. You can obtain the value from the following operations:
+    // - [ListProhibitedPolicies](~~ListProhibitedPolicies~~): Lists prohibited software policies.
+    // - [CreateProhibitedPolicy](~~CreateProhibitedPolicy~~): Creates a prohibited software policy.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};

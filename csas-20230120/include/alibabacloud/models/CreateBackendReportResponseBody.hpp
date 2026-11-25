@@ -180,23 +180,23 @@ namespace Models
 
 
     protected:
-      // The approval instance ID generated after a successful creation. This parameter is not returned if the creation fails.
+      // The ID of the approval instance generated after the combination is successfully created. This parameter is not returned if the creation fails.
       shared_ptr<string> approvalId_ {};
-      // The error code returned when the current combination fails to be created. This parameter is not returned if the creation succeeds.
+      // The error code returned when the current combination fails to be created. This parameter is not returned if the creation is successful.
       shared_ptr<string> code_ {};
-      // The filing effective status. Enabled is returned when the creation succeeds, which indicates that the filing is valid.
+      // The effective status of the report. If the creation is successful, Enabled is returned, which indicates that the report is valid.
       shared_ptr<string> effectStatus_ {};
-      // The error message returned when the current combination fails to be created. This parameter is not returned if the creation succeeds.
+      // The error message returned when the current combination fails to be created. This parameter is not returned if the creation is successful.
       shared_ptr<string> message_ {};
-      // The filing object corresponding to the current combination. The fields vary based on the PolicyType value.
+      // The report object corresponding to the current combination. The fields vary based on the policy type.
       Darabonba::Json reportObject_ {};
-      // The filing type. BackendReport is always returned when the creation succeeds, which indicates a backend filing.
+      // The report type. If the creation is successful, BackendReport is returned, which indicates a backend report.
       shared_ptr<string> reportType_ {};
-      // The approval status. Approved is returned when the creation succeeds, which indicates that the filing is approved.
+      // The approval status. If the creation is successful, Approved is returned, which indicates that the request is approved.
       shared_ptr<string> status_ {};
-      // Indicates whether the current combination is created.
+      // Indicates whether the current combination is successfully created.
       shared_ptr<bool> success_ {};
-      // The filing user corresponding to the current combination.
+      // The target user corresponding to the current combination.
       shared_ptr<Items::Target> target_ {};
     };
 
@@ -255,19 +255,19 @@ namespace Models
 
 
   protected:
-    // The number of user-object combinations that failed to be created.
+    // The number of failed combinations.
     shared_ptr<int32_t> failedCount_ {};
-    // The processing results for each user-object combination. If some combinations fail, the operation still returns results for all combinations.
+    // The processing results of each combination of user and report object. If some combinations fail, the operation still returns the results of all combinations.
     shared_ptr<vector<CreateBackendReportResponseBody::Items>> items_ {};
-    // The number of deduplicated filing objects.
+    // The number of deduplicated report objects.
     shared_ptr<int32_t> objectCount_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The number of user-object combinations that are created.
+    // The number of successfully created combinations.
     shared_ptr<int32_t> successCount_ {};
-    // The number of deduplicated filing users.
+    // The number of deduplicated target users.
     shared_ptr<int32_t> targetCount_ {};
-    // The total number of expanded user-object combinations.
+    // The total number of combinations of users and report objects after expansion.
     shared_ptr<int32_t> totalCount_ {};
   };
 

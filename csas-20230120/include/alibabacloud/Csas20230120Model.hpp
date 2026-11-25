@@ -38,6 +38,7 @@
 #include <alibabacloud/models/RecoveryContent.hpp>
 #include <alibabacloud/models/RiskSceneConfig.hpp>
 #include <alibabacloud/models/Rule.hpp>
+#include <alibabacloud/models/TypedAIAsset.hpp>
 #include <alibabacloud/models/UserCertificate.hpp>
 #include <alibabacloud/models/AddDeviceGroupMatchDevicesRequest.hpp>
 #include <alibabacloud/models/AddDeviceGroupMatchDevicesResponseBody.hpp>

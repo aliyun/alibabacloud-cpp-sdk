@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The device label ID.
+    // The ID of the device tag.
     shared_ptr<string> deviceGroupId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

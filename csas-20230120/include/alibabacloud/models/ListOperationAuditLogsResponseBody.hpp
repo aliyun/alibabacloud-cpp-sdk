@@ -154,19 +154,19 @@ namespace Models
 
 
     protected:
-      // The post-operation snapshot. This value is recorded as-is by the audit framework without localization. This field is empty for historical logs that are not integrated with the audit framework.
+      // The snapshot after the operation. It is recorded as-is by the audit framework and is not localized. This field is empty for historical logs that are not connected to the audit framework.
       shared_ptr<string> afterAction_ {};
-      // The pre-operation snapshot. This value is recorded as-is by the audit framework without localization. This field is empty for historical logs that are not integrated with the audit framework.
+      // The snapshot before the operation. It is recorded as-is by the audit framework and is not localized. This field is empty for historical logs that are not connected to the audit framework.
       shared_ptr<string> beforeAction_ {};
-      // The error code when the operation failed. This field is empty when the operation succeeded.
+      // The error code returned when the operation fails. This field is empty when the operation is successful.
       shared_ptr<string> errorCode_ {};
-      // The error message when the operation failed. This field is empty when the operation succeeded.
+      // The error message returned when the operation fails. This field is empty when the operation is successful.
       shared_ptr<string> errorMessage_ {};
-      // The event source type. Valid values:
-      // - **console**: console call.
-      // - **sdk**: SDK call.
+      // The source type of the event. Valid values:
+      // - **console**: The event is triggered by a console call.
+      // - **sdk**: The event is triggered by an SDK call.
       shared_ptr<string> eventType_ {};
-      // The operation function module. The return value is localized based on the request language.
+      // The operation feature module. The return value is localized based on the request language.
       shared_ptr<string> operationFunc_ {};
       // The operation page. The return value is localized based on the request language.
       shared_ptr<string> operationPage_ {};
@@ -176,7 +176,7 @@ namespace Models
       shared_ptr<string> operationType_ {};
       // The Alibaba Cloud account ID (AliUid) of the operator.
       shared_ptr<string> operatorId_ {};
-      // Indicates whether the operation succeeded.
+      // Indicates whether the operation was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -206,11 +206,11 @@ namespace Models
 
 
   protected:
-    // The list of administrator operation audit logs, sorted by operation time in descending order.
+    // The list of administrator operation audit logs. The logs are sorted in descending order of operation time.
     shared_ptr<vector<ListOperationAuditLogsResponseBody::Logs>> logs_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of logs that match the query conditions.
+    // The total number of logs that meet the query conditions.
     shared_ptr<int64_t> totalNum_ {};
   };
 

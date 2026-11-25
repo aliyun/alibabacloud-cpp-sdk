@@ -153,9 +153,9 @@ namespace Models
 
 
         protected:
-          // This parameter takes effect when Mode is set to bottom-left or bottom-right. The bottom margin.
+          // The bottom margin. This parameter takes effect only when Mode is set to bottom-left or bottom-right.
           shared_ptr<int32_t> bottom_ {};
-          // This parameter takes effect when Mode is set to top-right or bottom-right. The right margin.
+          // The right margin. This parameter takes effect only when Mode is set to top-right or bottom-right.
           shared_ptr<int32_t> right_ {};
         };
 
@@ -228,26 +228,27 @@ namespace Models
 
 
       protected:
-        // The font color of the text watermark. The format is 0xFFFFFF or #FFFFFF RGB color format.
+        // The font color of the text watermark. The value must be in the 0xFFFFFF or #FFFFFF RGB color format.
         shared_ptr<string> fontColor_ {};
         // The font size. Valid values: **0** to **72**.
         shared_ptr<int32_t> fontSize_ {};
-        // This parameter takes effect when Mode is set to top-left, top-right, bottom-left, or bottom-right. The margin settings.
+        // The margin of the text watermark. This parameter takes effect only when Mode is set to top-left, top-right, bottom-left, or bottom-right.
         shared_ptr<TextVisibleControl::Margin> margin_ {};
         // The display mode of the text watermark. Valid values:
-        // 
-        // - **pos**: fixed position, with the upper-left corner as the origin.
-        // - **bottom-right**: lower-left mode.
+        // - **pos**: Fixed position mode, with the top-left corner as the origin.
+        // - **bottom-right**: Bottom-right mode.
         shared_ptr<string> mode_ {};
         // The opacity of the text watermark. Valid values: 1 to 255. A larger value indicates lower transparency.
         shared_ptr<int32_t> opacity_ {};
-        // This parameter takes effect when Mode is set to pos. Specifies the horizontal position of the visible watermark in pixels, with the upper-left corner as the origin.
+        // The horizontal position of the visible watermark. This parameter takes effect only when Mode is set to pos. The value is the pixel position with the top-left corner as the origin.
         shared_ptr<int32_t> posX_ {};
-        // This parameter takes effect when Mode is set to pos. Specifies the vertical position of the visible watermark in pixels, with the upper-left corner as the origin.
+        // The vertical position of the visible watermark. This parameter takes effect only when Mode is set to pos. The value is the pixel position with the top-left corner as the origin.
         shared_ptr<int32_t> posY_ {};
-        // The visibility. Valid values:
+        // Specifies whether the text watermark is visible. Valid values:
+        // - true: Visible.
+        // - false: Invisible.
         shared_ptr<bool> visible_ {};
-        // The text watermark content. The format is a UTF-8 string.
+        // The text watermark content. The value must be a UTF-8 string.
         shared_ptr<string> visibleText_ {};
       };
 
@@ -289,9 +290,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable this feature.
+        // Specifies whether to enable the metadata. Valid values:
+        // - **false**: Disabled.
+        // - **true**: Enabled.
         shared_ptr<bool> enable_ {};
-        // The metadata in Base64 format. Encode the following string in Base64 format: AIGC={"Label":"1","ContentProducer":"AXXXX","ProduceID":"BXXXX,"ReservedCode1":"CXXX","ContentPropagator":"DXXX","PropagateID":"EXXX","ReservedCode2":"FXXXX"}. Note: 1. The "AIGC=" prefix is required. Otherwise, the metadata cannot be added. The prefix differs from that of image metadata. 2. The Base64 encoding must be in standard format with padding.
+        // The Base64-encoded metadata. You must encode a string in the format of AIGC={"Label":"1","ContentProducer":"AXXXX","ProduceID":"BXXXX","ReservedCode1":"CXXX","ContentPropagator":"DXXX","PropagateID":"EXXX","ReservedCode2":"FXXXX"} into a Base64 string. Note: 1. The "AIGC=" prefix is required. Otherwise, the metadata cannot be added. Note that the prefix is different from that of image metadata. 2. The Base64 string must be in the standard format and include padding.
         shared_ptr<string> xmpKvBase64_ {};
       };
 
@@ -318,7 +321,7 @@ namespace Models
     protected:
       // The metadata control parameters.
       shared_ptr<VideoControl::MetadataControl> metadataControl_ {};
-      // The control parameters for video text watermarks.
+      // The text watermark control parameters for videos.
       shared_ptr<VideoControl::TextVisibleControl> textVisibleControl_ {};
     };
 
@@ -446,13 +449,13 @@ namespace Models
 
 
         protected:
-          // This parameter takes effect when Mode is set to bottom-left or bottom-right. The bottom margin.
+          // The bottom margin. This parameter takes effect only when Mode is set to bottom-left or bottom-right.
           shared_ptr<float> bottom_ {};
-          // This parameter takes effect when Mode is set to top-left or bottom-left. The left margin.
+          // The left margin. This parameter takes effect only when Mode is set to top-left or bottom-left.
           shared_ptr<float> left_ {};
-          // This parameter takes effect when Mode is set to top-right or bottom-right. The right margin.
+          // The right margin. This parameter takes effect only when Mode is set to top-right or bottom-right.
           shared_ptr<float> right_ {};
-          // This parameter takes effect when Mode is set to top-left or top-right. The top margin.
+          // The top margin. This parameter takes effect only when Mode is set to top-left or top-right.
           shared_ptr<float> top_ {};
         };
 
@@ -563,33 +566,39 @@ namespace Models
       protected:
         // The clockwise rotation angle of the text watermark. Valid values: 0 to 360.
         shared_ptr<int64_t> angle_ {};
-        // The font color of the text watermark. The format is 0xFFFFFF or #FFFFFF RGB color format. For example, 0x000000 or #000000 indicates black.
+        // The font color of the text watermark. The value must be in the 0xFFFFFF or #FFFFFF RGB color format. For example, 0x000000 or #000000 indicates black.
         shared_ptr<string> fontColor_ {};
-        // The font size of the text watermark. A larger value indicates a larger font.
+        // The font size of the text watermark. A larger value indicates a larger font size.
         shared_ptr<int64_t> fontSize_ {};
-        // This parameter takes effect when Mode is set to top-left, top-right, bottom-left, or bottom-right. The margin settings.
+        // The margin of the text watermark. This parameter takes effect only when Mode is set to top-left, top-right, bottom-left, or bottom-right.
         shared_ptr<TextVisibleControl::Margin> margin_ {};
         // The display mode of the text watermark. Valid values:
+        // - **pos**: Fixed position mode.
+        // - **repeat**: Tiled mode.
+        // - **top-left**: Top-left mode.
+        // - **top-right**: Top-right mode.
+        // - **bottom-left**: Bottom-left mode.
+        // - **bottom-right**: Bottom-right mode.
         shared_ptr<string> mode_ {};
         // The opacity of the text watermark. Valid values: 1 to 255. A larger value indicates lower transparency.
         shared_ptr<int32_t> opacity_ {};
-        // The horizontal anchor point of the text watermark.
-        // Valid values: 0 to 1. When (PosAx, PosAy) is set to (0, 0), the text is drawn with the upper-left corner as the anchor point. When the value is 0.5, the text is drawn at the center point. When (PosAx, PosAy) is set to (1, 1), the text is drawn with the lower-right corner as the anchor point.
+        // The horizontal anchor point of the text watermark. Valid values: 0 to 1. If PosAx and PosAy are both set to 0, the top-left corner of the text is used as the anchor point. If the value is 0.5, the center of the text is used as the anchor point. If PosAx and PosAy are both set to 1, the bottom-right corner of the text is used as the anchor point.
         shared_ptr<float> posAx_ {};
-        // The vertical anchor point of the text watermark.
-        // Valid values: 0 to 1. When (PosAx, PosAy) is set to (0, 0), the text is drawn with the upper-left corner as the anchor point. When the value is 0.5, the text is drawn from the center point. When (PosAx, PosAy) is set to (1, 1), the text is drawn with the lower-right corner as the anchor point.
+        // The vertical anchor point of the text watermark. Valid values: 0 to 1. If PosAx and PosAy are both set to 0, the top-left corner of the text is used as the anchor point. If the value is 0.5, the center of the text is used as the anchor point. If PosAx and PosAy are both set to 1, the bottom-right corner of the text is used as the anchor point.
         shared_ptr<float> posAy_ {};
-        // This parameter takes effect when Mode is set to pos. Specifies the horizontal position of the text watermark in pixels, with the upper-left corner as the origin.
+        // The horizontal position of the text watermark. This parameter takes effect only when Mode is set to pos. The value is the pixel position with the top-left corner as the origin.
         shared_ptr<int64_t> posX_ {};
-        // This parameter takes effect when Mode is set to pos. Specifies the vertical position of the text watermark in pixels, with the upper-left corner as the origin.
+        // The vertical position of the text watermark. This parameter takes effect only when Mode is set to pos. The value is the pixel position with the top-left corner as the origin.
         shared_ptr<int64_t> posY_ {};
-        // This parameter takes effect when Mode is set to repeat. Specifies the horizontal spacing for tiled text watermarks.
+        // The horizontal spacing of the tiled text watermark. This parameter takes effect only when Mode is set to repeat.
         shared_ptr<int64_t> spaceX_ {};
-        // This parameter takes effect when Mode is set to repeat. Specifies the vertical spacing for tiled text watermarks.
+        // The vertical spacing of the tiled text watermark. This parameter takes effect only when Mode is set to repeat.
         shared_ptr<int64_t> spaceY_ {};
-        // The visibility. Valid values:
+        // Specifies whether the text watermark is visible. Valid values:
+        // - true: Visible.
+        // - false: Invisible.
         shared_ptr<bool> visible_ {};
-        // The text watermark content. The format is a UTF-8 string.
+        // The text watermark content. The value must be a UTF-8 string.
         shared_ptr<string> visibleText_ {};
       };
 
@@ -631,9 +640,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable this feature.
+        // Specifies whether to enable the metadata. Valid values:
+        // - true: Enabled.
+        // - false: Disabled.
         shared_ptr<bool> enable_ {};
-        // The metadata in Base64 format. Encode the following string in Base64 format: AIGC:{"Label":"1","ContentProducer":"AXXXX","ProduceID":"BXXXX,"ReservedCode1":"CXXX","ContentPropagator":"DXXX","PropagateID":"EXXX","ReservedCode2":"FXXXX"}. Note: 1. The "AIGC:" prefix is required. Otherwise, the metadata cannot be added. The format differs from that of audio and video metadata. 2. The Base64 encoding must be in standard format with padding.
+        // The Base64-encoded metadata. You must encode a string in the format of AIGC:{"Label":"1","ContentProducer":"AXXXX","ProduceID":"BXXXX","ReservedCode1":"CXXX","ContentPropagator":"DXXX","PropagateID":"EXXX","ReservedCode2":"FXXXX"} into a Base64 string. Note: 1. The "AIGC:" prefix is required. Otherwise, the metadata cannot be added. Note that the format is different from that of audio and video. 2. The Base64 string must be in the standard format and include padding.
         shared_ptr<string> xmpKvBase64_ {};
       };
 
@@ -736,13 +747,13 @@ namespace Models
 
 
         protected:
-          // This parameter takes effect when Mode is set to bottom-left or bottom-right. The bottom margin.
+          // The bottom margin. This parameter takes effect only when Mode is set to bottom-left or bottom-right.
           shared_ptr<float> bottom_ {};
-          // This parameter takes effect when Mode is set to top-left or bottom-left. The left margin.
+          // The left margin. This parameter takes effect only when Mode is set to top-left or bottom-left.
           shared_ptr<float> left_ {};
-          // This parameter takes effect when Mode is set to top-right or bottom-right. The right margin.
+          // The right margin. This parameter takes effect only when Mode is set to top-right or bottom-right.
           shared_ptr<float> right_ {};
-          // This parameter takes effect when Mode is set to top-left or top-right. The top margin.
+          // The top margin. This parameter takes effect only when Mode is set to top-left or top-right.
           shared_ptr<float> top_ {};
         };
 
@@ -846,29 +857,37 @@ namespace Models
       protected:
         // The clockwise rotation angle of the logo watermark. Valid values: 1 to 360.
         shared_ptr<int64_t> angle_ {};
-        // Specifies whether to enable enhanced visible watermarking. After this feature is enabled, the logo is processed so that information embedded in the logo can be extracted.
+        // Specifies whether to enable the enhanced visible watermark. After this feature is enabled, the logo is processed, and the embedded information in the logo can be extracted.
         shared_ptr<bool> enhance_ {};
-        // The logo watermark in Base64 format. The logo file is a PNG image converted to Base64 format.
+        // The Base64-encoded logo watermark. The logo file must be a PNG image encoded in Base64 format.
         shared_ptr<string> logoBase64_ {};
-        // This parameter takes effect when Mode is set to top-left, top-right, bottom-left, or bottom-right. The margin settings.
+        // The margin of the text watermark. This parameter takes effect only when Mode is set to top-left, top-right, bottom-left, or bottom-right.
         shared_ptr<LogoVisibleControl::Margin> margin_ {};
         // The display mode of the logo watermark. Valid values:
+        // - **pos**: Fixed position mode.
+        // - **repeat**: Tiled mode.
+        // - **top-left**: Top-left mode.
+        // - **top-right**: Top-right mode.
+        // - **bottom-left**: Bottom-left mode.
+        // - **bottom-right**: Bottom-right mode.
         shared_ptr<string> mode_ {};
         // The opacity of the logo watermark. Valid values: 1 to 255. A larger value indicates lower transparency.
         shared_ptr<int32_t> opacity_ {};
-        // The horizontal anchor point of the logo watermark. Valid values: 0 to 1. When (PosAx, PosAy) is set to (0, 0), the watermark is drawn with the upper-left corner as the anchor point. When the value is 0.5, the watermark is drawn at the center. When (PosAx, PosAy) is set to (1, 1), the watermark is drawn at the lower-right corner.
+        // The horizontal anchor point of the logo watermark. Valid values: 0 to 1. If PosAx and PosAy are both set to 0, the top-left corner of the logo is used as the anchor point. If the value is 0.5, the center of the logo is used as the anchor point. If PosAx and PosAy are both set to 1, the bottom-right corner of the logo is used as the anchor point.
         shared_ptr<float> posAx_ {};
-        // The vertical anchor point of the logo watermark. Valid values: 0 to 1. When (PosAx, PosAy) is set to (0, 0), the watermark is drawn with the upper-left corner as the anchor point. When the value is 0.5, the watermark is drawn at the center. When (PosAx, PosAy) is set to (1, 1), the watermark is drawn at the lower-right corner.
+        // The vertical anchor point of the logo watermark. Valid values: 0 to 1. If PosAx and PosAy are both set to 0, the top-left corner of the logo is used as the anchor point. If the value is 0.5, the center of the logo is used as the anchor point. If PosAx and PosAy are both set to 1, the bottom-right corner of the logo is used as the anchor point.
         shared_ptr<float> posAy_ {};
-        // This parameter takes effect when Mode is set to pos. Specifies the horizontal position of the visible watermark in pixels, with the upper-left corner as the origin.
+        // The horizontal position of the visible watermark. This parameter takes effect only when Mode is set to pos. The value is the pixel position with the top-left corner as the origin.
         shared_ptr<int64_t> posX_ {};
-        // This parameter takes effect when Mode is set to pos. Specifies the vertical position of the visible watermark in pixels, with the upper-left corner as the origin.
+        // The vertical position of the visible watermark. This parameter takes effect only when Mode is set to pos. The value is the pixel position with the top-left corner as the origin.
         shared_ptr<int64_t> posY_ {};
-        // This parameter takes effect when Mode is set to repeat. Specifies the horizontal spacing for tiled visible watermarks.
+        // The horizontal spacing of the tiled visible watermark. This parameter takes effect only when Mode is set to repeat.
         shared_ptr<int64_t> spaceX_ {};
-        // This parameter takes effect when Mode is set to repeat. Specifies the vertical spacing for tiled visible watermarks.
+        // The vertical spacing of the tiled visible watermark. This parameter takes effect only when Mode is set to repeat.
         shared_ptr<int64_t> spaceY_ {};
-        // The visibility. Valid values:
+        // Specifies whether the logo watermark is visible. Valid values:
+        // - **true**: Visible.
+        // - **false**: Invisible.
         shared_ptr<bool> visible_ {};
       };
 
@@ -902,11 +921,11 @@ namespace Models
 
 
     protected:
-      // The control parameters for logo watermarks.
+      // The logo watermark control parameters.
       shared_ptr<ImageControl::LogoVisibleControl> logoVisibleControl_ {};
-      // The metadata control parameters. This parameter takes effect when WmType is set to PureImage or AigcImage.
+      // The metadata control parameters. This parameter takes effect only when WmType is set to PureImage or AigcImage.
       shared_ptr<ImageControl::MetadataControl> metadataControl_ {};
-      // The control parameters for image text watermarks.
+      // The text watermark control parameters for images.
       shared_ptr<ImageControl::TextVisibleControl> textVisibleControl_ {};
     };
 
@@ -1071,23 +1090,26 @@ namespace Models
         protected:
           // The counterclockwise rotation angle of the visible watermark text. Valid values: 1 to 360.
           shared_ptr<int64_t> angle_ {};
-          // The font color of the visible watermark text. The format is 0xFFFFFF RGB color format. For example, 0x000000 indicates black.
+          // The color of the visible watermark text. The format is 0xFFFFFF RGB color format. For example, 0x000000 indicates black.
           shared_ptr<string> fontColor_ {};
-          // The font size of the visible watermark text. A larger value indicates a larger font.
+          // The font size of the visible watermark text. A larger value indicates a larger font size.
           shared_ptr<int64_t> fontSize_ {};
-          // Takes effect when Mode is set to repeat. Specifies the number of times the visible watermark repeats horizontally.
+          // This parameter takes effect when Mode is set to repeat. The number of times the visible watermark repeats horizontally.
           shared_ptr<int64_t> horizontalNumber_ {};
-          // The background visible watermark mode. Valid values:
+          // The visible background watermark mode. Valid values:
+          // 
+          // - **pos**: Embeds a single visible watermark text at a specific position in the background.
+          // - **repeat**: Tiles and embeds multiple visible watermark texts in the document background.
           shared_ptr<string> mode_ {};
-          // The opacity parameter of the visible watermark. Valid values: 1 to 255. A larger value indicates less transparency.
+          // The opacity parameter of the visible watermark. Valid values: 1 to 255. A larger value indicates lower transparency.
           shared_ptr<int64_t> opacity_ {};
-          // Takes effect when Mode is set to pos. Controls the horizontal position of the visible watermark, with the lower-left corner as the origin. When the value is between 0 and 1, it represents proportional control. When the value is greater than 1, it represents precise pixel position control.
+          // This parameter takes effect when Mode is set to pos. The parameter that controls the horizontal position of the visible watermark, with the lower-left corner as the origin. When the value is between 0 and 1, it controls the position by proportion. When the value is greater than 1, it controls the exact pixel position.
           shared_ptr<string> posX_ {};
-          // Takes effect when Mode is set to pos. Controls the vertical position of the visible watermark, with the lower-left corner as the origin. When the value is between 0 and 1, it represents proportional control. When the value is greater than 1, it represents precise pixel position control.
+          // This parameter takes effect when Mode is set to pos. The parameter that controls the vertical position of the visible watermark, with the lower-left corner as the origin. When the value is between 0 and 1, it controls the position by proportion. When the value is greater than 1, it controls the exact pixel position.
           shared_ptr<string> posY_ {};
-          // Takes effect when Mode is set to repeat. Specifies the number of times the visible watermark repeats vertically.
+          // This parameter takes effect when Mode is set to repeat. The number of times the visible watermark repeats vertically.
           shared_ptr<int64_t> verticalNumber_ {};
-          // The background visible watermark text. The format is a UTF-8 string.
+          // The text of the visible background watermark. The format is a UTF-8 string.
           shared_ptr<string> visibleText_ {};
         };
 
@@ -1119,7 +1141,7 @@ namespace Models
 
 
         protected:
-          // The opacity parameter of the background invisible watermark. Valid values: 1 to 13. A larger value indicates less transparency.
+          // The opacity parameter of the invisible background watermark. Valid values: 1 to 13. A larger value indicates lower transparency.
           shared_ptr<int64_t> opacity_ {};
         };
 
@@ -1158,13 +1180,19 @@ namespace Models
 
 
       protected:
-        // Specifies whether to add a background invisible watermark. Valid values:
+        // Specifies whether to add an invisible background watermark. Valid values:
+        // 
+        // - **true**: Yes.
+        // - **false**: No.
         shared_ptr<bool> bgAddInvisible_ {};
-        // Specifies whether to enable the background visible watermark. Valid values:
+        // Specifies whether to enable visible background watermarks. Valid values:
+        // 
+        // - **true**: Yes.
+        // - **false**: No.
         shared_ptr<bool> bgAddVisible_ {};
-        // The background invisible watermark control parameters.
+        // The invisible background watermark control parameters.
         shared_ptr<BackgroundControl::BgInvisibleControl> bgInvisibleControl_ {};
-        // The background visible watermark control parameters.
+        // The visible background watermark control parameters.
         shared_ptr<BackgroundControl::BgVisibleControl> bgVisibleControl_ {};
       };
 
@@ -1196,9 +1224,15 @@ namespace Models
     protected:
       // The background watermark control parameters.
       shared_ptr<DocumentControl::BackgroundControl> backgroundControl_ {};
-      // Specifies whether to enable component invisible watermark. The component invisible watermark can resist document addition, deletion, modification, save-as (same format), and full-select copy from docx to a new docx document. It cannot resist format conversion attacks. Valid values:
+      // Specifies whether to enable component invisible watermarks. Component invisible watermarks can resist document addition, deletion, modification, saving as another format (without changing the format), and selecting all and copying to a new docx document. They cannot resist format conversion attacks. Valid values:
+      // 
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> invisibleAntiAllCopy_ {};
-      // Specifies whether to enable zero-width character invisible watermark. The zero-width character invisible watermark can resist document addition, deletion, modification, save-as (same format), partial text copy-paste, and CopytoTxt attacks. It cannot resist format conversion toPDF attacks. Valid values:
+      // Specifies whether to enable zero-width character invisible watermarks. Zero-width character invisible watermarks can resist document addition, deletion, modification, saving as another format (without changing the format), partial text copy and paste, and CopytoTxt attacks. They cannot resist format conversion to PDF attacks. Valid values:
+      // 
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> invisibleAntiTextCopy_ {};
     };
 
@@ -1286,19 +1320,24 @@ namespace Models
 
 
     protected:
-      // The timestamp watermark information bit width. Specifies how much information a single timestamp can contain. A larger value theoretically reduces the number of rows required for extraction, but increases the time modification magnitude. The magnitude range is 2^n, where n is this parameter value.
+      // The bit width of the timestamp watermark information, which specifies how much information a single timestamp can hold. A larger value theoretically requires fewer rows to extract the information, but the time modification magnitude increases. The magnitude range is the nth power of 2, where n is the value of this parameter.
       shared_ptr<int64_t> embedBitsNumberInEachTime_ {};
-      // The column to embed the watermark. We recommend that you use a string content column. Counting starts from 1.
+      // The specified embedding column. We recommend that you use a string content column. The count starts from 1.
       shared_ptr<int64_t> embedColumn_ {};
-      // The zero-width character watermark parameter that specifies the embedding density. Valid values: a floating-point number between 0 and 1. 0 indicates that only the first row is embedded. 1 indicates that all rows are embedded.
+      // The zero-width character watermark parameter that specifies the embedding density. The value is a floating-point number between 0 and 1. A value of 0 indicates that only the first row is embedded. A value of 1 indicates that all rows are embedded.
       shared_ptr<string> embedDensity_ {};
-      // The modification precision, which indicates the magnitude of modification as a power of 10. For example, 0 indicates a modification precision of 10^0 (the ones place), -1 indicates the first decimal place, and 1 indicates the tens place. If the float data does not have this precision, no modification is made.
+      // The modification precision, which indicates the modification magnitude as the nth power of 10. For example, 0 indicates a modification precision of 10^0, which is the ones place. -1 indicates the first decimal place. 1 indicates the tens place. If the float data does not have this precision part, it is not modified.
       shared_ptr<int64_t> embedPrecision_ {};
-      // The timestamp watermark parameter that specifies the watermark embedding position. Valid values: Min (minute), Sec (second), and MilSec (millisecond). Select one of the three. The algorithm modifies the data at the selected position.
+      // The timestamp watermark parameter that specifies the watermark embedding position. Valid values: Min (minute), Sec (second), and MilSec (millisecond). You can specify only one of them. The algorithm modifies the data at the specified position.
       shared_ptr<string> embedTimePosition_ {};
-      // The watermark embedding method.
+      // The watermark embedding method. Valid values:
+      // 
+      // - **lossless_row_shift_embed**: Lossless data method.
+      // - **lossy_number_embed**: Lossy data method.
+      // - **lossy_time_stamp_embed**: Timestamp method.
+      // - **lossy_zero_width_embed**: Zero-width character method.
       shared_ptr<string> method_ {};
-      // The timestamp watermark parameter that specifies the format string for parsing timestamps in the CSV file. For example, if the timestamp in the CSV file is similar to "2023-10-15 13:20:59:342", the corresponding format string is "Year-Mon-Day Hour:Min:Sec.MilSec". The watermark output retains this format after embedding. If the format is incorrect, this method cannot be used. Year, month, day, hour, minute, second, and millisecond in the format string must follow the specified notation. Delimiters must be single non-alphabetic English characters, typically ":", "/", "-", or " " (space). "T" and "Z" are also supported as delimiters. Other time formats are not currently supported.
+      // The timestamp watermark parameter that specifies the format string for parsing timestamps in the CSV file. For example, if the timestamp in the CSV file is similar to "2023-10-15 13:20:59:342", the corresponding format string is "Year-Mon-Day Hour:Min:Sec.MilSec". You must enter "Year-Mon-Day Hour:Min:Sec.MilSec" here. After the watermark is embedded, the output still follows this format. If you enter it incorrectly, this method cannot be used. The year, month, day, hour, minute, second, and millisecond in the format string must be written as described above. The connector must be a single non-character English connector, which can generally be ":", "/", "-", or " " (space). "T" and "Z" are also supported as connectors. Other time formats are not supported for parsing.
       shared_ptr<string> timeFormat_ {};
     };
 
@@ -1359,9 +1398,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable this feature.
+        // Specifies whether to enable the metadata. Valid values:
+        // - **false**: Disabled.
+        // - **true**: Enabled.
         shared_ptr<bool> enable_ {};
-        // The metadata in Base64 format. Encode the following string in Base64 format: AIGC={"Label":"1","ContentProducer":"AXXXX","ProduceID":"BXXXX,"ReservedCode1":"CXXX","ContentPropagator":"DXXX","PropagateID":"EXXX","ReservedCode2":"FXXXX"}. Note: 1. The "AIGC=" prefix is required. Otherwise, the metadata cannot be added. The prefix differs from that of image metadata. 2. The Base64 encoding must be in standard format with padding.
+        // The Base64-encoded metadata. You must encode a string in the format of AIGC={"Label":"1","ContentProducer":"AXXXX","ProduceID":"BXXXX","ReservedCode1":"CXXX","ContentPropagator":"DXXX","PropagateID":"EXXX","ReservedCode2":"FXXXX"} into a Base64 string. Note: 1. The "AIGC=" prefix is required. Otherwise, the metadata cannot be added. Note that the prefix is different from that of image metadata. 2. The Base64 string must be in the standard format and include padding.
         shared_ptr<string> xmpKvBase64_ {};
       };
 
@@ -1376,7 +1417,7 @@ namespace Models
 
 
     protected:
-      // The control parameters for audio metadata.
+      // The audio metadata control parameters.
       shared_ptr<AudioControl::MetadataControl> metadataControl_ {};
     };
 
@@ -1513,11 +1554,11 @@ namespace Models
     shared_ptr<CreateWmEmbedTaskRequest::CsvControl> csvControl_ {};
     // The document watermark control parameters.
     shared_ptr<CreateWmEmbedTaskRequest::DocumentControl> documentControl_ {};
-    // The URL for downloading the file to be embedded. The URL must be active for public network access.
+    // The active URL for downloading the file to be embedded. The URL must support public network access.
     // 
     // This parameter is required.
     shared_ptr<string> fileUrl_ {};
-    // The name of the file to be embedded. The backend validates the file type based on the file name extension.
+    // The file name of the file to be embedded. The backend determines and verifies the file type based on the file name extension.
     // 
     // This parameter is required.
     shared_ptr<string> filename_ {};
@@ -1525,32 +1566,40 @@ namespace Models
     shared_ptr<CreateWmEmbedTaskRequest::ImageControl> imageControl_ {};
     // The image watermark parameter that specifies the expected JPEG compression quality factor of the output image. Default value: 95. Valid values: 1 to 100.
     shared_ptr<int64_t> imageEmbedJpegQuality_ {};
-    // The image watermark parameter. A larger value indicates higher robustness but lower visual quality. Default value: 2. Valid values: 0 to 4.
+    // The image watermark parameter that specifies the embedding level. A larger value indicates higher robustness but lower visual quality. Default value: 2. Valid values: 0 to 4.
     shared_ptr<int64_t> imageEmbedLevel_ {};
-    // Specifies whether to enable invisible watermark embedding. Default value: true.
+    // Specifies whether to enable invisible watermark embedding. Default value: true. Valid values:
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> invisibleEnable_ {};
-    // The short video watermark parameter that specifies the video bitrate. By default, the video bitrate is automatically obtained. You can use this parameter to forcibly specify the bitrate used during extraction. Typically, you do not need to set this parameter.
+    // The short video watermark parameter that specifies the video bitrate. By default, the system automatically obtains the video bitrate. You can use this parameter to force the bitrate used during extraction. Typically, you do not need to set this parameter.
     shared_ptr<string> videoBitrate_ {};
     // The video control parameters.
     shared_ptr<CreateWmEmbedTaskRequest::VideoControl> videoControl_ {};
-    // Video watermark parameter. Specifies whether to use the long video watermark SDK. Valid values:
+    // The video watermark parameter that specifies whether to use the long video watermark SDK. Default value: false. Valid values:
     // 
-    // - **true**: The long video watermark SDK is used.
-    // - **false**: The long video watermark SDK is not used.
-    // 
-    // Default value: false.
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> videoIsLong_ {};
-    // The watermark information in Base64-encoded string format. If this parameter is set, WmInfoUint cannot be set.
+    // The watermark information in Base64-encoded string format. If you set this parameter, you cannot set WmInfoUint.
     shared_ptr<string> wmInfoBytesB64_ {};
-    // The bit width of the watermark information capacity. Default value: 32. This parameter must be consistent between embedding and extraction. For example, if the 40-bit SDK is used for embedding, set this parameter to 40 during extraction as well.
+    // The capacity bit width of the watermark information. Default value: 32. This parameter must be consistent during embedding and extraction. For example, if a 40-bit SDK is used for embedding, you must also set this value to 40 for extraction.
     shared_ptr<int64_t> wmInfoSize_ {};
-    // The watermark information in decimal number format. If this parameter is set, WmInfoBytesB64 cannot be set.
+    // The watermark information in decimal numeric format. If you set this parameter, you cannot set WmInfoBytesB64.
+    // 
+    // The valid value range depends on the WmInfoSize parameter:
+    // 
+    // - When WmInfoSize is 32, the valid values are 1 to 4294967295.
+    // 
+    // - When WmInfoSize is 40, the valid values are 1 to 1099511627775.
+    // 
+    // - When WmInfoSize is 64, the valid values are 1 to 18446744073709551615.
     shared_ptr<string> wmInfoUint_ {};
     // The watermark type. Valid values:
-    // - **PureDocument**: document watermark.
-    // - **PureImage**: image watermark.
-    // - **PureAudio**: audio watermark.
-    // - **PureVideo**: video watermark.
+    // - **PureDocument**: Document watermark.
+    // - **PureImage**: Image watermark.
+    // - **PureAudio**: Audio watermark.
+    // - **PureVideo**: Video watermark.
     // - **AigcDocument**: AIGC document watermark.
     // - **AigcImage**: AIGC image watermark.
     // - **AigcAudio**: AIGC audio watermark.

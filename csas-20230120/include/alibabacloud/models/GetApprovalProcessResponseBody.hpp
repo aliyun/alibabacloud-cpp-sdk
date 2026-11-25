@@ -157,10 +157,11 @@ namespace Models
 
 
         protected:
-          // The display field.
+          // The name of the control in the external approval form.
           shared_ptr<string> displayField_ {};
+          // The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
           shared_ptr<string> displayFieldValue_ {};
-          // The system field.
+          // The system field identifier, such as processName.
           shared_ptr<string> systemField_ {};
         };
 
@@ -199,13 +200,13 @@ namespace Models
 
 
       protected:
-        // The ID of the external process.
+        // The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping.
+        // The list of mappings between system fields and external approval form controls.
         shared_ptr<vector<SoftwareHardeningPolicies::FieldMap>> fieldMap_ {};
-        // The policy ID.
+        // The list of software hardening policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
-        // The template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -281,10 +282,11 @@ namespace Models
 
 
         protected:
-          // The display field.
+          // The name of the control in the external approval form.
           shared_ptr<string> displayField_ {};
+          // The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
           shared_ptr<string> displayFieldValue_ {};
-          // The system field.
+          // The identifier of the system field, such as softwareName.
           shared_ptr<string> systemField_ {};
         };
 
@@ -323,9 +325,9 @@ namespace Models
 
 
       protected:
-        // The ID of the external process.
+        // The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping.
+        // The list of mappings between system fields and external approval form controls.
         shared_ptr<vector<SoftwareBlockPolicies::FieldMap>> fieldMap_ {};
         // The list of software blocking policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
@@ -405,10 +407,11 @@ namespace Models
 
 
         protected:
-          // The display field.
+          // The name of the control in the external approval form.
           shared_ptr<string> displayField_ {};
+          // The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
           shared_ptr<string> displayFieldValue_ {};
-          // The system field.
+          // The system field identifier, such as applicationId.
           shared_ptr<string> systemField_ {};
         };
 
@@ -447,13 +450,13 @@ namespace Models
 
 
       protected:
-        // The ID of the external process.
+        // The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping.
+        // The list of mappings between system fields and external approval form controls.
         shared_ptr<vector<PrivateAccessBlockPolicies::FieldMap>> fieldMap_ {};
-        // The policy ID.
+        // The list of internal network access control policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
-        // The template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -529,10 +532,11 @@ namespace Models
 
 
         protected:
-          // The display field.
+          // The name of the control in the external approval form.
           shared_ptr<string> displayField_ {};
+          // The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
           shared_ptr<string> displayFieldValue_ {};
-          // The system field.
+          // The system field identifier, such as devType.
           shared_ptr<string> systemField_ {};
         };
 
@@ -571,9 +575,9 @@ namespace Models
 
 
       protected:
-        // The ID of the external process.
+        // The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping.
+        // The list of mappings between system fields and external approval form controls.
         shared_ptr<vector<PeripheralBlockPolicies::FieldMap>> fieldMap_ {};
         // The list of peripheral control policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
@@ -653,10 +657,11 @@ namespace Models
 
 
         protected:
-          // The display field.
+          // The name of the control in the external approval form.
           shared_ptr<string> displayField_ {};
+          // The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
           shared_ptr<string> displayFieldValue_ {};
-          // The system field.
+          // The system field identifier, such as processName.
           shared_ptr<string> systemField_ {};
         };
 
@@ -695,13 +700,13 @@ namespace Models
 
 
       protected:
-        // The ID of the external process.
+        // The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping.
+        // The list of mappings between system fields and external approval form controls.
         shared_ptr<vector<EndpointHardeningPolicies::FieldMap>> fieldMap_ {};
-        // The policy ID.
+        // The list of endpoint hardening policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
-        // The template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -777,10 +782,11 @@ namespace Models
 
 
         protected:
-          // The display field.
+          // The name of the control in the external approval form.
           shared_ptr<string> displayField_ {};
+          // The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
           shared_ptr<string> displayFieldValue_ {};
-          // The system field.
+          // The identifier of the system field, such as reportDomain.
           shared_ptr<string> systemField_ {};
         };
 
@@ -819,9 +825,9 @@ namespace Models
 
 
       protected:
-        // The ID of the external process.
+        // The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping table.
+        // The list of mappings between system fields and external approval form controls.
         shared_ptr<vector<DomainWhitelistPolicies::FieldMap>> fieldMap_ {};
         // The list of domain name whitelist policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
@@ -901,10 +907,11 @@ namespace Models
 
 
         protected:
-          // The display field.
+          // The name of the control in the external approval form.
           shared_ptr<string> displayField_ {};
+          // The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
           shared_ptr<string> displayFieldValue_ {};
-          // The system field.
+          // The identifier of the system field, such as reportDomain.
           shared_ptr<string> systemField_ {};
         };
 
@@ -943,9 +950,9 @@ namespace Models
 
 
       protected:
-        // The ID of the external process.
+        // The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping.
+        // The list of mappings between system fields and external approval form controls.
         shared_ptr<vector<DomainBlacklistPolicies::FieldMap>> fieldMap_ {};
         // The list of domain name blacklist policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
@@ -1025,10 +1032,11 @@ namespace Models
 
 
         protected:
-          // The display field.
+          // The name of the control in the external approval form.
           shared_ptr<string> displayField_ {};
+          // The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
           shared_ptr<string> displayFieldValue_ {};
-          // The system field.
+          // The system field identifier, such as fileName.
           shared_ptr<string> systemField_ {};
         };
 
@@ -1067,11 +1075,11 @@ namespace Models
 
 
       protected:
-        // The ID of the external process.
+        // The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping.
+        // The list of mappings between system fields and external approval form controls.
         shared_ptr<vector<DlpSendPolicies::FieldMap>> fieldMap_ {};
-        // The list of outbound file policy IDs.
+        // The list of outbound file transfer policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
         // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
@@ -1149,10 +1157,11 @@ namespace Models
 
 
         protected:
-          // The display field.
+          // The name of the control in the external approval form.
           shared_ptr<string> displayField_ {};
+          // The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
           shared_ptr<string> displayFieldValue_ {};
-          // The system field.
+          // The identifier of the system field, such as report_domain.
           shared_ptr<string> systemField_ {};
         };
 
@@ -1191,9 +1200,9 @@ namespace Models
 
 
       protected:
-        // The ID of the external process.
+        // The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping.
+        // The list of mappings between system fields and external approval form controls.
         shared_ptr<vector<DeviceRegistrationPolicies::FieldMap>> fieldMap_ {};
         // The list of device registration policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
@@ -1273,10 +1282,11 @@ namespace Models
 
 
         protected:
-          // The display field.
+          // The name of the control in the external approval form.
           shared_ptr<string> displayField_ {};
+          // The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
           shared_ptr<string> displayFieldValue_ {};
-          // The system field.
+          // The system field identifier, such as approvalReason.
           shared_ptr<string> systemField_ {};
         };
 
@@ -1315,11 +1325,11 @@ namespace Models
 
 
       protected:
-        // The ID of the external process.
+        // The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping.
+        // The list of mappings between system fields and external approval form controls.
         shared_ptr<vector<AppUninstallPolicies::FieldMap>> fieldMap_ {};
-        // The list of endpoint uninstallation policy IDs.
+        // The list of endpoint uninstall policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
         // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
@@ -1479,31 +1489,35 @@ namespace Models
 
 
     protected:
-      // The list of policies associated with endpoint uninstallation.
+      // The list of associated endpoint uninstall policies.
       shared_ptr<Process::AppUninstallPolicies> appUninstallPolicies_ {};
-      // The approval type.
+      // The approval type. Valid values:
+      // - 0: Built-in approval.
+      // - 1: DingTalk approval.
+      // - 2: WeCom approval.
+      // - 3: Lark approval.
       shared_ptr<int32_t> approvalType_ {};
-      // The creation time of the approval process. The time is in the YYYY-MM-DD HH:mm:ss format.
+      // The time when the approval process was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The description of the approval process.
       shared_ptr<string> description_ {};
       // The list of policies associated with device registration.
       shared_ptr<Process::DeviceRegistrationPolicies> deviceRegistrationPolicies_ {};
-      // The list of associated outbound file policies.
+      // The list of associated outbound file transfer policies.
       shared_ptr<Process::DlpSendPolicies> dlpSendPolicies_ {};
       // The list of policies associated with the domain name blacklist.
       shared_ptr<Process::DomainBlacklistPolicies> domainBlacklistPolicies_ {};
       // The list of policies associated with the domain name whitelist.
       shared_ptr<Process::DomainWhitelistPolicies> domainWhitelistPolicies_ {};
-      // The endpoint hardening policies.
+      // The list of associated endpoint hardening policies.
       shared_ptr<Process::EndpointHardeningPolicies> endpointHardeningPolicies_ {};
-      // The label.
+      // The event callback URL. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter returns the complete event callback URL of the external platform. For other approval types, this parameter is empty.
       shared_ptr<string> eventLabel_ {};
-      // The external configuration.
+      // The external approval configuration. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter includes the integration configuration for the external approval platform, including appKey, appSecret, eventVerifyToken, and eventAesKey. For other approval types, this parameter is empty.
       shared_ptr<string> externalConfig_ {};
       // The list of associated peripheral control policies.
       shared_ptr<Process::PeripheralBlockPolicies> peripheralBlockPolicies_ {};
-      // The software hardening policy.
+      // The list of policies associated with internal network access control.
       shared_ptr<Process::PrivateAccessBlockPolicies> privateAccessBlockPolicies_ {};
       // The ID of the approval process.
       shared_ptr<string> processId_ {};
@@ -1513,7 +1527,7 @@ namespace Models
       shared_ptr<vector<vector<Process::ProcessNodes>>> processNodes_ {};
       // The list of policies associated with software blocking.
       shared_ptr<Process::SoftwareBlockPolicies> softwareBlockPolicies_ {};
-      // The software hardening policy.
+      // The list of associated software hardening policies.
       shared_ptr<Process::SoftwareHardeningPolicies> softwareHardeningPolicies_ {};
     };
 

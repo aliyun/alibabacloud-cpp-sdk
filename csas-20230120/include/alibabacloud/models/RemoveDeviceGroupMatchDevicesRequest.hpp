@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The collection of terminal device IDs to be removed. At least one ID must be specified, and duplicate values are not allowed.
+    // The IDs of the terminal devices to remove. Specify at least one ID. Duplicate IDs are not allowed.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> devTags_ {};
-    // The device label ID.
+    // The ID of the device label.
     // 
     // This parameter is required.
     shared_ptr<string> deviceGroupId_ {};

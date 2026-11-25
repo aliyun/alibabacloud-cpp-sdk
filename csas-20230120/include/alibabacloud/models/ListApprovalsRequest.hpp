@@ -213,7 +213,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the approval instances.
+    // The instance IDs of the approval instances.
     shared_ptr<vector<string>> approvalIds_ {};
     // The end time when the approval instance was created. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> createEndTime_ {};
@@ -227,11 +227,11 @@ namespace Models
     shared_ptr<string> creatorUserId_ {};
     // The username of the user who created the approval instance.
     shared_ptr<string> creatorUsername_ {};
-    // The page number of the current page for a paging query. Valid values: 1 to 10000.
+    // The page number of the current page for paging in a paged query. Valid values: 1 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
-    // The list of effective statuses of reports. The list uses the flat serialization format and cannot contain duplicate values. Only records with the Approved approval status are matched. Valid values:
+    // The list of effect statuses for the report. The list uses the flat serialization format and cannot contain duplicate values. Only records with the Approved approval status are matched. Valid values:
     // * Enabled: Valid.
     // * Expired: Invalid or expired.
     shared_ptr<vector<string>> effectStatuses_ {};
@@ -239,7 +239,7 @@ namespace Models
     shared_ptr<string> operatorUserId_ {};
     // The username of the user who operated the approval instance.
     shared_ptr<string> operatorUsername_ {};
-    // The number of entries per page for a paging query. Valid values: 1 to 500.
+    // The Settings for the number of entries to return on each page for paging in a paged query. Valid values: 1 to 500.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
@@ -264,7 +264,7 @@ namespace Models
     shared_ptr<string> schemaId_ {};
     // The name of the associated approval template.
     shared_ptr<string> schemaName_ {};
-    // The statuses of the approval instances.
+    // The instance statuses of the approval instances.
     shared_ptr<vector<string>> statuses_ {};
   };
 

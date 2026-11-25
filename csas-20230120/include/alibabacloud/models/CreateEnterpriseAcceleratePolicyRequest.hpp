@@ -113,9 +113,9 @@ namespace Models
 
   protected:
     // The acceleration mode. Valid values:
-    // - **whiltelist**: whitelist-based acceleration.
-    // - **global**: global acceleration.
-    // - **build-in-list**: built-in application acceleration.
+    // - **whiltelist**: whitelist acceleration
+    // - **global**: global acceleration
+    // - **build-in-list**: built-in application acceleration
     shared_ptr<string> accelerationType_ {};
     // The description of the enterprise management policy. The description must be 1 to 512 characters in length.
     shared_ptr<string> description_ {};
@@ -123,23 +123,23 @@ namespace Models
     shared_ptr<string> name_ {};
     // The priority.
     shared_ptr<string> priority_ {};
-    // Specifies whether to display the policy in the client. Valid values:
-    // - **0**: not displayed.
-    // - **1**: displayed.
+    // Specifies whether the policy is displayed on the client. Valid values:
+    // - **0**: not displayed
+    // - **1**: displayed
     shared_ptr<int32_t> showInClient_ {};
-    // The address (IP address or domain name) of the acceleration instance.
+    // The address of the accelerated instance, which can be an IP address or a domain name.
     // 
     // This parameter is required.
     shared_ptr<string> upstreamHost_ {};
-    // The port of the acceleration instance. Valid values: 1000 to 60000.
+    // The port of the accelerated instance. Valid values: 1000 to 60000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> upstreamPort_ {};
-    // The acceleration instance.
+    // The accelerated instance.
     // 
     // This parameter is required.
     shared_ptr<string> upstreamType_ {};
-    // The acceleration user group.
+    // The accelerated user group.
     // 
     // This parameter is required.
     shared_ptr<string> userAttributeGroup_ {};

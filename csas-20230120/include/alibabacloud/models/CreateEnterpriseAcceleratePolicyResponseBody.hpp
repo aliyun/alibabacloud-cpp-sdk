@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the enterprise acceleration policy.
     shared_ptr<string> eapId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

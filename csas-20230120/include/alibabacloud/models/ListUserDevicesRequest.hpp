@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DeviceStatuses, deviceStatuses_);
       DARABONBA_PTR_TO_JSON(DeviceTags, deviceTags_);
       DARABONBA_PTR_TO_JSON(DeviceTypes, deviceTypes_);
+      DARABONBA_PTR_TO_JSON(DiskEncryptStatuses, diskEncryptStatuses_);
       DARABONBA_PTR_TO_JSON(DlpStatuses, dlpStatuses_);
       DARABONBA_PTR_TO_JSON(Hostname, hostname_);
       DARABONBA_PTR_TO_JSON(IaStatuses, iaStatuses_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DeviceStatuses, deviceStatuses_);
       DARABONBA_PTR_FROM_JSON(DeviceTags, deviceTags_);
       DARABONBA_PTR_FROM_JSON(DeviceTypes, deviceTypes_);
+      DARABONBA_PTR_FROM_JSON(DiskEncryptStatuses, diskEncryptStatuses_);
       DARABONBA_PTR_FROM_JSON(DlpStatuses, dlpStatuses_);
       DARABONBA_PTR_FROM_JSON(Hostname, hostname_);
       DARABONBA_PTR_FROM_JSON(IaStatuses, iaStatuses_);
@@ -80,10 +82,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appStatuses_ == nullptr
         && this->appVersions_ == nullptr && this->autoLoginStatuses_ == nullptr && this->currentPage_ == nullptr && this->department_ == nullptr && this->deviceBelong_ == nullptr
-        && this->deviceGroupId_ == nullptr && this->deviceStatuses_ == nullptr && this->deviceTags_ == nullptr && this->deviceTypes_ == nullptr && this->dlpStatuses_ == nullptr
-        && this->hostname_ == nullptr && this->iaStatuses_ == nullptr && this->innerIp_ == nullptr && this->mac_ == nullptr && this->nacStatuses_ == nullptr
-        && this->paStatuses_ == nullptr && this->pageSize_ == nullptr && this->saseUserId_ == nullptr && this->sharingStatus_ == nullptr && this->snBios_ == nullptr
-        && this->snSystem_ == nullptr && this->sortBy_ == nullptr && this->username_ == nullptr && this->workshop_ == nullptr; };
+        && this->deviceGroupId_ == nullptr && this->deviceStatuses_ == nullptr && this->deviceTags_ == nullptr && this->deviceTypes_ == nullptr && this->diskEncryptStatuses_ == nullptr
+        && this->dlpStatuses_ == nullptr && this->hostname_ == nullptr && this->iaStatuses_ == nullptr && this->innerIp_ == nullptr && this->mac_ == nullptr
+        && this->nacStatuses_ == nullptr && this->paStatuses_ == nullptr && this->pageSize_ == nullptr && this->saseUserId_ == nullptr && this->sharingStatus_ == nullptr
+        && this->snBios_ == nullptr && this->snSystem_ == nullptr && this->sortBy_ == nullptr && this->username_ == nullptr && this->workshop_ == nullptr; };
     // appStatuses Field Functions 
     bool hasAppStatuses() const { return this->appStatuses_ != nullptr;};
     void deleteAppStatuses() { this->appStatuses_ = nullptr;};
@@ -164,6 +166,15 @@ namespace Models
     inline vector<string> getDeviceTypes() { DARABONBA_PTR_GET(deviceTypes_, vector<string>) };
     inline ListUserDevicesRequest& setDeviceTypes(const vector<string> & deviceTypes) { DARABONBA_PTR_SET_VALUE(deviceTypes_, deviceTypes) };
     inline ListUserDevicesRequest& setDeviceTypes(vector<string> && deviceTypes) { DARABONBA_PTR_SET_RVALUE(deviceTypes_, deviceTypes) };
+
+
+    // diskEncryptStatuses Field Functions 
+    bool hasDiskEncryptStatuses() const { return this->diskEncryptStatuses_ != nullptr;};
+    void deleteDiskEncryptStatuses() { this->diskEncryptStatuses_ = nullptr;};
+    inline const vector<string> & getDiskEncryptStatuses() const { DARABONBA_PTR_GET_CONST(diskEncryptStatuses_, vector<string>) };
+    inline vector<string> getDiskEncryptStatuses() { DARABONBA_PTR_GET(diskEncryptStatuses_, vector<string>) };
+    inline ListUserDevicesRequest& setDiskEncryptStatuses(const vector<string> & diskEncryptStatuses) { DARABONBA_PTR_SET_VALUE(diskEncryptStatuses_, diskEncryptStatuses) };
+    inline ListUserDevicesRequest& setDiskEncryptStatuses(vector<string> && diskEncryptStatuses) { DARABONBA_PTR_SET_RVALUE(diskEncryptStatuses_, diskEncryptStatuses) };
 
 
     // dlpStatuses Field Functions 
@@ -284,55 +295,57 @@ namespace Models
     shared_ptr<vector<string>> appStatuses_ {};
     // The client versions.
     shared_ptr<vector<string>> appVersions_ {};
-    // The automatic logon statuses used to filter user endpoint devices.
+    // Filters the results by the automatic logon status of the user terminal devices.
     shared_ptr<vector<string>> autoLoginStatuses_ {};
-    // The current page number for paging queries. Valid values: 1 to 10000.
+    // The page number of the current page for paging in a paged query. Valid values: 1 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
-    // The department to which the user belongs. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
+    // The department to which the user belongs. The value must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
     shared_ptr<string> department_ {};
-    // The ownership of the endpoint device. Valid values:
+    // The ownership of the terminal device. Valid values:
     // - **Personal**: Personal device.
-    // - **Company**: Company device.
+    // - **Company**: Corporate device.
     shared_ptr<string> deviceBelong_ {};
-    // The ID of the device group.
+    // The device group ID.
     shared_ptr<string> deviceGroupId_ {};
-    // The endpoint device statuses.
+    // The terminal device statuses.
     shared_ptr<vector<string>> deviceStatuses_ {};
-    // The IDs of the endpoint devices.
+    // The terminal device IDs.
     shared_ptr<vector<string>> deviceTags_ {};
-    // The operating system types of the endpoint devices.
+    // The terminal device operating system types.
     shared_ptr<vector<string>> deviceTypes_ {};
+    // Filters the results by the disk encryption status of the user terminal devices. You can select multiple statuses, which are evaluated with an OR logical operator. If you select Unencrypted, the result includes user terminal devices that have not reported their disk encryption status.
+    shared_ptr<vector<string>> diskEncryptStatuses_ {};
     // The office data protection statuses.
     shared_ptr<vector<string>> dlpStatuses_ {};
-    // The name of the endpoint device. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (_), the system also queries all endpoint devices whose names contain 4-byte UTF-8 characters.
+    // The name of the terminal device. The value must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (_), the system also queries all terminal devices whose names contain 4-byte UTF-8 characters.
     shared_ptr<string> hostname_ {};
     // The Internet access statuses.
     shared_ptr<vector<string>> iaStatuses_ {};
-    // The internal IP address of the endpoint device.
+    // The internal IP address of the terminal device.
     shared_ptr<string> innerIp_ {};
-    // The MAC address of the endpoint device.
+    // The MAC address of the terminal device.
     shared_ptr<string> mac_ {};
     // The network access control statuses.
     shared_ptr<vector<string>> nacStatuses_ {};
     // The internal network access statuses.
     shared_ptr<vector<string>> paStatuses_ {};
-    // The number of entries per page for paging queries. Valid values: 1 to 500.
+    // The number of entries per page in a paged query. Valid values: 1 to 500.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
     // The user ID. You can obtain the value from the following operations:
-    // - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user endpoint device.
-    // - [ListUserDevices](~~ListUserDevices~~): Queries a list of user endpoint devices.
+    // - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user terminal device.
+    // - [ListUserDevices](~~ListUserDevices~~): Lists user terminal devices.
     shared_ptr<string> saseUserId_ {};
     // Specifies whether sharing is enabled for the device. Valid values:
     // - **true**: Sharing is enabled.
     // - **false**: Sharing is disabled.
     shared_ptr<bool> sharingStatus_ {};
-    // The BIOS system SN.
+    // The BIOS system serial number.
     shared_ptr<string> snBios_ {};
-    // The system serial number (SN).
+    // The system serial number.
     shared_ptr<string> snSystem_ {};
     // The sorting parameter. Valid values:
     // - **Username**: Sorts by Username in ascending order.
@@ -340,7 +353,7 @@ namespace Models
     // - **UpdateTime**: Sorts by UpdateTime in descending order.
     // - **CreateTime**: Sorts by CreateTime in descending order.
     shared_ptr<string> sortBy_ {};
-    // The username. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (*), at signs (@), and spaces.
+    // The username. The value must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (*), at signs (@), and spaces.
     shared_ptr<string> username_ {};
     // The name of the office area.
     shared_ptr<string> workshop_ {};

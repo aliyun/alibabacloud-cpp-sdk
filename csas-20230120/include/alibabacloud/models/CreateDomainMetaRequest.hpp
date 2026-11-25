@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The list type.
     shared_ptr<string> listType_ {};
-    // The list name. Maximum length: 32 characters.
+    // The name of the list. The name can be up to 32 characters in length.
     shared_ptr<string> name_ {};
   };
 

@@ -112,13 +112,13 @@ namespace Models
 
 
       protected:
-        // The prompt content of the block page.
+        // The prompt message on the block page.
         shared_ptr<string> browserAlertContent_ {};
         // The background pattern of the block page.
         shared_ptr<string> browserAlertStyle_ {};
         // The title of the block page.
         shared_ptr<string> browserAlertTitle_ {};
-        // The text of the report approval button.
+        // The text on the approval request button.
         shared_ptr<string> reportButtonText_ {};
       };
 
@@ -178,13 +178,13 @@ namespace Models
 
 
       protected:
-        // The prompt content of the English block page.
+        // The English prompt message on the block page.
         shared_ptr<string> browserAlertContent_ {};
-        // The background pattern of the English block page.
+        // The English background pattern of the block page.
         shared_ptr<string> browserAlertStyle_ {};
-        // The title of the English block page.
+        // The English title of the block page.
         shared_ptr<string> browserAlertTitle_ {};
-        // The text of the English report approval button.
+        // The English text on the approval request button.
         shared_ptr<string> reportButtonText_ {};
       };
 
@@ -250,13 +250,13 @@ namespace Models
   protected:
     // Specifies whether end users are allowed to submit approval requests.
     shared_ptr<bool> allowReport_ {};
-    // The content displayed in the client interception pop-up window.
+    // The content displayed in the client block pop-up window.
     shared_ptr<PAApplicationUnauthorizedAccessConfig::BlockContent> blockContent_ {};
     // Specifies whether the feature is enabled. Valid values:
-    // - **true**: Enabled. Users are redirected to an interception page when they access an unauthorized application.
-    // - **false**: Disabled. An error message is returned by default when users access an unauthorized application.
+    // - **true**: Enabled. If an application is unauthorized, the user is redirected to the block page.
+    // - **false**: Disabled. If an application is unauthorized, an error message is returned by default.
     shared_ptr<bool> enabled_ {};
-    // The ID of the approval flow associated with the policy.
+    // The ID of the approval process associated with the policy.
     shared_ptr<string> reportProcessId_ {};
   };
 

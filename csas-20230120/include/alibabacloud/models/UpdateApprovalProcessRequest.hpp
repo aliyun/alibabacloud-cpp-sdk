@@ -157,22 +157,25 @@ namespace Models
 
 
     protected:
-      // The ID of the device uninstall approval template.
+      // The ID of the application uninstallation approval template.
       shared_ptr<string> appUninstallSchemaId_ {};
       // The ID of the device registration approval template.
       shared_ptr<string> deviceRegistrationSchemaId_ {};
-      // The ID of the file outgoing approval template.
+      // The ID of the file outbound sending approval template.
       shared_ptr<string> dlpSendSchemaId_ {};
       // The ID of the domain name blacklist approval template.
       shared_ptr<string> domainBlacklistSchemaId_ {};
       // The ID of the domain name whitelist approval template.
       shared_ptr<string> domainWhitelistSchemaId_ {};
+      // The ID of the endpoint hardening approval template.
       shared_ptr<string> endpointHardeningSchemaId_ {};
       // The ID of the peripheral control approval template.
       shared_ptr<string> peripheralBlockSchemaId_ {};
+      // The ID of the internal network access control approval template.
       shared_ptr<string> privateAccessBlockSchemaId_ {};
       // The ID of the software blocking approval template.
       shared_ptr<string> softwareBlockSchemaId_ {};
+      // The ID of the software hardening approval template.
       shared_ptr<string> softwareHardeningSchemaId_ {};
     };
 
@@ -283,8 +286,11 @@ namespace Models
 
 
         protected:
+          // The name of the control in the external approval form. This parameter is used to locate the form control when the approval type is 1 (DingTalk approval).
           shared_ptr<string> displayField_ {};
+          // The type and identifier of the external approval form control, in the format of Type%%%ControlID. This parameter is used to locate the form control when the approval type is 2 (WeCom approval) or 3 (Lark approval).
           shared_ptr<string> displayFieldValue_ {};
+          // The system field identifier, such as processName.
           shared_ptr<string> systemField_ {};
         };
 
@@ -314,8 +320,11 @@ namespace Models
 
 
       protected:
+        // The ID of the external approval process. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter specifies the process code (processCode) of the external platform.
         shared_ptr<string> externalProcessId_ {};
+        // The mapping list between system fields and external approval form controls.
         shared_ptr<vector<SoftwareHardeningSchemaConfig::FieldMap>> fieldMap_ {};
+        // The ID of the approval template. The ID must be consistent with the template ID of the corresponding policy type in MatchSchemas. If this parameter is left empty, the approval template association is not saved for this policy type.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -389,8 +398,11 @@ namespace Models
 
 
         protected:
+          // The name of the control in the external approval form. This parameter is used to locate the form control when the approval type is 1 (DingTalk approval).
           shared_ptr<string> displayField_ {};
+          // The type and identifier of the external approval form control, in the format of Type%%%ControlID. This parameter is used to locate the form control when the approval type is 2 (WeCom approval) or 3 (Lark approval).
           shared_ptr<string> displayFieldValue_ {};
+          // The identifier of the system field, such as softwareName.
           shared_ptr<string> systemField_ {};
         };
 
@@ -420,8 +432,11 @@ namespace Models
 
 
       protected:
+        // The ID of the external approval process. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter specifies the process code (processCode) of the external platform.
         shared_ptr<string> externalProcessId_ {};
+        // The mapping list between system fields and external approval form controls.
         shared_ptr<vector<SoftwareBlockSchemaConfig::FieldMap>> fieldMap_ {};
+        // The ID of the approval template. The ID must be consistent with the template ID of the corresponding policy type in MatchSchemas. If this parameter is left empty, the approval template association is not saved for this policy type.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -495,8 +510,11 @@ namespace Models
 
 
         protected:
+          // The name of the control in the external approval form. This parameter is used to locate the form control when the approval type is 1 (DingTalk approval).
           shared_ptr<string> displayField_ {};
+          // The type and identifier of the external approval form control, in the format of Type%%%ControlID. This parameter is used to locate the form control when the approval type is 2 (WeCom approval) or 3 (Lark approval).
           shared_ptr<string> displayFieldValue_ {};
+          // The system field identifier, such as applicationId.
           shared_ptr<string> systemField_ {};
         };
 
@@ -526,8 +544,11 @@ namespace Models
 
 
       protected:
+        // The ID of the external approval process. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter specifies the process code (processCode) of the external platform.
         shared_ptr<string> externalProcessId_ {};
+        // The mapping list between system fields and external approval form controls.
         shared_ptr<vector<PrivateAccessBlockSchemaConfig::FieldMap>> fieldMap_ {};
+        // The ID of the approval template. The ID must be consistent with the template ID of the corresponding policy type in MatchSchemas. If this parameter is left empty, the approval template association is not saved for this policy type.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -601,8 +622,11 @@ namespace Models
 
 
         protected:
+          // The name of the control in the external approval form. This parameter is used to locate the form control when the approval type is 1 (DingTalk approval).
           shared_ptr<string> displayField_ {};
+          // The type and identifier of the external approval form control, in the format of Type%%%ControlID. This parameter is used to locate the form control when the approval type is 2 (WeCom approval) or 3 (Lark approval).
           shared_ptr<string> displayFieldValue_ {};
+          // The identifier of the system field, such as devType.
           shared_ptr<string> systemField_ {};
         };
 
@@ -632,8 +656,11 @@ namespace Models
 
 
       protected:
+        // The ID of the external approval process. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter specifies the process code (processCode) of the external platform.
         shared_ptr<string> externalProcessId_ {};
+        // The mapping list between system fields and external approval form controls.
         shared_ptr<vector<PeripheralBlockSchemaConfig::FieldMap>> fieldMap_ {};
+        // The ID of the approval template. The ID must be consistent with the template ID of the corresponding policy type in MatchSchemas. If this parameter is left empty, the approval template association is not saved for this policy type.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -707,8 +734,11 @@ namespace Models
 
 
         protected:
+          // The name of the control in the external approval form. This parameter is used to locate the form control when the approval type is 1 (DingTalk approval).
           shared_ptr<string> displayField_ {};
+          // The type and identifier of the external approval form control, in the format of Type%%%ControlID. This parameter is used to locate the form control when the approval type is 2 (WeCom approval) or 3 (Lark approval).
           shared_ptr<string> displayFieldValue_ {};
+          // The system field identifier, such as processName.
           shared_ptr<string> systemField_ {};
         };
 
@@ -738,8 +768,11 @@ namespace Models
 
 
       protected:
+        // The ID of the external approval process. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter specifies the process code (processCode) of the external platform.
         shared_ptr<string> externalProcessId_ {};
+        // The mapping list between system fields and external approval form controls.
         shared_ptr<vector<EndpointHardeningSchemaConfig::FieldMap>> fieldMap_ {};
+        // The ID of the approval template. The ID must be consistent with the template ID of the corresponding policy type in MatchSchemas. If this parameter is left empty, the approval template association is not saved for this policy type.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -813,8 +846,11 @@ namespace Models
 
 
         protected:
+          // The name of the control in the external approval form. This parameter is used to locate the form control when the approval type is 1 (DingTalk approval).
           shared_ptr<string> displayField_ {};
+          // The type and identifier of the external approval form control, in the format of Type%%%ControlID. This parameter is used to locate the form control when the approval type is 2 (WeCom approval) or 3 (Lark approval).
           shared_ptr<string> displayFieldValue_ {};
+          // The identifier of the system field, such as reportDomain.
           shared_ptr<string> systemField_ {};
         };
 
@@ -844,8 +880,11 @@ namespace Models
 
 
       protected:
+        // The ID of the external approval process. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter specifies the process code (processCode) of the external platform.
         shared_ptr<string> externalProcessId_ {};
+        // The mapping list between system fields and external approval form controls.
         shared_ptr<vector<DomainWhitelistSchemaConfig::FieldMap>> fieldMap_ {};
+        // The ID of the approval template. The ID must be consistent with the template ID of the corresponding policy type in MatchSchemas. If this parameter is left empty, the approval template association is not saved for this policy type.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -919,8 +958,11 @@ namespace Models
 
 
         protected:
+          // The name of the control in the external approval form. This parameter is used to locate the form control when the approval type is 1 (DingTalk approval).
           shared_ptr<string> displayField_ {};
+          // The type and identifier of the external approval form control, in the format of Type%%%ControlID. This parameter is used to locate the form control when the approval type is 2 (WeCom approval) or 3 (Lark approval).
           shared_ptr<string> displayFieldValue_ {};
+          // The identifier of the system field, such as reportDomain.
           shared_ptr<string> systemField_ {};
         };
 
@@ -950,8 +992,11 @@ namespace Models
 
 
       protected:
+        // The ID of the external approval process. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter specifies the process code (processCode) of the external platform.
         shared_ptr<string> externalProcessId_ {};
+        // The mapping list between system fields and external approval form controls.
         shared_ptr<vector<DomainBlacklistSchemaConfig::FieldMap>> fieldMap_ {};
+        // The ID of the approval template. The ID must be consistent with the template ID of the corresponding policy type in MatchSchemas. If this parameter is left empty, the approval template association is not saved for this policy type.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -1025,8 +1070,11 @@ namespace Models
 
 
         protected:
+          // The name of the control in the external approval form. This parameter is used to locate the form control when the approval type is 1 (DingTalk approval).
           shared_ptr<string> displayField_ {};
+          // The type and identifier of the external approval form control, in the format of Type%%%ControlID. This parameter is used to locate the form control when the approval type is 2 (WeCom approval) or 3 (Lark approval).
           shared_ptr<string> displayFieldValue_ {};
+          // The identifier of the system field, such as fileName.
           shared_ptr<string> systemField_ {};
         };
 
@@ -1056,8 +1104,11 @@ namespace Models
 
 
       protected:
+        // The ID of the external approval process. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter specifies the process code (processCode) of the external platform.
         shared_ptr<string> externalProcessId_ {};
+        // The mapping list between system fields and external approval form controls.
         shared_ptr<vector<DlpSendSchemaConfig::FieldMap>> fieldMap_ {};
+        // The ID of the approval template. The ID must be consistent with the template ID of the corresponding policy type in MatchSchemas. If this parameter is left empty, the approval template association is not saved for this policy type.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -1131,8 +1182,11 @@ namespace Models
 
 
         protected:
+          // The name of the control in the external approval form. This parameter is used to locate the form control when the approval type is 1 (DingTalk approval).
           shared_ptr<string> displayField_ {};
+          // The type and identifier of the external approval form control, in the format of Type%%%ControlID. This parameter is used to locate the form control when the approval type is 2 (WeCom approval) or 3 (Lark approval).
           shared_ptr<string> displayFieldValue_ {};
+          // The identifier of the system field, such as report_domain.
           shared_ptr<string> systemField_ {};
         };
 
@@ -1162,8 +1216,11 @@ namespace Models
 
 
       protected:
+        // The ID of the external approval process. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter specifies the process code (processCode) of the external platform.
         shared_ptr<string> externalProcessId_ {};
+        // The mapping list between system fields and external approval form controls.
         shared_ptr<vector<DeviceRegistrationSchemaConfig::FieldMap>> fieldMap_ {};
+        // The ID of the approval template. The ID must be consistent with the template ID of the corresponding policy type in MatchSchemas. If this parameter is left empty, the approval template association is not saved for this policy type.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -1237,8 +1294,11 @@ namespace Models
 
 
         protected:
+          // The name of the control in the external approval form. This parameter is used to locate the form control when the approval type is 1 (DingTalk approval).
           shared_ptr<string> displayField_ {};
+          // The type and identifier of the external approval form control, in the format of Type%%%ControlID. This parameter is used to locate the form control when the approval type is 2 (WeCom approval) or 3 (Lark approval).
           shared_ptr<string> displayFieldValue_ {};
+          // The identifier of the system field, such as approvalReason.
           shared_ptr<string> systemField_ {};
         };
 
@@ -1268,8 +1328,11 @@ namespace Models
 
 
       protected:
+        // The ID of the external approval process. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter specifies the process code (processCode) of the external platform.
         shared_ptr<string> externalProcessId_ {};
+        // The mapping list between system fields and external approval form controls.
         shared_ptr<vector<AppUninstallSchemaConfig::FieldMap>> fieldMap_ {};
+        // The ID of the approval template. The ID must be consistent with the template ID of the corresponding policy type in MatchSchemas. If this parameter is left empty, the approval template association is not saved for this policy type.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -1367,15 +1430,25 @@ namespace Models
 
 
     protected:
+      // The approval template configuration for the application uninstallation policy.
       shared_ptr<MatchSchemaConfigs::AppUninstallSchemaConfig> appUninstallSchemaConfig_ {};
+      // The approval template configuration for the device registration policy.
       shared_ptr<MatchSchemaConfigs::DeviceRegistrationSchemaConfig> deviceRegistrationSchemaConfig_ {};
+      // The approval template configuration for the file outbound sending policy.
       shared_ptr<MatchSchemaConfigs::DlpSendSchemaConfig> dlpSendSchemaConfig_ {};
+      // The approval template configuration for the domain name blacklist policy.
       shared_ptr<MatchSchemaConfigs::DomainBlacklistSchemaConfig> domainBlacklistSchemaConfig_ {};
+      // The approval template configuration for the domain name whitelist policy.
       shared_ptr<MatchSchemaConfigs::DomainWhitelistSchemaConfig> domainWhitelistSchemaConfig_ {};
+      // The approval template configuration for the endpoint hardening policy.
       shared_ptr<MatchSchemaConfigs::EndpointHardeningSchemaConfig> endpointHardeningSchemaConfig_ {};
+      // The approval template configuration for the peripheral control policy.
       shared_ptr<MatchSchemaConfigs::PeripheralBlockSchemaConfig> peripheralBlockSchemaConfig_ {};
+      // The approval template configuration for the internal network access control policy.
       shared_ptr<MatchSchemaConfigs::PrivateAccessBlockSchemaConfig> privateAccessBlockSchemaConfig_ {};
+      // The approval template configuration for the software blocking policy.
       shared_ptr<MatchSchemaConfigs::SoftwareBlockSchemaConfig> softwareBlockSchemaConfig_ {};
+      // The approval template configuration for the software hardening policy.
       shared_ptr<MatchSchemaConfigs::SoftwareHardeningSchemaConfig> softwareHardeningSchemaConfig_ {};
     };
 
@@ -1452,11 +1525,15 @@ namespace Models
 
 
   protected:
+    // The approval type. Valid values: 0 (built-in approval), 1 (DingTalk approval), 2 (WeCom approval), and 3 (Lark approval). Default value: 0.
     shared_ptr<int32_t> approvalType_ {};
-    // The description of the approval process. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
+    // The description of the approval process. The description must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
     shared_ptr<string> description_ {};
+    // The event callback identifier. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter is used to generate the event callback URL for the external platform. You can pass a complete callback URL, and the server retains only the part after the callback path prefix.
     shared_ptr<string> eventLabel_ {};
+    // The integration configuration for the external approval platform. This parameter is required when the approval type is 1 (DingTalk approval) or 3 (Lark approval). It includes integration parameters such as appKey and appSecret, and must be passed as a JSON string.
     shared_ptr<string> externalConfig_ {};
+    // The external approval template configurations. Configure the approval template ID, external approval process ID, and field mappings based on the policy type. This parameter is used only when ApprovalType is set to 1 (DingTalk approval), 2 (WeCom approval), or 3 (Lark approval). If this parameter is not passed, the existing template associations of the approval process are cleared. The approval templates associated with business policies cannot be cleared.
     shared_ptr<UpdateApprovalProcessRequest::MatchSchemaConfigs> matchSchemaConfigs_ {};
     // The matched approval templates.
     shared_ptr<UpdateApprovalProcessRequest::MatchSchemas> matchSchemas_ {};
@@ -1464,7 +1541,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> processId_ {};
-    // The name of the approval process. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+    // The name of the approval process. The name must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> processName_ {};
     // The list of approval nodes. You can define up to 5 approval nodes.
     shared_ptr<vector<vector<string>>> processNodes_ {};

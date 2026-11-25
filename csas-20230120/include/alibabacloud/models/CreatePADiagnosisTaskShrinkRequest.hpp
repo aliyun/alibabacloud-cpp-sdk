@@ -125,8 +125,8 @@ namespace Models
     shared_ptr<string> devTag_ {};
     // The diagnosis type. Valid values:
     // 
-    // - **FullLink**: full-link diagnosis.
-    // - **Application**: application diagnosis.
+    // - **FullLink**: End-to-end diagnosis.
+    // - **Application**: Application diagnosis.
     // 
     // This parameter is required.
     shared_ptr<string> diagnoseType_ {};
@@ -134,11 +134,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> host_ {};
-    // The POP point ID.
+    // The ID of the PoP.
     shared_ptr<string> popId_ {};
-    // The POP point selection mode. Valid values:
-    // - **AutoSelect**: automatic selection.
-    // - **ManualSelect**: manual selection.
+    // The PoP selection mode. Valid values:
+    // - **AutoSelect**: Automatic selection.
+    // - **ManualSelect**: Manual selection.
     // 
     // This parameter is required.
     shared_ptr<string> popMode_ {};
@@ -146,15 +146,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> port_ {};
-    // The protocol used by the internal network access application. Valid values:
+    // The application protocol for internal network access. Valid values:
     // - **TCP**
-    // - **UDP**.
+    // - **UDP**
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
-    // The extra configurations for UDP diagnosis. If this parameter is not specified, any response received is considered a success.
+    // The additional configurations for UDP diagnosis. If this parameter is not configured, receiving any response content is considered a success.
     shared_ptr<string> udpExtraConfigsShrink_ {};
-    // The user group ID.
+    // The ID of the user group.
     shared_ptr<string> userGroupId_ {};
     // The username.
     shared_ptr<string> username_ {};

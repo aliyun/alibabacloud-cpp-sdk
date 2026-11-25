@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The IDs of domain name list entries.
+    // The IDs of the domain name list entries.
     shared_ptr<vector<int64_t>> itemIds_ {};
-    // The list ID. This is the unique business identifier used for policy references and CRUD operations.
+    // The ID of the list, which is a unique business identifier used for policy references and add, delete, and modify operations.
     shared_ptr<string> listId_ {};
-    // The list type (Blacklist/Whitelist).
+    // The type of the list (Blacklist/Whitelist).
     shared_ptr<string> listType_ {};
   };
 

@@ -157,12 +157,15 @@ namespace Models
       shared_ptr<string> domainBlacklistSchemaId_ {};
       // The ID of the domain name whitelist approval template.
       shared_ptr<string> domainWhitelistSchemaId_ {};
+      // The ID of the endpoint hardening approval template.
       shared_ptr<string> endpointHardeningSchemaId_ {};
       // The ID of the peripheral control approval template.
       shared_ptr<string> peripheralBlockSchemaId_ {};
+      // The ID of the internal network access control approval template.
       shared_ptr<string> privateAccessBlockSchemaId_ {};
       // The ID of the software blocking approval template.
       shared_ptr<string> softwareBlockSchemaId_ {};
+      // The ID of the software hardening approval template.
       shared_ptr<string> softwareHardeningSchemaId_ {};
     };
 

@@ -53,9 +53,9 @@ namespace Models
 
 
   protected:
-    // The collection of user IDs.
+    // The IDs of the users.
     shared_ptr<vector<string>> saseUserIds_ {};
-    // The collection of user label IDs.
+    // The IDs of the user tags.
     shared_ptr<vector<string>> tagIds_ {};
   };
 

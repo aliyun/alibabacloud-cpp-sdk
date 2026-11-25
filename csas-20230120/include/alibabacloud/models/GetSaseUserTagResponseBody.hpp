@@ -89,11 +89,11 @@ namespace Models
     protected:
       // The Alibaba Cloud account ID.
       shared_ptr<string> aliuid_ {};
-      // The user tag description.
+      // The description of the user tag.
       shared_ptr<string> description_ {};
-      // The user tag name.
+      // The name of the user tag.
       shared_ptr<string> name_ {};
-      // The user tag ID.
+      // The ID of the user tag.
       shared_ptr<string> tagId_ {};
     };
 

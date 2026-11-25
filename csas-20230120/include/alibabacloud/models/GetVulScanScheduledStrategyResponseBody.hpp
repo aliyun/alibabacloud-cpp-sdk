@@ -102,7 +102,7 @@ namespace Models
     protected:
       // The collection of organizational structure nodes.
       shared_ptr<vector<string>> group_ {};
-      // The identity provider ID.
+      // The ID of the identity source.
       shared_ptr<string> idpId_ {};
     };
 
@@ -229,43 +229,43 @@ namespace Models
 
 
   protected:
-    // The time when the policy was created, in seconds-level UNIX timestamp.
+    // The time when the policy was created. The value is a UNIX timestamp accurate to seconds.
     shared_ptr<int64_t> createTime_ {};
-    // The effective scope specified by organizational structure. An empty list is returned if the scope is not configured by organizational structure.
+    // The effective scope specified by organizational structure. If no organizational structure is configured, an empty list is returned.
     shared_ptr<vector<GetVulScanScheduledStrategyResponseBody::CustomMatchGroup>> customMatchGroup_ {};
-    // The time when the policy last triggered a scan, in seconds-level UNIX timestamp. The value 0 is returned if the policy has never been triggered.
+    // The time when the policy last triggered a scan. The value is a UNIX timestamp accurate to seconds. If the policy has never been triggered, 0 is returned.
     shared_ptr<int64_t> lastTriggerTime_ {};
-    // The matching mode of the effective scope. Valid values:
-    // - **UserGroupAll**: The policy takes effect on all users under the current Alibaba Cloud account.
-    // - **UserGroupNormal**: The policy takes effect only on users in specified user groups.
+    // The matching mode for the effective scope. Valid values:
+    // - **UserGroupAll**: Applies to all users under the current Alibaba Cloud account.
+    // - **UserGroupNormal**: Applies only to users in the specified user groups.
     shared_ptr<string> matchMode_ {};
-    // The collection of user group IDs that the policy takes effect on. An empty list is returned when MatchMode is set to UserGroupAll.
+    // The collection of effective user group IDs. If MatchMode is set to UserGroupAll, an empty list is returned.
     shared_ptr<vector<string>> matchTargetIds_ {};
     // The policy priority. A smaller value indicates a higher priority. Valid values: 1 to 100.
     shared_ptr<int32_t> priority_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The start hour during which the scan can be triggered. The value is a whole hour number. Valid values: 0 to 23, inclusive. This field is not a timestamp.
+    // The start hour when a scan is allowed to be triggered. The value must be an integer on the hour. Valid values: 0 to 23. The specified hour is included. This field is not a timestamp.
     shared_ptr<int32_t> scanBeginTime_ {};
-    // The end hour during which the scan can be triggered. The value is a whole hour number. Valid values: 1 to 24, exclusive of the specified hour, and must be greater than ScanBeginTime. This field is not a timestamp.
+    // The end hour when a scan is allowed to be triggered. The value must be an integer on the hour. Valid values: 1 to 24. The specified hour is excluded and must be greater than the value of ScanBeginTime. This field is not a timestamp.
     shared_ptr<int32_t> scanEndTime_ {};
     // The unit of the trigger cycle. Valid values:
-    // - **day**: by day.
-    // - **week**: by week.
+    // - **day**: Day.
+    // - **week**: Week.
     shared_ptr<string> scanFrequency_ {};
-    // The interval number of the trigger cycle, which together with ScanFrequency determines the trigger cycle. Valid values: 1 to 30. For example, if ScanFrequency is set to week and ScanInterval is set to 1, the scan is triggered once a week.
+    // The interval of the trigger cycle. This parameter and ScanFrequency determine the trigger cycle. Valid values: 1 to 30. For example, if ScanFrequency is set to week and ScanInterval is set to 1, a scan is performed once a week.
     shared_ptr<int32_t> scanInterval_ {};
     // The enabling status. Valid values:
     // - **Enabled**: Enabled.
     // - **Disabled**: Disabled.
     shared_ptr<string> status_ {};
-    // The policy description.
+    // The description of the policy.
     shared_ptr<string> strategyDescription_ {};
-    // The vulnerability scheduled scan policy ID.
+    // The ID of the scheduled vulnerability scanning policy.
     shared_ptr<string> strategyId_ {};
     // The policy name.
     shared_ptr<string> strategyName_ {};
-    // The list of exempted users. Users in this list are excluded from the scan of this policy. An empty list is returned if no exemption is configured.
+    // The whitelist of users. Scans based on this policy are not performed on the users in the whitelist. If no whitelist is configured, an empty list is returned.
     shared_ptr<vector<string>> whitelist_ {};
   };
 

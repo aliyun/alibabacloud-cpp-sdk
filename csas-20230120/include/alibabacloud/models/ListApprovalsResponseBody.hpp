@@ -226,7 +226,7 @@ namespace Models
         // The list of operators for the approval progress node.
         shared_ptr<vector<ApprovalProgresses::Operators>> operators_ {};
         // The status of the approval progress node. Valid values:
-        // - **Pending**: Pending approval.
+        // - **Pending**: Pending.
         // - **Approved**: Approved.
         // - **Rejected**: Rejected.
         // - **Revoked**: Revoked.
@@ -392,15 +392,15 @@ namespace Models
     protected:
       // The details of the approval instance.
       shared_ptr<string> approvalDetail_ {};
-      // The ID of the approval instance.
+      // The approval instance ID.
       shared_ptr<string> approvalId_ {};
       // The list of progress nodes for the approval instance.
       shared_ptr<vector<Approvals::ApprovalProgresses>> approvalProgresses_ {};
       // The approval type. Valid values:
-      // - 0: Built-in approval.
-      // - 1: DingTalk approval.
-      // - 2: WeCom approval.
-      // - 3: Lark approval.
+      // * 0: Built-in approval.
+      // * 1: DingTalk approval.
+      // * 2: WeCom approval.
+      // * 3: Lark approval.
       shared_ptr<int32_t> approvalType_ {};
       // The time when the approval instance was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
@@ -412,15 +412,15 @@ namespace Models
       shared_ptr<string> creatorUserId_ {};
       // The username of the user who created the approval instance.
       shared_ptr<string> creatorUsername_ {};
-      // The effective status of the report. If the approval status is not Approved, an empty string is returned. Valid values:
-      // - Enabled: Valid.
-      // - Expired: Invalid or expired.
+      // The validity status of the report. If the approval status is not Approved, an empty string is returned. Valid values:
+      // * Enabled: Valid.
+      // * Expired: Invalid or expired.
       shared_ptr<string> effectStatus_ {};
       // The expiration time of the report. The value is a UNIX timestamp in seconds. If ValidityType is set to Permanent, 0 is returned.
       shared_ptr<int64_t> endTimestamp_ {};
       // The type of the policy associated with the approval instance. Valid values:
-      // - **DomainBlacklist**: Domain name blacklist.
-      // - **DomainWhitelist**: Domain name whitelist.
+      // - **DomainBlacklist**: Domain blacklist.
+      // - **DomainWhitelist**: Domain whitelist.
       // - **SoftwareBlock**: Software blocking.
       // - **DeviceRegistration**: Excess registration.
       // - **AppUninstall**: Endpoint uninstallation.
@@ -438,19 +438,19 @@ namespace Models
       // The reason for creating the approval instance.
       shared_ptr<string> reason_ {};
       // The report type. Valid values:
-      // - ApprovalReport: Approval report.
-      // - BackendReport: Backend report.
+      // * ApprovalReport: Approval report.
+      // * BackendReport: Backend report.
       shared_ptr<string> reportType_ {};
-      // The content of the template associated with the approval instance.
+      // The content of the schema associated with the approval instance.
       shared_ptr<string> schemaContent_ {};
-      // The ID of the template associated with the approval instance.
+      // The ID of the schema associated with the approval instance.
       shared_ptr<string> schemaId_ {};
-      // The name of the template associated with the approval instance.
+      // The name of the schema associated with the approval instance.
       shared_ptr<string> schemaName_ {};
-      // The status of the approval instance. Valid values:
-      // - **Pending**: Pending approval.
+      // The approval instance status. Valid values:
+      // - **Pending**: Pending.
       // - **Approved**: Approved.
-      // - **Rejected**: Denied.
+      // - **Rejected**: Deny.
       // - **Revoked**: Revoked.
       // - **Expired**: Expired.
       // - **Deleted**: Deleted.

@@ -60,6 +60,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DeviceVersion, deviceVersion_);
         DARABONBA_PTR_TO_JSON(Disk, disk_);
         DARABONBA_PTR_TO_JSON(DiskAvailable, diskAvailable_);
+        DARABONBA_PTR_TO_JSON(DiskEncryptStatus, diskEncryptStatus_);
+        DARABONBA_PTR_TO_JSON(DiskEncryptStatusReason, diskEncryptStatusReason_);
         DARABONBA_PTR_TO_JSON(DiskUsed, diskUsed_);
         DARABONBA_PTR_TO_JSON(DlpStatus, dlpStatus_);
         DARABONBA_PTR_TO_JSON(EdrStatus, edrStatus_);
@@ -117,6 +119,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DeviceVersion, deviceVersion_);
         DARABONBA_PTR_FROM_JSON(Disk, disk_);
         DARABONBA_PTR_FROM_JSON(DiskAvailable, diskAvailable_);
+        DARABONBA_PTR_FROM_JSON(DiskEncryptStatus, diskEncryptStatus_);
+        DARABONBA_PTR_FROM_JSON(DiskEncryptStatusReason, diskEncryptStatusReason_);
         DARABONBA_PTR_FROM_JSON(DiskUsed, diskUsed_);
         DARABONBA_PTR_FROM_JSON(DlpStatus, dlpStatus_);
         DARABONBA_PTR_FROM_JSON(EdrStatus, edrStatus_);
@@ -215,11 +219,11 @@ namespace Models
 
 
       protected:
-        // The CPU usage percentage of the process.
+        // The percentage of CPU usage by the process.
         shared_ptr<double> cpu_ {};
         // The description of the running process.
         shared_ptr<string> description_ {};
-        // The memory usage of the process, in MB.
+        // The memory usage of the process. Unit: MB.
         shared_ptr<int32_t> memory_ {};
         // The name of the process.
         shared_ptr<string> name_ {};
@@ -307,7 +311,7 @@ namespace Models
 
 
       protected:
-        // The ID of the user.
+        // The user ID.
         shared_ptr<string> saseUserId_ {};
         // The username.
         shared_ptr<string> username_ {};
@@ -318,13 +322,14 @@ namespace Models
         && this->city_ == nullptr && this->cityEn_ == nullptr && this->cityZh_ == nullptr && this->continent_ == nullptr && this->continentEn_ == nullptr
         && this->continentZh_ == nullptr && this->country_ == nullptr && this->countryEn_ == nullptr && this->countryZh_ == nullptr && this->createTime_ == nullptr
         && this->department_ == nullptr && this->deviceBelong_ == nullptr && this->deviceModel_ == nullptr && this->deviceStatus_ == nullptr && this->deviceTag_ == nullptr
-        && this->deviceType_ == nullptr && this->deviceVersion_ == nullptr && this->disk_ == nullptr && this->diskAvailable_ == nullptr && this->diskUsed_ == nullptr
-        && this->dlpStatus_ == nullptr && this->edrStatus_ == nullptr && this->historyUsers_ == nullptr && this->hostname_ == nullptr && this->iaStatus_ == nullptr
-        && this->innerIP_ == nullptr && this->joinAdDomain_ == nullptr && this->mac_ == nullptr && this->matchDeviceGroupIds_ == nullptr && this->memory_ == nullptr
-        && this->nacStatus_ == nullptr && this->netInterfaceInfo_ == nullptr && this->paStatus_ == nullptr && this->processes_ == nullptr && this->province_ == nullptr
-        && this->provinceEn_ == nullptr && this->provinceZh_ == nullptr && this->saseUserId_ == nullptr && this->sharingStatus_ == nullptr && this->snBaseBoard_ == nullptr
-        && this->snBios_ == nullptr && this->snDiskDrive_ == nullptr && this->snProcessor_ == nullptr && this->snSystem_ == nullptr && this->srcIP_ == nullptr
-        && this->terminalInfoCollectTime_ == nullptr && this->updateTime_ == nullptr && this->username_ == nullptr && this->workshop_ == nullptr; };
+        && this->deviceType_ == nullptr && this->deviceVersion_ == nullptr && this->disk_ == nullptr && this->diskAvailable_ == nullptr && this->diskEncryptStatus_ == nullptr
+        && this->diskEncryptStatusReason_ == nullptr && this->diskUsed_ == nullptr && this->dlpStatus_ == nullptr && this->edrStatus_ == nullptr && this->historyUsers_ == nullptr
+        && this->hostname_ == nullptr && this->iaStatus_ == nullptr && this->innerIP_ == nullptr && this->joinAdDomain_ == nullptr && this->mac_ == nullptr
+        && this->matchDeviceGroupIds_ == nullptr && this->memory_ == nullptr && this->nacStatus_ == nullptr && this->netInterfaceInfo_ == nullptr && this->paStatus_ == nullptr
+        && this->processes_ == nullptr && this->province_ == nullptr && this->provinceEn_ == nullptr && this->provinceZh_ == nullptr && this->saseUserId_ == nullptr
+        && this->sharingStatus_ == nullptr && this->snBaseBoard_ == nullptr && this->snBios_ == nullptr && this->snDiskDrive_ == nullptr && this->snProcessor_ == nullptr
+        && this->snSystem_ == nullptr && this->srcIP_ == nullptr && this->terminalInfoCollectTime_ == nullptr && this->updateTime_ == nullptr && this->username_ == nullptr
+        && this->workshop_ == nullptr; };
       // appStatus Field Functions 
       bool hasAppStatus() const { return this->appStatus_ != nullptr;};
       void deleteAppStatus() { this->appStatus_ = nullptr;};
@@ -498,6 +503,20 @@ namespace Models
       void deleteDiskAvailable() { this->diskAvailable_ = nullptr;};
       inline int32_t getDiskAvailable() const { DARABONBA_PTR_GET_DEFAULT(diskAvailable_, 0) };
       inline Device& setDiskAvailable(int32_t diskAvailable) { DARABONBA_PTR_SET_VALUE(diskAvailable_, diskAvailable) };
+
+
+      // diskEncryptStatus Field Functions 
+      bool hasDiskEncryptStatus() const { return this->diskEncryptStatus_ != nullptr;};
+      void deleteDiskEncryptStatus() { this->diskEncryptStatus_ = nullptr;};
+      inline string getDiskEncryptStatus() const { DARABONBA_PTR_GET_DEFAULT(diskEncryptStatus_, "") };
+      inline Device& setDiskEncryptStatus(string diskEncryptStatus) { DARABONBA_PTR_SET_VALUE(diskEncryptStatus_, diskEncryptStatus) };
+
+
+      // diskEncryptStatusReason Field Functions 
+      bool hasDiskEncryptStatusReason() const { return this->diskEncryptStatusReason_ != nullptr;};
+      void deleteDiskEncryptStatusReason() { this->diskEncryptStatusReason_ = nullptr;};
+      inline string getDiskEncryptStatusReason() const { DARABONBA_PTR_GET_DEFAULT(diskEncryptStatusReason_, "") };
+      inline Device& setDiskEncryptStatusReason(string diskEncryptStatusReason) { DARABONBA_PTR_SET_VALUE(diskEncryptStatusReason_, diskEncryptStatusReason) };
 
 
       // diskUsed Field Functions 
@@ -719,18 +738,18 @@ namespace Models
 
 
     protected:
-      // The status of the client. Valid values:
-      // - **Online**: Online.
-      // - **Offline**: Offline.
+      // The client status. Valid values:
+      // - **Online**: online
+      // - **Offline**: offline
       shared_ptr<string> appStatus_ {};
       // The client version.
       shared_ptr<string> appVersion_ {};
-      // The password-free logon status of the device. Valid values:
-      // - **Enabled**: Enabled.
-      // - **Disabled**: Disabled.
-      // - **Unprovisioned**: Unprovisioned.
+      // The passwordless login status of the device. Valid values:
+      // - **Enabled**: enabled
+      // - **Disabled**: disabled
+      // - **Unprovisioned**: unprovisioned
       shared_ptr<string> autoLoginStatus_ {};
-      // The battery health percentage.
+      // The battery health.
       shared_ptr<int32_t> batteryHealthPercentage_ {};
       // The remaining battery percentage.
       shared_ptr<int32_t> batteryRemainingPercentage_ {};
@@ -754,84 +773,88 @@ namespace Models
       shared_ptr<string> countryEn_ {};
       // The country in Chinese.
       shared_ptr<string> countryZh_ {};
-      // The registration time of the endpoint device. Format: YYYY-MM-DD HH:mm:ss.
+      // The registration time of the endpoint device. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
       // The department to which the user belongs.
       shared_ptr<string> department_ {};
       // The ownership of the endpoint device. Valid values:
-      // - **Personal**: Personal device.
-      // - **Company**: Company device.
+      // - **Personal**: personal device
+      // - **Company**: company device
       shared_ptr<string> deviceBelong_ {};
       // The model of the endpoint device.
       shared_ptr<string> deviceModel_ {};
       // The status of the endpoint device. Valid values:
-      // - **Online**: Online.
-      // - **Offline**: Offline.
-      // - **LongTermOffline**: Long-term offline.
-      // - **Locked**: Locked.
-      // - **Lost**: Reported as lost.
-      // - **Unbound**: Unbound.
+      // - **Online**: online
+      // - **Offline**: offline
+      // - **LongTermOffline**: long-term offline
+      // - **Locked**: locked
+      // - **Lost**: lost
+      // - **Unbound**: unbound
       shared_ptr<string> deviceStatus_ {};
       // The ID of the endpoint device.
       shared_ptr<string> deviceTag_ {};
       // The operating system type of the endpoint device. Valid values:
-      // - **Windows**: Windows.
-      // - **macOS**: macOS.
-      // - **Linux**: Linux.
-      // - **Android**: Android.
-      // - **iOS**: iOS.
-      // - **Windows_Wuying**: WUYING Workspace.
+      // - **Windows**: Windows
+      // - **macOS**: macOS
+      // - **Linux**: Linux
+      // - **Android**: Android
+      // - **iOS**: iOS
+      // - **Windows_Wuying**: WUYING Workspace
       shared_ptr<string> deviceType_ {};
       // The operating system version of the endpoint device.
       shared_ptr<string> deviceVersion_ {};
       // The disk model of the endpoint device.
       shared_ptr<string> disk_ {};
-      // The available disk space, in GB.
+      // The available disk space. Unit: GB.
       shared_ptr<int32_t> diskAvailable_ {};
-      // The used disk space, in GB.
+      // The disk encryption status of the user endpoint device. Valid values: Unsupported (encryption not supported), Unencrypted (not encrypted), Encrypting (encrypting), Encrypted (encrypted), and EncryptFailed (encryption failed). If the status is not reported, is null, or is unknown, Unencrypted is returned.
+      shared_ptr<string> diskEncryptStatus_ {};
+      // The reason why disk encryption failed or is not supported on the user endpoint device. This reason is returned only when DiskEncryptStatus is Unsupported or EncryptFailed. For other statuses, an empty string is returned. Maximum length: 512 characters.
+      shared_ptr<string> diskEncryptStatusReason_ {};
+      // The used disk space. Unit: GB.
       shared_ptr<int32_t> diskUsed_ {};
       // The office data protection status. Valid values:
-      // - **Enabled**: Enabled.
-      // - **Disabled**: Disabled.
-      // - **Unprovisioned**: Unprovisioned.
-      // - **Unauthorized**: Unauthorized.
+      // - **Enabled**: enabled
+      // - **Disabled**: disabled
+      // - **Unprovisioned**: unprovisioned
+      // - **Unauthorized**: unauthorized
       shared_ptr<string> dlpStatus_ {};
       // The anti-intrusion status. Valid values:
-      // - **Enabled**: Enabled.
-      // - **Disabled**: Disabled.
+      // - **Enabled**: enabled
+      // - **Disabled**: disabled
       shared_ptr<string> edrStatus_ {};
       // The collection of historical users of the endpoint device.
       shared_ptr<vector<Device::HistoryUsers>> historyUsers_ {};
       // The name of the endpoint device.
       shared_ptr<string> hostname_ {};
       // The Internet access status. Valid values:
-      // - **Enabled**: Enabled.
-      // - **Disabled**: Disabled.
-      // - **Unprovisioned**: Unprovisioned.
+      // - **Enabled**: enabled
+      // - **Disabled**: disabled
+      // - **Unprovisioned**: unprovisioned
       shared_ptr<string> iaStatus_ {};
       // The internal IP address of the endpoint device.
       shared_ptr<string> innerIP_ {};
-      // Indicates whether the terminal is joined to an Active Directory (AD) domain.
+      // Indicates whether the endpoint has joined an Active Directory (AD) domain.
       shared_ptr<bool> joinAdDomain_ {};
       // The MAC address of the endpoint device.
       shared_ptr<string> mac_ {};
       // The collection of matched device group IDs.
       shared_ptr<vector<string>> matchDeviceGroupIds_ {};
-      // The memory capacity of the endpoint device. Unit: GB.
+      // The memory capacity of the terminal device. Unit: GB.
       shared_ptr<string> memory_ {};
       // The network access control status. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       // - **Unprovisioned**: Unprovisioned.
       shared_ptr<string> nacStatus_ {};
-      // The list of network interface controllers (NICs) of the endpoint device.
+      // The list of network interface controllers (NICs) of the terminal device.
       shared_ptr<vector<Device::NetInterfaceInfo>> netInterfaceInfo_ {};
       // The internal network access status. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       // - **Unprovisioned**: Unprovisioned.
       shared_ptr<string> paStatus_ {};
-      // The list of running processes on the terminal.
+      // The list of running processes on the terminal device.
       shared_ptr<vector<Device::Processes>> processes_ {};
       // The province to which the public IP address belongs.
       shared_ptr<string> province_ {};
@@ -839,27 +862,27 @@ namespace Models
       shared_ptr<string> provinceEn_ {};
       // The province in Chinese.
       shared_ptr<string> provinceZh_ {};
-      // The ID of the user.
+      // The user ID.
       shared_ptr<string> saseUserId_ {};
-      // Specifies whether sharing is enabled for the device. Valid values:
-      // - **true**: Enabled.
-      // - **false**: Disabled.
+      // Indicates whether sharing is enabled for the device. Valid values:
+      // - **true**: Sharing is enabled.
+      // - **false**: Sharing is disabled.
       shared_ptr<bool> sharingStatus_ {};
-      // The motherboard serial number.
+      // The serial number of the baseboard.
       shared_ptr<string> snBaseBoard_ {};
       // The serial number of the BIOS.
       shared_ptr<string> snBios_ {};
-      // The hard disk serial number.
+      // The serial number of the disk drive.
       shared_ptr<string> snDiskDrive_ {};
       // The serial number of the processor.
       shared_ptr<string> snProcessor_ {};
-      // The system serial number.
+      // The serial number of the system.
       shared_ptr<string> snSystem_ {};
-      // The logon IP address of the endpoint device.
+      // The logon IP address of the terminal device.
       shared_ptr<string> srcIP_ {};
       // The timestamp when the terminal process information was collected.
       shared_ptr<int64_t> terminalInfoCollectTime_ {};
-      // The last online time of the endpoint device. Format: YYYY-MM-DD HH:mm:ss.
+      // The last online time of the terminal device. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> updateTime_ {};
       // The username.
       shared_ptr<string> username_ {};

@@ -122,11 +122,11 @@ namespace Models
 
 
     protected:
-      // The bandwidth value, in Mbps.
+      // The bandwidth value (Mbps).
       shared_ptr<int32_t> bandwidth_ {};
-      // The time when the instance was created.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the instance was last modified.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -186,7 +186,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalNum_ {};
   };
 

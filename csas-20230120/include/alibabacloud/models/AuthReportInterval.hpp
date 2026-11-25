@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The unit of the effective recovery duration. Valid values:
+    // - **Minute**: Minutes.
+    // - **Hour**: Hours.
+    // - **Day**: Days.
     shared_ptr<string> timeUnit_ {};
+    // The numeric value of the effective recovery duration. The unit is specified by TimeUnit. A non-zero value must be at least 1.
     shared_ptr<int64_t> value_ {};
   };
 

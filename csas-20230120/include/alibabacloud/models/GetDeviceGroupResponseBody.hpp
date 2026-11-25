@@ -130,25 +130,25 @@ namespace Models
 
 
     protected:
-      // The device label description.
+      // The description of the device group.
       shared_ptr<string> description_ {};
-      // The device label ID.
+      // The ID of the device group.
       shared_ptr<string> deviceGroupId_ {};
-      // The dynamic device group rule operator.
+      // The operator for the dynamic device group rule.
       shared_ptr<string> dynamicOperator_ {};
-      // The matching rule of the dynamic device label.
+      // The matching rule for the dynamic device group.
       shared_ptr<Rule> dynamicRule_ {};
-      // The device label type. Valid values:
-      // - **static**: Static device label. Members consist of manually added terminal devices.
-      // - **dynamic**: Dynamic device label.
+      // The type of the device group. Valid values:
+      // - **static**: A static device group. Members are terminal devices that are manually added.
+      // - **dynamic**: A dynamic device group.
       shared_ptr<string> groupType_ {};
-      // Indicates whether the device label is a system built-in device label. Valid values:
-      // - **true**: System built-in device label.
-      // - **false**: User-defined device label.
+      // Indicates whether the device group is a built-in system device group. Valid values:
+      // - **true**: The device group is a built-in system device group.
+      // - **false**: The device group is a custom device group.
       shared_ptr<string> isDefault_ {};
-      // The collection of terminal device IDs associated with the device label.
+      // The IDs of the devices associated with the device group.
       shared_ptr<vector<string>> matchDevTags_ {};
-      // The device label name.
+      // The name of the device group.
       shared_ptr<string> name_ {};
     };
 
@@ -171,7 +171,7 @@ namespace Models
 
 
   protected:
-    // The device label details.
+    // The device group details.
     shared_ptr<GetDeviceGroupResponseBody::DeviceGroup> deviceGroup_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

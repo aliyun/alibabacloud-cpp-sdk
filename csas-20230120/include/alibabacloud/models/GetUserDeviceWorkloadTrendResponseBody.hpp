@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The collection time of the data point. This value is a UNIX timestamp in seconds.
+      // The collection time of the data point, which is a UNIX timestamp in seconds.
       shared_ptr<int64_t> timestamp_ {};
-      // The workload usage percentage. Valid values: 0 to 100, with two decimal places.
+      // The workload usage percentage. Valid values: 0 to 100, rounded to two decimal places.
       shared_ptr<double> workload_ {};
     };
 
@@ -116,14 +116,14 @@ namespace Models
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The English name of the workload type. Valid values:
-    // - **CPU Usage**: returned when WorkloadType is set to cpu.
-    // - **Memory Usage**: returned when WorkloadType is set to mem.
+    // - **CPU Usage**: Returned when WorkloadType is set to cpu.
+    // - **Memory Usage**: Returned when WorkloadType is set to mem.
     shared_ptr<string> titleEn_ {};
     // The Chinese name of the workload type. Valid values:
-    // - **CPU使用率**: returned when WorkloadType is set to cpu.
-    // - **内存使用率**: returned when WorkloadType is set to mem.
+    // - **CPU使用率**: Returned when WorkloadType is set to cpu.
+    // - **内存使用率**: Returned when WorkloadType is set to mem.
     shared_ptr<string> titleZh_ {};
-    // The list of workload trend data points, sorted by time in ascending order.
+    // The list of workload trend data points, sorted in ascending order by time.
     shared_ptr<vector<GetUserDeviceWorkloadTrendResponseBody::WorkloadList>> workloadList_ {};
   };
 

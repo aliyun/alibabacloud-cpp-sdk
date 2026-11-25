@@ -123,7 +123,9 @@ namespace Models
 
 
       protected:
+        // The IDs of the software hardening policies.
         shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -167,7 +169,7 @@ namespace Models
 
 
       protected:
-        // The IDs of the software blocking policies.
+        // The IDs of the software block policies.
         shared_ptr<vector<string>> policyIds_ {};
         // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
@@ -213,7 +215,9 @@ namespace Models
 
 
       protected:
+        // The IDs of the internal network access control applications.
         shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -257,7 +261,7 @@ namespace Models
 
 
       protected:
-        // The IDs of the peripheral control policy.
+        // The IDs of the peripheral control policies.
         shared_ptr<vector<string>> policyIds_ {};
         // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
@@ -303,7 +307,9 @@ namespace Models
 
 
       protected:
+        // The IDs of the endpoint hardening policies.
         shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -676,33 +682,37 @@ namespace Models
 
 
     protected:
-      // The list of policies associated with endpoint uninstallation.
+      // The policies associated with endpoint uninstallation.
       shared_ptr<Processes::AppUninstallPolicies> appUninstallPolicies_ {};
+      // The type of the approval process. Valid values: 0 (built-in approval), 1 (DingTalk approval), 2 (WeCom approval), and 3 (Lark approval).
       shared_ptr<int32_t> approvalType_ {};
       // The time when the approval process was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The description of the approval process.
       shared_ptr<string> description_ {};
-      // The list of policies associated with device registration.
+      // The policies associated with device registration.
       shared_ptr<Processes::DeviceRegistrationPolicies> deviceRegistrationPolicies_ {};
-      // The list of policies associated with file sending.
+      // The policies associated with file sending.
       shared_ptr<Processes::DlpSendPolicies> dlpSendPolicies_ {};
-      // The list of policies associated with the domain name blacklist.
+      // The policies associated with the domain name blacklist.
       shared_ptr<Processes::DomainBlacklistPolicies> domainBlacklistPolicies_ {};
-      // The list of policies associated with the domain name whitelist.
+      // The policies associated with the domain name whitelist.
       shared_ptr<Processes::DomainWhitelistPolicies> domainWhitelistPolicies_ {};
+      // The policies associated with endpoint hardening. If the approval process is not configured with an approval template of this type, SchemaId and PolicyIds are empty.
       shared_ptr<Processes::EndpointHardeningPolicies> endpointHardeningPolicies_ {};
-      // The list of policies associated with peripheral control.
+      // The policies associated with peripheral control.
       shared_ptr<Processes::PeripheralBlockPolicies> peripheralBlockPolicies_ {};
+      // The policies associated with internal network access control. If the approval process is not configured with an approval template of this type, SchemaId and PolicyIds are empty.
       shared_ptr<Processes::PrivateAccessBlockPolicies> privateAccessBlockPolicies_ {};
       // The ID of the approval process.
       shared_ptr<string> processId_ {};
       // The name of the approval process.
       shared_ptr<string> processName_ {};
-      // The list of approval nodes.
+      // The approval nodes.
       shared_ptr<vector<vector<Processes::ProcessNodes>>> processNodes_ {};
-      // The list of policies associated with software blocking.
+      // The policies associated with the software block.
       shared_ptr<Processes::SoftwareBlockPolicies> softwareBlockPolicies_ {};
+      // The policies associated with software hardening. If the approval process is not configured with an approval template of this type, SchemaId and PolicyIds are empty.
       shared_ptr<Processes::SoftwareHardeningPolicies> softwareHardeningPolicies_ {};
     };
 
@@ -732,7 +742,7 @@ namespace Models
 
 
   protected:
-    // The list of approval processes.
+    // The approval processes.
     shared_ptr<vector<ListApprovalProcessesResponseBody::Processes>> processes_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

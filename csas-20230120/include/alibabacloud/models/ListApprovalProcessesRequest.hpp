@@ -106,32 +106,32 @@ namespace Models
 
 
   protected:
-    // The page number of the current page for paging in a paged query. Valid values: 1 to 10000.
+    // The page number of the current page in a paging query. Valid values: 1 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
-    // The Settings for the number of entries per page for paging in a paged query. Valid values: 1 to 500.
+    // The number of entries per page in a paging query. Valid values: 1 to 500.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the associated business policy.
+    // The ID of the associated business policy. If you use this parameter, you must also specify PolicyType.
     shared_ptr<string> policyId_ {};
-    // The type of the adapted policy. Valid values:
-    // - **DomainBlacklist**: domain name blacklist
-    // - **DomainWhitelist**: domain name whitelist
-    // - **SoftwareBlock**: software blocking
-    // - **AppUninstall**: endpoint uninstallation
-    // - **DlpSend**: file sending
-    // - **PeripheralBlock**: peripheral control
+    // The type of the business policy. Valid values:
+    // - **DomainBlacklist**: domain name blacklist.
+    // - **DomainWhitelist**: domain name whitelist.
+    // - **SoftwareBlock**: software block.
+    // - **AppUninstall**: endpoint uninstallation.
+    // - **DlpSend**: file sending.
+    // - **PeripheralBlock**: peripheral control.
     shared_ptr<string> policyType_ {};
-    // The IDs of the approval processes.
+    // The IDs of the approval processes. A maximum of 100 approval process IDs are supported.
     shared_ptr<vector<string>> processIds_ {};
-    // The name of the template. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
+    // The name of the approval process. The name must be 1 to 128 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-). Fuzzy match is supported.
     shared_ptr<string> processName_ {};
-    // The ID of the associated approver. You can call the following operation to obtain the value:
-    // - [ListUsers](~~ListUsers~~): List users.
+    // The ID of the approver, which starts with su_. Only approval processes that include this approver in the approval nodes are returned. Value source:
+    // - [ListUsers](~~ListUsers~~): Lists users.
     shared_ptr<string> saseUserId_ {};
-    // The username of the associated approver.
+    // The username of the approver. Fuzzy match is supported. Only approval processes that include this approver in the approval nodes are returned.
     shared_ptr<string> username_ {};
   };
 
