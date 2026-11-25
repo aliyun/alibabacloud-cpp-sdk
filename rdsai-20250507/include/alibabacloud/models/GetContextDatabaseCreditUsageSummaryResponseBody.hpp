@@ -128,17 +128,17 @@ namespace Models
 
 
     protected:
-      // The start time of the bucket, in ISO 8601 UTC time format ending with Z.
+      // The start time of the bucket, in ISO 8601 UTC time format ending with `Z`.
       shared_ptr<string> bucketStart_ {};
-      // The total credit consumption of priced records in the bucket. The value is returned as a decimal string with up to 6 decimal places. 1 credit = 1 CNY. If all records are unpriced, the string 0 is returned.
+      // The total credit consumption of priced records in the bucket. Returned as a decimal string with up to 6 decimal places, where 1 credit equals 1 CNY. Returns the string `0` when all records are unpriced.
       shared_ptr<string> credits_ {};
-      // The billing item corresponding to the bucket. Valid values: KnowledgeBaseRead (knowledge base read), MemoryRead (memory read), MemoryWrite (memory write), KnowledgeBaseWriteToken (knowledge base write token), and ContextGrowth (context evolution).
+      // The billing item corresponding to the bucket. Valid values: KnowledgeBaseRead (knowledge base read), MemoryRead (memory read), MemoryWrite (memory write), KnowledgeBaseWriteToken (knowledge base write token), and ContextGrowth (context growth).
       shared_ptr<string> item_ {};
       // The total usage of all records in the bucket, including unpriced records. The unit is specified by Unit.
       shared_ptr<int64_t> quantity_ {};
       // The number of metering records in the bucket, including unpriced records.
       shared_ptr<int64_t> recordCount_ {};
-      // The context evolution sub-item. Recognized values include KnowledgeOrganization (knowledge organization), MemoryPromotion (memory promotion), KnowledgeReview (knowledge review), KnowledgeEvolution (knowledge evolution), and MemoryEvolution (memory evolution). For other billing items, missing sub-items, or unrecognized sub-items, null is returned.
+      // The context evolution sub-item. Recognized values include KnowledgeOrganization (knowledge organization), MemoryPromotion (memory promotion), KnowledgeReview (knowledge review), KnowledgeEvolution (knowledge evolution), and MemoryEvolution (memory evolution). Returns null for other billing items, missing sub-items, or unrecognized sub-items.
       shared_ptr<string> subItem_ {};
       // The unit of measurement. Valid values: Count (number of times), Token (number of tokens), and MicroCredit (one millionth of a credit).
       shared_ptr<string> unit_ {};
@@ -206,19 +206,19 @@ namespace Models
 
 
   protected:
-    // The bucketing results, sorted by BucketStart, Item, and SubItem in sequence. Unpriced records are included in Quantity and RecordCount, but not in Credits.
+    // The bucketing results, sorted sequentially by BucketStart, Item, and SubItem. Unpriced records are included in Quantity and RecordCount, but not in Credits.
     shared_ptr<vector<GetContextDatabaseCreditUsageSummaryResponseBody::Buckets>> buckets_ {};
     // The query dimension. Valid values: Workspace (a single workspace) and Account (all workspaces under the caller account).
     shared_ptr<string> dimension_ {};
-    // The end time of the query range passed in the request, exclusive.
+    // The end time of the query interval passed in the request, exclusive.
     shared_ptr<string> endTime_ {};
-    // The actual bucketing granularity used. Valid values: Hour (hourly) and Day (daily). If the request parameter is omitted, the automatically selected granularity is returned.
+    // The actual bucketing granularity used. Valid values: Hour (hourly) and Day (daily). When the request parameter is omitted, the automatically selected granularity is returned.
     shared_ptr<string> interval_ {};
-    // The ID of the OpenAPI request, which is used to troubleshoot call issues.
+    // The ID of the API request, which is used to troubleshoot call issues.
     shared_ptr<string> requestId_ {};
-    // The start time of the query range passed in the request, inclusive.
+    // The start time of the query interval passed in the request, inclusive.
     shared_ptr<string> startTime_ {};
-    // The total credit consumption of priced records that meet the filter conditions within the query range. The value is returned as a decimal string with up to 6 decimal places. 1 credit = 1 CNY. If there are no priced records, the string 0 is returned. Unpriced records are not included in the total amount. Do not treat this value as the final bill amount.
+    // The total credit consumption of priced records that meet the filter conditions within the query interval. Returned as a decimal string with up to 6 decimal places, where 1 credit equals 1 CNY. Returns the string `0` when there are no priced records. Unpriced records are not included in the total. Do not treat this value as the final bill amount.
     shared_ptr<string> totalCredits_ {};
     // The ID of the queried workspace. This parameter has a value only when Dimension is Workspace. It is empty for the account dimension.
     shared_ptr<string> workspaceId_ {};

@@ -89,9 +89,13 @@ namespace Models
     protected:
       // The metering item.
       shared_ptr<string> item_ {};
-      // The usage of the item within the query range. The unit is specified by Unit. Invocations, tokens, and context evolution are accumulated over the range. Storage is calculated by averaging the usage snapshots of each workspace within the range and rounding to the nearest whole byte. For the account dimension, the average values of all workspaces are summed.
+      // The usage of the item within the query range. The unit is specified by `Unit`. The number of calls, tokens, and context evolutions are accumulated over the range. Storage is calculated by averaging the occupancy snapshots of each workspace within the range and rounding to the nearest integer byte. For the account dimension, the average values of all workspaces are summed.
       shared_ptr<int64_t> quantity_ {};
-      // The metering unit. A value of Count indicates the number of invocations. A value of Token indicates the number of tokens. A value of MicroCredit indicates one millionth of a credit. A value of Byte indicates bytes.
+      // The metering unit. Valid values:
+      // - `Count`: The number of calls.
+      // - `Token`: The number of tokens.
+      // - `MicroCredit`: One millionth of a credit.
+      // - `Byte`: Bytes.
       shared_ptr<string> unit_ {};
     };
 
@@ -142,17 +146,19 @@ namespace Models
 
 
   protected:
-    // The query dimension. A value of Workspace indicates a single workspace. A value of Account indicates all workspaces under the caller account.
+    // The query dimension. Valid values:
+    // - `Workspace`: A single workspace.
+    // - `Account`: All workspaces under the caller account.
     shared_ptr<string> dimension_ {};
     // The end time of the query range passed in the request, exclusive.
     shared_ptr<string> endTime_ {};
-    // The usage list. Returns all 7 metering items in a fixed order. If an item has no data within the query range, its usage is 0.
+    // The usage list. It returns all seven metering items in a fixed order. If an item has no data within the query range, its usage is 0.
     shared_ptr<vector<GetContextDatabaseUsageResponseBody::Items>> items_ {};
-    // The ID of the API request, which is used to troubleshoot invocation issues.
+    // The ID of the API request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The start time of the query range passed in the request, inclusive.
     shared_ptr<string> startTime_ {};
-    // The ID of the queried workspace. This parameter has a value only when Dimension is Workspace. It is empty for the account dimension.
+    // The ID of the queried workspace. This field has a value only when `Dimension` is set to `Workspace`. It is empty for the account dimension.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -276,6 +276,9 @@
 #include <alibabacloud/models/ListCustomAgentResponse.hpp>
 #include <alibabacloud/models/ListCustomAgentToolsResponseBody.hpp>
 #include <alibabacloud/models/ListCustomAgentToolsResponse.hpp>
+#include <alibabacloud/models/ListLLMGatewayMetricsRequest.hpp>
+#include <alibabacloud/models/ListLLMGatewayMetricsResponseBody.hpp>
+#include <alibabacloud/models/ListLLMGatewayMetricsResponse.hpp>
 #include <alibabacloud/models/ListLLMTokenUsageRequest.hpp>
 #include <alibabacloud/models/ListLLMTokenUsageResponseBody.hpp>
 #include <alibabacloud/models/ListLLMTokenUsageResponse.hpp>

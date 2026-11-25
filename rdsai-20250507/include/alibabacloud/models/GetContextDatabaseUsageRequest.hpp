@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The end time of the query range, exclusive. It must be later than StartTime. Use the ISO 8601 time format, such as 2026-08-01T00:00:00Z (UTC).
+    // The end time of the query range, exclusive. It must be later than `StartTime`. Use the ISO 8601 time format, such as `2026-08-01T00:00:00Z` (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The start time of the query range, inclusive. Use the ISO 8601 time format, such as 2026-07-01T00:00:00Z (UTC).
+    // The start time of the query range, inclusive. Use the ISO 8601 time format, such as `2026-07-01T00:00:00Z` (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

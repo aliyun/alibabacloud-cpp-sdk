@@ -100,13 +100,13 @@ namespace Models
 
 
     protected:
-      // The total credit consumption of priced records for the member. Returned as a decimal string with up to 6 decimal places. 1 credit equals 1 CNY. The value is null if there are no priced records.
+      // The total credit consumption of priced records for this member. Returned as a decimal string with up to 6 decimal places, where 1 credit = 1 CNY. The value is `null` if there are no priced records.
       shared_ptr<string> credits_ {};
       // The member ID. Historical or system records may not have a member ID.
       shared_ptr<string> memberId_ {};
-      // The total metered quantity of records that match the filter criteria for the member, including unpriced records. To view the usage of a specific billable item, specify Item in the request.
+      // The total metered quantity of records that match the filter criteria for this member, including unpriced records. To view the usage of a specific billing item, specify `Item` in the request.
       shared_ptr<int64_t> quantity_ {};
-      // The number of metering records that match the filter criteria for the member, including unpriced records.
+      // The number of metering records that match the filter criteria for this member, including unpriced records.
       shared_ptr<int64_t> recordCount_ {};
     };
 
@@ -172,21 +172,21 @@ namespace Models
 
 
   protected:
-    // The end time of the query range passed in the request, exclusive.
+    // The end time of the query interval passed in the request, exclusive.
     shared_ptr<string> endTime_ {};
-    // The member summaries on the current page, sorted in descending order of total credit consumption. Each record covers the entire query range.
+    // The member summaries on the current page, sorted by total credit consumption in descending order. Each record covers the entire query interval.
     shared_ptr<vector<GetContextDatabaseCreditUsageSummaryByMemberResponseBody::Items>> items_ {};
-    // The actual page number used for the query.
+    // The actual page number used in this query.
     shared_ptr<int32_t> page_ {};
-    // The actual number of items per page used for the query.
+    // The actual number of items per page used in this query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The ID of the OpenAPI request, used to troubleshoot call issues.
     shared_ptr<string> requestId_ {};
-    // The start time of the query range passed in the request, inclusive.
+    // The start time of the query interval passed in the request, inclusive.
     shared_ptr<string> startTime_ {};
     // The total number of members that match the filter criteria. This is not the number of metering records and is not affected by pagination.
     shared_ptr<int64_t> total_ {};
-    // The ID of the workspace queried.
+    // The ID of the workspace queried in this request.
     shared_ptr<string> workspaceId_ {};
   };
 
