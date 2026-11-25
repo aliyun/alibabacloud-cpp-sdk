@@ -2,12 +2,14 @@
 #include <alibabacloud/Aliding20230426.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/Convert.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -19,6 +21,9 @@ namespace Aliding20230426
 {
 
 AlibabaCloud::Aliding20230426::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "aliding";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "";
   checkConfig(config);
   this->_endpoint = getEndpoint("aliding", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -597,6 +602,70 @@ AddRecordPermissionResponse Client::addRecordPermission(const AddRecordPermissio
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   AddRecordPermissionHeaders headers = AddRecordPermissionHeaders();
   return addRecordPermissionWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 添加机器人到场景群
+ *
+ * @param request AddRobotToScenegroupRequest
+ * @param tmpHeader AddRobotToScenegroupHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddRobotToScenegroupResponse
+ */
+AddRobotToScenegroupResponse Client::addRobotToScenegroupWithOptions(const AddRobotToScenegroupRequest &request, const AddRobotToScenegroupHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  AddRobotToScenegroupShrinkHeaders headers = AddRobotToScenegroupShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasOpenConversationId()) {
+    body["OpenConversationId"] = request.getOpenConversationId();
+  }
+
+  if (!!request.hasRobotCode()) {
+    body["RobotCode"] = request.getRobotCode();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddRobotToScenegroup"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/im/addRobotToScenegroup")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddRobotToScenegroupResponse>();
+}
+
+/**
+ * @summary 添加机器人到场景群
+ *
+ * @param request AddRobotToScenegroupRequest
+ * @return AddRobotToScenegroupResponse
+ */
+AddRobotToScenegroupResponse Client::addRobotToScenegroup(const AddRobotToScenegroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  AddRobotToScenegroupHeaders headers = AddRobotToScenegroupHeaders();
+  return addRobotToScenegroupWithOptions(request, headers, runtime);
 }
 
 /**

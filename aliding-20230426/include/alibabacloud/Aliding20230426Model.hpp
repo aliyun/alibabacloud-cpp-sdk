@@ -46,6 +46,11 @@
 #include <alibabacloud/models/AddRecordPermissionShrinkRequest.hpp>
 #include <alibabacloud/models/AddRecordPermissionResponseBody.hpp>
 #include <alibabacloud/models/AddRecordPermissionResponse.hpp>
+#include <alibabacloud/models/AddRobotToScenegroupHeaders.hpp>
+#include <alibabacloud/models/AddRobotToScenegroupShrinkHeaders.hpp>
+#include <alibabacloud/models/AddRobotToScenegroupRequest.hpp>
+#include <alibabacloud/models/AddRobotToScenegroupResponseBody.hpp>
+#include <alibabacloud/models/AddRobotToScenegroupResponse.hpp>
 #include <alibabacloud/models/AddScenegroupMemberHeaders.hpp>
 #include <alibabacloud/models/AddScenegroupMemberShrinkHeaders.hpp>
 #include <alibabacloud/models/AddScenegroupMemberRequest.hpp>

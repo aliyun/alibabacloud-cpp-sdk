@@ -147,6 +147,24 @@ namespace Aliding20230426
       Models::AddRecordPermissionResponse addRecordPermission(const Models::AddRecordPermissionRequest &request);
 
       /**
+       * @summary 添加机器人到场景群
+       *
+       * @param request AddRobotToScenegroupRequest
+       * @param tmpHeader AddRobotToScenegroupHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddRobotToScenegroupResponse
+       */
+      Models::AddRobotToScenegroupResponse addRobotToScenegroupWithOptions(const Models::AddRobotToScenegroupRequest &request, const Models::AddRobotToScenegroupHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加机器人到场景群
+       *
+       * @param request AddRobotToScenegroupRequest
+       * @return AddRobotToScenegroupResponse
+       */
+      Models::AddRobotToScenegroupResponse addRobotToScenegroup(const Models::AddRobotToScenegroupRequest &request);
+
+      /**
        * @summary 新增群成员
        *
        * @param request AddScenegroupMemberRequest
