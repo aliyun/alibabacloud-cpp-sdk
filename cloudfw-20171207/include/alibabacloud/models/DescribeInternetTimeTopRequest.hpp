@@ -179,13 +179,13 @@ namespace Models
     shared_ptr<int64_t> interval_ {};
     // The language of the response message.
     shared_ptr<string> lang_ {};
-    // The maximum number of top entries to return. Default value: 50. Valid values: 1 to 50.
+    // The maximum number of top entries. Default value: 50. Valid values: 1 to 50.
     shared_ptr<string> limit_ {};
     // The public IP address of the NAT gateway. If you leave this parameter empty, all asset IP addresses are queried.
     shared_ptr<string> natIP_ {};
     // The sort order.
     shared_ptr<string> order_ {};
-    // The sorting method.
+    // The sort field.
     shared_ptr<string> sort_ {};
     // The tracing code.
     // 
@@ -197,7 +197,7 @@ namespace Models
     shared_ptr<string> srcIP_ {};
     // The start time of the query. The value is a UNIX timestamp in seconds.
     shared_ptr<string> startTime_ {};
-    // The traffic time to query. The value is a UNIX timestamp in seconds.
+    // The time of the traffic to query. The value is a UNIX timestamp in seconds.
     shared_ptr<string> trafficTime_ {};
     // The traffic type.
     shared_ptr<string> trafficType_ {};

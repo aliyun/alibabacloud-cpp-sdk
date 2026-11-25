@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEPOLICYADVANCEDCONFIGRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEPOLICYADVANCEDCONFIGRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,10 +14,12 @@ namespace Models
   class DescribePolicyAdvancedConfigResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribePolicyAdvancedConfigResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Eips, eips_);
       DARABONBA_PTR_TO_JSON(InternetSwitch, internetSwitch_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePolicyAdvancedConfigResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Eips, eips_);
       DARABONBA_PTR_FROM_JSON(InternetSwitch, internetSwitch_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
@@ -31,8 +34,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->internetSwitch_ == nullptr
-        && this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->eips_ == nullptr
+        && this->internetSwitch_ == nullptr && this->requestId_ == nullptr; };
+    // eips Field Functions 
+    bool hasEips() const { return this->eips_ != nullptr;};
+    void deleteEips() { this->eips_ = nullptr;};
+    inline const vector<string> & getEips() const { DARABONBA_PTR_GET_CONST(eips_, vector<string>) };
+    inline vector<string> getEips() { DARABONBA_PTR_GET(eips_, vector<string>) };
+    inline DescribePolicyAdvancedConfigResponseBody& setEips(const vector<string> & eips) { DARABONBA_PTR_SET_VALUE(eips_, eips) };
+    inline DescribePolicyAdvancedConfigResponseBody& setEips(vector<string> && eips) { DARABONBA_PTR_SET_RVALUE(eips_, eips) };
+
+
     // internetSwitch Field Functions 
     bool hasInternetSwitch() const { return this->internetSwitch_ != nullptr;};
     void deleteInternetSwitch() { this->internetSwitch_ = nullptr;};
@@ -48,11 +60,13 @@ namespace Models
 
 
   protected:
-    // The enabling status of strict mode for access control policies. Valid values:
-    // - **on**: Strict mode is enabled.
-    // - **off**: Strict mode is disabled.
+    // The list of elastic IP addresses (EIPs) that take effect when strict mode is enabled. A maximum of 100 IP addresses can be returned.
+    shared_ptr<vector<string>> eips_ {};
+    // The enabling status of the strict mode for access control policies. Valid values:
+    // - **on**: The strict mode is enabled.
+    // - **off**: The strict mode is disabled.
     shared_ptr<string> internetSwitch_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

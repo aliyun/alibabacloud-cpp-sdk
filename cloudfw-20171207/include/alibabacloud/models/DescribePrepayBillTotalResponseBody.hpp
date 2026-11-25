@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
         DARABONBA_PTR_TO_JSON(ExtensionBandwidth, extensionBandwidth_);
         DARABONBA_PTR_TO_JSON(InternetTrafficBandwidth, internetTrafficBandwidth_);
+        DARABONBA_PTR_TO_JSON(IsAgenticBilling, isAgenticBilling_);
         DARABONBA_PTR_TO_JSON(MonthlyRemainingFreeTraffic, monthlyRemainingFreeTraffic_);
         DARABONBA_PTR_TO_JSON(NatTrafficBandwidth, natTrafficBandwidth_);
         DARABONBA_PTR_TO_JSON(OverflowTime, overflowTime_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
         DARABONBA_PTR_FROM_JSON(ExtensionBandwidth, extensionBandwidth_);
         DARABONBA_PTR_FROM_JSON(InternetTrafficBandwidth, internetTrafficBandwidth_);
+        DARABONBA_PTR_FROM_JSON(IsAgenticBilling, isAgenticBilling_);
         DARABONBA_PTR_FROM_JSON(MonthlyRemainingFreeTraffic, monthlyRemainingFreeTraffic_);
         DARABONBA_PTR_FROM_JSON(NatTrafficBandwidth, natTrafficBandwidth_);
         DARABONBA_PTR_FROM_JSON(OverflowTime, overflowTime_);
@@ -81,8 +83,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->billedDetectionTraffic_ == nullptr
         && this->dailyDetectionTraffic_ == nullptr && this->dailyOverflowTraffic_ == nullptr && this->defaultBandwidth_ == nullptr && this->elasticBandwidth_ == nullptr && this->endTime_ == nullptr
-        && this->extensionBandwidth_ == nullptr && this->internetTrafficBandwidth_ == nullptr && this->monthlyRemainingFreeTraffic_ == nullptr && this->natTrafficBandwidth_ == nullptr && this->overflowTime_ == nullptr
-        && this->startTime_ == nullptr && this->temporaryBandwidth_ == nullptr && this->vpcTrafficBandwidth_ == nullptr; };
+        && this->extensionBandwidth_ == nullptr && this->internetTrafficBandwidth_ == nullptr && this->isAgenticBilling_ == nullptr && this->monthlyRemainingFreeTraffic_ == nullptr && this->natTrafficBandwidth_ == nullptr
+        && this->overflowTime_ == nullptr && this->startTime_ == nullptr && this->temporaryBandwidth_ == nullptr && this->vpcTrafficBandwidth_ == nullptr; };
       // billedDetectionTraffic Field Functions 
       bool hasBilledDetectionTraffic() const { return this->billedDetectionTraffic_ != nullptr;};
       void deleteBilledDetectionTraffic() { this->billedDetectionTraffic_ = nullptr;};
@@ -137,6 +139,13 @@ namespace Models
       void deleteInternetTrafficBandwidth() { this->internetTrafficBandwidth_ = nullptr;};
       inline float getInternetTrafficBandwidth() const { DARABONBA_PTR_GET_DEFAULT(internetTrafficBandwidth_, 0.0) };
       inline BillList& setInternetTrafficBandwidth(float internetTrafficBandwidth) { DARABONBA_PTR_SET_VALUE(internetTrafficBandwidth_, internetTrafficBandwidth) };
+
+
+      // isAgenticBilling Field Functions 
+      bool hasIsAgenticBilling() const { return this->isAgenticBilling_ != nullptr;};
+      void deleteIsAgenticBilling() { this->isAgenticBilling_ = nullptr;};
+      inline bool getIsAgenticBilling() const { DARABONBA_PTR_GET_DEFAULT(isAgenticBilling_, false) };
+      inline BillList& setIsAgenticBilling(bool isAgenticBilling) { DARABONBA_PTR_SET_VALUE(isAgenticBilling_, isAgenticBilling) };
 
 
       // monthlyRemainingFreeTraffic Field Functions 
@@ -198,11 +207,13 @@ namespace Models
       shared_ptr<int64_t> extensionBandwidth_ {};
       // The Internet traffic bandwidth. Unit: Gbit/s.
       shared_ptr<float> internetTrafficBandwidth_ {};
-      // The monthly free quota for sensitive data detection. Unit: GB.
+      // Specifies whether Agentic billing is used on the date to which the bill belongs. A value of true indicates that Agentic billing is used. A value of false indicates that standard billing is used.
+      shared_ptr<bool> isAgenticBilling_ {};
+      // The monthly free quota for sensitive data detection traffic. Unit: GB.
       shared_ptr<float> monthlyRemainingFreeTraffic_ {};
       // The NAT traffic bandwidth. Unit: Gbit/s.
       shared_ptr<float> natTrafficBandwidth_ {};
-      // The timestamp when the total bandwidth (Internet, VPC, and NAT) reaches the maximum value on the day.
+      // The timestamp when the total bandwidth (Internet + VPC + NAT) reaches the maximum value on the day.
       shared_ptr<int64_t> overflowTime_ {};
       // The start time of the day. The value is a UNIX timestamp accurate to seconds.
       shared_ptr<int64_t> startTime_ {};

@@ -150,11 +150,11 @@ namespace Models
       // 
       // - If the virtual private cloud (VPC) firewalls at the border protect a Cloud Enterprise Network (CEN) instance, the policy group ID is the instance ID of the CEN instance.
       // 
-      //   Example: cen-ervw0g12b5jbw*\\*\\*\\*
+      //   Example: cen-ervw0g12b5jbw*\*\*\*
       // 
       // - If the virtual private cloud (VPC) firewalls at the border protect an Express Connect circuit, the policy group ID is the instance ID of the virtual private cloud (VPC) firewalls at the border.
       // 
-      //   Example: vfw-a42bbb7b887148c9*\\*\\*\\*
+      //   Example: vfw-a42bbb7b887148c9*\*\*\*
       shared_ptr<string> aclGroupId_ {};
       // The access control policy group name of the virtual private cloud (VPC) firewalls at the border.
       // 

@@ -118,7 +118,7 @@ namespace Models
       shared_ptr<string> dataValue_ {};
       // Indicates whether the item is subscribed.
       shared_ptr<bool> isSubscribed_ {};
-      // The list of labels.
+      // The label list.
       shared_ptr<vector<string>> labelList_ {};
       // The number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
@@ -161,11 +161,11 @@ namespace Models
   protected:
     // The number of traffic data records.
     shared_ptr<int32_t> dataCount_ {};
-    // The list of traffic data.
+    // The traffic data list.
     shared_ptr<vector<DescribeInternetTrafficTopResponseBody::DataList>> dataList_ {};
     // The traffic data type.
     shared_ptr<string> dataType_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

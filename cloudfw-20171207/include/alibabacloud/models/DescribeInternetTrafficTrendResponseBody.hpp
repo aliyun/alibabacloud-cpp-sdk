@@ -173,27 +173,27 @@ namespace Models
 
 
     protected:
-      // The inbound network throughput. Unit: bps.
+      // The network throughput in the inbound direction. Unit: bps.
       shared_ptr<int64_t> inBps_ {};
-      // The inbound traffic. Unit: bytes.
+      // The total network traffic in the inbound direction. Unit: bytes.
       shared_ptr<int64_t> inBytes_ {};
-      // The inbound packet rate. Unit: pps.
+      // The packet rate in the inbound direction. Unit: pps.
       shared_ptr<int64_t> inPps_ {};
       // The number of new connections.
       shared_ptr<int64_t> newConn_ {};
-      // The outbound network throughput. Unit: bps.
+      // The network throughput in the outbound direction. Unit: bps.
       shared_ptr<int64_t> outBps_ {};
-      // The outbound traffic. Unit: bytes.
+      // The total network traffic in the outbound direction. Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};
-      // The outbound packet rate. Unit: pps.
+      // The packet rate in the outbound direction. Unit: pps.
       shared_ptr<int64_t> outPps_ {};
       // The number of requests.
       shared_ptr<int64_t> sessionCount_ {};
-      // The time when the traffic was recorded. This value is a UNIX timestamp in seconds.
+      // The time when the traffic occurred. The value is a UNIX timestamp in seconds.
       // 
-      // If data for this time point has not been processed, the values of other fields are -1.
+      // If the data for this time point is not fully processed, the values of other fields are -1.
       shared_ptr<int32_t> time_ {};
-      // The total inbound and outbound network throughput. Unit: bps.
+      // The total network throughput in both outbound and inbound directions. Unit: bps.
       shared_ptr<int64_t> totalBps_ {};
     };
 
@@ -324,37 +324,37 @@ namespace Models
 
 
   protected:
-    // The average inbound network throughput. Unit: bps.
+    // The average network throughput in the inbound direction. Unit: bps.
     shared_ptr<int64_t> avgInBps_ {};
-    // The average outbound network throughput. Unit: bps.
+    // The average network throughput in the outbound direction. Unit: bps.
     shared_ptr<int64_t> avgOutBps_ {};
     // The average number of requests.
     shared_ptr<int64_t> avgSession_ {};
-    // The average total network throughput for inbound and outbound traffic. Unit: bps.
+    // The average network throughput in both outbound and inbound directions. Unit: bps.
     shared_ptr<int64_t> avgTotalBps_ {};
-    // A list of traffic statistics.
+    // The list of traffic statistics information.
     shared_ptr<vector<DescribeInternetTrafficTrendResponseBody::DataList>> dataList_ {};
-    // The UNIX timestamp when the peak bandwidth was reached. Unit: seconds.
+    // The timestamp when the peak bandwidth occurred. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> maxBandwidthTime_ {};
-    // The peak daily excess traffic.
+    // The maximum daily excess traffic.
     shared_ptr<int64_t> maxDayExceedBytes_ {};
-    // The peak inbound network throughput. Unit: bps.
+    // The peak network throughput in the inbound direction. Unit: bps.
     shared_ptr<int64_t> maxInBps_ {};
-    // The peak outbound network throughput. Unit: bps.
+    // The peak network throughput in the outbound direction. Unit: bps.
     shared_ptr<int64_t> maxOutBps_ {};
     // The peak number of requests.
     shared_ptr<int64_t> maxSession_ {};
-    // The peak total network throughput for inbound and outbound traffic. Unit: bps.
+    // The peak network throughput in both outbound and inbound directions. Unit: bps.
     shared_ptr<int64_t> maxTotalBps_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total inbound and outbound traffic. Unit: bytes.
+    // The total network traffic in both outbound and inbound directions. Unit: bytes.
     shared_ptr<int64_t> totalBytes_ {};
     // The total excess traffic.
     shared_ptr<int64_t> totalExceedBytes_ {};
-    // The total inbound traffic. Unit: bytes.
+    // The total network traffic in the inbound direction. Unit: bytes.
     shared_ptr<int64_t> totalInBytes_ {};
-    // The total outbound traffic. Unit: bytes.
+    // The total network traffic in the outbound direction. Unit: bytes.
     shared_ptr<int64_t> totalOutBytes_ {};
     // The total number of requests.
     shared_ptr<int64_t> totalSession_ {};

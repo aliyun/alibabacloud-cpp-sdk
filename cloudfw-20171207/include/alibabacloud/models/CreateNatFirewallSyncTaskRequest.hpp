@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The language of the response message.
+    // The language in which messages are received.
     shared_ptr<string> lang_ {};
   };
 

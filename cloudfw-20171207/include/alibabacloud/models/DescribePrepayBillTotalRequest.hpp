@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The bill type. This parameter is required. If it is not specified, an error is returned. Valid values:
+    // The bill type. This parameter is required. If you do not specify this parameter, an error is returned. Valid values:
     // - elastic_traffic: elastic traffic.
     // - sdl: sensitive data leak detection traffic.
     shared_ptr<string> billType_ {};
@@ -96,8 +96,8 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     // The language. Valid values:
-    // - zh
-    // - en
+    // - zh: Chinese.
+    // - en: English.
     // Default value: zh.
     shared_ptr<string> lang_ {};
     // The number of entries to return on each page. Default value: 10.

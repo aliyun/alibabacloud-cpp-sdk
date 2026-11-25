@@ -83,7 +83,7 @@ namespace Models
       shared_ptr<string> localName_ {};
       // The ID of the zone.
       shared_ptr<string> zoneId_ {};
-      // The type of the zone. The default value is \\`AvailabilityZone\\`, which indicates a standard cloud zone.
+      // The type of the zone. The default value is \`AvailabilityZone\`, which indicates a standard cloud zone.
       shared_ptr<string> zoneType_ {};
     };
 

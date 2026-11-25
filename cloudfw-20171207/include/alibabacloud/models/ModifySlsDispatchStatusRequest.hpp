@@ -87,7 +87,7 @@ namespace Models
     // 
     // **dns_firewall_log**.
     shared_ptr<string> dispatchValue_ {};
-    // Specifies whether to deliver logs. A value of \\`true\\` enables delivery, and \\`false\\` disables it.
+    // Specifies whether to deliver logs. A value of \`true\` enables delivery, and \`false\` disables it.
     shared_ptr<bool> enableStatus_ {};
     // The supported filter conditions. Valid values:
     // 
@@ -99,7 +99,7 @@ namespace Models
     shared_ptr<string> filterKeys_ {};
     // The region.
     shared_ptr<string> newRegionId_ {};
-    // The site to modify. If the log version is 1, leave this parameter empty or set it to \\`global\\`. If the log version is 2, set this parameter to \\`cn\\` or \\`intl\\`.
+    // The site to modify. If the log version is 1, leave this parameter empty or set it to \`global\`. If the log version is 2, set this parameter to \`cn\` or \`intl\`.
     shared_ptr<string> site_ {};
   };
 

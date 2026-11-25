@@ -22,7 +22,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(Release, release_);
       DARABONBA_PTR_TO_JSON(Source, source_);
-      DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDnsFirewallPolicyRequest& obj) { 
@@ -35,7 +34,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(Release, release_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
-      DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
     };
     ModifyDnsFirewallPolicyRequest() = default ;
@@ -51,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclAction_ == nullptr
         && this->aclUuid_ == nullptr && this->description_ == nullptr && this->destination_ == nullptr && this->destinationType_ == nullptr && this->lang_ == nullptr
-        && this->priority_ == nullptr && this->release_ == nullptr && this->source_ == nullptr && this->sourceIp_ == nullptr && this->sourceType_ == nullptr; };
+        && this->priority_ == nullptr && this->release_ == nullptr && this->source_ == nullptr && this->sourceType_ == nullptr; };
     // aclAction Field Functions 
     bool hasAclAction() const { return this->aclAction_ != nullptr;};
     void deleteAclAction() { this->aclAction_ = nullptr;};
@@ -115,13 +113,6 @@ namespace Models
     inline ModifyDnsFirewallPolicyRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
-    // sourceIp Field Functions 
-    bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
-    void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
-    inline ModifyDnsFirewallPolicyRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
-
-
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
@@ -142,32 +133,35 @@ namespace Models
     // The description of the access control policy.
     shared_ptr<string> description_ {};
     // The destination address in the access control policy.
+    // 
     // - If **DestinationType** is set to net, **Destination** specifies the destination CIDR block. Example: 1.2.3.4/24.
     // - If **DestinationType** is set to group, **Destination** specifies the name of the destination address book. Example: db_group.
     // - If **DestinationType** is set to domain, **Destination** specifies the destination domain name. Example: *.aliyuncs.com.
-    // - If **DestinationType** is set to location, **Destination** specifies the destination area. For the positional encoding of specific areas, see the following section. Example: ["BJ11", "ZB"\\].
+    // - If **DestinationType** is set to location, **Destination** specifies the destination area (for specific area positional encoding, see below). Example: ["BJ11", "ZB"\].
     shared_ptr<string> destination_ {};
     // The type of the destination address in the access control policy. Valid values:
-    // - **net**: Destination CIDR block.
-    // - **group**: Destination address book.
-    // - **domain**: Destination domain name.
+    // 
+    // - **net**: a destination CIDR block.
+    // - **group**: a destination address book.
+    // - **domain**: a destination domain name.
     shared_ptr<string> destinationType_ {};
     // The language of the request and response. Valid values:
-    // - **zh**: Chinese.
-    // - **en**: English.
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // Policy priority of the access control policy before policy priority is modified.
     shared_ptr<string> priority_ {};
-    // The status of the access control policy. By default, the policy is enabled after it is created. Valid values:
-    // - **true**: Enables the access control policy.
-    // - **false**: Disables the access control policy.
+    // Specifies whether the access control policy is enabled. By default, the policy is enabled after it is created. Valid values:
+    // 
+    // - **true**: enables the access control policy.
+    // - **false**: disables the access control policy.
     shared_ptr<string> release_ {};
     shared_ptr<string> source_ {};
-    // The source IP address of the requester.
-    shared_ptr<string> sourceIp_ {};
     // The type of the source address in the access control policy. Valid values:
-    // - **net**: Source CIDR block.
-    // - **group**: Source address book.
+    // 
+    // - **net**: a source CIDR block.
+    // 
+    // - **group**: a source address book.
     shared_ptr<string> sourceType_ {};
   };
 

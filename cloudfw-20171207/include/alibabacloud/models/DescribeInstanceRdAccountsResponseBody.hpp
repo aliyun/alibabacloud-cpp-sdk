@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The ID of the member accounts.
+      // The ID of member accounts.
       shared_ptr<string> accountId_ {};
-      // The name of the member.
+      // The display name of the member.
       shared_ptr<string> displayName_ {};
     };
 

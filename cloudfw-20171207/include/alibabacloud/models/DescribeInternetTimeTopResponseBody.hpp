@@ -223,7 +223,7 @@ namespace Models
     protected:
       // The IP address.
       shared_ptr<string> IP_ {};
-      // The inbound bandwidth. Unit: bit/s.
+      // The inbound traffic bandwidth rate. Unit: bps.
       shared_ptr<int64_t> inBps_ {};
       // The inbound packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> inPps_ {};
@@ -235,7 +235,7 @@ namespace Models
       shared_ptr<string> natIP_ {};
       // The number of new connections.
       shared_ptr<int64_t> newConn_ {};
-      // The outbound bandwidth. Unit: bit/s.
+      // The outbound traffic. Unit: bps.
       shared_ptr<int64_t> outBps_ {};
       // The outbound packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> outPps_ {};
@@ -251,7 +251,7 @@ namespace Models
       shared_ptr<string> resourceType_ {};
       // The number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
-      // The total bandwidth. Unit: bit/s.
+      // The total bandwidth. Unit: bps.
       shared_ptr<int64_t> totalBps_ {};
       // The total number of packets.
       shared_ptr<int64_t> totalPps_ {};
@@ -292,13 +292,13 @@ namespace Models
 
 
   protected:
-    // The number of returned entries.
+    // The number of results.
     shared_ptr<int32_t> dataCount_ {};
-    // The list of returned data.
+    // The returned data list.
     shared_ptr<vector<DescribeInternetTimeTopResponseBody::DataList>> dataList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The traffic time. The value is a UNIX timestamp in seconds.
+    // The time of the traffic. The value is a UNIX timestamp in seconds.
     shared_ptr<int32_t> trafficTime_ {};
   };
 

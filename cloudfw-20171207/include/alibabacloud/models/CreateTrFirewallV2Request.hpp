@@ -209,9 +209,9 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance. Create a CEN instance in the CEN console first and make sure that an Enterprise Edition transit router is created.
+    // The ID of the CEN instance. You must first create a CEN instance in the CEN console and ensure that an Enterprise Edition transit router is created.
     // 
-    // > Note: Although the required field in the schema is set to false, this parameter is actually required. If this parameter is not specified, the API returns ErrorParameters(400).
+    // > Note: Although the required field in the schema is set to false, this parameter is actually required. If this parameter is not specified, the API returns ErrorParameters (400).
     shared_ptr<string> cenId_ {};
     // The zone ID used for the firewall connection.
     shared_ptr<string> firewallAttachmentZone_ {};
@@ -221,14 +221,14 @@ namespace Models
     shared_ptr<string> firewallName_ {};
     // The deployment mode of the firewall service. Valid values:
     // 
-    // - **PrimaryStandby**: primary/secondary mode
-    // - **MultiPrimary**: active-active mode
+    // - **PrimaryStandby**: active/standby mode.
+    // - **MultiPrimary**: active-active mode.
     // 
-    // > If this parameter is not specified, the system automatically selects a deployment mode based on the capabilities of the transit router. If the value is invalid, ErrorFwServiceMode (-360437) is returned. The MultiPrimary mode does not support specifying zones.
+    // > Note: If this parameter is not specified, the system automatically selects a deployment mode based on the capabilities of the transit router. If the value is invalid, the API returns ErrorFwServiceMode (-360437). The MultiPrimary mode does not support specifying zones.
     shared_ptr<string> firewallServiceMode_ {};
     // The list of zone IDs used by the firewall service.
     shared_ptr<vector<string>> firewallServiceZones_ {};
-    // The CIDR block of the subnet that stores the firewall elastic network interface (ENI) in the firewall VPC in automatic mode.
+    // The CIDR block of the subnet for the firewall elastic network interface (ENI) in the firewall VPC in automatic mode.
     shared_ptr<string> firewallSubnetCidr_ {};
     // The CIDR block of the firewall VPC in automatic mode.
     shared_ptr<string> firewallVpcCidr_ {};
@@ -236,38 +236,41 @@ namespace Models
     shared_ptr<string> firewallVpcId_ {};
     // The ID of the vSwitch where the firewall ENI is created in manual mode.
     shared_ptr<string> firewallVswitchId_ {};
-    // The language of the response message. Valid values:
+    // The language of the message. Valid values:
     // 
-    // - **zh** (default): Chinese
-    // - **en**: English
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The region ID of the Enterprise Edition transit router.
     // 
-    // > Note: Although the required field in the schema is set to false, this parameter is actually required. If this parameter is not specified, the API returns ErrorParameters(400).
+    // > Note: Although the required field in the schema is set to false, this parameter is actually required. If this parameter is not specified, the API returns ErrorParameters (400).
     shared_ptr<string> regionNo_ {};
-    // The routing mode. Valid values: managed (automatic mode), manual (manual mode for custom VPCs), and semi-managed (manual mode for managed VPCs).
+    // The routing mode. Valid values:
+    // - managed: automatic mode.
+    // - manual: manual mode for custom VPCs.
+    // - semi-managed: manual mode for managed VPCs.
     // 
-    // - In managed mode, you only need to specify FirewallVpcCidr. The FirewallSubnetCidr, TrAttachmentSlaveCidr, and TrAttachmentMasterCidr parameters are deprecated (deprecated:true) and do not need to be specified.
+    // - In managed mode, you only need to specify FirewallVpcCidr. The FirewallSubnetCidr, TrAttachmentSlaveCidr, and TrAttachmentMasterCidr parameters are deprecated and do not need to be specified.
     // 
     // - In manual mode, you must specify FirewallVpcId, FirewallVswitchId, TrAttachmentSlaveZone, and TrAttachmentMasterZone.
     // 
     // - In semi-managed mode, you only need to specify FirewallVpcCidr.
     // 
-    // > Note: Although the required field in the schema is set to false, this parameter is actually required. If this parameter is not specified, the API returns ErrorParameters(400).
+    // > Note: Although the required field in the schema is set to false, this parameter is actually required. If this parameter is not specified, the API returns ErrorParameters (400).
     shared_ptr<string> routeMode_ {};
-    // The primary CIDR block of the subnet used to connect to the TR in the firewall VPC in automatic mode.
+    // The primary CIDR block of the subnet used to connect to the transit router in the firewall VPC in automatic mode.
     shared_ptr<string> trAttachmentMasterCidr_ {};
     // The primary zone of the vSwitch.
     shared_ptr<string> trAttachmentMasterZone_ {};
-    // The secondary CIDR block of the subnet used to connect to the TR in the firewall VPC in automatic mode.
+    // The secondary CIDR block of the subnet used to connect to the transit router in the firewall VPC in automatic mode.
     shared_ptr<string> trAttachmentSlaveCidr_ {};
     // The secondary zone of the vSwitch.
     shared_ptr<string> trAttachmentSlaveZone_ {};
-    // The list of zone IDs used for the TR connection.
+    // The list of zone IDs used for the transit router connection.
     shared_ptr<vector<string>> trAttachmentZones_ {};
     // The ID of the Enterprise Edition transit router instance. The transit router must belong to the CEN instance specified by CenId.
     // 
-    // > Note: Although the required field in the schema is set to false, this parameter is actually required. If this parameter is not specified, the API returns ErrorParameters(400).
+    // > Note: Although the required field in the schema is set to false, this parameter is actually required. If this parameter is not specified, the API returns ErrorParameters (400).
     shared_ptr<string> transitRouterId_ {};
   };
 

@@ -15,12 +15,10 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SetAutoProtectNewAssetsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AutoProtect, autoProtect_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
-      DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
     };
     friend void from_json(const Darabonba::Json& j, SetAutoProtectNewAssetsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoProtect, autoProtect_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
-      DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
     };
     SetAutoProtectNewAssetsRequest() = default ;
     SetAutoProtectNewAssetsRequest(const SetAutoProtectNewAssetsRequest &) = default ;
@@ -34,7 +32,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoProtect_ == nullptr
-        && this->lang_ == nullptr && this->sourceIp_ == nullptr; };
+        && this->lang_ == nullptr; };
     // autoProtect Field Functions 
     bool hasAutoProtect() const { return this->autoProtect_ != nullptr;};
     void deleteAutoProtect() { this->autoProtect_ = nullptr;};
@@ -49,24 +47,17 @@ namespace Models
     inline SetAutoProtectNewAssetsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
-    // sourceIp Field Functions 
-    bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
-    void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
-    inline SetAutoProtectNewAssetsRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
-
-
   protected:
     // Specifies whether to enable automatic traffic redirection. Valid values:
-    // 
-    // **true****false**
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     // 
     // This parameter is required.
     shared_ptr<bool> autoProtect_ {};
-    // The language. Valid values are zh (Chinese) and **en** (English). The default value is **zh**.
+    // The language type. Valid values:
+    // - **zh**: Chinese. Default value.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The source IP address of the visitor.
-    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

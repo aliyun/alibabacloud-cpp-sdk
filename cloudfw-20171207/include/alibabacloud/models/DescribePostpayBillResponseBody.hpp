@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
         DARABONBA_PTR_TO_JSON(InternetInstanceCnt, internetInstanceCnt_);
         DARABONBA_PTR_TO_JSON(InternetTraffic, internetTraffic_);
+        DARABONBA_PTR_TO_JSON(IsAgenticBilling, isAgenticBilling_);
         DARABONBA_PTR_TO_JSON(IsDerated, isDerated_);
         DARABONBA_PTR_TO_JSON(LogStorage, logStorage_);
         DARABONBA_PTR_TO_JSON(NatInstanceCnt, natInstanceCnt_);
@@ -65,6 +66,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
         DARABONBA_PTR_FROM_JSON(InternetInstanceCnt, internetInstanceCnt_);
         DARABONBA_PTR_FROM_JSON(InternetTraffic, internetTraffic_);
+        DARABONBA_PTR_FROM_JSON(IsAgenticBilling, isAgenticBilling_);
         DARABONBA_PTR_FROM_JSON(IsDerated, isDerated_);
         DARABONBA_PTR_FROM_JSON(LogStorage, logStorage_);
         DARABONBA_PTR_FROM_JSON(NatInstanceCnt, natInstanceCnt_);
@@ -88,9 +90,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->endTime_ == nullptr
-        && this->internetInstanceCnt_ == nullptr && this->internetTraffic_ == nullptr && this->isDerated_ == nullptr && this->logStorage_ == nullptr && this->natInstanceCnt_ == nullptr
-        && this->natTraffic_ == nullptr && this->sdl_ == nullptr && this->sdlTraffic_ == nullptr && this->startTime_ == nullptr && this->threatIntelligence_ == nullptr
-        && this->vpcInstanceCnt_ == nullptr && this->vpcTraffic_ == nullptr; };
+        && this->internetInstanceCnt_ == nullptr && this->internetTraffic_ == nullptr && this->isAgenticBilling_ == nullptr && this->isDerated_ == nullptr && this->logStorage_ == nullptr
+        && this->natInstanceCnt_ == nullptr && this->natTraffic_ == nullptr && this->sdl_ == nullptr && this->sdlTraffic_ == nullptr && this->startTime_ == nullptr
+        && this->threatIntelligence_ == nullptr && this->vpcInstanceCnt_ == nullptr && this->vpcTraffic_ == nullptr; };
       // endTime Field Functions 
       bool hasEndTime() const { return this->endTime_ != nullptr;};
       void deleteEndTime() { this->endTime_ = nullptr;};
@@ -110,6 +112,13 @@ namespace Models
       void deleteInternetTraffic() { this->internetTraffic_ = nullptr;};
       inline float getInternetTraffic() const { DARABONBA_PTR_GET_DEFAULT(internetTraffic_, 0.0) };
       inline BillList& setInternetTraffic(float internetTraffic) { DARABONBA_PTR_SET_VALUE(internetTraffic_, internetTraffic) };
+
+
+      // isAgenticBilling Field Functions 
+      bool hasIsAgenticBilling() const { return this->isAgenticBilling_ != nullptr;};
+      void deleteIsAgenticBilling() { this->isAgenticBilling_ = nullptr;};
+      inline bool getIsAgenticBilling() const { DARABONBA_PTR_GET_DEFAULT(isAgenticBilling_, false) };
+      inline BillList& setIsAgenticBilling(bool isAgenticBilling) { DARABONBA_PTR_SET_VALUE(isAgenticBilling_, isAgenticBilling) };
 
 
       // isDerated Field Functions 
@@ -183,16 +192,18 @@ namespace Models
 
 
     protected:
-      // The end time. The time is a UNIX timestamp accurate to seconds, which represents an exact hour or day.
+      // The end time. The time is a UNIX timestamp in seconds and represents an exact hour or day.
       shared_ptr<int64_t> endTime_ {};
       // The number of Internet instances.
       shared_ptr<int64_t> internetInstanceCnt_ {};
       // The Internet traffic. Unit: GB.
       shared_ptr<float> internetTraffic_ {};
-      // Indicates whether the fee is reduced. A value of 0 indicates that the fee is not reduced. A value greater than 0 indicates that the fee is reduced. If the fee is reduced, no bill is generated.
+      // Specifies whether the bill for the specified date is calculated based on the Agentic billing method. A value of true indicates the Agentic billing method. A value of false indicates the standard billing method.
+      shared_ptr<bool> isAgenticBilling_ {};
+      // Specifies whether the fee is reduced or waived. A value of 0 indicates that the fee is not reduced or waived. A value greater than 0 indicates that the fee is reduced or waived, and no bill is generated.
       // > This parameter is valid only when you query hourly data.
       shared_ptr<int32_t> isDerated_ {};
-      // The usage duration of Simple Log Service. Unit: TB×h.
+      // The usage duration of Simple Log Service. Unit: TB × hours.
       shared_ptr<int64_t> logStorage_ {};
       // The number of NAT instances.
       shared_ptr<int64_t> natInstanceCnt_ {};
@@ -200,9 +211,9 @@ namespace Models
       shared_ptr<float> natTraffic_ {};
       // The usage duration of sensitive data leak detection. Unit: hours.
       shared_ptr<int64_t> sdl_ {};
-      // The sensitive data detection traffic. Unit: GB.
+      // The sensitive data leak detection traffic. Unit: GB.
       shared_ptr<float> sdlTraffic_ {};
-      // The start time. The time is a UNIX timestamp accurate to seconds, which represents an exact hour or day.
+      // The start time. The time is a UNIX timestamp in seconds and represents an exact hour or day.
       shared_ptr<int64_t> startTime_ {};
       // The usage duration of threat intelligence. Unit: hours.
       shared_ptr<int64_t> threatIntelligence_ {};
@@ -278,13 +289,13 @@ namespace Models
     shared_ptr<float> aggregateInternetTraffic_ {};
     // The aggregated NAT traffic. Unit: GB.
     shared_ptr<float> aggregateNatTraffic_ {};
-    // The aggregated sensitive data detection traffic. Unit: GB.
+    // The aggregated sensitive data leak detection traffic. Unit: GB.
     shared_ptr<float> aggregateSdlTraffic_ {};
     // The aggregated total traffic. Unit: GB.
     shared_ptr<float> aggregateTotalTraffic_ {};
     // The aggregated VPC traffic. Unit: GB.
     shared_ptr<float> aggregateVpcTraffic_ {};
-    // The list of bills.
+    // The bill list.
     shared_ptr<vector<DescribePostpayBillResponseBody::BillList>> billList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

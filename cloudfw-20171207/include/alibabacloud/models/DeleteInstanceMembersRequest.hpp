@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The UIDs of the member accounts.
+    // The list of UIDs of the Cloud Firewall member accounts.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> memberUids_ {};

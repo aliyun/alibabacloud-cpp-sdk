@@ -66,9 +66,9 @@ namespace Models
     shared_ptr<string> aclType_ {};
     // The list of ACL check names.
     // 
-    // **Note**: This parameter is required in actual calls. Provide at least one check name. If no check name is provided, the API returns ErrorParameters (-200103).
+    // **Note**: This parameter is required in actual calls. Provide at least one check name. If this parameter is not provided, the API returns ErrorParameters (-200103).
     shared_ptr<vector<string>> checkNames_ {};
-    // The language type of the request and response messages.
+    // The language of the request and response messages.
     shared_ptr<string> lang_ {};
   };
 

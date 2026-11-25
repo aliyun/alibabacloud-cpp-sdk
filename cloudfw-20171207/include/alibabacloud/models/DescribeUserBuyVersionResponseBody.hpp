@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeUserBuyVersionResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AckClusterConnectorQuota, ackClusterConnectorQuota_);
+      DARABONBA_PTR_TO_JSON(Agentic, agentic_);
       DARABONBA_PTR_TO_JSON(AliUid, aliUid_);
       DARABONBA_PTR_TO_JSON(DefaultBandwidth, defaultBandwidth_);
       DARABONBA_PTR_TO_JSON(Expire, expire_);
@@ -41,6 +42,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeUserBuyVersionResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AckClusterConnectorQuota, ackClusterConnectorQuota_);
+      DARABONBA_PTR_FROM_JSON(Agentic, agentic_);
       DARABONBA_PTR_FROM_JSON(AliUid, aliUid_);
       DARABONBA_PTR_FROM_JSON(DefaultBandwidth, defaultBandwidth_);
       DARABONBA_PTR_FROM_JSON(Expire, expire_);
@@ -78,16 +80,23 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ackClusterConnectorQuota_ == nullptr
-        && this->aliUid_ == nullptr && this->defaultBandwidth_ == nullptr && this->expire_ == nullptr && this->extensionBandwidth_ == nullptr && this->generalInstance_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceStatus_ == nullptr && this->internetBandwidth_ == nullptr && this->ipNumber_ == nullptr && this->logStatus_ == nullptr
-        && this->logStorage_ == nullptr && this->majorVersion_ == nullptr && this->maxOverflow_ == nullptr && this->natBandwidth_ == nullptr && this->privateDnsConnectorQuota_ == nullptr
-        && this->requestId_ == nullptr && this->sdl_ == nullptr && this->startTime_ == nullptr && this->temporaryBandwidth_ == nullptr && this->threatIntelligence_ == nullptr
-        && this->userStatus_ == nullptr && this->version_ == nullptr && this->vpcBandwidth_ == nullptr && this->vpcNumber_ == nullptr; };
+        && this->agentic_ == nullptr && this->aliUid_ == nullptr && this->defaultBandwidth_ == nullptr && this->expire_ == nullptr && this->extensionBandwidth_ == nullptr
+        && this->generalInstance_ == nullptr && this->instanceId_ == nullptr && this->instanceStatus_ == nullptr && this->internetBandwidth_ == nullptr && this->ipNumber_ == nullptr
+        && this->logStatus_ == nullptr && this->logStorage_ == nullptr && this->majorVersion_ == nullptr && this->maxOverflow_ == nullptr && this->natBandwidth_ == nullptr
+        && this->privateDnsConnectorQuota_ == nullptr && this->requestId_ == nullptr && this->sdl_ == nullptr && this->startTime_ == nullptr && this->temporaryBandwidth_ == nullptr
+        && this->threatIntelligence_ == nullptr && this->userStatus_ == nullptr && this->version_ == nullptr && this->vpcBandwidth_ == nullptr && this->vpcNumber_ == nullptr; };
     // ackClusterConnectorQuota Field Functions 
     bool hasAckClusterConnectorQuota() const { return this->ackClusterConnectorQuota_ != nullptr;};
     void deleteAckClusterConnectorQuota() { this->ackClusterConnectorQuota_ = nullptr;};
     inline int64_t getAckClusterConnectorQuota() const { DARABONBA_PTR_GET_DEFAULT(ackClusterConnectorQuota_, 0L) };
     inline DescribeUserBuyVersionResponseBody& setAckClusterConnectorQuota(int64_t ackClusterConnectorQuota) { DARABONBA_PTR_SET_VALUE(ackClusterConnectorQuota_, ackClusterConnectorQuota) };
+
+
+    // agentic Field Functions 
+    bool hasAgentic() const { return this->agentic_ != nullptr;};
+    void deleteAgentic() { this->agentic_ = nullptr;};
+    inline int32_t getAgentic() const { DARABONBA_PTR_GET_DEFAULT(agentic_, 0) };
+    inline DescribeUserBuyVersionResponseBody& setAgentic(int32_t agentic) { DARABONBA_PTR_SET_VALUE(agentic_, agentic) };
 
 
     // aliUid Field Functions 
@@ -259,26 +268,28 @@ namespace Models
 
 
   protected:
-    // The ACK cluster connector quota.
+    // The quota for ACK cluster connectors.
     shared_ptr<int64_t> ackClusterConnectorQuota_ {};
+    // Specifies whether Agentic 2.0 is enabled.
+    shared_ptr<int32_t> agentic_ {};
     // The AliUid of the Cloud Firewall account.
     shared_ptr<int64_t> aliUid_ {};
-    // The default bandwidth of the edition.
+    // The default bandwidth for the edition.
     shared_ptr<int64_t> defaultBandwidth_ {};
     // The expiration time of the Cloud Firewall instance.
-    // > The value is a millisecond-level UNIX timestamp.
+    // > The value is a UNIX timestamp in milliseconds.
     // 
-    // > This field is meaningless when you use the pay-as-you-go edition.
+    // > This field is not applicable to the pay-as-you-go edition.
     shared_ptr<int64_t> expire_ {};
     // The extended bandwidth.
     shared_ptr<int64_t> extensionBandwidth_ {};
-    // The general-purpose instance quota.
+    // The quota for general-purpose instances.
     shared_ptr<int64_t> generalInstance_ {};
     // The ID of the purchased Cloud Firewall instance.
     // 
-    // > This field is meaningless when you use the trial version.
+    // > This field is not applicable to the trial edition.
     shared_ptr<string> instanceId_ {};
-    // The provisioning status of the Cloud Firewall instance. Valid values:
+    // The production status of the Cloud Firewall instance. Valid values:
     // 
     // - **normal**: The instance is running normally.
     // 
@@ -292,37 +303,37 @@ namespace Models
     shared_ptr<string> instanceStatus_ {};
     // The purchased traffic processing capacity of the Internet firewall.
     shared_ptr<int64_t> internetBandwidth_ {};
-    // The purchased quota for the Internet border protection.
+    // The purchased quota for the Internet Border protection.
     // 
-    // > This field takes effect only for subscription users.
+    // > This field is applicable only to subscription users.
     shared_ptr<int64_t> ipNumber_ {};
     // The enabling status of log delivery. Valid values:
     // - **true**: Enabled.
     // - **false**: Disabled.
     shared_ptr<bool> logStatus_ {};
     // The purchased log storage capacity.
-    // > This field takes effect only for subscription users.
+    // > This field is applicable only to subscription users.
     shared_ptr<int64_t> logStorage_ {};
     // The major version.
     shared_ptr<int64_t> majorVersion_ {};
-    // Indicates whether burstable elastic billing is enabled. Valid values:
+    // Specifies whether burstable elastic billing is enabled. Valid values:
     // - **1000000**: Enabled.
     // - **0**: Disabled.
     // 
-    // > This field takes effect only for subscription users.
+    // > This field is applicable only to subscription users.
     shared_ptr<int64_t> maxOverflow_ {};
-    // The purchased traffic processing capacity of NAT firewalls.
+    // The purchased traffic processing capacity of the NAT firewall.
     shared_ptr<int64_t> natBandwidth_ {};
-    // The private DNS connector quota.
+    // The quota for private DNS connectors.
     shared_ptr<int64_t> privateDnsConnectorQuota_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The enabling status of sensitive data leak detection. In the Resource field, true indicates enabled and false indicates disabled. In the API response, 1 indicates enabled and 0 indicates disabled.
+    // The enabling status of sensitive data leak detection. In the Resource parameter, true indicates enabled and false indicates disabled. In the API response, 1 indicates enabled and 0 indicates disabled.
     shared_ptr<int64_t> sdl_ {};
     // The activation time of the Cloud Firewall instance.
-    // > The value is a millisecond-level UNIX timestamp.
+    // > The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The temporary upgrade bandwidth.
+    // The temporary bandwidth upgrade.
     shared_ptr<int64_t> temporaryBandwidth_ {};
     // The enabling status of threat intelligence.
     shared_ptr<int64_t> threatIntelligence_ {};
@@ -330,17 +341,17 @@ namespace Models
     // - **true**: Valid.
     // - **false**: Invalid.
     shared_ptr<bool> userStatus_ {};
-    // The version of the Cloud Firewall instance. Valid values:
+    // The edition of the Cloud Firewall instance. Valid values:
     // - **2**: Premium Edition
     // - **3**: Enterprise Edition
     // - **4**: Ultimate Edition
-    // - **10**: Pay-as-you-go Edition
+    // - **10**: Pay-as-you-go edition
     shared_ptr<int32_t> version_ {};
-    // The purchased traffic processing capacity of VPC firewalls.
+    // The purchased traffic processing capacity of the VPC firewall.
     shared_ptr<int64_t> vpcBandwidth_ {};
     // The purchased quota for VPC firewalls.
     // 
-    // > This field takes effect only for subscription users.
+    // > This field is applicable only to subscription users.
     shared_ptr<int64_t> vpcNumber_ {};
   };
 

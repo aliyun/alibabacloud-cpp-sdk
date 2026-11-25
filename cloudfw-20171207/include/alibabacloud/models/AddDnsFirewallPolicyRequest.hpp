@@ -23,7 +23,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(Release, release_);
       DARABONBA_PTR_TO_JSON(Source, source_);
-      DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
     };
     friend void from_json(const Darabonba::Json& j, AddDnsFirewallPolicyRequest& obj) { 
@@ -37,7 +36,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(Release, release_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
-      DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
     };
     AddDnsFirewallPolicyRequest() = default ;
@@ -53,8 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclAction_ == nullptr
         && this->description_ == nullptr && this->destination_ == nullptr && this->destinationType_ == nullptr && this->direction_ == nullptr && this->ipVersion_ == nullptr
-        && this->lang_ == nullptr && this->priority_ == nullptr && this->release_ == nullptr && this->source_ == nullptr && this->sourceIp_ == nullptr
-        && this->sourceType_ == nullptr; };
+        && this->lang_ == nullptr && this->priority_ == nullptr && this->release_ == nullptr && this->source_ == nullptr && this->sourceType_ == nullptr; };
     // aclAction Field Functions 
     bool hasAclAction() const { return this->aclAction_ != nullptr;};
     void deleteAclAction() { this->aclAction_ = nullptr;};
@@ -125,13 +122,6 @@ namespace Models
     inline AddDnsFirewallPolicyRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
-    // sourceIp Field Functions 
-    bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
-    void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
-    inline AddDnsFirewallPolicyRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
-
-
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
@@ -156,7 +146,7 @@ namespace Models
     // - If **DestinationType** is set to net, **Destination** is the destination CIDR block. Example: 1.2.3.4/24.
     // - If **DestinationType** is set to group, **Destination** is the name of the destination address book. Example: db_group.
     // - If **DestinationType** is set to domain, **Destination** is the destination domain name. Example: *.aliyuncs.com.
-    // - If **DestinationType** is set to location, **Destination** is the destination area (for specific area positional encoding, see the following section). Example: ["BJ11", "ZB"].
+    // - If **DestinationType** is set to location, **Destination** is the destination area (for specific area positional encoding, see the following sections). Example: ["BJ11", "ZB"].
     // 
     // This parameter is required.
     shared_ptr<string> destination_ {};
@@ -166,7 +156,7 @@ namespace Models
     shared_ptr<string> destinationType_ {};
     // The traffic direction of the DNS firewall access control policy.
     // 
-    // > This parameter is not verified by the backend. When you create or modify a DNS firewall policy, the direction is always stored as **out** (outbound). If you pass **in**, no error is reported, but it does not take effect. DNS firewalls only support outbound policies.
+    // > This parameter is not verified by the backend. When you create or modify a DNS firewall policy, the direction is always saved as **out** (outbound) in the database. If you pass **in**, no error is reported, but it does not take effect. DNS firewalls only support outbound policies.
     shared_ptr<string> direction_ {};
     // The IP version. Valid values:
     // 
@@ -180,14 +170,14 @@ namespace Models
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The policy priority of the new DNS firewall policy. Valid values: 1 to 20000. A smaller value indicates a higher policy priority.
+    // The priority of the new DNS firewall policy. Valid values: 1 to 20000. A smaller value indicates a higher policy priority.
     // 
     // This parameter is required.
     shared_ptr<string> priority_ {};
     // Specifies whether to enable the access control policy. By default, the policy is enabled after it is created. Valid values:
     // 
     // - **true**: enables the access control policy.
-    // - **false**: disables the access control policy.
+    // - **false**: does not enable the access control policy.
     // 
     // This parameter is required.
     shared_ptr<string> release_ {};
@@ -199,8 +189,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> source_ {};
-    // The source IP address of the requester.
-    shared_ptr<string> sourceIp_ {};
     // The type of the source address in the access control policy. Valid values:
     // 
     // - **net**: source CIDR block

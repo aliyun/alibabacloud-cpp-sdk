@@ -164,9 +164,9 @@ namespace Models
       shared_ptr<string> dataTime_ {};
       // The list of queried traffic points.
       shared_ptr<string> dropRatio_ {};
-      // The value range of the object: **[0,10000\\]**.
+      // The value range of the object: **[0,10000]**.
       shared_ptr<int64_t> dropRing_ {};
-      // The rate of network traffic. Unit: kbit/s.
+      // The rate of network traffic. Unit: kbps.
       shared_ptr<string> dropRingRatio_ {};
       // The number of blocked sessions.
       shared_ptr<int64_t> dropSession_ {};
@@ -174,7 +174,7 @@ namespace Models
       shared_ptr<int64_t> ipsDrop_ {};
       // The corresponding time point in the previous period. The time format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> ringDataTime_ {};
-      // The dynamic packet drop time. The value is a UNIX timestamp in seconds, which indicates the number of seconds that have elapsed since January 1, 1970 (UTC).
+      // The dynamic packet drop time. The value is a UNIX timestamp in seconds, which represents the number of seconds that have elapsed since January 1, 1970 (UTC).
       shared_ptr<int64_t> ringTime_ {};
       // The timestamp.
       shared_ptr<int64_t> time_ {};
@@ -224,9 +224,11 @@ namespace Models
   protected:
     // The data list.
     shared_ptr<vector<DescribeInternetDropTrafficTrendResponseBody::DataList>> dataList_ {};
-    // The maximum number of dropped sessions in the corresponding period (peak value).
+    // The maximum number of dropped sessions in the specified period, which represents the peak value.
     shared_ptr<int64_t> dropSessionMax_ {};
-    // The traffic multiplication mode. Valid values: - **0**: priority mode. - **1**: load balancing mode.
+    // The traffic multiplication mode. Valid values:
+    // - **0**: priority mode.
+    // - **1**: load balancing mode.
     shared_ptr<string> ratioAverage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

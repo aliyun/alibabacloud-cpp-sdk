@@ -96,7 +96,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sourceCode_ {};
-    // The source IP address.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
     // The start time. The value is a UNIX timestamp in seconds.
     // 
