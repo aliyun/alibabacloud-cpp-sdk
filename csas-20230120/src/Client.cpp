@@ -45,6 +45,52 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 批量添加设备归属标识
+ *
+ * @param request AddDeviceBelongIdentifiersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddDeviceBelongIdentifiersResponse
+ */
+AddDeviceBelongIdentifiersResponse Client::addDeviceBelongIdentifiersWithOptions(const AddDeviceBelongIdentifiersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasIdentifiers()) {
+    bodyFlat["Identifiers"] = request.getIdentifiers();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "AddDeviceBelongIdentifiers"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddDeviceBelongIdentifiersResponse>();
+}
+
+/**
+ * @summary 批量添加设备归属标识
+ *
+ * @param request AddDeviceBelongIdentifiersRequest
+ * @return AddDeviceBelongIdentifiersResponse
+ */
+AddDeviceBelongIdentifiersResponse Client::addDeviceBelongIdentifiers(const AddDeviceBelongIdentifiersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addDeviceBelongIdentifiersWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds associated terminal devices to a static device tag in batches.
  *
  * @param request AddDeviceGroupMatchDevicesRequest
@@ -6317,6 +6363,72 @@ ListConnectorsResponse Client::listConnectors(const ListConnectorsRequest &reque
 }
 
 /**
+ * @summary 查询设备归属标识
+ *
+ * @param request ListDeviceBelongIdentifiersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDeviceBelongIdentifiersResponse
+ */
+ListDeviceBelongIdentifiersResponse Client::listDeviceBelongIdentifiersWithOptions(const ListDeviceBelongIdentifiersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCurrentPage()) {
+    body["CurrentPage"] = request.getCurrentPage();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasIdentifierIds()) {
+    bodyFlat["IdentifierIds"] = request.getIdentifierIds();
+  }
+
+  if (!!request.hasIdentifierType()) {
+    body["IdentifierType"] = request.getIdentifierType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListDeviceBelongIdentifiers"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDeviceBelongIdentifiersResponse>();
+}
+
+/**
+ * @summary 查询设备归属标识
+ *
+ * @param request ListDeviceBelongIdentifiersRequest
+ * @return ListDeviceBelongIdentifiersResponse
+ */
+ListDeviceBelongIdentifiersResponse Client::listDeviceBelongIdentifiers(const ListDeviceBelongIdentifiersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDeviceBelongIdentifiersWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the list of device groups under the current Alibaba Cloud account by using paging in a paged query.
  *
  * @param request ListDeviceGroupsRequest
@@ -9266,6 +9378,52 @@ ModifyForwardStrategyBindingItemsResponse Client::modifyForwardStrategyBindingIt
 ModifyForwardStrategyBindingItemsResponse Client::modifyForwardStrategyBindingItems(const ModifyForwardStrategyBindingItemsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyForwardStrategyBindingItemsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量移除设备归属标识
+ *
+ * @param request RemoveDeviceBelongIdentifiersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveDeviceBelongIdentifiersResponse
+ */
+RemoveDeviceBelongIdentifiersResponse Client::removeDeviceBelongIdentifiersWithOptions(const RemoveDeviceBelongIdentifiersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasIdentifierIds()) {
+    bodyFlat["IdentifierIds"] = request.getIdentifierIds();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RemoveDeviceBelongIdentifiers"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveDeviceBelongIdentifiersResponse>();
+}
+
+/**
+ * @summary 批量移除设备归属标识
+ *
+ * @param request RemoveDeviceBelongIdentifiersRequest
+ * @return RemoveDeviceBelongIdentifiersResponse
+ */
+RemoveDeviceBelongIdentifiersResponse Client::removeDeviceBelongIdentifiers(const RemoveDeviceBelongIdentifiersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeDeviceBelongIdentifiersWithOptions(request, runtime);
 }
 
 /**

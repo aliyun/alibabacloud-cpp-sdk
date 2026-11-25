@@ -21,6 +21,23 @@ namespace Csas20230120
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 批量添加设备归属标识
+       *
+       * @param request AddDeviceBelongIdentifiersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddDeviceBelongIdentifiersResponse
+       */
+      Models::AddDeviceBelongIdentifiersResponse addDeviceBelongIdentifiersWithOptions(const Models::AddDeviceBelongIdentifiersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量添加设备归属标识
+       *
+       * @param request AddDeviceBelongIdentifiersRequest
+       * @return AddDeviceBelongIdentifiersResponse
+       */
+      Models::AddDeviceBelongIdentifiersResponse addDeviceBelongIdentifiers(const Models::AddDeviceBelongIdentifiersRequest &request);
+
+      /**
        * @summary Adds associated terminal devices to a static device tag in batches.
        *
        * @param request AddDeviceGroupMatchDevicesRequest
@@ -2131,6 +2148,23 @@ namespace Csas20230120
       Models::ListConnectorsResponse listConnectors(const Models::ListConnectorsRequest &request);
 
       /**
+       * @summary 查询设备归属标识
+       *
+       * @param request ListDeviceBelongIdentifiersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDeviceBelongIdentifiersResponse
+       */
+      Models::ListDeviceBelongIdentifiersResponse listDeviceBelongIdentifiersWithOptions(const Models::ListDeviceBelongIdentifiersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询设备归属标识
+       *
+       * @param request ListDeviceBelongIdentifiersRequest
+       * @return ListDeviceBelongIdentifiersResponse
+       */
+      Models::ListDeviceBelongIdentifiersResponse listDeviceBelongIdentifiers(const Models::ListDeviceBelongIdentifiersRequest &request);
+
+      /**
        * @summary Queries the list of device groups under the current Alibaba Cloud account by using paging in a paged query.
        *
        * @param request ListDeviceGroupsRequest
@@ -3233,6 +3267,23 @@ namespace Csas20230120
        * @return ModifyForwardStrategyBindingItemsResponse
        */
       Models::ModifyForwardStrategyBindingItemsResponse modifyForwardStrategyBindingItems(const Models::ModifyForwardStrategyBindingItemsRequest &request);
+
+      /**
+       * @summary 批量移除设备归属标识
+       *
+       * @param request RemoveDeviceBelongIdentifiersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveDeviceBelongIdentifiersResponse
+       */
+      Models::RemoveDeviceBelongIdentifiersResponse removeDeviceBelongIdentifiersWithOptions(const Models::RemoveDeviceBelongIdentifiersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量移除设备归属标识
+       *
+       * @param request RemoveDeviceBelongIdentifiersRequest
+       * @return RemoveDeviceBelongIdentifiersResponse
+       */
+      Models::RemoveDeviceBelongIdentifiersResponse removeDeviceBelongIdentifiers(const Models::RemoveDeviceBelongIdentifiersRequest &request);
 
       /**
        * @summary Removes associated terminal devices from a static device label in batches.

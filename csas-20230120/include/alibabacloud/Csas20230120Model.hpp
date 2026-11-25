@@ -40,6 +40,9 @@
 #include <alibabacloud/models/Rule.hpp>
 #include <alibabacloud/models/TypedAIAsset.hpp>
 #include <alibabacloud/models/UserCertificate.hpp>
+#include <alibabacloud/models/AddDeviceBelongIdentifiersRequest.hpp>
+#include <alibabacloud/models/AddDeviceBelongIdentifiersResponseBody.hpp>
+#include <alibabacloud/models/AddDeviceBelongIdentifiersResponse.hpp>
 #include <alibabacloud/models/AddDeviceGroupMatchDevicesRequest.hpp>
 #include <alibabacloud/models/AddDeviceGroupMatchDevicesResponseBody.hpp>
 #include <alibabacloud/models/AddDeviceGroupMatchDevicesResponse.hpp>
@@ -404,6 +407,9 @@
 #include <alibabacloud/models/ListConnectorsRequest.hpp>
 #include <alibabacloud/models/ListConnectorsResponseBody.hpp>
 #include <alibabacloud/models/ListConnectorsResponse.hpp>
+#include <alibabacloud/models/ListDeviceBelongIdentifiersRequest.hpp>
+#include <alibabacloud/models/ListDeviceBelongIdentifiersResponseBody.hpp>
+#include <alibabacloud/models/ListDeviceBelongIdentifiersResponse.hpp>
 #include <alibabacloud/models/ListDeviceGroupsRequest.hpp>
 #include <alibabacloud/models/ListDeviceGroupsResponseBody.hpp>
 #include <alibabacloud/models/ListDeviceGroupsResponse.hpp>
@@ -593,6 +599,9 @@
 #include <alibabacloud/models/ModifyForwardStrategyBindingItemsRequest.hpp>
 #include <alibabacloud/models/ModifyForwardStrategyBindingItemsResponseBody.hpp>
 #include <alibabacloud/models/ModifyForwardStrategyBindingItemsResponse.hpp>
+#include <alibabacloud/models/RemoveDeviceBelongIdentifiersRequest.hpp>
+#include <alibabacloud/models/RemoveDeviceBelongIdentifiersResponseBody.hpp>
+#include <alibabacloud/models/RemoveDeviceBelongIdentifiersResponse.hpp>
 #include <alibabacloud/models/RemoveDeviceGroupMatchDevicesRequest.hpp>
 #include <alibabacloud/models/RemoveDeviceGroupMatchDevicesResponseBody.hpp>
 #include <alibabacloud/models/RemoveDeviceGroupMatchDevicesResponse.hpp>
