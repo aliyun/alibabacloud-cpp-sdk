@@ -96,7 +96,7 @@ namespace Models
 
 
     protected:
-      // The category ID. You can use it as a request parameter for the [UpdateCategory](~~UpdateCategory~~), [DeleteCategory](~~DeleteCategory~~), and [GetCategories](~~GetCategories~~) operations.
+      // The category ID. You can use this ID as a request parameter for the [UpdateCategory](~~UpdateCategory~~), [DeleteCategory](~~DeleteCategory~~), and [GetCategories](~~GetCategories~~) operations.
       shared_ptr<int64_t> cateId_ {};
       // The category name.
       shared_ptr<string> cateName_ {};

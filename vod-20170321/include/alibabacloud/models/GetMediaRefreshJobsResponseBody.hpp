@@ -162,33 +162,35 @@ namespace Models
 
 
     protected:
-      // The error code. This field is returned when the purge or prefetch task fails to be submitted.
+      // The error code.
+      // This field is returned when the refresh or prefetch task fails to be submitted.
       shared_ptr<string> errorCode_ {};
-      // The error message. This field is returned when the purge or prefetch task fails to be submitted.
+      // The error message.
+      // This field is returned when the refresh or prefetch task fails to be submitted.
       shared_ptr<string> errorMessage_ {};
-      // The filtering policy for playback streams. The value is in JSON format and contains the request parameters of the [SubmitMediaRefreshJob](https://help.aliyun.com/document_detail/431095.html) operation.
+      // The filter policy for playback streams. The value is in JSON format and contains the request parameters of the [Submit audio and video refresh or prefetch tasks](https://help.aliyun.com/document_detail/431095.html) API operation.
       shared_ptr<string> filterPolicy_ {};
       // The time when the task was created.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the task was last modified.
+      // The time when the task was modified.
       shared_ptr<string> gmtModified_ {};
       // The audio or video ID.
       shared_ptr<string> mediaId_ {};
-      // The ID of the audio or video purge or prefetch task.
+      // The task ID of the audio or video refresh or prefetch task.
       shared_ptr<string> mediaRefreshJobId_ {};
       // The task status. Valid values:
-      // - **success**: succeeded
-      // - **fail**: failed
+      // - **success**: success
+      // - **fail**: failure
       shared_ptr<string> status_ {};
-      // The playback URLs that were successfully purged or prefetched.
+      // The playback URLs that are successfully refreshed or prefetched.
       shared_ptr<string> successPlayUrls_ {};
-      // The task IDs for the purge or prefetch of playback URLs. Each URL corresponds to one task ID. You can use the task ID to call the [DescribeVodRefreshTasks](https://help.aliyun.com/document_detail/69214.html) operation to query the purge or prefetch status of each playback URL.
+      // The task IDs for refreshing or prefetching the playback URLs. Each URL corresponds to one task ID. You can use the task ID to call the [DescribeVodRefreshTasks](https://help.aliyun.com/document_detail/69214.html) API operation to query the refresh or prefetch status of each playback URL.
       shared_ptr<string> taskIds_ {};
       // The task type. Valid values:
-      // - **Refresh**: purge
+      // - **Refresh**: refresh
       // - **Preload**: prefetch
       shared_ptr<string> taskType_ {};
-      // The UserData information specified when the purge or prefetch task was submitted.
+      // The UserData information passed when the refresh or prefetch task is submitted.
       shared_ptr<string> userData_ {};
     };
 
@@ -211,7 +213,7 @@ namespace Models
 
 
   protected:
-    // The list of audio or video purge or prefetch task information.
+    // The list of audio and video refresh or prefetch task information.
     shared_ptr<vector<GetMediaRefreshJobsResponseBody::MediaRefreshJobs>> mediaRefreshJobs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

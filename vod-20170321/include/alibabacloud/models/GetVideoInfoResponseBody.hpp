@@ -318,9 +318,9 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> appId_ {};
-      // The final review result of the audio or video file. Valid values:
+      // The final moderation result of the audio or video file. Valid values:
       // 
-      // - **Normal**: Approved.
+      // - **Normal**: Passed.
       // - **Blocked**: Blocked.
       shared_ptr<string> auditStatus_ {};
       // The category ID.
@@ -329,24 +329,24 @@ namespace Models
       shared_ptr<string> cateName_ {};
       // The thumbnail URL of the audio or video file.
       shared_ptr<string> coverURL_ {};
-      // The time when the audio or video file was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The time when the audio or video file was created. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
       // The custom media asset information.
       // 
-      // > This parameter is deprecated. The API no longer returns this parameter.
+      // > **[Deprecated]** This parameter is deprecated and is no longer returned when you call this operation.
       shared_ptr<string> customMediaInfo_ {};
       // The description of the audio or video file.
       shared_ptr<string> description_ {};
-      // The status of the offline download switch. After the offline download feature is enabled, mobile users can cache videos to their local devices for offline viewing by using ApsaraVideo Player. For more information, see [Offline download](https://help.aliyun.com/document_detail/86107.html). Valid values:
+      // The status of the offline download switch. After the offline download feature is enabled, mobile users can use ApsaraVideo Player to cache videos to their local devices for playback. For more information, see [Offline download](https://help.aliyun.com/document_detail/86107.html). Valid values:
       // 
-      // - **on**: enabled. Offline download is allowed.
-      // - **off**: disabled. Offline download is not allowed.
+      // - **on**: Enabled. Offline download is allowed.
+      // - **off**: Disabled. Offline download is prohibited.
       shared_ptr<string> downloadSwitch_ {};
       // The duration of the audio or video file. Unit: seconds.
       shared_ptr<float> duration_ {};
-      // The time when the audio or video file was last updated. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The last time when the audio or video file was updated. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> modificationTime_ {};
-      // The custom ID. Only lowercase letters, uppercase letters, digits, hyphens, and underscores are supported. The length is 6 to 64 characters. The ID is unique at the user level.
+      // The custom ID. The ID must be 6 to 64 characters in length and can contain only lowercase letters, uppercase letters, digits, hyphens, and underscores. The ID must be unique per user.
       shared_ptr<string> referenceId_ {};
       // The region where the audio or video file is stored.
       shared_ptr<string> regionId_ {};
@@ -360,7 +360,7 @@ namespace Models
       // The size of the audio or video source file. Unit: bytes.
       shared_ptr<int64_t> size_ {};
       shared_ptr<Video::Snapshots> snapshots_ {};
-      // The status of the audio or video file. For more information about the operations that can be performed on audio and video files in each status and the limits, see [Status: audio and video status](~~52839#title-vqg-8cz-7p8~~). Valid values:
+      // The status of the audio or video file. For more information about the operations that can be performed and the limits in each status, see [Status: Audio and video status](~~52839#title-vqg-8cz-7p8~~). Valid values:
       // 
       // - **Uploading**: The file is being uploaded.
       // - **UploadFail**: The file failed to be uploaded.
@@ -368,17 +368,17 @@ namespace Models
       // - **Transcoding**: The file is being transcoded.
       // - **TranscodeFail**: The file failed to be transcoded.
       // - **Blocked**: The file is blocked.
-      // - **Normal**: The file is in a normal state.
+      // - **Normal**: The file is normal.
       shared_ptr<string> status_ {};
       // The storage class of the media asset. Valid values:
       // 
-      // - **Standard**: standard.
-      // - **IA**: Infrequent Access (media asset).
-      // - **Archive**: Archive (media asset).
-      // - **ColdArchive**: Cold Archive (media asset).
-      // - **SourceIA**: Infrequent Access (source file).
-      // - **SourceArchive**: Archive (source file).
-      // - **SourceColdArchive**: Cold Archive (source file).
+      // - **Standard**: Standard.
+      // - **IA**: Infrequent Access for media assets.
+      // - **Archive**: Archive for media assets.
+      // - **ColdArchive**: Cold Archive for media assets.
+      // - **SourceIA**: Infrequent Access for source files.
+      // - **SourceArchive**: Archive for source files.
+      // - **SourceColdArchive**: Cold Archive for source files.
       // - **Changing**: The storage class of the media asset is being changed.
       // - **SourceChanging**: The storage class of the source file is being changed.
       shared_ptr<string> storageClass_ {};
@@ -386,7 +386,7 @@ namespace Models
       shared_ptr<string> storageLocation_ {};
       // The tags of the audio or video file. Multiple tags are separated by commas (,).
       shared_ptr<string> tags_ {};
-      // The transcoding template group ID.
+      // The ID of the transcoding template group.
       shared_ptr<string> templateGroupId_ {};
       // The title of the audio or video file.
       shared_ptr<string> title_ {};

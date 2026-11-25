@@ -16,6 +16,9 @@
 #include <alibabacloud/models/AddEditingProjectMaterialsRequest.hpp>
 #include <alibabacloud/models/AddEditingProjectMaterialsResponseBody.hpp>
 #include <alibabacloud/models/AddEditingProjectMaterialsResponse.hpp>
+#include <alibabacloud/models/AddManifestEditTemplateRequest.hpp>
+#include <alibabacloud/models/AddManifestEditTemplateResponseBody.hpp>
+#include <alibabacloud/models/AddManifestEditTemplateResponse.hpp>
 #include <alibabacloud/models/AddTranscodeTemplateGroupRequest.hpp>
 #include <alibabacloud/models/AddTranscodeTemplateGroupResponseBody.hpp>
 #include <alibabacloud/models/AddTranscodeTemplateGroupResponse.hpp>
@@ -97,6 +100,9 @@
 #include <alibabacloud/models/DeleteImageRequest.hpp>
 #include <alibabacloud/models/DeleteImageResponseBody.hpp>
 #include <alibabacloud/models/DeleteImageResponse.hpp>
+#include <alibabacloud/models/DeleteManifestEditTemplateRequest.hpp>
+#include <alibabacloud/models/DeleteManifestEditTemplateResponseBody.hpp>
+#include <alibabacloud/models/DeleteManifestEditTemplateResponse.hpp>
 #include <alibabacloud/models/DeleteMessageCallbackRequest.hpp>
 #include <alibabacloud/models/DeleteMessageCallbackResponseBody.hpp>
 #include <alibabacloud/models/DeleteMessageCallbackResponse.hpp>
@@ -412,6 +418,9 @@
 #include <alibabacloud/models/ListLiveRecordVideoRequest.hpp>
 #include <alibabacloud/models/ListLiveRecordVideoResponseBody.hpp>
 #include <alibabacloud/models/ListLiveRecordVideoResponse.hpp>
+#include <alibabacloud/models/ListManifestEditTemplateRequest.hpp>
+#include <alibabacloud/models/ListManifestEditTemplateResponseBody.hpp>
+#include <alibabacloud/models/ListManifestEditTemplateResponse.hpp>
 #include <alibabacloud/models/ListSnapshotsRequest.hpp>
 #include <alibabacloud/models/ListSnapshotsResponseBody.hpp>
 #include <alibabacloud/models/ListSnapshotsResponse.hpp>
@@ -505,6 +514,9 @@
 #include <alibabacloud/models/SubmitDynamicImageJobRequest.hpp>
 #include <alibabacloud/models/SubmitDynamicImageJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitDynamicImageJobResponse.hpp>
+#include <alibabacloud/models/SubmitEditMediaManifestJobRequest.hpp>
+#include <alibabacloud/models/SubmitEditMediaManifestJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitEditMediaManifestJobResponse.hpp>
 #include <alibabacloud/models/SubmitMediaDNADeleteJobRequest.hpp>
 #include <alibabacloud/models/SubmitMediaDNADeleteJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitMediaDNADeleteJobResponse.hpp>

@@ -124,7 +124,7 @@ namespace Models
     protected:
       // The platform ID.
       shared_ptr<string> itemId_ {};
-      // The list of licenses.
+      // The authorization list.
       shared_ptr<vector<string>> licenseItemIds_ {};
       // The package name.
       shared_ptr<string> pkgName_ {};
@@ -222,7 +222,7 @@ namespace Models
     shared_ptr<string> itemId_ {};
     // The update time.
     shared_ptr<string> modificationTime_ {};
-    // The list of platform information for the application.
+    // The list of platform information included in the application.
     shared_ptr<vector<AppInfoDTO::Platforms>> platforms_ {};
     // The user ID.
     shared_ptr<int64_t> userId_ {};

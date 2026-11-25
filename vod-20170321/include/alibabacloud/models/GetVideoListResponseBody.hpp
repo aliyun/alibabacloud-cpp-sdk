@@ -355,7 +355,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of audio and video files.
+    // The total number of audio and video assets.
     shared_ptr<int32_t> total_ {};
     shared_ptr<GetVideoListResponseBody::VideoList> videoList_ {};
   };

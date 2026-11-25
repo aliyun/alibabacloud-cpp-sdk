@@ -145,10 +145,10 @@ AddAITemplateResponse Client::addAITemplate(const AddAITemplateRequest &request)
 }
 
 /**
- * @summary Creates a category to classify audio, video, image, and short video materials stored in ApsaraVideo VOD, making resource search and management more efficient.
+ * @summary Creates a category to classify audio, video, image, and short video materials stored in ApsaraVideo VOD for efficient resource search and management.
  *
- * @description - Audio and video/image categories (`Type` set to `default`) support up to three levels of categories, with a maximum of 100 subcategories per level. Short video material categories (`Type` set to `material`) support up to two levels of categories, with a maximum of 100 subcategories per level.
- * - After creating a category, you can classify media assets during or after upload. For more information, see [Media asset categories](https://help.aliyun.com/document_detail/86070.html).
+ * @description - Audio, video, and image categories (where `Type` is `default`) support up to three levels, with a maximum of 100 subcategories per level. Short video material categories (where `Type` is `material`) support up to two levels, with a maximum of 100 subcategories per level.
+ * - After you create a category, you can classify media assets during or after upload. For more information, see [Media asset categories](https://help.aliyun.com/document_detail/86070.html).
  *
  * @param request AddCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -187,10 +187,10 @@ AddCategoryResponse Client::addCategoryWithOptions(const AddCategoryRequest &req
 }
 
 /**
- * @summary Creates a category to classify audio, video, image, and short video materials stored in ApsaraVideo VOD, making resource search and management more efficient.
+ * @summary Creates a category to classify audio, video, image, and short video materials stored in ApsaraVideo VOD for efficient resource search and management.
  *
- * @description - Audio and video/image categories (`Type` set to `default`) support up to three levels of categories, with a maximum of 100 subcategories per level. Short video material categories (`Type` set to `material`) support up to two levels of categories, with a maximum of 100 subcategories per level.
- * - After creating a category, you can classify media assets during or after upload. For more information, see [Media asset categories](https://help.aliyun.com/document_detail/86070.html).
+ * @description - Audio, video, and image categories (where `Type` is `default`) support up to three levels, with a maximum of 100 subcategories per level. Short video material categories (where `Type` is `material`) support up to two levels, with a maximum of 100 subcategories per level.
+ * - After you create a category, you can classify media assets during or after upload. For more information, see [Media asset categories](https://help.aliyun.com/document_detail/86070.html).
  *
  * @param request AddCategoryRequest
  * @return AddCategoryResponse
@@ -342,6 +342,64 @@ AddEditingProjectMaterialsResponse Client::addEditingProjectMaterialsWithOptions
 AddEditingProjectMaterialsResponse Client::addEditingProjectMaterials(const AddEditingProjectMaterialsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return addEditingProjectMaterialsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a ManifestEdit track orchestration template for the SubmitEditMediaManifestJob task to configure video, audio, and subtitle tracks based on the template.
+ *
+ * @description ## Request description
+ * - The `Name` parameter is required and must pass the `COMPLEX_STRING_SPACE_ALLOWED` format validation.
+ * - Other parameters are optional, but if provided, they must meet the corresponding format requirements.
+ * - The encryption type `EncryptType` supports a combination of multiple encryption methods. For more information, see the valid values.
+ * - When HLS encryption is used, `EncryptConfig` must include information such as `DecryptKeyUri`, `KeyServiceType`, `CipherText`, and `MasterKeyId`.
+ *
+ * @param request AddManifestEditTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddManifestEditTemplateResponse
+ */
+AddManifestEditTemplateResponse Client::addManifestEditTemplateWithOptions(const AddManifestEditTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasTemplates()) {
+    query["Templates"] = request.getTemplates();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddManifestEditTemplate"},
+    {"version" , "2017-03-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddManifestEditTemplateResponse>();
+}
+
+/**
+ * @summary Creates a ManifestEdit track orchestration template for the SubmitEditMediaManifestJob task to configure video, audio, and subtitle tracks based on the template.
+ *
+ * @description ## Request description
+ * - The `Name` parameter is required and must pass the `COMPLEX_STRING_SPACE_ALLOWED` format validation.
+ * - Other parameters are optional, but if provided, they must meet the corresponding format requirements.
+ * - The encryption type `EncryptType` supports a combination of multiple encryption methods. For more information, see the valid values.
+ * - When HLS encryption is used, `EncryptConfig` must include information such as `DecryptKeyUri`, `KeyServiceType`, `CipherText`, and `MasterKeyId`.
+ *
+ * @param request AddManifestEditTemplateRequest
+ * @return AddManifestEditTemplateResponse
+ */
+AddManifestEditTemplateResponse Client::addManifestEditTemplate(const AddManifestEditTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addManifestEditTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -2043,6 +2101,54 @@ DeleteImageResponse Client::deleteImage(const DeleteImageRequest &request) {
 }
 
 /**
+ * @summary Deletes a specified ManifestEdit track orchestration template.
+ *
+ * @description - After deletion, the template and its track configurations cannot be recovered. Submitted jobs are not affected, but resubmitting a SubmitEditMediaManifestJob job with the deleted template ID will fail.
+ * - The custom transcoding template configurations associated with the template in the MediaConvert pipeline will also be cleared (preset templates are not affected).
+ *
+ * @param request DeleteManifestEditTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteManifestEditTemplateResponse
+ */
+DeleteManifestEditTemplateResponse Client::deleteManifestEditTemplateWithOptions(const DeleteManifestEditTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteManifestEditTemplate"},
+    {"version" , "2017-03-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteManifestEditTemplateResponse>();
+}
+
+/**
+ * @summary Deletes a specified ManifestEdit track orchestration template.
+ *
+ * @description - After deletion, the template and its track configurations cannot be recovered. Submitted jobs are not affected, but resubmitting a SubmitEditMediaManifestJob job with the deleted template ID will fail.
+ * - The custom transcoding template configurations associated with the template in the MediaConvert pipeline will also be cleared (preset templates are not affected).
+ *
+ * @param request DeleteManifestEditTemplateRequest
+ * @return DeleteManifestEditTemplateResponse
+ */
+DeleteManifestEditTemplateResponse Client::deleteManifestEditTemplate(const DeleteManifestEditTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteManifestEditTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes the callback method, callback URL, and event types of an event notification.
  *
  * @description > For more information, see [Event notification development guide](https://help.aliyun.com/document_detail/55627.html).
@@ -2601,10 +2707,10 @@ DeleteWatermarkResponse Client::deleteWatermark(const DeleteWatermarkRequest &re
 }
 
 /**
- * @summary Queries the time-based distribution of audio and video media assets. The maximum time span between the start time and end time is six months.
+ * @summary Queries the time distribution of audio and video media asset data. The maximum time span between the start time and end time is six months.
  *
- * @description - Currently, this operation is supported only in the China (Shanghai) region.
- * - If you do not specify StartTime and EndTime, this operation returns data for the past 7 days by default. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+ * @description - Currently, the endpoint for this API operation supports only China (Shanghai).
+ * - If you do not specify StartTime and EndTime, this API operation returns data for the past 7 days by default. If you specify StartTime and EndTime, this API operation returns data for the specified time period.
  *
  * @param request DescribeMediaDistributionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2647,10 +2753,10 @@ DescribeMediaDistributionResponse Client::describeMediaDistributionWithOptions(c
 }
 
 /**
- * @summary Queries the time-based distribution of audio and video media assets. The maximum time span between the start time and end time is six months.
+ * @summary Queries the time distribution of audio and video media asset data. The maximum time span between the start time and end time is six months.
  *
- * @description - Currently, this operation is supported only in the China (Shanghai) region.
- * - If you do not specify StartTime and EndTime, this operation returns data for the past 7 days by default. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+ * @description - Currently, the endpoint for this API operation supports only China (Shanghai).
+ * - If you do not specify StartTime and EndTime, this API operation returns data for the past 7 days by default. If you specify StartTime and EndTime, this API operation returns data for the specified time period.
  *
  * @param request DescribeMediaDistributionRequest
  * @return DescribeMediaDistributionResponse
@@ -7179,12 +7285,12 @@ GetMediaDNAResultResponse Client::getMediaDNAResult(const GetMediaDNAResultReque
 }
 
 /**
- * @summary Queries task information such as task status and filtering policies for a video purge or prefetch task.
+ * @summary Queries task information such as task status and filter policies for video refresh or prefetch tasks.
  *
  * @description ### Usage notes
- * You can query task information for all audio or video files under a purge or prefetch task, or query task information for a specific audio or video file.
+ * You can query the task information of all audio and video files under a refresh or prefetch task, or specify a single audio or video file to query its task information.
  * ### QPS limit
- * The single-user QPS limit for this operation is 50 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+ * The queries per second (QPS) limit for a single user calling this API operation is 50. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
  *
  * @param request GetMediaRefreshJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7211,12 +7317,12 @@ GetMediaRefreshJobsResponse Client::getMediaRefreshJobsWithOptions(const GetMedi
 }
 
 /**
- * @summary Queries task information such as task status and filtering policies for a video purge or prefetch task.
+ * @summary Queries task information such as task status and filter policies for video refresh or prefetch tasks.
  *
  * @description ### Usage notes
- * You can query task information for all audio or video files under a purge or prefetch task, or query task information for a specific audio or video file.
+ * You can query the task information of all audio and video files under a refresh or prefetch task, or specify a single audio or video file to query its task information.
  * ### QPS limit
- * The single-user QPS limit for this operation is 50 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342790.html).
+ * The queries per second (QPS) limit for a single user calling this API operation is 50. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
  *
  * @param request GetMediaRefreshJobsRequest
  * @return GetMediaRefreshJobsResponse
@@ -7339,14 +7445,14 @@ GetMezzanineInfoResponse Client::getMezzanineInfo(const GetMezzanineInfoRequest 
 }
 
 /**
- * @summary Retrieves the playback URL of an audio or video file. You can use ApsaraVideo Player or a third-party player, such as a native, open-source, or custom player, to play the media content.
+ * @summary Retrieves the playback URL of an audio or video file based on the media ID. You can then use ApsaraVideo Player or a third-party player, such as a native, open-source, or custom player, to play the media content.
  *
- * @description - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Downloading or playing videos directly from the VOD playback URL incurs outbound traffic fees. If no accelerated domain name is configured, refer to [Billing of outbound traffic](~~188308#section-rwh-e88-f7j~~). If an accelerated domain name is configured, refer to [Billing of acceleration services](~~188308#section-c5t-oq9-15e~~). If you have enabled storage transfer acceleration, downloading or playing videos directly from the VOD playback URL also incurs download acceleration fees. For more information about billing, refer to [Billing of storage transfer acceleration](~~188310#section_sta_zm2_tsv~~).**
- * - Only videos in the Normal state (the Status field is set to Normal) can be played. For more information about playback instructions and limits for playback URLs, refer to [Media playback](https://help.aliyun.com/document_detail/57290.html).
+ * @description - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Downloading or playing videos directly from the playback URL of ApsaraVideo VOD incurs outbound traffic fees. If no accelerated domain name is configured, refer to [Billing of storage outbound traffic](~~188308#section-rwh-e88-f7j~~). If an accelerated domain name is configured, refer to [Billing of acceleration services](~~188308#section-c5t-oq9-15e~~). If you have enabled storage transfer acceleration, downloading or playing videos directly from the playback URL of ApsaraVideo VOD also incurs download acceleration fees. For billing details, refer to [Billing of storage transfer acceleration](~~188310#section_sta_zm2_tsv~~).**
+ * - Only videos in the Normal status (the value of the Status field is Normal) can be played normally. For more information about the playback instructions and limits of playback URLs, refer to [Media playback](https://help.aliyun.com/document_detail/57290.html).
  * - When the [media asset storage](https://help.aliyun.com/document_detail/2392368.html) type is non-standard storage, you must configure the StorageClass field in the PlayConfig parameter accordingly. For more information, refer to [PlayConfig](~~86952#section-9g7-s9b-v7z~~).
- * - If video playback is abnormal, you can call the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the video source file information is correct.
+ * - If video playback is abnormal, you can invoke the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the information about the video source file is correct.
  * <props="china">
- * - To call this operation to generate an m3u8 tracing watermark video stream, submit a ticket to apply for activation. For more information about how to submit a ticket, refer to [Contact us](https://help.aliyun.com/document_detail/464625.html). For more information about tracing watermarks, refer to [Digital watermarking](https://help.aliyun.com/document_detail/2527021.html).
+ * - To invoke this operation to generate an m3u8 tracing watermark video stream, submit a ticket to apply for activation. For more information about how to submit a ticket, refer to [Contact us](https://help.aliyun.com/document_detail/464625.html). For more information about tracing watermarks, refer to [Digital watermarking](https://help.aliyun.com/document_detail/2527021.html).
  *
  * @param request GetPlayInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7429,14 +7535,14 @@ GetPlayInfoResponse Client::getPlayInfoWithOptions(const GetPlayInfoRequest &req
 }
 
 /**
- * @summary Retrieves the playback URL of an audio or video file. You can use ApsaraVideo Player or a third-party player, such as a native, open-source, or custom player, to play the media content.
+ * @summary Retrieves the playback URL of an audio or video file based on the media ID. You can then use ApsaraVideo Player or a third-party player, such as a native, open-source, or custom player, to play the media content.
  *
- * @description - **Before you call this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Downloading or playing videos directly from the VOD playback URL incurs outbound traffic fees. If no accelerated domain name is configured, refer to [Billing of outbound traffic](~~188308#section-rwh-e88-f7j~~). If an accelerated domain name is configured, refer to [Billing of acceleration services](~~188308#section-c5t-oq9-15e~~). If you have enabled storage transfer acceleration, downloading or playing videos directly from the VOD playback URL also incurs download acceleration fees. For more information about billing, refer to [Billing of storage transfer acceleration](~~188310#section_sta_zm2_tsv~~).**
- * - Only videos in the Normal state (the Status field is set to Normal) can be played. For more information about playback instructions and limits for playback URLs, refer to [Media playback](https://help.aliyun.com/document_detail/57290.html).
+ * @description - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Downloading or playing videos directly from the playback URL of ApsaraVideo VOD incurs outbound traffic fees. If no accelerated domain name is configured, refer to [Billing of storage outbound traffic](~~188308#section-rwh-e88-f7j~~). If an accelerated domain name is configured, refer to [Billing of acceleration services](~~188308#section-c5t-oq9-15e~~). If you have enabled storage transfer acceleration, downloading or playing videos directly from the playback URL of ApsaraVideo VOD also incurs download acceleration fees. For billing details, refer to [Billing of storage transfer acceleration](~~188310#section_sta_zm2_tsv~~).**
+ * - Only videos in the Normal status (the value of the Status field is Normal) can be played normally. For more information about the playback instructions and limits of playback URLs, refer to [Media playback](https://help.aliyun.com/document_detail/57290.html).
  * - When the [media asset storage](https://help.aliyun.com/document_detail/2392368.html) type is non-standard storage, you must configure the StorageClass field in the PlayConfig parameter accordingly. For more information, refer to [PlayConfig](~~86952#section-9g7-s9b-v7z~~).
- * - If video playback is abnormal, you can call the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the video source file information is correct.
+ * - If video playback is abnormal, you can invoke the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the information about the video source file is correct.
  * <props="china">
- * - To call this operation to generate an m3u8 tracing watermark video stream, submit a ticket to apply for activation. For more information about how to submit a ticket, refer to [Contact us](https://help.aliyun.com/document_detail/464625.html). For more information about tracing watermarks, refer to [Digital watermarking](https://help.aliyun.com/document_detail/2527021.html).
+ * - To invoke this operation to generate an m3u8 tracing watermark video stream, submit a ticket to apply for activation. For more information about how to submit a ticket, refer to [Contact us](https://help.aliyun.com/document_detail/464625.html). For more information about tracing watermarks, refer to [Digital watermarking](https://help.aliyun.com/document_detail/2527021.html).
  *
  * @param request GetPlayInfoRequest
  * @return GetPlayInfoResponse
@@ -7727,9 +7833,9 @@ GetUploadDetailsResponse Client::getUploadDetails(const GetUploadDetailsRequest 
 }
 
 /**
- * @summary Retrieves the information about a single audio or video file by audio or video ID, including the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags.
+ * @summary Retrieves the details of a single audio or video file by its ID, including the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags.
  *
- * @description After an audio or video file is uploaded, ApsaraVideo VOD analyzes the uploaded source file. Therefore, media asset information is generated asynchronously. You can configure an [event notification](https://help.aliyun.com/document_detail/55627.html) for [AudioVideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html). After you receive the [AudioVideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event notification, call this operation to retrieve the audio or video information.
+ * @description After an audio or video file is uploaded, ApsaraVideo VOD analyzes the uploaded source file. Therefore, media asset information is generated asynchronously. You can configure [event notifications](https://help.aliyun.com/document_detail/55627.html) for [audio and video analysis completion](https://help.aliyun.com/document_detail/99935.html). After receiving the event notification for [audio and video analysis completion](https://help.aliyun.com/document_detail/99935.html), call this operation to retrieve the audio or video information.
  *
  * @param request GetVideoInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7764,9 +7870,9 @@ GetVideoInfoResponse Client::getVideoInfoWithOptions(const GetVideoInfoRequest &
 }
 
 /**
- * @summary Retrieves the information about a single audio or video file by audio or video ID, including the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags.
+ * @summary Retrieves the details of a single audio or video file by its ID, including the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags.
  *
- * @description After an audio or video file is uploaded, ApsaraVideo VOD analyzes the uploaded source file. Therefore, media asset information is generated asynchronously. You can configure an [event notification](https://help.aliyun.com/document_detail/55627.html) for [AudioVideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html). After you receive the [AudioVideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event notification, call this operation to retrieve the audio or video information.
+ * @description After an audio or video file is uploaded, ApsaraVideo VOD analyzes the uploaded source file. Therefore, media asset information is generated asynchronously. You can configure [event notifications](https://help.aliyun.com/document_detail/55627.html) for [audio and video analysis completion](https://help.aliyun.com/document_detail/99935.html). After receiving the event notification for [audio and video analysis completion](https://help.aliyun.com/document_detail/99935.html), call this operation to retrieve the audio or video information.
  *
  * @param request GetVideoInfoRequest
  * @return GetVideoInfoResponse
@@ -7829,9 +7935,9 @@ GetVideoInfosResponse Client::getVideoInfos(const GetVideoInfosRequest &request)
 }
 
 /**
- * @summary Retrieves a list of audio and video information.
+ * @summary Retrieves a list of video information.
  *
- * @description This operation retrieves up to **5000** audio and video files that match the specified filter conditions (such as video status and category ID). Specify StartTime and EndTime to retrieve data in batches. To query more audio and video files or traverse all audio and video information, see [Search for media information](https://help.aliyun.com/document_detail/86044.html).
+ * @description This operation retrieves up to the first **5,000** audio and video assets that match specified filter conditions, such as video status and category ID. Specify StartTime and EndTime to retrieve data in batches. To query more audio and video assets or traverse all audio and video information, refer to [Search for media assets](https://help.aliyun.com/document_detail/86044.html).
  *
  * @param request GetVideoListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7894,9 +8000,9 @@ GetVideoListResponse Client::getVideoListWithOptions(const GetVideoListRequest &
 }
 
 /**
- * @summary Retrieves a list of audio and video information.
+ * @summary Retrieves a list of video information.
  *
- * @description This operation retrieves up to **5000** audio and video files that match the specified filter conditions (such as video status and category ID). Specify StartTime and EndTime to retrieve data in batches. To query more audio and video files or traverse all audio and video information, see [Search for media information](https://help.aliyun.com/document_detail/86044.html).
+ * @description This operation retrieves up to the first **5,000** audio and video assets that match specified filter conditions, such as video status and category ID. Specify StartTime and EndTime to retrieve data in batches. To query more audio and video assets or traverse all audio and video information, refer to [Search for media assets](https://help.aliyun.com/document_detail/86044.html).
  *
  * @param request GetVideoListRequest
  * @return GetVideoListResponse
@@ -8529,9 +8635,9 @@ ListJobInfoResponse Client::listJobInfo(const ListJobInfoRequest &request) {
 }
 
 /**
- * @summary Retrieves the list of Live to VOD videos.
+ * @summary Queries a list of Live to VOD videos.
  *
- * @description A maximum of 5,000 records that match the specified filter conditions can be retrieved.
+ * @description You can retrieve up to 5,000 records that match the specified filter conditions.
  *
  * @param request ListLiveRecordVideoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8590,9 +8696,9 @@ ListLiveRecordVideoResponse Client::listLiveRecordVideoWithOptions(const ListLiv
 }
 
 /**
- * @summary Retrieves the list of Live to VOD videos.
+ * @summary Queries a list of Live to VOD videos.
  *
- * @description A maximum of 5,000 records that match the specified filter conditions can be retrieved.
+ * @description You can retrieve up to 5,000 records that match the specified filter conditions.
  *
  * @param request ListLiveRecordVideoRequest
  * @return ListLiveRecordVideoResponse
@@ -8600,6 +8706,52 @@ ListLiveRecordVideoResponse Client::listLiveRecordVideoWithOptions(const ListLiv
 ListLiveRecordVideoResponse Client::listLiveRecordVideo(const ListLiveRecordVideoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listLiveRecordVideoWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the created ManifestEdit track orchestration templates by paging.
+ *
+ * @param request ListManifestEditTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListManifestEditTemplateResponse
+ */
+ListManifestEditTemplateResponse Client::listManifestEditTemplateWithOptions(const ListManifestEditTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListManifestEditTemplate"},
+    {"version" , "2017-03-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListManifestEditTemplateResponse>();
+}
+
+/**
+ * @summary Queries the created ManifestEdit track orchestration templates by paging.
+ *
+ * @param request ListManifestEditTemplateRequest
+ * @return ListManifestEditTemplateResponse
+ */
+ListManifestEditTemplateResponse Client::listManifestEditTemplate(const ListManifestEditTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listManifestEditTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -10723,6 +10875,96 @@ SubmitDynamicImageJobResponse Client::submitDynamicImageJob(const SubmitDynamicI
 }
 
 /**
+ * @summary Submits a manifest editing task for an existing adaptive bitrate streaming (AUTO) packaging output to add or remove audio, video, or subtitle tracks to or from the master playlist without re-transcoding.
+ *
+ * @description ## Request description
+ * - This API operation incrementally edits the manifest of an existing HLS/DASH AUTO stream (definition=7) without re-transcoding.
+ * - `VideoId` and `JobId` are required parameters used for authentication isolation and consistency verification.
+ * - You can specify `TemplateId` to apply a predefined manifest editing template.
+ * - This operation supports appending, removing, and replacing audio, subtitle, and video tracks.
+ * - The `OutputConfig` parameter specifies the storage location of the edited manifest.
+ * - You can pass custom data in `UserData` as pass-through information.
+ *
+ * @param request SubmitEditMediaManifestJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitEditMediaManifestJobResponse
+ */
+SubmitEditMediaManifestJobResponse Client::submitEditMediaManifestJobWithOptions(const SubmitEditMediaManifestJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAudioTracks()) {
+    query["AudioTracks"] = request.getAudioTracks();
+  }
+
+  if (!!request.hasAutoStreamJobId()) {
+    query["AutoStreamJobId"] = request.getAutoStreamJobId();
+  }
+
+  if (!!request.hasOutputConfig()) {
+    query["OutputConfig"] = request.getOutputConfig();
+  }
+
+  if (!!request.hasRemoveTracks()) {
+    query["RemoveTracks"] = request.getRemoveTracks();
+  }
+
+  if (!!request.hasSubtitles()) {
+    query["Subtitles"] = request.getSubtitles();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  if (!!request.hasVideoId()) {
+    query["VideoId"] = request.getVideoId();
+  }
+
+  if (!!request.hasVideoTracks()) {
+    query["VideoTracks"] = request.getVideoTracks();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitEditMediaManifestJob"},
+    {"version" , "2017-03-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitEditMediaManifestJobResponse>();
+}
+
+/**
+ * @summary Submits a manifest editing task for an existing adaptive bitrate streaming (AUTO) packaging output to add or remove audio, video, or subtitle tracks to or from the master playlist without re-transcoding.
+ *
+ * @description ## Request description
+ * - This API operation incrementally edits the manifest of an existing HLS/DASH AUTO stream (definition=7) without re-transcoding.
+ * - `VideoId` and `JobId` are required parameters used for authentication isolation and consistency verification.
+ * - You can specify `TemplateId` to apply a predefined manifest editing template.
+ * - This operation supports appending, removing, and replacing audio, subtitle, and video tracks.
+ * - The `OutputConfig` parameter specifies the storage location of the edited manifest.
+ * - You can pass custom data in `UserData` as pass-through information.
+ *
+ * @param request SubmitEditMediaManifestJobRequest
+ * @return SubmitEditMediaManifestJobResponse
+ */
+SubmitEditMediaManifestJobResponse Client::submitEditMediaManifestJob(const SubmitEditMediaManifestJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitEditMediaManifestJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a media fingerprint job.
  *
  * @description Currently, this operation is supported in the following regions: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
@@ -11253,7 +11495,7 @@ UpdateAttachedMediaInfosResponse Client::updateAttachedMediaInfos(const UpdateAt
 /**
  * @summary Updates the name of a category.
  *
- * @description After a category is created, you can call this operation to modify the name of the category. If the category has been annotated to some media assets, the category name annotated to those media assets is updated synchronously after the category name is modified.
+ * @description After you create a category, you can call this operation to update the category name. If the category is already tagged on media assets, the category name tagged on these media assets is automatically updated.
  *
  * @param request UpdateCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11290,7 +11532,7 @@ UpdateCategoryResponse Client::updateCategoryWithOptions(const UpdateCategoryReq
 /**
  * @summary Updates the name of a category.
  *
- * @description After a category is created, you can call this operation to modify the name of the category. If the category has been annotated to some media assets, the category name annotated to those media assets is updated synchronously after the category name is modified.
+ * @description After you create a category, you can call this operation to update the category name. If the category is already tagged on media assets, the category name tagged on these media assets is automatically updated.
  *
  * @param request UpdateCategoryRequest
  * @return UpdateCategoryResponse
@@ -11423,14 +11665,14 @@ UpdateImageInfosResponse Client::updateImageInfos(const UpdateImageInfosRequest 
 }
 
 /**
- * @summary Modifies the storage class of media assets.
+ * @summary Modifies the storage class of a media asset.
  *
- * @description - Make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD before you call this operation. Modifying the storage class of media assets in ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section-e97-xrp-mzz~~).
- * - Modifying the storage class of media assets is an **asynchronous operation**. A callback is sent to you after the operation is complete.
- * - If the current storage class of a media asset is Archive or Cold Archive, calling this operation automatically triggers restoration. The storage class is modified after the restoration is complete. You do not need to manually call the RestoreMedia operation to restore the media asset. For Cold Archive media assets, you must specify the restoration priority. The default value is RestoreTier=Standard.
- * - Media assets that are being modified cannot be submitted for another modification task, production, or processing.
- * - Media assets in non-standard storage classes have minimum storage duration requirements. Infrequent Access (IA) and Source File IA require a minimum of 30 days. Archive and Source File Archive require a minimum of 60 days. Cold Archive and Source File Cold Archive require a minimum of 180 days. If the storage duration does not meet the requirement when you modify the storage class, you are charged for the remaining days. For example, if you modify the storage class of a media asset from IA to Standard after 10 days of IA storage, you are charged for the remaining 20 days of IA storage at a time, resulting in a total charge for 30 days of IA storage.
- * - **Modifying the storage class of media assets in custom buckets is not supported.**
+ * @description - Before calling this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Modifying the storage class of a media asset in ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section-e97-xrp-mzz~~).
+ * - Modifying the storage class of a media asset is an **asynchronous operation**. A callback is sent to you after the operation is complete.
+ * - If the current storage class of the media asset is Archive or Cold Archive, calling this operation automatically triggers restoration. The storage class is modified after the restoration is complete. You do not need to manually call the RestoreMedia operation to restore the media asset. For Cold Archive media assets, you must specify the restoration priority. The default value is RestoreTier=Standard.
+ * - You cannot initiate another modification task for a media asset that is being modified, nor can you produce or process it.
+ * - Media assets in non-standard storage classes have minimum storage duration requirements. Infrequent Access (IA) and Source File IA require a minimum storage duration of 30 days. Archive and Source File Archive require a minimum storage duration of 60 days. Cold Archive and Source File Cold Archive require a minimum storage duration of 180 days. If the storage duration does not meet the requirement when you modify the storage class of a media asset, you are charged for the remaining days of the minimum storage duration. For example, if you change the storage class of a media asset from IA to Standard after 10 days of IA storage, you are charged for the remaining 20 days of IA storage at a time, resulting in a total charge for 30 days of IA storage.
+ * - **Modifying the storage class of media assets in your own buckets is not supported.**
  *
  * @param request UpdateMediaStorageClassRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11477,14 +11719,14 @@ UpdateMediaStorageClassResponse Client::updateMediaStorageClassWithOptions(const
 }
 
 /**
- * @summary Modifies the storage class of media assets.
+ * @summary Modifies the storage class of a media asset.
  *
- * @description - Make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD before you call this operation. Modifying the storage class of media assets in ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section-e97-xrp-mzz~~).
- * - Modifying the storage class of media assets is an **asynchronous operation**. A callback is sent to you after the operation is complete.
- * - If the current storage class of a media asset is Archive or Cold Archive, calling this operation automatically triggers restoration. The storage class is modified after the restoration is complete. You do not need to manually call the RestoreMedia operation to restore the media asset. For Cold Archive media assets, you must specify the restoration priority. The default value is RestoreTier=Standard.
- * - Media assets that are being modified cannot be submitted for another modification task, production, or processing.
- * - Media assets in non-standard storage classes have minimum storage duration requirements. Infrequent Access (IA) and Source File IA require a minimum of 30 days. Archive and Source File Archive require a minimum of 60 days. Cold Archive and Source File Cold Archive require a minimum of 180 days. If the storage duration does not meet the requirement when you modify the storage class, you are charged for the remaining days. For example, if you modify the storage class of a media asset from IA to Standard after 10 days of IA storage, you are charged for the remaining 20 days of IA storage at a time, resulting in a total charge for 30 days of IA storage.
- * - **Modifying the storage class of media assets in custom buckets is not supported.**
+ * @description - Before calling this operation, make sure that you fully understand the billing methods and pricing of ApsaraVideo VOD. Modifying the storage class of a media asset in ApsaraVideo VOD incurs storage fees. For billing details, see [Media asset storage billing](~~188308#section-e97-xrp-mzz~~).
+ * - Modifying the storage class of a media asset is an **asynchronous operation**. A callback is sent to you after the operation is complete.
+ * - If the current storage class of the media asset is Archive or Cold Archive, calling this operation automatically triggers restoration. The storage class is modified after the restoration is complete. You do not need to manually call the RestoreMedia operation to restore the media asset. For Cold Archive media assets, you must specify the restoration priority. The default value is RestoreTier=Standard.
+ * - You cannot initiate another modification task for a media asset that is being modified, nor can you produce or process it.
+ * - Media assets in non-standard storage classes have minimum storage duration requirements. Infrequent Access (IA) and Source File IA require a minimum storage duration of 30 days. Archive and Source File Archive require a minimum storage duration of 60 days. Cold Archive and Source File Cold Archive require a minimum storage duration of 180 days. If the storage duration does not meet the requirement when you modify the storage class of a media asset, you are charged for the remaining days of the minimum storage duration. For example, if you change the storage class of a media asset from IA to Standard after 10 days of IA storage, you are charged for the remaining 20 days of IA storage at a time, resulting in a total charge for 30 days of IA storage.
+ * - **Modifying the storage class of media assets in your own buckets is not supported.**
  *
  * @param request UpdateMediaStorageClassRequest
  * @return UpdateMediaStorageClassResponse

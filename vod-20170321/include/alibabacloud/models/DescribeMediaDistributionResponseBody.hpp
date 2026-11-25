@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The number of media assets that match the specified time range within the statistical period.
+      // The number of media assets that match the specified time range within the natural statistical period.
       shared_ptr<int64_t> count_ {};
-      // The end time (exclusive) of the statistical period. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
+      // The end time of the statistical period. The end time is not included. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
       shared_ptr<string> endTime_ {};
-      // The start time (inclusive) of the statistical period. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
+      // The start time of the statistical period. The start time is included. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
       shared_ptr<string> startTime_ {};
     };
 
@@ -115,7 +115,7 @@ namespace Models
 
 
   protected:
-    // The distribution list of audio and video media assets. Statistics are displayed based on the statistical period (calendar hour, day, week, or month) within the specified time range.
+    // The distribution list of audio and video media assets. The list is displayed based on the statistical periods such as natural hours, days, weeks, and months of the start time and end time.
     shared_ptr<vector<DescribeMediaDistributionResponseBody::MediaDistributionList>> mediaDistributionList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
