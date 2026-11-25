@@ -245,7 +245,7 @@ namespace Models
 
 
     protected:
-      // The email address.
+      // The email addresses.
       shared_ptr<string> emails_ {};
       // The shop ID.
       shared_ptr<int64_t> id_ {};
@@ -1050,26 +1050,26 @@ namespace Models
     // The reason for the audit failure. This parameter is returned when QueryDraft is set to true.
     shared_ptr<string> auditFailMsg_ {};
     // The audit status. This parameter is returned when QueryDraft is set to true. Valid values:
-    // - draft: not submitted
-    // - security_ing: security audit in progress
-    // - security_fail: security audit failed
-    // - function_ing: functional audit in progress
-    // - function_fail: functional audit failed
-    // - info_ing: product information audit in progress
-    // - info_fail: product information audit failed
-    // - success: succeeded.
+    // - draft: Not submitted.
+    // - security_ing: Under security audit.
+    // - security_fail: Security audit failed.
+    // - function_ing: Under feature audit.
+    // - function_fail: Feature audit failed.
+    // - info_ing: Under product information audit.
+    // - info_fail: Product information audit failed.
+    // - success: Succeeded.
     shared_ptr<string> auditStatus_ {};
     // The audit time. This parameter is returned when QueryDraft is set to true.
     shared_ptr<int64_t> auditTime_ {};
-    // The commodity code of the product.
+    // The product code.
     shared_ptr<string> code_ {};
     // The detailed description of the product. HTML is supported.
     shared_ptr<string> description_ {};
-    // The product category ID.
+    // The category ID of the product.
     shared_ptr<int64_t> frontCategoryId_ {};
-    // The time when the product was created.
+    // The creation time.
     shared_ptr<int64_t> gmtCreated_ {};
-    // The time when the product was last modified.
+    // The modification time.
     shared_ptr<int64_t> gmtModified_ {};
     // The product name.
     shared_ptr<string> name_ {};
@@ -1079,22 +1079,22 @@ namespace Models
     shared_ptr<DescribeProductResponseBody::ProductSkus> productSkus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The product rating.
+    // The product score.
     shared_ptr<float> score_ {};
     // The shop information.
     shared_ptr<DescribeProductResponseBody::ShopInfo> shopInfo_ {};
     // The short description of the product.
     shared_ptr<string> shortDescription_ {};
-    // Deprecated.
+    // **[Deprecated]**
     shared_ptr<string> status_ {};
     // The UID of the service provider.
     shared_ptr<int64_t> supplierPk_ {};
     // The product type. Valid values:
     // 
-    // * APP: application
-    // * DOWNLOAD: download
-    // * MIRROR: image
-    // * SERVICE: service
+    // * APP: Application.
+    // * DOWNLOAD: Download.
+    // * MIRROR: Image.
+    // * SERVICE: Service.
     // * API_SERVICE: API service.
     shared_ptr<string> type_ {};
     // The usage count.

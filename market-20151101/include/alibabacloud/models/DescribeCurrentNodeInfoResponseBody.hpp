@@ -237,7 +237,7 @@ namespace Models
       shared_ptr<int32_t> stepNo_ {};
       // The form content of the process node in JSON format.
       // Sample code:
-      // `[ { "fieldKey": "TFD0", //form key "isRequired": true, //whether the field is required "maxLength": 50, //maximum length "placeHolder": "姓名", //form value description "stepNum": 0, //sort value (ascending) "title": "收货人姓名", //form title "type": "text" //form type }, { "fieldKey": "TFD1", "isRequired": true, "maxLength": 50, "placeHolder": "手机号码", "stepNum": 1, "title": "收货人电话", "type": "text" }, { "fieldKey": "TFD2", "isRequired": true, "maxLength": 50, "placeHolder": "省市区街道门牌号码", "stepNum": 2, "title": "详细收货地址", "type": "textarea" } ]`.
+      // `[ { "fieldKey": "TFD0", //form key "isRequired": true, //whether the field is required "maxLength": 50, //maximum length "placeHolder": "Name", //form value description "stepNum": 0, //sort value (ascending) "title": "Consignee name", //form title "type": "text" //form type }, { "fieldKey": "TFD1", "isRequired": true, "maxLength": 50, "placeHolder": "Phone number", "stepNum": 1, "title": "Consignee phone number", "type": "text" }, { "fieldKey": "TFD2", "isRequired": true, "maxLength": 50, "placeHolder": "Province, city, district, street, and house number", "stepNum": 2, "title": "Detailed shipping address", "type": "textarea" } ]`.
       shared_ptr<string> templateForm_ {};
     };
 

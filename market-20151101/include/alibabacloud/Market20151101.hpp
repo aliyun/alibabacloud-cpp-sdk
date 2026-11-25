@@ -122,9 +122,9 @@ namespace Market20151101
       Models::CrossAccountVerifyTokenResponse crossAccountVerifyToken(const Models::CrossAccountVerifyTokenRequest &request);
 
       /**
-       * @summary Retrieves the API quota data of a user, including the remaining quota, total quota, and usage.
+       * @summary Retrieves the API quota, total capacity, and usage data of a user.
        *
-       * @description ### **Note: This operation supports both Alibaba Cloud accounts and RAM users to retrieve API remaining quota, total quota, and usage information.**.
+       * @description ### **Note: This API operation supports Alibaba Cloud accounts and RAM users in retrieving API quota, total capacity, and usage information.**
        *
        * @param request DescribeApiMeteringRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -133,9 +133,9 @@ namespace Market20151101
       Models::DescribeApiMeteringResponse describeApiMeteringWithOptions(const Models::DescribeApiMeteringRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the API quota data of a user, including the remaining quota, total quota, and usage.
+       * @summary Retrieves the API quota, total capacity, and usage data of a user.
        *
-       * @description ### **Note: This operation supports both Alibaba Cloud accounts and RAM users to retrieve API remaining quota, total quota, and usage information.**.
+       * @description ### **Note: This API operation supports Alibaba Cloud accounts and RAM users in retrieving API quota, total capacity, and usage information.**
        *
        * @param request DescribeApiMeteringRequest
        * @return DescribeApiMeteringResponse
@@ -299,9 +299,9 @@ namespace Market20151101
       Models::DescribeInstancesResponse describeInstances(const Models::DescribeInstancesRequest &request);
 
       /**
-       * @summary Queries the invoice information of a supplier store in Alibaba Cloud Marketplace.
+       * @summary Queries the invoice information of a Cloud Marketplace vendor store.
        *
-       * @description Queries business information based on an authorization code. The system first verifies whether the authorization code is valid.
+       * @description Queries business information based on an authorization code and first verifies whether the authorization code is valid.
        * - If the authorization code is invalid, an error message is returned.
        * - If the authorization code is valid, the authorization information is returned.
        *
@@ -312,9 +312,9 @@ namespace Market20151101
       Models::DescribeInvoiceForIsvResponse describeInvoiceForIsvWithOptions(const Models::DescribeInvoiceForIsvRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the invoice information of a supplier store in Alibaba Cloud Marketplace.
+       * @summary Queries the invoice information of a Cloud Marketplace vendor store.
        *
-       * @description Queries business information based on an authorization code. The system first verifies whether the authorization code is valid.
+       * @description Queries business information based on an authorization code and first verifies whether the authorization code is valid.
        * - If the authorization code is invalid, an error message is returned.
        * - If the authorization code is valid, the authorization information is returned.
        *
@@ -392,7 +392,7 @@ namespace Market20151101
       Models::DescribePriceResponse describePrice(const Models::DescribePriceRequest &request);
 
       /**
-       * @summary Queries the details of a specified product by calling DescribeProduct.
+       * @summary Queries the details of a specified product.
        *
        * @param request DescribeProductRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -401,7 +401,7 @@ namespace Market20151101
       Models::DescribeProductResponse describeProductWithOptions(const Models::DescribeProductRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified product by calling DescribeProduct.
+       * @summary Queries the details of a specified product.
        *
        * @param request DescribeProductRequest
        * @return DescribeProductResponse
@@ -426,7 +426,7 @@ namespace Market20151101
       Models::DescribeProductsResponse describeProducts(const Models::DescribeProductsRequest &request);
 
       /**
-       * @summary Calls DescribeProjectAttachments to retrieve the list of project attachments.
+       * @summary Queries a list of project attachments.
        *
        * @param request DescribeProjectAttachmentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -435,7 +435,7 @@ namespace Market20151101
       Models::DescribeProjectAttachmentsResponse describeProjectAttachmentsWithOptions(const Models::DescribeProjectAttachmentsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls DescribeProjectAttachments to retrieve the list of project attachments.
+       * @summary Queries a list of project attachments.
        *
        * @param request DescribeProjectAttachmentsRequest
        * @return DescribeProjectAttachmentsResponse
@@ -460,7 +460,7 @@ namespace Market20151101
       Models::DescribeProjectInfoResponse describeProjectInfo(const Models::DescribeProjectInfoRequest &request);
 
       /**
-       * @summary Calls DescribeProjectMessages to retrieve the list of project workflow messages.
+       * @summary Queries the list of messages for a project workflow.
        *
        * @param request DescribeProjectMessagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -469,7 +469,7 @@ namespace Market20151101
       Models::DescribeProjectMessagesResponse describeProjectMessagesWithOptions(const Models::DescribeProjectMessagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls DescribeProjectMessages to retrieve the list of project workflow messages.
+       * @summary Queries the list of messages for a project workflow.
        *
        * @param request DescribeProjectMessagesRequest
        * @return DescribeProjectMessagesResponse
@@ -592,27 +592,27 @@ namespace Market20151101
       Models::PauseProjectResponse pauseProject(const Models::PauseProjectRequest &request);
 
       /**
-       * @summary Call PushMeteringData to push metering data.
+       * @summary Pushes metering data.
        *
-       * @description ### Encoding and Format Requirements
-       * - All request parameters must be URLEncoded.
-       * - The Metering field in the parameters must strictly follow the format in the example in this document. It has been found that many submissions are not valid JSON. Please verify the format with a JSON formatting tool before submission, otherwise the API call will fail.
-       * ### Request Frequency and Single Write Volume Limits
-       * - For hourly/daily metering: Cloud Marketplace limits requests for each InstanceId to once per 60 seconds, and each request supports writing up to 100 metering data entries.
-       * - For real-time metering (for large model usage scenarios): Cloud Marketplace has no frequency limit for each InstanceId, and each request supports writing up to 10 metering data entries.
-       * ### Batch Push Limits for Metering Data
-       * - Cross-product InstanceId batch pushing is not supported. When batch pushing, ensure all InstanceIds belong to the same product.
-       * - When batch pushing metering data, the "InstanceId" attribute must belong to instances generated by the same product. Pushing instances from multiple products simultaneously is currently not supported.
-       * ### Time Requirements for Metering Data Push
-       * - For products billed by the hour, the billing deadline is the next hour, and metering data must be pushed on time. For example, if the metering data is for 8:10-08:20, it must be pushed before 9:59, otherwise billing will not occur. The rule for daily billing is similar: the previous day\\"s data must be pushed before 1:59 of the next day, otherwise the metering push will return an error and billing will not occur.
-       * - For products billed by the minute, real-time pushed data is aggregated by the minute and billed by the minute.
-       * - If the product is set to real-time billing, StartTime and EndTime can have any time span, but EndTime must be greater than StartTime.
-       * - If the product is set to non-real-time billing (i.e., hourly, daily, etc.), the interval between StartTime and EndTime must be greater than 5 minutes.
-       * ### Timeliness of Pushing and Billing
-       * - If the instance status has expired, metering data pushed after the instance expiration will not be billed. For example, if the instance expired at 2025-07-09 12:20:00, metering data pushed for the period 2025-07-09 13:00:00-2025-07-09 14:00:00 will not be billed. Metering data for the period 2025-07-09 12:00:00-2025-07-09 13:00:00 can still be billed normally.
-       * - After pushing metering data, billing does not occur immediately. For hourly billing, bills are generated in the next time interval. For example, for hourly billing, the bill for 8:00-9:00 is generated after 10:00. For daily billing, bills are generated the next day. After billing, customers can view the bills in [Alibaba Cloud Bill Details](https://billing-cost.console.aliyun.com/finance/expense-report/expense-detail-by-instance).
-       * ### Amount Rounding to Zero
-       * - If the bill amount is too small and the single bill amount is less than 0.01 CNY, the bill amount on the buyer\\"s side will be 0. For example, if the product unit price is 0.001 CNY/count and is billed by the minute with 9 uses per minute, the bill amount per minute is 0. If billed by the hour and the single hourly bill amount is less than 0.01, the buyer\\"s bill amount will be 0. The probability of minute-level billing amounts being rounded to zero may be higher than that of hourly billing.
+       * @description ### Encoding and format requirements
+       * - All request parameters must be URL-encoded.
+       * - Ensure that the Metering field in the parameters is submitted strictly according to the examples in the documentation. In the past, many submissions were not valid JSON fields. You can use a JSON formatting tool to check the field before submission. Otherwise, the API call will fail.
+       * ### Request frequency and single write volume limits
+       * - For hourly or daily metering: Alibaba Cloud Marketplace limits requests to once every 60 seconds per InstanceId, and each request supports writing up to 100 metering data records.
+       * - For real-time metering (for large model scenarios): Alibaba Cloud Marketplace has no frequency limit for requests per InstanceId, and each request supports writing up to 10 metering data records.
+       * ### Limits on batch pushing of metering data
+       * - Batch pushing across InstanceIds of different products is not supported. When pushing in batches, ensure that all InstanceIds belong to the same product.
+       * - When pushing metering data in batches, the InstanceId attribute must belong to instances generated by the same product. Pushing instances of multiple products at the same time is not supported.
+       * ### Time requirements for pushing metering data
+       * - For products billed hourly, the billing cutoff time is the next hour, and metering data must be pushed on time. For example, if the metering data is for 08:10 to 08:20, it must be pushed before 09:59. Otherwise, no bill will be generated. The rule for daily billing is similar: the data for the previous day must be pushed before 01:59 the next day. Otherwise, an error will be reported when pushing the metering data, and no bill will be generated.
+       * - For products billed by the minute, real-time pushed data is aggregated by the minute, and bills are generated by the minute.
+       * - If a product is set to real-time billing, StartTime and EndTime can be of any time width, but EndTime must be greater than StartTime.
+       * - If a product is set to non-real-time billing (such as hourly or daily), the interval between StartTime and EndTime must be greater than 5 minutes.
+       * ### Timeliness of pushing data and billing
+       * - If the instance status is expired, metering data pushed after the expiration will not be billed. For example, if an instance expires at 2025-07-09 12:20:00, the metering data pushed for the hour from 2025-07-09 13:00:00 to 2025-07-09 14:00:00 will not be billed. However, the metering data for the hour from 2025-07-09 12:00:00 to 2025-07-09 13:00:00 can still be billed normally.
+       * - After metering data is pushed, bills are not generated immediately. For hourly billing, the bill is generated in the next time interval. For example, the bill for 08:00 to 09:00 is generated after 10:00. For daily billing, the bill is generated the next day. After the bill is generated, customers can view it in [Alibaba Cloud Bill Details](https://billing-cost.console.aliyun.com/finance/expense-report/expense-detail-by-instance).
+       * ### Rounding down of amounts
+       * - If the bill amount is too small and a single bill amount is less than 0.01 CNY, the bill amount for the buyer is 0. For example, if the unit price of a product is 0.001 CNY per time and it is billed by the minute, and 9 times are consumed every minute, the bill amount per minute is 0. If it is billed hourly and the bill amount for a single hour is less than 0.01 CNY, the bill amount for the buyer is 0. The probability of rounding down to zero for minute-level billing may be higher than that for hourly billing.
        *
        * @param request PushMeteringDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -621,27 +621,27 @@ namespace Market20151101
       Models::PushMeteringDataResponse pushMeteringDataWithOptions(const Models::PushMeteringDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call PushMeteringData to push metering data.
+       * @summary Pushes metering data.
        *
-       * @description ### Encoding and Format Requirements
-       * - All request parameters must be URLEncoded.
-       * - The Metering field in the parameters must strictly follow the format in the example in this document. It has been found that many submissions are not valid JSON. Please verify the format with a JSON formatting tool before submission, otherwise the API call will fail.
-       * ### Request Frequency and Single Write Volume Limits
-       * - For hourly/daily metering: Cloud Marketplace limits requests for each InstanceId to once per 60 seconds, and each request supports writing up to 100 metering data entries.
-       * - For real-time metering (for large model usage scenarios): Cloud Marketplace has no frequency limit for each InstanceId, and each request supports writing up to 10 metering data entries.
-       * ### Batch Push Limits for Metering Data
-       * - Cross-product InstanceId batch pushing is not supported. When batch pushing, ensure all InstanceIds belong to the same product.
-       * - When batch pushing metering data, the "InstanceId" attribute must belong to instances generated by the same product. Pushing instances from multiple products simultaneously is currently not supported.
-       * ### Time Requirements for Metering Data Push
-       * - For products billed by the hour, the billing deadline is the next hour, and metering data must be pushed on time. For example, if the metering data is for 8:10-08:20, it must be pushed before 9:59, otherwise billing will not occur. The rule for daily billing is similar: the previous day\\"s data must be pushed before 1:59 of the next day, otherwise the metering push will return an error and billing will not occur.
-       * - For products billed by the minute, real-time pushed data is aggregated by the minute and billed by the minute.
-       * - If the product is set to real-time billing, StartTime and EndTime can have any time span, but EndTime must be greater than StartTime.
-       * - If the product is set to non-real-time billing (i.e., hourly, daily, etc.), the interval between StartTime and EndTime must be greater than 5 minutes.
-       * ### Timeliness of Pushing and Billing
-       * - If the instance status has expired, metering data pushed after the instance expiration will not be billed. For example, if the instance expired at 2025-07-09 12:20:00, metering data pushed for the period 2025-07-09 13:00:00-2025-07-09 14:00:00 will not be billed. Metering data for the period 2025-07-09 12:00:00-2025-07-09 13:00:00 can still be billed normally.
-       * - After pushing metering data, billing does not occur immediately. For hourly billing, bills are generated in the next time interval. For example, for hourly billing, the bill for 8:00-9:00 is generated after 10:00. For daily billing, bills are generated the next day. After billing, customers can view the bills in [Alibaba Cloud Bill Details](https://billing-cost.console.aliyun.com/finance/expense-report/expense-detail-by-instance).
-       * ### Amount Rounding to Zero
-       * - If the bill amount is too small and the single bill amount is less than 0.01 CNY, the bill amount on the buyer\\"s side will be 0. For example, if the product unit price is 0.001 CNY/count and is billed by the minute with 9 uses per minute, the bill amount per minute is 0. If billed by the hour and the single hourly bill amount is less than 0.01, the buyer\\"s bill amount will be 0. The probability of minute-level billing amounts being rounded to zero may be higher than that of hourly billing.
+       * @description ### Encoding and format requirements
+       * - All request parameters must be URL-encoded.
+       * - Ensure that the Metering field in the parameters is submitted strictly according to the examples in the documentation. In the past, many submissions were not valid JSON fields. You can use a JSON formatting tool to check the field before submission. Otherwise, the API call will fail.
+       * ### Request frequency and single write volume limits
+       * - For hourly or daily metering: Alibaba Cloud Marketplace limits requests to once every 60 seconds per InstanceId, and each request supports writing up to 100 metering data records.
+       * - For real-time metering (for large model scenarios): Alibaba Cloud Marketplace has no frequency limit for requests per InstanceId, and each request supports writing up to 10 metering data records.
+       * ### Limits on batch pushing of metering data
+       * - Batch pushing across InstanceIds of different products is not supported. When pushing in batches, ensure that all InstanceIds belong to the same product.
+       * - When pushing metering data in batches, the InstanceId attribute must belong to instances generated by the same product. Pushing instances of multiple products at the same time is not supported.
+       * ### Time requirements for pushing metering data
+       * - For products billed hourly, the billing cutoff time is the next hour, and metering data must be pushed on time. For example, if the metering data is for 08:10 to 08:20, it must be pushed before 09:59. Otherwise, no bill will be generated. The rule for daily billing is similar: the data for the previous day must be pushed before 01:59 the next day. Otherwise, an error will be reported when pushing the metering data, and no bill will be generated.
+       * - For products billed by the minute, real-time pushed data is aggregated by the minute, and bills are generated by the minute.
+       * - If a product is set to real-time billing, StartTime and EndTime can be of any time width, but EndTime must be greater than StartTime.
+       * - If a product is set to non-real-time billing (such as hourly or daily), the interval between StartTime and EndTime must be greater than 5 minutes.
+       * ### Timeliness of pushing data and billing
+       * - If the instance status is expired, metering data pushed after the expiration will not be billed. For example, if an instance expires at 2025-07-09 12:20:00, the metering data pushed for the hour from 2025-07-09 13:00:00 to 2025-07-09 14:00:00 will not be billed. However, the metering data for the hour from 2025-07-09 12:00:00 to 2025-07-09 13:00:00 can still be billed normally.
+       * - After metering data is pushed, bills are not generated immediately. For hourly billing, the bill is generated in the next time interval. For example, the bill for 08:00 to 09:00 is generated after 10:00. For daily billing, the bill is generated the next day. After the bill is generated, customers can view it in [Alibaba Cloud Bill Details](https://billing-cost.console.aliyun.com/finance/expense-report/expense-detail-by-instance).
+       * ### Rounding down of amounts
+       * - If the bill amount is too small and a single bill amount is less than 0.01 CNY, the bill amount for the buyer is 0. For example, if the unit price of a product is 0.001 CNY per time and it is billed by the minute, and 9 times are consumed every minute, the bill amount per minute is 0. If it is billed hourly and the bill amount for a single hour is less than 0.01 CNY, the bill amount for the buyer is 0. The probability of rounding down to zero for minute-level billing may be higher than that for hourly billing.
        *
        * @param request PushMeteringDataRequest
        * @return PushMeteringDataResponse
@@ -649,18 +649,18 @@ namespace Market20151101
       Models::PushMeteringDataResponse pushMeteringData(const Models::PushMeteringDataRequest &request);
 
       /**
-       * @summary Pushes usage deduction for a prepaid per-use product to Alibaba Cloud Marketplace on behalf of a service provider.
+       * @summary Pushes usage deductions for prepaid pay-per-use products to Alibaba Cloud Marketplace.
        *
-       * @description ## Operation description
-       * - This operation applies to prepaid per-use products. Service providers can call this operation to push usage deductions to Alibaba Cloud Marketplace.
-       * - The operation uses a forced update mode that directly deducts the specified number of uses. The caller must determine whether the user\\"s usage exceeds the quota.
+       * @description ## Request description
+       * - This operation applies to prepaid pay-per-use products. Service providers can use this operation to push user usage deductions to Alibaba Cloud Marketplace.
+       * - This operation uses a forced update mode to directly deduct the specified number of uses. The caller must determine whether the user\\"s usage exceeds the limit.
        * - All request parameters must be URL-encoded.
-       * - Use the `ClientToken` parameter for idempotency control. The same `ClientToken` cannot be submitted more than once within 24 hours.
-       * - Retries for the same deduction operation must use the same `ClientToken`. Use a new `ClientToken` for new business operations.
-       * - If the previous request succeeded (even if no response was received due to a gateway timeout), retrying with the same `ClientToken` returns a success response idempotently without duplicate deductions.
-       * - If the result of the previous request is undetermined (in PROCESSING state), retrying with the same `ClientToken` returns a `DuplicateClientToken` error. Retry later or contact Alibaba Cloud Marketplace to confirm the push status.
-       * - Only one operation can be executed at a time for the same `InstanceId`. Concurrent requests return a `Throttling` error. Retry later.
-       * - You can run this operation in [OpenAPI Explorer](https://api.aliyun.com/#product=Market&api=PushTimesUsage&type=RPC&version=2015-11-01) without calculating signatures.
+       * - Use the `ClientToken` parameter to ensure idempotence. The same `ClientToken` cannot be submitted repeatedly within 24 hours.
+       * - Retries for the same deduction operation must use the same `ClientToken`. New operations must use a new `ClientToken`.
+       * - If the previous request succeeded, even if no response was received due to a gateway timeout, a retry with the same `ClientToken` returns a success response idempotently without duplicate deductions.
+       * - If the result of the previous request is undetermined and the request is in the PROCESSING state, a retry with the same `ClientToken` returns a `DuplicateClientToken` error. Retry later or contact Alibaba Cloud Marketplace to confirm the push status.
+       * - Only one operation can be executed for the same `InstanceId` at a time. Concurrent requests return a `Throttling` error. Retry later.
+       * - You can directly call this operation in [OpenAPI Explorer](https://api.aliyun.com/#product=Market&api=PushTimesUsage&type=RPC&version=2015-11-01) without the need to manually calculate the signature.
        *
        * @param request PushTimesUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -669,18 +669,18 @@ namespace Market20151101
       Models::PushTimesUsageResponse pushTimesUsageWithOptions(const Models::PushTimesUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Pushes usage deduction for a prepaid per-use product to Alibaba Cloud Marketplace on behalf of a service provider.
+       * @summary Pushes usage deductions for prepaid pay-per-use products to Alibaba Cloud Marketplace.
        *
-       * @description ## Operation description
-       * - This operation applies to prepaid per-use products. Service providers can call this operation to push usage deductions to Alibaba Cloud Marketplace.
-       * - The operation uses a forced update mode that directly deducts the specified number of uses. The caller must determine whether the user\\"s usage exceeds the quota.
+       * @description ## Request description
+       * - This operation applies to prepaid pay-per-use products. Service providers can use this operation to push user usage deductions to Alibaba Cloud Marketplace.
+       * - This operation uses a forced update mode to directly deduct the specified number of uses. The caller must determine whether the user\\"s usage exceeds the limit.
        * - All request parameters must be URL-encoded.
-       * - Use the `ClientToken` parameter for idempotency control. The same `ClientToken` cannot be submitted more than once within 24 hours.
-       * - Retries for the same deduction operation must use the same `ClientToken`. Use a new `ClientToken` for new business operations.
-       * - If the previous request succeeded (even if no response was received due to a gateway timeout), retrying with the same `ClientToken` returns a success response idempotently without duplicate deductions.
-       * - If the result of the previous request is undetermined (in PROCESSING state), retrying with the same `ClientToken` returns a `DuplicateClientToken` error. Retry later or contact Alibaba Cloud Marketplace to confirm the push status.
-       * - Only one operation can be executed at a time for the same `InstanceId`. Concurrent requests return a `Throttling` error. Retry later.
-       * - You can run this operation in [OpenAPI Explorer](https://api.aliyun.com/#product=Market&api=PushTimesUsage&type=RPC&version=2015-11-01) without calculating signatures.
+       * - Use the `ClientToken` parameter to ensure idempotence. The same `ClientToken` cannot be submitted repeatedly within 24 hours.
+       * - Retries for the same deduction operation must use the same `ClientToken`. New operations must use a new `ClientToken`.
+       * - If the previous request succeeded, even if no response was received due to a gateway timeout, a retry with the same `ClientToken` returns a success response idempotently without duplicate deductions.
+       * - If the result of the previous request is undetermined and the request is in the PROCESSING state, a retry with the same `ClientToken` returns a `DuplicateClientToken` error. Retry later or contact Alibaba Cloud Marketplace to confirm the push status.
+       * - Only one operation can be executed for the same `InstanceId` at a time. Concurrent requests return a `Throttling` error. Retry later.
+       * - You can directly call this operation in [OpenAPI Explorer](https://api.aliyun.com/#product=Market&api=PushTimesUsage&type=RPC&version=2015-11-01) without the need to manually calculate the signature.
        *
        * @param request PushTimesUsageRequest
        * @return PushTimesUsageResponse

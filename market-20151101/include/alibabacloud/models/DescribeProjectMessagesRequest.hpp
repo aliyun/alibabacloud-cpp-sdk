@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The instance ID of the Alibaba Cloud Marketplace business instance.
+    // The instance ID of the Alibaba Cloud Marketplace business.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number of the query. Each page contains 20 entries.
+    // The page number. Each page returns 20 entries.
     shared_ptr<int32_t> pageIndex_ {};
   };
 

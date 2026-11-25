@@ -56,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(InvoiceId, invoiceId_);
         DARABONBA_PTR_TO_JSON(InvoiceList, invoiceList_);
+        DARABONBA_PTR_TO_JSON(InvoiceTitleRelation, invoiceTitleRelation_);
         DARABONBA_PTR_TO_JSON(MaterialType, materialType_);
         DARABONBA_PTR_TO_JSON(ModifiedTime, modifiedTime_);
         DARABONBA_PTR_TO_JSON(ModifiedTimeStr, modifiedTimeStr_);
@@ -75,6 +76,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(InvoiceId, invoiceId_);
         DARABONBA_PTR_FROM_JSON(InvoiceList, invoiceList_);
+        DARABONBA_PTR_FROM_JSON(InvoiceTitleRelation, invoiceTitleRelation_);
         DARABONBA_PTR_FROM_JSON(MaterialType, materialType_);
         DARABONBA_PTR_FROM_JSON(ModifiedTime, modifiedTime_);
         DARABONBA_PTR_FROM_JSON(ModifiedTimeStr, modifiedTimeStr_);
@@ -185,7 +187,7 @@ namespace Models
         shared_ptr<string> addressee_ {};
         // The Alibaba Cloud user ID of the customer.
         shared_ptr<string> aliyunPk_ {};
-        // Deprecated.
+        // **[Deprecated]**
         shared_ptr<string> bizType_ {};
         // The delivery address.
         shared_ptr<string> deliveryAddress_ {};
@@ -262,13 +264,13 @@ namespace Models
 
 
       protected:
-        // The bank account number.
+        // The bank account.
         shared_ptr<string> bankAccount_ {};
-        // The bank name.
+        // The name of the bank.
         shared_ptr<string> bankName_ {};
         // The registered address.
         shared_ptr<string> regAddress_ {};
-        // The registered phone number.
+        // The registered landline number.
         shared_ptr<string> regPhone_ {};
         // The unified social credit code of the enterprise.
         shared_ptr<string> taxNumber_ {};
@@ -312,9 +314,9 @@ namespace Models
 
 
       protected:
-        // The invoice object ID.
+        // The ID of the invoice object.
         shared_ptr<string> id_ {};
-        // The invoicing amount applied for. Unit: CNY.
+        // The applied invoicing amount. Unit: CNY.
         shared_ptr<string> invoiceAmount_ {};
       };
 
@@ -429,25 +431,23 @@ namespace Models
 
 
       protected:
-        // Indicates whether invoicing is performed by an agent.
+        // Specifies whether proxy invoicing is used.
         shared_ptr<bool> agent_ {};
         // The amount. Unit: CNY.
         shared_ptr<string> amount_ {};
-        // The time when the business transaction occurred.
+        // The time when the transaction occurred.
         shared_ptr<string> bizTimeStr_ {};
-        // The invoicing object ID.
+        // The ID of the invoicing object.
         shared_ptr<string> id_ {};
-        // The order or bill type. Valid values:
-        // 
-        // - 0: order
-        // 
-        // - 1: bill
+        // The type of the order or bill. Valid values:
+        // - 0: Order.
+        // - 1: Bill.
         shared_ptr<string> orderType_ {};
-        // The order ID.
+        // The ID of the order.
         shared_ptr<string> outBizId_ {};
         // The commodity code.
         shared_ptr<string> productCode_ {};
-        // The product name. (Deprecated.)
+        // **[Deprecated]** The product name.
         shared_ptr<string> productName_ {};
         // The account ID.
         shared_ptr<string> realAliyunId_ {};
@@ -457,9 +457,9 @@ namespace Models
 
       virtual bool empty() const override { return this->aliyunPk_ == nullptr
         && this->checkNotice_ == nullptr && this->createTimeStr_ == nullptr && this->evaluateList_ == nullptr && this->id_ == nullptr && this->invoiceId_ == nullptr
-        && this->invoiceList_ == nullptr && this->materialType_ == nullptr && this->modifiedTime_ == nullptr && this->modifiedTimeStr_ == nullptr && this->price_ == nullptr
-        && this->receiptUserInfoDto_ == nullptr && this->status_ == nullptr && this->title_ == nullptr && this->type_ == nullptr && this->userAddressDto_ == nullptr
-        && this->userNotice_ == nullptr; };
+        && this->invoiceList_ == nullptr && this->invoiceTitleRelation_ == nullptr && this->materialType_ == nullptr && this->modifiedTime_ == nullptr && this->modifiedTimeStr_ == nullptr
+        && this->price_ == nullptr && this->receiptUserInfoDto_ == nullptr && this->status_ == nullptr && this->title_ == nullptr && this->type_ == nullptr
+        && this->userAddressDto_ == nullptr && this->userNotice_ == nullptr; };
       // aliyunPk Field Functions 
       bool hasAliyunPk() const { return this->aliyunPk_ != nullptr;};
       void deleteAliyunPk() { this->aliyunPk_ = nullptr;};
@@ -511,6 +511,13 @@ namespace Models
       inline vector<Result::InvoiceList> getInvoiceList() { DARABONBA_PTR_GET(invoiceList_, vector<Result::InvoiceList>) };
       inline Result& setInvoiceList(const vector<Result::InvoiceList> & invoiceList) { DARABONBA_PTR_SET_VALUE(invoiceList_, invoiceList) };
       inline Result& setInvoiceList(vector<Result::InvoiceList> && invoiceList) { DARABONBA_PTR_SET_RVALUE(invoiceList_, invoiceList) };
+
+
+      // invoiceTitleRelation Field Functions 
+      bool hasInvoiceTitleRelation() const { return this->invoiceTitleRelation_ != nullptr;};
+      void deleteInvoiceTitleRelation() { this->invoiceTitleRelation_ = nullptr;};
+      inline string getInvoiceTitleRelation() const { DARABONBA_PTR_GET_DEFAULT(invoiceTitleRelation_, "") };
+      inline Result& setInvoiceTitleRelation(string invoiceTitleRelation) { DARABONBA_PTR_SET_VALUE(invoiceTitleRelation_, invoiceTitleRelation) };
 
 
       // materialType Field Functions 
@@ -590,37 +597,39 @@ namespace Models
     protected:
       // The Alibaba Cloud user ID of the customer.
       shared_ptr<string> aliyunPk_ {};
-      // The supplier invoice remarks.
+      // The service provider invoice remarks.
       shared_ptr<string> checkNotice_ {};
       // The creation time.
       shared_ptr<string> createTimeStr_ {};
-      // The order, bill, or contract numbers.
+      // The order, bill, or contract number.
       shared_ptr<vector<Result::EvaluateList>> evaluateList_ {};
-      // The invoice application ID. This corresponds to the InvoiceId parameter used when calling the ModifyInvoiceForIsv operation.
+      // The ID of the invoice application. This corresponds to the InvoiceId parameter when you call the ModifyInvoiceForIsv operation.
       shared_ptr<string> id_ {};
-      // The invoice object ID.
+      // The ID of the invoice object.
       shared_ptr<string> invoiceId_ {};
-      // The invoice sub-collection. (Deprecated.)
+      // **[Deprecated]** The invoice sub-collection.
       shared_ptr<vector<Result::InvoiceList>> invoiceList_ {};
+      // The relationship between the invoice title and the customer real-name information. Valid values: `REAL_NAME_MATCH` (The real-name information is consistent), `PERSONAL_APPLY_ENTERPRISE_TITLE` (An individual applies for an enterprise title), `ENTERPRISE_MULTI_TITLE` (Multiple titles for an enterprise), `MASTER_ACCOUNT_OPERATION` (Operated by the main account), and `OTHER` (Other). If not provided, the value is null.
+      shared_ptr<string> invoiceTitleRelation_ {};
       // The invoice issuance type. Valid values:
-      // - 0: paper
-      // - 1: electronic
+      // - 0: Paper.
+      // - 1: Electronic.
       shared_ptr<string> materialType_ {};
-      // The time when the order status was modified (GMT).
+      // The time when the order status was modified. The time is displayed in GMT.
       shared_ptr<string> modifiedTime_ {};
-      // The invoice modification time.
+      // The time when the invoice was modified.
       shared_ptr<string> modifiedTimeStr_ {};
       // The total invoice amount. Unit: CNY.
       shared_ptr<string> price_ {};
-      // The invoice applicant user information.
+      // The user information of the invoice applicant.
       shared_ptr<Result::ReceiptUserInfoDto> receiptUserInfoDto_ {};
-      // The invoice status. Valid values: 0: pending invoicing. 1: invoiced.
+      // The invoice status. Valid values: 0: Pending. 1: Invoiced.
       shared_ptr<string> status_ {};
       // The invoice title.
       shared_ptr<string> title_ {};
       // The invoice type. Valid values:
-      // - 2: general digital electronic invoice
-      // - 3: special digital electronic invoice
+      // - 2: Digital electronic general invoice.
+      // - 3: Digital electronic special invoice.
       shared_ptr<string> type_ {};
       // The address information.
       shared_ptr<Result::UserAddressDto> userAddressDto_ {};
@@ -697,7 +706,7 @@ namespace Models
 
 
   protected:
-    // The commodity code corresponding to the product.
+    // The product code.
     shared_ptr<string> code_ {};
     // The total count.
     shared_ptr<string> count_ {};
@@ -707,13 +716,13 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The current page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of instances per page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The process node information upon success.
+    // The information about the successful flow node.
     shared_ptr<vector<DescribeInvoiceForIsvResponseBody::Result>> result_ {};
-    // The result indicator.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

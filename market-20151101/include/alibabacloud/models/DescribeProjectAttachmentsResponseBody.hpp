@@ -193,25 +193,25 @@ namespace Models
     protected:
       // The MD5 hash of the attachment.
       shared_ptr<string> attachmentToken_ {};
-      // The attachment type.
+      // The type of the attachment.
       shared_ptr<string> attachmentType_ {};
       // The content text.
       shared_ptr<string> content_ {};
-      // The file access URL.
+      // The access URL of the file.
       shared_ptr<string> fileLink_ {};
       // The expiration time of the file URL (UNIX timestamp).
       shared_ptr<int64_t> fileLinkGmtExpired_ {};
-      // The file name.
+      // The name of the file.
       shared_ptr<string> fileName_ {};
-      // The file size, in bytes.
+      // The size of the file (in bytes).
       shared_ptr<int64_t> fileSize_ {};
       // The file name extension.
       shared_ptr<string> fileSuffix_ {};
       // The time when the attachment was uploaded (UNIX timestamp).
       shared_ptr<int64_t> gmtCreate_ {};
-      // The ID of the process node where the attachment was uploaded.
+      // The ID of the flow node where the attachment was uploaded.
       shared_ptr<int64_t> nodeId_ {};
-      // The node name.
+      // The name of the node.
       shared_ptr<string> nodeName_ {};
       // The Alibaba Cloud UID of the operator.
       shared_ptr<int64_t> operator_ {};
@@ -219,7 +219,7 @@ namespace Models
       shared_ptr<string> operatorName_ {};
       // The role of the operator.
       shared_ptr<string> operatorRole_ {};
-      // The sequence number of the process node.
+      // The sequence number of the flow node.
       shared_ptr<int32_t> stepNo_ {};
     };
 
@@ -249,10 +249,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of project attachments.
     shared_ptr<vector<DescribeProjectAttachmentsResponseBody::Result>> result_ {};
-    // The success status identifier.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

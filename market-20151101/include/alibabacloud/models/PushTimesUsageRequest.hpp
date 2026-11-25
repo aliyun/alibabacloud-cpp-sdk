@@ -86,7 +86,7 @@ namespace Models
   protected:
     shared_ptr<bool> adjust_ {};
     shared_ptr<int64_t> adjustDate_ {};
-    // The client token that ensures the idempotency of the request. We recommend that you use a UUID. The same `ClientToken` can be submitted only once within 24 hours. Use the same `ClientToken` when retrying the same operation. Use a new `ClientToken` for new business operations.
+    // The client token used to ensure request idempotence. We recommend that you use a UUID. The same `ClientToken` can be submitted only once within 24 hours. Retries for the same operation must use the same `ClientToken`, and new operations must use a new `ClientToken`.
     shared_ptr<string> clientToken_ {};
     // The Alibaba Cloud Marketplace instance ID.
     shared_ptr<string> instanceId_ {};

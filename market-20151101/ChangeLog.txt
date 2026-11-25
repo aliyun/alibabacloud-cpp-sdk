@@ -1,3 +1,6 @@
+2026-11-25 Version: 4.2.2
+- Generated cpp 2015-11-01 for Market.
+
 2026-08-21 Version: 4.2.1
 - Update API DescribeInvoiceForIsv: add response parameters Body.Result.$.ReceiptUserInfoDto.BankAccount.
 - Update API DescribeInvoiceForIsv: add response parameters Body.Result.$.ReceiptUserInfoDto.BankName.
