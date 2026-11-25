@@ -75,31 +75,29 @@ namespace Models
 
 
   protected:
-    // The return code.
+    // The return value.
     shared_ptr<string> code_ {};
-    // Specifies whether the request was successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
-    // - `true`: The request was successful.
+    // - `true`: The API call succeeded.
     // 
-    // - `false`: The request failed.
+    // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The scan engine type. Valid values:
-    // 
-    // - `ACR_SCAN_SERVICE`: the ACR Trivy scan engine.
-    // 
-    // - `SAS_SCAN_SERVICE`: the Cloud Security scan engine.
+    // - `ACR_SCAN_SERVICE`: The ACR Trivy scan engine.
+    // - `SAS_SCAN_SERVICE`: The cloud security scan engine.
     shared_ptr<string> scanService_ {};
-    // The scan status of the image. Valid values:
+    // The scan status of the image version. Valid values:
     // 
-    // - `SCANNING`: The image is being scanned.
+    // - `SCANNING`: Scanning.
     // 
-    // - `COMPLETE`: The scan is complete.
+    // - `COMPLETE`: Completed.
     // 
-    // - `FAILED`: The scan failed.
+    // - `FAILED`: Failed.
     // 
-    // - `RETRYING`: The scan is being retried.
+    // - `RETRYING`: Retrying.
     shared_ptr<string> status_ {};
   };
 

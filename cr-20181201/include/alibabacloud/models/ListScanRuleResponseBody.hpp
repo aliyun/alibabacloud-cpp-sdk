@@ -157,28 +157,28 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The list of namespaces.
       shared_ptr<vector<string>> namespaces_ {};
       // The repository name.
       shared_ptr<vector<string>> repoNames_ {};
-      // The tag that triggers the scan matches the regular expression.
+      // The regular expression used to match tags that trigger a scan.
       shared_ptr<string> repoTagFilterPattern_ {};
       // The rule name.
       shared_ptr<string> ruleName_ {};
-      // The scan rule id.
+      // The scan rule ID.
       shared_ptr<string> scanRuleId_ {};
       // The scan scope.
       shared_ptr<string> scanScope_ {};
       // The scan type. Valid values:
       // 
-      // *   `VUL`: Products Cloud Security Scanner
-      // *   `SBOM`: Product Content Analysis
+      // - `VUL`: artifact vulnerability scanning.
+      // - `SBOM`: artifact content analysis.
       shared_ptr<string> scanType_ {};
       // The trigger type.
       shared_ptr<string> triggerType_ {};
-      // The update time.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -237,19 +237,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code
+    // The return code.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> isSuccess_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // Request Id
     shared_ptr<string> requestId_ {};
     // The list of scan rules.
     shared_ptr<vector<ListScanRuleResponseBody::ScanRules>> scanRules_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -130,37 +130,40 @@ namespace Models
 
 
   protected:
-    // The digest of the image.
+    // The image digest.
     shared_ptr<string> digest_ {};
-    // The parameter whose value that you want to query. Fox example, if the value is `FixCmd`, only the `FixCmd` parameter is returned.
+    // The query filter parameter. If the value is `FixCmd`, only the `FixCmd` result is returned, and other fields are not returned.
     shared_ptr<string> filterValue_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return.
+    // The page number of the scan result list.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page in the scan result list.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the image repository.
+    // The image repository ID.
     shared_ptr<string> repoId_ {};
-    // The ID of the security scan task.
+    // The image scan task ID.
     shared_ptr<string> scanTaskId_ {};
-    // The type of the vulnerability. Valid values:
+    // The vulnerability type. Valid values:
     // 
-    // *   `cve`: image system vulnerability
-    // *   `sca`: image application vulnerability
+    // - `cve`: Image system vulnerability
+    // - `sca`: Image application vulnerability
     shared_ptr<string> scanType_ {};
-    // The severity of the vulnerability. Valid values:
+    // The severity level of the scanned vulnerability. Valid values:
     // 
-    // *   `High`
-    // *   `Medium`
-    // *   `Low`
-    // *   `Unknown`
+    // - `High`: High
+    // 
+    // - `Medium`: Medium
+    // 
+    // - `Low`: Low
+    // 
+    // - `Unknown`: Unknown
     shared_ptr<string> severity_ {};
-    // The name of the image tag.
+    // The image version name.
     shared_ptr<string> tag_ {};
-    // The keyword for fuzzy search used in scanning. The value can be a CVE name.
+    // The fuzzy search keyword for scanning. Fuzzy match by CVE name is supported.
     shared_ptr<string> vulQueryKey_ {};
   };
 

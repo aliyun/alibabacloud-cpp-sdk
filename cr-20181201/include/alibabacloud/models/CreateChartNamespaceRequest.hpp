@@ -66,22 +66,23 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically create repositories in the namespace. Valid values:
+    // Specifies whether automatic creation of a repository is enabled. Valid values:
     // 
-    // \\-`  true `: automatically creates repositories in the namespace.
+    // - `true`: Automatic creation of a repository is enabled.
     // 
-    // \\-`  false `: does not automatically create repositories in the namespace.
+    // - `false`: Automatic creation of a repository is disabled.
     shared_ptr<bool> autoCreateRepo_ {};
     // The default repository type. Valid values:
     // 
-    // *   `PUBLIC`: a public repository
-    // *   `PRIVATE`: a private repository
+    // - `PUBLIC`: Public repository.
+    // 
+    // - `PRIVATE`: Private repository.
     shared_ptr<string> defaultRepoType_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the namespace.
+    // The namespace name.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceName_ {};

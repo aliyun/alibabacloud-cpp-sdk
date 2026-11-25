@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
     // Indicates whether the call is successful. Valid values:
     // 

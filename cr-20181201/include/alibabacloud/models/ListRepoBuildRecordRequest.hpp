@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries to return on each page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the repository.
+    // The repository ID.
     // 
     // This parameter is required.
     shared_ptr<string> repoId_ {};

@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the replication task.
+    // The synchronization task ID.
     // 
     // This parameter is required.
     shared_ptr<string> syncTaskId_ {};

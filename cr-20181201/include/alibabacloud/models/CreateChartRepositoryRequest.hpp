@@ -75,24 +75,25 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the repository.
+    // The name of the image repository.
     // 
     // This parameter is required.
     shared_ptr<string> repoName_ {};
-    // The name of the namespace to which the repository belongs.
+    // The name of the namespace.
     // 
     // This parameter is required.
     shared_ptr<string> repoNamespaceName_ {};
-    // The default repository type. Valid values:
+    // The default type of the repository. Valid values:
     // 
-    // *   `PUBLIC`: a public repository.
-    // *   `PRIVATE`: a private repository.
+    // - `PUBLIC`: public repository
     // 
-    // You can specify the RepoType or Summary parameter. The RepoType parameter is optional.
+    // - `PRIVATE`: private repository
+    // 
+    // Specify either RepoType or Summary. This parameter is optional.
     shared_ptr<string> repoType_ {};
     // The summary of the repository.
     shared_ptr<string> summary_ {};

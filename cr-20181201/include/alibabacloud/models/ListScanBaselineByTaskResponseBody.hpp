@@ -199,35 +199,35 @@ namespace Models
 
 
     protected:
-      // The category to which the baseline risk belongs.
+      // The baseline check category.
       shared_ptr<string> baselineClassAlias_ {};
-      // Suggestions about how to fix the baseline risk.
+      // The baseline check remediation suggestion.
       shared_ptr<string> baselineDetailAdvice_ {};
-      // The description of the baseline risk.
+      // The baseline description.
       shared_ptr<string> baselineDetailDescription_ {};
-      // The path and content of the baseline risk.
+      // The baseline check path and content.
       shared_ptr<string> baselineDetailPrompt_ {};
-      // The number of baseline risks.
+      // The number of baseline check items.
       shared_ptr<int32_t> baselineItemCount_ {};
-      // The name of the baseline risk.
+      // The baseline check name.
       shared_ptr<string> baselineNameAlias_ {};
-      // The key of the baseline name.
+      // The baseline name key.
       shared_ptr<string> baselineNameKey_ {};
-      // The severity of the baseline risk.
+      // The baseline check risk level.
       shared_ptr<string> baselineNameLevel_ {};
-      // The creation time.
+      // The creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The time of the first scan.
       shared_ptr<int64_t> firstScanTime_ {};
-      // High risk quantity.
+      // The number of high-risk items.
       shared_ptr<int32_t> highRiskItemCount_ {};
-      // Low risk quantity.
+      // The number of low-risk items.
       shared_ptr<int32_t> lowRiskItemCount_ {};
-      // Medium risk quantity.
+      // The number of medium-risk items.
       shared_ptr<int32_t> middleRiskItemCount_ {};
-      // The ID of the image scan task.
+      // The image scan task ID.
       shared_ptr<string> scanTaskId_ {};
-      // The update time.
+      // The update time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -286,12 +286,12 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // Indicates whether the API request was successful. Valid values:
+    // Indicates whether the API call is successful. Valid values:
     // 
-    // *   `true`: successful
-    // *   `false`: failed
+    // - `true`: The API call is successful.
+    // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
@@ -299,9 +299,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The scanned baseline risks.
+    // The baseline list.
     shared_ptr<vector<ListScanBaselineByTaskResponseBody::ScanBaselines>> scanBaselines_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

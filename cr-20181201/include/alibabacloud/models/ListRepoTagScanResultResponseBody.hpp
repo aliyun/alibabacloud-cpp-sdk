@@ -181,34 +181,43 @@ namespace Models
 
 
     protected:
-      // The ID of the image layer where the vulnerability was detected.
+      // The image layer that introduced the vulnerability.
       shared_ptr<string> addedBy_ {};
-      // The name of the vulnerability.
+      // The vulnerability name.
       shared_ptr<string> aliasName_ {};
-      // The URL of the vulnerability.
+      // The vulnerability link.
       shared_ptr<string> cveLink_ {};
-      // The directory of the vulnerability.
+      // The vulnerability location.
       shared_ptr<string> cveLocation_ {};
-      // The name of the vulnerability.
+      // The vulnerability name.
       shared_ptr<string> cveName_ {};
-      // The description of the vulnerability.
+      // The vulnerability description.
       shared_ptr<string> description_ {};
-      // The cause of the vulnerability.
+      // The feature that introduced the vulnerability.
       shared_ptr<string> feature_ {};
-      // The command used to fix the vulnerability.
+      // The vulnerability fix command.
       shared_ptr<string> fixCmd_ {};
-      // The type of the vulnerability. Valid values:
+      // The vulnerability type. Valid values:
       // 
-      // *   `cve`: image system vulnerability
-      // *   `sca`: image application vulnerability
+      // - `cve`: System vulnerability
+      // 
+      // - `sca`: Application vulnerability
       shared_ptr<string> scanType_ {};
-      // The severity of the vulnerability.
+      // The severity level of the scanned vulnerability. Valid values:
+      // 
+      // - `High`: High
+      // 
+      // - `Medium`: Medium
+      // 
+      // - `Low`: Low
+      // 
+      // - `Unknown`: Unknown
       shared_ptr<string> severity_ {};
-      // The version of the vulnerability.
+      // The vulnerability version.
       shared_ptr<string> version_ {};
-      // The version where the vulnerability was fixed.
+      // The version that fixes the vulnerability.
       shared_ptr<string> versionFixed_ {};
-      // The format of the vulnerability.
+      // The version format.
       shared_ptr<string> versionFormat_ {};
     };
 
@@ -271,18 +280,19 @@ namespace Models
     shared_ptr<string> code_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request failed.
+    // - `true`: Success
+    // 
+    // - `false`: Failure
     shared_ptr<bool> isSuccess_ {};
-    // The number of the returned page.
+    // The page number of the scan result list.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries returned per page.
+    // The number of entries per page in the scan result list.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of vulnerabilities detected on images.
+    // The total number of scanned vulnerabilities.
     shared_ptr<int32_t> totalCount_ {};
-    // The details about the detected vulnerabilities.
+    // The array of scanned vulnerabilities.
     shared_ptr<vector<ListRepoTagScanResultResponseBody::Vulnerabilities>> vulnerabilities_ {};
   };
 

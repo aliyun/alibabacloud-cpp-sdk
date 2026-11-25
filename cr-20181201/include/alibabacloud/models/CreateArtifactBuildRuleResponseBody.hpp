@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The ID of the accelerated image building rule.
+    // The ID of the build rule.
     shared_ptr<string> buildRuleId_ {};
     // The return value.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the operation was successful.
     shared_ptr<bool> isSuccess_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

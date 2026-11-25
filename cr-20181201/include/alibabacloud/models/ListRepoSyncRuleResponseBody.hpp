@@ -254,15 +254,12 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Indicates whether images are synchronized across accounts. Valid values:
-      // 
-      // - `true`: Images are synchronized across accounts.
-      // 
-      // - `false`: Images are synchronized within the same account.
-      // 
-      // Default value: `false`
+      // Specifies whether to synchronize images across accounts. Valid values:
+      // - `true`: synchronizes images across accounts
+      // - `false`: synchronizes images within the same account
+      // Default value: `false`.
       shared_ptr<bool> crossUser_ {};
       // The custom synchronization link ID.
       shared_ptr<string> linkId_ {};
@@ -274,24 +271,20 @@ namespace Models
       shared_ptr<string> localRegionId_ {};
       // The repository name of the source instance.
       shared_ptr<string> localRepoName_ {};
-      // The modification time.
+      // The modification time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> modifiedTime_ {};
-      // The namespace regex at the instance level.
-      // > This parameter is valid only when SyncScope is set to `INSTANCE`.
+      // The instance-level namespace regular expression.
+      // > This parameter is valid only when the SyncScope parameter is set to `INSTANCE`.
       shared_ptr<string> namespaceNameFilter_ {};
-      // The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Tasks with the same priority are executed in random order.
-      // 
+      // The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Synchronization tasks with the same priority are executed in random order.
       // Valid values: 1 to 5.
-      // 
       // Default value: 3.
       shared_ptr<int32_t> priority_ {};
       // The repository filtering rule.
-      // > This parameter is valid only when SyncScope is set to `INSTANCE` or `NAMESPACE`.
+      // > This parameter is valid only when the SyncScope parameter is set to `INSTANCE` or `NAMESPACE`.
       shared_ptr<string> repoNameFilter_ {};
       // The synchronization direction. Valid values:
-      // 
       // - `FROM`: synchronizes from the source instance to the target instance
-      // 
       // - `TO`: synchronizes from the target instance to the source instance
       shared_ptr<string> syncDirection_ {};
       // The synchronization rule ID.
@@ -299,17 +292,12 @@ namespace Models
       // The synchronization rule name.
       shared_ptr<string> syncRuleName_ {};
       // The synchronization scope. Valid values:
-      // 
-      // - `INSTANCE`: synchronizes based on namespace regex and repository regex rules
-      // 
-      // - `NAMESPACE`: synchronizes by namespace
-      // 
-      // - `REPO`: synchronizes by image repository
+      // - `INSTANCE`: synchronizes based on namespace and repository regular expressions
+      // - `NAMESPACE`: synchronizes based on namespaces
+      // - `REPO`: synchronizes based on image repositories
       shared_ptr<string> syncScope_ {};
       // The trigger policy. Valid values:
-      // 
-      // - `INITIATIVE`: proactive trigger
-      // 
+      // - `INITIATIVE`: active trigger
       // - `PASSIVE`: passive trigger
       shared_ptr<string> syncTrigger_ {};
       // The tag filtering rule.
@@ -389,7 +377,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of synchronization rules.
+    // The synchronization rules.
     shared_ptr<vector<ListRepoSyncRuleResponseBody::SyncRules>> syncRules_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

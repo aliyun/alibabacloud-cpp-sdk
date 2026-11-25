@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

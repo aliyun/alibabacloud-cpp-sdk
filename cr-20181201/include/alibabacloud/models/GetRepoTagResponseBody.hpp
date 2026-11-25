@@ -121,28 +121,29 @@ namespace Models
 
 
   protected:
-    // The ID of the image.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The size of the image. Unit: Bytes.
+    // The digest value.
     shared_ptr<string> digest_ {};
-    // crr-tquyps22md8p****
+    // The time when the image was created.
     shared_ptr<int64_t> imageCreate_ {};
-    // Image ID
+    // The image ID.
     shared_ptr<string> imageId_ {};
-    // The number of milliseconds that have elapsed since the image was last updated.
+    // The size of the image.
     shared_ptr<int64_t> imageSize_ {};
-    // The ID of the request.
+    // The time when the image was last updated. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> imageUpdate_ {};
+    // Indicates whether the request was successful.
+    shared_ptr<bool> isSuccess_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
     // The status of the image. Valid values:
     // 
-    // *   `NORMAL`: The image is normal.
-    // *   `DELETING`: The image is being deleted.
-    shared_ptr<bool> isSuccess_ {};
-    // 1.0
-    shared_ptr<string> requestId_ {};
-    // The ID of the instance.
+    // - `NORMAL`: Normal.
+    // 
+    // - `DELETING`: The image is being deleted.
     shared_ptr<string> status_ {};
-    // The version of the repository.
+    // The repository tag.
     shared_ptr<string> tag_ {};
   };
 

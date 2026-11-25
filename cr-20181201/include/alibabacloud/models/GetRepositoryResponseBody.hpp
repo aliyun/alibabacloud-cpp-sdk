@@ -176,46 +176,49 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The time when the repository was created.
+    // The creation time, represented as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
-    // The details of the repository.
+    // The detailed information.
     shared_ptr<string> detail_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> isSuccess_ {};
-    // The time when the repository was last modified.
+    // The last modification time, represented as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> modifiedTime_ {};
-    // Indicates how the repository was created. Valid values:
+    // The repository build type. Valid values:
     // 
-    // *   `MANUAL`: The repository was manually created.
-    // *   `AUTO`: The repository was automatically created.
+    // - `MANUAL`: manually triggered build.
+    // 
+    // - `AUTO`: automatically triggered build.
     shared_ptr<string> repoBuildType_ {};
-    // The ID of the repository.
+    // The repository ID.
     shared_ptr<string> repoId_ {};
-    // The name of the repository.
+    // The repository name.
     shared_ptr<string> repoName_ {};
-    // The name of the namespace.
+    // The namespace name.
     shared_ptr<string> repoNamespaceName_ {};
-    // The status of the repository.
+    // The repository status.
     shared_ptr<string> repoStatus_ {};
-    // The type of the repository. Valid values:
+    // The repository type. Valid values:
     // 
-    // *   `PUBLIC`: public repository.
-    // *   `PRIVATE`: private repository.
+    // - `PUBLIC`: public repository.
+    // 
+    // - `PRIVATE`: private repository.
     shared_ptr<string> repoType_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The summary of the repository.
+    // The summary information.
     shared_ptr<string> summary_ {};
-    // Indicates whether the feature of image tag immutability is enabled. Valid values:
+    // The image tag immutability setting. Valid values:
     // 
-    // *   `true`: The feature of image tag immutability is enabled.
-    // *   `false`: The feature of image tag immutability is disabled.
+    // - `true`: Enabled.
+    // 
+    // - `false`: Disabled.
     shared_ptr<bool> tagImmutability_ {};
   };
 

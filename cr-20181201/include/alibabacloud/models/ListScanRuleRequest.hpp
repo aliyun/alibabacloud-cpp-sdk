@@ -70,14 +70,14 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the vulnerability. Valid values:
+    // The vulnerability type. Valid values:
     // 
-    // *   `VUL`: Products Cloud Security Scanner.
-    // *   `SBOM`: Product Content Analysis.
+    // - `VUL`: artifact vulnerability scanning.
+    // - `SBOM`: artifact content analysis.
     // 
-    // Default value: `VUL`
+    // Default value: `VUL`.
     shared_ptr<string> scanType_ {};
   };
 

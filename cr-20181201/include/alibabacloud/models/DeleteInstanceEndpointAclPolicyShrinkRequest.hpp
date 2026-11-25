@@ -79,6 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> endpointType_ {};
+    // The list of public access whitelist entries to delete for the instance.
     shared_ptr<string> entriesShrink_ {};
     // The IP CIDR block.
     shared_ptr<string> entry_ {};
@@ -86,11 +87,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The module for which the access policy is set. Valid values:
+    // The module for which the access policy is configured. Valid values:
     // 
-    // - `Registry`: access to the image repository
+    // - `Registry`: Access to the image repository.
     // 
-    // - `Chart`: access to Helm Chart
+    // - `Chart`: Access to Helm Chart.
     shared_ptr<string> moduleName_ {};
   };
 

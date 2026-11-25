@@ -135,21 +135,21 @@ namespace Models
 
 
     protected:
-      // The time when the image was created.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The path of the file.
+      // The file path.
       shared_ptr<string> filePath_ {};
-      // The time when the image was first scanned.
+      // The time of the first scan.
       shared_ptr<int64_t> firstScanTime_ {};
-      // The severity of the malicious file.
+      // The severity level.
       shared_ptr<string> level_ {};
-      // The MD5 hash value of the malicious file.
+      // The MD5 hash of the malicious file.
       shared_ptr<string> maliciousMd5_ {};
-      // The type of the malicious file.
+      // The type of the malicious sample.
       shared_ptr<string> maliciousName_ {};
       // The ID of the image scan task.
       shared_ptr<string> scanTaskId_ {};
-      // The time when the image was updated.
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -208,22 +208,23 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // Indicates whether the API request is successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
-    // *   `true`: successful
-    // *   `false`: failed
+    // - `true`: The API call was successful.
+    // 
+    // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
-    // The page number. Default value: 1.
+    // The current page number of the queried data. You can specify this parameter to determine the page from which the queried data is returned. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried malicious files.
+    // The list of malicious files.
     shared_ptr<vector<ListScanMaliciousFileByTaskResponseBody::ScanMaliciousFiles>> scanMaliciousFiles_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

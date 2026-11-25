@@ -86,14 +86,15 @@ namespace Models
   protected:
     // The image digest.
     shared_ptr<string> digest_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the repository.
+    // The image repository ID.
     shared_ptr<string> repoId_ {};
-    // The ID of the image scan task.
+    // The image scan task ID.
     shared_ptr<string> scanTaskId_ {};
+    // The image security scan type.
     shared_ptr<string> scanType_ {};
     // The image tag.
     shared_ptr<string> tag_ {};

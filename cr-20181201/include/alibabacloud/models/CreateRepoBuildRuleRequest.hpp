@@ -117,42 +117,47 @@ namespace Models
 
 
   protected:
-    // Building arguments.
+    // The build arguments.
     shared_ptr<vector<string>> buildArgs_ {};
-    // The path of the Dockerfile.
+    // The Dockerfile path.
     shared_ptr<string> dockerfileLocation_ {};
-    // The name of the Dockerfile.
+    // The Dockerfile name.
     shared_ptr<string> dockerfileName_ {};
-    // The tag of the image.
+    // The image version.
     // 
     // This parameter is required.
     shared_ptr<string> imageTag_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Architecture for image building. Valid values:
+    // The image architecture. Valid values:
     // 
-    // *   `linux/amd64`
-    // *   `linux/arm64`
-    // *   `linux/386`
-    // *   `linux/arm/v7`
-    // *   `inux/arm/v6`
+    // - `linux/amd64`
     // 
-    // Default value: `linux/amd64`
+    // - `linux/arm64`
+    // 
+    // - `linux/386`
+    // 
+    // - `linux/arm/v7`
+    // 
+    // - `linux/arm/v6`
+    // 
+    // Default value: `linux/amd64`.
     shared_ptr<vector<string>> platforms_ {};
-    // The name of the push that triggers the building rule.
+    // The trigger name.
     // 
     // This parameter is required.
     shared_ptr<string> pushName_ {};
-    // The type of the push that triggers the building rule. Valid values:
+    // The push type. Valid values:
     // 
-    // *   `GIT_TAG`: tag push
-    // *   `GIT_BRANCH`: branch push
+    // - `GIT_TAG`: Triggered by tag.
+    // 
+    // - `GIT_BRANCH`: Triggered by branch.
     // 
     // This parameter is required.
     shared_ptr<string> pushType_ {};
-    // The ID of the image repository.
+    // The image repository ID.
     // 
     // This parameter is required.
     shared_ptr<string> repoId_ {};

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the image building record.
+    // The build record ID.
     // 
     // This parameter is required.
     shared_ptr<string> buildRecordId_ {};
@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the image repository.
+    // The image repository ID.
     // 
     // This parameter is required.
     shared_ptr<string> repoId_ {};

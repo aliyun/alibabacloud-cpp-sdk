@@ -144,7 +144,7 @@ namespace Models
     shared_ptr<string> certId_ {};
     // The return code.
     shared_ptr<string> code_ {};
-    // The creation time.
+    // The creation time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
     // The custom domain name.
     shared_ptr<string> domain_ {};
@@ -156,7 +156,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // Indicates whether the operation is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The modification time.
+    // The modification time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> modifiedTime_ {};
     // The custom module name.
     shared_ptr<string> moduleName_ {};

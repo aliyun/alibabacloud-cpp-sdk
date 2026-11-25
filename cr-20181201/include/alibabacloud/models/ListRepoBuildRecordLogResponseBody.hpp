@@ -89,11 +89,11 @@ namespace Models
 
 
     protected:
-      // The stage of the building that is recorded in the log entry.
+      // The build stage of the log entry.
       shared_ptr<string> buildStage_ {};
       // The line number of the log entry.
       shared_ptr<int32_t> lineNumber_ {};
-      // The content of the log.
+      // The log content.
       shared_ptr<string> message_ {};
     };
 
@@ -152,19 +152,19 @@ namespace Models
 
 
   protected:
-    // The log content of the image building record.
+    // The build log content.
     shared_ptr<vector<ListRepoBuildRecordLogResponseBody::BuildRecordLogs>> buildRecordLogs_ {};
     // The return value.
     shared_ptr<string> code_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries returned per page.
+    // The number of log entries displayed per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

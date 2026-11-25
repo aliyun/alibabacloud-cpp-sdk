@@ -110,22 +110,20 @@ namespace Models
 
 
     protected:
-      // The type of the event that activates the trigger. Valid values:
-      // 
-      // *   `BUILD_SUCCESS`: The trigger is activated when an image building task is successful.
-      // *   `BUILD_Fail`: The trigger is activated when an image building task fails.
+      // The event type of the trigger. Valid values:
+      // - `BUILD_SUCCESS`: The trigger was successful.
+      // - `BUILD_Fail`: The trigger failed.
       shared_ptr<string> repoEvent_ {};
       // The ID of the trigger.
       shared_ptr<string> triggerId_ {};
       // The name of the trigger.
       shared_ptr<string> triggerName_ {};
-      // The image tag based on which the trigger is set.
+      // The image version that triggers the trigger.
       shared_ptr<string> triggerTag_ {};
-      // The type of the trigger. Valid values:
-      // 
-      // *   `ALL`: a trigger that supports both tags and regular expressions.
-      // *   `TAG_LISTTAG`: a tag-based trigger.
-      // *   `TAG_REG_EXP`: a regular expression-based trigger.
+      // The trigger type. Valid values:
+      // - `ALL`: All.
+      // - `TAG_LISTTAG`: Tag list.
+      // - `TAG_REG_EXP`: Regular expression.
       shared_ptr<string> triggerType_ {};
       // The URL of the trigger.
       shared_ptr<string> triggerUrl_ {};
@@ -164,16 +162,15 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful. Valid values:
-    // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // Indicates whether the API call was successful. Valid values:
+    // - `true`: The API call was successful.
+    // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The triggers of the repository.
+    // The list of triggers.
     shared_ptr<vector<ListRepoTriggerResponseBody::Triggers>> triggers_ {};
   };
 

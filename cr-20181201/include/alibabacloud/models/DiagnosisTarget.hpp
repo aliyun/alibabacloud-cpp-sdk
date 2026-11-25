@@ -97,23 +97,23 @@ namespace Models
 
 
   protected:
-    // The end of the diagnostic time window, in ISO 8601 format. Must be after `StartTime`.
+    // The end time of the diagnostic.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> endTime_ {};
-    // A map of key-value pairs providing additional context for the diagnosis.
+    // The extra parameters.
     shared_ptr<map<string, string>> extra_ {};
-    // The namespace that contains the repository.
+    // The namespace name.
     shared_ptr<string> namespace_ {};
-    // The ID of a related operation, such as a previous diagnostic task.
+    // The ID of the diagnosed item.
     shared_ptr<string> relatedId_ {};
-    // The name of the repository.
+    // The repository name.
     shared_ptr<string> repository_ {};
-    // The start of the diagnostic time window, in ISO 8601 format.
+    // The start time of the diagnostic.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> startTime_ {};
-    // The container image tag.
+    // The image tag.
     shared_ptr<string> tag_ {};
   };
 

@@ -181,35 +181,37 @@ namespace Models
 
 
     protected:
-      // The time when the event was created.
+      // The creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The event notification channel.
+      // The notification channel.
       shared_ptr<string> eventChannel_ {};
-      // The ID of the event notification.
+      // The event ID of the downstream notification.
       shared_ptr<string> eventNotifyId_ {};
       // The notification method. Valid values:
       // 
-      // *   `http`: The notification is sent over HTTP.
-      // *   `https`: The notification is sent over HTTPS.
-      // *   `dingding`: The notification is sent by using DingTalk.
+      // - `http`: HTTP notification.
+      // 
+      // - `https`: HTTPS notification.
+      // 
+      // - `dingding`: DingTalk notification.
       shared_ptr<string> eventNotifyMethod_ {};
-      // The type of the event.
+      // The event type.
       shared_ptr<string> eventType_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
-      // The ID of the event record.
+      // The event record ID.
       shared_ptr<string> recordId_ {};
-      // The name of the image repository.
+      // The repository name.
       shared_ptr<string> repoName_ {};
-      // The ID of the event notification rule.
+      // The event rule ID.
       shared_ptr<string> ruleId_ {};
-      // The name of the event notification rule.
+      // The event rule name.
       shared_ptr<string> ruleName_ {};
-      // The tags.
+      // The label.
       shared_ptr<string> tag_ {};
-      // The time when the event was last updated.
+      // The update time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -272,15 +274,15 @@ namespace Models
     shared_ptr<string> code_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries returned per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The list of historical events.
+    // The event history list.
     shared_ptr<vector<ListEventCenterRecordResponseBody::Records>> records_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total entries of historical events.
+    // The total number of event history records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

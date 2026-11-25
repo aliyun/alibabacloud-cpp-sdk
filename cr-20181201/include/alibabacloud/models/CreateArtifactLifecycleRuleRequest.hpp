@@ -130,27 +130,33 @@ namespace Models
 
 
   protected:
-    // Specify whether to automatically execute the lifecycle management rule.
+    // Specifies whether to automatically execute the rule.
     shared_ptr<bool> auto_ {};
+    // Specifies whether to enable DryRun mode. If DryRun mode is enabled, only the lifecycle task scan is performed and no actual data cleanup is executed. This mode is disabled by default.
     shared_ptr<bool> dryRun_ {};
-    // Specify whether to enable lifecycle management for the artifact.
+    // Specifies whether to enable lifecycle management.
+    // 
+    // Only one of this parameter and EnableDeleteUntaggedManifest can be set to true.
     shared_ptr<bool> enableDeleteTag_ {};
+    // Specifies whether to enable artifact cleanup.
+    // 
+    // Only one of this parameter and EnableDeleteTag can be set to true.
     shared_ptr<bool> enableDeleteUntaggedManifest_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the namespace.
+    // The namespace name.
     shared_ptr<string> namespaceName_ {};
-    // The name of the image repository.
+    // The image repository name.
     shared_ptr<string> repoName_ {};
-    // The number of images that you want to retain.
+    // The number of images to retain.
     shared_ptr<int64_t> retentionTagCount_ {};
-    // The execution cycle of the lifecycle management rule.
+    // The execution cycle.
     shared_ptr<string> scheduleTime_ {};
-    // The deletion scope.
+    // The cleanup scope.
     shared_ptr<string> scope_ {};
-    // The regular expression that is used to indicate which image tags are retained.
+    // The regular expression used to match image versions to retain.
     shared_ptr<string> tagRegexp_ {};
   };
 

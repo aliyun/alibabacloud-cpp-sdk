@@ -199,7 +199,7 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<string> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -211,13 +211,13 @@ namespace Models
       shared_ptr<string> instanceSpecification_ {};
       // The instance status.
       shared_ptr<string> instanceStatus_ {};
-      // The last modification time.
+      // The last modification time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<string> modifiedTime_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The tags of the instance.
+      // The collection of instance tags.
       shared_ptr<vector<Instances::Tags>> tags_ {};
     };
 
@@ -276,7 +276,7 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
     // The instance information.
     shared_ptr<vector<ListInstanceResponseBody::Instances>> instances_ {};

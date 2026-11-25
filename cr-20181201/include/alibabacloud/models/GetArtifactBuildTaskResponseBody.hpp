@@ -119,15 +119,15 @@ namespace Models
 
 
     protected:
-      // The artifact type. Only IMAGE is supported.
+      // The artifact type. Currently, only IMAGE is supported.
       shared_ptr<string> artifactType_ {};
       // The number of artifact layers.
       shared_ptr<int32_t> layerCount_ {};
-      // The repository ID. Only image repositories are supported. The repository ID of the target artifact must be the same as that of the source artifact.
+      // The repository ID. Currently, only image repositories are supported. The repository ID of the target artifact must be the same as that of the source artifact.
       shared_ptr<string> repoId_ {};
       // The artifact size, in bytes.
       shared_ptr<int64_t> size_ {};
-      // The artifact version. Only images are supported.
+      // The artifact version. Currently, only images are supported.
       shared_ptr<string> version_ {};
     };
 
@@ -196,15 +196,15 @@ namespace Models
 
 
     protected:
-      // The artifact type. Only IMAGE is supported.
+      // The artifact type. Currently, only IMAGE is supported.
       shared_ptr<string> artifactType_ {};
       // The number of artifact layers.
       shared_ptr<int32_t> layerCount_ {};
-      // The repository ID. Only image repositories are supported.
+      // The repository ID. Currently, only image repositories are supported.
       shared_ptr<string> repoId_ {};
       // The artifact size, in bytes.
       shared_ptr<int64_t> size_ {};
-      // The artifact version. Only image versions are supported.
+      // The artifact version. Currently, only image versions are supported.
       shared_ptr<string> version_ {};
     };
 
@@ -255,9 +255,9 @@ namespace Models
 
 
     protected:
-      // The operating system and architecture.
+      // The operating system/architecture.
       shared_ptr<string> platform_ {};
-      // The number of layers to retain after compression.
+      // The number of layers retained after compression.
       shared_ptr<int32_t> squashKeepLayers_ {};
       // The digest of the starting layer for compression.
       shared_ptr<string> startLayerDigest_ {};
@@ -369,9 +369,9 @@ namespace Models
   protected:
     // The artifact build type. Valid values:
     // 
-    // - `IMAGE_TO_ACCELERATED_IMAGE`: Accelerated image creation optimized for ACK scenarios.
+    // - `IMAGE_TO_ACCELERATED_IMAGE`: accelerated image optimized for ACK scenarios.
     // 
-    // - `IMAGE_TO_ECI_ACCELERATED_IMAGE`: Accelerated image artifact optimized for ECI scenarios.
+    // - `IMAGE_TO_ECI_ACCELERATED_IMAGE`: accelerated image artifact optimized for Elastic Container Instance (ECI) scenarios.
     shared_ptr<string> artifactBuildType_ {};
     // The artifact compression parameters.
     shared_ptr<GetArtifactBuildTaskResponseBody::ArtifactCompression> artifactCompression_ {};
@@ -383,8 +383,9 @@ namespace Models
     shared_ptr<int32_t> endTime_ {};
     // The reserved field list of the artifact build task. The list elements should be empty.
     shared_ptr<vector<string>> instructions_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> isSuccess_ {};
+    // The task priority.
     shared_ptr<int32_t> priority_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -395,9 +396,9 @@ namespace Models
     // The target artifact.
     shared_ptr<GetArtifactBuildTaskResponseBody::TargetArtifact> targetArtifact_ {};
     // The artifact build status. Valid values:
-    // - `PENDING`: Scheduling in progress.
+    // - `PENDING`: Scheduling.
     // 
-    // - `BUILDING`: Building in progress.
+    // - `BUILDING`: Building.
     // 
     // - `SUCCESS`: Build succeeded.
     // 

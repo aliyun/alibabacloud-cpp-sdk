@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The name of the region.
+      // The region name.
       shared_ptr<string> localName_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -115,14 +115,15 @@ namespace Models
   protected:
     // The return value.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the call is successful. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The call is successful.
+    // 
+    // - `false`: The call failed.
     shared_ptr<bool> isSuccess_ {};
     // The list of regions.
     shared_ptr<vector<ListInstanceRegionResponseBody::Regions>> regions_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

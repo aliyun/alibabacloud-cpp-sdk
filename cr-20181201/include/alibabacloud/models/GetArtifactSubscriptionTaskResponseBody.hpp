@@ -215,46 +215,47 @@ namespace Models
   protected:
     // The artifact type.
     shared_ptr<string> artifactType_ {};
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The end time of the artifact subscription task.
+    // The end time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Indicates whether the API request is successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The API call was successful.
+    // 
+    // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
-    // The return message.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The name of the Container Registry namespace.
+    // The ACR namespace.
     shared_ptr<string> namespaceName_ {};
-    // The name of the Container Registry repository.
+    // The ACR repository.
     shared_ptr<string> repoName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The name of the source namespace.
+    // The source namespace.
     shared_ptr<string> sourceNamespaceName_ {};
     // The artifact source.
     shared_ptr<string> sourceProvider_ {};
-    // The name of the source repository.
+    // The source repository.
     shared_ptr<string> sourceRepoName_ {};
-    // The type of the source repository.
+    // The source artifact type.
     shared_ptr<string> sourceRepoType_ {};
-    // The start time of the artifact subscription task.
+    // The start time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The total subscribed tags.
+    // The number of subscribed tags.
     shared_ptr<int64_t> tagSubscriptionCount_ {};
     // The total number of tags.
     shared_ptr<int64_t> tagTotalCount_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
-    // The task results.
+    // The task result.
     shared_ptr<string> taskResult_ {};
-    // The status of the task.
+    // The task status.
     shared_ptr<string> taskStatus_ {};
-    // The type of the task. Valid values:
+    // The task type.
     shared_ptr<string> taskType_ {};
   };
 

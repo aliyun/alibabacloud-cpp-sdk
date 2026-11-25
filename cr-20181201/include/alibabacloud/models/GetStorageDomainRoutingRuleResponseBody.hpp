@@ -100,17 +100,17 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // The creation time.
+    // The creation time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
-    // The modification time.
+    // The modification time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> modifyTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The routing list.
+    // The list of routes.
     shared_ptr<vector<RouteItem>> routes_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
-    // The request status identifier.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

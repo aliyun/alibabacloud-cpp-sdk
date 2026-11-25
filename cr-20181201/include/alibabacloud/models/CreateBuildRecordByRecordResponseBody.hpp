@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The ID of the image building record.
+    // The build record ID.
     shared_ptr<string> buildRecordId_ {};
-    // The HTTP status code. The status code 200 indicates that the request is successful.\\
-    // Other status codes indicate that the request failed.
+    // The return code of the API operation. A value of 200 indicates success. Other values indicate error codes.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The call was successful.
+    // 
+    // - `false`: The call failed.
     shared_ptr<bool> isSuccess_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

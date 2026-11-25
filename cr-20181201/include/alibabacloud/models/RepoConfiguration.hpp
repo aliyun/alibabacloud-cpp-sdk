@@ -61,6 +61,8 @@ namespace Models
 
 
     protected:
+      // Specifies whether to build only the image index.
+      // 
       // This parameter is required.
       shared_ptr<bool> imageIndexOnly_ {};
     };
@@ -91,9 +93,14 @@ namespace Models
 
 
   protected:
+    // The default parameters for the image build rule.
     shared_ptr<RepoConfiguration::ArtifactBuildRuleParameters> artifactBuildRuleParameters_ {};
+    // The type of the image repository for automatic creation. Valid values: PRIVATE (private repository) and PUBLIC (public repository).
+    // 
     // This parameter is required.
     shared_ptr<string> repoType_ {};
+    // Specifies whether image version immutability is enabled. After it is enabled, you cannot overwrite image versions other than latest.
+    // 
     // This parameter is required.
     shared_ptr<bool> tagImmutability_ {};
   };

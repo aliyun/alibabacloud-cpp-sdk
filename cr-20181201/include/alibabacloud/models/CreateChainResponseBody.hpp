@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> chainId_ {};
     // The return code.
     shared_ptr<string> code_ {};
-    // Indicates whether the operation is successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

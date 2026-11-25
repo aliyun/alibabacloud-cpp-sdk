@@ -125,13 +125,13 @@ namespace Models
 
 
       protected:
-        // The tag of the image.
+        // The image tag.
         shared_ptr<string> imageTag_ {};
-        // The ID of the repository.
+        // The repository ID.
         shared_ptr<string> repoId_ {};
-        // The name of the repository.
+        // The repository name.
         shared_ptr<string> repoName_ {};
-        // The name of the namespace to which the repository belongs.
+        // The repository namespace name.
         shared_ptr<string> repoNamespaceName_ {};
       };
 
@@ -175,15 +175,15 @@ namespace Models
 
 
     protected:
-      // The ID of the image building record.
+      // The build record ID.
       shared_ptr<string> buildRecordId_ {};
-      // The status of the image building.
+      // The build status.
       shared_ptr<string> buildStatus_ {};
-      // The time when the image building ended.
+      // The end time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> endTime_ {};
-      // The information about the image.
+      // The image information.
       shared_ptr<BuildRecords::Image> image_ {};
-      // The time when the image building started.
+      // The start time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> startTime_ {};
     };
 
@@ -242,22 +242,23 @@ namespace Models
 
 
   protected:
-    // The list of image building records.
+    // The list of build records.
     shared_ptr<vector<ListRepoBuildRecordResponseBody::BuildRecords>> buildRecords_ {};
     // The return value.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the API call is successful. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The API call is successful.
+    // 
+    // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries returned per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of records.
     shared_ptr<string> totalCount_ {};
   };
 

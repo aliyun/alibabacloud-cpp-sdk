@@ -88,17 +88,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries to return.
-    // 
-    // Use this parameter together with NextToken. This parameter takes priority over PageNo and PageSize.
+    // The maximum number of results to return. Use this parameter together with the NextToken parameter. This parameter takes precedence over PageNo and PageSize.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. If a next page exists, the service returns a NextToken value. Pass this value in the next request.
-    // 
-    // Use this parameter together with MaxResults. This parameter takes priority over PageNo and PageSize.
+    // The pagination token. If a next page exists, the service returns a NextToken value, which you can include in the subsequent request. Use this parameter together with the MaxResults parameter. This parameter takes precedence over PageNo and PageSize.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. A maximum of 100 entries can be returned per page.
+    // The page size. The maximum number of entries per page is 100.
     shared_ptr<int32_t> pageSize_ {};
     // The repository ID.
     // 

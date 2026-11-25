@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The ID of the event notification rule.
+      // The event rule ID.
       shared_ptr<string> ruleId_ {};
-      // The name of the event notification rule.
+      // The event rule name.
       shared_ptr<string> ruleName_ {};
     };
 
@@ -113,13 +113,13 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of names of event notification rules.
+    // The list of event rule names.
     shared_ptr<vector<ListEventCenterRuleNameResponseBody::RuleNames>> ruleNames_ {};
   };
 

@@ -130,7 +130,7 @@ namespace Models
 
 
         protected:
-          // destination edge zone name
+          // The name of the destination node.
           shared_ptr<string> nodeName_ {};
         };
 
@@ -162,7 +162,7 @@ namespace Models
 
 
         protected:
-          // source edge zone name
+          // The name of the source node.
           shared_ptr<string> nodeName_ {};
         };
 
@@ -187,9 +187,9 @@ namespace Models
 
 
       protected:
-        // source edge zone
+        // The source node.
         shared_ptr<Routers::From> from_ {};
-        // destination edge zone
+        // The destination node.
         shared_ptr<Routers::To> to_ {};
       };
 
@@ -325,25 +325,25 @@ namespace Models
 
 
           protected:
-            // Deny action. Valid values:
+            // The blocking action. Valid values:
             // 
-            // - `BLOCK`: Block further execution of the delivery chain
+            // - `BLOCK`: Blocks the delivery chain from continuing execution.
             // 
-            // - `BLOCK_RETAG`: Block overwriting and pushing image tags
+            // - `BLOCK_RETAG`: Blocks and overwrites the pushed image tag.
             // 
-            // - `BLOCK_DELETE_TAG`: Block deleting image tags
+            // - `BLOCK_DELETE_TAG`: Blocks and deletes the image tag.
             shared_ptr<string> action_ {};
-            // Collection of baseline samples to block. Separate multiple baseline sample names with commas.
+            // The collection of baseline samples to block. Separate multiple baseline sample names with commas (,).
             shared_ptr<string> baselineList_ {};
-            // Number of scanned vulnerabilities that triggers a block
+            // The number of vulnerabilities that triggers blocking.
             shared_ptr<string> issueCount_ {};
-            // The vulnerability Level at which blocking is triggered during a scan
+            // The vulnerability severity level that triggers blocking.
             shared_ptr<string> issueLevel_ {};
-            // Collection of CVE vulnerabilities to block. Separate multiple CVE vulnerability names with commas.
+            // The collection of CVE vulnerabilities to block. Separate multiple CVE vulnerability names with commas (,).
             shared_ptr<string> issueList_ {};
-            // The logic that triggers blocking upon scan detection
+            // The logic that triggers blocking during scanning.
             shared_ptr<string> logic_ {};
-            // The collection of malicious samples to block, with multiple sample names separated by commas
+            // The collection of malicious samples to block. Separate multiple malicious sample names with commas (,).
             shared_ptr<string> maliciousList_ {};
           };
 
@@ -380,16 +380,16 @@ namespace Models
 
 
         protected:
-          // Deny rules for scan nodes in the delivery chain
+          // The blocking policy for the scan node in the delivery chain.
           shared_ptr<NodeConfig::DenyPolicy> denyPolicy_ {};
-          // Retry Count
+          // The number of retries.
           shared_ptr<int32_t> retry_ {};
-          // Scan engine for the delivery chain node  
+          // The scan engine of the delivery chain scan node. Valid values:
           // 
-          // - `SAS_SCAN_SERVICE`, Security Center scan engine (requires paid activation)  
-          // - `ACR_SCAN_SERVICE`, ACR scan engine
+          // - `SAS_SCAN_SERVICE`: Security Center scan engine (requires paid activation).
+          // - `ACR_SCAN_SERVICE`: ACR scan engine.
           shared_ptr<string> scanEngine_ {};
-          // Timeout (in seconds)
+          // The timeout period, in seconds.
           shared_ptr<int64_t> timeout_ {};
         };
 
@@ -419,15 +419,15 @@ namespace Models
 
 
       protected:
-        // Indicates whether to enable the delivery chain edge zone. Valid values:
+        // Indicates whether the delivery chain node is enabled. Valid values:
         // 
-        // - `true`: Enable the delivery chain edge zone.
+        // - `true`: Enabled.
         // 
-        // - `false`: Do not enable the delivery chain edge zone.
+        // - `false`: Disabled.
         shared_ptr<bool> enable_ {};
-        // Delivery chain edge zone configuration
+        // The configuration of the delivery chain node.
         shared_ptr<Nodes::NodeConfig> nodeConfig_ {};
-        // Delivery chain edge zone name
+        // The name of the delivery chain node.
         shared_ptr<string> nodeName_ {};
       };
 
@@ -473,19 +473,19 @@ namespace Models
 
 
     protected:
-      // Delivery chain configuration ID
+      // The configuration ID of the delivery chain.
       shared_ptr<string> chainConfigId_ {};
       // Indicates whether the delivery chain configuration is active. Valid values:
       // 
-      // - `true`: The configuration is active.
+      // - `true`: Active.
       // 
-      // - `false`: The configuration is not active.
+      // - `false`: Inactive.
       shared_ptr<bool> isActive_ {};
-      // Each edge zone in the delivery chain
+      // The nodes in the delivery chain.
       shared_ptr<vector<ChainConfig::Nodes>> nodes_ {};
-      // Execution order relationships between edge zones in the delivery chain
+      // The execution order between delivery chain nodes.
       shared_ptr<vector<ChainConfig::Routers>> routers_ {};
-      // Delivery chain version
+      // The version of the delivery chain.
       shared_ptr<string> version_ {};
     };
 
@@ -589,31 +589,31 @@ namespace Models
 
 
   protected:
-    // Delivery chain configuration description
+    // The configuration of the delivery chain.
     shared_ptr<GetChainResponseBody::ChainConfig> chainConfig_ {};
-    // Delivery chain ID
+    // The delivery chain ID.
     shared_ptr<string> chainId_ {};
-    // Return code
+    // The return code.
     shared_ptr<string> code_ {};
-    // Delivery chain creation time
+    // The time when the delivery chain was created. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
-    // Delivery chain description
+    // The description of the delivery chain.
     shared_ptr<string> description_ {};
-    // Instance ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Indicates whether the operation succeeded
+    // Indicates whether the request was successful.
     shared_ptr<bool> isSuccess_ {};
-    // Updated At of the delivery chain description
+    // The time when the delivery chain description was last modified. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> modifiedTime_ {};
-    // Delivery chain name
+    // The name of the delivery chain.
     shared_ptr<string> name_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Collection of repositories excluded from delivery chain execution
+    // The collection of repositories excluded from the delivery chain execution.
     shared_ptr<vector<string>> scopeExclude_ {};
-    // Delivery chain scope ID
+    // The scope ID of the delivery chain.
     shared_ptr<string> scopeId_ {};
-    // Delivery chain scope type
+    // The scope type of the delivery chain.
     shared_ptr<string> scopeType_ {};
   };
 

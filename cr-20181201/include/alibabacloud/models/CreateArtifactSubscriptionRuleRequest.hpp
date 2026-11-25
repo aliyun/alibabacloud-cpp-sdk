@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceProvider, sourceProvider_);
       DARABONBA_PTR_TO_JSON(SourceRepoName, sourceRepoName_);
       DARABONBA_PTR_TO_JSON(TagCount, tagCount_);
+      DARABONBA_PTR_TO_JSON(TagList, tagList_);
       DARABONBA_PTR_TO_JSON(TagRegexp, tagRegexp_);
     };
     friend void from_json(const Darabonba::Json& j, CreateArtifactSubscriptionRuleRequest& obj) { 
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceProvider, sourceProvider_);
       DARABONBA_PTR_FROM_JSON(SourceRepoName, sourceRepoName_);
       DARABONBA_PTR_FROM_JSON(TagCount, tagCount_);
+      DARABONBA_PTR_FROM_JSON(TagList, tagList_);
       DARABONBA_PTR_FROM_JSON(TagRegexp, tagRegexp_);
     };
     CreateArtifactSubscriptionRuleRequest() = default ;
@@ -52,7 +54,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accelerate_ == nullptr
         && this->instanceId_ == nullptr && this->namespaceName_ == nullptr && this->override_ == nullptr && this->platform_ == nullptr && this->repoName_ == nullptr
-        && this->sourceNamespaceName_ == nullptr && this->sourceProvider_ == nullptr && this->sourceRepoName_ == nullptr && this->tagCount_ == nullptr && this->tagRegexp_ == nullptr; };
+        && this->sourceNamespaceName_ == nullptr && this->sourceProvider_ == nullptr && this->sourceRepoName_ == nullptr && this->tagCount_ == nullptr && this->tagList_ == nullptr
+        && this->tagRegexp_ == nullptr; };
     // accelerate Field Functions 
     bool hasAccelerate() const { return this->accelerate_ != nullptr;};
     void deleteAccelerate() { this->accelerate_ = nullptr;};
@@ -125,6 +128,15 @@ namespace Models
     inline CreateArtifactSubscriptionRuleRequest& setTagCount(int64_t tagCount) { DARABONBA_PTR_SET_VALUE(tagCount_, tagCount) };
 
 
+    // tagList Field Functions 
+    bool hasTagList() const { return this->tagList_ != nullptr;};
+    void deleteTagList() { this->tagList_ = nullptr;};
+    inline const vector<string> & getTagList() const { DARABONBA_PTR_GET_CONST(tagList_, vector<string>) };
+    inline vector<string> getTagList() { DARABONBA_PTR_GET(tagList_, vector<string>) };
+    inline CreateArtifactSubscriptionRuleRequest& setTagList(const vector<string> & tagList) { DARABONBA_PTR_SET_VALUE(tagList_, tagList) };
+    inline CreateArtifactSubscriptionRuleRequest& setTagList(vector<string> && tagList) { DARABONBA_PTR_SET_RVALUE(tagList_, tagList) };
+
+
     // tagRegexp Field Functions 
     bool hasTagRegexp() const { return this->tagRegexp_ != nullptr;};
     void deleteTagRegexp() { this->tagRegexp_ = nullptr;};
@@ -133,35 +145,29 @@ namespace Models
 
 
   protected:
-    // Indicates whether an acceleration link is enabled for image subscription. The subscription acceleration feature is in public preview. The feature is optimized based on scheduling policies and network links to accelerate image subscription.
+    // Specifies whether to enable the acceleration link. The subscription acceleration feature is in public preview. Based on scheduling policies and network link optimization, it can improve the image subscription speed.
     shared_ptr<bool> accelerate_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the Container Registry namespace.
+    // The ACR namespace.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceName_ {};
-    // Indicates whether the original image is overwritten.
+    // Specifies whether to overwrite images.
     shared_ptr<bool> override_ {};
-    // The operating system and architecture. If the source repository contains a multi-arch image, only the specified operating system and architecture are subscribed to the destination repository of the Enterprise Edition instance. Subscribe to the destination repository of an Enterprise Edition instance
+    // The operating system or architecture. If the source repository contains multi-architecture images, only images with the specified operating system or architecture are subscribed to the destination repository of the Enterprise instance.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> platform_ {};
-    // The name of the Container Registry repository.
+    // The ACR repository.
     // 
     // This parameter is required.
     shared_ptr<string> repoName_ {};
-    // The source namespace.
+    // The source namespace. If `SourceProvider` is set to `DOCKER_HUB`, the default value is `library`. This parameter is required in other scenarios.
     shared_ptr<string> sourceNamespaceName_ {};
-    // The source of the artifact.
-    // 
-    // Valid values:
-    // 
-    // *   DOCKER_HUB: Docker Hub
-    // *   GCR: GCR
-    // *   QUAY: Quay.io
+    // The artifact source.
     // 
     // This parameter is required.
     shared_ptr<string> sourceProvider_ {};
@@ -169,13 +175,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sourceRepoName_ {};
-    // The number of subscribed images.
-    // 
-    // This parameter is required.
+    // The number of images to subscribe to.
     shared_ptr<int64_t> tagCount_ {};
-    // The image tag in the subscription source repository. Regular expressions are supported.
-    // 
-    // This parameter is required.
+    // - The image tags to subscribe to when matching by tag list. A maximum of 10 tags are supported.
+    // - If TagList is specified, these tags are queried one by one. TagRegexp and TagCount cannot be specified at the same time. If TagList is not specified, TagRegexp and TagCount are used for matching, and both must be specified.
+    // - The matching method cannot be changed after the rule is created. To change the matching method, delete the rule and create a new one.
+    shared_ptr<vector<string>> tagList_ {};
+    // The image versions to subscribe to from the source repository. Regular expressions are supported.
     shared_ptr<string> tagRegexp_ {};
   };
 

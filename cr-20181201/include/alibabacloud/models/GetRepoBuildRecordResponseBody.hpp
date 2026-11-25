@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The tag of the image.
+      // The image tag.
       shared_ptr<string> imageTag_ {};
-      // The name of the image repository.
+      // The image repository name.
       shared_ptr<string> repoName_ {};
-      // The name of the namespace to which the image repository belongs.
+      // The namespace name of the image repository.
       shared_ptr<string> repoNamespaceName_ {};
     };
 
@@ -160,21 +160,21 @@ namespace Models
 
 
   protected:
-    // The ID of the image building record.
+    // The build record ID.
     shared_ptr<string> buildRecordId_ {};
     // The return value.
     shared_ptr<string> code_ {};
-    // The time when the image building was completed.
+    // The end time, in UNIX timestamp format. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The information about the image.
+    // The image information.
     shared_ptr<GetRepoBuildRecordResponseBody::Image> image_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The time when the image building started.
+    // The start time, in UNIX timestamp format. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The status of the instance.
+    // The status.
     shared_ptr<string> status_ {};
   };
 

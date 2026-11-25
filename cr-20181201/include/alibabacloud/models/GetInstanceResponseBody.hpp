@@ -187,41 +187,52 @@ namespace Models
 
 
   protected:
-    // Return value
+    // The return code.
     shared_ptr<string> code_ {};
-    // The time when the instance was created.
+    // The creation time, in UNIX timestamp format. Unit: milliseconds.
     shared_ptr<int64_t> createTime_ {};
-    // The ID of the Container Registry instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The issue occurs on the instance.
+    // The instance issue.
     shared_ptr<string> instanceIssue_ {};
-    // The name of the instance.
+    // The instance name.
     shared_ptr<string> instanceName_ {};
-    // The edition of the instance. Valid values: Enterprise_Basic: Basic Edition instances Enterprise_Standard: Standard Edition instances Enterprise_Advanced: Advanced Edition instances
+    // The instance specification. Valid values:
+    // Enterprise_Basic: basic instance.
+    // Enterprise_Standard: standard instance.
+    // Enterprise_Advanced: advanced instance.
     shared_ptr<string> instanceSpecification_ {};
-    // The status of the instance. Valid values:
+    // The instance status. Valid values:
     // 
-    // *   `PENDING`: The instance is being initialized.
-    // *   `INIT_ERROR`: The instance failed to be initialized.
-    // *   `STARTING`: The instance is being started.
-    // *   `RUNNING`: The instance is running.
-    // *   `STOPPING`: The instance is being stopped.
-    // *   `STOPPED`: The instance is stopped.
-    // *   `DELETING`: The instance is being deleted.
-    // *   `DELETED`: The instance is deleted.
+    // - `PENDING`: Initializing.
+    // 
+    // - `INIT_ERROR`: Initialization failed.
+    // 
+    // - `STARTING`: Starting.
+    // 
+    // - `RUNNING`: Running.
+    // 
+    // - `STOPPING`: Stopping.
+    // 
+    // - `STOPPED`: Stopped.
+    // 
+    // - `DELETING`: Deleting.
+    // 
+    // - `DELETED`: Deleted.
     shared_ptr<string> instanceStatus_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The call was successful.
+    // 
+    // - `false`: The call failed.
     shared_ptr<bool> isSuccess_ {};
-    // The time when the instance was last modified.
+    // The modification time, in UNIX timestamp format. Unit: milliseconds.
     shared_ptr<int64_t> modifiedTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the instance belongs.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags of the instance.
+    // The tag collection of the instance.
     shared_ptr<vector<GetInstanceResponseBody::Tags>> tags_ {};
   };
 

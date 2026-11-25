@@ -148,25 +148,27 @@ namespace Models
 
 
     protected:
+      // The list of build arguments.
       shared_ptr<vector<string>> buildArgs_ {};
-      // The ID of the build rule.
+      // The build rule ID.
       shared_ptr<string> buildRuleId_ {};
+      // The destination artifact type.
       shared_ptr<string> destArtifactType_ {};
-      // The directory of the Dockerfile.
+      // The directory where the Dockerfile is located.
       shared_ptr<string> dockerfileLocation_ {};
-      // Dockerfile name
+      // The name of the Dockerfile.
       shared_ptr<string> dockerfileName_ {};
-      // Image Tag
+      // The image tag.
       shared_ptr<string> imageTag_ {};
-      // Image operating system and platform
+      // The operating system and platform of the image.
       shared_ptr<vector<string>> platforms_ {};
-      // Code push-triggered build name
+      // The name of the code push that triggers the build.
       shared_ptr<string> pushName_ {};
-      // The type of the event that triggers the build rule. Valid values:
+      // The type of source code push that triggers the build. Valid values:
       // 
-      // - `GIT_BRANCH`: A code branch is pushed.
+      // - GIT_BRANCH: Source code is pushed from a branch.
       // 
-      // - GIT_TAG: Push source code from a tag.
+      // - GIT_TAG: Source code is pushed from a tag.
       shared_ptr<string> pushType_ {};
     };
 
@@ -225,23 +227,23 @@ namespace Models
 
 
   protected:
-    // The build rules.
+    // The list of build rules.
     shared_ptr<vector<ListRepoBuildRuleResponseBody::BuildRules>> buildRules_ {};
-    // The response code. A value of `success` indicates that the request was successful.
+    // The return value.
     shared_ptr<string> code_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
-    // - `true`: The request was successful.
+    // - `true`: The API call was successful.
     // 
-    // - `false`: The request failed.
+    // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries returned per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of build rules.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

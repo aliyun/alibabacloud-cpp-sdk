@@ -126,19 +126,19 @@ namespace Models
 
 
     protected:
-      // The name of the chart version.
+      // The chart version name.
       shared_ptr<string> chart_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the chart was last modified.
+      // The time when the chart was last modified. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> modifiedTime_ {};
-      // The version number of the chart.
+      // The chart version number.
       shared_ptr<string> release_ {};
-      // The ID of the chart repository.
+      // The chart repository ID.
       shared_ptr<string> repoId_ {};
-      // The size of the chart of the version. Unit: bytes.
+      // The size of the chart version, in bytes.
       shared_ptr<string> size_ {};
-      // The status of the chart.
+      // The status.
       shared_ptr<string> status_ {};
     };
 
@@ -199,17 +199,17 @@ namespace Models
   protected:
     // The list of chart versions.
     shared_ptr<vector<ListChartReleaseResponseBody::ChartReleases>> chartReleases_ {};
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries returned per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

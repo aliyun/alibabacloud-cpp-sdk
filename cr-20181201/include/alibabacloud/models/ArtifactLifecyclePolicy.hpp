@@ -61,6 +61,7 @@ namespace Models
 
 
     protected:
+      // The matching expression for the names of additionally retained artifact versions.
       shared_ptr<string> tagWildcard_ {};
     };
 
@@ -111,8 +112,11 @@ namespace Models
 
 
     protected:
+      // Retains artifact versions whose most recent pull time is within the specified number of days.
       shared_ptr<int32_t> lastPullOlderThanDays_ {};
+      // Retains artifact versions whose most recent push time is within the specified number of days.
       shared_ptr<int32_t> lastPushOlderThanDays_ {};
+      // The number of most recently pushed artifact versions to retain.
       shared_ptr<int32_t> latestTagCount_ {};
     };
 
@@ -144,8 +148,11 @@ namespace Models
 
 
   protected:
+    // The retention conditions for artifact versions.
     shared_ptr<ArtifactLifecyclePolicy::Condition> condition_ {};
+    // The filter conditions for artifact versions.
     shared_ptr<ArtifactLifecyclePolicy::Filter> filter_ {};
+    // The type of the artifact version data retention policy.
     shared_ptr<string> type_ {};
   };
 

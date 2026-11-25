@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The response code. The value `success` indicates that the request was successful.
+    // The return value.
     shared_ptr<string> code_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

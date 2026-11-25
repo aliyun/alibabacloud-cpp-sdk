@@ -366,7 +366,7 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // Indicates whether the image is synchronized across accounts. Valid values:
       // 
@@ -384,9 +384,9 @@ namespace Models
       shared_ptr<SyncTasks::ImageTo> imageTo_ {};
       // The custom synchronization link ID.
       shared_ptr<string> linkId_ {};
-      // The modification time.
+      // The modification time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> modifedTime_ {};
-      // The modification time.
+      // The modification time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> modifiedTime_ {};
       // The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Tasks with the same priority are executed in random order.
       // 
@@ -410,9 +410,9 @@ namespace Models
       shared_ptr<string> taskStatus_ {};
       // The trigger policy. Valid values:
       // 
-      // - `PASSIVE`: Synchronization is automatically triggered.
+      // - `PASSIVE`: Automatically triggered synchronization.
       // 
-      // - `INITIATIVE`: Synchronization is manually triggered.
+      // - `INITIATIVE`: Manually triggered synchronization.
       // 
       // Default value: `PASSIVE`
       shared_ptr<string> taskTrigger_ {};

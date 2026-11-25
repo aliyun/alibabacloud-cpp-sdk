@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The return code.
+    // The return value.
     shared_ptr<string> code_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};

@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The return value of status code.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The operation that you want to perform. Set the value to **GetRepoTag**.
+    // The repository ID.
     // 
     // This parameter is required.
     shared_ptr<string> repoId_ {};
-    // The number of milliseconds that have elapsed since the image was created.
+    // The repository tag.
     // 
     // This parameter is required.
     shared_ptr<string> tag_ {};

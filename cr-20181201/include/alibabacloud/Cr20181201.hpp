@@ -21,7 +21,7 @@ namespace Cr20181201
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Cancels an artifact building task.
+       * @summary Cancels an artifact build task.
        *
        * @param request CancelArtifactBuildTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Cr20181201
       Models::CancelArtifactBuildTaskResponse cancelArtifactBuildTaskWithOptions(const Models::CancelArtifactBuildTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels an artifact building task.
+       * @summary Cancels an artifact build task.
        *
        * @param request CancelArtifactBuildTaskRequest
        * @return CancelArtifactBuildTaskResponse
@@ -38,7 +38,7 @@ namespace Cr20181201
       Models::CancelArtifactBuildTaskResponse cancelArtifactBuildTask(const Models::CancelArtifactBuildTaskRequest &request);
 
       /**
-       * @summary Cancels a repository building record.
+       * @summary Cancels a repository build.
        *
        * @param request CancelRepoBuildRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Cr20181201
       Models::CancelRepoBuildRecordResponse cancelRepoBuildRecordWithOptions(const Models::CancelRepoBuildRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels a repository building record.
+       * @summary Cancels a repository build.
        *
        * @param request CancelRepoBuildRecordRequest
        * @return CancelRepoBuildRecordResponse
@@ -55,7 +55,7 @@ namespace Cr20181201
       Models::CancelRepoBuildRecordResponse cancelRepoBuildRecord(const Models::CancelRepoBuildRecordRequest &request);
 
       /**
-       * @summary Cancels a single replication task.
+       * @summary Cancels a single synchronization task.
        *
        * @param request CancelRepoSyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Cr20181201
       Models::CancelRepoSyncTaskResponse cancelRepoSyncTaskWithOptions(const Models::CancelRepoSyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels a single replication task.
+       * @summary Cancels a single synchronization task.
        *
        * @param request CancelRepoSyncTaskRequest
        * @return CancelRepoSyncTaskResponse
@@ -72,7 +72,7 @@ namespace Cr20181201
       Models::CancelRepoSyncTaskResponse cancelRepoSyncTask(const Models::CancelRepoSyncTaskRequest &request);
 
       /**
-       * @summary Changes the resource group to which a resource belongs.
+       * @summary Modifies the resource group of a resource.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Cr20181201
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the resource group to which a resource belongs.
+       * @summary Modifies the resource group of a resource.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -89,10 +89,11 @@ namespace Cr20181201
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Create image repository acceleration rules for image building.
+       * @summary Creates an accelerated image build rule for an image repository.
        *
-       * @description You can create building rules of accelerated images only for image repositories of Container Registry Advanced Edition instances. You cannot create building rules of accelerated images for image repositories of Container Registry Basic Edition instances. For more information, see [Specifications of different editions](https://www.alibabacloud.com/help/en/acr/product-overview/what-is-container-registry?spm=openapi-amp.newDocPublishment.0.0.bf82281fRj7rmV#section-n3q-ps7-x6k).
-       * Accelerated images are not supported in Alibaba Finance Cloud regions or Alibaba Gov Cloud regions.
+       * @description <props="intl">You can create accelerated image build rules only for Standard Edition and Advanced Edition instances. Basic Edition does not support accelerated image build rules. For more information about instance specifications, see [Specifications](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+       * <props="china">You can create accelerated image build rules only for Standard Edition and Advanced Edition instances. Basic Edition does not support accelerated image build rules. For more information about instance specifications, see [Specifications](https://help.aliyun.com/document_detail/257112.html#section-go7-lhg-qbc).
+       * Accelerated image conversion is not supported in Alibaba Finance Cloud and Alibaba Gov Cloud regions.
        *
        * @param tmpReq CreateArtifactBuildRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -101,10 +102,11 @@ namespace Cr20181201
       Models::CreateArtifactBuildRuleResponse createArtifactBuildRuleWithOptions(const Models::CreateArtifactBuildRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create image repository acceleration rules for image building.
+       * @summary Creates an accelerated image build rule for an image repository.
        *
-       * @description You can create building rules of accelerated images only for image repositories of Container Registry Advanced Edition instances. You cannot create building rules of accelerated images for image repositories of Container Registry Basic Edition instances. For more information, see [Specifications of different editions](https://www.alibabacloud.com/help/en/acr/product-overview/what-is-container-registry?spm=openapi-amp.newDocPublishment.0.0.bf82281fRj7rmV#section-n3q-ps7-x6k).
-       * Accelerated images are not supported in Alibaba Finance Cloud regions or Alibaba Gov Cloud regions.
+       * @description <props="intl">You can create accelerated image build rules only for Standard Edition and Advanced Edition instances. Basic Edition does not support accelerated image build rules. For more information about instance specifications, see [Specifications](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+       * <props="china">You can create accelerated image build rules only for Standard Edition and Advanced Edition instances. Basic Edition does not support accelerated image build rules. For more information about instance specifications, see [Specifications](https://help.aliyun.com/document_detail/257112.html#section-go7-lhg-qbc).
+       * Accelerated image conversion is not supported in Alibaba Finance Cloud and Alibaba Gov Cloud regions.
        *
        * @param request CreateArtifactBuildRuleRequest
        * @return CreateArtifactBuildRuleResponse
@@ -112,7 +114,7 @@ namespace Cr20181201
       Models::CreateArtifactBuildRuleResponse createArtifactBuildRule(const Models::CreateArtifactBuildRuleRequest &request);
 
       /**
-       * @summary Creates a lifecycle management rule for an artifact.
+       * @summary Creates a lifecycle management rule for artifacts.
        *
        * @param request CreateArtifactLifecycleRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -121,7 +123,7 @@ namespace Cr20181201
       Models::CreateArtifactLifecycleRuleResponse createArtifactLifecycleRuleWithOptions(const Models::CreateArtifactLifecycleRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a lifecycle management rule for an artifact.
+       * @summary Creates a lifecycle management rule for artifacts.
        *
        * @param request CreateArtifactLifecycleRuleRequest
        * @return CreateArtifactLifecycleRuleResponse
@@ -163,7 +165,7 @@ namespace Cr20181201
       Models::CreateArtifactSubscriptionTaskResponse createArtifactSubscriptionTask(const Models::CreateArtifactSubscriptionTaskRequest &request);
 
       /**
-       * @summary Creates an image building record based on an existing record.
+       * @summary Rebuilds a build record based on an existing build record.
        *
        * @param request CreateBuildRecordByRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -172,7 +174,7 @@ namespace Cr20181201
       Models::CreateBuildRecordByRecordResponse createBuildRecordByRecordWithOptions(const Models::CreateBuildRecordByRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an image building record based on an existing record.
+       * @summary Rebuilds a build record based on an existing build record.
        *
        * @param request CreateBuildRecordByRecordRequest
        * @return CreateBuildRecordByRecordResponse
@@ -180,7 +182,7 @@ namespace Cr20181201
       Models::CreateBuildRecordByRecordResponse createBuildRecordByRecord(const Models::CreateBuildRecordByRecordRequest &request);
 
       /**
-       * @summary Creates an image building record based on a rule.
+       * @summary Creates a build record based on a build rule.
        *
        * @param request CreateBuildRecordByRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -189,7 +191,7 @@ namespace Cr20181201
       Models::CreateBuildRecordByRuleResponse createBuildRecordByRuleWithOptions(const Models::CreateBuildRecordByRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an image building record based on a rule.
+       * @summary Creates a build record based on a build rule.
        *
        * @param request CreateBuildRecordByRuleRequest
        * @return CreateBuildRecordByRuleResponse
@@ -214,7 +216,7 @@ namespace Cr20181201
       Models::CreateChainResponse createChain(const Models::CreateChainRequest &request);
 
       /**
-       * @summary Creates a chart namespace in an instance.
+       * @summary Creates a chart namespace.
        *
        * @param request CreateChartNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -223,7 +225,7 @@ namespace Cr20181201
       Models::CreateChartNamespaceResponse createChartNamespaceWithOptions(const Models::CreateChartNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a chart namespace in an instance.
+       * @summary Creates a chart namespace.
        *
        * @param request CreateChartNamespaceRequest
        * @return CreateChartNamespaceResponse
@@ -303,7 +305,7 @@ namespace Cr20181201
       Models::CreateInstanceVpcEndpointLinkedVpcResponse createInstanceVpcEndpointLinkedVpc(const Models::CreateInstanceVpcEndpointLinkedVpcRequest &request);
 
       /**
-       * @summary Creates a repository namespace.
+       * @summary Creates a namespace for an image repository.
        *
        * @param tmpReq CreateNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -312,7 +314,7 @@ namespace Cr20181201
       Models::CreateNamespaceResponse createNamespaceWithOptions(const Models::CreateNamespaceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a repository namespace.
+       * @summary Creates a namespace for an image repository.
        *
        * @param request CreateNamespaceRequest
        * @return CreateNamespaceResponse
@@ -320,7 +322,7 @@ namespace Cr20181201
       Models::CreateNamespaceResponse createNamespace(const Models::CreateNamespaceRequest &request);
 
       /**
-       * @summary Creates an image building rule for a repository.
+       * @summary Creates a build rule for an image repository.
        *
        * @param request CreateRepoBuildRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -329,7 +331,7 @@ namespace Cr20181201
       Models::CreateRepoBuildRuleResponse createRepoBuildRuleWithOptions(const Models::CreateRepoBuildRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an image building rule for a repository.
+       * @summary Creates a build rule for an image repository.
        *
        * @param request CreateRepoBuildRuleRequest
        * @return CreateRepoBuildRuleResponse
@@ -337,7 +339,7 @@ namespace Cr20181201
       Models::CreateRepoBuildRuleResponse createRepoBuildRule(const Models::CreateRepoBuildRuleRequest &request);
 
       /**
-       * @summary Binds a source code repository to an image repository.
+       * @summary Associates a source code repository with an image repository.
        *
        * @param request CreateRepoSourceCodeRepoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -346,7 +348,7 @@ namespace Cr20181201
       Models::CreateRepoSourceCodeRepoResponse createRepoSourceCodeRepoWithOptions(const Models::CreateRepoSourceCodeRepoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a source code repository to an image repository.
+       * @summary Associates a source code repository with an image repository.
        *
        * @param request CreateRepoSourceCodeRepoRequest
        * @return CreateRepoSourceCodeRepoResponse
@@ -422,7 +424,7 @@ namespace Cr20181201
       Models::CreateRepoTagResponse createRepoTag(const Models::CreateRepoTagRequest &request);
 
       /**
-       * @summary Creates a security scan task for an image.
+       * @summary Creates an image scan task.
        *
        * @param request CreateRepoTagScanTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -431,7 +433,7 @@ namespace Cr20181201
       Models::CreateRepoTagScanTaskResponse createRepoTagScanTaskWithOptions(const Models::CreateRepoTagScanTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a security scan task for an image.
+       * @summary Creates an image scan task.
        *
        * @param request CreateRepoTagScanTaskRequest
        * @return CreateRepoTagScanTaskResponse
@@ -496,8 +498,6 @@ namespace Cr20181201
       /**
        * @summary Creates an instance store domain name routing rule.
        *
-       * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
-       *
        * @param tmpReq CreateStorageDomainRoutingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateStorageDomainRoutingRuleResponse
@@ -506,8 +506,6 @@ namespace Cr20181201
 
       /**
        * @summary Creates an instance store domain name routing rule.
-       *
-       * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
        *
        * @param request CreateStorageDomainRoutingRuleRequest
        * @return CreateStorageDomainRoutingRuleResponse
@@ -655,7 +653,7 @@ namespace Cr20181201
       Models::DeleteInstanceCustomizedDomainResponse deleteInstanceCustomizedDomain(const Models::DeleteInstanceCustomizedDomainRequest &request);
 
       /**
-       * @summary Deletes a whitelist policy from the public access endpoint of an instance.
+       * @summary Deletes a whitelist policy from the public endpoint of an instance.
        *
        * @param tmpReq DeleteInstanceEndpointAclPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -664,7 +662,7 @@ namespace Cr20181201
       Models::DeleteInstanceEndpointAclPolicyResponse deleteInstanceEndpointAclPolicyWithOptions(const Models::DeleteInstanceEndpointAclPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a whitelist policy from the public access endpoint of an instance.
+       * @summary Deletes a whitelist policy from the public endpoint of an instance.
        *
        * @param request DeleteInstanceEndpointAclPolicyRequest
        * @return DeleteInstanceEndpointAclPolicyResponse
@@ -801,8 +799,6 @@ namespace Cr20181201
       /**
        * @summary Deletes a scan rule.
        *
-       * @description 删除扫描规则。
-       *
        * @param request DeleteScanRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteScanRuleResponse
@@ -812,8 +808,6 @@ namespace Cr20181201
       /**
        * @summary Deletes a scan rule.
        *
-       * @description 删除扫描规则。
-       *
        * @param request DeleteScanRuleRequest
        * @return DeleteScanRuleResponse
        */
@@ -821,8 +815,6 @@ namespace Cr20181201
 
       /**
        * @summary Deletes an instance store domain name routing rule.
-       *
-       * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
        *
        * @param request DeleteStorageDomainRoutingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -832,8 +824,6 @@ namespace Cr20181201
 
       /**
        * @summary Deletes an instance store domain name routing rule.
-       *
-       * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
        *
        * @param request DeleteStorageDomainRoutingRuleRequest
        * @return DeleteStorageDomainRoutingRuleResponse
@@ -858,7 +848,7 @@ namespace Cr20181201
       Models::GetArtifactBuildRuleResponse getArtifactBuildRule(const Models::GetArtifactBuildRuleRequest &request);
 
       /**
-       * @summary Retrieves the build task of an artifact.
+       * @summary Retrieves the build task of a cloud native artifact.
        *
        * @param request GetArtifactBuildTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -867,7 +857,7 @@ namespace Cr20181201
       Models::GetArtifactBuildTaskResponse getArtifactBuildTaskWithOptions(const Models::GetArtifactBuildTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the build task of an artifact.
+       * @summary Retrieves the build task of a cloud native artifact.
        *
        * @param request GetArtifactBuildTaskRequest
        * @return GetArtifactBuildTaskResponse
@@ -875,7 +865,7 @@ namespace Cr20181201
       Models::GetArtifactBuildTaskResponse getArtifactBuildTask(const Models::GetArtifactBuildTaskRequest &request);
 
       /**
-       * @summary Queries the lifecycle management rules of artifacts.
+       * @summary Queries the lifecycle management rule of an artifact.
        *
        * @param request GetArtifactLifecycleRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -884,7 +874,7 @@ namespace Cr20181201
       Models::GetArtifactLifecycleRuleResponse getArtifactLifecycleRuleWithOptions(const Models::GetArtifactLifecycleRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the lifecycle management rules of artifacts.
+       * @summary Queries the lifecycle management rule of an artifact.
        *
        * @param request GetArtifactLifecycleRuleRequest
        * @return GetArtifactLifecycleRuleResponse
@@ -892,7 +882,7 @@ namespace Cr20181201
       Models::GetArtifactLifecycleRuleResponse getArtifactLifecycleRule(const Models::GetArtifactLifecycleRuleRequest &request);
 
       /**
-       * @summary Retrieves the details of an artifact subscription rule.
+       * @summary Queries artifact subscription rules.
        *
        * @param request GetArtifactSubscriptionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -901,7 +891,7 @@ namespace Cr20181201
       Models::GetArtifactSubscriptionRuleResponse getArtifactSubscriptionRuleWithOptions(const Models::GetArtifactSubscriptionRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of an artifact subscription rule.
+       * @summary Queries artifact subscription rules.
        *
        * @param request GetArtifactSubscriptionRuleRequest
        * @return GetArtifactSubscriptionRuleResponse
@@ -909,7 +899,7 @@ namespace Cr20181201
       Models::GetArtifactSubscriptionRuleResponse getArtifactSubscriptionRule(const Models::GetArtifactSubscriptionRuleRequest &request);
 
       /**
-       * @summary Queries an artifact subscription task.
+       * @summary Retrieves artifact subscription tasks.
        *
        * @param request GetArtifactSubscriptionTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -918,7 +908,7 @@ namespace Cr20181201
       Models::GetArtifactSubscriptionTaskResponse getArtifactSubscriptionTaskWithOptions(const Models::GetArtifactSubscriptionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an artifact subscription task.
+       * @summary Retrieves artifact subscription tasks.
        *
        * @param request GetArtifactSubscriptionTaskRequest
        * @return GetArtifactSubscriptionTaskResponse
@@ -926,7 +916,7 @@ namespace Cr20181201
       Models::GetArtifactSubscriptionTaskResponse getArtifactSubscriptionTask(const Models::GetArtifactSubscriptionTaskRequest &request);
 
       /**
-       * @summary Queries the details of an artifact subscription task.
+       * @summary Lists the details of subscription tasks.
        *
        * @param request GetArtifactSubscriptionTaskResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -935,7 +925,7 @@ namespace Cr20181201
       Models::GetArtifactSubscriptionTaskResultResponse getArtifactSubscriptionTaskResultWithOptions(const Models::GetArtifactSubscriptionTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an artifact subscription task.
+       * @summary Lists the details of subscription tasks.
        *
        * @param request GetArtifactSubscriptionTaskResultRequest
        * @return GetArtifactSubscriptionTaskResultResponse
@@ -970,7 +960,7 @@ namespace Cr20181201
       Models::GetAuthorizationTokenResponse getAuthorizationToken(const Models::GetAuthorizationTokenRequest &request);
 
       /**
-       * @summary Obtain the delivery chain definition to understand the execution order of edge zones in the delivery chain.
+       * @summary Retrieves the definition of a delivery chain to understand the node execution order.
        *
        * @param request GetChainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -979,7 +969,7 @@ namespace Cr20181201
       Models::GetChainResponse getChainWithOptions(const Models::GetChainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain the delivery chain definition to understand the execution order of edge zones in the delivery chain.
+       * @summary Retrieves the definition of a delivery chain to understand the node execution order.
        *
        * @param request GetChainRequest
        * @return GetChainResponse
@@ -1004,7 +994,7 @@ namespace Cr20181201
       Models::GetChartNamespaceResponse getChartNamespace(const Models::GetChartNamespaceRequest &request);
 
       /**
-       * @summary Queries the information about a chart repository.
+       * @summary Queries the repository information of a chart.
        *
        * @param request GetChartRepositoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1013,7 +1003,7 @@ namespace Cr20181201
       Models::GetChartRepositoryResponse getChartRepositoryWithOptions(const Models::GetChartRepositoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a chart repository.
+       * @summary Queries the repository information of a chart.
        *
        * @param request GetChartRepositoryRequest
        * @return GetChartRepositoryResponse
@@ -1021,7 +1011,7 @@ namespace Cr20181201
       Models::GetChartRepositoryResponse getChartRepository(const Models::GetChartRepositoryRequest &request);
 
       /**
-       * @summary Query instance information.
+       * @summary Queries instance information.
        *
        * @param request GetInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1030,7 +1020,7 @@ namespace Cr20181201
       Models::GetInstanceResponse getInstanceWithOptions(const Models::GetInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query instance information.
+       * @summary Queries instance information.
        *
        * @param request GetInstanceRequest
        * @return GetInstanceResponse
@@ -1070,7 +1060,7 @@ namespace Cr20181201
       Models::GetInstanceCustomizedDomainResponse getInstanceCustomizedDomain(const Models::GetInstanceCustomizedDomainRequest &request);
 
       /**
-       * @summary Queries an endpoint of an instance.
+       * @summary Queries the access endpoints of an instance.
        *
        * @param request GetInstanceEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1079,7 +1069,7 @@ namespace Cr20181201
       Models::GetInstanceEndpointResponse getInstanceEndpointWithOptions(const Models::GetInstanceEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an endpoint of an instance.
+       * @summary Queries the access endpoints of an instance.
        *
        * @param request GetInstanceEndpointRequest
        * @return GetInstanceEndpointResponse
@@ -1138,7 +1128,7 @@ namespace Cr20181201
       Models::GetNamespaceResponse getNamespace(const Models::GetNamespaceRequest &request);
 
       /**
-       * @summary Queries the information about image building records of a repository.
+       * @summary Queries the build records of a repository.
        *
        * @description ****
        *
@@ -1149,7 +1139,7 @@ namespace Cr20181201
       Models::GetRepoBuildRecordResponse getRepoBuildRecordWithOptions(const Models::GetRepoBuildRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about image building records of a repository.
+       * @summary Queries the build records of a repository.
        *
        * @description ****
        *
@@ -1210,7 +1200,7 @@ namespace Cr20181201
       Models::GetRepoSyncTaskResponse getRepoSyncTask(const Models::GetRepoSyncTaskRequest &request);
 
       /**
-       * @summary Retrieve information about a single image tag.
+       * @summary Retrieves the tag information of a specific image.
        *
        * @param request GetRepoTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1219,7 +1209,7 @@ namespace Cr20181201
       Models::GetRepoTagResponse getRepoTagWithOptions(const Models::GetRepoTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve information about a single image tag.
+       * @summary Retrieves the tag information of a specific image.
        *
        * @param request GetRepoTagRequest
        * @return GetRepoTagResponse
@@ -1227,7 +1217,7 @@ namespace Cr20181201
       Models::GetRepoTagResponse getRepoTag(const Models::GetRepoTagRequest &request);
 
       /**
-       * @summary Retrieves the scan status of a specific image tag.
+       * @summary Retrieves the scan status of an image version.
        *
        * @param request GetRepoTagScanStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1236,7 +1226,7 @@ namespace Cr20181201
       Models::GetRepoTagScanStatusResponse getRepoTagScanStatusWithOptions(const Models::GetRepoTagScanStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the scan status of a specific image tag.
+       * @summary Retrieves the scan status of an image version.
        *
        * @param request GetRepoTagScanStatusRequest
        * @return GetRepoTagScanStatusResponse
@@ -1261,7 +1251,7 @@ namespace Cr20181201
       Models::GetRepoTagScanSummaryResponse getRepoTagScanSummary(const Models::GetRepoTagScanSummaryRequest &request);
 
       /**
-       * @summary Queries details about an image repository.
+       * @summary Queries repository information.
        *
        * @param request GetRepositoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1270,7 +1260,7 @@ namespace Cr20181201
       Models::GetRepositoryResponse getRepositoryWithOptions(const Models::GetRepositoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries details about an image repository.
+       * @summary Queries repository information.
        *
        * @param request GetRepositoryRequest
        * @return GetRepositoryResponse
@@ -1299,9 +1289,9 @@ namespace Cr20181201
       Models::GetScanRuleResponse getScanRule(const Models::GetScanRuleRequest &request);
 
       /**
-       * @summary Retrieves the instance storage domain name routing list.
+       * @summary Retrieves the list of instance storage domain name routes.
        *
-       * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to obtain support.
+       * @description This API is available through a whitelist. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
        *
        * @param request GetStorageDomainRoutingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1310,9 +1300,9 @@ namespace Cr20181201
       Models::GetStorageDomainRoutingRuleResponse getStorageDomainRoutingRuleWithOptions(const Models::GetStorageDomainRoutingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the instance storage domain name routing list.
+       * @summary Retrieves the list of instance storage domain name routes.
        *
-       * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to obtain support.
+       * @description This API is available through a whitelist. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
        *
        * @param request GetStorageDomainRoutingRuleRequest
        * @return GetStorageDomainRoutingRuleResponse
@@ -1354,7 +1344,7 @@ namespace Cr20181201
       Models::ListArtifactLifecycleRuleResponse listArtifactLifecycleRule(const Models::ListArtifactLifecycleRuleRequest &request);
 
       /**
-       * @summary List artifact subscription rules.
+       * @summary Lists artifact subscription rules.
        *
        * @param request ListArtifactSubscriptionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1363,7 +1353,7 @@ namespace Cr20181201
       Models::ListArtifactSubscriptionRuleResponse listArtifactSubscriptionRuleWithOptions(const Models::ListArtifactSubscriptionRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List artifact subscription rules.
+       * @summary Lists artifact subscription rules.
        *
        * @param request ListArtifactSubscriptionRuleRequest
        * @return ListArtifactSubscriptionRuleResponse
@@ -1439,7 +1429,7 @@ namespace Cr20181201
       Models::ListChartNamespaceResponse listChartNamespace(const Models::ListChartNamespaceRequest &request);
 
       /**
-       * @summary Queries the versions of a chart in a chart repository.
+       * @summary Queries the list of chart versions.
        *
        * @param request ListChartReleaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1448,7 +1438,7 @@ namespace Cr20181201
       Models::ListChartReleaseResponse listChartReleaseWithOptions(const Models::ListChartReleaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the versions of a chart in a chart repository.
+       * @summary Queries the list of chart versions.
        *
        * @param request ListChartReleaseRequest
        * @return ListChartReleaseResponse
@@ -1456,7 +1446,7 @@ namespace Cr20181201
       Models::ListChartReleaseResponse listChartRelease(const Models::ListChartReleaseRequest &request);
 
       /**
-       * @summary Queries the chart repositories of a Container Registry instance.
+       * @summary Queries a list of repositories.
        *
        * @param request ListChartRepositoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1465,7 +1455,7 @@ namespace Cr20181201
       Models::ListChartRepositoryResponse listChartRepositoryWithOptions(const Models::ListChartRepositoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the chart repositories of a Container Registry instance.
+       * @summary Queries a list of repositories.
        *
        * @param request ListChartRepositoryRequest
        * @return ListChartRepositoryResponse
@@ -1473,7 +1463,7 @@ namespace Cr20181201
       Models::ListChartRepositoryResponse listChartRepository(const Models::ListChartRepositoryRequest &request);
 
       /**
-       * @summary Queries the historical events of an event rule.
+       * @summary Retrieves the event history of an event rule.
        *
        * @param request ListEventCenterRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1482,7 +1472,7 @@ namespace Cr20181201
       Models::ListEventCenterRecordResponse listEventCenterRecordWithOptions(const Models::ListEventCenterRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the historical events of an event rule.
+       * @summary Retrieves the event history of an event rule.
        *
        * @param request ListEventCenterRecordRequest
        * @return ListEventCenterRecordResponse
@@ -1490,7 +1480,7 @@ namespace Cr20181201
       Models::ListEventCenterRecordResponse listEventCenterRecord(const Models::ListEventCenterRecordRequest &request);
 
       /**
-       * @summary Queries the name of an event rule.
+       * @summary Retrieves event rule names.
        *
        * @param request ListEventCenterRuleNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1499,7 +1489,7 @@ namespace Cr20181201
       Models::ListEventCenterRuleNameResponse listEventCenterRuleNameWithOptions(const Models::ListEventCenterRuleNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the name of an event rule.
+       * @summary Retrieves event rule names.
        *
        * @param request ListEventCenterRuleNameRequest
        * @return ListEventCenterRuleNameResponse
@@ -1507,7 +1497,7 @@ namespace Cr20181201
       Models::ListEventCenterRuleNameResponse listEventCenterRuleName(const Models::ListEventCenterRuleNameRequest &request);
 
       /**
-       * @summary Queries a list of instances.
+       * @summary Queries the list of instances.
        *
        * @param request ListInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1516,7 +1506,7 @@ namespace Cr20181201
       Models::ListInstanceResponse listInstanceWithOptions(const Models::ListInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of instances.
+       * @summary Queries the list of instances.
        *
        * @param request ListInstanceRequest
        * @return ListInstanceResponse
@@ -1541,7 +1531,7 @@ namespace Cr20181201
       Models::ListInstanceEndpointResponse listInstanceEndpoint(const Models::ListInstanceEndpointRequest &request);
 
       /**
-       * @summary Queries regions in which you can create Container Registry instances.
+       * @summary Queries the list of instance regions.
        *
        * @param request ListInstanceRegionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1550,7 +1540,7 @@ namespace Cr20181201
       Models::ListInstanceRegionResponse listInstanceRegionWithOptions(const Models::ListInstanceRegionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries regions in which you can create Container Registry instances.
+       * @summary Queries the list of instance regions.
        *
        * @param request ListInstanceRegionRequest
        * @return ListInstanceRegionResponse
@@ -1575,7 +1565,7 @@ namespace Cr20181201
       Models::ListNamespaceResponse listNamespace(const Models::ListNamespaceRequest &request);
 
       /**
-       * @summary Queries image building records of an image repository.
+       * @summary Queries the list of build records for an image repository.
        *
        * @param request ListRepoBuildRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1584,7 +1574,7 @@ namespace Cr20181201
       Models::ListRepoBuildRecordResponse listRepoBuildRecordWithOptions(const Models::ListRepoBuildRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries image building records of an image repository.
+       * @summary Queries the list of build records for an image repository.
        *
        * @param request ListRepoBuildRecordRequest
        * @return ListRepoBuildRecordResponse
@@ -1592,7 +1582,7 @@ namespace Cr20181201
       Models::ListRepoBuildRecordResponse listRepoBuildRecord(const Models::ListRepoBuildRecordRequest &request);
 
       /**
-       * @summary Queries the log of an image building record.
+       * @summary Retrieves the logs of a build record.
        *
        * @param request ListRepoBuildRecordLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1601,7 +1591,7 @@ namespace Cr20181201
       Models::ListRepoBuildRecordLogResponse listRepoBuildRecordLogWithOptions(const Models::ListRepoBuildRecordLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the log of an image building record.
+       * @summary Retrieves the logs of a build record.
        *
        * @param request ListRepoBuildRecordLogRequest
        * @return ListRepoBuildRecordLogResponse
@@ -1609,7 +1599,7 @@ namespace Cr20181201
       Models::ListRepoBuildRecordLogResponse listRepoBuildRecordLog(const Models::ListRepoBuildRecordLogRequest &request);
 
       /**
-       * @summary Lists the build rules of an image repository.
+       * @summary Queries the build rules of an image repository.
        *
        * @param request ListRepoBuildRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1618,7 +1608,7 @@ namespace Cr20181201
       Models::ListRepoBuildRuleResponse listRepoBuildRuleWithOptions(const Models::ListRepoBuildRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the build rules of an image repository.
+       * @summary Queries the build rules of an image repository.
        *
        * @param request ListRepoBuildRuleRequest
        * @return ListRepoBuildRuleResponse
@@ -1626,7 +1616,7 @@ namespace Cr20181201
       Models::ListRepoBuildRuleResponse listRepoBuildRule(const Models::ListRepoBuildRuleRequest &request);
 
       /**
-       * @summary Queries the list of repository synchronization rules.
+       * @summary Queries the repository synchronization rules.
        *
        * @param request ListRepoSyncRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1635,7 +1625,7 @@ namespace Cr20181201
       Models::ListRepoSyncRuleResponse listRepoSyncRuleWithOptions(const Models::ListRepoSyncRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of repository synchronization rules.
+       * @summary Queries the repository synchronization rules.
        *
        * @param request ListRepoSyncRuleRequest
        * @return ListRepoSyncRuleResponse
@@ -1662,6 +1652,8 @@ namespace Cr20181201
       /**
        * @summary Queries the list of image versions (tags).
        *
+       * @description Before you invoke this operation, prepare an Enterprise Edition instance and an image repository. You can invoke ListInstance to query the InstanceId and invoke ListRepository to query the RepoId.
+       *
        * @param request ListRepoTagRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRepoTagResponse
@@ -1671,13 +1663,15 @@ namespace Cr20181201
       /**
        * @summary Queries the list of image versions (tags).
        *
+       * @description Before you invoke this operation, prepare an Enterprise Edition instance and an image repository. You can invoke ListInstance to query the InstanceId and invoke ListRepository to query the RepoId.
+       *
        * @param request ListRepoTagRequest
        * @return ListRepoTagResponse
        */
       Models::ListRepoTagResponse listRepoTag(const Models::ListRepoTagRequest &request);
 
       /**
-       * @summary Queries the results of a security scan that is created for an image tag.
+       * @summary Queries the list of scan results for an image version.
        *
        * @param request ListRepoTagScanResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1686,7 +1680,7 @@ namespace Cr20181201
       Models::ListRepoTagScanResultResponse listRepoTagScanResultWithOptions(const Models::ListRepoTagScanResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the results of a security scan that is created for an image tag.
+       * @summary Queries the list of scan results for an image version.
        *
        * @param request ListRepoTagScanResultRequest
        * @return ListRepoTagScanResultResponse
@@ -1694,7 +1688,7 @@ namespace Cr20181201
       Models::ListRepoTagScanResultResponse listRepoTagScanResult(const Models::ListRepoTagScanResultRequest &request);
 
       /**
-       * @summary Queries the triggers of a repository.
+       * @summary Queries the list of repository triggers.
        *
        * @param request ListRepoTriggerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1703,7 +1697,7 @@ namespace Cr20181201
       Models::ListRepoTriggerResponse listRepoTriggerWithOptions(const Models::ListRepoTriggerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the triggers of a repository.
+       * @summary Queries the list of repository triggers.
        *
        * @param request ListRepoTriggerRequest
        * @return ListRepoTriggerResponse
@@ -1711,7 +1705,7 @@ namespace Cr20181201
       Models::ListRepoTriggerResponse listRepoTrigger(const Models::ListRepoTriggerRequest &request);
 
       /**
-       * @summary Queries a list of image repositories.
+       * @summary Queries image repositories.
        *
        * @param request ListRepositoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1720,7 +1714,7 @@ namespace Cr20181201
       Models::ListRepositoryResponse listRepositoryWithOptions(const Models::ListRepositoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of image repositories.
+       * @summary Queries image repositories.
        *
        * @param request ListRepositoryRequest
        * @return ListRepositoryResponse
@@ -1728,9 +1722,9 @@ namespace Cr20181201
       Models::ListRepositoryResponse listRepository(const Models::ListRepositoryRequest &request);
 
       /**
-       * @summary Queries the baseline risks of a scan task by page.
+       * @summary Queries baseline vulnerabilities of a cloud security scan task by paging.
        *
-       * @description Before you call this operation, use a Security Center scan engine to scan the image.
+       * @description Before calling this operation, scan the image by using the cloud security engine.
        *
        * @param request ListScanBaselineByTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1739,9 +1733,9 @@ namespace Cr20181201
       Models::ListScanBaselineByTaskResponse listScanBaselineByTaskWithOptions(const Models::ListScanBaselineByTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the baseline risks of a scan task by page.
+       * @summary Queries baseline vulnerabilities of a cloud security scan task by paging.
        *
-       * @description Before you call this operation, use a Security Center scan engine to scan the image.
+       * @description Before calling this operation, scan the image by using the cloud security engine.
        *
        * @param request ListScanBaselineByTaskRequest
        * @return ListScanBaselineByTaskResponse
@@ -1749,9 +1743,9 @@ namespace Cr20181201
       Models::ListScanBaselineByTaskResponse listScanBaselineByTask(const Models::ListScanBaselineByTaskRequest &request);
 
       /**
-       * @summary Queries the malicious files of a scan task by page.
+       * @summary Performs a paged query for the malicious file vulnerabilities of a scan node by paging.
        *
-       * @description Before you call this operation, use a Security Center scan engine to scan the image.
+       * @description Before calling this operation, scan the image by using the cloud security engine.
        *
        * @param request ListScanMaliciousFileByTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1760,9 +1754,9 @@ namespace Cr20181201
       Models::ListScanMaliciousFileByTaskResponse listScanMaliciousFileByTaskWithOptions(const Models::ListScanMaliciousFileByTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the malicious files of a scan task by page.
+       * @summary Performs a paged query for the malicious file vulnerabilities of a scan node by paging.
        *
-       * @description Before you call this operation, use a Security Center scan engine to scan the image.
+       * @description Before calling this operation, scan the image by using the cloud security engine.
        *
        * @param request ListScanMaliciousFileByTaskRequest
        * @return ListScanMaliciousFileByTaskResponse
@@ -1770,9 +1764,9 @@ namespace Cr20181201
       Models::ListScanMaliciousFileByTaskResponse listScanMaliciousFileByTask(const Models::ListScanMaliciousFileByTaskRequest &request);
 
       /**
-       * @summary Lists the scan rules.
+       * @summary Lists scan rules.
        *
-       * @description 列举扫描规则。
+       * @description Lists scan rules.
        *
        * @param request ListScanRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1781,9 +1775,9 @@ namespace Cr20181201
       Models::ListScanRuleResponse listScanRuleWithOptions(const Models::ListScanRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the scan rules.
+       * @summary Lists scan rules.
        *
-       * @description 列举扫描规则。
+       * @description Lists scan rules.
        *
        * @param request ListScanRuleRequest
        * @return ListScanRuleResponse
@@ -1791,11 +1785,11 @@ namespace Cr20181201
       Models::ListScanRuleResponse listScanRule(const Models::ListScanRuleRequest &request);
 
       /**
-       * @summary Queries the tags that are added to cloud resources. Instance resources are supported.
+       * @summary Queries the list of tags that are bound to resources. Currently, Instance resources are supported.
        *
-       * @description - 请求中ResourceId.N 及 (Tag.N.Key,Tag.N.Value) 至少存在一个，以确定检索对象。
-       * - Tag.N是资源的标签，由一个键值对组成。仅指定Tag.N.Key时，则返回该标签键关联的所有标签值。仅指定Tag.N.Value会报错。
-       * - ResourceId.N需满足所有输入的键值对。当输入多个键值对，查询结果为资源中包含指定多个键值对的资源。
+       * @description - At least one of ResourceId.N or (Tag.N.Key, Tag.N.Value) must be specified in the request to determine the objects to query.
+       * - Tag.N is a tag of the resource, which consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with the specified tag key are returned. If you specify only Tag.N.Value, an error is returned.
+       * - ResourceId.N must match all specified key-value pairs. If you specify multiple key-value pairs, the query results include only resources that contain all the specified key-value pairs.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1804,11 +1798,11 @@ namespace Cr20181201
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags that are added to cloud resources. Instance resources are supported.
+       * @summary Queries the list of tags that are bound to resources. Currently, Instance resources are supported.
        *
-       * @description - 请求中ResourceId.N 及 (Tag.N.Key,Tag.N.Value) 至少存在一个，以确定检索对象。
-       * - Tag.N是资源的标签，由一个键值对组成。仅指定Tag.N.Key时，则返回该标签键关联的所有标签值。仅指定Tag.N.Value会报错。
-       * - ResourceId.N需满足所有输入的键值对。当输入多个键值对，查询结果为资源中包含指定多个键值对的资源。
+       * @description - At least one of ResourceId.N or (Tag.N.Key, Tag.N.Value) must be specified in the request to determine the objects to query.
+       * - Tag.N is a tag of the resource, which consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with the specified tag key are returned. If you specify only Tag.N.Value, an error is returned.
+       * - ResourceId.N must match all specified key-value pairs. If you specify multiple key-value pairs, the query results include only resources that contain all the specified key-value pairs.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1833,9 +1827,9 @@ namespace Cr20181201
       Models::ResetLoginPasswordResponse resetLoginPassword(const Models::ResetLoginPasswordRequest &request);
 
       /**
-       * @summary Adds tags to resources. Instance resources are supported.
+       * @summary Tags resources. Currently supports Instance resources.
        *
-       * @description 单个实例最多可绑定 20 条标签。绑定标签前，阿里云会校验资源已有标签数量，超过限制值会返回报错信息。
+       * @description You can attach up to 20 tags to a single instance. Before attaching tags, Alibaba Cloud verifies the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1844,9 +1838,9 @@ namespace Cr20181201
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tags to resources. Instance resources are supported.
+       * @summary Tags resources. Currently supports Instance resources.
        *
-       * @description 单个实例最多可绑定 20 条标签。绑定标签前，阿里云会校验资源已有标签数量，超过限制值会返回报错信息。
+       * @description You can attach up to 20 tags to a single instance. Before attaching tags, Alibaba Cloud verifies the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -1854,7 +1848,7 @@ namespace Cr20181201
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Removes tags from resources. Instance resources are supported.
+       * @summary Deletes resource tags. Currently, Instance resources are supported.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1863,7 +1857,7 @@ namespace Cr20181201
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from resources. Instance resources are supported.
+       * @summary Deletes resource tags. Currently, Instance resources are supported.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -1890,6 +1884,10 @@ namespace Cr20181201
       /**
        * @summary Updates an artifact subscription rule.
        *
+       * @description <props="intl">Accelerated image build rules can only be created for Standard and Advanced Edition instances. Basic Edition does not support the creation of accelerated image build rules. For differences in instance specifications, refer to [Specifications](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+       * <props="china">Accelerated image build rules can only be created for Standard and Advanced Edition instances. Basic Edition does not support the creation of accelerated image build rules. For differences in instance specifications, refer to [Specifications](https://help.aliyun.com/document_detail/257112.html#section-go7-lhg-qbc).
+       * Accelerated image conversion is currently not supported in Alibaba Finance Cloud and Alibaba Gov Cloud regions.
+       *
        * @param request UpdateArtifactSubscriptionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateArtifactSubscriptionRuleResponse
@@ -1899,13 +1897,17 @@ namespace Cr20181201
       /**
        * @summary Updates an artifact subscription rule.
        *
+       * @description <props="intl">Accelerated image build rules can only be created for Standard and Advanced Edition instances. Basic Edition does not support the creation of accelerated image build rules. For differences in instance specifications, refer to [Specifications](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+       * <props="china">Accelerated image build rules can only be created for Standard and Advanced Edition instances. Basic Edition does not support the creation of accelerated image build rules. For differences in instance specifications, refer to [Specifications](https://help.aliyun.com/document_detail/257112.html#section-go7-lhg-qbc).
+       * Accelerated image conversion is currently not supported in Alibaba Finance Cloud and Alibaba Gov Cloud regions.
+       *
        * @param request UpdateArtifactSubscriptionRuleRequest
        * @return UpdateArtifactSubscriptionRuleResponse
        */
       Models::UpdateArtifactSubscriptionRuleResponse updateArtifactSubscriptionRule(const Models::UpdateArtifactSubscriptionRuleRequest &request);
 
       /**
-       * @summary Updates the information about a delivery chain, such as the node execution sequence of the delivery chain.
+       * @summary Modifies the definition of a delivery chain, such as the execution order of nodes in the delivery chain.
        *
        * @param request UpdateChainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1914,7 +1916,7 @@ namespace Cr20181201
       Models::UpdateChainResponse updateChainWithOptions(const Models::UpdateChainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information about a delivery chain, such as the node execution sequence of the delivery chain.
+       * @summary Modifies the definition of a delivery chain, such as the execution order of nodes in the delivery chain.
        *
        * @param request UpdateChainRequest
        * @return UpdateChainResponse
@@ -1939,7 +1941,7 @@ namespace Cr20181201
       Models::UpdateChartNamespaceResponse updateChartNamespace(const Models::UpdateChartNamespaceRequest &request);
 
       /**
-       * @summary Updates a chart repository of a Container Registry instance.
+       * @summary Updates the repository information.
        *
        * @param request UpdateChartRepositoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1948,7 +1950,7 @@ namespace Cr20181201
       Models::UpdateChartRepositoryResponse updateChartRepositoryWithOptions(const Models::UpdateChartRepositoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a chart repository of a Container Registry instance.
+       * @summary Updates the repository information.
        *
        * @param request UpdateChartRepositoryRequest
        * @return UpdateChartRepositoryResponse
@@ -2024,7 +2026,7 @@ namespace Cr20181201
       Models::UpdateNamespaceResponse updateNamespace(const Models::UpdateNamespaceRequest &request);
 
       /**
-       * @summary Updates an image building rule for a repository.
+       * @summary Updates a build rule for an image repository.
        *
        * @param request UpdateRepoBuildRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2033,7 +2035,7 @@ namespace Cr20181201
       Models::UpdateRepoBuildRuleResponse updateRepoBuildRuleWithOptions(const Models::UpdateRepoBuildRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an image building rule for a repository.
+       * @summary Updates a build rule for an image repository.
        *
        * @param request UpdateRepoBuildRuleRequest
        * @return UpdateRepoBuildRuleResponse
@@ -2058,7 +2060,7 @@ namespace Cr20181201
       Models::UpdateRepoSourceCodeRepoResponse updateRepoSourceCodeRepo(const Models::UpdateRepoSourceCodeRepoRequest &request);
 
       /**
-       * @summary Updates a trigger of an image repository.
+       * @summary Updates a trigger for an image repository.
        *
        * @param request UpdateRepoTriggerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2067,7 +2069,7 @@ namespace Cr20181201
       Models::UpdateRepoTriggerResponse updateRepoTriggerWithOptions(const Models::UpdateRepoTriggerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a trigger of an image repository.
+       * @summary Updates a trigger for an image repository.
        *
        * @param request UpdateRepoTriggerRequest
        * @return UpdateRepoTriggerResponse
@@ -2075,7 +2077,7 @@ namespace Cr20181201
       Models::UpdateRepoTriggerResponse updateRepoTrigger(const Models::UpdateRepoTriggerRequest &request);
 
       /**
-       * @summary Updates repository information.
+       * @summary Updates the repository information.
        *
        * @param request UpdateRepositoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2084,7 +2086,7 @@ namespace Cr20181201
       Models::UpdateRepositoryResponse updateRepositoryWithOptions(const Models::UpdateRepositoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates repository information.
+       * @summary Updates the repository information.
        *
        * @param request UpdateRepositoryRequest
        * @return UpdateRepositoryResponse
@@ -2094,7 +2096,7 @@ namespace Cr20181201
       /**
        * @summary Updates a scan rule.
        *
-       * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
+       * @description This API is available through a whitelist. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
        *
        * @param tmpReq UpdateScanRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2105,7 +2107,7 @@ namespace Cr20181201
       /**
        * @summary Updates a scan rule.
        *
-       * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
+       * @description This API is available through a whitelist. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
        *
        * @param request UpdateScanRuleRequest
        * @return UpdateScanRuleResponse
@@ -2115,8 +2117,6 @@ namespace Cr20181201
       /**
        * @summary Updates a routing rule for an instance store domain name.
        *
-       * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
-       *
        * @param tmpReq UpdateStorageDomainRoutingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateStorageDomainRoutingRuleResponse
@@ -2125,8 +2125,6 @@ namespace Cr20181201
 
       /**
        * @summary Updates a routing rule for an instance store domain name.
-       *
-       * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
        *
        * @param request UpdateStorageDomainRoutingRuleRequest
        * @return UpdateStorageDomainRoutingRuleResponse

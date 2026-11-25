@@ -104,7 +104,7 @@ namespace Models
     shared_ptr<int32_t> pageNo_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The image repository name.
+    // The repository name.
     shared_ptr<string> repoName_ {};
     // The target instance ID.
     shared_ptr<string> targetInstanceId_ {};

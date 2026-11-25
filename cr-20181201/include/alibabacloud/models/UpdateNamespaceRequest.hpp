@@ -78,21 +78,21 @@ namespace Models
 
 
   protected:
-    // Whether to automatically create a repository when an image is pushed.
+    // Specifies whether to allow automatic creation of a repository upon push.
     shared_ptr<bool> autoCreateRepo_ {};
-    // The default configuration for automatically created repositories.
+    // The default repository configuration.
     shared_ptr<RepoConfiguration> defaultRepoConfiguration_ {};
-    // The default type for automatically created repositories. This parameter applies only if `AutoCreateRepo` is set to `true`. Valid values:
+    // The default repository type. Valid values:
     // 
-    // - `PUBLIC`: a public repository
+    // - `PUBLIC`: public repository
     // 
-    // - `PRIVATE`: a private repository
+    // - `PRIVATE`: private repository
     shared_ptr<string> defaultRepoType_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the namespace.
+    // The namespace name.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceName_ {};

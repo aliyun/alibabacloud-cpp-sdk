@@ -47,6 +47,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const TaskResults& obj) { 
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(Message, message_);
         DARABONBA_PTR_TO_JSON(NamespaceName, namespaceName_);
         DARABONBA_PTR_TO_JSON(RepoName, repoName_);
         DARABONBA_PTR_TO_JSON(Result, result_);
@@ -58,6 +59,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, TaskResults& obj) { 
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(Message, message_);
         DARABONBA_PTR_FROM_JSON(NamespaceName, namespaceName_);
         DARABONBA_PTR_FROM_JSON(RepoName, repoName_);
         DARABONBA_PTR_FROM_JSON(Result, result_);
@@ -78,8 +80,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->endTime_ == nullptr
-        && this->instanceId_ == nullptr && this->namespaceName_ == nullptr && this->repoName_ == nullptr && this->result_ == nullptr && this->startTime_ == nullptr
-        && this->status_ == nullptr && this->tag_ == nullptr && this->taskId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->message_ == nullptr && this->namespaceName_ == nullptr && this->repoName_ == nullptr && this->result_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr && this->taskId_ == nullptr; };
       // endTime Field Functions 
       bool hasEndTime() const { return this->endTime_ != nullptr;};
       void deleteEndTime() { this->endTime_ = nullptr;};
@@ -92,6 +94,13 @@ namespace Models
       void deleteInstanceId() { this->instanceId_ = nullptr;};
       inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
       inline TaskResults& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // message Field Functions 
+      bool hasMessage() const { return this->message_ != nullptr;};
+      void deleteMessage() { this->message_ = nullptr;};
+      inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+      inline TaskResults& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
       // namespaceName Field Functions 
@@ -144,19 +153,21 @@ namespace Models
 
 
     protected:
-      // The end time of the subscription task.
+      // The end time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The name of the namespace.
+      // The error message returned when the task fails.
+      shared_ptr<string> message_ {};
+      // The namespace.
       shared_ptr<string> namespaceName_ {};
-      // The name of the repository.
+      // The repository name.
       shared_ptr<string> repoName_ {};
-      // The result of the task.
+      // The result.
       shared_ptr<string> result_ {};
-      // The start time of the subscription task.
+      // The start time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The status of the task.
+      // The task status.
       shared_ptr<string> status_ {};
       // The image tag.
       shared_ptr<string> tag_ {};
@@ -219,12 +230,13 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Specifies whether the call was successful. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The call was successful.
+    // 
+    // - `false`: The call failed.
     shared_ptr<bool> isSuccess_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
@@ -232,9 +244,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of the artifact subscription task.
+    // The image task results.
     shared_ptr<vector<GetArtifactSubscriptionTaskResultResponseBody::TaskResults>> taskResults_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

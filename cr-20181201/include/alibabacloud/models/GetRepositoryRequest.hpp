@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the repository.
+    // The repository ID. This API supports querying by RepoId, or by RepoNamespaceName and RepoName together.
     shared_ptr<string> repoId_ {};
-    // The name of the repository.
+    // The repository name. This API supports querying by RepoId, or by RepoNamespaceName and RepoName together.
     shared_ptr<string> repoName_ {};
-    // The name of the namespace to which the repository belongs.
+    // The repository namespace name. This API supports querying by RepoId, or by RepoNamespaceName and RepoName together.
     shared_ptr<string> repoNamespaceName_ {};
   };
 

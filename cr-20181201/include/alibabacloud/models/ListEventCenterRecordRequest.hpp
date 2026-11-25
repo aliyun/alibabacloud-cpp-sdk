@@ -94,27 +94,26 @@ namespace Models
 
 
   protected:
-    // The type of the event. Valid values:
-    // 
-    // *   `cr:Artifact:DeliveryChainCompleted`: The delivery chain is processed.
-    // *   `cr:Artifact:SynchronizationCompleted`: The image is replicated.
-    // *   `cr:Artifact:BuildCompleted`: The image is built.
-    // *   `cr:Artifact:ScanCompleted`: The image is scanned.
-    // *   `cr:Artifact:SigningCompleted`: The image is signed.
+    // The event type. Valid values:
+    // - `cr:Artifact:DeliveryChainCompleted`: Delivery chain processing completed.
+    // - `cr:Artifact:SynchronizationCompleted`: Image synchronization completed.
+    // - `cr:Artifact:BuildCompleted`: Image building completed.
+    // - `cr:Artifact:ScanCompleted`: Image scanning completed.
+    // - `cr:Artifact:SigningCompleted`: Image signing completed.
     shared_ptr<string> eventType_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries to return on each page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the repository.
+    // The repository name.
     shared_ptr<string> repoName_ {};
-    // The name of the namespace to which the repository belongs.
+    // The repository namespace name.
     shared_ptr<string> repoNamespaceName_ {};
-    // The ID of the event notification rule.
+    // The event rule ID.
     shared_ptr<string> ruleId_ {};
   };
 

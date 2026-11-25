@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // The image digest.
+    // The digest of the image.
     shared_ptr<string> digest_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The severity of the malicious file.
+    // The severity level of the malicious file.
     shared_ptr<string> level_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. Maximum value: 100. If you specify a value greater than 100 for this parameter, the system reports a parameter error or uses 100 as the maximum value.
+    // The number of entries to return on each page. Maximum value: 100. If the value that you specify exceeds 100, the system returns a parameter error or uses 100 as the maximum number of entries to return.
     shared_ptr<int32_t> pageSize_ {};
-    // The image repository ID.
+    // The ID of the image repository.
     shared_ptr<string> repoId_ {};
     // The ID of the image scan task.
     shared_ptr<string> scanTaskId_ {};
-    // The image tag.
+    // The image version.
     shared_ptr<string> tag_ {};
   };
 

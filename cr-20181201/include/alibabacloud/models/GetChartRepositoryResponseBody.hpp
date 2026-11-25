@@ -149,40 +149,43 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The time when the chart repository was created.
+    // The time when the chart repository was created. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the API call is successful. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The API call is successful.
+    // 
+    // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
-    // The time when the chart repository was last modified.
+    // The time when the chart repository was last modified. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> modifiedTime_ {};
-    // The ID of the chart repository.
+    // The chart repository ID.
     shared_ptr<string> repoId_ {};
-    // The name of the chart repository.
+    // The chart repository name.
     shared_ptr<string> repoName_ {};
-    // The name of the namespace to which the chart repository belongs.
+    // The namespace to which the chart repository belongs.
     shared_ptr<string> repoNamespaceName_ {};
     // The status of the chart repository. Valid values:
     // 
-    // *   `NORMAL`: The repository is normal.
-    // *   `DELETING`: The repository is being deleted.
+    // - `NORMAL`: Normal.
+    //   
+    // - `DELETING`: Being deleted.
     shared_ptr<string> repoStatus_ {};
     // The type of the chart repository. Valid values:
     // 
-    // *   `PUBLIC`: a public repository
-    // *   `PRIVATE`: a private repository
+    // - `PUBLIC`: public repository.
+    // 
+    // - `PRIVATE`: private repository.
     shared_ptr<string> repoType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The summary about the chart repository.
+    // The chart repository summary.
     shared_ptr<string> summary_ {};
   };
 

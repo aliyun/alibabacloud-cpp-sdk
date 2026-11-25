@@ -108,12 +108,12 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The collection of namespaces.
-    // - If the scan scope is set to NAMESPACE, this parameter cannot be empty.
-    // - If the scan scope is set to REPO, this parameter must contain exactly one namespace.
+    // - If the scan scope is NAMESPACE, this parameter cannot be empty.
+    // - If the scan scope is REPO, specify exactly one namespace for this parameter.
     shared_ptr<string> namespacesShrink_ {};
     // The list of repositories.
-    // - If the scan scope is set to NAMESPACE, this parameter must be empty.
-    // - If the scan scope is set to REPO, this parameter cannot be empty.
+    // - If the scan scope is NAMESPACE, this parameter must be empty.
+    // - If the scan scope is REPO, this parameter cannot be empty.
     shared_ptr<string> repoNamesShrink_ {};
     // The regular expression used to match tags that trigger a scan.
     // 
@@ -129,8 +129,8 @@ namespace Models
     shared_ptr<string> scanScope_ {};
     // The scan type. Valid values:
     // 
-    // - `VUL`: cloud native artifact vulnerability scanning.
-    // - `SBOM`: cloud native artifact content analysis.
+    // - `VUL`: Artifact vulnerability scanning.
+    // - `SBOM`: Artifact content analysis.
     // 
     // Default value: `VUL`.
     shared_ptr<string> scanType_ {};

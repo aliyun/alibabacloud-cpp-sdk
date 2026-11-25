@@ -57,12 +57,13 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Indicates whether the CancelRepoSyncTask request is successful. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
-    // *   `true`: successful
-    // *   `false`: failed
+    // - `true`: The API call was successful.
+    // 
+    // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

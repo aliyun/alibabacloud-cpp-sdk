@@ -2,11 +2,13 @@
 #include <alibabacloud/Cr20181201.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::Cr20181201::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -17,6 +19,9 @@ namespace Cr20181201
 {
 
 AlibabaCloud::Cr20181201::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "cr";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("cr", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -36,7 +41,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Cancels an artifact building task.
+ * @summary Cancels an artifact build task.
  *
  * @param request CancelArtifactBuildTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -71,7 +76,7 @@ CancelArtifactBuildTaskResponse Client::cancelArtifactBuildTaskWithOptions(const
 }
 
 /**
- * @summary Cancels an artifact building task.
+ * @summary Cancels an artifact build task.
  *
  * @param request CancelArtifactBuildTaskRequest
  * @return CancelArtifactBuildTaskResponse
@@ -82,7 +87,7 @@ CancelArtifactBuildTaskResponse Client::cancelArtifactBuildTask(const CancelArti
 }
 
 /**
- * @summary Cancels a repository building record.
+ * @summary Cancels a repository build.
  *
  * @param request CancelRepoBuildRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -121,7 +126,7 @@ CancelRepoBuildRecordResponse Client::cancelRepoBuildRecordWithOptions(const Can
 }
 
 /**
- * @summary Cancels a repository building record.
+ * @summary Cancels a repository build.
  *
  * @param request CancelRepoBuildRecordRequest
  * @return CancelRepoBuildRecordResponse
@@ -132,7 +137,7 @@ CancelRepoBuildRecordResponse Client::cancelRepoBuildRecord(const CancelRepoBuil
 }
 
 /**
- * @summary Cancels a single replication task.
+ * @summary Cancels a single synchronization task.
  *
  * @param request CancelRepoSyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -167,7 +172,7 @@ CancelRepoSyncTaskResponse Client::cancelRepoSyncTaskWithOptions(const CancelRep
 }
 
 /**
- * @summary Cancels a single replication task.
+ * @summary Cancels a single synchronization task.
  *
  * @param request CancelRepoSyncTaskRequest
  * @return CancelRepoSyncTaskResponse
@@ -178,7 +183,7 @@ CancelRepoSyncTaskResponse Client::cancelRepoSyncTask(const CancelRepoSyncTaskRe
 }
 
 /**
- * @summary Changes the resource group to which a resource belongs.
+ * @summary Modifies the resource group of a resource.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +222,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Changes the resource group to which a resource belongs.
+ * @summary Modifies the resource group of a resource.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -228,10 +233,11 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Create image repository acceleration rules for image building.
+ * @summary Creates an accelerated image build rule for an image repository.
  *
- * @description You can create building rules of accelerated images only for image repositories of Container Registry Advanced Edition instances. You cannot create building rules of accelerated images for image repositories of Container Registry Basic Edition instances. For more information, see [Specifications of different editions](https://www.alibabacloud.com/help/en/acr/product-overview/what-is-container-registry?spm=openapi-amp.newDocPublishment.0.0.bf82281fRj7rmV#section-n3q-ps7-x6k).
- * Accelerated images are not supported in Alibaba Finance Cloud regions or Alibaba Gov Cloud regions.
+ * @description <props="intl">You can create accelerated image build rules only for Standard Edition and Advanced Edition instances. Basic Edition does not support accelerated image build rules. For more information about instance specifications, see [Specifications](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+ * <props="china">You can create accelerated image build rules only for Standard Edition and Advanced Edition instances. Basic Edition does not support accelerated image build rules. For more information about instance specifications, see [Specifications](https://help.aliyun.com/document_detail/257112.html#section-go7-lhg-qbc).
+ * Accelerated image conversion is not supported in Alibaba Finance Cloud and Alibaba Gov Cloud regions.
  *
  * @param tmpReq CreateArtifactBuildRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -284,10 +290,11 @@ CreateArtifactBuildRuleResponse Client::createArtifactBuildRuleWithOptions(const
 }
 
 /**
- * @summary Create image repository acceleration rules for image building.
+ * @summary Creates an accelerated image build rule for an image repository.
  *
- * @description You can create building rules of accelerated images only for image repositories of Container Registry Advanced Edition instances. You cannot create building rules of accelerated images for image repositories of Container Registry Basic Edition instances. For more information, see [Specifications of different editions](https://www.alibabacloud.com/help/en/acr/product-overview/what-is-container-registry?spm=openapi-amp.newDocPublishment.0.0.bf82281fRj7rmV#section-n3q-ps7-x6k).
- * Accelerated images are not supported in Alibaba Finance Cloud regions or Alibaba Gov Cloud regions.
+ * @description <props="intl">You can create accelerated image build rules only for Standard Edition and Advanced Edition instances. Basic Edition does not support accelerated image build rules. For more information about instance specifications, see [Specifications](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+ * <props="china">You can create accelerated image build rules only for Standard Edition and Advanced Edition instances. Basic Edition does not support accelerated image build rules. For more information about instance specifications, see [Specifications](https://help.aliyun.com/document_detail/257112.html#section-go7-lhg-qbc).
+ * Accelerated image conversion is not supported in Alibaba Finance Cloud and Alibaba Gov Cloud regions.
  *
  * @param request CreateArtifactBuildRuleRequest
  * @return CreateArtifactBuildRuleResponse
@@ -298,7 +305,7 @@ CreateArtifactBuildRuleResponse Client::createArtifactBuildRule(const CreateArti
 }
 
 /**
- * @summary Creates a lifecycle management rule for an artifact.
+ * @summary Creates a lifecycle management rule for artifacts.
  *
  * @param request CreateArtifactLifecycleRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -369,7 +376,7 @@ CreateArtifactLifecycleRuleResponse Client::createArtifactLifecycleRuleWithOptio
 }
 
 /**
- * @summary Creates a lifecycle management rule for an artifact.
+ * @summary Creates a lifecycle management rule for artifacts.
  *
  * @param request CreateArtifactLifecycleRuleRequest
  * @return CreateArtifactLifecycleRuleResponse
@@ -427,6 +434,10 @@ CreateArtifactSubscriptionRuleResponse Client::createArtifactSubscriptionRuleWit
 
   if (!!request.hasTagCount()) {
     query["TagCount"] = request.getTagCount();
+  }
+
+  if (!!request.hasTagList()) {
+    query["TagList"] = request.getTagList();
   }
 
   if (!!request.hasTagRegexp()) {
@@ -508,7 +519,7 @@ CreateArtifactSubscriptionTaskResponse Client::createArtifactSubscriptionTask(co
 }
 
 /**
- * @summary Creates an image building record based on an existing record.
+ * @summary Rebuilds a build record based on an existing build record.
  *
  * @param request CreateBuildRecordByRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -547,7 +558,7 @@ CreateBuildRecordByRecordResponse Client::createBuildRecordByRecordWithOptions(c
 }
 
 /**
- * @summary Creates an image building record based on an existing record.
+ * @summary Rebuilds a build record based on an existing build record.
  *
  * @param request CreateBuildRecordByRecordRequest
  * @return CreateBuildRecordByRecordResponse
@@ -558,7 +569,7 @@ CreateBuildRecordByRecordResponse Client::createBuildRecordByRecord(const Create
 }
 
 /**
- * @summary Creates an image building record based on a rule.
+ * @summary Creates a build record based on a build rule.
  *
  * @param request CreateBuildRecordByRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -597,7 +608,7 @@ CreateBuildRecordByRuleResponse Client::createBuildRecordByRuleWithOptions(const
 }
 
 /**
- * @summary Creates an image building record based on a rule.
+ * @summary Creates a build record based on a build rule.
  *
  * @param request CreateBuildRecordByRuleRequest
  * @return CreateBuildRecordByRuleResponse
@@ -674,7 +685,7 @@ CreateChainResponse Client::createChain(const CreateChainRequest &request) {
 }
 
 /**
- * @summary Creates a chart namespace in an instance.
+ * @summary Creates a chart namespace.
  *
  * @param request CreateChartNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -717,7 +728,7 @@ CreateChartNamespaceResponse Client::createChartNamespaceWithOptions(const Creat
 }
 
 /**
- * @summary Creates a chart namespace in an instance.
+ * @summary Creates a chart namespace.
  *
  * @param request CreateChartNamespaceRequest
  * @return CreateChartNamespaceResponse
@@ -974,7 +985,7 @@ CreateInstanceVpcEndpointLinkedVpcResponse Client::createInstanceVpcEndpointLink
 }
 
 /**
- * @summary Creates a repository namespace.
+ * @summary Creates a namespace for an image repository.
  *
  * @param tmpReq CreateNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1027,7 +1038,7 @@ CreateNamespaceResponse Client::createNamespaceWithOptions(const CreateNamespace
 }
 
 /**
- * @summary Creates a repository namespace.
+ * @summary Creates a namespace for an image repository.
  *
  * @param request CreateNamespaceRequest
  * @return CreateNamespaceResponse
@@ -1038,7 +1049,7 @@ CreateNamespaceResponse Client::createNamespace(const CreateNamespaceRequest &re
 }
 
 /**
- * @summary Creates an image building rule for a repository.
+ * @summary Creates a build rule for an image repository.
  *
  * @param request CreateRepoBuildRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1101,7 +1112,7 @@ CreateRepoBuildRuleResponse Client::createRepoBuildRuleWithOptions(const CreateR
 }
 
 /**
- * @summary Creates an image building rule for a repository.
+ * @summary Creates a build rule for an image repository.
  *
  * @param request CreateRepoBuildRuleRequest
  * @return CreateRepoBuildRuleResponse
@@ -1112,7 +1123,7 @@ CreateRepoBuildRuleResponse Client::createRepoBuildRule(const CreateRepoBuildRul
 }
 
 /**
- * @summary Binds a source code repository to an image repository.
+ * @summary Associates a source code repository with an image repository.
  *
  * @param request CreateRepoSourceCodeRepoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1171,7 +1182,7 @@ CreateRepoSourceCodeRepoResponse Client::createRepoSourceCodeRepoWithOptions(con
 }
 
 /**
- * @summary Binds a source code repository to an image repository.
+ * @summary Associates a source code repository with an image repository.
  *
  * @param request CreateRepoSourceCodeRepoRequest
  * @return CreateRepoSourceCodeRepoResponse
@@ -1482,7 +1493,7 @@ CreateRepoTagResponse Client::createRepoTag(const CreateRepoTagRequest &request)
 }
 
 /**
- * @summary Creates a security scan task for an image.
+ * @summary Creates an image scan task.
  *
  * @param request CreateRepoTagScanTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1533,7 +1544,7 @@ CreateRepoTagScanTaskResponse Client::createRepoTagScanTaskWithOptions(const Cre
 }
 
 /**
- * @summary Creates a security scan task for an image.
+ * @summary Creates an image scan task.
  *
  * @param request CreateRepoTagScanTaskRequest
  * @return CreateRepoTagScanTaskResponse
@@ -1758,8 +1769,6 @@ CreateScanRuleResponse Client::createScanRule(const CreateScanRuleRequest &reque
 /**
  * @summary Creates an instance store domain name routing rule.
  *
- * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
- *
  * @param tmpReq CreateStorageDomainRoutingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateStorageDomainRoutingRuleResponse
@@ -1800,8 +1809,6 @@ CreateStorageDomainRoutingRuleResponse Client::createStorageDomainRoutingRuleWit
 
 /**
  * @summary Creates an instance store domain name routing rule.
- *
- * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
  *
  * @param request CreateStorageDomainRoutingRuleRequest
  * @return CreateStorageDomainRoutingRuleResponse
@@ -2204,7 +2211,7 @@ DeleteInstanceCustomizedDomainResponse Client::deleteInstanceCustomizedDomain(co
 }
 
 /**
- * @summary Deletes a whitelist policy from the public access endpoint of an instance.
+ * @summary Deletes a whitelist policy from the public endpoint of an instance.
  *
  * @param tmpReq DeleteInstanceEndpointAclPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2257,7 +2264,7 @@ DeleteInstanceEndpointAclPolicyResponse Client::deleteInstanceEndpointAclPolicyW
 }
 
 /**
- * @summary Deletes a whitelist policy from the public access endpoint of an instance.
+ * @summary Deletes a whitelist policy from the public endpoint of an instance.
  *
  * @param request DeleteInstanceEndpointAclPolicyRequest
  * @return DeleteInstanceEndpointAclPolicyResponse
@@ -2628,8 +2635,6 @@ DeleteRepositoryResponse Client::deleteRepository(const DeleteRepositoryRequest 
 /**
  * @summary Deletes a scan rule.
  *
- * @description 删除扫描规则。
- *
  * @param request DeleteScanRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteScanRuleResponse
@@ -2665,8 +2670,6 @@ DeleteScanRuleResponse Client::deleteScanRuleWithOptions(const DeleteScanRuleReq
 /**
  * @summary Deletes a scan rule.
  *
- * @description 删除扫描规则。
- *
  * @param request DeleteScanRuleRequest
  * @return DeleteScanRuleResponse
  */
@@ -2677,8 +2680,6 @@ DeleteScanRuleResponse Client::deleteScanRule(const DeleteScanRuleRequest &reque
 
 /**
  * @summary Deletes an instance store domain name routing rule.
- *
- * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
  *
  * @param request DeleteStorageDomainRoutingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2714,8 +2715,6 @@ DeleteStorageDomainRoutingRuleResponse Client::deleteStorageDomainRoutingRuleWit
 
 /**
  * @summary Deletes an instance store domain name routing rule.
- *
- * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
  *
  * @param request DeleteStorageDomainRoutingRuleRequest
  * @return DeleteStorageDomainRoutingRuleResponse
@@ -2764,7 +2763,7 @@ GetArtifactBuildRuleResponse Client::getArtifactBuildRule(const GetArtifactBuild
 }
 
 /**
- * @summary Retrieves the build task of an artifact.
+ * @summary Retrieves the build task of a cloud native artifact.
  *
  * @param request GetArtifactBuildTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2791,7 +2790,7 @@ GetArtifactBuildTaskResponse Client::getArtifactBuildTaskWithOptions(const GetAr
 }
 
 /**
- * @summary Retrieves the build task of an artifact.
+ * @summary Retrieves the build task of a cloud native artifact.
  *
  * @param request GetArtifactBuildTaskRequest
  * @return GetArtifactBuildTaskResponse
@@ -2802,7 +2801,7 @@ GetArtifactBuildTaskResponse Client::getArtifactBuildTask(const GetArtifactBuild
 }
 
 /**
- * @summary Queries the lifecycle management rules of artifacts.
+ * @summary Queries the lifecycle management rule of an artifact.
  *
  * @param request GetArtifactLifecycleRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2829,7 +2828,7 @@ GetArtifactLifecycleRuleResponse Client::getArtifactLifecycleRuleWithOptions(con
 }
 
 /**
- * @summary Queries the lifecycle management rules of artifacts.
+ * @summary Queries the lifecycle management rule of an artifact.
  *
  * @param request GetArtifactLifecycleRuleRequest
  * @return GetArtifactLifecycleRuleResponse
@@ -2840,7 +2839,7 @@ GetArtifactLifecycleRuleResponse Client::getArtifactLifecycleRule(const GetArtif
 }
 
 /**
- * @summary Retrieves the details of an artifact subscription rule.
+ * @summary Queries artifact subscription rules.
  *
  * @param request GetArtifactSubscriptionRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2867,7 +2866,7 @@ GetArtifactSubscriptionRuleResponse Client::getArtifactSubscriptionRuleWithOptio
 }
 
 /**
- * @summary Retrieves the details of an artifact subscription rule.
+ * @summary Queries artifact subscription rules.
  *
  * @param request GetArtifactSubscriptionRuleRequest
  * @return GetArtifactSubscriptionRuleResponse
@@ -2878,7 +2877,7 @@ GetArtifactSubscriptionRuleResponse Client::getArtifactSubscriptionRule(const Ge
 }
 
 /**
- * @summary Queries an artifact subscription task.
+ * @summary Retrieves artifact subscription tasks.
  *
  * @param request GetArtifactSubscriptionTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2905,7 +2904,7 @@ GetArtifactSubscriptionTaskResponse Client::getArtifactSubscriptionTaskWithOptio
 }
 
 /**
- * @summary Queries an artifact subscription task.
+ * @summary Retrieves artifact subscription tasks.
  *
  * @param request GetArtifactSubscriptionTaskRequest
  * @return GetArtifactSubscriptionTaskResponse
@@ -2916,7 +2915,7 @@ GetArtifactSubscriptionTaskResponse Client::getArtifactSubscriptionTask(const Ge
 }
 
 /**
- * @summary Queries the details of an artifact subscription task.
+ * @summary Lists the details of subscription tasks.
  *
  * @param request GetArtifactSubscriptionTaskResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2943,7 +2942,7 @@ GetArtifactSubscriptionTaskResultResponse Client::getArtifactSubscriptionTaskRes
 }
 
 /**
- * @summary Queries the details of an artifact subscription task.
+ * @summary Lists the details of subscription tasks.
  *
  * @param request GetArtifactSubscriptionTaskResultRequest
  * @return GetArtifactSubscriptionTaskResultResponse
@@ -3010,7 +3009,7 @@ GetAuthorizationTokenResponse Client::getAuthorizationToken(const GetAuthorizati
 }
 
 /**
- * @summary Obtain the delivery chain definition to understand the execution order of edge zones in the delivery chain.
+ * @summary Retrieves the definition of a delivery chain to understand the node execution order.
  *
  * @param request GetChainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3045,7 +3044,7 @@ GetChainResponse Client::getChainWithOptions(const GetChainRequest &request, con
 }
 
 /**
- * @summary Obtain the delivery chain definition to understand the execution order of edge zones in the delivery chain.
+ * @summary Retrieves the definition of a delivery chain to understand the node execution order.
  *
  * @param request GetChainRequest
  * @return GetChainResponse
@@ -3102,7 +3101,7 @@ GetChartNamespaceResponse Client::getChartNamespace(const GetChartNamespaceReque
 }
 
 /**
- * @summary Queries the information about a chart repository.
+ * @summary Queries the repository information of a chart.
  *
  * @param request GetChartRepositoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3141,7 +3140,7 @@ GetChartRepositoryResponse Client::getChartRepositoryWithOptions(const GetChartR
 }
 
 /**
- * @summary Queries the information about a chart repository.
+ * @summary Queries the repository information of a chart.
  *
  * @param request GetChartRepositoryRequest
  * @return GetChartRepositoryResponse
@@ -3152,7 +3151,7 @@ GetChartRepositoryResponse Client::getChartRepository(const GetChartRepositoryRe
 }
 
 /**
- * @summary Query instance information.
+ * @summary Queries instance information.
  *
  * @param request GetInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3183,7 +3182,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const GetInstanceRequest &req
 }
 
 /**
- * @summary Query instance information.
+ * @summary Queries instance information.
  *
  * @param request GetInstanceRequest
  * @return GetInstanceResponse
@@ -3276,7 +3275,7 @@ GetInstanceCustomizedDomainResponse Client::getInstanceCustomizedDomain(const Ge
 }
 
 /**
- * @summary Queries an endpoint of an instance.
+ * @summary Queries the access endpoints of an instance.
  *
  * @param request GetInstanceEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3315,7 +3314,7 @@ GetInstanceEndpointResponse Client::getInstanceEndpointWithOptions(const GetInst
 }
 
 /**
- * @summary Queries an endpoint of an instance.
+ * @summary Queries the access endpoints of an instance.
  *
  * @param request GetInstanceEndpointRequest
  * @return GetInstanceEndpointResponse
@@ -3464,7 +3463,7 @@ GetNamespaceResponse Client::getNamespace(const GetNamespaceRequest &request) {
 }
 
 /**
- * @summary Queries the information about image building records of a repository.
+ * @summary Queries the build records of a repository.
  *
  * @description ****
  *
@@ -3501,7 +3500,7 @@ GetRepoBuildRecordResponse Client::getRepoBuildRecordWithOptions(const GetRepoBu
 }
 
 /**
- * @summary Queries the information about image building records of a repository.
+ * @summary Queries the build records of a repository.
  *
  * @description ****
  *
@@ -3656,7 +3655,7 @@ GetRepoSyncTaskResponse Client::getRepoSyncTask(const GetRepoSyncTaskRequest &re
 }
 
 /**
- * @summary Retrieve information about a single image tag.
+ * @summary Retrieves the tag information of a specific image.
  *
  * @param request GetRepoTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3683,7 +3682,7 @@ GetRepoTagResponse Client::getRepoTagWithOptions(const GetRepoTagRequest &reques
 }
 
 /**
- * @summary Retrieve information about a single image tag.
+ * @summary Retrieves the tag information of a specific image.
  *
  * @param request GetRepoTagRequest
  * @return GetRepoTagResponse
@@ -3694,7 +3693,7 @@ GetRepoTagResponse Client::getRepoTag(const GetRepoTagRequest &request) {
 }
 
 /**
- * @summary Retrieves the scan status of a specific image tag.
+ * @summary Retrieves the scan status of an image version.
  *
  * @param request GetRepoTagScanStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3745,7 +3744,7 @@ GetRepoTagScanStatusResponse Client::getRepoTagScanStatusWithOptions(const GetRe
 }
 
 /**
- * @summary Retrieves the scan status of a specific image tag.
+ * @summary Retrieves the scan status of an image version.
  *
  * @param request GetRepoTagScanStatusRequest
  * @return GetRepoTagScanStatusResponse
@@ -3814,7 +3813,7 @@ GetRepoTagScanSummaryResponse Client::getRepoTagScanSummary(const GetRepoTagScan
 }
 
 /**
- * @summary Queries details about an image repository.
+ * @summary Queries repository information.
  *
  * @param request GetRepositoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3857,7 +3856,7 @@ GetRepositoryResponse Client::getRepositoryWithOptions(const GetRepositoryReques
 }
 
 /**
- * @summary Queries details about an image repository.
+ * @summary Queries repository information.
  *
  * @param request GetRepositoryRequest
  * @return GetRepositoryResponse
@@ -3918,9 +3917,9 @@ GetScanRuleResponse Client::getScanRule(const GetScanRuleRequest &request) {
 }
 
 /**
- * @summary Retrieves the instance storage domain name routing list.
+ * @summary Retrieves the list of instance storage domain name routes.
  *
- * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to obtain support.
+ * @description This API is available through a whitelist. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
  *
  * @param request GetStorageDomainRoutingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3955,9 +3954,9 @@ GetStorageDomainRoutingRuleResponse Client::getStorageDomainRoutingRuleWithOptio
 }
 
 /**
- * @summary Retrieves the instance storage domain name routing list.
+ * @summary Retrieves the list of instance storage domain name routes.
  *
- * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to obtain support.
+ * @description This API is available through a whitelist. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
  *
  * @param request GetStorageDomainRoutingRuleRequest
  * @return GetStorageDomainRoutingRuleResponse
@@ -4044,7 +4043,7 @@ ListArtifactLifecycleRuleResponse Client::listArtifactLifecycleRule(const ListAr
 }
 
 /**
- * @summary List artifact subscription rules.
+ * @summary Lists artifact subscription rules.
  *
  * @param request ListArtifactSubscriptionRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4071,7 +4070,7 @@ ListArtifactSubscriptionRuleResponse Client::listArtifactSubscriptionRuleWithOpt
 }
 
 /**
- * @summary List artifact subscription rules.
+ * @summary Lists artifact subscription rules.
  *
  * @param request ListArtifactSubscriptionRuleRequest
  * @return ListArtifactSubscriptionRuleResponse
@@ -4294,7 +4293,7 @@ ListChartNamespaceResponse Client::listChartNamespace(const ListChartNamespaceRe
 }
 
 /**
- * @summary Queries the versions of a chart in a chart repository.
+ * @summary Queries the list of chart versions.
  *
  * @param request ListChartReleaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4345,7 +4344,7 @@ ListChartReleaseResponse Client::listChartReleaseWithOptions(const ListChartRele
 }
 
 /**
- * @summary Queries the versions of a chart in a chart repository.
+ * @summary Queries the list of chart versions.
  *
  * @param request ListChartReleaseRequest
  * @return ListChartReleaseResponse
@@ -4356,7 +4355,7 @@ ListChartReleaseResponse Client::listChartRelease(const ListChartReleaseRequest 
 }
 
 /**
- * @summary Queries the chart repositories of a Container Registry instance.
+ * @summary Queries a list of repositories.
  *
  * @param request ListChartRepositoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4407,7 +4406,7 @@ ListChartRepositoryResponse Client::listChartRepositoryWithOptions(const ListCha
 }
 
 /**
- * @summary Queries the chart repositories of a Container Registry instance.
+ * @summary Queries a list of repositories.
  *
  * @param request ListChartRepositoryRequest
  * @return ListChartRepositoryResponse
@@ -4418,7 +4417,7 @@ ListChartRepositoryResponse Client::listChartRepository(const ListChartRepositor
 }
 
 /**
- * @summary Queries the historical events of an event rule.
+ * @summary Retrieves the event history of an event rule.
  *
  * @param request ListEventCenterRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4445,7 +4444,7 @@ ListEventCenterRecordResponse Client::listEventCenterRecordWithOptions(const Lis
 }
 
 /**
- * @summary Queries the historical events of an event rule.
+ * @summary Retrieves the event history of an event rule.
  *
  * @param request ListEventCenterRecordRequest
  * @return ListEventCenterRecordResponse
@@ -4456,7 +4455,7 @@ ListEventCenterRecordResponse Client::listEventCenterRecord(const ListEventCente
 }
 
 /**
- * @summary Queries the name of an event rule.
+ * @summary Retrieves event rule names.
  *
  * @param request ListEventCenterRuleNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4483,7 +4482,7 @@ ListEventCenterRuleNameResponse Client::listEventCenterRuleNameWithOptions(const
 }
 
 /**
- * @summary Queries the name of an event rule.
+ * @summary Retrieves event rule names.
  *
  * @param request ListEventCenterRuleNameRequest
  * @return ListEventCenterRuleNameResponse
@@ -4494,7 +4493,7 @@ ListEventCenterRuleNameResponse Client::listEventCenterRuleName(const ListEventC
 }
 
 /**
- * @summary Queries a list of instances.
+ * @summary Queries the list of instances.
  *
  * @param request ListInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4541,7 +4540,7 @@ ListInstanceResponse Client::listInstanceWithOptions(const ListInstanceRequest &
 }
 
 /**
- * @summary Queries a list of instances.
+ * @summary Queries the list of instances.
  *
  * @param request ListInstanceRequest
  * @return ListInstanceResponse
@@ -4602,7 +4601,7 @@ ListInstanceEndpointResponse Client::listInstanceEndpoint(const ListInstanceEndp
 }
 
 /**
- * @summary Queries regions in which you can create Container Registry instances.
+ * @summary Queries the list of instance regions.
  *
  * @param request ListInstanceRegionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4633,7 +4632,7 @@ ListInstanceRegionResponse Client::listInstanceRegionWithOptions(const ListInsta
 }
 
 /**
- * @summary Queries regions in which you can create Container Registry instances.
+ * @summary Queries the list of instance regions.
  *
  * @param request ListInstanceRegionRequest
  * @return ListInstanceRegionResponse
@@ -4702,7 +4701,7 @@ ListNamespaceResponse Client::listNamespace(const ListNamespaceRequest &request)
 }
 
 /**
- * @summary Queries image building records of an image repository.
+ * @summary Queries the list of build records for an image repository.
  *
  * @param request ListRepoBuildRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4745,7 +4744,7 @@ ListRepoBuildRecordResponse Client::listRepoBuildRecordWithOptions(const ListRep
 }
 
 /**
- * @summary Queries image building records of an image repository.
+ * @summary Queries the list of build records for an image repository.
  *
  * @param request ListRepoBuildRecordRequest
  * @return ListRepoBuildRecordResponse
@@ -4756,7 +4755,7 @@ ListRepoBuildRecordResponse Client::listRepoBuildRecord(const ListRepoBuildRecor
 }
 
 /**
- * @summary Queries the log of an image building record.
+ * @summary Retrieves the logs of a build record.
  *
  * @param request ListRepoBuildRecordLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4799,7 +4798,7 @@ ListRepoBuildRecordLogResponse Client::listRepoBuildRecordLogWithOptions(const L
 }
 
 /**
- * @summary Queries the log of an image building record.
+ * @summary Retrieves the logs of a build record.
  *
  * @param request ListRepoBuildRecordLogRequest
  * @return ListRepoBuildRecordLogResponse
@@ -4810,7 +4809,7 @@ ListRepoBuildRecordLogResponse Client::listRepoBuildRecordLog(const ListRepoBuil
 }
 
 /**
- * @summary Lists the build rules of an image repository.
+ * @summary Queries the build rules of an image repository.
  *
  * @param request ListRepoBuildRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4853,7 +4852,7 @@ ListRepoBuildRuleResponse Client::listRepoBuildRuleWithOptions(const ListRepoBui
 }
 
 /**
- * @summary Lists the build rules of an image repository.
+ * @summary Queries the build rules of an image repository.
  *
  * @param request ListRepoBuildRuleRequest
  * @return ListRepoBuildRuleResponse
@@ -4864,7 +4863,7 @@ ListRepoBuildRuleResponse Client::listRepoBuildRule(const ListRepoBuildRuleReque
 }
 
 /**
- * @summary Queries the list of repository synchronization rules.
+ * @summary Queries the repository synchronization rules.
  *
  * @param request ListRepoSyncRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4919,7 +4918,7 @@ ListRepoSyncRuleResponse Client::listRepoSyncRuleWithOptions(const ListRepoSyncR
 }
 
 /**
- * @summary Queries the list of repository synchronization rules.
+ * @summary Queries the repository synchronization rules.
  *
  * @param request ListRepoSyncRuleRequest
  * @return ListRepoSyncRuleResponse
@@ -4998,6 +4997,8 @@ ListRepoSyncTaskResponse Client::listRepoSyncTask(const ListRepoSyncTaskRequest 
 /**
  * @summary Queries the list of image versions (tags).
  *
+ * @description Before you invoke this operation, prepare an Enterprise Edition instance and an image repository. You can invoke ListInstance to query the InstanceId and invoke ListRepository to query the RepoId.
+ *
  * @param request ListRepoTagRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRepoTagResponse
@@ -5049,6 +5050,8 @@ ListRepoTagResponse Client::listRepoTagWithOptions(const ListRepoTagRequest &req
 /**
  * @summary Queries the list of image versions (tags).
  *
+ * @description Before you invoke this operation, prepare an Enterprise Edition instance and an image repository. You can invoke ListInstance to query the InstanceId and invoke ListRepository to query the RepoId.
+ *
  * @param request ListRepoTagRequest
  * @return ListRepoTagResponse
  */
@@ -5058,7 +5061,7 @@ ListRepoTagResponse Client::listRepoTag(const ListRepoTagRequest &request) {
 }
 
 /**
- * @summary Queries the results of a security scan that is created for an image tag.
+ * @summary Queries the list of scan results for an image version.
  *
  * @param request ListRepoTagScanResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5129,7 +5132,7 @@ ListRepoTagScanResultResponse Client::listRepoTagScanResultWithOptions(const Lis
 }
 
 /**
- * @summary Queries the results of a security scan that is created for an image tag.
+ * @summary Queries the list of scan results for an image version.
  *
  * @param request ListRepoTagScanResultRequest
  * @return ListRepoTagScanResultResponse
@@ -5140,7 +5143,7 @@ ListRepoTagScanResultResponse Client::listRepoTagScanResult(const ListRepoTagSca
 }
 
 /**
- * @summary Queries the triggers of a repository.
+ * @summary Queries the list of repository triggers.
  *
  * @param request ListRepoTriggerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5175,7 +5178,7 @@ ListRepoTriggerResponse Client::listRepoTriggerWithOptions(const ListRepoTrigger
 }
 
 /**
- * @summary Queries the triggers of a repository.
+ * @summary Queries the list of repository triggers.
  *
  * @param request ListRepoTriggerRequest
  * @return ListRepoTriggerResponse
@@ -5186,7 +5189,7 @@ ListRepoTriggerResponse Client::listRepoTrigger(const ListRepoTriggerRequest &re
 }
 
 /**
- * @summary Queries a list of image repositories.
+ * @summary Queries image repositories.
  *
  * @param request ListRepositoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5245,7 +5248,7 @@ ListRepositoryResponse Client::listRepositoryWithOptions(const ListRepositoryReq
 }
 
 /**
- * @summary Queries a list of image repositories.
+ * @summary Queries image repositories.
  *
  * @param request ListRepositoryRequest
  * @return ListRepositoryResponse
@@ -5256,9 +5259,9 @@ ListRepositoryResponse Client::listRepository(const ListRepositoryRequest &reque
 }
 
 /**
- * @summary Queries the baseline risks of a scan task by page.
+ * @summary Queries baseline vulnerabilities of a cloud security scan task by paging.
  *
- * @description Before you call this operation, use a Security Center scan engine to scan the image.
+ * @description Before calling this operation, scan the image by using the cloud security engine.
  *
  * @param request ListScanBaselineByTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5285,9 +5288,9 @@ ListScanBaselineByTaskResponse Client::listScanBaselineByTaskWithOptions(const L
 }
 
 /**
- * @summary Queries the baseline risks of a scan task by page.
+ * @summary Queries baseline vulnerabilities of a cloud security scan task by paging.
  *
- * @description Before you call this operation, use a Security Center scan engine to scan the image.
+ * @description Before calling this operation, scan the image by using the cloud security engine.
  *
  * @param request ListScanBaselineByTaskRequest
  * @return ListScanBaselineByTaskResponse
@@ -5298,9 +5301,9 @@ ListScanBaselineByTaskResponse Client::listScanBaselineByTask(const ListScanBase
 }
 
 /**
- * @summary Queries the malicious files of a scan task by page.
+ * @summary Performs a paged query for the malicious file vulnerabilities of a scan node by paging.
  *
- * @description Before you call this operation, use a Security Center scan engine to scan the image.
+ * @description Before calling this operation, scan the image by using the cloud security engine.
  *
  * @param request ListScanMaliciousFileByTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5327,9 +5330,9 @@ ListScanMaliciousFileByTaskResponse Client::listScanMaliciousFileByTaskWithOptio
 }
 
 /**
- * @summary Queries the malicious files of a scan task by page.
+ * @summary Performs a paged query for the malicious file vulnerabilities of a scan node by paging.
  *
- * @description Before you call this operation, use a Security Center scan engine to scan the image.
+ * @description Before calling this operation, scan the image by using the cloud security engine.
  *
  * @param request ListScanMaliciousFileByTaskRequest
  * @return ListScanMaliciousFileByTaskResponse
@@ -5340,9 +5343,9 @@ ListScanMaliciousFileByTaskResponse Client::listScanMaliciousFileByTask(const Li
 }
 
 /**
- * @summary Lists the scan rules.
+ * @summary Lists scan rules.
  *
- * @description 列举扫描规则。
+ * @description Lists scan rules.
  *
  * @param request ListScanRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5369,9 +5372,9 @@ ListScanRuleResponse Client::listScanRuleWithOptions(const ListScanRuleRequest &
 }
 
 /**
- * @summary Lists the scan rules.
+ * @summary Lists scan rules.
  *
- * @description 列举扫描规则。
+ * @description Lists scan rules.
  *
  * @param request ListScanRuleRequest
  * @return ListScanRuleResponse
@@ -5382,11 +5385,11 @@ ListScanRuleResponse Client::listScanRule(const ListScanRuleRequest &request) {
 }
 
 /**
- * @summary Queries the tags that are added to cloud resources. Instance resources are supported.
+ * @summary Queries the list of tags that are bound to resources. Currently, Instance resources are supported.
  *
- * @description - 请求中ResourceId.N 及 (Tag.N.Key,Tag.N.Value) 至少存在一个，以确定检索对象。
- * - Tag.N是资源的标签，由一个键值对组成。仅指定Tag.N.Key时，则返回该标签键关联的所有标签值。仅指定Tag.N.Value会报错。
- * - ResourceId.N需满足所有输入的键值对。当输入多个键值对，查询结果为资源中包含指定多个键值对的资源。
+ * @description - At least one of ResourceId.N or (Tag.N.Key, Tag.N.Value) must be specified in the request to determine the objects to query.
+ * - Tag.N is a tag of the resource, which consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with the specified tag key are returned. If you specify only Tag.N.Value, an error is returned.
+ * - ResourceId.N must match all specified key-value pairs. If you specify multiple key-value pairs, the query results include only resources that contain all the specified key-value pairs.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5433,11 +5436,11 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags that are added to cloud resources. Instance resources are supported.
+ * @summary Queries the list of tags that are bound to resources. Currently, Instance resources are supported.
  *
- * @description - 请求中ResourceId.N 及 (Tag.N.Key,Tag.N.Value) 至少存在一个，以确定检索对象。
- * - Tag.N是资源的标签，由一个键值对组成。仅指定Tag.N.Key时，则返回该标签键关联的所有标签值。仅指定Tag.N.Value会报错。
- * - ResourceId.N需满足所有输入的键值对。当输入多个键值对，查询结果为资源中包含指定多个键值对的资源。
+ * @description - At least one of ResourceId.N or (Tag.N.Key, Tag.N.Value) must be specified in the request to determine the objects to query.
+ * - Tag.N is a tag of the resource, which consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with the specified tag key are returned. If you specify only Tag.N.Value, an error is returned.
+ * - ResourceId.N must match all specified key-value pairs. If you specify multiple key-value pairs, the query results include only resources that contain all the specified key-value pairs.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -5494,9 +5497,9 @@ ResetLoginPasswordResponse Client::resetLoginPassword(const ResetLoginPasswordRe
 }
 
 /**
- * @summary Adds tags to resources. Instance resources are supported.
+ * @summary Tags resources. Currently supports Instance resources.
  *
- * @description 单个实例最多可绑定 20 条标签。绑定标签前，阿里云会校验资源已有标签数量，超过限制值会返回报错信息。
+ * @description You can attach up to 20 tags to a single instance. Before attaching tags, Alibaba Cloud verifies the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5539,9 +5542,9 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds tags to resources. Instance resources are supported.
+ * @summary Tags resources. Currently supports Instance resources.
  *
- * @description 单个实例最多可绑定 20 条标签。绑定标签前，阿里云会校验资源已有标签数量，超过限制值会返回报错信息。
+ * @description You can attach up to 20 tags to a single instance. Before attaching tags, Alibaba Cloud verifies the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -5552,7 +5555,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Removes tags from resources. Instance resources are supported.
+ * @summary Deletes resource tags. Currently, Instance resources are supported.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5599,7 +5602,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from resources. Instance resources are supported.
+ * @summary Deletes resource tags. Currently, Instance resources are supported.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -5698,6 +5701,10 @@ UpdateArtifactLifecycleRuleResponse Client::updateArtifactLifecycleRule(const Up
 /**
  * @summary Updates an artifact subscription rule.
  *
+ * @description <props="intl">Accelerated image build rules can only be created for Standard and Advanced Edition instances. Basic Edition does not support the creation of accelerated image build rules. For differences in instance specifications, refer to [Specifications](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+ * <props="china">Accelerated image build rules can only be created for Standard and Advanced Edition instances. Basic Edition does not support the creation of accelerated image build rules. For differences in instance specifications, refer to [Specifications](https://help.aliyun.com/document_detail/257112.html#section-go7-lhg-qbc).
+ * Accelerated image conversion is currently not supported in Alibaba Finance Cloud and Alibaba Gov Cloud regions.
+ *
  * @param request UpdateArtifactSubscriptionRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateArtifactSubscriptionRuleResponse
@@ -5749,6 +5756,10 @@ UpdateArtifactSubscriptionRuleResponse Client::updateArtifactSubscriptionRuleWit
     query["TagCount"] = request.getTagCount();
   }
 
+  if (!!request.hasTagList()) {
+    query["TagList"] = request.getTagList();
+  }
+
   if (!!request.hasTagRegexp()) {
     query["TagRegexp"] = request.getTagRegexp();
   }
@@ -5773,6 +5784,10 @@ UpdateArtifactSubscriptionRuleResponse Client::updateArtifactSubscriptionRuleWit
 /**
  * @summary Updates an artifact subscription rule.
  *
+ * @description <props="intl">Accelerated image build rules can only be created for Standard and Advanced Edition instances. Basic Edition does not support the creation of accelerated image build rules. For differences in instance specifications, refer to [Specifications](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+ * <props="china">Accelerated image build rules can only be created for Standard and Advanced Edition instances. Basic Edition does not support the creation of accelerated image build rules. For differences in instance specifications, refer to [Specifications](https://help.aliyun.com/document_detail/257112.html#section-go7-lhg-qbc).
+ * Accelerated image conversion is currently not supported in Alibaba Finance Cloud and Alibaba Gov Cloud regions.
+ *
  * @param request UpdateArtifactSubscriptionRuleRequest
  * @return UpdateArtifactSubscriptionRuleResponse
  */
@@ -5782,7 +5797,7 @@ UpdateArtifactSubscriptionRuleResponse Client::updateArtifactSubscriptionRule(co
 }
 
 /**
- * @summary Updates the information about a delivery chain, such as the node execution sequence of the delivery chain.
+ * @summary Modifies the definition of a delivery chain, such as the execution order of nodes in the delivery chain.
  *
  * @param request UpdateChainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5833,7 +5848,7 @@ UpdateChainResponse Client::updateChainWithOptions(const UpdateChainRequest &req
 }
 
 /**
- * @summary Updates the information about a delivery chain, such as the node execution sequence of the delivery chain.
+ * @summary Modifies the definition of a delivery chain, such as the execution order of nodes in the delivery chain.
  *
  * @param request UpdateChainRequest
  * @return UpdateChainResponse
@@ -5898,7 +5913,7 @@ UpdateChartNamespaceResponse Client::updateChartNamespace(const UpdateChartNames
 }
 
 /**
- * @summary Updates a chart repository of a Container Registry instance.
+ * @summary Updates the repository information.
  *
  * @param request UpdateChartRepositoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5945,7 +5960,7 @@ UpdateChartRepositoryResponse Client::updateChartRepositoryWithOptions(const Upd
 }
 
 /**
- * @summary Updates a chart repository of a Container Registry instance.
+ * @summary Updates the repository information.
  *
  * @param request UpdateChartRepositoryRequest
  * @return UpdateChartRepositoryResponse
@@ -6220,7 +6235,7 @@ UpdateNamespaceResponse Client::updateNamespace(const UpdateNamespaceRequest &re
 }
 
 /**
- * @summary Updates an image building rule for a repository.
+ * @summary Updates a build rule for an image repository.
  *
  * @param request UpdateRepoBuildRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6287,7 +6302,7 @@ UpdateRepoBuildRuleResponse Client::updateRepoBuildRuleWithOptions(const UpdateR
 }
 
 /**
- * @summary Updates an image building rule for a repository.
+ * @summary Updates a build rule for an image repository.
  *
  * @param request UpdateRepoBuildRuleRequest
  * @return UpdateRepoBuildRuleResponse
@@ -6372,7 +6387,7 @@ UpdateRepoSourceCodeRepoResponse Client::updateRepoSourceCodeRepo(const UpdateRe
 }
 
 /**
- * @summary Updates a trigger of an image repository.
+ * @summary Updates a trigger for an image repository.
  *
  * @param request UpdateRepoTriggerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6427,7 +6442,7 @@ UpdateRepoTriggerResponse Client::updateRepoTriggerWithOptions(const UpdateRepoT
 }
 
 /**
- * @summary Updates a trigger of an image repository.
+ * @summary Updates a trigger for an image repository.
  *
  * @param request UpdateRepoTriggerRequest
  * @return UpdateRepoTriggerResponse
@@ -6438,7 +6453,7 @@ UpdateRepoTriggerResponse Client::updateRepoTrigger(const UpdateRepoTriggerReque
 }
 
 /**
- * @summary Updates repository information.
+ * @summary Updates the repository information.
  *
  * @param request UpdateRepositoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6497,7 +6512,7 @@ UpdateRepositoryResponse Client::updateRepositoryWithOptions(const UpdateReposit
 }
 
 /**
- * @summary Updates repository information.
+ * @summary Updates the repository information.
  *
  * @param request UpdateRepositoryRequest
  * @return UpdateRepositoryResponse
@@ -6510,7 +6525,7 @@ UpdateRepositoryResponse Client::updateRepository(const UpdateRepositoryRequest 
 /**
  * @summary Updates a scan rule.
  *
- * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
+ * @description This API is available through a whitelist. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
  *
  * @param tmpReq UpdateScanRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6581,7 +6596,7 @@ UpdateScanRuleResponse Client::updateScanRuleWithOptions(const UpdateScanRuleReq
 /**
  * @summary Updates a scan rule.
  *
- * @description This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
+ * @description This API is available through a whitelist. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
  *
  * @param request UpdateScanRuleRequest
  * @return UpdateScanRuleResponse
@@ -6593,8 +6608,6 @@ UpdateScanRuleResponse Client::updateScanRule(const UpdateScanRuleRequest &reque
 
 /**
  * @summary Updates a routing rule for an instance store domain name.
- *
- * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
  *
  * @param tmpReq UpdateStorageDomainRoutingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6640,8 +6653,6 @@ UpdateStorageDomainRoutingRuleResponse Client::updateStorageDomainRoutingRuleWit
 
 /**
  * @summary Updates a routing rule for an instance store domain name.
- *
- * @description 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
  *
  * @param request UpdateStorageDomainRoutingRuleRequest
  * @return UpdateStorageDomainRoutingRuleResponse

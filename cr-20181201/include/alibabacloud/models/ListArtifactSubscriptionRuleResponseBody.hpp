@@ -59,6 +59,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SourceProvider, sourceProvider_);
         DARABONBA_PTR_TO_JSON(SourceRepoName, sourceRepoName_);
         DARABONBA_PTR_TO_JSON(TagCount, tagCount_);
+        DARABONBA_PTR_TO_JSON(TagList, tagList_);
         DARABONBA_PTR_TO_JSON(TagRegexp, tagRegexp_);
       };
       friend void from_json(const Darabonba::Json& j, Rules& obj) { 
@@ -76,6 +77,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SourceProvider, sourceProvider_);
         DARABONBA_PTR_FROM_JSON(SourceRepoName, sourceRepoName_);
         DARABONBA_PTR_FROM_JSON(TagCount, tagCount_);
+        DARABONBA_PTR_FROM_JSON(TagList, tagList_);
         DARABONBA_PTR_FROM_JSON(TagRegexp, tagRegexp_);
       };
       Rules() = default ;
@@ -92,7 +94,7 @@ namespace Models
       virtual bool empty() const override { return this->accelerate_ == nullptr
         && this->createTime_ == nullptr && this->instanceId_ == nullptr && this->modifiedTime_ == nullptr && this->namespaceName_ == nullptr && this->override_ == nullptr
         && this->platform_ == nullptr && this->repoName_ == nullptr && this->ruleId_ == nullptr && this->sourceDomain_ == nullptr && this->sourceNamespaceName_ == nullptr
-        && this->sourceProvider_ == nullptr && this->sourceRepoName_ == nullptr && this->tagCount_ == nullptr && this->tagRegexp_ == nullptr; };
+        && this->sourceProvider_ == nullptr && this->sourceRepoName_ == nullptr && this->tagCount_ == nullptr && this->tagList_ == nullptr && this->tagRegexp_ == nullptr; };
       // accelerate Field Functions 
       bool hasAccelerate() const { return this->accelerate_ != nullptr;};
       void deleteAccelerate() { this->accelerate_ = nullptr;};
@@ -193,6 +195,15 @@ namespace Models
       inline Rules& setTagCount(int64_t tagCount) { DARABONBA_PTR_SET_VALUE(tagCount_, tagCount) };
 
 
+      // tagList Field Functions 
+      bool hasTagList() const { return this->tagList_ != nullptr;};
+      void deleteTagList() { this->tagList_ = nullptr;};
+      inline const vector<string> & getTagList() const { DARABONBA_PTR_GET_CONST(tagList_, vector<string>) };
+      inline vector<string> getTagList() { DARABONBA_PTR_GET(tagList_, vector<string>) };
+      inline Rules& setTagList(const vector<string> & tagList) { DARABONBA_PTR_SET_VALUE(tagList_, tagList) };
+      inline Rules& setTagList(vector<string> && tagList) { DARABONBA_PTR_SET_RVALUE(tagList_, tagList) };
+
+
       // tagRegexp Field Functions 
       bool hasTagRegexp() const { return this->tagRegexp_ != nullptr;};
       void deleteTagRegexp() { this->tagRegexp_ = nullptr;};
@@ -201,34 +212,37 @@ namespace Models
 
 
     protected:
-      // Indicates whether to enable the accelerated subscription channel. This feature is in public preview. Based on an optimized scheduling policy and network link, the speed of image subscription is improved.
+      // Indicates whether the acceleration link is enabled. The subscription acceleration feature is in public preview and can improve image subscription speed based on scheduling policies and network link optimization.
       shared_ptr<bool> accelerate_ {};
-      // The time when the rule was created.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the rule was last modified.
+      // The modification time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> modifiedTime_ {};
-      // The name of the namespace.
+      // The namespace name.
       shared_ptr<string> namespaceName_ {};
-      // Indicates whether to overwrite the image.
+      // Specifies whether to overwrite images.
       shared_ptr<bool> override_ {};
-      // The operating system and architecture. If the source repository contains a multi-architecture image, only images that have a specified operating system and architecture are subscribed to the destination repository of the Enterprise Edition instance.
+      // The operating system and architecture. If the source repository contains multi-architecture images, only the specified operating system and architecture are subscribed to the destination repository of the Enterprise instance.
       shared_ptr<vector<string>> platform_ {};
-      // The name of the repository.
+      // The repository name.
       shared_ptr<string> repoName_ {};
       // The rule ID.
       shared_ptr<string> ruleId_ {};
+      // The domain name of the source image repository for the subscription rule.
       shared_ptr<string> sourceDomain_ {};
       // The source namespace.
       shared_ptr<string> sourceNamespaceName_ {};
-      // The source of the artifact. Valid values:
+      // The artifact source.
       shared_ptr<string> sourceProvider_ {};
       // The source repository.
       shared_ptr<string> sourceRepoName_ {};
       // The number of subscribed images.
       shared_ptr<int64_t> tagCount_ {};
-      // The regular expression that is used to subscribe to the source repository.
+      // The list of subscribed tags.
+      shared_ptr<vector<string>> tagList_ {};
+      // The image versions subscribed from the source repository. Regular expressions are supported.
       shared_ptr<string> tagRegexp_ {};
     };
 
@@ -287,13 +301,13 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // - `true`: The request was successful.
+    // - `true`: The call was successful.
     // 
-    // - `false`: The request failed.
+    // - `false`: The call failed.
     shared_ptr<bool> isSuccess_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
@@ -301,7 +315,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The subscription rules.
+    // The list of rules.
     shared_ptr<vector<ListArtifactSubscriptionRuleResponseBody::Rules>> rules_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

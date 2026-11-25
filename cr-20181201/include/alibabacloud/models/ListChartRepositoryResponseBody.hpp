@@ -153,31 +153,32 @@ namespace Models
 
 
     protected:
-      // The time when the repository was created.
+      // The time when the repository was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the repository was last modified.
+      // The time when the repository was last modified. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> modifiedTime_ {};
-      // The ID of the repository.
+      // The repository ID.
       shared_ptr<string> repoId_ {};
-      // The name of the repository.
+      // The repository name.
       shared_ptr<string> repoName_ {};
-      // The name of the namespace to which the repository belongs.
+      // The namespace of the repository.
       shared_ptr<string> repoNamespaceName_ {};
       // The status of the repository. Valid values:
       // 
-      // *   `NORMAL`: The repository is normal.
-      // *   `DELETING`: The repository is being deleted.
+      // - `NORMAL`: Normal.
+      // 
+      // - `DELETING`: The repository is being deleted.
       shared_ptr<string> repoStatus_ {};
       // The type of the repository. Valid values:
       // 
-      // *   `PRIVATE`: a private repository
-      // *   `PUBLIC`: a public repository
+      // - `PRIVATE`: a private repository.
+      // - `PUBLIC`: a public repository.
       shared_ptr<string> repoType_ {};
-      // The ID of the resource group to which the repository belongs.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The summary about the repository.
+      // The summary of the repository.
       shared_ptr<string> summary_ {};
     };
 
@@ -238,17 +239,17 @@ namespace Models
   protected:
     // The return value.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> isSuccess_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries returned per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The queried repositories.
+    // The list of repositories.
     shared_ptr<vector<ListChartRepositoryResponseBody::Repositories>> repositories_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

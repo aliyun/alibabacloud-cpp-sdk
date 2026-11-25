@@ -176,17 +176,17 @@ namespace Models
 
 
     protected:
-      // The time when the repository was created.
+      // The time when the repository was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the repository was last modified.
+      // The time when the repository was last modified. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> modifiedTime_ {};
       // The repository build type. Valid values:
       // 
-      // - `AUTO`: Automatically triggered build.
+      // - `AUTO`: Automatically triggered.
       // 
-      // - `MANUAL`: Manually triggered build.
+      // - `MANUAL`: Manually triggered.
       shared_ptr<string> repoBuildType_ {};
       // The repository ID.
       shared_ptr<string> repoId_ {};
@@ -204,9 +204,9 @@ namespace Models
       shared_ptr<string> repoType_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The summary.
+      // The summary information.
       shared_ptr<string> summary_ {};
-      // The tag immutability of the image.
+      // The immutability of image tags.
       shared_ptr<bool> tagImmutability_ {};
     };
 
@@ -279,17 +279,17 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The maximum number of entries returned.
+    // The maximum number of returned results.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. If a next page exists, the service returns a NextToken value. Pass this value in the next request.
+    // The token for the next page. If a next page exists, the service returns a NextToken value, which you can pass in the next request.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The list of repositories.
     shared_ptr<vector<ListRepositoryResponseBody::Repositories>> repositories_ {};

@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the image building rule.
+    // The build rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> buildRuleId_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the image repository.
+    // The image repository ID.
     // 
     // This parameter is required.
     shared_ptr<string> repoId_ {};

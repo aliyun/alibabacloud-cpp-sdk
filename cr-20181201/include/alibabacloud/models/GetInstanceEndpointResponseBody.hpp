@@ -82,12 +82,13 @@ namespace Models
 
 
     protected:
-      // The domain name that is used to access the Container Registry Enterprise Edition instance.
+      // The domain name used to access the Enterprise instance.
       shared_ptr<string> domain_ {};
-      // The type of the domain name. Valid values:
+      // The domain name type. Valid values:
       // 
-      // *   `SYSTEM`: a system domain name.
-      // *   `USER`: a user domain name.
+      // - `SYSTEM`: system domain name
+      // 
+      // - `USER`: user domain name
       shared_ptr<string> type_ {};
     };
 
@@ -129,9 +130,9 @@ namespace Models
 
 
     protected:
-      // Remarks for public IP address whitelists.
+      // The comment for adding an Internet whitelist entry.
       shared_ptr<string> comment_ {};
-      // The public IP address whitelist.
+      // The CIDR block added to the Internet whitelist.
       shared_ptr<string> entry_ {};
     };
 
@@ -199,21 +200,27 @@ namespace Models
 
 
   protected:
-    // Indicates whether the access control list (ACL) feature is enabled.
+    // Indicates whether the access control list (ACL) is enabled.
     shared_ptr<bool> aclEnable_ {};
-    // The ACLs.
+    // The list of ACL entries.
     shared_ptr<vector<GetInstanceEndpointResponseBody::AclEntries>> aclEntries_ {};
     // The return value.
     shared_ptr<string> code_ {};
-    // Domain names.
+    // The list of domain names.
     shared_ptr<vector<GetInstanceEndpointResponseBody::Domains>> domains_ {};
-    // Indicates whether the ACL feature is enabled.
+    // Indicates whether the access endpoint is enabled.
     shared_ptr<bool> enable_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the instance.
+    // The running status. Valid values:
+    // 
+    // `CREATING`: Creating.
+    // 
+    // `RUNNING`: Running.
+    // 
+    // `DELETING`: Deleting.
     shared_ptr<string> status_ {};
   };
 

@@ -353,17 +353,21 @@ namespace Models
 
 
   protected:
-    // Indicates whether automatic execution is enabled.
+    // Indicates whether the rule is automatically executed.
     shared_ptr<bool> auto_ {};
     // The return value.
     shared_ptr<string> code_ {};
-    // The creation time. This value is a UNIX timestamp in milliseconds.
+    // The creation time. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> createTime_ {};
+    // Indicates whether DryRun mode is enabled. When DryRun mode is enabled, only lifecycle task scanning is performed, and actual data cleanup is not executed. This mode is disabled by default.
     shared_ptr<bool> dryRun_ {};
     // Indicates whether lifecycle management is enabled.
     // 
     // Only one of this parameter and EnableDeleteUntaggedManifest can be set to true.
     shared_ptr<bool> enableDeleteTag_ {};
+    // Indicates whether artifact cleanup is enabled.
+    // 
+    // Only one of this parameter and EnableDeleteTag can be set to true.
     shared_ptr<bool> enableDeleteUntaggedManifest_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
@@ -373,11 +377,11 @@ namespace Models
     // 
     // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
-    // The last modification time. This value is a UNIX timestamp in milliseconds.
+    // The last modification time. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> modifiedTime_ {};
     // The namespace name.
     shared_ptr<string> namespaceName_ {};
-    // The next execution time. This value is a UNIX timestamp in milliseconds.
+    // The next execution time. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> nextTime_ {};
     // The list of lifecycle policies.
     shared_ptr<vector<GetArtifactLifecycleRuleResponseBody::Policies>> policies_ {};
@@ -385,7 +389,7 @@ namespace Models
     shared_ptr<string> repoName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of images to retain.
+    // The number of retained images.
     shared_ptr<int64_t> retentionTagCount_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
@@ -393,7 +397,7 @@ namespace Models
     shared_ptr<string> scheduleTime_ {};
     // The cleanup scope.
     shared_ptr<string> scope_ {};
-    // The regular expression used to match image versions to retain.
+    // The regular expression used to retain image versions.
     shared_ptr<string> tagRegexp_ {};
   };
 

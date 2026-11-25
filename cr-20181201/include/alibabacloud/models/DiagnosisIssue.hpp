@@ -97,23 +97,23 @@ namespace Models
 
 
   protected:
-    // A unique code that identifies the issue type.
+    // The event code.
     shared_ptr<string> code_ {};
-    // An object that contains additional, unstructured key-value information about the issue.
+    // The additional information.
     shared_ptr<map<string, string>> extra_ {};
-    // The time, in ISO 8601 format, when the issue was first detected.
+    // The first occurrence time of the event.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> firstOccurrence_ {};
-    // The time, in ISO 8601 format, when the issue was last detected.
+    // The last occurrence time of the event.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> lastOccurrence_ {};
-    // Specifies the severity of the issue. Valid values are `INFO`, `WARN`, and `ERROR`.
+    // The event level.
     shared_ptr<string> level_ {};
-    // The total number of times the issue has occurred.
+    // The number of occurrences of the event.
     shared_ptr<int64_t> occurrenceCount_ {};
-    // The recommended action to resolve the issue.
+    // The Solutions.
     shared_ptr<string> solution_ {};
   };
 

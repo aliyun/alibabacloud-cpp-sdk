@@ -103,19 +103,19 @@ namespace Models
 
 
   protected:
-    // The digest value of the image.
+    // The image digest value.
     shared_ptr<string> digest_ {};
-    // The ID of the Container Registry instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The level of the baseline risk.
+    // The level.
     shared_ptr<string> level_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the image repository.
+    // The repository ID.
     shared_ptr<string> repoId_ {};
-    // The ID of the image scan task.
+    // The image scan task ID.
     shared_ptr<string> scanTaskId_ {};
     // The image version.
     shared_ptr<string> tag_ {};

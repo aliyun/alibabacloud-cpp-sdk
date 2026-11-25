@@ -94,31 +94,31 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the image repository.
+    // The image repository ID.
     // 
     // This parameter is required.
     shared_ptr<string> repoId_ {};
-    // The ID of the trigger.
+    // The trigger ID.
     // 
     // This parameter is required.
     shared_ptr<string> triggerId_ {};
-    // The name of the trigger.
-    // 
-    // You can specify the TriggerName or TriggerUrl parameter. The TriggerName parameter is optional.
+    // The trigger name. This parameter is optional. You must specify either TriggerName or TriggerUrl.
     shared_ptr<string> triggerName_ {};
-    // The image tag based on which the trigger is set.
+    // The image version that triggers the trigger.
     shared_ptr<string> triggerTag_ {};
-    // The type of the trigger. Valid values:
+    // The trigger type. Valid values:
     // 
-    // *   `ALL`: a trigger that supports both tags and regular expressions.
-    // *   `TAG_LISTTAG`: a tag-based trigger.
-    // *   `TAG_REG_EXP`: a regular expression-based trigger.
+    // - `ALL`: all.
+    // 
+    // - `TAG_LISTTAG`: tag list.
+    // 
+    // - `TAG_REG_EXP`: regular expression.
     shared_ptr<string> triggerType_ {};
-    // The URL of the trigger.
+    // The trigger URL.
     shared_ptr<string> triggerUrl_ {};
   };
 

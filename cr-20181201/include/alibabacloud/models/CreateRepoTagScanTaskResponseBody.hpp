@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The return code.
+    // The return value.
     shared_ptr<string> code_ {};
-    // Indicates whether the API call succeeded. Valid values:
+    // Indicates whether the API call was successful. Valid values:
     // 
-    // - `true`: The API call succeeded.
+    // - `true`: The API call was successful.
     // 
     // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The description of the whitelist entry.
     shared_ptr<string> comment_ {};
+    // The IP address or CIDR block that is allowed to access the public endpoint of the instance.
     shared_ptr<string> entry_ {};
   };
 

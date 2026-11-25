@@ -113,12 +113,12 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The collection of namespaces.
-    // - If the scan scope is set to NAMESPACE, this parameter is required.
-    // - If the scan scope is set to REPO, specify exactly one namespace for this parameter.
+    // - When the scan scope is NAMESPACE, this parameter cannot be empty.
+    // - When the scan scope is REPO, this parameter must contain exactly one namespace.
     shared_ptr<vector<string>> namespaces_ {};
     // The list of repositories.
-    // - If the scan scope is set to NAMESPACE, this parameter must be empty.
-    // - If the scan scope is set to REPO, this parameter is required.
+    // - When the scan scope is NAMESPACE, this parameter must be empty.
+    // - When the scan scope is REPO, this parameter cannot be empty.
     shared_ptr<vector<string>> repoNames_ {};
     // The tag filtering rule.
     // 
@@ -132,15 +132,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> scanRuleId_ {};
-    // The scan scope. Valid values:
-    // - NAMESPACE: namespace
-    // - REPO: repository.
+    // The scan scope.
     // 
     // This parameter is required.
     shared_ptr<string> scanScope_ {};
-    // The trigger type. Valid values:
-    // - AUTO: Automatically triggered upon push.
-    // - MANUAL: Manually triggered.
+    // The trigger type.
     // 
     // This parameter is required.
     shared_ptr<string> triggerType_ {};

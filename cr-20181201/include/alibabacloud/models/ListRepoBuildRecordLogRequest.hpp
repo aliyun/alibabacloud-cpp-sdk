@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The ID of the image building record.
+    // The build record ID.
     // 
     // This parameter is required.
     shared_ptr<string> buildRecordId_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The offset of log lines.
+    // The log line offset.
     shared_ptr<int32_t> offset_ {};
-    // The ID of the image repository.
+    // The image repository ID.
     shared_ptr<string> repoId_ {};
   };
 

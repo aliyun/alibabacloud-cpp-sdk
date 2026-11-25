@@ -103,31 +103,31 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The instance ID. You can call the ListInstance operation to query existing Enterprise instances.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries to return.
+    // The maximum number of returned results.
     // 
-    // Use this parameter together with NextToken. This parameter takes priority over PageNo and PageSize.
+    // Use this parameter together with the NextToken parameter. This parameter takes precedence over PageNo and PageSize.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. If a next page exists, the service returns a NextToken value. Pass this value in the next request.
+    // The token for the next page. If a next page exists, the service returns a NextToken value, which you can pass in the next request.
     // 
-    // Use this parameter together with MaxResults. This parameter takes priority over PageNo and PageSize.
+    // Use this parameter together with the MaxResults parameter. This parameter takes precedence over PageNo and PageSize.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. The maximum value is 100. If the specified value exceeds 100, the system returns a parameter error or uses 100 as the actual maximum number of entries returned.
+    // The number of entries per page. Maximum value: 100. If the specified value exceeds 100, the system returns a parameter error or uses 100 as the maximum number of returned entries.
     shared_ptr<int32_t> pageSize_ {};
     // The repository name.
     shared_ptr<string> repoName_ {};
-    // The repository namespace name.
+    // The name of the repository namespace.
     shared_ptr<string> repoNamespaceName_ {};
     // The repository status. Valid values:
     // 
     // - `NORMAL`: Normal.
     // 
-    // - `DELETING`: Being deleted.
+    // - `DELETING`: Deleting.
     // 
     // - `DELETED`: Deleted.
     // 

@@ -57,18 +57,19 @@ namespace Models
 
 
   protected:
-    // The type of the endpoint. Set the value to Internet.
+    // The endpoint type. Only Internet is supported.
     // 
     // This parameter is required.
     shared_ptr<string> endpointType_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the module that you want to access. Valid values:
+    // The access module. Valid values:
     // 
-    // *   `Registry`: the image repository.
-    // *   `Chart`: a Helm chart.
+    // - `Registry`: image repository
+    // 
+    // - `Chart`: Helm chart
     shared_ptr<string> moduleName_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the image building record.
+    // The build record ID.
     // 
     // This parameter is required.
     shared_ptr<string> buildRecordId_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

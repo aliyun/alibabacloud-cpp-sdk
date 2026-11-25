@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The ID of the image building record.
+    // The build record ID.
     shared_ptr<string> buildRecordId_ {};
     // The return value.
     shared_ptr<string> code_ {};
