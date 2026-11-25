@@ -43,6 +43,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const LifecycleHooks& obj) { 
         DARABONBA_PTR_TO_JSON(DefaultResult, defaultResult_);
         DARABONBA_PTR_TO_JSON(HeartbeatTimeout, heartbeatTimeout_);
+        DARABONBA_PTR_TO_JSON(LifecycleActionSources, lifecycleActionSources_);
         DARABONBA_PTR_TO_JSON(LifecycleHookId, lifecycleHookId_);
         DARABONBA_PTR_TO_JSON(LifecycleHookName, lifecycleHookName_);
         DARABONBA_PTR_TO_JSON(LifecycleHookStatus, lifecycleHookStatus_);
@@ -54,6 +55,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, LifecycleHooks& obj) { 
         DARABONBA_PTR_FROM_JSON(DefaultResult, defaultResult_);
         DARABONBA_PTR_FROM_JSON(HeartbeatTimeout, heartbeatTimeout_);
+        DARABONBA_PTR_FROM_JSON(LifecycleActionSources, lifecycleActionSources_);
         DARABONBA_PTR_FROM_JSON(LifecycleHookId, lifecycleHookId_);
         DARABONBA_PTR_FROM_JSON(LifecycleHookName, lifecycleHookName_);
         DARABONBA_PTR_FROM_JSON(LifecycleHookStatus, lifecycleHookStatus_);
@@ -74,8 +76,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->defaultResult_ == nullptr
-        && this->heartbeatTimeout_ == nullptr && this->lifecycleHookId_ == nullptr && this->lifecycleHookName_ == nullptr && this->lifecycleHookStatus_ == nullptr && this->lifecycleTransition_ == nullptr
-        && this->notificationArn_ == nullptr && this->notificationMetadata_ == nullptr && this->scalingGroupId_ == nullptr; };
+        && this->heartbeatTimeout_ == nullptr && this->lifecycleActionSources_ == nullptr && this->lifecycleHookId_ == nullptr && this->lifecycleHookName_ == nullptr && this->lifecycleHookStatus_ == nullptr
+        && this->lifecycleTransition_ == nullptr && this->notificationArn_ == nullptr && this->notificationMetadata_ == nullptr && this->scalingGroupId_ == nullptr; };
       // defaultResult Field Functions 
       bool hasDefaultResult() const { return this->defaultResult_ != nullptr;};
       void deleteDefaultResult() { this->defaultResult_ = nullptr;};
@@ -88,6 +90,15 @@ namespace Models
       void deleteHeartbeatTimeout() { this->heartbeatTimeout_ = nullptr;};
       inline int32_t getHeartbeatTimeout() const { DARABONBA_PTR_GET_DEFAULT(heartbeatTimeout_, 0) };
       inline LifecycleHooks& setHeartbeatTimeout(int32_t heartbeatTimeout) { DARABONBA_PTR_SET_VALUE(heartbeatTimeout_, heartbeatTimeout) };
+
+
+      // lifecycleActionSources Field Functions 
+      bool hasLifecycleActionSources() const { return this->lifecycleActionSources_ != nullptr;};
+      void deleteLifecycleActionSources() { this->lifecycleActionSources_ = nullptr;};
+      inline const vector<string> & getLifecycleActionSources() const { DARABONBA_PTR_GET_CONST(lifecycleActionSources_, vector<string>) };
+      inline vector<string> getLifecycleActionSources() { DARABONBA_PTR_GET(lifecycleActionSources_, vector<string>) };
+      inline LifecycleHooks& setLifecycleActionSources(const vector<string> & lifecycleActionSources) { DARABONBA_PTR_SET_VALUE(lifecycleActionSources_, lifecycleActionSources) };
+      inline LifecycleHooks& setLifecycleActionSources(vector<string> && lifecycleActionSources) { DARABONBA_PTR_SET_RVALUE(lifecycleActionSources_, lifecycleActionSources) };
 
 
       // lifecycleHookId Field Functions 
@@ -140,38 +151,37 @@ namespace Models
 
 
     protected:
-      // The next action that is performed after the lifecycle hook times out.
+      // The action to perform after the wait state of the instance ends.
       shared_ptr<string> defaultResult_ {};
-      // The period of time before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action that is specified by DefaultResult.
+      // The wait time configured in the lifecycle hook for the scaling activity. The next action is performed after the wait time expires.
       shared_ptr<int32_t> heartbeatTimeout_ {};
+      // The specific scenarios in which the lifecycle hook is triggered.
+      shared_ptr<vector<string>> lifecycleActionSources_ {};
       // The ID of the lifecycle hook.
       shared_ptr<string> lifecycleHookId_ {};
       // The name of the lifecycle hook.
       shared_ptr<string> lifecycleHookName_ {};
       // The status of the lifecycle hook. Valid values:
-      // 
-      // *   Active: The lifecycle hook is enabled.
-      // *   InActive: The lifecycle hook is disabled.
+      // - Active: The lifecycle hook is active.
+      // - InActive: The lifecycle hook is inactive.
       shared_ptr<string> lifecycleHookStatus_ {};
-      // The type of the scaling activity to which the lifecycle hook applies.
+      // The scaling activity type associated with the lifecycle hook.
       shared_ptr<string> lifecycleTransition_ {};
-      // The ARN of the notification recipient when the lifecycle hook takes effect. The value of this parameter must be in one of the following formats:
+      // The identifier of the notification recipient for the lifecycle hook. The parameter format is as follows:
+      // - Notifications not configured: `acs:ess:{region-id}:{account-id}:null/null`.
+      // - MNS queue: `acs:mns:{region-id}:{account-id}:queue/{queuename}`.
+      // - MNS topic: `acs:mns:{region-id}:{account-id}:topic/{topicname}`.
+      // - OOS template: `acs:oos:{region-id}:{account-id}:template/{templatename}`.
+      // - EventBridge: `acs:eventbridge:{region-id}:{account-id}:eventbus/default`.
       // 
-      // *   If you do not create a notification rule, specify the value in the `acs:ess:{region-id}:{account-id}:null/null` format.
-      // *   If you specify a Simple Message Queue (SMQ, formerly MNS) queue as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
-      // *   If you specify an SMQ as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
-      // *   If you specify a CloudOps Orchestration Service (OOS) template as the notification recipient, specify the value in the `acs:oos:{region-id}:{account-id}:template/{templatename}` format.
-      // *   If you specify an event bus as the notification recipient, specify the value in the `acs:eventbridge:{region-id}:{account-id}:eventbus/default` format.
-      // 
-      // The variables in the preceding value formats have the following meanings:
-      // 
-      // *   region-id: the region ID of your scaling group.
-      // *   account-id: the ID of your Alibaba Cloud account.
-      // *   queuename: the name of the SMQ queue.
-      // *   topicname: the name of the SMQ topic.
-      // *   templatename: the name of the OOS template.
+      // The variables in the parameter format have the following meanings:
+      // - region-id: The ID of the region where the scaling group resides.
+      // - account-id: The Alibaba Cloud account ID.
+      // - queuename: The name of the MNS queue.
+      // - topicname: The name of the MNS topic.
+      // - templatename: The name of the OOS template.
       shared_ptr<string> notificationArn_ {};
-      // The fixed string that is included in a notification that Auto Scaling sends when the lifecycle hook takes effect.
+      // The fixed string information for the wait state of the scaling activity.
       shared_ptr<string> notificationMetadata_ {};
       // The ID of the scaling group.
       shared_ptr<string> scalingGroupId_ {};
@@ -217,7 +227,7 @@ namespace Models
 
 
   protected:
-    // Details about the lifecycle hooks.
+    // The list of lifecycle hooks.
     shared_ptr<vector<DescribeLifecycleHooksResponseBody::LifecycleHooks>> lifecycleHooks_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

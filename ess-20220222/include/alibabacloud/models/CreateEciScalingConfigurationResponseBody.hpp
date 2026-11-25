@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The request ID, which uniquely identifies the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the elastic container instance (container group).
+    // The instance ID, which is the container group ID.
     shared_ptr<string> scalingConfigurationId_ {};
   };
 

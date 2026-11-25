@@ -79,13 +79,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // Optional. Set the value to YAML.
     shared_ptr<string> format_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the scaling configuration.
-    // 
-    // If you want the system to update a scaling configuration of the Elastic Container Instance type based on a YAML configuration file, you must specify `ScalingConfigurationId`. If you do not specify `ScalingConfigurationId`, the system creates a new scaling configuration based on the YAML configuration file.
+    // The ID of the scaling configuration to be updated. Specify ScalingConfigurationId when you update an ECI scaling configuration based on the Content parameter. If you do not specify ScalingConfigurationId, an ECI scaling configuration is created based on the Content parameter.
     shared_ptr<string> scalingConfigurationId_ {};
     // The ID of the scaling group.
     // 

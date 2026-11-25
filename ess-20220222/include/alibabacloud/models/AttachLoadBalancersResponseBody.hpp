@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The ID of the scaling activity.
     // 
-    // This parameter is returned only if you set `Async` to `true`. You can call the DescribeScalingActivities operation to query the scaling activity IDs and status.
+    // This value is returned only when Async is set to `true`. You can call the DescribeScalingActivities operation to query the returned scaling activity ID and view the execution status of the scaling activity.
     shared_ptr<string> scalingActivityId_ {};
   };
 

@@ -110,11 +110,11 @@ namespace Models
 
 
       protected:
-        // The port number over which Auto Scaling adds ECS instances or elastic container instances to the new vServer group. Valid values: 1 to 65535.
+        // The port number used when Auto Scaling adds the ECS instance or elastic container instance to the vServer group. Valid values: 1 to 65535.
         shared_ptr<int32_t> port_ {};
         // The ID of the vServer group.
         shared_ptr<string> VServerGroupId_ {};
-        // The weight of an ECS instance or elastic container instance as a backend server. Valid values: 0 to 100.
+        // The weight configured when Auto Scaling adds the ECS instance or elastic container instance to the vServer group. Valid values: 0 to 100.
         // 
         // Default value: 50.
         shared_ptr<int32_t> weight_ {};
@@ -139,9 +139,9 @@ namespace Models
 
 
     protected:
-      // The ID of the CLB instance to which the new vServer group belongs.
+      // The ID of the CLB instance to which the vServer group belongs.
       shared_ptr<string> loadBalancerId_ {};
-      // The attributes of the vServer group.
+      // The properties of the vServer group.
       shared_ptr<vector<VServerGroups::VServerGroupAttributes>> VServerGroupAttributes_ {};
     };
 
@@ -200,19 +200,17 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
-    // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to add the existing Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to the new vServer group. Valid values:
+    // Specifies whether to add the ECS instances or elastic container instances in the current scaling group to the newly added vServer groups. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: adds the instances.
+    // - false: does not add the instances.
     // 
     // Default value: false.
     shared_ptr<bool> forceAttach_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the scaling group. Examples: cn-hangzhou and cn-shanghai. For information about regions and zones, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // The ID of the region to which the scaling group belongs. Examples: cn-hangzhou and cn-shanghai. For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -221,7 +219,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> scalingGroupId_ {};
-    // The information about the vServer groups.
+    // The details of the vServer groups associated with the scaling group.
     // 
     // This parameter is required.
     shared_ptr<vector<AttachVServerGroupsRequest::VServerGroups>> VServerGroups_ {};

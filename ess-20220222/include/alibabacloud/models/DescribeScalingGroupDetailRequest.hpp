@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The output format. Set the value to yaml.
+    // The output format. Only the YAML format is supported.
     shared_ptr<string> outputFormat_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the scaling group. For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).

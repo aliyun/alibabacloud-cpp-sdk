@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The error code that indicates the reason why the instance was not removed.
+      // The code of the reason why the instance is ignored.
       shared_ptr<string> code_ {};
-      // The ID of the instance that was not removed.
+      // The instance ID of the ignored instance.
       shared_ptr<string> instanceId_ {};
-      // The error message that indicates the reason why the instance was not removed.
+      // The description of the reason why the instance is ignored.
       shared_ptr<string> message_ {};
     };
 
@@ -115,9 +115,9 @@ namespace Models
 
 
   protected:
-    // The instances that were not removed and the reasons why they were not removed.
+    // The list of ignored invalid instance information in the request.
     shared_ptr<vector<RemoveInstancesResponseBody::IgnoredInstances>> ignoredInstances_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the scaling activity.
     shared_ptr<string> scalingActivityId_ {};

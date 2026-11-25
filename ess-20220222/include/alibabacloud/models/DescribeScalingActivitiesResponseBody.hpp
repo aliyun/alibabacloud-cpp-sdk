@@ -155,12 +155,12 @@ namespace Models
 
 
       protected:
-        // Indicates whether all lifecycle hooks are disabled when the scaling activity is triggered. Valid values:
+        // Specifies whether all lifecycle hooks are disabled for the scaling activity. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true: Disabled.
+        // - false: Not disabled.
         shared_ptr<bool> disableLifecycleHook_ {};
-        // The IDs of the lifecycle hooks that are disabled.
+        // The list of IDs of the lifecycle hooks disabled for the scaling activity.
         shared_ptr<vector<string>> ignoredLifecycleHookIds_ {};
       };
 
@@ -222,13 +222,13 @@ namespace Models
 
 
       protected:
-        // The error code that is returned when the scaling activity failed.
+        // The error code returned when the scaling activity fails or is partially successful.
         shared_ptr<string> code_ {};
-        // The description of the scaling activity exception.
+        // The exception description of the scaling activity.
         shared_ptr<string> description_ {};
-        // The IDs of the instances included in the failed scaling activities.
+        // The list of failed instance ID.
         shared_ptr<vector<string>> failedInstanceIds_ {};
-        // The error message that is returned when the scaling activity failed or is partially successful.
+        // The error messages returned when the scaling activity fails or is partially successful.
         shared_ptr<string> message_ {};
       };
 
@@ -464,78 +464,77 @@ namespace Models
     protected:
       // The metadata of the scaling activity.
       shared_ptr<string> activityMetadata_ {};
-      // The total number of instances that are manually added to the scaling group after the scaling activity is complete.
+      // The total number of manually added instances in the scaling group after the scaling activity is completed.
       shared_ptr<string> attachedCapacity_ {};
-      // The total number of instances that are created by Auto Scaling after the scaling activity was complete.
+      // The total number of instances in the scaling group that are generated through automatic creation after you execute the scaling activity.
       shared_ptr<string> autoCreatedCapacity_ {};
-      // The reason why the scaling activity was triggered.
+      // The cause that triggered the scaling activity.
       shared_ptr<string> cause_ {};
-      // The number of instances that are created during the scale-out event.
+      // The number of instances created during the current scaling activity.
       shared_ptr<int32_t> createdCapacity_ {};
-      // The instances that are created during the scale-out event.
+      // The list of instances created during the current scaling activity.
       shared_ptr<vector<string>> createdInstances_ {};
       // The description of the scaling activity.
       shared_ptr<string> description_ {};
-      // The number of instances that are released during the scale-in event.
+      // The number of instances released during the current scaling activity.
       shared_ptr<int32_t> destroyedCapacity_ {};
-      // The instances that are released during the scale-in event.
+      // The list of instances released during the current scaling activity.
       shared_ptr<vector<string>> destroyedInstances_ {};
-      // Details of the scaling activity.
+      // The details of the scaling activity.
       shared_ptr<string> detail_ {};
-      // The time when the scaling activity was complete.
+      // The end time of the scaling activity. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format.
       shared_ptr<string> endTime_ {};
-      // The error code that is returned when the scaling activity failed.
+      // The error code returned when the scaling activity fails.
       shared_ptr<string> errorCode_ {};
-      // The error message that is returned when the scaling activity failed.
+      // The error message returned when the scaling activity fails.
       shared_ptr<string> errorMessage_ {};
-      // The error messages that are returned when the scaling activities failed or are partially successful.
+      // The error messages returned when the scaling activity fails or is partially successful.
       shared_ptr<vector<ScalingActivities::ErrorMessages>> errorMessages_ {};
       // The ID of the instance refresh task.
       shared_ptr<string> instanceRefreshTaskId_ {};
-      // The context of the lifecycle hook.
+      // The context information of the lifecycle hook.
       shared_ptr<ScalingActivities::LifecycleHookContext> lifecycleHookContext_ {};
-      // The execution progress of the scaling activity.
+      // The progress of the scaling activity.
       shared_ptr<int32_t> progress_ {};
       // The ID of the scaling activity.
       shared_ptr<string> scalingActivityId_ {};
       // The ID of the scaling group.
       shared_ptr<string> scalingGroupId_ {};
-      // *   If you query a scale-out activity, the value of this parameter indicates the number of instances that are created or the number of instances that are started from Economical Mode.
-      // *   If you query a scale-in activity, the value of this parameter indicates the number of instances that are deleted or the number of instances that are stopped in Economical Mode.
+      // - If the scaling activity is a scale-out activity, this parameter indicates the number of instances that are created or started from the stopped and reclaimed state during the scaling activity.
+      // 
+      // - If the scaling activity is a scale-in activity, this parameter indicates the number of instances that are deleted or enter the stopped and reclaimed state during the scaling activity.
       shared_ptr<int32_t> scalingInstanceNumber_ {};
-      // The time when the scaling activity was started.
+      // The start time of the scaling activity. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format.
       shared_ptr<string> startTime_ {};
-      // The number of instances that are started from the Economical Mode during the scale-out event.
+      // The number of instances started from the economical mode during the current scaling activity.
       shared_ptr<int32_t> startedCapacity_ {};
-      // The instances that are started from the Economical Mode during the scale-out event.
+      // The list of instances started from the economical mode during the current scaling activity.
       shared_ptr<vector<string>> startedInstances_ {};
       // The status of the scaling activity. Valid values:
-      // 
-      // *   Successful: The scaling activity is successful.
-      // *   Warning: The scaling activity is partially successful.
-      // *   Failed: The scaling activity failed.
-      // *   InProgress: The scaling activity is in progress.
-      // *   Rejected: The request to trigger the scaling activity is rejected.
+      //  
+      // - Successful: The scaling activity is successful. 
+      // - Warning: The scaling activity is partially successful. 
+      // - Failed: The scaling activity failed. 
+      // - InProgress: The scaling activity is in progress. 
+      // - Rejected: The request to execute the scaling activity is rejected.
       shared_ptr<string> statusCode_ {};
       // The status message of the scaling activity.
       shared_ptr<string> statusMessage_ {};
-      // The number of instances that are stopped in the Economical Mode during the scale-in event.
+      // The number of instances that entered the economical mode during the current scaling activity.
       shared_ptr<int32_t> stoppedCapacity_ {};
-      // The instances that are stopped in the Economical Mode during the scale-in event.
+      // The list of instances that entered the economical mode during the current scaling activity.
       shared_ptr<vector<string>> stoppedInstances_ {};
-      // The total number of instances in the scaling group after the scaling activity was complete.
+      // The total number of instances in the scaling group after the scaling activity is completed.
       shared_ptr<string> totalCapacity_ {};
-      // The ID of the trigger source of the scaling activity. Valid values:
-      // 
-      // *   If the scaling activity is triggered by an event-triggered task, the ID of the trigger source is the ID of the event-triggered task.
-      // *   If the scaling activity is triggered by calling an API operation, the ID of the trigger source is the ID of the Alibaba Cloud account or Resource Access Management (RAM) user that you use to call the API operation.
-      // *   If the scaling activity is triggered by Auto Scaling, the ID of the trigger source is null.
+      // The ID of the trigger source for the scaling activity. Valid values:
+      // - Cms trigger source ID: displayed as the event-triggered task ID.
+      // - Api trigger source ID: displayed as the Alibaba Cloud account ID or RAM user ID.
+      // - Ess trigger source ID: displayed as empty.
       shared_ptr<string> triggerSourceId_ {};
-      // The type of the trigger source of the scaling activity. Valid values:
-      // 
-      // *   Cms: The scaling activity is triggered by an event-triggered task.
-      // *   APIs: The scaling activity is triggered by calling an API operation.
-      // *   Ess: The scaling activity is triggered by Auto Scaling.
+      // The type of the trigger source for the scaling activity. Valid values:
+      // - Cms: The scaling activity is triggered by an event-triggered task.
+      // - Api: The scaling activity is triggered by a user through an API call.
+      // - Ess: The scaling activity is triggered by a system task.
       shared_ptr<string> triggerSourceType_ {};
     };
 
@@ -579,15 +578,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The scaling activities.
+    // The collection of scaling activity information.
     shared_ptr<vector<DescribeScalingActivitiesResponseBody::ScalingActivities>> scalingActivities_ {};
-    // The total number of scaling activities.
+    // The total number of scaling activity records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the enabled scaling group.
+    // The ID of the applied scaling group.
     shared_ptr<string> scalingGroupId_ {};
   };
 

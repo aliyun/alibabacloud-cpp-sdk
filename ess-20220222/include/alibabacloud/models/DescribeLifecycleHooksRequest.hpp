@@ -115,13 +115,14 @@ namespace Models
 
 
   protected:
-    // The IDs of the lifecycle hooks that you want to query.
+    // The IDs of the lifecycle hooks.
+    // > Conditionally required: You must specify at least one of LifecycleHookIds or ScalingGroupId when you query lifecycle hooks. If you specify both parameters, LifecycleHookIds takes precedence. If you specify only RegionId without specifying either of the two parameters, a 400 InvalidParameter error is returned.
     shared_ptr<vector<string>> lifecycleHookIds_ {};
     // The name of the lifecycle hook.
     shared_ptr<string> lifecycleHookName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Pages start from page 1.
+    // The page number of the instance status list. Pages start from 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -133,6 +134,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     // The ID of the scaling group.
+    // > Conditionally required: You must specify at least one of LifecycleHookIds or ScalingGroupId when you query lifecycle hooks. If you specify only RegionId without specifying either of the two parameters, a 400 InvalidParameter error is returned.
     shared_ptr<string> scalingGroupId_ {};
   };
 

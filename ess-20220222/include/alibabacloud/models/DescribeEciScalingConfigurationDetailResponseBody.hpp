@@ -261,9 +261,9 @@ namespace Models
         protected:
           // The content of the configuration file.
           shared_ptr<string> content_ {};
-          // The permissions on the ConfigFile volume.
+          // The directory permissions of the ConfigFileVolume.
           shared_ptr<int32_t> mode_ {};
-          // The path to the configuration file.
+          // The path.
           shared_ptr<string> path_ {};
         };
 
@@ -394,46 +394,45 @@ namespace Models
 
 
       protected:
-        // The paths to the configuration files.
+        // The list of configuration file paths.
         shared_ptr<vector<Volumes::ConfigFileVolumeConfigFileToPaths>> configFileVolumeConfigFileToPaths_ {};
-        // The default permissions on the ConfigFile volume.
+        // The default permissions of the ConfigFileVolume.
         shared_ptr<int32_t> configFileVolumeDefaultMode_ {};
         // The ID of the disk volume.
         shared_ptr<string> diskVolumeDiskId_ {};
         // The size of the disk volume. Unit: GiB.
         shared_ptr<int32_t> diskVolumeDiskSize_ {};
-        // The system type of the disk volume.
+        // The file system type of the disk volume.
         shared_ptr<string> diskVolumeFsType_ {};
-        // The storage medium of the emptyDir volume. If you do not specify a storage medium for the emptyDir volume, the volume stores data in the file system of the node by default. We recommend that you set this parameter to memory. In this case, the emptyDir volume stores data in the specified memory.
+        // The storage medium of the EmptyDirVolume. The default value is empty, which indicates that the node file system is used. If this parameter is set to memory, the memory is used.
         shared_ptr<string> emptyDirVolumeMedium_ {};
-        // The storage size of the emptyDir volume.
+        // The size of the EmptyDir volume.
         shared_ptr<string> emptyDirVolumeSizeLimit_ {};
-        // The name of the FlexVolume driver.
+        // The name of the driver used for the FlexVolume.
         shared_ptr<string> flexVolumeDriver_ {};
-        // The type of the mounted file system. The default value is determined by the script of FlexVolume.
+        // The mounted file system type. The default value depends on the script of the FlexVolume.
         shared_ptr<string> flexVolumeFsType_ {};
-        // The FlexVolume options.
+        // The list of options for the FlexVolume object.
         shared_ptr<string> flexVolumeOptions_ {};
-        // The path to the HostPath volume on the host.
+        // The directory path of the HostPath volume on the host.
         shared_ptr<string> hostPathVolumePath_ {};
         // The type of the HostPath volume.
         shared_ptr<string> hostPathVolumeType_ {};
-        // The path to the Network File System (NFS) volume.
+        // The path of the NFS volume.
         shared_ptr<string> NFSVolumePath_ {};
-        // Indicates whether the NFS volume is read-only.
+        // Specifies whether the NFS volume is read-only.
         // 
         // Default value: false.
         shared_ptr<bool> NFSVolumeReadOnly_ {};
-        // The endpoint of the NFS server.
+        // The address of the NFS server.
         shared_ptr<string> NFSVolumeServer_ {};
-        // The volume name.
+        // The name of the volume.
         shared_ptr<string> name_ {};
         // The volume type. Valid values:
-        // 
-        // *   EmptyDirVolume
-        // *   NFSVolume
-        // *   ConfigFileVolume
-        // *   FlexVolume
+        // - EmptyDirVolume.
+        // - NFSVolume.
+        // - ConfigFileVolume.
+        // - FlexVolume.
         shared_ptr<string> type_ {};
       };
 
@@ -519,9 +518,9 @@ namespace Models
 
 
       protected:
-        // The system name of the security context in which the elastic container instance runs.
+        // The system control parameter name of the security context in which the instance runs.
         shared_ptr<string> name_ {};
-        // The variable value of the security context in which the elastic container instance runs.
+        // The variable value of the contextual security context in which the instance runs.
         shared_ptr<string> value_ {};
       };
 
@@ -637,25 +636,23 @@ namespace Models
 
 
         protected:
-          // The directory to which the init container mounts the volume.
+          // The directory in the container where the volume is mounted.    
           // 
-          // >  Data in this directory is overwritten by the data on the volume. Proceed with caution if you specify this parameter.
+          // > The content in the mount directory of the container is directly overwritten by the content of the volume. Use this parameter with caution.
           shared_ptr<string> mountPath_ {};
-          // The mount propagation setting of the volume. Mount propagation enables volumes mounted on one container to be shared among other containers within the same pod or across distinct pods residing on the same node. Valid values:
-          // 
-          // *   None: Subsequent mounts executed either on the volume itself or its subdirectories do not propagate to the already established volume mount.
-          // *   HostToCotainer: Subsequent mounts executed either on the volume itself or its subdirectories propagate to the already established volume mount.
-          // *   Bidirectional: This value is similar to HostToCotainer. Subsequent mounts executed either on the volume itself or its subdirectories propagate to the already established volume mount. In addition, any volume mounts executed on the container not only propagate back to the underlying host but also to all containers across every pod that uses the same volume.
-          // 
+          // The mount propagation settings of the data volume. Mount propagation allows volumes mounted by a container to be shared with other containers in the same pod, or even with other pods on the same node. Valid values:
+          // - None: the volume does not perceive any subsequent mount operations performed on the volume or its subdirectories.
+          // - HostToCotainer: the volume perceives subsequent mount operations performed on the volume or its subdirectories.
+          // - Bidirectional: similar to HostToCotainer, the volume perceives mount operations. Additionally, the volume is propagated back to the host and to all containers of all pods that use the same volume.
           // Default value: None.
           shared_ptr<string> mountPropagation_ {};
-          // The volume name.
+          // The name of the mounted data volume.
           shared_ptr<string> name_ {};
-          // Indicates whether the mount directory is read-only.
+          // Specifies whether the mount path is read-only.
           // 
           // Default value: false.
           shared_ptr<bool> readOnly_ {};
-          // The subdirectory of the volume.
+          // The subpath of the data volume.
           shared_ptr<string> subPath_ {};
         };
 
@@ -700,9 +697,8 @@ namespace Models
           // The port number. Valid values: 1 to 65535.
           shared_ptr<int32_t> port_ {};
           // The protocol type. Valid values:
-          // 
-          // *   TCP
-          // *   UDP
+          // - TCP
+          // - UDP
           shared_ptr<string> protocol_ {};
         };
 
@@ -753,7 +749,7 @@ namespace Models
 
 
         protected:
-          // >  This parameter is not available for use.
+          // >This parameter is not available.
           shared_ptr<string> fieldRefFieldPath_ {};
           // The name of the environment variable.
           shared_ptr<string> key_ {};
@@ -883,35 +879,35 @@ namespace Models
 
 
       protected:
-        // The number of vCPUs that are allocated to the init container.
+        // The number of CPU cores for the container.
         shared_ptr<float> cpu_ {};
-        // The number of GPUs that are allocated to the init container.
+        // The number of GPUs used by the container.
         shared_ptr<int32_t> gpu_ {};
-        // The image of the init container.
+        // The container image.
         shared_ptr<string> image_ {};
-        // The image pulling policy.
+        // The image pull policy.
         shared_ptr<string> imagePullPolicy_ {};
-        // The arguments that are passed to the startup commands of the init container.
+        // The startup arguments for the container.
         shared_ptr<vector<string>> initContainerArgs_ {};
-        // The commands that are used to start the init container.
+        // The startup commands for the container.
         shared_ptr<vector<string>> initContainerCommands_ {};
-        // The environment variables of the init container.
+        // The environment variables for the init container.
         shared_ptr<vector<InitContainers::InitContainerEnvironmentVars>> initContainerEnvironmentVars_ {};
-        // The ports of the init container.
+        // The port information for the init container.
         shared_ptr<vector<InitContainers::InitContainerPorts>> initContainerPorts_ {};
-        // The volume mounts of the init container.
+        // The array of mount point information for the init container.
         shared_ptr<vector<InitContainers::InitContainerVolumeMounts>> initContainerVolumeMounts_ {};
-        // The memory size of the init container.
+        // The memory size.
         shared_ptr<float> memory_ {};
-        // The name of the init container.
+        // The name of the container.
         shared_ptr<string> name_ {};
-        // The permissions that are granted to the processes in the init container. Valid values: NET_ADMIN and NET_RAW.
+        // Grants specific permissions to processes in the container. Currently, only NET_ADMIN and NET_RAW are supported.
         shared_ptr<vector<string>> securityContextCapabilityAdds_ {};
-        // Indicates whether the root file system on which the init container runs is read-only. Valid value: true.
+        // Specifies whether the root file system is read-only. Only true is supported.
         shared_ptr<bool> securityContextReadOnlyRootFilesystem_ {};
-        // The ID of the user that runs the init container.
+        // The user ID used to run the container.
         shared_ptr<string> securityContextRunAsUser_ {};
-        // The working directory of the init container.
+        // The working directory.
         shared_ptr<string> workingDir_ {};
       };
 
@@ -962,11 +958,11 @@ namespace Models
 
 
       protected:
-        // The password of the image repository.
+        // The password for the image registry.
         shared_ptr<string> password_ {};
-        // The domain name of the image repository.
+        // The server address of the image registry.
         shared_ptr<string> server_ {};
-        // The username of the image repository.
+        // The username for the image registry.
         shared_ptr<string> userName_ {};
       };
 
@@ -1010,9 +1006,9 @@ namespace Models
 
 
       protected:
-        // The added hostnames.
+        // The hostnames to add.
         shared_ptr<vector<string>> hostnames_ {};
-        // The added IP address.
+        // The IP address to add.
         shared_ptr<string> ip_ {};
       };
 
@@ -1054,9 +1050,9 @@ namespace Models
 
 
       protected:
-        // The variable name of the option.
+        // The variable name of the object.
         shared_ptr<string> name_ {};
-        // The variable value of the option.
+        // The variable value of the object.
         shared_ptr<string> value_ {};
       };
 
@@ -1246,25 +1242,21 @@ namespace Models
 
 
         protected:
-          // The directory in which the container mounts the volume.
-          // 
-          // >  Data in this directory is overwritten by the data on the volume. Proceed with caution if you specify this parameter.
+          // The directory where the data volume is mounted in the container.
+          // >Notice: The content in the mount directory of the container is directly overwritten by the content of the volume. Use this parameter with caution.
           shared_ptr<string> mountPath_ {};
-          // The mount propagation setting of the volume. Mount propagation enables volumes mounted on one container to be shared among other containers within the same pod or across distinct pods residing on the same node. Valid values:
-          // 
-          // *   None: Subsequent mounts executed either on the volume itself or its subdirectories do not propagate to the already established volume mount.
-          // *   HostToCotainer: Subsequent mounts executed either on the volume itself or its subdirectories propagate to the already established volume mount.
-          // *   Bidirectional: This value is similar to HostToCotainer. Subsequent mounts executed either on the volume itself or its subdirectories propagate to the already established volume mount. In addition, any volume mounts executed on the container not only propagate back to the underlying host but also to all containers across every pod that uses the same volume.
-          // 
+          // The mount propagation settings of the data volume. Mount propagation allows volumes mounted by a container to be shared with other containers in the same pod, or even with other pods on the same node. Valid values:
+          // - None: the volume does not perceive any subsequent mount operations performed on the volume or its subdirectories.
+          // - HostToCotainer: the volume perceives subsequent mount operations performed on the volume or its subdirectories.
+          // - Bidirectional: similar to HostToCotainer, the volume perceives mount operations. Additionally, the volume is propagated back to the host and to all containers of all pods that use the same volume.
           // Default value: None.
           shared_ptr<string> mountPropagation_ {};
-          // The volume name.
+          // The name of the mounted data volume.
           shared_ptr<string> name_ {};
-          // Indicates whether the volume is read-only.
-          // 
+          // Specifies whether the data volume is read-only.
           // Default value: false.
           shared_ptr<bool> readOnly_ {};
-          // The subdirectory of the volume.
+          // The subpath of the data volume.
           shared_ptr<string> subPath_ {};
         };
 
@@ -1309,9 +1301,8 @@ namespace Models
           // The port number. Valid values: 1 to 65535.
           shared_ptr<int32_t> port_ {};
           // The protocol type. Valid values:
-          // 
-          // *   TCP
-          // *   UDP
+          // - TCP
+          // - UDP
           shared_ptr<string> protocol_ {};
         };
 
@@ -1362,7 +1353,7 @@ namespace Models
 
 
         protected:
-          // >  This parameter is not available for use.
+          // >This parameter is not available.
           shared_ptr<string> fieldRefFieldPath_ {};
           // The name of the environment variable.
           shared_ptr<string> key_ {};
@@ -1767,126 +1758,119 @@ namespace Models
 
 
       protected:
-        // The arguments that are passed to the container startup commands.
+        // The startup arguments for the container.
         shared_ptr<vector<string>> args_ {};
-        // The container startup commands.
+        // The startup commands for the container.
         shared_ptr<vector<string>> commands_ {};
-        // The number of vCPUs that are allocated to the elastic container instance.
+        // The number of vCPUs.
         shared_ptr<float> cpu_ {};
-        // The environment variables.
+        // The environment variable information.
         shared_ptr<vector<Containers::EnvironmentVars>> environmentVars_ {};
         // The number of GPUs.
         shared_ptr<int32_t> gpu_ {};
         // The container image.
         shared_ptr<string> image_ {};
-        // The image pulling policy.
+        // The image pull policy.
         shared_ptr<string> imagePullPolicy_ {};
-        // The commands that are run by using a CLI for configuring the postStart callback function within the container.
+        // The commands executed in the container when the postStart callback function is configured by using the command line.
         shared_ptr<vector<string>> lifecyclePostStartHandlerExecs_ {};
-        // The IP address of the host to the HTTP GET requests for configuring the postStart callback function are sent.
+        // The host address that receives HTTP GET requests when the postStart callback function is configured by using HTTP requests.
         shared_ptr<string> lifecyclePostStartHandlerHttpGetHost_ {};
-        // The path to the HTTP GET requests for configuring the postStart callback function are sent.
+        // The path checked by HTTP GET requests when the postStart callback function is configured by using HTTP requests.
         shared_ptr<string> lifecyclePostStartHandlerHttpGetPath_ {};
-        // The port over which the HTTP GET requests for configuring the postStart callback function are sent.
+        // The port number checked by HTTP GET requests when the postStart callback function is configured by using HTTP requests.
         shared_ptr<int32_t> lifecyclePostStartHandlerHttpGetPort_ {};
-        // The protocol type of the HTTP Get requests that are used for configuring the postStart callback function.
+        // The protocol type used for HTTP GET requests when the postStart callback function is configured by using HTTP requests.
         shared_ptr<string> lifecyclePostStartHandlerHttpGetScheme_ {};
-        // The IP address of the host detected by the TCP sockets that are used for configuring the postStart callback function.
+        // The host address checked by TCP sockets when the postStart callback function is configured by using TCP sockets.
         shared_ptr<string> lifecyclePostStartHandlerTcpSocketHost_ {};
-        // The port detected by the TCP sockets that are used for configuring the postStart callback function.
+        // The port checked by TCP sockets when the postStart callback function is configured by using TCP sockets.
         shared_ptr<int32_t> lifecyclePostStartHandlerTcpSocketPort_ {};
-        // The commands that are run by using a CLI for configuring the preStop callback function within the container.
+        // The commands executed in the container when the preStop callback function is configured by using the command line.
         shared_ptr<vector<string>> lifecyclePreStopHandlerExecs_ {};
-        // The IP address of the host to which the HTTP GET requests for configuring the preStop callback function are sent.
+        // The host address that receives HTTP GET requests when the preStop callback function is configured by using HTTP requests.
         shared_ptr<string> lifecyclePreStopHandlerHttpGetHost_ {};
-        // The path to which the HTTP GET requests for configuring the preStop callback function are sent.
+        // The path checked by HTTP GET requests when the preStop callback function is configured by using HTTP requests.
         shared_ptr<string> lifecyclePreStopHandlerHttpGetPath_ {};
-        // The port over which the HTTP GET requests for configuring the preStop callback function are sent.
+        // The port number checked by HTTP GET requests when the preStop callback function is configured by using HTTP requests.
         shared_ptr<int32_t> lifecyclePreStopHandlerHttpGetPort_ {};
-        // The protocol type of the HTTP Get requests that are used for configuring the preStop callback function.
+        // The protocol type used for HTTP GET requests when the preStop callback function is configured by using HTTP requests.
         shared_ptr<string> lifecyclePreStopHandlerHttpGetScheme_ {};
-        // The IP address of the host detected by the TCP sockets that are used for configuring the preStop callback function.
+        // The host address checked by TCP sockets when the preStop callback function is configured by using TCP sockets.
         shared_ptr<string> lifecyclePreStopHandlerTcpSocketHost_ {};
-        // The port detected by the TCP sockets that are used for configuring the preStop callback function.
+        // The port checked by TCP sockets when the preStop callback function is configured by using TCP sockets.
         shared_ptr<int32_t> lifecyclePreStopHandlerTcpSocketPort_ {};
-        // The commands that are run in the container when you use a CLI to perform liveness probes.
+        // The commands executed in the container when command-line health checks are performed.
         shared_ptr<vector<string>> livenessProbeExecCommands_ {};
-        // The minimum number of consecutive failures before a successful liveness probe is considered failed.
-        // 
+        // The minimum consecutive failures for the readiness probe to be considered failed after having succeeded.
         // Default value: 3.
         shared_ptr<int32_t> livenessProbeFailureThreshold_ {};
-        // The path to which HTTP Get requests are sent when you use the HTTP requests to perform liveness probes.
+        // The path for the HTTP GET readiness probe.
         shared_ptr<string> livenessProbeHttpGetPath_ {};
-        // The port detected by HTTP Get requests when you use the HTTP requests to perform liveness probes.
+        // The port for the HTTP GET liveness probe.
         shared_ptr<int32_t> livenessProbeHttpGetPort_ {};
-        // The protocol type of HTTP GET requests when you use the HTTP requests to perform liveness probes. Valid values:
-        // 
-        // *   HTTP
-        // *   HTTPS
+        // The protocol type of the HTTP GET request when HTTP requests are used for health checks. Valid values:
+        // - HTTP
+        // - HTTPS
         shared_ptr<string> livenessProbeHttpGetScheme_ {};
-        // The number of seconds that elapses from the startup of the container to the start time of a liveness probe.
+        // The delay before the readiness probe is initiated after the container starts.
         shared_ptr<int32_t> livenessProbeInitialDelaySeconds_ {};
-        // The interval at which liveness probes are performed. Unit: seconds. Default value: 10. Minimum value: 1.
+        // The interval at which the liveness probe is performed. Default value: 10 seconds. Minimum value: 1 second.
         shared_ptr<int32_t> livenessProbePeriodSeconds_ {};
-        // The minimum number of consecutive successes before a failed liveness probe is considered successful. Default value: 1. Valid value: 1.
+        // The minimum consecutive successes for the probe to be considered successful after having failed. Default value: 1. The current value must be 1.
         shared_ptr<int32_t> livenessProbeSuccessThreshold_ {};
-        // The port detected by TCP sockets when you use the TCP sockets to perform liveness probes.
+        // The port number for the TCP socket liveness probe.
         shared_ptr<int32_t> livenessProbeTcpSocketPort_ {};
-        // The timeout period of a liveness probe. Default value: 1. Minimum value: 1. Unit: seconds.
+        // The timeout period for the liveness probe. Default value: 1 second. Minimum value: 1 second.
         shared_ptr<int32_t> livenessProbeTimeoutSeconds_ {};
         // The memory size.
         shared_ptr<float> memory_ {};
-        // The container name.
+        // The name of the container.
         shared_ptr<string> name_ {};
         // The exposed ports and protocols.
         shared_ptr<vector<Containers::Ports>> ports_ {};
-        // The commands that are run in the container when you use a CLI to perform readiness probes.
+        // The commands executed in the container when command-line health checks are performed.
         shared_ptr<vector<string>> readinessProbeExecCommands_ {};
-        // The minimum number of consecutive failures before a successful readiness probe is considered failed.
-        // 
+        // The minimum consecutive failures for the readiness probe to be considered failed after having succeeded.
         // Default value: 3.
         shared_ptr<int32_t> readinessProbeFailureThreshold_ {};
-        // The path to which HTTP Get requests are sent when you use the HTTP requests to perform readiness probes.
+        // The path for the HTTP GET readiness probe.
         shared_ptr<string> readinessProbeHttpGetPath_ {};
-        // The path to which HTTP Get requests are sent when you use the HTTP Get requests to perform readiness probes.
+        // The path for the HTTP GET readiness probe.
         shared_ptr<int32_t> readinessProbeHttpGetPort_ {};
-        // The protocol type of HTTP GET requests when you use the HTTP requests to perform readiness probes. Valid values:
-        // 
-        // *   HTTP
-        // *   HTTPS
+        // The protocol type of the HTTP GET request when HTTP requests are used for health checks. Valid values:
+        // - HTTP
+        // - HTTPS
         shared_ptr<string> readinessProbeHttpGetScheme_ {};
-        // The number of seconds that elapses from the startup of the container to the start time of a readiness probe.
+        // The delay before the readiness probe is initiated after the container starts.
         shared_ptr<int32_t> readinessProbeInitialDelaySeconds_ {};
-        // The interval at which readiness probes are performed. Unit: seconds. Default value: 10. Minimum value: 1.
+        // The interval at which the readiness probe is performed. Default value: 10 seconds. Minimum value: 1 second.
         shared_ptr<int32_t> readinessProbePeriodSeconds_ {};
-        // The minimum number of consecutive successes before a failed readiness probe is considered successful. Default value: 1. Valid value: 1.
+        // The minimum consecutive successes for the probe to be considered successful after having failed. Default value: 1. The current value must be 1.
         shared_ptr<int32_t> readinessProbeSuccessThreshold_ {};
-        // The port detected by TCP sockets when you use the TCP sockets to perform readiness probes.
+        // The port number for the TCP socket liveness probe.
         shared_ptr<int32_t> readinessProbeTcpSocketPort_ {};
-        // The timeout period of a readiness probe. Default value: 1. Minimum value: 1. Unit: seconds.
+        // The timeout period for the readiness probe. Default value: 1 second. Minimum value: 1 second.
         shared_ptr<int32_t> readinessProbeTimeoutSeconds_ {};
-        // The permissions that are granted to the processes in the container. Valid values: NET_ADMIN and NET_RAW.
+        // Grants specific permissions to processes in the container. Currently, only NET_ADMIN and NET_RAW are supported.
         shared_ptr<vector<string>> securityContextCapabilityAdds_ {};
-        // Indicates whether the root file system on which the container runs is read-only. Valid value: true.
+        // Specifies whether the root file system is read-only. Only true is supported.
         shared_ptr<bool> securityContextReadOnlyRootFilesystem_ {};
-        // The ID of the user that runs the entry point of the container process.
+        // The UID used to run the entrypoint of the container process.
         shared_ptr<int64_t> securityContextRunAsUser_ {};
-        // Indicates whether the container allocates buffer resources to standard input streams when the container is running. If this parameter is not specified, an end-of-file (EOF) error may occur when standard input streams in the container are read. Default value: false.
+        // Specifies whether to allocate a buffer for standard input during container runtime. If this parameter is not set, reading from standard input in the container results in an EOF. Default value: false.
         shared_ptr<bool> stdin_ {};
-        // Indicates whether standard input streams are disconnected after a client is disconnected. If Stdin is set to true, standard input streams remain connected among multiple sessions.
+        // Specifies whether the standard input stream remains in the enabling status across multiple attached sessions when standard input is set to true.
         // 
-        // If StdinOnce is set to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected, and remain disconnected until the container restarts.
+        // If StdinOnce is set to true, standard input is opened when the container starts, remains empty until the first client attaches to it, and then stays in the enabling status to accept data until the client disconnects. After the client disconnects, standard input enters shutdown and remains in shutdown until the container is restarted.
         shared_ptr<bool> stdinOnce_ {};
-        // Specifies whether to enable the Interaction feature. Valid values:
-        // 
-        // *   true
-        // *   false
-        // 
-        // If the command is a /bin/bash command, the value of this parameter is true.
-        // 
+        // Specifies whether to enable interaction. Valid values:
+        // - true: enabled.
+        // - false: disabled.
+        // For example, if Command is set to /bin/bash, set this parameter to true.
         // Default value: false.
         shared_ptr<bool> tty_ {};
-        // The volumes that are mounted to the container.
+        // The volume mounts.
         shared_ptr<vector<Containers::VolumeMounts>> volumeMounts_ {};
         // The working directory in the container.
         shared_ptr<string> workingDir_ {};
@@ -1950,13 +1934,13 @@ namespace Models
 
 
       protected:
-        // The domain names of the Container Registry Enterprise Edition instance. By default, all domain names of the instance are displayed. Multiple domain names are separated by commas (,).
+        // The domain names of the ACR Enterprise instance. By default, all domain names of the instance are used. You can specify specific domain names and separate multiple domain names with commas (,).
         shared_ptr<vector<string>> domains_ {};
-        // The ID of the Container Registry Enterprise Edition instance.
+        // The instance ID of the ACR Enterprise instance.
         shared_ptr<string> instanceId_ {};
-        // The name of the Container Registry Enterprise Edition instance.
+        // The name of the ACR Enterprise instance.
         shared_ptr<string> instanceName_ {};
-        // The region ID of the Container Registry Enterprise Edition instance.
+        // The region to which the ACR Enterprise instance belongs.
         shared_ptr<string> regionId_ {};
       };
 
@@ -2386,99 +2370,100 @@ namespace Models
 
 
     protected:
-      // The information about the Container Registry Enterprise Edition instance.
+      // The information about the ACR Enterprise instance.
       shared_ptr<vector<ScalingConfiguration::AcrRegistryInfos>> acrRegistryInfos_ {};
-      // The validity period of the scaling configuration. Unit: seconds.
+      // The validity period. Unit: seconds.
       shared_ptr<int32_t> activeDeadlineSeconds_ {};
-      // Indicates whether an elastic IP address (EIP) is automatically created and bound to the elastic container instance.
+      // Specifies whether the automatic creation of an elastic IP address (EIP) is enabled in order to attach it to the ECI instance.
       shared_ptr<bool> autoCreateEip_ {};
-      // Indicates whether the image cache is automatically matched. Default value: false.
+      // Specifies whether to automatically match an image cache.
+      // Default value: false.
       shared_ptr<bool> autoMatchImageCache_ {};
-      // The computing power types. A value of economy indicates that economic instance types are returned.
+      // The computing power category. A value of economy indicates that instances of economy instance types are queried.
       shared_ptr<vector<string>> computeCategory_ {};
       // The name of the container group.
       shared_ptr<string> containerGroupName_ {};
-      // The containers in the elastic container instance.
+      // The list of containers included in the instance.
       shared_ptr<vector<ScalingConfiguration::Containers>> containers_ {};
-      // Indicates whether the Cost Optimization feature is enabled. Valid values:
+      // Specifies whether to enable cost optimization. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Enabled.
+      // - false: Disabled.
       shared_ptr<bool> costOptimization_ {};
-      // The number of vCPUs that are allocated to the elastic container instance.
+      // The number of vCPUs for the instance. Unit: cores.
       shared_ptr<float> cpu_ {};
-      // The number of physical CPU cores. You can specify this parameter for only specific instance types.
+      // The number of physical CPU cores. Only specific instance types support custom settings.
       shared_ptr<int32_t> cpuOptionsCore_ {};
-      // The number of threads per core. You can specify this parameter for only specific instance types. A value of 1 indicates that Hyper-Threading is disabled. For more information, see [Specify CPU options](https://help.aliyun.com/document_detail/197781.html).
+      // The number of threads per core. Only specific instance types support custom settings. A value of 1 indicates that hyper-threading is disabled. For more information, see [Customize CPU options](https://help.aliyun.com/document_detail/197781.html).
       shared_ptr<int32_t> cpuOptionsThreadsPerCore_ {};
-      // The time when the scaling configuration was created.
+      // The time when the scaling configuration was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
-      // The bucket that caches data.
+      // The data cache bucket.
       shared_ptr<string> dataCacheBucket_ {};
-      // Indicates whether the Performance Burst feature is enabled for the ESSD AutoPL disk that caches data. Valid values:
+      // Specifies whether to enable the burst feature for the ESSD AutoPL cloud disk used for data caching. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Enabled.
+      // - false: Disabled.
       // 
       // Default value: false.
       // 
-      // >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/122389.html).
+      // >For more information about ESSD AutoPL cloud disks, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<bool> dataCacheBurstingEnabled_ {};
-      // The performance level (PL) of the cloud disk that caches data. We recommend that you use enhanced SSDs (ESSDs). Valid values:
+      // The performance level (PL) of the cloud disk used for data caching. We recommend that you use standard SSDs. Valid values for the PL of a standard SSD:
       // 
-      // *   PL0: An ESSD can provide up to 10,000 random read/write IOPS.
-      // *   PL1: An ESSD can provide up to 50,000 random read/write IOPS.
-      // *   PL2: An ESSD can provide up to 100,000 random read/write IOPS.
-      // *   PL3: An ESSD can provide up to 1,000,000 random read/write IOPS.
+      // - PL0: A single standard SSD can deliver up to 10,000 random read/write IOPS.
+      // - PL1: A single standard SSD can deliver up to 50,000 random read/write IOPS.
+      // - PL2: A single standard SSD can deliver up to 100,000 random read/write IOPS.
+      // - PL3: A single standard SSD can deliver up to 1,000,000 random read/write IOPS.
       // 
-      // >  For more information about ESSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+      // >For more information about standard SSDs, see [standard SSDs](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> dataCachePL_ {};
-      // The provisioned read/write IOPS of the ESSD AutoPL disk that caches data. Valid values: 0 to min{50,000, 1,000 x *Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50* x Capacity, 50,000}.
+      // The provisioned read/write IOPS of the ESSD AutoPL cloud disk used for data caching. Valid values: 0 to min{50000, 1000 × Capacity - Baseline performance}, where Baseline performance = min{1800 + 50 × Capacity, 50000}.
       // 
-      // >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+      // >For more information about ESSD AutoPL cloud disks, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
       shared_ptr<int32_t> dataCacheProvisionedIops_ {};
-      // >  This parameter is not available for use.
+      // >This parameter is not available.
       shared_ptr<string> description_ {};
-      // The IP addresses of DNS servers.
+      // The list of IP addresses of the DNS servers.
       shared_ptr<vector<string>> dnsConfigNameServers_ {};
-      // The DNS options.
+      // The DNS configuration options.
       shared_ptr<vector<ScalingConfiguration::DnsConfigOptions>> dnsConfigOptions_ {};
-      // The search domains of the DNS servers.
+      // The list of DNS search domains.
       shared_ptr<vector<string>> dnsConfigSearches_ {};
-      // The Domain Name System (DNS) policy.
+      // The DNS policy.
       shared_ptr<string> dnsPolicy_ {};
-      // The maximum outbound bandwidth. Unit: bit/s.
+      // The outbound bandwidth limit. Unit: bytes.
       shared_ptr<int64_t> egressBandwidth_ {};
-      // The bandwidth of the EIP. Default value: 5. Unit: Mbit/s.
+      // The bandwidth of the EIP. Default value: 5 Mbit/s.
       shared_ptr<int32_t> eipBandwidth_ {};
-      // The bound EIP bandwidth plan.
+      // The existing Internet Shared Bandwidth instance to associate.
       shared_ptr<string> eipCommonBandwidthPackage_ {};
-      // The line type of the EIP. Valid values:
+      // The line type of the elastic IP address (EIP). Valid values:
       // 
-      // *   BGP: BGP (Multi-ISP) lines
-      // *   BGP_PRO: BGP (Multi-ISP) Pro
+      // - BGP: BGP (Multi-ISP) line. This is the default value.
+      // - BGP_PRO: BGP (Multi-ISP) Pro line.
       shared_ptr<string> eipISP_ {};
       // The ID of the IP address pool.
       shared_ptr<string> eipPublicIpAddressPoolId_ {};
-      // The size of the temporary storage space. Unit: GiB.
+      // The size of the ephemeral storage space. Unit: GiB.
       shared_ptr<int32_t> ephemeralStorage_ {};
-      // The custom hostname mappings of a container in the elastic container instance.
+      // The custom hostname mappings for a container in the instance.
       shared_ptr<vector<ScalingConfiguration::HostAliases>> hostAliases_ {};
       // The hostname.
       shared_ptr<string> hostName_ {};
-      // The image repositories.
+      // The image registry information.
       shared_ptr<vector<ScalingConfiguration::ImageRegistryCredentials>> imageRegistryCredentials_ {};
       // The ID of the image cache.
       shared_ptr<string> imageSnapshotId_ {};
-      // The maximum inbound bandwidth. Unit: bit/s.
+      // The inbound bandwidth limit. Unit: bytes.
       shared_ptr<int64_t> ingressBandwidth_ {};
-      // The init containers.
+      // The list of init containers.
       shared_ptr<vector<ScalingConfiguration::InitContainers>> initContainers_ {};
-      // The level of the instance family, which is used to filter instance types that meet the specified criteria. This parameter takes effect only if `CostOptimization` is set to true. Valid values:
+      // The instance family level, which is used to filter instance types that meet the requirements. This parameter takes effect only when CostOptimization is enabled. Valid values:
       // 
-      // *   EntryLevel: entry level (shared instance types). Instance types of this level are the most cost-effective but may not provide stable computing performance in a consistent manner. Instance types of this level are suitable for business scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
-      // *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
-      // *   CreditEntryLevel: credit entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview](https://help.aliyun.com/document_detail/59977.html) of burstable instances.
+      // - EntryLevel: Entry-level, which refers to shared instance types. This level provides lower costs but cannot guarantee stable computing performance. It is suitable for business scenarios with low CPU utilization. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+      // - EnterpriseLevel: Enterprise-level. This level provides stable performance and dedicated resources, and is suitable for business scenarios that require high stability. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+      // - CreditEntryLevel: Credit-based entry-level, which refers to burstable instances. This level uses CPU credits to maintain computing performance and is suitable for business scenarios with low baseline CPU utilization and occasional CPU usage spikes. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
       shared_ptr<string> instanceFamilyLevel_ {};
       // The specified ECS instance types. You can specify up to five instance types.
       shared_ptr<vector<string>> instanceTypes_ {};
@@ -2486,32 +2471,28 @@ namespace Models
       shared_ptr<int32_t> ipv6AddressCount_ {};
       // The state of the scaling configuration in the scaling group. Valid values:
       // 
-      // *   Active: The scaling configuration is active in the scaling group. Auto Scaling uses the active scaling configuration to automatically create elastic container instances.
-      // *   Inactive: The scaling configuration is inactive in the scaling group. Inactive scaling configurations are retained in scaling groups. However, Auto Scaling does not use inactive scaling groups to create elastic container instances.
+      // - Active: Active. The scaling group uses active scaling configurations for the automatic creation of Elastic Container Instance (ECI) instances.
+      // - Inacitve: Inactive. Inactive scaling configurations exist in the scaling group, but the scaling group does not use them for the automatic creation of ECI instances.
       shared_ptr<string> lifecycleState_ {};
-      // The weight of an elastic container instance as a Server Load Balancer (SLB) backend server. Valid values: 1 to 100.
-      // 
+      // The weight of the ECI instance when it serves as a backend server for load balancing. Valid values: 1 to 100.
       // Default value: 50.
       shared_ptr<int32_t> loadBalancerWeight_ {};
       // The memory size. Unit: GiB.
-      // 
-      // You can specify CPU and Memory to define the range of instance types. For example, if you set CPU to 2 and Memory to 16, the instance types that have 2 vCPUs and 16 GiB are returned. If you specify CPU and Memory, Auto Scaling determines the available instance types based on factors such as I/O optimization requirements and zones and preferentially creates instances by using the lowest-priced instance type.
-      // 
-      // >  You can specify CPU and Memory to define instance types only when you set Scaling Policy to Cost Optimization and no instance type is specified in the scaling configuration.
+      // You can specify both CPU and Memory to define a range of instance types. For example, CPU=2 and Memory=16 defines all instance types that have 2 vCPUs and 16 GiB of memory. Auto Scaling determines the available instance types based on factors such as I/O optimization and zones, and creates the instance with the lowest price.
+      // >This configuration takes effect only in cost optimization mode and when no instance type is specified in the scaling configuration.
       shared_ptr<float> memory_ {};
-      // The endpoints of the Network Time Protocol (NTP) servers.
+      // The NTP servers.
       shared_ptr<vector<string>> ntpServers_ {};
-      // The Resource Access Management (RAM) role of the elastic container instance. Elastic container instances and Elastic Compute Service (ECS) instances can share the same RAM role. For more information, see [Use the instance RAM role by calling APIs](https://help.aliyun.com/document_detail/61178.html).
+      // The name of the Resource Access Management (RAM) role for the instance. ECIs and Elastic Compute Service (ECS) instances share the same RAM role. For more information, see [Use an instance RAM role by calling API operations](https://help.aliyun.com/document_detail/61178.html).
       shared_ptr<string> ramRoleName_ {};
-      // The region ID of the scaling group to which the scaling configuration belongs.
+      // The region ID of the scaling group to which the scaling rule belongs.
       shared_ptr<string> regionId_ {};
       // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The restart policy of the container group. Valid values:
-      // 
-      // *   Never: The container group is never restarted.
-      // *   Always: The container group is always restarted.
-      // *   OnFailure: The container group is restarted upon failures.
+      // The restart policy of the pod. Valid values:
+      // - Never: no restart.
+      // - Always: always restart.
+      // - OnFailure: restart on failure.
       shared_ptr<string> restartPolicy_ {};
       // The ID of the scaling configuration.
       shared_ptr<string> scalingConfigurationId_ {};
@@ -2519,27 +2500,25 @@ namespace Models
       shared_ptr<string> scalingConfigurationName_ {};
       // The ID of the scaling group.
       shared_ptr<string> scalingGroupId_ {};
-      // The system information of the security context in which the elastic container instance is run.
+      // The system info of the contextual security context in which the instance runs.
       shared_ptr<vector<ScalingConfiguration::SecurityContextSysCtls>> securityContextSysCtls_ {};
-      // The ID of the security group with which the elastic container instance is associated. Elastic container instances that are associated with the same security group can access each other.
+      // The ID of the security group to which the Elastic Container Instance (ECI) belongs. ECIs in the same security group can access each other.
       shared_ptr<string> securityGroupId_ {};
-      // Indicates whether user logs are collected. Default value: **false**.
+      // Specifies whether to enable user log collection. Default value: **false**.
       shared_ptr<bool> slsEnable_ {};
-      // The maximum hourly price for the preemptible instance.
-      // 
+      // The maximum hourly price of the spot instance.
       // This parameter is returned only when SpotStrategy is set to SpotWithPriceLimit.
       shared_ptr<float> spotPriceLimit_ {};
       // The preemption policy of the instance. Valid values:
-      // 
-      // *   NoSpot: The instance is created as a regular pay-as-you-go instance.
-      // *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
-      // *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is used as the bid price.
+      // - NoSpot: regular pay-as-you-go instance.
+      // - SpotWithPriceLimit: spot instance with a specified maximum price.
+      // - SpotAsPriceGo: spot instance whose price is automatically offered by the system based on the current market price.
       shared_ptr<string> spotStrategy_ {};
-      // The tags of the elastic container instance. Tags are specified in the key-value format.
+      // The tag key-value pairs of the instance.
       shared_ptr<vector<ScalingConfiguration::Tags>> tags_ {};
-      // The buffer time during which a program handles operations before the program stops.
+      // The buffer time for the program to handle operations before shutdown.
       shared_ptr<int32_t> terminationGracePeriodSeconds_ {};
-      // The volumes.
+      // The volume information.
       shared_ptr<vector<ScalingConfiguration::Volumes>> volumes_ {};
     };
 
@@ -2569,11 +2548,11 @@ namespace Models
 
 
   protected:
-    // The YAML output of the scaling configuration.
+    // The YAML output content of the scaling configuration.
     shared_ptr<string> output_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the scaling configuration.
+    // The scaling configuration information.
     shared_ptr<DescribeEciScalingConfigurationDetailResponseBody::ScalingConfiguration> scalingConfiguration_ {};
   };
 

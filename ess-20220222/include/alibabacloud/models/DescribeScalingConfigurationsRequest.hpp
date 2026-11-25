@@ -128,11 +128,11 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the scaling configuration list. Pages start from 1.
+    // The page number of the scaling configuration list. The starting value is 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in paged queries. Maximum value: 50.
+    // The number of entries per page set in the paging Settings for a paged query. Maximum value: 50.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
@@ -142,15 +142,15 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IDs of the scaling configurations to query.
+    // The ID of the scaling configuration to be queried.
     // 
-    // The query results include both active and inactive scaling configurations, identified by the response parameter `LifecycleState`.
+    // The query results include both active and inactive scaling configurations. The response parameter LifecycleState identifies the state.
     shared_ptr<vector<string>> scalingConfigurationIds_ {};
-    // The names of the scaling configurations to query.
+    // The name of the scaling configuration to be queried.
     // 
-    // The query ignores invalid scaling configuration names without returning an error.
+    // The query results ignore invalid scaling configuration names and do not return an error.
     shared_ptr<vector<string>> scalingConfigurationNames_ {};
-    // The ID of the scaling group. You can query all scaling configurations under this scaling group.
+    // The ID of the scaling group. You can query all scaling configurations in the scaling group.
     shared_ptr<string> scalingGroupId_ {};
   };
 

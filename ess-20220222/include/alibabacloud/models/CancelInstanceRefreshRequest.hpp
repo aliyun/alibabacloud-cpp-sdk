@@ -80,7 +80,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> instanceRefreshTaskId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the scaling group.
+    // The ID of the region to which the scaling group belongs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

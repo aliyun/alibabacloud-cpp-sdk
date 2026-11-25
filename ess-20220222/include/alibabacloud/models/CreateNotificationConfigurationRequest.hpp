@@ -106,44 +106,44 @@ namespace Models
 
 
   protected:
-    // The codec for the content of message notifications. Valid values:
+    // The encoding method for the notification content. Valid values:
     // 
-    // - PlainText: No encoding; messages are transmitted in plaintext.
-    // - Base64: Messages are encoded in Base64.
+    // - PlainText: no encoding. The content is transmitted in plaintext.
+    // - Base64: Base64 encoding.
     // 
     // Default value: Base64.
-    // > This parameter applies only to MNS notification objects.
+    // > The Settings for this parameter are supported only for MNS notification recipients.
     shared_ptr<string> messageEncoding_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the notification recipient. The following list describes the value formats of this parameter:
+    // The identifier of the notification recipient. The following notification methods are supported when you configure the Settings for this parameter:
     // 
-    // *   If you specify CloudMonitor as the notification recipient, specify the value in the `acs:ess:{region-id}:{account-id}:cloudmonitor` format.
-    // *   If you specify an SMQ queue as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
-    // *   If you specify an SMQ topic as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
+    // - Cloud monitoring. Format: `acs:ess:{region-id}:{account-id}:cloudmonitor`.
+    // - MNS queue. Format: `acs:mns:{region-id}:{account-id}:queue/{queuename}`.
+    // - MNS topic. Format: `acs:mns:{region-id}:{account-id}:topic/{topicname}`.
     // 
-    // The variables in the preceding formats have the following meanings:
-    // 
-    // *   `region-id`: the region ID of the scaling group.
-    // *   `account-id`: the ID of the Alibaba Cloud account.
-    // *   `queuename`: the name of the SMQ queue.
-    // *   `topicname`: the name of the SMQ topic.
+    // Variables in the formats:
+    // - `region-id`: the ID of the region where the scaling group resides.
+    // - `account-id`: the Alibaba Cloud account ID. You can invoke the STS GetCallerIdentity operation to obtain the AccountId response parameter, or view it by clicking your profile picture in the upper-right corner of the Alibaba Cloud Management Console.
+    // - `queuename`: the name of the MNS queue.
+    // - `topicname`: the name of the MNS topic.
     // 
     // This parameter is required.
     shared_ptr<string> notificationArn_ {};
-    // The notification types. Specify multiple IDs in the repeated list form.
+    // The types of Auto Scaling events and resource changes for which you want to receive notifications. You can specify multiple values by using a repeated list.
     // 
-    // You can call the DescribeNotificationTypes operation to query the values of this parameter.
+    // You can invoke the DescribeNotificationTypes operation to query parameter values.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> notificationTypes_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the scaling group.
+    // The ID of the region to which the scaling group belongs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     // The ID of the scaling group.
     // 
     // This parameter is required.
     shared_ptr<string> scalingGroupId_ {};
-    // The time zone of the notification. Specify the value in UTC. For example, a value of UTC+8 specifies that the time is 8 hours ahead of Coordinated Universal Time, and a value of UTC-7 specifies that the time is 7 hours behind Coordinated Universal Time.
+    // The time zone for notifications.
+    // Specify the time zone offset from Coordinated Universal Time (UTC), such as UTC+8 or UTC-7.
     shared_ptr<string> timeZone_ {};
   };
 

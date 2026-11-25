@@ -144,7 +144,7 @@ namespace Models
 
 
         protected:
-          // The instance type that overrides the instance type specified in the launch template.
+          // The specified instance type, which overrides the instance type in the launch template.
           shared_ptr<string> instanceType_ {};
         };
 
@@ -222,7 +222,7 @@ namespace Models
 
 
           protected:
-            // >This parameter is not available for use.
+            // > This parameter is not available for use.
             shared_ptr<string> fieldRefFieldPath_ {};
             // The name of the environment variable.
             shared_ptr<string> key_ {};
@@ -274,15 +274,15 @@ namespace Models
 
 
         protected:
-          // The arguments for the container startup commands.
+          // The arguments for the container startup command.
           shared_ptr<vector<string>> args_ {};
-          // The container startup commands.
+          // The startup command of the container.
           shared_ptr<vector<string>> commands_ {};
           // The environment variable information.
           shared_ptr<vector<Containers::EnvironmentVars>> environmentVars_ {};
           // The container image.
           shared_ptr<string> image_ {};
-          // The custom container name.
+          // The custom name of the container.
           shared_ptr<string> name_ {};
         };
 
@@ -337,17 +337,17 @@ namespace Models
       protected:
         // The list of containers included in the instance.
         shared_ptr<vector<DesiredConfiguration::Containers>> containers_ {};
-        // The ID of the image file used for automatic creation of instances.
+        // The ID of the image file, which is the image resource used for the automatic creation of instances.
         shared_ptr<string> imageId_ {};
-        // The ID of the launch template from which the scaling group obtains launch configuration information.
+        // The ID of the launch template, which specifies that the scaling group obtains the launch configuration information from the launch template.
         shared_ptr<string> launchTemplateId_ {};
-        // The instance type information that overrides the launch template.
+        // The instance type override information for the launch template.
         shared_ptr<vector<DesiredConfiguration::LaunchTemplateOverrides>> launchTemplateOverrides_ {};
         // The version of the launch template. Valid values:
         // 
-        // - A fixed template version number.
-        // - Default: always uses the default version of the template.
-        // - Latest: always uses the latest version of the template.
+        // - A specific template version number.
+        // - Default: Always uses the default version of the template.
+        // - Latest: Always uses the latest version of the template.
         shared_ptr<string> launchTemplateVersion_ {};
         // The ID of the scaling configuration.
         shared_ptr<string> scalingConfigurationId_ {};
@@ -381,7 +381,7 @@ namespace Models
 
 
       protected:
-        // The percentage of new instances relative to the total instances in the scaling group. The task automatically pauses when this percentage is reached.
+        // The percentage of new instances out of the total instances in the scaling group. The task is automatically paused when this percentage is reached.
         shared_ptr<int32_t> percentage_ {};
       };
 
@@ -506,15 +506,15 @@ namespace Models
 
 
     protected:
-      // The duration for which the task pauses when a checkpoint is reached. Unit: minutes.
+      // The pause duration when a refresh task checkpoint is reached. Unit: minutes.
       shared_ptr<int32_t> checkpointPauseTime_ {};
-      // The checkpoints for the refresh task. A checkpoint specifies that the task automatically pauses for CheckpointPauseTime minutes when the proportion of new instances reaches the specified value during the instance refresh.
+      // The refresh task checkpoints. Specifies that during the instance refresh, the task is automatically paused for CheckpointPauseTime minutes when the percentage of new instances reaches the specified value.
       shared_ptr<vector<InstanceRefreshTasks::Checkpoints>> checkpoints_ {};
       // The desired configuration for the instance refresh.
       shared_ptr<InstanceRefreshTasks::DesiredConfiguration> desiredConfiguration_ {};
-      // The failure reason when the instance refresh task fails.
+      // The specific cause of the failure when the instance refresh task fails.
       shared_ptr<string> detail_ {};
-      // The end time of the instance refresh task.
+      // The end time of the instance refresh task. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> endTime_ {};
       // The capacity that has been refreshed.
       shared_ptr<int32_t> finishedUpdateCapacity_ {};
@@ -528,22 +528,22 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The ID of the scaling group.
       shared_ptr<string> scalingGroupId_ {};
-      // Indicates whether instances that already match the desired configuration are skipped.
+      // Specifies whether to skip instances that match the desired configuration.
       // 
-      // > The system determines whether an instance matches based on the ID of the desired scaling configuration, not by comparing individual configuration items.
+      // > The system determines whether an instance matches based on the ID of the desired scaling configuration, without comparing specific configuration items.
       // 
       // Valid values:
       // 
-      // - true: Skipped. When the instance refresh task starts, the system checks the configuration of each instance. Instances that were already created with the desired configuration are not refreshed.
-      // - false: Not skipped. After the instance refresh task starts, all instances in the scaling group are refreshed.
+      // - true: Skips matching instances. When the instance refresh task starts, the system checks the configuration of each instance. Instances that are already created with the desired configuration are not refreshed.
+      // - false: Does not skip matching instances. After the instance refresh task starts, all instances in the scaling group are refreshed.
       shared_ptr<bool> skipMatching_ {};
-      // The start time of the instance refresh task.
+      // The start time of the instance refresh task. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> startTime_ {};
       // The current status of the instance refresh task. Valid values:
-      // - Pending: The instance refresh task is created and waiting to be scheduled.
+      // - Pending: The instance refresh task is created and pending scheduling.
       // - InProgress: The instance refresh task is in progress.
       // - Paused: The instance refresh task is paused.
-      // - CheckpointPause: The instance refresh task is paused because the task progress reached a checkpoint (`Checkpoint.Percentage`).
+      // - CheckpointPause: The instance refresh task is paused because the task progress has reached the refresh task checkpoint (`Checkpoint.Percentage`).
       // - Failed: The instance refresh task failed.
       // - Successful: The instance refresh task succeeded.
       // - Cancelling: The instance refresh task is being canceled.
@@ -552,6 +552,11 @@ namespace Models
       // - RollbackSuccessful: The instance refresh task is rolled back.
       // - RollbackFailed: The rollback of the instance refresh task failed.
       shared_ptr<string> status_ {};
+      // The execution strategy of the instance refresh task. Valid values:
+      // 
+      // - Rolling: Refreshes instances by creating new instances and releasing old ones.
+      // 
+      // - ReplaceSystemDisk: Updates the system disk on the existing instances.
       shared_ptr<string> strategy_ {};
       // The total capacity that needs to be refreshed.
       shared_ptr<int32_t> totalNeedUpdateCapacity_ {};
@@ -601,7 +606,7 @@ namespace Models
     shared_ptr<vector<DescribeInstanceRefreshesResponseBody::InstanceRefreshTasks>> instanceRefreshTasks_ {};
     // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. If NextToken is empty, no more results exist.
+    // The token for the next query. An empty NextToken indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

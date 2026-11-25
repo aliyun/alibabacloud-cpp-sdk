@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The output format. Set the value to YAML.
+    // The output format. Only YAML is supported.
     shared_ptr<string> outputFormat_ {};
-    // The region ID of the scaling group to which the scaling configuration belongs.
+    // The region ID of the scaling group to which the scaling rule belongs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the scaling configuration based on which elastic container instances are created.
+    // The ID of the scaling configuration for the ECI scaling group.
     // 
     // This parameter is required.
     shared_ptr<string> scalingConfigurationId_ {};

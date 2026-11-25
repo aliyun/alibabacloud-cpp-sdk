@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The region ID of the scaling group.
+    // The ID of the region to which the scaling group belongs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the scaling group.
+    // The ID of the target scaling group.
     // 
     // This parameter is required.
     shared_ptr<string> scalingGroupId_ {};

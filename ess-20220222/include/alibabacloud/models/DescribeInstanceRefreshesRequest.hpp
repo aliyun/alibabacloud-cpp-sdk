@@ -115,12 +115,12 @@ namespace Models
 
 
   protected:
-    // The IDs of the instance refresh tasks to query.
+    // The IDs of the instance refresh tasks to be queried.
     shared_ptr<vector<string>> instanceRefreshTaskIds_ {};
-    // The maximum number of entries per page in a paging query. Valid values: 1 to 50.
+    // The maximum number of entries per page for a paged query. Valid values: 1 to 50.
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
+    // The query token. Set the value to the NextToken value returned from the previous call. You do not need to specify this parameter for the first call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -131,8 +131,8 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the scaling group.
-    // > You must specify at least one of ScalingGroupId and InstanceRefreshTaskIds. If neither parameter is specified, an error is returned.
-    // >.
+    // > When you call this operation, you must specify either ScalingGroupId or InstanceRefreshTaskIds. If neither is specified, an error occurs.
+    // >
     shared_ptr<string> scalingGroupId_ {};
   };
 

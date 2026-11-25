@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the event-triggered task.
     shared_ptr<string> alarmTaskId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -132,40 +132,40 @@ namespace Models
   protected:
     // The ID of the event-triggered task.
     shared_ptr<string> alarmTaskId_ {};
-    // Specifies whether to enable the event-triggered task. Valid values:
+    // Specifies whether the event-triggered task is enabled. Valid values:
     // 
-    // *   true: enables the event-triggered task.
-    // *   false: disables the event-triggered task.
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> isEnable_ {};
-    // The metric name.
+    // The name of the metric.
     shared_ptr<string> metricName_ {};
-    // The metric type. Valid values:
+    // The type of the metric. Valid values:
     // 
-    // *   system: a system metric of CloudMonitor
-    // *   custom: a custom metric that is reported to CloudMonitor.
-    // *   hybrid: a metric of Hybrid Cloud Monitoring.
+    // - system: system metrics of CloudMonitor.
+    // - custom: custom metrics reported to CloudMonitor.
+    // - hybrid: metrics of Hybrid Cloud Monitoring.
     shared_ptr<string> metricType_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from page 1.
+    // The page number of the scaling rule list. Pages start from page 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 50.
+    // The Settings for the number of entries per page in a paged query. Maximum value: 50.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the event-triggered task.
+    // The ID of the region to which the event-triggered task belongs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     // The ID of the scaling group with which the event-triggered task is associated.
     shared_ptr<string> scalingGroupId_ {};
-    // The status of the event-triggered task. Valid values:
+    // The state of the event-triggered task. Valid values:
     // 
-    // *   ALARM: The alert condition is met and an alert is triggered.
-    // *   OK: The alert condition is not met.
-    // *   INSUFFICIENT_DATA: Auto Scaling cannot determine whether the alert condition is met due to insufficient data.
+    // - ALARM: Alerting. The alert condition is met.
+    // - OK: Normal. The alert condition is not met.
+    // - INSUFFICIENT_DATA: Insufficient data. The data is insufficient to determine whether the alert condition is met.
     shared_ptr<string> state_ {};
   };
 

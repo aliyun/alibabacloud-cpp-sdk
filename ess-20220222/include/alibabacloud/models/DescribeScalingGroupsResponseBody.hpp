@@ -106,6 +106,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
         DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
+        DARABONBA_PTR_TO_JSON(WarmPoolCapacity, warmPoolCapacity_);
+        DARABONBA_PTR_TO_JSON(WarmPoolConfiguration, warmPoolConfiguration_);
+        DARABONBA_PTR_TO_JSON(ZoneShiftOptions, zoneShiftOptions_);
       };
       friend void from_json(const Darabonba::Json& j, ScalingGroups& obj) { 
         DARABONBA_PTR_FROM_JSON(ActiveCapacity, activeCapacity_);
@@ -173,6 +176,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
         DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
+        DARABONBA_PTR_FROM_JSON(WarmPoolCapacity, warmPoolCapacity_);
+        DARABONBA_PTR_FROM_JSON(WarmPoolConfiguration, warmPoolConfiguration_);
+        DARABONBA_PTR_FROM_JSON(ZoneShiftOptions, zoneShiftOptions_);
       };
       ScalingGroups() = default ;
       ScalingGroups(const ScalingGroups &) = default ;
@@ -185,6 +191,286 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ZoneShiftOptions : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ZoneShiftOptions& obj) { 
+          DARABONBA_PTR_TO_JSON(ExpiryTime, expiryTime_);
+          DARABONBA_PTR_TO_JSON(ImpairedZoneIds, impairedZoneIds_);
+          DARABONBA_PTR_TO_JSON(ZoneShiftPolicy, zoneShiftPolicy_);
+        };
+        friend void from_json(const Darabonba::Json& j, ZoneShiftOptions& obj) { 
+          DARABONBA_PTR_FROM_JSON(ExpiryTime, expiryTime_);
+          DARABONBA_PTR_FROM_JSON(ImpairedZoneIds, impairedZoneIds_);
+          DARABONBA_PTR_FROM_JSON(ZoneShiftPolicy, zoneShiftPolicy_);
+        };
+        ZoneShiftOptions() = default ;
+        ZoneShiftOptions(const ZoneShiftOptions &) = default ;
+        ZoneShiftOptions(ZoneShiftOptions &&) = default ;
+        ZoneShiftOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ZoneShiftOptions() = default ;
+        ZoneShiftOptions& operator=(const ZoneShiftOptions &) = default ;
+        ZoneShiftOptions& operator=(ZoneShiftOptions &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class ZoneShiftPolicy : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const ZoneShiftPolicy& obj) { 
+            DARABONBA_PTR_TO_JSON(ImpairedZoneHealthCheckBehavior, impairedZoneHealthCheckBehavior_);
+            DARABONBA_PTR_TO_JSON(ScaleInBlockedRuleTypes, scaleInBlockedRuleTypes_);
+            DARABONBA_PTR_TO_JSON(ScaleOutInHealthyZonesOnly, scaleOutInHealthyZonesOnly_);
+          };
+          friend void from_json(const Darabonba::Json& j, ZoneShiftPolicy& obj) { 
+            DARABONBA_PTR_FROM_JSON(ImpairedZoneHealthCheckBehavior, impairedZoneHealthCheckBehavior_);
+            DARABONBA_PTR_FROM_JSON(ScaleInBlockedRuleTypes, scaleInBlockedRuleTypes_);
+            DARABONBA_PTR_FROM_JSON(ScaleOutInHealthyZonesOnly, scaleOutInHealthyZonesOnly_);
+          };
+          ZoneShiftPolicy() = default ;
+          ZoneShiftPolicy(const ZoneShiftPolicy &) = default ;
+          ZoneShiftPolicy(ZoneShiftPolicy &&) = default ;
+          ZoneShiftPolicy(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~ZoneShiftPolicy() = default ;
+          ZoneShiftPolicy& operator=(const ZoneShiftPolicy &) = default ;
+          ZoneShiftPolicy& operator=(ZoneShiftPolicy &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->impairedZoneHealthCheckBehavior_ == nullptr
+        && this->scaleInBlockedRuleTypes_ == nullptr && this->scaleOutInHealthyZonesOnly_ == nullptr; };
+          // impairedZoneHealthCheckBehavior Field Functions 
+          bool hasImpairedZoneHealthCheckBehavior() const { return this->impairedZoneHealthCheckBehavior_ != nullptr;};
+          void deleteImpairedZoneHealthCheckBehavior() { this->impairedZoneHealthCheckBehavior_ = nullptr;};
+          inline string getImpairedZoneHealthCheckBehavior() const { DARABONBA_PTR_GET_DEFAULT(impairedZoneHealthCheckBehavior_, "") };
+          inline ZoneShiftPolicy& setImpairedZoneHealthCheckBehavior(string impairedZoneHealthCheckBehavior) { DARABONBA_PTR_SET_VALUE(impairedZoneHealthCheckBehavior_, impairedZoneHealthCheckBehavior) };
+
+
+          // scaleInBlockedRuleTypes Field Functions 
+          bool hasScaleInBlockedRuleTypes() const { return this->scaleInBlockedRuleTypes_ != nullptr;};
+          void deleteScaleInBlockedRuleTypes() { this->scaleInBlockedRuleTypes_ = nullptr;};
+          inline const vector<string> & getScaleInBlockedRuleTypes() const { DARABONBA_PTR_GET_CONST(scaleInBlockedRuleTypes_, vector<string>) };
+          inline vector<string> getScaleInBlockedRuleTypes() { DARABONBA_PTR_GET(scaleInBlockedRuleTypes_, vector<string>) };
+          inline ZoneShiftPolicy& setScaleInBlockedRuleTypes(const vector<string> & scaleInBlockedRuleTypes) { DARABONBA_PTR_SET_VALUE(scaleInBlockedRuleTypes_, scaleInBlockedRuleTypes) };
+          inline ZoneShiftPolicy& setScaleInBlockedRuleTypes(vector<string> && scaleInBlockedRuleTypes) { DARABONBA_PTR_SET_RVALUE(scaleInBlockedRuleTypes_, scaleInBlockedRuleTypes) };
+
+
+          // scaleOutInHealthyZonesOnly Field Functions 
+          bool hasScaleOutInHealthyZonesOnly() const { return this->scaleOutInHealthyZonesOnly_ != nullptr;};
+          void deleteScaleOutInHealthyZonesOnly() { this->scaleOutInHealthyZonesOnly_ = nullptr;};
+          inline bool getScaleOutInHealthyZonesOnly() const { DARABONBA_PTR_GET_DEFAULT(scaleOutInHealthyZonesOnly_, false) };
+          inline ZoneShiftPolicy& setScaleOutInHealthyZonesOnly(bool scaleOutInHealthyZonesOnly) { DARABONBA_PTR_SET_VALUE(scaleOutInHealthyZonesOnly_, scaleOutInHealthyZonesOnly) };
+
+
+        protected:
+          // The health check behavior in impaired zones. Valid values: 
+          // 
+          // - ReplaceUnhealthy: Unhealthy instances in all zones are replaced normally.
+          // - IgnoreUnhealthy: Unhealthy instances in impaired zones are not replaced. Healthy zones are not affected.
+          shared_ptr<string> impairedZoneHealthCheckBehavior_ {};
+          // Blocks scale-in triggered by specified types of scaling rules. The blocking scope covers all zones under the scaling group, not just the impaired zones. This prevents false scale-in caused by seemingly improved monitoring metrics due to unreachable instances in impaired zones. Valid values: 
+          // 
+          // - StepScalingRule: Blocks scale-in triggered by step scaling rules. 
+          // - TargetTrackingScalingRule: Blocks scale-in triggered by target tracking scaling rules. 
+          // - None: No blocking.
+          shared_ptr<vector<string>> scaleInBlockedRuleTypes_ {};
+          // Specifies whether scale-out creates instances only in healthy zones during the shift. Valid values: 
+          // 
+          // - true: Scale-out creates instances only in healthy zones and skips impaired zones. 
+          // - false: Scale-out is not restricted by zone and can create instances in any zone under the scaling group.
+          shared_ptr<bool> scaleOutInHealthyZonesOnly_ {};
+        };
+
+        virtual bool empty() const override { return this->expiryTime_ == nullptr
+        && this->impairedZoneIds_ == nullptr && this->zoneShiftPolicy_ == nullptr; };
+        // expiryTime Field Functions 
+        bool hasExpiryTime() const { return this->expiryTime_ != nullptr;};
+        void deleteExpiryTime() { this->expiryTime_ = nullptr;};
+        inline string getExpiryTime() const { DARABONBA_PTR_GET_DEFAULT(expiryTime_, "") };
+        inline ZoneShiftOptions& setExpiryTime(string expiryTime) { DARABONBA_PTR_SET_VALUE(expiryTime_, expiryTime) };
+
+
+        // impairedZoneIds Field Functions 
+        bool hasImpairedZoneIds() const { return this->impairedZoneIds_ != nullptr;};
+        void deleteImpairedZoneIds() { this->impairedZoneIds_ = nullptr;};
+        inline const vector<string> & getImpairedZoneIds() const { DARABONBA_PTR_GET_CONST(impairedZoneIds_, vector<string>) };
+        inline vector<string> getImpairedZoneIds() { DARABONBA_PTR_GET(impairedZoneIds_, vector<string>) };
+        inline ZoneShiftOptions& setImpairedZoneIds(const vector<string> & impairedZoneIds) { DARABONBA_PTR_SET_VALUE(impairedZoneIds_, impairedZoneIds) };
+        inline ZoneShiftOptions& setImpairedZoneIds(vector<string> && impairedZoneIds) { DARABONBA_PTR_SET_RVALUE(impairedZoneIds_, impairedZoneIds) };
+
+
+        // zoneShiftPolicy Field Functions 
+        bool hasZoneShiftPolicy() const { return this->zoneShiftPolicy_ != nullptr;};
+        void deleteZoneShiftPolicy() { this->zoneShiftPolicy_ = nullptr;};
+        inline const ZoneShiftOptions::ZoneShiftPolicy & getZoneShiftPolicy() const { DARABONBA_PTR_GET_CONST(zoneShiftPolicy_, ZoneShiftOptions::ZoneShiftPolicy) };
+        inline ZoneShiftOptions::ZoneShiftPolicy getZoneShiftPolicy() { DARABONBA_PTR_GET(zoneShiftPolicy_, ZoneShiftOptions::ZoneShiftPolicy) };
+        inline ZoneShiftOptions& setZoneShiftPolicy(const ZoneShiftOptions::ZoneShiftPolicy & zoneShiftPolicy) { DARABONBA_PTR_SET_VALUE(zoneShiftPolicy_, zoneShiftPolicy) };
+        inline ZoneShiftOptions& setZoneShiftPolicy(ZoneShiftOptions::ZoneShiftPolicy && zoneShiftPolicy) { DARABONBA_PTR_SET_RVALUE(zoneShiftPolicy_, zoneShiftPolicy) };
+
+
+      protected:
+        // The expiration time of the zone shift. After the expiration time, the system automatically ends the shift and restores the related zones. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format.
+        shared_ptr<string> expiryTime_ {};
+        // The list of impaired zone IDs.
+        shared_ptr<vector<string>> impairedZoneIds_ {};
+        // The behavior policy of the scaling group during the zone shift.
+        shared_ptr<ZoneShiftOptions::ZoneShiftPolicy> zoneShiftPolicy_ {};
+      };
+
+      class WarmPoolConfiguration : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const WarmPoolConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(CapacityOptions, capacityOptions_);
+          DARABONBA_PTR_TO_JSON(InstanceReusePolicy, instanceReusePolicy_);
+          DARABONBA_PTR_TO_JSON(PoolState, poolState_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, WarmPoolConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(CapacityOptions, capacityOptions_);
+          DARABONBA_PTR_FROM_JSON(InstanceReusePolicy, instanceReusePolicy_);
+          DARABONBA_PTR_FROM_JSON(PoolState, poolState_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+        };
+        WarmPoolConfiguration() = default ;
+        WarmPoolConfiguration(const WarmPoolConfiguration &) = default ;
+        WarmPoolConfiguration(WarmPoolConfiguration &&) = default ;
+        WarmPoolConfiguration(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~WarmPoolConfiguration() = default ;
+        WarmPoolConfiguration& operator=(const WarmPoolConfiguration &) = default ;
+        WarmPoolConfiguration& operator=(WarmPoolConfiguration &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class InstanceReusePolicy : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const InstanceReusePolicy& obj) { 
+            DARABONBA_PTR_TO_JSON(ReuseOnScaleIn, reuseOnScaleIn_);
+          };
+          friend void from_json(const Darabonba::Json& j, InstanceReusePolicy& obj) { 
+            DARABONBA_PTR_FROM_JSON(ReuseOnScaleIn, reuseOnScaleIn_);
+          };
+          InstanceReusePolicy() = default ;
+          InstanceReusePolicy(const InstanceReusePolicy &) = default ;
+          InstanceReusePolicy(InstanceReusePolicy &&) = default ;
+          InstanceReusePolicy(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~InstanceReusePolicy() = default ;
+          InstanceReusePolicy& operator=(const InstanceReusePolicy &) = default ;
+          InstanceReusePolicy& operator=(InstanceReusePolicy &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->reuseOnScaleIn_ == nullptr; };
+          // reuseOnScaleIn Field Functions 
+          bool hasReuseOnScaleIn() const { return this->reuseOnScaleIn_ != nullptr;};
+          void deleteReuseOnScaleIn() { this->reuseOnScaleIn_ = nullptr;};
+          inline bool getReuseOnScaleIn() const { DARABONBA_PTR_GET_DEFAULT(reuseOnScaleIn_, false) };
+          inline InstanceReusePolicy& setReuseOnScaleIn(bool reuseOnScaleIn) { DARABONBA_PTR_SET_VALUE(reuseOnScaleIn_, reuseOnScaleIn) };
+
+
+        protected:
+          // Specifies whether instances are returned to the warm pool when the scaling group scales in.
+          shared_ptr<bool> reuseOnScaleIn_ {};
+        };
+
+        class CapacityOptions : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CapacityOptions& obj) { 
+            DARABONBA_PTR_TO_JSON(DesiredGroupPreparedCapacity, desiredGroupPreparedCapacity_);
+            DARABONBA_PTR_TO_JSON(MinCapacity, minCapacity_);
+          };
+          friend void from_json(const Darabonba::Json& j, CapacityOptions& obj) { 
+            DARABONBA_PTR_FROM_JSON(DesiredGroupPreparedCapacity, desiredGroupPreparedCapacity_);
+            DARABONBA_PTR_FROM_JSON(MinCapacity, minCapacity_);
+          };
+          CapacityOptions() = default ;
+          CapacityOptions(const CapacityOptions &) = default ;
+          CapacityOptions(CapacityOptions &&) = default ;
+          CapacityOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CapacityOptions() = default ;
+          CapacityOptions& operator=(const CapacityOptions &) = default ;
+          CapacityOptions& operator=(CapacityOptions &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->desiredGroupPreparedCapacity_ == nullptr
+        && this->minCapacity_ == nullptr; };
+          // desiredGroupPreparedCapacity Field Functions 
+          bool hasDesiredGroupPreparedCapacity() const { return this->desiredGroupPreparedCapacity_ != nullptr;};
+          void deleteDesiredGroupPreparedCapacity() { this->desiredGroupPreparedCapacity_ = nullptr;};
+          inline int32_t getDesiredGroupPreparedCapacity() const { DARABONBA_PTR_GET_DEFAULT(desiredGroupPreparedCapacity_, 0) };
+          inline CapacityOptions& setDesiredGroupPreparedCapacity(int32_t desiredGroupPreparedCapacity) { DARABONBA_PTR_SET_VALUE(desiredGroupPreparedCapacity_, desiredGroupPreparedCapacity) };
+
+
+          // minCapacity Field Functions 
+          bool hasMinCapacity() const { return this->minCapacity_ != nullptr;};
+          void deleteMinCapacity() { this->minCapacity_ = nullptr;};
+          inline int32_t getMinCapacity() const { DARABONBA_PTR_GET_DEFAULT(minCapacity_, 0) };
+          inline CapacityOptions& setMinCapacity(int32_t minCapacity) { DARABONBA_PTR_SET_VALUE(minCapacity_, minCapacity) };
+
+
+        protected:
+          // The expected number of pre-warmed instances to cover. The system maintains the sum of the current number of instances in the scaling group and the number of instances in the warm pool at this value.
+          shared_ptr<int32_t> desiredGroupPreparedCapacity_ {};
+          // The minimum number of instances in the warm pool. The system always retains no less than this number of pre-warmed instances in the warm pool to ensure rapid scale-out from the warm pool at any time.
+          shared_ptr<int32_t> minCapacity_ {};
+        };
+
+        virtual bool empty() const override { return this->capacityOptions_ == nullptr
+        && this->instanceReusePolicy_ == nullptr && this->poolState_ == nullptr && this->status_ == nullptr; };
+        // capacityOptions Field Functions 
+        bool hasCapacityOptions() const { return this->capacityOptions_ != nullptr;};
+        void deleteCapacityOptions() { this->capacityOptions_ = nullptr;};
+        inline const WarmPoolConfiguration::CapacityOptions & getCapacityOptions() const { DARABONBA_PTR_GET_CONST(capacityOptions_, WarmPoolConfiguration::CapacityOptions) };
+        inline WarmPoolConfiguration::CapacityOptions getCapacityOptions() { DARABONBA_PTR_GET(capacityOptions_, WarmPoolConfiguration::CapacityOptions) };
+        inline WarmPoolConfiguration& setCapacityOptions(const WarmPoolConfiguration::CapacityOptions & capacityOptions) { DARABONBA_PTR_SET_VALUE(capacityOptions_, capacityOptions) };
+        inline WarmPoolConfiguration& setCapacityOptions(WarmPoolConfiguration::CapacityOptions && capacityOptions) { DARABONBA_PTR_SET_RVALUE(capacityOptions_, capacityOptions) };
+
+
+        // instanceReusePolicy Field Functions 
+        bool hasInstanceReusePolicy() const { return this->instanceReusePolicy_ != nullptr;};
+        void deleteInstanceReusePolicy() { this->instanceReusePolicy_ = nullptr;};
+        inline const WarmPoolConfiguration::InstanceReusePolicy & getInstanceReusePolicy() const { DARABONBA_PTR_GET_CONST(instanceReusePolicy_, WarmPoolConfiguration::InstanceReusePolicy) };
+        inline WarmPoolConfiguration::InstanceReusePolicy getInstanceReusePolicy() { DARABONBA_PTR_GET(instanceReusePolicy_, WarmPoolConfiguration::InstanceReusePolicy) };
+        inline WarmPoolConfiguration& setInstanceReusePolicy(const WarmPoolConfiguration::InstanceReusePolicy & instanceReusePolicy) { DARABONBA_PTR_SET_VALUE(instanceReusePolicy_, instanceReusePolicy) };
+        inline WarmPoolConfiguration& setInstanceReusePolicy(WarmPoolConfiguration::InstanceReusePolicy && instanceReusePolicy) { DARABONBA_PTR_SET_RVALUE(instanceReusePolicy_, instanceReusePolicy) };
+
+
+        // poolState Field Functions 
+        bool hasPoolState() const { return this->poolState_ != nullptr;};
+        void deletePoolState() { this->poolState_ = nullptr;};
+        inline string getPoolState() const { DARABONBA_PTR_GET_DEFAULT(poolState_, "") };
+        inline WarmPoolConfiguration& setPoolState(string poolState) { DARABONBA_PTR_SET_VALUE(poolState_, poolState) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline WarmPoolConfiguration& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        // The capacity configuration of the warm pool.
+        shared_ptr<WarmPoolConfiguration::CapacityOptions> capacityOptions_ {};
+        // The instance reuse policy.
+        shared_ptr<WarmPoolConfiguration::InstanceReusePolicy> instanceReusePolicy_ {};
+        // The state of instances in the warm pool. Valid values:
+        // 
+        // - Running: The instances are in the running state. Scale-out is faster, but you are charged for the full cost of the instances.
+        // 
+        // - Stopped: The instances are in the economical mode. You are charged only for resources such as cloud disks, elastic IP addresses (EIPs), and snapshots of the instances. However, instance startup may fail during scale-out due to insufficient inventory.
+        shared_ptr<string> poolState_ {};
+        // The status of the warm pool. Valid values:
+        // 
+        // - Active: Active.
+        // 
+        // - Deleting: Deleting.
+        shared_ptr<string> status_ {};
+      };
+
       class VServerGroups : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const VServerGroups& obj) { 
@@ -253,11 +539,11 @@ namespace Models
 
 
         protected:
-          // The port number that is used by the load balancer to provide external services.
+          // The port number used by the load balancing instance to provide services.
           shared_ptr<int32_t> port_ {};
-          // The ID of the backend vServer group.
+          // The attributes of the backend server group.
           shared_ptr<string> VServerGroupId_ {};
-          // The weight of the backend vServer group.
+          // The weight of the backend server group.
           shared_ptr<int32_t> weight_ {};
         };
 
@@ -280,9 +566,9 @@ namespace Models
 
 
       protected:
-        // The ID of the load balancer to which the backend vServer group belongs.
+        // The ID of the load balancing instance to which the backend server group belongs.
         shared_ptr<string> loadBalancerId_ {};
-        // The attributes of the backend vServer groups.
+        // The attributes of the backend server group.
         shared_ptr<vector<VServerGroups::VServerGroupAttributes>> VServerGroupAttributes_ {};
       };
 
@@ -333,10 +619,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether the tags of the scaling group can be propagated to instances. Valid values:
-        // 
-        // *   true: The tags of the scaling group can be propagated only to new instances.
-        // *   false: The tags of the scaling group cannot be propagated to instances.
+        // Specifies whether the tag is propagated. Valid values:
+        // - true: Tags on the scaling group are propagated only to newly created instances, but not to existing instances in the scaling group.
+        // - false: Tags on the scaling group are not propagated to instances.
         // 
         // Default value: false.
         shared_ptr<bool> propagate_ {};
@@ -402,17 +687,16 @@ namespace Models
 
 
       protected:
-        // The port number used by each ECS instance in the server group.
+        // The port number used by the ECS instance after Auto Scaling adds the ECS instance to the server group.
         shared_ptr<int32_t> port_ {};
         // The ID of the server group.
         shared_ptr<string> serverGroupId_ {};
         // The type of the server group. Valid values:
-        // 
-        // *   ALB
-        // *   NLB
-        // *   GWLB
+        // - ALB: Application Load Balancer (ALB).
+        // - NLB: Network Load Balancer (NLB).
+        // - GWLB: Gateway Load Balancer (GWLB).
         shared_ptr<string> type_ {};
-        // The weight of an ECS instance as a backend server in the server group.
+        // The weight of the ECS instance as a backend server after Auto Scaling adds the ECS instance to the server group.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -454,9 +738,9 @@ namespace Models
 
 
       protected:
-        // The ID of the CLB instance.
+        // The ID of the Classic Load Balancer (CLB) instance for load balancing.
         shared_ptr<string> loadBalancerId_ {};
-        // The weight of an ECS instance as a backend server in the CLB server group. An increase in the weight of an ECS instance indicates an increase in the number of access requests that are forwarded to the ECS instance. If you set the weight of an ECS instance to 0, no access requests are forwarded to the ECS instance. Valid values: 0 to 100.
+        // The weight of the ECS instance as a backend server after Auto Scaling adds the ECS instance to the SLB server group. A higher weight indicates that more access requests are distributed to the ECS instance. If the weight is 0, the ECS instance does not receive access requests. Valid values: 0 to 100.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -507,13 +791,12 @@ namespace Models
 
 
       protected:
-        // The instance type. The instance type that is specified by this parameter overrides the instance type that is specified in the launch template.
+        // The specified instance type, which overrides the instance type in the launch template.
         shared_ptr<string> instanceType_ {};
-        // The maximum bid price of the instance type that is specified by `LaunchTemplateOverride.InstanceType`.
-        // 
-        // >  This parameter takes effect only if you use `LaunchTemplateId` to specify a launch template.
+        // The maximum hourly price for the instance type specified in the launch template override (namely LaunchTemplateOverride.InstanceType).
+        // > This parameter takes effect only when the LaunchTemplateId parameter is specified.
         shared_ptr<float> spotPriceLimit_ {};
-        // The weight of the instance type. The value of this parameter indicates the capacity of a single instance of the specified instance type in the scaling group. A higher weight indicates that a smaller number of instances of the specified instance type are required to meet the expected capacity.
+        // The weight of the specified instance type, which indicates the capacity of a single instance of this type in the scaling group. A higher weight indicates that fewer instances of this type are required to meet the expected capacity.
         shared_ptr<int32_t> weightedCapacity_ {};
       };
 
@@ -566,15 +849,14 @@ namespace Models
 
 
       protected:
-        // The ID of the database.
+        // The database instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The IDs of the security groups that are added to the security group whitelist of the attached database.
+        // The list of security group whitelists added to the database by the scaling group.
         shared_ptr<vector<string>> securityGroupIds_ {};
         // The type of the database. Valid values:
-        // 
-        // *   RDS.
-        // *   Redis.
-        // *   MongoDB.
+        // - RDS
+        // - Redis
+        // - MongoDB
         shared_ptr<string> type_ {};
       };
 
@@ -643,27 +925,26 @@ namespace Models
 
 
       protected:
-        // Indicates whether pay-as-you-go ECS instances can be automatically created to reach the required number of ECS instances when preemptible ECS instances cannot be created due to high prices or insufficient inventory of resources. This parameter takes effect when you set `MultiAZPolicy` to `COST_OPTIMIZED`. Valid values:
+        // Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances when the MultiAZPolicy parameter is set to COST_OPTIMIZED and sufficient spot instances cannot be created due to price or inventory reasons. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true: Allowed.
+        // - false: Not allowed.
         shared_ptr<bool> compensateWithOnDemand_ {};
-        // The minimum number of pay-as-you-go instances required in the scaling group. When the actual number of pay-as-you-go instances drops below the minimum threshold, Auto Scaling preferentially creates pay-as-you-go instances. Valid values: 0 to 1000.
+        // The minimum number of pay-as-you-go instances required in the scaling group. If the number of pay-as-you-go instances in the scaling group is less than this value, the system preferentially creates pay-as-you-go instances. Valid values: 0 to 1000.
         shared_ptr<int32_t> onDemandBaseCapacity_ {};
-        // The percentage of pay-as-you-go instances in the excess instances when the minimum number of pay-as-you-go instances is reached. `OnDemandBaseCapacity` specifies the minimum number of pay-as-you-go instances required in the scaling group. Valid values: 0 to 100.
+        // The percentage of pay-as-you-go instances among the excess instances after the scaling group meets the minimum number of pay-as-you-go instances specified by OnDemandBaseCapacity. Valid values: 0 to 100.
         shared_ptr<int32_t> onDemandPercentageAboveBaseCapacity_ {};
-        // Indicates how prices are compared. Valid values:
+        // The price comparison mode of the cost optimization strategy for the scaling group. Valid values:
+        // - PricePerUnit: Compares prices based on the price per unit of capacity.
         // 
-        // *   PricePerUnit: Prices are compared based on the price per instance capacity.
+        //   The capacity of an instance in the scaling group is equal to the weight set for the instance type. The default weight is 1, which means one ECS instance occupies one unit of capacity.
         // 
-        //     Capacity is determined by the weights assigned to instance types in the scaling group. If no weight is specified, a default weight of 1 is used, meaning each instance is assigned a capacity of 1.
-        // 
-        // *   PricePerVCpu: Prices are compared based on the price per vCPU.
+        // - PricePerVCpu: Compares prices based on the price per vCPU.
         shared_ptr<string> priceComparisonMode_ {};
-        // Specifies whether to replace pay-as-you-go ECS instances with preemptible ECS instances. If you specify `CompensateWithOnDemand`, it may result in a higher percentage of pay-as-you-go instances compared to the value of `OnDemandPercentageAboveBaseCapacity`. In this scenario, Auto Scaling will try to deploy preemptible ECS instances to replace the surplus pay-as-you-go ECS instances. When `CompensateWithOnDemand` is specified, Auto Scaling creates pay-as-you-go ECS instances if there are not enough preemptible instance types available. To avoid keeping these pay-as-you-go ECS instances for long periods, Auto Scaling tries to replace them with preemptible instances as soon as enough of preemptible instance types become available. Valid values:
+        // Specifies whether to use spot instances to replace pay-as-you-go capacity when CompensateWithOnDemand is enabled and the percentage of pay-as-you-go instances exceeds the value of OnDemandPercentageAboveBaseCapacity. In common scenarios where CompensateWithOnDemand downgrades spot instances to pay-as-you-go instances due to spot inventory or price reasons, this feature attempts to use spot instances to replace the excess pay-as-you-go capacity to avoid long-term retention of pay-as-you-go instances. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true: Allowed.
+        // - false: Not allowed.
         shared_ptr<bool> spotAutoReplaceOnDemand_ {};
       };
 
@@ -716,9 +997,9 @@ namespace Models
       protected:
         // The ID of the ALB server group.
         shared_ptr<string> albServerGroupId_ {};
-        // The port number used by an ECS instance as a backend server in the ALB server group.
+        // The port number used by the ECS instance after Auto Scaling adds the ECS instance to the ALB server group.
         shared_ptr<int32_t> port_ {};
-        // The weight of an ECS instance as a backend server in the ALB server group.
+        // The weight of the ECS instance as a backend server after Auto Scaling adds the ECS instance to the ALB server group.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -735,7 +1016,8 @@ namespace Models
         && this->scalingGroupName_ == nullptr && this->scalingPolicy_ == nullptr && this->serverGroups_ == nullptr && this->spotAllocationStrategy_ == nullptr && this->spotCapacity_ == nullptr
         && this->spotInstancePools_ == nullptr && this->spotInstanceRemedy_ == nullptr && this->standbyCapacity_ == nullptr && this->stopInstanceTimeout_ == nullptr && this->stoppedCapacity_ == nullptr
         && this->suspendedProcesses_ == nullptr && this->systemSuspended_ == nullptr && this->tags_ == nullptr && this->totalCapacity_ == nullptr && this->totalInstanceCount_ == nullptr
-        && this->VServerGroups_ == nullptr && this->vSwitchId_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr; };
+        && this->VServerGroups_ == nullptr && this->vSwitchId_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr && this->warmPoolCapacity_ == nullptr
+        && this->warmPoolConfiguration_ == nullptr && this->zoneShiftOptions_ == nullptr; };
       // activeCapacity Field Functions 
       bool hasActiveCapacity() const { return this->activeCapacity_ != nullptr;};
       void deleteActiveCapacity() { this->activeCapacity_ = nullptr;};
@@ -1219,147 +1501,160 @@ namespace Models
       inline ScalingGroups& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
+      // warmPoolCapacity Field Functions 
+      bool hasWarmPoolCapacity() const { return this->warmPoolCapacity_ != nullptr;};
+      void deleteWarmPoolCapacity() { this->warmPoolCapacity_ = nullptr;};
+      inline int32_t getWarmPoolCapacity() const { DARABONBA_PTR_GET_DEFAULT(warmPoolCapacity_, 0) };
+      inline ScalingGroups& setWarmPoolCapacity(int32_t warmPoolCapacity) { DARABONBA_PTR_SET_VALUE(warmPoolCapacity_, warmPoolCapacity) };
+
+
+      // warmPoolConfiguration Field Functions 
+      bool hasWarmPoolConfiguration() const { return this->warmPoolConfiguration_ != nullptr;};
+      void deleteWarmPoolConfiguration() { this->warmPoolConfiguration_ = nullptr;};
+      inline const ScalingGroups::WarmPoolConfiguration & getWarmPoolConfiguration() const { DARABONBA_PTR_GET_CONST(warmPoolConfiguration_, ScalingGroups::WarmPoolConfiguration) };
+      inline ScalingGroups::WarmPoolConfiguration getWarmPoolConfiguration() { DARABONBA_PTR_GET(warmPoolConfiguration_, ScalingGroups::WarmPoolConfiguration) };
+      inline ScalingGroups& setWarmPoolConfiguration(const ScalingGroups::WarmPoolConfiguration & warmPoolConfiguration) { DARABONBA_PTR_SET_VALUE(warmPoolConfiguration_, warmPoolConfiguration) };
+      inline ScalingGroups& setWarmPoolConfiguration(ScalingGroups::WarmPoolConfiguration && warmPoolConfiguration) { DARABONBA_PTR_SET_RVALUE(warmPoolConfiguration_, warmPoolConfiguration) };
+
+
+      // zoneShiftOptions Field Functions 
+      bool hasZoneShiftOptions() const { return this->zoneShiftOptions_ != nullptr;};
+      void deleteZoneShiftOptions() { this->zoneShiftOptions_ = nullptr;};
+      inline const ScalingGroups::ZoneShiftOptions & getZoneShiftOptions() const { DARABONBA_PTR_GET_CONST(zoneShiftOptions_, ScalingGroups::ZoneShiftOptions) };
+      inline ScalingGroups::ZoneShiftOptions getZoneShiftOptions() { DARABONBA_PTR_GET(zoneShiftOptions_, ScalingGroups::ZoneShiftOptions) };
+      inline ScalingGroups& setZoneShiftOptions(const ScalingGroups::ZoneShiftOptions & zoneShiftOptions) { DARABONBA_PTR_SET_VALUE(zoneShiftOptions_, zoneShiftOptions) };
+      inline ScalingGroups& setZoneShiftOptions(ScalingGroups::ZoneShiftOptions && zoneShiftOptions) { DARABONBA_PTR_SET_RVALUE(zoneShiftOptions_, zoneShiftOptions) };
+
+
     protected:
-      // The number of ECS instances that are in the In Service state in the scaling group.
+      // The number of ECS instances that have been added to the scaling group and are running normally.
       shared_ptr<int32_t> activeCapacity_ {};
       // The ID of the active scaling configuration in the scaling group.
       shared_ptr<string> activeScalingConfigurationId_ {};
-      // The Application Load Balancer (ALB) server groups.
+      // The collection of information about Application Load Balancer (ALB) server groups.
       shared_ptr<vector<ScalingGroups::AlbServerGroups>> albServerGroups_ {};
-      // The instance allocation policy. Auto Scaling selects instance types based on the allocation policy to create the required number of preemptible instances. The policy is suitable for pay-as-you-go instances and preemptible instances. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
+      // The capacity allocation strategy, which determines how the scaling group selects available instance types to meet the capacity requirements. The capacity distribution strategy applies to both pay-as-you-go and spot capacity. This parameter takes effect only when the MultiAZPolicy parameter is set to COMPOSABLE. Valid values:
       // 
-      // *   priority: Auto Scaling adopts the predefined instance type sequence to create the required number of preemptible instances.
-      // *   lowestPrice: Auto Scaling selects instance types that have the most economical vCPU pricing to create the required number of instances.
+      // - priority: Creates instances based on the order of the configured instance types.
+      // - lowestPrice: Creates instances based on the unit vCPU price of the instance types in ascending order.
       shared_ptr<string> allocationStrategy_ {};
-      // Whether to enable automatic rebalancing for the scaling group. This takes effect only when BalancedOnly is enabled for the scaling group. Valid value:
-      // 
-      // *   false: Auto rebalancing is disabled for the scaling group.
-      // *   true: If Auto rebalancing is enabled, the scaling group automatically detects the capacity of the zone. If the capacity of the zone is unbalanced, the scaling group actively scales out the zone and re-balances the capacity of the zone.
+      // Specifies whether to enable automatic balancing for the scaling group. This parameter takes effect only when BalancedOnly is enabled for the zone balance scaling group. Valid values:
+      // - false: Automatic balancing for the scaling group is disabled.
+      // - true: Automatic balancing for the scaling group is enabled. The scaling group automatically detects the capacity across zones. If the capacity is unbalanced, the scaling group proactively scales in or out to rebalance the capacity across zones.
       shared_ptr<bool> autoRebalance_ {};
-      // Indicates whether instances in the scaling group are evenly distributed across the specified zones. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
+      // Specifies whether the capacity of the scaling group is evenly distributed across multiple zones. This parameter takes effect only when the MultiAZPolicy parameter is set to COMPOSABLE. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: The capacity of the scaling group is evenly distributed across multiple zones.
+      // - false: The capacity of the scaling group is not evenly distributed across multiple zones.
       shared_ptr<bool> azBalance_ {};
-      // The zone balancing mode. This mode takes effect only when the zone balancing mode is enabled. Valid value:
+      // The zone balance mode. This parameter takes effect only when the zone balance mode is enabled. Valid values:
+      //  
+      // - BalancedBestEffort: If resource creation fails in a zone, the system falls back to other zones to ensure best-effort delivery of resources.
       // 
-      // *   Default value: BalancedBestEffort. If a resource fails to be created in a zone, the resource is downgraded to another zone. This ensures best-effort delivery of the resource.
-      // *   BalancedOnly: If a resource fails to be created in a zone, the resource is not downgraded to another zone. The scale-out activity is partially successful to avoid excessive imbalance of resources in different zones.
+      // - BalancedOnly: If resource creation fails in a zone, the system does not fall back to other zones. The scale-out activity partially succeeds to avoid excessive imbalance of resources across different zones.
       shared_ptr<string> balanceMode_ {};
       // The capacity options.
       shared_ptr<ScalingGroups::CapacityOptions> capacityOptions_ {};
-      // Indicates whether Auto Scaling can create pay-as-you-go instances to supplement preemptible instances if preemptible instances cannot be created due to price-related factors or insufficient inventory when MultiAZPolicy is set to COST_OPTIMIZED. Valid values:
-      // 
-      // *   true
-      // *   false
+      // Specifies whether to automatically create pay-as-you-go instances to meet the requirement for the number of ECS instances when the MultiAZPolicy parameter is set to COST_OPTIMIZED and spot instances cannot be created due to price or inventory issues. Valid values:
+      // - true: Allowed.
+      // - false: Not allowed.
       shared_ptr<bool> compensateWithOnDemand_ {};
-      // The time when the scaling group was created.
+      // The time when the scaling group was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
-      // >  This parameter is unavailable.
+      // > This parameter is not available.
       shared_ptr<string> currentHostName_ {};
-      // The Alibaba Cloud Resource Name (ARN) of the function that is specified in the custom scale-in policy. This parameter takes effect only if you set the first value of RemovalPolicies to CustomPolicy.
+      // The Alibaba Cloud Resource Name (ARN) of the Function Compute function for the custom scale-in policy. This parameter takes effect only when the first removal policy in RemovalPolicies is set to CustomPolicy.
       shared_ptr<string> customPolicyARN_ {};
-      // The IDs of the ApsaraDB RDS instances that are attached to the scaling group.
+      // The IDs of the ApsaraDB RDS instances associated with the scaling group.
       shared_ptr<vector<string>> DBInstanceIds_ {};
-      // The databases that are attached to the scaling group.
+      // The list of databases associated with the scaling group.
       shared_ptr<vector<ScalingGroups::DBInstances>> DBInstances_ {};
-      // The cooldown period of the scaling group. During the cooldown period, Auto Scaling does not execute the scaling activities that are triggered by [CloudMonitor](https://help.aliyun.com/document_detail/35170.html) event-triggered tasks.
+      // The default cooldown time of the scaling group. During the cooldown time, the scaling group does not execute any other scaling activity. This parameter takes effect only for a scaling activity triggered by [CloudMonitor](https://help.aliyun.com/document_detail/35170.html) event-triggered tasks.
       shared_ptr<int32_t> defaultCooldown_ {};
-      // The expected number of ECS instances in the scaling group. Auto Scaling automatically maintains the expected number of ECS instances.
+      // The expected number of ECS instances in the scaling group. The scaling group automatically maintains the number of ECS instances at the expected number of instances.
       shared_ptr<int32_t> desiredCapacity_ {};
-      // Indicates whether the Expected Number of Instances feature is enabled. Valid values:
-      // 
-      // *   true
-      // *   false
+      // Specifies whether the expected number of instances feature is enabled. Valid values:
+      // - true: The expected number of instances feature is enabled.
+      // - false: The expected number of instances feature is disabled.
       shared_ptr<bool> enableDesiredCapacity_ {};
-      // Indicates whether the Deletion Protection feature is enabled for the scaling group. Valid values:
-      // 
-      // *   true: The Deletion Protection feature is enabled for the scaling group. The scaling group cannot be deleted.
-      // *   false: The Deletion Protection feature is disabled for the scaling group.
+      // Indicates whether deletion protection is enabled for the scaling group. Valid values:
+      // - true: Deletion protection is enabled. The scaling group cannot be deleted.
+      // - false: Deletion protection is disabled.
       shared_ptr<bool> groupDeletionProtection_ {};
-      // The type of instances that are managed by the scaling group.
+      // The type of instances managed by the scaling group.
       shared_ptr<string> groupType_ {};
       // The health check mode of the scaling group. Valid values:
-      // 
-      // *   NONE: Auto Scaling does not perform health checks.
-      // *   ECS: Auto Scaling checks the health status of instances in the scaling group. If you want to enable instance health check, you can set the value to ECS, regardless of whether the scaling group is of ECS type or Elastic Container Instance type.
-      // *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of Classic Load Balancer (CLB) instances are not supported as the health check basis for instances in the scaling group.
+      // - NONE: No health check is performed.
+      // - ECS: Health checks are performed on instances in the scaling group. This value is used to enable instance health checks for both ECS and ECI scaling groups.
+      // - LOAD_BALANCER: The health status of instances is determined based on the health check results of load balancing (CLB load balancing is not supported).
       shared_ptr<string> healthCheckType_ {};
       // The health check mode of the scaling group. Valid values:
       // 
-      // *   NONE: Auto Scaling does not perform health checks.
-      // *   ECS: Auto Scaling checks the health status of instances in the scaling group. If you want to enable instance health check, you can set the value to ECS, regardless of whether the scaling group is of ECS type or Elastic Container Instance type.
-      // *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of CLB instances are not supported as the health check basis for instances in the scaling group.
+      // - NONE: No health check is performed.
+      // - ECS: Health checks are performed on instances in the scaling group. This value is used to enable instance health checks for both ECS and ECI scaling groups.
+      // - LOAD_BALANCER: The health status of instances is determined based on the load balancing health check results (the CLB load balancing type is not currently supported).
       shared_ptr<vector<string>> healthCheckTypes_ {};
-      // The number of instances that are initialized before they are added into the scaling group.
+      // The number of instances in the initialization state before scale-out in the scaling group.
       shared_ptr<int32_t> initCapacity_ {};
-      // >  This parameter is not available for use.
+      // > This parameter is not available.
       shared_ptr<bool> isElasticStrengthInAlarm_ {};
-      // The ID of the launch template that is used by the scaling group.
+      // The ID of the launch template used by the scaling group.
       shared_ptr<string> launchTemplateId_ {};
-      // The instance types that are extended in the launch template.
+      // The instance type information that extends the launch template.
       shared_ptr<vector<ScalingGroups::LaunchTemplateOverrides>> launchTemplateOverrides_ {};
-      // The version of the launch template that is used by the scaling group.
+      // The version of the launch template used by the scaling group.
       shared_ptr<string> launchTemplateVersion_ {};
-      // The status of the scaling group. Valid values:
-      // 
-      // *   Active: The scaling group is active. Active scaling groups can receive requests to execute scaling rules and trigger scaling activities.
-      // *   Inactive: The scaling group is in the Disabled state. Disabled scaling groups cannot receive requests to execute scaling rules.
-      // *   Deleting: The scaling group is being deleted. Scaling groups that are being deleted cannot receive requests to execute scaling rules, and the parameter settings of the scaling groups cannot be modified.
+      // The lifecycle state of the scaling group. Valid values:
+      // - Active: The scaling group is active. Only active scaling groups can accept requests to execute scaling rules and trigger a scaling activity.
+      // - Inactive: The scaling group is inactive. Inactive scaling groups do not receive any requests to execute scaling rules.
+      // - Deleting: The scaling group is being deleted. Scaling groups in the deleting state do not receive any requests to execute scaling rules, and their parameters cannot be modified.
       shared_ptr<string> lifecycleState_ {};
-      // The load balancer configurations.
+      // The list of load balancing configurations.
       shared_ptr<vector<ScalingGroups::LoadBalancerConfigs>> loadBalancerConfigs_ {};
-      // The IDs of the load balancers that are attached to the scaling group.
+      // The list of IDs of the load balancing instances associated with the scaling group.
       shared_ptr<vector<string>> loadBalancerIds_ {};
-      // The maximum life span of each ECS instance in the scaling group. Unit: seconds.
+      // The maximum lifetime of an instance in the scaling group. Unit: seconds.
       // 
-      // Valid values: 0 or `[86400, Integer.maxValue]`. A value of 0 for MaxInstanceLifetime indicates that a previously set limit has been removed. This effectively disables the maximum instance lifetime constraint.
+      // Valid values: 0 or [86400, Integer.maxValue]. A value of 0 indicates that the configured value of MaxInstanceLifetime is cleared, which means MaxInstanceLifetime is not configured.
       // 
       // Default value: null.
       // 
-      // >  This parameter is not supported by scaling groups of the Elastic Container Instance type and scaling groups whose ScalingPolicy is set to Recycle.
+      // >This parameter is not supported for scaling groups of the Elastic Container Instance (ECI) type or scaling groups that have the No Fees for Stopped Instances feature enabled.
       shared_ptr<int32_t> maxInstanceLifetime_ {};
-      // The maximum number of ECS instances that can be contained in the scaling group.
+      // The maximum number of ECS instances in the scaling group.
       shared_ptr<int32_t> maxSize_ {};
-      // The minimum number of ECS instances that must be contained in the scaling group.
+      // The minimum number of ECS instances in the scaling group.
       shared_ptr<int32_t> minSize_ {};
-      // The time when the scaling group was last modified.
+      // The time when the scaling group was modified. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time is displayed in UTC.
       shared_ptr<string> modificationTime_ {};
-      // The ID of the CloudMonitor application group that is associated with the scaling group.
+      // The ID of the CloudMonitor application group associated with the scaling group.
       shared_ptr<string> monitorGroupId_ {};
-      // The scaling policy of the ECS instances in the multi-zone scaling group. Valid values:
-      // 
-      // *   PRIORITY: ECS instances are created based on the value of VSwitchIds. If Auto Scaling cannot create ECS instances in the zone where the vSwitch of the highest priority resides, Auto Scaling creates ECS instances in the zone where the vSwitch of the next highest priority resides.
-      // 
-      // *   COST_OPTIMIZED: ECS instances are created based on the unit prices of their vCPUs. Auto Scaling preferentially creates ECS instances whose vCPUs are provided at the lowest price. If preemptible instance types are specified in the scaling configuration, Auto Scaling preferentially creates preemptible instances. You can also specify CompensateWithOnDemand to allow Auto Scaling to create pay-as-you-go instances if preemptible instances cannot be created due to limited stock.
-      // 
-      //     **
-      // 
-      //     **Note** The COST_OPTIMIZED setting takes effect only if your scaling configuration contains multiple instance types or contains preemptible instance types.
-      // 
-      // *   BALANCE: ECS instances are evenly distributed across the zones that are specified for the scaling group. If ECS instances become unevenly distributed across the specified zones due to limited instance type availability, you can call the RebalanceInstance operation to balance the distribution of the ECS instances.
+      // The scale-out and scale-in policy for ECS instances in a multi-zone scaling group. Valid values:
+      // - PRIORITY: Scales out and scales in instances based on the vSwitches defined in VSwitchIds. If ECS instances cannot be created in the active zone of the vSwitch with the highest priority, the system automatically uses the vSwitch with the next highest priority to create ECS instances.
+      // - COST_OPTIMIZED: Attempts to create instances based on the unit price of vCPUs from low to high. When the scaling configuration specifies multiple instance types with the spot billing method, the system preferentially creates spot instances. You can use the CompensateWithOnDemand parameter to specify whether to automatically attempt to create pay-as-you-go instances when spot instances cannot be created due to inventory issues.
+      //     > COST_OPTIMIZED takes effect only when the scaling configuration specifies multiple instance types or uses spot instances.
+      // - BALANCE: Evenly allocates ECS instances across the active zones specified for the scaling group. If the distribution becomes unbalanced due to insufficient inventory, you can call the RebalanceInstance operation to balance the resources.
       shared_ptr<string> multiAZPolicy_ {};
-      // The minimum number of pay-as-you-go instances that must be contained in the scaling group. Valid values: 0 to 1000. If the number of pay-as-you-go instances is less than the value of this parameter, Auto Scaling preferentially creates pay-as-you-go instances.
+      // The minimum number of pay-as-you-go instances required in the scaling group. Valid values: 0 to 1000. When the number of pay-as-you-go instances in the scaling group is less than this value, the system preferentially creates pay-as-you-go instances.
       shared_ptr<int32_t> onDemandBaseCapacity_ {};
-      // The percentage of pay-as-you-go instances in excess when the minimum number of pay-as-you-go instances reaches the threshold. Valid values: 0 to 100.
+      // The percentage of pay-as-you-go instances to be created when the scaling group exceeds the minimum number of pay-as-you-go instances specified by OnDemandBaseCapacity. Valid values: 0 to 100.
       shared_ptr<int32_t> onDemandPercentageAboveBaseCapacity_ {};
-      // The number of ECS instances that are being added to the scaling group and configured.
+      // The number of ECS instances that are being added to the scaling group but have not completed the related configurations.
       shared_ptr<int32_t> pendingCapacity_ {};
-      // The number of ECS instances that are in the Pending Add state in the scaling group.
+      // The number of ECS instances that are in the pending wait state in the scaling group.
       shared_ptr<int32_t> pendingWaitCapacity_ {};
-      // The number of ECS instances that are in the Protected state in the scaling group.
+      // The number of ECS instances that are in the protected state in the scaling group.
       shared_ptr<int32_t> protectedCapacity_ {};
-      // The region ID of the scaling group.
+      // The ID of the region to which the scaling group belongs.
       shared_ptr<string> regionId_ {};
-      // The instance removal policies. Valid values:
-      // 
-      // *   OldestInstance: Auto Scaling removes ECS instances that are added at the earliest point in time to the scaling group.
-      // *   NewestInstance: Auto Scaling removes ECS instances that are most recently added to the scaling group.
-      // *   OldestScalingConfiguration: Auto Scaling removes ECS instances that are created from the earliest scaling configuration.
+      // The collection of policies for removing ECS instances from the scaling group. Valid values:
+      // - OldestInstance: Removes the ECS instance that was created earliest.
+      // - NewestInstance: Removes the ECS instance that was created latest.
+      // - OldestScalingConfiguration: Removes the ECS instance that was created earliest based on the scaling configuration.
       shared_ptr<vector<string>> removalPolicies_ {};
       // The number of ECS instances that are being removed from the scaling group.
       shared_ptr<int32_t> removingCapacity_ {};
-      // The number of ECS instances that are in the Pending Remove state in the scaling group.
+      // The number of ECS instances that are in the removing wait state in the scaling group.
       shared_ptr<int32_t> removingWaitCapacity_ {};
       // The ID of the resource group to which the scaling group belongs.
       shared_ptr<string> resourceGroupId_ {};
@@ -1367,64 +1662,66 @@ namespace Models
       shared_ptr<string> scalingGroupId_ {};
       // The name of the scaling group.
       shared_ptr<string> scalingGroupName_ {};
-      // The instance reclaim mode of the scaling group. Valid values:
-      // 
-      // *   recycle: economical mode.
-      // *   release: release mode.
-      // *   forcerelease: forced release mode.
-      // 
-      // For more information, see [RemoveInstances](https://help.aliyun.com/document_detail/25955.html).
+      // The reclaim mode of the scaling group. Valid values:
+      // - recycle: The scaling group uses the shutdown and reclaim mode.
+      // - release: The scaling group uses the release mode.
+      // - forcerelease: The scaling group uses the force release mode.
+      // For more information about the actions on removed instances, see [RemoveInstances](https://help.aliyun.com/document_detail/25955.html).
       shared_ptr<string> scalingPolicy_ {};
-      // The information about the server groups.
-      // 
-      // >  You can use this parameter to obtain the information about the ALB, NLB, and GWLB server groups associated with a scaling group.
+      // The collection of information about load balancing server groups.
+      // > You can use this parameter to obtain the collection of information about ALB service groups, NLB server groups, and GWLB service groups associated with the scaling group.
+      // >
       shared_ptr<vector<ScalingGroups::ServerGroups>> serverGroups_ {};
-      // The allocation policy of preemptible instances. This parameter indicates the manner in which Auto Scaling selects instance types to create the required number of preemptible instances. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
+      // The spot capacity distribution strategy. You can use this parameter to separately specify the distribution strategy for spot capacity. This parameter takes effect only when the MultiAZPolicy parameter is set to COMPOSABLE. Valid values:
       // 
-      // *   priority: Auto Scaling adopts the predefined instance type sequence to create the required number of preemptible instances.
-      // *   lowestPrice: Auto Scaling selects instance types that have the most economical vCPU pricing to create the required number of preemptible instances.
+      // - priority: Creates instances based on the order of the configured instance types.
+      // - lowestPrice: Creates instances based on the unit vCPU price of the instance types in ascending order.
       // 
       // Default value: priority.
       shared_ptr<string> spotAllocationStrategy_ {};
-      // The number of preemptible instances in the scaling group.
+      // The number of spot instances in the scaling group.
       shared_ptr<int32_t> spotCapacity_ {};
-      // The number of instance types in the scaling group. Auto Scaling evenly creates preemptible instances of multiple instance types that are provided at the lowest price across the zones of the scaling group. Valid values: 0 to 10.
+      // The number of available instance types specified. The scaling group evenly creates spot instances based on the most cost-effective instance types. Valid values: 0 to 10.
       shared_ptr<int32_t> spotInstancePools_ {};
-      // Indicates whether preemptible instances can be supplemented. If this parameter is set to true, Auto Scaling proactively creates instances to replace the preemptible instances for reclamation when Auto Scaling receives a system notification.
+      // Indicates whether the spot instance replacement feature is enabled. After this feature is enabled, when the scaling group receives a system message indicating that a spot instance will be reclaimed, the scaling group attempts to create a new instance to replace the spot instance to be reclaimed.
       shared_ptr<bool> spotInstanceRemedy_ {};
-      // The number of ECS instances that are in the Standby state in the scaling group.
+      // The number of instances that are in the standby state in the scaling group.
       shared_ptr<int32_t> standbyCapacity_ {};
-      // The period of time that is required by the Elastic Compute Service (ECS) instance to enter the Stopped state during the scale-in process. Unit: seconds.
+      // The timeout period for waiting for an ECS instance to be stopped during the scale-in process. Unit: seconds.
       shared_ptr<int32_t> stopInstanceTimeout_ {};
-      // The number of instances that was stopped in Economical Mode in the scaling group.
+      // The number of instances in the scaling group that are in the economical mode.
       shared_ptr<int32_t> stoppedCapacity_ {};
-      // The processes that are suspended. If no process is suspended, null is returned. Valid values:
-      // 
-      // *   ScaleIn: scale-in processes.
-      // *   ScaleOut: scale-out processes.
-      // *   HealthCheck: health check processes.
-      // *   AlarmNotification: event-triggered task processes.
-      // *   ScheduledAction: scheduled task processes.
+      // The suspended processes. If no process is suspended, an empty value is returned. Valid values:
+      // - ScaleIn: The scale-in process.
+      // - ScaleOut: The scale-out process.
+      // - HealthCheck: The health check process.
+      // - AlarmNotification: The event-triggered task process.
+      // - ScheduledAction: The scheduled task process.
       shared_ptr<vector<string>> suspendedProcesses_ {};
-      // Indicates whether Auto Scaling stops executing scaling activities in the scaling group. Valid values:
-      // 
-      // *   true: Auto Scaling stops executing scaling activities in the scaling group if the scaling activities failed for more than seven consecutive days in the scaling group. In this case, you must modify the scaling group or scaling configuration to resume the scaling activities.
-      // *   false: Auto Scaling does not stop executing scaling activities in the scaling group.
+      // Indicates whether Auto Scaling stops executing any scaling activity in the scaling group. Valid values:
+      // - true: Auto Scaling stops executing any scaling activity in the scaling group. This indicates that the scaling group has failed to execute scale-out or scale-in for more than seven consecutive days. You must modify the scaling group or scaling configuration to resume the execution of the scaling activity.
+      // - false: Auto Scaling executes the scaling activity in the scaling group.
       shared_ptr<bool> systemSuspended_ {};
       // The tags of the scaling group.
       shared_ptr<vector<ScalingGroups::Tags>> tags_ {};
-      // The total weighted capacity of all ECS instances in the scaling group if Weighted is specified. In other cases, this parameter specifies the total number of ECS instances in the scaling group.
+      // The total weighted capacity of all ECS instances in the scaling group if instance type weights are configured. Otherwise, this parameter indicates the total number of ECS instances in the scaling group.
       shared_ptr<int32_t> totalCapacity_ {};
       // The total number of ECS instances in the scaling group.
       shared_ptr<int32_t> totalInstanceCount_ {};
-      // The backend vServer groups.
+      // The list of backend server groups.
       shared_ptr<vector<ScalingGroups::VServerGroups>> VServerGroups_ {};
-      // The vSwitch ID of the scaling group.
+      // The ID of the vSwitch associated with the scaling group.
       shared_ptr<string> vSwitchId_ {};
-      // The IDs of the vSwitches that are associated with the scaling group. If you specify VSwitchIds, VSwitchId is ignored.
+      // The collection of IDs of the vSwitches associated with the scaling group. If you use the VSwitchIds parameter, the VSwitchId parameter is ignored.
       shared_ptr<vector<string>> vSwitchIds_ {};
-      // The ID of the virtual private cloud (VPC) in which the scaling group resides.
+      // The ID of the VPC to which the scaling group belongs.
       shared_ptr<string> vpcId_ {};
+      // The number of instances in the warm pool.
+      shared_ptr<int32_t> warmPoolCapacity_ {};
+      // The current warm pool configuration of the scaling group.
+      shared_ptr<ScalingGroups::WarmPoolConfiguration> warmPoolConfiguration_ {};
+      // The zone shift options.
+      shared_ptr<ScalingGroups::ZoneShiftOptions> zoneShiftOptions_ {};
     };
 
     virtual bool empty() const override { return this->pageNumber_ == nullptr
@@ -1467,7 +1764,7 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
@@ -1475,7 +1772,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The scaling groups.
     shared_ptr<vector<DescribeScalingGroupsResponseBody::ScalingGroups>> scalingGroups_ {};
-    // The total number of entries returned.
+    // The total number of scaling groups.
     shared_ptr<int32_t> totalCount_ {};
   };
 

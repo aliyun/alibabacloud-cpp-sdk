@@ -29,6 +29,9 @@
 #include <alibabacloud/models/CancelInstanceRefreshRequest.hpp>
 #include <alibabacloud/models/CancelInstanceRefreshResponseBody.hpp>
 #include <alibabacloud/models/CancelInstanceRefreshResponse.hpp>
+#include <alibabacloud/models/CancelScalingGroupZoneShiftRequest.hpp>
+#include <alibabacloud/models/CancelScalingGroupZoneShiftResponseBody.hpp>
+#include <alibabacloud/models/CancelScalingGroupZoneShiftResponse.hpp>
 #include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
@@ -93,6 +96,9 @@
 #include <alibabacloud/models/DeleteScheduledTaskRequest.hpp>
 #include <alibabacloud/models/DeleteScheduledTaskResponseBody.hpp>
 #include <alibabacloud/models/DeleteScheduledTaskResponse.hpp>
+#include <alibabacloud/models/DeleteWarmPoolRequest.hpp>
+#include <alibabacloud/models/DeleteWarmPoolResponseBody.hpp>
+#include <alibabacloud/models/DeleteWarmPoolResponse.hpp>
 #include <alibabacloud/models/DescribeAlarmsRequest.hpp>
 #include <alibabacloud/models/DescribeAlarmsResponseBody.hpp>
 #include <alibabacloud/models/DescribeAlarmsResponse.hpp>
@@ -171,6 +177,9 @@
 #include <alibabacloud/models/DescribeScheduledTasksRequest.hpp>
 #include <alibabacloud/models/DescribeScheduledTasksResponseBody.hpp>
 #include <alibabacloud/models/DescribeScheduledTasksResponse.hpp>
+#include <alibabacloud/models/DescribeWarmPoolInstancesRequest.hpp>
+#include <alibabacloud/models/DescribeWarmPoolInstancesResponseBody.hpp>
+#include <alibabacloud/models/DescribeWarmPoolInstancesResponse.hpp>
 #include <alibabacloud/models/DetachAlbServerGroupsRequest.hpp>
 #include <alibabacloud/models/DetachAlbServerGroupsResponseBody.hpp>
 #include <alibabacloud/models/DetachAlbServerGroupsResponse.hpp>
@@ -250,6 +259,9 @@
 #include <alibabacloud/models/ModifyScheduledTaskRequest.hpp>
 #include <alibabacloud/models/ModifyScheduledTaskResponseBody.hpp>
 #include <alibabacloud/models/ModifyScheduledTaskResponse.hpp>
+#include <alibabacloud/models/PutWarmPoolRequest.hpp>
+#include <alibabacloud/models/PutWarmPoolResponseBody.hpp>
+#include <alibabacloud/models/PutWarmPoolResponse.hpp>
 #include <alibabacloud/models/QueryHistoricalMetricRequest.hpp>
 #include <alibabacloud/models/QueryHistoricalMetricResponseBody.hpp>
 #include <alibabacloud/models/QueryHistoricalMetricResponse.hpp>
@@ -297,6 +309,9 @@
 #include <alibabacloud/models/StartInstanceRefreshRequest.hpp>
 #include <alibabacloud/models/StartInstanceRefreshResponseBody.hpp>
 #include <alibabacloud/models/StartInstanceRefreshResponse.hpp>
+#include <alibabacloud/models/StartScalingGroupZoneShiftRequest.hpp>
+#include <alibabacloud/models/StartScalingGroupZoneShiftResponseBody.hpp>
+#include <alibabacloud/models/StartScalingGroupZoneShiftResponse.hpp>
 #include <alibabacloud/models/SuspendInstanceRefreshRequest.hpp>
 #include <alibabacloud/models/SuspendInstanceRefreshResponseBody.hpp>
 #include <alibabacloud/models/SuspendInstanceRefreshResponse.hpp>

@@ -98,29 +98,28 @@ namespace Models
 
 
     protected:
-      // The port used by ECS or ECI instances after being added as backend servers to the server group.
+      // The port number used by the ECS instance or ECI instance after Auto Scaling adds it to the server group.
       // 
       // Valid values: 1 to 65535.
-      // 
-      // > For ALB and NLB types, this parameter is required. GWLB type cannot set this parameter and the default value is 6081.
+      // > This parameter is required for ALB and NLB load balancing. You cannot modify the Settings of this parameter for GWLB load balancing, and the default value is 6081.
       shared_ptr<int32_t> port_ {};
-      // The ID of the server group.
+      // The ID of the load balancing server group.
       // 
       // This parameter is required.
       shared_ptr<string> serverGroupId_ {};
-      // The type of the server group. Valid Values:
+      // The type of the load balancing server group. Valid values:
       // 
-      // *   ALB
-      // *   NLB
-      // *   GWLB
+      // - ALB: Application Load Balancer (ALB).
+      // - NLB: Network Load Balancer (NLB).
+      // - GWLB: Gateway Load Balancer (GWLB).
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
-      // The weight of an ECS or ECI instance as a backend server of the server group. Valid values: 0 to 100
+      // The weight of the ECS instance or ECI instance as a backend server after Auto Scaling adds it to the server group. Valid values: 0 to 100.
       // 
-      // If you assign a higher weight to an instance, the instance is allocated a larger proportion of access requests. If the weight is 0, the ECS or ECI instance does not receive access requests.
+      // A higher weight indicates that Auto Scaling will allocate more access requests to the ECS instance or ECI instance. If the weight is set to 0, the instance does not receive access requests.
       // 
-      // > For ALB and NLB types, this parameter is required. GWLB type cannot be set.
+      // > This parameter is required for ALB and NLB load balancing. You cannot modify the Settings of this parameter for GWLB load balancing.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -179,19 +178,18 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
-    // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
+    // The client token that is used to ensure the idempotence of the request. You can generate the token value from your client and ensure that it is unique across different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to add the existing Elastic Compute Service (ECS) instances or elastic container instances (ECI) in the scaling group to the server group. Valid values:
+    // Specifies whether to add the existing ECS instances or ECI instances in the scaling group to the newly added server groups. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: adds the instances.
+    // 
+    // - false: does not add the instances.
     // 
     // Default value: false.
     shared_ptr<bool> forceAttach_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the scaling group.
+    // The ID of the region to which the scaling group belongs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -200,7 +198,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> scalingGroupId_ {};
-    // The information about the server groups.
+    // The information about the load balancing server groups.
     // 
     // This parameter is required.
     shared_ptr<vector<AttachServerGroupsRequest::ServerGroups>> serverGroups_ {};

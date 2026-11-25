@@ -50,9 +50,8 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the scaling activity. During the scaling activity, the server group is attached to the scaling group and the existing ECS instances or elastic container instances in the scaling group are added to the server group.
-    // 
-    // >  This parameter is returned only if you set ForceAttach to true.
+    // The ID of the scaling activity that is triggered when the load balancing server groups are added and the ECS instances or ECI instances in the scaling group are added to the server groups.
+    // > This parameter is returned only when the ForceAttach parameter is set to true.
     shared_ptr<string> scalingActivityId_ {};
   };
 

@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ScheduledAction, scheduledAction_);
       DARABONBA_PTR_TO_JSON(ScheduledTaskName, scheduledTaskName_);
       DARABONBA_PTR_TO_JSON(TaskEnabled, taskEnabled_);
+      DARABONBA_PTR_TO_JSON(WarmPoolCapacityOptions, warmPoolCapacityOptions_);
     };
     friend void from_json(const Darabonba::Json& j, CreateScheduledTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -49,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ScheduledAction, scheduledAction_);
       DARABONBA_PTR_FROM_JSON(ScheduledTaskName, scheduledTaskName_);
       DARABONBA_PTR_FROM_JSON(TaskEnabled, taskEnabled_);
+      DARABONBA_PTR_FROM_JSON(WarmPoolCapacityOptions, warmPoolCapacityOptions_);
     };
     CreateScheduledTaskRequest() = default ;
     CreateScheduledTaskRequest(const CreateScheduledTaskRequest &) = default ;
@@ -61,11 +63,55 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class WarmPoolCapacityOptions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const WarmPoolCapacityOptions& obj) { 
+        DARABONBA_PTR_TO_JSON(DesiredGroupPreparedCapacity, desiredGroupPreparedCapacity_);
+        DARABONBA_PTR_TO_JSON(MinCapacity, minCapacity_);
+      };
+      friend void from_json(const Darabonba::Json& j, WarmPoolCapacityOptions& obj) { 
+        DARABONBA_PTR_FROM_JSON(DesiredGroupPreparedCapacity, desiredGroupPreparedCapacity_);
+        DARABONBA_PTR_FROM_JSON(MinCapacity, minCapacity_);
+      };
+      WarmPoolCapacityOptions() = default ;
+      WarmPoolCapacityOptions(const WarmPoolCapacityOptions &) = default ;
+      WarmPoolCapacityOptions(WarmPoolCapacityOptions &&) = default ;
+      WarmPoolCapacityOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~WarmPoolCapacityOptions() = default ;
+      WarmPoolCapacityOptions& operator=(const WarmPoolCapacityOptions &) = default ;
+      WarmPoolCapacityOptions& operator=(WarmPoolCapacityOptions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->desiredGroupPreparedCapacity_ == nullptr
+        && this->minCapacity_ == nullptr; };
+      // desiredGroupPreparedCapacity Field Functions 
+      bool hasDesiredGroupPreparedCapacity() const { return this->desiredGroupPreparedCapacity_ != nullptr;};
+      void deleteDesiredGroupPreparedCapacity() { this->desiredGroupPreparedCapacity_ = nullptr;};
+      inline int32_t getDesiredGroupPreparedCapacity() const { DARABONBA_PTR_GET_DEFAULT(desiredGroupPreparedCapacity_, 0) };
+      inline WarmPoolCapacityOptions& setDesiredGroupPreparedCapacity(int32_t desiredGroupPreparedCapacity) { DARABONBA_PTR_SET_VALUE(desiredGroupPreparedCapacity_, desiredGroupPreparedCapacity) };
+
+
+      // minCapacity Field Functions 
+      bool hasMinCapacity() const { return this->minCapacity_ != nullptr;};
+      void deleteMinCapacity() { this->minCapacity_ = nullptr;};
+      inline int32_t getMinCapacity() const { DARABONBA_PTR_GET_DEFAULT(minCapacity_, 0) };
+      inline WarmPoolCapacityOptions& setMinCapacity(int32_t minCapacity) { DARABONBA_PTR_SET_VALUE(minCapacity_, minCapacity) };
+
+
+    protected:
+      // The expected number of prepared instances to be covered. The system maintains the sum of the current number of instances in the scaling group and the number of instances in the warm pool at this value. Default value: the maximum number of instances in the scaling group, which is specified by MaxSize.
+      shared_ptr<int32_t> desiredGroupPreparedCapacity_ {};
+      // The minimum number of instances in the warm pool. The system always retains at least this number of prepared instances in the warm pool to ensure that instances can be quickly added from the warm pool during scale-out. Default value: 0.
+      shared_ptr<int32_t> minCapacity_ {};
+    };
+
     virtual bool empty() const override { return this->description_ == nullptr
         && this->desiredCapacity_ == nullptr && this->launchExpirationTime_ == nullptr && this->launchTime_ == nullptr && this->maxValue_ == nullptr && this->minValue_ == nullptr
         && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->recurrenceEndTime_ == nullptr && this->recurrenceType_ == nullptr && this->recurrenceValue_ == nullptr
         && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->scalingGroupId_ == nullptr && this->scheduledAction_ == nullptr && this->scheduledTaskName_ == nullptr
-        && this->taskEnabled_ == nullptr; };
+        && this->taskEnabled_ == nullptr && this->warmPoolCapacityOptions_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -185,74 +231,89 @@ namespace Models
     inline CreateScheduledTaskRequest& setTaskEnabled(bool taskEnabled) { DARABONBA_PTR_SET_VALUE(taskEnabled_, taskEnabled) };
 
 
+    // warmPoolCapacityOptions Field Functions 
+    bool hasWarmPoolCapacityOptions() const { return this->warmPoolCapacityOptions_ != nullptr;};
+    void deleteWarmPoolCapacityOptions() { this->warmPoolCapacityOptions_ = nullptr;};
+    inline const CreateScheduledTaskRequest::WarmPoolCapacityOptions & getWarmPoolCapacityOptions() const { DARABONBA_PTR_GET_CONST(warmPoolCapacityOptions_, CreateScheduledTaskRequest::WarmPoolCapacityOptions) };
+    inline CreateScheduledTaskRequest::WarmPoolCapacityOptions getWarmPoolCapacityOptions() { DARABONBA_PTR_GET(warmPoolCapacityOptions_, CreateScheduledTaskRequest::WarmPoolCapacityOptions) };
+    inline CreateScheduledTaskRequest& setWarmPoolCapacityOptions(const CreateScheduledTaskRequest::WarmPoolCapacityOptions & warmPoolCapacityOptions) { DARABONBA_PTR_SET_VALUE(warmPoolCapacityOptions_, warmPoolCapacityOptions) };
+    inline CreateScheduledTaskRequest& setWarmPoolCapacityOptions(CreateScheduledTaskRequest::WarmPoolCapacityOptions && warmPoolCapacityOptions) { DARABONBA_PTR_SET_RVALUE(warmPoolCapacityOptions_, warmPoolCapacityOptions) };
+
+
   protected:
     // The description of the scheduled task. The description must be 2 to 200 characters in length.
     shared_ptr<string> description_ {};
-    // The expected number of instances in the scaling group if you specify the ScalingGroupId parameter.
+    // The expected number of instances in the scaling group when the scaling method of the scheduled task is set to specifying the number of instances in the scaling group.
     // 
-    // > You must specify the `DesiredCapacity` parameter when you create a scaling group.
+    // > The scaling group must support the expected number of instances. This means that DesiredCapacity must be specified when the scaling group is created.
     shared_ptr<int32_t> desiredCapacity_ {};
-    // The time period during which the failed scheduled task can be retried. Unit: seconds. Valid values: 0 to 1800.
+    // The period within which the scheduled task retries after a trigger failure. Unit: seconds. Valid values: 0 to 1800.
     // 
     // Default value: 600.
     shared_ptr<int32_t> launchExpirationTime_ {};
-    // The point in time at which the scheduled task is triggered. Specify the time in the ISO 8601 standard. The time must be in UTC. You cannot trigger a scheduled task more than 90 days after its creation.
+    // The time at which the scheduled task is triggered. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format. The time must be in UTC. You cannot specify a time that is later than 90 days from the creation date. 
     // 
-    // *   If you specify `RecurrenceType`, the scheduled task is repeatedly triggered at the point in time that is specified by LaunchTime.
-    // *   If you do not specify `RecurrenceType`, the scheduled task is triggered only once at the time point that is specified by LaunchTime.
+    // - If RecurrenceType is specified, the time specified by this parameter is the default time for recurring execution.
+    // 
+    // - If RecurrenceType is not specified, the task is executed only once at the specified date and time.
     shared_ptr<string> launchTime_ {};
-    // The maximum number of instances in the scaling group if you specify the ScalingGroupId parameter.
+    // The maximum number of instances in the scaling group when the scaling method of the scheduled task is set to specifying the number of instances in the scaling group.
     shared_ptr<int32_t> maxValue_ {};
-    // The minimum number of instances in the scaling group if you specify the ScalingGroupId parameter.
+    // The minimum number of instances in the scaling group when the scaling method of the scheduled task is set to specifying the number of instances in the scaling group.
     shared_ptr<int32_t> minValue_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The end time of the scheduled task. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format.
-    // 
-    // The time must be in UTC. You cannot enter a point in time that is later than 365 days from the point in time at which the scheduled task is created.
+    // The end time of the scheduled task that is executed repeatedly. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format. The time must be in UTC. You cannot specify a time that is later than 365 days from the creation date.
     shared_ptr<string> recurrenceEndTime_ {};
-    // The interval at which the scheduled task is repeated. Valid values:
+    // The recurrence type of the scheduled task. Valid values: 
+    // - Daily: The scheduled task is executed once every specified number of days. 
+    // - Weekly: The scheduled task is executed on specified days of each week. 
+    // - Monthly: The scheduled task is executed on specified days of each month. 
+    // - Cron: The scheduled task is executed based on the specified cron expression. 
     // 
-    // *   Daily: The scheduled task is executed once every specified number of days.
-    // *   Weekly: The scheduled task is executed on each specified day of the week.
-    // *   Monthly: The scheduled task is executed on each specified day of the month.
-    // *   Cron: The scheduled task is executed based on the specified cron expression.
-    // 
-    // You must specify the `RecurrenceType` and `RecurrenceValue` parameters at the same time.
+    // You must specify both RecurrenceType and RecurrenceValue.
     shared_ptr<string> recurrenceType_ {};
-    // The number of recurrences of the scheduled task.
+    // The recurrence value of the scheduled task. 
     // 
-    // *   If you set the `RecurrenceType` parameter to `Daily`, you can specify only one value for this parameter. Valid values: 1 to 31.
-    // *   If you set the `RecurrenceType` parameter to `Weekly`, you can specify multiple values for this parameter. Separate the values with commas (,). The values that correspond to Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0, 1, 2, 3, 4, 5, and 6.``
-    // *   If you set the `RecurrenceType` parameter to `Monthly`, you can specify two values in the `A-B` format for this parameter. Valid values of A and B: 1 to 31. B must be greater than or equal to A.
-    // *   If you set the `RecurrenceType` parameter to `Cron`, you can specify a cron expression. A cron expression is written in UTC time and consists of the following fields: minute, hour, day, month, and week. The expression can contain the letters L and W and the following wildcard characters: commas (,), question marks (?), hyphens (-), asterisks (\\*), number signs (#), and forward slashes (/).
+    // - If RecurrenceType is set to Daily, you can specify only one value. Valid values: 1 to 31. 
+    // - If RecurrenceType is set to Weekly, you can specify multiple values separated by commas (,). For example, the values for Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0,1,2,3,4,5,6.  
+    // - If RecurrenceType is set to Monthly, the format is A-B. Valid values of A and B: 1 to 31. B must be greater than or equal to A. 
+    // - If RecurrenceType is set to Cron, the value represents UTC time and supports a five-field expression for minutes, hours, days, months, and days of the week. The expression supports the following wildcards: commas (,), question marks (?), hyphens (-), asterisks (*), number signs (#), forward slashes (/), L, and W.  
     // 
-    // You must specify both the `RecurrenceType` parameter and the `RecurrenceValue` parameter.
+    // You must specify both RecurrenceType and RecurrenceValue.
     shared_ptr<string> recurrenceValue_ {};
-    // The region ID of the scheduled task.
+    // The ID of the region to which the scheduled task belongs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
-    // The ID of the scaling group. If you specify this parameter, the number of instances in the scaling group will be changed when the scheduled task is triggered.
+    // The ID of the scaling group in which you want to modify the number of instances or adjust the warm pool capacity when the scheduled task is triggered.
     // 
-    // If you specify `ScalingGroupId`, you must also specify at least one of the following parameters: `MinValue`, `MaxValue`, and `DesiredCapacity`. You cannot specify `ScheduledAction` and `ScalingGroupId` at the same time.
+    // After you specify ScalingGroupId, the scaling method of the scheduled task is set to specifying the number of instances in the scaling group or adjusting the warm pool capacity.
+    // 
+    // - To specify the number of instances in the scaling group, you must specify a value for at least one of the following parameters: MinValue, MaxValue, and DesiredCapacity.
+    // - To adjust the warm pool capacity, you must configure WarmPoolCapacityOptions.
+    // 
+    // > You cannot specify both ScheduledAction and ScalingGroupId at the same time.
     shared_ptr<string> scalingGroupId_ {};
-    // The scaling rule that you want to execute when the scheduled task is triggered. Specify the unique identifier of the scaling rule.
+    // The unique identifier of the scaling rule to be executed when the scheduled task is triggered.
     // 
-    // If you specify `ScheduledAction`, the scheduled task uses an existing scaling rule. You cannot specify `ScheduledAction` and `ScalingGroupId` at the same time.
+    // After you specify ScheduledAction, the scaling method of the scheduled task is set to selecting an existing scaling rule. You cannot specify both ScheduledAction and ScalingGroupId at the same time.
     shared_ptr<string> scheduledAction_ {};
-    // The name of the scheduled task. The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (_), hyphens (-), and periods (.). The name must start with a letter or a digit. The name of the scheduled task must be unique in the region and within the Alibaba Cloud account.
+    // The name of the scheduled task. The name must be 2 to 64 characters in length and can contain letters, digits, underscores (_), hyphens (-), and periods (.). It must start with a letter, digit, or Chinese character. The name must be unique within the same region and Alibaba Cloud account. 
     // 
-    // If you do not specify this parameter, the value of the `ScheduledTaskId` parameter is used.
+    // Default value: the value of ScheduledTaskId.
     shared_ptr<string> scheduledTaskName_ {};
-    // Specifies whether to enable the scheduled task.
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to enable the scheduled task. Valid values: 
+    // - true: enables the task.
+    // - false: disables the task.
     // 
     // Default value: true.
     shared_ptr<bool> taskEnabled_ {};
+    // The warm pool capacity configurations of the scaling group. This parameter takes effect only when a warm pool is configured for the scaling group.
+    // 
+    // > When you configure this parameter, you must specify ScalingGroupId.
+    shared_ptr<CreateScheduledTaskRequest::WarmPoolCapacityOptions> warmPoolCapacityOptions_ {};
   };
 
   } // namespace Models

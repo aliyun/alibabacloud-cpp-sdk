@@ -103,17 +103,14 @@ namespace Models
 
 
   protected:
-    // The end time of the predicted monitoring data. The time follows the ISO8601 standard and uses UTC time.
-    // 
-    // Format: yyyy-MM-ddTHH:mmZ.
+    // The end time of the predictive monitoring data. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The name of the monitoring metric of the prediction rule. Valid values:
-    // 
-    // *   CpuUtilization: the average CPU utilization.
-    // *   IntranetRx: the inbound traffic over an internal network.
-    // *   IntranetTx: the outbound traffic over an internal network.
+    // The name of the monitoring metrics for the predictive rule. Valid values: 
+    // - CpuUtilization: the average CPU utilization of ECS instances.
+    // - IntranetRx: the average inbound internal network traffic of ECS instances.
+    // - IntranetTx: the average outbound internal network traffic of ECS instances.
     // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};
@@ -128,9 +125,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> scalingGroupId_ {};
-    // The start time of the predicted monitoring data. The time follows the ISO8601 standard and uses UTC time.
-    // 
-    // Format: yyyy-MM-ddTHH:mmZ.
+    // The start time of the predictive monitoring data. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

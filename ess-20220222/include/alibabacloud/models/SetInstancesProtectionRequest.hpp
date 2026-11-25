@@ -83,10 +83,10 @@ namespace Models
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Specifies whether to protect ECS instances from being stopped or removed from the scaling group during scale-ins. Valid values:
+    // Specifies whether to protect the ECS instance from being terminated or removed from the scaling group during automatic scale-in. Valid values: 
     // 
-    // *   true
-    // *   false
+    // - true: Protects the ECS instance.
+    // - false: Does not protect the ECS instance.
     // 
     // This parameter is required.
     shared_ptr<bool> protectedFromScaleIn_ {};

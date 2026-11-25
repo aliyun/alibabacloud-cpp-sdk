@@ -82,11 +82,11 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the scaling group.
+    // The ID of the region to which the scaling group belongs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of the diagnostic reports. You can specify at most 20 IDs.
+    // The IDs of the diagnostic reports. You can specify up to 20 IDs.
     shared_ptr<vector<string>> reportIds_ {};
     // The ID of the scaling group.
     // 

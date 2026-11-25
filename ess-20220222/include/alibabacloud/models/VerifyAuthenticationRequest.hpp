@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to check only the authorization status. Valid values:
-    // 
-    // *   true: checks only the authorization status. The service-linked role is not created.
-    // *   false (default): checks the authorization status and resource usage.
+    // Specifies whether to only check the authorization status. Valid values:
+    // - true: Only checks the authorization status and does not create the service-linked role.
+    // - false: Checks the authorization status and resource usage.
+    // Default value: false.
     shared_ptr<bool> onlyCheck_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of your Alibaba Cloud account.
+    // The ID of the Alibaba Cloud account.
     shared_ptr<int64_t> uid_ {};
   };
 

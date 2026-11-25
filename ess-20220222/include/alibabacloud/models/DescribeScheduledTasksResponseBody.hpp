@@ -55,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ScheduledTaskId, scheduledTaskId_);
         DARABONBA_PTR_TO_JSON(ScheduledTaskName, scheduledTaskName_);
         DARABONBA_PTR_TO_JSON(TaskEnabled, taskEnabled_);
+        DARABONBA_PTR_TO_JSON(WarmPoolCapacityOptions, warmPoolCapacityOptions_);
       };
       friend void from_json(const Darabonba::Json& j, ScheduledTasks& obj) { 
         DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -71,6 +72,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ScheduledTaskId, scheduledTaskId_);
         DARABONBA_PTR_FROM_JSON(ScheduledTaskName, scheduledTaskName_);
         DARABONBA_PTR_FROM_JSON(TaskEnabled, taskEnabled_);
+        DARABONBA_PTR_FROM_JSON(WarmPoolCapacityOptions, warmPoolCapacityOptions_);
       };
       ScheduledTasks() = default ;
       ScheduledTasks(const ScheduledTasks &) = default ;
@@ -83,10 +85,54 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class WarmPoolCapacityOptions : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const WarmPoolCapacityOptions& obj) { 
+          DARABONBA_PTR_TO_JSON(DesiredGroupPreparedCapacity, desiredGroupPreparedCapacity_);
+          DARABONBA_PTR_TO_JSON(MinCapacity, minCapacity_);
+        };
+        friend void from_json(const Darabonba::Json& j, WarmPoolCapacityOptions& obj) { 
+          DARABONBA_PTR_FROM_JSON(DesiredGroupPreparedCapacity, desiredGroupPreparedCapacity_);
+          DARABONBA_PTR_FROM_JSON(MinCapacity, minCapacity_);
+        };
+        WarmPoolCapacityOptions() = default ;
+        WarmPoolCapacityOptions(const WarmPoolCapacityOptions &) = default ;
+        WarmPoolCapacityOptions(WarmPoolCapacityOptions &&) = default ;
+        WarmPoolCapacityOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~WarmPoolCapacityOptions() = default ;
+        WarmPoolCapacityOptions& operator=(const WarmPoolCapacityOptions &) = default ;
+        WarmPoolCapacityOptions& operator=(WarmPoolCapacityOptions &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->desiredGroupPreparedCapacity_ == nullptr
+        && this->minCapacity_ == nullptr; };
+        // desiredGroupPreparedCapacity Field Functions 
+        bool hasDesiredGroupPreparedCapacity() const { return this->desiredGroupPreparedCapacity_ != nullptr;};
+        void deleteDesiredGroupPreparedCapacity() { this->desiredGroupPreparedCapacity_ = nullptr;};
+        inline int32_t getDesiredGroupPreparedCapacity() const { DARABONBA_PTR_GET_DEFAULT(desiredGroupPreparedCapacity_, 0) };
+        inline WarmPoolCapacityOptions& setDesiredGroupPreparedCapacity(int32_t desiredGroupPreparedCapacity) { DARABONBA_PTR_SET_VALUE(desiredGroupPreparedCapacity_, desiredGroupPreparedCapacity) };
+
+
+        // minCapacity Field Functions 
+        bool hasMinCapacity() const { return this->minCapacity_ != nullptr;};
+        void deleteMinCapacity() { this->minCapacity_ = nullptr;};
+        inline int32_t getMinCapacity() const { DARABONBA_PTR_GET_DEFAULT(minCapacity_, 0) };
+        inline WarmPoolCapacityOptions& setMinCapacity(int32_t minCapacity) { DARABONBA_PTR_SET_VALUE(minCapacity_, minCapacity) };
+
+
+      protected:
+        // The expected number of instances covered by the warm pool. The system maintains the sum of the current number of instances in the scaling group and the number of instances in the warm pool at this value.
+        shared_ptr<int32_t> desiredGroupPreparedCapacity_ {};
+        // The minimum number of instances in the warm pool.
+        shared_ptr<int32_t> minCapacity_ {};
+      };
+
       virtual bool empty() const override { return this->description_ == nullptr
         && this->desiredCapacity_ == nullptr && this->launchExpirationTime_ == nullptr && this->launchTime_ == nullptr && this->maxValue_ == nullptr && this->minValue_ == nullptr
         && this->recurrenceEndTime_ == nullptr && this->recurrenceType_ == nullptr && this->recurrenceValue_ == nullptr && this->scalingGroupId_ == nullptr && this->scheduledAction_ == nullptr
-        && this->scheduledTaskId_ == nullptr && this->scheduledTaskName_ == nullptr && this->taskEnabled_ == nullptr; };
+        && this->scheduledTaskId_ == nullptr && this->scheduledTaskName_ == nullptr && this->taskEnabled_ == nullptr && this->warmPoolCapacityOptions_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -185,40 +231,50 @@ namespace Models
       inline ScheduledTasks& setTaskEnabled(bool taskEnabled) { DARABONBA_PTR_SET_VALUE(taskEnabled_, taskEnabled) };
 
 
+      // warmPoolCapacityOptions Field Functions 
+      bool hasWarmPoolCapacityOptions() const { return this->warmPoolCapacityOptions_ != nullptr;};
+      void deleteWarmPoolCapacityOptions() { this->warmPoolCapacityOptions_ = nullptr;};
+      inline const ScheduledTasks::WarmPoolCapacityOptions & getWarmPoolCapacityOptions() const { DARABONBA_PTR_GET_CONST(warmPoolCapacityOptions_, ScheduledTasks::WarmPoolCapacityOptions) };
+      inline ScheduledTasks::WarmPoolCapacityOptions getWarmPoolCapacityOptions() { DARABONBA_PTR_GET(warmPoolCapacityOptions_, ScheduledTasks::WarmPoolCapacityOptions) };
+      inline ScheduledTasks& setWarmPoolCapacityOptions(const ScheduledTasks::WarmPoolCapacityOptions & warmPoolCapacityOptions) { DARABONBA_PTR_SET_VALUE(warmPoolCapacityOptions_, warmPoolCapacityOptions) };
+      inline ScheduledTasks& setWarmPoolCapacityOptions(ScheduledTasks::WarmPoolCapacityOptions && warmPoolCapacityOptions) { DARABONBA_PTR_SET_RVALUE(warmPoolCapacityOptions_, warmPoolCapacityOptions) };
+
+
     protected:
       // The description of the scheduled task.
       shared_ptr<string> description_ {};
-      // The expected number of instances in the scaling group. If you set `Scaling Method` to `Configure Number of Instances in Scaling Group`, you can specify this parameter.
+      // The expected number of instances in the scaling group. This parameter takes effect when the scaling method of the scheduled task is set to adjust the number of instances in the scaling group.
       shared_ptr<int32_t> desiredCapacity_ {};
-      // The time window during which the scheduled task can be retried. Unit: seconds. Valid values: 0 to 21600.
+      // The time period during which a retry is performed after the scheduled task fails to be triggered. Unit: seconds. Valid values: 0 to 21600.
       shared_ptr<int32_t> launchExpirationTime_ {};
-      // The point in time at which the scheduled task is triggered.
+      // The time at which the scheduled task is triggered. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time is displayed in UTC.
       shared_ptr<string> launchTime_ {};
-      // The maximum number of instances that must be contained in the scaling group. If you set `Scaling Method` to `Configure Number of Instances in Scaling Group`, you can specify this parameter.
+      // The maximum number of instances in the scaling group. This parameter takes effect when the scaling method of the scheduled task is set to adjust the number of instances in the scaling group.
       shared_ptr<int32_t> maxValue_ {};
-      // The minimum number of instances that must be contained in the scaling group. If you set `Scaling Method` to `Configure Number of Instances in Scaling Group`, you can specify this parameter.
+      // The minimum number of instances in the scaling group. This parameter takes effect when the scaling method of the scheduled task is set to adjust the number of instances in the scaling group.
       shared_ptr<int32_t> minValue_ {};
-      // The end time of the recurrence of the scheduled task.
+      // The end time of the recurring scheduled task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time is displayed in UTC.
       shared_ptr<string> recurrenceEndTime_ {};
-      // The recurring interval of the scheduled task.
+      // The recurrence type of the scheduled task.
       shared_ptr<string> recurrenceType_ {};
-      // The frequency of recurrence of the scheduled task.
+      // The recurrence value of the scheduled task.
       shared_ptr<string> recurrenceValue_ {};
-      // The ID of the scaling group to which the scheduled task belongs.
+      // The ID of the scaling group that executes the scheduled task.
       shared_ptr<string> scalingGroupId_ {};
-      // The scaling rule of the scheduled task. A value is returned for this parameter only after you specify ScheduledActions.
+      // The scaling rule used when the scheduled task is executed. This parameter is returned only when a scaling rule is specified for the scheduled task.
       shared_ptr<string> scheduledAction_ {};
       // The ID of the scheduled task.
       shared_ptr<string> scheduledTaskId_ {};
       // The name of the scheduled task.
       shared_ptr<string> scheduledTaskName_ {};
-      // Indicates whether the scheduled task is enabled.
-      // 
-      // *   true
-      // *   false
+      // Indicates whether the scheduled task is started. Valid values: 
+      // - true: The task is started.
+      // - false: The task is stopped.
       // 
       // Default value: true.
       shared_ptr<bool> taskEnabled_ {};
+      // The warm pool capacity configurations of the scaling group.
+      shared_ptr<ScheduledTasks::WarmPoolCapacityOptions> warmPoolCapacityOptions_ {};
     };
 
     virtual bool empty() const override { return this->pageNumber_ == nullptr
@@ -261,13 +317,13 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information collection of the scheduled tasks.
+    // The information about the scheduled tasks.
     shared_ptr<vector<DescribeScheduledTasksResponseBody::ScheduledTasks>> scheduledTasks_ {};
     // The total number of scheduled tasks.
     shared_ptr<int32_t> totalCount_ {};

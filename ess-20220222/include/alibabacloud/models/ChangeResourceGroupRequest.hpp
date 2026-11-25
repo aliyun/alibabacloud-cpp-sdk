@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the resource group to which you want to move the scaling group.
+    // The ID of the new resource group to which you want to move the scaling group.
     // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
@@ -93,12 +93,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the scaling group that you want to move from the current resource group to another resource group.
+    // The ID of the scaling group whose resource group you want to change.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
-    // The resource type. Set the value to scalinggroup.
+    // The resource type. Currently, only scaling groups are supported. Valid value: scalinggroup.
     shared_ptr<string> resourceType_ {};
   };
 

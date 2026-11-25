@@ -200,40 +200,41 @@ namespace Models
 
 
   protected:
-    // The type of instances that are managed by the scaling group. Valid values:
+    // The type of instances managed by the scaling group. Valid values:
     // 
-    // *   ECS: Elastic Compute Service (ECS) instances.
-    // *   ECI: elastic container instances.
+    // - ECS: The scaling group manages ECS instances.
+    // 
+    // - ECI: The scaling group manages ECI instances.
     shared_ptr<string> groupType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Page starts from page 1.
+    // The page number. Pages start from 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: 50.
+    // The Settings for the number of entries per page during paging in a paged query. Maximum value: 50.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the scaling group.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the scaling group that you want to query belongs.
+    // The ID of the resource group to which the scaling groups to query belong.
     // 
-    // >  If no scaling group belongs to the specified resource group, the query result is empty and no error is reported.
+    // > If no scaling group belongs to the specified resource group, an empty result is returned and no error is returned.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IDs of the scaling groups that you want to query.
+    // The IDs of the scaling groups to query.
     // 
-    // The IDs of inactive scaling groups are not included in the query results, and no error is returned.
+    // Invalid scaling group IDs are ignored in the response and no error is returned.
     shared_ptr<vector<string>> scalingGroupIds_ {};
     // The name of the scaling group.
     shared_ptr<string> scalingGroupName_ {};
-    // The names of the scaling groups that you want to query.
+    // The names of the scaling groups to query.
     // 
-    // The names of inactive scaling groups are not displayed in the query results, and no error is reported.
+    // Invalid scaling group names are ignored in the response and no error is returned.
     shared_ptr<vector<string>> scalingGroupNames_ {};
     // The tags of the scaling group.
     shared_ptr<vector<DescribeScalingGroupsRequest::Tags>> tags_ {};
