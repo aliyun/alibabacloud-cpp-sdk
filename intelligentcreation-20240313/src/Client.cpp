@@ -2,12 +2,14 @@
 #include <alibabacloud/IntelligentCreation20240313.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -19,6 +21,9 @@ namespace IntelligentCreation20240313
 {
 
 AlibabaCloud::IntelligentCreation20240313::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "IntelligentCreation";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "";
   checkConfig(config);
   this->_endpoint = getEndpoint("intelligentcreation", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);

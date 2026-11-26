@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_INTELLIGENTCREATION20240313MODEL_HPP_
 #define ALIBABACLOUD_INTELLIGENTCREATION20240313MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AICoachScriptHotWordItem.hpp>
 #include <alibabacloud/models/AddDocumentInfo.hpp>
 #include <alibabacloud/models/DocumentInfo.hpp>
 #include <alibabacloud/models/AddDocumentResult.hpp>
