@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the specified Hive.
+    // The ID of the Hive.
     shared_ptr<string> hiveId_ {};
   };
 

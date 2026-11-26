@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The identifier of the resource pool.
+    // The ID of the resource pool.
     // 
     // This parameter is required.
     shared_ptr<string> hiveId_ {};
-    // The workflow parameters to be replaced.
+    // The workflow parameters to be replaced by the user.
     // 
     // This parameter is required.
     shared_ptr<string> userParameters_ {};

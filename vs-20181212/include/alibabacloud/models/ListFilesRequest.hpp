@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<string> fileName_ {};
     // The page number of the list to query. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 100. Default value: 10.
+    // The Settings for the number of entries to return on each page during paging in a paged query. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
     // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};

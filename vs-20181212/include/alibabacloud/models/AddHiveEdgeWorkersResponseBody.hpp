@@ -78,7 +78,7 @@ namespace Models
     protected:
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // A message indicating the result of the operation.
+      // The message.
       shared_ptr<string> message_ {};
     };
 
@@ -120,7 +120,7 @@ namespace Models
 
 
     protected:
-      // The instance ID.
+      // The workload ID.
       shared_ptr<string> instanceId_ {};
       // The error message.
       shared_ptr<string> message_ {};
@@ -168,15 +168,15 @@ namespace Models
 
 
   protected:
-    // The number of instances that failed to be added.
+    // The number of failed instances.
     shared_ptr<int32_t> failedInstanceCount_ {};
-    // A list of instances that failed to be added.
+    // The list of failed instances.
     shared_ptr<vector<AddHiveEdgeWorkersResponseBody::FailedInstances>> failedInstances_ {};
-    // The request ID.
+    // **The request ID.**
     shared_ptr<string> requestId_ {};
-    // The number of instances that were successfully added.
+    // The number of successful instances.
     shared_ptr<int32_t> successInstanceCount_ {};
-    // A list of successfully added instances.
+    // The list of successful instances.
     shared_ptr<vector<AddHiveEdgeWorkersResponseBody::SuccessInstances>> successInstances_ {};
   };
 

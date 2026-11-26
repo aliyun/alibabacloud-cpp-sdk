@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // A description of the cluster.
+    // The description.
     shared_ptr<string> description_ {};
     // The project ID.
     // 

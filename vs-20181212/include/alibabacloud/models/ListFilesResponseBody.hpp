@@ -140,16 +140,16 @@ namespace Models
       // The upload status of the file. Valid values:
       // - Created
       // - Doing
-      // - Success: final state
-      // - Failed: final state
+      // - Success: final state.
+      // - Failed: final state.
       shared_ptr<string> status_ {};
       // The description of the status.
       shared_ptr<string> statusDescription_ {};
-      // The target path for pushing the file to the cloud application service instance.
+      // The destination path for pushing the file to the cloud application service instance.
       shared_ptr<string> targetPath_ {};
-      // The time when the status was last updated. The time follows the ISO 8601 standard and includes the time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+      // The time when the status was last updated. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> updateTime_ {};
-      // The time when the upload started. The time follows the ISO 8601 standard and includes the time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+      // The time when the upload started. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> uploadTime_ {};
     };
 
@@ -193,15 +193,15 @@ namespace Models
 
 
   protected:
-    // The list of file information.
+    // The list of files.
     shared_ptr<vector<ListFilesResponseBody::Files>> files_ {};
     // The page number of the returned list.
     shared_ptr<int64_t> pageNumber_ {};
-    // The Settings for the number of entries per page during paging in a paged query.
+    // The Settings for the number of entries returned per page during paging in a paged query.
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of matched file records.
+    // The total number of matched files.
     shared_ptr<int64_t> totalCount_ {};
   };
 

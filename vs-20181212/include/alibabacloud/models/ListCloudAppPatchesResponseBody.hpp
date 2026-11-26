@@ -142,16 +142,16 @@ namespace Models
       // The upload status of the application. Valid values:
       // - Created
       // - Doing
-      // - Success: desired state
-      // - Failed: desired state
+      // - Success: final state
+      // - Failed: final state
       // - Deleting
-      // - DeleteFailed: desired state
+      // - DeleteFailed: final state
       shared_ptr<string> status_ {};
       // The description of the status.
       shared_ptr<string> statusDescription_ {};
-      // The latest time when the status was updated. The time is in the YYYY-MM-DDTHH:mm:ss format.
+      // The time when the status was last updated. The time is in the YYYY-MM-DDTHH:mm:ss format.
       shared_ptr<string> updateTime_ {};
-      // The time when the application was uploaded. The time is in the ISO 8601 standard and includes the time zone offset, in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+      // The time when the patch was uploaded. The time follows the ISO 8601 standard and includes a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> uploadTime_ {};
     };
 
@@ -197,9 +197,9 @@ namespace Models
   protected:
     // The page number of the returned list.
     shared_ptr<int64_t> pageNumber_ {};
-    // Settings for the number of entries per page when paging in a paged query.
+    // The paging Settings for the number of entries returned on each page in a paged query.
     shared_ptr<int64_t> pageSize_ {};
-    // The patch list of the cloud application.
+    // The list of patches for the cloud application.
     shared_ptr<vector<ListCloudAppPatchesResponseBody::Patches>> patches_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

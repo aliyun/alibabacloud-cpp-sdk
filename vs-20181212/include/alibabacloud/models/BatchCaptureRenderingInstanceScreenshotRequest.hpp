@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The image quality. Valid values: 1 to 100.
+    // The quality of the image. Valid values: 1 to 100.
     shared_ptr<int32_t> quality_ {};
-    // The list of instance IDs. A maximum of 100 instance IDs can be specified.
+    // The list of instance IDs. You can specify up to 100 IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> renderingInstanceIds_ {};

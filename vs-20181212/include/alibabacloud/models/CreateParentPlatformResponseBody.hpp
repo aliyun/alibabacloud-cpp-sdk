@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 上级平台ID。
+    // The parent platform ID.
     shared_ptr<string> id_ {};
-    // 请求ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

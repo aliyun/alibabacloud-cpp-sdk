@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the Comfy task.
+    // The Comfy task ID.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

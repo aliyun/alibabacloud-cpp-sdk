@@ -38,8 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the file or directory to delete. If a path is passed, it is treated as a directory and must end with a forward slash (/).
-    // File name.
+    // The name of the file or directory to delete. To specify a directory, pass a path ending with a forward slash (/).
     shared_ptr<string> fileName_ {};
   };
 

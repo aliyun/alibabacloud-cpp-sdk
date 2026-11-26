@@ -95,7 +95,7 @@ namespace Models
     shared_ptr<string> domainName_ {};
     // The URL to which live stream information is pushed.
     // 
-    // > This URL must start with http\\:// or https\\://.
+    // > This URL must start with http\:// or https\://.
     // 
     // This parameter is required.
     shared_ptr<string> notifyUrl_ {};

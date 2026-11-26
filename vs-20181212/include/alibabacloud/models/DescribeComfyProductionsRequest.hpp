@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the specified ComfyTask.
+    // The ID of the ComfyTask.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

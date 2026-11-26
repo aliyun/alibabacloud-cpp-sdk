@@ -198,14 +198,14 @@ namespace Models
       // The upload status of the application. Valid values:
       // - Created
       // - Doing
-      // - Success: This is a final state.
-      // - Failed: This is a final state.
+      // - Success: final state
+      // - Failed: final state
       shared_ptr<string> status_ {};
       // The description of the status.
       shared_ptr<string> statusDescription_ {};
-      // The time when the status was last updated. The time is displayed in the ISO 8601 standard with a time zone offset, in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+      // The time when the status was last updated. The time is displayed in the ISO 8601 standard with time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> updateTime_ {};
-      // The time when the application was uploaded. The time is displayed in the ISO 8601 standard with a time zone offset, in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+      // The time when the application was uploaded. The time is displayed in the ISO 8601 standard with time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> uploadTime_ {};
     };
 
@@ -253,11 +253,11 @@ namespace Models
     shared_ptr<vector<ListCloudAppsResponseBody::CloudApps>> cloudApps_ {};
     // The page number of the returned list.
     shared_ptr<int64_t> pageNumber_ {};
-    // The Settings for the number of entries returned on each page during paging for a paged query.
+    // Settings for the number of entries returned per page during paging for a paged query.
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of cloud applications that match the query conditions.
+    // The total number of matched cloud applications.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -126,19 +126,19 @@ namespace Models
       shared_ptr<string> fileId_ {};
       // The name of the file.
       shared_ptr<string> fileName_ {};
-      // The start time of the push. The time is displayed in the ISO 8601 standard with time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+      // The start time of the push. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> pushTime_ {};
-      // The instance ID of the cloud application service.
+      // The cloud application service instance ID.
       shared_ptr<string> renderingInstanceId_ {};
       // The push status of the file. Valid values:
       // - Created
       // - Doing
-      // - Success: final state.
-      // - Failed: final state.
+      // - Success: terminal state
+      // - Failed: terminal state
       shared_ptr<string> status_ {};
       // The description of the status.
       shared_ptr<string> statusDescription_ {};
-      // The latest update time of the status. The time is displayed in the ISO 8601 standard with time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+      // The latest update time of the status. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -184,11 +184,11 @@ namespace Models
   protected:
     // The page number of the returned list.
     shared_ptr<int64_t> pageNumber_ {};
-    // The Settings for the number of entries per page during paging in a paged query.
+    // The Settings for the number of entries returned per page during paging in a paged query.
     shared_ptr<int64_t> pageSize_ {};
     // The list of file push statuses.
     shared_ptr<vector<ListFilePushStatusesResponseBody::PushStatuses>> pushStatuses_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of matched file push records.
     shared_ptr<int64_t> totalCount_ {};

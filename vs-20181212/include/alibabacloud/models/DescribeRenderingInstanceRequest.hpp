@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The instance ID of the cloud application service.
+    // The cloud application service instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};

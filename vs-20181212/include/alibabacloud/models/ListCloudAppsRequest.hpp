@@ -142,13 +142,13 @@ namespace Models
     shared_ptr<bool> latestVersionOnly_ {};
     // The page number of the list to query. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page during paging for a paged query. Settings: 1 to 100. Default value: 10.
+    // Settings for the number of entries to return on each page during paging for a paged query. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
     // The label of the cloud application. Valid values:
     // - hot
     // - game
     // - app
-    // To query cloud applications without labels, set this parameter to NULL.
+    // To query applications without labels, set the value to NULL.
     shared_ptr<string> pkgLabel_ {};
     // The type of the installation package. Valid values:
     // - android
@@ -158,8 +158,8 @@ namespace Models
     // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
     // The upload status of the application. Valid values:
-    // - Success: The upload is successful. This is a final state.
-    // - Failed: The upload failed. This is a final state.
+    // - Success: successful. This is a final state.
+    // - Failed: failed. This is a final state.
     // - Created
     // - Doing
     shared_ptr<string> status_ {};

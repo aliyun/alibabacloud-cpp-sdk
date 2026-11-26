@@ -87,7 +87,7 @@ namespace Models
 
 
     protected:
-      // The time when the screenshot was created. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+      // The time when the screenshot was created. The time follows the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
       shared_ptr<string> creationTime_ {};
       // The download URL of the screenshot.
       shared_ptr<string> downloadUrl_ {};
@@ -144,7 +144,7 @@ namespace Models
     protected:
       // The error code for the failure.
       shared_ptr<string> errCode_ {};
-      // The reason for the failure.
+      // The error message for the failure.
       shared_ptr<string> errMessage_ {};
       // The cloud application service instance ID.
       shared_ptr<string> renderingInstanceId_ {};
@@ -212,7 +212,7 @@ namespace Models
 
 
     protected:
-      // The pre-check result.
+      // The precheck result.
       shared_ptr<Datatest::Result> result_ {};
     };
 
@@ -267,7 +267,7 @@ namespace Models
 
 
   protected:
-    // The data pre-check result.
+    // The data precheck result.
     shared_ptr<BatchCaptureRenderingInstanceScreenshotResponseBody::Datatest> datatest_ {};
     // The number of failed instances.
     shared_ptr<int64_t> failedCount_ {};

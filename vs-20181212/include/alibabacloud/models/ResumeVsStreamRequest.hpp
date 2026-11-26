@@ -88,14 +88,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // Controls the stream behavior. Valid values:
+    // - **resume**: Resumes the stream.
     shared_ptr<string> controlStreamAction_ {};
-    // Your accelerated domain name.
+    // The accelerated domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     // The stream type.
-    // 
-    // > Only publisher is supported.
+    // > Currently, only publisher is supported.
     // 
     // This parameter is required.
     shared_ptr<string> liveStreamType_ {};

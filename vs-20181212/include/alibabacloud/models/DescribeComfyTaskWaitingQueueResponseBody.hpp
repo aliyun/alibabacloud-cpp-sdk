@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The task waiting queue information.
+    // The waiting queue information.
     shared_ptr<DescribeComfyTaskWaitingQueueResponseBody::TaskWaitingQueue> taskWaitingQueue_ {};
   };
 

@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // **The cluster ID.**
     // 
     // This parameter is required.
     shared_ptr<string> hiveId_ {};
-    // A list of instance IDs.
+    // **The list of workload IDs.**
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};

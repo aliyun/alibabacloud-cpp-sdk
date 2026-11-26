@@ -98,17 +98,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time of the time range filter. The time must be in UTC and follow the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> endTime_ {};
-    // The page number of the list to query. Pages start from 1. Default value: 1.
+    // The page number of the list to query. The starting value is 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
+    // The paging Settings for the number of entries per page in a paged query. Maximum value: 100. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the patch.
     shared_ptr<string> patchId_ {};
     // The name of the patch.
     shared_ptr<string> patchName_ {};
-    // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time of the time range filter. The time must be in UTC and follow the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> startTime_ {};
   };
 

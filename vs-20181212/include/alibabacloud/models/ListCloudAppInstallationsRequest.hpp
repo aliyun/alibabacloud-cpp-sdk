@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTCLOUDAPPINSTALLATIONSREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTCLOUDAPPINSTALLATIONSREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PatchId, patchId_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RenderingInstanceId, renderingInstanceId_);
+      DARABONBA_PTR_TO_JSON(RenderingInstanceIds, renderingInstanceIds_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, ListCloudAppInstallationsRequest& obj) { 
@@ -34,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PatchId, patchId_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RenderingInstanceId, renderingInstanceId_);
+      DARABONBA_PTR_FROM_JSON(RenderingInstanceIds, renderingInstanceIds_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
     };
     ListCloudAppInstallationsRequest() = default ;
@@ -49,7 +52,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
         && this->appName_ == nullptr && this->appVersion_ == nullptr && this->endTime_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->patchId_ == nullptr && this->projectId_ == nullptr && this->renderingInstanceId_ == nullptr && this->startTime_ == nullptr; };
+        && this->patchId_ == nullptr && this->projectId_ == nullptr && this->renderingInstanceId_ == nullptr && this->renderingInstanceIds_ == nullptr && this->startTime_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -113,6 +116,15 @@ namespace Models
     inline ListCloudAppInstallationsRequest& setRenderingInstanceId(string renderingInstanceId) { DARABONBA_PTR_SET_VALUE(renderingInstanceId_, renderingInstanceId) };
 
 
+    // renderingInstanceIds Field Functions 
+    bool hasRenderingInstanceIds() const { return this->renderingInstanceIds_ != nullptr;};
+    void deleteRenderingInstanceIds() { this->renderingInstanceIds_ = nullptr;};
+    inline const vector<string> & getRenderingInstanceIds() const { DARABONBA_PTR_GET_CONST(renderingInstanceIds_, vector<string>) };
+    inline vector<string> getRenderingInstanceIds() { DARABONBA_PTR_GET(renderingInstanceIds_, vector<string>) };
+    inline ListCloudAppInstallationsRequest& setRenderingInstanceIds(const vector<string> & renderingInstanceIds) { DARABONBA_PTR_SET_VALUE(renderingInstanceIds_, renderingInstanceIds) };
+    inline ListCloudAppInstallationsRequest& setRenderingInstanceIds(vector<string> && renderingInstanceIds) { DARABONBA_PTR_SET_RVALUE(renderingInstanceIds_, renderingInstanceIds) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -131,14 +143,17 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The page number of the list to query. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page for a paged query. Valid values: 1 to 100. Default value: 10.
+    // The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the patch package. This parameter is supported only in Windows scenarios. If you enter origin, only the original version is filtered.
+    // The ID of the patch package. This parameter is only supported in Windows scenarios. Valid values:
+    // - origin: Only the original version is filtered.
     shared_ptr<string> patchId_ {};
     // The ID of the project.
     shared_ptr<string> projectId_ {};
-    // The cloud application service instance ID, which is used to query the cloud applications installed on the specified instance.
+    // The instance ID of the cloud application service. This parameter is used to query the cloud applications installed on the specified instance.
     shared_ptr<string> renderingInstanceId_ {};
+    // The list of cloud application service instance IDs.
+    shared_ptr<vector<string>> renderingInstanceIds_ {};
     // The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };

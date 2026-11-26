@@ -146,17 +146,19 @@ namespace Models
       shared_ptr<string> appName_ {};
       // The version of the application.
       shared_ptr<string> appVersion_ {};
-      // The installation time. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+      // The installation time. The time is displayed in the ISO 8601 standard and includes the time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> installationTime_ {};
       // The ID of the patch package.
       shared_ptr<string> patchId_ {};
-      // The cloud application service instance ID.
+      // The instance ID of the cloud application service.
       shared_ptr<string> renderingInstanceId_ {};
-      // The installation status of the cloud application. Valid values: install-init and installing (intermediate states), and installed and install-failed (final states).
+      // The installation status of the cloud application. Valid values:
+      // - Intermediate states: install-init and installing.
+      // - Final states: installed and install-failed.
       shared_ptr<string> status_ {};
       // The description of the status.
       shared_ptr<string> statusDescription_ {};
-      // The time when the status was last updated. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+      // The latest update time of the status. The time is displayed in the ISO 8601 standard and includes the time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -202,9 +204,9 @@ namespace Models
   protected:
     // The list of installation information.
     shared_ptr<vector<ListCloudAppInstallationsResponseBody::InstallationInfos>> installationInfos_ {};
-    // The page number of the returned list.
+    // The page number of the list to query.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page for a paged query.
+    // The Settings for the number of entries per page during paging in a paged query.
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

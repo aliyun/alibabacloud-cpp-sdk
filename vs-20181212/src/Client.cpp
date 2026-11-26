@@ -2,11 +2,13 @@
 #include <alibabacloud/Vs20181212.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::Vs20181212::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -17,6 +19,9 @@ namespace Vs20181212
 {
 
 AlibabaCloud::Vs20181212::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "vs";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("vs", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -36,13 +41,13 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds one or more instances to a specified cluster.
+ * @summary Binds one or more workload instances to a specified cluster.
  *
- * @description ## Usage notes
- * - **HiveId** is a required parameter that specifies the ID of the target cluster.
- * - **InstanceIds** is a required parameter that specifies a list of instance IDs to add.
- * - Adding an instance that already exists in the target cluster returns an error message.
- * - The response includes lists of successful and failed instances. This allows you to verify which instances were added and review the reasons for any failures.
+ * @description ## Request description
+ * - **HiveId** is a required parameter that specifies the ID of the target cluster to which the workloads are bound.
+ * - **InstanceIds** is a required parameter that specifies the list of workload IDs to bind to the cluster.
+ * - If you attempt to bind a workload ID that already exists in the target cluster, an error message is returned.
+ * - After the binding operation succeeds, the returned lists of successful and failed workload instances help you identify which workloads were successfully bound and which were not, along with the reasons for failure.
  *
  * @param tmpReq AddHiveEdgeWorkersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -83,13 +88,13 @@ AddHiveEdgeWorkersResponse Client::addHiveEdgeWorkersWithOptions(const AddHiveEd
 }
 
 /**
- * @summary Adds one or more instances to a specified cluster.
+ * @summary Binds one or more workload instances to a specified cluster.
  *
- * @description ## Usage notes
- * - **HiveId** is a required parameter that specifies the ID of the target cluster.
- * - **InstanceIds** is a required parameter that specifies a list of instance IDs to add.
- * - Adding an instance that already exists in the target cluster returns an error message.
- * - The response includes lists of successful and failed instances. This allows you to verify which instances were added and review the reasons for any failures.
+ * @description ## Request description
+ * - **HiveId** is a required parameter that specifies the ID of the target cluster to which the workloads are bound.
+ * - **InstanceIds** is a required parameter that specifies the list of workload IDs to bind to the cluster.
+ * - If you attempt to bind a workload ID that already exists in the target cluster, an error message is returned.
+ * - After the binding operation succeeds, the returned lists of successful and failed workload instances help you identify which workloads were successfully bound and which were not, along with the reasons for failure.
  *
  * @param request AddHiveEdgeWorkersRequest
  * @return AddHiveEdgeWorkersResponse
@@ -513,9 +518,9 @@ BatchBindTemplatesResponse Client::batchBindTemplates(const BatchBindTemplatesRe
  * @summary Retrieves screenshots of cloud application service instances.
  *
  * @description ## Request description
- * - **Authentication**: The request must include the `AliUid` parameter to authenticate and perform identity verification.
- * - **Instance specification**: You can specify the instances to capture screenshots of by using `RenderingInstanceIds`.
- * - **Screenshot quality**: You can configure the Settings for the screenshot image quality by using the `Quality` parameter. The default value is 75 if not configured, and the valid values range from 1 to 100.
+ * - **Authenticate**: The request must include the AliUid parameter for identity verification.
+ * - **Instance specification**: You can use the RenderingInstanceIds parameter to specify the instances for which you want to capture screenshots.
+ * - **Screenshot quality**: The Quality parameter specifies the screenshot quality settings. The default value is 75 if not configured. Valid values: 1 to 100.
  * - **Response processing**: The response includes lists of successful and failed instances along with their related information, such as download URLs and screenshot completion times.
  *
  * @param tmpReq BatchCaptureRenderingInstanceScreenshotRequest
@@ -560,9 +565,9 @@ BatchCaptureRenderingInstanceScreenshotResponse Client::batchCaptureRenderingIns
  * @summary Retrieves screenshots of cloud application service instances.
  *
  * @description ## Request description
- * - **Authentication**: The request must include the `AliUid` parameter to authenticate and perform identity verification.
- * - **Instance specification**: You can specify the instances to capture screenshots of by using `RenderingInstanceIds`.
- * - **Screenshot quality**: You can configure the Settings for the screenshot image quality by using the `Quality` parameter. The default value is 75 if not configured, and the valid values range from 1 to 100.
+ * - **Authenticate**: The request must include the AliUid parameter for identity verification.
+ * - **Instance specification**: You can use the RenderingInstanceIds parameter to specify the instances for which you want to capture screenshots.
+ * - **Screenshot quality**: The Quality parameter specifies the screenshot quality settings. The default value is 75 if not configured. Valid values: 1 to 100.
  * - **Response processing**: The response includes lists of successful and failed instances along with their related information, such as download URLs and screenshot completion times.
  *
  * @param request BatchCaptureRenderingInstanceScreenshotRequest
@@ -1682,7 +1687,7 @@ ContinuousMoveResponse Client::continuousMove(const ContinuousMoveRequest &reque
 /**
  * @summary Starts a Comfy task.
  *
- * @description > Enable the on-demand screenshot feature in the associated screenshot template.
+ * @description > Enable the on-demand screenshot feature in the associated screenshot template in advance.
  *
  * @param request CreateComfyTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1723,7 +1728,7 @@ CreateComfyTaskResponse Client::createComfyTaskWithOptions(const CreateComfyTask
 /**
  * @summary Starts a Comfy task.
  *
- * @description > Enable the on-demand screenshot feature in the associated screenshot template.
+ * @description > Enable the on-demand screenshot feature in the associated screenshot template in advance.
  *
  * @param request CreateComfyTaskRequest
  * @return CreateComfyTaskResponse
@@ -1782,7 +1787,7 @@ CreateComfyUserDataDirResponse Client::createComfyUserDataDir(const CreateComfyU
 /**
  * @summary Uploads a Comfy workflow.
  *
- * @description > You must first enable the on-demand snapshot feature in the associated snapshot template.
+ * @description > You must enable the on-demand screenshot feature in the associated screenshot template in advance.
  *
  * @param request CreateComfyWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1823,7 +1828,7 @@ CreateComfyWorkflowResponse Client::createComfyWorkflowWithOptions(const CreateC
 /**
  * @summary Uploads a Comfy workflow.
  *
- * @description > You must first enable the on-demand snapshot feature in the associated snapshot template.
+ * @description > You must enable the on-demand screenshot feature in the associated screenshot template in advance.
  *
  * @param request CreateComfyWorkflowRequest
  * @return CreateComfyWorkflowResponse
@@ -1834,7 +1839,11 @@ CreateComfyWorkflowResponse Client::createComfyWorkflow(const CreateComfyWorkflo
 }
 
 /**
- * @summary Add a new device.
+ * @summary Adds a new device.
+ *
+ * @description > 
+ * > - This operation is applicable only to workspaces whose access type is **GB28181 pull streaming** or **ODCAP**.
+ * > - Workspaces whose access type is **RTMP push streaming** **do not support** adding devices.
  *
  * @param request CreateDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1953,7 +1962,11 @@ CreateDeviceResponse Client::createDeviceWithOptions(const CreateDeviceRequest &
 }
 
 /**
- * @summary Add a new device.
+ * @summary Adds a new device.
+ *
+ * @description > 
+ * > - This operation is applicable only to workspaces whose access type is **GB28181 pull streaming** or **ODCAP**.
+ * > - Workspaces whose access type is **RTMP push streaming** **do not support** adding devices.
  *
  * @param request CreateDeviceRequest
  * @return CreateDeviceResponse
@@ -2180,7 +2193,7 @@ CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
 /**
  * @summary Creates a cluster.
  *
- * @description ## Description
+ * @description ## Request description
  * - This operation creates an empty cluster to manage workloads.
  *
  * @param request CreateHiveRequest
@@ -2218,7 +2231,7 @@ CreateHiveResponse Client::createHiveWithOptions(const CreateHiveRequest &reques
 /**
  * @summary Creates a cluster.
  *
- * @description ## Description
+ * @description ## Request description
  * - This operation creates an empty cluster to manage workloads.
  *
  * @param request CreateHiveRequest
@@ -2366,7 +2379,7 @@ CreateRenderingDataPackageResponse Client::createRenderingDataPackage(const Crea
 }
 
 /**
- * @summary Applies for a cloud rendering resource instance.
+ * @summary Creates a cloud application service instance.
  *
  * @param tmpReq CreateRenderingInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2443,7 +2456,7 @@ CreateRenderingInstanceResponse Client::createRenderingInstanceWithOptions(const
 }
 
 /**
- * @summary Applies for a cloud rendering resource instance.
+ * @summary Creates a cloud application service instance.
  *
  * @param request CreateRenderingInstanceRequest
  * @return CreateRenderingInstanceResponse
@@ -3736,9 +3749,9 @@ DescribeAccountStatResponse Client::describeAccountStat(const DescribeAccountSta
 }
 
 /**
- * @summary Retrieves the download URL for user-generated results.
+ * @summary Retrieves the download link for user-generated results.
  *
- * @description > Screenshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
+ * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
  *
  * @param request DescribeComfyProductionDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3769,9 +3782,9 @@ DescribeComfyProductionDownloadUrlResponse Client::describeComfyProductionDownlo
 }
 
 /**
- * @summary Retrieves the download URL for user-generated results.
+ * @summary Retrieves the download link for user-generated results.
  *
- * @description > Screenshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
+ * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
  *
  * @param request DescribeComfyProductionDownloadUrlRequest
  * @return DescribeComfyProductionDownloadUrlResponse
@@ -3836,7 +3849,7 @@ DescribeComfyProductionsResponse Client::describeComfyProductions(const Describe
 }
 
 /**
- * @summary Queries the waiting queue information of Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
+ * @summary Queries the waiting queue information for Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
  *
  * @param request DescribeComfyTaskWaitingQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3867,7 +3880,7 @@ DescribeComfyTaskWaitingQueueResponse Client::describeComfyTaskWaitingQueueWithO
 }
 
 /**
- * @summary Queries the waiting queue information of Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
+ * @summary Queries the waiting queue information for Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
  *
  * @param request DescribeComfyTaskWaitingQueueRequest
  * @return DescribeComfyTaskWaitingQueueResponse
@@ -3880,7 +3893,7 @@ DescribeComfyTaskWaitingQueueResponse Client::describeComfyTaskWaitingQueue(cons
 /**
  * @summary Queries the list of Comfy tasks.
  *
- * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in a new request.
+ * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
  *
  * @param request DescribeComfyTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3933,7 +3946,7 @@ DescribeComfyTasksResponse Client::describeComfyTasksWithOptions(const DescribeC
 /**
  * @summary Queries the list of Comfy tasks.
  *
- * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in a new request.
+ * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
  *
  * @param request DescribeComfyTasksRequest
  * @return DescribeComfyTasksResponse
@@ -7142,7 +7155,7 @@ DescribeVsUserResourcePackageResponse Client::describeVsUserResourcePackage(cons
 }
 
 /**
- * @summary Queries the verification content.
+ * @summary Queries the check content.
  *
  * @param request DescribeVsVerifyContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7177,7 +7190,7 @@ DescribeVsVerifyContentResponse Client::describeVsVerifyContentWithOptions(const
 }
 
 /**
- * @summary Queries the verification content.
+ * @summary Queries the check content.
  *
  * @param request DescribeVsVerifyContentRequest
  * @return DescribeVsVerifyContentResponse
@@ -7240,7 +7253,7 @@ DisassociateRenderingProjectInstancesResponse Client::disassociateRenderingProje
 }
 
 /**
- * @summary Forbids pushing a specific stream. You can schedule a time to resume the stream.
+ * @summary Disables the push of a specific stream and allows you to schedule a time to resume the stream.
  *
  * @param request ForbidVsStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7299,7 +7312,7 @@ ForbidVsStreamResponse Client::forbidVsStreamWithOptions(const ForbidVsStreamReq
 }
 
 /**
- * @summary Forbids pushing a specific stream. You can schedule a time to resume the stream.
+ * @summary Disables the push of a specific stream and allows you to schedule a time to resume the stream.
  *
  * @param request ForbidVsStreamRequest
  * @return ForbidVsStreamResponse
@@ -7564,14 +7577,20 @@ InstallCloudAppResponse Client::installCloudApp(const InstallCloudAppRequest &re
 }
 
 /**
- * @summary Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances. Paging is supported for paged query.
+ * @summary Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances, and supports paging for a paged query.
  *
- * @param request ListCloudAppInstallationsRequest
+ * @param tmpReq ListCloudAppInstallationsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCloudAppInstallationsResponse
  */
-ListCloudAppInstallationsResponse Client::listCloudAppInstallationsWithOptions(const ListCloudAppInstallationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListCloudAppInstallationsResponse Client::listCloudAppInstallationsWithOptions(const ListCloudAppInstallationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListCloudAppInstallationsShrinkRequest request = ListCloudAppInstallationsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRenderingInstanceIds()) {
+    request.setRenderingInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRenderingInstanceIds(), "RenderingInstanceIds", "json"));
+  }
+
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
@@ -7591,7 +7610,7 @@ ListCloudAppInstallationsResponse Client::listCloudAppInstallationsWithOptions(c
 }
 
 /**
- * @summary Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances. Paging is supported for paged query.
+ * @summary Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances, and supports paging for a paged query.
  *
  * @param request ListCloudAppInstallationsRequest
  * @return ListCloudAppInstallationsResponse
@@ -7602,9 +7621,9 @@ ListCloudAppInstallationsResponse Client::listCloudAppInstallations(const ListCl
 }
 
 /**
- * @summary Queries the patch list of a cloud application.
+ * @summary Queries the list of patches for a cloud application.
  *
- * @description >Specify at least one of the template ID and the templatetype.
+ * @description > Specify at least one of the template ID and templatetype.
  *
  * @param request ListCloudAppPatchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7659,9 +7678,9 @@ ListCloudAppPatchesResponse Client::listCloudAppPatchesWithOptions(const ListClo
 }
 
 /**
- * @summary Queries the patch list of a cloud application.
+ * @summary Queries the list of patches for a cloud application.
  *
- * @description >Specify at least one of the template ID and the templatetype.
+ * @description > Specify at least one of the template ID and templatetype.
  *
  * @param request ListCloudAppPatchesRequest
  * @return ListCloudAppPatchesResponse
@@ -7672,7 +7691,7 @@ ListCloudAppPatchesResponse Client::listCloudAppPatches(const ListCloudAppPatche
 }
 
 /**
- * @summary Queries the list of cloud applications and supports paging and paged query.
+ * @summary Queries a list of cloud applications and supports paging in a paged query.
  *
  * @param request ListCloudAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7699,7 +7718,7 @@ ListCloudAppsResponse Client::listCloudAppsWithOptions(const ListCloudAppsReques
 }
 
 /**
- * @summary Queries the list of cloud applications and supports paging and paged query.
+ * @summary Queries a list of cloud applications and supports paging in a paged query.
  *
  * @param request ListCloudAppsRequest
  * @return ListCloudAppsResponse
@@ -7814,7 +7833,7 @@ ListEdgeWorkersResponse Client::listEdgeWorkers(const ListEdgeWorkersRequest &re
 }
 
 /**
- * @summary Queries the push status list of cloud application service instances for a file. Paging is supported for paged query.
+ * @summary Queries the push status list for a file on cloud application service instances, and supports paging and paged query.
  *
  * @param request ListFilePushStatusesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7841,7 +7860,7 @@ ListFilePushStatusesResponse Client::listFilePushStatusesWithOptions(const ListF
 }
 
 /**
- * @summary Queries the push status list of cloud application service instances for a file. Paging is supported for paged query.
+ * @summary Queries the push status list for a file on cloud application service instances, and supports paging and paged query.
  *
  * @param request ListFilePushStatusesRequest
  * @return ListFilePushStatusesResponse
@@ -7852,7 +7871,7 @@ ListFilePushStatusesResponse Client::listFilePushStatuses(const ListFilePushStat
 }
 
 /**
- * @summary Queries a list of uploaded files. The response includes the upload status of the files and supports paging for a paged query.
+ * @summary Queries a list of uploaded files. The response includes the upload status of the files and supports paging and paged query.
  *
  * @param request ListFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7879,7 +7898,7 @@ ListFilesResponse Client::listFilesWithOptions(const ListFilesRequest &request, 
 }
 
 /**
- * @summary Queries a list of uploaded files. The response includes the upload status of the files and supports paging for a paged query.
+ * @summary Queries a list of uploaded files. The response includes the upload status of the files and supports paging and paged query.
  *
  * @param request ListFilesRequest
  * @return ListFilesResponse
@@ -10074,7 +10093,7 @@ ResetRenderingInstanceResponse Client::resetRenderingInstance(const ResetRenderi
 }
 
 /**
- * @summary Resumes pushing for a stream.
+ * @summary Resumes the push of a specific stream.
  *
  * @param request ResumeVsStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10125,7 +10144,7 @@ ResumeVsStreamResponse Client::resumeVsStreamWithOptions(const ResumeVsStreamReq
 }
 
 /**
- * @summary Resumes pushing for a stream.
+ * @summary Resumes the push of a specific stream.
  *
  * @param request ResumeVsStreamRequest
  * @return ResumeVsStreamResponse
@@ -11965,6 +11984,62 @@ UpgradeRenderingInstanceImageResponse Client::upgradeRenderingInstanceImageWithO
 UpgradeRenderingInstanceImageResponse Client::upgradeRenderingInstanceImage(const UpgradeRenderingInstanceImageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return upgradeRenderingInstanceImageWithOptions(request, runtime);
+}
+
+/**
+ * @summary 升级云应用服务主机镜像
+ *
+ * @param tmpReq UpgradeRenderingServerImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradeRenderingServerImageResponse
+ */
+UpgradeRenderingServerImageResponse Client::upgradeRenderingServerImageWithOptions(const UpgradeRenderingServerImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpgradeRenderingServerImageShrinkRequest request = UpgradeRenderingServerImageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRenderingInstanceIds()) {
+    request.setRenderingInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRenderingInstanceIds(), "RenderingInstanceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasImageId()) {
+    query["ImageId"] = request.getImageId();
+  }
+
+  if (!!request.hasPrecheck()) {
+    query["Precheck"] = request.getPrecheck();
+  }
+
+  if (!!request.hasRenderingInstanceIdsShrink()) {
+    query["RenderingInstanceIds"] = request.getRenderingInstanceIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradeRenderingServerImage"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradeRenderingServerImageResponse>();
+}
+
+/**
+ * @summary 升级云应用服务主机镜像
+ *
+ * @param request UpgradeRenderingServerImageRequest
+ * @return UpgradeRenderingServerImageResponse
+ */
+UpgradeRenderingServerImageResponse Client::upgradeRenderingServerImage(const UpgradeRenderingServerImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upgradeRenderingServerImageWithOptions(request, runtime);
 }
 
 /**

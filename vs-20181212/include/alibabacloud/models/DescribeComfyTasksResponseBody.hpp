@@ -144,21 +144,21 @@ namespace Models
 
 
     protected:
-      // The creation time, represented as a UNIX timestamp in milliseconds.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> creationTime_ {};
-      // The end time of the task, represented as a UNIX timestamp in milliseconds.
+      // The end time of the task. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> endTime_ {};
       // The ID of the resource pool used by the task.
       shared_ptr<string> hiveId_ {};
-      // The task error message.
+      // The error message of the task.
       shared_ptr<string> taskErrorMessage_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
-      // The task state.
+      // The state of the task.
       shared_ptr<string> taskState_ {};
-      // The task state message.
+      // The state message of the task.
       shared_ptr<string> taskStateMessage_ {};
-      // The last modified time, represented as a UNIX timestamp in milliseconds.
+      // The last modified time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> updatedTime_ {};
       // The ID of the Comfy workflow used by the task.
       shared_ptr<string> workflowId_ {};
@@ -226,7 +226,7 @@ namespace Models
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The page size.
-    // > Only for recording queries.
+    // > Only applicable to recording queries.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

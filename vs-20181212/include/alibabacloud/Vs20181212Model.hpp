@@ -414,6 +414,7 @@
 #include <alibabacloud/models/InstallCloudAppResponseBody.hpp>
 #include <alibabacloud/models/InstallCloudAppResponse.hpp>
 #include <alibabacloud/models/ListCloudAppInstallationsRequest.hpp>
+#include <alibabacloud/models/ListCloudAppInstallationsShrinkRequest.hpp>
 #include <alibabacloud/models/ListCloudAppInstallationsResponseBody.hpp>
 #include <alibabacloud/models/ListCloudAppInstallationsResponse.hpp>
 #include <alibabacloud/models/ListCloudAppPatchesRequest.hpp>
@@ -651,6 +652,10 @@
 #include <alibabacloud/models/UpgradeRenderingInstanceImageShrinkRequest.hpp>
 #include <alibabacloud/models/UpgradeRenderingInstanceImageResponseBody.hpp>
 #include <alibabacloud/models/UpgradeRenderingInstanceImageResponse.hpp>
+#include <alibabacloud/models/UpgradeRenderingServerImageRequest.hpp>
+#include <alibabacloud/models/UpgradeRenderingServerImageShrinkRequest.hpp>
+#include <alibabacloud/models/UpgradeRenderingServerImageResponseBody.hpp>
+#include <alibabacloud/models/UpgradeRenderingServerImageResponse.hpp>
 #include <alibabacloud/models/UploadCloudAppRequest.hpp>
 #include <alibabacloud/models/UploadCloudAppShrinkRequest.hpp>
 #include <alibabacloud/models/UploadCloudAppResponseBody.hpp>

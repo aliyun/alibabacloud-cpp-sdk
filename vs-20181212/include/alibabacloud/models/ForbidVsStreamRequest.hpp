@@ -107,19 +107,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The stream control action. Valid values:
+    // - **forbid**: Disables the stream.
     shared_ptr<string> controlStreamAction_ {};
     // The accelerated domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // Only "publisher" is supported.
+    // The live stream type. Valid values: publisher.
     // 
     // This parameter is required.
     shared_ptr<string> liveStreamType_ {};
-    // Specifies whether to only interrupt the stream without adding it to the blacklist. A value of \\`yes\\` indicates that the stream is only interrupted.
+    // Specifies whether to only interrupt the stream without adding it to the blacklist. Valid values: yes: Interrupts the stream without adding it to the blacklist.
     shared_ptr<string> oneshot_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The time to resume the stream. The time is in UTC format.
+    // The time to resume the stream in UTC format.
     shared_ptr<string> resumeTime_ {};
     // The stream name.
     // 

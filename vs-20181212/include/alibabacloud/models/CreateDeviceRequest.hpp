@@ -241,71 +241,69 @@ namespace Models
 
 
   protected:
-    // GB-compliant alarm method to subscribe to. Valid values:
+    // The subscribed national standard alarm methods. Valid values:
+    // - 0: All.
+    // - 5: Video alarm.
+    // - 7: Other alarms.
     // 
-    // - 0 (all)
-    // 
-    // - 5 (video alarm)
-    // 
-    // - 7 (other alarms)
-    // 
-    // > * An empty value means no subscription.
-    // >
-    // > * You can specify multiple values, separated by commas (,).
+    // > - An empty value indicates no subscription.
+    // > - Multiple values are supported and must be separated by commas (,).
     shared_ptr<string> alarmMethod_ {};
     shared_ptr<bool> autoDirectory_ {};
-    // Whether to enable location subscription for the device. Default value: false.
+    // Specifies whether to enable device location subscription. Valid values:
+    // - true: Yes.
+    // - false: No.
+    // Default value: false.
     shared_ptr<bool> autoPos_ {};
-    // Whether to automatically start the stream. Default value: false.
+    // Specifies whether to automatically start the stream. Valid values:
+    // - true: Yes.
+    // - false: No.
+    // Default value: false.
     shared_ptr<bool> autoStart_ {};
-    // Device description.
+    // The description of the device.
     shared_ptr<string> description_ {};
-    // ID of the folder that contains the device.
+    // The ID of the folder to which the device belongs.
     shared_ptr<string> directoryId_ {};
-    // Device serial number.
+    // The serial number of the device.
     shared_ptr<string> dsn_ {};
-    // GB-compliant device ID.
-    // 
-    // > This parameter applies only to GB-compliant protocols.
+    // The national standard ID of the device.
+    // > This parameter is applicable only to the national standard protocol.
     shared_ptr<string> gbId_ {};
-    // ID of the space that contains the device.
+    // The ID of the workspace to which the device belongs.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // Device IP address.
+    // The IP address of the device.
     shared_ptr<string> ip_ {};
-    // The dimension of the device.
+    // The latitude of the device.
     shared_ptr<string> latitude_ {};
-    // Device longitude.
+    // The longitude of the device.
     shared_ptr<string> longitude_ {};
-    // Device name.
+    // The name of the device.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Additional device parameters, formatted as a JSON string.
+    // The other parameters of the device, in the format of a JSON serialized string.
     shared_ptr<string> params_ {};
-    // ID of the parent device. For example, the ID of the platform that hosts the camera.
+    // The ID of the parent device, such as the ID of the platform to which a camera belongs.
     shared_ptr<string> parentId_ {};
-    // Device password.
+    // The password of the device.
     shared_ptr<string> password_ {};
-    // Device port.
+    // The port of the device.
     shared_ptr<int64_t> port_ {};
-    // Location subscription interval, in seconds.
+    // The location subscription interval, in seconds.
     shared_ptr<int64_t> posInterval_ {};
-    // Device type. Valid values:
-    // 
-    // - ipc (camera)
-    // 
-    // - platform (platform)
-    // 
-    // - ied (intelligent device)
+    // The type of the device. Valid values:
+    // - ipc: IP camera.
+    // - platform: Platform.
+    // - ied: Intelligent device.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // Stream URL on the device.
+    // The URL of the stream on the device.
     shared_ptr<string> url_ {};
-    // Device username.
+    // The username of the device.
     shared_ptr<string> username_ {};
-    // Device vendor.
+    // The vendor of the device.
     shared_ptr<string> vendor_ {};
   };
 

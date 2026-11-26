@@ -21,13 +21,13 @@ namespace Vs20181212
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds one or more instances to a specified cluster.
+       * @summary Binds one or more workload instances to a specified cluster.
        *
-       * @description ## Usage notes
-       * - **HiveId** is a required parameter that specifies the ID of the target cluster.
-       * - **InstanceIds** is a required parameter that specifies a list of instance IDs to add.
-       * - Adding an instance that already exists in the target cluster returns an error message.
-       * - The response includes lists of successful and failed instances. This allows you to verify which instances were added and review the reasons for any failures.
+       * @description ## Request description
+       * - **HiveId** is a required parameter that specifies the ID of the target cluster to which the workloads are bound.
+       * - **InstanceIds** is a required parameter that specifies the list of workload IDs to bind to the cluster.
+       * - If you attempt to bind a workload ID that already exists in the target cluster, an error message is returned.
+       * - After the binding operation succeeds, the returned lists of successful and failed workload instances help you identify which workloads were successfully bound and which were not, along with the reasons for failure.
        *
        * @param tmpReq AddHiveEdgeWorkersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -36,13 +36,13 @@ namespace Vs20181212
       Models::AddHiveEdgeWorkersResponse addHiveEdgeWorkersWithOptions(const Models::AddHiveEdgeWorkersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds one or more instances to a specified cluster.
+       * @summary Binds one or more workload instances to a specified cluster.
        *
-       * @description ## Usage notes
-       * - **HiveId** is a required parameter that specifies the ID of the target cluster.
-       * - **InstanceIds** is a required parameter that specifies a list of instance IDs to add.
-       * - Adding an instance that already exists in the target cluster returns an error message.
-       * - The response includes lists of successful and failed instances. This allows you to verify which instances were added and review the reasons for any failures.
+       * @description ## Request description
+       * - **HiveId** is a required parameter that specifies the ID of the target cluster to which the workloads are bound.
+       * - **InstanceIds** is a required parameter that specifies the list of workload IDs to bind to the cluster.
+       * - If you attempt to bind a workload ID that already exists in the target cluster, an error message is returned.
+       * - After the binding operation succeeds, the returned lists of successful and failed workload instances help you identify which workloads were successfully bound and which were not, along with the reasons for failure.
        *
        * @param request AddHiveEdgeWorkersRequest
        * @return AddHiveEdgeWorkersResponse
@@ -178,9 +178,9 @@ namespace Vs20181212
        * @summary Retrieves screenshots of cloud application service instances.
        *
        * @description ## Request description
-       * - **Authentication**: The request must include the `AliUid` parameter to authenticate and perform identity verification.
-       * - **Instance specification**: You can specify the instances to capture screenshots of by using `RenderingInstanceIds`.
-       * - **Screenshot quality**: You can configure the Settings for the screenshot image quality by using the `Quality` parameter. The default value is 75 if not configured, and the valid values range from 1 to 100.
+       * - **Authenticate**: The request must include the AliUid parameter for identity verification.
+       * - **Instance specification**: You can use the RenderingInstanceIds parameter to specify the instances for which you want to capture screenshots.
+       * - **Screenshot quality**: The Quality parameter specifies the screenshot quality settings. The default value is 75 if not configured. Valid values: 1 to 100.
        * - **Response processing**: The response includes lists of successful and failed instances along with their related information, such as download URLs and screenshot completion times.
        *
        * @param tmpReq BatchCaptureRenderingInstanceScreenshotRequest
@@ -193,9 +193,9 @@ namespace Vs20181212
        * @summary Retrieves screenshots of cloud application service instances.
        *
        * @description ## Request description
-       * - **Authentication**: The request must include the `AliUid` parameter to authenticate and perform identity verification.
-       * - **Instance specification**: You can specify the instances to capture screenshots of by using `RenderingInstanceIds`.
-       * - **Screenshot quality**: You can configure the Settings for the screenshot image quality by using the `Quality` parameter. The default value is 75 if not configured, and the valid values range from 1 to 100.
+       * - **Authenticate**: The request must include the AliUid parameter for identity verification.
+       * - **Instance specification**: You can use the RenderingInstanceIds parameter to specify the instances for which you want to capture screenshots.
+       * - **Screenshot quality**: The Quality parameter specifies the screenshot quality settings. The default value is 75 if not configured. Valid values: 1 to 100.
        * - **Response processing**: The response includes lists of successful and failed instances along with their related information, such as download URLs and screenshot completion times.
        *
        * @param request BatchCaptureRenderingInstanceScreenshotRequest
@@ -571,7 +571,7 @@ namespace Vs20181212
       /**
        * @summary Starts a Comfy task.
        *
-       * @description > Enable the on-demand screenshot feature in the associated screenshot template.
+       * @description > Enable the on-demand screenshot feature in the associated screenshot template in advance.
        *
        * @param request CreateComfyTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -582,7 +582,7 @@ namespace Vs20181212
       /**
        * @summary Starts a Comfy task.
        *
-       * @description > Enable the on-demand screenshot feature in the associated screenshot template.
+       * @description > Enable the on-demand screenshot feature in the associated screenshot template in advance.
        *
        * @param request CreateComfyTaskRequest
        * @return CreateComfyTaskResponse
@@ -613,7 +613,7 @@ namespace Vs20181212
       /**
        * @summary Uploads a Comfy workflow.
        *
-       * @description > You must first enable the on-demand snapshot feature in the associated snapshot template.
+       * @description > You must enable the on-demand screenshot feature in the associated screenshot template in advance.
        *
        * @param request CreateComfyWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -624,7 +624,7 @@ namespace Vs20181212
       /**
        * @summary Uploads a Comfy workflow.
        *
-       * @description > You must first enable the on-demand snapshot feature in the associated snapshot template.
+       * @description > You must enable the on-demand screenshot feature in the associated screenshot template in advance.
        *
        * @param request CreateComfyWorkflowRequest
        * @return CreateComfyWorkflowResponse
@@ -632,7 +632,11 @@ namespace Vs20181212
       Models::CreateComfyWorkflowResponse createComfyWorkflow(const Models::CreateComfyWorkflowRequest &request);
 
       /**
-       * @summary Add a new device.
+       * @summary Adds a new device.
+       *
+       * @description > 
+       * > - This operation is applicable only to workspaces whose access type is **GB28181 pull streaming** or **ODCAP**.
+       * > - Workspaces whose access type is **RTMP push streaming** **do not support** adding devices.
        *
        * @param request CreateDeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -641,7 +645,11 @@ namespace Vs20181212
       Models::CreateDeviceResponse createDeviceWithOptions(const Models::CreateDeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add a new device.
+       * @summary Adds a new device.
+       *
+       * @description > 
+       * > - This operation is applicable only to workspaces whose access type is **GB28181 pull streaming** or **ODCAP**.
+       * > - Workspaces whose access type is **RTMP push streaming** **do not support** adding devices.
        *
        * @param request CreateDeviceRequest
        * @return CreateDeviceResponse
@@ -702,7 +710,7 @@ namespace Vs20181212
       /**
        * @summary Creates a cluster.
        *
-       * @description ## Description
+       * @description ## Request description
        * - This operation creates an empty cluster to manage workloads.
        *
        * @param request CreateHiveRequest
@@ -714,7 +722,7 @@ namespace Vs20181212
       /**
        * @summary Creates a cluster.
        *
-       * @description ## Description
+       * @description ## Request description
        * - This operation creates an empty cluster to manage workloads.
        *
        * @param request CreateHiveRequest
@@ -757,7 +765,7 @@ namespace Vs20181212
       Models::CreateRenderingDataPackageResponse createRenderingDataPackage(const Models::CreateRenderingDataPackageRequest &request);
 
       /**
-       * @summary Applies for a cloud rendering resource instance.
+       * @summary Creates a cloud application service instance.
        *
        * @param tmpReq CreateRenderingInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -766,7 +774,7 @@ namespace Vs20181212
       Models::CreateRenderingInstanceResponse createRenderingInstanceWithOptions(const Models::CreateRenderingInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Applies for a cloud rendering resource instance.
+       * @summary Creates a cloud application service instance.
        *
        * @param request CreateRenderingInstanceRequest
        * @return CreateRenderingInstanceResponse
@@ -1245,9 +1253,9 @@ namespace Vs20181212
       Models::DescribeAccountStatResponse describeAccountStat(const Models::DescribeAccountStatRequest &request);
 
       /**
-       * @summary Retrieves the download URL for user-generated results.
+       * @summary Retrieves the download link for user-generated results.
        *
-       * @description > Screenshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
+       * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
        *
        * @param request DescribeComfyProductionDownloadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1256,9 +1264,9 @@ namespace Vs20181212
       Models::DescribeComfyProductionDownloadUrlResponse describeComfyProductionDownloadUrlWithOptions(const Models::DescribeComfyProductionDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the download URL for user-generated results.
+       * @summary Retrieves the download link for user-generated results.
        *
-       * @description > Screenshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
+       * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
        *
        * @param request DescribeComfyProductionDownloadUrlRequest
        * @return DescribeComfyProductionDownloadUrlResponse
@@ -1287,7 +1295,7 @@ namespace Vs20181212
       Models::DescribeComfyProductionsResponse describeComfyProductions(const Models::DescribeComfyProductionsRequest &request);
 
       /**
-       * @summary Queries the waiting queue information of Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
+       * @summary Queries the waiting queue information for Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
        *
        * @param request DescribeComfyTaskWaitingQueueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1296,7 +1304,7 @@ namespace Vs20181212
       Models::DescribeComfyTaskWaitingQueueResponse describeComfyTaskWaitingQueueWithOptions(const Models::DescribeComfyTaskWaitingQueueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the waiting queue information of Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
+       * @summary Queries the waiting queue information for Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
        *
        * @param request DescribeComfyTaskWaitingQueueRequest
        * @return DescribeComfyTaskWaitingQueueResponse
@@ -1306,7 +1314,7 @@ namespace Vs20181212
       /**
        * @summary Queries the list of Comfy tasks.
        *
-       * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in a new request.
+       * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
        *
        * @param request DescribeComfyTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1317,7 +1325,7 @@ namespace Vs20181212
       /**
        * @summary Queries the list of Comfy tasks.
        *
-       * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in a new request.
+       * @description > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
        *
        * @param request DescribeComfyTasksRequest
        * @return DescribeComfyTasksResponse
@@ -2296,7 +2304,7 @@ namespace Vs20181212
       Models::DescribeVsUserResourcePackageResponse describeVsUserResourcePackage(const Models::DescribeVsUserResourcePackageRequest &request);
 
       /**
-       * @summary Queries the verification content.
+       * @summary Queries the check content.
        *
        * @param request DescribeVsVerifyContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2305,7 +2313,7 @@ namespace Vs20181212
       Models::DescribeVsVerifyContentResponse describeVsVerifyContentWithOptions(const Models::DescribeVsVerifyContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the verification content.
+       * @summary Queries the check content.
        *
        * @param request DescribeVsVerifyContentRequest
        * @return DescribeVsVerifyContentResponse
@@ -2330,7 +2338,7 @@ namespace Vs20181212
       Models::DisassociateRenderingProjectInstancesResponse disassociateRenderingProjectInstances(const Models::DisassociateRenderingProjectInstancesRequest &request);
 
       /**
-       * @summary Forbids pushing a specific stream. You can schedule a time to resume the stream.
+       * @summary Disables the push of a specific stream and allows you to schedule a time to resume the stream.
        *
        * @param request ForbidVsStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2339,7 +2347,7 @@ namespace Vs20181212
       Models::ForbidVsStreamResponse forbidVsStreamWithOptions(const Models::ForbidVsStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Forbids pushing a specific stream. You can schedule a time to resume the stream.
+       * @summary Disables the push of a specific stream and allows you to schedule a time to resume the stream.
        *
        * @param request ForbidVsStreamRequest
        * @return ForbidVsStreamResponse
@@ -2434,16 +2442,16 @@ namespace Vs20181212
       Models::InstallCloudAppResponse installCloudApp(const Models::InstallCloudAppRequest &request);
 
       /**
-       * @summary Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances. Paging is supported for paged query.
+       * @summary Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances, and supports paging for a paged query.
        *
-       * @param request ListCloudAppInstallationsRequest
+       * @param tmpReq ListCloudAppInstallationsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListCloudAppInstallationsResponse
        */
-      Models::ListCloudAppInstallationsResponse listCloudAppInstallationsWithOptions(const Models::ListCloudAppInstallationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ListCloudAppInstallationsResponse listCloudAppInstallationsWithOptions(const Models::ListCloudAppInstallationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances. Paging is supported for paged query.
+       * @summary Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances, and supports paging for a paged query.
        *
        * @param request ListCloudAppInstallationsRequest
        * @return ListCloudAppInstallationsResponse
@@ -2451,9 +2459,9 @@ namespace Vs20181212
       Models::ListCloudAppInstallationsResponse listCloudAppInstallations(const Models::ListCloudAppInstallationsRequest &request);
 
       /**
-       * @summary Queries the patch list of a cloud application.
+       * @summary Queries the list of patches for a cloud application.
        *
-       * @description >Specify at least one of the template ID and the templatetype.
+       * @description > Specify at least one of the template ID and templatetype.
        *
        * @param request ListCloudAppPatchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2462,9 +2470,9 @@ namespace Vs20181212
       Models::ListCloudAppPatchesResponse listCloudAppPatchesWithOptions(const Models::ListCloudAppPatchesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the patch list of a cloud application.
+       * @summary Queries the list of patches for a cloud application.
        *
-       * @description >Specify at least one of the template ID and the templatetype.
+       * @description > Specify at least one of the template ID and templatetype.
        *
        * @param request ListCloudAppPatchesRequest
        * @return ListCloudAppPatchesResponse
@@ -2472,7 +2480,7 @@ namespace Vs20181212
       Models::ListCloudAppPatchesResponse listCloudAppPatches(const Models::ListCloudAppPatchesRequest &request);
 
       /**
-       * @summary Queries the list of cloud applications and supports paging and paged query.
+       * @summary Queries a list of cloud applications and supports paging in a paged query.
        *
        * @param request ListCloudAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2481,7 +2489,7 @@ namespace Vs20181212
       Models::ListCloudAppsResponse listCloudAppsWithOptions(const Models::ListCloudAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of cloud applications and supports paging and paged query.
+       * @summary Queries a list of cloud applications and supports paging in a paged query.
        *
        * @param request ListCloudAppsRequest
        * @return ListCloudAppsResponse
@@ -2518,7 +2526,7 @@ namespace Vs20181212
       Models::ListEdgeWorkersResponse listEdgeWorkers(const Models::ListEdgeWorkersRequest &request);
 
       /**
-       * @summary Queries the push status list of cloud application service instances for a file. Paging is supported for paged query.
+       * @summary Queries the push status list for a file on cloud application service instances, and supports paging and paged query.
        *
        * @param request ListFilePushStatusesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2527,7 +2535,7 @@ namespace Vs20181212
       Models::ListFilePushStatusesResponse listFilePushStatusesWithOptions(const Models::ListFilePushStatusesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the push status list of cloud application service instances for a file. Paging is supported for paged query.
+       * @summary Queries the push status list for a file on cloud application service instances, and supports paging and paged query.
        *
        * @param request ListFilePushStatusesRequest
        * @return ListFilePushStatusesResponse
@@ -2535,7 +2543,7 @@ namespace Vs20181212
       Models::ListFilePushStatusesResponse listFilePushStatuses(const Models::ListFilePushStatusesRequest &request);
 
       /**
-       * @summary Queries a list of uploaded files. The response includes the upload status of the files and supports paging for a paged query.
+       * @summary Queries a list of uploaded files. The response includes the upload status of the files and supports paging and paged query.
        *
        * @param request ListFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2544,7 +2552,7 @@ namespace Vs20181212
       Models::ListFilesResponse listFilesWithOptions(const Models::ListFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of uploaded files. The response includes the upload status of the files and supports paging for a paged query.
+       * @summary Queries a list of uploaded files. The response includes the upload status of the files and supports paging and paged query.
        *
        * @param request ListFilesRequest
        * @return ListFilesResponse
@@ -3250,7 +3258,7 @@ namespace Vs20181212
       Models::ResetRenderingInstanceResponse resetRenderingInstance(const Models::ResetRenderingInstanceRequest &request);
 
       /**
-       * @summary Resumes pushing for a stream.
+       * @summary Resumes the push of a specific stream.
        *
        * @param request ResumeVsStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3259,7 +3267,7 @@ namespace Vs20181212
       Models::ResumeVsStreamResponse resumeVsStreamWithOptions(const Models::ResumeVsStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resumes pushing for a stream.
+       * @summary Resumes the push of a specific stream.
        *
        * @param request ResumeVsStreamRequest
        * @return ResumeVsStreamResponse
@@ -3856,6 +3864,23 @@ namespace Vs20181212
        * @return UpgradeRenderingInstanceImageResponse
        */
       Models::UpgradeRenderingInstanceImageResponse upgradeRenderingInstanceImage(const Models::UpgradeRenderingInstanceImageRequest &request);
+
+      /**
+       * @summary 升级云应用服务主机镜像
+       *
+       * @param tmpReq UpgradeRenderingServerImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradeRenderingServerImageResponse
+       */
+      Models::UpgradeRenderingServerImageResponse upgradeRenderingServerImageWithOptions(const Models::UpgradeRenderingServerImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 升级云应用服务主机镜像
+       *
+       * @param request UpgradeRenderingServerImageRequest
+       * @return UpgradeRenderingServerImageResponse
+       */
+      Models::UpgradeRenderingServerImageResponse upgradeRenderingServerImage(const Models::UpgradeRenderingServerImageRequest &request);
 
       /**
        * @summary Uploads or publishes a cloud application package. This is an asynchronous operation. You can call the ListCloudApps operation to query the upload progress.

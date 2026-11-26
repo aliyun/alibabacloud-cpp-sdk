@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The error code returned if the call fails. For more information, see Error codes.
+    // The error code returned when the call fails. For more information, see Error codes.
     shared_ptr<int64_t> code_ {};
     // The description.
     shared_ptr<string> message_ {};

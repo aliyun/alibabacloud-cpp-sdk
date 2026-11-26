@@ -116,15 +116,15 @@ namespace Models
 
 
     protected:
-      // The ComfyTask ID.
+      // The ID of the ComfyTask.
       shared_ptr<string> comfyTaskId_ {};
-      // The creation time. The time follows the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
+      // The creation time. The time follows the ISO 8601 standard and includes the time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
       shared_ptr<string> creationTime_ {};
       // The file name of the production.
       shared_ptr<string> fileName_ {};
-      // The production ID.
+      // The ID of the production.
       shared_ptr<string> productionId_ {};
-      // The production status.
+      // The status of the production.
       shared_ptr<string> state_ {};
       // The last modified time. The time is a UNIX timestamp in seconds.
       shared_ptr<string> updatedTime_ {};

@@ -60,9 +60,9 @@ namespace Models
 
 
   protected:
-    // The instance ID of the cloud application service.
+    // The cloud application service instance ID.
     shared_ptr<string> renderingInstanceId_ {};
-    // The instance ID list of the cloud application service.
+    // The cloud application service instance ID list.
     shared_ptr<vector<string>> renderingInstanceIds_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
