@@ -61,11 +61,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // The folder name.
+    // The name of the folder.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The parent folder ID.
+    // The ID of the parent folder.
     // 
     // This parameter is required.
     shared_ptr<string> parentDirectoryId_ {};

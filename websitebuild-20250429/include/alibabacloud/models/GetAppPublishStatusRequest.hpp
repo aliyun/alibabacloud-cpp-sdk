@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetAppPublishStatusRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(DeployOrderId, deployOrderId_);
+      DARABONBA_PTR_TO_JSON(PublishOrderId, publishOrderId_);
       DARABONBA_PTR_TO_JSON(WebsiteDomain, websiteDomain_);
     };
     friend void from_json(const Darabonba::Json& j, GetAppPublishStatusRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(DeployOrderId, deployOrderId_);
+      DARABONBA_PTR_FROM_JSON(PublishOrderId, publishOrderId_);
       DARABONBA_PTR_FROM_JSON(WebsiteDomain, websiteDomain_);
     };
     GetAppPublishStatusRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->deployOrderId_ == nullptr && this->websiteDomain_ == nullptr; };
+        && this->deployOrderId_ == nullptr && this->publishOrderId_ == nullptr && this->websiteDomain_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline GetAppPublishStatusRequest& setDeployOrderId(int64_t deployOrderId) { DARABONBA_PTR_SET_VALUE(deployOrderId_, deployOrderId) };
 
 
+    // publishOrderId Field Functions 
+    bool hasPublishOrderId() const { return this->publishOrderId_ != nullptr;};
+    void deletePublishOrderId() { this->publishOrderId_ = nullptr;};
+    inline int64_t getPublishOrderId() const { DARABONBA_PTR_GET_DEFAULT(publishOrderId_, 0L) };
+    inline GetAppPublishStatusRequest& setPublishOrderId(int64_t publishOrderId) { DARABONBA_PTR_SET_VALUE(publishOrderId_, publishOrderId) };
+
+
     // websiteDomain Field Functions 
     bool hasWebsiteDomain() const { return this->websiteDomain_ != nullptr;};
     void deleteWebsiteDomain() { this->websiteDomain_ = nullptr;};
@@ -59,8 +68,9 @@ namespace Models
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
-    // The deployment ticket ID.
+    // The deployment order ID.
     shared_ptr<int64_t> deployOrderId_ {};
+    shared_ptr<int64_t> publishOrderId_ {};
     // The website domain name.
     shared_ptr<string> websiteDomain_ {};
   };

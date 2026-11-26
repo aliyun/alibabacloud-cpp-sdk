@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> operator_ {};
     // The source business ID.
     shared_ptr<string> sourceBizId_ {};
-    // The source. Set this parameter to MARKET_CLOUD_DREAM.
+    // The source type. Valid value: MARKET_CLOUD_DREAM.
     shared_ptr<string> sourceType_ {};
   };
 

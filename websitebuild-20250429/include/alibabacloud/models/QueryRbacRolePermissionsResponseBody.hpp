@@ -141,7 +141,7 @@ namespace Models
 
 
       protected:
-        // The system-defined parameter. Set the value to **GetCreateCustomerInfomation**.
+        // The system-defined parameter. Valid value: **GetCreateCustomerInfomation**.
         shared_ptr<string> action_ {};
         // The scenario description.
         shared_ptr<string> description_ {};
@@ -149,7 +149,7 @@ namespace Models
         shared_ptr<string> id_ {};
         // The statistical method for the Warn level.
         // 
-        // The value of `Statistics` varies with the cloud service. For more information, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+        // The valid values of `Statistics` vary by cloud service. For more information, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
         shared_ptr<string> resource_ {};
       };
 
@@ -209,7 +209,7 @@ namespace Models
 
 
       protected:
-        // The system-defined parameter. Set the value to **DeleteIntegration**.
+        // The system-defined parameter. Valid value: **DeleteIntegration**.
         shared_ptr<string> action_ {};
         // The scenario description.
         shared_ptr<string> description_ {};
@@ -292,17 +292,17 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The request result.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
-      // The ID of the next feature.
+      // The next feature ID.
       shared_ptr<Module::Next> next_ {};
       // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -397,17 +397,17 @@ namespace Models
   protected:
     // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Specifies whether retries are allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the application.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not used. Ignore it.
+    // The dynamic message. This parameter is not used and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Indicates whether the move is successful.
+    // Indicates whether the move operation is successful.
     shared_ptr<QueryRbacRolePermissionsResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
@@ -415,7 +415,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Specifies whether synchronous processing is used.
+    // Indicates whether the processing is synchronous.
     shared_ptr<bool> synchro_ {};
   };
 

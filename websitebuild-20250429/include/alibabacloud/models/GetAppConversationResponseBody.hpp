@@ -182,7 +182,7 @@ namespace Models
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The update time. The time is in the ISO 8601 format and the UTC time zone (Z).
+      // The update time. The value is in ISO 8601 format and the time zone is UTC (Z).
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
@@ -190,7 +190,7 @@ namespace Models
       shared_ptr<string> metaData_ {};
       // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
-      // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+      // The site ID.
       shared_ptr<string> siteId_ {};
       // The current viewpoint, which is equivalent to the news title.
       shared_ptr<string> title_ {};
@@ -291,7 +291,7 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
     // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.

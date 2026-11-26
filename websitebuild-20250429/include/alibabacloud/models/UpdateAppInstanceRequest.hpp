@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // The tag key of the instance. Valid values of N: **1** to **20**. The tag key cannot be an empty string.
+      // The tag key of the instance. Valid values of N: **1** to **20**. The value cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> tagKey_ {};
-      // The tag value of the instance. Valid values of N: **1** to **20**. The tag value can be an empty string.
+      // The tag value of the instance. Valid values of N: **1** to **20**. The value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag value cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -204,7 +204,7 @@ namespace Models
     shared_ptr<string> applicationType_ {};
     // The business ID.
     shared_ptr<string> bizId_ {};
-    // The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The client token supports only ASCII characters and can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The deployment region.
     shared_ptr<string> deployArea_ {};
@@ -212,19 +212,19 @@ namespace Models
     shared_ptr<string> description_ {};
     // The extended information.
     shared_ptr<string> extend_ {};
-    // The application icon URL.
+    // The application icon.
     shared_ptr<string> iconUrl_ {};
     // The application name.
     shared_ptr<string> name_ {};
     // The payment type.
     shared_ptr<string> paymentType_ {};
-    // The ID of the resource group to which the instance belongs.
+    // The ID of the enterprise resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
     // The website version.
     shared_ptr<string> siteVersion_ {};
     // The tags.
     shared_ptr<vector<UpdateAppInstanceRequest::Tags>> tags_ {};
-    // The application thumbnail URL.
+    // The application thumbnail.
     shared_ptr<string> thumbnailUrl_ {};
   };
 

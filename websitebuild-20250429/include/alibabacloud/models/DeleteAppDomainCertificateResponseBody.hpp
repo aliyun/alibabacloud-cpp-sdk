@@ -169,13 +169,13 @@ namespace Models
   protected:
     // The details of the permission check failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Specifies whether retries are allowed. Valid values:
+    // Indicates whether retries are allowed. Valid values:
     // - false: Retries are not allowed.
     // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the application. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
+    // The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is currently unused and can be ignored.
+    // The dynamic code. This field is currently unused and can be ignored.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};

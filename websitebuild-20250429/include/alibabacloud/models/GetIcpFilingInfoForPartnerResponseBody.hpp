@@ -82,7 +82,7 @@ namespace Models
       shared_ptr<string> icpNumber_ {};
       // Indicates whether the domain name has an ICP filing.
       shared_ptr<bool> recorded_ {};
-      // The website ICP filing number associated with the domain name.
+      // The website ICP filing number corresponding to the domain name.
       shared_ptr<string> siteRecordNumber_ {};
     };
 

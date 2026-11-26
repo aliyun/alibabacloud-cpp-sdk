@@ -184,11 +184,11 @@ namespace Models
       shared_ptr<string> accessTokenExpiresAt_ {};
       // The time when the access token was issued.
       shared_ptr<string> accessTokenIssuedAt_ {};
-      // The access token value.
+      // The value of the access token.
       shared_ptr<string> accessTokenValue_ {};
       // The user ID.
       shared_ptr<string> aliyunPk_ {};
-      // The extended properties.
+      // The extended attributes.
       shared_ptr<string> attributes_ {};
       // The authorization code type.
       shared_ptr<string> authorizationGrantType_ {};
@@ -200,9 +200,9 @@ namespace Models
       shared_ptr<string> refreshTokenExpiresAt_ {};
       // The time when the refresh token was issued.
       shared_ptr<string> refreshTokenIssuedAt_ {};
-      // The refresh token value.
+      // The value of the refresh token.
       shared_ptr<string> refreshTokenValue_ {};
-      // The external unique identifier.
+      // The externally unique identifier.
       shared_ptr<string> uuid_ {};
     };
 
@@ -291,18 +291,18 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The application module.
     shared_ptr<RefreshAppInstanceTicketResponseBody::Module> module_ {};

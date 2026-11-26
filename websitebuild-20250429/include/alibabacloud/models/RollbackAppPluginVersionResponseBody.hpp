@@ -90,7 +90,7 @@ namespace Models
     protected:
       // The status.
       shared_ptr<string> status_ {};
-      // Indicates whether the operation is successful.
+      // Indicates whether the request is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -183,20 +183,19 @@ namespace Models
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the application.
+    // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+    // The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The invalid parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<RollbackAppPluginVersionResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The root error code.
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};

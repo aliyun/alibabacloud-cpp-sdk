@@ -172,14 +172,14 @@ namespace Models
 
 
       protected:
-        // The descriptive tones identified from the image.
+        // The descriptive tones recognized from the image.
         shared_ptr<string> descriptiveTones_ {};
         // The height of the image.
         shared_ptr<int32_t> height_ {};
         // The image category. Valid values:
-        // - normal: illustrations or article images.
-        // - banner: background images or carousel images.
-        // - goods: product or service images.
+        // - normal: Illustrations and article images.
+        // - banner: Background images and carousel images.
+        // - goods: Product or service images.
         shared_ptr<string> imageCategory_ {};
         // The aspect ratio.
         shared_ptr<string> imageRatio_ {};
@@ -225,11 +225,9 @@ namespace Models
     protected:
       // The image list.
       shared_ptr<vector<ImageResponse::ImageList>> imageList_ {};
-      // The number of entries returned per query.
-      // 
-      // Valid values: 10 to 100. Default value: 20.
+      // The number of results returned per query. Valid values: 10 to 100. Default value: 20.
       shared_ptr<int32_t> maxResults_ {};
-      // The token for the next query. This value is empty if there are no more results.
+      // The token for the next query. This parameter is empty if no next query exists.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -273,7 +271,7 @@ namespace Models
 
 
   protected:
-    // The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
+    // The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error code list in this topic.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};
@@ -281,7 +279,7 @@ namespace Models
     shared_ptr<SearchImageResponseBody::ImageResponse> imageResponse_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
   };
 

@@ -133,7 +133,7 @@ namespace Models
 
 
   protected:
-    // The detailed reason for the access denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -146,7 +146,7 @@ namespace Models
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The returned object.
+    // The response object.
     shared_ptr<string> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

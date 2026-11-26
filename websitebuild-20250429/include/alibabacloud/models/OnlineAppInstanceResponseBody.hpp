@@ -137,11 +137,11 @@ namespace Models
   protected:
     // The details of the authentication failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the application. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
+    // The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
     shared_ptr<string> appName_ {};
-    // The dynamic error code. This parameter is about to be deprecated.
+    // The dynamic error code. This parameter will be deprecated soon.
     shared_ptr<string> dynamicCode_ {};
     // The placeholder in the dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
@@ -155,7 +155,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is processed synchronously.
+    // Indicates whether the operation is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

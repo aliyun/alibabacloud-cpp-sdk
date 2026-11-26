@@ -108,7 +108,7 @@ namespace Models
     protected:
       // The commit ID.
       shared_ptr<string> commitSha_ {};
-      // The ID of the bound API gateway plugin.
+      // The ID of the bound API gateway plug-in.
       shared_ptr<string> pluginId_ {};
       // trial,draft,live,refunded,expired,released
       shared_ptr<string> status_ {};
@@ -201,11 +201,11 @@ namespace Models
 
 
   protected:
-    // The detailed reasons for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Specifies whether a retry is allowed. Valid values:
-    // - false: A retry is not allowed.
-    // - true: A retry is allowed.
+    // Indicates whether retries are allowed. Valid values:
+    // - false: Retries are not allowed.
+    // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The name of the application.
     shared_ptr<string> appName_ {};
@@ -223,7 +223,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Specifies whether synchronous processing is used.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

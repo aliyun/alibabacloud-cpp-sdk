@@ -84,7 +84,12 @@ namespace Models
       class History : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const History& obj) { 
+          DARABONBA_PTR_TO_JSON(ArtifactDigest, artifactDigest_);
+          DARABONBA_PTR_TO_JSON(AuditId, auditId_);
+          DARABONBA_PTR_TO_JSON(BindingId, bindingId_);
           DARABONBA_PTR_TO_JSON(CanQuickRevert, canQuickRevert_);
+          DARABONBA_PTR_TO_JSON(CandidateId, candidateId_);
+          DARABONBA_PTR_TO_JSON(CandidateStatus, candidateStatus_);
           DARABONBA_PTR_TO_JSON(CommitHash, commitHash_);
           DARABONBA_PTR_TO_JSON(CurrentStep, currentStep_);
           DARABONBA_PTR_TO_JSON(CurrentStepCode, currentStepCode_);
@@ -98,15 +103,34 @@ namespace Models
           DARABONBA_PTR_TO_JSON(OrderType, orderType_);
           DARABONBA_PTR_TO_JSON(OrderTypeCode, orderTypeCode_);
           DARABONBA_PTR_TO_JSON(Percent, percent_);
+          DARABONBA_PTR_TO_JSON(PlatformAppid, platformAppid_);
+          DARABONBA_PTR_TO_JSON(PluginDeclarationHash, pluginDeclarationHash_);
+          DARABONBA_PTR_TO_JSON(PluginState, pluginState_);
+          DARABONBA_PTR_TO_JSON(PrivacyDraftId, privacyDraftId_);
+          DARABONBA_PTR_TO_JSON(PrivacyRevision, privacyRevision_);
+          DARABONBA_PTR_TO_JSON(PublishDiagnostics, publishDiagnostics_);
+          DARABONBA_PTR_TO_JSON(PublishEnv, publishEnv_);
           DARABONBA_PTR_TO_JSON(PublishNumber, publishNumber_);
           DARABONBA_PTR_TO_JSON(PublishOrderId, publishOrderId_);
           DARABONBA_PTR_TO_JSON(PublishTime, publishTime_);
+          DARABONBA_PTR_TO_JSON(ReadbackStatus, readbackStatus_);
           DARABONBA_PTR_TO_JSON(StepCodes, stepCodes_);
           DARABONBA_PTR_TO_JSON(Steps, steps_);
           DARABONBA_PTR_TO_JSON(Subchannel, subchannel_);
+          DARABONBA_PTR_TO_JSON(SubmitIntentStatus, submitIntentStatus_);
+          DARABONBA_PTR_TO_JSON(UpdatedAt, updatedAt_);
+          DARABONBA_PTR_TO_JSON(UploadAttemptId, uploadAttemptId_);
+          DARABONBA_PTR_TO_JSON(UploadLeaseState, uploadLeaseState_);
+          DARABONBA_PTR_TO_JSON(UploadSequence, uploadSequence_);
+          DARABONBA_PTR_TO_JSON(UploadTicketState, uploadTicketState_);
         };
         friend void from_json(const Darabonba::Json& j, History& obj) { 
+          DARABONBA_PTR_FROM_JSON(ArtifactDigest, artifactDigest_);
+          DARABONBA_PTR_FROM_JSON(AuditId, auditId_);
+          DARABONBA_PTR_FROM_JSON(BindingId, bindingId_);
           DARABONBA_PTR_FROM_JSON(CanQuickRevert, canQuickRevert_);
+          DARABONBA_PTR_FROM_JSON(CandidateId, candidateId_);
+          DARABONBA_PTR_FROM_JSON(CandidateStatus, candidateStatus_);
           DARABONBA_PTR_FROM_JSON(CommitHash, commitHash_);
           DARABONBA_PTR_FROM_JSON(CurrentStep, currentStep_);
           DARABONBA_PTR_FROM_JSON(CurrentStepCode, currentStepCode_);
@@ -120,12 +144,26 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
           DARABONBA_PTR_FROM_JSON(OrderTypeCode, orderTypeCode_);
           DARABONBA_PTR_FROM_JSON(Percent, percent_);
+          DARABONBA_PTR_FROM_JSON(PlatformAppid, platformAppid_);
+          DARABONBA_PTR_FROM_JSON(PluginDeclarationHash, pluginDeclarationHash_);
+          DARABONBA_PTR_FROM_JSON(PluginState, pluginState_);
+          DARABONBA_PTR_FROM_JSON(PrivacyDraftId, privacyDraftId_);
+          DARABONBA_PTR_FROM_JSON(PrivacyRevision, privacyRevision_);
+          DARABONBA_PTR_FROM_JSON(PublishDiagnostics, publishDiagnostics_);
+          DARABONBA_PTR_FROM_JSON(PublishEnv, publishEnv_);
           DARABONBA_PTR_FROM_JSON(PublishNumber, publishNumber_);
           DARABONBA_PTR_FROM_JSON(PublishOrderId, publishOrderId_);
           DARABONBA_PTR_FROM_JSON(PublishTime, publishTime_);
+          DARABONBA_PTR_FROM_JSON(ReadbackStatus, readbackStatus_);
           DARABONBA_PTR_FROM_JSON(StepCodes, stepCodes_);
           DARABONBA_PTR_FROM_JSON(Steps, steps_);
           DARABONBA_PTR_FROM_JSON(Subchannel, subchannel_);
+          DARABONBA_PTR_FROM_JSON(SubmitIntentStatus, submitIntentStatus_);
+          DARABONBA_PTR_FROM_JSON(UpdatedAt, updatedAt_);
+          DARABONBA_PTR_FROM_JSON(UploadAttemptId, uploadAttemptId_);
+          DARABONBA_PTR_FROM_JSON(UploadLeaseState, uploadLeaseState_);
+          DARABONBA_PTR_FROM_JSON(UploadSequence, uploadSequence_);
+          DARABONBA_PTR_FROM_JSON(UploadTicketState, uploadTicketState_);
         };
         History() = default ;
         History(const History &) = default ;
@@ -138,16 +176,55 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->canQuickRevert_ == nullptr
+        virtual bool empty() const override { return this->artifactDigest_ == nullptr
+        && this->auditId_ == nullptr && this->bindingId_ == nullptr && this->canQuickRevert_ == nullptr && this->candidateId_ == nullptr && this->candidateStatus_ == nullptr
         && this->commitHash_ == nullptr && this->currentStep_ == nullptr && this->currentStepCode_ == nullptr && this->deployChannel_ == nullptr && this->description_ == nullptr
         && this->errorStep_ == nullptr && this->errorStepCode_ == nullptr && this->isFinish_ == nullptr && this->isSuccess_ == nullptr && this->msg_ == nullptr
-        && this->orderType_ == nullptr && this->orderTypeCode_ == nullptr && this->percent_ == nullptr && this->publishNumber_ == nullptr && this->publishOrderId_ == nullptr
-        && this->publishTime_ == nullptr && this->stepCodes_ == nullptr && this->steps_ == nullptr && this->subchannel_ == nullptr; };
+        && this->orderType_ == nullptr && this->orderTypeCode_ == nullptr && this->percent_ == nullptr && this->platformAppid_ == nullptr && this->pluginDeclarationHash_ == nullptr
+        && this->pluginState_ == nullptr && this->privacyDraftId_ == nullptr && this->privacyRevision_ == nullptr && this->publishDiagnostics_ == nullptr && this->publishEnv_ == nullptr
+        && this->publishNumber_ == nullptr && this->publishOrderId_ == nullptr && this->publishTime_ == nullptr && this->readbackStatus_ == nullptr && this->stepCodes_ == nullptr
+        && this->steps_ == nullptr && this->subchannel_ == nullptr && this->submitIntentStatus_ == nullptr && this->updatedAt_ == nullptr && this->uploadAttemptId_ == nullptr
+        && this->uploadLeaseState_ == nullptr && this->uploadSequence_ == nullptr && this->uploadTicketState_ == nullptr; };
+        // artifactDigest Field Functions 
+        bool hasArtifactDigest() const { return this->artifactDigest_ != nullptr;};
+        void deleteArtifactDigest() { this->artifactDigest_ = nullptr;};
+        inline string getArtifactDigest() const { DARABONBA_PTR_GET_DEFAULT(artifactDigest_, "") };
+        inline History& setArtifactDigest(string artifactDigest) { DARABONBA_PTR_SET_VALUE(artifactDigest_, artifactDigest) };
+
+
+        // auditId Field Functions 
+        bool hasAuditId() const { return this->auditId_ != nullptr;};
+        void deleteAuditId() { this->auditId_ = nullptr;};
+        inline string getAuditId() const { DARABONBA_PTR_GET_DEFAULT(auditId_, "") };
+        inline History& setAuditId(string auditId) { DARABONBA_PTR_SET_VALUE(auditId_, auditId) };
+
+
+        // bindingId Field Functions 
+        bool hasBindingId() const { return this->bindingId_ != nullptr;};
+        void deleteBindingId() { this->bindingId_ = nullptr;};
+        inline string getBindingId() const { DARABONBA_PTR_GET_DEFAULT(bindingId_, "") };
+        inline History& setBindingId(string bindingId) { DARABONBA_PTR_SET_VALUE(bindingId_, bindingId) };
+
+
         // canQuickRevert Field Functions 
         bool hasCanQuickRevert() const { return this->canQuickRevert_ != nullptr;};
         void deleteCanQuickRevert() { this->canQuickRevert_ = nullptr;};
         inline string getCanQuickRevert() const { DARABONBA_PTR_GET_DEFAULT(canQuickRevert_, "") };
         inline History& setCanQuickRevert(string canQuickRevert) { DARABONBA_PTR_SET_VALUE(canQuickRevert_, canQuickRevert) };
+
+
+        // candidateId Field Functions 
+        bool hasCandidateId() const { return this->candidateId_ != nullptr;};
+        void deleteCandidateId() { this->candidateId_ = nullptr;};
+        inline string getCandidateId() const { DARABONBA_PTR_GET_DEFAULT(candidateId_, "") };
+        inline History& setCandidateId(string candidateId) { DARABONBA_PTR_SET_VALUE(candidateId_, candidateId) };
+
+
+        // candidateStatus Field Functions 
+        bool hasCandidateStatus() const { return this->candidateStatus_ != nullptr;};
+        void deleteCandidateStatus() { this->candidateStatus_ = nullptr;};
+        inline string getCandidateStatus() const { DARABONBA_PTR_GET_DEFAULT(candidateStatus_, "") };
+        inline History& setCandidateStatus(string candidateStatus) { DARABONBA_PTR_SET_VALUE(candidateStatus_, candidateStatus) };
 
 
         // commitHash Field Functions 
@@ -241,6 +318,55 @@ namespace Models
         inline History& setPercent(int32_t percent) { DARABONBA_PTR_SET_VALUE(percent_, percent) };
 
 
+        // platformAppid Field Functions 
+        bool hasPlatformAppid() const { return this->platformAppid_ != nullptr;};
+        void deletePlatformAppid() { this->platformAppid_ = nullptr;};
+        inline string getPlatformAppid() const { DARABONBA_PTR_GET_DEFAULT(platformAppid_, "") };
+        inline History& setPlatformAppid(string platformAppid) { DARABONBA_PTR_SET_VALUE(platformAppid_, platformAppid) };
+
+
+        // pluginDeclarationHash Field Functions 
+        bool hasPluginDeclarationHash() const { return this->pluginDeclarationHash_ != nullptr;};
+        void deletePluginDeclarationHash() { this->pluginDeclarationHash_ = nullptr;};
+        inline string getPluginDeclarationHash() const { DARABONBA_PTR_GET_DEFAULT(pluginDeclarationHash_, "") };
+        inline History& setPluginDeclarationHash(string pluginDeclarationHash) { DARABONBA_PTR_SET_VALUE(pluginDeclarationHash_, pluginDeclarationHash) };
+
+
+        // pluginState Field Functions 
+        bool hasPluginState() const { return this->pluginState_ != nullptr;};
+        void deletePluginState() { this->pluginState_ = nullptr;};
+        inline string getPluginState() const { DARABONBA_PTR_GET_DEFAULT(pluginState_, "") };
+        inline History& setPluginState(string pluginState) { DARABONBA_PTR_SET_VALUE(pluginState_, pluginState) };
+
+
+        // privacyDraftId Field Functions 
+        bool hasPrivacyDraftId() const { return this->privacyDraftId_ != nullptr;};
+        void deletePrivacyDraftId() { this->privacyDraftId_ = nullptr;};
+        inline string getPrivacyDraftId() const { DARABONBA_PTR_GET_DEFAULT(privacyDraftId_, "") };
+        inline History& setPrivacyDraftId(string privacyDraftId) { DARABONBA_PTR_SET_VALUE(privacyDraftId_, privacyDraftId) };
+
+
+        // privacyRevision Field Functions 
+        bool hasPrivacyRevision() const { return this->privacyRevision_ != nullptr;};
+        void deletePrivacyRevision() { this->privacyRevision_ = nullptr;};
+        inline string getPrivacyRevision() const { DARABONBA_PTR_GET_DEFAULT(privacyRevision_, "") };
+        inline History& setPrivacyRevision(string privacyRevision) { DARABONBA_PTR_SET_VALUE(privacyRevision_, privacyRevision) };
+
+
+        // publishDiagnostics Field Functions 
+        bool hasPublishDiagnostics() const { return this->publishDiagnostics_ != nullptr;};
+        void deletePublishDiagnostics() { this->publishDiagnostics_ = nullptr;};
+        inline string getPublishDiagnostics() const { DARABONBA_PTR_GET_DEFAULT(publishDiagnostics_, "") };
+        inline History& setPublishDiagnostics(string publishDiagnostics) { DARABONBA_PTR_SET_VALUE(publishDiagnostics_, publishDiagnostics) };
+
+
+        // publishEnv Field Functions 
+        bool hasPublishEnv() const { return this->publishEnv_ != nullptr;};
+        void deletePublishEnv() { this->publishEnv_ = nullptr;};
+        inline string getPublishEnv() const { DARABONBA_PTR_GET_DEFAULT(publishEnv_, "") };
+        inline History& setPublishEnv(string publishEnv) { DARABONBA_PTR_SET_VALUE(publishEnv_, publishEnv) };
+
+
         // publishNumber Field Functions 
         bool hasPublishNumber() const { return this->publishNumber_ != nullptr;};
         void deletePublishNumber() { this->publishNumber_ = nullptr;};
@@ -260,6 +386,13 @@ namespace Models
         void deletePublishTime() { this->publishTime_ = nullptr;};
         inline string getPublishTime() const { DARABONBA_PTR_GET_DEFAULT(publishTime_, "") };
         inline History& setPublishTime(string publishTime) { DARABONBA_PTR_SET_VALUE(publishTime_, publishTime) };
+
+
+        // readbackStatus Field Functions 
+        bool hasReadbackStatus() const { return this->readbackStatus_ != nullptr;};
+        void deleteReadbackStatus() { this->readbackStatus_ = nullptr;};
+        inline string getReadbackStatus() const { DARABONBA_PTR_GET_DEFAULT(readbackStatus_, "") };
+        inline History& setReadbackStatus(string readbackStatus) { DARABONBA_PTR_SET_VALUE(readbackStatus_, readbackStatus) };
 
 
         // stepCodes Field Functions 
@@ -287,9 +420,56 @@ namespace Models
         inline History& setSubchannel(string subchannel) { DARABONBA_PTR_SET_VALUE(subchannel_, subchannel) };
 
 
+        // submitIntentStatus Field Functions 
+        bool hasSubmitIntentStatus() const { return this->submitIntentStatus_ != nullptr;};
+        void deleteSubmitIntentStatus() { this->submitIntentStatus_ = nullptr;};
+        inline string getSubmitIntentStatus() const { DARABONBA_PTR_GET_DEFAULT(submitIntentStatus_, "") };
+        inline History& setSubmitIntentStatus(string submitIntentStatus) { DARABONBA_PTR_SET_VALUE(submitIntentStatus_, submitIntentStatus) };
+
+
+        // updatedAt Field Functions 
+        bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
+        void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
+        inline int64_t getUpdatedAt() const { DARABONBA_PTR_GET_DEFAULT(updatedAt_, 0L) };
+        inline History& setUpdatedAt(int64_t updatedAt) { DARABONBA_PTR_SET_VALUE(updatedAt_, updatedAt) };
+
+
+        // uploadAttemptId Field Functions 
+        bool hasUploadAttemptId() const { return this->uploadAttemptId_ != nullptr;};
+        void deleteUploadAttemptId() { this->uploadAttemptId_ = nullptr;};
+        inline string getUploadAttemptId() const { DARABONBA_PTR_GET_DEFAULT(uploadAttemptId_, "") };
+        inline History& setUploadAttemptId(string uploadAttemptId) { DARABONBA_PTR_SET_VALUE(uploadAttemptId_, uploadAttemptId) };
+
+
+        // uploadLeaseState Field Functions 
+        bool hasUploadLeaseState() const { return this->uploadLeaseState_ != nullptr;};
+        void deleteUploadLeaseState() { this->uploadLeaseState_ = nullptr;};
+        inline string getUploadLeaseState() const { DARABONBA_PTR_GET_DEFAULT(uploadLeaseState_, "") };
+        inline History& setUploadLeaseState(string uploadLeaseState) { DARABONBA_PTR_SET_VALUE(uploadLeaseState_, uploadLeaseState) };
+
+
+        // uploadSequence Field Functions 
+        bool hasUploadSequence() const { return this->uploadSequence_ != nullptr;};
+        void deleteUploadSequence() { this->uploadSequence_ = nullptr;};
+        inline int64_t getUploadSequence() const { DARABONBA_PTR_GET_DEFAULT(uploadSequence_, 0L) };
+        inline History& setUploadSequence(int64_t uploadSequence) { DARABONBA_PTR_SET_VALUE(uploadSequence_, uploadSequence) };
+
+
+        // uploadTicketState Field Functions 
+        bool hasUploadTicketState() const { return this->uploadTicketState_ != nullptr;};
+        void deleteUploadTicketState() { this->uploadTicketState_ = nullptr;};
+        inline string getUploadTicketState() const { DARABONBA_PTR_GET_DEFAULT(uploadTicketState_, "") };
+        inline History& setUploadTicketState(string uploadTicketState) { DARABONBA_PTR_SET_VALUE(uploadTicketState_, uploadTicketState) };
+
+
       protected:
+        shared_ptr<string> artifactDigest_ {};
+        shared_ptr<string> auditId_ {};
+        shared_ptr<string> bindingId_ {};
         // Specifies whether quick rollback is supported.
         shared_ptr<string> canQuickRevert_ {};
+        shared_ptr<string> candidateId_ {};
+        shared_ptr<string> candidateStatus_ {};
         // The commit hash of the code.
         shared_ptr<string> commitHash_ {};
         // The current step number.
@@ -318,20 +498,34 @@ namespace Models
         shared_ptr<string> orderTypeCode_ {};
         // The transcoding progress.
         shared_ptr<int32_t> percent_ {};
+        shared_ptr<string> platformAppid_ {};
+        shared_ptr<string> pluginDeclarationHash_ {};
+        shared_ptr<string> pluginState_ {};
+        shared_ptr<string> privacyDraftId_ {};
+        shared_ptr<string> privacyRevision_ {};
+        shared_ptr<string> publishDiagnostics_ {};
+        shared_ptr<string> publishEnv_ {};
         // The release number.
         shared_ptr<string> publishNumber_ {};
         // The release order ID.
         shared_ptr<int64_t> publishOrderId_ {};
-        // The release time in the UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
+        // The release time in the UTC format yyyy-MM-dd\"T\"HH:mm:ss.SSS\"Z\".
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> publishTime_ {};
+        shared_ptr<string> readbackStatus_ {};
         // The list of release step codes.
         shared_ptr<vector<string>> stepCodes_ {};
         // The specific configurations of the component.
         shared_ptr<vector<string>> steps_ {};
         // The release sub-channel.
         shared_ptr<string> subchannel_ {};
+        shared_ptr<string> submitIntentStatus_ {};
+        shared_ptr<int64_t> updatedAt_ {};
+        shared_ptr<string> uploadAttemptId_ {};
+        shared_ptr<string> uploadLeaseState_ {};
+        shared_ptr<int64_t> uploadSequence_ {};
+        shared_ptr<string> uploadTicketState_ {};
       };
 
       virtual bool empty() const override { return this->currentPublishOrderId_ == nullptr

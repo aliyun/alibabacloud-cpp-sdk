@@ -90,13 +90,13 @@ namespace Models
   protected:
     // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
-    // The list of subfolders.
+    // The list of child folders.
     shared_ptr<vector<AppMaterialDirectory>> children_ {};
     // The folder ID.
     shared_ptr<string> directoryId_ {};
     // The name.
     shared_ptr<string> name_ {};
-    // The sort number.
+    // The sort order.
     shared_ptr<string> sortNum_ {};
     // The folder type.
     shared_ptr<string> type_ {};

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The page number. Valid values: integers greater than 0. Default value: 1.
+    // The current page number. Valid values: integers greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

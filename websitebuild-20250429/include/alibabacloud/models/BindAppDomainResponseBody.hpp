@@ -195,11 +195,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether automatic overwrite is supported. A value of true indicates the current Alibaba Cloud account, and a value of false indicates other accounts.
+        // Indicates whether automatic overwrite is supported. A value of true indicates that the domain name belongs to the current Alibaba Cloud account, and a value of false indicates that it belongs to another account.
         shared_ptr<bool> canAutoResolve_ {};
         // Indicates whether a conflict exists.
         shared_ptr<bool> hasConflict_ {};
-        // The user-facing prompt message. Different guidance text is generated based on the scenario.
+        // The user-facing prompt message, which generates different guidance text based on the scenario.
         shared_ptr<string> message_ {};
         // The list of conflicting DNS records. This reuses the existing AppDomainDnsRecordDTO.
         shared_ptr<vector<DnsConflict::Records>> records_ {};
@@ -224,9 +224,9 @@ namespace Models
 
 
     protected:
-      // The DNS conflict information. This parameter is returned when a conflict is detected during synchronous verification.
+      // The DNS conflict information, which is returned when a conflict is detected during synchronous verification.
       shared_ptr<Module::DnsConflict> dnsConflict_ {};
-      // Indicates whether the request was successful.
+      // Indicates whether the request is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -315,18 +315,18 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response parameter.
-    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the **%s** in the **ErrMessage** error message of the response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The data table module.
     // 
@@ -334,9 +334,9 @@ namespace Models
     // 
     // - ExperimentTool: experiment tool table
     // 
-    // - DataDiagnosis: data diagnostics
+    // - DataDiagnosis: data diagnosis
     shared_ptr<BindAppDomainResponseBody::Module> module_ {};
-    // The unique ID of the request.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};

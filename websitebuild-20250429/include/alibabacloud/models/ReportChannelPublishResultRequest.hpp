@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The display name of the publishing account. A null value does not overwrite the original value. Maximum length: 256 characters.
+    // The display name of the publishing account. An empty value does not overwrite the original value. Maximum length: 256 characters.
     shared_ptr<string> channelAccountName_ {};
     // The channel draft ID.
     // 
     // This parameter is required.
     shared_ptr<string> draftId_ {};
-    // The ID returned by the platform. Set this parameter when the publishing is successful.
+    // The ID returned by the platform. Specify this parameter when the publishing is successful.
     shared_ptr<string> externalId_ {};
     // The redirect URL of the platform.
     shared_ptr<string> externalUrl_ {};
-    // The failure reason. Set this parameter when the publishing fails.
+    // The reason for the failure. Specify this parameter when the publishing fails.
     shared_ptr<string> failReason_ {};
-    // Specifies whether the publishing is successful (true/false).
+    // Specifies whether the publishing is successful.
     // 
     // This parameter is required.
     shared_ptr<bool> success_ {};

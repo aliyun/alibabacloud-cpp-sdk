@@ -86,18 +86,11 @@ namespace Models
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
-    // The domain hosting method. Valid values:
-    // - CUSTOMER_ESA: Uses the customer\\"s own Edge Security Acceleration (ESA). Only supported when DomainType is set to CUSTOM.
-    // 
-    // If this parameter is not specified, the original hosting process is used.
+    // The optional domain hosting method. A value of CUSTOMER_ESA indicates that the customer\"s own ESA is used. If you do not specify this parameter, the original hosting process is used. This parameter is supported only when DomainType is set to CUSTOM.
     shared_ptr<string> deployType_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
-    // The domain management type. Valid values:
-    // - CUSTOM
-    // - PLATFORM_PREFIX
-    // 
-    // Default value: CUSTOM.
+    // The domain management type. Valid values: CUSTOM and PLATFORM_PREFIX. If you do not specify this parameter, CUSTOM is used by default.
     shared_ptr<string> domainType_ {};
     // The extended information (OverwriteExistingRecord).
     shared_ptr<string> extend_ {};

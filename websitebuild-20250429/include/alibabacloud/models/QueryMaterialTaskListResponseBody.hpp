@@ -158,15 +158,15 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The request result.
+      // The query results.
       shared_ptr<vector<AppMaterialTask>> data_ {};
       // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // Apart from pagination limits, the server processes up to 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -295,41 +295,39 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reasons for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed. Valid values:
-    // - false: No retry is allowed.
-    // - true: A retry is allowed.
+    // Indicates whether retries are allowed. Valid values:
+    // - false: Retries are not allowed.
+    // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The name of the app.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. Currently not in use. Ignore this parameter.
+    // The dynamic message. This parameter is not used and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
+    // The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};
-    // The number of entries per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of entries to return for a single request. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The response data.
     shared_ptr<QueryMaterialTaskListResponseBody::Module> module_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token used to start the next query. If no next query is available, this parameter is left empty.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The root error code.
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The root error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // Indicates whether the request is synchronously processed.
+    // Indicates whether synchronous processing is used.
     shared_ptr<bool> synchro_ {};
   };
 

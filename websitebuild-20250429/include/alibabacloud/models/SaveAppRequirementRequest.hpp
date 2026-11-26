@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Conversation ID
+    // The conversation ID.
     shared_ptr<string> conversationId_ {};
-    // Requirement document content
+    // The content of the requirement document.
     shared_ptr<string> prd_ {};
   };
 

@@ -143,13 +143,13 @@ namespace Models
 
 
     protected:
-      // The upload directory path.
+      // The path of the upload directory.
       shared_ptr<string> dir_ {};
-      // The OSS bucket host address.
+      // The host address of the OSS bucket.
       shared_ptr<string> host_ {};
       // The Base64-encoded policy.
       shared_ptr<string> policy_ {};
-      // The Security Token Service (STS) token. This value is null in non-STS scenarios.
+      // The Security Token Service (STS) token. This parameter is null in non-STS scenarios.
       shared_ptr<string> securityToken_ {};
       // The calculated signature.
       shared_ptr<string> signature_ {};
@@ -252,7 +252,7 @@ namespace Models
     // - false: Retries are not allowed.
     // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The app name.
+    // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};

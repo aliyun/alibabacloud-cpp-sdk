@@ -309,7 +309,7 @@ namespace Models
       shared_ptr<string> dbInstanceId_ {};
       // The public URL of the database.
       shared_ptr<string> dbPublicUrl_ {};
-      // The database type. Valid values: rds and polardb.
+      // The database type, such as RDS or PolarDB.
       shared_ptr<string> dbType_ {};
       // The extra information.
       shared_ptr<string> extra_ {};
@@ -319,17 +319,17 @@ namespace Models
       shared_ptr<string> instanceCreateStatus_ {};
       // The deletion flag.
       shared_ptr<int32_t> isDeleted_ {};
-      // The access password for the RDS database.
+      // The access password for the ApsaraDB RDS database.
       shared_ptr<string> rdsDatabasePassword_ {};
-      // The read-only business schema name parsed by the Builder trusted binding. This name cannot be used as input for tenant switching.
+      // The read-only business schema name parsed by Builder trusted binding. This name cannot be used as input for switching tenants.
       shared_ptr<string> schemaName_ {};
       // The service key.
       shared_ptr<string> serviceKey_ {};
-      // The status. Valid values: 0 (Paused) and 1 (Running).
+      // The status. Valid values: 0 (paused) and 1 (running).
       shared_ptr<int32_t> status_ {};
-      // The Supabase Dashboard password.
+      // The password for the Supabase Dashboard.
       shared_ptr<string> supabaseDashboardPassword_ {};
-      // The Supabase Dashboard username.
+      // The username for the Supabase Dashboard.
       shared_ptr<string> supabaseDashboardUserName_ {};
       // The time when the Supabase instance was created.
       shared_ptr<string> supabaseInstanceCreateTime_ {};
@@ -337,11 +337,11 @@ namespace Models
       shared_ptr<string> supabaseInstanceId_ {};
       // Supabase Kong URL
       shared_ptr<string> supabaseKongUrl_ {};
-      // The private network endpoint of the Supabase instance.
+      // The private endpoint of the Supabase instance.
       shared_ptr<string> supabasePrivateIp_ {};
-      // The public network connection endpoint of the Supabase instance.
+      // The public endpoint of the Supabase instance.
       shared_ptr<string> supabasePublicIp_ {};
-      // The public URL of the Supabase instance.
+      // The public URL of Supabase.
       shared_ptr<string> supabasePublicUrl_ {};
       // The tenant ID.
       shared_ptr<string> tenantId_ {};
@@ -436,7 +436,7 @@ namespace Models
 
 
   protected:
-    // The detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -444,10 +444,9 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The returned error parameters.
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<QuerySupabaseInstanceInfoForAdminResponseBody::Module> module_ {};
@@ -457,7 +456,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // The reserved parameter.
+    // The backup parameter.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -217,7 +217,7 @@ namespace Models
       shared_ptr<string> chatId_ {};
       // The current chat status.
       shared_ptr<string> chatStatus_ {};
-      // The ID of the data API that is called.
+      // The ID of the called data API operation.
       shared_ptr<string> content_ {};
       // The content type.
       shared_ptr<string> contentType_ {};
@@ -225,30 +225,31 @@ namespace Models
       shared_ptr<string> conversationId_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
       // The message ID.
       shared_ptr<string> messageId_ {};
-      // The business extension metadata (in Map format, must be a JSON string).
+      // The business extension metadata in Map format. The value must be a JSON string.
       shared_ptr<string> metaData_ {};
-      // **[Deprecated]** The region sequence number. This parameter is deprecated.
+      // **[Deprecated]** The region serial number.
       shared_ptr<int32_t> no_ {};
       // The role of the conversation participant. Valid values:
       // 
-      // - user: User.
+      // - user: The user.
       // 
-      // - assistant: Assistant.
+      // - assistant: The assistant.
       // 
-      // - system: System.
-      // - function: Function.
+      // - system: The system.
       // 
-      // - plugin: Plugin.
+      // - function: The function.
       // 
-      // - tool: Tool.
+      // - plugin: The plug-in.
+      // 
+      // - tool: The tool.
       shared_ptr<string> role_ {};
       // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
-      // The site ID. You can obtain this value by calling the [ListSites](~~ListSites~~) operation.
+      // The site ID.
       shared_ptr<string> siteId_ {};
       // The file type.
       shared_ptr<string> type_ {};
@@ -354,26 +355,24 @@ namespace Models
 
 
   protected:
-    // The access denied details.
+    // The access denial details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Specifies whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The app name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The invalid parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of entries per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The number of results returned per query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The response data.
     shared_ptr<vector<ListAppConversationMessagesResponseBody::Module>> module_ {};
-    // The token for the next query. This parameter is empty if no more results are available.
+    // The token used to start the next query. This parameter is empty if there are no more results.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
@@ -381,7 +380,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

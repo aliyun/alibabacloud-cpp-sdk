@@ -96,11 +96,11 @@ namespace Models
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
-    // The number of entries to return in each query.
+    // The number of results returned per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to start the next query. This parameter is empty if no next query exists.
+    // The token used to start the next query. This parameter is empty if no next query exists.
     shared_ptr<string> nextToken_ {};
     // The field used for sorting.
     shared_ptr<string> orderColumn_ {};

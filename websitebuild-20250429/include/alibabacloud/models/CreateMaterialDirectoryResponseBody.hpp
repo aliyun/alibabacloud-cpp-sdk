@@ -82,7 +82,7 @@ namespace Models
 
 
     protected:
-      // The folder ID.
+      // The ID of the folder.
       shared_ptr<string> directoryId_ {};
     };
 
@@ -186,11 +186,11 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name, used to query applications with this name.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -198,7 +198,7 @@ namespace Models
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The error code. Value description: If the request succeeds, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+    // The error code. If the request is successful, this parameter is not returned. If the request fails, this parameter is returned. For more information, see the error code list in this topic.
     shared_ptr<string> errorCode_ {};
     // The returned object.
     shared_ptr<CreateMaterialDirectoryResponseBody::Module> module_ {};

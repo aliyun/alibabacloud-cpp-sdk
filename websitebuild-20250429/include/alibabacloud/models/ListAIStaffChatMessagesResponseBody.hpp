@@ -237,20 +237,14 @@ namespace Models
         shared_ptr<string> gmtModified_ {};
         // The message ID.
         shared_ptr<string> messageId_ {};
-        // The business extension metadata. The value must be a JSON string in map format.
+        // The business extension metadata in map format. The value must be a JSON string.
         Darabonba::Json metaData_ {};
         // The role of the conversation participant. Valid values:
-        // 
         // - user: User.
-        // 
         // - assistant: Assistant.
-        // 
         // - system: System.
-        // 
         // - function: Function.
-        // 
         // - plugin: Plug-in.
-        // 
         // - tool: Tool.
         shared_ptr<string> role_ {};
         // The section ID of the check item.
@@ -364,11 +358,11 @@ namespace Models
 
 
   protected:
-    // The access denial details.
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Specifies whether a retry is allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the app.
+    // The app name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -382,7 +376,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
     // The reserved parameter.
     shared_ptr<bool> synchro_ {};

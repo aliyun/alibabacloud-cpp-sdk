@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Business ID.
+    // The business ID.
     shared_ptr<string> bizId_ {};
-    // Domain name.
+    // The domain name.
     shared_ptr<string> domainName_ {};
-    // The purpose of querying DNS configuration.
+    // The purpose of querying the DNS configuration.
     shared_ptr<string> purpose_ {};
   };
 

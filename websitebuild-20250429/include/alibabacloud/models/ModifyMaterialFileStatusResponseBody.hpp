@@ -137,15 +137,15 @@ namespace Models
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the app.
+    // The app name.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is not used and can be ignored.
+    // The dynamic code. This field is not used and can be ignored.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Indicates whether the update was successful.
+    // Indicates whether the modification was successful.
     shared_ptr<bool> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
@@ -153,7 +153,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is processed synchronously.
+    // Specifies whether the processing is synchronous.
     shared_ptr<bool> synchro_ {};
   };
 

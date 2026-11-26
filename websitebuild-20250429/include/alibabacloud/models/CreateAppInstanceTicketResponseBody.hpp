@@ -180,11 +180,11 @@ namespace Models
 
 
     protected:
-      // The time when the access token expires.
+      // The expiration time of the access token.
       shared_ptr<string> accessTokenExpiresAt_ {};
-      // The time when the access token was issued.
+      // The issuance time of the access token.
       shared_ptr<string> accessTokenIssuedAt_ {};
-      // The access token value.
+      // The value of the access token.
       shared_ptr<string> accessTokenValue_ {};
       // The user ID.
       shared_ptr<string> aliyunPk_ {};
@@ -196,11 +196,11 @@ namespace Models
       shared_ptr<string> bid_ {};
       // The user ID.
       shared_ptr<string> parentPk_ {};
-      // The time when the refresh token expires.
+      // The expiration time of the refresh token.
       shared_ptr<string> refreshTokenExpiresAt_ {};
-      // The time when the refresh token was issued.
+      // The issuance time of the refresh token.
       shared_ptr<string> refreshTokenIssuedAt_ {};
-      // The refresh token value.
+      // The value of the refresh token.
       shared_ptr<string> refreshTokenValue_ {};
       // The external unique identifier.
       shared_ptr<string> uuid_ {};
@@ -291,15 +291,16 @@ namespace Models
 
 
   protected:
-    // The detailed reasons for access denial.
+    // The detailed reasons for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The app name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};

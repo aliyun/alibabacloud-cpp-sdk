@@ -112,21 +112,21 @@ namespace Models
 
 
   protected:
-    // The resource usage amount.
+    // The resource usage.
     shared_ptr<int64_t> amount_ {};
     // The owner ID.
     shared_ptr<string> belongId_ {};
-    // The type of the owner ID (siteId or uid).
+    // The type of the owner ID, such as siteId or uid.
     shared_ptr<string> belongIdType_ {};
-    // The business ID associated with this push, such as a session ID, task ID, or file ID.
+    // The business ID associated with this push, such as the session ID, task ID, or file ID.
     shared_ptr<string> bizId_ {};
-    // The metering data used to flexibly push multiple data points such as the number of model calls and token usage. The value must be a JSON string.
+    // The metering data. The value must be a JSON string and is used to flexibly push multiple metrics such as model call counts and token usage.
     shared_ptr<string> measureData_ {};
-    // The business extension metadata in Map format. The value must be a JSON string.
+    // The business extension metadata. The value must be a JSON string in map format.
     shared_ptr<string> metaData_ {};
     // The resource identifier.
     shared_ptr<string> resourceCode_ {};
-    // The usage time in the yyyy-MM-dd HH:mm:ss format.
+    // The usage time. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> useTime_ {};
     // The usage type.
     shared_ptr<string> useType_ {};

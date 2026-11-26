@@ -192,25 +192,25 @@ namespace Models
 
 
       protected:
-        // The click action type. Valid values: CONSULT, BUY, and AUTO.
+        // The click action type. Valid values: CONSULT (add WeCom), BUY (purchase), and AUTO (automatic issuance).
         shared_ptr<string> actionType_ {};
-        // The commodity code. This parameter applies to both resource plans and marketing commodities.
+        // The commodity code. This parameter is applicable to both resource plans and marketing products.
         shared_ptr<string> commodityCode_ {};
         // The display description of the recommendation.
         shared_ptr<string> description_ {};
         // The extended fields, such as unsupportedReason.
         shared_ptr<map<string, string>> extend_ {};
-        // The order type. Valid values: BUY and UPGRADE.
+        // The order type. Valid values: BUY (purchase) and UPGRADE (upgrade).
         shared_ptr<string> orderType_ {};
         // The sort priority. A smaller value indicates a higher priority.
         shared_ptr<int32_t> priority_ {};
-        // The ID of the marketing commodity. This parameter is returned only for new purchases.
+        // The ID of the marketing product. This parameter is returned only for new purchases.
         shared_ptr<string> promotionCommodityId_ {};
-        // The recommendation type. Valid values: COMMODITY and ACTIVITY.
+        // The recommendation type. Valid values: COMMODITY (product recommendation) and ACTIVITY (promotional activity recommendation).
         shared_ptr<string> recommendType_ {};
         // The redirect URL. This parameter is returned when a redirect is required in scenarios such as upgrades.
         shared_ptr<string> redirectUrl_ {};
-        // The status of the commodity.
+        // The status of the product.
         shared_ptr<string> status_ {};
         // The display title of the recommendation.
         shared_ptr<string> title_ {};
@@ -227,7 +227,7 @@ namespace Models
 
 
     protected:
-      // The list of marketing commodities.
+      // The list of marketing products.
       shared_ptr<vector<Module::Commodities>> commodities_ {};
     };
 
@@ -324,17 +324,14 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The data table module. Valid values:
-    // 
-    // - ABTest: Experiment data table.
-    // 
-    // - ExperimentTool: Experiment tool table.
-    // 
-    // - DataDiagnosis: Data diagnosis.
+    // - ABTest: experiment data table.
+    // - ExperimentTool: experiment tool table.
+    // - DataDiagnosis: data diagnosis.
     shared_ptr<GetAppRecommendedCommoditiesResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
@@ -342,7 +339,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is processed synchronously.
+    // Specifies whether synchronous processing is used.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -165,7 +165,7 @@ namespace Models
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the application.
+    // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -177,17 +177,17 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};
-    // Indicates whether the deletion was successful.
+    // Indicates whether the deletion is successful.
     shared_ptr<bool> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The root error code.
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // Indicates whether the operation is processed synchronously.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

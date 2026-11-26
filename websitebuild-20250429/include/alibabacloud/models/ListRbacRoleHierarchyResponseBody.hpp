@@ -250,7 +250,7 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The request result.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
       // The decision weight.
       shared_ptr<Module::Next> next_ {};
@@ -260,7 +260,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -368,9 +368,9 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed. Valid values:
+    // Specifies whether retries are allowed. Valid values:
     // - false: Retries are not allowed.
     // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -378,12 +378,12 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
     // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of entries to return per query.
+    // The maximum number of entries to return in each query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};

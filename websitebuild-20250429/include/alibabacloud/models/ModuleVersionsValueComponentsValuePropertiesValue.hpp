@@ -83,11 +83,11 @@ namespace Models
 
 
     protected:
-      // 属性编码（系统内部标识）
+      // The code of the property, which is an internal system identifier.
       shared_ptr<string> code_ {};
-      // 属性值编码（系统内部值）
+      // The code of the property value, which is an internal system value.
       shared_ptr<string> value_ {};
-      // 属性显示名称（用户可见名称）
+      // The display name of the property, which is visible to users.
       shared_ptr<string> name_ {};
     };
 
@@ -124,13 +124,13 @@ namespace Models
 
 
   protected:
-    // 属性编码（系统内部标识）
+    // The code of the property, which is an internal system identifier.
     shared_ptr<string> code_ {};
-    // 属性显示名称（用户可见名称）
+    // The display name of the property, which is visible to users.
     shared_ptr<string> name_ {};
-    // 属性值编码（系统内部值）
+    // The code of the property value, which is an internal system value.
     shared_ptr<string> value_ {};
-    // 模块属性值列表
+    // The list of module property values.
     shared_ptr<vector<ModuleVersionsValueComponentsValuePropertiesValue::Values>> values_ {};
   };
 

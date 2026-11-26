@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
+      DARABONBA_PTR_TO_JSON(Visible, visible_);
     };
     friend void from_json(const Darabonba::Json& j, AppServiceAggregate& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
@@ -56,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
+      DARABONBA_PTR_FROM_JSON(Visible, visible_);
     };
     AppServiceAggregate() = default ;
     AppServiceAggregate(const AppServiceAggregate &) = default ;
@@ -72,7 +74,7 @@ namespace Models
         && this->deleted_ == nullptr && this->endTime_ == nullptr && this->espBizId_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
         && this->group_ == nullptr && this->instanceBizId_ == nullptr && this->name_ == nullptr && this->nodeList_ == nullptr && this->operationAddress_ == nullptr
         && this->profile_ == nullptr && this->serviceType_ == nullptr && this->serviceTypeText_ == nullptr && this->slug_ == nullptr && this->startTime_ == nullptr
-        && this->status_ == nullptr && this->userId_ == nullptr; };
+        && this->status_ == nullptr && this->userId_ == nullptr && this->visible_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -207,12 +209,19 @@ namespace Models
     inline AppServiceAggregate& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
+    // visible Field Functions 
+    bool hasVisible() const { return this->visible_ != nullptr;};
+    void deleteVisible() { this->visible_ = nullptr;};
+    inline bool getVisible() const { DARABONBA_PTR_GET_DEFAULT(visible_, false) };
+    inline AppServiceAggregate& setVisible(bool visible) { DARABONBA_PTR_SET_VALUE(visible_, visible) };
+
+
   protected:
     // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
     // The deletion flag.
     shared_ptr<int32_t> deleted_ {};
-    // The end time in ISO 8601 format in the UTC time zone (Z).
+    // The end time. The value is in ISO 8601 format and the time zone is UTC (Z).
     shared_ptr<string> endTime_ {};
     // esp bizId
     shared_ptr<string> espBizId_ {};
@@ -220,7 +229,7 @@ namespace Models
     shared_ptr<string> gmtCreate_ {};
     // The modification time.
     shared_ptr<string> gmtModified_ {};
-    // The operation address of the application.
+    // The application operation address.
     shared_ptr<AppServiceGroup> group_ {};
     // The associated business ID.
     shared_ptr<string> instanceBizId_ {};
@@ -228,9 +237,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The list of flow nodes.
     shared_ptr<vector<TreeNode>> nodeList_ {};
-    // The address used to uniquely identify an operation.
+    // The unique identifier for an operation.
     shared_ptr<AppOperationAddress> operationAddress_ {};
-    // The configuration information of the application service.
+    // The application service configuration information.
     shared_ptr<AppServiceProfile> profile_ {};
     // The service type.
     shared_ptr<string> serviceType_ {};
@@ -238,12 +247,14 @@ namespace Models
     shared_ptr<string> serviceTypeText_ {};
     // The application identifier.
     shared_ptr<string> slug_ {};
-    // The start time as a UNIX timestamp in milliseconds.
+    // The start time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<string> startTime_ {};
     // The status.
     shared_ptr<string> status_ {};
     // The user ID.
     shared_ptr<string> userId_ {};
+    // Specifies whether the item is visible.
+    shared_ptr<bool> visible_ {};
   };
 
   } // namespace Models

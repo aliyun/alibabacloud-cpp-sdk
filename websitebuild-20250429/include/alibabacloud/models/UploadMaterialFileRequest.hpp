@@ -83,9 +83,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // The file path.
+    // The path of the file.
     shared_ptr<string> fileUrl_ {};
-    // The file name.
+    // The name of the file.
     shared_ptr<string> name_ {};
     // The key of the OSS object.
     shared_ptr<string> ossKey_ {};

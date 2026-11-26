@@ -135,11 +135,11 @@ namespace Models
   protected:
     // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Specifies whether retries are allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The name of the application to query.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This field is not used and can be ignored.
+    // The dynamic code. This field is currently unused and can be ignored.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
@@ -153,7 +153,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Specifies whether synchronous processing is used.
+    // Indicates whether the processing is synchronous.
     shared_ptr<bool> synchro_ {};
   };
 

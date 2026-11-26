@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // The client ID of the device whose access credentials need to be revoked.
     shared_ptr<string> clientId_ {};
-    // The user role that the ticket will assume.
+    // The user role assumed by the ticket.
     shared_ptr<string> role_ {};
   };
 

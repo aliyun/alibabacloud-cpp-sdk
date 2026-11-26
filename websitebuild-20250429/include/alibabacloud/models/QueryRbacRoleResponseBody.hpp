@@ -124,11 +124,11 @@ namespace Models
 
 
     protected:
-      // The time when the task was created, in ISO 8601 format, such as 2024-01-01T00:00:00Z.
+      // The task creation time in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
       shared_ptr<string> createdAt_ {};
       // The scenario ID.
       shared_ptr<string> id_ {};
-      // Indicates whether it is the default. Valid values:
+      // The default status. Valid values:
       // - 0: No.
       // - 1: Yes.
       shared_ptr<bool> isDefault_ {};
@@ -227,13 +227,13 @@ namespace Models
 
 
   protected:
-    // The detailed reason for the access denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Specifies whether retries are allowed. Valid values:
     // - false: Retries are not allowed.
     // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the application.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};

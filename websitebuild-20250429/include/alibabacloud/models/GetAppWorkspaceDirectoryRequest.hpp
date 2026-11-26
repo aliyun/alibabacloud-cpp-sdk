@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
-    // The directory depth. If this parameter is set to null or 0, all levels are returned.
+    // The directory depth. If you set this parameter to null or 0, all levels are returned.
     shared_ptr<int32_t> deep_ {};
     // The directory path.
     shared_ptr<string> filePath_ {};

@@ -179,15 +179,15 @@ namespace Models
 
 
   protected:
-    // The detailed reason for access denial.
+    // The detailed reasons for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The name of the application.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the error message returned in the **ErrMessage** response parameter.
+    // The dynamic error message, which is used to replace the `%s` in the error message returned in the **ErrMessage** response parameter.
     // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.

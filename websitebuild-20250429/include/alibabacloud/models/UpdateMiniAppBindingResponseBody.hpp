@@ -34,9 +34,19 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(PrivacyDraftId, privacyDraftId_);
+        DARABONBA_PTR_TO_JSON(PrivacyRevision, privacyRevision_);
+        DARABONBA_PTR_TO_JSON(ReadbackStatus, readbackStatus_);
+        DARABONBA_PTR_TO_JSON(Revision, revision_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(Success, success_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(PrivacyDraftId, privacyDraftId_);
+        DARABONBA_PTR_FROM_JSON(PrivacyRevision, privacyRevision_);
+        DARABONBA_PTR_FROM_JSON(ReadbackStatus, readbackStatus_);
+        DARABONBA_PTR_FROM_JSON(Revision, revision_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(Success, success_);
       };
       Data() = default ;
@@ -50,7 +60,43 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->success_ == nullptr; };
+      virtual bool empty() const override { return this->privacyDraftId_ == nullptr
+        && this->privacyRevision_ == nullptr && this->readbackStatus_ == nullptr && this->revision_ == nullptr && this->status_ == nullptr && this->success_ == nullptr; };
+      // privacyDraftId Field Functions 
+      bool hasPrivacyDraftId() const { return this->privacyDraftId_ != nullptr;};
+      void deletePrivacyDraftId() { this->privacyDraftId_ = nullptr;};
+      inline string getPrivacyDraftId() const { DARABONBA_PTR_GET_DEFAULT(privacyDraftId_, "") };
+      inline Data& setPrivacyDraftId(string privacyDraftId) { DARABONBA_PTR_SET_VALUE(privacyDraftId_, privacyDraftId) };
+
+
+      // privacyRevision Field Functions 
+      bool hasPrivacyRevision() const { return this->privacyRevision_ != nullptr;};
+      void deletePrivacyRevision() { this->privacyRevision_ = nullptr;};
+      inline string getPrivacyRevision() const { DARABONBA_PTR_GET_DEFAULT(privacyRevision_, "") };
+      inline Data& setPrivacyRevision(string privacyRevision) { DARABONBA_PTR_SET_VALUE(privacyRevision_, privacyRevision) };
+
+
+      // readbackStatus Field Functions 
+      bool hasReadbackStatus() const { return this->readbackStatus_ != nullptr;};
+      void deleteReadbackStatus() { this->readbackStatus_ = nullptr;};
+      inline string getReadbackStatus() const { DARABONBA_PTR_GET_DEFAULT(readbackStatus_, "") };
+      inline Data& setReadbackStatus(string readbackStatus) { DARABONBA_PTR_SET_VALUE(readbackStatus_, readbackStatus) };
+
+
+      // revision Field Functions 
+      bool hasRevision() const { return this->revision_ != nullptr;};
+      void deleteRevision() { this->revision_ = nullptr;};
+      inline int64_t getRevision() const { DARABONBA_PTR_GET_DEFAULT(revision_, 0L) };
+      inline Data& setRevision(int64_t revision) { DARABONBA_PTR_SET_VALUE(revision_, revision) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
       // success Field Functions 
       bool hasSuccess() const { return this->success_ != nullptr;};
       void deleteSuccess() { this->success_ = nullptr;};
@@ -59,6 +105,11 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> privacyDraftId_ {};
+      shared_ptr<string> privacyRevision_ {};
+      shared_ptr<string> readbackStatus_ {};
+      shared_ptr<int64_t> revision_ {};
+      shared_ptr<string> status_ {};
       // Indicates whether the request is successful.
       shared_ptr<bool> success_ {};
     };

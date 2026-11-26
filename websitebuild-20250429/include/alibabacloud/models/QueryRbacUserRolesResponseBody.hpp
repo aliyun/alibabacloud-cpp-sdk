@@ -234,10 +234,10 @@ namespace Models
         // The enterprise identifier, also known as the enterprise ID. It is a string that can be obtained from the Yunxiao URL, such as https://devops.aliyun.com/organization/[OrgId].
         shared_ptr<string> orgId_ {};
         // The preset workspace role ID. This will overwrite existing roles. Valid values:
-        // - 25: storage management administrator
-        // - 26: workspace developer
-        // - 27: storage analysis analyst
-        // - 30: workspace viewer
+        // - 25: Storage management administrator.
+        // - 26: Workspace developer.
+        // - 27: Storage analysis analyst.
+        // - 30: Workspace viewer.
         shared_ptr<string> roleId_ {};
         // The site end-user ID.
         shared_ptr<string> userId_ {};
@@ -316,7 +316,7 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The request result.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
       // The next feature ID.
       shared_ptr<Module::Next> next_ {};
@@ -421,13 +421,13 @@ namespace Models
   protected:
     // The details of the permission check failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Specifies whether a retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not used. Ignore this parameter.
+    // The dynamic message. This parameter is not in use and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};

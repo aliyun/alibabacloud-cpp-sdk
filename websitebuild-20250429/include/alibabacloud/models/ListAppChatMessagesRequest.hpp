@@ -79,9 +79,9 @@ namespace Models
     shared_ptr<string> chatId_ {};
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
-    // The maximum number of results per query. Valid values: 10 to 100. Default value: 20.
+    // The maximum number of results to return per query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to start the next query. This parameter is empty if there is no next query.
+    // The token used to start the next query. This parameter is empty if no subsequent query is available.
     shared_ptr<string> nextToken_ {};
     // The section ID.
     shared_ptr<string> sectionId_ {};

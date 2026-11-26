@@ -300,7 +300,7 @@ namespace Models
       shared_ptr<int32_t> currentPageNum_ {};
       // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
-      // The ID of the next feature.
+      // The next feature ID.
       shared_ptr<Module::Next> next_ {};
       // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
@@ -308,7 +308,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -416,11 +416,11 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Specifies whether retries are allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the app.
+    // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -428,13 +428,13 @@ namespace Models
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of entries to return in each query.
+    // The number of results returned per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The returned object.
     shared_ptr<ListRbacPermissionsResponseBody::Module> module_ {};
-    // The token that is used to start the next query. This parameter is empty if no next query exists.
+    // The token used to start the next query. This parameter is empty if no next query exists.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

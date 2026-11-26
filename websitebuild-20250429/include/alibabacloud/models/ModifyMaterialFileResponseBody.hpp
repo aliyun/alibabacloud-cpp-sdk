@@ -161,9 +161,9 @@ namespace Models
 
 
   protected:
-    // The details of the permission check failure.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
@@ -177,7 +177,7 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};
-    // Indicates whether the update was successful.
+    // Indicates whether the modification was successful.
     shared_ptr<bool> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

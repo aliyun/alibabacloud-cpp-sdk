@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
-    // The ID of the folder.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
   };
 

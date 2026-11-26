@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The ID of the website building service.
     shared_ptr<string> bizId_ {};
-    // The idempotence token.
+    // The idempotency token.
     shared_ptr<string> clientToken_ {};
     // The reason for the refund.
     shared_ptr<string> refundReason_ {};

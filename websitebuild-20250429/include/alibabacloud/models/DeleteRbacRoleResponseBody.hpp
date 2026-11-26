@@ -133,18 +133,18 @@ namespace Models
 
 
   protected:
-    // The detailed reason for the access denial.
+    // The detailed reasons for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Specifies whether retries are allowed. Valid values:
-    // - false: Retries are not allowed.
-    // - true: Retries are allowed.
+    // Specifies whether a retry is allowed. Valid values:
+    // - false: A retry is not allowed.
+    // - true: A retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
+    // The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and can be up to 36 characters in length.
     shared_ptr<string> appName_ {};
     // The dynamic code. This parameter is not used and can be ignored.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the error message returned by the **ErrMessage** parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the value of the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};

@@ -80,7 +80,7 @@ namespace Models
 
 
     protected:
-      // The scope. Valid values: subUser and owner.
+      // The mapping between Supabase configuration items and configuration values.
       Darabonba::Json configs_ {};
     };
 
@@ -169,13 +169,13 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Specifies whether retries are allowed. Valid values:
     // - false: Retries are not allowed.
     // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The app name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};

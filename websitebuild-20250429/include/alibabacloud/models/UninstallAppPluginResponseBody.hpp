@@ -181,7 +181,7 @@ namespace Models
   protected:
     // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The name of the application.
     shared_ptr<string> appName_ {};

@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // The ID of the newly created scenario.
+      // The ID of the created scenario.
       shared_ptr<string> id_ {};
     };
 
@@ -167,9 +167,9 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
@@ -177,7 +177,7 @@ namespace Models
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<CreateAppNotificationSceneResponseBody::Module> module_ {};
@@ -185,9 +185,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is processed synchronously.
+    // Specifies whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

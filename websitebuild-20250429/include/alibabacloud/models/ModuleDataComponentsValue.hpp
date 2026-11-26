@@ -112,11 +112,11 @@ namespace Models
 
 
       protected:
-        // Property code (internal system identifier)
+        // The property code (internal system identifier).
         shared_ptr<string> code_ {};
-        // Property value code (internal system value)
+        // The property value code (internal system value).
         shared_ptr<string> value_ {};
-        // Property display name (user-visible name)
+        // The display name of the property (user-visible name).
         shared_ptr<string> name_ {};
       };
 
@@ -153,13 +153,13 @@ namespace Models
 
 
     protected:
-      // Property code (internal system identifier)
+      // The property code (internal system identifier).
       shared_ptr<string> code_ {};
-      // Property display name (user-visible name)
+      // The display name of the property (user-visible name).
       shared_ptr<string> name_ {};
-      // Property value code (internal system value)
+      // The property value code (internal system value).
       shared_ptr<string> value_ {};
-      // Module property value list
+      // The list of module property values.
       shared_ptr<vector<InstanceProperty::Values>> values_ {};
     };
 
@@ -205,15 +205,15 @@ namespace Models
 
 
   protected:
-    // Component unique code (internal system identifier)
+    // The unique component code (internal system identifier).
     shared_ptr<string> code_ {};
-    // Component display name (user-visible name)
+    // The display name of the component (user-visible name).
     shared_ptr<string> name_ {};
-    // Component instance property configuration
+    // The instance property configuration of the component.
     shared_ptr<vector<ModuleDataComponentsValue::InstanceProperty>> instanceProperty_ {};
-    // Component instance property configuration
+    // The instance property configuration of the component.
     shared_ptr<map<string, ModuleDataComponentsValuePropertiesValue>> properties_ {};
-    // Module property status
+    // The module property status.
     shared_ptr<int32_t> moduleAttrStatus_ {};
   };
 

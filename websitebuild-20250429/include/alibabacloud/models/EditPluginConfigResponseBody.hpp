@@ -133,13 +133,13 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reasons for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The name must start with a letter and can contain letters, digits, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
+    // The application name. It must start with a letter and can contain digits, letters, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is not in use. Ignore this parameter.
+    // The dynamic error code. This field is currently unused and can be ignored.
     shared_ptr<string> dynamicCode_ {};
     // The error message.
     shared_ptr<string> dynamicMessage_ {};
@@ -153,7 +153,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -175,21 +175,21 @@ namespace Models
     // Specifies whether the image contains a person.
     shared_ptr<bool> hasPerson_ {};
     // The image category. Valid values:
-    // - normal: illustrations or article images.
-    // - banner: background images or carousel images.
-    // - goods: product or service images.
+    // - normal: Illustrations and article images.
+    // - banner: Background images and carousel images.
+    // - goods: Product or service images.
     shared_ptr<string> imageCategory_ {};
     // The aspect ratio of the image. Valid values:
-    // "16:9"
-    // "4:3"
-    // "2:1"
-    // "1:1"
-    // "3:4"
-    // "9:16".
+    // - "16:9"
+    // - "4:3"
+    // - "2:1"
+    // - "1:1"
+    // - "3:4"
+    // - "9:16"
     shared_ptr<string> imageRatio_ {};
     // The maximum height of the image.
     shared_ptr<int32_t> maxHeight_ {};
-    // The number of entries per page for paging queries. Maximum value: 100. Default value: 20.
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The maximum width of the image, inclusive.
     shared_ptr<int32_t> maxWidth_ {};
@@ -197,19 +197,17 @@ namespace Models
     shared_ptr<int32_t> minHeight_ {};
     // The minimum width of the image, inclusive.
     shared_ptr<int32_t> minWidth_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request. If NextToken is specified, the PageSize and PageNumber request parameters do not take effect, and the TotalCount value in the response is invalid.
+    // The query token. Set the value to the NextToken value returned from the previous call to this operation. You do not need to set this parameter for the first call. If NextToken is set, the PageSize and PageNumber request parameters become invalid, and the TotalCount value in the response is invalid.
     shared_ptr<string> nextToken_ {};
     // The OSS key.
     shared_ptr<string> ossKey_ {};
-    // The number of returned results. Default value: 10.
+    // The number of results to return. Default value: 10.
     shared_ptr<int32_t> size_ {};
-    // The start position of the returned results. Valid values: 0 to 499. Default value: 0.
+    // The starting position of the returned results. Valid values: 0 to 499. Default value: 0.
     shared_ptr<int32_t> start_ {};
     // The tags.
     shared_ptr<vector<string>> tags_ {};
-    // The description text used to search for images.
-    // 
-    // >Maximum length: 512 characters.
+    // The descriptive text used to search for images. A maximum of 512 characters are supported.
     shared_ptr<string> text_ {};
   };
 

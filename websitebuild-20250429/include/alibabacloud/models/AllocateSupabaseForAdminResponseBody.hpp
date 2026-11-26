@@ -311,21 +311,21 @@ namespace Models
       shared_ptr<string> dbPublicUrl_ {};
       // The type of the database.
       shared_ptr<string> dbType_ {};
-      // The extra information.
+      // The additional information.
       shared_ptr<string> extra_ {};
       // The time when the instance creation was completed.
       shared_ptr<string> instanceCreateFinishedTime_ {};
       // The creation status of the instance.
       shared_ptr<string> instanceCreateStatus_ {};
-      // The deletion flag.
+      // Indicates whether the instance is deleted.
       shared_ptr<int32_t> isDeleted_ {};
       // The access password for the RDS database.
       shared_ptr<string> rdsDatabasePassword_ {};
-      // The read-only business schema name parsed by the Builder trusted binding. This name cannot be used as input for tenant switching.
+      // The read-only business schema name parsed by the Builder trusted binding. This parameter cannot be used as the input for switching tenants.
       shared_ptr<string> schemaName_ {};
       // The service key.
       shared_ptr<string> serviceKey_ {};
-      // The status. Valid values: 0 (Paused) and 1 (Running).
+      // The instance status. Valid values: 0: Paused. 1: Running.
       shared_ptr<int32_t> status_ {};
       // The password for the Supabase Dashboard.
       shared_ptr<string> supabaseDashboardPassword_ {};
@@ -341,11 +341,11 @@ namespace Models
       shared_ptr<string> supabasePrivateIp_ {};
       // The public network connection endpoint of the Supabase instance.
       shared_ptr<string> supabasePublicIp_ {};
-      // The public URL of Supabase.
+      // The public URL of the Supabase instance.
       shared_ptr<string> supabasePublicUrl_ {};
       // The ID of the tenant.
       shared_ptr<string> tenantId_ {};
-      // The read-only tenant mode: schema indicates the legacy Builder pool, and db or agenticdb indicates the new platform. The history record can be empty.
+      // The read-only tenant mode. A value of schema indicates the legacy Builder pool, and a value of db or agenticdb indicates the new platform. Historical records can be empty.
       shared_ptr<string> tenantMode_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -436,11 +436,11 @@ namespace Models
 
 
   protected:
-    // The details of the permission check failure.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the application.
+    // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};

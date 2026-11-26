@@ -84,7 +84,7 @@ namespace Models
 
 
     protected:
-      // The file download URL.
+      // The download URL of the file.
       shared_ptr<string> fileUrl_ {};
     };
 
@@ -195,11 +195,11 @@ namespace Models
 
 
   protected:
-    // The details of the permission check failure.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and can be up to 36 characters in length.
+    // The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};

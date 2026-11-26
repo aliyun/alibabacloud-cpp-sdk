@@ -103,21 +103,23 @@ namespace Models
 
 
   protected:
-    // The belong ID, such as the website ID or Alibaba Cloud user ID.
+    // The owner ID, which can be a website ID or an Alibaba Cloud user ID.
     shared_ptr<string> belongId_ {};
-    // The belong ID type, such as siteId or uid.
+    // The owner ID type, such as siteId or uid.
     shared_ptr<string> belongIdType_ {};
     // The ESP business type.
     shared_ptr<string> bizType_ {};
-    // The optional compatible total for APP_WORKSPACE. Valid values: 0 to 100000. If provided, it takes precedence over ResourceValue and does not repeatedly add the used quota. For new calls, only ResourceValue is required. This field is not used for APP/USER.
+    // The desired total for APP_WORKSPACE. This is an optional compatible total with a range of 0 to 100,000. If provided, it takes precedence over ResourceValue and does not repeatedly add the used quota. For new calls, only ResourceValue is required. This field is not used for APP or USER.
     shared_ptr<int64_t> desiredTotal_ {};
     // The ESP business ID.
     shared_ptr<string> espBizId_ {};
-    // The order component information. If this field is empty, EspBizId and BizType cannot be empty.
+    // The order component information in JSON format. If this parameter is left empty, EspBizId and BizType cannot be empty.
     shared_ptr<string> orderComponentParams_ {};
     // The resource code.
     shared_ptr<string> resourceCode_ {};
-    // The resource value. Default is empty. Required only for feature resources. A value of 0 indicates not supported, and 1 indicates supported.
+    // The resource value. This parameter is left empty by default and is required only for feature resources. Valid values:
+    // - 0: Not supported.
+    // - 1: Supported.
     shared_ptr<int64_t> resourceValue_ {};
   };
 

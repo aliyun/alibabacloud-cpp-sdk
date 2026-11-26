@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // The release order ID.
+      // The deployment order ID.
       shared_ptr<int64_t> publishOrderId_ {};
     };
 
@@ -167,16 +167,15 @@ namespace Models
 
 
   protected:
-    // The detailed reason for access denial.
+    // The detailed reasons for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+    // The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the value of the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};

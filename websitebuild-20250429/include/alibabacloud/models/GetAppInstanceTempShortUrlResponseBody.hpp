@@ -97,7 +97,7 @@ namespace Models
 
 
     protected:
-      // The expiration time in UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
+      // The expiration time in UTC format yyyy-MM-dd\"T\"HH:mm:ss.SSS\"Z\".
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> expireAtTime_ {};

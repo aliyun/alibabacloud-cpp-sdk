@@ -154,15 +154,15 @@ namespace Models
 
 
       protected:
-        // The creation date. The date is in the ISO 8601 format and the UTC time zone.
+        // The creation date. The date follows the ISO 8601 standard and is in the UTC time zone (Z).
         shared_ptr<string> createdAt_ {};
-        // The category level. The root category level is 1.
+        // The category level. The root category is 1.
         shared_ptr<int32_t> depth_ {};
         // The primary key.
         shared_ptr<string> id_ {};
         // The scenario name.
         shared_ptr<string> name_ {};
-        // The request path of the API.
+        // The URI of the request.
         shared_ptr<string> path_ {};
       };
 
@@ -231,9 +231,9 @@ namespace Models
 
 
       protected:
-        // The creation time. The time is in the ISO 8601 format and the UTC time zone.
+        // The creation time. The time follows the ISO 8601 standard and is in the UTC time zone (Z).
         shared_ptr<string> createdAt_ {};
-        // The directory level.
+        // The folder level.
         shared_ptr<int32_t> depth_ {};
         // The primary key.
         shared_ptr<string> id_ {};
@@ -434,26 +434,24 @@ namespace Models
 
 
   protected:
-    // The detailed cause of the access denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** error message.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of results returned per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The number of entries to return for each query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The task object.
     shared_ptr<ListRbacOrgTreeResponseBody::Module> module_ {};
-    // The token used to start the next query. This parameter is empty if no subsequent query is available.
+    // The token used to start the next query. If no next query is available, this parameter is empty.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

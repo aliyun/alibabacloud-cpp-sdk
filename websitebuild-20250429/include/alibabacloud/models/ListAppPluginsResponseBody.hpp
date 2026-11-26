@@ -217,16 +217,13 @@ namespace Models
       shared_ptr<string> configItems_ {};
       // The description of the plugin.
       shared_ptr<string> desc_ {};
-      // Specifies whether to display the image. Valid values:
-      // 
-      // - **0** (None): Not displayed.
-      // - **1** (Always): Always displayed.
+      // Specifies whether the plugin is displayed. Valid values:
+      // - 0: No.
+      // - 1: Yes.
       shared_ptr<int32_t> display_ {};
-      // Specifies whether to enable scheduled delivery of resource snapshots.
-      // 
-      // Valid values:
-      // - true: Enabled.
-      // - false: Disabled.
+      // Specifies whether the plugin is enabled. Valid values:
+      // - 0: No.
+      // - 1: Yes.
       shared_ptr<int32_t> enabled_ {};
       // The environment.
       shared_ptr<string> env_ {};
@@ -234,7 +231,7 @@ namespace Models
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The update time in ISO 8601 format in the UTC time zone.
+      // The modification time in ISO 8601 format in the UTC time zone.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
@@ -244,7 +241,9 @@ namespace Models
       shared_ptr<string> icon_ {};
       // The primary key.
       shared_ptr<int64_t> id_ {};
-      // Indicates whether the item is deleted. Valid values: 0 (no) and 1 (yes).
+      // Specifies whether the plugin is deleted. Valid values:
+      // - 0: No.
+      // - 1: Yes.
       shared_ptr<int32_t> isDeleted_ {};
       // The name of the plugin.
       shared_ptr<string> name_ {};
@@ -356,7 +355,7 @@ namespace Models
   protected:
     // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The name of the application to query.
     shared_ptr<string> appName_ {};
@@ -367,13 +366,11 @@ namespace Models
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The maximum number of results to return per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of results to return per query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The response object.
     shared_ptr<vector<ListAppPluginsResponseBody::Module>> module_ {};
-    // The token used to start the next query. This parameter is empty if no more results are available.
+    // The token used to start the next query. If no next query is available, this parameter is empty.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

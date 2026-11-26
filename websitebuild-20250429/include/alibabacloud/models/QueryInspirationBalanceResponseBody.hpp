@@ -124,17 +124,17 @@ namespace Models
 
 
     protected:
-      // The remaining quota (totalQuota - totalUsed).
+      // The remaining quota, which is calculated by subtracting totalUsed from totalQuota.
       shared_ptr<int64_t> remaining_ {};
       // The string format of the remaining quota.
       shared_ptr<string> remainingStr_ {};
-      // The total quota (the sum of initQuota of all valid accounts).
+      // The total quota, which is the sum of the initQuota values of all valid accounts.
       shared_ptr<int64_t> totalQuota_ {};
       // The string format of the total quota.
       shared_ptr<string> totalQuotaStr_ {};
-      // The consumed quota (the sum of used of all valid accounts).
+      // The used quota, which is the sum of the used values of all valid accounts.
       shared_ptr<int64_t> totalUsed_ {};
-      // The string format of the consumed quota.
+      // The string format of the used quota.
       shared_ptr<string> totalUsedStr_ {};
     };
 
@@ -223,18 +223,18 @@ namespace Models
 
 
   protected:
-    // The detailed reason for the access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Specifies whether retries are allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the application.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The invalid parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<QueryInspirationBalanceResponseBody::Module> module_ {};
@@ -244,7 +244,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Specifies whether the processing is synchronous.
+    // Indicates whether synchronous processing is performed.
     shared_ptr<bool> synchro_ {};
   };
 

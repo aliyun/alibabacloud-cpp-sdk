@@ -88,7 +88,7 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // The name of the SSL certificate.
     shared_ptr<string> certificateName_ {};
-    // The certificate type. Valid values: default free certificate and customer-owned certificate.
+    // The certificate type. Valid values: default free certificate, customer-owned certificate.
     shared_ptr<string> certificateType_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};

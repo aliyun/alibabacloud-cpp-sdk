@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(BizIds, bizIds_);
+      DARABONBA_PTR_TO_JSON(Domain, domain_);
       DARABONBA_PTR_TO_JSON(EndTimeBegin, endTimeBegin_);
       DARABONBA_PTR_TO_JSON(EndTimeEnd, endTimeEnd_);
       DARABONBA_PTR_TO_JSON(Extend, extend_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(BizIds, bizIds_);
+      DARABONBA_PTR_FROM_JSON(Domain, domain_);
       DARABONBA_PTR_FROM_JSON(EndTimeBegin, endTimeBegin_);
       DARABONBA_PTR_FROM_JSON(EndTimeEnd, endTimeEnd_);
       DARABONBA_PTR_FROM_JSON(Extend, extend_);
@@ -59,9 +61,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationType_ == nullptr
-        && this->bizId_ == nullptr && this->bizIds_ == nullptr && this->endTimeBegin_ == nullptr && this->endTimeEnd_ == nullptr && this->extend_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderColumn_ == nullptr && this->orderType_ == nullptr && this->pageNum_ == nullptr
-        && this->pageSize_ == nullptr && this->query_ == nullptr && this->queryMode_ == nullptr && this->statusList_ == nullptr; };
+        && this->bizId_ == nullptr && this->bizIds_ == nullptr && this->domain_ == nullptr && this->endTimeBegin_ == nullptr && this->endTimeEnd_ == nullptr
+        && this->extend_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderColumn_ == nullptr && this->orderType_ == nullptr
+        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->query_ == nullptr && this->queryMode_ == nullptr && this->statusList_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -83,6 +85,13 @@ namespace Models
     inline vector<string> getBizIds() { DARABONBA_PTR_GET(bizIds_, vector<string>) };
     inline ListAppInstancesRequest& setBizIds(const vector<string> & bizIds) { DARABONBA_PTR_SET_VALUE(bizIds_, bizIds) };
     inline ListAppInstancesRequest& setBizIds(vector<string> && bizIds) { DARABONBA_PTR_SET_RVALUE(bizIds_, bizIds) };
+
+
+    // domain Field Functions 
+    bool hasDomain() const { return this->domain_ != nullptr;};
+    void deleteDomain() { this->domain_ = nullptr;};
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline ListAppInstancesRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // endTimeBegin Field Functions 
@@ -172,24 +181,28 @@ namespace Models
 
 
   protected:
-    // The application type. Valid values: 
-    // - PC_WebSite: web application. 
-    // - Mini_Program: mini program. 
-    // If this parameter is not specified or left empty, applications are not filtered by type. For compatibility, historical missing, NULL, or empty types are treated as PC_WebSite.
+    // The application type. Valid values:
+    // - PC_WebSite: web application.
+    // - Mini_Program: mini program.
+    // If this parameter is not specified or is left empty, no filtering by type is performed. Historical missing, NULL, or empty types are compatible with PC_WebSite.
     shared_ptr<string> applicationType_ {};
     // The business ID.
     shared_ptr<string> bizId_ {};
     // The list of business IDs for the application instances.
     shared_ptr<vector<string>> bizIds_ {};
+    // Used only in the CONTENT_CREATION pattern: exact match for the fully attached domain name, mutually exclusive with Query. It does not include the protocol, port, or path.
+    shared_ptr<string> domain_ {};
     // The expiration start time.
     shared_ptr<string> endTimeBegin_ {};
     // The expiration end time.
     shared_ptr<string> endTimeEnd_ {};
     // The extended information.
     shared_ptr<string> extend_ {};
-    // The maximum number of results returned per query. Valid values: 10 to 100. Default value: 20.
+    // The maximum number of results per query.
+    // 
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to start the next query. This parameter is empty if no next query exists.
+    // The token for the next query. It is empty when there is no next query.
     shared_ptr<string> nextToken_ {};
     // The sort field.
     shared_ptr<string> orderColumn_ {};
@@ -201,10 +214,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The query parameter.
     shared_ptr<string> query_ {};
-    // The query mode. Valid values: 
-    // - CONTENT_CREATION: specifies a lightweight query for the content creation site selector. It queries only published sites and does not load aggregated information such as profiles, services, and AI staff.
+    // The query mode. CONTENT_CREATION indicates a lightweight query for the content creation site selector, which queries only published sites and does not load aggregate information such as Profile, services, or AI Staff.
     shared_ptr<string> queryMode_ {};
-    // The status range.
+    // The status scope.
     shared_ptr<vector<string>> statusList_ {};
   };
 

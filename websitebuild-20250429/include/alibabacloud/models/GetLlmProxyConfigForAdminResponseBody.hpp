@@ -222,15 +222,15 @@ namespace Models
       shared_ptr<string> bizId_ {};
       // The list of blocked models.
       shared_ptr<string> blockedModels_ {};
-      // Grants specific permissions to processes in the container. Only NET_ADMIN and NET_RAW are supported.
+      // Grants specific permissions to processes in the container. Currently, only NET_ADMIN and NET_RAW are supported.
       // 
       // > NET_RAW is not supported by default. Submit a ticket to apply for this permission.
       shared_ptr<string> capability_ {};
-      // The maximum number of requests per day.
+      // The daily request limit.
       shared_ptr<int32_t> dailyLimit_ {};
-      // The maximum number of tokens per day.
+      // The daily token limit.
       shared_ptr<int64_t> dailyTokenLimit_ {};
-      // Indicates whether scheduled delivery of resource snapshots is enabled.
+      // Specifies whether to enable scheduled delivery of resource snapshots.
       // 
       // Valid values:
       // - true: Enabled.
@@ -246,9 +246,9 @@ namespace Models
       shared_ptr<int64_t> id_ {};
       // The IP blacklist.
       shared_ptr<string> ipBlacklist_ {};
-      // The IP whitelist. Separate multiple IP addresses with commas (,).
+      // The IP whitelist. Separate multiple IP addresses with commas.
       shared_ptr<string> ipWhitelist_ {};
-      // The maximum number of requests per minute.
+      // The number of requests per minute.
       shared_ptr<int32_t> rpmLimit_ {};
       // trial,draft,live,refunded,expired,released
       shared_ptr<int32_t> status_ {};
@@ -341,20 +341,20 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed. Valid values:
+    // Specifies whether to allow retries. Valid values:
     // - false: Retries are not allowed.
     // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is not in use. Ignore this parameter.
+    // The dynamic code. This field is not used and can be ignored.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message. This parameter is used to replace the `%s` variable in the **ErrMessage** parameter.
-    // > For example, if the **ErrMessage** parameter returns **The Value of Input Parameter %s is not valid** and the **DynamicMessage** parameter returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** error message.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The returned object.
     shared_ptr<GetLlmProxyConfigForAdminResponseBody::Module> module_ {};
@@ -362,9 +362,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

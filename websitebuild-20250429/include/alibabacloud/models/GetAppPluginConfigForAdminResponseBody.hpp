@@ -143,7 +143,7 @@ namespace Models
       shared_ptr<string> bizId_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
       // The primary key.
       shared_ptr<int64_t> id_ {};
@@ -199,7 +199,7 @@ namespace Models
 
 
   protected:
-    // The operation status or POP error code.
+    // The API operation status or POP error code.
     shared_ptr<string> code_ {};
     // The additional information.
     shared_ptr<string> message_ {};

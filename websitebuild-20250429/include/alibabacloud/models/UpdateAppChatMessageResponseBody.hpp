@@ -223,7 +223,7 @@ namespace Models
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The update time in ISO 8601 format in the UTC time zone.
+      // The modification time in ISO 8601 format in the UTC time zone.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
@@ -231,24 +231,25 @@ namespace Models
       shared_ptr<string> messageId_ {};
       // The business extension metadata in map format. The value must be a JSON string.
       shared_ptr<string> metaData_ {};
-      // The probability of not wearing a mask, uniform, or hat.
+      // The probability of not wearing a mask, work clothes, or hat.
       shared_ptr<int32_t> no_ {};
       // The role of the conversation participant. Valid values:
       // 
-      // - user: User
+      // - user: user
       // 
-      // - assistant: Assistant
+      // - assistant: assistant
       // 
-      // - system: System
-      // - function: Function
+      // - system: system
       // 
-      // - plugin: Plug-in
+      // - function: function
       // 
-      // - tool: Tool
+      // - plugin: plug-in
+      // 
+      // - tool: tool
       shared_ptr<string> role_ {};
       // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
-      // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
+      // The site ID.
       shared_ptr<string> siteId_ {};
       // The file type.
       shared_ptr<string> type_ {};
@@ -339,16 +340,16 @@ namespace Models
 
 
   protected:
-    // The detailed reasons for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The app name.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is not used and can be ignored.
+    // The dynamic code. This field is currently unused and can be ignored.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};

@@ -143,17 +143,17 @@ namespace Models
       shared_ptr<string> bizId_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
       // The primary key.
       shared_ptr<int64_t> id_ {};
-      // The specific component configuration in JSON string format. Refer to the toJsonString method of the subclasses related to com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig. Developers should inherit this component configuration class and implement the corresponding component configuration. Each component configuration has the same structure as the pipeline configuration created on the Dataphin console.
+      // The specific component configuration in JSON string format. Refer to the toJsonString method of the subclasses of the com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig utility class. Developers must inherit this component configuration class to implement the corresponding component configuration. Each component configuration has the same structure as the pipeline configuration created on the Dataphin page.
       shared_ptr<string> pluginConfig_ {};
-      // The description of the plugin.
+      // The description.
       shared_ptr<string> pluginDesc_ {};
-      // The ID of the bound API gateway plugin.
+      // The ID of the associated API gateway plugin.
       shared_ptr<string> pluginId_ {};
-      // The plugin name. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
+      // The plugin name. It must be 4 to 50 characters in length and can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). It cannot start with an underscore.
       shared_ptr<string> pluginName_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -207,7 +207,7 @@ namespace Models
     shared_ptr<GetAppPluginConfigResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

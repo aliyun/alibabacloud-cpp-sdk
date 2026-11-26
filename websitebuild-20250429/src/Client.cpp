@@ -46,9 +46,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Allocates a Supabase instance to a resource allocation.
+ * @summary Performs resource allocation of a Supabase instance.
  *
- * @description Queries the Supabase instance information of a resource.
+ * @description Queries the information about the Supabase instance associated with a resource.
  *
  * @param request AllocateSupabaseForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -103,9 +103,9 @@ AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdminWithOptions(con
 }
 
 /**
- * @summary Allocates a Supabase instance to a resource allocation.
+ * @summary Performs resource allocation of a Supabase instance.
  *
- * @description Queries the Supabase instance information of a resource.
+ * @description Queries the information about the Supabase instance associated with a resource.
  *
  * @param request AllocateSupabaseForAdminRequest
  * @return AllocateSupabaseForAdminResponse
@@ -274,7 +274,7 @@ BatchCheckResourceMeasureResponse Client::batchCheckResourceMeasure(const BatchC
 }
 
 /**
- * @summary Binds a custom domain name to an application and automatically completes DNS resolution verification.
+ * @summary Binds a domain name to an application and automatically completes DNS resolution verification.
  *
  * @param request BindAppDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -325,7 +325,7 @@ BindAppDomainResponse Client::bindAppDomainWithOptions(const BindAppDomainReques
 }
 
 /**
- * @summary Binds a custom domain name to an application and automatically completes DNS resolution verification.
+ * @summary Binds a domain name to an application and automatically completes DNS resolution verification.
  *
  * @param request BindAppDomainRequest
  * @return BindAppDomainResponse
@@ -682,9 +682,9 @@ CopyAppPluginConfigResponse Client::copyAppPluginConfig(const CopyAppPluginConfi
 }
 
 /**
- * @summary Asynchronously initiates a conversation with an AI employee.
+ * @summary Asynchronously initiates a conversation with an AI agent.
  *
- * @description Initiates a WanXiaoZhi 2.0 AI conversation.
+ * @description Initiates a Wanxiaozhi 2.0 AI conversation.
  *
  * @param request CreateAIStaffChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -735,9 +735,9 @@ CreateAIStaffChatResponse Client::createAIStaffChatWithOptions(const CreateAISta
 }
 
 /**
- * @summary Asynchronously initiates a conversation with an AI employee.
+ * @summary Asynchronously initiates a conversation with an AI agent.
  *
- * @description Initiates a WanXiaoZhi 2.0 AI conversation.
+ * @description Initiates a Wanxiaozhi 2.0 AI conversation.
  *
  * @param request CreateAIStaffChatRequest
  * @return CreateAIStaffChatResponse
@@ -748,9 +748,9 @@ CreateAIStaffChatResponse Client::createAIStaffChat(const CreateAIStaffChatReque
 }
 
 /**
- * @summary Creates an AI employee session.
+ * @summary Creates an AI agent session.
  *
- * @description Creates an AI session for Wan Xiaozhi 2.0.
+ * @description Creates an AI session in Wanxiaozhi 2.0.
  *
  * @param request CreateAIStaffConversationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -781,9 +781,9 @@ CreateAIStaffConversationResponse Client::createAIStaffConversationWithOptions(c
 }
 
 /**
- * @summary Creates an AI employee session.
+ * @summary Creates an AI agent session.
  *
- * @description Creates an AI session for Wan Xiaozhi 2.0.
+ * @description Creates an AI session in Wanxiaozhi 2.0.
  *
  * @param request CreateAIStaffConversationRequest
  * @return CreateAIStaffConversationResponse
@@ -850,7 +850,7 @@ CreateAppAssistantAgentResponse Client::createAppAssistantAgent(const CreateAppA
 /**
  * @summary Generates an SSO logon-free URL for the application assistant.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request CreateAppAssistantAgentSsoLoginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -891,7 +891,7 @@ CreateAppAssistantAgentSsoLoginResponse Client::createAppAssistantAgentSsoLoginW
 /**
  * @summary Generates an SSO logon-free URL for the application assistant.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request CreateAppAssistantAgentSsoLoginRequest
  * @return CreateAppAssistantAgentSsoLoginResponse
@@ -1423,7 +1423,7 @@ CreateAppPluginResponse Client::createAppPlugin(const CreateAppPluginRequest &re
 }
 
 /**
- * @summary Activates the Wanxiaozhi inspiration value service.
+ * @summary Enables the Wanxiaozhi inspiration value service.
  *
  * @description Retrieves the configuration information of the code generation plugin.
  *
@@ -1456,7 +1456,7 @@ CreateAppTokenServiceResponse Client::createAppTokenServiceWithOptions(const Cre
 }
 
 /**
- * @summary Activates the Wanxiaozhi inspiration value service.
+ * @summary Enables the Wanxiaozhi inspiration value service.
  *
  * @description Retrieves the configuration information of the code generation plugin.
  *
@@ -1469,9 +1469,9 @@ CreateAppTokenServiceResponse Client::createAppTokenService(const CreateAppToken
 }
 
 /**
- * @summary Distributes and generates channel drafts.
+ * @summary Generates and distributes channel drafts.
  *
- * @description Distributes and generates channel drafts.
+ * @description Generates and distributes channel drafts.
  *
  * @param tmpReq CreateDistributionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1512,9 +1512,9 @@ CreateDistributionResponse Client::createDistributionWithOptions(const CreateDis
 }
 
 /**
- * @summary Distributes and generates channel drafts.
+ * @summary Generates and distributes channel drafts.
  *
- * @description Distributes and generates channel drafts.
+ * @description Generates and distributes channel drafts.
  *
  * @param request CreateDistributionRequest
  * @return CreateDistributionResponse
@@ -1645,7 +1645,7 @@ CreateLogoTaskResponse Client::createLogoTask(const CreateLogoTaskRequest &reque
 }
 
 /**
- * @summary Creates a subfolder in a parent folder.
+ * @summary Creates a subfolder under a parent folder.
  *
  * @param request CreateMaterialDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1684,7 +1684,7 @@ CreateMaterialDirectoryResponse Client::createMaterialDirectoryWithOptions(const
 }
 
 /**
- * @summary Creates a subfolder in a parent folder.
+ * @summary Creates a subfolder under a parent folder.
  *
  * @param request CreateMaterialDirectoryRequest
  * @return CreateMaterialDirectoryResponse
@@ -1697,7 +1697,7 @@ CreateMaterialDirectoryResponse Client::createMaterialDirectory(const CreateMate
 /**
  * @summary Creates an organizational unit.
  *
- * @description Wanxiaozhi 2.0 AI conversation.
+ * @description The Wanxiaozhi 2.0 AI conversation.
  *
  * @param request CreateRbacOrgUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1734,7 +1734,7 @@ CreateRbacOrgUnitResponse Client::createRbacOrgUnitWithOptions(const CreateRbacO
 /**
  * @summary Creates an organizational unit.
  *
- * @description Wanxiaozhi 2.0 AI conversation.
+ * @description The Wanxiaozhi 2.0 AI conversation.
  *
  * @param request CreateRbacOrgUnitRequest
  * @return CreateRbacOrgUnitResponse
@@ -1747,7 +1747,7 @@ CreateRbacOrgUnitResponse Client::createRbacOrgUnit(const CreateRbacOrgUnitReque
 /**
  * @summary Creates RBAC permissions.
  *
- * @description The Wanxiaozhi 2.0 API operation for creating an AI session.
+ * @description Creates an AI session in Wanxiaozhi 2.0.
  *
  * @param request CreateRbacPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1784,7 +1784,7 @@ CreateRbacPermissionResponse Client::createRbacPermissionWithOptions(const Creat
 /**
  * @summary Creates RBAC permissions.
  *
- * @description The Wanxiaozhi 2.0 API operation for creating an AI session.
+ * @description Creates an AI session in Wanxiaozhi 2.0.
  *
  * @param request CreateRbacPermissionRequest
  * @return CreateRbacPermissionResponse
@@ -1845,7 +1845,7 @@ CreateRbacRoleResponse Client::createRbacRole(const CreateRbacRoleRequest &reque
 }
 
 /**
- * @summary Deletes and unbinds the SSL certificate associated with a website.
+ * @summary Deletes the SSL certificate bound to a website.
  *
  * @param request DeleteAppDomainCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1880,7 +1880,7 @@ DeleteAppDomainCertificateResponse Client::deleteAppDomainCertificateWithOptions
 }
 
 /**
- * @summary Deletes and unbinds the SSL certificate associated with a website.
+ * @summary Deletes the SSL certificate bound to a website.
  *
  * @param request DeleteAppDomainCertificateRequest
  * @return DeleteAppDomainCertificateResponse
@@ -1891,7 +1891,7 @@ DeleteAppDomainCertificateResponse Client::deleteAppDomainCertificate(const Dele
 }
 
 /**
- * @summary Deletes an HTTP 301 status code redirect record bound to a website.
+ * @summary Deletes the HTTP 301 status code record attached to a website.
  *
  * @param request DeleteAppDomainRedirectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1930,7 +1930,7 @@ DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirectWithOptions(const
 }
 
 /**
- * @summary Deletes an HTTP 301 status code redirect record bound to a website.
+ * @summary Deletes the HTTP 301 status code record attached to a website.
  *
  * @param request DeleteAppDomainRedirectRequest
  * @return DeleteAppDomainRedirectResponse
@@ -2237,7 +2237,7 @@ DeleteAppSupabaseSecretsResponse Client::deleteAppSupabaseSecrets(const DeleteAp
 }
 
 /**
- * @summary Deletes a material folder.
+ * @summary Deletes an asset folder.
  *
  * @param request DeleteMaterialDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2272,7 +2272,7 @@ DeleteMaterialDirectoryResponse Client::deleteMaterialDirectoryWithOptions(const
 }
 
 /**
- * @summary Deletes a material folder.
+ * @summary Deletes an asset folder.
  *
  * @param request DeleteMaterialDirectoryRequest
  * @return DeleteMaterialDirectoryResponse
@@ -2383,7 +2383,7 @@ DeleteRbacOrgUnitResponse Client::deleteRbacOrgUnit(const DeleteRbacOrgUnitReque
 /**
  * @summary Deletes RBAC permissions.
  *
- * @description The API operation for creating an AI session in Wanxiaozhi 2.0.
+ * @description Creates an AI session for Wanxiaozhi 2.0.
  *
  * @param request DeleteRbacPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2420,7 +2420,7 @@ DeleteRbacPermissionResponse Client::deleteRbacPermissionWithOptions(const Delet
 /**
  * @summary Deletes RBAC permissions.
  *
- * @description The API operation for creating an AI session in Wanxiaozhi 2.0.
+ * @description Creates an AI session for Wanxiaozhi 2.0.
  *
  * @param request DeleteRbacPermissionRequest
  * @return DeleteRbacPermissionResponse
@@ -2433,7 +2433,7 @@ DeleteRbacPermissionResponse Client::deleteRbacPermission(const DeleteRbacPermis
 /**
  * @summary Deletes an RBAC role.
  *
- * @description Queries the application instance information.
+ * @description Queries the information of an application instance.
  *
  * @param request DeleteRbacRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2470,7 +2470,7 @@ DeleteRbacRoleResponse Client::deleteRbacRoleWithOptions(const DeleteRbacRoleReq
 /**
  * @summary Deletes an RBAC role.
  *
- * @description Queries the application instance information.
+ * @description Queries the information of an application instance.
  *
  * @param request DeleteRbacRoleRequest
  * @return DeleteRbacRoleResponse
@@ -2481,7 +2481,7 @@ DeleteRbacRoleResponse Client::deleteRbacRole(const DeleteRbacRoleRequest &reque
 }
 
 /**
- * @summary Query website DNS resolution records. Supports CNAME resolution and verification resolution queries.
+ * @summary Queries the DNS resolution records of a website. Supports CNAME and verification resolution queries.
  *
  * @param request DescribeAppDomainDnsRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2520,7 +2520,7 @@ DescribeAppDomainDnsRecordResponse Client::describeAppDomainDnsRecordWithOptions
 }
 
 /**
- * @summary Query website DNS resolution records. Supports CNAME resolution and verification resolution queries.
+ * @summary Queries the DNS resolution records of a website. Supports CNAME and verification resolution queries.
  *
  * @param request DescribeAppDomainDnsRecordRequest
  * @return DescribeAppDomainDnsRecordResponse
@@ -2589,7 +2589,7 @@ DispatchConsoleAPIForPartnerResponse Client::dispatchConsoleAPIForPartner(const 
 }
 
 /**
- * @summary Edits a plug-in configuration.
+ * @summary Modifies the plug-in configuration.
  *
  * @param request EditPluginConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2636,7 +2636,7 @@ EditPluginConfigResponse Client::editPluginConfigWithOptions(const EditPluginCon
 }
 
 /**
- * @summary Edits a plug-in configuration.
+ * @summary Modifies the plug-in configuration.
  *
  * @param request EditPluginConfigRequest
  * @return EditPluginConfigResponse
@@ -2647,7 +2647,7 @@ EditPluginConfigResponse Client::editPluginConfig(const EditPluginConfigRequest 
 }
 
 /**
- * @summary Exports material files.
+ * @summary Exports asset files.
  *
  * @param tmpReq ExportMaterialFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2688,7 +2688,7 @@ ExportMaterialFileResponse Client::exportMaterialFileWithOptions(const ExportMat
 }
 
 /**
- * @summary Exports material files.
+ * @summary Exports asset files.
  *
  * @param request ExportMaterialFileRequest
  * @return ExportMaterialFileResponse
@@ -2797,7 +2797,7 @@ GetAIStaffPreviewUrlResponse Client::getAIStaffPreviewUrl(const GetAIStaffPrevie
 /**
  * @summary Retrieves the details of a code workspace.
  *
- * @description Queries application instance information.
+ * @description Queries information about an application instance.
  *
  * @param request GetAppCodeWorkspaceDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2830,7 +2830,7 @@ GetAppCodeWorkspaceDetailResponse Client::getAppCodeWorkspaceDetailWithOptions(c
 /**
  * @summary Retrieves the details of a code workspace.
  *
- * @description Queries application instance information.
+ * @description Queries information about an application instance.
  *
  * @param request GetAppCodeWorkspaceDetailRequest
  * @return GetAppCodeWorkspaceDetailResponse
@@ -2843,7 +2843,7 @@ GetAppCodeWorkspaceDetailResponse Client::getAppCodeWorkspaceDetail(const GetApp
 /**
  * @summary Retrieves the details of a conversation.
  *
- * @description The Wanxiaozhi 2.0 API operation for creating AI conversations.
+ * @description Creates an AI conversation in Wanxiaozhi 2.0.
  *
  * @param request GetAppConversationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2880,7 +2880,7 @@ GetAppConversationResponse Client::getAppConversationWithOptions(const GetAppCon
 /**
  * @summary Retrieves the details of a conversation.
  *
- * @description The Wanxiaozhi 2.0 API operation for creating AI conversations.
+ * @description Creates an AI conversation in Wanxiaozhi 2.0.
  *
  * @param request GetAppConversationRequest
  * @return GetAppConversationResponse
@@ -2891,9 +2891,9 @@ GetAppConversationResponse Client::getAppConversation(const GetAppConversationRe
 }
 
 /**
- * @summary Retrieves the lock status of a session.
+ * @summary Retrieves the session lock status.
  *
- * @description The API operation for creating an AI session in Wanxiaozhi 2.0.
+ * @description Creates an AI session in Wanxiaozhi 2.0.
  *
  * @param request GetAppConversationLockStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2924,9 +2924,9 @@ GetAppConversationLockStatusResponse Client::getAppConversationLockStatusWithOpt
 }
 
 /**
- * @summary Retrieves the lock status of a session.
+ * @summary Retrieves the session lock status.
  *
- * @description The API operation for creating an AI session in Wanxiaozhi 2.0.
+ * @description Creates an AI session in Wanxiaozhi 2.0.
  *
  * @param request GetAppConversationLockStatusRequest
  * @return GetAppConversationLockStatusResponse
@@ -2987,9 +2987,9 @@ GetAppDatabaseTableSchemasResponse Client::getAppDatabaseTableSchemas(const GetA
 }
 
 /**
- * @summary Retrieves a file and its modification time.
+ * @summary Retrieves the file content and modification time.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request GetAppFileContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3024,9 +3024,9 @@ GetAppFileContentResponse Client::getAppFileContentWithOptions(const GetAppFileC
 }
 
 /**
- * @summary Retrieves a file and its modification time.
+ * @summary Retrieves the file content and modification time.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request GetAppFileContentRequest
  * @return GetAppFileContentResponse
@@ -3181,7 +3181,7 @@ GetAppInstanceForAdminResponse Client::getAppInstanceForAdmin(const GetAppInstan
 /**
  * @summary Queries the details of an instance.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3214,7 +3214,7 @@ GetAppInstanceForPartnerResponse Client::getAppInstanceForPartnerWithOptions(con
 /**
  * @summary Queries the details of an instance.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetAppInstanceForPartnerRequest
  * @return GetAppInstanceForPartnerResponse
@@ -3271,9 +3271,9 @@ GetAppInstanceTempShortUrlResponse Client::getAppInstanceTempShortUrl(const GetA
 }
 
 /**
- * @summary Queries the details of an application plugin.
+ * @summary Queries the details of an application plug-in.
  *
- * @description Retrieves the configuration information of a code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request GetAppPluginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3304,9 +3304,9 @@ GetAppPluginResponse Client::getAppPluginWithOptions(const GetAppPluginRequest &
 }
 
 /**
- * @summary Queries the details of an application plugin.
+ * @summary Queries the details of an application plug-in.
  *
- * @description Retrieves the configuration information of a code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request GetAppPluginRequest
  * @return GetAppPluginResponse
@@ -3317,9 +3317,9 @@ GetAppPluginResponse Client::getAppPlugin(const GetAppPluginRequest &request) {
 }
 
 /**
- * @summary Retrieves the configuration information of a plugin.
+ * @summary Retrieves the plugin configuration information.
  *
- * @description Retrieves the configuration information of a code generation plugin.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetAppPluginConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3354,9 +3354,9 @@ GetAppPluginConfigResponse Client::getAppPluginConfigWithOptions(const GetAppPlu
 }
 
 /**
- * @summary Retrieves the configuration information of a plugin.
+ * @summary Retrieves the plugin configuration information.
  *
- * @description Retrieves the configuration information of a code generation plugin.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetAppPluginConfigRequest
  * @return GetAppPluginConfigResponse
@@ -3367,16 +3367,16 @@ GetAppPluginConfigResponse Client::getAppPluginConfig(const GetAppPluginConfigRe
 }
 
 /**
- * @summary Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+ * @summary Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns the encrypted configuration string.
  *
  * @description ## Request description
- * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+ * - This API operation is used in internal platform service design to read the plugin configuration of a specific site by using a service identity.
  * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
- * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
- * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
- * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
- * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
- * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+ * - If the specified plugin is not installed on the site or the request parameters are empty, the API operation returns a success status but the Module field is empty. The invoker must handle this as an unconfigured state.
+ * - The returned PluginConfig field contains an AES-encrypted JSON character string. The invoker must perform decryption before use.
+ * - To invoke in user mode, continue to use the GetAppPluginConfig API operation instead of this API operation.
+ * - The BizId and PluginId parameters are required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module field. This is a fault-tolerance behavior, and invokers must not rely on it.
+ * - This API operation supports HTTPS and RPC-style POST requests. Parameters are passed by using form data.
  *
  * @param request GetAppPluginConfigForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3411,16 +3411,16 @@ GetAppPluginConfigForAdminResponse Client::getAppPluginConfigForAdminWithOptions
 }
 
 /**
- * @summary Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+ * @summary Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns the encrypted configuration string.
  *
  * @description ## Request description
- * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+ * - This API operation is used in internal platform service design to read the plugin configuration of a specific site by using a service identity.
  * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
- * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
- * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
- * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
- * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
- * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+ * - If the specified plugin is not installed on the site or the request parameters are empty, the API operation returns a success status but the Module field is empty. The invoker must handle this as an unconfigured state.
+ * - The returned PluginConfig field contains an AES-encrypted JSON character string. The invoker must perform decryption before use.
+ * - To invoke in user mode, continue to use the GetAppPluginConfig API operation instead of this API operation.
+ * - The BizId and PluginId parameters are required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module field. This is a fault-tolerance behavior, and invokers must not rely on it.
+ * - This API operation supports HTTPS and RPC-style POST requests. Parameters are passed by using form data.
  *
  * @param request GetAppPluginConfigForAdminRequest
  * @return GetAppPluginConfigForAdminResponse
@@ -3433,7 +3433,7 @@ GetAppPluginConfigForAdminResponse Client::getAppPluginConfigForAdmin(const GetA
 /**
  * @summary Queries the publish status.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information for the code generation plugin.
  *
  * @param request GetAppPublishStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3448,6 +3448,10 @@ GetAppPublishStatusResponse Client::getAppPublishStatusWithOptions(const GetAppP
 
   if (!!request.hasDeployOrderId()) {
     query["DeployOrderId"] = request.getDeployOrderId();
+  }
+
+  if (!!request.hasPublishOrderId()) {
+    query["PublishOrderId"] = request.getPublishOrderId();
   }
 
   if (!!request.hasWebsiteDomain()) {
@@ -3474,7 +3478,7 @@ GetAppPublishStatusResponse Client::getAppPublishStatusWithOptions(const GetAppP
 /**
  * @summary Queries the publish status.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information for the code generation plugin.
  *
  * @param request GetAppPublishStatusRequest
  * @return GetAppPublishStatusResponse
@@ -3485,7 +3489,7 @@ GetAppPublishStatusResponse Client::getAppPublishStatus(const GetAppPublishStatu
 }
 
 /**
- * @summary Queries recommended commodities.
+ * @summary Queries recommended products.
  *
  * @description Retrieves the configuration information of the code generation plug-in.
  *
@@ -3530,7 +3534,7 @@ GetAppRecommendedCommoditiesResponse Client::getAppRecommendedCommoditiesWithOpt
 }
 
 /**
- * @summary Queries recommended commodities.
+ * @summary Queries recommended products.
  *
  * @description Retrieves the configuration information of the code generation plug-in.
  *
@@ -3545,7 +3549,7 @@ GetAppRecommendedCommoditiesResponse Client::getAppRecommendedCommodities(const 
 /**
  * @summary Queries requirements.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request GetAppRequirementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3578,7 +3582,7 @@ GetAppRequirementResponse Client::getAppRequirementWithOptions(const GetAppRequi
 /**
  * @summary Queries requirements.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request GetAppRequirementRequest
  * @return GetAppRequirementResponse
@@ -3995,7 +3999,7 @@ GetAppTemplateResponse Client::getAppTemplate(const GetAppTemplateRequest &reque
 /**
  * @summary Queries the Wanxiaozhi inspiration value service.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAppTokenServiceResponse
@@ -4019,7 +4023,7 @@ GetAppTokenServiceResponse Client::getAppTokenServiceWithOptions(const Darabonba
 /**
  * @summary Queries the Wanxiaozhi inspiration value service.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @return GetAppTokenServiceResponse
  */
@@ -4031,7 +4035,7 @@ GetAppTokenServiceResponse Client::getAppTokenService() {
 /**
  * @summary Retrieves the directory structure of a workspace.
  *
- * @description Queries the information of an application instance.
+ * @description Queries application instance information.
  *
  * @param request GetAppWorkspaceDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4072,7 +4076,7 @@ GetAppWorkspaceDirectoryResponse Client::getAppWorkspaceDirectoryWithOptions(con
 /**
  * @summary Retrieves the directory structure of a workspace.
  *
- * @description Queries the information of an application instance.
+ * @description Queries application instance information.
  *
  * @param request GetAppWorkspaceDirectoryRequest
  * @return GetAppWorkspaceDirectoryResponse
@@ -4175,7 +4179,7 @@ GetDomainInfoForPartnerResponse Client::getDomainInfoForPartner(const GetDomainI
 }
 
 /**
- * @summary Queries the China Internet Content Provider (ICP) filing information of a domain name.
+ * @summary Queries the ICP filing information for a domain name.
  *
  * @param request GetIcpFilingInfoForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4210,7 +4214,7 @@ GetIcpFilingInfoForPartnerResponse Client::getIcpFilingInfoForPartnerWithOptions
 }
 
 /**
- * @summary Queries the China Internet Content Provider (ICP) filing information of a domain name.
+ * @summary Queries the ICP filing information for a domain name.
  *
  * @param request GetIcpFilingInfoForPartnerRequest
  * @return GetIcpFilingInfoForPartnerResponse
@@ -4223,7 +4227,7 @@ GetIcpFilingInfoForPartnerResponse Client::getIcpFilingInfoForPartner(const GetI
 /**
  * @summary Queries the LLM Proxy configuration.
  *
- * @description Queries the Supabase instance configuration information corresponding to a resource.
+ * @description Queries the configuration information of the Supabase instance associated with the resource.
  *
  * @param request GetLlmProxyConfigForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4260,7 +4264,7 @@ GetLlmProxyConfigForAdminResponse Client::getLlmProxyConfigForAdminWithOptions(c
 /**
  * @summary Queries the LLM Proxy configuration.
  *
- * @description Queries the Supabase instance configuration information corresponding to a resource.
+ * @description Queries the configuration information of the Supabase instance associated with the resource.
  *
  * @param request GetLlmProxyConfigForAdminRequest
  * @return GetLlmProxyConfigForAdminResponse
@@ -4433,7 +4437,7 @@ GetMiniAppBindingForAdminResponse Client::getMiniAppBindingForAdmin(const GetMin
 /**
  * @summary Generates a file upload policy.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetOssUploadPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4466,7 +4470,7 @@ GetOssUploadPolicyResponse Client::getOssUploadPolicyWithOptions(const GetOssUpl
 /**
  * @summary Generates a file upload policy.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetOssUploadPolicyRequest
  * @return GetOssUploadPolicyResponse
@@ -4479,7 +4483,7 @@ GetOssUploadPolicyResponse Client::getOssUploadPolicy(const GetOssUploadPolicyRe
 /**
  * @summary Retrieves a temporary download URL.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request GetTempDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4518,7 +4522,7 @@ GetTempDownloadUrlResponse Client::getTempDownloadUrlWithOptions(const GetTempDo
 /**
  * @summary Retrieves a temporary download URL.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request GetTempDownloadUrlRequest
  * @return GetTempDownloadUrlResponse
@@ -4575,7 +4579,7 @@ GetUserAccessTokenForPartnerResponse Client::getUserAccessTokenForPartner(const 
 }
 
 /**
- * @summary Obtains temporary credentials for a partner to assume a user\\"s service-linked role.
+ * @summary Retrieves temporary credentials for a user\\"s service-linked role (SLR) authorization as a partner.
  *
  * @param request GetUserTmpIdentityForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4622,7 +4626,7 @@ GetUserTmpIdentityForPartnerResponse Client::getUserTmpIdentityForPartnerWithOpt
 }
 
 /**
- * @summary Obtains temporary credentials for a partner to assume a user\\"s service-linked role.
+ * @summary Retrieves temporary credentials for a user\\"s service-linked role (SLR) authorization as a partner.
  *
  * @param request GetUserTmpIdentityForPartnerRequest
  * @return GetUserTmpIdentityForPartnerResponse
@@ -4699,9 +4703,9 @@ GrantPromotionOfferForPartnerResponse Client::grantPromotionOfferForPartner(cons
 }
 
 /**
- * @summary Installs an application plugin to the current user account.
+ * @summary Installs an application plug-in for the current user account.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request InstallAppPluginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4736,9 +4740,9 @@ InstallAppPluginResponse Client::installAppPluginWithOptions(const InstallAppPlu
 }
 
 /**
- * @summary Installs an application plugin to the current user account.
+ * @summary Installs an application plug-in for the current user account.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request InstallAppPluginRequest
  * @return InstallAppPluginResponse
@@ -4749,7 +4753,7 @@ InstallAppPluginResponse Client::installAppPlugin(const InstallAppPluginRequest 
 }
 
 /**
- * @summary Introspection analysis of免登 accessToken
+ * @summary Introspects the logon-free access token.
  *
  * @param request IntrospectAppInstanceTicketForPreviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4784,7 +4788,7 @@ IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicke
 }
 
 /**
- * @summary Introspection analysis of免登 accessToken
+ * @summary Introspects the logon-free access token.
  *
  * @param request IntrospectAppInstanceTicketForPreviewRequest
  * @return IntrospectAppInstanceTicketForPreviewResponse
@@ -4855,7 +4859,7 @@ ListAIStaffChatEventsResponse Client::listAIStaffChatEvents(const ListAIStaffCha
 }
 
 /**
- * @summary Performs a paging query on the list of conversation messages for an AI agent.
+ * @summary Performs a paging query on the list of conversation messages for an AI employee.
  *
  * @description Queries the AI conversation history for Wanxiaozhi 2.0.
  *
@@ -4902,7 +4906,7 @@ ListAIStaffChatMessagesResponse Client::listAIStaffChatMessagesWithOptions(const
 }
 
 /**
- * @summary Performs a paging query on the list of conversation messages for an AI agent.
+ * @summary Performs a paging query on the list of conversation messages for an AI employee.
  *
  * @description Queries the AI conversation history for Wanxiaozhi 2.0.
  *
@@ -4915,7 +4919,7 @@ ListAIStaffChatMessagesResponse Client::listAIStaffChatMessages(const ListAIStaf
 }
 
 /**
- * @summary Queries the list of application assistant agents.
+ * @summary Queries a list of application assistant agents.
  *
  * @description Queries application instance information.
  *
@@ -4952,7 +4956,7 @@ ListAppAssistantAgentsResponse Client::listAppAssistantAgentsWithOptions(const L
 }
 
 /**
- * @summary Queries the list of application assistant agents.
+ * @summary Queries a list of application assistant agents.
  *
  * @description Queries application instance information.
  *
@@ -4967,7 +4971,7 @@ ListAppAssistantAgentsResponse Client::listAppAssistantAgents(const ListAppAssis
 /**
  * @summary Queries the messages in a specified chat.
  *
- * @description Wanxiaozhi 2.0 - AI conversation history query API.
+ * @description The API operation for querying AI conversation history in Wanxiaozhi 2.0.
  *
  * @param request ListAppChatMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5016,7 +5020,7 @@ ListAppChatMessagesResponse Client::listAppChatMessagesWithOptions(const ListApp
 /**
  * @summary Queries the messages in a specified chat.
  *
- * @description Wanxiaozhi 2.0 - AI conversation history query API.
+ * @description The API operation for querying AI conversation history in Wanxiaozhi 2.0.
  *
  * @param request ListAppChatMessagesRequest
  * @return ListAppChatMessagesResponse
@@ -5029,9 +5033,9 @@ ListAppChatMessagesResponse Client::listAppChatMessages(const ListAppChatMessage
 /**
  * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
  *
- * @summary The product information data.
+ * @summary Retrieves product information.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information for the code generation plug-in.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAppCommoditySpecificationsForPartnerResponse
@@ -5055,9 +5059,9 @@ ListAppCommoditySpecificationsForPartnerResponse Client::listAppCommoditySpecifi
 /**
  * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
  *
- * @summary The product information data.
+ * @summary Retrieves product information.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information for the code generation plug-in.
  *
  * @return ListAppCommoditySpecificationsForPartnerResponse
  */
@@ -5067,9 +5071,9 @@ ListAppCommoditySpecificationsForPartnerResponse Client::listAppCommoditySpecifi
 }
 
 /**
- * @summary Query Website Build Product Details
+ * @summary Queries the details of website builder products.
  *
- * @description Get QR code plugin configuration information
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request ListAppCommoditySpecificationsV2ForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5104,9 +5108,9 @@ ListAppCommoditySpecificationsV2ForPartnerResponse Client::listAppCommoditySpeci
 }
 
 /**
- * @summary Query Website Build Product Details
+ * @summary Queries the details of website builder products.
  *
- * @description Get QR code plugin configuration information
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request ListAppCommoditySpecificationsV2ForPartnerRequest
  * @return ListAppCommoditySpecificationsV2ForPartnerResponse
@@ -5117,9 +5121,9 @@ ListAppCommoditySpecificationsV2ForPartnerResponse Client::listAppCommoditySpeci
 }
 
 /**
- * @summary Queries the list of conversation messages by paging.
+ * @summary Queries the conversation message list by using paging. This is a paged query.
  *
- * @description Wanxiaozhi 2.0 - API for querying AI session history information.
+ * @description The API operation for querying AI session history in Wanxiaozhi 2.0.
  *
  * @param request ListAppConversationMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5170,9 +5174,9 @@ ListAppConversationMessagesResponse Client::listAppConversationMessagesWithOptio
 }
 
 /**
- * @summary Queries the list of conversation messages by paging.
+ * @summary Queries the conversation message list by using paging. This is a paged query.
  *
- * @description Wanxiaozhi 2.0 - API for querying AI session history information.
+ * @description The API operation for querying AI session history in Wanxiaozhi 2.0.
  *
  * @param request ListAppConversationMessagesRequest
  * @return ListAppConversationMessagesResponse
@@ -5183,7 +5187,7 @@ ListAppConversationMessagesResponse Client::listAppConversationMessages(const Li
 }
 
 /**
- * @summary Queries the conversation list.
+ * @summary Queries a list of conversations.
  *
  * @description Creates an AI conversation in Wanxiaozhi 2.0.
  *
@@ -5244,7 +5248,7 @@ ListAppConversationsResponse Client::listAppConversationsWithOptions(const ListA
 }
 
 /**
- * @summary Queries the conversation list.
+ * @summary Queries a list of conversations.
  *
  * @description Creates an AI conversation in Wanxiaozhi 2.0.
  *
@@ -5414,6 +5418,10 @@ ListAppInstancesResponse Client::listAppInstancesWithOptions(const ListAppInstan
 
   if (!!request.hasBizIdsShrink()) {
     query["BizIds"] = request.getBizIdsShrink();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasEndTimeBegin()) {
@@ -5597,7 +5605,7 @@ ListAppPluginFilesResponse Client::listAppPluginFiles(const ListAppPluginFilesRe
 }
 
 /**
- * @summary Queries the application plug-in versions.
+ * @summary Queries the list of application plug-in versions.
  *
  * @description Retrieves the configuration information of the code generation plug-in.
  *
@@ -5638,7 +5646,7 @@ ListAppPluginVersionsResponse Client::listAppPluginVersionsWithOptions(const Lis
 }
 
 /**
- * @summary Queries the application plug-in versions.
+ * @summary Queries the list of application plug-in versions.
  *
  * @description Retrieves the configuration information of the code generation plug-in.
  *
@@ -6317,7 +6325,7 @@ ListPromotionOfferRecordsForPartnerResponse Client::listPromotionOfferRecordsFor
 /**
  * @summary Queries the RBAC organization tree.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request ListRbacOrgTreeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6374,7 +6382,7 @@ ListRbacOrgTreeResponse Client::listRbacOrgTreeWithOptions(const ListRbacOrgTree
 /**
  * @summary Queries the RBAC organization tree.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request ListRbacOrgTreeRequest
  * @return ListRbacOrgTreeResponse
@@ -6385,9 +6393,9 @@ ListRbacOrgTreeResponse Client::listRbacOrgTree(const ListRbacOrgTreeRequest &re
 }
 
 /**
- * @summary Queries the RBAC permissions.
+ * @summary Queries the RBAC permission list.
  *
- * @description Creates an AI session in Wanxiaozhi 2.0.
+ * @description The API operation for creating an AI conversation in Wanxiaozhi 2.0.
  *
  * @param request ListRbacPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6442,9 +6450,9 @@ ListRbacPermissionsResponse Client::listRbacPermissionsWithOptions(const ListRba
 }
 
 /**
- * @summary Queries the RBAC permissions.
+ * @summary Queries the RBAC permission list.
  *
- * @description Creates an AI session in Wanxiaozhi 2.0.
+ * @description The API operation for creating an AI conversation in Wanxiaozhi 2.0.
  *
  * @param request ListRbacPermissionsRequest
  * @return ListRbacPermissionsResponse
@@ -6457,7 +6465,7 @@ ListRbacPermissionsResponse Client::listRbacPermissions(const ListRbacPermission
 /**
  * @summary Queries the RBAC role hierarchy.
  *
- * @description Queries the application instance information.
+ * @description Queries application instance information.
  *
  * @param request ListRbacRoleHierarchyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6514,7 +6522,7 @@ ListRbacRoleHierarchyResponse Client::listRbacRoleHierarchyWithOptions(const Lis
 /**
  * @summary Queries the RBAC role hierarchy.
  *
- * @description Queries the application instance information.
+ * @description Queries application instance information.
  *
  * @param request ListRbacRoleHierarchyRequest
  * @return ListRbacRoleHierarchyResponse
@@ -6525,9 +6533,9 @@ ListRbacRoleHierarchyResponse Client::listRbacRoleHierarchy(const ListRbacRoleHi
 }
 
 /**
- * @summary Queries a list of RBAC roles.
+ * @summary Queries the list of RBAC roles.
  *
- * @description Queries the application instance information.
+ * @description Queries application instance information.
  *
  * @param request ListRbacRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6582,9 +6590,9 @@ ListRbacRolesResponse Client::listRbacRolesWithOptions(const ListRbacRolesReques
 }
 
 /**
- * @summary Queries a list of RBAC roles.
+ * @summary Queries the list of RBAC roles.
  *
- * @description Queries the application instance information.
+ * @description Queries application instance information.
  *
  * @param request ListRbacRolesRequest
  * @return ListRbacRolesResponse
@@ -6665,7 +6673,7 @@ ModifyAppInstanceSpecResponse Client::modifyAppInstanceSpec(const ModifyAppInsta
 }
 
 /**
- * @summary Updates a material folder.
+ * @summary Updates an asset folder.
  *
  * @param request ModifyMaterialDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6704,7 +6712,7 @@ ModifyMaterialDirectoryResponse Client::modifyMaterialDirectoryWithOptions(const
 }
 
 /**
- * @summary Updates a material folder.
+ * @summary Updates an asset folder.
  *
  * @param request ModifyMaterialDirectoryRequest
  * @return ModifyMaterialDirectoryResponse
@@ -6715,7 +6723,7 @@ ModifyMaterialDirectoryResponse Client::modifyMaterialDirectory(const ModifyMate
 }
 
 /**
- * @summary Updates a material file.
+ * @summary Modifies a material file.
  *
  * @param request ModifyMaterialFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6754,7 +6762,7 @@ ModifyMaterialFileResponse Client::modifyMaterialFileWithOptions(const ModifyMat
 }
 
 /**
- * @summary Updates a material file.
+ * @summary Modifies a material file.
  *
  * @param request ModifyMaterialFileRequest
  * @return ModifyMaterialFileResponse
@@ -6765,7 +6773,7 @@ ModifyMaterialFileResponse Client::modifyMaterialFile(const ModifyMaterialFileRe
 }
 
 /**
- * @summary Updates the status of material files.
+ * @summary Modifies the status of a material file.
  *
  * @param tmpReq ModifyMaterialFileStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6810,7 +6818,7 @@ ModifyMaterialFileStatusResponse Client::modifyMaterialFileStatusWithOptions(con
 }
 
 /**
- * @summary Updates the status of material files.
+ * @summary Modifies the status of a material file.
  *
  * @param request ModifyMaterialFileStatusRequest
  * @return ModifyMaterialFileStatusResponse
@@ -7031,7 +7039,7 @@ OfflineAppInstanceResponse Client::offlineAppInstance(const OfflineAppInstanceRe
 }
 
 /**
- * @summary Restores a website to online status by reverting the CDN back-to-origin configuration for all domain names under the site to the normal path rewrite rules.
+ * @summary Restores a website to online status and restores the CDN back-to-origin path rewrite rules for all domain names under the site to the normal path rewrite rules.
  *
  * @param request OnlineAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7062,7 +7070,7 @@ OnlineAppInstanceResponse Client::onlineAppInstanceWithOptions(const OnlineAppIn
 }
 
 /**
- * @summary Restores a website to online status by reverting the CDN back-to-origin configuration for all domain names under the site to the normal path rewrite rules.
+ * @summary Restores a website to online status and restores the CDN back-to-origin path rewrite rules for all domain names under the site to the normal path rewrite rules.
  *
  * @param request OnlineAppInstanceRequest
  * @return OnlineAppInstanceResponse
@@ -7073,7 +7081,7 @@ OnlineAppInstanceResponse Client::onlineAppInstance(const OnlineAppInstanceReque
 }
 
 /**
- * @summary Operates an application by a partner.
+ * @summary Operates a partner application.
  *
  * @param request OperateAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7108,7 +7116,7 @@ OperateAppInstanceForPartnerResponse Client::operateAppInstanceForPartnerWithOpt
 }
 
 /**
- * @summary Operates an application by a partner.
+ * @summary Operates a partner application.
  *
  * @param request OperateAppInstanceForPartnerRequest
  * @return OperateAppInstanceForPartnerResponse
@@ -7324,8 +7332,16 @@ OperateSupabaseForAdminResponse Client::operateSupabaseForAdmin(const OperateSup
 PublishAppInstanceResponse Client::publishAppInstanceWithOptions(const PublishAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasArtifactDigest()) {
+    query["ArtifactDigest"] = request.getArtifactDigest();
+  }
+
   if (!!request.hasBizId()) {
     query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasCandidateId()) {
+    query["CandidateId"] = request.getCandidateId();
   }
 
   if (!!request.hasDeployChannel()) {
@@ -7336,12 +7352,44 @@ PublishAppInstanceResponse Client::publishAppInstanceWithOptions(const PublishAp
     query["Description"] = request.getDescription();
   }
 
+  if (!!request.hasExt()) {
+    query["Ext"] = request.getExt();
+  }
+
+  if (!!request.hasIdempotencyKey()) {
+    query["IdempotencyKey"] = request.getIdempotencyKey();
+  }
+
   if (!!request.hasLogicalNumber()) {
     query["LogicalNumber"] = request.getLogicalNumber();
   }
 
+  if (!!request.hasPlatformAppid()) {
+    query["PlatformAppid"] = request.getPlatformAppid();
+  }
+
+  if (!!request.hasPluginDeclarationHash()) {
+    query["PluginDeclarationHash"] = request.getPluginDeclarationHash();
+  }
+
+  if (!!request.hasPrivacyDraftId()) {
+    query["PrivacyDraftId"] = request.getPrivacyDraftId();
+  }
+
+  if (!!request.hasPrivacyRevision()) {
+    query["PrivacyRevision"] = request.getPrivacyRevision();
+  }
+
   if (!!request.hasPublishNumber()) {
     query["PublishNumber"] = request.getPublishNumber();
+  }
+
+  if (!!request.hasPublishOrderId()) {
+    query["PublishOrderId"] = request.getPublishOrderId();
+  }
+
+  if (!!request.hasUploadSequence()) {
+    query["UploadSequence"] = request.getUploadSequence();
   }
 
   if (!!request.hasWeappAction()) {
@@ -7381,7 +7429,7 @@ PublishAppInstanceResponse Client::publishAppInstance(const PublishAppInstanceRe
 /**
  * @summary Pushes resource metering data.
  *
- * @description Queries the Supabase instance information corresponding to a resource.
+ * @description Queries the Supabase instance information associated with the resource.
  *
  * @param request PushResourceMeasureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7446,7 +7494,7 @@ PushResourceMeasureResponse Client::pushResourceMeasureWithOptions(const PushRes
 /**
  * @summary Pushes resource metering data.
  *
- * @description Queries the Supabase instance information corresponding to a resource.
+ * @description Queries the Supabase instance information associated with the resource.
  *
  * @param request PushResourceMeasureRequest
  * @return PushResourceMeasureResponse
@@ -7527,9 +7575,9 @@ QueryInspirationAccountDetailsResponse Client::queryInspirationAccountDetails(co
 }
 
 /**
- * @summary Queries the overview of the inspiration value balance.
+ * @summary Queries the overview of the inspiration credits balance.
  *
- * @description Queries the Supabase instance information corresponding to the resource.
+ * @description Queries the information about the Supabase instance associated with the resource.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryInspirationBalanceResponse
@@ -7551,9 +7599,9 @@ QueryInspirationBalanceResponse Client::queryInspirationBalanceWithOptions(const
 }
 
 /**
- * @summary Queries the overview of the inspiration value balance.
+ * @summary Queries the overview of the inspiration credits balance.
  *
- * @description Queries the Supabase instance information corresponding to the resource.
+ * @description Queries the information about the Supabase instance associated with the resource.
  *
  * @return QueryInspirationBalanceResponse
  */
@@ -8099,7 +8147,7 @@ QueryMaterialTaskListResponse Client::queryMaterialTaskList(const QueryMaterialT
 /**
  * @summary Queries a single RBAC role.
  *
- * @description Queries the information of an application instance.
+ * @description Queries the information about an application instance.
  *
  * @param request QueryRbacRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8136,7 +8184,7 @@ QueryRbacRoleResponse Client::queryRbacRoleWithOptions(const QueryRbacRoleReques
 /**
  * @summary Queries a single RBAC role.
  *
- * @description Queries the information of an application instance.
+ * @description Queries the information about an application instance.
  *
  * @param request QueryRbacRoleRequest
  * @return QueryRbacRoleResponse
@@ -8147,9 +8195,9 @@ QueryRbacRoleResponse Client::queryRbacRole(const QueryRbacRoleRequest &request)
 }
 
 /**
- * @summary Queries the role permission list.
+ * @summary Queries the list of role permissions.
  *
- * @description The API operation to create an AI session for Wanxiaozhi 2.0.
+ * @description Creates an AI session in Wanxiaozhi 2.0.
  *
  * @param request QueryRbacRolePermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8200,9 +8248,9 @@ QueryRbacRolePermissionsResponse Client::queryRbacRolePermissionsWithOptions(con
 }
 
 /**
- * @summary Queries the role permission list.
+ * @summary Queries the list of role permissions.
  *
- * @description The API operation to create an AI session for Wanxiaozhi 2.0.
+ * @description Creates an AI session in Wanxiaozhi 2.0.
  *
  * @param request QueryRbacRolePermissionsRequest
  * @return QueryRbacRolePermissionsResponse
@@ -8423,9 +8471,9 @@ QuerySupabaseConfigsForAdminResponse Client::querySupabaseConfigsForAdmin(const 
 }
 
 /**
- * @summary Queries the information of the Supabase instance associated with a resource.
+ * @summary Queries the Supabase instance information associated with a resource.
  *
- * @description Queries the information of the Supabase instance associated with a resource.
+ * @description Queries the Supabase instance information associated with a resource.
  *
  * @param request QuerySupabaseInstanceInfoForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8480,9 +8528,9 @@ QuerySupabaseInstanceInfoForAdminResponse Client::querySupabaseInstanceInfoForAd
 }
 
 /**
- * @summary Queries the information of the Supabase instance associated with a resource.
+ * @summary Queries the Supabase instance information associated with a resource.
  *
- * @description Queries the information of the Supabase instance associated with a resource.
+ * @description Queries the Supabase instance information associated with a resource.
  *
  * @param request QuerySupabaseInstanceInfoForAdminRequest
  * @return QuerySupabaseInstanceInfoForAdminResponse
@@ -8610,7 +8658,7 @@ ReconnectAppChatResponse Client::reconnectAppChat(const ReconnectAppChatRequest 
 }
 
 /**
- * @summary Refreshes the password-free login ticket for a website building instance.
+ * @summary Refreshes the logon-free ticket for a website builder instance.
  *
  * @param request RefreshAppInstanceTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8649,7 +8697,7 @@ RefreshAppInstanceTicketResponse Client::refreshAppInstanceTicketWithOptions(con
 }
 
 /**
- * @summary Refreshes the password-free login ticket for a website building instance.
+ * @summary Refreshes the logon-free ticket for a website builder instance.
  *
  * @param request RefreshAppInstanceTicketRequest
  * @return RefreshAppInstanceTicketResponse
@@ -8660,7 +8708,7 @@ RefreshAppInstanceTicketResponse Client::refreshAppInstanceTicket(const RefreshA
 }
 
 /**
- * @summary Processes a refund for a channel partner website building service.
+ * @summary Issues a refund for a channel partner\\"s website building service.
  *
  * @param request RefundAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8703,7 +8751,7 @@ RefundAppInstanceForPartnerResponse Client::refundAppInstanceForPartnerWithOptio
 }
 
 /**
- * @summary Processes a refund for a channel partner website building service.
+ * @summary Issues a refund for a channel partner\\"s website building service.
  *
  * @param request RefundAppInstanceForPartnerRequest
  * @return RefundAppInstanceForPartnerResponse
@@ -9038,9 +9086,9 @@ RevokeRbacUserRoleResponse Client::revokeRbacUserRole(const RevokeRbacUserRoleRe
 }
 
 /**
- * @summary Rewrites a channel title using AI.
+ * @summary Rewrites the title using AI.
  *
- * @description Rewrites a channel title.
+ * @description Rewrites the channel title.
  *
  * @param request RewriteChannelTitleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9075,9 +9123,9 @@ RewriteChannelTitleResponse Client::rewriteChannelTitleWithOptions(const Rewrite
 }
 
 /**
- * @summary Rewrites a channel title using AI.
+ * @summary Rewrites the title using AI.
  *
- * @description Rewrites a channel title.
+ * @description Rewrites the channel title.
  *
  * @param request RewriteChannelTitleRequest
  * @return RewriteChannelTitleResponse
@@ -9090,7 +9138,7 @@ RewriteChannelTitleResponse Client::rewriteChannelTitle(const RewriteChannelTitl
 /**
  * @summary Rolls back a code snapshot.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request RollbackAppCodeSnapshotRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9127,7 +9175,7 @@ RollbackAppCodeSnapshotResponse Client::rollbackAppCodeSnapshotWithOptions(const
 /**
  * @summary Rolls back a code snapshot.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request RollbackAppCodeSnapshotRequest
  * @return RollbackAppCodeSnapshotResponse
@@ -9138,9 +9186,9 @@ RollbackAppCodeSnapshotResponse Client::rollbackAppCodeSnapshot(const RollbackAp
 }
 
 /**
- * @summary Rolls back the release of an application instance.
+ * @summary Rolls back the deployment of an application instance.
  *
- * @description Queries the details of an application instance.
+ * @description Queries application instance information.
  *
  * @param request RollbackAppInstancePublishRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9183,9 +9231,9 @@ RollbackAppInstancePublishResponse Client::rollbackAppInstancePublishWithOptions
 }
 
 /**
- * @summary Rolls back the release of an application instance.
+ * @summary Rolls back the deployment of an application instance.
  *
- * @description Queries the details of an application instance.
+ * @description Queries application instance information.
  *
  * @param request RollbackAppInstancePublishRequest
  * @return RollbackAppInstancePublishResponse
@@ -9196,9 +9244,9 @@ RollbackAppInstancePublishResponse Client::rollbackAppInstancePublish(const Roll
 }
 
 /**
- * @summary Rolls back the version of an application plugin.
+ * @summary Rolls back the version of an application plug-in.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request RollbackAppPluginVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9233,9 +9281,9 @@ RollbackAppPluginVersionResponse Client::rollbackAppPluginVersionWithOptions(con
 }
 
 /**
- * @summary Rolls back the version of an application plugin.
+ * @summary Rolls back the version of an application plug-in.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request RollbackAppPluginVersionRequest
  * @return RollbackAppPluginVersionResponse
@@ -9246,9 +9294,9 @@ RollbackAppPluginVersionResponse Client::rollbackAppPluginVersion(const Rollback
 }
 
 /**
- * @summary Save Requirement
+ * @summary Saves a requirement.
  *
- * @description Get code generation plugin configuration information
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request SaveAppRequirementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9285,9 +9333,9 @@ SaveAppRequirementResponse Client::saveAppRequirementWithOptions(const SaveAppRe
 }
 
 /**
- * @summary Save Requirement
+ * @summary Saves a requirement.
  *
- * @description Get code generation plugin configuration information
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request SaveAppRequirementRequest
  * @return SaveAppRequirementResponse
@@ -9524,7 +9572,7 @@ SearchImageResponse Client::searchImage(const SearchImageRequest &request) {
 }
 
 /**
- * @summary Sets the SSL certificate for a website.
+ * @summary Configures the SSL certificate for a website.
  *
  * @param request SetAppDomainCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9575,7 +9623,7 @@ SetAppDomainCertificateResponse Client::setAppDomainCertificateWithOptions(const
 }
 
 /**
- * @summary Sets the SSL certificate for a website.
+ * @summary Configures the SSL certificate for a website.
  *
  * @param request SetAppDomainCertificateRequest
  * @return SetAppDomainCertificateResponse
@@ -9806,7 +9854,7 @@ SwitchAppConversationResponse Client::switchAppConversation(const SwitchAppConve
 }
 
 /**
- * @summary Synchronizes an application instance from a partner.
+ * @summary Synchronizes partner application instances.
  *
  * @param tmpReq SyncAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9859,7 +9907,7 @@ SyncAppInstanceForPartnerResponse Client::syncAppInstanceForPartnerWithOptions(c
 }
 
 /**
- * @summary Synchronizes an application instance from a partner.
+ * @summary Synchronizes partner application instances.
  *
  * @param request SyncAppInstanceForPartnerRequest
  * @return SyncAppInstanceForPartnerResponse
@@ -9916,7 +9964,7 @@ TranslateChannelDraftResponse Client::translateChannelDraft(const TranslateChann
 }
 
 /**
- * @summary Unbinds a domain name from a website and deletes the associated DNS records.
+ * @summary Unbinds a domain name from a website and deletes the related DNS records.
  *
  * @param request UnbindAppDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9951,7 +9999,7 @@ UnbindAppDomainResponse Client::unbindAppDomainWithOptions(const UnbindAppDomain
 }
 
 /**
- * @summary Unbinds a domain name from a website and deletes the associated DNS records.
+ * @summary Unbinds a domain name from a website and deletes the related DNS records.
  *
  * @param request UnbindAppDomainRequest
  * @return UnbindAppDomainResponse
@@ -10010,7 +10058,7 @@ UninstallAppPluginResponse Client::uninstallAppPlugin(const UninstallAppPluginRe
 /**
  * @summary Updates the message content.
  *
- * @description Queries the AI conversation history for Wanxiaozhi 2.0.
+ * @description The API operation for querying the AI conversation history in Wanxiaozhi 2.0.
  *
  * @param request UpdateAppChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10055,7 +10103,7 @@ UpdateAppChatMessageResponse Client::updateAppChatMessageWithOptions(const Updat
 /**
  * @summary Updates the message content.
  *
- * @description Queries the AI conversation history for Wanxiaozhi 2.0.
+ * @description The API operation for querying the AI conversation history in Wanxiaozhi 2.0.
  *
  * @param request UpdateAppChatMessageRequest
  * @return UpdateAppChatMessageResponse
@@ -10068,7 +10116,7 @@ UpdateAppChatMessageResponse Client::updateAppChatMessage(const UpdateAppChatMes
 /**
  * @summary Edits JSX code.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request UpdateAppCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10105,7 +10153,7 @@ UpdateAppCodeResponse Client::updateAppCodeWithOptions(const UpdateAppCodeReques
 /**
  * @summary Edits JSX code.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request UpdateAppCodeRequest
  * @return UpdateAppCodeResponse
@@ -10170,7 +10218,7 @@ UpdateAppFileResponse Client::updateAppFile(const UpdateAppFileRequest &request)
 }
 
 /**
- * @summary Changes the specifications of a website building instance.
+ * @summary Changes the specifications of a website builder instance.
  *
  * @description Queries the information of an application instance.
  *
@@ -10259,7 +10307,7 @@ UpdateAppInstanceResponse Client::updateAppInstanceWithOptions(const UpdateAppIn
 }
 
 /**
- * @summary Changes the specifications of a website building instance.
+ * @summary Changes the specifications of a website builder instance.
  *
  * @description Queries the information of an application instance.
  *
@@ -10272,9 +10320,9 @@ UpdateAppInstanceResponse Client::updateAppInstance(const UpdateAppInstanceReque
 }
 
 /**
- * @summary Updates an application plugin.
+ * @summary Updates an application plug-in.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request UpdateAppPluginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10349,9 +10397,9 @@ UpdateAppPluginResponse Client::updateAppPluginWithOptions(const UpdateAppPlugin
 }
 
 /**
- * @summary Updates an application plugin.
+ * @summary Updates an application plug-in.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request UpdateAppPluginRequest
  * @return UpdateAppPluginResponse
@@ -10592,7 +10640,7 @@ UpdateMiniAppBindingResponse Client::updateMiniAppBinding(const UpdateMiniAppBin
 /**
  * @summary Updates an organizational unit.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request UpdateRbacOrgUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10633,7 +10681,7 @@ UpdateRbacOrgUnitResponse Client::updateRbacOrgUnitWithOptions(const UpdateRbacO
 /**
  * @summary Updates an organizational unit.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request UpdateRbacOrgUnitRequest
  * @return UpdateRbacOrgUnitResponse
@@ -10644,9 +10692,9 @@ UpdateRbacOrgUnitResponse Client::updateRbacOrgUnit(const UpdateRbacOrgUnitReque
 }
 
 /**
- * @summary Updates the RBAC role.
+ * @summary Updates an RBAC role.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request UpdateRbacRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10685,9 +10733,9 @@ UpdateRbacRoleResponse Client::updateRbacRoleWithOptions(const UpdateRbacRoleReq
 }
 
 /**
- * @summary Updates the RBAC role.
+ * @summary Updates an RBAC role.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request UpdateRbacRoleRequest
  * @return UpdateRbacRoleResponse
@@ -10698,9 +10746,9 @@ UpdateRbacRoleResponse Client::updateRbacRole(const UpdateRbacRoleRequest &reque
 }
 
 /**
- * @summary Uploads an application plugin version.
+ * @summary Uploads an application plug-in version.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request UploadAppPluginVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10755,9 +10803,9 @@ UploadAppPluginVersionResponse Client::uploadAppPluginVersionWithOptions(const U
 }
 
 /**
- * @summary Uploads an application plugin version.
+ * @summary Uploads an application plug-in version.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request UploadAppPluginVersionRequest
  * @return UploadAppPluginVersionResponse

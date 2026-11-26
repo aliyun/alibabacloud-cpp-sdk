@@ -123,15 +123,13 @@ namespace Models
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
-    // The domain name keyword for fuzzy match. This parameter is optional.
+    // The domain name keyword used for fuzzy match.
     shared_ptr<string> domainKeyword_ {};
-    // The domain name management type. Valid values: CUSTOM and PLATFORM_PREFIX. If this parameter is not specified, the default value is CUSTOM.
+    // The domain name management type. Valid values: CUSTOM and PLATFORM_PREFIX. Default value: CUSTOM.
     shared_ptr<string> domainType_ {};
-    // The number of entries to return for a single query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of entries to return in a single query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to start the next query. If no next query is available, this value is empty.
+    // The token used to start the next query. If no next query exists, this value is empty.
     shared_ptr<string> nextToken_ {};
     // The field used for sorting.
     shared_ptr<string> orderColumn_ {};
@@ -141,7 +139,7 @@ namespace Models
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The query mode for the domain name status. Valid values: BASIC and REALTIME. BASIC returns only the persisted status. REALTIME refreshes the status from external services. If this parameter is not specified, the default value is REALTIME.
+    // The domain name status query mode. Valid values: BASIC and REALTIME. BASIC returns only the persisted status. REALTIME refreshes the status from external services. Default value: REALTIME.
     shared_ptr<string> statusQueryMode_ {};
   };
 

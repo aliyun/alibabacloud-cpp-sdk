@@ -136,7 +136,7 @@ namespace Models
 
 
   protected:
-    // The details of the permission check failure.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};

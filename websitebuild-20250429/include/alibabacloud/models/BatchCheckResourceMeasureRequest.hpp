@@ -86,13 +86,13 @@ namespace Models
   protected:
     // The ownership ID, which can be a website ID or an Alibaba Cloud user ID.
     shared_ptr<string> belongId_ {};
-    // The type of the ownership ID, such as siteId or uid.
+    // The ownership ID type, such as siteId or uid.
     shared_ptr<string> belongIdType_ {};
     // The ESP business type.
     shared_ptr<string> bizType_ {};
     // The ESP business ID.
     shared_ptr<string> espBizId_ {};
-    // The order component information. This parameter is automatically populated if left empty.
+    // The order component information. This parameter is automatically completed when it is empty.
     shared_ptr<string> orderComponentParams_ {};
     // The list of resource check items in JSON array format.
     shared_ptr<string> resourceCheckItems_ {};

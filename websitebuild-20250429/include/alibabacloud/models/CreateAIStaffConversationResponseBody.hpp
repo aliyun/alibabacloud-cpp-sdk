@@ -124,7 +124,7 @@ namespace Models
 
 
     protected:
-      // The chatbot ID.
+      // The bot ID.
       shared_ptr<string> botId_ {};
       // The chat ID.
       shared_ptr<string> chatId_ {};
@@ -132,9 +132,9 @@ namespace Models
       shared_ptr<string> conversationId_ {};
       // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
-      // The site ID. You can obtain this value by calling the [ListSites](~~ListSites~~) operation.
+      // The site ID. You can obtain this ID by calling the [ListSites](~~ListSites~~) operation.
       shared_ptr<string> siteId_ {};
-      // The current viewpoint, equivalent to the news title.
+      // The current viewpoint, which is equivalent to the news title.
       shared_ptr<string> title_ {};
     };
 
@@ -223,17 +223,17 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Specifies whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<CreateAIStaffConversationResponseBody::Module> module_ {};

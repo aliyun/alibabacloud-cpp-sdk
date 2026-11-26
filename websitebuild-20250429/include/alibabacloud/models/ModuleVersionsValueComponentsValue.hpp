@@ -112,11 +112,11 @@ namespace Models
 
 
       protected:
-        // 属性编码（系统内部标识）
+        // The code of the property, which is an internal system identifier.
         shared_ptr<string> code_ {};
-        // 属性值编码（系统内部值）
+        // The code of the property value, which is an internal system value.
         shared_ptr<string> value_ {};
-        // 属性显示名称（用户可见名称）
+        // The display name of the property, which is visible to users.
         shared_ptr<string> name_ {};
       };
 
@@ -153,13 +153,13 @@ namespace Models
 
 
     protected:
-      // 属性编码（系统内部标识）
+      // The code of the property, which is an internal system identifier.
       shared_ptr<string> code_ {};
-      // 属性显示名称（用户可见名称）
+      // The display name of the property, which is visible to users.
       shared_ptr<string> name_ {};
-      // 属性值编码（系统内部值）
+      // The code of the property value, which is an internal system value.
       shared_ptr<string> value_ {};
-      // 模块属性值列表
+      // The list of module property values.
       shared_ptr<vector<InstanceProperty::Values>> values_ {};
     };
 
@@ -205,15 +205,15 @@ namespace Models
 
 
   protected:
-    // 组件唯一编码（系统内部标识）
+    // The unique code of the component, which is an internal system identifier.
     shared_ptr<string> componentCode_ {};
-    // 组件显示名称（用户可见名称）
+    // The display name of the component, which is visible to users.
     shared_ptr<string> componentName_ {};
-    // 组件实例属性配置
+    // The instance property configuration of the component.
     shared_ptr<vector<ModuleVersionsValueComponentsValue::InstanceProperty>> instanceProperty_ {};
-    // 组件实例属性配置
+    // The instance property configuration of the component.
     shared_ptr<map<string, ModuleVersionsValueComponentsValuePropertiesValue>> properties_ {};
-    // 模块属性状态
+    // The status of the module property.
     shared_ptr<int32_t> moduleAttrStatus_ {};
   };
 

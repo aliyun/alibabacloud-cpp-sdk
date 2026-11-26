@@ -181,7 +181,7 @@ namespace Models
         shared_ptr<string> gmtCreate_ {};
         // The status. Valid values: unknown, init, testing, and online.
         shared_ptr<string> status_ {};
-        // The application instance version.
+        // The version of the application instance.
         shared_ptr<string> version_ {};
       };
 
@@ -281,7 +281,7 @@ namespace Models
         shared_ptr<string> gmtCreate_ {};
         // The file status.
         shared_ptr<string> status_ {};
-        // The application instance version.
+        // The version of the application instance.
         shared_ptr<string> version_ {};
       };
 
@@ -461,15 +461,15 @@ namespace Models
 
 
   protected:
-    // The detailed reason for the access denial.
+    // The detailed reasons for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not used and can be ignored.
+    // The dynamic message. This parameter is currently unused and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};

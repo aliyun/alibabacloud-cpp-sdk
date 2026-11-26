@@ -160,27 +160,28 @@ namespace Models
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
-    // The list of mobile butler delivery platform types in a JSON string array. Valid values: wechat, dingtalk, wecom, and feishu.
+    // The list of mobile butler delivery platform types in a JSON string array. Supported values include wechat, dingtalk, wecom, and feishu.
     shared_ptr<string> butlerChannelTypesJson_ {};
-    // The list of mobile butler notification fields in a JSON string array. This parameter is required when the butler channel is selected. A maximum of 10 fields are supported. The butler fields in JSON format.
+    // The list of mobile butler notification fields. The value is a JSON string array. This parameter is required when the butler channel is selected. A maximum of 10 fields are supported.
+    // Butler field JSON.
     shared_ptr<string> butlerFieldsJson_ {};
     // The notification channels in a JSON array string, such as ["sms","email"].
     shared_ptr<string> channelsJson_ {};
-    // The description of the scenario.
+    // The scenario description.
     shared_ptr<string> description_ {};
     // The email notification fields in a JSON array string. A maximum of 10 fields are supported.
     shared_ptr<string> emailFieldsJson_ {};
-    // The email sending limit in a JSON string, including the minInterval and dailyLimit fields.
+    // The email sending limits. The value is a JSON string that contains the minInterval and dailyLimit fields.
     shared_ptr<string> emailLimitJson_ {};
     // The list of email recipient IDs in a JSON array string.
     shared_ptr<string> emailRecipientIdsJson_ {};
-    // The name of the scenario.
+    // The scenario name.
     shared_ptr<string> name_ {};
     // The list of SMS recipient IDs in a JSON array string.
     shared_ptr<string> phoneRecipientIdsJson_ {};
     // The SMS notification fields in a JSON array string. A maximum of 3 fields are supported.
     shared_ptr<string> smsFieldsJson_ {};
-    // The SMS sending limit in a JSON string, including the minInterval and dailyLimit fields.
+    // The SMS sending limits. The value is a JSON string that contains the minInterval and dailyLimit fields.
     shared_ptr<string> smsLimitJson_ {};
     // The name of the monitored data table.
     shared_ptr<string> tableName_ {};

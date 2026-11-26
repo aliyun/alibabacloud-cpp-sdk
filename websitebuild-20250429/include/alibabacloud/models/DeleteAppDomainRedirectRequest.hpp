@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // aliyun.com
     shared_ptr<string> domainName_ {};
-    // The ID of the domain name redirect record.
+    // The ID of the domain redirect record.
     shared_ptr<int64_t> recordId_ {};
   };
 

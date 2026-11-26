@@ -238,7 +238,7 @@ namespace Models
 
 
   protected:
-    // The detailed reason for access denial.
+    // The detailed cause of access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -246,7 +246,7 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not used and can be ignored.
+    // The dynamic message. This parameter is not in use and can be ignored.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};

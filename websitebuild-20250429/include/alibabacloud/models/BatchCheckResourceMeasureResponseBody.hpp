@@ -94,7 +94,7 @@ namespace Models
     protected:
       // Indicates whether all checks passed.
       shared_ptr<bool> allPassed_ {};
-      // The check results for each resource, where the key is the resourceCode.
+      // The check results for each resource. The key is the resourceCode.
       shared_ptr<map<string, ModuleResultsValue>> results_ {};
     };
 
@@ -183,11 +183,11 @@ namespace Models
 
 
   protected:
-    // The detailed reasons for access denial.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Specifies whether retries are allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the app.
+    // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -199,11 +199,11 @@ namespace Models
     shared_ptr<BatchCheckResourceMeasureResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The root error code.
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Specifies whether synchronous processing is used.
+    // Specifies whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

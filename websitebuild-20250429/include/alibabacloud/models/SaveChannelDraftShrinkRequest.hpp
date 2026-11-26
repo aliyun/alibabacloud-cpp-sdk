@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The channel content (outside China only).
+    // The content of the channel (outside China only).
     shared_ptr<string> adaptedContent_ {};
-    // The channel title.
+    // The title of the channel.
     shared_ptr<string> adaptedTitle_ {};
-    // The display name of the publishing account. A null value does not overwrite the original value. Maximum length: 256 characters.
+    // The display name of the publishing account. If this parameter is left empty, the original value is not overwritten. Maximum length: 256 characters.
     shared_ptr<string> channelAccountName_ {};
-    // The collection of channel cover images (full overwrite).
+    // The collection of cover images for the channel. This parameter overwrites all existing cover images.
     shared_ptr<string> coverImagesShrink_ {};
-    // The channel draft ID.
+    // The ID of the channel draft.
     // 
     // This parameter is required.
     shared_ptr<string> draftId_ {};
-    // The article column name for Wanxiaozhi 1.0. This parameter is required only when the website has not enabled an article column.
+    // The name of the article column in Wanxiaozhi 1.0. This parameter is required only when the article column is not enabled for the website.
     shared_ptr<string> websiteNavName_ {};
   };
 

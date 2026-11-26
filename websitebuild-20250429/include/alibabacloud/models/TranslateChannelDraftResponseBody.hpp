@@ -146,11 +146,11 @@ namespace Models
 
 
       protected:
-        // The file ID in the material center.
+        // The ID of the file in the material center.
         shared_ptr<string> materialFileId_ {};
         // The CDN URL of the image.
         shared_ptr<string> ossUrl_ {};
-        // The sort order number.
+        // The sort order.
         shared_ptr<int32_t> sortOrder_ {};
       };
 
@@ -275,21 +275,21 @@ namespace Models
     protected:
       // The AI adaptation status. Valid values: NONE, ADAPTING, DONE, and FAILED.
       shared_ptr<string> adaptStatus_ {};
-      // The channel-adapted content body.
+      // The adapted content for the channel.
       shared_ptr<string> adaptedContent_ {};
-      // The channel-adapted title.
+      // The adapted title for the channel.
       shared_ptr<string> adaptedTitle_ {};
-      // The channel enumeration value.
+      // The channel enumeration.
       shared_ptr<string> channel_ {};
-      // The publishing account snapshot.
+      // The snapshot of the publishing account.
       shared_ptr<string> channelAccount_ {};
       // The display name of the publishing account.
       shared_ptr<string> channelAccountName_ {};
       // The display name of the channel.
       shared_ptr<string> channelName_ {};
-      // The channel type. Valid values: DOMESTIC, OVERSEA, and INTERNAL.
+      // The type of the channel. Valid values: DOMESTIC, OVERSEA, and INTERNAL.
       shared_ptr<string> channelType_ {};
-      // The list of channel cover images.
+      // The list of cover images for the channel.
       shared_ptr<vector<Module::CoverImages>> coverImages_ {};
       // The ID of the channel draft.
       shared_ptr<string> draftId_ {};
@@ -299,9 +299,9 @@ namespace Models
       shared_ptr<string> externalUrl_ {};
       // The reason for the failure.
       shared_ptr<string> failReason_ {};
-      // The channel-specific publishing configuration in JSON format.
+      // The JSON string of channel-specific publishing fields.
       shared_ptr<string> publishConfig_ {};
-      // The publishing time, in millisecond timestamp format.
+      // The publishing time. The value is a millisecond timestamp.
       shared_ptr<int64_t> publishedAt_ {};
       // The status. Valid values: EDITING, PUBLISHING, SUCCESS, and FAILED.
       shared_ptr<string> status_ {};
@@ -392,20 +392,20 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name used to query the application.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is not in use. Ignore this parameter.
+    // The dynamic code. This field is currently unused and can be ignored.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message that is used to replace the `%s` variable in the **ErrMessage** return parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The invalid parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Indicates whether the deletion was successful.
+    // Indicates whether the deletion is successful.
     shared_ptr<TranslateChannelDraftResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -90,7 +90,7 @@ namespace Models
     protected:
       // trial,draft,live,refunded,expired,released
       shared_ptr<string> status_ {};
-      // Indicates whether the operation was successful.
+      // Indicates whether the request is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -181,9 +181,9 @@ namespace Models
   protected:
     // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The name of the application.
+    // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -199,7 +199,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the processing is synchronous.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

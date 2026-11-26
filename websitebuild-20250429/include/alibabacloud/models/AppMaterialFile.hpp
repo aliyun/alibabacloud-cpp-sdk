@@ -166,7 +166,7 @@ namespace Models
     shared_ptr<string> createTime_ {};
     // The deletion time.
     shared_ptr<string> deletedTime_ {};
-    // The folder ID.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
     // The file ID.
     shared_ptr<string> fileId_ {};
@@ -178,9 +178,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The file status.
     shared_ptr<string> status_ {};
-    // The storage size.
+    // The storage space size.
     shared_ptr<string> storageSize_ {};
-    // The file name extension.
+    // The file extension.
     shared_ptr<string> suffix_ {};
     // The file type.
     shared_ptr<string> type_ {};

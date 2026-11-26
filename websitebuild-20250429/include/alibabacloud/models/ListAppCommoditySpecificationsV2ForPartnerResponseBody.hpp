@@ -156,11 +156,11 @@ namespace Models
       protected:
         // The API status or POP error code.
         shared_ptr<string> code_ {};
-        // The default values.
+        // The component mapping for the product specifications, where the key is the component code.
         shared_ptr<map<string, ModuleNextComponentsValue>> components_ {};
         // The website name.
         shared_ptr<string> name_ {};
-        // The frame rate.
+        // The property mapping for the product specifications, where the key is the property code.
         shared_ptr<map<string, ModuleNextPropertiesValue>> properties_ {};
       };
 
@@ -226,11 +226,11 @@ namespace Models
       protected:
         // The API status or POP error code.
         shared_ptr<string> code_ {};
-        // The default values.
+        // The component mapping for the product specifications, where the key is the component code.
         shared_ptr<map<string, ModuleDataComponentsValue>> components_ {};
         // The file name.
         shared_ptr<string> name_ {};
-        // The duration.
+        // The property mapping for the product specifications, where the key is the property code.
         shared_ptr<map<string, ModuleDataPropertiesValue>> properties_ {};
       };
 
@@ -307,19 +307,19 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The request result.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
       // The next feature ID.
       shared_ptr<Module::Next> next_ {};
-      // Indicates whether there is a next page.
+      // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Indicates whether there is a previous page.
+      // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to pagination limits, the server processes a maximum of the most recent 1000 records per query. If the results exceed 1000, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
       shared_ptr<bool> resultLimit_ {};
-      // The total number of items.
+      // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
       // The total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
@@ -425,26 +425,24 @@ namespace Models
 
 
   protected:
-    // The access denied detail.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The app name.
+    // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** error message of the response parameters.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message used to replace `%s` in the error message returned in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of results per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of results to return per query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The response data.
     shared_ptr<ListAppCommoditySpecificationsV2ForPartnerResponseBody::Module> module_ {};
-    // The token for the next query. This parameter is empty when there is no next query.
+    // The token used to start the next query. This value is empty if there are no more results.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

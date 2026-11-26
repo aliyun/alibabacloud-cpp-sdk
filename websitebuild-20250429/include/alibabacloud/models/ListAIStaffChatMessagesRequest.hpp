@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> conversationId_ {};
     // The number of entries per page. Valid values: 10 to 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The creation time of the last entry on the previous page. Do not specify this parameter when you query the first page.
+    // The gmtCreate value of the last entry on the previous page. Do not specify this parameter for the first page.
     shared_ptr<string> startCreateTime_ {};
   };
 

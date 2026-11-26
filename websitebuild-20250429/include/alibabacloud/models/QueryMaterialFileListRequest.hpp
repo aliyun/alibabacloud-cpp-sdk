@@ -175,19 +175,17 @@ namespace Models
     shared_ptr<string> directoryId_ {};
     // The maximum file size.
     shared_ptr<int64_t> maxFileSize_ {};
-    // The maximum number of entries to return for a single request.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of entries to return for a single request. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The minimum file size.
     shared_ptr<int64_t> minFileSize_ {};
     // The website name.
     shared_ptr<string> name_ {};
-    // The token that is used to start the next query. If no next query is available, this parameter is left empty.
+    // The token that is used to start the next query. If no next query exists, this parameter is empty.
     shared_ptr<string> nextToken_ {};
     // The sort field.
     shared_ptr<string> orderColumn_ {};
-    // The sort order. Valid values: ASC and DESC.
+    // The sort order. Valid values: ASC, DESC.
     shared_ptr<string> orderType_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
@@ -195,7 +193,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The list of statuses.
     shared_ptr<vector<string>> statusList_ {};
-    // The list of file extensions.
+    // The list of file name extensions.
     shared_ptr<vector<string>> suffixList_ {};
     // The list of file types.
     shared_ptr<vector<string>> typeList_ {};

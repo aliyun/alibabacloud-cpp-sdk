@@ -119,15 +119,13 @@ namespace Models
   protected:
     // The ID of the business group.
     shared_ptr<string> bizGroupId_ {};
-    // The number of entries per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of entries to return for a single request. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token used to start the next query. If no next query is available, this parameter is left empty.
     shared_ptr<string> nextToken_ {};
-    // The field used for sorting.
+    // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
-    // The sort type. Valid values: ASC and DESC.
+    // The sort order.
     shared_ptr<string> orderType_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};

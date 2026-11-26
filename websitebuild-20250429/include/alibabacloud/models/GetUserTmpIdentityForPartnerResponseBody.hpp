@@ -118,9 +118,9 @@ namespace Models
         shared_ptr<string> encryptedAccessKeyId_ {};
         // The encrypted temporary AccessKey secret.
         shared_ptr<string> encryptedAccessKeySecret_ {};
-        // The encrypted STS token.
+        // The encrypted Security Token Service (STS) token.
         shared_ptr<string> encryptedSecurityToken_ {};
-        // The estimated expiration time of the credential.
+        // The expected expiration time of the credentials.
         shared_ptr<string> expiration_ {};
       };
 
@@ -143,9 +143,9 @@ namespace Models
 
 
     protected:
-      // The security token.
+      // The security credentials.
       shared_ptr<Data::Credentials> credentials_ {};
-      // Indicates whether the customer authorization has been obtained.
+      // Indicates whether customer authorization has been obtained.
       shared_ptr<bool> hasCustomRoleAuth_ {};
     };
 
@@ -191,13 +191,13 @@ namespace Models
   protected:
     // The request result.
     shared_ptr<GetUserTmpIdentityForPartnerResponseBody::Data> data_ {};
-    // The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+    // The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

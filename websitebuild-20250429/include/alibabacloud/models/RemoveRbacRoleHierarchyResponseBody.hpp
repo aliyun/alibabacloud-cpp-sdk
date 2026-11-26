@@ -135,7 +135,7 @@ namespace Models
   protected:
     // The details of the permission check failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The name of the application to query.
     shared_ptr<string> appName_ {};
@@ -153,7 +153,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the processing is synchronous.
+    // Indicates whether synchronous processing is used.
     shared_ptr<bool> synchro_ {};
   };
 

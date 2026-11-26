@@ -293,7 +293,7 @@ namespace Models
 
 
     protected:
-      // The application type. Set this parameter to WEBSITE.
+      // The application type. Valid value: WEBSITE.
       shared_ptr<string> appType_ {};
       // The website business ID.
       shared_ptr<string> bizId_ {};
@@ -305,7 +305,7 @@ namespace Models
       shared_ptr<string> endTime_ {};
       // The deletion time.
       shared_ptr<string> gmtDelete_ {};
-      // The timestamp when the vulnerability was published. Unit: milliseconds.
+      // The timestamp when the vulnerability was published, in milliseconds.
       shared_ptr<string> gmtPublish_ {};
       // The URL of the application icon.
       shared_ptr<string> iconUrl_ {};
@@ -315,12 +315,11 @@ namespace Models
       shared_ptr<AppInstance::Profile> profile_ {};
       // siteId
       shared_ptr<string> siteHost_ {};
-      // The website SiteID.
+      // The site ID of the website.
       shared_ptr<string> slug_ {};
-      // The start time of the query. If you do not specify the start time or end time, all historical deployment records of the instance are queried. Specify the time in the ISO 8601 standard in the UTC (Z) time zone.
+      // The start time of the query. If you do not specify the start and end times, all historical deployment records of the instance are queried. Specify the time in the ISO 8601 standard in the UTC time zone.
       shared_ptr<string> startTime_ {};
       // The running status of the instance. Valid values:
-      // 
       // - NotRun: Not running.
       // - Running: Running.
       // - WaitTime: Waiting for the trigger time.
@@ -328,7 +327,7 @@ namespace Models
       // - WaitResource: Waiting for resources.
       // - Failure: Execution failed.
       // - Success: Execution succeeded.
-      // - Checking: Submitted for data quality check.
+      // - Checking: Dispatched for data quality check.
       shared_ptr<string> status_ {};
       // The URL of the thumbnail.
       shared_ptr<string> thumbnailUrl_ {};
@@ -384,7 +383,7 @@ namespace Models
     shared_ptr<string> operator_ {};
     // The source business ID.
     shared_ptr<string> sourceBizId_ {};
-    // The source. Set this parameter to MARKET_CLOUD_DREAM.
+    // The source type. Valid value: MARKET_CLOUD_DREAM.
     shared_ptr<string> sourceType_ {};
   };
 

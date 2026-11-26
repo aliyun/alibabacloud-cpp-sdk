@@ -190,11 +190,11 @@ namespace Models
 
 
   protected:
-    // The access denied details. This field is returned only when RAM authentication fails.
+    // The details of the access denied error. This field is returned only when RAM authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. Queries the application with this name.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -204,7 +204,7 @@ namespace Models
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The application module.
     shared_ptr<DescribeAppDomainDnsRecordResponseBody::Module> module_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};

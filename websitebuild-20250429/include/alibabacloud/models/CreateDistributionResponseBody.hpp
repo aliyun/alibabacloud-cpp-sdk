@@ -175,7 +175,7 @@ namespace Models
           shared_ptr<string> materialFileId_ {};
           // The CDN URL of the image.
           shared_ptr<string> ossUrl_ {};
-          // The sort order number.
+          // The sort order.
           shared_ptr<int32_t> sortOrder_ {};
         };
 
@@ -300,13 +300,13 @@ namespace Models
       protected:
         // The AI adaptation status. Valid values: NONE, ADAPTING, DONE, and FAILED.
         shared_ptr<string> adaptStatus_ {};
-        // The channel-adapted content body.
+        // The channel-adapted content.
         shared_ptr<string> adaptedContent_ {};
         // The channel-adapted title.
         shared_ptr<string> adaptedTitle_ {};
-        // The channel enumeration value.
+        // The channel enumeration.
         shared_ptr<string> channel_ {};
-        // The publishing account snapshot. For overseas channels, this is the OWLAIS socialAccountNo.
+        // The snapshot of the publishing account. For overseas channels, this is the OWLAIS socialAccountNo.
         shared_ptr<string> channelAccount_ {};
         // The display name of the publishing account.
         shared_ptr<string> channelAccountName_ {};
@@ -322,11 +322,11 @@ namespace Models
         shared_ptr<string> externalId_ {};
         // The redirect URL of the platform.
         shared_ptr<string> externalUrl_ {};
-        // The failure reason.
+        // The reason for the failure.
         shared_ptr<string> failReason_ {};
-        // The channel-specific publish configuration in JSON format.
+        // The channel-specific publishing fields in JSON format.
         shared_ptr<string> publishConfig_ {};
-        // The publish time, in millisecond timestamp.
+        // The publish time, in milliseconds.
         shared_ptr<int64_t> publishedAt_ {};
         // The status. Valid values: EDITING, PUBLISHING, SUCCESS, and FAILED.
         shared_ptr<string> status_ {};
@@ -369,9 +369,9 @@ namespace Models
       shared_ptr<string> articleId_ {};
       // The distribution batch ID.
       shared_ptr<string> batchId_ {};
-      // The creation time, in millisecond timestamp.
+      // The creation time, in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The list of channel drafts within the batch.
+      // The list of channel drafts in the batch.
       shared_ptr<vector<Module::Drafts>> drafts_ {};
     };
 
@@ -460,13 +460,13 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed cause of access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed. Valid values:
-    // - false: Retry is not allowed.
-    // - true: Retry is allowed.
+    // Specifies whether retries are allowed. Valid values:
+    // - false: Retries are not allowed.
+    // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The app name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -480,9 +480,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is processed synchronously.
+    // Specifies whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

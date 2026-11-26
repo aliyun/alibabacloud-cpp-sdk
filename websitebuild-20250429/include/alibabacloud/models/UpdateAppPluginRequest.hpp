@@ -146,17 +146,17 @@ namespace Models
     shared_ptr<string> configItems_ {};
     // The description of the application.
     shared_ptr<string> description_ {};
-    // The additional extension information in JSON format for subsequent parameter extensions.
+    // The additional extension information in JSON format to facilitate subsequent parameter extensions.
     shared_ptr<string> extend_ {};
     // The hook definitions.
     shared_ptr<string> hooks_ {};
-    // The description of the plugin.
+    // The description of the plug-in.
     shared_ptr<string> icon_ {};
-    // The ID of the gateway plugin.
+    // The ID of the gateway plug-in.
     shared_ptr<string> pluginId_ {};
-    // The name of the plugin.
+    // The name of the plug-in.
     shared_ptr<string> pluginName_ {};
-    // The plugin version.
+    // The plug-in version.
     shared_ptr<string> pluginVersion_ {};
     // The skill header information for model selection.
     shared_ptr<string> skillHeader_ {};
