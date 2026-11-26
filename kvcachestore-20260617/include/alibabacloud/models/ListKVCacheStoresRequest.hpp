@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // The list of KvcsId values. Separate multiple IDs with commas (,). A maximum of 100 IDs can be specified.
+    // The list of KvcsIds. Separate multiple IDs with commas. You can specify up to 100 IDs.
     shared_ptr<string> kvcsIds_ {};
-    // The maximum number of entries per page for cursor-based pagination. Default value: 10. Maximum value: 100. This parameter is used together with NextToken.
+    // The maximum number of entries per page for cursor pagination. Default value: 10. Maximum value: 100. This parameter is used together with NextToken.
     shared_ptr<int32_t> maxResults_ {};
-    // The instance name used for filtering. Prefix matching is supported.
+    // The instance name filter for prefix matching.
     shared_ptr<string> name_ {};
-    // The pagination token. Do not specify this parameter for the first request. For subsequent requests, use the NextToken value returned in the previous response. This parameter and PageNumber are mutually exclusive.
+    // The pagination cursor. Do not specify this parameter for the first query. For subsequent queries, use the NextToken value returned from the previous request. This parameter and PageNumber are mutually exclusive.
     shared_ptr<string> nextToken_ {};
     // The page number. Default value: 1. This parameter and NextToken are mutually exclusive. If both are specified, PageNumber takes precedence.
     shared_ptr<int32_t> pageNumber_ {};
@@ -128,7 +128,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The instance status used for filtering. Valid values: Creating, Available, InUse, Stopping, Stopped, and Deleting.
+    // The instance status filter. Valid values: Creating, Available, InUse, Stopping, Stopped, and Deleting.
     shared_ptr<string> status_ {};
     // The zone ID, such as cn-hangzhou-a.
     shared_ptr<string> zoneId_ {};

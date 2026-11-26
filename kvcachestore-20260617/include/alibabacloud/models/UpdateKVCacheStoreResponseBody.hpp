@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The ID of the modified KVCacheStore.
     shared_ptr<string> kvcsId_ {};
-    // The specification change order ID. Returned only when Capacity is modified.
+    // The specification change order ID. This parameter is returned only when the Capacity is modified.
     shared_ptr<string> orderId_ {};
-    // The request ID. The request ID is returned regardless of whether the operation is successful.
+    // The request ID. The request ID is returned regardless of whether the API call is successful.
     shared_ptr<string> requestId_ {};
   };
 

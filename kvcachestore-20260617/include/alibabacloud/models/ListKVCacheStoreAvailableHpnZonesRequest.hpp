@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the KVCacheStore instances. Separate multiple IDs with commas. You can specify 1 to 100 IDs.
+    // The list of KVCacheStore instance IDs. Separate multiple IDs with commas. You can specify 1 to 100 IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> kvcsIds_ {};

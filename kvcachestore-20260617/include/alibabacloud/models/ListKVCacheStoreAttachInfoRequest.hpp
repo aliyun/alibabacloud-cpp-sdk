@@ -97,25 +97,25 @@ namespace Models
 
 
   protected:
-    // The list of KvcsIds of the KVCacheStores to query. You can specify up to 100 KvcsIds.
+    // The list of KVCacheStore IDs to query. You can specify up to 100 IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> kvcsIds_ {};
-    // The maximum number of entries to return in a single call. Valid values: 1 to 500.
+    // The maximum number of entries to return for a single request. Valid values: 1 to 500.
     // 
     // Default value: 10.
     shared_ptr<int64_t> maxResults_ {};
-    // The query token. Set the value to the NextToken value returned from the last call to this operation. You do not need to specify this parameter for the first call. If NextToken is specified, the PageSize and PageNumber request parameters become invalid, and the TotalCount value in the response is invalid.
+    // The pagination token. Set the value to the NextToken value returned from the last invocation of this operation. No settings are required for this parameter when you invoke this operation for the first time. If NextToken is specified, the PageSize and PageNumber request parameters become invalid, and the TotalCount value in the response is invalid.
     shared_ptr<string> nextToken_ {};
-    // The page number for a paging query. This parameter is used together with PageSize. If the specified page number exceeds the total number of pages, the last page is returned.
+    // The page number for paging in a paged query. This parameter is used together with PageSize. If the specified page number exceeds the total number of pages, the last page is returned.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for a paging query.
+    // The settings for the number of entries per page for paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID, such as cn-hangzhou.
+    // The region ID. Example: cn-hangzhou.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the compute-side VSC. If you specify this parameter, the mount records are filtered by the specified VSC.
+    // The ID of the compute-side VSC. If you specify this parameter, the attachment records are filtered by the specified VSC.
     shared_ptr<string> vscId_ {};
   };
 

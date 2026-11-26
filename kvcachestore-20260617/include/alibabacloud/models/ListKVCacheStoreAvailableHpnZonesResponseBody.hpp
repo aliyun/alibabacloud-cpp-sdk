@@ -115,7 +115,7 @@ namespace Models
     protected:
       // The list of available HpnZones for the instance.
       shared_ptr<vector<InstanceHpnZones::AvailableHpnZones>> availableHpnZones_ {};
-      // The ID of the KVCacheStore instance.
+      // The KVCacheStore instance ID.
       shared_ptr<string> kvcsId_ {};
       // The ID of the zone where the instance resides.
       shared_ptr<string> zoneId_ {};
@@ -140,7 +140,7 @@ namespace Models
 
 
   protected:
-    // The list of available HpnZones for instances.
+    // The list of available HpnZones for the instances.
     shared_ptr<vector<ListKVCacheStoreAvailableHpnZonesResponseBody::InstanceHpnZones>> instanceHpnZones_ {};
     // The request ID. This ID is returned regardless of whether the API call is successful.
     shared_ptr<string> requestId_ {};

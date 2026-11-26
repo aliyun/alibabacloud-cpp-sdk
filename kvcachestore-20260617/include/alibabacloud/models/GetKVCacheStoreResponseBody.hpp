@@ -117,9 +117,9 @@ namespace Models
 
 
       protected:
-        // The tag key of the resource.
+        // The key of the tag.
         shared_ptr<string> tagKey_ {};
-        // The tag value of the resource.
+        // The value of the tag.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -235,45 +235,33 @@ namespace Models
 
 
     protected:
-      // The storage capacity in GiB.
+      // The storage capacity, in GiB.
       shared_ptr<int64_t> capacity_ {};
-      // The creation time in ISO 8601 format.
+      // The time when the instance was created. The time follows the ISO 8601 standard.
       shared_ptr<string> createTime_ {};
-      // The instance description.
+      // The description of the instance.
       shared_ptr<string> description_ {};
-      // The extra status information. Valid values:
-      // - CapacityExpanding: The capacity is being expanded.
-      // - CapacityExpandSuccess: The capacity expansion succeeded.
-      // - CapacityExpandFail: The capacity expansion failed.
+      // The extra status information. Valid values: CapacityExpanding, CapacityExpandSuccess, and CapacityExpandFail.
       shared_ptr<string> extraStatus_ {};
-      // The cluster ID.
+      // The cluster number.
       shared_ptr<string> hpnZone_ {};
-      // The instance ID.
+      // The ID of the instance.
       shared_ptr<string> kvcsId_ {};
-      // The file system-level mount point ID. Instances under the same file system share this mount point. For more information, use ListKVCacheInstanceAttachInfo.
+      // The ID of the file system-level mount point. The mount point is shared by instances in the same file system. For more information, call the ListKVCacheInstanceAttachInfo operation.
       shared_ptr<string> mountPointId_ {};
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> name_ {};
-      // The payment type. Valid values:
-      // - PREPAY: subscription.
-      // - POSTPAY: pay-as-you-go.
+      // The billing method. Valid values: PREPAY and POSTPAY.
       shared_ptr<string> paymentType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The instance status. Valid values:
-      // - Creating: The instance is being created.
-      // - Available: The instance is available.
-      // - InUse: The instance is in use.
-      // - Stopping: The instance is being stopped.
-      // - Stopped: The instance is stopped.
-      // - Deleting: The instance is being deleted.
+      // The instance status. Valid values: Creating, Available, InUse, Stopping, Stopped, and Deleting.
       shared_ptr<string> status_ {};
-      // The list of resource tags.
+      // The tags of the resource.
       shared_ptr<vector<KvCacheStore::Tags>> tags_ {};
-      // The instance type. Valid values:
-      // - kvcs: KVCacheStore (CPFS).
+      // The instance type, such as kvcs (KVCacheStore, CPFS).
       shared_ptr<string> type_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -300,7 +288,7 @@ namespace Models
   protected:
     // The details of the KvCacheStore instance.
     shared_ptr<GetKVCacheStoreResponseBody::KvCacheStore> kvCacheStore_ {};
-    // The request ID. A request ID is returned regardless of whether the call is successful.
+    // The ID of the request. The request ID is returned regardless of whether the call is successful.
     shared_ptr<string> requestId_ {};
   };
 

@@ -97,15 +97,15 @@ namespace Models
 
 
     protected:
-      // The error code returned when the operation fails. This parameter is null if the operation succeeds.
+      // The error code returned when the operation fails. This field is null when the operation succeeds.
       shared_ptr<string> errorCode_ {};
-      // The error message returned when the operation fails. This parameter is null if the operation succeeds.
+      // The error message returned when the operation fails. This field is null when the operation succeeds.
       shared_ptr<string> errorMessage_ {};
       // KVCacheStore KvcsId
       shared_ptr<string> kvcsId_ {};
-      // The status of the operation. Valid values: DETACHING (the request is accepted and the detachment is in progress; this value is also returned for idempotent calls), Success (synchronous verification is passed and the asynchronous operation is complete), and Failed (the operation failed).
+      // The operation result. Valid values: DETACHING (the request is accepted and the asynchronous unmount operation is in progress; this value is also returned for idempotent calls), Success (synchronous verification passed and asynchronous operation completed), and Failed (the operation failed).
       shared_ptr<string> status_ {};
-      // The VSC ID on the compute side.
+      // The ID of the VSC on the compute side.
       shared_ptr<string> vscId_ {};
     };
 
@@ -128,9 +128,9 @@ namespace Models
 
 
   protected:
-    // The list of detachment results.
+    // The list of unmount results.
     shared_ptr<vector<DetachKVCacheStoreResponseBody::DetachResults>> detachResults_ {};
-    // The request ID. This ID is returned regardless of whether the operation is successful.
+    // The request ID. This ID is returned regardless of whether the API call succeeds.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The KvCacheStore instance ID.
+    // The ID of the KvCacheStore instance.
     // 
     // This parameter is required.
     shared_ptr<string> kvcsId_ {};

@@ -247,9 +247,9 @@ namespace Models
 
 
     protected:
-      // The storage capacity, in GiB.
+      // The storage capacity. Unit: GiB.
       shared_ptr<int64_t> capacity_ {};
-      // The creation time in ISO 8601 format.
+      // The time when the instance was created. The time follows the ISO 8601 standard.
       shared_ptr<string> createTime_ {};
       // The instance description.
       shared_ptr<string> description_ {};
@@ -259,11 +259,11 @@ namespace Models
       shared_ptr<string> hpnZone_ {};
       // The instance ID.
       shared_ptr<string> kvcsId_ {};
-      // The file system-level mount point ID. Instances under the same file system share this mount point. For more information, use the ListKVCacheInstanceAttachInfo operation.
+      // The file system-level mount point ID. This mount point is shared by instances within the same file system. For more information, call the ListKVCacheInstanceAttachInfo operation.
       shared_ptr<string> mountPointId_ {};
       // The instance name.
       shared_ptr<string> name_ {};
-      // The payment type. Valid values: PREPAY and POSTPAY.
+      // The billing method. Valid values: PREPAY and POSTPAY.
       shared_ptr<string> paymentType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -273,7 +273,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The list of resource tags.
       shared_ptr<vector<KVCacheStores::Tags>> tags_ {};
-      // The instance type. Valid values: kvcs (KVCacheStore, CPFS).
+      // The instance type. Valid value: kvcs (KVCacheStore, CPFS).
       shared_ptr<string> type_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -341,21 +341,21 @@ namespace Models
 
 
   protected:
-    // The list of KVCacheStore instances. Each element contains the following parameters: KvcsId, Name, Status, ExtraStatus, RegionId, ZoneId, HpnZone, Type, Capacity, PaymentType, MountPointId, CreateTime, and Description.
+    // The list of KVCacheStores. Each element contains sub-parameters such as KvcsId, Name, Status, ExtraStatus, RegionId, ZoneId, HpnZone, Type, Capacity, PaymentType, MountPointId, CreateTime, and Description.
     shared_ptr<vector<ListKVCacheStoresResponseBody::KVCacheStores>> KVCacheStores_ {};
-    // The maximum number of entries returned per page.
+    // The maximum number of entries returned per pagination request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. This value is empty when no more data is available. This parameter is valid only for cursor-based pagination.
+    // The cursor for the next page. If no more data is available, this parameter is empty. This parameter is valid only when cursor pagination is used.
     shared_ptr<string> nextToken_ {};
-    // The current page number. This parameter is valid only for page number-based pagination.
+    // The current page number. This parameter is valid only when page number pagination is used.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. This parameter is valid only for page number-based pagination.
+    // The number of entries per page. This parameter is valid only when page number pagination is used.
     shared_ptr<int32_t> pageSize_ {};
-    // The total number of pages. This parameter is returned only for page number-based pagination.
+    // The total number of pages. This parameter is returned only when page number pagination is used.
     shared_ptr<int32_t> pageTotal_ {};
-    // The request ID. A request ID is returned regardless of whether the call is successful.
+    // The request ID. This ID is returned regardless of whether the API call is successful.
     shared_ptr<string> requestId_ {};
-    // The total number of instances. This parameter is returned only for page number-based pagination. For cursor-based pagination, the value is -1.
+    // The total number of instances. This parameter is returned only when page number pagination is used. If cursor pagination is used, the value is -1.
     shared_ptr<int32_t> totalCount_ {};
   };
 

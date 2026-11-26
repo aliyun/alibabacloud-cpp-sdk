@@ -45,9 +45,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const AttachInfos& obj) { 
         DARABONBA_PTR_TO_JSON(AttachedAt, attachedAt_);
         DARABONBA_PTR_TO_JSON(Capacity, capacity_);
+        DARABONBA_PTR_TO_JSON(ControlSn, controlSn_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(KvcsId, kvcsId_);
         DARABONBA_PTR_TO_JSON(MountPointId, mountPointId_);
+        DARABONBA_PTR_TO_JSON(Nguid, nguid_);
+        DARABONBA_PTR_TO_JSON(Protocol, protocol_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(Type, type_);
@@ -57,9 +60,12 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, AttachInfos& obj) { 
         DARABONBA_PTR_FROM_JSON(AttachedAt, attachedAt_);
         DARABONBA_PTR_FROM_JSON(Capacity, capacity_);
+        DARABONBA_PTR_FROM_JSON(ControlSn, controlSn_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(KvcsId, kvcsId_);
         DARABONBA_PTR_FROM_JSON(MountPointId, mountPointId_);
+        DARABONBA_PTR_FROM_JSON(Nguid, nguid_);
+        DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -78,8 +84,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->attachedAt_ == nullptr
-        && this->capacity_ == nullptr && this->instanceId_ == nullptr && this->kvcsId_ == nullptr && this->mountPointId_ == nullptr && this->regionId_ == nullptr
-        && this->status_ == nullptr && this->type_ == nullptr && this->vscId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->capacity_ == nullptr && this->controlSn_ == nullptr && this->instanceId_ == nullptr && this->kvcsId_ == nullptr && this->mountPointId_ == nullptr
+        && this->nguid_ == nullptr && this->protocol_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->type_ == nullptr
+        && this->vscId_ == nullptr && this->zoneId_ == nullptr; };
       // attachedAt Field Functions 
       bool hasAttachedAt() const { return this->attachedAt_ != nullptr;};
       void deleteAttachedAt() { this->attachedAt_ = nullptr;};
@@ -92,6 +99,13 @@ namespace Models
       void deleteCapacity() { this->capacity_ = nullptr;};
       inline int64_t getCapacity() const { DARABONBA_PTR_GET_DEFAULT(capacity_, 0L) };
       inline AttachInfos& setCapacity(int64_t capacity) { DARABONBA_PTR_SET_VALUE(capacity_, capacity) };
+
+
+      // controlSn Field Functions 
+      bool hasControlSn() const { return this->controlSn_ != nullptr;};
+      void deleteControlSn() { this->controlSn_ = nullptr;};
+      inline string getControlSn() const { DARABONBA_PTR_GET_DEFAULT(controlSn_, "") };
+      inline AttachInfos& setControlSn(string controlSn) { DARABONBA_PTR_SET_VALUE(controlSn_, controlSn) };
 
 
       // instanceId Field Functions 
@@ -113,6 +127,20 @@ namespace Models
       void deleteMountPointId() { this->mountPointId_ = nullptr;};
       inline string getMountPointId() const { DARABONBA_PTR_GET_DEFAULT(mountPointId_, "") };
       inline AttachInfos& setMountPointId(string mountPointId) { DARABONBA_PTR_SET_VALUE(mountPointId_, mountPointId) };
+
+
+      // nguid Field Functions 
+      bool hasNguid() const { return this->nguid_ != nullptr;};
+      void deleteNguid() { this->nguid_ = nullptr;};
+      inline string getNguid() const { DARABONBA_PTR_GET_DEFAULT(nguid_, "") };
+      inline AttachInfos& setNguid(string nguid) { DARABONBA_PTR_SET_VALUE(nguid_, nguid) };
+
+
+      // protocol Field Functions 
+      bool hasProtocol() const { return this->protocol_ != nullptr;};
+      void deleteProtocol() { this->protocol_ = nullptr;};
+      inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+      inline AttachInfos& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
       // regionId Field Functions 
@@ -151,19 +179,25 @@ namespace Models
 
 
     protected:
-      // The time of the last attach operation in ISO 8601 format. If the instance is not attached, the value is null.
+      // The time of the last attachment. The time follows the ISO 8601 standard. If the instance is not attached, the value is null.
       shared_ptr<string> attachedAt_ {};
-      // The capacity of the file system in GiB.
+      // The capacity of the file system. Unit: GiB.
       shared_ptr<int64_t> capacity_ {};
-      // The ID of the compute resource, which is the ECS instance ID or the Lingjun compute node ID.
+      // The serial number (SN) of the NVMe channel disk. This value is returned only when protocol is set to nvme and the channel is bound in the current round. If other protocols are used or the channel is not bound, the value is null.
+      shared_ptr<string> controlSn_ {};
+      // The ID of the compute resource, such as the ECS instance ID or the Lingjun compute node ID.
       shared_ptr<string> instanceId_ {};
       // KVCacheStore KvcsId
       shared_ptr<string> kvcsId_ {};
       // The ID of the file system-level mount point.
       shared_ptr<string> mountPointId_ {};
+      // The NGUID of the KVCacheStore data disk. This value is returned only when protocol is set to nvme and the NGUID is generated for the instance. If other protocols are used or the NGUID is missing, the value is null.
+      shared_ptr<string> nguid_ {};
+      // The access channel protocol of the instance. Valid values: vsc (VSC channel) and nvme (TDC NVMe channel).
+      shared_ptr<string> protocol_ {};
       // The region where the instance is deployed.
       shared_ptr<string> regionId_ {};
-      // The attach status. Valid values: Attaching, Attached, and Detaching. After the instance is detached, the record is deleted and not returned.
+      // The attachment status. Valid values: Attaching, Attached, and Detaching. After an instance is detached, the record is deleted and not returned.
       shared_ptr<string> status_ {};
       // The instance type. Valid value: kvcs.
       shared_ptr<string> type_ {};
@@ -220,17 +254,17 @@ namespace Models
 
 
   protected:
-    // The list of mount records.
+    // The list of attachment information.
     shared_ptr<vector<ListKVCacheStoreAttachInfoResponseBody::AttachInfos>> attachInfos_ {};
-    // The query token, which is used to query the next batch of data.
+    // The pagination token. It is used to query the next batch of data.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID. This ID is returned regardless of whether the call is successful.
+    // The request ID. The request ID is returned regardless of whether the call is successful.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned for a paging query.
+    // The total number of entries returned for the paged query.
     shared_ptr<int64_t> totalCount_ {};
   };
 

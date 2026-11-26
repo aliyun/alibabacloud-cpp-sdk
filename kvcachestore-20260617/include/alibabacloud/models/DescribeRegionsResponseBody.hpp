@@ -79,7 +79,7 @@ namespace Models
 
 
     protected:
-      // The localized name of the region.
+      // The local name of the region.
       shared_ptr<string> localName_ {};
       // The endpoint of the region.
       shared_ptr<string> regionEndpoint_ {};
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The list of regions.
+    // The regions.
     shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};
-    // The request ID. The request ID is returned regardless of whether the API call is successful.
+    // The request ID. A request ID is returned regardless of whether the API call is successful.
     shared_ptr<string> requestId_ {};
   };
 
