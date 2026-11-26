@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates if the request succeeded. Use this field to determine if the request succeeded: \\`true\\` for success; \\`false\\`/\\`null\\` for failure.
+    // Indicates if the request succeeded. Use this field to determine if the request succeeded: \`true\` for success; \`false\`/\`null\` for failure.
     shared_ptr<bool> success_ {};
   };
 

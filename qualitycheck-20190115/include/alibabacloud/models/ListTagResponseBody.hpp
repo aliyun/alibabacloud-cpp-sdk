@@ -152,21 +152,21 @@ namespace Models
     protected:
       // The number of direct child nodes.
       shared_ptr<int32_t> childCount_ {};
-      // The time when the label was created.
+      // The time when the tag was created.
       shared_ptr<int64_t> createTime_ {};
-      // The label description.
+      // The tag description.
       shared_ptr<string> description_ {};
       // The level of the current node.
       shared_ptr<int32_t> level_ {};
-      // The time when the label was last modified.
+      // The time when the tag was last modified.
       shared_ptr<int64_t> modifyTime_ {};
-      // The label name.
+      // The tag name.
       shared_ptr<string> name_ {};
-      // The ID of the parent label node.
+      // The ID of the parent tag node.
       shared_ptr<int64_t> parentTagId_ {};
       // The node path.
       shared_ptr<vector<string>> path_ {};
-      // The label ID.
+      // The tag ID.
       shared_ptr<int64_t> tagId_ {};
     };
 
@@ -239,7 +239,7 @@ namespace Models
 
 
   protected:
-    // The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
+    // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
     // The page size.
     shared_ptr<int32_t> currentPage_ {};
@@ -247,15 +247,15 @@ namespace Models
     shared_ptr<vector<ListTagResponseBody::Data>> data_ {};
     // The actual number of records returned on the current page.
     shared_ptr<int32_t> dataSize_ {};
-    // The error message, if any.
+    // The error message returned if an error occurs.
     shared_ptr<string> message_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. true: The call was successful. false: The call failed.
+    // Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
     shared_ptr<bool> success_ {};
-    // The total number of records that meet the conditions.
+    // The total number of records that meet the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

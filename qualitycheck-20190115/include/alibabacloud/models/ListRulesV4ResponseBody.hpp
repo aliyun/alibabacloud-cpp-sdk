@@ -155,31 +155,31 @@ namespace Models
 
 
   protected:
-    // Business type. This field has no practical use. Ignore it.
+    // The business type. This parameter has no practical meaning and can be ignored.
     shared_ptr<int32_t> businessType_ {};
-    // Result code. **200** means success. Any other value means failure. Callers can use this field to identify the cause of failure.
+    // The result code. A value of **200** indicates success. Any other value indicates failure. You can determine the cause of the failure based on this parameter.
     shared_ptr<string> code_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Response data.
+    // The returned results.
     shared_ptr<vector<RuleCountInfo>> data_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error details if the request failed. Returns **successful** if the request succeeded.
+    // The error details when an error occurs, or **successful** when the request is successful.
     shared_ptr<string> message_ {};
-    // Error details if the request failed. Use this field when multiple messages are returned.
+    // The error details when an error occurs. This parameter is used when multiple messages are returned.
     shared_ptr<vector<string>> messages_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of rows per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded. Callers can use this field to determine success: true means success. **false** or **null** means failure.
+    // Indicates whether the request is successful. You can determine whether the request is successful based on this parameter. A value of **true** indicates success. A value of **false** or **null** indicates failure.
     shared_ptr<bool> success_ {};
-    // Total number of items.
+    // The total number of data entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

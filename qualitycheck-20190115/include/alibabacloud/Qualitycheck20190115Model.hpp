@@ -51,6 +51,9 @@
 #include <alibabacloud/models/CreateCheckTypeToSchemeRequest.hpp>
 #include <alibabacloud/models/CreateCheckTypeToSchemeResponseBody.hpp>
 #include <alibabacloud/models/CreateCheckTypeToSchemeResponse.hpp>
+#include <alibabacloud/models/CreateHttpEventConfigRequest.hpp>
+#include <alibabacloud/models/CreateHttpEventConfigResponseBody.hpp>
+#include <alibabacloud/models/CreateHttpEventConfigResponse.hpp>
 #include <alibabacloud/models/CreateMiningTaskRequest.hpp>
 #include <alibabacloud/models/CreateMiningTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateMiningTaskResponse.hpp>
@@ -99,6 +102,9 @@
 #include <alibabacloud/models/DeleteDataSetRequest.hpp>
 #include <alibabacloud/models/DeleteDataSetResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataSetResponse.hpp>
+#include <alibabacloud/models/DeleteHttpEventConfigRequest.hpp>
+#include <alibabacloud/models/DeleteHttpEventConfigResponseBody.hpp>
+#include <alibabacloud/models/DeleteHttpEventConfigResponse.hpp>
 #include <alibabacloud/models/DeleteQualityCheckSchemeRequest.hpp>
 #include <alibabacloud/models/DeleteQualityCheckSchemeResponseBody.hpp>
 #include <alibabacloud/models/DeleteQualityCheckSchemeResponse.hpp>
@@ -150,6 +156,9 @@
 #include <alibabacloud/models/GetCustomizationConfigListRequest.hpp>
 #include <alibabacloud/models/GetCustomizationConfigListResponseBody.hpp>
 #include <alibabacloud/models/GetCustomizationConfigListResponse.hpp>
+#include <alibabacloud/models/GetHttpEventConfigRequest.hpp>
+#include <alibabacloud/models/GetHttpEventConfigResponseBody.hpp>
+#include <alibabacloud/models/GetHttpEventConfigResponse.hpp>
 #include <alibabacloud/models/GetLabelAnalysisResultRequest.hpp>
 #include <alibabacloud/models/GetLabelAnalysisResultResponseBody.hpp>
 #include <alibabacloud/models/GetLabelAnalysisResultResponse.hpp>
@@ -280,6 +289,9 @@
 #include <alibabacloud/models/SyncQualityCheckRequest.hpp>
 #include <alibabacloud/models/SyncQualityCheckResponseBody.hpp>
 #include <alibabacloud/models/SyncQualityCheckResponse.hpp>
+#include <alibabacloud/models/TestHttpEventConfigRequest.hpp>
+#include <alibabacloud/models/TestHttpEventConfigResponseBody.hpp>
+#include <alibabacloud/models/TestHttpEventConfigResponse.hpp>
 #include <alibabacloud/models/TestRuleV4Request.hpp>
 #include <alibabacloud/models/TestRuleV4ResponseBody.hpp>
 #include <alibabacloud/models/TestRuleV4Response.hpp>
@@ -292,6 +304,9 @@
 #include <alibabacloud/models/UpdateCheckTypeToSchemeRequest.hpp>
 #include <alibabacloud/models/UpdateCheckTypeToSchemeResponseBody.hpp>
 #include <alibabacloud/models/UpdateCheckTypeToSchemeResponse.hpp>
+#include <alibabacloud/models/UpdateHttpEventConfigRequest.hpp>
+#include <alibabacloud/models/UpdateHttpEventConfigResponseBody.hpp>
+#include <alibabacloud/models/UpdateHttpEventConfigResponse.hpp>
 #include <alibabacloud/models/UpdateQualityCheckDataRequest.hpp>
 #include <alibabacloud/models/UpdateQualityCheckDataResponseBody.hpp>
 #include <alibabacloud/models/UpdateQualityCheckDataResponse.hpp>

@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Workspace ID.
+    // The workspace ID.
     shared_ptr<int64_t> baseMeAgentId_ {};
-    // Whether to delete the rule even if it is associated with a quality check task.
+    // Specifies whether to delete the rule even if it is associated with a quality check task.
     shared_ptr<bool> forceDelete_ {};
-    // Indicates whether this is the new version of quality check. 0: old version. 1: new version. Default is 1.
+    // Specifies whether to use the new version of quality check. Valid values: 0: Legacy quality check. 1: New version quality check. Default value: 1.
     shared_ptr<int32_t> isSchemeData_ {};
-    // Rule ID.
+    // The rule ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};

@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The workspace ID.
     shared_ptr<int64_t> baseMeAgentId_ {};
-    // Specifies whether to copy the rule. Set this to \\`true\\` to copy the rule.
+    // Specifies whether to copy the rule. Set this to \`true\` to copy the rule.
     shared_ptr<bool> isCopy_ {};
     // For more information about JsonStrForRule, see [`Rule object description`](https://help.aliyun.com/document_detail/453053.html).
     // 

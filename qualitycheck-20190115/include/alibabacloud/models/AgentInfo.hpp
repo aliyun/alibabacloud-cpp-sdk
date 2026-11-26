@@ -130,7 +130,9 @@ namespace Models
 
 
         protected:
+          // The analysis prompt for this level. It is concatenated with the tag data and sent to the large language model. This parameter is required.
           shared_ptr<string> prompt_ {};
+          // The list of candidate tag IDs for this level. A value of -1 indicates that all tags at this level are selected. This parameter is required.
           shared_ptr<vector<int64_t>> tagTreeIds_ {};
         };
 
@@ -155,7 +157,9 @@ namespace Models
 
 
       protected:
+        // The list of starting parent tag IDs at runtime. The first ID is treated as the matched parent tag, and recognition proceeds level by level from its child nodes, skipping the preceding levels. This field also takes effect when AgentId is specified.
         shared_ptr<vector<int64_t>> tagIds_ {};
+        // The recognition configuration for each level, arranged in hierarchical order. This parameter is required.
         shared_ptr<vector<TagTreeLevelParam::TagTreeLevels>> tagTreeLevels_ {};
       };
 
@@ -227,8 +231,11 @@ namespace Models
 
 
         protected:
+          // The dimension description.
           shared_ptr<string> desc_ {};
+          // The dimension name.
           shared_ptr<string> name_ {};
+          // The list of candidate tag values.
           shared_ptr<vector<string>> valueList_ {};
         };
 
@@ -243,6 +250,7 @@ namespace Models
 
 
       protected:
+        // The list of label classification dimensions. This parameter is required.
         shared_ptr<vector<TagCategoryParam::NameDescPairList>> nameDescPairList_ {};
       };
 
@@ -307,7 +315,9 @@ namespace Models
 
 
         protected:
+          // The dimension description. This parameter is optional.
           shared_ptr<string> desc_ {};
+          // The dimension name. This parameter is required.
           shared_ptr<string> dimension_ {};
         };
 
@@ -337,8 +347,11 @@ namespace Models
 
 
       protected:
+        // The list of quality inspection dimensions. This parameter is required.
         shared_ptr<vector<ServiceInspectionParam::Dimensions>> dimensions_ {};
+        // The description of the quality inspection scenario. This parameter is optional.
         shared_ptr<string> sceneDescription_ {};
+        // The name of the quality inspection scenario. This parameter is required.
         shared_ptr<string> sceneName_ {};
       };
 
@@ -408,8 +421,11 @@ namespace Models
 
 
         protected:
+          // The attribute description. This parameter is optional.
           shared_ptr<string> desc_ {};
+          // The attribute name. This parameter is required.
           shared_ptr<string> name_ {};
+          // The attribute value. In the key attribute extraction scenario, this is the extracted result value corresponding to the dimension.
           shared_ptr<string> value_ {};
         };
 
@@ -424,6 +440,7 @@ namespace Models
 
 
       protected:
+        // The list of attribute dimensions to be extracted.
         shared_ptr<vector<FieldsParam::NameDescPairList>> nameDescPairList_ {};
       };
 
@@ -486,7 +503,9 @@ namespace Models
 
 
         protected:
+          // The name.
           shared_ptr<string> name_ {};
+          // The value.
           shared_ptr<string> value_ {};
         };
 
@@ -509,7 +528,9 @@ namespace Models
 
 
       protected:
+        // The content of the user-defined prompt template. This parameter is required.
         shared_ptr<string> customPrompt_ {};
+        // The list of name-value pairs attached to the custom instruction.
         shared_ptr<vector<CustomPromptParam::NameDescPairList>> nameDescPairList_ {};
       };
 
@@ -561,10 +582,15 @@ namespace Models
 
 
     protected:
+      // The custom instruction parameters. Used when InstructionType is set to customPrompt.
       shared_ptr<InstructionTypeParam::CustomPromptParam> customPromptParam_ {};
+      // The key attribute extraction parameters. Used when InstructionType is set to field.
       shared_ptr<InstructionTypeParam::FieldsParam> fieldsParam_ {};
+      // The service quality inspection parameters. Used when InstructionType is set to serviceInspection.
       shared_ptr<InstructionTypeParam::ServiceInspectionParam> serviceInspectionParam_ {};
+      // The label classification parameters. Used when InstructionType is set to tagCategory.
       shared_ptr<InstructionTypeParam::TagCategoryParam> tagCategoryParam_ {};
+      // The multi-level tag recognition parameters. Used when InstructionType is set to multiLevelTag.
       shared_ptr<InstructionTypeParam::TagTreeLevelParam> tagTreeLevelParam_ {};
     };
 
@@ -623,12 +649,19 @@ namespace Models
 
 
   protected:
+    // The description of the agent.
     shared_ptr<string> agentDescription_ {};
+    // The name of the agent.
     shared_ptr<string> agentName_ {};
+    // The unique identifier of the agent configuration.
     shared_ptr<int64_t> id_ {};
+    // The object type for analysis. Valid values: audio and text.
     shared_ptr<string> inputType_ {};
+    // The instruction type. Valid values: serviceInspection (service quality inspection), field (key property extraction), tagCategory (label classification), multiLevelTag (multi-level label recognition), and customPrompt (custom instruction).
     shared_ptr<string> instructionType_ {};
+    // The parameters corresponding to the instruction type. Different InstructionType values require different sub-parameters. Specify only the sub-parameters that correspond to the current InstructionType and leave the others empty.
     shared_ptr<AgentInfo::InstructionTypeParam> instructionTypeParam_ {};
+    // The type of the large language model.
     shared_ptr<string> modelType_ {};
   };
 

@@ -79,7 +79,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The ID of the warning configuration successfully created.
     shared_ptr<string> data_ {};
-    // Error details when an error occurs. Returns \\"successful\\" on success.
+    // Error details when an error occurs. Returns \"successful\" on success.
     shared_ptr<string> message_ {};
     // Request ID.
     shared_ptr<string> requestId_ {};

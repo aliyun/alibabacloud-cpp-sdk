@@ -199,33 +199,40 @@ namespace Models
 
 
     protected:
-      // 1: Do not auto-review.
+      // The auto review setting. Valid values:
+      // - 1: Disables automatic review.
       shared_ptr<int32_t> autoReview_ {};
-      // Enable branch judgment.
+      // Specifies whether branch judgment is enabled.
       shared_ptr<bool> branchJudge_ {};
-      // Maximum N sentences to check.
+      // The maximum number of sentences to check.
       shared_ptr<int32_t> checkMoreSize_ {};
-      // Quality check dimension
+      // The quality check dimension.
       shared_ptr<int32_t> checkType_ {};
-      // General operator logic.
+      // The common operator logic.
       shared_ptr<string> lambda_ {};
-      // Role when the type is \\`single\\`.
+      // The role when the type is single.
       shared_ptr<string> role_ {};
-      // Is scored.
+      // Specifies whether scoring is enabled.
       shared_ptr<int32_t> ruleScoreType_ {};
-      // Indicates expression when the type is \\`single\\`.
+      // Indicates whether expression is enabled when the type is single.
       shared_ptr<string> sayType_ {};
-      // Score value
+      // The score value.
       shared_ptr<int32_t> scoreNum_ {};
-      // 0: Add or deduct points after the rule is triggered; 1: Score once after the rule is triggered.
+      // The score number type. Valid values:
+      // - 0: Adds or deducts points after the rule is triggered.
+      // - 1: Assigns a one-time score after the rule is triggered.
       shared_ptr<int32_t> scoreNumType_ {};
-      // 0: Score when the node is hit.
+      // The score rule hit type. Valid values:
+      // - 0: Scores when the node is hit.
       shared_ptr<int32_t> scoreRuleHitType_ {};
-      // 1: Add points; 3: Deduct points; default is 1.
+      // The score type. Valid values:
+      // - 1: Adds points.
+      // - 3: Deducts points.
+      // Default value: 1.
       shared_ptr<int32_t> scoreType_ {};
-      // Operators to follow.
+      // The monitored operators.
       shared_ptr<vector<string>> triggers_ {};
-      // Property type
+      // The property type.
       shared_ptr<string> type_ {};
     };
 
@@ -305,17 +312,17 @@ namespace Models
 
 
     protected:
-      // Quality check dimension
+      // The quality check dimension.
       shared_ptr<int32_t> checkType_ {};
-      // Flow branch priority. A smaller value indicates higher priority.
+      // The flow branch priority. A smaller value indicates a higher priority.
       shared_ptr<int32_t> index_ {};
-      // Lambda expression for the next hop.
+      // The Lambda expression for the next hop.
       shared_ptr<string> lambda_ {};
-      // Conditional branch name.
+      // The conditional branch name.
       shared_ptr<string> name_ {};
-      // Next node ID.
+      // The subsequent node ID.
       shared_ptr<int64_t> nextNodeId_ {};
-      // Operators to follow.
+      // The monitored operators.
       shared_ptr<vector<string>> triggers_ {};
     };
 
@@ -399,25 +406,25 @@ namespace Models
 
 
   protected:
-    // Operator information.
+    // The operator information.
     shared_ptr<vector<ConditionBasicInfo>> conditions_ {};
-    // Used for frontend display.
+    // The content for frontend display.
     shared_ptr<string> content_ {};
-    // Node ID.
+    // The node ID.
     shared_ptr<int64_t> id_ {};
-    // Index
+    // The index.
     shared_ptr<int32_t> index_ {};
-    // Node name
+    // The node name.
     shared_ptr<string> name_ {};
-    // Child nodes
+    // The child nodes.
     shared_ptr<vector<GraphFlowNode::NextNodes>> nextNodes_ {};
-    // Node Type
+    // The node type.
     shared_ptr<string> nodeType_ {};
-    // Node properties
+    // The node properties.
     shared_ptr<GraphFlowNode::Properties> properties_ {};
-    // Rule ID. \\`rid\\` is empty if the rule is not persisted. If the rule is persisted, \\`rid\\` equals \\`ID\\`.
+    // The rule ID. If the rule is not saved to the database, the value is empty. If the rule is saved, the value equals the ID.
     shared_ptr<int64_t> rid_ {};
-    // Whether to use operator matching or legacy matching.
+    // Specifies whether to use operator matching or legacy matching.
     shared_ptr<bool> useConditions_ {};
   };
 

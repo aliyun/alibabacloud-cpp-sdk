@@ -197,7 +197,7 @@ namespace Models
 
 
               protected:
-                // The description of the tag analysis.
+                // The tag analysis description.
                 shared_ptr<string> remarks_ {};
                 // The tag name.
                 shared_ptr<string> tagName_ {};
@@ -231,7 +231,7 @@ namespace Models
             protected:
               // The list of child nodes.
               shared_ptr<vector<Children::ChildrenItem>> children_ {};
-              // The description of the tag analysis.
+              // The tag analysis description.
               shared_ptr<string> remarks_ {};
               // The tag name.
               shared_ptr<string> tagName_ {};
@@ -265,7 +265,7 @@ namespace Models
           protected:
             // The list of child nodes.
             shared_ptr<vector<ChildrenItem::Children>> children_ {};
-            // The description of the tag analysis.
+            // The tag analysis description.
             shared_ptr<string> remarks_ {};
             // The tag name.
             shared_ptr<string> tagName_ {};
@@ -299,7 +299,7 @@ namespace Models
         protected:
           // The list of child nodes.
           shared_ptr<vector<Children::ChildrenItem>> children_ {};
-          // The description of the tag analysis.
+          // The tag analysis description.
           shared_ptr<string> remarks_ {};
           // The tag name.
           shared_ptr<string> tagName_ {};
@@ -333,7 +333,7 @@ namespace Models
       protected:
         // The list of child nodes.
         shared_ptr<vector<TagList::Children>> children_ {};
-        // The description of the tag analysis.
+        // The tag analysis description.
         shared_ptr<string> remarks_ {};
         // The tag name.
         shared_ptr<string> tagName_ {};
@@ -386,17 +386,17 @@ namespace Models
 
 
     protected:
-      // The total number of input tokens accumulated during this task.
+      // The total number of input tokens for this task.
       shared_ptr<int64_t> inputTokens_ {};
-      // The total number of output tokens accumulated during this task.
+      // The total number of output tokens for this task.
       shared_ptr<int64_t> outputTokens_ {};
       // The tree-structured tag results.
       shared_ptr<vector<Data::TagList>> tagList_ {};
-      // The total number of tokens accumulated during this task.
+      // The total number of tokens for this task.
       shared_ptr<int64_t> totalTokens_ {};
-      // The total number of Qwen-Plus model calls accumulated during this task.
+      // The total number of times the Qwen-Plus model was called for this task.
       shared_ptr<int64_t> tyxmPlusCount_ {};
-      // The total number of Qwen-Turbo model calls accumulated during this task.
+      // The total number of times the Qwen-Turbo model was called for this task.
       shared_ptr<int64_t> tyxmTurboCount_ {};
     };
 
@@ -440,17 +440,15 @@ namespace Models
 
 
   protected:
-    // The response code. **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
+    // The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<GetLabelAnalysisResultResponseBody::Data> data_ {};
-    // The error message returned when the call fails.
+    // The error message returned when an error occurs.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // - true: The call was successful.
-    // - false: The call failed.
+    // Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

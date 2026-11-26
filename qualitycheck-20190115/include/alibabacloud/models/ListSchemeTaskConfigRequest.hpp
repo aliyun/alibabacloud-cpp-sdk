@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // baseMeAgentId
+    // The ID of the business workspace.
     shared_ptr<int64_t> baseMeAgentId_ {};
-    // The request parameter JSON. For details, see the supplementary description of request parameters.
+    // The input JSON string. For more information, see the supplementary description of request parameters.
     shared_ptr<string> jsonStr_ {};
   };
 

@@ -496,7 +496,7 @@ namespace Models
     shared_ptr<string> createTime_ {};
     // You can set this parameter to 1 to reject rule edits, or to 0 or null to allow rule edits.
     shared_ptr<int32_t> deny_ {};
-    // Indicates if the rule is active. \\`0\\`: No. \\`1\\`: Yes.
+    // Indicates if the rule is active. \`0\`: No. \`1\`: Yes.
     shared_ptr<int32_t> effective_ {};
     // The effective end time.
     shared_ptr<string> effectiveEndTime_ {};
@@ -504,7 +504,7 @@ namespace Models
     shared_ptr<string> effectiveStartTime_ {};
     // The end time.
     shared_ptr<string> endTime_ {};
-    // Indicates if the rule is active for the entire lifecycle. \\`0\\`: No. \\`1\\`: Yes.
+    // Indicates if the rule is active for the entire lifecycle. \`0\`: No. \`1\`: Yes.
     shared_ptr<int32_t> fullCycle_ {};
     // The flow canvas, in JSON format.
     Darabonba::Json graphFlow_ {};
@@ -552,7 +552,7 @@ namespace Models
     shared_ptr<string> reviewStatusName_ {};
     // The rule ID.
     shared_ptr<int64_t> rid_ {};
-    // The scoring type. \\`8\\`: No score is set.
+    // The scoring type. \`8\`: No score is set.
     shared_ptr<int32_t> ruleScoreSingleType_ {};
     // Specifies if a score is calculated.
     // 

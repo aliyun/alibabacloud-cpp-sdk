@@ -219,7 +219,7 @@ namespace Models
       shared_ptr<int64_t> taskFlowId_ {};
       // flow name
       shared_ptr<string> taskFlowName_ {};
-      // \\"Flow version: 0: tree, 1: graph\\"
+      // \"Flow version: 0: tree, 1: graph\"
       shared_ptr<int32_t> taskFlowType_ {};
     };
 

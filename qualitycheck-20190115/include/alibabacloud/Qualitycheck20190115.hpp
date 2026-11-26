@@ -72,7 +72,7 @@ namespace Qualitycheck20190115
       Models::AddRuleV4Response addRuleV4(const Models::AddRuleV4Request &request);
 
       /**
-       * @summary Performs tag categorization.
+       * @summary Analyzes tags.
        *
        * @param request AnalyzeLabelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Qualitycheck20190115
       Models::AnalyzeLabelResponse analyzeLabelWithOptions(const Models::AnalyzeLabelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs tag categorization.
+       * @summary Analyzes tags.
        *
        * @param request AnalyzeLabelRequest
        * @return AnalyzeLabelResponse
@@ -247,6 +247,23 @@ namespace Qualitycheck20190115
       Models::CreateCheckTypeToSchemeResponse createCheckTypeToScheme(const Models::CreateCheckTypeToSchemeRequest &request);
 
       /**
+       * @summary 创建HTTP回调事件配置
+       *
+       * @param request CreateHttpEventConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateHttpEventConfigResponse
+       */
+      Models::CreateHttpEventConfigResponse createHttpEventConfigWithOptions(const Models::CreateHttpEventConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建HTTP回调事件配置
+       *
+       * @param request CreateHttpEventConfigRequest
+       * @return CreateHttpEventConfigResponse
+       */
+      Models::CreateHttpEventConfigResponse createHttpEventConfig(const Models::CreateHttpEventConfigRequest &request);
+
+      /**
        * @summary Creates a label mining task.
        *
        * @param request CreateMiningTaskRequest
@@ -319,7 +336,7 @@ namespace Qualitycheck20190115
       Models::CreateSkillGroupConfigResponse createSkillGroupConfig(const Models::CreateSkillGroupConfigRequest &request);
 
       /**
-       * @summary Creates a label node.
+       * @summary Creates a tag node.
        *
        * @param request CreateTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -328,7 +345,7 @@ namespace Qualitycheck20190115
       Models::CreateTagResponse createTagWithOptions(const Models::CreateTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a label node.
+       * @summary Creates a tag node.
        *
        * @param request CreateTagRequest
        * @return CreateTagResponse
@@ -442,7 +459,7 @@ namespace Qualitycheck20190115
       Models::DeleteAgentResponse deleteAgent(const Models::DeleteAgentRequest &request);
 
       /**
-       * @summary Deletes a hotword group.
+       * @summary Deletes a hot word group.
        *
        * @param request DeleteAsrVocabRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -451,7 +468,7 @@ namespace Qualitycheck20190115
       Models::DeleteAsrVocabResponse deleteAsrVocabWithOptions(const Models::DeleteAsrVocabRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a hotword group.
+       * @summary Deletes a hot word group.
        *
        * @param request DeleteAsrVocabRequest
        * @return DeleteAsrVocabResponse
@@ -531,6 +548,23 @@ namespace Qualitycheck20190115
       Models::DeleteDataSetResponse deleteDataSet(const Models::DeleteDataSetRequest &request);
 
       /**
+       * @summary Deletes the HTTP callback event configuration.
+       *
+       * @param request DeleteHttpEventConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteHttpEventConfigResponse
+       */
+      Models::DeleteHttpEventConfigResponse deleteHttpEventConfigWithOptions(const Models::DeleteHttpEventConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes the HTTP callback event configuration.
+       *
+       * @param request DeleteHttpEventConfigRequest
+       * @return DeleteHttpEventConfigResponse
+       */
+      Models::DeleteHttpEventConfigResponse deleteHttpEventConfig(const Models::DeleteHttpEventConfigRequest &request);
+
+      /**
        * @summary You can delete a quality check plan from the Quality Check Plan Management page by clicking the Delete button on the right side of the plan. The Apsara Stack API endpoint is ip:port/api/qcs/DeleteQualityCheckScheme.json.
        *
        * @param request DeleteQualityCheckSchemeRequest
@@ -550,7 +584,7 @@ namespace Qualitycheck20190115
       /**
        * @deprecated OpenAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
        *
-       * @summary This operation deletes a quality check rule. You can access it from the Quality Check Rule Configuration page in the Apsara Stack console. The API endpoint is ip:port/api/client/DeleteRule.json.
+       * @summary Deletes a quality check rule. Corresponds to the frontend feature location: Quality check rule configuration - Delete. Corresponds to the Apsara Stack URL: ip:port/api/client/DeleteRule.json.
        *
        * @param request DeleteRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -561,7 +595,7 @@ namespace Qualitycheck20190115
       /**
        * @deprecated OpenAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
        *
-       * @summary This operation deletes a quality check rule. You can access it from the Quality Check Rule Configuration page in the Apsara Stack console. The API endpoint is ip:port/api/client/DeleteRule.json.
+       * @summary Deletes a quality check rule. Corresponds to the frontend feature location: Quality check rule configuration - Delete. Corresponds to the Apsara Stack URL: ip:port/api/client/DeleteRule.json.
        *
        * @param request DeleteRuleRequest
        * @return DeleteRuleResponse
@@ -771,8 +805,7 @@ namespace Qualitycheck20190115
       /**
        * @summary Retrieves the task result of an agent node.
        *
-       * @description Queries data uploaded through [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), or queries data from a dataset quality check task [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query by task ID (taskId) or by time range.
-       * By default, only partial parameters are returned in the response. Use the requiredFields request parameter to specify which fields to include in the response.
+       * @description You can query data uploaded by calling [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), as well as data for dataset quality check tasks submitted by calling [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query the data by task ID or time range. By default, the response of this operation returns only a subset of parameters. You can use the requiredFields request parameter to specify the fields to be returned.
        *
        * @param request GetAgentTaskResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -783,8 +816,7 @@ namespace Qualitycheck20190115
       /**
        * @summary Retrieves the task result of an agent node.
        *
-       * @description Queries data uploaded through [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), or queries data from a dataset quality check task [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query by task ID (taskId) or by time range.
-       * By default, only partial parameters are returned in the response. Use the requiredFields request parameter to specify which fields to include in the response.
+       * @description You can query data uploaded by calling [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), as well as data for dataset quality check tasks submitted by calling [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query the data by task ID or time range. By default, the response of this operation returns only a subset of parameters. You can use the requiredFields request parameter to specify the fields to be returned.
        *
        * @param request GetAgentTaskResultRequest
        * @return GetAgentTaskResultResponse
@@ -843,7 +875,24 @@ namespace Qualitycheck20190115
       Models::GetCustomizationConfigListResponse getCustomizationConfigList(const Models::GetCustomizationConfigListRequest &request);
 
       /**
-       * @summary Queries the results of tag categorization analysis.
+       * @summary 获取HTTP回调事件配置
+       *
+       * @param request GetHttpEventConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetHttpEventConfigResponse
+       */
+      Models::GetHttpEventConfigResponse getHttpEventConfigWithOptions(const Models::GetHttpEventConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取HTTP回调事件配置
+       *
+       * @param request GetHttpEventConfigRequest
+       * @return GetHttpEventConfigResponse
+       */
+      Models::GetHttpEventConfigResponse getHttpEventConfig(const Models::GetHttpEventConfigRequest &request);
+
+      /**
+       * @summary Queries tag analysis results.
        *
        * @param request GetLabelAnalysisResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -852,7 +901,7 @@ namespace Qualitycheck20190115
       Models::GetLabelAnalysisResultResponse getLabelAnalysisResultWithOptions(const Models::GetLabelAnalysisResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the results of tag categorization analysis.
+       * @summary Queries tag analysis results.
        *
        * @param request GetLabelAnalysisResultRequest
        * @return GetLabelAnalysisResultResponse
@@ -928,9 +977,9 @@ namespace Qualitycheck20190115
       Models::GetQualityCheckSchemeResponse getQualityCheckScheme(const Models::GetQualityCheckSchemeRequest &request);
 
       /**
-       * @summary Query quality inspection results. Some fields require the requiredFields parameter to be explicitly specified in the request. Set the service endpoint (Region) to Hangzhou (cn-hangzhou).
+       * @summary Queries quality check results. Some results are returned only when explicitly specified by the requiredFields request parameter. Set the region to China (Hangzhou) (cn-hangzhou).
        *
-       * @description You can query data uploaded using [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html). You can also query data from dataset-based quality inspection tasks created with [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can search by task ID (taskId) or by time range.
+       * @description Queries data uploaded by calling [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), and data of dataset quality check tasks submitted by calling [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query data by task ID or time range. By default, the response includes only a subset of parameters. You can use the requiredFields request parameter to specify the fields to return.
        *
        * @param request GetResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -939,9 +988,9 @@ namespace Qualitycheck20190115
       Models::GetResultResponse getResultWithOptions(const Models::GetResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query quality inspection results. Some fields require the requiredFields parameter to be explicitly specified in the request. Set the service endpoint (Region) to Hangzhou (cn-hangzhou).
+       * @summary Queries quality check results. Some results are returned only when explicitly specified by the requiredFields request parameter. Set the region to China (Hangzhou) (cn-hangzhou).
        *
-       * @description You can query data uploaded using [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html). You can also query data from dataset-based quality inspection tasks created with [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can search by task ID (taskId) or by time range.
+       * @description Queries data uploaded by calling [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), and data of dataset quality check tasks submitted by calling [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query data by task ID or time range. By default, the response includes only a subset of parameters. You can use the requiredFields request parameter to specify the fields to return.
        *
        * @param request GetResultRequest
        * @return GetResultResponse
@@ -949,7 +998,7 @@ namespace Qualitycheck20190115
       Models::GetResultResponse getResult(const Models::GetResultRequest &request);
 
       /**
-       * @summary Retrieves the quality inspection results for a specified file. The response includes the transcript, audio URL, and details of detected rule hits. You can use this information to review the file by listening to the audio, reading the transcript, and locating where rules were triggered.
+       * @summary Retrieves the quality check result details of a specified file for review. The details include the transcribed text, recording URL, and information about matched check items. You can use this information to listen to the recording, view the transcribed text, and locate the matched check items to review the file.
        *
        * @param request GetResultToReviewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -958,7 +1007,7 @@ namespace Qualitycheck20190115
       Models::GetResultToReviewResponse getResultToReviewWithOptions(const Models::GetResultToReviewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the quality inspection results for a specified file. The response includes the transcript, audio URL, and details of detected rule hits. You can use this information to review the file by listening to the audio, reading the transcript, and locating where rules were triggered.
+       * @summary Retrieves the quality check result details of a specified file for review. The details include the transcribed text, recording URL, and information about matched check items. You can use this information to listen to the recording, view the transcribed text, and locate the matched check items to review the file.
        *
        * @param request GetResultToReviewRequest
        * @return GetResultToReviewResponse
@@ -1107,7 +1156,7 @@ namespace Qualitycheck20190115
       /**
        * @deprecated OpenAPI GetSkillGroupConfig is deprecated
        *
-       * @summary Retrieves the configuration that is specified by its ID.
+       * @summary Retrieves the specified configuration by ID.
        *
        * @param request GetSkillGroupConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1118,7 +1167,7 @@ namespace Qualitycheck20190115
       /**
        * @deprecated OpenAPI GetSkillGroupConfig is deprecated
        *
-       * @summary Retrieves the configuration that is specified by its ID.
+       * @summary Retrieves the specified configuration by ID.
        *
        * @param request GetSkillGroupConfigRequest
        * @return GetSkillGroupConfigResponse
@@ -1147,7 +1196,7 @@ namespace Qualitycheck20190115
       Models::GetSyncResultResponse getSyncResult(const Models::GetSyncResultRequest &request);
 
       /**
-       * @summary Queries the details of a label node.
+       * @summary Queries the details of a tag node.
        *
        * @param request GetTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1156,7 +1205,7 @@ namespace Qualitycheck20190115
       Models::GetTagResponse getTagWithOptions(const Models::GetTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a label node.
+       * @summary Queries the details of a tag node.
        *
        * @param request GetTagRequest
        * @return GetTagResponse
@@ -1223,7 +1272,7 @@ namespace Qualitycheck20190115
       Models::InvalidRuleResponse invalidRule(const Models::InvalidRuleRequest &request);
 
       /**
-       * @summary Lists AI analysis assistant tasks.
+       * @summary Lists the tasks of the AI analysis assistant.
        *
        * @param request ListAgentMJobInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1232,7 +1281,7 @@ namespace Qualitycheck20190115
       Models::ListAgentMJobInfoResponse listAgentMJobInfoWithOptions(const Models::ListAgentMJobInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists AI analysis assistant tasks.
+       * @summary Lists the tasks of the AI analysis assistant.
        *
        * @param request ListAgentMJobInfoRequest
        * @return ListAgentMJobInfoResponse
@@ -1316,7 +1365,7 @@ namespace Qualitycheck20190115
       Models::ListRulesResponse listRules(const Models::ListRulesRequest &request);
 
       /**
-       * @summary Frontend location: Quality inspection rule configuration — List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
+       * @summary Corresponds to the frontend feature location: Quality Inspection Rule Configuration - List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
        *
        * @param request ListRulesV4Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -1325,7 +1374,7 @@ namespace Qualitycheck20190115
       Models::ListRulesV4Response listRulesV4WithOptions(const Models::ListRulesV4Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Frontend location: Quality inspection rule configuration — List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
+       * @summary Corresponds to the frontend feature location: Quality Inspection Rule Configuration - List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
        *
        * @param request ListRulesV4Request
        * @return ListRulesV4Response
@@ -1333,7 +1382,7 @@ namespace Qualitycheck20190115
       Models::ListRulesV4Response listRulesV4(const Models::ListRulesV4Request &request);
 
       /**
-       * @summary This operation is used for the Task Management feature on the frontend. The Apsara Stack URL is ip:port/api/task/ListSchemeTaskInfo.json.
+       * @summary Corresponds to the frontend feature location: Task Management. Apsara Stack URL: ip:port/api/task/ListSchemeTaskInfo.json.
        *
        * @param request ListSchemeTaskConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1342,7 +1391,7 @@ namespace Qualitycheck20190115
       Models::ListSchemeTaskConfigResponse listSchemeTaskConfigWithOptions(const Models::ListSchemeTaskConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation is used for the Task Management feature on the frontend. The Apsara Stack URL is ip:port/api/task/ListSchemeTaskInfo.json.
+       * @summary Corresponds to the frontend feature location: Task Management. Apsara Stack URL: ip:port/api/task/ListSchemeTaskInfo.json.
        *
        * @param request ListSchemeTaskConfigRequest
        * @return ListSchemeTaskConfigResponse
@@ -1392,7 +1441,7 @@ namespace Qualitycheck20190115
       Models::ListSkillGroupConfigResponse listSkillGroupConfig(const Models::ListSkillGroupConfigRequest &request);
 
       /**
-       * @summary Queries the list of label nodes.
+       * @summary Queries the list of tag nodes.
        *
        * @param request ListTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1401,7 +1450,7 @@ namespace Qualitycheck20190115
       Models::ListTagResponse listTagWithOptions(const Models::ListTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of label nodes.
+       * @summary Queries the list of tag nodes.
        *
        * @param request ListTagRequest
        * @return ListTagResponse
@@ -1496,7 +1545,7 @@ namespace Qualitycheck20190115
       /**
        * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
        *
-       * @summary You can use this feature in the frontend console under Plan Management > Task Result > Session Group > Batch Revoke. The Apsara Stack URL for this operation is `ip:port/api/job/RevertAssignedSessionGroup.json`.
+       * @summary Corresponds to the frontend feature location: Quality Check Plan Management - Task Results - Session Groups - Batch Revoke. Apsara Stack URL: ip:port/api/job/RevertAssignedSessionGroup.json.
        *
        * @param request RevertAssignedSessionGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1507,7 +1556,7 @@ namespace Qualitycheck20190115
       /**
        * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
        *
-       * @summary You can use this feature in the frontend console under Plan Management > Task Result > Session Group > Batch Revoke. The Apsara Stack URL for this operation is `ip:port/api/job/RevertAssignedSessionGroup.json`.
+       * @summary Corresponds to the frontend feature location: Quality Check Plan Management - Task Results - Session Groups - Batch Revoke. Apsara Stack URL: ip:port/api/job/RevertAssignedSessionGroup.json.
        *
        * @param request RevertAssignedSessionGroupRequest
        * @return RevertAssignedSessionGroupResponse
@@ -1515,7 +1564,7 @@ namespace Qualitycheck20190115
       Models::RevertAssignedSessionGroupResponse revertAssignedSessionGroup(const Models::RevertAssignedSessionGroupRequest &request);
 
       /**
-       * @summary This operation calls a large model using the message protocol to generate a response. You can make calls using standard HTTP for a complete response or use Server-Sent Events (SSE) for a streaming response.
+       * @summary Invokes a large language model in the Message protocol format to obtain analysis results. The API supports standard HTTP and HTTP Server-Sent Events (SSE) protocols. You can select a protocol based on your requirements.
        *
        * @param tmpReq RunCompletionMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1524,7 +1573,7 @@ namespace Qualitycheck20190115
       FutureGenerator<Models::RunCompletionMessageResponse> runCompletionMessageWithSSE(const Models::RunCompletionMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation calls a large model using the message protocol to generate a response. You can make calls using standard HTTP for a complete response or use Server-Sent Events (SSE) for a streaming response.
+       * @summary Invokes a large language model in the Message protocol format to obtain analysis results. The API supports standard HTTP and HTTP Server-Sent Events (SSE) protocols. You can select a protocol based on your requirements.
        *
        * @param tmpReq RunCompletionMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1533,7 +1582,7 @@ namespace Qualitycheck20190115
       Models::RunCompletionMessageResponse runCompletionMessageWithOptions(const Models::RunCompletionMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation calls a large model using the message protocol to generate a response. You can make calls using standard HTTP for a complete response or use Server-Sent Events (SSE) for a streaming response.
+       * @summary Invokes a large language model in the Message protocol format to obtain analysis results. The API supports standard HTTP and HTTP Server-Sent Events (SSE) protocols. You can select a protocol based on your requirements.
        *
        * @param request RunCompletionMessageRequest
        * @return RunCompletionMessageResponse
@@ -1579,7 +1628,7 @@ namespace Qualitycheck20190115
       Models::SubmitComplaintResponse submitComplaint(const Models::SubmitComplaintRequest &request);
 
       /**
-       * @summary Create a new dataset quality check task.
+       * @summary Creates a dataset quality inspection task.
        *
        * @param request SubmitQualityCheckTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1588,7 +1637,7 @@ namespace Qualitycheck20190115
       Models::SubmitQualityCheckTaskResponse submitQualityCheckTaskWithOptions(const Models::SubmitQualityCheckTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a new dataset quality check task.
+       * @summary Creates a dataset quality inspection task.
        *
        * @param request SubmitQualityCheckTaskRequest
        * @return SubmitQualityCheckTaskResponse
@@ -1596,9 +1645,9 @@ namespace Qualitycheck20190115
       Models::SubmitQualityCheckTaskResponse submitQualityCheckTask(const Models::SubmitQualityCheckTaskRequest &request);
 
       /**
-       * @summary Save review results. This is only supported by the legacy Smart Conversation Analysis.
+       * @summary Saves review results. This operation is supported only for legacy intelligent dialogue analysis.
        *
-       * @description You can manually review files after quality inspection. After completing the review, call this API to save the review results. This involves manually reviewing rules identified by the system as hits to determine if they are true hits or false positives. Refer to the file review feature on the console page. For more information, see [File Review](https://help.aliyun.com/document_detail/139653.html#h2-u6587u4EF6u590Du68385).
+       * @description Manually reviews files that have completed quality inspection. After the review is complete, call this operation to save the review results. This allows you to manually verify whether the rules identified as hits by the system are actual hits or false positives. You can refer to the file review feature in the console. For more information, see [File review](https://help.aliyun.com/document_detail/139653.html#h2-u6587u4EF6u590Du68385).
        *
        * @param request SubmitReviewInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1607,9 +1656,9 @@ namespace Qualitycheck20190115
       Models::SubmitReviewInfoResponse submitReviewInfoWithOptions(const Models::SubmitReviewInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Save review results. This is only supported by the legacy Smart Conversation Analysis.
+       * @summary Saves review results. This operation is supported only for legacy intelligent dialogue analysis.
        *
-       * @description You can manually review files after quality inspection. After completing the review, call this API to save the review results. This involves manually reviewing rules identified by the system as hits to determine if they are true hits or false positives. Refer to the file review feature on the console page. For more information, see [File Review](https://help.aliyun.com/document_detail/139653.html#h2-u6587u4EF6u590Du68385).
+       * @description Manually reviews files that have completed quality inspection. After the review is complete, call this operation to save the review results. This allows you to manually verify whether the rules identified as hits by the system are actual hits or false positives. You can refer to the file review feature in the console. For more information, see [File review](https://help.aliyun.com/document_detail/139653.html#h2-u6587u4EF6u590Du68385).
        *
        * @param request SubmitReviewInfoRequest
        * @return SubmitReviewInfoResponse
@@ -1677,6 +1726,25 @@ namespace Qualitycheck20190115
       Models::SyncQualityCheckResponse syncQualityCheck(const Models::SyncQualityCheckRequest &request);
 
       /**
+       * @summary 测试HTTP回调事件配置
+       *
+       * @param request TestHttpEventConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TestHttpEventConfigResponse
+       */
+      Models::TestHttpEventConfigResponse testHttpEventConfigWithOptions(const Models::TestHttpEventConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 测试HTTP回调事件配置
+       *
+       * @param request TestHttpEventConfigRequest
+       * @return TestHttpEventConfigResponse
+       */
+      Models::TestHttpEventConfigResponse testHttpEventConfig(const Models::TestHttpEventConfigRequest &request);
+
+      /**
+       * @deprecated OpenAPI TestRuleV4 is deprecated
+       *
        * @summary Frontend location: Quality Check Rule Configuration > Test. Apsara Stack URL: http://<ip>:<port>/api/client/TestRule.json.
        *
        * @param request TestRuleV4Request
@@ -1686,6 +1754,8 @@ namespace Qualitycheck20190115
       Models::TestRuleV4Response testRuleV4WithOptions(const Models::TestRuleV4Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI TestRuleV4 is deprecated
+       *
        * @summary Frontend location: Quality Check Rule Configuration > Test. Apsara Stack URL: http://<ip>:<port>/api/client/TestRule.json.
        *
        * @param request TestRuleV4Request
@@ -1728,7 +1798,7 @@ namespace Qualitycheck20190115
       Models::UpdateAsrVocabResponse updateAsrVocab(const Models::UpdateAsrVocabRequest &request);
 
       /**
-       * @summary You can access this operation from the frontend by navigating to Plan Management > Create Quality Inspection Task or Edit > Edit icon next to the quality inspection dimension name. The Apsara Stack endpoint is ip:port/api/qcs/UpdateCheckTypeToScheme.json.
+       * @summary Updates the check type for a quality inspection scheme. Frontend location: Quality Inspection Scheme Management > Create or Edit Quality Inspection Task > Edit icon next to the quality inspection dimension name. Apsara Stack URL: ip:port/api/qcs/UpdateCheckTypeToScheme.json.
        *
        * @param request UpdateCheckTypeToSchemeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1737,12 +1807,29 @@ namespace Qualitycheck20190115
       Models::UpdateCheckTypeToSchemeResponse updateCheckTypeToSchemeWithOptions(const Models::UpdateCheckTypeToSchemeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can access this operation from the frontend by navigating to Plan Management > Create Quality Inspection Task or Edit > Edit icon next to the quality inspection dimension name. The Apsara Stack endpoint is ip:port/api/qcs/UpdateCheckTypeToScheme.json.
+       * @summary Updates the check type for a quality inspection scheme. Frontend location: Quality Inspection Scheme Management > Create or Edit Quality Inspection Task > Edit icon next to the quality inspection dimension name. Apsara Stack URL: ip:port/api/qcs/UpdateCheckTypeToScheme.json.
        *
        * @param request UpdateCheckTypeToSchemeRequest
        * @return UpdateCheckTypeToSchemeResponse
        */
       Models::UpdateCheckTypeToSchemeResponse updateCheckTypeToScheme(const Models::UpdateCheckTypeToSchemeRequest &request);
+
+      /**
+       * @summary 修改HTTP回调事件配置
+       *
+       * @param request UpdateHttpEventConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateHttpEventConfigResponse
+       */
+      Models::UpdateHttpEventConfigResponse updateHttpEventConfigWithOptions(const Models::UpdateHttpEventConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改HTTP回调事件配置
+       *
+       * @param request UpdateHttpEventConfigRequest
+       * @return UpdateHttpEventConfigResponse
+       */
+      Models::UpdateHttpEventConfigResponse updateHttpEventConfig(const Models::UpdateHttpEventConfigRequest &request);
 
       /**
        * @summary Update session recording data (third-party business fields) to facilitate statistics and queries across more business dimensions.
@@ -1918,7 +2005,7 @@ namespace Qualitycheck20190115
       Models::UpdateSyncQualityCheckDataResponse updateSyncQualityCheckData(const Models::UpdateSyncQualityCheckDataRequest &request);
 
       /**
-       * @summary Updates a label node.
+       * @summary Updates a tag node.
        *
        * @param request UpdateTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1927,7 +2014,7 @@ namespace Qualitycheck20190115
       Models::UpdateTagResponse updateTagWithOptions(const Models::UpdateTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a label node.
+       * @summary Updates a tag node.
        *
        * @param request UpdateTagRequest
        * @return UpdateTagResponse
@@ -2007,29 +2094,29 @@ namespace Qualitycheck20190115
       Models::UpdateWarningStrategyConfigResponse updateWarningStrategyConfig(const Models::UpdateWarningStrategyConfigRequest &request);
 
       /**
-       * @summary Uploads offline voice quality inspection data (recording session files). This operation is applicable to hotline agent scenarios. Scenario 1: Natively integrates with Alibaba Cloud Call Center (CCC), requiring no development. You can enable one-click push of call data to SCA. Scenario 2: Integrates with your own call center system. Each time the call center generates a recording, it pushes the recording to SCA for analysis.
+       * @summary Uploads offline voice quality inspection data (recorded session files) for hotline agent scenarios. Scenario 1: Natively integrates with Alibaba Cloud Cloud Call Center (CCC) without the need for development, allowing you to push call data to Smart Conversation Analysis (SCA) with a single click. Scenario 2: Integrates with a self-managed call center system, where each generated recording is pushed to SCA for analysis.
        *
-       * @description ### Process description
-       * Call the API to upload audio quality inspection => Convert the recording file to text => Separate roles in the text based on the specified channel splitting method (distinguish between agent and customer) => Analyze using quality inspection rules => Quality inspection complete.
+       * @description ### Workflow
+       * Call the API to upload audio for quality inspection => Convert the audio file to text => Separate the text into roles (agent and customer) based on the specified track splitting method => Analyze the text by using quality inspection rules => Complete the quality inspection.
        * ### Task execution efficiency
-       * The speed of task execution depends on the speed of converting the recording file to text. Ideally, a 5-minute recording file can be transcribed within 2 minutes. However, when the transcription service has many queued tasks, there will be a queuing wait time. Generally, transcription completes within 6 hours, except for bulk uploads of large-scale data (more than 500 hours of recordings uploaded within 30 minutes). After transcription is complete, quality inspection analysis takes only milliseconds.
-       * ### Recording file URL requirements
-       * - Supports single-channel/dual-channel WAV and MP3 format recording files. The file size must be less than 512 MB.
-       * - The URL must be an HTTP-accessible URL address. Local file submission is not supported. The recording file access permissions must be set to public.
-       * - The URL can only use domain names, not IP addresses. The URL cannot contain spaces. Avoid using Chinese characters.
-       * - After converting the recording to text, the system deletes the downloaded recording file and does not retain a copy.
-       * - If your recording URL has an access expiration period (for example, the recording is stored in Alibaba Cloud OSS and you specified an expiration period when generating the recording URL through OSS), set the expiration period to at least 12 hours, or 24 hours if possible. This is because file transcription takes time and occasional queuing may occur. If the queuing time is long, the recording is downloaded only when transcription begins. This prevents the recording URL from expiring before the download.
-       * - After quality inspection analysis is complete, the recording is still played using the URL you provided when reviewing files in the console. Ensure that the URL remains active long-term. Otherwise, the recording cannot be played.
-       * ### Role separation description
-       * After the recording is converted to text, the system automatically separates the text into two conversation roles. However, the system cannot determine which role is the agent and which is the customer. You need to perform role separation based on certain rules. The accuracy of role separation is critical because the rules used for quality inspection analysis often have role detection restrictions (a rule only checks the agent or the customer). If role separation is incorrect, the accuracy of quality inspection results is significantly affected.
-       * Recording files are typically divided into two types: single-channel (mono) and dual-channel (stereo):
-       * - Single-channel recording: The voices of both the agent and customer are stored on one channel. After the recording file is converted to text, the system uses a built-in algorithm to distinguish between two roles. By setting a list of keywords that the agent is likely to say, the system analyzes the transcribed text sentence by sentence from top to bottom. When a sentence matches a keyword, the role of that sentence is determined to be the agent, and the other role is the customer. For details, see recognizeRoleDataSetId and serviceChannelKeywords in the request parameters. Due to the unpredictability of conversation content (for example, cross-talk between two roles or both people speaking simultaneously), role separation for single-channel recordings cannot be guaranteed to be 100% accurate. Save recording files as dual-channel recordings whenever possible.
-       * - Dual-channel recording: The voices of the agent and customer are stored on two separate channels. Even if the conversation overlaps, the recording-to-text conversion can accurately distinguish between the two. Specify the agent and customer by using the serviceChannel and clientChannel request parameters.
-       * ### Retrieve quality inspection analysis results
-       * Because recording file recognition is not real-time, you need to asynchronously retrieve quality inspection analysis results. The following three methods are available:
-       * - Message notification: For details, see [MSMQ](https://help.aliyun.com/document_detail/213237.html). After receiving a message, invoke the GetResult operation to retrieve detailed results. (Recommended)
-       * - Callback: Specify a callbackUrl in the request parameters. The system initiates a callback after the task is complete. After receiving the callback, invoke the GetResult operation to retrieve detailed results.
-       * - Polling: The operation returns a task ID (taskId). Use the taskId to poll the `getResult` operation to asynchronously retrieve results. Check whether the `status` in the response parameters indicates completion. Do not set the polling interval too short. Analysis normally completes within a few minutes. Set the polling interval to 30 seconds or more. (Not recommended)
+       * The execution speed of a task depends on the speed of converting the audio file to text. Ideally, a 5-minute audio file can be transcribed within 2 minutes. However, if the file transcription service has a large queue, a waiting time is required. Generally, the transcription is completed within 6 hours, except when a large amount of data is uploaded at a time (more than 500 hours of audio uploaded within half an hour). After the transcription is completed, the quality inspection analysis is performed in milliseconds.
+       * ### Requirements for audio file URLs
+       * - Supports single-track or dual-track audio files in WAV or MP3 format. The file size must be less than 512 MB.
+       * - The URL must be accessible over HTTP. Committing local files is not supported. The access permissions of the audio file must be public.
+       * - The URL must contain only a domain name, not an IP address. The URL cannot contain spaces. Avoid using Chinese characters in the URL.
+       * - After the audio is converted to text, the system deletes the downloaded audio file and does not retain a copy.
+       * - If your audio URL has an expiration time, for example, the audio is stored in Alibaba Cloud OSS and an expiration time is specified when the URL is generated, we recommend that you set the expiration time to at least 12 hours, or preferably set the expiration time in Settings to 24 hours if conditions permit. This is because file transcription takes time and may occasionally be queued. If the queue is long, the audio is downloaded only when the transcription starts. A longer expiration time prevents the URL from expiring before the audio is downloaded.
+       * - After the quality inspection analysis is completed, the URL you provided is still used to play the audio when you review the file in the console. Therefore, you must ensure that the URL remains active for a long time. Otherwise, the audio cannot be played.
+       * ### Role separation
+       * After the audio is converted to text, the system automatically separates the text into two conversation roles. However, the system cannot determine which role is the agent and which is the customer. Therefore, you must separate the roles based on specific rules. The accuracy of role separation is crucial because the rules used for quality inspection analysis often have role restrictions (that is, a rule only checks the agent or the customer). Incorrect role separation greatly affects the accuracy of the quality inspection results.
+       * Audio files are generally divided into single-track (mono) and dual-track (dual-channel/stereo) types:
+       * - Single-track audio: The voices of the agent and the customer are stored on a single track. After the audio file is converted to text, the system uses a built-in algorithm to separate the conversation into two roles. You can set a list of keywords that the agent may say. The system analyzes the transcribed text sentence by sentence from top to bottom. If a sentence hits a keyword, the role of the sentence is determined to be the agent, and the other role is the customer. For details, see recognizeRoleDataSetId and serviceChannelKeywords in the request parameters. Due to the uncontrollability of the conversation content (for example, the two roles may interrupt each other or speak at the same time), role separation for single-track audio cannot be 100% accurate. We strongly recommend that you save audio files as dual-track audio.
+       * - Dual-track audio: The voices of the agent and the customer are stored on two separate tracks. Even if the conversation overlaps, the system can accurately distinguish the roles when the audio is converted to text. You can specify the agent and the customer by using the serviceChannel and clientChannel request parameters.
+       * ### Obtain quality inspection analysis results
+       * Because audio file recognition is not real-time, you must obtain the quality inspection analysis results asynchronously. You can use one of the following three methods to obtain the results:
+       * - Message notification: For details, see [MSMQ](https://help.aliyun.com/document_detail/213237.html). After you receive a message, call the GetResult operation to obtain the detailed results. (Recommended)
+       * - Callback: Specify callbackUrl in the request parameters. After the node is completed, the system initiates a callback. After you receive the callback, call the GetResult operation to obtain the detailed results.
+       * - Polling: The operation returns a node ID (taskId). You can use the taskId to poll the `getResult` operation to asynchronously obtain the results and check whether the `status` response parameter indicates completion. We recommend that you do not set the polling interval too short. Normally, the analysis is completed within a few minutes. We recommend that you set the polling interval to 30 seconds or more. (Not recommended)
        *
        * @param request UploadAudioDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2038,29 +2125,29 @@ namespace Qualitycheck20190115
       Models::UploadAudioDataResponse uploadAudioDataWithOptions(const Models::UploadAudioDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads offline voice quality inspection data (recording session files). This operation is applicable to hotline agent scenarios. Scenario 1: Natively integrates with Alibaba Cloud Call Center (CCC), requiring no development. You can enable one-click push of call data to SCA. Scenario 2: Integrates with your own call center system. Each time the call center generates a recording, it pushes the recording to SCA for analysis.
+       * @summary Uploads offline voice quality inspection data (recorded session files) for hotline agent scenarios. Scenario 1: Natively integrates with Alibaba Cloud Cloud Call Center (CCC) without the need for development, allowing you to push call data to Smart Conversation Analysis (SCA) with a single click. Scenario 2: Integrates with a self-managed call center system, where each generated recording is pushed to SCA for analysis.
        *
-       * @description ### Process description
-       * Call the API to upload audio quality inspection => Convert the recording file to text => Separate roles in the text based on the specified channel splitting method (distinguish between agent and customer) => Analyze using quality inspection rules => Quality inspection complete.
+       * @description ### Workflow
+       * Call the API to upload audio for quality inspection => Convert the audio file to text => Separate the text into roles (agent and customer) based on the specified track splitting method => Analyze the text by using quality inspection rules => Complete the quality inspection.
        * ### Task execution efficiency
-       * The speed of task execution depends on the speed of converting the recording file to text. Ideally, a 5-minute recording file can be transcribed within 2 minutes. However, when the transcription service has many queued tasks, there will be a queuing wait time. Generally, transcription completes within 6 hours, except for bulk uploads of large-scale data (more than 500 hours of recordings uploaded within 30 minutes). After transcription is complete, quality inspection analysis takes only milliseconds.
-       * ### Recording file URL requirements
-       * - Supports single-channel/dual-channel WAV and MP3 format recording files. The file size must be less than 512 MB.
-       * - The URL must be an HTTP-accessible URL address. Local file submission is not supported. The recording file access permissions must be set to public.
-       * - The URL can only use domain names, not IP addresses. The URL cannot contain spaces. Avoid using Chinese characters.
-       * - After converting the recording to text, the system deletes the downloaded recording file and does not retain a copy.
-       * - If your recording URL has an access expiration period (for example, the recording is stored in Alibaba Cloud OSS and you specified an expiration period when generating the recording URL through OSS), set the expiration period to at least 12 hours, or 24 hours if possible. This is because file transcription takes time and occasional queuing may occur. If the queuing time is long, the recording is downloaded only when transcription begins. This prevents the recording URL from expiring before the download.
-       * - After quality inspection analysis is complete, the recording is still played using the URL you provided when reviewing files in the console. Ensure that the URL remains active long-term. Otherwise, the recording cannot be played.
-       * ### Role separation description
-       * After the recording is converted to text, the system automatically separates the text into two conversation roles. However, the system cannot determine which role is the agent and which is the customer. You need to perform role separation based on certain rules. The accuracy of role separation is critical because the rules used for quality inspection analysis often have role detection restrictions (a rule only checks the agent or the customer). If role separation is incorrect, the accuracy of quality inspection results is significantly affected.
-       * Recording files are typically divided into two types: single-channel (mono) and dual-channel (stereo):
-       * - Single-channel recording: The voices of both the agent and customer are stored on one channel. After the recording file is converted to text, the system uses a built-in algorithm to distinguish between two roles. By setting a list of keywords that the agent is likely to say, the system analyzes the transcribed text sentence by sentence from top to bottom. When a sentence matches a keyword, the role of that sentence is determined to be the agent, and the other role is the customer. For details, see recognizeRoleDataSetId and serviceChannelKeywords in the request parameters. Due to the unpredictability of conversation content (for example, cross-talk between two roles or both people speaking simultaneously), role separation for single-channel recordings cannot be guaranteed to be 100% accurate. Save recording files as dual-channel recordings whenever possible.
-       * - Dual-channel recording: The voices of the agent and customer are stored on two separate channels. Even if the conversation overlaps, the recording-to-text conversion can accurately distinguish between the two. Specify the agent and customer by using the serviceChannel and clientChannel request parameters.
-       * ### Retrieve quality inspection analysis results
-       * Because recording file recognition is not real-time, you need to asynchronously retrieve quality inspection analysis results. The following three methods are available:
-       * - Message notification: For details, see [MSMQ](https://help.aliyun.com/document_detail/213237.html). After receiving a message, invoke the GetResult operation to retrieve detailed results. (Recommended)
-       * - Callback: Specify a callbackUrl in the request parameters. The system initiates a callback after the task is complete. After receiving the callback, invoke the GetResult operation to retrieve detailed results.
-       * - Polling: The operation returns a task ID (taskId). Use the taskId to poll the `getResult` operation to asynchronously retrieve results. Check whether the `status` in the response parameters indicates completion. Do not set the polling interval too short. Analysis normally completes within a few minutes. Set the polling interval to 30 seconds or more. (Not recommended)
+       * The execution speed of a task depends on the speed of converting the audio file to text. Ideally, a 5-minute audio file can be transcribed within 2 minutes. However, if the file transcription service has a large queue, a waiting time is required. Generally, the transcription is completed within 6 hours, except when a large amount of data is uploaded at a time (more than 500 hours of audio uploaded within half an hour). After the transcription is completed, the quality inspection analysis is performed in milliseconds.
+       * ### Requirements for audio file URLs
+       * - Supports single-track or dual-track audio files in WAV or MP3 format. The file size must be less than 512 MB.
+       * - The URL must be accessible over HTTP. Committing local files is not supported. The access permissions of the audio file must be public.
+       * - The URL must contain only a domain name, not an IP address. The URL cannot contain spaces. Avoid using Chinese characters in the URL.
+       * - After the audio is converted to text, the system deletes the downloaded audio file and does not retain a copy.
+       * - If your audio URL has an expiration time, for example, the audio is stored in Alibaba Cloud OSS and an expiration time is specified when the URL is generated, we recommend that you set the expiration time to at least 12 hours, or preferably set the expiration time in Settings to 24 hours if conditions permit. This is because file transcription takes time and may occasionally be queued. If the queue is long, the audio is downloaded only when the transcription starts. A longer expiration time prevents the URL from expiring before the audio is downloaded.
+       * - After the quality inspection analysis is completed, the URL you provided is still used to play the audio when you review the file in the console. Therefore, you must ensure that the URL remains active for a long time. Otherwise, the audio cannot be played.
+       * ### Role separation
+       * After the audio is converted to text, the system automatically separates the text into two conversation roles. However, the system cannot determine which role is the agent and which is the customer. Therefore, you must separate the roles based on specific rules. The accuracy of role separation is crucial because the rules used for quality inspection analysis often have role restrictions (that is, a rule only checks the agent or the customer). Incorrect role separation greatly affects the accuracy of the quality inspection results.
+       * Audio files are generally divided into single-track (mono) and dual-track (dual-channel/stereo) types:
+       * - Single-track audio: The voices of the agent and the customer are stored on a single track. After the audio file is converted to text, the system uses a built-in algorithm to separate the conversation into two roles. You can set a list of keywords that the agent may say. The system analyzes the transcribed text sentence by sentence from top to bottom. If a sentence hits a keyword, the role of the sentence is determined to be the agent, and the other role is the customer. For details, see recognizeRoleDataSetId and serviceChannelKeywords in the request parameters. Due to the uncontrollability of the conversation content (for example, the two roles may interrupt each other or speak at the same time), role separation for single-track audio cannot be 100% accurate. We strongly recommend that you save audio files as dual-track audio.
+       * - Dual-track audio: The voices of the agent and the customer are stored on two separate tracks. Even if the conversation overlaps, the system can accurately distinguish the roles when the audio is converted to text. You can specify the agent and the customer by using the serviceChannel and clientChannel request parameters.
+       * ### Obtain quality inspection analysis results
+       * Because audio file recognition is not real-time, you must obtain the quality inspection analysis results asynchronously. You can use one of the following three methods to obtain the results:
+       * - Message notification: For details, see [MSMQ](https://help.aliyun.com/document_detail/213237.html). After you receive a message, call the GetResult operation to obtain the detailed results. (Recommended)
+       * - Callback: Specify callbackUrl in the request parameters. After the node is completed, the system initiates a callback. After you receive the callback, call the GetResult operation to obtain the detailed results.
+       * - Polling: The operation returns a node ID (taskId). You can use the taskId to poll the `getResult` operation to asynchronously obtain the results and check whether the `status` response parameter indicates completion. We recommend that you do not set the polling interval too short. Normally, the analysis is completed within a few minutes. We recommend that you set the polling interval to 30 seconds or more. (Not recommended)
        *
        * @param request UploadAudioDataRequest
        * @return UploadAudioDataResponse
@@ -2099,11 +2186,11 @@ namespace Qualitycheck20190115
       Models::UploadDataResponse uploadData(const Models::UploadDataRequest &request);
 
       /**
-       * @summary Performs real-time text-based quality inspection.
+       * @summary Performs real-time quality inspection on text.
        *
-       * @description Pushes text data in a specific format to SCA for real-time quality inspection analysis based on user-specified rules, and synchronously returns the analysis results. Compared with uploaded text quality inspection, which typically uploads the complete conversation text after a conversation ends, real-time text quality inspection allows you to push text to SCA for analysis after one role finishes one or more sentences, providing higher real-time performance. Notes:
-       * - If the pushed text is a single sentence from one role, some operators in the rules become ineffective due to the lack of conversation context, such as context repetition check, interruption check, and call silence check.
-       * - Real-time quality inspection synchronously returns analysis results. SCA does not save call records, so you cannot query quality inspection results through APIs.
+       * @description Pushes text data to be inspected in a specific format to SCA, performs real-time quality inspection and analysis on the text data based on user-specified rules, and synchronously returns the analysis results. Compared with uploaded text quality inspection, which usually uploads the complete conversation text after a conversation ends, real-time text quality inspection can push the text to SCA for analysis after a role finishes speaking one or more sentences, providing higher real-time performance. Special notes:
+       * - If the pushed text is a single sentence from a role, some operators in the rules, such as context repetition check, interruption check, and call silence check, will become invalid due to the lack of conversation context.
+       * - Real-time quality inspection synchronously returns analysis results. SCA does not save call records, so you cannot query the quality inspection results through the API.
        *
        * @param request UploadDataSyncRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2112,11 +2199,11 @@ namespace Qualitycheck20190115
       Models::UploadDataSyncResponse uploadDataSyncWithOptions(const Models::UploadDataSyncRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs real-time text-based quality inspection.
+       * @summary Performs real-time quality inspection on text.
        *
-       * @description Pushes text data in a specific format to SCA for real-time quality inspection analysis based on user-specified rules, and synchronously returns the analysis results. Compared with uploaded text quality inspection, which typically uploads the complete conversation text after a conversation ends, real-time text quality inspection allows you to push text to SCA for analysis after one role finishes one or more sentences, providing higher real-time performance. Notes:
-       * - If the pushed text is a single sentence from one role, some operators in the rules become ineffective due to the lack of conversation context, such as context repetition check, interruption check, and call silence check.
-       * - Real-time quality inspection synchronously returns analysis results. SCA does not save call records, so you cannot query quality inspection results through APIs.
+       * @description Pushes text data to be inspected in a specific format to SCA, performs real-time quality inspection and analysis on the text data based on user-specified rules, and synchronously returns the analysis results. Compared with uploaded text quality inspection, which usually uploads the complete conversation text after a conversation ends, real-time text quality inspection can push the text to SCA for analysis after a role finishes speaking one or more sentences, providing higher real-time performance. Special notes:
+       * - If the pushed text is a single sentence from a role, some operators in the rules, such as context repetition check, interruption check, and call silence check, will become invalid due to the lack of conversation context.
+       * - Real-time quality inspection synchronously returns analysis results. SCA does not save call records, so you cannot query the quality inspection results through the API.
        *
        * @param request UploadDataSyncRequest
        * @return UploadDataSyncResponse

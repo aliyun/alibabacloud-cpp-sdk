@@ -155,9 +155,9 @@ namespace Models
       // 
       // - 0: System-provided rule
       shared_ptr<int32_t> ruleType_ {};
-      // The type value of the rule\\"s rule type.
+      // The type value of the rule\"s rule type.
       shared_ptr<int32_t> type_ {};
-      // The name of the rule\\"s rule type.
+      // The name of the rule\"s rule type.
       shared_ptr<string> typeName_ {};
     };
 

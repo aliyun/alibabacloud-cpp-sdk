@@ -281,58 +281,59 @@ namespace Models
 
 
   protected:
-    // Workspace ID.
+    // The ID of the business workspace.
     shared_ptr<int64_t> baseMeAgentId_ {};
-    // Name of the business that owns the rule.
+    // The name of the business to which the rule belongs.
     shared_ptr<string> businessName_ {};
-    // Top-level business category.
+    // The major business category.
     shared_ptr<int32_t> businessRange_ {};
-    // Category name.
+    // The category name.
     shared_ptr<string> categoryName_ {};
-    // Whether to count the total number of items.
+    // Specifies whether to count the total number of entries.
     shared_ptr<bool> countTotal_ {};
-    // ID of the rule creator. Same as CreateUserId. Specify one only.
+    // The ID of the rule creator. This parameter is equivalent to CreateUserId. Specify only one of them.
     shared_ptr<string> createEmpid_ {};
-    // ID of the rule creator. Same as CreateEmpId. Specify one only.
+    // The ID of the rule creator. This parameter is equivalent to CreateEmpid. Specify only one of them.
     shared_ptr<int64_t> createUserId_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Filter by creation time (right boundary).
+    // The end time for filtering by creation time.
     shared_ptr<string> endTime_ {};
-    // ID of the rule updater. Same as UpdateUserId. Specify one only.
+    // The ID of the rule updater. This parameter is equivalent to UpdateUserId. Specify only one of them.
     shared_ptr<string> lastUpdateEmpid_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of items per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // Required fields.
+    // The required fields.
     shared_ptr<vector<string>> requireInfos_ {};
-    // Search by rule ID.
+    // The rule ID to search for.
     shared_ptr<int64_t> rid_ {};
-    // Search by rule ID or rule name.
+    // The rule ID or rule name to search for.
     shared_ptr<string> ruleIdOrRuleName_ {};
-    // Scoring type.
+    // The scoring type.
     shared_ptr<int32_t> ruleScoreSingleType_ {};
-    // Rule category.
+    // The rule category.
     shared_ptr<int32_t> ruleType_ {};
-    // Quality inspection scheme ID.
+    // The ID of the quality inspection plan.
     shared_ptr<int64_t> schemeId_ {};
-    // Source type.
+    // The source type.
     shared_ptr<int32_t> sourceType_ {};
-    // Filter by creation time (left boundary).
+    // The start time for filtering by creation time.
     shared_ptr<string> startTime_ {};
-    // Rule status.
+    // The rule status.
     shared_ptr<int32_t> status_ {};
+    // The rule type.
     shared_ptr<string> targetType_ {};
-    // Type value of the rule category that the rule belongs to.
+    // The type value of the rule type to which the rule belongs.
     shared_ptr<int32_t> type_ {};
-    // Name of the rule category that the rule belongs to.
+    // The name of the rule type to which the rule belongs.
     shared_ptr<string> typeName_ {};
-    // Filter by update time (right boundary).
+    // The end time for filtering by update time.
     shared_ptr<string> updateEndTime_ {};
-    // Filter by update time (left boundary).
+    // The start time for filtering by update time.
     shared_ptr<string> updateStartTime_ {};
-    // ID of the rule updater. Same as LastUpdateEmpId. Specify one only.
+    // The ID of the rule updater. This parameter is equivalent to LastUpdateEmpid. Specify only one of them.
     shared_ptr<int64_t> updateUserId_ {};
   };
 

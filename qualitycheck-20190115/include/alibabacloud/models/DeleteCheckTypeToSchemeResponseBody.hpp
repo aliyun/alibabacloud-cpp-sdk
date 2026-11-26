@@ -91,7 +91,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<string> data_ {};
-    // The message returned. If the request is successful, \\`successful\\` is returned. If the request fails, an error message is returned.
+    // The message returned. If the request is successful, \`successful\` is returned. If the request fails, an error message is returned.
     shared_ptr<string> message_ {};
     // A list of returned messages.
     shared_ptr<vector<string>> messages_ {};

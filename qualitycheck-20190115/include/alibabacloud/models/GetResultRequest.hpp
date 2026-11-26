@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Workspace ID.
+    // The workspace ID.
     shared_ptr<int64_t> baseMeAgentId_ {};
-    // Full JSON string. See the detailed description below.
+    // The complete JSON string. For more information, see the following details.
     // 
     // This parameter is required.
     shared_ptr<string> jsonStr_ {};

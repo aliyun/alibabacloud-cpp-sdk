@@ -137,22 +137,21 @@ namespace Models
       shared_ptr<string> dataStartTime_ {};
       // The task ID.
       shared_ptr<int64_t> id_ {};
-      // The error message, if an error occurs.
+      // The error message returned if an error occurs.
       shared_ptr<string> message_ {};
       // The task status. Valid values:
-      // 
       // - queing: The task is queued.
       // - readyAnalysis: The task is pending analysis.
       // - running: The task is running.
       // - error: The task failed.
-      // - finish: The task is complete.
+      // - finish: The task is completed.
       // - fileUploadUser: The user-specified file is uploaded.
       // - fileUploadSystem: The system-generated file is uploaded.
       // - expired: The task has expired.
       shared_ptr<string> status_ {};
       // The actual end time of the task.
       shared_ptr<string> taskEndTime_ {};
-      // The scheduled task ID.
+      // The ID of the scheduled task.
       shared_ptr<string> taskId_ {};
       // The actual start time of the task.
       shared_ptr<string> taskStartTime_ {};
@@ -202,14 +201,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<vector<ListAgentMJobInfoResponseBody::Data>> data_ {};
-    // The error message, if an error occurs.
+    // The error message returned if an error occurs.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // - false/null: The request failed.
+    // Indicates whether the request was successful. A value of true indicates success, and a value of false or null indicates failure.
     shared_ptr<bool> success_ {};
   };
 

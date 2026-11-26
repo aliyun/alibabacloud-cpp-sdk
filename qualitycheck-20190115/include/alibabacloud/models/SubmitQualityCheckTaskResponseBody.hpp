@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Result code. **200** indicates success. Any other value indicates failure. Use this field to determine the cause of failure.
+    // The result code. A value of **200** indicates success, and other values indicate failure. You can determine the cause of the failure based on this field.
     shared_ptr<string> code_ {};
-    // Task ID.
+    // The ID of the task.
     shared_ptr<string> data_ {};
-    // Error details if the request failed. Returns "successful" on success.
+    // The error details when an error occurs, or successful when the request is successful.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded. true means success. false or null means failure.
+    // Indicates whether the request is successful. You can determine whether the request is successful based on this field. A value of true indicates success, and a value of false or null indicates failure.
     shared_ptr<bool> success_ {};
   };
 

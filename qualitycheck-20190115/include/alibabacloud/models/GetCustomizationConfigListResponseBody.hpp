@@ -207,11 +207,11 @@ namespace Models
     // The result code. A value of **200** indicates that the request succeeded. Other values indicate failure. Use this field to identify the cause of a failure.
     shared_ptr<string> code_ {};
     shared_ptr<GetCustomizationConfigListResponseBody::Data> data_ {};
-    // If an error occurs, this field contains error details. If the request succeeds, the value is \\`successful\\`.
+    // If an error occurs, this field contains error details. If the request succeeds, the value is \`successful\`.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded. Use this field to check the request status. A value of \\`true\\` means success. A value of \\`false\\` or \\`null\\` means failure.
+    // Indicates whether the request succeeded. Use this field to check the request status. A value of \`true\` means success. A value of \`false\` or \`null\` means failure.
     shared_ptr<bool> success_ {};
   };
 

@@ -132,19 +132,19 @@ namespace Models
     protected:
       // The number of direct child nodes.
       shared_ptr<int32_t> childCount_ {};
-      // The time when the label was created.
+      // The time when the tag was created.
       shared_ptr<int64_t> createTime_ {};
-      // The label description.
+      // The tag description.
       shared_ptr<string> description_ {};
       // The level of the current node.
       shared_ptr<int32_t> level_ {};
-      // The time when the label was last modified.
+      // The time when the tag was last modified.
       shared_ptr<int64_t> modifyTime_ {};
-      // The label name.
+      // The tag name.
       shared_ptr<string> name_ {};
-      // The ID of the parent label node.
+      // The parent tag node ID.
       shared_ptr<int64_t> parentTagId_ {};
-      // The label ID.
+      // The tag ID.
       shared_ptr<int64_t> tagId_ {};
     };
 
@@ -188,17 +188,15 @@ namespace Models
 
 
   protected:
-    // The result code. A value of 200 indicates success. Other values indicate failure. You can use this field to determine the cause of a failure.
+    // The result code. A value of 200 indicates success, and other values indicate failure. You can determine the cause of the failure based on this field.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<GetTagResponseBody::Data> data_ {};
-    // The error message, if any.
+    // The error message returned if an error occurs.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // - true: The call was successful.
-    // - false: The call failed.
+    // Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

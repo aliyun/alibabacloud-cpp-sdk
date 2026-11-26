@@ -233,9 +233,13 @@ namespace Models
 
 
       protected:
+        // The description.
         shared_ptr<string> desc_ {};
+        // The quality check dimensions.
         shared_ptr<string> dimension_ {};
+        // The exclusion condition.
         shared_ptr<string> excludeCondition_ {};
+        // The hit condition.
         shared_ptr<string> includeCondition_ {};
       };
 
@@ -679,55 +683,55 @@ namespace Models
 
 
     protected:
-      // The threshold for answer hits.
+      // The answer hit threshold.
       shared_ptr<string> answerThreshold_ {};
       // The Ant model information.
       shared_ptr<map<string, string>> antModelInfo_ {};
-      // For speech rate detection: specifies whether to calculate the average speech rate for the entire dialogue. The default is \\`false\\`.
+      // Specifies whether to calculate the average speech rate for the entire conversation during speech rate detection. Default value: false.
       shared_ptr<bool> average_ {};
-      // For the duration operator: the start type for the duration calculation. The calculation can start from the beginning of the recording or the beginning of a specific sentence.
+      // The start type for duration calculation in the duration operator. Specifies whether the calculation starts from the beginning of the recording or the beginning of a specific dialogue.
       shared_ptr<string> beginType_ {};
-      // The robot ID.
+      // The bot ID.
       shared_ptr<string> botId_ {};
-      // Specifies whether the matching is case-sensitive.
+      // Specifies whether the match is case-sensitive.
       shared_ptr<bool> caseSensitive_ {};
       // The knowledge category path.
       shared_ptr<string> categoryPathCode_ {};
-      // For silence detection: specifies whether to check the first sentence.
+      // Specifies whether to check the first sentence for silence detection.
       shared_ptr<bool> checkFirstSentence_ {};
-      // The detection method. The default is 1.
-      // 
-      // - 1: Energy fluctuation between contiguous sentences.
-      // 
+      // The check type. Default value: 1. Valid values:
+      // - 1: Energy fluctuation between adjacent sentences.
       // - 2: Maximum energy span.
       shared_ptr<int32_t> checkType_ {};
-      // The comparison operator. Valid values are \\`gt\\` (greater than) and \\`lt\\` (less than).
+      // The comparison operator. Valid values: gt: Greater than. lt: Less than.
       shared_ptr<string> compareOperator_ {};
-      // Specifies whether to match a single sentence.
+      // Specifies whether single-sentence matching is enabled.
       shared_ptr<bool> contextChatMatch_ {};
-      // Parameters for the recording-related operator.
+      // The operator parameters for call variables.
       shared_ptr<JudgeNodeMetaDesc> customerParam_ {};
-      // For the interruption operator: the delay duration.
+      // The delay duration for the barge-in operator.
       shared_ptr<int32_t> delayTime_ {};
-      // Used for the time interval operator. If set to \\`true\\`, the target sentence is not included in the calculation if it is spoken by the same role as the current sentence.
+      // Used for the time interval operator to determine the time interval. If set to true, the target sentence is excluded from the calculation if it is spoken by the same role as the current sentence.
       shared_ptr<bool> differentRole_ {};
+      // The quality check dimensions.
       shared_ptr<vector<Param::Dimensions>> dimensions_ {};
-      // For the duration operator: the end type for the duration calculation. The calculation can end at the end of the recording or the end of a specific sentence.
+      // The end type for duration calculation in the duration operator. Specifies whether the calculation ends at the end of the recording or the end of a specific dialogue.
       shared_ptr<string> endType_ {};
-      // For the contextual repetition operator: the dialogues to exclude.
+      // The dialogues excluded from the context repetition operator.
       shared_ptr<vector<string>> excludes_ {};
-      // For the contextual repetition operator: checks for repetitions within the \\`from\\` number of sentences before the current sentence. A value of \\`0\\` indicates all preceding sentences.
+      // The number of preceding sentences to check for repetition in the context repetition operator. A value of 0 indicates all preceding sentences.
       shared_ptr<int32_t> from_ {};
-      // Used for the time interval operator. Specifies whether to calculate the time interval by subtracting the end time of the target sentence from the end time of the current sentence.
+      // Used for the time interval operator to determine the time interval. Specifies whether the time interval is calculated by subtracting the end time of the target sentence from the end time of the current sentence.
       shared_ptr<bool> fromEnd_ {};
+      // The hit condition.
       shared_ptr<string> hitCondition_ {};
-      // For the contextual repetition operator: the number of repetitions.
+      // The number of repetitions for the context repetition operator.
       shared_ptr<int32_t> hitTime_ {};
-      // The effective sentences. \\`true\\` indicates a single sentence. \\`false\\` indicates multiple sentences.
+      // Specifies whether the rule applies to a single sentence or multiple sentences. Valid values: true: A single sentence. false: Multiple sentences.
       shared_ptr<bool> inSentence_ {};
-      // The start of the interval.
+      // The start of the interval range.
       shared_ptr<int32_t> interval_ {};
-      // The end of the interval.
+      // The end of the interval range.
       shared_ptr<int32_t> intervalEnd_ {};
       // The keyword extension.
       shared_ptr<int32_t> keywordExtension_ {};
@@ -737,62 +741,67 @@ namespace Models
       shared_ptr<vector<string>> keywords_ {};
       // The knowledge information.
       shared_ptr<string> knowledgeInfo_ {};
-      // The number of sentences after a question is hit within which to detect the answer.
+      // The number of sentences within which the answer is detected after a question is hit.
       shared_ptr<int32_t> knowledgeSentenceNum_ {};
       // The knowledge category or knowledge ID.
       shared_ptr<string> knowledgeTargetId_ {};
-      // The name of the knowledge category or knowledge.
+      // The knowledge category name or knowledge name.
       shared_ptr<string> knowledgeTargetName_ {};
-      // 0: Category. 1: Knowledge.
+      // The knowledge target type. Valid values:
+      // - 0: Category.
+      // - 1: Knowledge.
       shared_ptr<int32_t> knowledgeTargetType_ {};
+      // **[Deprecated]** This field is deprecated.
       shared_ptr<string> knowledges_ {};
       // The LGF sentences.
       shared_ptr<vector<string>> lgfSentences_ {};
+      // The large language model code.
       shared_ptr<string> llmModelCode_ {};
-      // The change in energy value. The default is 3. The range is 1 to 9.
+      // The emotion change value. Default value: 3. Valid values: 1 to 9.
       shared_ptr<int32_t> maxEmotionChangeValue_ {};
       // The minimum number of words in a sentence. Sentences with fewer words than this value are not checked.
       shared_ptr<int32_t> minWordSize_ {};
-      // \\`true\\` indicates that the two contiguous sentences from different roles are used. \\`false\\` indicates that the first sentence from each role is used to compare the response time. The default is \\`false\\`.
+      // Specifies whether to use adjacent sentences spoken by different roles. Valid values: true: Uses adjacent sentences spoken by different roles. false: Uses the first sentences spoken by different roles to compare the response time. This is the default value.
       shared_ptr<bool> nearDialogue_ {};
-      // The regular expression to exclude.
+      // The excluded regular expression.
       shared_ptr<string> notRegex_ {};
-      // The statement.
+      // The phrase.
       shared_ptr<string> phrase_ {};
-      // The variable required for foreign-related properties.
+      // The variable required for external properties.
       shared_ptr<string> pkey_ {};
       // The poutput type.
       shared_ptr<int32_t> poutputType_ {};
       // The model detection type.
       shared_ptr<vector<string>> pvalues_ {};
-      // The threshold for question hits.
+      // The question hit threshold.
       shared_ptr<string> questionThreshold_ {};
       // The references.
       shared_ptr<vector<string>> references_ {};
       // The regular expression.
       shared_ptr<string> regex_ {};
-      // The role used in the operator. This parameter is currently used for the contextual repetition operator in conjunction with \\`Target_role\\`.
+      // The role used in the operator. Currently used for the context repetition operator and used together with target_role.
       shared_ptr<int32_t> roleId_ {};
+      // The scene name.
       shared_ptr<string> sceneName_ {};
       // The score.
       shared_ptr<int32_t> score_ {};
       // The similarity threshold.
       shared_ptr<double> similarityThreshold_ {};
-      // Similar questions.
+      // The similar questions.
       shared_ptr<vector<string>> similarlySentences_ {};
       // The synonyms.
       shared_ptr<map<string, vector<string>>> synonyms_ {};
-      // The target sentence, specified as the number of sentences before the current one. If set to 0, the time interval is calculated as the end time of the current sentence minus its start time.
+      // Specifies the number of sentences before the current sentence to use as the target sentence. If the value is 0, the time interval is calculated by subtracting the start time of the current sentence from its end time.
       shared_ptr<int32_t> target_ {};
-      // Used for the repetition operator. If the current sentence matches the regular expression, the matched part is searched for in the sentences spoken by the specified \\`Target_role\\` that appear before the current sentence.
+      // Used for the repetition operator. If the current sentence matches the regular expression, the matched part is searched in the preceding sentences spoken by the role specified by target_role.
       shared_ptr<string> targetRole_ {};
       // The threshold.
       shared_ptr<float> threshold_ {};
-      // Specifies whether to use the EAS algorithm.
+      // Specifies whether the EAS algorithm is used.
       shared_ptr<bool> useEasAlgorithm_ {};
-      // Used for the speech rate operator. The speech rate value per unit of time. It determines whether the speech rate of the current sentence exceeds the specified value. The time unit depends on the time units of the \\`start\\` and \\`end\\` parameters.
+      // Used for the speech rate operator. Specifies the speech rate value per unit of time to determine whether the speech rate of the current sentence exceeds the specified value. The time unit depends on the time units of the passed start and end parameters.
       shared_ptr<double> velocity_ {};
-      // Used for the speech rate operator. The speech rate value per minute. It determines whether the speech rate of the current sentence exceeds the specified value.
+      // Used for the speech rate operator. Specifies the speech rate value per minute to determine whether the speech rate of the current sentence exceeds the specified value.
       shared_ptr<int32_t> velocityInMint_ {};
     };
 
@@ -855,17 +864,15 @@ namespace Models
     shared_ptr<int64_t> id_ {};
     // The operator name.
     shared_ptr<string> name_ {};
-    // The ID. This can be the primary key ID or an ID generated by the frontend.
+    // The primary key ID or the frontend-generated ID.
     shared_ptr<string> oid_ {};
     // The operator parameters.
     shared_ptr<OperatorBasicInfo::Param> param_ {};
-    // The quality check type:
-    // 
-    // - 0: Offline check
-    // 
-    // - 1: Real-time check
+    // The quality check type. Valid values:
+    // - 0: Offline quality check.
+    // - 1: Real-time quality check.
     shared_ptr<int32_t> qualityCheckType_ {};
-    // The operator category.
+    // The operator type.
     shared_ptr<string> type_ {};
     // The user group.
     shared_ptr<string> userGroup_ {};

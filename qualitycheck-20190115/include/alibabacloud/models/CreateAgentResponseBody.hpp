@@ -75,15 +75,17 @@ namespace Models
 
 
   protected:
-    // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
+    // The result code. A value of **200** indicates success, and other values indicate failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
-    // The AgentId of the task.
+    // The ID of the agent for the task.
     shared_ptr<int64_t> data_ {};
-    // The error message, if any.
+    // The error message. This field is returned if an error occurs.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
+    // Specifies whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

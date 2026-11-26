@@ -79,11 +79,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<bool> data_ {};
-    // The error message, if any.
+    // The error message returned if an error occurs.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true: The request was successful. false/null: The request failed.
+    // Indicates whether the request is successful. A value of true indicates success. A value of false or null indicates failure.
     shared_ptr<bool> success_ {};
   };
 

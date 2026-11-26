@@ -901,29 +901,29 @@ namespace Models
 
 
   protected:
-    // Result code. **200** indicates success. Other values indicate failure. Callers can use this field to determine the cause of failure.
+    // The result code. A value of **200** indicates success. Any other value indicates failure. You can determine the cause of the failure based on this field.
     shared_ptr<string> code_ {};
-    // Total entries.
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
     shared_ptr<ListSchemeTaskConfigResponseBody::Data> data_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // This field marks the data. When querying more than 10,000 entries using GetResult, include the \\`lastDataId\\` of the last entry from the previous query in each request parameter.
+    // The identifier of the current data record. When you use the GetResult operation to query more than 10,000 data records, you must include the lastDataId value of the last data record from the previous query result in the request parameters of each subsequent request.
     shared_ptr<string> lastDataId_ {};
-    // Provides error details on failure. For success, it is **successful**.
+    // The error details when an error occurs, or **successful** when the request is successful.
     shared_ptr<string> message_ {};
     shared_ptr<ListSchemeTaskConfigResponseBody::Messages> messages_ {};
-    // Current page.
+    // The current page.
     shared_ptr<int32_t> pageNumber_ {};
-    // Entries displayed per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Internal field. Ignore it.
+    // An internal field. Ignore this field.
     shared_ptr<string> resultCountId_ {};
-    // Indicates whether the request was successful. Callers can use this field to determine if the request succeeded: \\`true\\` for success, \\`false\\`/\\`null\\` for failure.
+    // Indicates whether the request is successful. You can determine whether the request is successful based on this field. A value of true indicates success, and a value of false or null indicates failure.
     shared_ptr<bool> success_ {};
   };
 

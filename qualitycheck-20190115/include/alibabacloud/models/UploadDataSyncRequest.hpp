@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The business space ID.
+    // The ID of the business workspace.
     shared_ptr<int64_t> baseMeAgentId_ {};
-    // A JSON string that contains all custom parameters for this operation. For more information, see the **jsonStr property description** below.
+    // The jsonStr parameter is a JSON string that contains all custom parameters for this API operation. For details, see the **jsonStr property description** below.
     // 
     // This parameter is required.
     shared_ptr<string> jsonStr_ {};

@@ -653,7 +653,7 @@ namespace Models
       shared_ptr<int32_t> totalCount_ {};
       // Last update time.
       shared_ptr<string> updateTime_ {};
-      // Indicates whether manual verification has been performed. Possible values: \\`false\\`: Not yet verified; \\`true\\`: Already verified.
+      // Indicates whether manual verification has been performed. Possible values: \`false\`: Not yet verified; \`true\`: Already verified.
       shared_ptr<bool> verified_ {};
       // The total number of verified files.
       shared_ptr<int32_t> verifiedCount_ {};
@@ -703,11 +703,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // File details.
     shared_ptr<GetNextResultToVerifyResponseBody::Data> data_ {};
-    // Error details if an error occurs. If successful, the value is \\"successful\\".
+    // Error details if an error occurs. If successful, the value is \"successful\".
     shared_ptr<string> message_ {};
     // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. The caller can determine if the request was successful using this field: \\`true\\` indicates success; \\`false\\`/\\`null\\` indicates failure.
+    // Indicates whether the request was successful. The caller can determine if the request was successful using this field: \`true\` indicates success; \`false\`/\`null\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

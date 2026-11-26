@@ -115,11 +115,17 @@ namespace Models
 
 
     protected:
+      // **[Deprecated]**
       shared_ptr<int32_t> leftFieldType_ {};
+      // **[Deprecated]**
       shared_ptr<string> leftOperand_ {};
+      // **[Deprecated]**
       shared_ptr<string> operator_ {};
+      // **[Deprecated]**
       shared_ptr<int32_t> rightFieldType_ {};
+      // **[Deprecated]**
       shared_ptr<string> rightOperand_ {};
+      // **[Deprecated]**
       shared_ptr<string> roundingMode_ {};
     };
 
@@ -178,18 +184,19 @@ namespace Models
 
 
   protected:
-    // Actual value
+    // The actual value. **[Deprecated]**
     shared_ptr<string> actualValue_ {};
-    // Data type
+    // The data type.
     shared_ptr<int32_t> dataType_ {};
+    // **[Deprecated]**
     shared_ptr<JudgeNodeMetaDesc::ExpressionMetaDesc> expressionMetaDesc_ {};
-    // System field
+    // The system field.
     shared_ptr<string> field_ {};
-    // Field data source type: 1: System predefined field. 2: Quality inspection field for passed parameters.
+    // The field data source type. 1: System predefined field. 2: Parameter-passed quality inspection field.
     shared_ptr<int32_t> fieldType_ {};
-    // Expression
+    // The logical expression.
     shared_ptr<int32_t> symbol_ {};
-    // Preset value
+    // The preset value. **[Deprecated]**
     shared_ptr<string> value_ {};
   };
 

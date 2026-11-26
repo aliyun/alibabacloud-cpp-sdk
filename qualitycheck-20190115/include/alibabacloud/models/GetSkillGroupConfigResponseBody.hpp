@@ -395,20 +395,18 @@ namespace Models
 
 
     protected:
-      // Indicates whether to perform a full-text quality check after the real-time quality check is complete. Valid values:
-      // 
-      // - 1: yes
-      // 
-      // - 0: no
+      // Specifies whether to perform full-text quality check after the real-time quality check ends. Valid values:
+      // - 1: Perform full-text quality check.
+      // - 0: Do not perform full-text quality check.
       shared_ptr<int32_t> allContentQualityCheck_ {};
-      // The ID of the rule used for the full-text quality check.
+      // The quality check rule IDs for full-text quality check.
       shared_ptr<string> allRids_ {};
       shared_ptr<Data::AllRuleList> allRuleList_ {};
-      // The time when the configuration was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // The configuration ID.
       shared_ptr<int64_t> id_ {};
-      // This is an internal parameter. You can ignore it.
+      // An internal field. Ignore this field.
       shared_ptr<string> instanceId_ {};
       // The language model ID.
       shared_ptr<int64_t> modelId_ {};
@@ -417,29 +415,31 @@ namespace Models
       // The configuration name.
       shared_ptr<string> name_ {};
       // The quality check type. Valid values:
-      // 
-      // - 0: offline
-      // 
-      // - 1: real-time
+      // - 0: Offline quality check.
+      // - 1: Real-time quality check.
       shared_ptr<int32_t> qualityCheckType_ {};
       // The quality check rule ID.
       shared_ptr<string> rid_ {};
       shared_ptr<Data::RuleList> ruleList_ {};
-      // The source of the skill group. The value is fixed at 0.
+      // The source of the skill group. The value is fixed to 0.
       shared_ptr<int32_t> skillGroupFrom_ {};
       // The skill group ID.
       shared_ptr<string> skillGroupId_ {};
       // The skill group name.
       shared_ptr<string> skillGroupName_ {};
-      // The status of the configuration. Valid values: 0 (disabled) and 1 (enabled).
+      // The enabling status. Valid values:
+      // - 0: Disabled.
+      // - 1: Enabled.
       shared_ptr<int32_t> status_ {};
-      // The configuration type. Valid values: 1 (custom configuration) and 0 (built-in configuration).
+      // The configuration type. Valid values:
+      // - 1: Custom configuration.
+      // - 0: Built-in system configuration.
       shared_ptr<int32_t> type_ {};
-      // The time when the configuration was last updated.
+      // The update time.
       shared_ptr<string> updateTime_ {};
-      // The hotword ID.
+      // The hot word ID.
       shared_ptr<int64_t> vocabId_ {};
-      // The hotword name.
+      // The hot word name.
       shared_ptr<string> vocabName_ {};
     };
 
@@ -483,23 +483,22 @@ namespace Models
 
 
   protected:
-    // The response code. A value of **200** indicates a successful response.
+    // The result code. A value of **200** indicates success.
     // 
-    // > Other values indicate a failed response. You can use this field to identify the cause of the failure.
+    // > Any other value indicates failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
-    // The details of the skill group rule configuration.
+    // The list of skill group rule configuration details.
     shared_ptr<GetSkillGroupConfigResponseBody::Data> data_ {};
-    // The response message. If the request is successful, a value of **successful** is returned. If the request fails, an error message is returned.
+    // The error details when an error occurs, or **successful** when the request is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     // 
-    // The caller can use this field to determine whether the request was successful:
+    // You can use this field to determine whether the request is successful:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - false or **null**: The request failed.
+    // - **true**: The request is successful.
+    // - **false/null**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

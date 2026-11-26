@@ -166,11 +166,11 @@ namespace Models
     // The result code. A value of **200** indicates success. Other values indicate failure. Use this field to determine the cause of a failure.
     shared_ptr<string> code_ {};
     shared_ptr<GetRuleCategoryResponseBody::Data> data_ {};
-    // If an error occurs, this field provides error details. If the call is successful, the value is \\`successful\\`.
+    // If an error occurs, this field provides error details. If the call is successful, the value is \`successful\`.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. A value of \\`true\\` indicates success. A value of \\`false\\` or \\`null\\` indicates failure.
+    // Indicates whether the call was successful. A value of \`true\` indicates success. A value of \`false\` or \`null\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

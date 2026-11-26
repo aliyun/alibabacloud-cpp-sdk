@@ -41,6 +41,7 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(ArtificialScore, artificialScore_);
         DARABONBA_PTR_TO_JSON(AudioScheme, audioScheme_);
         DARABONBA_PTR_TO_JSON(AudioURL, audioURL_);
         DARABONBA_PTR_TO_JSON(Comments, comments_);
@@ -51,11 +52,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ManualScoreInfoList, manualScoreInfoList_);
         DARABONBA_PTR_TO_JSON(ReviewHistoryList, reviewHistoryList_);
         DARABONBA_PTR_TO_JSON(ReviewTypeIdList, reviewTypeIdList_);
+        DARABONBA_PTR_TO_JSON(SmartCheckScore, smartCheckScore_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TotalScore, totalScore_);
         DARABONBA_PTR_TO_JSON(Vid, vid_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(ArtificialScore, artificialScore_);
         DARABONBA_PTR_FROM_JSON(AudioScheme, audioScheme_);
         DARABONBA_PTR_FROM_JSON(AudioURL, audioURL_);
         DARABONBA_PTR_FROM_JSON(Comments, comments_);
@@ -66,6 +69,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ManualScoreInfoList, manualScoreInfoList_);
         DARABONBA_PTR_FROM_JSON(ReviewHistoryList, reviewHistoryList_);
         DARABONBA_PTR_FROM_JSON(ReviewTypeIdList, reviewTypeIdList_);
+        DARABONBA_PTR_FROM_JSON(SmartCheckScore, smartCheckScore_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TotalScore, totalScore_);
         DARABONBA_PTR_FROM_JSON(Vid, vid_);
@@ -218,6 +222,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(OldScore, oldScore_);
             DARABONBA_PTR_TO_JSON(Operator, operator_);
             DARABONBA_PTR_TO_JSON(OperatorName, operatorName_);
+            DARABONBA_PTR_TO_JSON(ReviewErrorRule, reviewErrorRule_);
             DARABONBA_PTR_TO_JSON(ReviewManagerType, reviewManagerType_);
             DARABONBA_PTR_TO_JSON(ReviewResult, reviewResult_);
             DARABONBA_PTR_TO_JSON(ReviewRightRule, reviewRightRule_);
@@ -232,6 +237,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(OldScore, oldScore_);
             DARABONBA_PTR_FROM_JSON(Operator, operator_);
             DARABONBA_PTR_FROM_JSON(OperatorName, operatorName_);
+            DARABONBA_PTR_FROM_JSON(ReviewErrorRule, reviewErrorRule_);
             DARABONBA_PTR_FROM_JSON(ReviewManagerType, reviewManagerType_);
             DARABONBA_PTR_FROM_JSON(ReviewResult, reviewResult_);
             DARABONBA_PTR_FROM_JSON(ReviewRightRule, reviewRightRule_);
@@ -326,10 +332,74 @@ namespace Models
             shared_ptr<vector<ReviewRightRule::ReviewRightRuleItem>> reviewRightRule_ {};
           };
 
+          class ReviewErrorRule : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const ReviewErrorRule& obj) { 
+              DARABONBA_PTR_TO_JSON(reviewErrorRule, reviewErrorRule_);
+            };
+            friend void from_json(const Darabonba::Json& j, ReviewErrorRule& obj) { 
+              DARABONBA_PTR_FROM_JSON(reviewErrorRule, reviewErrorRule_);
+            };
+            ReviewErrorRule() = default ;
+            ReviewErrorRule(const ReviewErrorRule &) = default ;
+            ReviewErrorRule(ReviewErrorRule &&) = default ;
+            ReviewErrorRule(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~ReviewErrorRule() = default ;
+            ReviewErrorRule& operator=(const ReviewErrorRule &) = default ;
+            ReviewErrorRule& operator=(ReviewErrorRule &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class ReviewErrorRuleItem : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const ReviewErrorRuleItem& obj) { 
+                DARABONBA_PTR_TO_JSON(Rid, rid_);
+              };
+              friend void from_json(const Darabonba::Json& j, ReviewErrorRuleItem& obj) { 
+                DARABONBA_PTR_FROM_JSON(Rid, rid_);
+              };
+              ReviewErrorRuleItem() = default ;
+              ReviewErrorRuleItem(const ReviewErrorRuleItem &) = default ;
+              ReviewErrorRuleItem(ReviewErrorRuleItem &&) = default ;
+              ReviewErrorRuleItem(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~ReviewErrorRuleItem() = default ;
+              ReviewErrorRuleItem& operator=(const ReviewErrorRuleItem &) = default ;
+              ReviewErrorRuleItem& operator=(ReviewErrorRuleItem &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->rid_ == nullptr; };
+              // rid Field Functions 
+              bool hasRid() const { return this->rid_ != nullptr;};
+              void deleteRid() { this->rid_ = nullptr;};
+              inline int64_t getRid() const { DARABONBA_PTR_GET_DEFAULT(rid_, 0L) };
+              inline ReviewErrorRuleItem& setRid(int64_t rid) { DARABONBA_PTR_SET_VALUE(rid_, rid) };
+
+
+            protected:
+              shared_ptr<int64_t> rid_ {};
+            };
+
+            virtual bool empty() const override { return this->reviewErrorRule_ == nullptr; };
+            // reviewErrorRule Field Functions 
+            bool hasReviewErrorRule() const { return this->reviewErrorRule_ != nullptr;};
+            void deleteReviewErrorRule() { this->reviewErrorRule_ = nullptr;};
+            inline const vector<ReviewErrorRule::ReviewErrorRuleItem> & getReviewErrorRule() const { DARABONBA_PTR_GET_CONST(reviewErrorRule_, vector<ReviewErrorRule::ReviewErrorRuleItem>) };
+            inline vector<ReviewErrorRule::ReviewErrorRuleItem> getReviewErrorRule() { DARABONBA_PTR_GET(reviewErrorRule_, vector<ReviewErrorRule::ReviewErrorRuleItem>) };
+            inline ReviewErrorRule& setReviewErrorRule(const vector<ReviewErrorRule::ReviewErrorRuleItem> & reviewErrorRule) { DARABONBA_PTR_SET_VALUE(reviewErrorRule_, reviewErrorRule) };
+            inline ReviewErrorRule& setReviewErrorRule(vector<ReviewErrorRule::ReviewErrorRuleItem> && reviewErrorRule) { DARABONBA_PTR_SET_RVALUE(reviewErrorRule_, reviewErrorRule) };
+
+
+          protected:
+            shared_ptr<vector<ReviewErrorRule::ReviewErrorRuleItem>> reviewErrorRule_ {};
+          };
+
           virtual bool empty() const override { return this->comments_ == nullptr
-        && this->complainResult_ == nullptr && this->oldScore_ == nullptr && this->operator_ == nullptr && this->operatorName_ == nullptr && this->reviewManagerType_ == nullptr
-        && this->reviewResult_ == nullptr && this->reviewRightRule_ == nullptr && this->score_ == nullptr && this->time_ == nullptr && this->timeStr_ == nullptr
-        && this->type_ == nullptr; };
+        && this->complainResult_ == nullptr && this->oldScore_ == nullptr && this->operator_ == nullptr && this->operatorName_ == nullptr && this->reviewErrorRule_ == nullptr
+        && this->reviewManagerType_ == nullptr && this->reviewResult_ == nullptr && this->reviewRightRule_ == nullptr && this->score_ == nullptr && this->time_ == nullptr
+        && this->timeStr_ == nullptr && this->type_ == nullptr; };
           // comments Field Functions 
           bool hasComments() const { return this->comments_ != nullptr;};
           void deleteComments() { this->comments_ = nullptr;};
@@ -363,6 +433,15 @@ namespace Models
           void deleteOperatorName() { this->operatorName_ = nullptr;};
           inline string getOperatorName() const { DARABONBA_PTR_GET_DEFAULT(operatorName_, "") };
           inline ReviewHistory& setOperatorName(string operatorName) { DARABONBA_PTR_SET_VALUE(operatorName_, operatorName) };
+
+
+          // reviewErrorRule Field Functions 
+          bool hasReviewErrorRule() const { return this->reviewErrorRule_ != nullptr;};
+          void deleteReviewErrorRule() { this->reviewErrorRule_ = nullptr;};
+          inline const ReviewHistory::ReviewErrorRule & getReviewErrorRule() const { DARABONBA_PTR_GET_CONST(reviewErrorRule_, ReviewHistory::ReviewErrorRule) };
+          inline ReviewHistory::ReviewErrorRule getReviewErrorRule() { DARABONBA_PTR_GET(reviewErrorRule_, ReviewHistory::ReviewErrorRule) };
+          inline ReviewHistory& setReviewErrorRule(const ReviewHistory::ReviewErrorRule & reviewErrorRule) { DARABONBA_PTR_SET_VALUE(reviewErrorRule_, reviewErrorRule) };
+          inline ReviewHistory& setReviewErrorRule(ReviewHistory::ReviewErrorRule && reviewErrorRule) { DARABONBA_PTR_SET_RVALUE(reviewErrorRule_, reviewErrorRule) };
 
 
           // reviewManagerType Field Functions 
@@ -422,6 +501,7 @@ namespace Models
           shared_ptr<int32_t> oldScore_ {};
           shared_ptr<int64_t> operator_ {};
           shared_ptr<string> operatorName_ {};
+          shared_ptr<ReviewHistory::ReviewErrorRule> reviewErrorRule_ {};
           shared_ptr<string> reviewManagerType_ {};
           shared_ptr<int32_t> reviewResult_ {};
           shared_ptr<ReviewHistory::ReviewRightRule> reviewRightRule_ {};
@@ -1735,10 +1815,17 @@ namespace Models
         shared_ptr<vector<Dialogues::Dialogue>> dialogue_ {};
       };
 
-      virtual bool empty() const override { return this->audioScheme_ == nullptr
-        && this->audioURL_ == nullptr && this->comments_ == nullptr && this->dialogues_ == nullptr && this->fileId_ == nullptr && this->fileMergeName_ == nullptr
-        && this->hitRuleReviewInfoList_ == nullptr && this->manualScoreInfoList_ == nullptr && this->reviewHistoryList_ == nullptr && this->reviewTypeIdList_ == nullptr && this->status_ == nullptr
-        && this->totalScore_ == nullptr && this->vid_ == nullptr; };
+      virtual bool empty() const override { return this->artificialScore_ == nullptr
+        && this->audioScheme_ == nullptr && this->audioURL_ == nullptr && this->comments_ == nullptr && this->dialogues_ == nullptr && this->fileId_ == nullptr
+        && this->fileMergeName_ == nullptr && this->hitRuleReviewInfoList_ == nullptr && this->manualScoreInfoList_ == nullptr && this->reviewHistoryList_ == nullptr && this->reviewTypeIdList_ == nullptr
+        && this->smartCheckScore_ == nullptr && this->status_ == nullptr && this->totalScore_ == nullptr && this->vid_ == nullptr; };
+      // artificialScore Field Functions 
+      bool hasArtificialScore() const { return this->artificialScore_ != nullptr;};
+      void deleteArtificialScore() { this->artificialScore_ = nullptr;};
+      inline float getArtificialScore() const { DARABONBA_PTR_GET_DEFAULT(artificialScore_, 0.0) };
+      inline Data& setArtificialScore(float artificialScore) { DARABONBA_PTR_SET_VALUE(artificialScore_, artificialScore) };
+
+
       // audioScheme Field Functions 
       bool hasAudioScheme() const { return this->audioScheme_ != nullptr;};
       void deleteAudioScheme() { this->audioScheme_ = nullptr;};
@@ -1819,6 +1906,13 @@ namespace Models
       inline Data& setReviewTypeIdList(Data::ReviewTypeIdList && reviewTypeIdList) { DARABONBA_PTR_SET_RVALUE(reviewTypeIdList_, reviewTypeIdList) };
 
 
+      // smartCheckScore Field Functions 
+      bool hasSmartCheckScore() const { return this->smartCheckScore_ != nullptr;};
+      void deleteSmartCheckScore() { this->smartCheckScore_ = nullptr;};
+      inline float getSmartCheckScore() const { DARABONBA_PTR_GET_DEFAULT(smartCheckScore_, 0.0) };
+      inline Data& setSmartCheckScore(float smartCheckScore) { DARABONBA_PTR_SET_VALUE(smartCheckScore_, smartCheckScore) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -1841,26 +1935,33 @@ namespace Models
 
 
     protected:
-      // Protocol used in the audio URL. Possible values: http, https.
+      // The manual review score.
+      shared_ptr<float> artificialScore_ {};
+      // The protocol of the audio URL. Valid values: http and https.
       shared_ptr<string> audioScheme_ {};
-      // Audio URL without the protocol prefix (http\\:// or https\\://). Combine with AudioScheme to form the full URL.
+      // The audio URL, excluding http:// and https://. This value and AudioScheme form the complete URL.
       shared_ptr<string> audioURL_ {};
-      // Review comments.
+      // The review comments.
       shared_ptr<string> comments_ {};
       shared_ptr<Data::Dialogues> dialogues_ {};
-      // File ID.
+      // The file ID.
       shared_ptr<string> fileId_ {};
-      // File name.
+      // The file name.
       shared_ptr<string> fileMergeName_ {};
       shared_ptr<Data::HitRuleReviewInfoList> hitRuleReviewInfoList_ {};
       shared_ptr<Data::ManualScoreInfoList> manualScoreInfoList_ {};
       shared_ptr<Data::ReviewHistoryList> reviewHistoryList_ {};
       shared_ptr<Data::ReviewTypeIdList> reviewTypeIdList_ {};
-      // Current task status. 0: incomplete. 1: complete. Use this field to check completion. Any other value indicates an error.
+      // The automated check score.
+      shared_ptr<float> smartCheckScore_ {};
+      // The current status of the task. Valid values:
+      // - 0: The task is not completed.
+      // - 1: The task is completed.
+      // You can use this field to determine whether the task is completed. Any other value indicates an error.
       shared_ptr<int32_t> status_ {};
-      // Quality inspection score.
+      // The quality inspection score.
       shared_ptr<int32_t> totalScore_ {};
-      // File ID.
+      // The file ID.
       shared_ptr<string> vid_ {};
     };
 
@@ -1904,15 +2005,15 @@ namespace Models
 
 
   protected:
-    // Result code. **200** means success. Any other value means failure. Use this field to identify the cause.
+    // The result code. A value of **200** indicates success, and any other value indicates failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
-    // Detailed response data.
+    // The detailed response data.
     shared_ptr<GetResultToReviewResponseBody::Data> data_ {};
-    // Error details if the call fails. Returns **successful** on success.
+    // The error details when an error occurs, or **successful** when the request is successful.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded. true means success. **false** or **null** means failure.
+    // Indicates whether the request is successful. **true** indicates success, and **false** or **null** indicates failure.
     shared_ptr<bool> success_ {};
   };
 

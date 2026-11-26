@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the business workspace.
+    // The ID of the workspace.
     shared_ptr<int64_t> baseMeAgentId_ {};
-    // The complete JSON string. For more information, see the following detailed description.
+    // The complete JSON string. For more information, see the following details.
     shared_ptr<string> jsonStr_ {};
-    // Specifies whether to enable Server-Sent Events (SSE) responses. Set to true to enable SSE responses. Default value: false.
+    // Specifies whether to enable Server-Sent Events (SSE) responses. Default value: false.
     shared_ptr<bool> stream_ {};
   };
 

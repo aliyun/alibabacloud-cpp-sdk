@@ -130,7 +130,7 @@ namespace Models
 
 
     protected:
-      // If streaming output is used, this value is null during generation. When generation is complete, the value is stop if the generation ended due to a stop token.
+      // The reason why the generation finished. For streaming output, this field is null during generation. If the generation stops due to a stop token, the value is stop.
       shared_ptr<string> finishReason_ {};
       // The number of input tokens.
       shared_ptr<int64_t> inputTokens_ {};
@@ -142,9 +142,9 @@ namespace Models
       shared_ptr<string> text_ {};
       // The total number of tokens.
       shared_ptr<int64_t> totalTokens_ {};
-      // The number of times the plus model was used.
+      // The number of times the plus model is used.
       shared_ptr<string> tyxmPlusCount_ {};
-      // The number of times the turbo model was used.
+      // The number of times the turbo model is used.
       shared_ptr<string> tyxmTurboCount_ {};
     };
 
@@ -188,15 +188,15 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 indicates success.
+    // The status code. A value of 200 indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The returned data.
     shared_ptr<ExecuteAgentResponseBody::Data> data_ {};
     // The error message returned when an error occurs.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. The caller can use this field to determine whether the request was successful. Valid values: **true**: The request was successful. **false/null**: The request failed.
+    // Indicates whether the request is successful. You can use this field to determine the request result. **true** indicates success. **false** or **null** indicates failure.
     shared_ptr<bool> success_ {};
   };
 

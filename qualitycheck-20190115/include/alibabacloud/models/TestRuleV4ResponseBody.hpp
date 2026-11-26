@@ -609,7 +609,7 @@ namespace Models
             shared_ptr<string> similarPhrase_ {};
             // Internal use only. Ignore this field.
             shared_ptr<string> tid_ {};
-            // The position of the character that follows the highlighted keyword. The character at the \\`to\\` position is not included in the highlight. For example, if \\`from\\` is 0 and \\`to\\` is 3, the highlighted keyword consists of the characters at indices 0, 1, and 2. The maximum value is one less than the total number of characters in the sentence.
+            // The position of the character that follows the highlighted keyword. The character at the \`to\` position is not included in the highlight. For example, if \`from\` is 0 and \`to\` is 3, the highlighted keyword consists of the characters at indices 0, 1, and 2. The maximum value is one less than the total number of characters in the sentence.
             shared_ptr<int32_t> to_ {};
             // Internal use only. Ignore this field.
             shared_ptr<string> uuid_ {};
@@ -871,7 +871,7 @@ namespace Models
         shared_ptr<vector<ConditionBasicInfo>> conditionInfoList_ {};
         // Judgement node name.
         shared_ptr<string> judgeNodeName_ {};
-        // Lambda expression. Example: a&\\&b.
+        // Lambda expression. Example: a&\&b.
         shared_ptr<string> lambda_ {};
         // Whether the rule was hit.
         shared_ptr<bool> matched_ {};

@@ -111,17 +111,17 @@ namespace Models
 
 
     protected:
-      // The time when the label node was created.
+      // The time when the tag node was created.
       shared_ptr<int64_t> createTime_ {};
-      // The label description.
+      // The tag description.
       shared_ptr<string> description_ {};
-      // The time when the label node was last modified.
+      // The time when the tag node was last modified.
       shared_ptr<int64_t> modifyTime_ {};
-      // The label name.
+      // The tag name.
       shared_ptr<string> name_ {};
-      // The ID of the parent label node.
+      // The ID of the parent tag node.
       shared_ptr<int64_t> parentTagId_ {};
-      // The label ID.
+      // The tag ID.
       shared_ptr<int64_t> tagId_ {};
     };
 
@@ -165,7 +165,7 @@ namespace Models
 
 
   protected:
-    // The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
+    // The result code. A value of **200** indicates success, whereas any other value indicates failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<UpdateTagResponseBody::Data> data_ {};
