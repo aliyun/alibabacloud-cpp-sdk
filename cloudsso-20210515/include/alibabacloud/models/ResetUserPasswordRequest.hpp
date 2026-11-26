@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GenerateRandomPassword, generateRandomPassword_);
       DARABONBA_PTR_TO_JSON(Password, password_);
       DARABONBA_PTR_TO_JSON(RequirePasswordResetForNextLogin, requirePasswordResetForNextLogin_);
+      DARABONBA_PTR_TO_JSON(ResetMethod, resetMethod_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, ResetUserPasswordRequest& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GenerateRandomPassword, generateRandomPassword_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
       DARABONBA_PTR_FROM_JSON(RequirePasswordResetForNextLogin, requirePasswordResetForNextLogin_);
+      DARABONBA_PTR_FROM_JSON(ResetMethod, resetMethod_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
     };
     ResetUserPasswordRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->directoryId_ == nullptr
-        && this->generateRandomPassword_ == nullptr && this->password_ == nullptr && this->requirePasswordResetForNextLogin_ == nullptr && this->userId_ == nullptr; };
+        && this->generateRandomPassword_ == nullptr && this->password_ == nullptr && this->requirePasswordResetForNextLogin_ == nullptr && this->resetMethod_ == nullptr && this->userId_ == nullptr; };
     // directoryId Field Functions 
     bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
     void deleteDirectoryId() { this->directoryId_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline ResetUserPasswordRequest& setRequirePasswordResetForNextLogin(bool requirePasswordResetForNextLogin) { DARABONBA_PTR_SET_VALUE(requirePasswordResetForNextLogin_, requirePasswordResetForNextLogin) };
 
 
+    // resetMethod Field Functions 
+    bool hasResetMethod() const { return this->resetMethod_ != nullptr;};
+    void deleteResetMethod() { this->resetMethod_ = nullptr;};
+    inline string getResetMethod() const { DARABONBA_PTR_GET_DEFAULT(resetMethod_, "") };
+    inline ResetUserPasswordRequest& setResetMethod(string resetMethod) { DARABONBA_PTR_SET_VALUE(resetMethod_, resetMethod) };
+
+
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
@@ -77,10 +86,10 @@ namespace Models
   protected:
     // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // Specifies whether to automatically generate a password. Valid values:
+    // Specifies whether to automatically generate a password. This parameter is valid only when the reset method is DirectPassword. Valid values:
     // 
-    // - True: The password is automatically generated.
-    // - False (default): The password is manually specified.
+    // - True: Automatically generates a password.
+    // - False (default): Manually sets a password.
     shared_ptr<bool> generateRandomPassword_ {};
     // The new password.
     // 
@@ -88,13 +97,19 @@ namespace Models
     // 
     // Length: 8 to 32 characters.
     // 
-    // > If GenerateRandomPassword is set to False, you must specify Password.
+    // > If `GenerateRandomPassword` is set to `False`, you must specify `Password`.
     shared_ptr<string> password_ {};
-    // Specifies whether the user must reset the password upon the next logon. Valid values:
+    // Specifies whether the user must reset the password upon next logon. Valid values:
     // 
     // - True: The user must reset the password.
     // - False (default): The user does not need to reset the password.
     shared_ptr<bool> requirePasswordResetForNextLogin_ {};
+    // The reset method. Valid values:
+    // 
+    // - DirectPassword (default): Sets the password directly.
+    // 
+    // - Email: Sends a password reset email.
+    shared_ptr<string> resetMethod_ {};
     // The user ID.
     shared_ptr<string> userId_ {};
   };

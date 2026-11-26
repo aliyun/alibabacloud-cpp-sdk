@@ -251,9 +251,9 @@ namespace Models
       shared_ptr<string> latestAsyncTime_ {};
       // The identity ID of the RAM user provisioning. Valid values:
       // 
-      // - If you set the `PrincipalType` parameter to `Group`, the value of this parameter is the ID of a CloudSSO user group (g-\\*\\*\\*\\*\\*\\*\\*\\*).
+      // - If you set the `PrincipalType` parameter to `Group`, the value of this parameter is the ID of a CloudSSO user group (g-\*\*\*\*\*\*\*\*).
       // 
-      // - If you set the `PrincipalType` parameter to `User`, the value of this parameter is the ID of a CloudSSO user (u-\\*\\*\\*\\*\\*\\*\\*\\*).
+      // - If you set the `PrincipalType` parameter to `User`, the value of this parameter is the ID of a CloudSSO user (u-\*\*\*\*\*\*\*\*).
       shared_ptr<string> principalId_ {};
       // The identity name of the RAM user provisioning. Valid values:
       // 
@@ -281,11 +281,11 @@ namespace Models
       shared_ptr<string> sourceType_ {};
       // The ID of the object for which you create the RAM user provisioning.
       // 
-      // The value is fixed as the ID of the account in the resource directory.\\`\\`\\`\\`
+      // The value is fixed as the ID of the account in the resource directory.\`\`\`\`
       shared_ptr<string> targetId_ {};
       // The name of the object for which you create the RAM user provisioning.
       // 
-      // If `RD-Account` is returned, the value of this parameter is the name of the account that is used to access the instance.\\`\\`
+      // If `RD-Account` is returned, the value of this parameter is the name of the account that is used to access the instance.\`\`
       shared_ptr<string> targetName_ {};
       // The path of the resource directory in which you create the RAM user provisioning for the member.
       shared_ptr<string> targetPath_ {};

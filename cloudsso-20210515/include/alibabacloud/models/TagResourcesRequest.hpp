@@ -77,16 +77,16 @@ namespace Models
       // The tag key.
       // 
       // > 
-      // > - - The key cannot start with aliyun or acs: (case-insensitive). 
-      // > - - The key cannot contain http:// or https:// (case-insensitive).
-      // > - - The key cannot be an empty string.
+      // > - - The tag key cannot start with aliyun or acs: in any case. 
+      // > - - The tag key cannot contain http:// or https:// in any case.
+      // > - - The tag key cannot be an empty string.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
       // The tag value.
       // > 
-      // > - - The value cannot contain http:// or https:// (case-insensitive).
-      // > - - The value cannot be an empty string.
+      // > - - The tag value cannot contain http:// or https:// in any case.
+      // > - - The tag value cannot be an empty string.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -135,15 +135,15 @@ namespace Models
     // > - - If the resource type is user, specify the user ID.
     // > - - If the resource type is access configuration, specify the access configuration ID.
     // 
-    // <notice>If the directory ID parameter is not specified, you must add the prefix "${DirectoryId}_" to the resource ID.</notice>
+    // <notice>If the DirectoryId parameter is not specified, you must add the prefix "${DirectoryId}_" to the resource ID.</notice>
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. Users and access configurations are supported.
+    // The resource type. Valid values:
     // 
-    // - If the resource type is user, set the value to user.
+    // - user: User.
     // 
-    // - If the resource type is access configuration, set the value to accessConfiguration.
+    // - accessConfiguration: Access configuration.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

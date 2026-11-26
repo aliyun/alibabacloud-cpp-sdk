@@ -208,7 +208,7 @@ namespace Models
 
 
     protected:
-      // The time when the user was created (UTC).
+      // The time when the user was created. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
       // The description of the user.
       shared_ptr<string> description_ {};
@@ -220,7 +220,7 @@ namespace Models
       shared_ptr<string> firstName_ {};
       // The last name of the user.
       shared_ptr<string> lastName_ {};
-      // The type of the user. Valid values:
+      // The provisioning type of the user. Valid values:
       // 
       // - Manual: Manually created.
       // - Synchronized: Synchronized from an external source.
@@ -232,7 +232,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The list of tags.
       shared_ptr<vector<User::Tags>> tags_ {};
-      // The time when the user was last modified (UTC).
+      // The time when the user was updated. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
       // The user ID.
       shared_ptr<string> userId_ {};

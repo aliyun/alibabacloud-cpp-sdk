@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The ID of the directory.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // The new description of the user.
+    // The description of the user.
     shared_ptr<string> newDescription_ {};
-    // The new display name of the user.
+    // The display name of the user.
     shared_ptr<string> newDisplayName_ {};
-    // The new email address of the user.
+    // The email address of the user.
     shared_ptr<string> newEmail_ {};
-    // The new first name of the user.
+    // The first name of the user.
     shared_ptr<string> newFirstName_ {};
-    // The new last name of the user.
+    // The last name of the user.
     shared_ptr<string> newLastName_ {};
-    // The ID of the user.
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

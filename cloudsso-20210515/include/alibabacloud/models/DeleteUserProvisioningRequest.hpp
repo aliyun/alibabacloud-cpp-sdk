@@ -57,12 +57,12 @@ namespace Models
 
 
   protected:
-    // The deletion strategy. The processing strategy for synchronized RAM users when a RAM user synchronization is deleted. Valid values:
+    // The deletion policy. The policy for processing synchronized RAM users when a RAM user synchronization is deleted. Valid values:
     // 
     // - Delete: Deletes the RAM users that have been synchronized from CloudSSO to Resource Access Management (RAM) user synchronization is deleted.
     // - Keep: Retains the RAM users that have been synchronized from CloudSSO to Resource Access Management (RAM) user synchronization is deleted.
     // 
-    // > If this parameter is left empty, the deletion strategy specified when the RAM user synchronization was created is used.
+    // > If this parameter is left empty, the deletion policy specified when the RAM user synchronization was created is used.
     shared_ptr<string> deletionStrategy_ {};
     // The directory ID.
     shared_ptr<string> directoryId_ {};

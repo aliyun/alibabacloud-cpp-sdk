@@ -53,6 +53,9 @@
 #include <alibabacloud/models/DeleteSCIMServerCredentialRequest.hpp>
 #include <alibabacloud/models/DeleteSCIMServerCredentialResponseBody.hpp>
 #include <alibabacloud/models/DeleteSCIMServerCredentialResponse.hpp>
+#include <alibabacloud/models/DeleteSecurityInfoRequest.hpp>
+#include <alibabacloud/models/DeleteSecurityInfoResponseBody.hpp>
+#include <alibabacloud/models/DeleteSecurityInfoResponse.hpp>
 #include <alibabacloud/models/DeleteUserRequest.hpp>
 #include <alibabacloud/models/DeleteUserResponseBody.hpp>
 #include <alibabacloud/models/DeleteUserResponse.hpp>
@@ -114,6 +117,12 @@
 #include <alibabacloud/models/GetSCIMSynchronizationStatusRequest.hpp>
 #include <alibabacloud/models/GetSCIMSynchronizationStatusResponseBody.hpp>
 #include <alibabacloud/models/GetSCIMSynchronizationStatusResponse.hpp>
+#include <alibabacloud/models/GetSecurityInfoRequest.hpp>
+#include <alibabacloud/models/GetSecurityInfoResponseBody.hpp>
+#include <alibabacloud/models/GetSecurityInfoResponse.hpp>
+#include <alibabacloud/models/GetSecurityInfoPreferenceRequest.hpp>
+#include <alibabacloud/models/GetSecurityInfoPreferenceResponseBody.hpp>
+#include <alibabacloud/models/GetSecurityInfoPreferenceResponse.hpp>
 #include <alibabacloud/models/GetServiceStatusResponseBody.hpp>
 #include <alibabacloud/models/GetServiceStatusResponse.hpp>
 #include <alibabacloud/models/GetTaskRequest.hpp>
@@ -212,6 +221,9 @@
 #include <alibabacloud/models/RetryUserProvisioningEventRequest.hpp>
 #include <alibabacloud/models/RetryUserProvisioningEventResponseBody.hpp>
 #include <alibabacloud/models/RetryUserProvisioningEventResponse.hpp>
+#include <alibabacloud/models/SendVerificationMessageRequest.hpp>
+#include <alibabacloud/models/SendVerificationMessageResponseBody.hpp>
+#include <alibabacloud/models/SendVerificationMessageResponse.hpp>
 #include <alibabacloud/models/SetExternalSAMLIdentityProviderRequest.hpp>
 #include <alibabacloud/models/SetExternalSAMLIdentityProviderResponseBody.hpp>
 #include <alibabacloud/models/SetExternalSAMLIdentityProviderResponse.hpp>
@@ -227,6 +239,12 @@
 #include <alibabacloud/models/SetSCIMSynchronizationStatusRequest.hpp>
 #include <alibabacloud/models/SetSCIMSynchronizationStatusResponseBody.hpp>
 #include <alibabacloud/models/SetSCIMSynchronizationStatusResponse.hpp>
+#include <alibabacloud/models/SetSecurityInfoRequest.hpp>
+#include <alibabacloud/models/SetSecurityInfoResponseBody.hpp>
+#include <alibabacloud/models/SetSecurityInfoResponse.hpp>
+#include <alibabacloud/models/SetSecurityInfoPreferenceRequest.hpp>
+#include <alibabacloud/models/SetSecurityInfoPreferenceResponseBody.hpp>
+#include <alibabacloud/models/SetSecurityInfoPreferenceResponse.hpp>
 #include <alibabacloud/models/TagResourcesRequest.hpp>
 #include <alibabacloud/models/TagResourcesResponseBody.hpp>
 #include <alibabacloud/models/TagResourcesResponse.hpp>

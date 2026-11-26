@@ -126,13 +126,11 @@ namespace Models
 
 
   protected:
-    // The token that is used to retrieve the next page of query results.
-    // 
-    // If NextToken is empty, it indicates that the results are not truncated.
+    // The token for the next page of results. If NextToken is empty, the results are not truncated.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of tag-resource relationships.
+    // The list of resource-tag associations.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The description of the user group.
+    // The description of the group.
     // 
     // Length: The description can be up to 1024 characters in length.
     shared_ptr<string> description_ {};
     // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // The name of the user group.
+    // The name of the group.
     // 
     // Format: The name can contain letters, digits, and the special characters `_-.`.
     // 

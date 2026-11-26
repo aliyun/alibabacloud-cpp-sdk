@@ -192,19 +192,19 @@ namespace Models
       shared_ptr<string> description_ {};
       // The initial access page.
       // 
-      // The page address that a CloudSSO user initially accesses when using the access configuration to access an account in a resource directory.
+      // The URL of the initial page that is accessed when a CloudSSO user accesses an account in a resource directory by using the access configuration.
       shared_ptr<string> relayState_ {};
       // The session duration.
       // 
-      // The maximum duration of a session when a CloudSSO user uses the access configuration to access an account in a resource directory.
+      // The maximum duration of a session when a CloudSSO user accesses an account in a resource directory by using the access configuration.
       // 
       // Unit: seconds.
       shared_ptr<int32_t> sessionDuration_ {};
-      // The status notification information.
+      // The status notifications.
       shared_ptr<vector<string>> statusNotifications_ {};
-      // The list of tags.
+      // The tags.
       shared_ptr<vector<AccessConfiguration::Tags>> tags_ {};
-      // The time when the access configuration was last modified.
+      // The time when the access configuration was updated.
       shared_ptr<string> updateTime_ {};
     };
 

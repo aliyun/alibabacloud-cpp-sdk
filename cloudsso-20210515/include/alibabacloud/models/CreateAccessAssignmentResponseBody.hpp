@@ -190,12 +190,14 @@ namespace Models
       // The CloudSSO identity name.
       shared_ptr<string> principalName_ {};
       // The CloudSSO identity type. Valid values:
-      // - User: user
-      // - Group: group
+      // 
+      // - User: A user.
+      // - Group: A group.
       shared_ptr<string> principalType_ {};
       // The task status. Valid values:
+      // 
       // - InProgress: The task is in progress.
-      // - Success: The task succeeded.
+      // - Success: The task is successful.
       // - Failed: The task failed.
       shared_ptr<string> status_ {};
       // The ID of the task target.
@@ -206,11 +208,11 @@ namespace Models
       shared_ptr<string> targetPath_ {};
       // The path name of the task target in the resource directory.
       shared_ptr<string> targetPathName_ {};
-      // The target type of the task. Valid value: RD-Account, which indicates that the task target is an account in a resource directory.
+      // The target type of the task. Valid values: RD-Account: The task target is an account in a resource directory.
       shared_ptr<string> targetType_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The task type. Valid value: CreateAccessAssignment, which indicates an authorization task for an account in a resource directory.
+      // The task type. Valid values: CreateAccessAssignment: The task is an authorization task for an account in a resource directory.
       shared_ptr<string> taskType_ {};
     };
 

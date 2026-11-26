@@ -115,22 +115,22 @@ namespace Models
 
 
     protected:
-      // The time when the SCIM credential was created. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The time when the SCIM server credential was created. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
-      // The ID of the SCIM credential.
+      // The ID of the SCIM server credential.
       shared_ptr<string> credentialId_ {};
-      // The SCIM credential secret.
+      // The SCIM server credential secret.
       // 
-      // > The SCIM credential secret is returned only when the credential is created and cannot be queried later. Keep it secure.
+      // > The SCIM server credential secret is returned only when the credential is created and cannot be queried later. Store it securely.
       shared_ptr<string> credentialSecret_ {};
-      // The type of the SCIM credential.
+      // The type of the SCIM server credential.
       shared_ptr<string> credentialType_ {};
       // The directory ID.
       shared_ptr<string> directoryId_ {};
-      // The time when the SCIM credential expires. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The time when the SCIM server credential expires. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> expireTime_ {};
-      // The status of the SCIM credential. Valid values:
-      // - Enabled: The SCIM credential is enabled.
+      // The status of the SCIM server credential. Valid values:
+      // - Enabled: The credential is enabled.
       shared_ptr<string> status_ {};
     };
 
@@ -155,7 +155,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The SCIM credential information.
+    // The SCIM server credential information.
     shared_ptr<CreateSCIMServerCredentialResponseBody::SCIMServerCredential> SCIMServerCredential_ {};
   };
 

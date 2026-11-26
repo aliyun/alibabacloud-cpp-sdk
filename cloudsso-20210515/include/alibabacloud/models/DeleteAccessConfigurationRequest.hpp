@@ -63,8 +63,8 @@ namespace Models
     shared_ptr<string> directoryId_ {};
     // Specifies whether to forcibly remove system policies and inline policies. Valid values:
     // 
-    // - true: The system forcibly removes the associated system policies and inline policies when the access configuration is deleted.
-    // - false (default): The system does not forcibly remove the associated system policies and inline policies when the access configuration is deleted. If these policies exist, the deletion fails. You must remove these system policies and inline policies before you delete the access configuration. For more information, see [RemovePermissionPolicyFromAccessConfiguration](https://help.aliyun.com/document_detail/336904.html).
+    // - true: forcibly removes the associated system policies and inline policies when the access configuration is deleted.
+    // - false (default): does not forcibly remove the associated system policies and inline policies when the access configuration is deleted. If these policies exist, the deletion fails. You must remove these system policies and inline policies before you delete the access configuration. For more information, see [RemovePermissionPolicyFromAccessConfiguration](https://help.aliyun.com/document_detail/336904.html).
     shared_ptr<bool> forceRemovePermissionPolicies_ {};
   };
 

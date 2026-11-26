@@ -151,7 +151,7 @@ namespace Models
 
 
     protected:
-      // The time when the user was created. The value is displayed in UTC.
+      // The time when the user was created (UTC).
       shared_ptr<string> createTime_ {};
       // The description of the user.
       shared_ptr<string> description_ {};
@@ -163,23 +163,21 @@ namespace Models
       shared_ptr<string> firstName_ {};
       // The last name of the user.
       shared_ptr<string> lastName_ {};
-      // The type of the user. Valid values:
+      // The provisioning type of the user. Valid values:
       // 
-      // - Manual: The user is manually created.
-      // 
-      // - Synchronized: The user is synchronized from an external identity provider (IdP).
+      // - Manual: Manually created.
+      // - Synchronized: Synchronized from an external source.
       shared_ptr<string> provisionType_ {};
       // The status of the user. Valid values:
       // 
-      // - Enabled: The logon of the user is enabled.
-      // 
-      // - Disabled: The logon of the user is disabled.
+      // - Enabled: Enabled.
+      // - Disabled: Disabled.
       shared_ptr<string> status_ {};
-      // The time when the information about the user was modified. The value is displayed in UTC.
+      // The time when the user was updated (UTC).
       shared_ptr<string> updateTime_ {};
-      // The ID of the user.
+      // The user ID.
       shared_ptr<string> userId_ {};
-      // The username of the user.
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -204,7 +202,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the user.
+    // The user information.
     shared_ptr<UpdateUserResponseBody::User> user_ {};
   };
 

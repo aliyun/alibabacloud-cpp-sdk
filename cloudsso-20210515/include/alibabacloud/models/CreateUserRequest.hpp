@@ -161,25 +161,25 @@ namespace Models
   protected:
     // The description of the user.
     // 
-    // Maximum length: 1024 characters.
+    // Length: up to 1024 characters.
     shared_ptr<string> description_ {};
     // The directory ID.
     shared_ptr<string> directoryId_ {};
     // The display name of the user.
     // 
-    // Maximum length: 256 characters.
+    // Length: up to 256 characters.
     shared_ptr<string> displayName_ {};
     // The email address of the user. The email address must be unique within the directory.
     // 
-    // Maximum length: 128 characters.
+    // Length: up to 128 characters.
     shared_ptr<string> email_ {};
     // The first name of the user.
     // 
-    // Maximum length: 64 characters.
+    // Length: up to 64 characters.
     shared_ptr<string> firstName_ {};
     // The last name of the user.
     // 
-    // Maximum length: 64 characters.
+    // Length: up to 64 characters.
     shared_ptr<string> lastName_ {};
     // The status of the user. Valid values:
     // 
@@ -188,11 +188,11 @@ namespace Models
     shared_ptr<string> status_ {};
     // The list of tags.
     shared_ptr<vector<CreateUserRequest::Tags>> tags_ {};
-    // The username. The username must be unique within the directory and cannot be modified.
+    // The username. It must be unique within the directory and cannot be modified.
     // 
-    // Format: Can contain digits, letters, and the following special characters: `@_-.`
+    // Format: The username can contain digits, letters, and the special characters `@_-.`.
     // 
-    // Maximum length: 64 characters.
+    // Length: up to 64 characters.
     shared_ptr<string> userName_ {};
   };
 

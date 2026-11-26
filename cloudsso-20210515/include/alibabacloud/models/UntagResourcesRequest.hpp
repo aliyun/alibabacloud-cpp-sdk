@@ -94,9 +94,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. Users and access configurations are supported. Valid values:
-    // - user: user
-    // - accessConfiguration: access configuration
+    // The resource type. Users and access configurations are supported.
+    // 
+    // - Set the value to user for users.
+    // 
+    // - Set the value to accessConfiguration for access configurations.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

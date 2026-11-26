@@ -46,7 +46,7 @@ namespace Cloudsso20210515
       /**
        * @summary Adds an access policy to an access configuration.
        *
-       * @description This topic provides an example of adding a system policy named `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
+       * @description This topic provides an example of adding the system policy AliyunECSFullAccess to the access configuration ac-00jhtfl8thteu6uj****.
        *
        * @param request AddPermissionPolicyToAccessConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -57,7 +57,7 @@ namespace Cloudsso20210515
       /**
        * @summary Adds an access policy to an access configuration.
        *
-       * @description This topic provides an example of adding a system policy named `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
+       * @description This topic provides an example of adding the system policy AliyunECSFullAccess to the access configuration ac-00jhtfl8thteu6uj****.
        *
        * @param request AddPermissionPolicyToAccessConfigurationRequest
        * @return AddPermissionPolicyToAccessConfigurationResponse
@@ -65,10 +65,10 @@ namespace Cloudsso20210515
       Models::AddPermissionPolicyToAccessConfigurationResponse addPermissionPolicyToAccessConfiguration(const Models::AddPermissionPolicyToAccessConfigurationRequest &request);
 
       /**
-       * @summary Adds a user to a group.
+       * @summary Adds a user to a user group.
        *
-       * @description After SCIM synchronization is enabled, you cannot add users to SCIM-synchronized groups.
-       * This topic provides an example of adding the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
+       * @description When SCIM synchronization is enabled, you cannot add users to SCIM-synchronized user groups.
+       * This topic provides an example of adding the user `u-00q8wbq42wiltcrk****` to the user group `g-00jqzghi2n3o5hkh****`.
        *
        * @param request AddUserToGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -77,10 +77,10 @@ namespace Cloudsso20210515
       Models::AddUserToGroupResponse addUserToGroupWithOptions(const Models::AddUserToGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a user to a group.
+       * @summary Adds a user to a user group.
        *
-       * @description After SCIM synchronization is enabled, you cannot add users to SCIM-synchronized groups.
-       * This topic provides an example of adding the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
+       * @description When SCIM synchronization is enabled, you cannot add users to SCIM-synchronized user groups.
+       * This topic provides an example of adding the user `u-00q8wbq42wiltcrk****` to the user group `g-00jqzghi2n3o5hkh****`.
        *
        * @param request AddUserToGroupRequest
        * @return AddUserToGroupResponse
@@ -91,7 +91,7 @@ namespace Cloudsso20210515
        * @summary Clears the configuration of the SAML IdP.
        *
        * @description You can clear the SAML IdP information only when SSO logon is disabled. Otherwise, you cannot perform this operation.
-       * This topic provides an example of clearing the configuration of the SAML IdP for the `d-00fc2p61****` directory.
+       * This topic provides an example to clear the configuration of the SAML IdP in the `d-00fc2p61****` directory.
        *
        * @param request ClearExternalSAMLIdentityProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -103,7 +103,7 @@ namespace Cloudsso20210515
        * @summary Clears the configuration of the SAML IdP.
        *
        * @description You can clear the SAML IdP information only when SSO logon is disabled. Otherwise, you cannot perform this operation.
-       * This topic provides an example of clearing the configuration of the SAML IdP for the `d-00fc2p61****` directory.
+       * This topic provides an example to clear the configuration of the SAML IdP in the `d-00fc2p61****` directory.
        *
        * @param request ClearExternalSAMLIdentityProviderRequest
        * @return ClearExternalSAMLIdentityProviderResponse
@@ -111,11 +111,11 @@ namespace Cloudsso20210515
       Models::ClearExternalSAMLIdentityProviderResponse clearExternalSAMLIdentityProvider(const Models::ClearExternalSAMLIdentityProviderRequest &request);
 
       /**
-       * @summary Configures the settings for the users or groups allowed to access an account in a resource directory, and the corresponding access permissions (access configurations).
+       * @summary Configures the Settings for the users or user groups allowed to access an account in a resource directory, along with their corresponding access permissions (access configurations).
        *
-       * @description This API operation is asynchronous. You can use the TaskId returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
+       * @description This API operation is asynchronous. You can use the TaskId in the response parameter to invoke [GetTask](https://help.aliyun.com/document_detail/340670.html) and execute a query for the node status.
        * For more information about granting access to an account in a resource directory, see [Multi-account authorization overview](https://help.aliyun.com/document_detail/266726.html).
-       * This topic provides an example on how to assign the access configuration `ac-00jhtfl8thteu6uj****` to the CloudSSO user `u-00q8wbq42wiltcrk****` for the account `114240524784****` in a resource directory. This allows the CloudSSO user to access authorized resources in the account.
+       * This topic provides an example on how to configure permissions for the CloudSSO user `u-00q8wbq42wiltcrk****` on the account in a resource directory `114240524784****` by using the access configuration `ac-00jhtfl8thteu6uj****`, so that the CloudSSO user can access the authorized resources in the account in a resource directory.
        *
        * @param request CreateAccessAssignmentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -124,11 +124,11 @@ namespace Cloudsso20210515
       Models::CreateAccessAssignmentResponse createAccessAssignmentWithOptions(const Models::CreateAccessAssignmentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the settings for the users or groups allowed to access an account in a resource directory, and the corresponding access permissions (access configurations).
+       * @summary Configures the Settings for the users or user groups allowed to access an account in a resource directory, along with their corresponding access permissions (access configurations).
        *
-       * @description This API operation is asynchronous. You can use the TaskId returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
+       * @description This API operation is asynchronous. You can use the TaskId in the response parameter to invoke [GetTask](https://help.aliyun.com/document_detail/340670.html) and execute a query for the node status.
        * For more information about granting access to an account in a resource directory, see [Multi-account authorization overview](https://help.aliyun.com/document_detail/266726.html).
-       * This topic provides an example on how to assign the access configuration `ac-00jhtfl8thteu6uj****` to the CloudSSO user `u-00q8wbq42wiltcrk****` for the account `114240524784****` in a resource directory. This allows the CloudSSO user to access authorized resources in the account.
+       * This topic provides an example on how to configure permissions for the CloudSSO user `u-00q8wbq42wiltcrk****` on the account in a resource directory `114240524784****` by using the access configuration `ac-00jhtfl8thteu6uj****`, so that the CloudSSO user can access the authorized resources in the account in a resource directory.
        *
        * @param request CreateAccessAssignmentRequest
        * @return CreateAccessAssignmentResponse
@@ -139,7 +139,7 @@ namespace Cloudsso20210515
        * @summary Creates an access configuration.
        *
        * @description For more information about access configurations, see [Access configuration overview](https://help.aliyun.com/document_detail/266737.html).
-       * This topic provides an example on how to create an access configuration named `ECS-Admin`.
+       * This topic provides an example of creating an access configuration named `ECS-Admin`.
        *
        * @param request CreateAccessConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -151,7 +151,7 @@ namespace Cloudsso20210515
        * @summary Creates an access configuration.
        *
        * @description For more information about access configurations, see [Access configuration overview](https://help.aliyun.com/document_detail/266737.html).
-       * This topic provides an example on how to create an access configuration named `ECS-Admin`.
+       * This topic provides an example of creating an access configuration named `ECS-Admin`.
        *
        * @param request CreateAccessConfigurationRequest
        * @return CreateAccessConfigurationResponse
@@ -163,10 +163,10 @@ namespace Cloudsso20210515
        *
        * @description ### Usage notes
        * A directory is an instance in CloudSSO. You must create a directory before you use CloudSSO. All CloudSSO resources must be maintained in the directory.
-       * You must select a region for the CloudSSO directory. Alibaba Cloud ensures that all CloudSSO-related data is stored only in this region. This is independent of where you deploy cloud resources such as ECS and ApsaraDB RDS. You can log on to and access cloud resources in any region from anywhere in the world. You can select a region based on your security and compliance requirements and the geographic location of your target users. If you do not have special security and compliance requirements, select the region closest to your target users to improve access speed. Currently, you can create directories in the following four regions: China (Shanghai), China (Hong Kong), US (Silicon Valley), and Germany (Frankfurt).
+       * You must select a region for the CloudSSO directory. Alibaba Cloud ensures that all CloudSSO-related data is stored only in this region. This is independent of where you deploy cloud resources such as ECS and ApsaraDB RDS. You can log on to and access cloud resources in any region from anywhere in the world. You can select a region based on your security and compliance requirements and the geographic location of your target users. If you do not have special security and compliance requirements, we recommend that you select the region closest to your target users to improve access speed. Currently, you can create directories in the following four regions: China (Shanghai), China (Hong Kong), US (Silicon Valley), and Germany (Frankfurt).
        * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
        * ### Limits
-       * - A management account can create only one directory.
+       * - You can create only one directory for each management account.
        * - To change the region of the directory, you must delete the existing directory and create a new one in another region.
        *
        * @param request CreateDirectoryRequest
@@ -180,10 +180,10 @@ namespace Cloudsso20210515
        *
        * @description ### Usage notes
        * A directory is an instance in CloudSSO. You must create a directory before you use CloudSSO. All CloudSSO resources must be maintained in the directory.
-       * You must select a region for the CloudSSO directory. Alibaba Cloud ensures that all CloudSSO-related data is stored only in this region. This is independent of where you deploy cloud resources such as ECS and ApsaraDB RDS. You can log on to and access cloud resources in any region from anywhere in the world. You can select a region based on your security and compliance requirements and the geographic location of your target users. If you do not have special security and compliance requirements, select the region closest to your target users to improve access speed. Currently, you can create directories in the following four regions: China (Shanghai), China (Hong Kong), US (Silicon Valley), and Germany (Frankfurt).
+       * You must select a region for the CloudSSO directory. Alibaba Cloud ensures that all CloudSSO-related data is stored only in this region. This is independent of where you deploy cloud resources such as ECS and ApsaraDB RDS. You can log on to and access cloud resources in any region from anywhere in the world. You can select a region based on your security and compliance requirements and the geographic location of your target users. If you do not have special security and compliance requirements, we recommend that you select the region closest to your target users to improve access speed. Currently, you can create directories in the following four regions: China (Shanghai), China (Hong Kong), US (Silicon Valley), and Germany (Frankfurt).
        * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
        * ### Limits
-       * - A management account can create only one directory.
+       * - You can create only one directory for each management account.
        * - To change the region of the directory, you must delete the existing directory and create a new one in another region.
        *
        * @param request CreateDirectoryRequest
@@ -194,7 +194,7 @@ namespace Cloudsso20210515
       /**
        * @summary Creates a user group.
        *
-       * @description This topic provides an example of creating a user group named `TestGroup`.
+       * @description This topic provides an example of creating a group named `TestGroup`.
        *
        * @param request CreateGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -205,7 +205,7 @@ namespace Cloudsso20210515
       /**
        * @summary Creates a user group.
        *
-       * @description This topic provides an example of creating a user group named `TestGroup`.
+       * @description This topic provides an example of creating a group named `TestGroup`.
        *
        * @param request CreateGroupRequest
        * @return CreateGroupResponse
@@ -213,10 +213,10 @@ namespace Cloudsso20210515
       Models::CreateGroupResponse createGroup(const Models::CreateGroupRequest &request);
 
       /**
-       * @summary Creates a SCIM credential.
+       * @summary Creates a SCIM server credential.
        *
-       * @description A SCIM credential is required for SCIM synchronization. You can create up to two SCIM credentials.
-       * This topic provides an example on how to create a SCIM credential in the directory `d-00fc2p61****`.
+       * @description SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
+       * This topic provides an example of creating a SCIM server credential in the `d-00fc2p61****` directory.
        *
        * @param request CreateSCIMServerCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -225,10 +225,10 @@ namespace Cloudsso20210515
       Models::CreateSCIMServerCredentialResponse createSCIMServerCredentialWithOptions(const Models::CreateSCIMServerCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a SCIM credential.
+       * @summary Creates a SCIM server credential.
        *
-       * @description A SCIM credential is required for SCIM synchronization. You can create up to two SCIM credentials.
-       * This topic provides an example on how to create a SCIM credential in the directory `d-00fc2p61****`.
+       * @description SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
+       * This topic provides an example of creating a SCIM server credential in the `d-00fc2p61****` directory.
        *
        * @param request CreateSCIMServerCredentialRequest
        * @return CreateSCIMServerCredentialResponse
@@ -236,7 +236,7 @@ namespace Cloudsso20210515
       Models::CreateSCIMServerCredentialResponse createSCIMServerCredential(const Models::CreateSCIMServerCredentialRequest &request);
 
       /**
-       * @summary Creates a user by calling CreateUser.
+       * @summary Creates a user.
        *
        * @param request CreateUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -245,7 +245,7 @@ namespace Cloudsso20210515
       Models::CreateUserResponse createUserWithOptions(const Models::CreateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a user by calling CreateUser.
+       * @summary Creates a user.
        *
        * @param request CreateUserRequest
        * @return CreateUserResponse
@@ -255,7 +255,7 @@ namespace Cloudsso20210515
       /**
        * @summary Invokes CreateUserProvisioning to create a Resource Access Management (RAM) user synchronization.
        *
-       * @description You can create a Resource Access Management (RAM) user synchronization to synchronously create a Resource Access Management (RAM) user that has the same name as a CloudSSO user in a destination account in a resource directory. You can then use the Resource Access Management (RAM) user to access resources in the account.
+       * @description You can create a Resource Access Management (RAM) user synchronization to synchronously create a Resource Access Management (RAM) user that has the same name as a CloudSSO user in the destination account in a resource directory, and then use the Resource Access Management (RAM) user to access resources in the account.
        *
        * @param request CreateUserProvisioningRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -266,7 +266,7 @@ namespace Cloudsso20210515
       /**
        * @summary Invokes CreateUserProvisioning to create a Resource Access Management (RAM) user synchronization.
        *
-       * @description You can create a Resource Access Management (RAM) user synchronization to synchronously create a Resource Access Management (RAM) user that has the same name as a CloudSSO user in a destination account in a resource directory. You can then use the Resource Access Management (RAM) user to access resources in the account.
+       * @description You can create a Resource Access Management (RAM) user synchronization to synchronously create a Resource Access Management (RAM) user that has the same name as a CloudSSO user in the destination account in a resource directory, and then use the Resource Access Management (RAM) user to access resources in the account.
        *
        * @param request CreateUserProvisioningRequest
        * @return CreateUserProvisioningResponse
@@ -276,8 +276,8 @@ namespace Cloudsso20210515
       /**
        * @summary Removes the authorization from an account in a resource directory.
        *
-       * @description This API operation is asynchronous. You can use the `TaskId` returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
-       * This topic provides an example of removing the authorization for the CloudSSO user `u-00q8wbq42wiltcrk****` to use the access configuration `ac-00jhtfl8thteu6uj****` on the account in a resource directory `114240524784****`.
+       * @description This API operation is asynchronous. You can use the `TaskId` parameter in the response to invoke [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the node execute status.
+       * This topic provides an example on how to remove the authorization that allows the CloudSSO user u-00q8wbq42wiltcrk**** to use the access configuration ac-00jhtfl8thteu6uj**** on the account in a resource directory 114240524784****.
        *
        * @param request DeleteAccessAssignmentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -288,8 +288,8 @@ namespace Cloudsso20210515
       /**
        * @summary Removes the authorization from an account in a resource directory.
        *
-       * @description This API operation is asynchronous. You can use the `TaskId` returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
-       * This topic provides an example of removing the authorization for the CloudSSO user `u-00q8wbq42wiltcrk****` to use the access configuration `ac-00jhtfl8thteu6uj****` on the account in a resource directory `114240524784****`.
+       * @description This API operation is asynchronous. You can use the `TaskId` parameter in the response to invoke [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the node execute status.
+       * This topic provides an example on how to remove the authorization that allows the CloudSSO user u-00q8wbq42wiltcrk**** to use the access configuration ac-00jhtfl8thteu6uj**** on the account in a resource directory 114240524784****.
        *
        * @param request DeleteAccessAssignmentRequest
        * @return DeleteAccessAssignmentResponse
@@ -366,9 +366,9 @@ namespace Cloudsso20210515
        * @summary Deletes a specified group.
        *
        * @description ### Before you begin
-       * Before you delete a user group, make sure that the user group is not associated with the following resources. Otherwise, the deletion failed.
+       * Before you delete a user group, ensure that the user group is not associated with the following resources. Otherwise, the deletion will be failed.
        * - Users: You must remove users from the user group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
-       * - Authorization: You must remove the authorization of the user group on the account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+       * - Authorization: You must remove the authorization of the user group on an account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
        * ### Usage notes
        * If SCIM synchronization is enabled, you cannot delete user groups that are synchronized by using SCIM.
        * This topic provides an example on how to delete the user group `g-00jqzghi2n3o5hkh****`.
@@ -383,9 +383,9 @@ namespace Cloudsso20210515
        * @summary Deletes a specified group.
        *
        * @description ### Before you begin
-       * Before you delete a user group, make sure that the user group is not associated with the following resources. Otherwise, the deletion failed.
+       * Before you delete a user group, ensure that the user group is not associated with the following resources. Otherwise, the deletion will be failed.
        * - Users: You must remove users from the user group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
-       * - Authorization: You must remove the authorization of the user group on the account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+       * - Authorization: You must remove the authorization of the user group on an account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
        * ### Usage notes
        * If SCIM synchronization is enabled, you cannot delete user groups that are synchronized by using SCIM.
        * This topic provides an example on how to delete the user group `g-00jqzghi2n3o5hkh****`.
@@ -438,6 +438,33 @@ namespace Cloudsso20210515
        * @return DeleteSCIMServerCredentialResponse
        */
       Models::DeleteSCIMServerCredentialResponse deleteSCIMServerCredential(const Models::DeleteSCIMServerCredentialRequest &request);
+
+      /**
+       * @summary Deletes the security information of a CloudSSO user.
+       *
+       * @description CloudSSO administrators can call this operation to delete the security information bound to a specified CloudSSO user. Currently, only security email addresses are supported.
+       * > - After the deletion, the user is no longer associated with the original security email address, and any previously unconsumed verification links and password reset links also become invalid.
+       * > - If the user is not currently bound to a security email address, calling this operation directly returns a success response.
+       * This topic provides an example of deleting the security email address of the user `u-00q8wbq42wiltcrk****` in the directory `d-00fc2p61****`.
+       *
+       * @param request DeleteSecurityInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSecurityInfoResponse
+       */
+      Models::DeleteSecurityInfoResponse deleteSecurityInfoWithOptions(const Models::DeleteSecurityInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes the security information of a CloudSSO user.
+       *
+       * @description CloudSSO administrators can call this operation to delete the security information bound to a specified CloudSSO user. Currently, only security email addresses are supported.
+       * > - After the deletion, the user is no longer associated with the original security email address, and any previously unconsumed verification links and password reset links also become invalid.
+       * > - If the user is not currently bound to a security email address, calling this operation directly returns a success response.
+       * This topic provides an example of deleting the security email address of the user `u-00q8wbq42wiltcrk****` in the directory `d-00fc2p61****`.
+       *
+       * @param request DeleteSecurityInfoRequest
+       * @return DeleteSecurityInfoResponse
+       */
+      Models::DeleteSecurityInfoResponse deleteSecurityInfo(const Models::DeleteSecurityInfoRequest &request);
 
       /**
        * @summary Deletes a user.
@@ -534,6 +561,11 @@ namespace Cloudsso20210515
       /**
        * @summary Disables the delegated administrator account of CloudSSO.
        *
+       * @description 禁用云SSO委派管理员账号。禁用后，该账号不能再管理云SSO；您可以随时重新启用。
+       * ## 前提条件
+       * - 目标账号必须是资源目录的成员账号，管理账号本身不能作为委派管理员账号。
+       * - 该成员账号已由资源目录管理账号注册为云SSO委派管理员（可信服务标识为`cloudsso.aliyuncs.com`），并已通过EnableDelegateAccount启用。
+       *
        * @param request DisableDelegateAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DisableDelegateAccountResponse
@@ -542,6 +574,11 @@ namespace Cloudsso20210515
 
       /**
        * @summary Disables the delegated administrator account of CloudSSO.
+       *
+       * @description 禁用云SSO委派管理员账号。禁用后，该账号不能再管理云SSO；您可以随时重新启用。
+       * ## 前提条件
+       * - 目标账号必须是资源目录的成员账号，管理账号本身不能作为委派管理员账号。
+       * - 该成员账号已由资源目录管理账号注册为云SSO委派管理员（可信服务标识为`cloudsso.aliyuncs.com`），并已通过EnableDelegateAccount启用。
        *
        * @param request DisableDelegateAccountRequest
        * @return DisableDelegateAccountResponse
@@ -881,6 +918,52 @@ namespace Cloudsso20210515
        * @return GetSCIMSynchronizationStatusResponse
        */
       Models::GetSCIMSynchronizationStatusResponse getSCIMSynchronizationStatus(const Models::GetSCIMSynchronizationStatusRequest &request);
+
+      /**
+       * @summary Queries the security information of a specified CloudSSO user.
+       *
+       * @description CloudSSO administrators can call this operation to query the security information (currently only security email addresses are supported) bound to a specified CloudSSO user and its verification status.
+       * > If the user has not configured a security email address, the response does not include the `SecurityEmail` field.
+       * This topic provides an example to query the security information of the user `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+       *
+       * @param request GetSecurityInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecurityInfoResponse
+       */
+      Models::GetSecurityInfoResponse getSecurityInfoWithOptions(const Models::GetSecurityInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the security information of a specified CloudSSO user.
+       *
+       * @description CloudSSO administrators can call this operation to query the security information (currently only security email addresses are supported) bound to a specified CloudSSO user and its verification status.
+       * > If the user has not configured a security email address, the response does not include the `SecurityEmail` field.
+       * This topic provides an example to query the security information of the user `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+       *
+       * @param request GetSecurityInfoRequest
+       * @return GetSecurityInfoResponse
+       */
+      Models::GetSecurityInfoResponse getSecurityInfo(const Models::GetSecurityInfoRequest &request);
+
+      /**
+       * @summary Queries the security information management preferences of a CloudSSO directory.
+       *
+       * @description CloudSSO administrators can call this operation to query the security information management preferences of a specified CloudSSO directory and check whether CloudSSO users in the directory are allowed to manage their security email addresses in the CloudSSO user portal. This topic provides an example to query the security information management preferences of the `d-00fc2p61****` directory.
+       *
+       * @param request GetSecurityInfoPreferenceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecurityInfoPreferenceResponse
+       */
+      Models::GetSecurityInfoPreferenceResponse getSecurityInfoPreferenceWithOptions(const Models::GetSecurityInfoPreferenceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the security information management preferences of a CloudSSO directory.
+       *
+       * @description CloudSSO administrators can call this operation to query the security information management preferences of a specified CloudSSO directory and check whether CloudSSO users in the directory are allowed to manage their security email addresses in the CloudSSO user portal. This topic provides an example to query the security information management preferences of the `d-00fc2p61****` directory.
+       *
+       * @param request GetSecurityInfoPreferenceRequest
+       * @return GetSecurityInfoPreferenceResponse
+       */
+      Models::GetSecurityInfoPreferenceResponse getSecurityInfoPreference(const Models::GetSecurityInfoPreferenceRequest &request);
 
       /**
        * @summary Queries the status of CloudSSO.
@@ -1311,7 +1394,7 @@ namespace Cloudsso20210515
       Models::ListSCIMServerCredentialsResponse listSCIMServerCredentials(const Models::ListSCIMServerCredentialsRequest &request);
 
       /**
-       * @summary Queries the relationships between resources and tags.
+       * @summary Queries the associations between resources and tags.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1320,7 +1403,7 @@ namespace Cloudsso20210515
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the relationships between resources and tags.
+       * @summary Queries the associations between resources and tags.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1492,9 +1575,9 @@ namespace Cloudsso20210515
       /**
        * @summary Resets the password of a user.
        *
-       * @description A CloudSSO administrator can reset the password of a user when the user forgets the password, the password expires, or the password poses a security risk.
+       * @description When a user forgets their password, the password expires, or the password poses a security risk, a CloudSSO administrator can reset the password for the user.
        * > You cannot reset user passwords after single sign-on (SSO) is enabled.
-       * This topic provides an example of resetting the password of the user u-00q8wbq42wiltcrk**** by using a system-generated password.
+       * This topic provides an example of resetting the password of the user `u-00q8wbq42wiltcrk****` by using a system-generated password.
        *
        * @param request ResetUserPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1505,9 +1588,9 @@ namespace Cloudsso20210515
       /**
        * @summary Resets the password of a user.
        *
-       * @description A CloudSSO administrator can reset the password of a user when the user forgets the password, the password expires, or the password poses a security risk.
+       * @description When a user forgets their password, the password expires, or the password poses a security risk, a CloudSSO administrator can reset the password for the user.
        * > You cannot reset user passwords after single sign-on (SSO) is enabled.
-       * This topic provides an example of resetting the password of the user u-00q8wbq42wiltcrk**** by using a system-generated password.
+       * This topic provides an example of resetting the password of the user `u-00q8wbq42wiltcrk****` by using a system-generated password.
        *
        * @param request ResetUserPasswordRequest
        * @return ResetUserPasswordResponse
@@ -1530,6 +1613,35 @@ namespace Cloudsso20210515
        * @return RetryUserProvisioningEventResponse
        */
       Models::RetryUserProvisioningEventResponse retryUserProvisioningEvent(const Models::RetryUserProvisioningEventRequest &request);
+
+      /**
+       * @summary Sends a verification message to the unverified security information of a CloudSSO user.
+       *
+       * @description CloudSSO administrators can call this operation to send a verification email to the currently unverified security information of a specified CloudSSO user. Currently, only security email addresses are supported. After the user completes verification by using the verification link in the email, the status of the security email address changes to verified (`active`).
+       * > - Before you call this operation, you must call `SetSecurityInfo` to set a security email address for the user, and the security email address must be in the pending verification state (`pending`). If the user does not have a security email address configured or the security email address is already verified, calling this operation returns an error.
+       * > - The verification link is valid for 72 hours. Resending the verification email generates a new verification link, and the previous link automatically becomes invalid.
+       * > - This operation is subject to rate limits. By default, you can send a maximum of one verification email per minute and five verification emails per hour for a single user.
+       * This topic provides an example on how to send a verification email to the unverified security email address of the user `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+       *
+       * @param request SendVerificationMessageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SendVerificationMessageResponse
+       */
+      Models::SendVerificationMessageResponse sendVerificationMessageWithOptions(const Models::SendVerificationMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sends a verification message to the unverified security information of a CloudSSO user.
+       *
+       * @description CloudSSO administrators can call this operation to send a verification email to the currently unverified security information of a specified CloudSSO user. Currently, only security email addresses are supported. After the user completes verification by using the verification link in the email, the status of the security email address changes to verified (`active`).
+       * > - Before you call this operation, you must call `SetSecurityInfo` to set a security email address for the user, and the security email address must be in the pending verification state (`pending`). If the user does not have a security email address configured or the security email address is already verified, calling this operation returns an error.
+       * > - The verification link is valid for 72 hours. Resending the verification email generates a new verification link, and the previous link automatically becomes invalid.
+       * > - This operation is subject to rate limits. By default, you can send a maximum of one verification email per minute and five verification emails per hour for a single user.
+       * This topic provides an example on how to send a verification email to the unverified security email address of the user `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+       *
+       * @param request SendVerificationMessageRequest
+       * @return SendVerificationMessageResponse
+       */
+      Models::SendVerificationMessageResponse sendVerificationMessage(const Models::SendVerificationMessageRequest &request);
 
       /**
        * @summary Configures a Security Assertion Markup Language (SAML) identity provider (IdP).
@@ -1653,6 +1765,58 @@ namespace Cloudsso20210515
       Models::SetSCIMSynchronizationStatusResponse setSCIMSynchronizationStatus(const Models::SetSCIMSynchronizationStatusRequest &request);
 
       /**
+       * @summary Sets the security information for a CloudSSO user.
+       *
+       * @description CloudSSO administrators can call this operation to set or modify the security information for a specified CloudSSO user. Currently, only security email addresses are supported.
+       * > - Each user can be bound to only one security email address. If the user is already bound to another security email address, calling this operation replaces it with the new email address, resets the verification status to pending (`pending`), and invalidates any previously unconsumed verification and password reset links. If the provided email address is the same as the currently bound one (case-insensitive), the operation rejects the duplicate binding.
+       * > - Calling this operation does not automatically send a verification email. After the security email address is set, it remains in the pending verification state (`pending`). You must call `SendVerificationMessage` to send a verification email, and the email address takes effect (`active`) only after the user completes the verification.
+       * This topic provides an example on how to set the security email address `Alice@example.com` for the user `u-00q8wbq42wiltcrk****` in the directory `d-00fc2p61****`.
+       *
+       * @param request SetSecurityInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetSecurityInfoResponse
+       */
+      Models::SetSecurityInfoResponse setSecurityInfoWithOptions(const Models::SetSecurityInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sets the security information for a CloudSSO user.
+       *
+       * @description CloudSSO administrators can call this operation to set or modify the security information for a specified CloudSSO user. Currently, only security email addresses are supported.
+       * > - Each user can be bound to only one security email address. If the user is already bound to another security email address, calling this operation replaces it with the new email address, resets the verification status to pending (`pending`), and invalidates any previously unconsumed verification and password reset links. If the provided email address is the same as the currently bound one (case-insensitive), the operation rejects the duplicate binding.
+       * > - Calling this operation does not automatically send a verification email. After the security email address is set, it remains in the pending verification state (`pending`). You must call `SendVerificationMessage` to send a verification email, and the email address takes effect (`active`) only after the user completes the verification.
+       * This topic provides an example on how to set the security email address `Alice@example.com` for the user `u-00q8wbq42wiltcrk****` in the directory `d-00fc2p61****`.
+       *
+       * @param request SetSecurityInfoRequest
+       * @return SetSecurityInfoResponse
+       */
+      Models::SetSecurityInfoResponse setSecurityInfo(const Models::SetSecurityInfoRequest &request);
+
+      /**
+       * @summary Sets the security information management preferences for a directory.
+       *
+       * @description CloudSSO administrators can call this operation to set the security information management preferences for a specified directory. This controls whether CloudSSO users in the directory are allowed to manage their security email addresses in the CloudSSO user portal.
+       * > This configuration only controls the self-service management permissions of users in the CloudSSO user portal. It does not affect the ability of CloudSSO administrators to manage user security email addresses by using API operations.
+       * This topic provides an example to show how to disable the permission for users to manage their security email addresses in the `d-00fc2p61****` directory.
+       *
+       * @param request SetSecurityInfoPreferenceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetSecurityInfoPreferenceResponse
+       */
+      Models::SetSecurityInfoPreferenceResponse setSecurityInfoPreferenceWithOptions(const Models::SetSecurityInfoPreferenceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sets the security information management preferences for a directory.
+       *
+       * @description CloudSSO administrators can call this operation to set the security information management preferences for a specified directory. This controls whether CloudSSO users in the directory are allowed to manage their security email addresses in the CloudSSO user portal.
+       * > This configuration only controls the self-service management permissions of users in the CloudSSO user portal. It does not affect the ability of CloudSSO administrators to manage user security email addresses by using API operations.
+       * This topic provides an example to show how to disable the permission for users to manage their security email addresses in the `d-00fc2p61****` directory.
+       *
+       * @param request SetSecurityInfoPreferenceRequest
+       * @return SetSecurityInfoPreferenceResponse
+       */
+      Models::SetSecurityInfoPreferenceResponse setSecurityInfoPreference(const Models::SetSecurityInfoPreferenceRequest &request);
+
+      /**
        * @summary Tags resources.
        *
        * @param request TagResourcesRequest
@@ -1670,7 +1834,7 @@ namespace Cloudsso20210515
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Untags resources.
+       * @summary Removes tags from resources.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1679,7 +1843,7 @@ namespace Cloudsso20210515
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Untags resources.
+       * @summary Removes tags from resources.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -1844,10 +2008,10 @@ namespace Cloudsso20210515
       Models::UpdateSCIMServerCredentialStatusResponse updateSCIMServerCredentialStatus(const Models::UpdateSCIMServerCredentialStatusRequest &request);
 
       /**
-       * @summary Modifies information about a user.
+       * @summary Updates user information.
        *
-       * @description You can modify `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` for a user. You cannot modify `UserName` for a user.
-       * > If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify information about a user that is synchronized by using SCIM.
+       * @description You can modify the `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` of a user as needed. You cannot modify the `UserName` of a user.
+       * > When SCIM synchronization is enabled, you cannot modify the information of SCIM-synchronized users.
        *
        * @param request UpdateUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1856,10 +2020,10 @@ namespace Cloudsso20210515
       Models::UpdateUserResponse updateUserWithOptions(const Models::UpdateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies information about a user.
+       * @summary Updates user information.
        *
-       * @description You can modify `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` for a user. You cannot modify `UserName` for a user.
-       * > If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify information about a user that is synchronized by using SCIM.
+       * @description You can modify the `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` of a user as needed. You cannot modify the `UserName` of a user.
+       * > When SCIM synchronization is enabled, you cannot modify the information of SCIM-synchronized users.
        *
        * @param request UpdateUserRequest
        * @return UpdateUserResponse
@@ -1892,7 +2056,7 @@ namespace Cloudsso20210515
       Models::UpdateUserMFAAuthenticationSettingsResponse updateUserMFAAuthenticationSettings(const Models::UpdateUserMFAAuthenticationSettingsRequest &request);
 
       /**
-       * @summary Modifies a Resource Access Management (RAM) user provisioning.
+       * @summary Invokes UpdateUserProvisioning to modify a Resource Access Management (RAM) user synchronization.
        *
        * @param request UpdateUserProvisioningRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1901,7 +2065,7 @@ namespace Cloudsso20210515
       Models::UpdateUserProvisioningResponse updateUserProvisioningWithOptions(const Models::UpdateUserProvisioningRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a Resource Access Management (RAM) user provisioning.
+       * @summary Invokes UpdateUserProvisioning to modify a Resource Access Management (RAM) user synchronization.
        *
        * @param request UpdateUserProvisioningRequest
        * @return UpdateUserProvisioningResponse

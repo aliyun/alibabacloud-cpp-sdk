@@ -183,7 +183,7 @@ namespace Models
       shared_ptr<string> accessConfigurationId_ {};
       // The access configuration name.
       shared_ptr<string> accessConfigurationName_ {};
-      // The Alibaba Cloud account ID of the authorization target.
+      // The ID of the Alibaba Cloud account to which the authorization target belongs.
       shared_ptr<string> originTargetId_ {};
       // The CloudSSO identity ID.
       shared_ptr<string> principalId_ {};
@@ -191,8 +191,8 @@ namespace Models
       shared_ptr<string> principalName_ {};
       // The CloudSSO identity type. Valid values:
       // 
-      // - User: user
-      // - Group: group
+      // - User: user.
+      // - Group: group.
       shared_ptr<string> principalType_ {};
       // The task status. Valid values:
       // 
@@ -200,7 +200,7 @@ namespace Models
       // - Success: The task is successful.
       // - Failed: The task failed.
       shared_ptr<string> status_ {};
-      // The target ID of the task.
+      // The ID of the task target.
       shared_ptr<string> targetId_ {};
       // The name of the task target.
       shared_ptr<string> targetName_ {};
@@ -208,13 +208,13 @@ namespace Models
       shared_ptr<string> targetPath_ {};
       // The path name of the task target in the resource directory.
       shared_ptr<string> targetPathName_ {};
-      // The target type of the task. Valid values:
-      // - RD-Account: The task target is an account in a resource directory.
+      // The type of the task target. Valid values:
+      // - RD-Account: an account in a resource directory.
       shared_ptr<string> targetType_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
       // The task type. Valid values:
-      // - DeleteAccessAssignment: The task removes an authorization from an account in a resource directory.
+      // - DeleteAccessAssignment: the task of removing authorization from an account in a resource directory.
       shared_ptr<string> taskType_ {};
     };
 

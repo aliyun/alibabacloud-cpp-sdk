@@ -105,29 +105,29 @@ namespace Models
   protected:
     // The access configuration ID.
     shared_ptr<string> accessConfigurationId_ {};
-    // Specifies whether to remove the access configuration deployment when you remove the last authorization that uses the access configuration on an account in a resource directory. Valid values:
+    // Specifies whether to remove the deployment of the access configuration provisioning when you remove the last authorization that uses the access configuration on an account in a resource directory. Valid values:
     // 
-    // - DeprovisionForLastAccessAssignmentOnAccount: Removes the access configuration deployment.
-    // - None: Does not remove the access configuration deployment. This is the default value.
+    // - DeprovisionForLastAccessAssignmentOnAccount: removes the deployment of the access configuration provisioning.
+    // - None: does not remove the deployment of the access configuration provisioning. Default value.
     shared_ptr<string> deprovisionStrategy_ {};
     // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // The Alibaba Cloud account ID of the authorization target.
+    // The ID of the Alibaba Cloud account to which the authorization target belongs.
     shared_ptr<string> originTargetId_ {};
-    // The CloudSSO identity ID. The value varies based on the principal type:
+    // The CloudSSO identity ID. Details:
     // 
-    // - If `PrincipalType` is `User`, `PrincipalId` is the CloudSSO user ID.
-    // - If `PrincipalType` is `Group`, `PrincipalId` is the CloudSSO group ID.
+    // - If PrincipalType is set to User, PrincipalId is the CloudSSO user ID.
+    // - If PrincipalType is set to Group, PrincipalId is the CloudSSO group ID.
     shared_ptr<string> principalId_ {};
     // The CloudSSO identity type. Valid values:
     // 
-    // - User: user
-    // - Group: group
+    // - User: user.
+    // - Group: group.
     shared_ptr<string> principalType_ {};
-    // The target ID of the task.
+    // The ID of the task target.
     shared_ptr<string> targetId_ {};
-    // The target type of the task. Valid values:
-    // - RD-Account: The task target is an account in a resource directory.
+    // The type of the task target. Valid values:
+    // - RD-Account: an account in a resource directory.
     shared_ptr<string> targetType_ {};
   };
 

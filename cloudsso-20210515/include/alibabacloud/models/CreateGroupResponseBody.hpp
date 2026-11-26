@@ -105,18 +105,18 @@ namespace Models
 
 
     protected:
-      // The time when the user group was created. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The time when the group was created. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
-      // The description of the user group.
+      // The description of the group.
       shared_ptr<string> description_ {};
-      // The ID of the user group.
+      // The ID of the group.
       shared_ptr<string> groupId_ {};
-      // The name of the user group.
+      // The name of the group.
       shared_ptr<string> groupName_ {};
-      // The type of the user group. Valid values:
-      // - Manual: The user group is manually created.
+      // The type of the group. Valid values:
+      // - Manual: The group is manually created.
       shared_ptr<string> provisionType_ {};
-      // The time when the user group was updated. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
+      // The time when the group was updated. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -139,7 +139,7 @@ namespace Models
 
 
   protected:
-    // The user group information.
+    // The group information.
     shared_ptr<CreateGroupResponseBody::Group> group_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
