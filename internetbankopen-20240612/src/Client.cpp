@@ -23,9 +23,6 @@ AlibabaCloud::InternetBankOpen20240612::Client::Client(Config &config): OpenApiC
   shared_ptr<POP> gatewayClient = make_shared<POP>();
   this->_spi = gatewayClient;
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-beijing" , "internetbankopen.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("internetbankopen", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
