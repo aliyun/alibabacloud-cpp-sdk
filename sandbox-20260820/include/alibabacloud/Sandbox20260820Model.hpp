@@ -54,6 +54,7 @@
 #include <alibabacloud/models/ImportApiKeyInput.hpp>
 #include <alibabacloud/models/InnerCreateSandboxVolumeMounts.hpp>
 #include <alibabacloud/models/InnerCreateSandboxInput.hpp>
+#include <alibabacloud/models/InnerUpdateSandboxNetworkInput.hpp>
 #include <alibabacloud/models/MetricData.hpp>
 #include <alibabacloud/models/PublicListedSandbox.hpp>
 #include <alibabacloud/models/PublicTemplateLogConfig.hpp>

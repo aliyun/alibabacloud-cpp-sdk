@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_E2BNETWORK_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,12 +19,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(allowPublicTraffic, allowPublicTraffic_);
       DARABONBA_PTR_TO_JSON(denyOut, denyOut_);
       DARABONBA_PTR_TO_JSON(maskRequestHost, maskRequestHost_);
+      DARABONBA_PTR_TO_JSON(rules, rules_);
     };
     friend void from_json(const Darabonba::Json& j, E2BNetwork& obj) { 
       DARABONBA_PTR_FROM_JSON(allowOut, allowOut_);
       DARABONBA_PTR_FROM_JSON(allowPublicTraffic, allowPublicTraffic_);
       DARABONBA_PTR_FROM_JSON(denyOut, denyOut_);
       DARABONBA_PTR_FROM_JSON(maskRequestHost, maskRequestHost_);
+      DARABONBA_PTR_FROM_JSON(rules, rules_);
     };
     E2BNetwork() = default ;
     E2BNetwork(const E2BNetwork &) = default ;
@@ -37,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowOut_ == nullptr
-        && this->allowPublicTraffic_ == nullptr && this->denyOut_ == nullptr && this->maskRequestHost_ == nullptr; };
+        && this->allowPublicTraffic_ == nullptr && this->denyOut_ == nullptr && this->maskRequestHost_ == nullptr && this->rules_ == nullptr; };
     // allowOut Field Functions 
     bool hasAllowOut() const { return this->allowOut_ != nullptr;};
     void deleteAllowOut() { this->allowOut_ = nullptr;};
@@ -70,15 +73,26 @@ namespace Models
     inline E2BNetwork& setMaskRequestHost(string maskRequestHost) { DARABONBA_PTR_SET_VALUE(maskRequestHost_, maskRequestHost) };
 
 
+    // rules Field Functions 
+    bool hasRules() const { return this->rules_ != nullptr;};
+    void deleteRules() { this->rules_ = nullptr;};
+    inline const map<string, vector<Darabonba::Json>> & getRules() const { DARABONBA_PTR_GET_CONST(rules_, map<string, vector<Darabonba::Json>>) };
+    inline map<string, vector<Darabonba::Json>> getRules() { DARABONBA_PTR_GET(rules_, map<string, vector<Darabonba::Json>>) };
+    inline E2BNetwork& setRules(const map<string, vector<Darabonba::Json>> & rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
+    inline E2BNetwork& setRules(map<string, vector<Darabonba::Json>> && rules) { DARABONBA_PTR_SET_RVALUE(rules_, rules) };
+
+
   protected:
-    // The allowlist for outbound access from the sandbox. After configuration, the sandbox can access only the destinations in the list.
+    // The allowlist for outbound access from the sandbox. After configuration, the sandbox can only access the destinations in the list.
     shared_ptr<vector<string>> allowOut_ {};
-    // Specifies whether to allow Direct Internet Access to the sandbox.
+    // Specifies whether Direct Internet Access to the sandbox is allowed.
     shared_ptr<bool> allowPublicTraffic_ {};
     // The denylist for outbound access from the sandbox. After configuration, the sandbox cannot access the destinations in the list.
     shared_ptr<vector<string>> denyOut_ {};
-    // The domain name used to rewrite the request Host header when accessing the sandbox. If this parameter is not specified, the original Host is retained.
+    // The domain name used to rewrite the request Host header when accessing the sandbox. If not configured, the original Host header remains unchanged.
     shared_ptr<string> maskRequestHost_ {};
+    // The key is the exact destination hostname or the E2B reserved key @fc.sandbox.identity, and the value is a list of rule objects. The number of hostnames and replacement entries is subject to account quota limits. GetSandboxInner echoes the current hostname rules and configured OAuth options in the same format. User tokens are only used during writes.
+    shared_ptr<map<string, vector<Darabonba::Json>>> rules_ {};
   };
 
   } // namespace Models

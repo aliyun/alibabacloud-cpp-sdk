@@ -69,9 +69,9 @@ namespace Models
 
 
   protected:
-    // The response code. The value is 200 if the request is successful.
+    // The response code. 200 indicates success.
     shared_ptr<string> code_ {};
-    // The response message. The value is success if the request is successful.
+    // The response message. success indicates a successful request.
     shared_ptr<string> message_ {};
     // The quota configuration information.
     shared_ptr<Quota> quota_ {};

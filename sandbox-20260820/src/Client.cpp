@@ -1298,7 +1298,7 @@ ListCustomDomainsResponse Client::listCustomDomains(const ListCustomDomainsReque
 }
 
 /**
- * @summary Queries the quota configuration list for the current account by using paging.
+ * @summary Performs a paged query to retrieve the quota configurations for the current account.
  *
  * @param request ListQuotaRequest
  * @param headers map
@@ -1335,7 +1335,7 @@ ListQuotaResponse Client::listQuotaWithOptions(const ListQuotaRequest &request, 
 }
 
 /**
- * @summary Queries the quota configuration list for the current account by using paging.
+ * @summary Performs a paged query to retrieve the quota configurations for the current account.
  *
  * @param request ListQuotaRequest
  * @return ListQuotaResponse

@@ -519,7 +519,7 @@ namespace Sandbox20260820
       Models::ListCustomDomainsResponse listCustomDomains(const Models::ListCustomDomainsRequest &request);
 
       /**
-       * @summary Queries the quota configuration list for the current account by using paging.
+       * @summary Performs a paged query to retrieve the quota configurations for the current account.
        *
        * @param request ListQuotaRequest
        * @param headers map
@@ -529,7 +529,7 @@ namespace Sandbox20260820
       Models::ListQuotaResponse listQuotaWithOptions(const Models::ListQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the quota configuration list for the current account by using paging.
+       * @summary Performs a paged query to retrieve the quota configurations for the current account.
        *
        * @param request ListQuotaRequest
        * @return ListQuotaResponse
