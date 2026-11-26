@@ -95,7 +95,7 @@ namespace Models
 
   protected:
     // The custom agent type. Valid values:
-    // - Default: system built-in custom agent
+    // - Default: built-in custom agent
     // - Common: regular custom agent
     shared_ptr<string> agentType_ {};
     // The page number. Pages start from 1.

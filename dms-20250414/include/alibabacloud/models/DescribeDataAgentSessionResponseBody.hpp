@@ -228,12 +228,12 @@ namespace Models
         // The ID of the custom agent.
         shared_ptr<string> customAgentId_ {};
         // The usage stage of the custom agent. Valid values:
-        // - **debug**: Debug stage.
+        // - **debug**: Debugging stage.
         // - **prod**: Production stage.
         shared_ptr<string> customAgentStage_ {};
         // Specifies whether to enable web search.
         shared_ptr<bool> enableSearch_ {};
-        // The encryption key for storing artifacts in OSS, including built-in and user OSS. This key is typically specified in CreateDataAgentSession.
+        // The encryption key for storing artifacts in OSS, including built-in and user OSS. This is typically specified in CreateDataAgentSession.
         shared_ptr<string> encryptKey_ {};
         // The encryption type for storing artifacts in OSS, including built-in and user OSS.
         shared_ptr<string> encryptType_ {};
@@ -251,6 +251,8 @@ namespace Models
         // - **INSIGHT**: Insight mode.
         shared_ptr<string> mode_ {};
         // The report page width.
+        // 
+        // Unit: mm.
         shared_ptr<int64_t> reportPageWidth_ {};
         // The report watermark.
         shared_ptr<string> reportWaterMark_ {};
@@ -306,9 +308,9 @@ namespace Models
 
 
       protected:
-        // The content of the recalled knowledge chunk.
+        // The content of the recalled knowledge block.
         shared_ptr<string> content_ {};
-        // The similarity score of this data entry. The scoring algorithm is related to the algorithm specified when the index is created, such as l2, ip, or cosine.
+        // The similarity score of this data entry. The scoring algorithm is related to the algorithm specified during index creation, such as l2, ip, or cosine.
         shared_ptr<double> score_ {};
         // The category of the recalled knowledge.
         shared_ptr<string> type_ {};
@@ -446,9 +448,9 @@ namespace Models
 
 
         protected:
-          // The cron expression for scheduled runs.
+          // The cron expression for scheduled execution.
           shared_ptr<string> cronExpression_ {};
-          // The question for scheduled runs.
+          // The question for scheduled execution.
           shared_ptr<string> query_ {};
           // The ID of the referenced session.
           shared_ptr<string> relatedSessionId_ {};
@@ -569,9 +571,9 @@ namespace Models
 
 
         protected:
-          // The access type. If this parameter is not specified, the default value is mcp. Valid values:
-          // - mcp: MCP access. You must specify the McpServerId parameter.
-          // - dms_kb: DMS knowledge base access. You must specify the KbUuid parameter.
+          // The access type. If you do not specify this parameter, the default value is mcp. Valid values:
+          // - mcp: Access through MCP. You must specify the McpServerId parameter.
+          // - dms_kb: Access through a DMS knowledge base. You must specify the KbUuid parameter.
           shared_ptr<string> accessType_ {};
           // The knowledge base ID.
           shared_ptr<string> kbUuid_ {};
@@ -654,23 +656,22 @@ namespace Models
 
         protected:
           // The tendency of the agent to ask follow-up questions to clarify requirements. **This parameter takes effect only when SkipAskHuman is set to false and SkipPlan is set to false.** Valid values: 0 to 1.
-          // 
           // The following list describes some tendency values:
-          // - 0.0: Do not ask questions. The agent does not ask the user any questions, skips confirmation after generating a plan, and directly executes the plan.
+          // - 0.0: Do not ask questions. The agent does not ask the user questions, skips confirmation after generating the plan, and directly executes the plan.
           // - 0.1: Confirm the plan only. The agent confirms the generated plan only once and does not ask additional questions about requirements or details.
           // - 0.4: Ask questions when the task is blocked. The agent handles the task autonomously by default and asks questions only when the task cannot proceed or be completed.
-          // - 0.7: Ask questions when key criteria are uncertain. The agent proactively asks questions when there is critical ambiguity in the goals, scope, business criteria, or acceptance criteria.
+          // - 0.7: Ask questions when key criteria are uncertain. The agent proactively asks questions when critical ambiguity exists in the goals, scope, business criteria, or acceptance criteria.
           // - 1.0: Fully align throughout the process. The agent proactively clarifies requirements during planning and execution, and continuously confirms when encountering important ambiguities, assumptions, or solution branches.
           shared_ptr<double> clarificationTendency_ {};
-          // Indicates whether appending data sources in the session is prohibited.
+          // Specifies whether to prohibit appending data sources in the session.
           shared_ptr<bool> forbiddenAppendDataSource_ {};
-          // Indicates whether user inquiries during the process are prohibited.
+          // Specifies whether to prohibit user inquiries during the process.
           shared_ptr<bool> skipAskHuman_ {};
-          // Indicates whether the plan confirmation step is skipped.
+          // Specifies whether to skip the plan confirmation step.
           shared_ptr<bool> skipPlan_ {};
-          // Indicates whether all SQL confirmations are skipped.
+          // Specifies whether to skip all SQL confirmations.
           shared_ptr<bool> skipSqlConfirm_ {};
-          // Indicates whether the confirmation for generating a web report is skipped.
+          // Specifies whether to skip the confirmation for generating web reports.
           shared_ptr<bool> skipWebReportConfirm_ {};
         };
 
@@ -739,11 +740,11 @@ namespace Models
 
 
         protected:
-          // The callback tool invocation parameters.
+          // The parameters used to invoke callback tool calling.
           shared_ptr<string> callbackArgs_ {};
-          // The prompt used to generate callback tool invocation parameters.
+          // The prompt used to generate the parameters to invoke callback tool calling.
           shared_ptr<string> callbackPrompt_ {};
-          // The timing for callback tool invocation.
+          // The timing to invoke callback tool calling.
           shared_ptr<int32_t> callbackTime_ {};
           // The callback tool identifier.
           shared_ptr<string> toolId_ {};
@@ -1012,7 +1013,7 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud main account ID.
+        // The ID of the Alibaba Cloud main account.
         shared_ptr<string> aliyunParentUid_ {};
         // The Alibaba Cloud account ID.
         shared_ptr<string> aliyunUid_ {};
@@ -1078,11 +1079,11 @@ namespace Models
         // The web report format.
         shared_ptr<string> webReportConfig_ {};
         // The web report theme. Valid values:
-        // - default: default
-        // - journal: journal
-        // - legacy: legacy
-        // - neobrutalism: stylized
-        // - infographic: infographic
+        // - default: Default.
+        // - journal: Journal.
+        // - legacy: Legacy.
+        // - neobrutalism: Neobrutalism.
+        // - infographic: Infographic.
         shared_ptr<string> webReportTheme_ {};
         // The workspace ID.
         shared_ptr<string> workspaceId_ {};
@@ -1148,7 +1149,7 @@ namespace Models
         shared_ptr<string> content_ {};
         // The unique ID of the historical conversation message.
         shared_ptr<string> id_ {};
-        // The send time of the historical conversation message.
+        // The time when the historical conversation message was sent.
         shared_ptr<int64_t> sendTime_ {};
         // The status of the historical conversation message.
         shared_ptr<string> status_ {};
@@ -1193,7 +1194,7 @@ namespace Models
 
       protected:
         // The data source category. Valid values:
-        // - **CHAT**: The data source is specified in a conversation by calling the CreateDataAgentSession or SendChatMessage operation.
+        // - **CHAT**: The data source is specified in the conversation by calling the CreateDataAgentSession or SendChatMessage operation.
         // - **CUSTOM_AGENT**: The data source comes from the preset analysis data scope in a custom agent.
         shared_ptr<string> category_ {};
         // The data source details. When Category is set to CHAT or CUSTOM_AGENT, the structure of Detail aligns with the structure of a single element in the DataSources parameter of the SendChatMessage operation.
@@ -1283,10 +1284,10 @@ namespace Models
 
       protected:
         // The ID of the mounted capability.
-        // - If Type is set to skill, the value indicates the skill ID.
-        // - If Type is set to dms_kb, the value indicates the knowledge base ID.
+        // - If Type is set to skill, this parameter indicates the skill ID.
+        // - If Type is set to dms_kb, this parameter indicates the knowledge base ID.
         shared_ptr<string> id_ {};
-        // The type. Valid values:
+        // The capability type. Valid values:
         // - skill: skill
         // - dms_kb: knowledge base
         shared_ptr<string> type_ {};
@@ -1575,11 +1576,11 @@ namespace Models
       shared_ptr<string> file_ {};
       // The list of historical conversation messages in the session.
       shared_ptr<vector<Data::Messages>> messages_ {};
-      // The custom agent for the intelligent development session preview.
+      // The custom agent for intelligent development session preview.
       shared_ptr<Data::PreviewCustomAgent> previewCustomAgent_ {};
       // The recall results from the knowledge base and memory for the current session.
       shared_ptr<vector<Data::RecallResults>> recallResults_ {};
-      // Indicates whether the session is favorited by the current logged-on user.
+      // Indicates whether the item is favorited by the current logged-on user.
       shared_ptr<bool> saved_ {};
       // The session configuration items.
       shared_ptr<Data::SessionConfig> sessionConfig_ {};
@@ -1633,7 +1634,7 @@ namespace Models
 
 
   protected:
-    // The returned struct.
+    // The returned data structure.
     shared_ptr<DescribeDataAgentSessionResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};

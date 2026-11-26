@@ -251,7 +251,7 @@ namespace Models
         shared_ptr<bool> isSessionShareEnabled_ {};
         // The time when the workspace was last modified. The value is a timestamp in milliseconds.
         shared_ptr<int64_t> modifyTime_ {};
-        // The name of the user\\"s role in the workspace.
+        // The name of the user\"s role in the workspace.
         shared_ptr<string> roleName_ {};
         // The number of running sessions in the workspace.
         shared_ptr<int32_t> runningSessionCount_ {};

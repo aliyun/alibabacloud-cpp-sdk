@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the Airflow instance.
+    // The Airflow instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> airflowId_ {};
-    // The ID of the workspace.
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

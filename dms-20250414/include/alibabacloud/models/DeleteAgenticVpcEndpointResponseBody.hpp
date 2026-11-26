@@ -77,7 +77,7 @@ namespace Models
     protected:
       // The ID of the endpoint accepted for deletion.
       shared_ptr<string> endpointId_ {};
-      // The deletion status. A value of DELETING only indicates that the asynchronous deletion request is accepted, not that the deletion in the cloud is complete.
+      // The deletion status. A value of DELETING only indicates that the asynchronous deletion request is accepted, and does not indicate that the deletion in the cloud is complete.
       shared_ptr<string> status_ {};
     };
 
@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The deletion acceptance result. For duplicate requests, downstream errors are retained and idempotence is not guaranteed.
+    // The deletion acceptance result. For duplicate requests, downstream errors are retained, and idempotence is not guaranteed.
     shared_ptr<DeleteAgenticVpcEndpointResponseBody::Data> data_ {};
     // The error code returned when a request exception occurs.
     shared_ptr<string> errorCode_ {};

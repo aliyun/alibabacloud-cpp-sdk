@@ -147,7 +147,7 @@ namespace Models
         shared_ptr<string> joinTime_ {};
         // The Alibaba Cloud UID of the user.
         shared_ptr<string> memberId_ {};
-        // The name of the user\\"s role in the workspace.
+        // The name of the user\"s role in the workspace.
         shared_ptr<string> roleName_ {};
         // The number of tasks that are running for the user in the workspace.
         shared_ptr<int64_t> runningTaskNumber_ {};

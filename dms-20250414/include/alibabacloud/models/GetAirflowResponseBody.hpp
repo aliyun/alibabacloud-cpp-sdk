@@ -53,7 +53,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DagsDir, dagsDir_);
         DARABONBA_PTR_TO_JSON(DeployErrorMsg, deployErrorMsg_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(EnableLineage, enableLineage_);
         DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
+        DARABONBA_PTR_TO_JSON(LineageReplicas, lineageReplicas_);
+        DARABONBA_PTR_TO_JSON(LineageSpec, lineageSpec_);
         DARABONBA_PTR_TO_JSON(OssBucketName, ossBucketName_);
         DARABONBA_PTR_TO_JSON(OssPath, ossPath_);
         DARABONBA_PTR_TO_JSON(PluginsDir, pluginsDir_);
@@ -77,7 +80,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DagsDir, dagsDir_);
         DARABONBA_PTR_FROM_JSON(DeployErrorMsg, deployErrorMsg_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(EnableLineage, enableLineage_);
         DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
+        DARABONBA_PTR_FROM_JSON(LineageReplicas, lineageReplicas_);
+        DARABONBA_PTR_FROM_JSON(LineageSpec, lineageSpec_);
         DARABONBA_PTR_FROM_JSON(OssBucketName, ossBucketName_);
         DARABONBA_PTR_FROM_JSON(OssPath, ossPath_);
         DARABONBA_PTR_FROM_JSON(PluginsDir, pluginsDir_);
@@ -105,10 +111,10 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->airflowId_ == nullptr
         && this->airflowName_ == nullptr && this->appSpec_ == nullptr && this->appType_ == nullptr && this->customAirflowCfg_ == nullptr && this->dagsDir_ == nullptr
-        && this->deployErrorMsg_ == nullptr && this->description_ == nullptr && this->gmtCreated_ == nullptr && this->ossBucketName_ == nullptr && this->ossPath_ == nullptr
-        && this->pluginsDir_ == nullptr && this->regionId_ == nullptr && this->requirementFile_ == nullptr && this->securityGroupId_ == nullptr && this->startupFile_ == nullptr
-        && this->status_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->workerServerlessReplicas_ == nullptr && this->workspaceId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->deployErrorMsg_ == nullptr && this->description_ == nullptr && this->enableLineage_ == nullptr && this->gmtCreated_ == nullptr && this->lineageReplicas_ == nullptr
+        && this->lineageSpec_ == nullptr && this->ossBucketName_ == nullptr && this->ossPath_ == nullptr && this->pluginsDir_ == nullptr && this->regionId_ == nullptr
+        && this->requirementFile_ == nullptr && this->securityGroupId_ == nullptr && this->startupFile_ == nullptr && this->status_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr && this->workerServerlessReplicas_ == nullptr && this->workspaceId_ == nullptr && this->zoneId_ == nullptr; };
       // airflowId Field Functions 
       bool hasAirflowId() const { return this->airflowId_ != nullptr;};
       void deleteAirflowId() { this->airflowId_ = nullptr;};
@@ -167,11 +173,32 @@ namespace Models
       inline Root& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // enableLineage Field Functions 
+      bool hasEnableLineage() const { return this->enableLineage_ != nullptr;};
+      void deleteEnableLineage() { this->enableLineage_ = nullptr;};
+      inline bool getEnableLineage() const { DARABONBA_PTR_GET_DEFAULT(enableLineage_, false) };
+      inline Root& setEnableLineage(bool enableLineage) { DARABONBA_PTR_SET_VALUE(enableLineage_, enableLineage) };
+
+
       // gmtCreated Field Functions 
       bool hasGmtCreated() const { return this->gmtCreated_ != nullptr;};
       void deleteGmtCreated() { this->gmtCreated_ = nullptr;};
       inline string getGmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
       inline Root& setGmtCreated(string gmtCreated) { DARABONBA_PTR_SET_VALUE(gmtCreated_, gmtCreated) };
+
+
+      // lineageReplicas Field Functions 
+      bool hasLineageReplicas() const { return this->lineageReplicas_ != nullptr;};
+      void deleteLineageReplicas() { this->lineageReplicas_ = nullptr;};
+      inline int32_t getLineageReplicas() const { DARABONBA_PTR_GET_DEFAULT(lineageReplicas_, 0) };
+      inline Root& setLineageReplicas(int32_t lineageReplicas) { DARABONBA_PTR_SET_VALUE(lineageReplicas_, lineageReplicas) };
+
+
+      // lineageSpec Field Functions 
+      bool hasLineageSpec() const { return this->lineageSpec_ != nullptr;};
+      void deleteLineageSpec() { this->lineageSpec_ = nullptr;};
+      inline string getLineageSpec() const { DARABONBA_PTR_GET_DEFAULT(lineageSpec_, "") };
+      inline Root& setLineageSpec(string lineageSpec) { DARABONBA_PTR_SET_VALUE(lineageSpec_, lineageSpec) };
 
 
       // ossBucketName Field Functions 
@@ -276,39 +303,45 @@ namespace Models
       shared_ptr<string> appType_ {};
       // The custom configurations.
       shared_ptr<vector<string>> customAirflowCfg_ {};
-      // The DAG directory that Airflow scans.
+      // The DAG directory scanned by Airflow.
       shared_ptr<string> dagsDir_ {};
       // The deployment error message.
       shared_ptr<string> deployErrorMsg_ {};
       // The description of the Airflow instance.
       shared_ptr<string> description_ {};
-      // The time when the instance was created.
+      // Specifies whether data lineage is enabled.
+      shared_ptr<bool> enableLineage_ {};
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
+      // The number of replicas for the lineage service. The default value is 1 when enabled. If omitted during an update, the original value is retained.
+      shared_ptr<int32_t> lineageReplicas_ {};
+      // The merged lineage service specifications, which use the same tier as the application specifications.
+      shared_ptr<string> lineageSpec_ {};
       // The name of the OSS bucket.
       shared_ptr<string> ossBucketName_ {};
       // The OSS path.
       shared_ptr<string> ossPath_ {};
-      // The plugin directory that Airflow scans.
+      // The plugin directory scanned by Airflow.
       shared_ptr<string> pluginsDir_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The path to the Python dependencies file (requirements.txt).
+      // The configuration file for dependency packages.
       shared_ptr<string> requirementFile_ {};
-      // The ID of the security group.
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
-      // The startup script that runs before Airflow starts.
+      // The script loaded before Airflow starts.
       shared_ptr<string> startupFile_ {};
-      // The status of the Airflow instance.
+      // The Airflow instance status.
       shared_ptr<string> status_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the VPC.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
       // The number of worker nodes.
       shared_ptr<int32_t> workerServerlessReplicas_ {};
-      // The ID of the DMS workspace.
+      // The Data Management (DMS) workspace ID.
       shared_ptr<string> workspaceId_ {};
-      // The zone ID.
+      // The zone ID in the region.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -367,7 +400,7 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The access denial details.
     shared_ptr<string> accessDeniedDetail_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -377,13 +410,12 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned data.
+    // The data details.
     shared_ptr<GetAirflowResponseBody::Root> root_ {};
-    // Indicates whether the request was successful. The following values are returned:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: The request is successful.                                 
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

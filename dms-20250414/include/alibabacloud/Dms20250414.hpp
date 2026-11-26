@@ -76,23 +76,6 @@ namespace Dms20250414
       Models::AddUserToDataAgentWorkspaceResponse addUserToDataAgentWorkspace(const Models::AddUserToDataAgentWorkspaceRequest &request);
 
       /**
-       * @summary 批量新建湖仓表分区
-       *
-       * @param tmpReq BatchCreateDataLakePartitionsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return BatchCreateDataLakePartitionsResponse
-       */
-      Models::BatchCreateDataLakePartitionsResponse batchCreateDataLakePartitionsWithOptions(const Models::BatchCreateDataLakePartitionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 批量新建湖仓表分区
-       *
-       * @param request BatchCreateDataLakePartitionsRequest
-       * @return BatchCreateDataLakePartitionsResponse
-       */
-      Models::BatchCreateDataLakePartitionsResponse batchCreateDataLakePartitions(const Models::BatchCreateDataLakePartitionsRequest &request);
-
-      /**
        * @summary CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
        *
        * @param request CheckDataAgentMemoryConfigRequest
@@ -406,7 +389,7 @@ namespace Dms20250414
       /**
        * @summary Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
        *
-       * @description After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+       * @description After deletion, no new connections can be established for this data source, and it cannot be recovered by calling the enable operation.
        *
        * @param request DeleteAgenticVpcEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -417,7 +400,7 @@ namespace Dms20250414
       /**
        * @summary Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
        *
-       * @description After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+       * @description After deletion, no new connections can be established for this data source, and it cannot be recovered by calling the enable operation.
        *
        * @param request DeleteAgenticVpcEndpointRequest
        * @return DeleteAgenticVpcEndpointResponse
@@ -688,7 +671,7 @@ namespace Dms20250414
       Models::DeleteWorkspaceCodeResponse deleteWorkspaceCode(const Models::DeleteWorkspaceCodeRequest &request);
 
       /**
-       * @summary Retrieves the detailed description of a custom agent based on the custom agent ID.
+       * @summary Queries the details of a custom agent by custom agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -697,7 +680,7 @@ namespace Dms20250414
       Models::DescribeCustomAgentResponse describeCustomAgentWithOptions(const Models::DescribeCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the detailed description of a custom agent based on the custom agent ID.
+       * @summary Queries the details of a custom agent by custom agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @return DescribeCustomAgentResponse
@@ -1002,7 +985,7 @@ namespace Dms20250414
       Models::GetAgenticTableIndexResponse getAgenticTableIndex(const Models::GetAgenticTableIndexRequest &request);
 
       /**
-       * @summary Queries the configuration and status of an Airflow instance.
+       * @summary Queries the details of an Airflow instance.
        *
        * @param request GetAirflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1011,7 +994,7 @@ namespace Dms20250414
       Models::GetAirflowResponse getAirflowWithOptions(const Models::GetAirflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration and status of an Airflow instance.
+       * @summary Queries the details of an Airflow instance.
        *
        * @param request GetAirflowRequest
        * @return GetAirflowResponse
@@ -1093,7 +1076,7 @@ namespace Dms20250414
       /**
        * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
        *
-       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+       * @description Queries the model usage summary data of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
        *
        * @param tmpReq GetDataAgentTaskModelUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1104,7 +1087,7 @@ namespace Dms20250414
       /**
        * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
        *
-       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+       * @description Queries the model usage summary data of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
        *
        * @param request GetDataAgentTaskModelUsageRequest
        * @return GetDataAgentTaskModelUsageResponse
@@ -1112,9 +1095,9 @@ namespace Dms20250414
       Models::GetDataAgentTaskModelUsageResponse getDataAgentTaskModelUsage(const Models::GetDataAgentTaskModelUsageRequest &request);
 
       /**
-       * @summary Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
+       * @summary Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the token consumption at each time point at a minute-level granularity.
        *
-       * @description Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
+       * @description Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the number of tokens consumed in each statistical interval at a minute-level granularity to analyze the trend of model usage over time.
        *
        * @param tmpReq GetDataAgentTaskModelUsageMetricsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1123,9 +1106,9 @@ namespace Dms20250414
       Models::GetDataAgentTaskModelUsageMetricsResponse getDataAgentTaskModelUsageMetricsWithOptions(const Models::GetDataAgentTaskModelUsageMetricsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
+       * @summary Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the token consumption at each time point at a minute-level granularity.
        *
-       * @description Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
+       * @description Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the number of tokens consumed in each statistical interval at a minute-level granularity to analyze the trend of model usage over time.
        *
        * @param request GetDataAgentTaskModelUsageMetricsRequest
        * @return GetDataAgentTaskModelUsageMetricsResponse
@@ -2205,9 +2188,9 @@ namespace Dms20250414
       Models::SetWorkspaceCodePublishSettingResponse setWorkspaceCodePublishSetting(const Models::SetWorkspaceCodePublishSettingRequest &request);
 
       /**
-       * @summary Sets the quota for a workspace.
+       * @summary Sets the workspace quota.
        *
-       * @description Sets the quota for a specific workspace.
+       * @description Sets the workspace quota.
        *
        * @param request SetWorkspaceQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2216,9 +2199,9 @@ namespace Dms20250414
       Models::SetWorkspaceQuotaResponse setWorkspaceQuotaWithOptions(const Models::SetWorkspaceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the quota for a workspace.
+       * @summary Sets the workspace quota.
        *
-       * @description Sets the quota for a specific workspace.
+       * @description Sets the workspace quota.
        *
        * @param request SetWorkspaceQuotaRequest
        * @return SetWorkspaceQuotaResponse
@@ -2350,7 +2333,7 @@ namespace Dms20250414
       /**
        * @summary Updates the content of an accuracy test item.
        *
-       * @description Updates the accuracy test item.
+       * @description Updates an accuracy test item.
        *
        * @param request UpdateDataAgentAccuracyTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2361,7 +2344,7 @@ namespace Dms20250414
       /**
        * @summary Updates the content of an accuracy test item.
        *
-       * @description Updates the accuracy test item.
+       * @description Updates an accuracy test item.
        *
        * @param request UpdateDataAgentAccuracyTestRequest
        * @return UpdateDataAgentAccuracyTestResponse

@@ -158,11 +158,11 @@ namespace Models
 
 
   protected:
-    // The ID of the custom agent to be tested for accuracy.
+    // The ID of the custom agent that requires accuracy testing.
     shared_ptr<string> customAgentId_ {};
-    // Deprecated.
+    // **[Deprecated]**.
     shared_ptr<string> dataset_ {};
-    // The data source. We recommend that you configure this in the custom agent.
+    // The data source. Configure it in the custom agent.
     shared_ptr<string> datasource_ {};
     // The description.
     shared_ptr<string> desc_ {};
@@ -180,7 +180,7 @@ namespace Models
     shared_ptr<int32_t> mode_ {};
     // The name of the test item.
     shared_ptr<string> name_ {};
-    // Specifies whether sessions are displayed after analysis. This parameter is not supported.
+    // Specifies whether to display sessions after analysis. This feature is not supported.
     shared_ptr<bool> needDelete_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

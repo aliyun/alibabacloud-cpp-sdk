@@ -213,18 +213,18 @@ namespace Models
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
     // The specified data scope in **JSON character string format**.
-    // - General metric descriptions:
-    //   - tableFlag: true indicates that a data scope is specified.
-    //   - scope: The fixed value personal.
-    //   - personal: The parameters for file and database types.
+    // - General metric descriptions
+    //   - tableFlag: true indicates that the data scope is specified.
+    //   - scope: personal is a fixed value.
+    //   - personal: parameters for file and database types.
     // 
     // **File type**: Pass parameters in the following format:
-    // - DataSourceType: The fixed value remote_data_center.
-    // - FileId: The file ID.
-    // - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
-    // - Tables: The table names returned by the ListDataCenterTable operation.
-    // - TableIds: The table IDs returned by the ListDataCenterTable operation.
-    // - RegionId: The current region.
+    // - DataSourceType: remote_data_center is a fixed value.
+    // - FileId: the file ID.
+    // - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
+    // - Tables: the table names returned by the ListDataCenterTable operation.
+    // - TableIds: the table IDs returned by the ListDataCenterTable operation.
+    // - RegionId: the current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -245,16 +245,16 @@ namespace Models
     // ```
     // 
     // **Database type**: Pass parameters in the following format:
-    // - DataSourceType: The fixed value database.
-    // - DmsInstanceId: The DMS instance ID returned by the data center operation.
-    // - DmsDatabaseId: The DMS database ID returned by the data center operation.
-    // - FileId: The instance name. **[Deprecated]**
-    // - DbName: The database name returned by the data center operation.
-    // - Database: The database name returned by the data center operation.
-    // - Tables: The table names returned by the data center operation.
-    // - TableIds: The table IDs returned by the data center operation.
-    // - Engine: The DPI engine type (mysql or postgresql).
-    // - RegionId: The current region.
+    // - DataSourceType: database is a fixed value.
+    // - DmsInstanceId: the DMS instance ID returned by the data center API.
+    // - DmsDatabaseId: the DMS database ID returned by the data center API.
+    // - FileId: **[Deprecated]** The instance name.
+    // - DbName: the database name returned by the data center API.
+    // - Database: the database name returned by the data center API.
+    // - Tables: the table names returned by the data center API.
+    // - TableIds: the table IDs returned by the data center API.
+    // - Engine: the DPI engine type, such as mysql or postgresql.
+    // - RegionId: the current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -283,10 +283,10 @@ namespace Models
     // The execution configuration.
     shared_ptr<string> executionConfigShrink_ {};
     // The instructions.
-    // - Input limit: Maximum of 10,000 characters.
+    // - Input limit: up to 10,000 characters.
     shared_ptr<string> instruction_ {};
     // The knowledge.
-    // - Input limit: Maximum of 10,000 characters.
+    // - Input limit: up to 10,000 characters.
     shared_ptr<string> knowledge_ {};
     // The external knowledge bases.
     shared_ptr<string> knowledgeConfigListShrink_ {};
@@ -302,12 +302,12 @@ namespace Models
     // The scheduled task configuration.
     shared_ptr<string> scheduleTaskConfigShrink_ {};
     // The text report format.
-    //  - Input limit: Maximum of 10,000 characters.
+    // - Input limit: up to 10,000 characters.
     shared_ptr<string> textReportConfig_ {};
     // The list of user-specified skills.
     shared_ptr<string> userSpecifiedSkillListShrink_ {};
     // The web report format.
-    // - Input limit: Maximum of 50,000 characters.
+    // - Input limit: up to 50,000 characters.
     shared_ptr<string> webReportConfig_ {};
     // The web report theme. Valid values:
     // - default: Default.

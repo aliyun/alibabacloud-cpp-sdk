@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> DMSUnit_ {};
     // The Alibaba Cloud UID of the user.
     shared_ptr<string> memberId_ {};
-    // The name of the user\\"s role in the workspace.
+    // The name of the user\"s role in the workspace.
     shared_ptr<string> roleName_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

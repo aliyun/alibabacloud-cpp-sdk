@@ -55,10 +55,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DataMountInfoList, dataMountInfoList_);
         DARABONBA_PTR_TO_JSON(DeployErrorMsg, deployErrorMsg_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(EnableLineage, enableLineage_);
         DARABONBA_PTR_TO_JSON(EnableServerless, enableServerless_);
         DARABONBA_PTR_TO_JSON(Environments, environments_);
         DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
         DARABONBA_PTR_TO_JSON(GracefulShutdownTimeout, gracefulShutdownTimeout_);
+        DARABONBA_PTR_TO_JSON(LineageReplicas, lineageReplicas_);
+        DARABONBA_PTR_TO_JSON(LineageSpec, lineageSpec_);
         DARABONBA_PTR_TO_JSON(OssBucketName, ossBucketName_);
         DARABONBA_PTR_TO_JSON(OssPath, ossPath_);
         DARABONBA_PTR_TO_JSON(PluginsDir, pluginsDir_);
@@ -84,10 +87,13 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DataMountInfoList, dataMountInfoList_);
         DARABONBA_PTR_FROM_JSON(DeployErrorMsg, deployErrorMsg_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(EnableLineage, enableLineage_);
         DARABONBA_PTR_FROM_JSON(EnableServerless, enableServerless_);
         DARABONBA_PTR_FROM_JSON(Environments, environments_);
         DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
         DARABONBA_PTR_FROM_JSON(GracefulShutdownTimeout, gracefulShutdownTimeout_);
+        DARABONBA_PTR_FROM_JSON(LineageReplicas, lineageReplicas_);
+        DARABONBA_PTR_FROM_JSON(LineageSpec, lineageSpec_);
         DARABONBA_PTR_FROM_JSON(OssBucketName, ossBucketName_);
         DARABONBA_PTR_FROM_JSON(OssPath, ossPath_);
         DARABONBA_PTR_FROM_JSON(PluginsDir, pluginsDir_);
@@ -116,11 +122,11 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->airflowName_ == nullptr
         && this->airflowVersion_ == nullptr && this->appSpec_ == nullptr && this->appType_ == nullptr && this->customAirflowCfg_ == nullptr && this->dagsDir_ == nullptr
-        && this->dataMountInfoList_ == nullptr && this->deployErrorMsg_ == nullptr && this->description_ == nullptr && this->enableServerless_ == nullptr && this->environments_ == nullptr
-        && this->gmtCreated_ == nullptr && this->gracefulShutdownTimeout_ == nullptr && this->ossBucketName_ == nullptr && this->ossPath_ == nullptr && this->pluginsDir_ == nullptr
-        && this->requirementFile_ == nullptr && this->requirements_ == nullptr && this->securityGroupId_ == nullptr && this->startupFile_ == nullptr && this->status_ == nullptr
-        && this->uuid_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->workerServerlessReplicas_ == nullptr && this->workspaceId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->dataMountInfoList_ == nullptr && this->deployErrorMsg_ == nullptr && this->description_ == nullptr && this->enableLineage_ == nullptr && this->enableServerless_ == nullptr
+        && this->environments_ == nullptr && this->gmtCreated_ == nullptr && this->gracefulShutdownTimeout_ == nullptr && this->lineageReplicas_ == nullptr && this->lineageSpec_ == nullptr
+        && this->ossBucketName_ == nullptr && this->ossPath_ == nullptr && this->pluginsDir_ == nullptr && this->requirementFile_ == nullptr && this->requirements_ == nullptr
+        && this->securityGroupId_ == nullptr && this->startupFile_ == nullptr && this->status_ == nullptr && this->uuid_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr && this->workerServerlessReplicas_ == nullptr && this->workspaceId_ == nullptr && this->zoneId_ == nullptr; };
       // airflowName Field Functions 
       bool hasAirflowName() const { return this->airflowName_ != nullptr;};
       void deleteAirflowName() { this->airflowName_ = nullptr;};
@@ -188,6 +194,13 @@ namespace Models
       inline Root& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // enableLineage Field Functions 
+      bool hasEnableLineage() const { return this->enableLineage_ != nullptr;};
+      void deleteEnableLineage() { this->enableLineage_ = nullptr;};
+      inline bool getEnableLineage() const { DARABONBA_PTR_GET_DEFAULT(enableLineage_, false) };
+      inline Root& setEnableLineage(bool enableLineage) { DARABONBA_PTR_SET_VALUE(enableLineage_, enableLineage) };
+
+
       // enableServerless Field Functions 
       bool hasEnableServerless() const { return this->enableServerless_ != nullptr;};
       void deleteEnableServerless() { this->enableServerless_ = nullptr;};
@@ -214,6 +227,20 @@ namespace Models
       void deleteGracefulShutdownTimeout() { this->gracefulShutdownTimeout_ = nullptr;};
       inline int32_t getGracefulShutdownTimeout() const { DARABONBA_PTR_GET_DEFAULT(gracefulShutdownTimeout_, 0) };
       inline Root& setGracefulShutdownTimeout(int32_t gracefulShutdownTimeout) { DARABONBA_PTR_SET_VALUE(gracefulShutdownTimeout_, gracefulShutdownTimeout) };
+
+
+      // lineageReplicas Field Functions 
+      bool hasLineageReplicas() const { return this->lineageReplicas_ != nullptr;};
+      void deleteLineageReplicas() { this->lineageReplicas_ = nullptr;};
+      inline int32_t getLineageReplicas() const { DARABONBA_PTR_GET_DEFAULT(lineageReplicas_, 0) };
+      inline Root& setLineageReplicas(int32_t lineageReplicas) { DARABONBA_PTR_SET_VALUE(lineageReplicas_, lineageReplicas) };
+
+
+      // lineageSpec Field Functions 
+      bool hasLineageSpec() const { return this->lineageSpec_ != nullptr;};
+      void deleteLineageSpec() { this->lineageSpec_ = nullptr;};
+      inline string getLineageSpec() const { DARABONBA_PTR_GET_DEFAULT(lineageSpec_, "") };
+      inline Root& setLineageSpec(string lineageSpec) { DARABONBA_PTR_SET_VALUE(lineageSpec_, lineageSpec) };
 
 
       // ossBucketName Field Functions 
@@ -325,31 +352,37 @@ namespace Models
       shared_ptr<string> appType_ {};
       // The list of custom configuration items.
       shared_ptr<vector<string>> customAirflowCfg_ {};
-      // The directory scanned for DAGs.
+      // The directory for scanning DAGs.
       shared_ptr<string> dagsDir_ {};
       // The list of data mount information.
       shared_ptr<vector<DataMountInfo>> dataMountInfoList_ {};
       // The deployment error message.
       shared_ptr<string> deployErrorMsg_ {};
-      // The description of the Airflow instance.
+      // The Airflow description.
       shared_ptr<string> description_ {};
+      // Indicates whether data lineage is enabled.
+      shared_ptr<bool> enableLineage_ {};
       // Specifies whether to enable serverless workers.
       shared_ptr<bool> enableServerless_ {};
       // The environment configurations.
       shared_ptr<string> environments_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The timeout period for a worker to exit.
+      // The timeout period for worker exit.
       shared_ptr<int32_t> gracefulShutdownTimeout_ {};
-      // The name of the Object Storage Service (OSS) bucket.
+      // The number of replicas for the lineage service. The default value is 1 when enabled. If omitted during an update, the original value is retained.
+      shared_ptr<int32_t> lineageReplicas_ {};
+      // The merged lineage service specification, which uses the same tier as AppSpec.
+      shared_ptr<string> lineageSpec_ {};
+      // The name of the OSS bucket.
       shared_ptr<string> ossBucketName_ {};
       // The OSS path for storing logs.
       shared_ptr<string> ossPath_ {};
-      // The directory scanned for Airflow plugins.
+      // The directory for scanning Airflow plugins.
       shared_ptr<string> pluginsDir_ {};
       // The path of the installation package.
       shared_ptr<string> requirementFile_ {};
-      // The configurations of the installation package.
+      // The configuration of the installation package.
       shared_ptr<string> requirements_ {};
       // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
@@ -367,7 +400,7 @@ namespace Models
       shared_ptr<int32_t> workerServerlessReplicas_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
-      // The zone ID.
+      // The zone.
       shared_ptr<string> zoneId_ {};
     };
 

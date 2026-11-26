@@ -294,8 +294,8 @@ namespace Models
 
       protected:
         // The access type. Valid values:
-        // - mcp: Access through MCP.
-        // - dms_kb: Access through the DMS knowledge base.
+        // - mcp: access through MCP
+        // - dms_kb: access through the DMS knowledge base
         shared_ptr<string> accessType_ {};
         // The knowledge base ID.
         shared_ptr<string> kbUuid_ {};
@@ -368,7 +368,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to prohibit appending data sources in a session.
+        // Specifies whether to disable appending data sources during the session.
         shared_ptr<bool> forbiddenAppendDataSource_ {};
         // Specifies whether to disable user inquiries during the process.
         shared_ptr<bool> skipAskHuman_ {};
@@ -376,7 +376,7 @@ namespace Models
         shared_ptr<bool> skipPlan_ {};
         // Specifies whether to skip all SQL confirmations.
         shared_ptr<bool> skipSqlConfirm_ {};
-        // Specifies whether to skip the confirmation for generating a web report.
+        // Specifies whether to skip the web report generation confirmation.
         shared_ptr<bool> skipWebReportConfirm_ {};
       };
 
@@ -445,7 +445,7 @@ namespace Models
 
 
       protected:
-        // The parameters to invoke callback tool calling.
+        // The callback tool calling parameters to invoke.
         shared_ptr<string> callbackArgs_ {};
         // The prompt for generating parameters to invoke callback tool calling.
         shared_ptr<string> callbackPrompt_ {};
@@ -719,10 +719,10 @@ namespace Models
 
     protected:
       // The custom agent type. Valid values:
-      // - Default: The system-built-in custom agent. Each workspace can have at most one Default type, and it cannot be deleted.
-      // - Common: A common custom agent.
+      // - Default: The built-in custom agent. Each workspace can have at most one Default agent, which cannot be deleted.
+      // - Common: A regular custom agent.
       shared_ptr<string> agentType_ {};
-      // The ID of the Alibaba Cloud main account.
+      // The main Alibaba Cloud account ID.
       shared_ptr<string> aliyunParentUid_ {};
       // The Alibaba Cloud account ID.
       shared_ptr<string> aliyunUid_ {};

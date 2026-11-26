@@ -163,7 +163,7 @@ namespace Models
       shared_ptr<string> objectKey_ {};
       // The parameter set that specifies the derived key.
       shared_ptr<string> ossCredential_ {};
-      // The signature time in the format of yyyyMMdd\\"T\\"HHmmss\\"Z\\".
+      // The signature time in the format of yyyyMMdd\"T\"HHmmss\"Z\".
       shared_ptr<string> ossDate_ {};
       // The STS token used to upload files to OSS. The token is valid for 1 hour.
       shared_ptr<string> ossSecurityToken_ {};

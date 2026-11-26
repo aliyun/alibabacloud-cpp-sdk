@@ -42,11 +42,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(BeginTime, beginTime_);
+        DARABONBA_PTR_TO_JSON(Concurrency, concurrency_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
         DARABONBA_PTR_TO_JSON(Tpm, tpm_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(BeginTime, beginTime_);
+        DARABONBA_PTR_FROM_JSON(Concurrency, concurrency_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
         DARABONBA_PTR_FROM_JSON(Tpm, tpm_);
       };
@@ -62,12 +64,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->beginTime_ == nullptr
-        && this->endTime_ == nullptr && this->tpm_ == nullptr; };
+        && this->concurrency_ == nullptr && this->endTime_ == nullptr && this->tpm_ == nullptr; };
       // beginTime Field Functions 
       bool hasBeginTime() const { return this->beginTime_ != nullptr;};
       void deleteBeginTime() { this->beginTime_ = nullptr;};
       inline int64_t getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0L) };
       inline Data& setBeginTime(int64_t beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
+
+
+      // concurrency Field Functions 
+      bool hasConcurrency() const { return this->concurrency_ != nullptr;};
+      void deleteConcurrency() { this->concurrency_ = nullptr;};
+      inline double getConcurrency() const { DARABONBA_PTR_GET_DEFAULT(concurrency_, 0.0) };
+      inline Data& setConcurrency(double concurrency) { DARABONBA_PTR_SET_VALUE(concurrency_, concurrency) };
 
 
       // endTime Field Functions 
@@ -87,9 +96,11 @@ namespace Models
     protected:
       // The start time of the statistical interval for the time-series point. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> beginTime_ {};
+      // The concurrency value.
+      shared_ptr<double> concurrency_ {};
       // The end time of the statistical interval for the time-series point. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The TPM at the time-series point, which represents the number of tokens consumed in the statistical interval.
+      // The TPM of the time-series point, which is the number of tokens consumed in the statistical interval.
       shared_ptr<int64_t> tpm_ {};
     };
 
@@ -133,7 +144,7 @@ namespace Models
 
 
   protected:
-    // The list of time-series TPM metrics for model usage. The usage at each time point is returned in chronological order.
+    // The list of time-series metrics of TPM for model usage, which returns the usage at each time point in chronological order.
     shared_ptr<vector<GetDataAgentTaskModelUsageMetricsResponseBody::Data>> data_ {};
     // The error code, which is returned when a request exception occurs.
     shared_ptr<string> errorCode_ {};

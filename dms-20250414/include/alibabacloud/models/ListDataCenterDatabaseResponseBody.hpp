@@ -245,11 +245,11 @@ namespace Models
       //   - Y: The dataset is built-in.
       //   - N: The dataset is not built-in.
       shared_ptr<string> isInternal_ {};
-      // The name of the user\\"s OSS bucket.
+      // The name of the user\"s OSS bucket.
       shared_ptr<string> ossBucket_ {};
       // The file size, in bytes.
       shared_ptr<int64_t> size_ {};
-      // Indicates whether the user\\"s OSS bucket is used.
+      // Indicates whether the user\"s OSS bucket is used.
       shared_ptr<bool> useUserOssBucket_ {};
     };
 

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The page number. The value starts from 1.
+    // The current page number, starting from 1.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of records to skip. This is used for paging.
+    // The number of records to skip for pagination.
     shared_ptr<int32_t> skip_ {};
-    // The ID of the DMS workspace.
+    // The DMS workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

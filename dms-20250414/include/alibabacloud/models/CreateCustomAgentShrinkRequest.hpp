@@ -214,30 +214,30 @@ namespace Models
 
   protected:
     // The type of the custom agent. Valid values:
-    // - Default: The system-built-in custom agent. Each workspace can have at most one Default agent, and it cannot be deleted.
-    // - Common: A common custom agent.
+    // - Default: the system-built-in custom agent. Each workspace can have at most one Default agent, which cannot be deleted.
+    // - Common: a common custom agent.
     shared_ptr<string> agentType_ {};
     // The callback feature configuration items.
     shared_ptr<string> callbackConfigShrink_ {};
     // The creation source. Valid values:
-    // - Empty (default): Create the agent by using a form.
-    // - SmartNew: Create the agent by using intelligent development.
+    // - Default (leave empty): created by using a form.
+    // - SmartNew: intelligent development.
     shared_ptr<string> createFrom_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The specified data scope in **JSON character string format**.
+    // The specified data scope in **JSON string format**.
     // - General parameter description:
-    //   - tableFlag: Set to true to specify the data scope.
-    //   - scope: Set to personal as a fixed value.
-    //   - personal: The parameters for file and database types.
+    //   - tableFlag: true indicates that the data scope is specified.
+    //   - scope: personal is a fixed value.
+    //   - personal: the parameters passed for file and database types.
     // 
     // **File type**. Pass parameters in the following format:
-    // - DataSourceType: Set to remote_data_center as a fixed value.
-    // - FileId: The file ID.
-    // - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
-    // - Tables: The table names returned by the ListDataCenterTable operation.
-    // - TableIds: The table IDs returned by the ListDataCenterTable operation.
-    // - RegionId: The current region.
+    // - DataSourceType: remote_data_center is a fixed value.
+    // - FileId: the file ID.
+    // - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
+    // - Tables: the table names returned by the ListDataCenterTable operation.
+    // - TableIds: the table IDs returned by the ListDataCenterTable operation.
+    // - RegionId: the current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -258,16 +258,16 @@ namespace Models
     // ```
     // 
     // **Database type**. Pass parameters in the following format:
-    // - DataSourceType: Set to database as a fixed value.
-    // - DmsInstanceId: The DMS instance ID returned by the data center operation.
-    // - DmsDatabaseId: The DMS database ID returned by the data center operation.
-    // - FileId: The instance name. **[Deprecated]**
-    // - DbName: The database name returned by the data center operation.
-    // - Database: The database name returned by the data center operation.
-    // - Tables: The table names returned by the data center operation.
-    // - TableIds: The table IDs returned by the data center operation.
-    // - Engine: The database engine type, such as mysql or postgresql.
-    // - RegionId: The current region.
+    // - DataSourceType: database is a fixed value.
+    // - DmsInstanceId: the DMS instance ID returned by the data center operation.
+    // - DmsDatabaseId: the DMS database ID returned by the data center operation.
+    // - FileId: the instance name. (Deprecated)
+    // - DbName: the database name returned by the data center operation.
+    // - Database: the database name returned by the data center operation.
+    // - Tables: the table names returned by the data center operation.
+    // - TableIds: the table IDs returned by the data center operation.
+    // - Engine: the engine type (mysql or postgresql).
+    // - RegionId: the current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -296,10 +296,10 @@ namespace Models
     // The execution configuration.
     shared_ptr<string> executionConfigShrink_ {};
     // The instruction.
-    // - Input limit: Up to 10,000 characters.
+    // - Input limit: up to 10,000 characters.
     shared_ptr<string> instruction_ {};
     // The knowledge.
-    // - Input limit: Up to 10,000 characters.
+    // - Input limit: up to 10,000 characters.
     shared_ptr<string> knowledge_ {};
     // The external knowledge bases.
     shared_ptr<string> knowledgeConfigListShrink_ {};

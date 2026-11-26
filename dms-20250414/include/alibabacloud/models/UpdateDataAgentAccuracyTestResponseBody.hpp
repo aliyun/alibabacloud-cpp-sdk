@@ -235,13 +235,13 @@ namespace Models
   protected:
     // The response struct.
     shared_ptr<UpdateDataAgentAccuracyTestResponseBody::Data> data_ {};
-    // The error code returned when an exception occurs.
+    // The error code returned when an error occurs.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the call fails.
+    // The error message returned when the request fails.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Specifies whether the request is successful. Valid values:
     // 
     // - **true**: The request is successful.                                 
     // - **false**: The request fails.

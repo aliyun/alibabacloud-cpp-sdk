@@ -158,7 +158,7 @@ namespace Models
 
 
   protected:
-    // The accuracy test instance ID.
+    // The instance ID of the accuracy test.
     shared_ptr<string> accuracyTestInsId_ {};
     // The new custom agent ID.
     shared_ptr<string> customerAgentId_ {};
@@ -184,7 +184,7 @@ namespace Models
     shared_ptr<bool> needDelete_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

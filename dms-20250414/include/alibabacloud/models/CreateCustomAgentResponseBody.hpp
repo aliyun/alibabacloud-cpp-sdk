@@ -170,9 +170,9 @@ namespace Models
 
 
       protected:
-        // The cron expression for time-based scheduling.
+        // The cron expression for periodic scheduling.
         shared_ptr<string> cronExpression_ {};
-        // The question for the scheduled task.
+        // The query for the periodic task.
         shared_ptr<string> query_ {};
         // The ID of the referenced historical session.
         shared_ptr<string> relatedSessionId_ {};
@@ -368,15 +368,15 @@ namespace Models
 
 
       protected:
-        // Specifies whether to prohibit appending data sources in a session.
+        // Specifies whether to prohibit appending data sources in the session.
         shared_ptr<bool> forbiddenAppendDataSource_ {};
-        // Specifies whether to prohibit user inquiries during the process.
+        // Specifies whether to disable user inquiries during the process.
         shared_ptr<bool> skipAskHuman_ {};
         // Specifies whether to skip the plan confirmation step.
         shared_ptr<bool> skipPlan_ {};
         // Specifies whether to skip all SQL confirmations.
         shared_ptr<bool> skipSqlConfirm_ {};
-        // Specifies whether to skip the confirmation for generating a web report.
+        // Specifies whether to skip the web report drawing confirmation.
         shared_ptr<bool> skipWebReportConfirm_ {};
       };
 
@@ -445,9 +445,9 @@ namespace Models
 
 
       protected:
-        // The parameters to invoke the callback tool.
+        // The parameters used to invoke the callback tool.
         shared_ptr<string> callbackArgs_ {};
-        // The prompt for generating parameters to invoke the callback tool.
+        // The prompt used to generate parameters to invoke the callback tool.
         shared_ptr<string> callbackPrompt_ {};
         // The timing to invoke the callback tool.
         shared_ptr<int32_t> callbackTime_ {};
@@ -718,11 +718,11 @@ namespace Models
 
 
     protected:
-      // The custom agent type. Valid values:
+      // The type of the custom agent. Valid values:
       // - Default: The system-built-in custom agent.
       // - Common: The common custom agent.
       shared_ptr<string> agentType_ {};
-      // The ID of the Alibaba Cloud main account.
+      // The parent Alibaba Cloud account ID.
       shared_ptr<string> aliyunParentUid_ {};
       // The Alibaba Cloud account ID.
       shared_ptr<string> aliyunUid_ {};
@@ -748,7 +748,7 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       // The instruction.
       shared_ptr<string> instruction_ {};
-      // Indicates whether a periodic task is configured.
+      // Indicates whether a scheduled task is configured.
       shared_ptr<bool> isScheduleTask_ {};
       // The knowledge.
       shared_ptr<string> knowledge_ {};
@@ -762,7 +762,7 @@ namespace Models
       shared_ptr<string> modifierUserName_ {};
       // The name of the custom agent.
       shared_ptr<string> name_ {};
-      // The next execution time of the periodic task.
+      // The next run time of the scheduled task.
       // - Timestamp format.
       shared_ptr<int64_t> nextRuntime_ {};
       // The offline time.
@@ -776,9 +776,9 @@ namespace Models
       shared_ptr<string> relatedSessionId_ {};
       // The release time.
       shared_ptr<string> releaseTime_ {};
-      // The periodic task configuration.
+      // The scheduled task configuration.
       shared_ptr<Data::ScheduleTaskConfig> scheduleTaskConfig_ {};
-      // The custom agent status.
+      // The status of the custom agent.
       shared_ptr<string> status_ {};
       // The text report format.
       shared_ptr<string> textReportConfig_ {};

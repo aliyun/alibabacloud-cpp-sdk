@@ -296,84 +296,6 @@ AddUserToDataAgentWorkspaceResponse Client::addUserToDataAgentWorkspace(const Ad
 }
 
 /**
- * @summary 批量新建湖仓表分区
- *
- * @param tmpReq BatchCreateDataLakePartitionsRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return BatchCreateDataLakePartitionsResponse
- */
-BatchCreateDataLakePartitionsResponse Client::batchCreateDataLakePartitionsWithOptions(const BatchCreateDataLakePartitionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
-  tmpReq.validate();
-  BatchCreateDataLakePartitionsShrinkRequest request = BatchCreateDataLakePartitionsShrinkRequest();
-  Utils::Utils::convert(tmpReq, request);
-  if (!!tmpReq.hasPartitionInputs()) {
-    request.setPartitionInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPartitionInputs(), "PartitionInputs", "json"));
-  }
-
-  json query = {};
-  if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.getCatalogName();
-  }
-
-  if (!!request.hasDbName()) {
-    query["DbName"] = request.getDbName();
-  }
-
-  if (!!request.hasIfNotExists()) {
-    query["IfNotExists"] = request.getIfNotExists();
-  }
-
-  if (!!request.hasNeedResult()) {
-    query["NeedResult"] = request.getNeedResult();
-  }
-
-  if (!!request.hasTableName()) {
-    query["TableName"] = request.getTableName();
-  }
-
-  if (!!request.hasTid()) {
-    query["Tid"] = request.getTid();
-  }
-
-  if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.getWorkspaceId();
-  }
-
-  json body = {};
-  if (!!request.hasPartitionInputsShrink()) {
-    body["PartitionInputs"] = request.getPartitionInputsShrink();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
-  Params params = Params(json({
-    {"action" , "BatchCreateDataLakePartitions"},
-    {"version" , "2025-04-14"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<BatchCreateDataLakePartitionsResponse>();
-}
-
-/**
- * @summary 批量新建湖仓表分区
- *
- * @param request BatchCreateDataLakePartitionsRequest
- * @return BatchCreateDataLakePartitionsResponse
- */
-BatchCreateDataLakePartitionsResponse Client::batchCreateDataLakePartitions(const BatchCreateDataLakePartitionsRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return batchCreateDataLakePartitionsWithOptions(request, runtime);
-}
-
-/**
  * @summary CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
  *
  * @param request CheckDataAgentMemoryConfigRequest
@@ -689,12 +611,24 @@ CreateAirflowResponse Client::createAirflowWithOptions(const CreateAirflowReques
     query["Description"] = request.getDescription();
   }
 
+  if (!!request.hasEnableLineage()) {
+    query["EnableLineage"] = request.getEnableLineage();
+  }
+
   if (!!request.hasEnableServerless()) {
     query["EnableServerless"] = request.getEnableServerless();
   }
 
   if (!!request.hasGracefulShutdownTimeout()) {
     query["GracefulShutdownTimeout"] = request.getGracefulShutdownTimeout();
+  }
+
+  if (!!request.hasLineageReplicas()) {
+    query["LineageReplicas"] = request.getLineageReplicas();
+  }
+
+  if (!!request.hasLineageSpec()) {
+    query["LineageSpec"] = request.getLineageSpec();
   }
 
   if (!!request.hasOssBucketName()) {
@@ -1548,7 +1482,7 @@ DeleteAgenticDataSourceResponse Client::deleteAgenticDataSource(const DeleteAgen
 /**
  * @summary Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
  *
- * @description After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+ * @description After deletion, no new connections can be established for this data source, and it cannot be recovered by calling the enable operation.
  *
  * @param request DeleteAgenticVpcEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1581,7 +1515,7 @@ DeleteAgenticVpcEndpointResponse Client::deleteAgenticVpcEndpointWithOptions(con
 /**
  * @summary Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
  *
- * @description After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+ * @description After deletion, no new connections can be established for this data source, and it cannot be recovered by calling the enable operation.
  *
  * @param request DeleteAgenticVpcEndpointRequest
  * @return DeleteAgenticVpcEndpointResponse
@@ -2322,7 +2256,7 @@ DeleteWorkspaceCodeResponse Client::deleteWorkspaceCode(const DeleteWorkspaceCod
 }
 
 /**
- * @summary Retrieves the detailed description of a custom agent based on the custom agent ID.
+ * @summary Queries the details of a custom agent by custom agent ID.
  *
  * @param request DescribeCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2357,7 +2291,7 @@ DescribeCustomAgentResponse Client::describeCustomAgentWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves the detailed description of a custom agent based on the custom agent ID.
+ * @summary Queries the details of a custom agent by custom agent ID.
  *
  * @param request DescribeCustomAgentRequest
  * @return DescribeCustomAgentResponse
@@ -3178,7 +3112,7 @@ GetAgenticTableIndexResponse Client::getAgenticTableIndex(const GetAgenticTableI
 }
 
 /**
- * @summary Queries the configuration and status of an Airflow instance.
+ * @summary Queries the details of an Airflow instance.
  *
  * @param request GetAirflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3213,7 +3147,7 @@ GetAirflowResponse Client::getAirflowWithOptions(const GetAirflowRequest &reques
 }
 
 /**
- * @summary Queries the configuration and status of an Airflow instance.
+ * @summary Queries the details of an Airflow instance.
  *
  * @param request GetAirflowRequest
  * @return GetAirflowResponse
@@ -3441,7 +3375,7 @@ GetDataAgentSubAccountInfoResponse Client::getDataAgentSubAccountInfo(const GetD
 /**
  * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
  *
- * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+ * @description Queries the model usage summary data of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
  *
  * @param tmpReq GetDataAgentTaskModelUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3500,7 +3434,7 @@ GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsageWithOptions
 /**
  * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
  *
- * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+ * @description Queries the model usage summary data of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
  *
  * @param request GetDataAgentTaskModelUsageRequest
  * @return GetDataAgentTaskModelUsageResponse
@@ -3511,9 +3445,9 @@ GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsage(const GetD
 }
 
 /**
- * @summary Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
+ * @summary Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the token consumption at each time point at a minute-level granularity.
  *
- * @description Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
+ * @description Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the number of tokens consumed in each statistical interval at a minute-level granularity to analyze the trend of model usage over time.
  *
  * @param tmpReq GetDataAgentTaskModelUsageMetricsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3570,9 +3504,9 @@ GetDataAgentTaskModelUsageMetricsResponse Client::getDataAgentTaskModelUsageMetr
 }
 
 /**
- * @summary Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
+ * @summary Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the token consumption at each time point at a minute-level granularity.
  *
- * @description Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
+ * @description Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the number of tokens consumed in each statistical interval at a minute-level granularity to analyze the trend of model usage over time.
  *
  * @param request GetDataAgentTaskModelUsageMetricsRequest
  * @return GetDataAgentTaskModelUsageMetricsResponse
@@ -7391,9 +7325,9 @@ SetWorkspaceCodePublishSettingResponse Client::setWorkspaceCodePublishSetting(co
 }
 
 /**
- * @summary Sets the quota for a workspace.
+ * @summary Sets the workspace quota.
  *
- * @description Sets the quota for a specific workspace.
+ * @description Sets the workspace quota.
  *
  * @param request SetWorkspaceQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7440,9 +7374,9 @@ SetWorkspaceQuotaResponse Client::setWorkspaceQuotaWithOptions(const SetWorkspac
 }
 
 /**
- * @summary Sets the quota for a workspace.
+ * @summary Sets the workspace quota.
  *
- * @description Sets the quota for a specific workspace.
+ * @description Sets the workspace quota.
  *
  * @param request SetWorkspaceQuotaRequest
  * @return SetWorkspaceQuotaResponse
@@ -7936,12 +7870,24 @@ UpdateAirflowResponse Client::updateAirflowWithOptions(const UpdateAirflowReques
     query["Description"] = request.getDescription();
   }
 
+  if (!!request.hasEnableLineage()) {
+    query["EnableLineage"] = request.getEnableLineage();
+  }
+
   if (!!request.hasEnableServerless()) {
     query["EnableServerless"] = request.getEnableServerless();
   }
 
   if (!!request.hasGracefulShutdownTimeout()) {
     query["GracefulShutdownTimeout"] = request.getGracefulShutdownTimeout();
+  }
+
+  if (!!request.hasLineageReplicas()) {
+    query["LineageReplicas"] = request.getLineageReplicas();
+  }
+
+  if (!!request.hasLineageSpec()) {
+    query["LineageSpec"] = request.getLineageSpec();
   }
 
   if (!!request.hasPluginsDir()) {
@@ -7997,7 +7943,7 @@ UpdateAirflowResponse Client::updateAirflow(const UpdateAirflowRequest &request)
 /**
  * @summary Updates the content of an accuracy test item.
  *
- * @description Updates the accuracy test item.
+ * @description Updates an accuracy test item.
  *
  * @param request UpdateDataAgentAccuracyTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8082,7 +8028,7 @@ UpdateDataAgentAccuracyTestResponse Client::updateDataAgentAccuracyTestWithOptio
 /**
  * @summary Updates the content of an accuracy test item.
  *
- * @description Updates the accuracy test item.
+ * @description Updates an accuracy test item.
  *
  * @param request UpdateDataAgentAccuracyTestRequest
  * @return UpdateDataAgentAccuracyTestResponse

@@ -115,9 +115,9 @@ namespace Models
 
 
     protected:
-      // The cron expression for time-based scheduling.
+      // The cron expression for periodic scheduling.
       shared_ptr<string> cronExpression_ {};
-      // The question for the scheduled task.
+      // The query for the periodic task.
       shared_ptr<string> query_ {};
       // The ID of the referenced historical session.
       shared_ptr<string> relatedSessionId_ {};
@@ -239,8 +239,8 @@ namespace Models
 
     protected:
       // The access type. If you do not specify this parameter, the default value is mcp. Valid values:
-      // - mcp: Access by using MCP. You must pass the McpServerId parameter.
-      // - dms_kb: Access by using a DMS knowledge base. You must pass the KbUuid parameter.
+      // - mcp: access by using MCP. You must pass the McpServerId parameter.
+      // - dms_kb: access by using a DMS knowledge base. You must pass the KbUuid parameter.
       shared_ptr<string> accessType_ {};
       // The knowledge base ID.
       shared_ptr<string> kbUuid_ {};
@@ -313,15 +313,15 @@ namespace Models
 
 
     protected:
-      // Specifies whether to prohibit appending data sources in a session.
+      // Specifies whether to prohibit appending data sources in the session.
       shared_ptr<bool> forbiddenAppendDataSource_ {};
-      // Specifies whether to prohibit user inquiries during the process.
+      // Specifies whether to disable user inquiries during the process.
       shared_ptr<bool> skipAskHuman_ {};
       // Specifies whether to skip the plan confirmation step.
       shared_ptr<bool> skipPlan_ {};
       // Specifies whether to skip all SQL confirmations.
       shared_ptr<bool> skipSqlConfirm_ {};
-      // Specifies whether to skip the confirmation for generating a web report.
+      // Specifies whether to skip the web report drawing confirmation.
       shared_ptr<bool> skipWebReportConfirm_ {};
     };
 
@@ -390,7 +390,7 @@ namespace Models
 
 
     protected:
-      // The parameters used to invoke the callback tool.
+      // The parameters to invoke the callback tool.
       shared_ptr<string> callbackArgs_ {};
       // The prompt for generating parameters to invoke the callback tool.
       shared_ptr<string> callbackPrompt_ {};
@@ -563,30 +563,30 @@ namespace Models
 
   protected:
     // The type of the custom agent. Valid values:
-    // - Default: The system-built-in custom agent. Each workspace can have at most one Default agent, and it cannot be deleted.
-    // - Common: A common custom agent.
+    // - Default: the system-built-in custom agent. Each workspace can have at most one Default agent, which cannot be deleted.
+    // - Common: a common custom agent.
     shared_ptr<string> agentType_ {};
     // The callback feature configuration items.
     shared_ptr<CreateCustomAgentRequest::CallbackConfig> callbackConfig_ {};
     // The creation source. Valid values:
-    // - Empty (default): Create the agent by using a form.
-    // - SmartNew: Create the agent by using intelligent development.
+    // - Default (leave empty): created by using a form.
+    // - SmartNew: intelligent development.
     shared_ptr<string> createFrom_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The specified data scope in **JSON character string format**.
+    // The specified data scope in **JSON string format**.
     // - General parameter description:
-    //   - tableFlag: Set to true to specify the data scope.
-    //   - scope: Set to personal as a fixed value.
-    //   - personal: The parameters for file and database types.
+    //   - tableFlag: true indicates that the data scope is specified.
+    //   - scope: personal is a fixed value.
+    //   - personal: the parameters passed for file and database types.
     // 
     // **File type**. Pass parameters in the following format:
-    // - DataSourceType: Set to remote_data_center as a fixed value.
-    // - FileId: The file ID.
-    // - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
-    // - Tables: The table names returned by the ListDataCenterTable operation.
-    // - TableIds: The table IDs returned by the ListDataCenterTable operation.
-    // - RegionId: The current region.
+    // - DataSourceType: remote_data_center is a fixed value.
+    // - FileId: the file ID.
+    // - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
+    // - Tables: the table names returned by the ListDataCenterTable operation.
+    // - TableIds: the table IDs returned by the ListDataCenterTable operation.
+    // - RegionId: the current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -607,16 +607,16 @@ namespace Models
     // ```
     // 
     // **Database type**. Pass parameters in the following format:
-    // - DataSourceType: Set to database as a fixed value.
-    // - DmsInstanceId: The DMS instance ID returned by the data center operation.
-    // - DmsDatabaseId: The DMS database ID returned by the data center operation.
-    // - FileId: The instance name. **[Deprecated]**
-    // - DbName: The database name returned by the data center operation.
-    // - Database: The database name returned by the data center operation.
-    // - Tables: The table names returned by the data center operation.
-    // - TableIds: The table IDs returned by the data center operation.
-    // - Engine: The database engine type, such as mysql or postgresql.
-    // - RegionId: The current region.
+    // - DataSourceType: database is a fixed value.
+    // - DmsInstanceId: the DMS instance ID returned by the data center operation.
+    // - DmsDatabaseId: the DMS database ID returned by the data center operation.
+    // - FileId: the instance name. (Deprecated)
+    // - DbName: the database name returned by the data center operation.
+    // - Database: the database name returned by the data center operation.
+    // - Tables: the table names returned by the data center operation.
+    // - TableIds: the table IDs returned by the data center operation.
+    // - Engine: the engine type (mysql or postgresql).
+    // - RegionId: the current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -645,10 +645,10 @@ namespace Models
     // The execution configuration.
     shared_ptr<CreateCustomAgentRequest::ExecutionConfig> executionConfig_ {};
     // The instruction.
-    // - Input limit: Up to 10,000 characters.
+    // - Input limit: up to 10,000 characters.
     shared_ptr<string> instruction_ {};
     // The knowledge.
-    // - Input limit: Up to 10,000 characters.
+    // - Input limit: up to 10,000 characters.
     shared_ptr<string> knowledge_ {};
     // The external knowledge bases.
     shared_ptr<vector<CreateCustomAgentRequest::KnowledgeConfigList>> knowledgeConfigList_ {};

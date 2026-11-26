@@ -33,6 +33,7 @@
 #include <alibabacloud/models/DLTableInput.hpp>
 #include <alibabacloud/models/DLTablebaseInfo.hpp>
 #include <alibabacloud/models/DataAgentApplication.hpp>
+#include <alibabacloud/models/DataAgentApplicationAgreement.hpp>
 #include <alibabacloud/models/DataAgentBillingInstance.hpp>
 #include <alibabacloud/models/DataMountInfo.hpp>
 #include <alibabacloud/models/DmsGatewayOrder.hpp>
@@ -68,10 +69,6 @@
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceResponse.hpp>
-#include <alibabacloud/models/BatchCreateDataLakePartitionsRequest.hpp>
-#include <alibabacloud/models/BatchCreateDataLakePartitionsShrinkRequest.hpp>
-#include <alibabacloud/models/BatchCreateDataLakePartitionsResponseBody.hpp>
-#include <alibabacloud/models/BatchCreateDataLakePartitionsResponse.hpp>
 #include <alibabacloud/models/CheckDataAgentMemoryConfigRequest.hpp>
 #include <alibabacloud/models/CheckDataAgentMemoryConfigResponseBody.hpp>
 #include <alibabacloud/models/CheckDataAgentMemoryConfigResponse.hpp>

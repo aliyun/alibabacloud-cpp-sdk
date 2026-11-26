@@ -20,8 +20,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DagsDir, dagsDir_);
       DARABONBA_PTR_TO_JSON(DataMountInfoList, dataMountInfoListShrink_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(EnableLineage, enableLineage_);
       DARABONBA_PTR_TO_JSON(EnableServerless, enableServerless_);
       DARABONBA_PTR_TO_JSON(GracefulShutdownTimeout, gracefulShutdownTimeout_);
+      DARABONBA_PTR_TO_JSON(LineageReplicas, lineageReplicas_);
+      DARABONBA_PTR_TO_JSON(LineageSpec, lineageSpec_);
       DARABONBA_PTR_TO_JSON(PluginsDir, pluginsDir_);
       DARABONBA_PTR_TO_JSON(RequirementFile, requirementFile_);
       DARABONBA_PTR_TO_JSON(StartupFile, startupFile_);
@@ -36,8 +39,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DagsDir, dagsDir_);
       DARABONBA_PTR_FROM_JSON(DataMountInfoList, dataMountInfoListShrink_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(EnableLineage, enableLineage_);
       DARABONBA_PTR_FROM_JSON(EnableServerless, enableServerless_);
       DARABONBA_PTR_FROM_JSON(GracefulShutdownTimeout, gracefulShutdownTimeout_);
+      DARABONBA_PTR_FROM_JSON(LineageReplicas, lineageReplicas_);
+      DARABONBA_PTR_FROM_JSON(LineageSpec, lineageSpec_);
       DARABONBA_PTR_FROM_JSON(PluginsDir, pluginsDir_);
       DARABONBA_PTR_FROM_JSON(RequirementFile, requirementFile_);
       DARABONBA_PTR_FROM_JSON(StartupFile, startupFile_);
@@ -57,8 +63,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->airflowId_ == nullptr
         && this->airflowName_ == nullptr && this->appSpec_ == nullptr && this->clientToken_ == nullptr && this->dagsDir_ == nullptr && this->dataMountInfoListShrink_ == nullptr
-        && this->description_ == nullptr && this->enableServerless_ == nullptr && this->gracefulShutdownTimeout_ == nullptr && this->pluginsDir_ == nullptr && this->requirementFile_ == nullptr
-        && this->startupFile_ == nullptr && this->workerServerlessReplicas_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->description_ == nullptr && this->enableLineage_ == nullptr && this->enableServerless_ == nullptr && this->gracefulShutdownTimeout_ == nullptr && this->lineageReplicas_ == nullptr
+        && this->lineageSpec_ == nullptr && this->pluginsDir_ == nullptr && this->requirementFile_ == nullptr && this->startupFile_ == nullptr && this->workerServerlessReplicas_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // airflowId Field Functions 
     bool hasAirflowId() const { return this->airflowId_ != nullptr;};
     void deleteAirflowId() { this->airflowId_ = nullptr;};
@@ -108,6 +115,13 @@ namespace Models
     inline UpdateAirflowShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+    // enableLineage Field Functions 
+    bool hasEnableLineage() const { return this->enableLineage_ != nullptr;};
+    void deleteEnableLineage() { this->enableLineage_ = nullptr;};
+    inline bool getEnableLineage() const { DARABONBA_PTR_GET_DEFAULT(enableLineage_, false) };
+    inline UpdateAirflowShrinkRequest& setEnableLineage(bool enableLineage) { DARABONBA_PTR_SET_VALUE(enableLineage_, enableLineage) };
+
+
     // enableServerless Field Functions 
     bool hasEnableServerless() const { return this->enableServerless_ != nullptr;};
     void deleteEnableServerless() { this->enableServerless_ = nullptr;};
@@ -120,6 +134,20 @@ namespace Models
     void deleteGracefulShutdownTimeout() { this->gracefulShutdownTimeout_ = nullptr;};
     inline int32_t getGracefulShutdownTimeout() const { DARABONBA_PTR_GET_DEFAULT(gracefulShutdownTimeout_, 0) };
     inline UpdateAirflowShrinkRequest& setGracefulShutdownTimeout(int32_t gracefulShutdownTimeout) { DARABONBA_PTR_SET_VALUE(gracefulShutdownTimeout_, gracefulShutdownTimeout) };
+
+
+    // lineageReplicas Field Functions 
+    bool hasLineageReplicas() const { return this->lineageReplicas_ != nullptr;};
+    void deleteLineageReplicas() { this->lineageReplicas_ = nullptr;};
+    inline int32_t getLineageReplicas() const { DARABONBA_PTR_GET_DEFAULT(lineageReplicas_, 0) };
+    inline UpdateAirflowShrinkRequest& setLineageReplicas(int32_t lineageReplicas) { DARABONBA_PTR_SET_VALUE(lineageReplicas_, lineageReplicas) };
+
+
+    // lineageSpec Field Functions 
+    bool hasLineageSpec() const { return this->lineageSpec_ != nullptr;};
+    void deleteLineageSpec() { this->lineageSpec_ = nullptr;};
+    inline string getLineageSpec() const { DARABONBA_PTR_GET_DEFAULT(lineageSpec_, "") };
+    inline UpdateAirflowShrinkRequest& setLineageSpec(string lineageSpec) { DARABONBA_PTR_SET_VALUE(lineageSpec_, lineageSpec) };
 
 
     // pluginsDir Field Functions 
@@ -158,13 +186,13 @@ namespace Models
 
 
   protected:
-    // The unique key ID of the Airflow instance.
+    // The unique key ID of Airflow.
     // 
     // This parameter is required.
     shared_ptr<string> airflowId_ {};
     // The name of the Airflow instance.
     shared_ptr<string> airflowName_ {};
-    // The specification description of the Airflow instance.
+    // The specification description of Airflow.
     shared_ptr<string> appSpec_ {};
     // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
@@ -172,17 +200,23 @@ namespace Models
     shared_ptr<string> dagsDir_ {};
     // The list of data mount information.
     shared_ptr<string> dataMountInfoListShrink_ {};
-    // The description of the Airflow instance.
+    // The description of Airflow.
     shared_ptr<string> description_ {};
+    // Specifies whether to enable data lineage. For Airflow 2.x, this feature is always disabled, and the lineage specifications and number of replicas are ignored.
+    shared_ptr<bool> enableLineage_ {};
     // Specifies whether to enable serverless workers.
     shared_ptr<bool> enableServerless_ {};
-    // The timeout period for a worker to exit.
+    // The timeout period for worker exit.
     shared_ptr<int32_t> gracefulShutdownTimeout_ {};
+    // The number of replicas for the lineage service. The default value is 1 when enabled. If omitted during an update, the original value is retained.
+    shared_ptr<int32_t> lineageReplicas_ {};
+    // The merged lineage service specification, which uses the same tier as AppSpec.
+    shared_ptr<string> lineageSpec_ {};
     // The plugin directory scanned by Airflow.
     shared_ptr<string> pluginsDir_ {};
     // The installation file for package dependencies.
     shared_ptr<string> requirementFile_ {};
-    // The script loaded at startup of the Airflow instance.
+    // The script loaded when the Airflow instance starts.
     shared_ptr<string> startupFile_ {};
     // The number of worker nodes.
     shared_ptr<int32_t> workerServerlessReplicas_ {};
