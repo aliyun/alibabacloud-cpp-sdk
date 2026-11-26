@@ -21,6 +21,24 @@ namespace IntelligentCreation20240313
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 新增剧本热词
+       *
+       * @param request AddScriptHotWordRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddScriptHotWordResponse
+       */
+      Models::AddScriptHotWordResponse addScriptHotWordWithOptions(const Models::AddScriptHotWordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增剧本热词
+       *
+       * @param request AddScriptHotWordRequest
+       * @return AddScriptHotWordResponse
+       */
+      Models::AddScriptHotWordResponse addScriptHotWord(const Models::AddScriptHotWordRequest &request);
+
+      /**
        * @summary 添加文案反馈
        *
        * @param request AddTextFeedbackRequest
@@ -559,6 +577,24 @@ namespace IntelligentCreation20240313
        * @return DeleteIndividuationTextResponse
        */
       Models::DeleteIndividuationTextResponse deleteIndividuationText(const Models::DeleteIndividuationTextRequest &request);
+
+      /**
+       * @summary 删除剧本热词
+       *
+       * @param request DeleteScriptHotWordRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteScriptHotWordResponse
+       */
+      Models::DeleteScriptHotWordResponse deleteScriptHotWordWithOptions(const Models::DeleteScriptHotWordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除剧本热词
+       *
+       * @param request DeleteScriptHotWordRequest
+       * @return DeleteScriptHotWordResponse
+       */
+      Models::DeleteScriptHotWordResponse deleteScriptHotWord(const Models::DeleteScriptHotWordRequest &request);
 
       /**
        * @summary 查询文档信息与状态
@@ -1173,6 +1209,24 @@ namespace IntelligentCreation20240313
       Models::QueryIndividuationTextTaskResponse queryIndividuationTextTask(const Models::QueryIndividuationTextTaskRequest &request);
 
       /**
+       * @summary 检索剧本热词列表
+       *
+       * @param request QueryScriptHotWordListRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryScriptHotWordListResponse
+       */
+      Models::QueryScriptHotWordListResponse queryScriptHotWordListWithOptions(const Models::QueryScriptHotWordListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检索剧本热词列表
+       *
+       * @param request QueryScriptHotWordListRequest
+       * @return QueryScriptHotWordListResponse
+       */
+      Models::QueryScriptHotWordListResponse queryScriptHotWordList(const Models::QueryScriptHotWordListRequest &request);
+
+      /**
        * @summary 查询会话信息
        *
        * @param tmpReq QuerySessionInfoRequest
@@ -1492,6 +1546,24 @@ namespace IntelligentCreation20240313
        * @return UpdateAgentResponse
        */
       Models::UpdateAgentResponse updateAgent(const Models::UpdateAgentRequest &request);
+
+      /**
+       * @summary 更新剧本热词
+       *
+       * @param request UpdateScriptHotWordRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateScriptHotWordResponse
+       */
+      Models::UpdateScriptHotWordResponse updateScriptHotWordWithOptions(const Models::UpdateScriptHotWordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新剧本热词
+       *
+       * @param request UpdateScriptHotWordRequest
+       * @return UpdateScriptHotWordResponse
+       */
+      Models::UpdateScriptHotWordResponse updateScriptHotWord(const Models::UpdateScriptHotWordRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace IntelligentCreation20240313

@@ -43,6 +43,59 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 新增剧本热词
+ *
+ * @param request AddScriptHotWordRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddScriptHotWordResponse
+ */
+AddScriptHotWordResponse Client::addScriptHotWordWithOptions(const AddScriptHotWordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasHotWord()) {
+    body["hotWord"] = request.getHotWord();
+  }
+
+  if (!!request.hasScriptRecordId()) {
+    body["scriptRecordId"] = request.getScriptRecordId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddScriptHotWord"},
+    {"version" , "2024-03-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/yic/yic-console/openService/v1/aicoach/addScriptHotWord")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddScriptHotWordResponse>();
+}
+
+/**
+ * @summary 新增剧本热词
+ *
+ * @param request AddScriptHotWordRequest
+ * @return AddScriptHotWordResponse
+ */
+AddScriptHotWordResponse Client::addScriptHotWord(const AddScriptHotWordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return addScriptHotWordWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 添加文案反馈
  *
  * @param request AddTextFeedbackRequest
@@ -1698,6 +1751,51 @@ DeleteIndividuationTextResponse Client::deleteIndividuationText(const DeleteIndi
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteIndividuationTextWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 删除剧本热词
+ *
+ * @param request DeleteScriptHotWordRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteScriptHotWordResponse
+ */
+DeleteScriptHotWordResponse Client::deleteScriptHotWordWithOptions(const DeleteScriptHotWordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHotWordId()) {
+    query["hotWordId"] = request.getHotWordId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteScriptHotWord"},
+    {"version" , "2024-03-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/yic/yic-console/openService/v1/aicoach/deleteScriptHotWord")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteScriptHotWordResponse>();
+}
+
+/**
+ * @summary 删除剧本热词
+ *
+ * @param request DeleteScriptHotWordRequest
+ * @return DeleteScriptHotWordResponse
+ */
+DeleteScriptHotWordResponse Client::deleteScriptHotWord(const DeleteScriptHotWordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteScriptHotWordWithOptions(request, headers, runtime);
 }
 
 /**
@@ -3479,6 +3577,63 @@ QueryIndividuationTextTaskResponse Client::queryIndividuationTextTask(const Quer
 }
 
 /**
+ * @summary 检索剧本热词列表
+ *
+ * @param request QueryScriptHotWordListRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryScriptHotWordListResponse
+ */
+QueryScriptHotWordListResponse Client::queryScriptHotWordListWithOptions(const QueryScriptHotWordListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHotWord()) {
+    query["hotWord"] = request.getHotWord();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasScriptRecordId()) {
+    query["scriptRecordId"] = request.getScriptRecordId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryScriptHotWordList"},
+    {"version" , "2024-03-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/yic/yic-console/openService/v1/aicoach/listScriptHotWord")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryScriptHotWordListResponse>();
+}
+
+/**
+ * @summary 检索剧本热词列表
+ *
+ * @param request QueryScriptHotWordListRequest
+ * @return QueryScriptHotWordListResponse
+ */
+QueryScriptHotWordListResponse Client::queryScriptHotWordList(const QueryScriptHotWordListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryScriptHotWordListWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询会话信息
  *
  * @param tmpReq QuerySessionInfoRequest
@@ -4539,6 +4694,59 @@ UpdateAgentResponse Client::updateAgent(const UpdateAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateAgentWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 更新剧本热词
+ *
+ * @param request UpdateScriptHotWordRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateScriptHotWordResponse
+ */
+UpdateScriptHotWordResponse Client::updateScriptHotWordWithOptions(const UpdateScriptHotWordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasHotWord()) {
+    body["hotWord"] = request.getHotWord();
+  }
+
+  if (!!request.hasHotWordId()) {
+    body["hotWordId"] = request.getHotWordId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateScriptHotWord"},
+    {"version" , "2024-03-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/yic/yic-console/openService/v1/aicoach/updateScriptHotWord")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateScriptHotWordResponse>();
+}
+
+/**
+ * @summary 更新剧本热词
+ *
+ * @param request UpdateScriptHotWordRequest
+ * @return UpdateScriptHotWordResponse
+ */
+UpdateScriptHotWordResponse Client::updateScriptHotWord(const UpdateScriptHotWordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateScriptHotWordWithOptions(request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace IntelligentCreation20240313

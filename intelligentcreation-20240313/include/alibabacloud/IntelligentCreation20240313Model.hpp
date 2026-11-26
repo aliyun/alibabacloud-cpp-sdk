@@ -28,6 +28,9 @@
 #include <alibabacloud/models/TextTheme.hpp>
 #include <alibabacloud/models/TextThemeListResult.hpp>
 #include <alibabacloud/models/VoiceModelResponse.hpp>
+#include <alibabacloud/models/AddScriptHotWordRequest.hpp>
+#include <alibabacloud/models/AddScriptHotWordResponseBody.hpp>
+#include <alibabacloud/models/AddScriptHotWordResponse.hpp>
 #include <alibabacloud/models/AddTextFeedbackRequest.hpp>
 #include <alibabacloud/models/AddTextFeedbackResponseBody.hpp>
 #include <alibabacloud/models/AddTextFeedbackResponse.hpp>
@@ -120,6 +123,9 @@
 #include <alibabacloud/models/DeleteIndividuationTextRequest.hpp>
 #include <alibabacloud/models/DeleteIndividuationTextResponseBody.hpp>
 #include <alibabacloud/models/DeleteIndividuationTextResponse.hpp>
+#include <alibabacloud/models/DeleteScriptHotWordRequest.hpp>
+#include <alibabacloud/models/DeleteScriptHotWordResponseBody.hpp>
+#include <alibabacloud/models/DeleteScriptHotWordResponse.hpp>
 #include <alibabacloud/models/DescribeDocumentResponse.hpp>
 #include <alibabacloud/models/FinishAICoachTaskSessionRequest.hpp>
 #include <alibabacloud/models/FinishAICoachTaskSessionResponseBody.hpp>
@@ -209,6 +215,9 @@
 #include <alibabacloud/models/QueryIndividuationTextTaskRequest.hpp>
 #include <alibabacloud/models/QueryIndividuationTextTaskResponseBody.hpp>
 #include <alibabacloud/models/QueryIndividuationTextTaskResponse.hpp>
+#include <alibabacloud/models/QueryScriptHotWordListRequest.hpp>
+#include <alibabacloud/models/QueryScriptHotWordListResponseBody.hpp>
+#include <alibabacloud/models/QueryScriptHotWordListResponse.hpp>
 #include <alibabacloud/models/QuerySessionInfoRequest.hpp>
 #include <alibabacloud/models/QuerySessionInfoShrinkRequest.hpp>
 #include <alibabacloud/models/QuerySessionInfoResponseBody.hpp>
@@ -259,5 +268,8 @@
 #include <alibabacloud/models/UpdateAgentRequest.hpp>
 #include <alibabacloud/models/UpdateAgentResponseBody.hpp>
 #include <alibabacloud/models/UpdateAgentResponse.hpp>
+#include <alibabacloud/models/UpdateScriptHotWordRequest.hpp>
+#include <alibabacloud/models/UpdateScriptHotWordResponseBody.hpp>
+#include <alibabacloud/models/UpdateScriptHotWordResponse.hpp>
 
 #endif
