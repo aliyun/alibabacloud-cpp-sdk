@@ -68,7 +68,9 @@ namespace Models
 
 
     protected:
+      // The identifier type. MAC indicates a network interface controller (NIC) MAC address, SystemSN indicates a system serial number, and BIOSSN indicates a BIOS serial number.
       shared_ptr<string> identifierType_ {};
+      // The identifier value. A MAC address must be a 6-byte address. A system serial number accepts 1 to 64 characters, and a BIOS serial number accepts 1 to 128 characters. MAC addresses are converted to the lowercase colon-separated format when stored, while system serial numbers and BIOS serial numbers retain their original values.
       shared_ptr<string> identifierValue_ {};
     };
 
@@ -83,6 +85,8 @@ namespace Models
 
 
   protected:
+    // The list of device ownership identifiers to add. Each batch supports 1 to 1,000 items. Each item must include IdentifierType and IdentifierValue.
+    // 
     // This parameter is required.
     shared_ptr<vector<AddDeviceBelongIdentifiersRequest::Identifiers>> identifiers_ {};
   };

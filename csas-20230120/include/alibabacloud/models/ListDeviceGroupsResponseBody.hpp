@@ -132,25 +132,25 @@ namespace Models
 
 
     protected:
-      // The description of the device tag.
+      // The description of the device group.
       shared_ptr<string> description_ {};
-      // The ID of the device tag.
+      // The ID of the device group.
       shared_ptr<string> deviceGroupId_ {};
       // The operator for the dynamic device group rule.
       shared_ptr<string> dynamicOperator_ {};
-      // The matching rule for the dynamic device tag.
+      // The matching rule for the dynamic device group.
       shared_ptr<Rule> dynamicRule_ {};
-      // The type of the device tag. Valid values:
-      // - **static**: Static device tag. Members consist of manually added terminal devices.
-      // - **dynamic**: Dynamic device tag. Members are automatically calculated based on matching rules when terminal devices report heartbeats.
+      // The type of the device group. Valid values:
+      // - **static**: A static device group. Its members are manually added terminal devices.
+      // - **dynamic**: A dynamic device group. Its members are automatically calculated based on matching rules when terminal devices report heartbeats.
       shared_ptr<string> groupType_ {};
-      // Specifies whether the device tag is a built-in system device tag. Valid values:
-      // - **true**: Built-in system device tag.
-      // - **false**: Custom device tag.
+      // Specifies whether the device group is a built-in system device group. Valid values:
+      // - **true**: The device group is a built-in system device group.
+      // - **false**: The device group is a custom device group.
       shared_ptr<string> isDefault_ {};
-      // The IDs of the terminal devices that are associated with the device tag.
+      // The IDs of the terminal devices associated with the device group.
       shared_ptr<vector<string>> matchDevTags_ {};
-      // The name of the device tag.
+      // The name of the device group.
       shared_ptr<string> name_ {};
     };
 
@@ -180,11 +180,11 @@ namespace Models
 
 
   protected:
-    // The list of device tags.
+    // The list of device groups.
     shared_ptr<vector<ListDeviceGroupsResponseBody::DeviceGroups>> deviceGroups_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of device tags.
+    // The total number of device groups.
     shared_ptr<int64_t> totalNum_ {};
   };
 

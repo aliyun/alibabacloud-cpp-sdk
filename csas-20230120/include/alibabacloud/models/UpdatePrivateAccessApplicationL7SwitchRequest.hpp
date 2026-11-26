@@ -90,7 +90,9 @@ namespace Models
 
 
     protected:
+      // The list of HTTP request methods allowed for the paths in this group. You can specify up to 7 methods. If this parameter is not specified or an empty array is specified, the request methods are not restricted.
       shared_ptr<vector<string>> allowMethods_ {};
+      // The list of URL paths allowed for access in this group. You must specify at least 1 path and up to 20 paths. The paths match the path part in the request, excluding the protocol, domain name, and query parameters.
       shared_ptr<vector<string>> urls_ {};
     };
 
@@ -226,7 +228,7 @@ namespace Models
     // - **Enabled**: Enabled.
     // - **Disabled**: Disabled.
     shared_ptr<string> downloadAuditStatus_ {};
-    // The port ranges for the internal access application. Multiple port ranges cannot overlap or be duplicated. You can specify up to 50 port ranges. This parameter takes effect and is verified only when Status is set to **Enabled**. If this parameter is not specified or an empty set is specified, the default ports 80, 443, 8080, and 465 are used. The effective ports are the intersection of the ports specified in this request and the configured port ranges of the internal access application.
+    // The port ranges for the internal access application. Multiple port ranges cannot be duplicate or overlap. You can specify up to 50 port ranges. This parameter takes effect and is verified only when Status is set to **Enabled**. If this parameter is not specified or an empty set is specified, the default ports 80, 443, 8080, and 465 are used. The effective ports are the intersection of the ports specified in this request and the port ranges already configured for the internal access application.
     shared_ptr<vector<UpdatePrivateAccessApplicationL7SwitchRequest::PortRanges>> portRanges_ {};
     // The source IP marking switch. Required. Valid values:
     // - **Enabled**: Enabled.
@@ -236,16 +238,17 @@ namespace Models
     // - **Enabled**: Enabled.
     // - **Disabled**: Disabled.
     // 
-    // When the value is set to **Disabled**, PortRanges is neither verified nor saved.
+    // When the value is **Disabled**, PortRanges is neither verified nor saved.
     shared_ptr<string> status_ {};
-    // The request timeout period, in seconds. Valid values: 1 to 3600. Default value: 60. If this parameter is not specified or an invalid value is specified, the default value 60 is used.
+    // The request timeout period in seconds. Valid values: 1 to 3600. Default value: 60. If this parameter is not specified or an invalid value is specified, the default value 60 is used.
     shared_ptr<int32_t> timeoutSec_ {};
+    // The URL access whitelist rules for the application. You can specify up to 20 rule groups. The size cannot exceed 2,048 bytes after JSON serialization. This parameter takes effect only when Status is set to Enabled. A request passes the URL check only when its path and method meet any group of rules at the same time; otherwise, the request is blocked. Requests that are already blocked by access policies are not allowed even if they pass the URL check. If this parameter is not specified or an empty array is specified, the original rules are cleared. The rules are also cleared when Status is set to Disabled.
     shared_ptr<vector<UpdatePrivateAccessApplicationL7SwitchRequest::UrlAccessPaths>> urlAccessPaths_ {};
     // The user marking switch. Required. Valid values:
     // - **Enabled**: Enabled.
     // - **Disabled**: Disabled.
     shared_ptr<string> userMarkStatus_ {};
-    // The Host bypass prevention switch. Required. Valid values:
+    // The host bypass prevention switch. Required. Valid values:
     // - **Enabled**: Enabled.
     // - **Disabled**: Disabled.
     shared_ptr<string> zeroTrustStatus_ {};

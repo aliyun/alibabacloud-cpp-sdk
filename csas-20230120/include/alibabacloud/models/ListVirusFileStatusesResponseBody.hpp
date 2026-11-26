@@ -232,7 +232,7 @@ namespace Models
       shared_ptr<string> consoleOperationTime_ {};
       // The name of the department to which the user belongs. Multiple departments are separated by commas (,). The nearest department name in the organizational structure is returned, not the full path.
       shared_ptr<string> department_ {};
-      // The unique identifier of the user\\"s endpoint device that detected this virus file.
+      // The unique identifier of the user\"s endpoint device that detected this virus file.
       shared_ptr<string> devTag_ {};
       // The operating system type of the user terminal device. Valid values:
       // - **windows**: Windows.
@@ -242,7 +242,7 @@ namespace Models
       shared_ptr<string> discoveryTime_ {};
       // The MD5 hash of the virus file.
       shared_ptr<string> fileMd5_ {};
-      // The absolute path of the virus file on the user\\"s endpoint device.
+      // The absolute path of the virus file on the user\"s endpoint device.
       shared_ptr<string> filePath_ {};
       // The disposition status. Valid values:
       // - **Pending**: Pending disposition.
@@ -250,7 +250,7 @@ namespace Models
       shared_ptr<string> fileProcessStatus_ {};
       // The size of the virus file, in bytes.
       shared_ptr<int32_t> fileSize_ {};
-      // The hostname of the user\\"s endpoint device.
+      // The hostname of the user\"s endpoint device.
       shared_ptr<string> hostname_ {};
       // The disposition action that has been performed. An empty string is returned when no disposition has been performed. Valid values:
       // - **AdminQuarantine**: Quarantined by administrator.
@@ -260,7 +260,7 @@ namespace Models
       // - **AutoQuarantine**: Automatically quarantined based on policy.
       // - **Fail**: Disposition failed.
       shared_ptr<string> operation_ {};
-      // The effective period of the disposition, in the format yyyy-MM-dd HH:mm:ss (UTC+8). The later of the actual disposition time on the user\\"s endpoint device and the time when the administrator initiated the disposition is used. A hyphen (-) is returned when no disposition has been performed.
+      // The effective period of the disposition, in the format yyyy-MM-dd HH:mm:ss (UTC+8). The later of the actual disposition time on the user\"s endpoint device and the time when the administrator initiated the disposition is used. A hyphen (-) is returned when no disposition has been performed.
       shared_ptr<string> operationTime_ {};
       // The risk level. Valid values:
       // - **High**: High risk.
@@ -271,7 +271,7 @@ namespace Models
       shared_ptr<string> saseUserId_ {};
       // The ID of the virus scan task that detected this virus file. An empty string is returned when the file is detected by real-time protection.
       shared_ptr<string> scanTaskId_ {};
-      // The execution result description of the disposition or scan, reported by the user\\"s endpoint device. If a disposition record exists, the execution result of the disposition task is returned. Otherwise, the execution result of the scan task is returned.
+      // The execution result description of the disposition or scan, reported by the user\"s endpoint device. If a disposition record exists, the execution result of the disposition task is returned. Otherwise, the execution result of the scan task is returned.
       shared_ptr<string> taskExecutionInfo_ {};
       // The username.
       shared_ptr<string> username_ {};

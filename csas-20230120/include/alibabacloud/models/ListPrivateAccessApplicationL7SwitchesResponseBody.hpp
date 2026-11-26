@@ -111,7 +111,9 @@ namespace Models
 
 
       protected:
+        // The list of HTTP request methods allowed for the paths in this group. An empty value indicates that request methods are not restricted.
         shared_ptr<vector<string>> allowMethods_ {};
+        // The list of URL paths allowed for access in this group. The list must contain at least 1 path and up to 20 paths. This parameter matches the path part in the request, excluding the protocol, domain name, and query parameters.
         shared_ptr<vector<string>> urls_ {};
       };
 
@@ -155,7 +157,7 @@ namespace Models
       protected:
         // The start port.
         shared_ptr<int32_t> begin_ {};
-        // The end port. The value must be greater than or equal to the start port.
+        // The end port. Must be greater than or equal to the start port.
         shared_ptr<int32_t> end_ {};
       };
 
@@ -237,7 +239,7 @@ namespace Models
 
 
     protected:
-      // The ID of the internal-facing application.
+      // The ID of the internal access application.
       shared_ptr<string> applicationId_ {};
       // The device tag marking switch. Valid values:
       // - **Enabled**: Enabled.
@@ -251,20 +253,21 @@ namespace Models
       shared_ptr<vector<L7Switches::PortRanges>> portRanges_ {};
       // The source IP marking switch. Valid values:
       // - **Enabled**: Enabled.
-      // - **Disabled**: Disabled.
+      // - **Disabled**: Disabled.**
       shared_ptr<string> srcIpMarkStatus_ {};
-      // The status of the internal-facing access policy. Valid values:
+      // The status of the internal access policy. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> status_ {};
       // The request timeout period.
       shared_ptr<int32_t> timeoutSec_ {};
+      // The URL access whitelist rules for the application. These rules take effect only when Status is set to Enabled. An empty value indicates that URLs and request methods are not restricted. A request passes the URL check only when the request path and method meet any group of rules at the same time. Otherwise, the request is blocked. Passing the URL check does not allow requests that are already blocked by an access policy.
       shared_ptr<vector<L7Switches::UrlAccessPaths>> urlAccessPaths_ {};
       // The user marking switch. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> userMarkStatus_ {};
-      // The host bypass prevention switch. Valid values:
+      // The host anti-bypass switch. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> zeroTrustStatus_ {};

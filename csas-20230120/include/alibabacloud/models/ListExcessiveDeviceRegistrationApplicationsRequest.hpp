@@ -132,11 +132,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
-    // The user\\"s department. The value must be 1 to 128 characters long and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
+    // The user\"s department. The value must be 1 to 128 characters long and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
     shared_ptr<string> department_ {};
     // The device ID. You can get the device ID from the `DeviceTag` parameter returned by the following operations:
     // 
-    // - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user\\"s device.
+    // - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user\"s device.
     // 
     // - [ListUserDevices](~~ListUserDevices~~): Queries a list of devices for a user.
     shared_ptr<string> deviceTag_ {};
@@ -150,13 +150,13 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The user ID. You can get the user ID from the `SaseUserId` parameter returned by the following operations:
     // 
-    // - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user\\"s device.
+    // - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user\"s device.
     // 
     // - [ListUserDevices](~~ListUserDevices~~): Queries a list of devices for a user.
     shared_ptr<string> saseUserId_ {};
     // The statuses of excessive device registration applications.
     shared_ptr<vector<string>> statuses_ {};
-    // The username. The value must be 1 to 128 characters long and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
+    // The username. The value must be 1 to 128 characters long and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\*), at signs (@), and spaces.
     shared_ptr<string> username_ {};
   };
 

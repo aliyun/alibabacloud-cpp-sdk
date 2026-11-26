@@ -179,7 +179,7 @@ namespace Models
       shared_ptr<string> applicationId_ {};
       // The creation time of the excessive device registration application.
       shared_ptr<string> createTime_ {};
-      // The user\\"s department.
+      // The user\"s department.
       shared_ptr<string> department_ {};
       // The reason for the excessive device registration application.
       shared_ptr<string> description_ {};

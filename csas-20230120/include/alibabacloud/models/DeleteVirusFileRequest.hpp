@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the user\\"s endpoint device where the virus file is located. The value can be up to 64 characters in length. You can obtain the value from the following operation:
+    // The unique identifier of the user\"s endpoint device where the virus file is located. The value can be up to 64 characters in length. You can obtain the value from the following operation:
     // - [ListVirusFileStatuses](~~ListVirusFileStatuses~~): lists virus file statuses.
     // 
     // This parameter is required.
@@ -67,7 +67,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileMd5_ {};
-    // The full path of the virus file on the user\\"s endpoint device. Only records with a handling action of Fail can be deleted. You can obtain the value from the following operation:
+    // The full path of the virus file on the user\"s endpoint device. Only records with a handling action of Fail can be deleted. You can obtain the value from the following operation:
     // - [ListVirusFileStatuses](~~ListVirusFileStatuses~~): lists virus file statuses.
     // 
     // This parameter is required.

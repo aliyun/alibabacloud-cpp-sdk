@@ -73,7 +73,7 @@ namespace Models
 
 
     protected:
-      // The frequency unit for periodic execution. It is used together with Interval to specify the execution cycle. For example, a value of day indicates daily execution.
+      // The frequency unit for periodic execution. This parameter is used together with Interval to specify the execution cycle. For example, a value of day indicates daily execution.
       shared_ptr<string> frequency_ {};
       // The periodic execution interval. When Frequency is set, valid values are 1 to 10000. The unit is determined by Frequency. For example, if Frequency is set to day and Interval is set to 1, the execution interval is one day.
       shared_ptr<int64_t> interval_ {};
@@ -117,7 +117,7 @@ namespace Models
 
 
     protected:
-      // The end time of the daily effective time range. It uses the 24-hour HH:mm format and is interpreted based on the current system time zone of the server. It must not be earlier than Start.
+      // The end time of the daily effective time range. It uses the 24-hour HH:mm format and is interpreted based on the current system time zone of the server. The value cannot be earlier than Start.
       shared_ptr<string> end_ {};
       // The start time of the daily effective time range. It uses the 24-hour HH:mm format and is interpreted based on the current system time zone of the server.
       shared_ptr<string> start_ {};
@@ -207,19 +207,19 @@ namespace Models
 
 
     protected:
-      // Specifies whether the policy takes effect on Friday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+      // Specifies whether the policy takes effect on Friday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> friday_ {};
-      // Specifies whether the policy takes effect on Monday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+      // Specifies whether the policy takes effect on Monday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> monday_ {};
-      // Specifies whether the policy takes effect on Saturday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+      // Specifies whether the policy takes effect on Saturday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> saturday_ {};
-      // Specifies whether the policy takes effect on Sunday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+      // Specifies whether the policy takes effect on Sunday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> sunday_ {};
-      // Specifies whether the policy takes effect on Thursday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+      // Specifies whether the policy takes effect on Thursday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> thursday_ {};
-      // Specifies whether the policy takes effect on Tuesday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+      // Specifies whether the policy takes effect on Tuesday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> tuesday_ {};
-      // Specifies whether the policy takes effect on Wednesday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+      // Specifies whether the policy takes effect on Wednesday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> wednesday_ {};
     };
 
@@ -260,7 +260,7 @@ namespace Models
 
 
   protected:
-    // The effective days of the week configuration. Used when ValidType is set to Weekly.
+    // The effective days of the week configuration. This parameter is used when ValidType is set to Weekly.
     shared_ptr<ExecutePeriod::EffectDay> effectDay_ {};
     // The daily effective time range. Both Start and End use the 24-hour HH:mm format and are interpreted based on the current system time zone of the server. The time range cannot span across days.
     shared_ptr<ExecutePeriod::EffectTime> effectTime_ {};
@@ -269,7 +269,7 @@ namespace Models
     // The execution cycle mode. Valid values:
     // - **Once**: Single execution mode. Used in combination with ExecuteMode=Once.
     // - **Interval**: Periodic execution at a specified frequency. Used in combination with ExecuteMode=Schedule.
-    // - **Weekly**: Weekly execution on selected days. Used in combination with ExecuteMode=Schedule and EffectDay.
+    // - **Weekly**: Execution on selected days of the week. Used in combination with ExecuteMode=Schedule and EffectDay.
     shared_ptr<string> validType_ {};
   };
 

@@ -94,9 +94,13 @@ namespace Models
 
 
     protected:
+      // The time when the record was created. The time is in RFC 3339 format and includes time zone information.
       shared_ptr<string> createTime_ {};
+      // The ID of the identifier record, returned as a decimal string. You can use the ID to query or remove the record.
       shared_ptr<string> identifierId_ {};
+      // The identifier type. MAC indicates the MAC address of the network interface controller (NIC), SystemSN indicates the system serial number, and BIOSSN indicates the BIOS serial number.
       shared_ptr<string> identifierType_ {};
+      // The identifier value in the record. MAC addresses are in the lowercase colon-separated format. System serial numbers and BIOS serial numbers are returned as recorded.
       shared_ptr<string> identifierValue_ {};
     };
 
@@ -140,10 +144,15 @@ namespace Models
 
 
   protected:
+    // The device ownership identifier records on the current page. An empty list is returned if no matching records are found.
     shared_ptr<vector<ListDeviceBelongIdentifiersResponseBody::Identifiers>> identifiers_ {};
+    // A reserved pagination field. No valid value is returned in the current version.
     shared_ptr<int32_t> maxResults_ {};
+    // A reserved pagination cursor. No valid value is returned in the current version.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records that match the filter conditions for the current tenant.
     shared_ptr<int64_t> totalCount_ {};
   };
 

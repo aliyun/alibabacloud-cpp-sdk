@@ -479,7 +479,7 @@ namespace Models
 
 
     protected:
-      // User\\"s department.
+      // User\"s department.
       shared_ptr<string> department_ {};
       // Device ID.
       shared_ptr<string> devTag_ {};

@@ -220,7 +220,7 @@ namespace Models
     // 
     // - **false**: Sharing is disabled.
     shared_ptr<bool> sharingStatus_ {};
-    // Username. Must be 1 to 128 characters long. Supports Chinese, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
+    // Username. Must be 1 to 128 characters long. Supports Chinese, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\*), at signs (@), and spaces.
     shared_ptr<string> username_ {};
   };
 

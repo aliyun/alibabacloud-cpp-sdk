@@ -160,7 +160,7 @@ namespace Models
           // 
           // - If UserGroupType is **department**, this is the department name. Example: OU=Department 1,OU=SASE DingTalk.
           // 
-          // - If UserGroupType is **email**, this is the email address. Example: username\\@example.com.
+          // - If UserGroupType is **email**, this is the email address. Example: username\@example.com.
           // 
           // - If UserGroupType is **telephone**, this is the phone number. Example: 13900001234.
           shared_ptr<string> value_ {};

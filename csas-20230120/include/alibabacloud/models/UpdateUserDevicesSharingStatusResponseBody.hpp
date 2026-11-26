@@ -348,7 +348,7 @@ namespace Models
       shared_ptr<string> CPU_ {};
       // Device registration time.
       shared_ptr<string> createTime_ {};
-      // User\\"s department.
+      // User\"s department.
       shared_ptr<string> department_ {};
       // Device ownership. Values:
       // 

@@ -129,15 +129,15 @@ namespace Models
 
 
     protected:
-      // The user\\"s department.
+      // The user\"s department.
       shared_ptr<string> department_ {};
-      // The user\\"s email address.
+      // The user\"s email address.
       shared_ptr<string> email_ {};
       // A list of full department paths.
       shared_ptr<vector<string>> fullDepartment_ {};
       // The name of the Identity Provider (IdP).
       shared_ptr<string> idpName_ {};
-      // The user\\"s phone number.
+      // The user\"s phone number.
       shared_ptr<string> phone_ {};
       // The user ID.
       shared_ptr<string> saseUserId_ {};
