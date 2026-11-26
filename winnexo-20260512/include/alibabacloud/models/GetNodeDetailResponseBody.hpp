@@ -19,6 +19,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(artifacts, artifacts_);
       DARABONBA_PTR_TO_JSON(attemptSeq, attemptSeq_);
       DARABONBA_PTR_TO_JSON(code, code_);
+      DARABONBA_PTR_TO_JSON(conversationArchiveStatus, conversationArchiveStatus_);
+      DARABONBA_PTR_TO_JSON(conversationArchivedTime, conversationArchivedTime_);
       DARABONBA_PTR_TO_JSON(conversationId, conversationId_);
       DARABONBA_PTR_TO_JSON(conversationWritable, conversationWritable_);
       DARABONBA_PTR_TO_JSON(handler, handler_);
@@ -41,6 +43,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(artifacts, artifacts_);
       DARABONBA_PTR_FROM_JSON(attemptSeq, attemptSeq_);
       DARABONBA_PTR_FROM_JSON(code, code_);
+      DARABONBA_PTR_FROM_JSON(conversationArchiveStatus, conversationArchiveStatus_);
+      DARABONBA_PTR_FROM_JSON(conversationArchivedTime, conversationArchivedTime_);
       DARABONBA_PTR_FROM_JSON(conversationId, conversationId_);
       DARABONBA_PTR_FROM_JSON(conversationWritable, conversationWritable_);
       DARABONBA_PTR_FROM_JSON(handler, handler_);
@@ -722,10 +726,11 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->agentWorkProcess_ == nullptr
-        && this->artifacts_ == nullptr && this->attemptSeq_ == nullptr && this->code_ == nullptr && this->conversationId_ == nullptr && this->conversationWritable_ == nullptr
-        && this->handler_ == nullptr && this->message_ == nullptr && this->nodeId_ == nullptr && this->nodeName_ == nullptr && this->nodeType_ == nullptr
-        && this->requestId_ == nullptr && this->result_ == nullptr && this->resumePending_ == nullptr && this->runLog_ == nullptr && this->stateVersion_ == nullptr
-        && this->status_ == nullptr && this->todoIds_ == nullptr && this->turnSeq_ == nullptr && this->waitType_ == nullptr; };
+        && this->artifacts_ == nullptr && this->attemptSeq_ == nullptr && this->code_ == nullptr && this->conversationArchiveStatus_ == nullptr && this->conversationArchivedTime_ == nullptr
+        && this->conversationId_ == nullptr && this->conversationWritable_ == nullptr && this->handler_ == nullptr && this->message_ == nullptr && this->nodeId_ == nullptr
+        && this->nodeName_ == nullptr && this->nodeType_ == nullptr && this->requestId_ == nullptr && this->result_ == nullptr && this->resumePending_ == nullptr
+        && this->runLog_ == nullptr && this->stateVersion_ == nullptr && this->status_ == nullptr && this->todoIds_ == nullptr && this->turnSeq_ == nullptr
+        && this->waitType_ == nullptr; };
     // agentWorkProcess Field Functions 
     bool hasAgentWorkProcess() const { return this->agentWorkProcess_ != nullptr;};
     void deleteAgentWorkProcess() { this->agentWorkProcess_ = nullptr;};
@@ -756,6 +761,20 @@ namespace Models
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetNodeDetailResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // conversationArchiveStatus Field Functions 
+    bool hasConversationArchiveStatus() const { return this->conversationArchiveStatus_ != nullptr;};
+    void deleteConversationArchiveStatus() { this->conversationArchiveStatus_ = nullptr;};
+    inline string getConversationArchiveStatus() const { DARABONBA_PTR_GET_DEFAULT(conversationArchiveStatus_, "") };
+    inline GetNodeDetailResponseBody& setConversationArchiveStatus(string conversationArchiveStatus) { DARABONBA_PTR_SET_VALUE(conversationArchiveStatus_, conversationArchiveStatus) };
+
+
+    // conversationArchivedTime Field Functions 
+    bool hasConversationArchivedTime() const { return this->conversationArchivedTime_ != nullptr;};
+    void deleteConversationArchivedTime() { this->conversationArchivedTime_ = nullptr;};
+    inline int64_t getConversationArchivedTime() const { DARABONBA_PTR_GET_DEFAULT(conversationArchivedTime_, 0L) };
+    inline GetNodeDetailResponseBody& setConversationArchivedTime(int64_t conversationArchivedTime) { DARABONBA_PTR_SET_VALUE(conversationArchivedTime_, conversationArchivedTime) };
 
 
     // conversationId Field Functions 
@@ -885,6 +904,10 @@ namespace Models
     shared_ptr<int64_t> attemptSeq_ {};
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // 会话归档状态 ACTIVE/ARCHIVING/ARCHIVED
+    shared_ptr<string> conversationArchiveStatus_ {};
+    // 会话归档完成时间戳（秒）
+    shared_ptr<int64_t> conversationArchivedTime_ {};
     // The node conversation ID. This parameter is empty if no conversation is created.
     shared_ptr<string> conversationId_ {};
     // Indicates whether the current node conversation can continue to receive input.

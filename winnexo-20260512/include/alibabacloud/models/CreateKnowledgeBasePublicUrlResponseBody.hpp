@@ -123,23 +123,23 @@ namespace Models
   protected:
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The ID of the destination folder in the enterprise knowledge base that was specified in the request.
+    // The ID of the requested target directory in the enterprise knowledge base.
     shared_ptr<string> directoryId_ {};
     // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
-    // The error description. This value is empty if the request is successful.
+    // The error message. This parameter is empty if the request is successful.
     shared_ptr<string> message_ {};
-    // The resource name.
+    // The name of the resource.
     shared_ptr<string> name_ {};
-    // The submitted public web page URL.
+    // The URL of the submitted public web page.
     shared_ptr<string> originalUrl_ {};
-    // The request trace ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource scope. The value is fixed to TENANT.
+    // The scope of the resource. The value is fixed to TENANT.
     shared_ptr<string> scope_ {};
     // The ID of the newly created source.
     shared_ptr<string> sourceId_ {};
-    // The resource status. A value of RUNNING indicates that the request has been accepted but the crawling and parsing are not yet complete.
+    // The status of the resource. A value of RUNNING indicates that the request is accepted but the crawling and parsing are not completed.
     shared_ptr<string> status_ {};
   };
 

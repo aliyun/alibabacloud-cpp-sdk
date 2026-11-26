@@ -123,23 +123,23 @@ namespace Models
   protected:
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The folder description.
+    // The directory description.
     shared_ptr<string> description_ {};
-    // The folder ID.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // The folder type. The value is fixed as GROUP.
+    // The directory type. The value is fixed as GROUP.
     shared_ptr<string> directoryType_ {};
-    // The ID of the collaborative share.
+    // The ID of the collaboration workspace.
     shared_ptr<string> groupId_ {};
-    // The ID of the internal root folder in the collaborative share. This folder cannot be modified.
+    // The ID of the internal root directory in the collaboration workspace. This directory cannot be modified.
     shared_ptr<string> kbRootDirectoryId_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The folder name.
+    // The directory name.
     shared_ptr<string> name_ {};
-    // The parent folder ID.
+    // The ID of the parent directory.
     shared_ptr<string> parentDirectoryId_ {};
-    // The request trace ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

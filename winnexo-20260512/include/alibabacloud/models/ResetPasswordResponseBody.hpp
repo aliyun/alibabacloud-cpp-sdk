@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The description of the status code.
     shared_ptr<string> message_ {};
-    // The request trace ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
     // The WINNEXO platform user ID.
     shared_ptr<string> wnUserId_ {};

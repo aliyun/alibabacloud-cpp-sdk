@@ -82,7 +82,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The directory titles.
     shared_ptr<vector<Darabonba::Json>> directories_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

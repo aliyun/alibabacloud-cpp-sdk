@@ -13,18 +13,24 @@ namespace Models
   class ListOperatingObjectFavoritesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListOperatingObjectFavoritesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(graphName, graphName_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(objectType, objectType_);
       DARABONBA_PTR_TO_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, ListOperatingObjectFavoritesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(graphName, graphName_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(objectType, objectType_);
       DARABONBA_PTR_FROM_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
     };
@@ -39,8 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->graphName_ == nullptr
-        && this->nextToken_ == nullptr && this->objectType_ == nullptr && this->operatingObjectName_ == nullptr && this->pageSize_ == nullptr && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->graphName_ == nullptr && this->nextToken_ == nullptr && this->objectType_ == nullptr && this->operatingObjectName_ == nullptr && this->opsUserCode_ == nullptr
+        && this->opsUserId_ == nullptr && this->pageSize_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline ListOperatingObjectFavoritesRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // graphName Field Functions 
     bool hasGraphName() const { return this->graphName_ != nullptr;};
     void deleteGraphName() { this->graphName_ = nullptr;};
@@ -69,6 +83,20 @@ namespace Models
     inline ListOperatingObjectFavoritesRequest& setOperatingObjectName(string operatingObjectName) { DARABONBA_PTR_SET_VALUE(operatingObjectName_, operatingObjectName) };
 
 
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline ListOperatingObjectFavoritesRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline ListOperatingObjectFavoritesRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
+
+
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
@@ -84,7 +112,9 @@ namespace Models
 
 
   protected:
-    // The graph name. Call listGraphs to retrieve available graphs.
+    // The platform application token issued by the console. If specified, the operation is executed as the user identified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
+    // The name of the graph. You can call the listGraphs operation to obtain the graph name.
     // 
     // This parameter is required.
     shared_ptr<string> graphName_ {};
@@ -94,13 +124,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> objectType_ {};
-    // The digital employee name (operating object name). Optional.
+    // The name of the digital worker, which is the name of the operating object. This parameter is optional.
     // 
     // This parameter is required.
     shared_ptr<string> operatingObjectName_ {};
-    // The page size.
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The tenant ID to take effect.
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
   };
 

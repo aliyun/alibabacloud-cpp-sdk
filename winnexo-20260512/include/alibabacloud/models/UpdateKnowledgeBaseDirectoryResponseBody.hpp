@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The category ID (echoed from the input parameter).
+    // The category ID, which is echoed from the request parameter.
     shared_ptr<string> directoryId_ {};
     // The description of the status code.
     shared_ptr<string> message_ {};

@@ -92,11 +92,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the user has the required permissions.
+      // Indicates whether the user has the permission.
       shared_ptr<bool> allowed_ {};
       // The target permission.
       shared_ptr<string> permission_ {};
-      // The dot-separated resource key whose first segment is the application key.
+      // The dot-separated resource key. The first segment is the APP application key.
       shared_ptr<string> resourceKey_ {};
       // The resource type. Set the value to APP_RESOURCE.
       shared_ptr<string> resourceType_ {};
@@ -139,7 +139,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The error description. This field is empty if the request is successful.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
     // The results in the same order as the request.
     shared_ptr<vector<CheckAppResourcePermissionsBatchResponseBody::Results>> results_ {};

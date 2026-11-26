@@ -13,6 +13,7 @@ namespace Models
   class CreatePersonalAliDingChatRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreatePersonalAliDingChatRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(chatId, chatId_);
       DARABONBA_PTR_TO_JSON(chatName, chatName_);
       DARABONBA_PTR_TO_JSON(description, description_);
@@ -20,11 +21,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(historyStartTime, historyStartTime_);
       DARABONBA_PTR_TO_JSON(notes, notes_);
       DARABONBA_PTR_TO_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(updateFrequency, updateFrequency_);
     };
     friend void from_json(const Darabonba::Json& j, CreatePersonalAliDingChatRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(chatId, chatId_);
       DARABONBA_PTR_FROM_JSON(chatName, chatName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
@@ -32,6 +36,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(historyStartTime, historyStartTime_);
       DARABONBA_PTR_FROM_JSON(notes, notes_);
       DARABONBA_PTR_FROM_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(updateFrequency, updateFrequency_);
@@ -94,17 +100,25 @@ namespace Models
 
 
     protected:
-      // The cron expression for timed scheduling.
+      // The cron expression for the timed scheduling node.
       shared_ptr<string> cron_ {};
-      // Specifies whether to enable or disable the feature.
+      // **Enable or disable**
       shared_ptr<bool> enabled_ {};
-      // The preset mode (can be ignored).
+      // The preset mode, which can be ignored.
       shared_ptr<string> preset_ {};
     };
 
-    virtual bool empty() const override { return this->chatId_ == nullptr
-        && this->chatName_ == nullptr && this->description_ == nullptr && this->directoryId_ == nullptr && this->historyStartTime_ == nullptr && this->notes_ == nullptr
-        && this->operatingObjectName_ == nullptr && this->sourceTags_ == nullptr && this->tenantId_ == nullptr && this->updateFrequency_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->chatId_ == nullptr && this->chatName_ == nullptr && this->description_ == nullptr && this->directoryId_ == nullptr && this->historyStartTime_ == nullptr
+        && this->notes_ == nullptr && this->operatingObjectName_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr && this->sourceTags_ == nullptr
+        && this->tenantId_ == nullptr && this->updateFrequency_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline CreatePersonalAliDingChatRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // chatId Field Functions 
     bool hasChatId() const { return this->chatId_ != nullptr;};
     void deleteChatId() { this->chatId_ = nullptr;};
@@ -154,6 +168,20 @@ namespace Models
     inline CreatePersonalAliDingChatRequest& setOperatingObjectName(string operatingObjectName) { DARABONBA_PTR_SET_VALUE(operatingObjectName_, operatingObjectName) };
 
 
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline CreatePersonalAliDingChatRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline CreatePersonalAliDingChatRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
+
+
     // sourceTags Field Functions 
     bool hasSourceTags() const { return this->sourceTags_ != nullptr;};
     void deleteSourceTags() { this->sourceTags_ = nullptr;};
@@ -178,11 +206,13 @@ namespace Models
 
 
   protected:
-    // The DingTalk group chat session ID.
+    // The platform application token issued by the console. If provided, the operation is executed as the user specified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
+    // The ID of the DingTalk group chat session.
     // 
     // This parameter is required.
     shared_ptr<string> chatId_ {};
-    // The group chat name.
+    // The name of the group chat.
     shared_ptr<string> chatName_ {};
     // The pipeline description.
     shared_ptr<string> description_ {};
@@ -192,13 +222,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> historyStartTime_ {};
-    // The meeting notes content (optional). This participates in auxiliary analysis.
+    // The content of meeting notes (optional), which is used for auxiliary analysis.
     shared_ptr<string> notes_ {};
-    // The digital employee name (operating object name, optional).
+    // The name of the digital employee (the name of the operating object, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // The resource tags (optional, a JSON string list such as ["tagA","tagB"]).
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
+    // The resource tags (optional). The value is a JSON string list, such as ["tagA","tagB"].
     shared_ptr<string> sourceTags_ {};
-    // The tenant ID. This is a common parameter. The winnexo-cli passes this value explicitly by using --tenant-id.
+    // The tenant ID. This is a common parameter and is explicitly passed by using the --tenant-id option in winnexo-cli.
     shared_ptr<string> tenantId_ {};
     // The feature update frequency.
     shared_ptr<CreatePersonalAliDingChatRequest::UpdateFrequency> updateFrequency_ {};

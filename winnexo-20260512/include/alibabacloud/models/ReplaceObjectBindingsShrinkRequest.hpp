@@ -13,12 +13,18 @@ namespace Models
   class ReplaceObjectBindingsShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ReplaceObjectBindingsShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(objectBindings, objectBindingsShrink_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(sourceId, sourceId_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, ReplaceObjectBindingsShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(objectBindings, objectBindingsShrink_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(sourceId, sourceId_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
     };
@@ -33,13 +39,34 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->objectBindingsShrink_ == nullptr
-        && this->sourceId_ == nullptr && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->objectBindingsShrink_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr && this->sourceId_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline ReplaceObjectBindingsShrinkRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // objectBindingsShrink Field Functions 
     bool hasObjectBindingsShrink() const { return this->objectBindingsShrink_ != nullptr;};
     void deleteObjectBindingsShrink() { this->objectBindingsShrink_ = nullptr;};
     inline string getObjectBindingsShrink() const { DARABONBA_PTR_GET_DEFAULT(objectBindingsShrink_, "") };
     inline ReplaceObjectBindingsShrinkRequest& setObjectBindingsShrink(string objectBindingsShrink) { DARABONBA_PTR_SET_VALUE(objectBindingsShrink_, objectBindingsShrink) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline ReplaceObjectBindingsShrinkRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline ReplaceObjectBindingsShrinkRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // sourceId Field Functions 
@@ -57,15 +84,21 @@ namespace Models
 
 
   protected:
-    // The new list of object bindings (full replacement. Pass an empty list to clear all bindings).
+    // The platform application token issued by the console. If specified, the operation is executed as the user identified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
+    // The new list of object bindings for full replacement. Passing an empty list clears all bindings.
     // 
     // This parameter is required.
     shared_ptr<string> objectBindingsShrink_ {};
-    // The ID of the personal FILE data source to be replaced (unique within the tenant).
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
+    // The ID of the personal FILE data source to be replaced, which is unique within the tenant.
     // 
     // This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // The tenant ID. This is a common parameter. Pass it explicitly through winnexo-cli using --tenant-id.
+    // The tenant ID. This is a common parameter and is explicitly passed by winnexo-cli through the --tenant-id option.
     shared_ptr<string> tenantId_ {};
   };
 

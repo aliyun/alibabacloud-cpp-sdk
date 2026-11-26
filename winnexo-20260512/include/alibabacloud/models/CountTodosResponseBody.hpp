@@ -79,7 +79,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The error description.
     shared_ptr<string> message_ {};
-    // The number of pending items with the primary status of PENDING.
+    // The number of pending items with the PENDING primary status.
     shared_ptr<int64_t> pendingCount_ {};
     // The request tracking ID.
     shared_ptr<string> requestId_ {};

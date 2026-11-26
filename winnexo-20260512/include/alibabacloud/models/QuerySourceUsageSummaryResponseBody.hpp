@@ -111,13 +111,13 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The number of retrieval recalls.
     shared_ptr<int64_t> retrievalCount_ {};
-    // The deduplicated count of sources that have retrieval events.
+    // The deduplicated number of sources with retrieval events.
     shared_ptr<int64_t> retrievedSourceCount_ {};
     // The number of rows in the source data.
     shared_ptr<int64_t> sourceCount_ {};
     // The number of times the source has been used in agents.
     shared_ptr<int64_t> usageCount_ {};
-    // The deduplicated count of sources that have usage events.
+    // The deduplicated number of sources with usage events.
     shared_ptr<int64_t> usedSourceCount_ {};
   };
 

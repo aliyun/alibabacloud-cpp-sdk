@@ -13,8 +13,11 @@ namespace Models
   class GetScheduledTaskExecutionRecordsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetScheduledTaskExecutionRecordsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_TO_JSON(initiatorUserId, initiatorUserId_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(status, status_);
@@ -22,8 +25,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, GetScheduledTaskExecutionRecordsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_FROM_JSON(initiatorUserId, initiatorUserId_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(status, status_);
@@ -41,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->collaborationGroupId_ == nullptr
-        && this->initiatorUserId_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr
-        && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->collaborationGroupId_ == nullptr && this->initiatorUserId_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr && this->page_ == nullptr
+        && this->pageSize_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline GetScheduledTaskExecutionRecordsRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // collaborationGroupId Field Functions 
     bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
     void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
@@ -56,6 +69,20 @@ namespace Models
     void deleteInitiatorUserId() { this->initiatorUserId_ = nullptr;};
     inline string getInitiatorUserId() const { DARABONBA_PTR_GET_DEFAULT(initiatorUserId_, "") };
     inline GetScheduledTaskExecutionRecordsRequest& setInitiatorUserId(string initiatorUserId) { DARABONBA_PTR_SET_VALUE(initiatorUserId_, initiatorUserId) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline GetScheduledTaskExecutionRecordsRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline GetScheduledTaskExecutionRecordsRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // page Field Functions 
@@ -94,19 +121,25 @@ namespace Models
 
 
   protected:
-    // The ID of the collaboration group to which the task belongs, such as cg_101. If you specify this parameter, a group workspace task is created, and the caller must be a valid group member. If you leave this parameter empty, a personal task is created.
+    // The platform application token issued by the console. If this parameter is passed, the operation is executed as the user specified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
+    // The ID of the collaboration group to which the task belongs, such as cg_101. If this parameter is passed, a group space task is created, and the caller must be a valid group member. If this parameter is left empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
-    // The business status code. A value of 200 indicates success. A failure returns a backend error code, such as ERR.* or InvalidParameter.*.
+    // The business status code. A value of 200 indicates success. A failure is indicated by a backend error code such as ERR.* or InvalidParameter.*.
     shared_ptr<string> initiatorUserId_ {};
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
     // The page number. Default value: 1. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> page_ {};
     // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The initiator filter based on the platform user ID. The caliber is the executor of the record. For manual execution, it is the trigger user. For automatic execution, it is the task creator. To view only the tasks initiated by yourself, pass the current user ID.
+    // Filters records by the initiator platform user ID. The scope is the executor of the record. For manual execution, the executor is the trigger user. For automatic execution, the executor is the task creator. To view only the tasks that you initiated, pass the current user ID.
     shared_ptr<string> status_ {};
-    // The execution status filter in lowercase. Valid values: pending (queued), running (running), success (successful), failed (failed), timeout (timed out), and cancelled (cancelled). If you do not specify this parameter, no filtering is applied. If you specify this parameter, future planned items are no longer generated.
+    // The execution status filter in lowercase. Valid values: pending (queued), running (executing), success (succeeded), failed (failed), timeout (timed out), and cancelled (cancelled). If this parameter is not passed, no filtering is applied. If this parameter is passed, future plan items are not generated.
     shared_ptr<string> taskId_ {};
-    // The effective tenant ID.
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
   };
 

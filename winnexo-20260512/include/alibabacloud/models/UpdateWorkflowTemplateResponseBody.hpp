@@ -192,13 +192,11 @@ namespace Models
       shared_ptr<string> name_ {};
       // The name of the agent owner.
       shared_ptr<string> ownerAgentName_ {};
-      // The owner type. Valid values:
-      // - MEMBER: Human.
-      // - AGENT: Agent.
+      // The owner type. Valid values: MEMBER (human) and AGENT (agent).
       shared_ptr<string> ownerType_ {};
       // The user ID of the human owner.
       shared_ptr<int64_t> ownerUserId_ {};
-      // Specifies whether to manually review the output. Default value: false. This feature can only be enabled for digital workers, and review to-do items are automatically sent to the owner.
+      // Specifies whether to manually review the deliverables. Default value: false. This can be enabled only for digital workers. Review tasks are automatically sent to the owner.
       shared_ptr<bool> reviewOutput_ {};
       // The list of reviewer user IDs.
       shared_ptr<vector<int64_t>> reviewerUserIds_ {};
@@ -206,7 +204,7 @@ namespace Models
       shared_ptr<int64_t> sortOrder_ {};
       // The step processing instructions.
       shared_ptr<string> specification_ {};
-      // The ordered fragment array. Supports text, mention, skill, app, files, and web_search. Preserves reference identities and order.
+      // The ordered array of segments. Supports text, mention, skill, app, files, and web_search. Preserves reference identities and order.
       shared_ptr<vector<Darabonba::Json>> specificationJson_ {};
       // The step ID.
       shared_ptr<string> stepId_ {};
@@ -365,7 +363,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // The template structure version. The current value is 2, which is independent of the business version vN.
+    // The schema version of the template. The current value is 2, which is independent of the business version vN.
     shared_ptr<int64_t> schemaVersion_ {};
     // The ordered steps.
     shared_ptr<vector<UpdateWorkflowTemplateResponseBody::Steps>> steps_ {};
@@ -375,9 +373,7 @@ namespace Models
     shared_ptr<string> version_ {};
     // The change description for this version. An empty value indicates that no description is provided.
     shared_ptr<string> versionDescription_ {};
-    // The version status. Valid values:
-    // - DRAFT: Draft.
-    // - SUBMITTED: Submitted.
+    // The version status. Valid values: DRAFT and SUBMITTED.
     shared_ptr<string> versionStatus_ {};
   };
 

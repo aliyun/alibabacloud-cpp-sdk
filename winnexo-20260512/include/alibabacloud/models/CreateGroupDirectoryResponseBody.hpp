@@ -121,23 +121,23 @@ namespace Models
 
 
   protected:
-    // SUCCESS indicates success. In failure cases, the corresponding error type is returned, such as ERR_BAD_REQUEST, ERR_VALIDATION_FAILED, or ERR_INTERNAL_SERVER_ERROR.
+    // SUCCESS indicates success. For failures, the corresponding error type is returned, such as ERR_BAD_REQUEST, ERR_VALIDATION_FAILED, or ERR_INTERNAL_SERVER_ERROR.
     shared_ptr<string> code_ {};
     // The description of the AI assistant.
     shared_ptr<string> description_ {};
-    // The folder ID.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // The folder type.
+    // The directory type.
     shared_ptr<string> directoryType_ {};
     // The project group ID.
     shared_ptr<string> groupId_ {};
-    // The root folder ID of the knowledge base.
+    // The knowledge base root directory ID.
     shared_ptr<string> kbRootDirectoryId_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The name of the worksheet.
     shared_ptr<string> name_ {};
-    // The folder ID.
+    // The directory ID.
     shared_ptr<string> parentDirectoryId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

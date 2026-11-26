@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The DingTalk group chat session ID.
+    // The ID of the DingTalk group chat session.
     shared_ptr<string> chatId_ {};
     // The status code.
     shared_ptr<string> code_ {};
@@ -133,17 +133,17 @@ namespace Models
     shared_ptr<string> message_ {};
     // The skill name.
     shared_ptr<string> name_ {};
-    // The request trace ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
     // The permission scope.
     shared_ptr<string> scope_ {};
-    // The original project ID.
+    // The source project ID.
     shared_ptr<string> sourceId_ {};
     // The call status. Valid values:
-    // - **PENDING**: Waiting for acknowledgment.
-    // - **SUCCESS**: Succeeded.
+    // - **PENDING**: Awaiting acknowledgment.
+    // - **SUCCESS**: Success.
     // - **FAILED**: Failed.
-    // - **TIMEOUT**: Timed out.
+    // - **TIMEOUT**: Timeout.
     shared_ptr<string> status_ {};
   };
 

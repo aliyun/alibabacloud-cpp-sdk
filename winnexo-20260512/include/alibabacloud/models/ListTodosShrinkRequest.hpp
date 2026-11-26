@@ -13,10 +13,13 @@ namespace Models
   class ListTodosShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListTodosShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(priorities, prioritiesShrink_);
@@ -27,10 +30,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, ListTodosShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(priorities, prioritiesShrink_);
@@ -51,10 +57,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->collaborationGroupId_ == nullptr
-        && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr
-        && this->prioritiesShrink_ == nullptr && this->readStatusShrink_ == nullptr && this->sortBy_ == nullptr && this->sourceTypesShrink_ == nullptr && this->statusesShrink_ == nullptr
-        && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->collaborationGroupId_ == nullptr && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->opsUserCode_ == nullptr
+        && this->opsUserId_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->prioritiesShrink_ == nullptr && this->readStatusShrink_ == nullptr
+        && this->sortBy_ == nullptr && this->sourceTypesShrink_ == nullptr && this->statusesShrink_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline ListTodosShrinkRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // collaborationGroupId Field Functions 
     bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
     void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
@@ -81,6 +94,20 @@ namespace Models
     void deleteNextToken() { this->nextToken_ = nullptr;};
     inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTodosShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline ListTodosShrinkRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline ListTodosShrinkRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // page Field Functions 
@@ -140,7 +167,9 @@ namespace Models
 
 
   protected:
-    // The collaboration workspace ID. This is an optional filter. If not specified, items from all workspaces are returned.
+    // The platform application token issued by the console. If specified, the operation is performed as the user identified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
+    // The collaboration workspace ID. This is an optional filter. If not specified, all workspaces are included.
     shared_ptr<string> collaborationGroupId_ {};
     // The keyword for fuzzy search in the title or summary.
     shared_ptr<string> keyword_ {};
@@ -148,19 +177,23 @@ namespace Models
     shared_ptr<int64_t> maxResults_ {};
     // The pagination token. Use the nextToken value returned in the previous response. This parameter takes precedence over page if both are specified.
     shared_ptr<string> nextToken_ {};
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
     // The page number. This parameter is ignored if nextToken is specified.
     shared_ptr<int64_t> page_ {};
     // The number of entries per page. Valid values: 1 to 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The priority filter. Valid values: HIGH, MEDIUM, and LOW.
+    // The priority filter. Valid values: HIGH, MEDIUM, LOW.
     shared_ptr<string> prioritiesShrink_ {};
-    // The read status filter. Valid values: UNREAD and READ. The status is determined by the readAt field of the assignee.
+    // The read status filter. Valid values: UNREAD, READ. The status is determined by the readAt time of the assignee.
     shared_ptr<string> readStatusShrink_ {};
     // The sorting method.
     shared_ptr<string> sortBy_ {};
-    // The to-do type filter. Valid values: WORKFLOW and OPEN_API.
+    // The to-do type filter. Valid values: WORKFLOW, OPEN_API.
     shared_ptr<string> sourceTypesShrink_ {};
-    // The to-do status filter. Valid values: PENDING, COMPLETED, and CANCELLED.
+    // The to-do status filter. Valid values: PENDING, COMPLETED, CANCELLED.
     shared_ptr<string> statusesShrink_ {};
     // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};

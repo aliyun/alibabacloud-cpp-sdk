@@ -189,21 +189,21 @@ namespace Models
       shared_ptr<string> description_ {};
       // The execution mode, such as CODE_AGENT or SYSTEM.
       shared_ptr<string> executeMode_ {};
-      // Indicates whether the skill is globally accessible.
+      // Specifies whether global access is allowed.
       shared_ptr<bool> globalAccess_ {};
-      // Indicates whether unpublished draft modifications exist.
+      // Specifies whether unpublished draft modifications exist.
       shared_ptr<bool> hasDraftChanges_ {};
       // The file name.
       shared_ptr<string> name_ {};
-      // The skill code that is actually executed.
+      // The code of the skill that is actually executed.
       shared_ptr<string> skillCode_ {};
       // The skill definition ID.
       shared_ptr<int64_t> skillHubDefinitionId_ {};
       // The skill source type.
       shared_ptr<string> sourceType_ {};
-      // The task status. Running is returned upon submission.
+      // The task status. Running is returned immediately after submission.
       shared_ptr<string> status_ {};
-      // The keys.
+      // The key.
       shared_ptr<vector<string>> tags_ {};
       // The update timestamp, in milliseconds.
       shared_ptr<string> updatedTime_ {};
@@ -274,11 +274,11 @@ namespace Models
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<int32_t> page_ {};
-    // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
+    // The number of entries per page in the returned results. Default value: 20. Minimum value: 1. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total count.
     shared_ptr<int64_t> total_ {};
   };
 

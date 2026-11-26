@@ -125,7 +125,7 @@ namespace Models
     shared_ptr<string> chatId_ {};
     // The error code.
     shared_ptr<string> code_ {};
-    // The directory ID.
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
     // The creation time.
     shared_ptr<string> gmtCreate_ {};
@@ -137,9 +137,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The permission scope.
     shared_ptr<string> scope_ {};
-    // The source ID.
+    // The source project ID.
     shared_ptr<string> sourceId_ {};
-    // The task running status.
+    // The running status of the task.
     shared_ptr<string> status_ {};
   };
 

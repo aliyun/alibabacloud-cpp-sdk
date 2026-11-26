@@ -164,9 +164,9 @@ namespace Models
 
 
       protected:
-        // The supplementary description of the option.
+        // The additional description for the option.
         shared_ptr<string> description_ {};
-        // The option text (reference key).
+        // The option text, which serves as a reference key.
         shared_ptr<string> label_ {};
         // Indicates whether the option is recommended.
         shared_ptr<bool> recommended_ {};
@@ -250,7 +250,7 @@ namespace Models
     protected:
       // Indicates whether custom input is allowed.
       shared_ptr<bool> allowCustom_ {};
-      // The text for the custom input field.
+      // The text for the custom input item.
       shared_ptr<string> customLabel_ {};
       // The maximum length for custom input.
       shared_ptr<int64_t> customMaxLength_ {};
@@ -260,11 +260,11 @@ namespace Models
       shared_ptr<int64_t> maxLength_ {};
       // The response mode. Valid values: SINGLE_CHOICE, MULTI_CHOICE, and TEXT.
       shared_ptr<string> mode_ {};
-      // The options. This field is required for choice questions.
+      // The options, which are required for choice questions.
       shared_ptr<vector<Questions::Options>> options_ {};
       // The placeholder for text questions.
       shared_ptr<string> placeholder_ {};
-      // The question text (reference key).
+      // The question text, which serves as a reference key.
       shared_ptr<string> question_ {};
       // Indicates whether the question is required.
       shared_ptr<bool> required_ {};
@@ -344,13 +344,13 @@ namespace Models
 
 
     protected:
-      // The action time in UTC+8. This field is empty if the item is not processed.
+      // The time when the item was processed (UTC+8). This field is empty if the item is unprocessed.
       shared_ptr<string> actedAt_ {};
       // The source of the assignee. Valid values: ORIGINAL and TRANSFERRED.
       shared_ptr<string> assigneeSource_ {};
       // The user ID of the assignee.
       shared_ptr<string> assigneeUserId_ {};
-      // The read time in UTC+8. This field is empty if the item is unread.
+      // The time when the item was read (UTC+8). This field is empty if the item is unread.
       shared_ptr<string> readAt_ {};
       // The action status of the assignee.
       shared_ptr<string> status_ {};
@@ -563,19 +563,19 @@ namespace Models
     shared_ptr<int64_t> assigneeCount_ {};
     // All assignees.
     shared_ptr<vector<GetTodoDetailResponseBody::Assignees>> assignees_ {};
-    // The attachment policy. Attachments are not stored in the database in the current version.
+    // The attachment policy. In the current version, attachments are not stored in the database.
     Darabonba::Json attachmentPolicy_ {};
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The completion time in UTC+8 (YYYY-MM-DD HH:mm:ss).
+    // The completion time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
     shared_ptr<string> completedAt_ {};
     // The user ID of the user who completed the item. This field is empty if the item is not completed.
     shared_ptr<string> completedByUserId_ {};
     // The name of the user who completed the item. This field is empty if the item is not completed.
     shared_ptr<string> completedByUserName_ {};
-    // The creation time in UTC+8 (YYYY-MM-DD HH:mm:ss).
+    // The creation time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
     shared_ptr<string> gmtCreate_ {};
-    // The last modification time in UTC+8 (YYYY-MM-DD HH:mm:ss).
+    // The last modification time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
     shared_ptr<string> gmtModified_ {};
     // Indicates whether the caller has read the item.
     shared_ptr<bool> isRead_ {};
@@ -583,21 +583,21 @@ namespace Models
     shared_ptr<string> message_ {};
     // The ID of the assistant message that generated the to-do item. This field is empty if there is no conversation source.
     shared_ptr<string> messageId_ {};
-    // The action status of the caller as the assignee.
+    // The action status of the caller as an assignee.
     shared_ptr<string> myAssigneeStatus_ {};
     // The list display status for the caller.
     shared_ptr<string> myDisplayState_ {};
-    // The permissions of the caller, such as canSubmit and canTransfer.
+    // The permissions of the caller. Valid values: canSubmit and canTransfer.
     Darabonba::Json myPermissions_ {};
     // The priority.
     shared_ptr<string> priority_ {};
-    // The list of questions (structured projection).
+    // The structured list of questions.
     shared_ptr<vector<GetTodoDetailResponseBody::Questions>> questions_ {};
     // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // The response content in JSONB format as-is. Defaults to an empty object if not submitted.
+    // The response content in JSONB format, passed through as-is. Defaults to an empty object if not submitted.
     Darabonba::Json resultPayload_ {};
-    // The source context. This context is passed through as-is during creation.
+    // The source context, which is passed through as-is during creation.
     Darabonba::Json sourceContext_ {};
     // The source type of the to-do item.
     shared_ptr<string> sourceType_ {};

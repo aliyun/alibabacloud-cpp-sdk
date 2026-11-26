@@ -13,19 +13,25 @@ namespace Models
   class UpdateUserInfoRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateUserInfoRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(avatar, avatar_);
       DARABONBA_PTR_TO_JSON(languagePreference, languagePreference_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(offering, offering_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(profileRoleInfo, profileRoleInfo_);
       DARABONBA_PTR_TO_JSON(selfIntroduction, selfIntroduction_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateUserInfoRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(avatar, avatar_);
       DARABONBA_PTR_FROM_JSON(languagePreference, languagePreference_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(offering, offering_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(profileRoleInfo, profileRoleInfo_);
       DARABONBA_PTR_FROM_JSON(selfIntroduction, selfIntroduction_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
@@ -41,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->avatar_ == nullptr
-        && this->languagePreference_ == nullptr && this->name_ == nullptr && this->offering_ == nullptr && this->profileRoleInfo_ == nullptr && this->selfIntroduction_ == nullptr
-        && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->avatar_ == nullptr && this->languagePreference_ == nullptr && this->name_ == nullptr && this->offering_ == nullptr && this->opsUserCode_ == nullptr
+        && this->opsUserId_ == nullptr && this->profileRoleInfo_ == nullptr && this->selfIntroduction_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline UpdateUserInfoRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // avatar Field Functions 
     bool hasAvatar() const { return this->avatar_ != nullptr;};
     void deleteAvatar() { this->avatar_ = nullptr;};
@@ -72,6 +85,20 @@ namespace Models
     inline UpdateUserInfoRequest& setOffering(string offering) { DARABONBA_PTR_SET_VALUE(offering_, offering) };
 
 
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline UpdateUserInfoRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline UpdateUserInfoRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
+
+
     // profileRoleInfo Field Functions 
     bool hasProfileRoleInfo() const { return this->profileRoleInfo_ != nullptr;};
     void deleteProfileRoleInfo() { this->profileRoleInfo_ = nullptr;};
@@ -94,6 +121,8 @@ namespace Models
 
 
   protected:
+    // 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+    shared_ptr<string> appToken_ {};
     // The profile picture URL.
     shared_ptr<string> avatar_ {};
     // The language preference: zh-CN or en-US.
@@ -102,6 +131,10 @@ namespace Models
     shared_ptr<string> name_ {};
     // The user service description. Maximum length: 1000 characters.
     shared_ptr<string> offering_ {};
+    // 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+    shared_ptr<string> opsUserCode_ {};
+    // 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+    shared_ptr<string> opsUserId_ {};
     // The user role description. This parameter is used when profileRole is set to Others. Maximum length: 100 characters.
     shared_ptr<string> profileRoleInfo_ {};
     // The user self-introduction. Maximum length: 1000 characters.

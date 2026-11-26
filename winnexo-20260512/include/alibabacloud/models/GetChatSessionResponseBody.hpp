@@ -41,6 +41,8 @@ namespace Models
     class Session : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Session& obj) { 
+        DARABONBA_PTR_TO_JSON(conversationArchiveStatus, conversationArchiveStatus_);
+        DARABONBA_PTR_TO_JSON(conversationArchivedTime, conversationArchivedTime_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(id, id_);
         DARABONBA_PTR_TO_JSON(isExpired, isExpired_);
@@ -53,6 +55,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
       };
       friend void from_json(const Darabonba::Json& j, Session& obj) { 
+        DARABONBA_PTR_FROM_JSON(conversationArchiveStatus, conversationArchiveStatus_);
+        DARABONBA_PTR_FROM_JSON(conversationArchivedTime, conversationArchivedTime_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(id, id_);
         DARABONBA_PTR_FROM_JSON(isExpired, isExpired_);
@@ -75,9 +79,24 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->id_ == nullptr && this->isExpired_ == nullptr && this->metadata_ == nullptr && this->model_ == nullptr && this->object_ == nullptr
-        && this->objectId_ == nullptr && this->operatingObjectName_ == nullptr && this->title_ == nullptr && this->updatedAt_ == nullptr; };
+      virtual bool empty() const override { return this->conversationArchiveStatus_ == nullptr
+        && this->conversationArchivedTime_ == nullptr && this->createdAt_ == nullptr && this->id_ == nullptr && this->isExpired_ == nullptr && this->metadata_ == nullptr
+        && this->model_ == nullptr && this->object_ == nullptr && this->objectId_ == nullptr && this->operatingObjectName_ == nullptr && this->title_ == nullptr
+        && this->updatedAt_ == nullptr; };
+      // conversationArchiveStatus Field Functions 
+      bool hasConversationArchiveStatus() const { return this->conversationArchiveStatus_ != nullptr;};
+      void deleteConversationArchiveStatus() { this->conversationArchiveStatus_ = nullptr;};
+      inline string getConversationArchiveStatus() const { DARABONBA_PTR_GET_DEFAULT(conversationArchiveStatus_, "") };
+      inline Session& setConversationArchiveStatus(string conversationArchiveStatus) { DARABONBA_PTR_SET_VALUE(conversationArchiveStatus_, conversationArchiveStatus) };
+
+
+      // conversationArchivedTime Field Functions 
+      bool hasConversationArchivedTime() const { return this->conversationArchivedTime_ != nullptr;};
+      void deleteConversationArchivedTime() { this->conversationArchivedTime_ = nullptr;};
+      inline int64_t getConversationArchivedTime() const { DARABONBA_PTR_GET_DEFAULT(conversationArchivedTime_, 0L) };
+      inline Session& setConversationArchivedTime(int64_t conversationArchivedTime) { DARABONBA_PTR_SET_VALUE(conversationArchivedTime_, conversationArchivedTime) };
+
+
       // createdAt Field Functions 
       bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
       void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -153,6 +172,10 @@ namespace Models
 
 
     protected:
+      // 会话归档状态 ACTIVE/ARCHIVING/ARCHIVED
+      shared_ptr<string> conversationArchiveStatus_ {};
+      // 会话归档完成时间戳（秒）
+      shared_ptr<int64_t> conversationArchivedTime_ {};
       // The creation time.
       shared_ptr<int64_t> createdAt_ {};
       // The message ID.

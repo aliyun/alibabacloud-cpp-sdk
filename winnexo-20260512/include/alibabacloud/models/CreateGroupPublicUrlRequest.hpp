@@ -13,23 +13,29 @@ namespace Models
   class CreateGroupPublicUrlRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateGroupPublicUrlRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(directoryId, directoryId_);
       DARABONBA_PTR_TO_JSON(groupId, groupId_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(notes, notes_);
       DARABONBA_PTR_TO_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(originalUrl, originalUrl_);
       DARABONBA_PTR_TO_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateGroupPublicUrlRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(directoryId, directoryId_);
       DARABONBA_PTR_FROM_JSON(groupId, groupId_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(notes, notes_);
       DARABONBA_PTR_FROM_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(originalUrl, originalUrl_);
       DARABONBA_PTR_FROM_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
@@ -45,9 +51,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->directoryId_ == nullptr && this->groupId_ == nullptr && this->name_ == nullptr && this->notes_ == nullptr && this->operatingObjectName_ == nullptr
-        && this->originalUrl_ == nullptr && this->sourceTags_ == nullptr && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->description_ == nullptr && this->directoryId_ == nullptr && this->groupId_ == nullptr && this->name_ == nullptr && this->notes_ == nullptr
+        && this->operatingObjectName_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr && this->originalUrl_ == nullptr && this->sourceTags_ == nullptr
+        && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline CreateGroupPublicUrlRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -90,6 +104,20 @@ namespace Models
     inline CreateGroupPublicUrlRequest& setOperatingObjectName(string operatingObjectName) { DARABONBA_PTR_SET_VALUE(operatingObjectName_, operatingObjectName) };
 
 
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline CreateGroupPublicUrlRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline CreateGroupPublicUrlRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
+
+
     // originalUrl Field Functions 
     bool hasOriginalUrl() const { return this->originalUrl_ != nullptr;};
     void deleteOriginalUrl() { this->originalUrl_ = nullptr;};
@@ -112,27 +140,33 @@ namespace Models
 
 
   protected:
+    // The platform application token issued by the console. If specified, the operation is performed as the user identified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
     // The description of the AI assistant.
     shared_ptr<string> description_ {};
-    // The folder ID.
+    // The ID of the folder.
     shared_ptr<string> directoryId_ {};
-    // The project group ID.
+    // The ID of the project group.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The name.
+    // The name of the resource.
     shared_ptr<string> name_ {};
-    // The meeting notes content. This parameter is optional. The notes participate in auxiliary analysis.
+    // The content of the meeting notes. This parameter is optional and is used for auxiliary analysis.
     shared_ptr<string> notes_ {};
-    // The name of the digital employee (monitored object name). This parameter is optional.
+    // The name of the digital employee. This parameter is optional.
     shared_ptr<string> operatingObjectName_ {};
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
     // The URL of the web page.
     // 
     // This parameter is required.
     shared_ptr<string> originalUrl_ {};
-    // The resource labels. This parameter is optional. Specify a JSON string list, such as ["tagA","tagB"].
+    // The resource tags. This parameter is optional. Specify a JSON array of strings, such as ["tagA","tagB"].
     shared_ptr<string> sourceTags_ {};
-    // The tenant ID that takes effect.
+    // The ID of the tenant where the operation takes effect.
     shared_ptr<string> tenantId_ {};
   };
 

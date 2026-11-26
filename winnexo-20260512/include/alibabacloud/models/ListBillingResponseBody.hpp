@@ -228,29 +228,29 @@ namespace Models
       shared_ptr<string> bizId_ {};
       // The business type.
       shared_ptr<string> bizType_ {};
-      // The cost source type.
+      // The type of the cost source.
       shared_ptr<vector<string>> costSource_ {};
       // The display name of the cost source.
       shared_ptr<vector<string>> costSourceDisplayName_ {};
-      // The end timestamp, in milliseconds.
+      // The end timestamp in milliseconds.
       shared_ptr<string> endTime_ {};
-      // The entry object ID.
+      // The ID of the entry object.
       shared_ptr<string> entryObjectId_ {};
       // The entry object type.
       shared_ptr<string> entryObjectType_ {};
-      // Indicates whether the bill is a shadow bill.
+      // Specifies whether the bill is a shadow bill.
       shared_ptr<bool> isShadow_ {};
-      // The operation type.
+      // The search term rewrite configuration.
       shared_ptr<string> operation_ {};
-      // The display name of the operation.
+      // The display name of the action.
       shared_ptr<string> operationDisplayName_ {};
-      // The start timestamp, in milliseconds.
+      // The start timestamp in milliseconds.
       shared_ptr<string> startTime_ {};
-      // The node status. Running is returned upon submission.
+      // The task status. A status of Running is returned immediately after the task is submitted.
       shared_ptr<string> status_ {};
       // The display name of the status.
       shared_ptr<string> statusDisplayName_ {};
-      // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+      // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
       shared_ptr<int64_t> tenantId_ {};
       // The total credit consumption.
       shared_ptr<string> totalCreditCost_ {};
@@ -315,9 +315,9 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The details of the bills.
+    // The details of the link enhancement rule.
     shared_ptr<vector<ListBillingResponseBody::List>> list_ {};
-    // The prompt message.
+    // The message.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<int64_t> page_ {};
@@ -325,7 +325,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of Logtail pipeline configurations in the current project.
     shared_ptr<int64_t> total_ {};
   };
 

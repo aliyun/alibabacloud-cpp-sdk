@@ -160,9 +160,9 @@ namespace Models
         shared_ptr<string> objectId_ {};
         // The object name.
         shared_ptr<string> objectName_ {};
-        // The object type, such as customer. This field has a value when type is set to mention.
+        // The object type, such as customer. This parameter has a value only when type is set to mention.
         shared_ptr<string> objectType_ {};
-        // The display name of the object type (such as "Customer"), parsed from the graph schema. The value is null when the cache is missed.
+        // The display name of the object type, such as Customer. This name is parsed from the graph schema. If the cache is missing, the value is null.
         shared_ptr<string> objectTypeName_ {};
       };
 
@@ -286,25 +286,25 @@ namespace Models
       shared_ptr<string> directoryKind_ {};
       // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The last modification time.
+      // The last update time.
       shared_ptr<int64_t> gmtModified_ {};
-      // The ID of the data item. When tabId and orgId are the same, itemId uniquely identifies a data item. The maximum length is 128 characters.
+      // The ID of the data item. When tabId and orgId are the same, itemId uniquely identifies a data item. The length cannot exceed 128 characters.
       shared_ptr<string> itemId_ {};
-      // The data type (group, user, or role).
+      // The data type, such as group, user, or role.
       shared_ptr<string> itemType_ {};
       // The name.
       shared_ptr<string> name_ {};
       // The object bindings.
       shared_ptr<vector<Items::ObjectBindings>> objectBindings_ {};
-      // The number of resources with the FAILED status. This field is returned only in the top-level knowledge base directory list.
+      // The number of resources in the FAILED state. This parameter is returned only when the top-level directory list of the knowledge base is queried.
       shared_ptr<int64_t> sourceFailedCount_ {};
-      // The knowledge base source type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
+      // The ownership type of the knowledge base. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
       shared_ptr<string> sourceKind_ {};
-      // The number of resources with the READY status. This field is returned only in the top-level knowledge base directory list.
+      // The number of resources in the READY state. This parameter is returned only when the top-level directory list of the knowledge base is queried.
       shared_ptr<int64_t> sourceReadyCount_ {};
-      // The resource status. This field has a value when itemType is set to resource.
+      // The resource status. This parameter has a value only when itemType is set to resource.
       shared_ptr<string> sourceStatus_ {};
-      // The total number of resources in the directory and its subdirectories. This field is returned only in the top-level knowledge base directory list.
+      // The total number of resources in the directory and its subdirectories. This parameter is returned only when the top-level directory list of the knowledge base is queried.
       shared_ptr<int64_t> sourceTotalCount_ {};
       // The source type.
       shared_ptr<string> sourceType_ {};
@@ -373,11 +373,11 @@ namespace Models
     shared_ptr<string> message_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> page_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The maximum number of entries returned in this request.
+    // The maximum number of records returned in this request.
     shared_ptr<int64_t> total_ {};
   };
 

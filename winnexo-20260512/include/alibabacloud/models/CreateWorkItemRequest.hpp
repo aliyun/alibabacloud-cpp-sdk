@@ -15,12 +15,15 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateWorkItemRequest& obj) { 
       DARABONBA_PTR_TO_JSON(acceptanceCriteria, acceptanceCriteria_);
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(attachments, attachments_);
       DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_TO_JSON(collaboratorUserIds, collaboratorUserIds_);
       DARABONBA_PTR_TO_JSON(conversationId, conversationId_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(itemType, itemType_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(ownerUserId, ownerUserId_);
       DARABONBA_PTR_TO_JSON(priority, priority_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
@@ -29,12 +32,15 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateWorkItemRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(acceptanceCriteria, acceptanceCriteria_);
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(attachments, attachments_);
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_FROM_JSON(collaboratorUserIds, collaboratorUserIds_);
       DARABONBA_PTR_FROM_JSON(conversationId, conversationId_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(itemType, itemType_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(ownerUserId, ownerUserId_);
       DARABONBA_PTR_FROM_JSON(priority, priority_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
@@ -145,14 +151,21 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->acceptanceCriteria_ == nullptr
-        && this->attachments_ == nullptr && this->collaborationGroupId_ == nullptr && this->collaboratorUserIds_ == nullptr && this->conversationId_ == nullptr && this->description_ == nullptr
-        && this->itemType_ == nullptr && this->ownerUserId_ == nullptr && this->priority_ == nullptr && this->tenantId_ == nullptr && this->title_ == nullptr
-        && this->workflowTemplateIds_ == nullptr; };
+        && this->appToken_ == nullptr && this->attachments_ == nullptr && this->collaborationGroupId_ == nullptr && this->collaboratorUserIds_ == nullptr && this->conversationId_ == nullptr
+        && this->description_ == nullptr && this->itemType_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr && this->ownerUserId_ == nullptr
+        && this->priority_ == nullptr && this->tenantId_ == nullptr && this->title_ == nullptr && this->workflowTemplateIds_ == nullptr; };
     // acceptanceCriteria Field Functions 
     bool hasAcceptanceCriteria() const { return this->acceptanceCriteria_ != nullptr;};
     void deleteAcceptanceCriteria() { this->acceptanceCriteria_ = nullptr;};
     inline string getAcceptanceCriteria() const { DARABONBA_PTR_GET_DEFAULT(acceptanceCriteria_, "") };
     inline CreateWorkItemRequest& setAcceptanceCriteria(string acceptanceCriteria) { DARABONBA_PTR_SET_VALUE(acceptanceCriteria_, acceptanceCriteria) };
+
+
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline CreateWorkItemRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
 
 
     // attachments Field Functions 
@@ -201,6 +214,20 @@ namespace Models
     inline CreateWorkItemRequest& setItemType(string itemType) { DARABONBA_PTR_SET_VALUE(itemType_, itemType) };
 
 
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline CreateWorkItemRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline CreateWorkItemRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
+
+
     // ownerUserId Field Functions 
     bool hasOwnerUserId() const { return this->ownerUserId_ != nullptr;};
     void deleteOwnerUserId() { this->ownerUserId_ = nullptr;};
@@ -241,9 +268,11 @@ namespace Models
   protected:
     // The acceptance criteria.
     shared_ptr<string> acceptanceCriteria_ {};
+    // The platform application token issued by the console. If specified, the operation is performed as the user specified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
     // The stable references of the input attachments.
     shared_ptr<vector<CreateWorkItemRequest::Attachments>> attachments_ {};
-    // The ID of the collaboration workspace.
+    // The ID of the collaboration space.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
@@ -253,15 +282,19 @@ namespace Models
     shared_ptr<string> conversationId_ {};
     // The description of the work item.
     shared_ptr<string> description_ {};
-    // The type of the work item. Only WORKFLOW is supported.
+    // The type of the work item. Only WORKFLOW is accepted.
     // 
     // This parameter is required.
     shared_ptr<string> itemType_ {};
-    // The user ID of the owner. If this parameter is not specified, the ID of the caller is used.
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
+    // The user ID of the owner. If not specified, the caller is used as the owner.
     shared_ptr<int64_t> ownerUserId_ {};
     // The scheduling priority.
     shared_ptr<string> priority_ {};
-    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
     // The title of the work item.
     // 

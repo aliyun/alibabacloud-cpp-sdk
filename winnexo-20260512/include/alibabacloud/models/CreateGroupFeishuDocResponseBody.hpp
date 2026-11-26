@@ -140,9 +140,9 @@ namespace Models
     shared_ptr<string> gmtCreate_ {};
     // The project group ID.
     shared_ptr<string> groupId_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
-    // The image name.
+    // The mirror name.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -151,9 +151,9 @@ namespace Models
     // The original project ID.
     shared_ptr<string> sourceId_ {};
     // The signing status. Valid values:
-    // - CREATED: Created but not signed.
-    // - SUCCESS: Signed successfully.
-    // - STOP: Terminated.
+    // - CREATED: created but not signed
+    // - SUCCESS: signed successfully
+    // - STOP: terminated
     shared_ptr<string> status_ {};
   };
 

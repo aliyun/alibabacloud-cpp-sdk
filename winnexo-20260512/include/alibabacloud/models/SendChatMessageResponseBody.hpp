@@ -98,7 +98,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The streamed content.
+    // The streaming response content.
     shared_ptr<string> content_ {};
     // The Server-Sent Events (SSE) event stream payload. Upon success, the response consists of raw text/event-stream frames, which must be consumed frame by frame in a streaming manner.
     Darabonba::Json data_ {};
@@ -108,7 +108,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The event type.
     shared_ptr<string> type_ {};
-    // The session work mode. Valid values: ask (quick Q&A, which trims tools, skills, and connectors for single-turn direct answers), work (deep work, which is the default), and direct (direct connection mode at the request level, which does not start a sandbox and prevents context pollution, equivalent to directChat=true). The ask and work modes are session-level. The mode is fixed when a new session is created. Subsequent chats inherit the session mode by default. If the explicitly passed value is inconsistent with the session mode, a parameter error is returned. To switch modes, create a new session or fork the session. If ask is passed in multi-digital employee or task execution scenarios, it takes effect as work. This parameter is ignored when directChat is set to true.
+    // The session work mode. Valid values: ask (quick Q&A, which trims tools, skills, and connectors for single-turn direct answers), work (deep work, which is the default), and direct (direct connection mode at the request level, which does not start the sandbox and prevents context pollution, equivalent to directChat=true). The ask and work modes are session-level. The mode is fixed when a new session is created. Subsequent chats inherit the session mode by default. If the explicitly passed value is inconsistent with the session mode, a parameter error is returned. To switch modes, create a new session or fork the current one. If ask is passed in multi-digital employee or task execution scenarios, it takes effect as work. If directChat is set to true, this parameter is ignored.
     shared_ptr<string> workMode_ {};
   };
 

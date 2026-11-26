@@ -125,13 +125,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // The public URL of the document (echoes the input parameter).
+    // The public URL of the document. This value is echoed from the request parameter.
     shared_ptr<string> filePublicUrl_ {};
     // The creation time.
     shared_ptr<string> gmtCreate_ {};
     // The error details.
     shared_ptr<string> message_ {};
-    // The name.
+    // The image name.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -139,13 +139,13 @@ namespace Models
     shared_ptr<string> scope_ {};
     // The unique identifier on the business system side, which is the business ID.
     shared_ptr<string> sourceId_ {};
-    // The refund status. Query this field to confirm the refund status during processing. Valid values:
-    // - SUCCESS: All refunds are successful.
-    // - FAIL: The refund failed.
+    // The refund status. If the refund is in progress, you must query and confirm the refund status. Valid values:
+    // - SUCCESS: Succeeded.
+    // - FAIL: Failed.
     // - WAIT_PAY: Waiting for refund.
-    // - EXPIRE: The refund has expired.
-    // - PAYING: The refund is being processed.
-    // - TERMINATE: The refund is terminated.
+    // - EXPIRE: Expired.
+    // - PAYING: Refunding.
+    // - TERMINATE: Terminated.
     shared_ptr<string> status_ {};
   };
 

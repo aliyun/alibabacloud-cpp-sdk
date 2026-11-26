@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
-    // The ID of the target user (WINNEXO platform user ID). If left empty, the operation is performed on the caller. Administrators can specify another user\\"s ID to perform the operation on their behalf.
+    // The ID of the target user (WINNEXO platform user ID). If left empty, the operation is performed on the caller. Administrators can specify another user\"s ID to perform the operation on their behalf.
     shared_ptr<string> wnUserId_ {};
   };
 

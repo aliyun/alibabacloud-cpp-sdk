@@ -96,17 +96,17 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The image name.
     shared_ptr<string> name_ {};
-    // The request trace ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The data source ID.
     shared_ptr<string> sourceId_ {};
     // The data source type.
     shared_ptr<string> sourceType_ {};
-    // The task running status.
+    // The task execution status.
     shared_ptr<string> status_ {};
   };
 

@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // The semantic graph name to which the binding object belongs (object_id is unique within this graph. Required).
+      // The name of the semantic graph to which the bound object belongs. The object_id is unique within this graph. This field is required.
       shared_ptr<string> graphName_ {};
-      // The binding object ID.
+      // The ID of the bound object.
       shared_ptr<string> objectId_ {};
-      // The binding object type (such as customer or project).
+      // The object type to attach, such as customer or project.
       shared_ptr<string> objectType_ {};
     };
 
@@ -135,13 +135,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The object binding.
     shared_ptr<vector<ReplaceObjectBindingsResponseBody::ObjectBindings>> objectBindings_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the personal FILE data source to be replaced (unique within the tenant).
+    // The ID of the personal FILE data source to be replaced, which is unique within the tenant.
     shared_ptr<string> sourceId_ {};
   };
 

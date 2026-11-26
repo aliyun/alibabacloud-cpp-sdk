@@ -81,7 +81,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // The number of unread to-do items remaining after the operation.
+    // The number of remaining unread to-do items after the operation.
     shared_ptr<int64_t> unreadCount_ {};
     // The number of to-do items marked as read in this request.
     shared_ptr<int64_t> updatedCount_ {};

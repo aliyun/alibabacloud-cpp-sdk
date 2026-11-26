@@ -13,19 +13,25 @@ namespace Models
   class ListWorkflowTemplatesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListWorkflowTemplatesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, ListWorkflowTemplatesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
@@ -41,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->collaborationGroupId_ == nullptr
-        && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr
-        && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->collaborationGroupId_ == nullptr && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->opsUserCode_ == nullptr
+        && this->opsUserId_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline ListWorkflowTemplatesRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // collaborationGroupId Field Functions 
     bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
     void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
@@ -72,6 +85,20 @@ namespace Models
     inline ListWorkflowTemplatesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline ListWorkflowTemplatesRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline ListWorkflowTemplatesRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
+
+
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
@@ -94,6 +121,8 @@ namespace Models
 
 
   protected:
+    // The platform application token issued by the console. If specified, the operation is performed as the user identified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
     // The ID of the collaboration space.
     // 
     // This parameter is required.
@@ -102,8 +131,12 @@ namespace Models
     shared_ptr<string> keyword_ {};
     // The maximum number of entries to return per page. Valid values: 1 to 100. This parameter takes precedence over pageSize if both are specified.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token. Obtain the token from the nextToken value in the previous response. This parameter takes precedence over page if both are specified.
+    // The pagination token. Use the nextToken value returned in the previous response. This parameter takes precedence over page if both are specified.
     shared_ptr<string> nextToken_ {};
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
     // The page number. This parameter is ignored if nextToken is specified.
     shared_ptr<int64_t> page_ {};
     // The number of entries per page. Valid values: 1 to 100.

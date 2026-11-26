@@ -142,7 +142,7 @@ namespace Models
     protected:
       // The user ID of the task creator.
       shared_ptr<int64_t> creatorId_ {};
-      // The creator name.
+      // The creator.
       shared_ptr<string> creatorName_ {};
       // The description of the to-do card type.
       shared_ptr<string> description_ {};
@@ -154,7 +154,7 @@ namespace Models
       shared_ptr<string> directoryType_ {};
       // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The last modification time.
+      // The last update time.
       shared_ptr<int64_t> gmtModified_ {};
       // The file name.
       shared_ptr<string> name_ {};
@@ -202,13 +202,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The result list.
+    // The list of results.
     // Maximum size:
     // 	50
     shared_ptr<vector<ListUserVisibleKnowledgeBasesResponseBody::Items>> items_ {};
     // The description of the status code.
     shared_ptr<string> message_ {};
-    // The request trace ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

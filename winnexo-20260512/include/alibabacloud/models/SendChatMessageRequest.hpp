@@ -14,6 +14,8 @@ namespace Models
   class SendChatMessageRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SendChatMessageRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
+      DARABONBA_PTR_TO_JSON(autoPreference, autoPreference_);
       DARABONBA_PTR_TO_JSON(content, content_);
       DARABONBA_PTR_TO_JSON(contentType, contentType_);
       DARABONBA_PTR_TO_JSON(contextItems, contextItems_);
@@ -24,15 +26,21 @@ namespace Models
       DARABONBA_PTR_TO_JSON(files, files_);
       DARABONBA_PTR_TO_JSON(locale, locale_);
       DARABONBA_PTR_TO_JSON(model, model_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(reuseLastSession, reuseLastSession_);
       DARABONBA_PTR_TO_JSON(segments, segments_);
       DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(stream, stream_);
       DARABONBA_PTR_TO_JSON(taskExecution, taskExecution_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
+      DARABONBA_PTR_TO_JSON(thinkingEnabled, thinkingEnabled_);
+      DARABONBA_PTR_TO_JSON(thinkingLevel, thinkingLevel_);
       DARABONBA_PTR_TO_JSON(workMode, workMode_);
     };
     friend void from_json(const Darabonba::Json& j, SendChatMessageRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
+      DARABONBA_PTR_FROM_JSON(autoPreference, autoPreference_);
       DARABONBA_PTR_FROM_JSON(content, content_);
       DARABONBA_PTR_FROM_JSON(contentType, contentType_);
       DARABONBA_PTR_FROM_JSON(contextItems, contextItems_);
@@ -43,12 +51,16 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(files, files_);
       DARABONBA_PTR_FROM_JSON(locale, locale_);
       DARABONBA_PTR_FROM_JSON(model, model_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(reuseLastSession, reuseLastSession_);
       DARABONBA_PTR_FROM_JSON(segments, segments_);
       DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(stream, stream_);
       DARABONBA_PTR_FROM_JSON(taskExecution, taskExecution_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
+      DARABONBA_PTR_FROM_JSON(thinkingEnabled, thinkingEnabled_);
+      DARABONBA_PTR_FROM_JSON(thinkingLevel, thinkingLevel_);
       DARABONBA_PTR_FROM_JSON(workMode, workMode_);
     };
     SendChatMessageRequest() = default ;
@@ -517,7 +529,7 @@ namespace Models
 
 
     protected:
-      // The user annotation for the referenced content.
+      // The user\"s annotation on the referenced content.
       shared_ptr<string> annotation_ {};
       // The list of files associated with the annotation.
       shared_ptr<vector<ContextItems::AnnotationFiles>> annotationFiles_ {};
@@ -537,11 +549,26 @@ namespace Models
       shared_ptr<string> type_ {};
     };
 
-    virtual bool empty() const override { return this->content_ == nullptr
-        && this->contentType_ == nullptr && this->contextItems_ == nullptr && this->digitalEmployeeName_ == nullptr && this->directChat_ == nullptr && this->directMaxHistoryRounds_ == nullptr
-        && this->enableWebSearch_ == nullptr && this->files_ == nullptr && this->locale_ == nullptr && this->model_ == nullptr && this->reuseLastSession_ == nullptr
-        && this->segments_ == nullptr && this->sessionId_ == nullptr && this->stream_ == nullptr && this->taskExecution_ == nullptr && this->tenantId_ == nullptr
-        && this->workMode_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->autoPreference_ == nullptr && this->content_ == nullptr && this->contentType_ == nullptr && this->contextItems_ == nullptr && this->digitalEmployeeName_ == nullptr
+        && this->directChat_ == nullptr && this->directMaxHistoryRounds_ == nullptr && this->enableWebSearch_ == nullptr && this->files_ == nullptr && this->locale_ == nullptr
+        && this->model_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr && this->reuseLastSession_ == nullptr && this->segments_ == nullptr
+        && this->sessionId_ == nullptr && this->stream_ == nullptr && this->taskExecution_ == nullptr && this->tenantId_ == nullptr && this->thinkingEnabled_ == nullptr
+        && this->thinkingLevel_ == nullptr && this->workMode_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline SendChatMessageRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
+    // autoPreference Field Functions 
+    bool hasAutoPreference() const { return this->autoPreference_ != nullptr;};
+    void deleteAutoPreference() { this->autoPreference_ = nullptr;};
+    inline string getAutoPreference() const { DARABONBA_PTR_GET_DEFAULT(autoPreference_, "") };
+    inline SendChatMessageRequest& setAutoPreference(string autoPreference) { DARABONBA_PTR_SET_VALUE(autoPreference_, autoPreference) };
+
+
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -620,6 +647,20 @@ namespace Models
     inline SendChatMessageRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline SendChatMessageRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline SendChatMessageRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
+
+
     // reuseLastSession Field Functions 
     bool hasReuseLastSession() const { return this->reuseLastSession_ != nullptr;};
     void deleteReuseLastSession() { this->reuseLastSession_ = nullptr;};
@@ -666,6 +707,20 @@ namespace Models
     inline SendChatMessageRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
+    // thinkingEnabled Field Functions 
+    bool hasThinkingEnabled() const { return this->thinkingEnabled_ != nullptr;};
+    void deleteThinkingEnabled() { this->thinkingEnabled_ = nullptr;};
+    inline bool getThinkingEnabled() const { DARABONBA_PTR_GET_DEFAULT(thinkingEnabled_, false) };
+    inline SendChatMessageRequest& setThinkingEnabled(bool thinkingEnabled) { DARABONBA_PTR_SET_VALUE(thinkingEnabled_, thinkingEnabled) };
+
+
+    // thinkingLevel Field Functions 
+    bool hasThinkingLevel() const { return this->thinkingLevel_ != nullptr;};
+    void deleteThinkingLevel() { this->thinkingLevel_ = nullptr;};
+    inline string getThinkingLevel() const { DARABONBA_PTR_GET_DEFAULT(thinkingLevel_, "") };
+    inline SendChatMessageRequest& setThinkingLevel(string thinkingLevel) { DARABONBA_PTR_SET_VALUE(thinkingLevel_, thinkingLevel) };
+
+
     // workMode Field Functions 
     bool hasWorkMode() const { return this->workMode_ != nullptr;};
     void deleteWorkMode() { this->workMode_ = nullptr;};
@@ -674,6 +729,10 @@ namespace Models
 
 
   protected:
+    // The platform application token issued by the console. If this parameter is passed, the operation is executed as the user specified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
+    // The AUTO preference. Valid values: none (default), performance (effect first), and credit (cost first). If this parameter is omitted or set to null, the session preference is inherited. If it is left blank, it is reset to none.
+    shared_ptr<string> autoPreference_ {};
     // The body of the user message.
     // 
     // This parameter is required.
@@ -682,33 +741,41 @@ namespace Models
     shared_ptr<string> contentType_ {};
     // The message or file entries referenced as context for the current turn.
     shared_ptr<vector<SendChatMessageRequest::ContextItems>> contextItems_ {};
-    // The list of digital employee names. For compatibility with the legacy format, a single string can be passed.
+    // The list of digital employee names. For compatibility with the old format, a single string can also be passed.
     shared_ptr<vector<string>> digitalEmployeeName_ {};
-    // Specifies whether to enable direct connection mode. If set to true, regular scenario routing is skipped and the direct conversation scenario is entered directly.
+    // Specifies whether to enable direct connection mode. If this parameter is set to true, regular scenario routing is skipped and the direct conversation scenario is entered directly.
     shared_ptr<bool> directChat_ {};
-    // The number of recent complete direct Q&A rounds carried in the current turn, excluding the input of the current turn. This parameter takes effect only when workMode is set to direct or directChat is set to true. Valid values: JSON integers from 0 to 100. If omitted, the backend processes it as 0, carrying no history but still saving the current turn. Null, Boolean, string, decimal, and out-of-bounds values are processed through the original direct path, and the gateway retains the original values for backend determination. This field is ignored in work and ask modes. This parameter does not limit the history range when converted to the work mode.
+    // The number of recent complete direct Q&A rounds carried in the current turn, excluding the input of the current turn. This parameter takes effect only when workMode is set to direct or directChat is set to true. Valid values: JSON integers from 0 to 100. If this parameter is omitted, the backend processes it as 0, carrying no history but still saving the current turn. Null, Boolean values, strings, decimals, and out-of-bounds values are processed through the original direct path, and the gateway retains the original values for backend determination. This field is ignored in work and ask modes. This parameter does not limit the history range when switching to the work mode.
     Darabonba::Json directMaxHistoryRounds_ {};
     // Specifies whether to enable web search. Default value: false. In the task execution scenario where taskExecution is passed, the task configuration prevails.
     shared_ptr<bool> enableWebSearch_ {};
-    // The list of file references. Each item is an object, and the fileId parameter is required, which is returned by uploadChatFile.
+    // The list of file references. Each item is an object, and fileId is required, which is returned by uploadChatFile.
     shared_ptr<vector<SendChatMessageRequest::Files>> files_ {};
-    // The language for the current turn. Valid values: zh-CN and en-US. This parameter is used for API error messages and passed through to CodeAgent. If omitted, the current language behavior is retained and user settings are not modified.
+    // The language for the current turn. Valid values: zh-CN and en-US. This parameter is used for API error messages and passed through to CodeAgent. If this parameter is omitted, the current language behavior is retained and the user settings are not modified.
     shared_ptr<string> locale_ {};
-    // The abstract model tier. Valid values: quick, standard, and flagship. If omitted, standard is used for new sessions, and the current tier is retained for existing sessions.
+    // The abstract model tier. Valid values: quick, standard, and flagship. If this parameter is omitted, standard is used for new sessions, and the current tier is retained for existing sessions.
     shared_ptr<string> model_ {};
-    // Specifies whether to reuse the most recent session under the digital employee when sessionId is not passed, which applies to CLI scenarios. Default value: false, which indicates that a new session is created.
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
+    // Specifies whether to reuse the most recent session under the digital employee when sessionId is not passed, which applies to CLI scenarios. Default value: false, which means a new session is created.
     shared_ptr<bool> reuseLastSession_ {};
     // The structured segments in the message, such as session or object mentions.
     shared_ptr<vector<SendChatMessageRequest::Segments>> segments_ {};
     // The session ID.
     shared_ptr<string> sessionId_ {};
-    // Specifies whether streaming output is enabled.
+    // Specifies whether to use streaming output.
     shared_ptr<bool> stream_ {};
-    // The task execution metadata returned by executeScheduledTask. If passed, the request is processed through the task execution pipeline.
+    // The task execution metadata returned by executeScheduledTask. If this parameter is passed, the request is processed through the task execution pipeline.
     shared_ptr<SendChatMessageRequest::TaskExecution> taskExecution_ {};
     // The effective tenant ID.
     shared_ptr<string> tenantId_ {};
-    // The session work mode. Valid values: ask (quick Q&A, which trims tools, skills, and connectors for single-turn direct answers), work (deep work, which is the default), and direct (direct connection mode at the request level, which does not start a sandbox and prevents context pollution, equivalent to directChat=true). The ask and work modes are session-level. The mode is fixed when a new session is created. Subsequent chats inherit the session mode by default. If the explicitly passed value is inconsistent with the session mode, a parameter error is returned. To switch modes, create a new session or fork the session. If ask is passed in multi-digital employee or task execution scenarios, it takes effect as work. This parameter is ignored when directChat is set to true.
+    // Specifies whether to explicitly override the thinking mode for the current turn. If this parameter is not passed in AUTO mode, the decision model determines the behavior. If it is not passed in fixed tier mode, the personal settings are retained. The final behavior complies with the model capabilities and tenant switches.
+    shared_ptr<bool> thinkingEnabled_ {};
+    // The explicit override for the thinking intensity in the current turn. If this parameter is not passed in AUTO mode, the decision model determines the behavior. If it is not passed in fixed tier mode, the personal settings are retained. The final behavior complies with the model capabilities and tenant switches.
+    shared_ptr<string> thinkingLevel_ {};
+    // The session work mode. Valid values: ask (quick Q&A, which trims tools, skills, and connectors for single-turn direct answers), work (deep work, which is the default), and direct (direct connection mode at the request level, which does not start the sandbox and prevents context pollution, equivalent to directChat=true). The ask and work modes are session-level. The mode is fixed when a new session is created. Subsequent chats inherit the session mode by default. If the explicitly passed value is inconsistent with the session mode, a parameter error is returned. To switch modes, create a new session or fork the current one. If ask is passed in multi-digital employee or task execution scenarios, it takes effect as work. If directChat is set to true, this parameter is ignored.
     shared_ptr<string> workMode_ {};
   };
 

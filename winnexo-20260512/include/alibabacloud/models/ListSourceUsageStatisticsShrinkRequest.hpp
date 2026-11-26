@@ -13,10 +13,13 @@ namespace Models
   class ListSourceUsageStatisticsShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListSourceUsageStatisticsShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(eventType, eventType_);
       DARABONBA_PTR_TO_JSON(knowledgeBaseIds, knowledgeBaseIdsShrink_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(scopeType, scopeType_);
@@ -28,10 +31,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, ListSourceUsageStatisticsShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(eventType, eventType_);
       DARABONBA_PTR_FROM_JSON(knowledgeBaseIds, knowledgeBaseIdsShrink_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(scopeType, scopeType_);
@@ -53,10 +59,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->collaborationGroupId_ == nullptr
-        && this->endTime_ == nullptr && this->eventType_ == nullptr && this->knowledgeBaseIdsShrink_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr
-        && this->scopeType_ == nullptr && this->sortBy_ == nullptr && this->sortOrder_ == nullptr && this->sourceIdsShrink_ == nullptr && this->sourceName_ == nullptr
-        && this->startTime_ == nullptr && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->collaborationGroupId_ == nullptr && this->endTime_ == nullptr && this->eventType_ == nullptr && this->knowledgeBaseIdsShrink_ == nullptr && this->opsUserCode_ == nullptr
+        && this->opsUserId_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->scopeType_ == nullptr && this->sortBy_ == nullptr
+        && this->sortOrder_ == nullptr && this->sourceIdsShrink_ == nullptr && this->sourceName_ == nullptr && this->startTime_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline ListSourceUsageStatisticsShrinkRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // collaborationGroupId Field Functions 
     bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
     void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
@@ -83,6 +96,20 @@ namespace Models
     void deleteKnowledgeBaseIdsShrink() { this->knowledgeBaseIdsShrink_ = nullptr;};
     inline string getKnowledgeBaseIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(knowledgeBaseIdsShrink_, "") };
     inline ListSourceUsageStatisticsShrinkRequest& setKnowledgeBaseIdsShrink(string knowledgeBaseIdsShrink) { DARABONBA_PTR_SET_VALUE(knowledgeBaseIdsShrink_, knowledgeBaseIdsShrink) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline ListSourceUsageStatisticsShrinkRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline ListSourceUsageStatisticsShrinkRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // page Field Functions 
@@ -149,7 +176,9 @@ namespace Models
 
 
   protected:
-    // The ID of the collaboration group to which the resource belongs, such as cg_101. If you specify this parameter, a group workspace task is created, and the caller must be a valid group member. If you leave this parameter empty, a personal task is created.
+    // The platform application token issued by the console. If specified, the operation is executed as the user specified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
+    // The ID of the collaboration group to which the resource belongs, such as cg_101. If specified, a group workspace task is created, and the caller must be a valid group member. If left empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
     // The actual end timestamp, in milliseconds.
     // 
@@ -157,21 +186,25 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The event type.
     shared_ptr<string> eventType_ {};
-    // The root IDs of the enterprise knowledge bases, which are available only for TENANT. The knowledge bases are filtered based on current directory bindings, not historical ownership. Maximum number of items: 100.
+    // The root IDs of enterprise knowledge bases, available only for TENANT. The IDs are filtered based on current directory bindings rather than historical ownership. A maximum of 100 items are supported.
     shared_ptr<string> knowledgeBaseIdsShrink_ {};
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The report perspective. Valid values: TENANT (enterprise knowledge), GROUP (a single workspace), and ALL_GROUPS (all workspaces of the current tenant, only for platform super administrators).
+    // The report perspective. Valid values: TENANT for enterprise knowledge, GROUP for a single workspace, and ALL_GROUPS for all workspaces of the current tenant (available only to platform super administrators).
     // 
     // This parameter is required.
     shared_ptr<string> scopeType_ {};
     // The content of the sort clause.
     shared_ptr<string> sortBy_ {};
-    // The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC and DESC. The values are case-insensitive.
+    // Specifies the sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC and DESC. The values are case-insensitive.
     shared_ptr<string> sortOrder_ {};
-    // The IDs of the associated sources.
+    // The associated source IDs.
     shared_ptr<string> sourceIdsShrink_ {};
     // The name of the source.
     shared_ptr<string> sourceName_ {};

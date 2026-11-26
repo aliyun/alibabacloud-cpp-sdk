@@ -14,18 +14,24 @@ namespace Models
   class SyncOrgStructureRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SyncOrgStructureRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(corpId, corpId_);
       DARABONBA_PTR_TO_JSON(departments, departments_);
       DARABONBA_PTR_TO_JSON(members, members_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(platformType, platformType_);
       DARABONBA_PTR_TO_JSON(ssoSettingsId, ssoSettingsId_);
       DARABONBA_PTR_TO_JSON(syncMembers, syncMembers_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, SyncOrgStructureRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(corpId, corpId_);
       DARABONBA_PTR_FROM_JSON(departments, departments_);
       DARABONBA_PTR_FROM_JSON(members, members_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(platformType, platformType_);
       DARABONBA_PTR_FROM_JSON(ssoSettingsId, ssoSettingsId_);
       DARABONBA_PTR_FROM_JSON(syncMembers, syncMembers_);
@@ -163,9 +169,16 @@ namespace Models
       shared_ptr<string> parentDeptId_ {};
     };
 
-    virtual bool empty() const override { return this->corpId_ == nullptr
-        && this->departments_ == nullptr && this->members_ == nullptr && this->platformType_ == nullptr && this->ssoSettingsId_ == nullptr && this->syncMembers_ == nullptr
-        && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->corpId_ == nullptr && this->departments_ == nullptr && this->members_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr
+        && this->platformType_ == nullptr && this->ssoSettingsId_ == nullptr && this->syncMembers_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline SyncOrgStructureRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // corpId Field Functions 
     bool hasCorpId() const { return this->corpId_ != nullptr;};
     void deleteCorpId() { this->corpId_ = nullptr;};
@@ -189,6 +202,20 @@ namespace Models
     inline vector<SyncOrgStructureRequest::Members> getMembers() { DARABONBA_PTR_GET(members_, vector<SyncOrgStructureRequest::Members>) };
     inline SyncOrgStructureRequest& setMembers(const vector<SyncOrgStructureRequest::Members> & members) { DARABONBA_PTR_SET_VALUE(members_, members) };
     inline SyncOrgStructureRequest& setMembers(vector<SyncOrgStructureRequest::Members> && members) { DARABONBA_PTR_SET_RVALUE(members_, members) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline SyncOrgStructureRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline SyncOrgStructureRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // platformType Field Functions 
@@ -220,6 +247,8 @@ namespace Models
 
 
   protected:
+    // 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+    shared_ptr<string> appToken_ {};
     // The enterprise identifier. This value must match the corpId returned by listAvailableConfigs.
     // 
     // This parameter is required.
@@ -230,6 +259,10 @@ namespace Models
     shared_ptr<vector<SyncOrgStructureRequest::Departments>> departments_ {};
     // The member list. This parameter is required when syncMembers is set to true.
     shared_ptr<vector<SyncOrgStructureRequest::Members>> members_ {};
+    // 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+    shared_ptr<string> opsUserCode_ {};
+    // 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+    shared_ptr<string> opsUserId_ {};
     // The platform type. Valid values: saml, oauth2, or custom.
     // 
     // This parameter is required.

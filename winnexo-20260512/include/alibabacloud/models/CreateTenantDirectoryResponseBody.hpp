@@ -158,43 +158,43 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The business status code. A value of 200 indicates success. If the request fails, a specific business error code is returned.
     shared_ptr<string> code_ {};
-    // The description of the to-do card type.
+    // The description of the created directory. If no description is set, the value is empty.
     shared_ptr<string> description_ {};
-    // The folder ID.
+    // The business ID of the newly created directory. You can use this ID to read or update the knowledge base configuration for standard enterprise root directories.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // The creation time.
+    // The time when the directory was created. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> gmtCreate_ {};
-    // The last modification time.
+    // The time when the directory was last modified. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> gmtModified_ {};
-    // The tenant folder ID.
+    // The internal primary key of the directory. You can use this key as the parentId when you create a subdirectory. This key is different from the business ID directoryId.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The description of the status code.
+    // The response message. The value is success if the request is successful. If the request fails, this parameter describes the cause of the error.
     shared_ptr<string> message_ {};
-    // The name.
+    // The name of the created directory.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The name of the digital employee (the operating object name, optional).
+    // The legacy single digital employee association field. You cannot use this field to replace the mode and association list returned by GetKnowledgeBaseConfiguration.
     shared_ptr<string> operatingObjectName_ {};
-    // The ID of the parent node.
+    // The internal primary key of the parent directory. This value is empty for enterprise root directories.
     shared_ptr<int64_t> parentId_ {};
-    // The path of the node.
+    // The path of the created directory.
     // 
     // This parameter is required.
     shared_ptr<string> path_ {};
-    // The request ID.
+    // The request tracking ID. You can use this ID to troubleshoot issues related to this call.
     shared_ptr<string> requestId_ {};
-    // The ID of the tenant for which the operation takes effect.
+    // The ID of the tenant to which the directory belongs.
     // 
     // This parameter is required.
     shared_ptr<int64_t> tenantId_ {};
-    // The user ID of the creator.
+    // The ID of the platform user who created the directory.
     // 
     // This parameter is required.
     shared_ptr<int64_t> userId_ {};

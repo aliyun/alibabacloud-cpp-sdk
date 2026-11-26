@@ -13,11 +13,14 @@ namespace Models
   class ListBillingRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListBillingRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(bizId, bizId_);
       DARABONBA_PTR_TO_JSON(bizType, bizType_);
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(ignoreZero, ignoreZero_);
       DARABONBA_PTR_TO_JSON(operation, operation_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(startTime, startTime_);
@@ -26,11 +29,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(wnUserId, wnUserId_);
     };
     friend void from_json(const Darabonba::Json& j, ListBillingRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(bizId, bizId_);
       DARABONBA_PTR_FROM_JSON(bizType, bizType_);
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(ignoreZero, ignoreZero_);
       DARABONBA_PTR_FROM_JSON(operation, operation_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(startTime, startTime_);
@@ -49,9 +55,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->bizType_ == nullptr && this->endTime_ == nullptr && this->ignoreZero_ == nullptr && this->operation_ == nullptr && this->page_ == nullptr
-        && this->pageSize_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->tenantId_ == nullptr && this->wnUserId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->bizId_ == nullptr && this->bizType_ == nullptr && this->endTime_ == nullptr && this->ignoreZero_ == nullptr && this->operation_ == nullptr
+        && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->tenantId_ == nullptr && this->wnUserId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline ListBillingRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -85,6 +99,20 @@ namespace Models
     void deleteOperation() { this->operation_ = nullptr;};
     inline string getOperation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
     inline ListBillingRequest& setOperation(string operation) { DARABONBA_PTR_SET_VALUE(operation_, operation) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline ListBillingRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline ListBillingRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // page Field Functions 
@@ -130,32 +158,36 @@ namespace Models
 
 
   protected:
-    // The unique business identifier. When bizType is set to LibraryChat, bizId specifies the document library ID.
+    // The platform application token issued by the console. If you specify this parameter, the request is executed as the user specified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
+    // The unique identifier of the business. When bizType is set to LibraryChat, bizId refers to the ID of the document library.
     shared_ptr<string> bizId_ {};
-    // The business type. Currently supported values: model Q&A (LlmChat) and document library Q&A (LibraryChat).
+    // The business type. Valid values: LlmChat (model Q&A) and LibraryChat (document library Q&A).
     shared_ptr<string> bizType_ {};
-    // The actual end timestamp of the live stream, in milliseconds.
+    // The actual end timestamp of the live stream. The value is a UNIX timestamp in milliseconds.
     shared_ptr<string> endTime_ {};
-    // Specifies whether to filter out bills with zero credit consumption. Default value: true (filter out).
+    // Specifies whether to filter out bills with zero credit consumption. Default value: true.
     shared_ptr<bool> ignoreZero_ {};
-    // The operation type. Valid values:
-    // 
-    // - start: indicates node creation. This is the default value. In most cases, you do not need to explicitly set this value.
-    // - stop: stops a real-time meeting node. This value corresponds to the creation of a real-time meeting. After the meeting ends, set this value to stop and trigger the call. This value is used in real-time meeting scenarios.
-    // 
-    // > Note: When ending a real-time recording, make sure to set this parameter to stop.
+    // The operation item. Valid values:
+    // - start: indicates the creation of a task. This is the default value and usually does not need to be explicitly specified.
+    // - stop: stops a real-time meeting task. This corresponds to the creation of a real-time meeting and is set to stop to trigger a call after the meeting ends. This value is used in real-time meeting scenarios.
+    // Note: When you end a real-time recording, you must set this parameter to stop.
     shared_ptr<string> operation_ {};
+    // The code of the proxy user, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The ID of the proxy user, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};
     // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
     shared_ptr<int64_t> pageSize_ {};
-    // The query start time. The value is a UNIX timestamp in seconds.
+    // The start time of the query. The value is a UNIX timestamp in seconds.
     shared_ptr<string> startTime_ {};
-    // The node status. Running is returned upon submission.
+    // The task status. A status of Running is returned immediately after the task is submitted.
     shared_ptr<string> status_ {};
-    // The tenant ID. This is a common parameter. In winnexo-cli, pass this parameter explicitly by using --tenant-id.
+    // The tenant ID. This is a common parameter. For winnexo-cli, this parameter is explicitly passed by using --tenant-id.
     shared_ptr<string> tenantId_ {};
-    // The user ID (WINNEXO platform user ID, optional filter).
+    // The user ID, which is the WINNEXO platform user ID. This parameter is optional for filtering.
     shared_ptr<string> wnUserId_ {};
   };
 

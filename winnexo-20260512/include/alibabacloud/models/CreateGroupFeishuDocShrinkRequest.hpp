@@ -13,6 +13,7 @@ namespace Models
   class CreateGroupFeishuDocShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateGroupFeishuDocShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(directoryId, directoryId_);
       DARABONBA_PTR_TO_JSON(docUrl, docUrl_);
@@ -21,11 +22,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(notes, notes_);
       DARABONBA_PTR_TO_JSON(objectBindings, objectBindingsShrink_);
       DARABONBA_PTR_TO_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_TO_JSON(syncConfig, syncConfigShrink_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateGroupFeishuDocShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(directoryId, directoryId_);
       DARABONBA_PTR_FROM_JSON(docUrl, docUrl_);
@@ -34,6 +38,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(notes, notes_);
       DARABONBA_PTR_FROM_JSON(objectBindings, objectBindingsShrink_);
       DARABONBA_PTR_FROM_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_FROM_JSON(syncConfig, syncConfigShrink_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
@@ -49,9 +55,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->directoryId_ == nullptr && this->docUrl_ == nullptr && this->groupId_ == nullptr && this->name_ == nullptr && this->notes_ == nullptr
-        && this->objectBindingsShrink_ == nullptr && this->operatingObjectName_ == nullptr && this->sourceTags_ == nullptr && this->syncConfigShrink_ == nullptr && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->description_ == nullptr && this->directoryId_ == nullptr && this->docUrl_ == nullptr && this->groupId_ == nullptr && this->name_ == nullptr
+        && this->notes_ == nullptr && this->objectBindingsShrink_ == nullptr && this->operatingObjectName_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr
+        && this->sourceTags_ == nullptr && this->syncConfigShrink_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline CreateGroupFeishuDocShrinkRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -108,6 +122,20 @@ namespace Models
     inline CreateGroupFeishuDocShrinkRequest& setOperatingObjectName(string operatingObjectName) { DARABONBA_PTR_SET_VALUE(operatingObjectName_, operatingObjectName) };
 
 
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline CreateGroupFeishuDocShrinkRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline CreateGroupFeishuDocShrinkRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
+
+
     // sourceTags Field Functions 
     bool hasSourceTags() const { return this->sourceTags_ != nullptr;};
     void deleteSourceTags() { this->sourceTags_ = nullptr;};
@@ -130,6 +158,8 @@ namespace Models
 
 
   protected:
+    // The platform application token issued by the console. If specified, the operation is performed as the user identified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
     // The description of the AI assistant.
     shared_ptr<string> description_ {};
     // The directory ID.
@@ -142,19 +172,23 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The image name.
+    // The mirror name.
     shared_ptr<string> name_ {};
-    // The meeting notes content (optional). The notes are used for auxiliary analysis.
+    // The meeting notes content. This parameter is optional and is used for auxiliary analysis.
     shared_ptr<string> notes_ {};
     // The object bindings.
     shared_ptr<string> objectBindingsShrink_ {};
-    // The name of the operating object.
+    // The name of the operation object.
     shared_ptr<string> operatingObjectName_ {};
-    // The resource tags (optional, a JSON string list, such as ["tagA","tagB"]).
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
+    // The resource tags. This parameter is optional and accepts a JSON string list, such as ["tagA","tagB"].
     shared_ptr<string> sourceTags_ {};
     // The synchronization settings.
     shared_ptr<string> syncConfigShrink_ {};
-    // The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
+    // The tenant ID. This is a common parameter. For winnexo-cli, this parameter is explicitly passed by using the --tenant-id option.
     shared_ptr<string> tenantId_ {};
   };
 

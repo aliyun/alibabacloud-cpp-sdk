@@ -52,6 +52,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
         DARABONBA_PTR_TO_JSON(abnormalReason, abnormalReason_);
+        DARABONBA_PTR_TO_JSON(autoPreference, autoPreference_);
         DARABONBA_PTR_TO_JSON(canDelete, canDelete_);
         DARABONBA_PTR_TO_JSON(canEdit, canEdit_);
         DARABONBA_PTR_TO_JSON(canExecute, canExecute_);
@@ -77,6 +78,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(abnormalReason, abnormalReason_);
+        DARABONBA_PTR_FROM_JSON(autoPreference, autoPreference_);
         DARABONBA_PTR_FROM_JSON(canDelete, canDelete_);
         DARABONBA_PTR_FROM_JSON(canEdit, canEdit_);
         DARABONBA_PTR_FROM_JSON(canExecute, canExecute_);
@@ -112,16 +114,23 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->abnormalReason_ == nullptr
-        && this->canDelete_ == nullptr && this->canEdit_ == nullptr && this->canExecute_ == nullptr && this->canToggle_ == nullptr && this->collaborationGroupId_ == nullptr
-        && this->creator_ == nullptr && this->creatorName_ == nullptr && this->cronExpression_ == nullptr && this->description_ == nullptr && this->digitalEmployeeName_ == nullptr
-        && this->executionCount_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->isOpen_ == nullptr && this->model_ == nullptr
-        && this->name_ == nullptr && this->outputMode_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->triggerType_ == nullptr
-        && this->visibility_ == nullptr && this->visibleMemberUserIds_ == nullptr; };
+        && this->autoPreference_ == nullptr && this->canDelete_ == nullptr && this->canEdit_ == nullptr && this->canExecute_ == nullptr && this->canToggle_ == nullptr
+        && this->collaborationGroupId_ == nullptr && this->creator_ == nullptr && this->creatorName_ == nullptr && this->cronExpression_ == nullptr && this->description_ == nullptr
+        && this->digitalEmployeeName_ == nullptr && this->executionCount_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->isOpen_ == nullptr
+        && this->model_ == nullptr && this->name_ == nullptr && this->outputMode_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr
+        && this->triggerType_ == nullptr && this->visibility_ == nullptr && this->visibleMemberUserIds_ == nullptr; };
       // abnormalReason Field Functions 
       bool hasAbnormalReason() const { return this->abnormalReason_ != nullptr;};
       void deleteAbnormalReason() { this->abnormalReason_ = nullptr;};
       inline string getAbnormalReason() const { DARABONBA_PTR_GET_DEFAULT(abnormalReason_, "") };
       inline Items& setAbnormalReason(string abnormalReason) { DARABONBA_PTR_SET_VALUE(abnormalReason_, abnormalReason) };
+
+
+      // autoPreference Field Functions 
+      bool hasAutoPreference() const { return this->autoPreference_ != nullptr;};
+      void deleteAutoPreference() { this->autoPreference_ = nullptr;};
+      inline string getAutoPreference() const { DARABONBA_PTR_GET_DEFAULT(autoPreference_, "") };
+      inline Items& setAutoPreference(string autoPreference) { DARABONBA_PTR_SET_VALUE(autoPreference_, autoPreference) };
 
 
       // canDelete Field Functions 
@@ -285,6 +294,8 @@ namespace Models
     protected:
       // The cause of the exception. This field has a value only when status is abnormal.
       shared_ptr<string> abnormalReason_ {};
+      // 任务 AUTO 偏好：none=默认、performance=效果优先、credit=成本优先
+      shared_ptr<string> autoPreference_ {};
       // Indicates whether the current caller can delete the task. This is valid only for the task creator and group owner. For personal tasks, the value is always true.
       shared_ptr<bool> canDelete_ {};
       // Indicates whether the course can be edited or deleted.

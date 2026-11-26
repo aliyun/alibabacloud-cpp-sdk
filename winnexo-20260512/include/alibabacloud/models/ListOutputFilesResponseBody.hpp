@@ -188,7 +188,7 @@ namespace Models
           shared_ptr<int64_t> completedSlides_ {};
           // The ID of the PPT file.
           shared_ptr<string> pptId_ {};
-          // The name of the PPT file.
+          // The PPT name.
           shared_ptr<string> pptName_ {};
           // The total number of slides.
           shared_ptr<int64_t> totalSlides_ {};
@@ -254,7 +254,7 @@ namespace Models
           shared_ptr<string> description_ {};
           // The file name.
           shared_ptr<string> name_ {};
-          // The file download URL. For versioned files, it is bound to the published version and content revision at the time of query. The URL has a time-to-live (TTL). If it expires, query the list again to obtain a new URL.
+          // The file download link. For versioned files, it is bound to the published version and content revision at the time of query. The link has a time-to-live (TTL). If it expires, query the list again to obtain a new link.
           shared_ptr<string> path_ {};
           // The file type, such as .pdf or .md.
           shared_ptr<string> type_ {};
@@ -318,7 +318,7 @@ namespace Models
 
 
         protected:
-          // The email content.
+          // The email body.
           shared_ptr<string> body_ {};
           // The content type, such as MARKDOWN, JSONML, or HTML.
           shared_ptr<string> contentType_ {};
@@ -444,19 +444,19 @@ namespace Models
 
 
       protected:
-        // The creation time of the output detail. The backend datetime value is serialized into an ISO 8601 string, and the time zone information is returned with the original value.
+        // The creation time of the output detail, serialized from the backend datetime value to an ISO 8601 string. The time zone information is returned with the original value.
         shared_ptr<string> createTime_ {};
         // The email information. This field is present when the item type is email.
         shared_ptr<OutputItems::EmailInfo> emailInfo_ {};
         // The file information. This field is present when the item type is file.
         shared_ptr<OutputItems::FileInfo> fileInfo_ {};
-        // The creation time of the output or detail. The backend datetime value is serialized into an ISO 8601 string, and the time zone information is returned with the original value.
+        // The creation time of the output or detail, serialized from the backend datetime value to an ISO 8601 string. The time zone information is returned with the original value.
         shared_ptr<string> gmtCreate_ {};
-        // The update time of the output or detail. The backend datetime value is serialized into an ISO 8601 string, and the time zone information is returned with the original value.
+        // The update time of the output or detail, serialized from the backend datetime value to an ISO 8601 string. The time zone information is returned with the original value.
         shared_ptr<string> gmtModified_ {};
         // The output name.
         shared_ptr<string> itemName_ {};
-        // The output item type. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
+        // The type of the output detail. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
         shared_ptr<string> itemType_ {};
         // The localized display name of the output detail type.
         shared_ptr<string> itemTypeDisplayName_ {};
@@ -466,11 +466,11 @@ namespace Models
         shared_ptr<string> outputItemId_ {};
         // Specifies whether sharing is enabled.
         shared_ptr<bool> shareEnabled_ {};
-        // The share token, which is present when sharing is enabled and can be used to access the public share preview API.
+        // The share token. This field is present when sharing is enabled and can be used to access the public share preview API.
         shared_ptr<string> shareToken_ {};
         // The skill output ID.
         shared_ptr<string> skillOutputId_ {};
-        // The slide deck information. This field is present when the output type is a slide deck.
+        // The slide deck information (present for the slide deck type).
         shared_ptr<OutputItems::SlidesInfo> slidesInfo_ {};
         // The task execution ID.
         shared_ptr<string> taskExecutionId_ {};
@@ -561,13 +561,13 @@ namespace Models
     protected:
       // The conversation ID.
       shared_ptr<string> conversationId_ {};
-      // The creation time of the output or detail. The backend datetime value is serialized into an ISO 8601 string, and the time zone information is returned with the original value.
+      // The creation time of the output or detail, serialized from the backend datetime value to an ISO 8601 string. The time zone information is returned with the original value.
       shared_ptr<string> gmtCreate_ {};
-      // The update time of the output or detail. The backend datetime value is serialized into an ISO 8601 string, and the time zone information is returned with the original value.
+      // The update time of the output or detail, serialized from the backend datetime value to an ISO 8601 string. The time zone information is returned with the original value.
       shared_ptr<string> gmtModified_ {};
       // The output name.
       shared_ptr<string> name_ {};
-      // The name of the digital employee (operating object).
+      // The name of the digital worker (operating object).
       shared_ptr<string> operatingObjectName_ {};
       // The output ID.
       shared_ptr<string> outputId_ {};
@@ -642,15 +642,15 @@ namespace Models
     shared_ptr<string> code_ {};
     // The list of output master records on the current page. File details return the latest published version by default.
     shared_ptr<vector<ListOutputFilesResponseBody::Items>> items_ {};
-    // The message.
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // The current page number. The value starts from 1, and pagination is based on output master records.
+    // The current page number, starting from 1. Pagination is based on primary output records.
     shared_ptr<int64_t> page_ {};
-    // The number of output master records per page. Default value: 20. Valid values: 1 to 100.
+    // The number of primary output records per page. Default value: 20. Valid values: 1 to 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // The total number of output master records that match the filter conditions. The count is deduplicated by outputId and does not include the number of files or historical versions.
+    // The total number of primary output records that match the filter criteria, deduplicated by outputId. This count does not include the number of files or historical versions.
     shared_ptr<int64_t> total_ {};
   };
 

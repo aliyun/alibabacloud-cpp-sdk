@@ -13,16 +13,22 @@ namespace Models
   class UpdateUserGroupRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateUserGroupRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(moveToRoot, moveToRoot_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(parentId, parentId_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(userGroupId, userGroupId_);
       DARABONBA_PTR_TO_JSON(userGroupName, userGroupName_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateUserGroupRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(moveToRoot, moveToRoot_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(parentId, parentId_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(userGroupId, userGroupId_);
@@ -39,8 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->moveToRoot_ == nullptr && this->parentId_ == nullptr && this->tenantId_ == nullptr && this->userGroupId_ == nullptr && this->userGroupName_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->description_ == nullptr && this->moveToRoot_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr && this->parentId_ == nullptr
+        && this->tenantId_ == nullptr && this->userGroupId_ == nullptr && this->userGroupName_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline UpdateUserGroupRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -53,6 +67,20 @@ namespace Models
     void deleteMoveToRoot() { this->moveToRoot_ = nullptr;};
     inline bool getMoveToRoot() const { DARABONBA_PTR_GET_DEFAULT(moveToRoot_, false) };
     inline UpdateUserGroupRequest& setMoveToRoot(bool moveToRoot) { DARABONBA_PTR_SET_VALUE(moveToRoot_, moveToRoot) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline UpdateUserGroupRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline UpdateUserGroupRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // parentId Field Functions 
@@ -84,13 +112,19 @@ namespace Models
 
 
   protected:
+    // The platform application token issued by the console. If specified, the operation is executed as the user identified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
     // The new description of the user group. If this parameter is not specified, the description is not modified.
     shared_ptr<string> description_ {};
     // Specifies whether to move the user group to the root node. This parameter cannot be set at the same time as a non-null parentId.
     shared_ptr<bool> moveToRoot_ {};
-    // The ID of the new parent user group. If this parameter is not specified, the user group is not moved. If it is explicitly set to null, the user group is moved to the root node.
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
+    // The ID of the new parent user group. If this parameter is not specified, the user group is not moved. If this parameter is explicitly set to null, the user group is moved to the root node.
     shared_ptr<string> parentId_ {};
-    // The tenant ID. This is a common parameter. In winnexo-cli, it is explicitly passed by using --tenant-id.
+    // The tenant ID. This is a common parameter. For winnexo-cli, explicitly pass this parameter by using `--tenant-id`.
     shared_ptr<string> tenantId_ {};
     // The ID of the target user group.
     // 

@@ -92,7 +92,7 @@ namespace Models
 
 
     protected:
-      // The business description of the knowledge graph. An empty string is returned if not configured.
+      // The business description of the graph. This is an empty string if not configured.
       // 
       // This parameter is required.
       shared_ptr<string> businessProfile_ {};
@@ -100,11 +100,11 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> displayName_ {};
-      // The knowledge graph name.
+      // The graph name.
       // 
       // This parameter is required.
       shared_ptr<string> graphName_ {};
-      // Indicates whether this is the default group.
+      // Specifies whether it is the default group.
       // 
       // This parameter is required.
       shared_ptr<bool> isDefault_ {};
@@ -149,7 +149,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<ListGraphsResponseBody::Items>> items_ {};
-    // The prompt message.
+    // The message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

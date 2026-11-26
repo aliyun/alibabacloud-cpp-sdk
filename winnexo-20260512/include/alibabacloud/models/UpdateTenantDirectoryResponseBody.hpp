@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The business status code. A value of 200 indicates success. If the request fails, a specific business error code is returned.
     shared_ptr<string> code_ {};
-    // The folder ID.
+    // The business ID of the updated directory. You can refresh the configuration content by calling the corresponding configuration read API operation.
     shared_ptr<string> directoryId_ {};
-    // The description of the status code.
+    // The response message. The value is success if the request is successful. If the request fails, the message describes the cause of the error.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The request tracking ID. You can use this ID to troubleshoot issues related to this call.
     shared_ptr<string> requestId_ {};
   };
 

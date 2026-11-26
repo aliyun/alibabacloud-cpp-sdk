@@ -14,8 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListUsersShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(accountIds, accountIdsShrink_);
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(isActive, isActive_);
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(roleCodes, roleCodesShrink_);
@@ -23,8 +26,11 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListUsersShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(accountIds, accountIdsShrink_);
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(isActive, isActive_);
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(roleCodes, roleCodesShrink_);
@@ -42,13 +48,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountIdsShrink_ == nullptr
-        && this->isActive_ == nullptr && this->keyword_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->roleCodesShrink_ == nullptr
-        && this->tenantId_ == nullptr; };
+        && this->appToken_ == nullptr && this->isActive_ == nullptr && this->keyword_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr
+        && this->page_ == nullptr && this->pageSize_ == nullptr && this->roleCodesShrink_ == nullptr && this->tenantId_ == nullptr; };
     // accountIdsShrink Field Functions 
     bool hasAccountIdsShrink() const { return this->accountIdsShrink_ != nullptr;};
     void deleteAccountIdsShrink() { this->accountIdsShrink_ = nullptr;};
     inline string getAccountIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(accountIdsShrink_, "") };
     inline ListUsersShrinkRequest& setAccountIdsShrink(string accountIdsShrink) { DARABONBA_PTR_SET_VALUE(accountIdsShrink_, accountIdsShrink) };
+
+
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline ListUsersShrinkRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
 
 
     // isActive Field Functions 
@@ -63,6 +76,20 @@ namespace Models
     void deleteKeyword() { this->keyword_ = nullptr;};
     inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline ListUsersShrinkRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline ListUsersShrinkRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline ListUsersShrinkRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // page Field Functions 
@@ -96,21 +123,27 @@ namespace Models
   protected:
     // The list of cloud account IDs.
     shared_ptr<string> accountIdsShrink_ {};
+    // The platform application token issued by the console. If specified, the operation is executed as the user specified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
     // Specifies whether the account is activated. Valid values:
     // - **true**: Activated.
     // - **false**: Not activated.
     shared_ptr<bool> isActive_ {};
-    // The keyword for product search. Fuzzy match is supported.
+    // The keyword for searching products. Fuzzy match is supported.
     shared_ptr<string> keyword_ {};
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
     // The page number.
     shared_ptr<int64_t> page_ {};
     // The number of entries to return per page.
     // 
     // > The maximum number of entries per page is 30.
     shared_ptr<int64_t> pageSize_ {};
-    // The list of new system role codes. This is a full replacement and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
+    // The list of new system role codes. This list fully replaces the existing roles and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
     shared_ptr<string> roleCodesShrink_ {};
-    // The tenant ID. This is a common parameter. winnexo-cli explicitly passes this parameter by using --tenant-id.
+    // The tenant ID. This is a common parameter and is explicitly passed by using the --tenant-id option in winnexo-cli.
     shared_ptr<string> tenantId_ {};
   };
 

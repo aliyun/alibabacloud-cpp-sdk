@@ -114,19 +114,17 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The folder ID.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
     // The creation time.
     shared_ptr<string> gmtCreate_ {};
     // The error details.
     shared_ptr<string> message_ {};
-    // The updated filter view name.
+    // The updated name of the filtered view.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The export scope. Valid values:
-    // - ALL: all.
-    // - SELECT: selected rows.
+    // The export scope. Valid values: ALL: all data. SELECT: selected rows.
     shared_ptr<string> scope_ {};
     // The source ID.
     shared_ptr<string> sourceId_ {};

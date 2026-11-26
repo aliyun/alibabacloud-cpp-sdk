@@ -95,11 +95,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the object is subscribed after the operation.
+      // Indicates whether the object is favorited after the operation.
       shared_ptr<bool> isFavorited_ {};
-      // The aligned object ID: target ID or KR ID.
+      // The ID of the aligned object, which is the target ID or KR ID.
       shared_ptr<string> objectId_ {};
-      // Indicates whether the request is processed.
+      // Indicates whether the request has been processed.
       shared_ptr<bool> processed_ {};
     };
 
@@ -183,21 +183,21 @@ namespace Models
     shared_ptr<string> code_ {};
     // The graph name.
     shared_ptr<string> graphName_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The object type, such as customer. This parameter has a value when type is set to mention.
     shared_ptr<string> objectType_ {};
-    // The digital employee name (operating object name, optional).
+    // The digital worker name, which is the name of the operating object. This parameter is optional.
     shared_ptr<string> operatingObjectName_ {};
-    // The number of remaining subscribed objects within the precise scope.
+    // The number of remaining favorited objects within the exact scope.
     shared_ptr<int64_t> remainingCount_ {};
-    // The number of physical subscription records that are actually deleted.
+    // The number of physical favorite records that are actually deleted.
     shared_ptr<int64_t> removedCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // **The number of requested members before deduplication.**
     shared_ptr<int64_t> requestedCount_ {};
-    // The relationships between internal and external DingTalk users that failed to be created.
+    // The internal and external DingTalk user relationships that failed to be created.
     shared_ptr<vector<BatchRemoveOperatingObjectFavoritesResponseBody::Results>> results_ {};
   };
 

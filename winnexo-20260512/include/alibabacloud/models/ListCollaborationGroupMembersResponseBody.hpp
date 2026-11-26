@@ -98,9 +98,9 @@ namespace Models
 
 
     protected:
-      // The display name. This field is empty if the display name is not set.
+      // The display name. This field is empty if not set.
       shared_ptr<string> displayName_ {};
-      // The enabling status of the tenant account. Only active members are returned, so this value is always true. This field does not indicate the HR employment status.
+      // The enabling status of the tenant account. Only active members are returned, so this value is always true. It does not represent the employment status.
       shared_ptr<bool> isActive_ {};
       // The role of the workspace member.
       shared_ptr<string> role_ {};
@@ -173,7 +173,7 @@ namespace Models
     shared_ptr<int64_t> page_ {};
     // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
     // The total number of records after filtering.
     shared_ptr<int64_t> total_ {};

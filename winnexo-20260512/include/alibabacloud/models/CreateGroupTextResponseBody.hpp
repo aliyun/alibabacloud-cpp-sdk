@@ -123,21 +123,21 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The folder ID.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
     // The creation time.
     shared_ptr<string> gmtCreate_ {};
     // The project group ID.
     shared_ptr<string> groupId_ {};
-    // The prompt message.
+    // The message.
     shared_ptr<string> message_ {};
-    // The image name.
+    // The mirror name.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The permission scope.
     shared_ptr<string> scope_ {};
-    // The unique identifier on the business system side, that is, the business ID.
+    // The unique identifier on the business system side, which is the business ID.
     shared_ptr<string> sourceId_ {};
     // The status.
     shared_ptr<string> status_ {};

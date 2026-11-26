@@ -14,8 +14,11 @@ namespace Models
   class CreateTodoRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateTodoRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(assigneeUserIds, assigneeUserIds_);
       DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(priority, priority_);
       DARABONBA_PTR_TO_JSON(questions, questions_);
       DARABONBA_ANY_TO_JSON(sourceContext, sourceContext_);
@@ -24,8 +27,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(title, title_);
     };
     friend void from_json(const Darabonba::Json& j, CreateTodoRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(assigneeUserIds, assigneeUserIds_);
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(priority, priority_);
       DARABONBA_PTR_FROM_JSON(questions, questions_);
       DARABONBA_ANY_FROM_JSON(sourceContext, sourceContext_);
@@ -240,9 +246,16 @@ namespace Models
       shared_ptr<bool> required_ {};
     };
 
-    virtual bool empty() const override { return this->assigneeUserIds_ == nullptr
-        && this->collaborationGroupId_ == nullptr && this->priority_ == nullptr && this->questions_ == nullptr && this->sourceContext_ == nullptr && this->sourceType_ == nullptr
-        && this->tenantId_ == nullptr && this->title_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->assigneeUserIds_ == nullptr && this->collaborationGroupId_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr && this->priority_ == nullptr
+        && this->questions_ == nullptr && this->sourceContext_ == nullptr && this->sourceType_ == nullptr && this->tenantId_ == nullptr && this->title_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline CreateTodoRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // assigneeUserIds Field Functions 
     bool hasAssigneeUserIds() const { return this->assigneeUserIds_ != nullptr;};
     void deleteAssigneeUserIds() { this->assigneeUserIds_ = nullptr;};
@@ -257,6 +270,20 @@ namespace Models
     void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
     inline string getCollaborationGroupId() const { DARABONBA_PTR_GET_DEFAULT(collaborationGroupId_, "") };
     inline CreateTodoRequest& setCollaborationGroupId(string collaborationGroupId) { DARABONBA_PTR_SET_VALUE(collaborationGroupId_, collaborationGroupId) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline CreateTodoRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline CreateTodoRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // priority Field Functions 
@@ -306,12 +333,18 @@ namespace Models
 
 
   protected:
+    // 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+    shared_ptr<string> appToken_ {};
     // The list of platform user IDs of the assignees. You can specify 1 to 100 IDs. Duplicate IDs are automatically removed.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> assigneeUserIds_ {};
     // The ID of the collaboration workspace. This parameter is optional.
     shared_ptr<string> collaborationGroupId_ {};
+    // 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+    shared_ptr<string> opsUserCode_ {};
+    // 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+    shared_ptr<string> opsUserId_ {};
     // The priority.
     shared_ptr<string> priority_ {};
     // The list of questions.

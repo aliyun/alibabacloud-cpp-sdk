@@ -140,9 +140,9 @@ namespace Models
     shared_ptr<string> directoryKind_ {};
     // The creation time.
     shared_ptr<int64_t> gmtCreate_ {};
-    // The last modification time.
+    // The last update time.
     shared_ptr<int64_t> gmtModified_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The name.
     shared_ptr<string> name_ {};

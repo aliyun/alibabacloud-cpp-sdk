@@ -98,13 +98,13 @@ namespace Models
 
 
     protected:
-      // The ID of the collaboration space.
+      // The collaboration space ID.
       shared_ptr<string> collaborationGroupId_ {};
       // The role of the current user in the space.
       shared_ptr<string> currentUserRole_ {};
       // The name of the space.
       shared_ptr<string> name_ {};
-      // The status of the space. Currently, only ACTIVE is returned.
+      // The space status. Currently, only ACTIVE is returned.
       shared_ptr<string> status_ {};
     };
 
@@ -167,13 +167,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The list of items on the current page.
     shared_ptr<vector<ListCollaborationGroupsResponseBody::Items>> items_ {};
-    // The common error message.
+    // The common error description.
     shared_ptr<string> message_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};
-    // The page size.
+    // The number of entries on the current page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
     // The total number of filtered records.
     shared_ptr<int64_t> total_ {};

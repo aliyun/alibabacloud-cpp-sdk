@@ -14,11 +14,14 @@ namespace Models
   class ListOutputFilesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListOutputFilesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(bizId, bizId_);
       DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_TO_JSON(itemType, itemType_);
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
       DARABONBA_PTR_TO_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
@@ -28,11 +31,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, ListOutputFilesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(bizId, bizId_);
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_FROM_JSON(itemType, itemType_);
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
@@ -52,10 +58,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->collaborationGroupId_ == nullptr && this->itemType_ == nullptr && this->keyword_ == nullptr && this->operatingObjectName_ == nullptr && this->page_ == nullptr
-        && this->pageSize_ == nullptr && this->sessionId_ == nullptr && this->sharedOnly_ == nullptr && this->tags_ == nullptr && this->taskExecutionId_ == nullptr
-        && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->bizId_ == nullptr && this->collaborationGroupId_ == nullptr && this->itemType_ == nullptr && this->keyword_ == nullptr && this->operatingObjectName_ == nullptr
+        && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->sessionId_ == nullptr
+        && this->sharedOnly_ == nullptr && this->tags_ == nullptr && this->taskExecutionId_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline ListOutputFilesRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -89,6 +102,20 @@ namespace Models
     void deleteOperatingObjectName() { this->operatingObjectName_ = nullptr;};
     inline string getOperatingObjectName() const { DARABONBA_PTR_GET_DEFAULT(operatingObjectName_, "") };
     inline ListOutputFilesRequest& setOperatingObjectName(string operatingObjectName) { DARABONBA_PTR_SET_VALUE(operatingObjectName_, operatingObjectName) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline ListOutputFilesRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline ListOutputFilesRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // page Field Functions 
@@ -143,27 +170,33 @@ namespace Models
 
 
   protected:
-    // The business ID used for exact filtering. The length is 1 to 128 characters. This ID is derived from file registrations or the businessId of associated workflow instances.
+    // The platform application token issued by the console. If provided, the operation is executed with the identity of the user specified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
+    // The business ID used for exact filtering. The length is 1 to 128 characters. This value is derived from the businessId of file registrations or associated workflow instances.
     shared_ptr<string> bizId_ {};
-    // The ID of the collaboration workspace. The length is 1 to 64 characters. This parameter is optional. If not specified, the personal outputs of the current user are queried. If specified, the real-time permissions of the workspace members and source resources are verified.
+    // The ID of the collaboration workspace. The length is 1 to 64 characters. If this parameter is not provided, the personal outputs of the current user are queried. If provided, the real-time permissions of the workspace members and source resources are verified.
     shared_ptr<string> collaborationGroupId_ {};
-    // The output detail type. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
+    // The type of the output detail. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
     shared_ptr<string> itemType_ {};
     // The keyword used to match the output title or detail name.
     shared_ptr<string> keyword_ {};
-    // The name of the digital employee (operating object). Filters results by name.
+    // The name of the digital employee used for filtering.
     shared_ptr<string> operatingObjectName_ {};
-    // The page number. Pages start from 1. Default value: 1.
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
+    // The page number, starting from 1. Default value: 1.
     shared_ptr<int64_t> page_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of items per page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
     // The session ID used for exact filtering. The length is 1 to 128 characters. This parameter applies to regular sessions, skill sessions, and the executionId of task executions.
     shared_ptr<string> sessionId_ {};
-    // Specifies whether to display only the outputs and output details that have sharing enabled.
+    // Specifies whether to display only shared outputs and output details.
     shared_ptr<bool> sharedOnly_ {};
-    // The tags used for exact filtering. All specified tags must match simultaneously. You can specify up to 20 tags. Each tag must be a non-empty string of 1 to 128 characters. Tags are derived from file registrations or the variables.tags of associated instances.
+    // The tags used for exact filtering. All specified tags must match simultaneously. You can specify up to 20 tags. Each tag must be a non-empty string of 1 to 128 characters. Tags are derived from the variables.tags of file registrations or associated instances.
     shared_ptr<vector<string>> tags_ {};
-    // The ID of the current execution used to exactly filter outputs.
+    // The execution ID used to exactly filter the outputs of the current execution.
     shared_ptr<string> taskExecutionId_ {};
     // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used. The identity and tenant permissions are determined by the gateway and backend authentication.
     shared_ptr<string> tenantId_ {};

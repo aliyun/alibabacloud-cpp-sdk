@@ -212,13 +212,13 @@ namespace Models
       shared_ptr<string> attachmentId_ {};
       // The content type.
       shared_ptr<string> contentType_ {};
-      // The access URL of the attachment, prefixed with an OpenAPI 302 redirect.
+      // The access URL of the attachment (OpenAPI 302 front end).
       shared_ptr<string> refUrl_ {};
       // The resource ID of the attachment.
       shared_ptr<string> resourceId_ {};
       // The resource type of the attachment.
       shared_ptr<string> resourceKind_ {};
-      // The size of the attachment in bytes.
+      // The attachment size in bytes.
       shared_ptr<int64_t> sizeBytes_ {};
       // The title of the attachment.
       shared_ptr<string> title_ {};
@@ -586,25 +586,25 @@ namespace Models
     shared_ptr<int64_t> appliedStatusVersion_ {};
     // The list of input attachments.
     shared_ptr<vector<CreateWorkItemResponseBody::Attachments>> attachments_ {};
-    // The business status.
+    // The business status in the seven-state model.
     shared_ptr<string> businessStatus_ {};
     // Indicates whether the caller can delete the item.
     shared_ptr<bool> canDelete_ {};
     // Indicates whether the caller can manage the item.
     shared_ptr<bool> canManage_ {};
-    // Indicates whether the visibility scope can be adjusted independently.
+    // Indicates whether the caller can independently adjust the visibility scope.
     shared_ptr<bool> canManageVisibility_ {};
     // Indicates whether the caller can rename the item.
     shared_ptr<bool> canRename_ {};
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The collaboration workspace ID.
+    // The collaboration space ID.
     shared_ptr<string> collaborationGroupId_ {};
     // The list of user IDs of the collaborators.
     shared_ptr<vector<int64_t>> collaboratorUserIds_ {};
     // The ID of the associated conversation.
     shared_ptr<string> conversationId_ {};
-    // The creation time, in ISO 8601 format.
+    // The time when the item was created (ISO 8601).
     shared_ptr<string> createdAt_ {};
     // The user ID of the creator.
     shared_ptr<int64_t> createdByUserId_ {};
@@ -626,19 +626,19 @@ namespace Models
     shared_ptr<int64_t> inputVersion_ {};
     // The work item type.
     shared_ptr<string> itemType_ {};
-    // The time when the item last entered the processing state, in ISO 8601 format.
+    // The time when the item last entered the processing state (ISO 8601).
     shared_ptr<string> lastProcessingAt_ {};
     // Indicates whether the topic is a free exploration topic during the compatibility period.
     shared_ptr<bool> legacyTopic_ {};
-    // The list of user IDs for visible members.
+    // The list of user IDs of members who can view the item.
     shared_ptr<vector<int64_t>> memberUserIds_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The modification time, in ISO 8601 format.
+    // The time when the item was last modified (ISO 8601).
     shared_ptr<string> modifiedAt_ {};
     // The user ID of the owner.
     shared_ptr<int64_t> ownerUserId_ {};
-    // Indicates whether the item is pinned by the caller.
+    // Indicates whether the item is pinned to the top by the caller.
     shared_ptr<bool> pinned_ {};
     // The priority.
     shared_ptr<string> priority_ {};
@@ -646,25 +646,25 @@ namespace Models
     shared_ptr<int64_t> progressCompleted_ {};
     // The total progress.
     shared_ptr<int64_t> progressTotal_ {};
-    // The request ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // The execution ID of the task.
+    // The task execution ID.
     shared_ptr<string> sourceExecutionId_ {};
-    // The source ID of the task.
+    // The task source ID.
     shared_ptr<string> sourceTaskId_ {};
-    // The source name of the task.
+    // The task source name.
     shared_ptr<string> sourceTaskName_ {};
-    // The trigger key of the task.
+    // The task trigger key.
     shared_ptr<string> sourceTriggerKey_ {};
-    // The source type of the task.
+    // The task source type.
     shared_ptr<string> sourceType_ {};
     // The title.
     shared_ptr<string> title_ {};
-    // The time zone when the task is triggered.
+    // The task trigger time zone.
     shared_ptr<string> triggerTimezone_ {};
-    // The trigger time of the task, in ISO 8601 format.
+    // The time when the task was triggered (ISO 8601).
     shared_ptr<string> triggeredAt_ {};
-    // The optimistic version number.
+    // The optimistic locking version number.
     shared_ptr<int64_t> version_ {};
     // The visibility scope.
     shared_ptr<string> visibility_ {};
@@ -672,7 +672,7 @@ namespace Models
     shared_ptr<string> visibilitySource_ {};
     // The work item ID.
     shared_ptr<string> workItemId_ {};
-    // The four-state workflow status projection.
+    // The workflow status projection in the four-state model.
     shared_ptr<string> workflowStatus_ {};
     // The list of IDs of the bound workflow templates.
     shared_ptr<vector<string>> workflowTemplateIds_ {};

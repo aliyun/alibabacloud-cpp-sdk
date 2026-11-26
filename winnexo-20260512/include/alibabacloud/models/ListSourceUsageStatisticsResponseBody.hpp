@@ -118,13 +118,13 @@ namespace Models
 
 
     protected:
-      // The time of the most recent reporting and ingestion within the filtered range.
+      // The most recent reporting and ingestion time within the filtered range.
       shared_ptr<string> lastEventTime_ {};
       // The number of deduplicated sources.
       shared_ptr<int64_t> retrievalCount_ {};
-      // The ID of the data source, which is unique within the tenant.
+      // The data source ID, which is unique within the tenant.
       shared_ptr<string> sourceId_ {};
-      // The name of the data source.
+      // The data source name.
       shared_ptr<string> sourceName_ {};
       // The skill source type.
       shared_ptr<string> sourceType_ {};
@@ -200,7 +200,7 @@ namespace Models
     shared_ptr<bool> hasMore_ {};
     // The user information.
     shared_ptr<vector<ListSourceUsageStatisticsResponseBody::Items>> items_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};

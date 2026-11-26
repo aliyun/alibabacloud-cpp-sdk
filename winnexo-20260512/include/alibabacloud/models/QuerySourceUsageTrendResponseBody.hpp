@@ -118,7 +118,7 @@ namespace Models
       shared_ptr<int64_t> retrievedSourceCount_ {};
       // The number of rows in the source data.
       shared_ptr<int64_t> sourceCount_ {};
-      // The number of times used in agents.
+      // The number of times used by the agent.
       shared_ptr<int64_t> usageCount_ {};
       // The deduplicated number of sources with usage events.
       shared_ptr<int64_t> usedSourceCount_ {};
@@ -161,7 +161,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The error details.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
     // The trend details.
     shared_ptr<vector<QuerySourceUsageTrendResponseBody::Trend>> trend_ {};

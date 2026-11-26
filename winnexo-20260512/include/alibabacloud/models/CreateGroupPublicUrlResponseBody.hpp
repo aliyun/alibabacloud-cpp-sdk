@@ -132,30 +132,30 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The folder ID.
+    // The ID of the folder.
     shared_ptr<string> directoryId_ {};
     // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // The project group ID.
+    // The ID of the project group.
     shared_ptr<string> groupId_ {};
     // The description of the status code.
     shared_ptr<string> message_ {};
-    // The knowledge base name.
+    // The name of the knowledge base.
     shared_ptr<string> name_ {};
     // The URL of the web page.
     shared_ptr<string> originalUrl_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The permission scope.
+    // The scope of permissions.
     shared_ptr<string> scope_ {};
-    // The source ID.
+    // The ID of the source.
     shared_ptr<string> sourceId_ {};
-    // The refund status. If a refund is in progress, query to confirm the refund status. Valid values:
-    // - SUCCESS: All succeeded.
+    // The refund status. If a refund is in progress, you must query and confirm the refund status. Valid values:
+    // - SUCCESS: All operations succeeded.
     // - FAIL: Failed.
     // - WAIT_PAY: Waiting for refund.
     // - EXPIRE: Expired.
-    // - PAYING: Refund in progress.
+    // - PAYING: Refunding.
     // - TERMINATE: Refund terminated.
     shared_ptr<string> status_ {};
   };

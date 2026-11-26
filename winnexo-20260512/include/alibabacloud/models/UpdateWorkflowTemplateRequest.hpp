@@ -14,8 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateWorkflowTemplateRequest& obj) { 
       DARABONBA_PTR_TO_JSON(action, action_);
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_ANY_TO_JSON(definition, definition_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(sourceVersion, sourceVersion_);
       DARABONBA_PTR_TO_JSON(templateId, templateId_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
@@ -24,8 +27,11 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UpdateWorkflowTemplateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(action, action_);
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_ANY_FROM_JSON(definition, definition_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(sourceVersion, sourceVersion_);
       DARABONBA_PTR_FROM_JSON(templateId, templateId_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
@@ -44,13 +50,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && this->collaborationGroupId_ == nullptr && this->definition_ == nullptr && this->sourceVersion_ == nullptr && this->templateId_ == nullptr && this->tenantId_ == nullptr
-        && this->version_ == nullptr && this->versionDescription_ == nullptr; };
+        && this->appToken_ == nullptr && this->collaborationGroupId_ == nullptr && this->definition_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr
+        && this->sourceVersion_ == nullptr && this->templateId_ == nullptr && this->tenantId_ == nullptr && this->version_ == nullptr && this->versionDescription_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
     inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
     inline UpdateWorkflowTemplateRequest& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
+
+
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline UpdateWorkflowTemplateRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
 
 
     // collaborationGroupId Field Functions 
@@ -67,6 +80,20 @@ namespace Models
     Darabonba::Json & getDefinition() { DARABONBA_GET(definition_) };
     inline UpdateWorkflowTemplateRequest& setDefinition(const Darabonba::Json & definition) { DARABONBA_SET_VALUE(definition_, definition) };
     inline UpdateWorkflowTemplateRequest& setDefinition(Darabonba::Json && definition) { DARABONBA_SET_RVALUE(definition_, definition) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline UpdateWorkflowTemplateRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline UpdateWorkflowTemplateRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // sourceVersion Field Functions 
@@ -105,11 +132,10 @@ namespace Models
 
 
   protected:
-    // The write action. Valid values:
-    // - SAVE: Saves the template as a draft without taking effect, allowing node names and executors to be left empty.
-    // - SUBMIT: Requires complete nodes, and saves and submits the template as the only effective version.
-    // Default value: SUBMIT.
+    // The write action. Valid values: SAVE (saves the template as a draft without taking effect, and allows node names and executors to be left empty) and SUBMIT (requires complete nodes, and saves and submits the template as the only effective version). Default value: SUBMIT.
     shared_ptr<string> action_ {};
+    // The platform application token issued by the console. If specified, the operation is executed as the user specified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
     // The collaboration workspace ID.
     // 
     // This parameter is required.
@@ -118,7 +144,11 @@ namespace Models
     // 
     // This parameter is required.
     Darabonba::Json definition_ {};
-    // The submitted version number on which the new version is based. This parameter is mutually exclusive with version. If not specified, the system falls back to the current effective version.
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
+    // The submitted version number on which the new version is based. This parameter is mutually exclusive with version. If not specified, the current effective version is used as the fallback.
     shared_ptr<string> sourceVersion_ {};
     // The template ID.
     // 

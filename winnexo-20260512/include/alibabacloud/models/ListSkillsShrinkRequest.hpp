@@ -13,20 +13,26 @@ namespace Models
   class ListSkillsShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListSkillsShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(bindStatus, bindStatus_);
       DARABONBA_PTR_TO_JSON(filterType, filterType_);
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
       DARABONBA_PTR_TO_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(tags, tagsShrink_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, ListSkillsShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(bindStatus, bindStatus_);
       DARABONBA_PTR_FROM_JSON(filterType, filterType_);
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(tags, tagsShrink_);
@@ -43,9 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->bindStatus_ == nullptr
-        && this->filterType_ == nullptr && this->keyword_ == nullptr && this->operatingObjectName_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr
-        && this->tagsShrink_ == nullptr && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->bindStatus_ == nullptr && this->filterType_ == nullptr && this->keyword_ == nullptr && this->operatingObjectName_ == nullptr && this->opsUserCode_ == nullptr
+        && this->opsUserId_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->tagsShrink_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline ListSkillsShrinkRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // bindStatus Field Functions 
     bool hasBindStatus() const { return this->bindStatus_ != nullptr;};
     void deleteBindStatus() { this->bindStatus_ = nullptr;};
@@ -72,6 +85,20 @@ namespace Models
     void deleteOperatingObjectName() { this->operatingObjectName_ = nullptr;};
     inline string getOperatingObjectName() const { DARABONBA_PTR_GET_DEFAULT(operatingObjectName_, "") };
     inline ListSkillsShrinkRequest& setOperatingObjectName(string operatingObjectName) { DARABONBA_PTR_SET_VALUE(operatingObjectName_, operatingObjectName) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline ListSkillsShrinkRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline ListSkillsShrinkRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // page Field Functions 
@@ -103,17 +130,22 @@ namespace Models
 
 
   protected:
+    // The platform application token issued by the console. If specified, the operation is executed as the user specified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
     // The binding status. Valid values: BOUND (bound) and UNBOUND (unbound global skills). Must be specified together with operatingObjectName.
     shared_ptr<string> bindStatus_ {};
-    // The filter expression type.
-    // 
-    // - SQL: SQL-based filtering.
-    // - TAG: Tag-based filtering.
+    // The filter expression type. Valid values:
+    // - SQL: SQL filtering.
+    // - TAG: Tag filtering.
     shared_ptr<string> filterType_ {};
     // The search keyword. Supports fuzzy search by API name or exact search by API ID.
     shared_ptr<string> keyword_ {};
     // The name of the digital employee. Used to calculate the CodeAgent allowedSkills whitelist based on binding relationships.
     shared_ptr<string> operatingObjectName_ {};
+    // The proxy user code, which is unique within the tenant. Used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. Used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
     // The current page number.
     shared_ptr<int32_t> page_ {};
     // The number of entries per page.

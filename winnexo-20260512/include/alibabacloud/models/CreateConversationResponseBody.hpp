@@ -102,13 +102,13 @@ namespace Models
     shared_ptr<string> conversationId_ {};
     // The time when the share was created.
     shared_ptr<string> createdAt_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
-    // A reserved field for extension purposes.
+    // The reserved field for extension purposes.
     Darabonba::Json metadata_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The appointment title.
+    // The title of the scheduled meeting.
     shared_ptr<string> title_ {};
   };
 

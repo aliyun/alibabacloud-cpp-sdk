@@ -192,21 +192,21 @@ namespace Models
       shared_ptr<string> ownerAgentName_ {};
       // The owner type. Valid values:
       // 
-      // - **USER**: User. This is the default value.
+      // - **USER**: User type. This is the default value.
       // 
-      // - **APP**: App.
+      // - **APP**: Application type.
       shared_ptr<string> ownerType_ {};
       // The user ID of the employee executor.
       shared_ptr<int64_t> ownerUserId_ {};
-      // Specifies whether to manually review the output. By default, this feature is disabled. It can be enabled only for digital employees. Review to-do items are automatically sent to the person in charge.
+      // Specifies whether to manually review the deliverables. By default, this feature is disabled. It can be enabled only for digital employees. Review tasks are automatically sent to the person in charge.
       shared_ptr<bool> reviewOutput_ {};
-      // The list of user IDs for the reviewers. This field is valid only for digital employee executor steps and is always empty for member executor steps.
+      // The list of user IDs of the persons in charge. This parameter is valid only for digital employee executor steps and is always empty for member executor steps.
       shared_ptr<vector<int64_t>> reviewerUserIds_ {};
       // The step order.
       shared_ptr<int64_t> sortOrder_ {};
-      // The processing instructions for the step.
+      // The step processing instructions.
       shared_ptr<string> specification_ {};
-      // The ordered array of segments. Supported types include text, mention, skill, app, files, and web_search. The reference identities and order are preserved.
+      // The ordered array of fragments, which supports text, mention, skill, app, files, and web_search. The referenced identities and order are preserved.
       shared_ptr<vector<Darabonba::Json>> specificationJson_ {};
       // The step ID.
       shared_ptr<string> stepId_ {};
@@ -341,23 +341,23 @@ namespace Models
     shared_ptr<int64_t> createdByUserId_ {};
     // The template description.
     shared_ptr<string> description_ {};
-    // The node dependency edges. Each item contains from and to fields that reference stable step IDs. An explicit empty array indicates no dependencies.
+    // A node dependency edge, where from is the stepId of the predecessor node and to is the stepId of the successor node.
     shared_ptr<vector<Darabonba::Json>> edges_ {};
-    // The current effective version number of the template. An empty value indicates that only a draft exists and the template cannot be used for work items. This field is empty because an import always creates a v1 draft.
+    // The current effective version number of the template. An empty value indicates that only a draft exists and it cannot be used for work items. The value is empty for imported templates because a v1 draft is created by default.
     shared_ptr<string> effectiveVersion_ {};
     // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
     // The modification time in ISO 8601 format.
     shared_ptr<string> gmtModified_ {};
-    // The optional canvas layout, indexed by step ID. This field only affects the display and does not determine dependencies.
+    // The optional canvas layout, indexed by stepId. This parameter only affects the display and does not determine dependencies.
     Darabonba::Json layout_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The template name.
     shared_ptr<string> name_ {};
-    // The request ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // The schema version of the template. The current value is 2, which is independent of the business version vN.
+    // The template structure version. The current value is 2, which is independent of the business version vN.
     shared_ptr<int64_t> schemaVersion_ {};
     // The ordered steps.
     shared_ptr<vector<ImportWorkflowTemplateResponseBody::Steps>> steps_ {};

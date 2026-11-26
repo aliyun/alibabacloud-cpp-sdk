@@ -239,19 +239,19 @@ namespace Models
     protected:
       // The number of assignees.
       shared_ptr<int64_t> assigneeCount_ {};
-      // The completion time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
+      // The completion time in UTC+8. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> completedAt_ {};
       // The user ID of the user who completed the item. This field is empty if the item is not completed.
       shared_ptr<string> completedByUserId_ {};
       // The name of the user who completed the item. This field is empty if the item is not completed.
       shared_ptr<string> completedByUserName_ {};
-      // The creation time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
+      // The creation time in UTC+8. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> gmtCreate_ {};
-      // The last modification time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
+      // The last modification time in UTC+8. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> gmtModified_ {};
-      // Indicates whether the caller has read the item.
+      // Specifies whether the caller has read the item.
       shared_ptr<bool> isRead_ {};
-      // The message ID of the assistant that sent the to-do item. This field is empty if there is no conversation source.
+      // The ID of the assistant message that generated the to-do item. This field is empty if there is no conversation source.
       shared_ptr<string> messageId_ {};
       // The action status of the caller as an assignee.
       shared_ptr<string> myAssigneeStatus_ {};
@@ -263,7 +263,7 @@ namespace Models
       shared_ptr<int64_t> questionCount_ {};
       // The list of question summaries.
       shared_ptr<vector<string>> questionSummaries_ {};
-      // The source context. This context is passed through as-is during creation.
+      // The source context. This is passed through as-is during creation.
       Darabonba::Json sourceContext_ {};
       // The source type of the to-do item.
       shared_ptr<string> sourceType_ {};
@@ -353,15 +353,15 @@ namespace Models
   protected:
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // Indicates whether more data is available.
+    // Specifies whether more data is available.
     shared_ptr<bool> hasMore_ {};
     // The list of to-do items on the current page.
     shared_ptr<vector<ListTodosResponseBody::Items>> items_ {};
-    // The effective maximum number of entries to return per page for the current request.
+    // The effective maximum number of entries returned per page for this request.
     shared_ptr<int64_t> maxResults_ {};
     // The error description.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. This field is an empty string if no more data is available.
+    // The pagination token for the next page. This is an empty string if no more data is available.
     shared_ptr<string> nextToken_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};

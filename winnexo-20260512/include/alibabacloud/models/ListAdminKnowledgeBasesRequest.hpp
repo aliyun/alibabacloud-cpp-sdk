@@ -14,8 +14,11 @@ namespace Models
   class ListAdminKnowledgeBasesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListAdminKnowledgeBasesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(directoryId, directoryId_);
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(sortField, sortField_);
@@ -24,8 +27,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, ListAdminKnowledgeBasesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(directoryId, directoryId_);
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(sortField, sortField_);
@@ -44,9 +50,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->directoryId_ == nullptr
-        && this->keyword_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->sortField_ == nullptr && this->sortOrder_ == nullptr
-        && this->sourceTypes_ == nullptr && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->directoryId_ == nullptr && this->keyword_ == nullptr && this->opsUserCode_ == nullptr && this->opsUserId_ == nullptr && this->page_ == nullptr
+        && this->pageSize_ == nullptr && this->sortField_ == nullptr && this->sortOrder_ == nullptr && this->sourceTypes_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline ListAdminKnowledgeBasesRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // directoryId Field Functions 
     bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
     void deleteDirectoryId() { this->directoryId_ = nullptr;};
@@ -59,6 +72,20 @@ namespace Models
     void deleteKeyword() { this->keyword_ = nullptr;};
     inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline ListAdminKnowledgeBasesRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
+
+
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline ListAdminKnowledgeBasesRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline ListAdminKnowledgeBasesRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
 
 
     // page Field Functions 
@@ -106,25 +133,31 @@ namespace Models
 
 
   protected:
+    // The platform application token issued by the console. If this parameter is passed, the operation is performed as the user specified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
     // The directory ID.
     shared_ptr<string> directoryId_ {};
-    // The keyword for fuzzy search on form component data.
+    // The keyword for fuzzy search of component data in the form.
     shared_ptr<string> keyword_ {};
-    // The page number. Default value: 1. Pages start from page 1.
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int64_t> page_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The field by which the results are sorted. Valid values:
+    // The field by which to sort the returned results. Valid values:
     // 
-    // - event_time: the event creation time.
-    // - event_execute_start_time: the event execution time.
-    // - event_execute_finish_time: the event completion time.
+    // - event_time: the event creation time
+    // - event_execute_start_time: the event execution start time
+    // - event_execute_finish_time: the event execution finish time
     shared_ptr<string> sortField_ {};
-    // The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC, DESC (case-insensitive).
+    // The sort order. This parameter takes effect only when the sort field is specified. Valid values: ASC and DESC. The values are case-insensitive.
     shared_ptr<string> sortOrder_ {};
-    // The list of source types.
+    // The list of service source types.
     shared_ptr<vector<string>> sourceTypes_ {};
-    // The tenant ID to which the task belongs.
+    // The ID of the tenant to which the task belongs.
     shared_ptr<string> tenantId_ {};
   };
 

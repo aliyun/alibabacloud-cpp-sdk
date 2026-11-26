@@ -124,17 +124,17 @@ namespace Models
 
 
     protected:
-      // The to-do card type description.
+      // The description of the to-do card type.
       shared_ptr<string> description_ {};
-      // The follow time. The value is a Unix timestamp in seconds.
+      // The subscription time, which is a UNIX timestamp in seconds.
       shared_ptr<int64_t> followedAt_ {};
-      // The graph name.
+      // The name of the graph.
       shared_ptr<string> graphName_ {};
-      // The ID of the recommended item. The value can be a **feedId** or a micro-application ID.
+      // The ID of the recommended item, which can be a **feedId** or a mini-app ID.
       shared_ptr<string> objectId_ {};
-      // The object name.
+      // The name of the object.
       shared_ptr<string> objectName_ {};
-      // The bound object type, such as customer or project.
+      // The object type of the attached object, such as customer or project.
       shared_ptr<string> objectType_ {};
     };
 
@@ -223,25 +223,25 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The graph name. Call listGraphs to retrieve available graphs.
+    // The name of the graph. You can call the listGraphs operation to obtain the graph name.
     shared_ptr<string> graphName_ {};
-    // Indicates whether more pages are available.
+    // Indicates whether more pages exist.
     shared_ptr<bool> hasMore_ {};
-    // The MCP card list.
+    // The list of MCP cards.
     shared_ptr<vector<ListOperatingObjectFavoritesResponseBody::Items>> items_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The pagination cursor.
     shared_ptr<string> nextToken_ {};
     // The object type, such as customer. This parameter has a value when type is set to mention.
     shared_ptr<string> objectType_ {};
-    // The digital employee name (operating object name).
+    // The name of the digital worker, which is the name of the operating object.
     shared_ptr<string> operatingObjectName_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request trace ID.
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // The total number of results.
+    // The total number of Logtail pipeline configurations in the current project.
     shared_ptr<int64_t> total_ {};
   };
 

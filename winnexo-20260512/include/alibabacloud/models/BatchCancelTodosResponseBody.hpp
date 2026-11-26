@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The actual number of canceled items. The value is 0 for idempotent repeated calls.
+    // The actual number of invalidated items. For idempotent repeated calls, the value is 0.
     shared_ptr<int64_t> cancelledCount_ {};
     // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The error message.
+    // The error description.
     shared_ptr<string> message_ {};
     // The request tracking ID.
     shared_ptr<string> requestId_ {};

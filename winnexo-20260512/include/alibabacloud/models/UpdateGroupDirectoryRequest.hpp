@@ -13,17 +13,23 @@ namespace Models
   class UpdateGroupDirectoryRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateGroupDirectoryRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appToken, appToken_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(directoryId, directoryId_);
       DARABONBA_PTR_TO_JSON(groupId, groupId_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_TO_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateGroupDirectoryRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appToken, appToken_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(directoryId, directoryId_);
       DARABONBA_PTR_FROM_JSON(groupId, groupId_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(opsUserCode, opsUserCode_);
+      DARABONBA_PTR_FROM_JSON(opsUserId, opsUserId_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
     };
     UpdateGroupDirectoryRequest() = default ;
@@ -37,8 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->directoryId_ == nullptr && this->groupId_ == nullptr && this->name_ == nullptr && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->appToken_ == nullptr
+        && this->description_ == nullptr && this->directoryId_ == nullptr && this->groupId_ == nullptr && this->name_ == nullptr && this->opsUserCode_ == nullptr
+        && this->opsUserId_ == nullptr && this->tenantId_ == nullptr; };
+    // appToken Field Functions 
+    bool hasAppToken() const { return this->appToken_ != nullptr;};
+    void deleteAppToken() { this->appToken_ = nullptr;};
+    inline string getAppToken() const { DARABONBA_PTR_GET_DEFAULT(appToken_, "") };
+    inline UpdateGroupDirectoryRequest& setAppToken(string appToken) { DARABONBA_PTR_SET_VALUE(appToken_, appToken) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -67,6 +81,20 @@ namespace Models
     inline UpdateGroupDirectoryRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // opsUserCode Field Functions 
+    bool hasOpsUserCode() const { return this->opsUserCode_ != nullptr;};
+    void deleteOpsUserCode() { this->opsUserCode_ = nullptr;};
+    inline string getOpsUserCode() const { DARABONBA_PTR_GET_DEFAULT(opsUserCode_, "") };
+    inline UpdateGroupDirectoryRequest& setOpsUserCode(string opsUserCode) { DARABONBA_PTR_SET_VALUE(opsUserCode_, opsUserCode) };
+
+
+    // opsUserId Field Functions 
+    bool hasOpsUserId() const { return this->opsUserId_ != nullptr;};
+    void deleteOpsUserId() { this->opsUserId_ = nullptr;};
+    inline string getOpsUserId() const { DARABONBA_PTR_GET_DEFAULT(opsUserId_, "") };
+    inline UpdateGroupDirectoryRequest& setOpsUserId(string opsUserId) { DARABONBA_PTR_SET_VALUE(opsUserId_, opsUserId) };
+
+
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
@@ -75,19 +103,25 @@ namespace Models
 
 
   protected:
-    // The new description. If this parameter is set to an empty string, the description is cleared. If this parameter is omitted or set to null, the description remains unchanged. At least one of name or description must be non-null.
+    // The platform application token issued by the console. If specified, the operation is executed as the user identified by opsUserId or opsUserCode.
+    shared_ptr<string> appToken_ {};
+    // The new description. An empty string clears the description. If omitted or set to null, the description is not modified. At least one of the name or description parameters must be non-null.
     shared_ptr<string> description_ {};
-    // The ID of the physical subfolder in the current space. The internal root folder and reference folders are not allowed.
+    // The ID of the physical subdirectory in the current workspace. Internal root directories and referenced directories are not allowed.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // The ID of the collaborative share.
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The new name. If this parameter is omitted or set to null, the name remains unchanged.
+    // The new name. If omitted or set to null, the name is not modified.
     shared_ptr<string> name_ {};
-    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+    // The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+    shared_ptr<string> opsUserCode_ {};
+    // The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+    shared_ptr<string> opsUserId_ {};
+    // The tenant ID. This is a common parameter. If omitted, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 
