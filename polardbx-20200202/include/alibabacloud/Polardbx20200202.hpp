@@ -2719,7 +2719,7 @@ namespace Polardbx20200202
       Models::DescribeShowStorageInfoResponse describeShowStorageInfo(const Models::DescribeShowStorageInfoRequest &request);
 
       /**
-       * @summary Queries the details of slow SQL statements on compute nodes and storage nodes of a PolarDB-X instance.
+       * @summary Queries the details of slow SQL statements on the compute nodes and storage nodes of a PolarDB-X instance.
        *
        * @param request DescribeSlowLogRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2728,7 +2728,7 @@ namespace Polardbx20200202
       Models::DescribeSlowLogRecordsResponse describeSlowLogRecordsWithOptions(const Models::DescribeSlowLogRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of slow SQL statements on compute nodes and storage nodes of a PolarDB-X instance.
+       * @summary Queries the details of slow SQL statements on the compute nodes and storage nodes of a PolarDB-X instance.
        *
        * @param request DescribeSlowLogRecordsRequest
        * @return DescribeSlowLogRecordsResponse

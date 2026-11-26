@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
         DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
         DARABONBA_PTR_TO_JSON(Expired, expired_);
+        DARABONBA_PTR_TO_JSON(LatestMinorVersion, latestMinorVersion_);
         DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
         DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
         DARABONBA_PTR_TO_JSON(NodeClass, nodeClass_);
@@ -55,6 +56,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(TopologyType, topologyType_);
         DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
+        DARABONBA_PTR_TO_JSON(WebAppsHttpUrl, webAppsHttpUrl_);
+        DARABONBA_PTR_TO_JSON(WebAppsUrl, webAppsUrl_);
         DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
@@ -63,6 +66,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
         DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
         DARABONBA_PTR_FROM_JSON(Expired, expired_);
+        DARABONBA_PTR_FROM_JSON(LatestMinorVersion, latestMinorVersion_);
         DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
         DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
         DARABONBA_PTR_FROM_JSON(NodeClass, nodeClass_);
@@ -76,6 +80,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(TopologyType, topologyType_);
         DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
+        DARABONBA_PTR_FROM_JSON(WebAppsHttpUrl, webAppsHttpUrl_);
+        DARABONBA_PTR_FROM_JSON(WebAppsUrl, webAppsUrl_);
         DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
       };
       Data() = default ;
@@ -145,7 +151,7 @@ namespace Models
 
 
       protected:
-        // The specification code.
+        // The class code.
         shared_ptr<string> classCode_ {};
         // The node ID.
         shared_ptr<string> id_ {};
@@ -222,10 +228,11 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->connAddrs_ == nullptr
-        && this->createTime_ == nullptr && this->DBInstanceName_ == nullptr && this->engineVersion_ == nullptr && this->expired_ == nullptr && this->lockMode_ == nullptr
-        && this->minorVersion_ == nullptr && this->nodeClass_ == nullptr && this->nodeCount_ == nullptr && this->nodes_ == nullptr && this->polarDBXDBInstanceName_ == nullptr
-        && this->regionId_ == nullptr && this->status_ == nullptr && this->supabaseClassCode_ == nullptr && this->tenantMode_ == nullptr && this->topologyType_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->createTime_ == nullptr && this->DBInstanceName_ == nullptr && this->engineVersion_ == nullptr && this->expired_ == nullptr && this->latestMinorVersion_ == nullptr
+        && this->lockMode_ == nullptr && this->minorVersion_ == nullptr && this->nodeClass_ == nullptr && this->nodeCount_ == nullptr && this->nodes_ == nullptr
+        && this->polarDBXDBInstanceName_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->supabaseClassCode_ == nullptr && this->tenantMode_ == nullptr
+        && this->topologyType_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->webAppsHttpUrl_ == nullptr && this->webAppsUrl_ == nullptr
+        && this->zoneId_ == nullptr; };
       // connAddrs Field Functions 
       bool hasConnAddrs() const { return this->connAddrs_ != nullptr;};
       void deleteConnAddrs() { this->connAddrs_ = nullptr;};
@@ -261,6 +268,13 @@ namespace Models
       void deleteExpired() { this->expired_ = nullptr;};
       inline bool getExpired() const { DARABONBA_PTR_GET_DEFAULT(expired_, false) };
       inline Data& setExpired(bool expired) { DARABONBA_PTR_SET_VALUE(expired_, expired) };
+
+
+      // latestMinorVersion Field Functions 
+      bool hasLatestMinorVersion() const { return this->latestMinorVersion_ != nullptr;};
+      void deleteLatestMinorVersion() { this->latestMinorVersion_ = nullptr;};
+      inline string getLatestMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(latestMinorVersion_, "") };
+      inline Data& setLatestMinorVersion(string latestMinorVersion) { DARABONBA_PTR_SET_VALUE(latestMinorVersion_, latestMinorVersion) };
 
 
       // lockMode Field Functions 
@@ -356,6 +370,20 @@ namespace Models
       inline Data& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
+      // webAppsHttpUrl Field Functions 
+      bool hasWebAppsHttpUrl() const { return this->webAppsHttpUrl_ != nullptr;};
+      void deleteWebAppsHttpUrl() { this->webAppsHttpUrl_ = nullptr;};
+      inline string getWebAppsHttpUrl() const { DARABONBA_PTR_GET_DEFAULT(webAppsHttpUrl_, "") };
+      inline Data& setWebAppsHttpUrl(string webAppsHttpUrl) { DARABONBA_PTR_SET_VALUE(webAppsHttpUrl_, webAppsHttpUrl) };
+
+
+      // webAppsUrl Field Functions 
+      bool hasWebAppsUrl() const { return this->webAppsUrl_ != nullptr;};
+      void deleteWebAppsUrl() { this->webAppsUrl_ = nullptr;};
+      inline string getWebAppsUrl() const { DARABONBA_PTR_GET_DEFAULT(webAppsUrl_, "") };
+      inline Data& setWebAppsUrl(string webAppsUrl) { DARABONBA_PTR_SET_VALUE(webAppsUrl_, webAppsUrl) };
+
+
       // zoneId Field Functions 
       bool hasZoneId() const { return this->zoneId_ != nullptr;};
       void deleteZoneId() { this->zoneId_ = nullptr;};
@@ -364,7 +392,7 @@ namespace Models
 
 
     protected:
-      // The endpoints.
+      // The connection endpoints.
       shared_ptr<vector<Data::ConnAddrs>> connAddrs_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
@@ -374,9 +402,11 @@ namespace Models
       shared_ptr<string> engineVersion_ {};
       // Indicates whether the instance has expired.
       shared_ptr<bool> expired_ {};
+      // The latest minor engine version.
+      shared_ptr<string> latestMinorVersion_ {};
       // The lock mode.
       shared_ptr<string> lockMode_ {};
-      // The minor version.
+      // The minor engine version.
       shared_ptr<string> minorVersion_ {};
       // The node specifications.
       shared_ptr<string> nodeClass_ {};
@@ -390,7 +420,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The instance status.
       shared_ptr<string> status_ {};
-      // The Supabase specification code.
+      // The Supabase class code.
       shared_ptr<string> supabaseClassCode_ {};
       // The multi-tenant mode.
       shared_ptr<bool> tenantMode_ {};
@@ -400,6 +430,10 @@ namespace Models
       shared_ptr<string> vSwitchId_ {};
       // VPC ID
       shared_ptr<string> vpcId_ {};
+      // The complete HTTP access URL for WebApps. This parameter is not returned if WebApps is not enabled.
+      shared_ptr<string> webAppsHttpUrl_ {};
+      // The complete HTTPS access URL for WebApps. This parameter is not returned if WebApps is not enabled.
+      shared_ptr<string> webAppsUrl_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
@@ -490,15 +524,15 @@ namespace Models
     protected:
       // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The name of the authentication principal.
+      // The display name of the authentication principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
       // The owner ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
       // The authentication principal type.
       shared_ptr<string> authPrincipalType_ {};
-      // The diagnostic message.
+      // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The no permission type.
+      // The type of missing permissions.
       shared_ptr<string> noPermissionType_ {};
       // The policy type.
       shared_ptr<string> policyType_ {};

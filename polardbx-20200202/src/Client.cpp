@@ -7858,7 +7858,7 @@ DescribeShowStorageInfoResponse Client::describeShowStorageInfo(const DescribeSh
 }
 
 /**
- * @summary Queries the details of slow SQL statements on compute nodes and storage nodes of a PolarDB-X instance.
+ * @summary Queries the details of slow SQL statements on the compute nodes and storage nodes of a PolarDB-X instance.
  *
  * @param request DescribeSlowLogRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7921,7 +7921,7 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecordsWithOptions(const D
 }
 
 /**
- * @summary Queries the details of slow SQL statements on compute nodes and storage nodes of a PolarDB-X instance.
+ * @summary Queries the details of slow SQL statements on the compute nodes and storage nodes of a PolarDB-X instance.
  *
  * @param request DescribeSlowLogRecordsRequest
  * @return DescribeSlowLogRecordsResponse

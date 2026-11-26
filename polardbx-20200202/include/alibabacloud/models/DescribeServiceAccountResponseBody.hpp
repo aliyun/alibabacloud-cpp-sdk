@@ -265,7 +265,7 @@ namespace Models
     shared_ptr<DescribeServiceAccountResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The instance details.
     shared_ptr<DescribeServiceAccountResponseBody::Data> data_ {};
-    // The message returned. If the request is successful, \\"success\\" is returned. If the request fails, the corresponding error code is returned.
+    // The message returned. If the request is successful, \"success\" is returned. If the request fails, the corresponding error code is returned.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

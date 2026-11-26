@@ -175,7 +175,7 @@ namespace Models
 
 
       protected:
-        // [\\"pxc-i-vb1sqa7llp\\",\\"pxc-i-bemprx50ad\\"]
+        // [\"pxc-i-vb1sqa7llp\",\"pxc-i-bemprx50ad\"]
         shared_ptr<vector<string>> cnNames_ {};
         // The endpoint of the instance.
         shared_ptr<string> connectionString_ {};

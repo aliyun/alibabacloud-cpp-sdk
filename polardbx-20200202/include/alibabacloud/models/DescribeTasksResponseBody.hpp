@@ -158,11 +158,11 @@ namespace Models
 
 
     protected:
-      // The start time of the task. The format is yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+      // The start time of the task. The format is yyyy-MM-dd\"T\"HH:mm:ss\"Z\".
       shared_ptr<string> beginTime_ {};
       // The name of the database associated with the task. This parameter is usually empty.
       shared_ptr<string> DBName_ {};
-      // The end time of the task. The format is yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+      // The end time of the task. The format is yyyy-MM-dd\"T\"HH:mm:ss\"Z\".
       shared_ptr<string> finishTime_ {};
       // The task progress, in percentage.
       shared_ptr<string> progress_ {};

@@ -112,25 +112,25 @@ namespace Models
 
 
   protected:
-    // The node type.
+    // The type of the node.
     // 
     // This parameter is required.
     shared_ptr<string> characterType_ {};
-    // The instance name.
+    // The name of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The database name.
+    // The name of the database.
     shared_ptr<string> DBName_ {};
-    // The node IDs. You can specify multiple node IDs separated by commas (`,`). This parameter is required when you query storage nodes.
+    // The IDs of the nodes. You can specify multiple node IDs and separate them with commas (`,`). This parameter is required when you query storage nodes.
     shared_ptr<string> DBNodeIds_ {};
-    // The start time of the query. Format: YYYY-MM-ddTHH:mmZ (UTC).
+    // The start time of the query. Specify the time in the YYYY-MM-ddTHH:mmZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> page_ {};
-    // The number of entries per page. Default value: 100.
+    // The number of entries to return on each page. Default value: 100.
     // 
     // Limit: A maximum of 100 entries can be returned at a time.
     shared_ptr<int32_t> pageSize_ {};
@@ -138,7 +138,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start time of the query. Format: YYYY-MM-ddTHH:mmZ (UTC).
+    // The start time of the query. Specify the time in the YYYY-MM-ddTHH:mmZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

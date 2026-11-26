@@ -298,60 +298,60 @@ namespace Models
 
 
     protected:
-      // The compute node name. This field is available only for CN.
+      // The name of the compute node. This field is available only for compute nodes (CN).
       shared_ptr<string> CNname_ {};
-      // The database name.
+      // The name of the database.
       shared_ptr<string> DBName_ {};
-      // The extension field. This field is available only for CN.
+      // The extended field. This field is available only for compute nodes (CN).
       shared_ptr<string> extension_ {};
-      // Indicates whether the execution failed. This field is available only for CN.
+      // Indicates whether the execution failed. This field is available only for compute nodes (CN).
       shared_ptr<string> fail_ {};
-      // The number of rows fetched. This field is available only for CN.
+      // The number of fetched rows. This field is available only for compute nodes (CN).
       shared_ptr<string> frows_ {};
-      // The client name and address that connects to the database.
+      // The name and address of the client that connects to the database.
       shared_ptr<string> hostAddress_ {};
-      // The instance name. This field is available only for DN.
+      // The name of the instance. This field is available only for storage nodes (DN).
       shared_ptr<string> insName_ {};
-      // Indicates whether the Prepare mode is used. This field is available only for CN.
+      // Indicates whether the Prepare mode is used. This field is available only for compute nodes (CN).
       shared_ptr<string> isBind_ {};
-      // The lock duration. Unit: milliseconds (ms). This field is available only for DN.
+      // The lock duration. Unit: milliseconds. This field is available only for storage nodes (DN).
       shared_ptr<string> lockTimeMS_ {};
-      // The parameters in Prepare mode. This field is available only for CN.
+      // The parameters in the Prepare mode. This field is available only for compute nodes (CN).
       shared_ptr<string> params_ {};
-      // The number of rows scanned. This field is available only for DN.
+      // The number of scanned rows. This field is available only for storage nodes (DN).
       shared_ptr<string> parseRowCounts_ {};
-      // The timestamp. Format: YYYY-MM-ddTHH:mm.ss.SSSZ (UTC).
+      // The timestamp. Specify the time in the YYYY-MM-ddTHH:mm.ss.SSSZ format. The time must be in UTC.
       // 
-      // - In CN slow logs, this field indicates the execution start time.
-      // - In DN slow logs, this field indicates the execution end time.
+      // - In the slow query logs of compute nodes (CN), this field indicates the start time of the execution.
+      // - In the slow query logs of storage nodes (DN), this field indicates the completion time of the execution.
       shared_ptr<string> queryStartTime_ {};
-      // The execution duration of the SQL statement. Unit: seconds (s).
+      // The execution duration of the SQL statement. Unit: seconds.
       shared_ptr<string> queryTime_ {};
-      // The execution duration of the SQL statement. Unit: milliseconds (ms).
+      // The execution duration of the SQL statement. Unit: milliseconds.
       shared_ptr<string> queryTimeMS_ {};
-      // The number of rows returned. This field is available only for DN.
+      // The number of returned rows. This field is available only for storage nodes (DN).
       shared_ptr<string> returnRowCounts_ {};
-      // The number of rows affected or returned. This field is available only for CN.
+      // The number of affected or returned rows. This field is available only for compute nodes (CN).
       shared_ptr<string> rows_ {};
-      // The number of physical SQL statements. This field is available only for CN.
+      // The number of physical SQL statements. This field is available only for compute nodes (CN).
       shared_ptr<string> SCNT_ {};
-      // The unique identity of the SQL statement in slow query log statistics.
+      // The unique identifier of the SQL statement in the slow query log statistics.
       shared_ptr<string> SQLHash_ {};
       // The SQL statement.
       shared_ptr<string> SQLText_ {};
-      // The SQL type. This field is available only for CN.
+      // The type of the SQL statement. This field is available only for compute nodes (CN).
       shared_ptr<string> sqlType_ {};
-      // The kernel template ID. This field is available only for CN.
+      // The kernel template ID. This field is available only for compute nodes (CN).
       shared_ptr<string> templateId_ {};
-      // Indicates whether the SQL statement is too long. This field is available only for CN.
+      // Indicates whether the SQL statement is too long. This field is available only for compute nodes (CN).
       shared_ptr<string> tooLong_ {};
-      // The trace ID. This field is available only for CN.
+      // The trace ID. This field is available only for compute nodes (CN).
       shared_ptr<string> traceId_ {};
-      // The transaction policy. This field is available only for CN.
+      // The transaction policy. This field is available only for compute nodes (CN).
       shared_ptr<string> transactionPolicy_ {};
-      // The transaction ID. This field is available only for CN.
+      // The transaction ID. This field is available only for compute nodes (CN).
       shared_ptr<string> trxId_ {};
-      // The workload type. This field is available only for CN.
+      // The workload type. This field is available only for compute nodes (CN).
       shared_ptr<string> WT_ {};
     };
 
@@ -404,11 +404,11 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The list of slow log details.
+    // The details of the slow query logs.
     shared_ptr<vector<DescribeSlowLogRecordsResponseBody::Items>> items_ {};
-    // The page number of the current query.
+    // The page number of the returned page.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<string> pageRecordCount_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
