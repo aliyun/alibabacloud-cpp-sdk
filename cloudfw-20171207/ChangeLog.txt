@@ -1,3 +1,6 @@
+2026-11-26 Version: 9.0.1
+- Generated cpp 2017-12-07 for Cloudfw.
+
 2026-11-25 Version: 9.0.0
 - Update API AddDnsFirewallPolicy: delete request parameters SourceIp.
 - Update API DescribePolicyAdvancedConfig: add response parameters Body.Eips.

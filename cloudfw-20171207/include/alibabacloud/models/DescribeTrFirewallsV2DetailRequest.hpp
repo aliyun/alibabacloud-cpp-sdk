@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the VPC firewall instance. This parameter is required. If this parameter is not specified, the ErrorMissingFirewallId (-360444, firewall id is required) error is returned.
     // 
-    // > You can call DescribeTrFirewallsV2List to query existing FirewallIds (in the format of vfw-tr-*). If the firewall has not been created, you must first create an Enterprise Edition transit router in CEN and then call CreateTrFirewallV2.
+    // > You can call DescribeTrFirewallsV2List to query existing FirewallIds (in the format of vfw-tr-*). If the firewall is not created, you must first create an Enterprise Edition transit router in CEN and then call CreateTrFirewallV2.
     shared_ptr<string> firewallId_ {};
     // The language of the response message. Valid values:
     // 

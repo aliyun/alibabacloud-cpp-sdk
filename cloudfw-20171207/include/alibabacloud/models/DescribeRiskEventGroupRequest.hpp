@@ -261,7 +261,7 @@ namespace Models
     shared_ptr<vector<string>> attackAppCategory_ {};
     // The attack type of the intrusion prevention events. Valid values:
     // - **1**: abnormal connection.
-    // - **2**: command execute.
+    // - **2**: commands to execute.
     // - **3**: brute-force attacks.
     // - **4**: scan.
     // - **5**: other.
@@ -269,12 +269,12 @@ namespace Models
     // - **7**: DoS attack.
     // - **8**: buffer overflow attack.
     // - **9**: web attack.
-    // - **10**: trojan or backdoor.
+    // - **10**: trojan backdoor.
     // - **11**: virus or worm.
     // - **12**: mining behavior.
     // - **13**: reverse shell.
     // 
-    // > If you do not provide Settings for this parameter, events of all attack types are queried.
+    // > If you do not configure the Settings for this parameter, events of all attack types are queried.
     shared_ptr<string> attackType_ {};
     // The purchased edition. Valid values:
     // - **2**: Premium Edition.
@@ -282,34 +282,32 @@ namespace Models
     // - **4**: Ultimate Edition.
     // - **10**: Pay-as-you-go Edition.
     shared_ptr<int64_t> buyVersion_ {};
-    // Settings for the paging page number to return in a paged query.
-    // 
-    // Default value: **1**.
+    // The paging Settings that specify which page of data to return in a paged query.
+    // Default value: **1**, which indicates that the first page is returned.
     shared_ptr<string> currentPage_ {};
-    // The risk event type.
-    // 
-    // Valid value: **session**, which indicates intrusion prevention events.
+    // The risk event type. Valid values:  
+    // - **session**: intrusion prevention events. This is the only valid value.
     // 
     // This parameter is required.
     shared_ptr<string> dataType_ {};
-    // The direction of the traffic in the intrusion prevention events. Valid values:
+    // The traffic direction of the intrusion prevention events. Valid values:
     // - **in**: inbound.
     // - **out**: outbound.
     // 
     // > If you do not specify this parameter, events in all traffic directions are queried.
     shared_ptr<string> direction_ {};
-    // The destination IP address to query. If you specify this parameter, intrusion prevention events that involve the specified destination IP address are queried.
+    // The destination IP address that you want to query. If you specify this parameter, intrusion prevention events that involve this destination IP address are queried.
     shared_ptr<string> dstIP_ {};
     // The instance ID of the destination VPC-connected instance.
-    // > Settings for this parameter are required only when FirewallType is set to VpcFirewall.
+    // > You only need to configure the Settings for this parameter when FirewallType is set to VpcFirewall.
     shared_ptr<string> dstNetworkInstanceId_ {};
-    // The end time of the query. The value is a UNIX timestamp in seconds. The end time must not be earlier than the start time. Both NAT and VPC queries include the end time.
+    // The end time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     // The name of the intrusion prevention event.
     shared_ptr<string> eventName_ {};
-    // The type of the Cloud Firewall. Valid values:
+    // The type of the cloud firewall. Valid values:
     // - **VpcFirewall**: virtual private cloud (VPC) firewalls.
     // - **InternetFirewall** (default): the Internet Border firewall.
     shared_ptr<string> firewallType_ {};
@@ -320,8 +318,8 @@ namespace Models
     // - **en**: English.
     shared_ptr<string> lang_ {};
     // Specifies whether to query the geolocation information of IP addresses. Valid values:
-    // - **true**: does not query the IP geolocation information.
-    // - **false** (default): queries the IP geolocation information.
+    // - **true**: does not query the geolocation information of IP addresses.
+    // - **false** (default): queries the geolocation information of IP addresses.
     shared_ptr<string> noLocation_ {};
     // The sort order. Valid values:
     // 
@@ -329,9 +327,9 @@ namespace Models
     // 
     // - **desc** (default): descending order.
     shared_ptr<string> order_ {};
-    // Settings for the paging size in a paged query.
+    // The paging Settings for the number of entries to return on each page in a paged query.
     // 
-    // Default value: **6**. Maximum value: **10**.
+    // Default value: **6**, which indicates that 6 entries are returned on each page. Maximum value: **10**.
     shared_ptr<string> pageSize_ {};
     // The defense status of Cloud Firewall. Valid values:
     // - **1**: alert.
@@ -346,25 +344,25 @@ namespace Models
     // 
     // > If you do not specify this parameter, events from all rule sources are queried.
     shared_ptr<string> ruleSource_ {};
-    // The field by which to sort the results. Valid values:
+    // The field based on which the results are sorted. Valid values:
     // 
-    // - **VulLevel** (default): sorts the results by risk level.
+    // - **VulLevel** (default): sorts the results based on the risk level.
     // 
-    // - **LastTime**: sorts the results by the most recent occurrence time.
+    // - **LastTime**: sorts the results based on the time when the event last occurred.
     shared_ptr<string> sort_ {};
-    // The source IP address to query. If you specify this parameter, intrusion prevention events that involve the specified source IP address are queried.
+    // The source IP address that you want to query. If you specify this parameter, intrusion prevention events that involve this source IP address are queried.
     shared_ptr<string> srcIP_ {};
     // The instance ID of the source VPC-connected instance.
-    // > Settings for this parameter are required only when FirewallType is set to VpcFirewall.
+    // > You only need to configure the Settings for this parameter when FirewallType is set to VpcFirewall.
     shared_ptr<string> srcNetworkInstanceId_ {};
     // The start time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
     // The security level of the intrusion prevention events. Valid values:
-    // - **1**: low-risk.
-    // - **2**: medium-risk.
-    // - **3**: high-risk.
+    // - **1**: low risk.
+    // - **2**: medium risk.
+    // - **3**: high risk.
     // 
     // > If you do not specify this parameter, events at all security levels are queried.
     shared_ptr<string> vulLevel_ {};

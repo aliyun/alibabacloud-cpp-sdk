@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProcessStatus, processStatus_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAclCheckRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProcessStatus, processStatus_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
     };
     DescribeAclCheckRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->taskId_ == nullptr; };
+        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->processStatus_ == nullptr && this->taskId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline DescribeAclCheckRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // processStatus Field Functions 
+    bool hasProcessStatus() const { return this->processStatus_ != nullptr;};
+    void deleteProcessStatus() { this->processStatus_ = nullptr;};
+    inline string getProcessStatus() const { DARABONBA_PTR_GET_DEFAULT(processStatus_, "") };
+    inline DescribeAclCheckRequest& setProcessStatus(string processStatus) { DARABONBA_PTR_SET_VALUE(processStatus_, processStatus) };
+
+
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
@@ -76,6 +85,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The processing status. Valid values:
+    // 
+    // - Pending: Unprocessed.
+    // - Success: Processed successfully.
+    // - Processing: Processing.
+    // - Ignored: Ignored.
+    // - Failed: Processing failed.
+    // - PendingOrFailed: Unprocessed or processing failed.
+    shared_ptr<string> processStatus_ {};
     // The task ID.
     // 
     // This parameter is required.

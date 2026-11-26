@@ -46,6 +46,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EventId, eventId_);
         DARABONBA_PTR_TO_JSON(EventName, eventName_);
         DARABONBA_PTR_TO_JSON(FirstEventTime, firstEventTime_);
+        DARABONBA_PTR_TO_JSON(HitContent, hitContent_);
+        DARABONBA_PTR_TO_JSON(HitType, hitType_);
         DARABONBA_PTR_TO_JSON(IPLocationInfo, IPLocationInfo_);
         DARABONBA_PTR_TO_JSON(LastEventTime, lastEventTime_);
         DARABONBA_PTR_TO_JSON(ResourcePrivateIPList, resourcePrivateIPList_);
@@ -72,6 +74,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EventId, eventId_);
         DARABONBA_PTR_FROM_JSON(EventName, eventName_);
         DARABONBA_PTR_FROM_JSON(FirstEventTime, firstEventTime_);
+        DARABONBA_PTR_FROM_JSON(HitContent, hitContent_);
+        DARABONBA_PTR_FROM_JSON(HitType, hitType_);
         DARABONBA_PTR_FROM_JSON(IPLocationInfo, IPLocationInfo_);
         DARABONBA_PTR_FROM_JSON(LastEventTime, lastEventTime_);
         DARABONBA_PTR_FROM_JSON(ResourcePrivateIPList, resourcePrivateIPList_);
@@ -164,13 +168,13 @@ namespace Models
 
 
       protected:
-        // The instance ID of the ECS instance.
+        // The ECS instance ID.
         shared_ptr<string> ecsInstanceId_ {};
         // The name of the ECS instance.
         shared_ptr<string> ecsInstanceName_ {};
-        // The instance ID of the VPC-connected instance.
+        // The VPC-connected instance ID.
         shared_ptr<string> networkInstanceId_ {};
-        // The name of the VPC-connected instance.
+        // The VPC-connected instance name.
         shared_ptr<string> networkInstanceName_ {};
         // The region ID. This indicates the region ID to which the source VPC-connected instance belongs.
         shared_ptr<string> regionNo_ {};
@@ -241,13 +245,13 @@ namespace Models
 
 
       protected:
-        // The instance ID of the ECS instance.
+        // The ECS instance ID.
         shared_ptr<string> ecsInstanceId_ {};
         // The name of the ECS instance.
         shared_ptr<string> ecsInstanceName_ {};
-        // The instance ID of the VPC-connected instance.
+        // The VPC-connected instance ID.
         shared_ptr<string> networkInstanceId_ {};
-        // The name of the VPC-connected instance.
+        // The VPC-connected instance name.
         shared_ptr<string> networkInstanceName_ {};
         // The region ID. This indicates the region ID to which the destination VPC-connected instance belongs.
         shared_ptr<string> regionNo_ {};
@@ -313,7 +317,7 @@ namespace Models
         shared_ptr<string> regionNo_ {};
         // The instance ID.
         shared_ptr<string> resourceInstanceId_ {};
-        // The name of the instance.
+        // The instance name.
         shared_ptr<string> resourceInstanceName_ {};
         // The private IP address.
         shared_ptr<string> resourcePrivateIP_ {};
@@ -375,22 +379,22 @@ namespace Models
 
 
       protected:
-        // The ID of the city.
+        // The city ID.
         shared_ptr<string> cityId_ {};
-        // The name of the city.
+        // The city name.
         shared_ptr<string> cityName_ {};
-        // The ID of the country.
+        // The country ID.
         shared_ptr<string> countryId_ {};
-        // The name of the country.
+        // The country name.
         shared_ptr<string> countryName_ {};
       };
 
       virtual bool empty() const override { return this->attackApp_ == nullptr
         && this->attackType_ == nullptr && this->description_ == nullptr && this->direction_ == nullptr && this->dstIP_ == nullptr && this->eventCount_ == nullptr
-        && this->eventId_ == nullptr && this->eventName_ == nullptr && this->firstEventTime_ == nullptr && this->IPLocationInfo_ == nullptr && this->lastEventTime_ == nullptr
-        && this->resourcePrivateIPList_ == nullptr && this->resourceType_ == nullptr && this->ruleId_ == nullptr && this->ruleResult_ == nullptr && this->ruleSource_ == nullptr
-        && this->srcIP_ == nullptr && this->srcIPTag_ == nullptr && this->srcIPTags_ == nullptr && this->srcPrivateIPList_ == nullptr && this->tag_ == nullptr
-        && this->vpcDstInfo_ == nullptr && this->vpcSrcInfo_ == nullptr && this->vulLevel_ == nullptr; };
+        && this->eventId_ == nullptr && this->eventName_ == nullptr && this->firstEventTime_ == nullptr && this->hitContent_ == nullptr && this->hitType_ == nullptr
+        && this->IPLocationInfo_ == nullptr && this->lastEventTime_ == nullptr && this->resourcePrivateIPList_ == nullptr && this->resourceType_ == nullptr && this->ruleId_ == nullptr
+        && this->ruleResult_ == nullptr && this->ruleSource_ == nullptr && this->srcIP_ == nullptr && this->srcIPTag_ == nullptr && this->srcIPTags_ == nullptr
+        && this->srcPrivateIPList_ == nullptr && this->tag_ == nullptr && this->vpcDstInfo_ == nullptr && this->vpcSrcInfo_ == nullptr && this->vulLevel_ == nullptr; };
       // attackApp Field Functions 
       bool hasAttackApp() const { return this->attackApp_ != nullptr;};
       void deleteAttackApp() { this->attackApp_ = nullptr;};
@@ -452,6 +456,20 @@ namespace Models
       void deleteFirstEventTime() { this->firstEventTime_ = nullptr;};
       inline int32_t getFirstEventTime() const { DARABONBA_PTR_GET_DEFAULT(firstEventTime_, 0) };
       inline DataList& setFirstEventTime(int32_t firstEventTime) { DARABONBA_PTR_SET_VALUE(firstEventTime_, firstEventTime) };
+
+
+      // hitContent Field Functions 
+      bool hasHitContent() const { return this->hitContent_ != nullptr;};
+      void deleteHitContent() { this->hitContent_ = nullptr;};
+      inline string getHitContent() const { DARABONBA_PTR_GET_DEFAULT(hitContent_, "") };
+      inline DataList& setHitContent(string hitContent) { DARABONBA_PTR_SET_VALUE(hitContent_, hitContent) };
+
+
+      // hitType Field Functions 
+      bool hasHitType() const { return this->hitType_ != nullptr;};
+      void deleteHitType() { this->hitType_ = nullptr;};
+      inline string getHitType() const { DARABONBA_PTR_GET_DEFAULT(hitType_, "") };
+      inline DataList& setHitType(string hitType) { DARABONBA_PTR_SET_VALUE(hitType_, hitType) };
 
 
       // IPLocationInfo Field Functions 
@@ -575,25 +593,25 @@ namespace Models
       // The name of the attacked application.
       shared_ptr<string> attackApp_ {};
       // The attack type of the intrusion prevention event. Valid values:
-      // - **1**: abnormal connection
-      // - **2**: execute commands
-      // - **3**: brute-force attacks
-      // - **4**: scan
-      // - **5**: other
-      // - **6**: information leak
-      // - **7**: DoS attack
-      // - **8**: overflow attack
-      // - **9**: web attack
-      // - **10**: trojan backdoor
-      // - **11**: virus worm
-      // - **12**: mining behavior
-      // - **13**: reverse shell
+      // - **1**: Abnormal connection.
+      // - **2**: Command execute.
+      // - **3**: Brute-force attacks.
+      // - **4**: Scan.
+      // - **5**: Other.
+      // - **6**: Information leak.
+      // - **7**: DoS attack.
+      // - **8**: Overflow attack.
+      // - **9**: Web attack.
+      // - **10**: Trojan backdoor.
+      // - **11**: Virus and worm.
+      // - **12**: Mining behavior.
+      // - **13**: Reverse shell.
       shared_ptr<int32_t> attackType_ {};
       // The description of the intrusion prevention event.
       shared_ptr<string> description_ {};
       // The traffic direction of the intrusion prevention event. Valid values:
-      // - **in**: inbound
-      // - **out**: outbound
+      // - **in**: Inbound.
+      // - **out**: Outbound.
       shared_ptr<string> direction_ {};
       // The queried destination IP address. This indicates that the intrusion prevention event includes this destination IP address.
       shared_ptr<string> dstIP_ {};
@@ -603,55 +621,59 @@ namespace Models
       shared_ptr<string> eventId_ {};
       // The name of the intrusion prevention event.
       shared_ptr<string> eventName_ {};
-      // The time when the intrusion event first occurred. The value is a UNIX timestamp in seconds.
+      // The time when the intrusion event first occurred. The value is a UNIX timestamp accurate to seconds.
       shared_ptr<int32_t> firstEventTime_ {};
+      // The specific threat intelligence value matched by the event, such as an IP address, domain name, or URL. This parameter is returned only for events from the threat intelligence source and is empty for other sources.
+      shared_ptr<string> hitContent_ {};
+      // The type of threat intelligence matched by the event. Valid values: ip, domain, and url. This parameter is returned only for events from the threat intelligence source and is empty for other sources.
+      shared_ptr<string> hitType_ {};
       // The IP geolocation information. This struct contains the **CityId**, **CityName**, **CountryId**, and **CountryName** parameters.  
       // **CityId** indicates the ID of the city to which the IP address belongs. **CityName** indicates the name of the city to which the IP address belongs. **CountryId** indicates the ID of the country to which the IP address belongs. **CountryName** indicates the name of the country to which the IP address belongs.
       shared_ptr<DataList::IPLocationInfo> IPLocationInfo_ {};
-      // The time when the intrusion prevention event last occurred. The value is a UNIX timestamp in seconds.
+      // The time when the intrusion prevention event last occurred. The value is a UNIX timestamp accurate to seconds.
       shared_ptr<int32_t> lastEventTime_ {};
-      // The private IP information of the intrusion prevention event. This information is returned as an array of **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP**.  
+      // The private IP address information of the intrusion prevention event. This information is returned as an array of **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP**.  
       // **RegionNo** indicates the region ID to which the IP address belongs. **ResourceInstanceId** indicates the instance ID to which the IP address belongs. **ResourceInstanceName** indicates the name of the instance to which the IP address belongs. **ResourcePrivateIP** indicates the IP address.
       shared_ptr<vector<DataList::ResourcePrivateIPList>> resourcePrivateIPList_ {};
       // The public IP address type of the intrusion prevention event. Valid values:
-      // - **EIP**: elastic IP address (EIP)
-      // - **EcsPublicIP**: public IP addresses of Elastic Compute Service (ECS) instances
-      // - **EcsEIP**: EIP of an ECS instance
-      // - **NatPublicIP**: public IP address of a NAT gateway
-      // - **NatEIP**: EIP of a NAT gateway
-      // - **SlbPublicIp**: public IP address of an SLB instance
+      // - **EIP**: Elastic IP address.
+      // - **EcsPublicIP**: Public IP addresses of Elastic Compute Service (ECS) instances.
+      // - **EcsEIP**: EIP of an ECS instance.
+      // - **NatPublicIP**: Public IP address of a NAT gateway.
+      // - **NatEIP**: EIP of a NAT gateway.
+      // - **SlbPublicIp**: Public IP address of an SLB instance.
       shared_ptr<string> resourceType_ {};
       // The ID of the protection rule for the intrusion prevention event.
       shared_ptr<string> ruleId_ {};
       // The defense status. Valid values:
-      // - **1**: alert
-      // - **2**: block
+      // - **1**: Alert.
+      // - **2**: Block.
       shared_ptr<int32_t> ruleResult_ {};
       // The source of the detection rule for the intrusion prevention event. Valid values:
-      // - **1**: basic protection
-      // - **2**: virtual patches
-      // - **4**: threat intelligence
+      // - **1**: Basic protection.
+      // - **2**: Virtual patches.
+      // - **4**: Threat intelligence.
       shared_ptr<int32_t> ruleSource_ {};
       // The queried source IP address. This indicates that the intrusion prevention event includes this source IP address.
       shared_ptr<string> srcIP_ {};
-      // The source IP address label, which serves as an identity to indicate whether the IP address is one of the back-to-origin IP addresses of cloud services.
+      // The source IP address label, which provides the identity of whether the IP address is one of the back-to-origin IP addresses of a cloud service.
       shared_ptr<string> srcIPTag_ {};
       // The list of IP address tags.
       shared_ptr<vector<string>> srcIPTags_ {};
       // The list of source private IP addresses for the intrusion prevention event.
       shared_ptr<vector<string>> srcPrivateIPList_ {};
-      // The intelligence labels for critical event protection.
+      // The intelligence tags label for critical event protection.
       shared_ptr<string> tag_ {};
       // The destination VPC information of the intrusion prevention event. This structure contains the **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo** parameters.  
-      // **EcsInstanceId** indicates the instance ID of the ECS instance in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the instance ID of the VPC-connected instance. **NetworkInstanceName** indicates the name of the VPC-connected instance. **RegionNo** indicates the region ID to which the VPC-connected instance belongs.
+      // **EcsInstanceId** indicates the ECS instance ID in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the VPC-connected instance ID. **NetworkInstanceName** indicates the VPC-connected instance name. **RegionNo** indicates the region ID to which the VPC-connected instance belongs.
       shared_ptr<DataList::VpcDstInfo> vpcDstInfo_ {};
       // The source VPC information of the intrusion prevention event. This structure contains the **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo** parameters.  
-      // **EcsInstanceId** indicates the instance ID of the ECS instance in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the instance ID of the VPC-connected instance. **NetworkInstanceName** indicates the name of the VPC-connected instance. **RegionNo** indicates the region ID to which the VPC-connected instance belongs.
+      // **EcsInstanceId** indicates the ECS instance ID in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the VPC-connected instance ID. **NetworkInstanceName** indicates the VPC-connected instance name. **RegionNo** indicates the region ID to which the VPC-connected instance belongs.
       shared_ptr<DataList::VpcSrcInfo> vpcSrcInfo_ {};
       // The security level of the intrusion prevention event. Valid values:
-      // - **1**: low
-      // - **2**: medium
-      // - **3**: high
+      // - **1**: Low.
+      // - **2**: Medium.
+      // - **3**: High.
       shared_ptr<int32_t> vulLevel_ {};
     };
 
