@@ -111,15 +111,11 @@ namespace Models
 
 
       protected:
-        // The attribute of the rule.
-        // 
-        // Valid values:
-        // - Atime: The last access time of the file.
+        // The attribute of the rule. Valid values:
+        // - Atime: the last access time of the file.
         shared_ptr<string> attribute_ {};
-        // The threshold of the rule.
-        // 
-        // Valid values:
-        // - If Attribute is set to Atime, the value indicates the number of days a file has not been accessed. Valid values: 1 to 365.
+        // The threshold of the rule. Valid values:
+        // - If Attribute is set to Atime, the value indicates the number of days that a file has not been accessed. Valid values: 1 to 365.
         shared_ptr<string> threshold_ {};
       };
 
@@ -162,7 +158,7 @@ namespace Models
 
       protected:
         // The attribute of the rule. Valid values:
-        // - RetrieveType: The retrieval method.
+        // - RetrieveType: the retrieval method.
         shared_ptr<string> attribute_ {};
         // The threshold of the rule. Valid values:
         // - RetrieveType:
@@ -209,15 +205,11 @@ namespace Models
 
 
       protected:
-        // The attribute of the rule.
-        // 
-        // Valid values:
-        // - Atime: The last access time of the file.
+        // The attribute of the rule. Valid values:
+        // - Atime: the last access time of the file.
         shared_ptr<string> attribute_ {};
-        // The threshold of the rule.
-        // 
-        // Valid values:
-        // - If Attribute is set to Atime, the value indicates the number of days a file has not been accessed. Valid values: 1 to 365.
+        // The threshold of the rule. Valid values:
+        // - If Attribute is set to Atime, the value indicates the number of days that a file has not been accessed. Valid values: 1 to 365.
         shared_ptr<string> threshold_ {};
       };
 
@@ -295,22 +287,22 @@ namespace Models
       shared_ptr<vector<LifecyclePolicyLogs::DeleteRules>> deleteRules_ {};
       // The execution paths specified for the retrieval task.
       shared_ptr<vector<string>> paths_ {};
-      // The file data retrieval rules.
+      // The data retrieval rules for files.
       shared_ptr<vector<LifecyclePolicyLogs::RetrieveRules>> retrieveRules_ {};
       // The status of the data retrieval task. Valid values:
-      // - PENDING: The task is being created.
-      // - RUNNING: The task is running.
-      // - STOPPED: The task is stopped.
-      // - FINISHED: The task is completed.
-      // - FAILED: The task fails.
+      // - PENDING: Creating
+      // - RUNNING: Running
+      // - STOPPED: Stopped
+      // - FINISHED: Finished
+      // - FAILED: Failed
       shared_ptr<string> status_ {};
       // The tiered storage type. Valid values:
-      // - InfrequentAccess: IA storage class. This is the default value.
+      // - InfrequentAccess: IA storage class (default).
       // - Archive: Archive storage class.
       shared_ptr<string> storageType_ {};
       // The task summary.
       shared_ptr<string> summary_ {};
-      // The file data transition rules.
+      // The data transition rules for files.
       shared_ptr<vector<LifecyclePolicyLogs::TransitRules>> transitRules_ {};
     };
 
@@ -365,17 +357,15 @@ namespace Models
     shared_ptr<vector<DescribeLifecyclePolicyLogsResponseBody::LifecyclePolicyLogs>> lifecyclePolicyLogs_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of log entries returned on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
-    // 
-    // Valid values:
+    // Indicates whether the request is successful. Valid values:
     // - true: The request is successful.
     // - false: The request fails.
     shared_ptr<bool> success_ {};
-    // The total number of log entries.
+    // The total number of logs.
     shared_ptr<int32_t> totalCount_ {};
   };
 

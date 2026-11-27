@@ -74,14 +74,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> lifecyclePolicyId_ {};
-    // The page number.
-    // 
-    // Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of log entries to return on each page.
-    // 
-    // Valid values: 1 to 100.
-    // Default value: 10.
+    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -99,17 +99,17 @@ namespace Models
       // The tag key.
       // Limits:
       // 
-      // - The tag key cannot be empty or an empty string.
-      // - The tag key can be up to 128 characters in length.
-      // - The tag key cannot start with aliyun or acs:.
-      // - The tag key cannot contain http:// or https://.
+      // - The value cannot be empty or an empty string.
+      // - The value can be up to 128 characters in length.
+      // - The value cannot start with aliyun or acs:.
+      // - The value cannot contain http:// or https://.
       shared_ptr<string> key_ {};
       // The tag value.
       // Limits:
       // 
-      // - The tag value cannot be empty or an empty string.
-      // - The tag value can be up to 128 characters in length.
-      // - The tag value cannot contain http:// or https://.
+      // - The value cannot be empty or an empty string.
+      // - The value can be up to 128 characters in length.
+      // - The value cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -243,7 +243,7 @@ namespace Models
     // - true: Enabled.
     // - false: Disabled. This is the default value.
     // 
-    // > After you enable the access point RAM policy, all Resource Access Management (RAM) users are denied by default from using the access point to mount and access data. You must grant authorization to the accounts to enable the corresponding access permissions, and mount the file system through the access point. If this feature is disabled, the access point allows anonymous mounting. For more information about how to configure access point permissions, see [Configure access point policy](https://help.aliyun.com/document_detail/2545998.html).
+    // > After you enable the RAM policy for the access point, all Resource Access Management (RAM) users are denied by default from using the access point to mount and access data. You must perform authorization for the accounts to grant the corresponding access permissions, and mount the file system through the access point. If this feature is disabled, the access point allows anonymous mounting. For more information about how to configure access point permissions, see [Configure access point policy](https://help.aliyun.com/document_detail/2545998.html).
     // 
     // >For Agentic file systems, this parameter must be set to true.
     shared_ptr<bool> enabledRam_ {};

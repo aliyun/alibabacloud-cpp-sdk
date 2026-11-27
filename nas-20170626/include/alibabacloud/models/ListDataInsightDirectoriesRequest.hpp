@@ -68,20 +68,19 @@ namespace Models
   protected:
     // The file system ID.
     // 
-    // - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
+    // - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\*\*\*\*.
     // > Only CPFS for Lingjun file systems are supported.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The maximum number of directories to return.
-    // 
+    // The maximum number of directories to return for the query.
     // Valid values: 10 to 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call. Leave this parameter empty for the first request. Default value: "".
+    // The query token. Set the value to the NextToken value returned from the previous API call. You can leave this parameter empty for the first request. Default value: "".
     shared_ptr<string> nextToken_ {};
-    // The parent directory path. Specifies the parent directory to query. Default value: root directory "/".
+    // The path of the parent directory. Specifies the parent directory to query. Default value: /.
     shared_ptr<string> parentDir_ {};
   };
 

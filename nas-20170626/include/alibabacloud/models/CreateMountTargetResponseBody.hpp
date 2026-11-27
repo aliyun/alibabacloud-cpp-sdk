@@ -61,7 +61,7 @@ namespace Models
 
 
     protected:
-      // The IPv4 and IPv6 dual-stack mount target.
+      // The dual-stack mount target that supports both IPv4 and IPv6.
       shared_ptr<string> dualStackMountTargetDomain_ {};
     };
 
@@ -93,9 +93,9 @@ namespace Models
   protected:
     // The IPv4 mount target.
     shared_ptr<string> mountTargetDomain_ {};
-    // The mount target information.
+    // The collection of mount target information.
     shared_ptr<CreateMountTargetResponseBody::MountTargetExtra> mountTargetExtra_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

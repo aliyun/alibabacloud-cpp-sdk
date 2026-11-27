@@ -163,9 +163,9 @@ namespace Models
         // 
         // Valid values:
         // 
-        // - Unknown: the root path status is unknown.
-        // - NotExist: the root path does not exist. It may have been deleted by the user.
-        // - Ready: the root path status is normal.
+        // - Unknown: The status of the root path is unknown.
+        // - NotExist: The root path does not exist. It may have been deleted.
+        // - Ready: The root path is normal.
         shared_ptr<string> rootPathStatus_ {};
       };
 
@@ -247,17 +247,17 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the access point.
+      // The ARN of the access point.
       shared_ptr<string> ARN_ {};
       // The access point ID.
       shared_ptr<string> accessPointId_ {};
-      // The time when the access point was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The time when the access point was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The description of the access point.
       shared_ptr<string> description_ {};
       // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The time when the access point was last modified. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The time when the access point was modified. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> modifyTime_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -267,14 +267,14 @@ namespace Models
       // 
       // Valid values:
       // 
-      // - Active: available.
-      // - Inactive: unavailable.
-      // - Pending: being created.
-      // - Deleting: being deleted.
+      // - Active: The access point is available.
+      // - Inactive: The access point is unavailable.
+      // - Pending: The access point is being created.
+      // - Deleting: The access point is being deleted.
       // 
       // > You can mount the file system only when the status is Active.
       shared_ptr<string> status_ {};
-      // The list of tags for the CPFS access point.
+      // The tags of the CPFS access point.
       shared_ptr<vector<AccessPoints::Tags>> tags_ {};
     };
 
@@ -320,9 +320,9 @@ namespace Models
   protected:
     // The access point information.
     shared_ptr<vector<DescribeCpfsAccessPointsResponseBody::AccessPoints>> accessPoints_ {};
-    // The page number of the list.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of results per page.
+    // The number of entries returned per page.
     // Valid values: 1 to 100.                              
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};

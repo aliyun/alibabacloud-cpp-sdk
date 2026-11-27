@@ -54,7 +54,7 @@ namespace Models
     // 
     // Valid values:
     // 
-    // - true: The request was successful.
+    // - true: The request succeeded.
     // - false: The request failed.
     shared_ptr<bool> success_ {};
   };

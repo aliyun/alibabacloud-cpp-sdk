@@ -411,7 +411,7 @@ namespace Models
     shared_ptr<DescribeMountTargetsResponseBody::MountTargets> mountTargets_ {};
     // The page number of the file system list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of mount targets on each page when paging is used.
+    // The number of mount targets per paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

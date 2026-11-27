@@ -171,7 +171,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The query token. The value is the NextToken parameter value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of association records.
     shared_ptr<int32_t> totalCount_ {};

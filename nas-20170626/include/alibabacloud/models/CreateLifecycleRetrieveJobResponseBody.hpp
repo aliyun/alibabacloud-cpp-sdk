@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The data retrieval task ID.
+    // The ID of the data retrieval task.
     shared_ptr<string> jobId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

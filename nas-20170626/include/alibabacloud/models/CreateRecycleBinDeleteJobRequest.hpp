@@ -57,19 +57,19 @@ namespace Models
 
 
   protected:
-    // Ensures the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a parameter value from your client to ensure that the value is unique among different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // Generate a parameter value from your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     // 
-    // >If you do not specify ClientToken, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may vary for each API request.
+    // > If you do not specify a ClientToken, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The FileId of the file or directory that you want to permanently delete.
+    // The ID of the file or directory to be permanently deleted.
     // 
-    // You can call the [ListRecycledDirectoriesAndFiles](https://help.aliyun.com/document_detail/2412174.html) operation to query the FileId of deleted data.
+    // You can call the [ListRecycledDirectoriesAndFiles](https://help.aliyun.com/document_detail/2412174.html) operation to query the file ID of the deleted data.
     // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
-    // The file system ID.
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};

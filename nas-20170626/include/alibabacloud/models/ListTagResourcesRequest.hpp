@@ -78,17 +78,18 @@ namespace Models
       // 
       // Limits:
       // 
-      // - Cannot be empty or an empty string. 
-      // - Can be up to 128 characters in length.
-      // - Cannot start with `aliyun` or `acs:`.
-      // - Cannot contain `http://` or `https://`.
+      // - It cannot be empty or an empty string. 
+      // - It can be up to 128 characters in length.
+      // - It cannot start with `aliyun` or `acs:`.
+      // - It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
       // Limits:
       // 
-      // - Can be up to 128 characters in length.
-      // - Cannot contain `http://` or `https://`.
+      // 
+      // - It can be up to 128 characters in length.
+      // - It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -134,12 +135,12 @@ namespace Models
     // The ID of the target resource. Valid values of N: 1 to 50.
     shared_ptr<vector<string>> resourceId_ {};
     // The resource type. Valid values:
-    // - filesystem: file system.
-    // - accesspoint: access point.
+    // - filesystem: file system
+    // - accesspoint: access point
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags. Array length: 1 to 20. If the array contains multiple tag objects, the tag key (Key) must be unique.
+    // The array of tags. Array length: 1 to 20. If the array contains multiple tag objects, tag keys must be unique.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

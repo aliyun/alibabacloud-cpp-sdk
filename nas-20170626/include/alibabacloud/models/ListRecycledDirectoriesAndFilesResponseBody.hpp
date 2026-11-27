@@ -136,25 +136,25 @@ namespace Models
 
 
     protected:
-      // The most recent access time. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The last access time. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> ATime_ {};
-      // The most recent metadata modification time. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The last modification time of the metadata. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> CTime_ {};
-      // The time when the file or directory was deleted. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The time when the file or directory was deleted. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> deleteTime_ {};
       // The FileId of the file or directory.
       shared_ptr<string> fileId_ {};
       // The inode of the file or directory.
       shared_ptr<string> inode_ {};
-      // The most recent modification time. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The last modification time. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> MTime_ {};
-      // The name of the file or directory before deletion.
+      // The name of the file or directory before it was deleted.
       shared_ptr<string> name_ {};
-      // The file size. Unit: bytes.
+      // The size of the file. Unit: bytes.
       // 
-      // When Type is set to Directory, the value 0 is returned.
+      // If Type is set to Directory, 0 is returned.
       shared_ptr<int64_t> size_ {};
-      // The object type. Valid values:
+      // The returned object type. Valid values:
       // 
       // - File: file
       // - Directory: folder
@@ -187,13 +187,13 @@ namespace Models
 
 
   protected:
-    // The collection of files or directories in the recycle bin.
+    // The collection of information about files or directories in the recycle bin.
     shared_ptr<vector<ListRecycledDirectoriesAndFilesResponseBody::Entries>> entries_ {};
-    // The pagination token for the next page.
+    // The token for the next page.
     // 
-    // If a single query does not return all files and directories, a non-empty NextToken is returned. You can pass the correct NextToken in subsequent queries to continue retrieving results.
+    // If the query does not return all files and directories, a non-empty NextToken is returned. You can use the returned NextToken to continue the query.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

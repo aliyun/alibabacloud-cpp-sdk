@@ -83,10 +83,10 @@ namespace Models
 
 
   protected:
-    // The collection of file system IDs.
+    // The IDs of the file systems.
     // > The maximum number of elements in the collection must be less than or equal to 20.
     shared_ptr<vector<DescribeFilesystemsAssociatedHpnZonesRequest::Filesystems>> filesystems_ {};
-    // The region ID of the file system.
+    // The ID of the region to which the file system belongs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -541,7 +541,7 @@ namespace Models
 
 
   protected:
-    // If the returned results are truncated, you can use NextToken to initiate a new request to retrieve the content after the truncation point.
+    // The next token. If the returned results of a request are truncated, you can use NextToken to initiate another request and obtain the remaining results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The ID of the automatic snapshot policy.
+    // The ID of the destination automatic snapshot policy.
     // 
     // This parameter is required.
     shared_ptr<string> autoSnapshotPolicyId_ {};
-    // The IDs of the Advanced Extreme NAS file systems.
+    // The IDs of the destination Advanced Extreme NAS file systems.
     // 
-    // You can specify up to 100 file system IDs in a single request. To apply the automatic snapshot policy to multiple file systems, separate the file system IDs with commas (,).
+    // You can specify up to 100 file system IDs in a single call. To apply the automatic snapshot policy to multiple file systems, separate the file system IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemIds_ {};

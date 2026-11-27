@@ -178,11 +178,11 @@ namespace Models
 
 
       protected:
-        // The file group ID of the owner.
+        // The ID of the owner user group.
         shared_ptr<int64_t> ownerGroupId_ {};
-        // The user ID of the owner.
+        // The ID of the owner user.
         shared_ptr<int64_t> ownerUserId_ {};
-        // The POSIX permission.
+        // The POSIX permissions.
         shared_ptr<string> permission_ {};
       };
 
@@ -237,7 +237,7 @@ namespace Models
       protected:
         // The POSIX user group ID.
         shared_ptr<int32_t> posixGroupId_ {};
-        // The secondary user group ID.
+        // The secondary user group IDs.
         shared_ptr<vector<int32_t>> posixSecondaryGroupIds_ {};
         // The POSIX user ID.
         shared_ptr<int32_t> posixUserId_ {};
@@ -374,15 +374,15 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the access point.
+      // The ARN of the access point.
       shared_ptr<string> ARN_ {};
-      // The permission group name.
+      // The name of the permission group.
       shared_ptr<string> accessGroup_ {};
       // The access point ID.
       shared_ptr<string> accessPointId_ {};
       // The access point name.
       shared_ptr<string> accessPointName_ {};
-      // The time when the access point was created. Format: Unix/POSIX timestamp.
+      // The time when the access point was created. Format: UNIX/POSIX timestamp.
       shared_ptr<string> createTime_ {};
       // The domain name of the access point.
       shared_ptr<string> domainName_ {};
@@ -390,32 +390,32 @@ namespace Models
       shared_ptr<bool> enabledRam_ {};
       // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The time when the access point was last modified. Format: Unix/POSIX timestamp.
+      // The time when the access point was modified. Format: UNIX/POSIX timestamp.
       shared_ptr<string> modifyTime_ {};
       // The POSIX user.
       shared_ptr<AccessPoints::PosixUser> posixUser_ {};
       // The root directory.
       shared_ptr<string> rootPath_ {};
-      // The root directory permissions.
+      // The permissions of the root directory.
       shared_ptr<AccessPoints::RootPathPermission> rootPathPermission_ {};
-      // The current root directory status.
+      // The current status of the root directory.
       // 
       // Valid values:
       // 
-      // - 0: The root path status is unknown.
+      // - 0: The status of the root path is unknown.
       // - 1: The root path does not exist. It may have been deleted by the user.
-      // - 2: The root path status is normal.
+      // - 2: The status of the root path is normal.
       shared_ptr<string> rootPathStatus_ {};
-      // The current access point status.
+      // The current status of the access point.
       // 
       // Valid values:
       // 
-      // - Active: active.
-      // - Inactive: inactive.
-      // - Pending: being created.
-      // - Deleting: being deleted.
+      // - active: The access point is available.
+      // - inactive: The access point is unavailable.
+      // - pending: The access point is being created.
+      // - deleting: The access point is being deleted.
       // 
-      // > You can mount a file system only when the status is Active.
+      // > You can mount the file system only when the status is active.
       shared_ptr<string> status_ {};
       // The list of access point tags.
       shared_ptr<vector<AccessPoints::Tags>> tags_ {};
@@ -460,7 +460,7 @@ namespace Models
   protected:
     // The access point information.
     shared_ptr<vector<DescribeAccessPointsResponseBody::AccessPoints>> accessPoints_ {};
-    // The query token. Set the value to the NextToken value returned in the previous API call.
+    // The query token. Set the value to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     // 

@@ -13,6 +13,7 @@ namespace Models
   class CreateDirRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateDirRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_TO_JSON(OwnerGroupId, ownerGroupId_);
       DARABONBA_PTR_TO_JSON(OwnerUserId, ownerUserId_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RootDirectory, rootDirectory_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDirRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_FROM_JSON(OwnerGroupId, ownerGroupId_);
       DARABONBA_PTR_FROM_JSON(OwnerUserId, ownerUserId_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && this->ownerGroupId_ == nullptr && this->ownerUserId_ == nullptr && this->permission_ == nullptr && this->recursion_ == nullptr && this->rootDirectory_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->fileSystemId_ == nullptr && this->ownerGroupId_ == nullptr && this->ownerUserId_ == nullptr && this->permission_ == nullptr && this->recursion_ == nullptr
+        && this->rootDirectory_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateDirRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
@@ -84,35 +94,37 @@ namespace Models
 
 
   protected:
-    // The file system ID.
+    // Specifies whether to perform a dry run on the request.
+    shared_ptr<bool> dryRun_ {};
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The user group ID of the directory owner. Valid values: 0 to 4294967295.
+    // The ID of the user group that owns the directory. Valid values: 0 to 4294967295.
     // 
     // This parameter is required.
     shared_ptr<int32_t> ownerGroupId_ {};
-    // The user ID of the directory owner. Valid values: 0 to 4294967295.
+    // The ID of the user that owns the directory. Valid values: 0 to 4294967295.
     // 
     // This parameter is required.
     shared_ptr<int32_t> ownerUserId_ {};
-    // The POSIX permissions to apply to the root directory path. The value is a valid octal number, such as 0755.
+    // The POSIX permissions applied to the root directory path. The value must be a valid octal number, such as 0755.
     // 
     // This parameter is required.
     shared_ptr<string> permission_ {};
-    // Specifies whether to create a multi-level directory. Valid values:
+    // Specifies whether to create multi-level directories. Valid values:
     // 
-    // - true (default): If the multi-level directory does not exist, the system creates the directories level by level.
+    // - true (default): If the multi-level directories do not exist, the system creates them level by level.
     // - false: Only the last-level directory is created. If the parent directory does not exist, an error message is returned.
     shared_ptr<bool> recursion_ {};
-    // The directory name.
+    // The name of the directory.
     // 
-    // - The name must start with a forward slash (/).
-    // - The name can contain digits and uppercase and lowercase letters.
-    // - The name can contain underscores (_), hyphens (-), or periods (.).
+    // - Must start with a forward slash (/).
+    // - Supports digits, uppercase letters, and lowercase letters.
+    // - Can contain underscores (_), hyphens (-), or periods (.).
     // - The path cannot contain symbolic links, such as the current directory (.), the parent directory (..), or other symbolic links.
-    // >  - If the root directory does not exist, configure the automatic creation information. The system automatically creates the specified root directory based on the settings.
-    //  > - If the root directory already exists, you do not need to configure the automatic creation information. If you configure the information, the automatic creation settings are ignored.
+    // > - If the root directory does not exist, you must configure the automatic creation information. The system automatically creates the specified root directory based on the settings.
+    // > - If the root directory already exists, you do not need to configure the automatic creation information. If you configure it, the configurations in the automatic creation information are ignored.
     // 
     // This parameter is required.
     shared_ptr<string> rootDirectory_ {};

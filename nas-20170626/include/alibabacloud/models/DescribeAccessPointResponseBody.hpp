@@ -182,9 +182,9 @@ namespace Models
 
 
       protected:
-        // The file group ID.
+        // The ID of the owner user group.
         shared_ptr<int32_t> ownerGroupId_ {};
-        // The file owner ID.
+        // The ID of the owner user.
         shared_ptr<int32_t> ownerUserId_ {};
         // The POSIX permissions.
         shared_ptr<string> permission_ {};
@@ -239,11 +239,11 @@ namespace Models
 
 
       protected:
-        // The POSIX user group ID.
+        // The ID of the POSIX user group.
         shared_ptr<int32_t> posixGroupId_ {};
-        // The secondary user group IDs.
+        // The IDs of the secondary user groups.
         shared_ptr<vector<int32_t>> posixSecondaryGroupIds_ {};
-        // The POSIX user ID.
+        // The ID of the POSIX user.
         shared_ptr<int32_t> posixUserId_ {};
       };
 
@@ -406,29 +406,29 @@ namespace Models
 
 
     protected:
-      // The access point ARN.
+      // The ARN of the access point.
       shared_ptr<string> ARN_ {};
-      // The permission group name.
+      // The name of the permission group.
       shared_ptr<string> accessGroup_ {};
       // The access point ID.
       shared_ptr<string> accessPointId_ {};
-      // The access point name.
+      // The name of the access point.
       shared_ptr<string> accessPointName_ {};
-      // AgenticSpace Id。
+      // The AgenticSpace ID.
       shared_ptr<string> agenticSpaceId_ {};
-      // The time when the access point was created. Format: Unix/POSIX timestamp.
+      // The creation time of the access point. Format: UNIX/POSIX timestamp.
       shared_ptr<string> createTime_ {};
-      // The time when the access point was created. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The creation time of the AgenticSpace. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> createTimeUtc_ {};
-      // The access point domain name.
+      // The domain name of the access point.
       shared_ptr<string> domainName_ {};
       // Indicates whether the RAM policy is enabled.
       shared_ptr<bool> enabledRam_ {};
       // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The time when the access point was last modified. Format: Unix/POSIX timestamp.
+      // The modification time of the access point. Format: UNIX/POSIX timestamp.
       shared_ptr<string> modifyTime_ {};
-      // The time when the access point was last modified. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The update time of the AgenticSpace. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> modifyTimeUtc_ {};
       // The POSIX user.
       shared_ptr<AccessPoint::PosixUser> posixUser_ {};
@@ -436,32 +436,26 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The root directory.
       shared_ptr<string> rootPath_ {};
-      // The root directory creation permissions.
+      // The creation permissions for the root directory.
       shared_ptr<AccessPoint::RootPathPermission> rootPathPermission_ {};
-      // The current root directory status.
+      // The current status of the root directory. Valid values:
       // 
-      // Valid values:
-      // 
-      // - 0: The root path status is unknown.
-      // - 1: The root path does not exist. It may have been deleted by the user.
-      // - 2: The root path status is normal.
+      // - 0: The status of the root path is unknown.
+      // - 1: The root path does not exist and may have been deleted by the user.
+      // - 2: The status of the root path is normal.
       shared_ptr<string> rootPathStatus_ {};
-      // The current access point status.
+      // The current status of the access point. Valid values:
       // 
-      // Valid values:
-      // 
-      // - Active: active
-      // - Inactive: inactive
-      // - Pending: being created
-      // - Deleting: being deleted
+      // - active: The access point is available.
+      // - inactive: The access point is unavailable.
+      // - pending: The access point is being created.
+      // - deleting: The access point is being deleted.
       shared_ptr<string> status_ {};
-      // The list of access point tags.
+      // The list of tags for the access point.
       shared_ptr<vector<AccessPoint::Tags>> tags_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The VPC ID.
-      // 
-      // The VPC must be the same as the VPC of the Elastic Computing Service (ECS) server to be mounted.
+      // The VPC ID. The VPC must be the same as the VPC of the Elastic Computing Service (ECS) server to which the file system is to be mounted.
       shared_ptr<string> vpcId_ {};
     };
 

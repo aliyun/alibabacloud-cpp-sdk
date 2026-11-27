@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The new resource group ID.
+    // The ID of the new resource group.
     // 
     // You can view the resource group ID in the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?).
     // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
-    // The region ID of the zone.
+    // The ID of the region where the zone is located.
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/2412111.html) to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2412111.html) operation to query the latest region list.
     shared_ptr<string> regionId_ {};
     // The resource ID.
     // 
@@ -82,7 +82,8 @@ namespace Models
     shared_ptr<string> resourceId_ {};
     // The resource type.
     // 
-    // Valid values: filesystem (file system).
+    // Valid values:
+    // - filesystem: file system.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

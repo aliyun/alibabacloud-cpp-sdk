@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The access point ID.
+    // The ID of the access point.
     // 
     // This parameter is required.
     shared_ptr<string> accessPointId_ {};
-    // The file system ID.
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};

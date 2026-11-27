@@ -70,15 +70,15 @@ namespace Models
 
 
     protected:
-      // The automatic update directory. CPFS automatically checks whether data in this directory on the source has been updated and imports the updated data.
+      // The auto-refresh directory. CPFS automatically checks only whether source data in this directory is updated and automatically imports the updated data.
       // 
       // Limits:
       // 
-      // - The value must be 2 to 1,024 characters in length.
+      // - The value must be 2 to 1024 characters in length.
       // - The value must be encoded in UTF-8.
       // - The value must start and end with a forward slash (/).
       // 
-      // > The directory must be an existing directory in CPFS and must be in a fileset for which data flow is enabled.
+      // > The directory must be an existing directory on CPFS and must be located in a Fileset for which data flow is enabled.
       // 
       // This parameter is required.
       shared_ptr<string> refreshPath_ {};
@@ -139,37 +139,37 @@ namespace Models
 
 
   protected:
-    // The automatic update interval. CPFS checks the directory for data updates at each interval. If data updates exist, an automatic update task is started. Unit: minutes.
+    // The auto-refresh interval. At each interval, CPFS checks whether data in the directory is updated. If data updates exist, CPFS starts an auto-refresh task. Unit: minutes.
     // 
     // Valid values: 10 to 525600. Default value: 10.
     shared_ptr<int64_t> autoRefreshInterval_ {};
-    // The automatic update policy. This policy specifies how data updates from the source are imported to CPFS after the source data is updated. Valid values:
+    // The auto-refresh policy. This policy specifies how data updates in the source are imported into CPFS after the source data is updated. Valid values:
     // 
-    // - None: Data updates from the source are not automatically imported to CPFS. You can use a data flow task to import data updates from the source.
-    // - ImportChanged: Data updates from the source are automatically imported to CPFS.
+    // - None: Data updates in the source are not automatically imported into CPFS. You can use a data flow task to import data updates from the source.
+    // - ImportChanged: Data updates in the source are automatically imported into CPFS.
     shared_ptr<string> autoRefreshPolicy_ {};
-    // The collection of automatic update configurations.
+    // The auto-refresh configurations.
     // 
     // This parameter is required.
     shared_ptr<vector<ApplyDataFlowAutoRefreshRequest::AutoRefreshs>> autoRefreshs_ {};
-    // Ensures the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique across different requests.
+    // The client token that is used to ensure the idempotence of the request. You can generate a value from your client to ensure that the value is unique among different requests.
     // 
-    // ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The ClientToken parameter supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     // 
-    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // The data flow ID.
     // 
     // This parameter is required.
     shared_ptr<string> dataFlowId_ {};
-    // Specifies whether to perform a dry run for this request.
+    // Specifies whether to perform a dry run on this creation request.
     // 
-    // A dry run checks parameter validity and resource availability without actually creating an instance or incurring charges.
+    // A dry run checks parameter validity and inventory. It does not actually create an instance or incur fees.
     // 
     // Valid values:
     // 
-    // - true: Sends a dry run request without creating an instance. The check items include whether required parameters are specified, the request format, business limits, and File Storage NAS inventory. If the check fails, the corresponding error is returned. If the check succeeds, HTTP status code 200 is returned, but FileSystemId is empty.
-    // - false (default): Sends a normal request. After the check succeeds, the instance is created.
+    // - true: Sends a check request and does not create an instance. Check items include whether required parameters are specified, the request format, service limits, and NAS inventory. If the check fails, the system returns the corresponding error. If the check succeeds, the system returns HTTP status code 200, but FileSystemId is empty.
+    // - false (default): Sends a normal request. After the check succeeds, the system creates the instance.
     shared_ptr<bool> dryRun_ {};
     // The file system ID.
     // 

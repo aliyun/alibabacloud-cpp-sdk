@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The protocol service cluster ID.
+    // The ID of the protocol service cluster.
     shared_ptr<string> protocolServiceId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

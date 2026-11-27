@@ -83,10 +83,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The page number of the list.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100.
-    // Default value: 10.
+    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 

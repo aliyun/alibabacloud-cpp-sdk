@@ -155,7 +155,7 @@ namespace Models
 
 
   protected:
-    // The token for the next query. If NextToken is empty, no more results exist.
+    // The token for the next query. If NextToken is empty, it indicates that the current page is the last page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

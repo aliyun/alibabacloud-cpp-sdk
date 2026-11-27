@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The access point.
     shared_ptr<CreateAccessPointResponseBody::AccessPoint> accessPoint_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

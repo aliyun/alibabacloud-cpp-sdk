@@ -14,11 +14,13 @@ namespace Models
   class TagResourcesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const TagResourcesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
     friend void from_json(const Darabonba::Json& j, TagResourcesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
@@ -77,7 +79,7 @@ namespace Models
       // Limits:
       // 
       // - Cannot be empty or an empty string. 
-      // - Can be up to 128 characters in length.
+      // - Maximum length: 128 characters.
       // - Cannot start with `aliyun` or `acs:`.
       // - Cannot contain `http://` or `https://`.
       // 
@@ -87,15 +89,22 @@ namespace Models
       // 
       // Limits:
       // 
-      // - Can be up to 128 characters in length.
+      // - Maximum length: 128 characters.
       // - Cannot contain `http://` or `https://`.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->resourceId_ == nullptr
-        && this->resourceType_ == nullptr && this->tag_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->resourceId_ == nullptr && this->resourceType_ == nullptr && this->tag_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline TagResourcesRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
@@ -122,19 +131,19 @@ namespace Models
 
 
   protected:
-    // The resource IDs. Valid values of array length: 1 to 50.
+    // Specifies whether to perform a dry run on the request.
+    shared_ptr<bool> dryRun_ {};
+    // The resource ID. Valid values: 1 to 50.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type.
-    // 
-    // Valid values:
-    // - filesystem: file system.
-    // - accesspoint: access point.
+    // The resource type. Valid values:
+    // - filesystem: File system.
+    // - accesspoint: Access point.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags. Array length: 1 to 20. If the array contains multiple tag objects, the tag key (Key) must be unique.
+    // The tag array. Length: 1 to 20. If the array contains multiple tag objects, tag keys must be unique.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

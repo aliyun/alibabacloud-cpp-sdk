@@ -88,8 +88,8 @@ namespace Models
     shared_ptr<bool> dryRun_ {};
     // The file system ID.
     // 
-    // - Extreme NAS: The ID must start with `extreme-`, for example, extreme-0015\\*\\*\\*\\*.
-    // - CPFS: The ID must start with `cpfs-`, for example, cpfs-125487\\*\\*\\*\\*.
+    // - Extreme NAS: The ID must start with `extreme-`, for example, extreme-0015\*\*\*\*.
+    // - CPFS: The ID must start with `cpfs-`, for example, cpfs-125487\*\*\*\*.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};

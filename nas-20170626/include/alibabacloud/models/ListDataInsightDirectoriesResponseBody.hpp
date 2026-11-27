@@ -201,7 +201,7 @@ namespace Models
 
 
       protected:
-        // The time when the directory was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+        // The time when the directory was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
         shared_ptr<string> createdAt_ {};
         // The capacity of the subdirectory.
         shared_ptr<int64_t> dirCapacity_ {};
@@ -209,9 +209,9 @@ namespace Models
         shared_ptr<int64_t> dirCapacityOffline_ {};
         // The capacity of standard files in the subdirectory.
         shared_ptr<int64_t> dirCapacityOnline_ {};
-        // The subdirectory level.
+        // The level of the subdirectory.
         shared_ptr<int32_t> dirLevel_ {};
-        // The subdirectory name.
+        // The name of the subdirectory.
         shared_ptr<string> dirName_ {};
         // The number of files in the subdirectory.
         shared_ptr<int64_t> fileCount_ {};
@@ -221,9 +221,9 @@ namespace Models
         shared_ptr<int64_t> fileCountOnline_ {};
         // The inode number of the subdirectory.
         shared_ptr<int64_t> inode_ {};
-        // The time when the database directory data record was last updated. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+        // The update time of the database directory data record. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
         shared_ptr<string> lastAccessTime_ {};
-        // The time when the directory was last accessed. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+        // The last access time of the directory. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
         shared_ptr<string> updatedAt_ {};
       };
 
@@ -289,7 +289,7 @@ namespace Models
 
 
     protected:
-      // The directory capacity.
+      // The capacity of the directory.
       shared_ptr<int64_t> dirCapacity_ {};
       // The capacity of IA files.
       shared_ptr<int64_t> dirCapacityOffline_ {};
@@ -297,13 +297,13 @@ namespace Models
       shared_ptr<int64_t> dirCapacityOnline_ {};
       // The number of files.
       shared_ptr<int64_t> fileCount_ {};
-      // The number of Infrequent Access (IA) files.
+      // The number of IA files.
       shared_ptr<int64_t> fileCountOffline_ {};
       // The number of standard files.
       shared_ptr<int64_t> fileCountOnline_ {};
       // The inode number of the directory.
       shared_ptr<int64_t> inode_ {};
-      // The subdirectory information.
+      // The collection of subdirectory information.
       shared_ptr<vector<Directory::SubDirectories>> subDirectories_ {};
     };
 
@@ -347,13 +347,13 @@ namespace Models
 
 
   protected:
-    // The directory information.
+    // The collection of directory information.
     shared_ptr<ListDataInsightDirectoriesResponseBody::Directory> directory_ {};
     // The file system ID.
     shared_ptr<string> fileSystemId_ {};
-    // The maximum number of directories returned.
+    // The maximum number of directories to return for the query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned in this call.
+    // The query token returned by the current call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

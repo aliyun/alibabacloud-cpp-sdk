@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // AgenticSpace Id。
+    // The AgenticSpace ID.
     // 
     // This parameter is required.
     shared_ptr<string> agenticSpaceId_ {};
-    // The file system ID.
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};

@@ -85,9 +85,7 @@ namespace Models
 
 
     protected:
-      // The type of the client mounted to the access point. Valid values:
-      // - vsc
-      // - tcp
+      // The channel type of the client mounted to the access point, such as vsc or tcp.
       shared_ptr<string> channelType_ {};
       // The ID of the client mounted to the access point.
       shared_ptr<string> clientId_ {};
@@ -137,9 +135,9 @@ namespace Models
   protected:
     // The clients mounted to the access point.
     shared_ptr<vector<DescribeCpfsAccessPointMountedClientsResponseBody::MountedClient>> mountedClient_ {};
-    // The page number of the list.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // The number of entries returned on each page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -110,7 +110,7 @@ namespace Models
 
 
     protected:
-      // The root directory of the access point. The value must start and end with a forward slash (/).
+      // The root directory of the access point. It must start and end with a forward slash (/).
       shared_ptr<string> rootPath_ {};
     };
 
@@ -160,15 +160,14 @@ namespace Models
     // 
     // Limits:
     // - The description must be 2 to 128 characters in length.
-    // - The description must start with a letter.
-    // - The description cannot start with http:// or https://.
-    // - The description can contain digits, colons (:), underscores (_), or hyphens (-).
+    // - It must start with a letter or a Chinese character, and cannot start with http:// or https://.
+    // - It can contain digits, colons (:), underscores (_), and hyphens (-).
     shared_ptr<string> description_ {};
     // The file system ID.
     // 
-    // - Cloud Parallel File Storage (CPFS): The ID must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
+    // - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\*\*\*\*.
     // 
-    // - CPFS for Lingjun: The ID must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
+    // - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\*\*\*\*.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
@@ -176,9 +175,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The root directory of the access point. Default value: "/".
+    // The root directory of the access point. Default value: /.
     shared_ptr<CreateCpfsAccessPointRequest::RootDirectory> rootDirectory_ {};
-    // The list of tags for the CPFS access point.
+    // The tags of the CPFS access point.
     shared_ptr<vector<CreateCpfsAccessPointRequest::Tag>> tag_ {};
   };
 

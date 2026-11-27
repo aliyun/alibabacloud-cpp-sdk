@@ -75,18 +75,18 @@ namespace Models
 
 
   protected:
-    // The file system ID.
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The portable account ID.
-    // Limit: The value is a 16-character string that contains digits and lowercase letters.
+    // The ID of the portable account.
+    // Limits: The ID must be a 16-character string that contains only digits and lowercase English letters.
     shared_ptr<string> owner_ {};
     // Specifies whether to share directory permissions. Valid values:
-    // - false (default): Directory permissions are not shared.
-    // - true: Directory permissions are shared.
+    // - false (default): Does not share directory permissions.
+    // - true: Shares directory permissions.
     // > - This parameter takes effect only when Type is set to Directory and Owner is not empty.
-    // > - The directory has inheritable Owner permissions. The Owner has read and write permissions on subdirectories and files created under this directory, even if they are created by other users.
+    // > - The directory has inheritable Owner permissions. Subdirectories and files created in this directory inherit read and write permissions for this Owner, even if they are created by other users.
     shared_ptr<bool> ownerAccessInheritable_ {};
     // The absolute path of the directory or file.
     // - The path must start and end with a forward slash (/).
@@ -97,8 +97,8 @@ namespace Models
     shared_ptr<string> path_ {};
     // The object type. Valid values:
     // 
-    // - File: file.
-    // - Directory: directory.
+    // - File: file
+    // - Directory: directory
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

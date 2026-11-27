@@ -66,22 +66,22 @@ namespace Models
 
 
   protected:
-    // The auto-scaling configuration.
+    // The automatic expansion configuration.
     shared_ptr<string> autoUpgradeConfigShrink_ {};
     // The description of the file system.
     // 
     // Limits:
     // 
     // - The description must be 2 to 128 characters in length.
-    // - The description must start with a letter or Chinese character and cannot start with `http://` or `https://`.
-    // - The description can contain digits, colons (:), underscores (_), or hyphens (-).
+    // - It must start with a letter or a Chinese character, and cannot start with `http://` or `https://`.
+    // - It can contain digits, colons (:), underscores (_), and hyphens (-).
     shared_ptr<string> description_ {};
-    // The file system ID.
+    // The ID of the file system.
     // 
     // - General-purpose NAS: `31a8e4****`.
     // 
-    // - Extreme NAS: The ID must start with `extreme-`, for example, `extreme-0015****`.
-    // - Cloud Parallel File Storage (CPFS): The ID must start with `cpfs-`, for example, `cpfs-125487****`.
+    // - Extreme NAS: must start with `extreme-`, such as `extreme-0015****`.
+    // - CPFS: must start with `cpfs-`, such as `cpfs-125487****`.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};

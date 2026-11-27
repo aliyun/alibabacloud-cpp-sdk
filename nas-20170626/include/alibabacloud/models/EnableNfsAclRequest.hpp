@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The file system ID.
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};

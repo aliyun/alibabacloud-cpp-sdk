@@ -74,9 +74,9 @@ namespace Models
     shared_ptr<string> description_ {};
     // The file system ID.
     // 
-    // - CPFS: The ID must start with `cpfs-`, for example, cpfs-125487\\*\\*\\*\\*.
+    // - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\*\*\*\*.
     // 
-    // - CPFS for Lingjun: The ID must start with `bmcpfs-`, for example, bmcpfs-0015\\*\\*\\*\\*.
+    // - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\*\*\*\*.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};

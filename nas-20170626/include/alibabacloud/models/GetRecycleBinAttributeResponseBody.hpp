@@ -105,21 +105,17 @@ namespace Models
 
 
     protected:
-      // The storage usage of archived data in the recycle bin. Unit: bytes.
+      // The storage usage of archive data in the recycle bin. Unit: bytes.
       shared_ptr<int64_t> archiveSize_ {};
-      // The time when the recycle bin was enabled. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The time when the recycle bin was enabled. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> enableTime_ {};
-      // The retention period of files in the recycle bin. Unit: days.
-      // 
-      // If the recycle bin is disabled, this parameter returns 0.
+      // The retention period of files in the recycle bin. Unit: days. If the recycle bin is disabled, this parameter returns 0.
       shared_ptr<int64_t> reservedDays_ {};
-      // The storage usage of IA storage class data in the recycle bin. Unit: bytes.
+      // The storage usage of IA data in the recycle bin. Unit: bytes.
       shared_ptr<int64_t> secondarySize_ {};
       // The storage usage of files in the recycle bin. Unit: bytes.
       shared_ptr<int64_t> size_ {};
-      // The recycle bin status.
-      // 
-      // Valid values:
+      // The status of the recycle bin. Valid values:
       // 
       // - Enable: The recycle bin is enabled.
       // - Disable: The recycle bin is disabled.
@@ -145,9 +141,9 @@ namespace Models
 
 
   protected:
-    // The recycle bin description.
+    // The attributes of the recycle bin.
     shared_ptr<GetRecycleBinAttributeResponseBody::RecycleBinAttribute> recycleBinAttribute_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

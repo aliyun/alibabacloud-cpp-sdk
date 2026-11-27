@@ -75,7 +75,7 @@ namespace Models
 
     protected:
       // The name of the filter key. Valid values:
-      // - AccessGroup (not supported for agentic)
+      // - AccessGroup (not supported by agentic)
       // - AccessPointId
       // - AgenticSpaceId
       shared_ptr<string> name_ {};
@@ -116,19 +116,19 @@ namespace Models
 
 
   protected:
-    // The file system ID.
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
     // The filter key information.
     shared_ptr<vector<ListAccessPointsRequest::Filters>> filters_ {};
-    // The maximum number of results to return per query.
+    // The maximum number of entries to return for a single request.
     // 
     // - Maximum value: 100.
     // - Minimum value: 10.
     // - Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token. Set this parameter to the value of NextToken that was returned in the previous API call.
+    // The query token. The value is the NextToken parameter value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
   };
 

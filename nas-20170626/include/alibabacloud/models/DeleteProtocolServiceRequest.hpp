@@ -66,24 +66,24 @@ namespace Models
 
 
   protected:
-    // Ensures the idempotency of the request. Generate a value from your client that is unique across different requests.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
     // 
-    // The ClientToken value supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotency](https://help.aliyun.com/document_detail/25693.html).
+    // The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     // 
-    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may vary across API requests.
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run for this request. A dry run checks parameter validity and dependencies without actually modifying the instance or incurring charges.
+    // Specifies whether to perform a dry run on the request. A dry run helps you check the validity of parameters and dependencies without actually performing the operation or incurring fees.
     // 
     // Valid values:
     // 
-    // - true: Sends a dry run request without modifying the protocol service. The check items include whether required parameters are specified, the request format, and business limit dependencies. If the check fails, the corresponding error is returned. If the check passes, HTTP status code 200 is returned.
-    // - false (default): Sends a normal request. After the check passes, the protocol service is directly modified.
+    // - true: sends a check request and does not delete the protocol service. The check items include whether required parameters are specified, the request format, and business limits and dependencies. If the check fails, the corresponding error is returned. If the check succeeds, the HTTP status code 200 is returned.
+    // - false (default): sends a normal request and directly deletes the protocol service after the check succeeds.
     shared_ptr<bool> dryRun_ {};
-    // The file system ID.
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The protocol service ID.
+    // The ID of the protocol service.
     // 
     // This parameter is required.
     shared_ptr<string> protocolServiceId_ {};

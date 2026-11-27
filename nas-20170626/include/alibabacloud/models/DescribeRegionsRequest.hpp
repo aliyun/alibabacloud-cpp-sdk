@@ -60,16 +60,16 @@ namespace Models
     // The file system type.
     // 
     // Valid values:
-    // - all: all types
-    // - standard: General-purpose NAS (default)
-    // - extreme: Extreme NAS
-    // - cpfs: Cloud Parallel File Storage
+    // - all: All types.
+    // - standard: General-purpose NAS. This is the default value.
+    // - extreme: Extreme NAS.
+    // - cpfs: Cloud Parallel File Storage.
     shared_ptr<string> fileSystemType_ {};
     // The page number.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of regions per page in a paging query.
+    // The number of regions per page for paging in a paged query.
     // 
     // Valid values: 1 to 100.
     // 

@@ -81,18 +81,18 @@ namespace Models
       // Limits:
       // 
       // - Valid values of N: 1 to 20.
-      // - The tag key can be up to 128 characters in length.
-      // - The tag key cannot start with aliyun or acs:.
-      // - The tag key cannot contain http:// or https://.
+      // - It can be up to 128 characters in length.
+      // - It cannot start with aliyun or acs:.
+      // - It cannot contain http:// or https://.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
       // Limits:
       // 
       // - Valid values of N: 1 to 20.
-      // - The tag value can be up to 128 characters in length.
-      // - The tag value cannot start with aliyun or acs:.
-      // - The tag value cannot contain http:// or https://.
+      // - It can be up to 128 characters in length.
+      // - It cannot start with aliyun or acs:.
+      // - It cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -136,19 +136,19 @@ namespace Models
 
 
   protected:
-    // The permission group name.
+    // The name of the permission group.
     // 
-    // This parameter is required if the file system is a General-purpose NAS file system.
+    // This parameter is required when the target file system is a General-purpose NAS file system.
     // 
     // Default permission group: DEFAULT_VPC_GROUP_NAME (the default permission group for VPCs).
     shared_ptr<string> accessGroup_ {};
     // The file system ID.
     shared_ptr<string> fileSystemId_ {};
-    // The number of results for each query.
+    // The number of entries to return for each query.
     // 
     // Valid values: 10 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token. Set the value to the NextToken value returned in the previous API call.
+    // The query token. Set the value to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The list of access point tags.
     shared_ptr<vector<DescribeAccessPointsRequest::Tag>> tag_ {};

@@ -356,9 +356,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDataFlowsResponseBody::DataFlowInfo> dataFlowInfo_ {};
-    // When the returned results of a request are truncated, you can use NextToken to initiate another request and obtain the remaining results.
+    // The pagination token. If the returned results are truncated, you can use NextToken to initiate another request to retrieve the remaining results.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

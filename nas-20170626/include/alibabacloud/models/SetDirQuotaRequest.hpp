@@ -13,6 +13,7 @@ namespace Models
   class SetDirQuotaRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SetDirQuotaRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(FileCountLimit, fileCountLimit_);
       DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_TO_JSON(Path, path_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UserType, userType_);
     };
     friend void from_json(const Darabonba::Json& j, SetDirQuotaRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(FileCountLimit, fileCountLimit_);
       DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_FROM_JSON(Path, path_);
@@ -41,9 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->fileCountLimit_ == nullptr
-        && this->fileSystemId_ == nullptr && this->path_ == nullptr && this->quotaType_ == nullptr && this->sizeLimit_ == nullptr && this->userId_ == nullptr
-        && this->userType_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->fileCountLimit_ == nullptr && this->fileSystemId_ == nullptr && this->path_ == nullptr && this->quotaType_ == nullptr && this->sizeLimit_ == nullptr
+        && this->userId_ == nullptr && this->userType_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline SetDirQuotaRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // fileCountLimit Field Functions 
     bool hasFileCountLimit() const { return this->fileCountLimit_ != nullptr;};
     void deleteFileCountLimit() { this->fileCountLimit_ = nullptr;};
@@ -94,6 +103,8 @@ namespace Models
 
 
   protected:
+    // Specifies whether to perform a precheck on the request.
+    shared_ptr<bool> dryRun_ {};
     // The maximum number of files in the directory.
     // 
     // This includes files, directories, and special files.
@@ -101,12 +112,12 @@ namespace Models
     // 
     // When QuotaType is set to Enforcement, you must specify at least one of SizeLimit and FileCountLimit.
     shared_ptr<int64_t> fileCountLimit_ {};
-    // The file system ID.
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
     // The absolute path of the directory in the file system.
-    //  > - You can set a quota only for a directory that already exists in the NAS file system. The directory path for the quota is the absolute path in the NAS file system, not the local path on a compute node (such as an ECS instance or container).
+    //  > - Quotas can only be set for directories that have been created in a NAS file system. The quota path is the absolute path of the directory in the NAS file system, not a local path on a compute node (such as an ECS instance or container).
     //  > - Directories whose path names contain Chinese characters are not supported.
     // 
     // This parameter is required.
@@ -114,34 +125,34 @@ namespace Models
     // The quota type.
     // 
     // Valid values:
-    // - Accounting: statistical quota. Only tracks usage.
-    // - Enforcement: enforcement quota. When usage exceeds the limit, operations such as creating files or directories and appending data fail.
+    // - Accounting: accounting quota, which only tracks usage.
+    // - Enforcement: enforcement quota. If usage exceeds the limit, operations such as creating files or directories and appending data will fail.
     // 
     // This parameter is required.
     shared_ptr<string> quotaType_ {};
-    // The total capacity limit for files in the directory.
+    // The maximum total size of files in the directory.
     // 
-    // Unit: GiB.
+    // Unit: GiB
     // 
     // 
     // When QuotaType is set to Enforcement, you must specify at least one of SizeLimit and FileCountLimit.
     shared_ptr<int64_t> sizeLimit_ {};
-    // The UID or GID to restrict.
+    // The Uid or Gid to be restricted.
     // 
-    // This parameter is required and valid only when UserType is set to Uid or Gid.
+    // Required and meaningful only when UserType is Uid or Gid.
     // 
     // Examples:
     // 
-    // - To restrict the user whose UID is 500, set UserType to Uid and UserId to 500.
-    // - To restrict the user group whose GID is 100, set UserType to Gid and UserId to 100.
+    // - To restrict the user with Uid=500, set UserType to Uid and UserId to 500.
+    // - To restrict the user group with Gid=100, set UserType to Gid and UserId to 100.
     shared_ptr<string> userId_ {};
     // The user type.
     // 
     // Valid values:
     // 
-    // - Uid: user ID.
-    // - Gid: user group ID.
-    // - AllUsers: all users.
+    // - Uid: user ID
+    // - Gid: group ID of the user
+    // - AllUsers: all users
     // 
     // This parameter is required.
     shared_ptr<string> userType_ {};

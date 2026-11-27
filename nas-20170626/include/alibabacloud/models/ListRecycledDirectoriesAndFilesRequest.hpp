@@ -66,25 +66,26 @@ namespace Models
 
 
   protected:
-    // The FileId of the directory to query.
+    // The FileId of the directory to be queried.
     // 
-    // This field is the NFS inode number. When the recycle bin is empty, you can call this operation with FileId=2 (root directory inode) to verify the reachability of the operation or query the recycle bin content under the root directory. You can obtain other valid FileId values by calling the [ListRecentlyRecycledDirectories](https://help.aliyun.com/document_detail/2412173.html) operation.
+    // This field is the NFS inode number. When the recycle bin is empty, you can set FileId to 2 (the inode of the root directory) to directly call this operation to verify the accessibility of the operation or query the content of the recycle bin in the root directory. You can call the [ListRecentlyRecycledDirectories](https://help.aliyun.com/document_detail/2412173.html) operation to query other valid FileIds.
     // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
-    // The file system ID.
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The number of files or directories returned per query.
+    // The number of files or directories to return per query.
     // 
     // Valid values: 10 to 1000.
     // 
     // Default value: 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token for the next page. You do not need to specify this parameter for the first query.
+    // The token for the next page. You do not need to specify this parameter for the first query.
     // 
-    // If a single query does not return all files and directories, a non-empty NextToken is returned. You can pass the correct NextToken in subsequent queries to continue retrieving results.
+    // If the query does not return all files and directories, a non-empty NextToken is returned.
+    // You can use the returned NextToken to continue the query.
     shared_ptr<string> nextToken_ {};
   };
 
