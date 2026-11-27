@@ -8,6 +8,10 @@
 #include <alibabacloud/models/FlussVswitch.hpp>
 #include <alibabacloud/models/FlussInstance.hpp>
 #include <alibabacloud/models/FlussResourceSpec.hpp>
+#include <alibabacloud/models/TokenUsageDetailDTO.hpp>
+#include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
+#include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
+#include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
 #include <alibabacloud/models/CloseFlinkAiServiceRequest.hpp>
 #include <alibabacloud/models/CloseFlinkAiServiceResponseBody.hpp>
 #include <alibabacloud/models/CloseFlinkAiServiceResponse.hpp>

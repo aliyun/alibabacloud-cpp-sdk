@@ -75,12 +75,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable cross-zone high availability.
     shared_ptr<bool> ha_ {};
     // The order instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The namespace name.
+    // The name of the namespace.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};

@@ -188,11 +188,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to use fully managed storage. You can select only one of fully managed storage or binding an OSS bucket. Valid values:
-      // - true: Use fully managed storage.
-      // - false: Do not use fully managed storage.
+      // Specifies whether to use fully managed storage. You can choose either fully managed storage or binding an OSS bucket. Valid values:
+      // - true: uses fully managed storage.
+      // - false: does not use fully managed storage.
       shared_ptr<bool> fullyManaged_ {};
-      // The OSS storage configurations.
+      // The OSS storage.
       shared_ptr<Storage::Oss> oss_ {};
     };
 
@@ -235,11 +235,11 @@ namespace Models
 
     protected:
       // The number of CPUs.
-      // > - This parameter is required for subscription workspaces. For pay-as-you-go workspaces, you do not need to specify this parameter.- The number of CPUs for the target project must be less than the remaining CPUs in the workspace (total purchased CPUs minus CPUs already allocated to other projects). Otherwise, an error is returned.
+      // > - This parameter is required for subscription workspaces. For pay-as-you-go workspaces, this parameter is optional. - The number of CPUs for the target project to be created must be less than the number of remaining CPUs in the workspace (the total number of CPUs purchased for the workspace minus the number of CPUs allocated to other projects). Otherwise, an error is reported.
       shared_ptr<int32_t> cpu_ {};
       // The memory size. Unit: GB.
       // 
-      // > The memory size must be 4 times the number of CPUs.
+      // > The memory size must be four times the number of CPUs.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -283,7 +283,7 @@ namespace Models
     protected:
       // The number of CPUs for zone-disaster recovery.
       shared_ptr<int32_t> cpu_ {};
-      // The memory size for zone-disaster recovery high availability (HA).
+      // The memory size for high-availability zone-disaster recovery.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -329,7 +329,7 @@ namespace Models
       shared_ptr<int32_t> cpu_ {};
       // The memory size. Unit: GB.
       // 
-      // > The memory size must be 4 times the number of CPUs.
+      // > The memory size must be four times the number of CPUs.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -375,7 +375,7 @@ namespace Models
       shared_ptr<int32_t> cpu_ {};
       // The memory size. Unit: GB.
       // 
-      // > The memory size must be 4 times the number of CPUs.
+      // > The memory size must be four times the number of CPUs.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -560,22 +560,22 @@ namespace Models
     shared_ptr<string> architectureType_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // - **true**: Enabled.
-    // - **false**: Disabled. This is the default value.
+    // - **true**: enables auto-renewal.
+    // - **false**: disables auto-renewal. This is the default value.
     // 
     // > This parameter does not take effect for pay-as-you-go instances.
     shared_ptr<bool> autoRenew_ {};
     // The billing method. Valid values:
-    // - POST: pay-as-you-go.
-    // - PRE: subscription.
+    // - POST: pay-as-you-go
+    // - PRE: subscription
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
-    // The default high-availability namespace resource configuration.
+    // The resource configurations for the default high-availability namespace.
     shared_ptr<CreateInstanceRequest::DefaultHaNamespaceResourceSpec> defaultHaNamespaceResourceSpec_ {};
-    // The default namespace resource configuration.
+    // The resource configurations for the default namespace.
     shared_ptr<CreateInstanceRequest::DefaultNamespaceResourceSpec> defaultNamespaceResourceSpec_ {};
-    // The subscription duration.
+    // The number of subscription periods.
     // 
     // > This parameter is required when ChargeType is set to PRE.
     shared_ptr<int32_t> duration_ {};
@@ -583,22 +583,22 @@ namespace Models
     shared_ptr<string> extra_ {};
     // Specifies whether to use zone-disaster recovery resources.
     shared_ptr<bool> ha_ {};
-    // The zone-disaster recovery resource specifications.
+    // The resource specifications for zone-disaster recovery.
     shared_ptr<CreateInstanceRequest::HaResourceSpec> haResourceSpec_ {};
-    // The list of vSwitch IDs in the secondary zone for zone-disaster recovery.
+    // The vSwitches in the secondary zone for zone-disaster recovery.
     shared_ptr<vector<string>> haVSwitchIds_ {};
-    // The workspace name. The name must start with a lowercase letter and can contain lowercase letters, digits, and hyphens (-). The name cannot end with a hyphen.
+    // The name of the workspace. The name must start with a lowercase letter and can contain lowercase letters, digits, and hyphens. It cannot end with a hyphen.
     // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
     // The type of the monitoring and alerting service. You can select ARMS or CloudMonitor.
     shared_ptr<string> monitorType_ {};
-    // The billing cycle of the subscription instance. Valid values:
+    // The subscription period unit for the subscription instance. Valid values:
     // 
-    // - **year**: yearly.
-    // - **month**: monthly.
+    // - **year**: year
+    // - **month**: month
     // 
-    // > This parameter is required when ChargeType is set to PRE.
+    // > This parameter is required when the billing method is subscription.
     shared_ptr<string> pricingCycle_ {};
     // The coupon code.
     shared_ptr<string> promotionCode_ {};
@@ -606,7 +606,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The resource specifications.
     // 
@@ -616,17 +616,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<CreateInstanceRequest::Storage> storage_ {};
-    // The list of tags. A maximum of 20 tags can be specified.
+    // The list of tags. You can add up to 20 tags.
     shared_ptr<vector<CreateInstanceRequest::Tag>> tag_ {};
     // Specifies whether to use a coupon. Valid values:
-    // - true: Use a coupon.
-    // - false: Do not use a coupon.
+    // - true: uses a coupon.
+    // - false: does not use a coupon.
     shared_ptr<bool> usePromotionCode_ {};
-    // The list of vSwitch IDs.
+    // The vSwitch IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> vSwitchIds_ {};
-    // The virtual private cloud (VPC) ID.
+    // The ID of the virtual private cloud (VPC).
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

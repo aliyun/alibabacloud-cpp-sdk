@@ -89,13 +89,13 @@ namespace Models
 
 
     protected:
-      // The order instance ID.
+      // The ID of the instance in the order.
       shared_ptr<string> instanceId_ {};
       // The order ID.
       shared_ptr<int64_t> orderId_ {};
-      // The storage instance ID.
+      // The ID of the storage instance.
       shared_ptr<string> storageInstanceId_ {};
-      // The storage order ID.
+      // The ID of the storage order.
       shared_ptr<int64_t> storageOrderId_ {};
     };
 
@@ -129,7 +129,7 @@ namespace Models
     shared_ptr<CreateInstanceResponseBody::OrderInfo> orderInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

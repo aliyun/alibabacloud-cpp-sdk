@@ -167,7 +167,7 @@ namespace Models
     shared_ptr<int32_t> pageIndex_ {};
     // The number of regions per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The list of region information.
+    // The list of regions.
     shared_ptr<vector<DescribeSupportedRegionsResponseBody::Regions>> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -176,7 +176,7 @@ namespace Models
     // - true: Successful.
     // - false: Failed.
     shared_ptr<bool> success_ {};
-    // The total number of regions returned.
+    // The number of regions returned.
     shared_ptr<int64_t> totalCount_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

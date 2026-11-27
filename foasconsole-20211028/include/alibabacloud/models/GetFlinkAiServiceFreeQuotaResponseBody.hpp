@@ -93,7 +93,7 @@ namespace Models
 
 
       protected:
-        // The used quota for this usage type.
+        // The used quota for the usage type.
         shared_ptr<double> amount_ {};
         // The usage type.
         shared_ptr<string> usageType_ {};
@@ -150,11 +150,11 @@ namespace Models
 
 
   protected:
-    // The Flink AI free quota data transfer object.
+    // The Flink AI free quota DTO.
     shared_ptr<GetFlinkAiServiceFreeQuotaResponseBody::FlinkAiFreeQuotaDTO> flinkAiFreeQuotaDTO_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

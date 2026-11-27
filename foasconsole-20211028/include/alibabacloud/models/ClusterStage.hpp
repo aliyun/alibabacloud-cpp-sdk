@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // The ordinal number of the current execution stage.
     shared_ptr<int32_t> currentStage_ {};
+    // The execution information of the current stage.
     shared_ptr<string> message_ {};
+    // The execution status of the current stage.
     shared_ptr<string> status_ {};
+    // The list of execution stages and their weights.
     shared_ptr<vector<StageWithWeight>> totalStageWithWeight_ {};
   };
 

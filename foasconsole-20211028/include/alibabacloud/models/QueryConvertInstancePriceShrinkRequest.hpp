@@ -103,11 +103,11 @@ namespace Models
 
 
   protected:
-    // The number of pricing cycles.
+    // The duration of the billing cycle.
     // 
     // This parameter is required.
     shared_ptr<int32_t> duration_ {};
-    // The order instance ID.
+    // The instance ID of the order.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -115,19 +115,23 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<bool> isAutoRenew_ {};
-    // The resource specifications of the namespace.
+    // The resource specifications of the workspace.
     // 
     // This parameter is required.
     shared_ptr<string> namespaceResourceSpecsShrink_ {};
-    // The pricing cycle. Only Year and Month are supported.
+    // The billing cycle. Only Year and Month are supported.
     // 
     // This parameter is required.
     shared_ptr<string> pricingCycle_ {};
+    // The coupon code.
     shared_ptr<string> promotionCode_ {};
     // The region.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // Specifies whether to use a coupon. Valid values:
+    // - true: Uses a coupon.
+    // - false: Does not use a coupon.
     shared_ptr<bool> usePromotionCode_ {};
   };
 

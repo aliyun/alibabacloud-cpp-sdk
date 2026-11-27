@@ -77,7 +77,7 @@ namespace Models
       shared_ptr<int32_t> cpu_ {};
       // The memory size. Unit: GB.
       // 
-      // > The memory size must be 4 times the number of CPUs.
+      // > The memory size must be four times the number of CPUs.
       // 
       // This parameter is required.
       shared_ptr<int32_t> memoryGB_ {};

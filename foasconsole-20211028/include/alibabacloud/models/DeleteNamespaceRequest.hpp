@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The order instance ID.
+    // The instance ID of the order.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The namespace name.
+    // The name of the namespace.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};

@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The list of vSwitch IDs in the zone.
     shared_ptr<vector<string>> vSwitchIds_ {};
+    // The ID of the zone to which the vSwitch belongs.
     shared_ptr<string> zoneId_ {};
   };
 

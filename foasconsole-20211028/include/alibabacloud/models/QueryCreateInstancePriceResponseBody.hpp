@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(IsContractActivity, isContractActivity_);
         DARABONBA_PTR_TO_JSON(LxRequestId, lxRequestId_);
         DARABONBA_PTR_TO_JSON(Message, message_);
+        DARABONBA_PTR_TO_JSON(ModulePrices, modulePrices_);
         DARABONBA_PTR_TO_JSON(OptionalPromotions, optionalPromotions_);
         DARABONBA_PTR_TO_JSON(OriginalAmount, originalAmount_);
         DARABONBA_PTR_TO_JSON(Rules, rules_);
@@ -59,6 +60,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(IsContractActivity, isContractActivity_);
         DARABONBA_PTR_FROM_JSON(LxRequestId, lxRequestId_);
         DARABONBA_PTR_FROM_JSON(Message, message_);
+        DARABONBA_PTR_FROM_JSON(ModulePrices, modulePrices_);
         DARABONBA_PTR_FROM_JSON(OptionalPromotions, optionalPromotions_);
         DARABONBA_PTR_FROM_JSON(OriginalAmount, originalAmount_);
         DARABONBA_PTR_FROM_JSON(Rules, rules_);
@@ -117,7 +119,7 @@ namespace Models
       protected:
         // The description of the promotion rule.
         shared_ptr<string> description_ {};
-        // The promotion ID.
+        // The ID of the promotion rule.
         shared_ptr<int64_t> ruleId_ {};
       };
 
@@ -177,16 +179,138 @@ namespace Models
 
 
       protected:
-        // The coupon description.
+        // The description of the coupon.
         shared_ptr<string> promotionDesc_ {};
-        // The coupon name.
+        // The name of the coupon.
         shared_ptr<string> promotionName_ {};
-        // The coupon ID.
+        // The ID of the coupon.
         shared_ptr<string> promotionOptionNo_ {};
-        // Indicates whether the coupon is selected. Valid values:
+        // Specifies whether the coupon is selected. Valid values:
         // - true: Selected.
         // - false: Not selected.
         shared_ptr<bool> selected_ {};
+      };
+
+      class ModulePrices : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ModulePrices& obj) { 
+          DARABONBA_PTR_TO_JSON(DiscountAmount, discountAmount_);
+          DARABONBA_PTR_TO_JSON(FinalUnitFee, finalUnitFee_);
+          DARABONBA_PTR_TO_JSON(ModuleCode, moduleCode_);
+          DARABONBA_PTR_TO_JSON(ModuleName, moduleName_);
+          DARABONBA_PTR_TO_JSON(OriginalAmount, originalAmount_);
+          DARABONBA_PTR_TO_JSON(PayAmount, payAmount_);
+          DARABONBA_PTR_TO_JSON(PriceType, priceType_);
+          DARABONBA_PTR_TO_JSON(PriceUnit, priceUnit_);
+          DARABONBA_PTR_TO_JSON(Quantity, quantity_);
+        };
+        friend void from_json(const Darabonba::Json& j, ModulePrices& obj) { 
+          DARABONBA_PTR_FROM_JSON(DiscountAmount, discountAmount_);
+          DARABONBA_PTR_FROM_JSON(FinalUnitFee, finalUnitFee_);
+          DARABONBA_PTR_FROM_JSON(ModuleCode, moduleCode_);
+          DARABONBA_PTR_FROM_JSON(ModuleName, moduleName_);
+          DARABONBA_PTR_FROM_JSON(OriginalAmount, originalAmount_);
+          DARABONBA_PTR_FROM_JSON(PayAmount, payAmount_);
+          DARABONBA_PTR_FROM_JSON(PriceType, priceType_);
+          DARABONBA_PTR_FROM_JSON(PriceUnit, priceUnit_);
+          DARABONBA_PTR_FROM_JSON(Quantity, quantity_);
+        };
+        ModulePrices() = default ;
+        ModulePrices(const ModulePrices &) = default ;
+        ModulePrices(ModulePrices &&) = default ;
+        ModulePrices(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ModulePrices() = default ;
+        ModulePrices& operator=(const ModulePrices &) = default ;
+        ModulePrices& operator=(ModulePrices &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->discountAmount_ == nullptr
+        && this->finalUnitFee_ == nullptr && this->moduleCode_ == nullptr && this->moduleName_ == nullptr && this->originalAmount_ == nullptr && this->payAmount_ == nullptr
+        && this->priceType_ == nullptr && this->priceUnit_ == nullptr && this->quantity_ == nullptr; };
+        // discountAmount Field Functions 
+        bool hasDiscountAmount() const { return this->discountAmount_ != nullptr;};
+        void deleteDiscountAmount() { this->discountAmount_ = nullptr;};
+        inline float getDiscountAmount() const { DARABONBA_PTR_GET_DEFAULT(discountAmount_, 0.0) };
+        inline ModulePrices& setDiscountAmount(float discountAmount) { DARABONBA_PTR_SET_VALUE(discountAmount_, discountAmount) };
+
+
+        // finalUnitFee Field Functions 
+        bool hasFinalUnitFee() const { return this->finalUnitFee_ != nullptr;};
+        void deleteFinalUnitFee() { this->finalUnitFee_ = nullptr;};
+        inline string getFinalUnitFee() const { DARABONBA_PTR_GET_DEFAULT(finalUnitFee_, "") };
+        inline ModulePrices& setFinalUnitFee(string finalUnitFee) { DARABONBA_PTR_SET_VALUE(finalUnitFee_, finalUnitFee) };
+
+
+        // moduleCode Field Functions 
+        bool hasModuleCode() const { return this->moduleCode_ != nullptr;};
+        void deleteModuleCode() { this->moduleCode_ = nullptr;};
+        inline string getModuleCode() const { DARABONBA_PTR_GET_DEFAULT(moduleCode_, "") };
+        inline ModulePrices& setModuleCode(string moduleCode) { DARABONBA_PTR_SET_VALUE(moduleCode_, moduleCode) };
+
+
+        // moduleName Field Functions 
+        bool hasModuleName() const { return this->moduleName_ != nullptr;};
+        void deleteModuleName() { this->moduleName_ = nullptr;};
+        inline string getModuleName() const { DARABONBA_PTR_GET_DEFAULT(moduleName_, "") };
+        inline ModulePrices& setModuleName(string moduleName) { DARABONBA_PTR_SET_VALUE(moduleName_, moduleName) };
+
+
+        // originalAmount Field Functions 
+        bool hasOriginalAmount() const { return this->originalAmount_ != nullptr;};
+        void deleteOriginalAmount() { this->originalAmount_ = nullptr;};
+        inline float getOriginalAmount() const { DARABONBA_PTR_GET_DEFAULT(originalAmount_, 0.0) };
+        inline ModulePrices& setOriginalAmount(float originalAmount) { DARABONBA_PTR_SET_VALUE(originalAmount_, originalAmount) };
+
+
+        // payAmount Field Functions 
+        bool hasPayAmount() const { return this->payAmount_ != nullptr;};
+        void deletePayAmount() { this->payAmount_ = nullptr;};
+        inline float getPayAmount() const { DARABONBA_PTR_GET_DEFAULT(payAmount_, 0.0) };
+        inline ModulePrices& setPayAmount(float payAmount) { DARABONBA_PTR_SET_VALUE(payAmount_, payAmount) };
+
+
+        // priceType Field Functions 
+        bool hasPriceType() const { return this->priceType_ != nullptr;};
+        void deletePriceType() { this->priceType_ = nullptr;};
+        inline string getPriceType() const { DARABONBA_PTR_GET_DEFAULT(priceType_, "") };
+        inline ModulePrices& setPriceType(string priceType) { DARABONBA_PTR_SET_VALUE(priceType_, priceType) };
+
+
+        // priceUnit Field Functions 
+        bool hasPriceUnit() const { return this->priceUnit_ != nullptr;};
+        void deletePriceUnit() { this->priceUnit_ = nullptr;};
+        inline string getPriceUnit() const { DARABONBA_PTR_GET_DEFAULT(priceUnit_, "") };
+        inline ModulePrices& setPriceUnit(string priceUnit) { DARABONBA_PTR_SET_VALUE(priceUnit_, priceUnit) };
+
+
+        // quantity Field Functions 
+        bool hasQuantity() const { return this->quantity_ != nullptr;};
+        void deleteQuantity() { this->quantity_ = nullptr;};
+        inline string getQuantity() const { DARABONBA_PTR_GET_DEFAULT(quantity_, "") };
+        inline ModulePrices& setQuantity(string quantity) { DARABONBA_PTR_SET_VALUE(quantity_, quantity) };
+
+
+      protected:
+        // The discount amount.
+        shared_ptr<float> discountAmount_ {};
+        // The unit price of the module.
+        shared_ptr<string> finalUnitFee_ {};
+        // The module code.
+        shared_ptr<string> moduleCode_ {};
+        // The module name.
+        shared_ptr<string> moduleName_ {};
+        // The original amount.
+        shared_ptr<float> originalAmount_ {};
+        // The payment amount.
+        shared_ptr<float> payAmount_ {};
+        // The billing method.
+        shared_ptr<string> priceType_ {};
+        // The pricing unit.
+        shared_ptr<string> priceUnit_ {};
+        // The order quantity.
+        shared_ptr<string> quantity_ {};
       };
 
       class DepreciateInfo : public Darabonba::Model {
@@ -263,24 +387,24 @@ namespace Models
 
 
       protected:
-        // The price reduction ratio.
+        // The price reduction rate.
         shared_ptr<string> cheapRate_ {};
-        // The total list price after the price reduction.
+        // The total price on the official website after the price reduction.
         shared_ptr<string> cheapStandAmount_ {};
-        // Indicates whether to display the price reduction percentage.
+        // Indicates whether to display the price reduction rate.
         shared_ptr<bool> isShow_ {};
-        // The monthly equivalent price.
+        // The equivalent monthly price.
         shared_ptr<string> monthPrice_ {};
-        // The original total list price.
+        // The original total price on the official website.
         shared_ptr<string> originalStandAmount_ {};
-        // The start time of the price reduction.
+        // The start time of the price reduction, in ISO 8601 format.
         shared_ptr<string> startTime_ {};
       };
 
       virtual bool empty() const override { return this->code_ == nullptr
         && this->currency_ == nullptr && this->depreciateInfo_ == nullptr && this->discountAmount_ == nullptr && this->isContractActivity_ == nullptr && this->lxRequestId_ == nullptr
-        && this->message_ == nullptr && this->optionalPromotions_ == nullptr && this->originalAmount_ == nullptr && this->rules_ == nullptr && this->standDiscountPrice_ == nullptr
-        && this->standPrice_ == nullptr && this->tradeAmount_ == nullptr; };
+        && this->message_ == nullptr && this->modulePrices_ == nullptr && this->optionalPromotions_ == nullptr && this->originalAmount_ == nullptr && this->rules_ == nullptr
+        && this->standDiscountPrice_ == nullptr && this->standPrice_ == nullptr && this->tradeAmount_ == nullptr; };
       // code Field Functions 
       bool hasCode() const { return this->code_ != nullptr;};
       void deleteCode() { this->code_ = nullptr;};
@@ -330,6 +454,15 @@ namespace Models
       void deleteMessage() { this->message_ = nullptr;};
       inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
       inline PriceInfo& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+      // modulePrices Field Functions 
+      bool hasModulePrices() const { return this->modulePrices_ != nullptr;};
+      void deleteModulePrices() { this->modulePrices_ = nullptr;};
+      inline const vector<PriceInfo::ModulePrices> & getModulePrices() const { DARABONBA_PTR_GET_CONST(modulePrices_, vector<PriceInfo::ModulePrices>) };
+      inline vector<PriceInfo::ModulePrices> getModulePrices() { DARABONBA_PTR_GET(modulePrices_, vector<PriceInfo::ModulePrices>) };
+      inline PriceInfo& setModulePrices(const vector<PriceInfo::ModulePrices> & modulePrices) { DARABONBA_PTR_SET_VALUE(modulePrices_, modulePrices) };
+      inline PriceInfo& setModulePrices(vector<PriceInfo::ModulePrices> && modulePrices) { DARABONBA_PTR_SET_RVALUE(modulePrices_, modulePrices) };
 
 
       // optionalPromotions Field Functions 
@@ -387,23 +520,25 @@ namespace Models
       shared_ptr<PriceInfo::DepreciateInfo> depreciateInfo_ {};
       // The discount amount.
       shared_ptr<float> discountAmount_ {};
-      // Indicates whether an enterprise discount is applied.
+      // Indicates whether the key account promotion is applied.
       shared_ptr<bool> isContractActivity_ {};
-      // The Lingxiao request ID of the call.
+      // The Lingxiao request ID.
       shared_ptr<string> lxRequestId_ {};
       // The error message.
       shared_ptr<string> message_ {};
+      // The module prices.
+      shared_ptr<vector<PriceInfo::ModulePrices>> modulePrices_ {};
       // The coupon group information.
       shared_ptr<vector<PriceInfo::OptionalPromotions>> optionalPromotions_ {};
-      // The original price.
+      // The original amount.
       shared_ptr<float> originalAmount_ {};
       // The promotion rules.
       shared_ptr<vector<PriceInfo::Rules>> rules_ {};
-      // The promotional price based on the standard discount from the official website.
+      // The discounted price based on the official website discount.
       shared_ptr<string> standDiscountPrice_ {};
-      // The standard discounted price on the official website or the direct sales contract discounted price.
+      // The discounted price on the official website or the discounted price in the direct sales contract.
       shared_ptr<string> standPrice_ {};
-      // The final price, which is the original price minus the discount.
+      // The final amount, which is the original amount minus the discount.
       shared_ptr<float> tradeAmount_ {};
     };
 
@@ -433,11 +568,11 @@ namespace Models
 
 
   protected:
-    // The price information, including the price and promotion rules.
+    // The price information, including the price and discount rules.
     shared_ptr<QueryCreateInstancePriceResponseBody::PriceInfo> priceInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

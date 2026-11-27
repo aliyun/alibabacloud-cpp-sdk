@@ -213,14 +213,12 @@ namespace Models
       protected:
         // The VPC CIDR block.
         shared_ptr<string> cidrBlock_ {};
-        // The description of the VPC.
+        // The VPC description.
         shared_ptr<string> description_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
         // The VPC status. Valid values:
-        // 
-        // - Pending: Being configured.
-        // 
+        // - Pending: Configuring.
         // - Available: Available.
         shared_ptr<string> status_ {};
         // The VPC ID.
@@ -334,7 +332,7 @@ namespace Models
         shared_ptr<string> vSwitchId_ {};
         // The name of the vSwitch.
         shared_ptr<string> vSwitchName_ {};
-        // VPC ID。
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
         // The zone ID of the workspace.
         shared_ptr<string> zoneId_ {};
@@ -484,22 +482,20 @@ namespace Models
 
       protected:
         // Specifies whether fully managed storage is selected. Valid values:
-        // - true: Used.
-        // - false: Not used.
+        // - true: Fully managed storage is used.
+        // - false: Fully managed storage is not used.
         shared_ptr<bool> fullyManaged_ {};
         // The order status of fully managed storage. Valid values:
-        // 
-        // - NOT_INIT: The order is placed but components are not yet deployed.
-        // 
+        // - NOT_INIT: The order is placed but components are not deployed.
         // - NORMAL: Normal.
-        // 
         // - CEASE: Expired.
-        // 
         // - RELEASE: Overdue.
         shared_ptr<string> orderState_ {};
         // The OSS storage information.
         shared_ptr<Storage::Oss> oss_ {};
+        // Specifies whether fully managed storage can be created.
         shared_ptr<bool> supportCreateFullyManagedStorage_ {};
+        // Specifies whether migration progress detection is supported.
         shared_ptr<bool> supportMigrationProgressDetection_ {};
       };
 
@@ -612,11 +608,15 @@ namespace Models
 
 
       protected:
+        // The AccessKey ID for OSS.
         shared_ptr<string> accessId_ {};
+        // The AccessKey secret for OSS.
         shared_ptr<string> accessKey_ {};
         // The name of the bound OSS bucket.
         shared_ptr<string> bucket_ {};
+        // The versioning status of the OSS bucket.
         shared_ptr<string> bucketVersioningStatus_ {};
+        // The OSS endpoint.
         shared_ptr<string> endpoint_ {};
       };
 
@@ -660,8 +660,12 @@ namespace Models
 
 
       protected:
+        // The list of hostnames.
+        // 
         // This parameter is required.
         shared_ptr<vector<string>> hostNames_ {};
+        // The IP address that corresponds to the hostname.
+        // 
         // This parameter is required.
         shared_ptr<string> ip_ {};
       };
@@ -763,9 +767,9 @@ namespace Models
         shared_ptr<int64_t> availableIpAddressCount_ {};
         // The description of the VPC.
         shared_ptr<string> description_ {};
-        // The region.
+        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The vSwitch CIDR block information.
+        // The vSwitch CIDR block.
         shared_ptr<string> vSwitchCidr_ {};
         // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
@@ -815,7 +819,7 @@ namespace Models
 
 
       protected:
-        // The number of CPUs for zone-disaster recovery.
+        // The number of zone-disaster recovery CPUs.
         shared_ptr<int32_t> cpu_ {};
         // The memory size of zone-disaster recovery resources.
         shared_ptr<int32_t> memoryGB_ {};
@@ -903,7 +907,9 @@ namespace Models
 
 
       protected:
+        // The cluster ID.
         shared_ptr<string> clusterId_ {};
+        // The amount of storage used by the cluster.
         shared_ptr<float> usedStorage_ {};
       };
 
@@ -1055,20 +1061,33 @@ namespace Models
 
 
       protected:
+        // The cluster ID.
         shared_ptr<string> clusterId_ {};
+        // The number of elastic CPUs used.
         shared_ptr<float> elasticUsedCpu_ {};
+        // The amount of elastic memory used.
         shared_ptr<float> elasticUsedMemory_ {};
+        // The number of elastic resources used.
         shared_ptr<float> elasticUsedResource_ {};
+        // The number of guaranteed CPUs used.
         shared_ptr<float> guaranteedUsedCpu_ {};
+        // The amount of guaranteed memory used.
         shared_ptr<float> guaranteedUsedMemory_ {};
+        // The number of guaranteed resources used.
         shared_ptr<float> guaranteedUsedResource_ {};
         // Indicates whether zone-disaster recovery resources are selected.
         shared_ptr<bool> ha_ {};
+        // The number of zone-disaster recovery CPUs used.
         shared_ptr<float> haUsedCpu_ {};
+        // The amount of zone-disaster recovery memory used.
         shared_ptr<float> haUsedMemory_ {};
+        // The number of zone-disaster recovery compute units used.
         shared_ptr<float> haUsedResource_ {};
+        // The total number of CPUs used.
         shared_ptr<float> usedCpu_ {};
+        // The total amount of memory used.
         shared_ptr<float> usedMemory_ {};
+        // The total number of compute units used.
         shared_ptr<float> usedResource_ {};
       };
 
@@ -1170,7 +1189,9 @@ namespace Models
 
 
           protected:
+            // The listener status.
             shared_ptr<string> listenersStatus_ {};
+            // The listener port.
             shared_ptr<string> port_ {};
           };
 
@@ -1214,10 +1235,15 @@ namespace Models
 
 
         protected:
+          // Indicates whether a user-side load balancing instance exists.
           shared_ptr<bool> existSlb_ {};
+          // The load balancing instance ID.
           shared_ptr<string> slbId_ {};
+          // The IP address of the load balancing instance.
           shared_ptr<string> slbIp_ {};
+          // The status of the load balancing instance.
           shared_ptr<string> slbStatus_ {};
+          // The list of user-side load balancing listeners.
           shared_ptr<vector<UserSlbDto::UserSlbListeners>> userSlbListeners_ {};
         };
 
@@ -1295,8 +1321,11 @@ namespace Models
 
 
           protected:
+            // The stage sequence number.
             shared_ptr<int32_t> stepIndex_ {};
+            // The stage name.
             shared_ptr<string> stepName_ {};
+            // The stage weight.
             shared_ptr<int32_t> weight_ {};
           };
 
@@ -1340,17 +1369,20 @@ namespace Models
 
 
         protected:
+          // The cluster ID.
           shared_ptr<string> clusterId_ {};
+          // The sequence number of the current stage.
           shared_ptr<int32_t> currentStage_ {};
           // The error message.
           shared_ptr<string> message_ {};
-          // The status of the project space. Valid values:
-          // - CREATING: Being created.
-          // - DELETING: Being deleted.
-          // - MODIFYING: Resource specifications are being modified.
+          // The status of the workspace. Valid values:
+          // - CREATING: The workspace is being created.
+          // - DELETING: The workspace is being deleted.
+          // - MODIFYING: The resource specifications are being modified.
           // - SUCCESS: The previous operation was successful.
           // - FAILED: The previous operation failed.
           shared_ptr<string> status_ {};
+          // The list of stages and weights.
           shared_ptr<vector<ClusterStage::TotalStageWithWeight>> totalStageWithWeight_ {};
         };
 
@@ -1418,35 +1450,41 @@ namespace Models
 
 
       protected:
+        // The cluster ID.
         shared_ptr<string> clusterId_ {};
+        // The cluster stage information.
         shared_ptr<ClusterState::ClusterStage> clusterStage_ {};
+        // Indicates whether the cluster creation timed out.
         shared_ptr<bool> createTimeout_ {};
         // The cluster status. Valid values:
         // 
-        // - CREATING: Being created.
+        // - CREATING: The cluster is being created.
         // 
-        // - RUNNING: Running.
+        // - RUNNING: The cluster is running.
         // 
-        // - DISABLE: Invalid.
+        // - DISABLE: The cluster is invalid.
         // 
-        // - DELETING: Being deleted.
+        // - DELETING: The cluster is being deleted.
         // 
-        // - DELETED: Deleted.
+        // - DELETED: The cluster is deleted.
         shared_ptr<string> status_ {};
         // The cluster status. Valid values:
         // 
-        // - CREATING: Being created.
+        // - CREATING: The cluster is being created.
         // 
-        // - RUNNING: Running.
+        // - RUNNING: The cluster is running.
         // 
-        // - DISABLE: Invalid.
+        // - DISABLE: The cluster is invalid.
         // 
-        // - DELETING: Being deleted.
+        // - DELETING: The cluster is being deleted.
         // 
-        // - DELETED: Deleted.
+        // - DELETED: The cluster is deleted.
         shared_ptr<string> subStatus_ {};
+        // The URLs related to the cluster.
         shared_ptr<string> url_ {};
+        // The user-side load balancing information.
         shared_ptr<ClusterState::UserSlbDto> userSlbDto_ {};
+        // The CIDR block of the VPC where the cluster is located.
         shared_ptr<string> vpcCidr_ {};
       };
 
@@ -1763,41 +1801,46 @@ namespace Models
 
 
     protected:
+      // Indicates whether the network type is ANSM.
       shared_ptr<bool> ansm_ {};
       // The processor architecture.
       shared_ptr<string> architectureType_ {};
       // The cluster ID.
       shared_ptr<string> askClusterId_ {};
       // The billing method. Valid values:
-      // - POST: pay-as-you-go.
-      // - PRE: subscription.
+      // - POST: pay-as-you-go
+      // - PRE: subscription
       shared_ptr<string> chargeType_ {};
       // The cluster state.
       shared_ptr<Instances::ClusterState> clusterState_ {};
       // The cluster status. Valid values:
-      // - CREATING: Being created.
-      // - RUNNING: Running.
-      // - DISABLE: Invalid.
-      // - DELETING: Being deleted.
-      // - DELETED: Deleted.
+      // - CREATING: The cluster is being created.
+      // - RUNNING: The cluster is running.
+      // - DISABLE: The cluster is invalid.
+      // - DELETING: The cluster is being deleted.
+      // - DELETED: The cluster is deleted.
       shared_ptr<string> clusterStatus_ {};
       // The overall resource usage of the Flink service.
       shared_ptr<Instances::ClusterUsedResources> clusterUsedResources_ {};
+      // The information about the storage resources used by the cluster.
       shared_ptr<Instances::ClusterUsedStorage> clusterUsedStorage_ {};
       // Indicates whether deletion protection is enabled.
       shared_ptr<bool> deletionProtection_ {};
+      // Indicates whether elastic resources are enabled.
       shared_ptr<bool> elastic_ {};
       // The elastic order ID.
       shared_ptr<string> elasticInstanceId_ {};
+      // The status of the elastic resource order.
       shared_ptr<string> elasticOrderState_ {};
+      // The specifications of pay-as-you-go elastic resources.
       shared_ptr<Instances::ElasticResourceSpec> elasticResourceSpec_ {};
       // Indicates whether zone-disaster recovery resources are selected.
       shared_ptr<bool> ha_ {};
-      // The zone-disaster recovery resource description.
+      // The description of zone-disaster recovery resources.
       shared_ptr<Instances::HaResourceSpec> haResourceSpec_ {};
       // The vSwitch group in the secondary zone for zone-disaster recovery.
       shared_ptr<vector<string>> haVSwitchIds_ {};
-      // The vSwitch group information for the secondary zone of zone-disaster recovery.
+      // The information about the vSwitch group in the secondary zone for zone-disaster recovery.
       shared_ptr<vector<Instances::HaVSwitchInfo>> haVSwitchInfo_ {};
       // The secondary zone ID for zone-disaster recovery.
       shared_ptr<string> haZoneId_ {};
@@ -1809,20 +1852,21 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The workspace name.
       shared_ptr<string> instanceName_ {};
-      // The type of the monitoring and alerting service. You can select ARMS or CloudMonitor.
+      // The type of the monitoring and alerting service. Valid values: ARMS and CloudMonitor.
       shared_ptr<string> monitorType_ {};
-      // The order status of the Flink compute service. Valid values:
-      // - NOT_INIT: The order is placed but components are not yet deployed.
+      // The order status of the Realtime Compute for Apache Flink service. Valid values:
+      // - NOT_INIT: The order is placed but components are not deployed.
       // - NORMAL: Normal.
       // - CEASE: Expired.
       // - RELEASE: Overdue.
       shared_ptr<string> orderState_ {};
+      // The access configuration for OSS.
       shared_ptr<Instances::OssInfo> ossInfo_ {};
       // The region to which the instance belongs.
       shared_ptr<string> region_ {};
-      // The time when the instance was created. This value is a UNIX timestamp in milliseconds.
+      // The time when the instance was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> resourceCreateTime_ {};
-      // The time when the instance expires. This value is a UNIX timestamp in milliseconds.
+      // The time when the instance expires. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> resourceExpiredTime_ {};
       // The resource group.
       shared_ptr<string> resourceGroupId_ {};
@@ -1832,14 +1876,15 @@ namespace Models
       shared_ptr<Instances::ResourceSpec> resourceSpec_ {};
       // The storage information.
       shared_ptr<Instances::Storage> storage_ {};
+      // Specifies whether disaster recovery drills are supported.
       shared_ptr<bool> supportDisasterRecoveryDrill_ {};
       // The list of tags.
       shared_ptr<vector<Instances::Tags>> tags_ {};
-      // The ID of the user to whom the instance belongs.
+      // The ID of the user to which the instance belongs.
       shared_ptr<string> uid_ {};
-      // The vSwitch ID group.
+      // The list of vSwitch IDs.
       shared_ptr<vector<string>> vSwitchIds_ {};
-      // The information about the primary vSwitch group.
+      // The primary vSwitch group information.
       shared_ptr<vector<Instances::VSwitchInfo>> vSwitchInfo_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
@@ -1904,7 +1949,7 @@ namespace Models
 
 
   protected:
-    // The details of the instance group.
+    // The instance group details.
     shared_ptr<vector<DescribeInstancesResponseBody::Instances>> instances_ {};
     // The current page number.
     shared_ptr<int32_t> pageIndex_ {};
@@ -1912,7 +1957,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // - true: Successful.
     // - false: Failed.
     shared_ptr<bool> success_ {};

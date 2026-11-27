@@ -117,7 +117,7 @@ namespace Models
       protected:
         // The description of the promotion rule.
         shared_ptr<string> description_ {};
-        // The promotion ID.
+        // The ID of the promotion.
         shared_ptr<int64_t> ruleId_ {};
       };
 
@@ -177,13 +177,13 @@ namespace Models
 
 
       protected:
-        // The coupon description.
+        // The description of the coupon.
         shared_ptr<string> promotionDesc_ {};
-        // The coupon name.
+        // The name of the coupon.
         shared_ptr<string> promotionName_ {};
-        // The coupon number.
+        // The ID of the coupon.
         shared_ptr<string> promotionOptionNo_ {};
-        // Indicates whether the coupon is selected. Valid values:
+        // Specifies whether the coupon is selected. Valid values:
         // 
         // - true: Selected.
         // 
@@ -267,15 +267,15 @@ namespace Models
       protected:
         // The price reduction ratio.
         shared_ptr<string> cheapRate_ {};
-        // The total list price after the price reduction.
+        // The reduced total list price.
         shared_ptr<string> cheapStandAmount_ {};
-        // Indicates whether to display the price reduction percentage.
+        // Indicates whether to display the price reduction margin.
         shared_ptr<bool> isShow_ {};
         // The equivalent monthly price.
         shared_ptr<string> monthPrice_ {};
         // The original total list price.
         shared_ptr<string> originalStandAmount_ {};
-        // The start time of the price reduction, in ISO 8601 format.
+        // The start time of the price reduction. The time is in the ISO 8601 format.
         shared_ptr<string> startTime_ {};
       };
 
@@ -389,9 +389,9 @@ namespace Models
       shared_ptr<PriceInfo::DepreciateInfo> depreciateInfo_ {};
       // The discount amount.
       shared_ptr<float> discountAmount_ {};
-      // Indicates whether an enterprise discount is applied.
+      // Indicates whether the enterprise discount is applied.
       shared_ptr<bool> isContractActivity_ {};
-      // The Lingxiao request ID of the call.
+      // The request ID of the Lingxiao system.
       shared_ptr<string> lxRequestId_ {};
       // The error message.
       shared_ptr<string> message_ {};
@@ -401,11 +401,11 @@ namespace Models
       shared_ptr<float> originalAmount_ {};
       // The promotion rules.
       shared_ptr<vector<PriceInfo::Rules>> rules_ {};
-      // The promotional price based on the standard discount from the official website.
+      // The discounted price based on the list price discount.
       shared_ptr<string> standDiscountPrice_ {};
-      // The standard discounted price on the official website or the direct sales contract discounted price.
+      // The discounted list price or the discounted direct sales contract price.
       shared_ptr<string> standPrice_ {};
-      // The final price, which is the original price minus the discount amount.
+      // The final price, which is the original price minus the discount.
       shared_ptr<float> tradeAmount_ {};
     };
 
@@ -439,7 +439,7 @@ namespace Models
     shared_ptr<QueryConvertInstancePriceResponseBody::PriceInfo> priceInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

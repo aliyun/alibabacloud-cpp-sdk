@@ -79,7 +79,7 @@ namespace Models
       shared_ptr<int32_t> cpu_ {};
       // The memory size. Unit: GB.
       // 
-      // > The memory size must be 4 times the number of CPUs.
+      // > The memory size must be four times the number of CPUs.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -123,12 +123,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable cross-zone high availability.
     shared_ptr<bool> ha_ {};
     // The order instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The namespace name.
+    // The name of the namespace.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};

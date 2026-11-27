@@ -98,21 +98,21 @@ namespace Models
 
 
     protected:
-      // Indicates whether deletion protection is enabled.
+      // Indicates whether release protection is enabled.
       shared_ptr<bool> deletionProtection_ {};
       // The status of the Flink AI instance. Valid values:
-      // - CLOSED: closed or not activated.
-      // - WAITING: waiting to be activated after payment.
-      // - OPENING: being activated.
-      // - RUNNING: activated.
-      // - CLOSING: being closed.
-      // - DISABLE: overdue payment.
+      // - CLOSED: Closed or not activated.
+      // - WAITING: Waiting for activation after successful payment.
+      // - OPENING: Activating.
+      // - RUNNING: Activated.
+      // - CLOSING: Closing.
+      // - DISABLE: Overdue payment.
       shared_ptr<string> flinkAiInstanceStatus_ {};
-      // The AI service order instance ID.
+      // The instance ID of the AI service order.
       shared_ptr<string> mainInstanceId_ {};
       // The region ID.
       shared_ptr<string> region_ {};
-      // The time when the AI service was activated, in timestamp format (milliseconds).
+      // The time when the AI service was activated, in the millisecond timestamp format.
       shared_ptr<int64_t> resourceCreateTime_ {};
     };
 
@@ -142,11 +142,11 @@ namespace Models
 
 
   protected:
-    // The Flink AI service data transfer object.
+    // The data transfer object for the Flink AI service.
     shared_ptr<GetFlinkAiServiceResponseBody::FlinkAiServiceDTO> flinkAiServiceDTO_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -103,16 +103,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether to select zone-disaster recovery resources.
+    // Specifies whether to select high-availability resources for zone-disaster recovery.
     shared_ptr<bool> ha_ {};
-    // The zone-disaster recovery resource description.
+    // The description of high-availability resources for zone-disaster recovery.
     shared_ptr<string> haResourceSpecShrink_ {};
-    // The vSwitch group for the zone-disaster recovery secondary zone.
+    // The vSwitch group in the secondary zone for zone-disaster recovery.
     shared_ptr<string> haVSwitchIdsShrink_ {};
-    // The order instance ID.
+    // The instance ID of the order.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The coupon code.
     shared_ptr<string> promotionCode_ {};
     // The region ID.
     // 
@@ -122,6 +123,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceSpecShrink_ {};
+    // Specifies whether to use a coupon. Valid values:
+    // - true: Yes.
+    // - false: No.
     shared_ptr<bool> usePromotionCode_ {};
   };
 

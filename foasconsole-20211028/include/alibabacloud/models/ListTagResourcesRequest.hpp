@@ -124,19 +124,19 @@ namespace Models
 
 
   protected:
-    // The token for the next query.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The order instance IDs.
+    // The IDs of the order instances. You can call DescribeInstances to query the instance IDs of the workspace.
     shared_ptr<vector<string>> resourceId_ {};
     // The resource type. Set the value to vvpinstance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag list. A maximum of 20 items are supported.
+    // The list of tags. You can specify up to 20 tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

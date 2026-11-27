@@ -92,20 +92,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The subscription period. Valid values:
-    // 
-    // - Month: month.
-    // - Year: year.
-    // - Hour: hour.
-    // - Day: day.
+    // The unit of the subscription period.
     // 
     // This parameter is required.
     shared_ptr<string> pricingCycle_ {};
+    // The coupon code.
     shared_ptr<string> promotionCode_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // Specifies whether to use a coupon. Valid values:
+    // - true: Uses a coupon.
+    // - false: Does not use a coupon.
     shared_ptr<bool> usePromotionCode_ {};
   };
 

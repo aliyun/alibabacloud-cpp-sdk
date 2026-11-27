@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ordinal number of the execution stage.
     shared_ptr<int32_t> stepIndex_ {};
+    // The name of the execution stage.
     shared_ptr<string> stepName_ {};
+    // The weight of the stage in the overall progress.
     shared_ptr<int32_t> weight_ {};
   };
 

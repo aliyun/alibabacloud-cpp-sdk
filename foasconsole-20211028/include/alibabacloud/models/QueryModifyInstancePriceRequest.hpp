@@ -88,7 +88,7 @@ namespace Models
       shared_ptr<int32_t> cpu_ {};
       // The memory size after the specification change.
       // 
-      // >The memory size must be 4 times the number of CPUs.
+      // >The memory size must be four times the number of CPUs.
       // 
       // This parameter is required.
       shared_ptr<int32_t> memoryGB_ {};
@@ -132,9 +132,9 @@ namespace Models
 
 
     protected:
-      // The number of CPUs for zone-disaster recovery.
+      // The number of CPUs for zone-disaster recovery high availability.
       shared_ptr<int32_t> cpu_ {};
-      // The active memory size for zone-disaster recovery.
+      // The memory size for high availability in zone-disaster recovery.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -204,16 +204,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether to select zone-disaster recovery resources.
+    // Specifies whether to select high-availability resources for zone-disaster recovery.
     shared_ptr<bool> ha_ {};
-    // The zone-disaster recovery resource description.
+    // The description of high-availability resources for zone-disaster recovery.
     shared_ptr<QueryModifyInstancePriceRequest::HaResourceSpec> haResourceSpec_ {};
-    // The vSwitch group for the zone-disaster recovery secondary zone.
+    // The vSwitch group in the secondary zone for zone-disaster recovery.
     shared_ptr<vector<string>> haVSwitchIds_ {};
-    // The order instance ID.
+    // The instance ID of the order.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The coupon code.
     shared_ptr<string> promotionCode_ {};
     // The region ID.
     // 
@@ -223,6 +224,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<QueryModifyInstancePriceRequest::ResourceSpec> resourceSpec_ {};
+    // Specifies whether to use a coupon. Valid values:
+    // - true: Yes.
+    // - false: No.
     shared_ptr<bool> usePromotionCode_ {};
   };
 

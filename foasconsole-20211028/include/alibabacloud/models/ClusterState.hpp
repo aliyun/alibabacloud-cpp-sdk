@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The stage progress information for cluster operations.
     shared_ptr<ClusterStage> clusterStage_ {};
+    // The cluster running status.
     shared_ptr<string> status_ {};
+    // The cluster running sub-status.
     shared_ptr<string> subStatus_ {};
   };
 

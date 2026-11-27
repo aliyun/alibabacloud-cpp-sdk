@@ -129,7 +129,7 @@ namespace Models
     shared_ptr<ConvertHybridInstanceResponseBody::OrderInfo> orderInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
   };
 

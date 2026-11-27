@@ -87,7 +87,7 @@ namespace Models
       // This parameter is required.
       shared_ptr<int32_t> cpu_ {};
       // The memory size.
-      // > The memory size must be 4 times the number of CPUs.
+      // > The memory size must be four times the number of CPUs.
       // 
       // This parameter is required.
       shared_ptr<int32_t> memoryGB_ {};
@@ -135,7 +135,7 @@ namespace Models
       shared_ptr<int32_t> cpu_ {};
       // The memory size.
       // 
-      // >The memory size must be 4 times the number of CPUs.
+      // > The memory size must be four times the number of CPUs.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -205,13 +205,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether the workspace has zone-disaster recovery resources.
+    // Specifies whether the workspace has cross-zone high-availability resources.
     shared_ptr<bool> ha_ {};
-    // The zone-disaster recovery resource specifications.
+    // The description of the cross-zone high-availability resources.
     shared_ptr<ModifyInstanceSpecRequest::HaResourceSpec> haResourceSpec_ {};
-    // The vSwitch group in the secondary zone for zone-disaster recovery.
+    // The vSwitch group in the secondary zone for cross-zone high availability.
     shared_ptr<vector<string>> haVSwitchIds_ {};
-    // The order instance ID.
+    // The instance ID of the order.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

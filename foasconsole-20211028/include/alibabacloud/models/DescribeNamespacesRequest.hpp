@@ -141,12 +141,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable high availability across zones.
     shared_ptr<bool> ha_ {};
-    // The order instance ID.
+    // The instance ID of the order.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The namespace name.
+    // The name of the namespace.
     shared_ptr<string> namespace_ {};
     // The current page number.
     shared_ptr<int32_t> pageIndex_ {};

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable manual shutdown protection.
+    // Specifies whether to enable protection against manual shutdown operations.
     // 
     // This parameter is required.
     shared_ptr<bool> deletionProtection_ {};
-    // The region ID.
+    // The region ID. It must match the region where the API endpoint is deployed.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};

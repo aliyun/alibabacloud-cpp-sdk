@@ -167,7 +167,7 @@ namespace Models
       // The number of CPUs.
       shared_ptr<int32_t> cpu_ {};
       // The memory size.
-      // > The memory size must be 4 times the number of CPUs.
+      // > The memory size must be four times the number of CPUs.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -211,7 +211,7 @@ namespace Models
     protected:
       // The number of CPUs for zone-disaster recovery.
       shared_ptr<int32_t> cpu_ {};
-      // The active memory size for zone-disaster recovery.
+      // The memory size of the active zone-disaster recovery resource.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -344,8 +344,8 @@ namespace Models
     shared_ptr<string> architectureType_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // - **true**: Enabled.
-    // - **false**: Disabled (default).
+    // - **true**: enables auto-renewal.
+    // - **false**: disables auto-renewal (default).
     // 
     // > This parameter does not take effect for pay-as-you-go instances.
     shared_ptr<bool> autoRenew_ {};
@@ -357,17 +357,17 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
     // The number of billing cycles.
-    // > When ChargeType is set to PRE, the Duration parameter is required.
+    // > This parameter is required when ChargeType is set to PRE.
     shared_ptr<int32_t> duration_ {};
     // The extended reserved field.
     shared_ptr<string> extra_ {};
     // Specifies whether to select zone-disaster recovery resources.
     shared_ptr<bool> ha_ {};
-    // The zone-disaster recovery resource specifications.
+    // The description of zone-disaster recovery resources.
     shared_ptr<QueryCreateInstancePriceRequest::HaResourceSpec> haResourceSpec_ {};
-    // The workspace name.
+    // The name of the workspace.
     shared_ptr<string> instanceName_ {};
-    // The billing cycle. Subscription instances support only Year and Month. Pay-as-you-go instances support Hour.
+    // The billing cycle. Subscription instances support only yearly (Year) and monthly (Month) billing cycles. Pay-as-you-go instances support only hourly (Hour) billing cycles.
     shared_ptr<string> pricingCycle_ {};
     // The coupon code.
     shared_ptr<string> promotionCode_ {};
@@ -381,12 +381,12 @@ namespace Models
     shared_ptr<QueryCreateInstancePriceRequest::Storage> storage_ {};
     // Specifies whether to use a coupon. Valid values:
     // 
-    // - true: Use a coupon.
-    // - false: Do not use a coupon.
+    // - true: uses a coupon.
+    // - false: does not use a coupon.
     shared_ptr<bool> usePromotionCode_ {};
     // The vSwitch IDs.
     shared_ptr<vector<string>> vSwitchIds_ {};
-    // The VPC ID of the user.
+    // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
   };
 

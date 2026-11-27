@@ -170,11 +170,11 @@ namespace Models
 
 
       protected:
-        // The number of CPUs used.
+        // The number of used CPU cores.
         shared_ptr<float> cpu_ {};
-        // The number of compute units (CUs) used.
+        // The number of used compute units (CUs).
         shared_ptr<float> cu_ {};
-        // The amount of memory used.
+        // The amount of used memory.
         shared_ptr<float> memoryGB_ {};
       };
 
@@ -216,7 +216,7 @@ namespace Models
 
 
       protected:
-        // The number of CPUs.
+        // The number of CPU cores.
         shared_ptr<int32_t> cpu_ {};
         // The memory size.
         shared_ptr<int32_t> memoryGB_ {};
@@ -260,7 +260,7 @@ namespace Models
 
 
       protected:
-        // The number of CPUs for subscription resources.
+        // The number of CPU cores for subscription resources.
         shared_ptr<int32_t> cpu_ {};
         // The memory size for subscription resources. Unit: GB.
         shared_ptr<int32_t> memoryGB_ {};
@@ -304,9 +304,9 @@ namespace Models
 
 
       protected:
-        // The maximum CPU limit for pay-as-you-go resources.
+        // The CPU limit for pay-as-you-go resources.
         shared_ptr<int32_t> cpu_ {};
-        // The maximum memory limit for pay-as-you-go resources. Unit: GB.
+        // The memory limit for pay-as-you-go resources. Unit: GB.
         shared_ptr<int32_t> memoryGB_ {};
       };
 
@@ -394,14 +394,15 @@ namespace Models
 
 
     protected:
+      // The elastic resource specifications of the namespace.
       shared_ptr<Namespaces::ElasticResourceSpec> elasticResourceSpec_ {};
       // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<int64_t> gmtModified_ {};
       // The subscription resources allocated to the namespace.
       shared_ptr<Namespaces::GuaranteedResourceSpec> guaranteedResourceSpec_ {};
-      // Indicates whether zone-disaster recovery is enabled for the namespace.
+      // Indicates whether high availability across zones is enabled for the namespace.
       shared_ptr<bool> ha_ {};
       // The name of the namespace.
       shared_ptr<string> namespace_ {};
@@ -410,11 +411,11 @@ namespace Models
       // The used resources.
       shared_ptr<Namespaces::ResourceUsed> resourceUsed_ {};
       // The status of the namespace. Valid values:
-      // - CREATING: Being created.
-      // - DELETING: Being deleted.
-      // - MODIFYING: Resource specifications are being modified.
-      // - SUCCESS: The last operation was successful.
-      // - FAILED: The last operation failed.
+      // - CREATING: The namespace is being created.
+      // - DELETING: The namespace is being deleted.
+      // - MODIFYING: The resource specifications are being modified.
+      // - SUCCESS: The previous operation was successful.
+      // - FAILED: The previous operation failed.
       shared_ptr<string> status_ {};
       // The list of tags.
       shared_ptr<vector<Namespaces::Tags>> tags_ {};
@@ -481,12 +482,12 @@ namespace Models
     shared_ptr<int32_t> pageIndex_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - true: Successful.
-    // - false: Failed.
+    // - true: The request is successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

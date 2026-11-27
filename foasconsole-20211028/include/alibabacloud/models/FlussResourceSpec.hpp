@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Disk size per node, in GB.
+    // The disk capacity of a single TabletServer node, in GiB.
     shared_ptr<int64_t> diskSizeInGB_ {};
-    // Instance type of the slave nodes.
+    // The node specifications of the TabletServer.
     shared_ptr<string> slaveModel_ {};
-    // Number of slave nodes.
+    // The number of TabletServer nodes.
     shared_ptr<int64_t> slaveNum_ {};
-    // Number of CUs for the post-tiering stage.
+    // The maximum number of elastic compute resources for the lake-stream synchronization service, in CUs.
     shared_ptr<int64_t> tieringPostCu_ {};
-    // Number of compute units (CUs) for the pre-tiering stage.
+    // The baseline resource count of the lake-stream synchronization service, in CUs.
     shared_ptr<int64_t> tieringPreCu_ {};
   };
 

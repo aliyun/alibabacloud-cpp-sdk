@@ -90,7 +90,8 @@ namespace Models
     protected:
       // The tag key.
       shared_ptr<string> key_ {};
-      // The tag value. The value can be up to 64 Unicode characters in length.
+      // The tag value.
+      // The value can be up to 64 Unicode characters in length.
       shared_ptr<string> value_ {};
     };
 
@@ -177,7 +178,7 @@ namespace Models
 
 
   protected:
-    // The processor architecture. Valid values: X86 and ARM.
+    // The processor architecture. Valid values: x86 and ARM.
     shared_ptr<string> architectureType_ {};
     // The billing method.
     shared_ptr<string> chargeType_ {};
@@ -191,7 +192,7 @@ namespace Models
     shared_ptr<string> namespaceName_ {};
     // The current page number.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
+    // The number of entries to return on each page in the paging Settings for a paged query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 

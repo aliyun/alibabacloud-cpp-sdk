@@ -85,7 +85,7 @@ namespace Models
       // This parameter is required.
       shared_ptr<int32_t> cpu_ {};
       // The memory size.
-      // > The memory size must be 4 times the number of CPUs.
+      // > The memory size must be four times the number of CPUs.
       // 
       // This parameter is required.
       shared_ptr<int32_t> memoryGB_ {};
@@ -129,9 +129,9 @@ namespace Models
 
 
     protected:
-      // The number of CPUs for zone-disaster recovery resources.
+      // The number of CPUs for cross-zone high-availability resources.
       shared_ptr<int32_t> cpu_ {};
-      // The memory size of zone-disaster recovery resources, in GB. The value must be 4 times the number of CPUs.
+      // The memory size of cross-zone high-availability resources, in GB. The value must be four times the number of CPUs.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -194,15 +194,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable zone-disaster recovery resources for the workspace.
+    // Specifies whether cross-zone high-availability resources are enabled for the workspace.
     shared_ptr<bool> ha_ {};
-    // The resource specifications for zone-disaster recovery.
+    // The resource specifications for cross-zone high availability.
     shared_ptr<ModifyPrepayInstanceSpecRequest::HaResourceSpec> haResourceSpec_ {};
-    // The list of vSwitch IDs in the secondary zone for zone-disaster recovery.
+    // The list of vSwitch IDs in the secondary zone for cross-zone high availability.
     shared_ptr<vector<string>> haVSwitchIds_ {};
-    // The ID of the secondary zone for zone-disaster recovery.
+    // The ID of the secondary zone for cross-zone high availability.
     shared_ptr<string> haZoneId_ {};
-    // The order instance ID.
+    // The instance ID of the order.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -210,7 +210,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The resource specification information.
+    // The resource specifications.
     // 
     // This parameter is required.
     shared_ptr<ModifyPrepayInstanceSpecRequest::ResourceSpec> resourceSpec_ {};

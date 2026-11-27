@@ -211,42 +211,43 @@ namespace Models
 
 
   protected:
+    // The running state information of the cluster.
     shared_ptr<ClusterState> clusterState_ {};
-    // The cluster status.
+    // The status of the Fluss cluster.
     shared_ptr<string> clusterStatus_ {};
-    // The URL of the instance management console.
+    // The console access URL of the Fluss instance.
     shared_ptr<string> consoleUrl_ {};
-    // The disk size, in GB.
+    // The disk size of a single TabletServer node, in GiB.
     shared_ptr<int64_t> diskSize_ {};
-    // Specifies whether high availability (HA) is enabled.
+    // Specifies whether multi-zone high availability is enabled.
     shared_ptr<bool> ha_ {};
-    // The instance ID.
+    // The ID of the Fluss instance.
     shared_ptr<string> instanceId_ {};
-    // The instance name.
+    // The name of the Fluss instance.
     shared_ptr<string> instanceName_ {};
-    // The order state.
+    // The order status of the instance.
     shared_ptr<string> orderState_ {};
-    // The ID of the region.
+    // The ID of the region where the instance resides.
     shared_ptr<string> regionId_ {};
-    // The creation time of the resource, as a UNIX timestamp in milliseconds.
+    // The creation time of the instance, represented as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> resourceCreateTime_ {};
-    // The expiration time of the resource, as a UNIX timestamp in milliseconds.
+    // The time when the instance expires, represented as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> resourceExpiredTime_ {};
-    // The tablet server model.
+    // The TabletServer node specifications.
     shared_ptr<string> tabletServerModel_ {};
-    // The number of tablet servers.
+    // The number of TabletServer nodes.
     shared_ptr<int64_t> tabletServerNum_ {};
-    // The tablet server type.
+    // The type of TabletServer node specifications.
     shared_ptr<string> tabletServerType_ {};
-    // The number of compute units (CUs) for post-tiering.
+    // The upper limit of elastic compute resources for the lake-stream synchronization service, in CUs.
     shared_ptr<int64_t> tieringPostCu_ {};
-    // The number of compute units (CUs) for pre-tiering.
+    // The base compute resource count for the lake-stream synchronization service, in CUs.
     shared_ptr<int64_t> tieringPreCu_ {};
-    // The Alibaba Cloud account ID (UID).
+    // The UID of the Alibaba Cloud account to which the instance belongs.
     shared_ptr<string> uid_ {};
-    // The VSwitch details.
+    // The list of zone and vSwitch configurations used by the instance.
     shared_ptr<vector<FlussVswitch>> vSwitches_ {};
-    // The VPC ID.
+    // The ID of the VPC to which the instance belongs.
     shared_ptr<string> vpcId_ {};
   };
 
