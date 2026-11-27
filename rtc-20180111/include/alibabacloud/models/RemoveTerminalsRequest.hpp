@@ -69,11 +69,19 @@ namespace Models
 
 
   protected:
+    // The application ID. Only one ID is supported.
+    // 
+    // You can create and query application IDs in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The ID of the channel that the user has joined. Only one ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // A list of user IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> terminalIds_ {};
   };

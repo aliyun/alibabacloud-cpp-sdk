@@ -71,7 +71,9 @@ namespace Models
 
 
     protected:
+      // channel ID.
       shared_ptr<string> channelId_ {};
+      // The UNIX timestamp (in seconds) indicating when the channel started (UTC).
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -103,7 +105,11 @@ namespace Models
   protected:
     // channel
     shared_ptr<DescribeChannelResponseBody::Channel> channel_ {};
+    // Indicates whether the channel exists. Valid values:  
+    // - **true**: The channel exists.  
+    // - **false**: The channel does not exist.
     shared_ptr<bool> channelExist_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

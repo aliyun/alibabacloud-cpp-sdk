@@ -83,10 +83,19 @@ namespace Models
 
 
     protected:
+      // The callback code.
+      // 
       // This parameter is required.
       shared_ptr<string> category_ {};
+      // The callback URL.
+      // 
       // This parameter is required.
       shared_ptr<string> conf_ {};
+      // The sub-events.
+      // Recording events:
+      // - **2010**: Recording service status change.
+      // - **2011**: Recording audio stream status change.
+      // - **2012**: Recording video stream status change.
       shared_ptr<vector<int32_t>> subEvent_ {};
     };
 
@@ -116,8 +125,12 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The callback configuration.
+    // 
     // This parameter is required.
     shared_ptr<ModifyCallbackMetaRequest::Callback> callback_ {};
     shared_ptr<int64_t> ownerId_ {};

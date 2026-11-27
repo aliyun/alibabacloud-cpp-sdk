@@ -121,18 +121,59 @@ namespace Models
 
 
     protected:
-      // accessKey。
+      // The AccessKey.
       // 
       // This parameter is required.
       shared_ptr<string> accessKey_ {};
+      // The bucket name.
+      // 
       // This parameter is required.
       shared_ptr<string> bucket_ {};
+      // The storage region.
+      // 
+      // | Region | AliYun OSS |
+      // |--------|------------|
+      // | 0 | CN_Hangzhou |
+      // | 1 | CN_Shanghai |
+      // | 2 | CN_Qingdao |
+      // | 3 | CN_Beijing |
+      // | 4 | CN_Zhangjiakou |
+      // | 5 | CN_Huhehaote |
+      // | 6 | CN_Shenzhen |
+      // | 7 | CN_Hongkong |
+      // | 8 | US_West_1 |
+      // | 9 | US_East_1 |
+      // | 10 | AP_Southeast_1 |
+      // | 11 | AP_Southeast_2 |
+      // | 12 | AP_Southeast_3 |
+      // | 13 | AP_Southeast_5 |
+      // | 14 | AP_Northeast_1 |
+      // | 15 | AP_South_1 (Offline. Do not use.) |
+      // | 16 | EU_Central_1 |
+      // | 17 | EU_West_1 |
+      // | 18 | EU_East_1(ME_East_1) |
+      // | 19 | AP_Southeast_6 |
+      // | 20 | CN_Heyuan |
+      // | 21 | CN_Guangzhou |
+      // | 22 | CN_Chengdu |
+      // | 23 | CN_Nanjing |
+      // | 24 | CN_Fuzhou |
+      // | 25 | CN_Wulanchabu |
+      // | 26 | AP_Northeast_2 |
+      // | 27 | AP_Southeast_7 |
+      // 
       // This parameter is required.
       shared_ptr<int32_t> region_ {};
-      // secretKey。
+      // The AccessKey secret.
       // 
       // This parameter is required.
       shared_ptr<string> secretKey_ {};
+      // The storage platform. Valid values:
+      // 
+      // | vendor | Object storage service | Remarks |
+      // |--------|---------|---------|
+      // | 1 | AliYun OSS | Alibaba Cloud |
+      // 
       // This parameter is required.
       shared_ptr<int32_t> vendor_ {};
     };
@@ -244,23 +285,70 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The auto chapters feature. When enabled, chapter titles and summaries are generated.
     shared_ptr<string> autoChaptersShrink_ {};
+    // The channel ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The custom prompt control parameter object.
     shared_ptr<string> customPromptShrink_ {};
+    // **[Deprecated]** This parameter is deprecated. You do not need to specify it.
     shared_ptr<vector<string>> languageHints_ {};
+    // The intelligent meeting minutes feature. When enabled, keywords, key content, and to-do items are generated.
     shared_ptr<string> meetingAssistanceShrink_ {};
+    // The real-time subtitles.
     shared_ptr<string> realtimeSubtitleShrink_ {};
+    // The service inspection feature.
     shared_ptr<string> serviceInspectionShrink_ {};
+    // The source language model used by the channel. Valid values:
+    // - cn: Chinese
+    // - yue: Cantonese
+    // - en: English
+    // - multilingual: Multilingual
+    // - ja: Japanese
+    // - ko: Korean
+    // - de: German
+    // - fr: French
+    // - ru: Russian
+    // - es: Spanish
+    // - vi: Vietnamese
+    // - it: Italian
+    // - sv: Swedish
+    // - cs: Czech
+    // - pl: Polish
+    // - th: Thai
+    // - fi: Finnish
+    // - hi: Hindi
+    // - id: Indonesian
+    // - pt: Portuguese
+    // - ar: Arabic
+    // - fil: Filipino
+    // - ms: Malay
+    // - tr: Turkish
+    // - hu: Hungarian
+    // - lo: Lao
+    // - pt-br: Portuguese (Brazil)
+    // - es-ar: Spanish (Argentina)
+    // - es-mx: Spanish (Mexico)
     shared_ptr<string> sourceLanguage_ {};
+    // The storage configuration.
+    // 
     // This parameter is required.
     shared_ptr<StartCloudNoteShrinkRequest::StorageConfig> storageConfig_ {};
+    // The summarization feature. When enabled, full-text summaries and speaker summaries are generated.
     shared_ptr<string> summarizationShrink_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The text polishing feature.
     shared_ptr<string> textPolishShrink_ {};
+    // The transcription feature. Enabled by default.
     shared_ptr<string> transcriptionShrink_ {};
   };
 

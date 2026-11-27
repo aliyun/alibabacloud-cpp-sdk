@@ -152,16 +152,30 @@ namespace Models
 
 
     protected:
+      // Audio delay, in milliseconds.
       shared_ptr<int64_t> audioDelay_ {};
+      // Audio high-quality transmission rate, represented as a four-digit decimal.
       shared_ptr<string> audioHighQualityTransmissionRate_ {};
+      // The Audio Lag Rate, represented as a four-digit decimal.
       shared_ptr<string> audioStuckRate_ {};
+      // The call duration ratio, represented as a four-digit decimal. For example, 1.0000 indicates that the call duration accounts for 100% of the total usage.
       shared_ptr<string> callDurationRatio_ {};
+      // Five-second channel join success rate, represented as a four-digit decimal.
       shared_ptr<string> joinChannelSucFiveSecRate_ {};
+      // The channel join success rate, represented as a four-digit decimal.
       shared_ptr<string> joinChannelSucRate_ {};
+      // Statistical dimension. Valid values:  
+      // - When StatDim is CHANNELONLINE: **ONE_TO_FIVE** (1–5 participants), **SIX_TO_TEN** (6–10 participants), **ELEVEN_TO_TWENTY** (11–20 participants), **TWENTYONE_TO_FIFTY** (21–50 participants), **ABOVE_FIFTY** (more than 50 participants).  
+      // - When StatDim is NETWORK: **WiFi**, **4G**, etc.  
+      // - When StatDim is OS: **iOS**, **Android**, etc.
       shared_ptr<string> name_ {};
+      // Video delay, in milliseconds.
       shared_ptr<int64_t> videoDelay_ {};
+      // Time to first video frame, in milliseconds.
       shared_ptr<int64_t> videoFirstPicDuration_ {};
+      // Video high-quality transmission rate, represented as a four-digit decimal.
       shared_ptr<string> videoHighQualityTransmissionRate_ {};
+      // The Video Lag Rate, represented as a four-digit decimal.
       shared_ptr<string> videoStuckRate_ {};
     };
 
@@ -184,7 +198,9 @@ namespace Models
 
 
   protected:
+    // The list of quality statistics data.
     shared_ptr<vector<DescribeQualityDistributionStatDataResponseBody::QualityStatDataList>> qualityStatDataList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

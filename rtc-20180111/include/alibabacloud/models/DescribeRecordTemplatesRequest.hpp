@@ -78,11 +78,24 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number to return. Default value: **1**.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries to return on each page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
+    // The list of template IDs to query. The format is as follows:
+    // 
+    // ```
+    // TemplateIds.1=****
+    // TemplateIds.2=****
+    // ......
+    // ```
+    // 
+    // To obtain the template ID, see [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html).
     shared_ptr<vector<string>> templateIds_ {};
   };
 

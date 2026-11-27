@@ -176,24 +176,54 @@ namespace Models
 
 
   protected:
+    // The agent silence configuration.
     shared_ptr<string> agentSilenceConfigShrink_ {};
+    // The agent ambient environment configuration. If this parameter is not specified, the ambient environment configuration is not used.
     shared_ptr<string> ambientSoundConfigShrink_ {};
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The speech-to-text settings.
     shared_ptr<string> asrConfigShrink_ {};
+    // The agent backchannel configuration.
     shared_ptr<string> backChannelConfigShrink_ {};
+    // The conversation mode. Valid values:
+    // - 1: Natural conversation mode (default).
+    // - 2: Walkie-talkie mode.
     shared_ptr<int32_t> chatMode_ {};
+    // If enabled, the LLM must support multimodal data.
     shared_ptr<bool> enableVideoUnderstanding_ {};
+    // The greeting message. The maximum length is 500 characters.
     shared_ptr<string> greeting_ {};
+    // The template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The agent interruption configuration.
     shared_ptr<string> interruptConfigShrink_ {};
+    // The interruption mode. Valid values:
+    // - 1: Interruption supported (default).
+    // - 2: Interruption disabled.
     shared_ptr<int32_t> interruptMode_ {};
+    // The large language model settings.
     shared_ptr<string> llmConfigShrink_ {};
+    // The template name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The preferred video stream for the agent to understand after visual understanding is enabled. The agent can understand only one video stream. When both the camera stream and the screen sharing stream are pushed:
+    // 
+    // 1 - The agent prioritizes understanding the camera stream.
+    // 
+    // 2 - The agent prioritizes understanding the screen sharing stream.
+    // 
+    // By default, the agent prioritizes understanding the camera stream.
     shared_ptr<int32_t> preferVideo_ {};
+    // The text-to-speech settings.
     shared_ptr<string> ttsConfigShrink_ {};
+    // The agent type. Valid values:
+    // - 1: Voice call (default).
     shared_ptr<int32_t> type_ {};
   };
 

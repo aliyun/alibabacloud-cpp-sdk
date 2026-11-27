@@ -123,7 +123,9 @@ namespace Models
 
 
       protected:
+        // The time when the user joined the channel, represented as a UNIX timestamp in seconds.
         shared_ptr<int64_t> joinTs_ {};
+        // The time when the user left the channel, represented as a UNIX timestamp in seconds.
         shared_ptr<int64_t> leaveTs_ {};
       };
 
@@ -254,21 +256,37 @@ namespace Models
 
 
     protected:
+      // Client type. Valid values: WEB: Web client. NATIVE: Native client.
       shared_ptr<string> clientType_ {};
+      // The time when the user first joined the channel, represented as a UNIX timestamp in seconds.
       shared_ptr<int64_t> createdTs_ {};
+      // The time when the user last left the channel, represented as a UNIX timestamp, in seconds.
       shared_ptr<int64_t> destroyedTs_ {};
+      // Communication duration, from the first entry to the final exit, in seconds.
       shared_ptr<int64_t> duration_ {};
+      // Geographic location information, such as Zhejiang Province-Hangzhou City.
       shared_ptr<string> location_ {};
+      // Network type, such as WiFi, 4G, etc.
       shared_ptr<string> network_ {};
+      // Network type, such as WiFi, 4G, etc.
       shared_ptr<vector<string>> networkList_ {};
+      // Online duration, in seconds.
       shared_ptr<int64_t> onlineDuration_ {};
+      // Online period information.
       shared_ptr<vector<SubUserDetail::OnlinePeriods>> onlinePeriods_ {};
+      // Platform Type: If the client type is WEB, this field indicates the type of the browser. If the client type is NATIVE, this field indicates the operating system type.
       shared_ptr<string> os_ {};
+      // Platform Type: If the client type is WEB, this field indicates the type of the browser. If the client type is NATIVE, this field indicates the operating system type.
       shared_ptr<vector<string>> osList_ {};
+      // User role.
       shared_ptr<vector<string>> roles_ {};
+      // SDK Version.
       shared_ptr<string> sdkVersion_ {};
+      // List of SDK versions, such as 1.0.0, 1.1.1, etc.
       shared_ptr<vector<string>> sdkVersionList_ {};
+      // User ID.
       shared_ptr<string> userId_ {};
+      // User ID alias.
       shared_ptr<string> userIdAlias_ {};
     };
 
@@ -361,7 +379,9 @@ namespace Models
 
 
       protected:
+        // The time when the user joined the channel, represented as a UNIX timestamp in seconds.
         shared_ptr<int64_t> joinTs_ {};
+        // The time when the user left the channel, represented as a UNIX timestamp in seconds.
         shared_ptr<int64_t> leaveTs_ {};
       };
 
@@ -502,22 +522,39 @@ namespace Models
 
 
     protected:
+      // Call IDs of the user\"s communication streams.
       shared_ptr<vector<string>> callIdList_ {};
+      // Client type. Valid values: WEB: Web client. NATIVE: Native client.
       shared_ptr<string> clientType_ {};
+      // The time when the user first joined the channel, represented as a UNIX timestamp in seconds.
       shared_ptr<int64_t> createdTs_ {};
+      // The time when the user last left the channel, represented as a UNIX timestamp in seconds.
       shared_ptr<int64_t> destroyedTs_ {};
+      // Communication duration, measured from the first entry to the final exit, in seconds.
       shared_ptr<int64_t> duration_ {};
+      // Geographical location information, such as Zhejiang Province-Hangzhou City.
       shared_ptr<string> location_ {};
+      // Network type, such as WiFi, 4G, etc.
       shared_ptr<string> network_ {};
+      // Network types, such as WiFi, 4G, etc.
       shared_ptr<vector<string>> networkList_ {};
+      // Online duration, in seconds.
       shared_ptr<int64_t> onlineDuration_ {};
+      // Online period information.
       shared_ptr<vector<PubUserDetailList::OnlinePeriods>> onlinePeriods_ {};
+      // Platform Type: If the client type is WEB, this field indicates the type of the browser. If the client type is NATIVE, this field indicates the operating system.
       shared_ptr<string> os_ {};
+      // Platform Type: If the client type is WEB, this field indicates the type of the browser. If the client type is NATIVE, this field indicates the operating system.
       shared_ptr<vector<string>> osList_ {};
+      // User roles. Valid values: SENDER: sender. RECEIVER: receiver.
       shared_ptr<vector<string>> roles_ {};
+      // SDK Version.
       shared_ptr<string> sdkVersion_ {};
+      // List of software development kit (SDK) versions, such as 1.0.0, 1.1.1, etc.
       shared_ptr<vector<string>> sdkVersionList_ {};
+      // User ID.
       shared_ptr<string> userId_ {};
+      // User ID alias.
       shared_ptr<string> userIdAlias_ {};
     };
 
@@ -556,9 +593,15 @@ namespace Models
 
 
   protected:
+    // Communication status. Valid values:  
+    // - **IN**: In progress.  
+    // - **OUT**: Ended.
     shared_ptr<string> callStatus_ {};
+    // Details of publishing users.
     shared_ptr<vector<DescribePubUserListBySubUserResponseBody::PubUserDetailList>> pubUserDetailList_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Subscriber user details.
     shared_ptr<DescribePubUserListBySubUserResponseBody::SubUserDetail> subUserDetail_ {};
   };
 

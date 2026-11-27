@@ -94,15 +94,21 @@ namespace Models
 
 
   protected:
-    // APP ID。
+    // App ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Channel ID.
     shared_ptr<string> channelId_ {};
+    // The query range specifies the start time of the recording task. It is defined as a closed interval and measured in milliseconds (ms).
     shared_ptr<int64_t> endTs_ {};
+    // Page number.
     shared_ptr<int32_t> pageNo_ {};
+    // Number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Query range start time (open interval) for recording tasks, in milliseconds. If not specified, defaults to the past 3 days. You can query recordings up to one year old.
     shared_ptr<int64_t> startTs_ {};
+    // List of recording task IDs.
     shared_ptr<string> taskIdsShrink_ {};
   };
 

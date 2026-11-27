@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The application ID. Specify only one ID. You can create and query applications in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The existing channel ID. Specify only one ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The task ID. Specify only one ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // Configuration for AI voice conversation.
     shared_ptr<string> voiceChatConfigShrink_ {};
   };
 

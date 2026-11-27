@@ -84,16 +84,27 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The ID of the channel to join. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The configuration for the agent to join a Real-Time Communication (RTC) channel.
+    // 
     // This parameter is required.
     shared_ptr<string> rtcConfigShrink_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
+    // The configuration for AI voice chat.
     shared_ptr<string> voiceChatConfigShrink_ {};
   };
 

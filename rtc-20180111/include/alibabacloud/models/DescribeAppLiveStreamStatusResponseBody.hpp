@@ -50,6 +50,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The status of the switch. enable indicates that the feature is enabled. disable indicates that the feature is disabled.
     shared_ptr<string> result_ {};
   };
 

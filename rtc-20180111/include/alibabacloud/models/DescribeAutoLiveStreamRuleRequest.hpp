@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
     shared_ptr<int64_t> ownerId_ {};

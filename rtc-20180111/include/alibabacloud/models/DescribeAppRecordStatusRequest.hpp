@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // Application ID. You can create and view this ID in the console. Only one ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Idempotency token
     shared_ptr<string> clientToken_ {};
   };
 

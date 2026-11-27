@@ -138,14 +138,26 @@ namespace Models
 
 
     protected:
+      // The callback URL.
       shared_ptr<string> callBack_ {};
+      // The prefix list of channel IDs for fuzzy match.
       shared_ptr<vector<string>> channelIdPrefixes_ {};
+      // The list of channel IDs for exact match.
       shared_ptr<vector<string>> channelIds_ {};
+      // The time when the rule was created.
       shared_ptr<string> createTime_ {};
+      // The encoding options.
       shared_ptr<int32_t> mediaEncode_ {};
+      // The playback domain name for automatic bypass.
       shared_ptr<string> playDomain_ {};
+      // The rule ID.
       shared_ptr<int64_t> ruleId_ {};
+      // The rule name.
       shared_ptr<string> ruleName_ {};
+      // The rule status. Valid values:
+      // 
+      // - enable: Enabled.
+      // - disable: Disabled.
       shared_ptr<string> status_ {};
     };
 
@@ -168,7 +180,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The rule details.
     shared_ptr<vector<DescribeAutoLiveStreamRuleResponseBody::Rules>> rules_ {};
   };
 

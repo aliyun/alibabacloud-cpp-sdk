@@ -97,10 +97,15 @@ namespace Models
 
 
     protected:
+      // The region name, such as China_Zhejiang Province_Hangzhou.
       shared_ptr<string> areaName_ {};
+      // The number of communicating users.
       shared_ptr<int32_t> callUserCount_ {};
+      // The high-quality transmission rate, represented as a decimal. For example, 0.9999 indicates a high-quality transmission rate of 99.99%.
       shared_ptr<string> highQualityTransmissionRate_ {};
+      // The number of publishers.
       shared_ptr<int32_t> pubUserCount_ {};
+      // The number of subscribers.
       shared_ptr<int32_t> subUserCount_ {};
     };
 
@@ -123,7 +128,9 @@ namespace Models
 
 
   protected:
+    // The regional statistics list.
     shared_ptr<vector<DescribeChannelAreaDistributionStatDataResponseBody::AreaStatList>> areaStatList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

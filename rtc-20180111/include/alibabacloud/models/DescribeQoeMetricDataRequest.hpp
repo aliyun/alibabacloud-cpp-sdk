@@ -79,11 +79,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Channel ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // Channel Creation Time. Supports querying data from the last 30 days. Represented as a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> createdTs_ {};
+    // Channel release time, represented as a UNIX timestamp in seconds. An empty parameter indicates retrieving data up to the current time.  
+    // > If the provided channel release time exceeds the actual release time, data from the Creation Time to the actual release time will be returned.
     shared_ptr<int64_t> destroyedTs_ {};
+    // User ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

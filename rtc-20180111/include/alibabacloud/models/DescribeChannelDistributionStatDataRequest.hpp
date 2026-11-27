@@ -75,15 +75,25 @@ namespace Models
 
 
   protected:
-    // APP ID。
+    // The app ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The channel ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The timestamp when the channel was created. You can query data from the last 30 days. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> createdTs_ {};
+    // The timestamp when the channel was released. The value is a UNIX timestamp in seconds. If this parameter is empty, the current time is used.
+    // > If the specified channel release time is later than the actual release time, the data from the creation time to the actual release time is returned.
     shared_ptr<int64_t> destroyedTs_ {};
+    // The statistical dimension. Valid values:
+    // - **OS**: Statistics by operating system.
+    // - **SDK_VERSION**: Statistics by SDK version.
+    // 
     // This parameter is required.
     shared_ptr<string> statDim_ {};
   };

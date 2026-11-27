@@ -79,10 +79,11 @@ namespace Models
 
 
     protected:
-      // ErrMsg。
+      // The error message.
       shared_ptr<string> errMsg_ {};
+      // The user ID.
       shared_ptr<string> id_ {};
-      // OperationId。
+      // The operation ID.
       shared_ptr<string> operationId_ {};
     };
 
@@ -105,7 +106,9 @@ namespace Models
 
 
   protected:
+    // The error tracks.
     shared_ptr<vector<RtcSipMuteResponseBody::ErrTracks>> errTracks_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -118,12 +118,26 @@ namespace Models
 
 
     protected:
+      // The callback code.
       shared_ptr<string> category_ {};
+      // The callback validation status. 0 indicates validating. 1 indicates validation successful. 2 indicates validation failed.
       shared_ptr<string> checkStatus_ {};
+      // The callback validation code.
       shared_ptr<string> code_ {};
+      // The webhook address.
       shared_ptr<string> conf_ {};
+      // The callback validation message.
       shared_ptr<string> msg_ {};
+      // The callback status. 0 indicates enabled. 1 indicates disabled.
       shared_ptr<int32_t> status_ {};
+      // The sub-events. For more information, see Callback overview.
+      // Recording events:
+      // 
+      // - **2010**: The service status of the recording changes.
+      // 
+      // - **2011**: The status of the recording audio stream changes.
+      // 
+      // - **2012**: The status of the recording video stream changes.
       shared_ptr<vector<int32_t>> subEvent_ {};
     };
 
@@ -146,6 +160,7 @@ namespace Models
 
 
   protected:
+    // A list of subscribed events for the application.
     shared_ptr<vector<DescribeCallbacksResponseBody::Callbacks>> callbacks_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

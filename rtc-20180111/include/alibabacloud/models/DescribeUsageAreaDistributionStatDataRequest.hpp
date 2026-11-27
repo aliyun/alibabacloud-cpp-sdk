@@ -70,9 +70,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The end time of the query, expressed as a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
+    // The parent region name. For example, the parent of Hangzhou City is Zhejiang Province, and the parameter should be set to China_Zhejiang Province. An empty parameter indicates statistics at the global scope (country dimension), such as China or the United Kingdom.
     shared_ptr<string> parentArea_ {};
+    // The start time of the query, expressed as a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};
   };

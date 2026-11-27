@@ -125,18 +125,37 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Call status. Valid values:
+    // - **IN**: In progress.
+    // - **OUT**: Ended.
     shared_ptr<string> callStatus_ {};
+    // Channel ID.
     shared_ptr<string> channelId_ {};
+    // The end time of the query, expressed as a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTs_ {};
+    // Sorting field. Valid values:
+    // - **BAD_EXP_USER_COUNT_DESC**: Sort by the number of users with poor experience in descending order.
+    // - **BAD_EXP_USER_COUNT_ASC**: Sort by the number of users with poor experience in ascending order.
     shared_ptr<string> orderBy_ {};
+    // Page number. Minimum value: 1. Maximum value: 200.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
+    // Quantity per page, minimum value is 1, maximum value is 200.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Query mode. Valid values:
+    // - **ALL**: All calls.
+    // - **FOLLOW**: Followed calls.
     shared_ptr<string> queryMode_ {};
+    // Start Time of the query, represented as a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTs_ {};
+    // User ID.
     shared_ptr<string> userId_ {};
   };
 

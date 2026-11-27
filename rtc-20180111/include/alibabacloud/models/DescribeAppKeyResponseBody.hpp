@@ -50,6 +50,7 @@ namespace Models
   protected:
     // AppKey。
     shared_ptr<string> appKey_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

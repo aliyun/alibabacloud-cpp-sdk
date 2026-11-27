@@ -61,6 +61,8 @@ namespace Models
 
 
     protected:
+      // The template ID.
+      // 
       // This parameter is required.
       shared_ptr<string> templateId_ {};
     };
@@ -91,9 +93,14 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
+    // The template information.
+    // 
     // This parameter is required.
     shared_ptr<DeleteAppRecordTemplateRequest::Template> template_ {};
   };

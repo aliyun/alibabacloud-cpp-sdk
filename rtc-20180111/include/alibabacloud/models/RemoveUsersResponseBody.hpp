@@ -79,8 +79,13 @@ namespace Models
 
 
     protected:
+      // Status code. A value of 0 indicates success. An error code is returned upon failure.
       shared_ptr<int32_t> code_ {};
+      // Result of the delete operation. Valid values:  
+      // - **Success**: Succeeded.  
+      // - **Failed**: failed.
       shared_ptr<string> message_ {};
+      // User ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -103,7 +108,9 @@ namespace Models
 
 
   protected:
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // User List.
     shared_ptr<vector<RemoveUsersResponseBody::Users>> users_ {};
   };
 

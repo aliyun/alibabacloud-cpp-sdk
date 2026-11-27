@@ -97,11 +97,11 @@ namespace Models
 
 
     protected:
-      // B。
+      // The B value.
       shared_ptr<int32_t> b_ {};
-      // G。
+      // The G value.
       shared_ptr<int32_t> g_ {};
-      // R。
+      // The R value.
       shared_ptr<int32_t> r_ {};
     };
 
@@ -152,11 +152,11 @@ namespace Models
 
 
     protected:
-      // B。
+      // The B value.
       shared_ptr<int32_t> b_ {};
-      // G。
+      // The G value.
       shared_ptr<int32_t> g_ {};
-      // R。
+      // The R value.
       shared_ptr<int32_t> r_ {};
     };
 
@@ -247,20 +247,42 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The global background color.
     shared_ptr<StartViewRequest::BgColor> bgColor_ {};
+    // The ID of an existing channel. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The crop mode. Valid values:
+    // - **1**: proportional cropping
+    // - **2**: proportional padding (default)
+    // - **3**: stretch to fill
     shared_ptr<int32_t> cropMode_ {};
+    // The global pane background color.
     shared_ptr<StartViewRequest::RegionColor> regionColor_ {};
+    // Specifies whether to allow starting the task when the channel does not exist. Valid values:
+    // - true: Yes.
+    // - false: No (default).
     shared_ptr<bool> startWithoutChannel_ {};
+    // The wait time for the task when the channel is not started, in seconds. This parameter is valid only when the StartWithoutChannel parameter is set to true. Valid values: 30 to 120.
     shared_ptr<int32_t> startWithoutChannelWaitTime_ {};
+    // The task ID for the current request. Only a single ID is supported. The ID can contain letters, digits, underscores (_), and hyphens (-), and can be up to 55 bytes in length.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
+    // The stream property. Valid values:
+    // - main: main stream
+    // - screen-cast: shared stream
     shared_ptr<string> viewContent_ {};
+    // The list of user IDs of Session Initiation Protocol (SIP) devices that are allowed to view the main stream or shared stream.
     shared_ptr<vector<string>> viewSubscribers_ {};
   };
 

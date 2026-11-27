@@ -130,9 +130,15 @@ namespace Models
 
 
         protected:
+          // The event name.
           shared_ptr<string> eventName_ {};
+          // The event type. Valid values:
+          // - **USER**: user event
+          // - **SYSTEM**: system event
           shared_ptr<string> eventType_ {};
+          // The time when the event occurred. The time is a UNIX timestamp in seconds.
           shared_ptr<int64_t> ts_ {};
+          // The time when the event occurred. The time is a UNIX timestamp in milliseconds.
           shared_ptr<string> tsInMs_ {};
         };
 
@@ -155,7 +161,9 @@ namespace Models
 
 
       protected:
+        // The list of events.
         shared_ptr<vector<EventDataItems::EventList>> eventList_ {};
+        // The time when the first event occurred. The time is a UNIX timestamp in seconds.
         shared_ptr<int64_t> ts_ {};
       };
 
@@ -178,7 +186,9 @@ namespace Models
 
 
     protected:
+      // The list of event data.
       shared_ptr<vector<Nodes::EventDataItems>> eventDataItems_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -201,7 +211,9 @@ namespace Models
 
 
   protected:
+    // The list of basic user information.
     shared_ptr<vector<DescribeEndPointEventListResponseBody::Nodes>> nodes_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

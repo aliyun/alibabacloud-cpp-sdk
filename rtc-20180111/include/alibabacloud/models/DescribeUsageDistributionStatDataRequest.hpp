@@ -66,14 +66,23 @@ namespace Models
 
 
   protected:
-    // APP ID
+    // The app ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The end time of the query. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
+    // The start time of the query. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};
+    // The statistical dimension. Valid values:
+    // - **CHANNEL_ONLINE**: aggregates data by the number of online users in a channel.
+    // - **NETWORK**: aggregates data by network type.
+    // - **OS**: aggregates data by operating system type.
+    // 
     // This parameter is required.
     shared_ptr<string> statDim_ {};
   };

@@ -101,10 +101,15 @@ namespace Models
 
 
     protected:
+      // Average communication connection time, in seconds.
       shared_ptr<float> connAvgTime_ {};
+      // Connection success rate within 5 seconds, represented as a decimal. For example, 1.0 indicates a 100% connection success rate.
       shared_ptr<float> fiveSecJoinRate_ {};
+      // Overall audio stuttering rate, represented as a decimal. For example, 0.02 indicates an audio stuttering rate of 2%.
       shared_ptr<float> totalAudioStuckRate_ {};
+      // Overall video stuttering rate, represented as a decimal. For example, 0.02 indicates a video stuttering rate of 2%.
       shared_ptr<float> totalVideoStuckRate_ {};
+      // Overall video blur rate, represented as a decimal. For example, 0.02 indicates a video blur rate of 2%.
       shared_ptr<float> totalVideoVagueRate_ {};
     };
 
@@ -178,8 +183,11 @@ namespace Models
 
 
       protected:
+        // Extension data.
         Darabonba::Json ext_ {};
+        // X-axis coordinate in the Trend Indicator.
         shared_ptr<string> x_ {};
+        // Y-axis coordinate in the Trend Indicator.
         shared_ptr<string> y_ {};
       };
 
@@ -202,7 +210,11 @@ namespace Models
 
 
     protected:
+      // List of coordinate points for the Trend Indicator.
       shared_ptr<vector<MetricDatas::Nodes>> nodes_ {};
+      // Metric Type. Valid values:
+      // - **CALL_QUALITY**: Call quality.
+      // - **CONN_NUM**: Distribution of time intervals for successful channel joins.
       shared_ptr<string> type_ {};
     };
 
@@ -280,11 +292,21 @@ namespace Models
 
 
     protected:
+      // Application ID.
       shared_ptr<string> appId_ {};
+      // Communication status. Valid values:  
+      // 
+      // - **IN**: In progress.  
+      // 
+      // - **OUT**: Ended.
       shared_ptr<string> callStatus_ {};
+      // Channel ID.
       shared_ptr<string> channelId_ {};
+      // The UNIX timestamp when the channel was created, in seconds.
       shared_ptr<int64_t> createdTs_ {};
+      // The UNIX timestamp when the channel was released, in seconds.
       shared_ptr<int64_t> destroyedTs_ {};
+      // Channel duration, in seconds.
       shared_ptr<int64_t> duration_ {};
     };
 
@@ -325,9 +347,13 @@ namespace Models
 
 
   protected:
+    // Basic communication information.
     shared_ptr<DescribeChannelOverallDataResponseBody::CallInfo> callInfo_ {};
+    // List of metric data.
     shared_ptr<vector<DescribeChannelOverallDataResponseBody::MetricDatas>> metricDatas_ {};
+    // Overview data.
     shared_ptr<DescribeChannelOverallDataResponseBody::OverallData> overallData_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

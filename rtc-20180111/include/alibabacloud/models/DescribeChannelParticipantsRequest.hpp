@@ -84,13 +84,24 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The ID of the joined channel. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The sort order. Valid values:
+    // 
+    // - **asc**: Ascending order.
+    // 
+    // - **desc**: Descending order. This is the default value.
     shared_ptr<string> order_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of users to return on each page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

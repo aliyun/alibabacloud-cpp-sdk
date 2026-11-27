@@ -126,6 +126,7 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeRtcUserCntDataResponseBody::UserCntDataPerInterval> userCntDataPerInterval_ {};
   };

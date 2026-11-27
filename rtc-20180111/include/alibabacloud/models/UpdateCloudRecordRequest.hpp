@@ -136,8 +136,11 @@ namespace Models
 
 
       protected:
+        // B.
         shared_ptr<int32_t> b_ {};
+        // G.
         shared_ptr<int32_t> g_ {};
+        // R.
         shared_ptr<int32_t> r_ {};
       };
 
@@ -188,8 +191,11 @@ namespace Models
 
 
       protected:
+        // B.
         shared_ptr<int32_t> b_ {};
+        // G.
         shared_ptr<int32_t> g_ {};
+        // R.
         shared_ptr<int32_t> r_ {};
       };
 
@@ -286,19 +292,54 @@ namespace Models
 
 
     protected:
+      // Watermark transparency.
       shared_ptr<double> alpha_ {};
+      // Rectangle box transparency.
       shared_ptr<double> boxAlpha_ {};
+      // Rectangle box border width.
       shared_ptr<int32_t> boxBorderw_ {};
+      // Rectangle box color.
       shared_ptr<Texts::BoxColor> boxColor_ {};
+      // Font.
+      // 
+      // - **0**: Alibaba PuHuiTi Regular
+      // 
+      // - **1**: Alibaba PuHuiTi Light
+      // 
+      // - **2**: Alibaba PuHuiTi Medium
+      // 
+      // - **3**: Alibaba PuHuiTi Bold
+      // 
+      // - **4**: Alibaba PuHuiTi Heavy
+      // 
+      // - **5**: Ali Mama ShuHeiTi
+      // 
+      // - **6**: DingTalk JinBuTi
+      // 
+      // - **7**: Ali Mama DaoLiTi
+      // 
+      // - **8**: Ali Mama DongFang DaKai
+      // 
+      // - **9**: Ali Mama FangYuanTi
       shared_ptr<int32_t> font_ {};
+      // Font color.
       shared_ptr<Texts::FontColor> fontColor_ {};
+      // Font size.
       shared_ptr<int32_t> fontSize_ {};
+      // Whether to draw a rectangle box.
       shared_ptr<bool> hasBox_ {};
+      // The z-axis layer.
       shared_ptr<int32_t> layer_ {};
+      // The watermark content.
+      // 
       // This parameter is required.
       shared_ptr<string> texture_ {};
+      // The horizontal coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> x_ {};
+      // The vertical coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> y_ {};
     };
@@ -368,6 +409,7 @@ namespace Models
 
 
       protected:
+        // The whiteboard ID. Default value: default.
         shared_ptr<string> whiteboardId_ {};
       };
 
@@ -461,8 +503,11 @@ namespace Models
 
 
         protected:
+          // B.
           shared_ptr<int32_t> b_ {};
+          // G.
           shared_ptr<int32_t> g_ {};
+          // R.
           shared_ptr<int32_t> r_ {};
         };
 
@@ -513,8 +558,11 @@ namespace Models
 
 
         protected:
+          // B.
           shared_ptr<int32_t> b_ {};
+          // G.
           shared_ptr<int32_t> g_ {};
+          // R.
           shared_ptr<int32_t> r_ {};
         };
 
@@ -618,20 +666,62 @@ namespace Models
 
 
       protected:
+        // Watermark transparency.
         shared_ptr<double> alpha_ {};
+        // Rectangle box transparency.
         shared_ptr<double> boxAlpha_ {};
+        // Rectangle box border width.
         shared_ptr<int32_t> boxBorderw_ {};
+        // Rectangle box color.
         shared_ptr<Texts::BoxColor> boxColor_ {};
+        // When to display the watermark.
+        // 
+        // - streamOnly: Display only when the user has a video stream (default).
+        // 
+        // - backup: Display only when the user has no video stream.
+        // 
+        // - always: Always display.
         shared_ptr<string> display_ {};
+        // Font.
+        // 
+        // - **0**: Alibaba PuHuiTi Regular
+        // 
+        // - **1**: Alibaba PuHuiTi Light
+        // 
+        // - **2**: Alibaba PuHuiTi Medium
+        // 
+        // - **3**: Alibaba PuHuiTi Bold
+        // 
+        // - **4**: Alibaba PuHuiTi Heavy
+        // 
+        // - **5**: Ali Mama ShuHeiTi
+        // 
+        // - **6**: DingTalk JinBuTi
+        // 
+        // - **7**: Ali Mama DaoLiTi
+        // 
+        // - **8**: Ali Mama DongFang DaKai
+        // 
+        // - **9**: Ali Mama FangYuanTi
         shared_ptr<int32_t> font_ {};
+        // Font color.
         shared_ptr<Texts::FontColor> fontColor_ {};
+        // Font size.
         shared_ptr<int32_t> fontSize_ {};
+        // Whether to draw a rectangle box.
         shared_ptr<bool> hasBox_ {};
+        // The z-axis layer.
         shared_ptr<int32_t> layer_ {};
+        // The watermark content.
+        // 
         // This parameter is required.
         shared_ptr<string> texture_ {};
+        // The horizontal coordinate.
+        // 
         // This parameter is required.
         shared_ptr<double> x_ {};
+        // The vertical coordinate.
+        // 
         // This parameter is required.
         shared_ptr<double> y_ {};
       };
@@ -738,18 +828,44 @@ namespace Models
 
 
       protected:
+        // Transparency.
         shared_ptr<double> alpha_ {};
+        // When to display the watermark.
+        // 
+        // - streamOnly: Display only when the user has a video stream (default).
+        // 
+        // - backup: Display only when the user has no video stream.
+        // 
+        // - always: Always display.
         shared_ptr<string> display_ {};
+        // Height.
+        // 
         // This parameter is required.
         shared_ptr<double> height_ {};
+        // The z-axis layer.
         shared_ptr<int32_t> layer_ {};
+        // The cropping mode. Valid values:
+        // 
+        // - **1**: Crop while maintaining aspect ratio.
+        // 
+        // - **2**: Maintain aspect ratio with padding.
+        // 
+        // - **3**: Stretch to fill.
         shared_ptr<int32_t> paneImageCropMode_ {};
+        // The image URL. The image content cannot be updated during stream ingest.
+        // 
         // This parameter is required.
         shared_ptr<string> url_ {};
+        // Width.
+        // 
         // This parameter is required.
         shared_ptr<double> width_ {};
+        // The horizontal coordinate.
+        // 
         // This parameter is required.
         shared_ptr<double> x_ {};
+        // The vertical coordinate.
+        // 
         // This parameter is required.
         shared_ptr<double> y_ {};
       };
@@ -856,18 +972,44 @@ namespace Models
 
 
       protected:
+        // Transparency.
         shared_ptr<double> alpha_ {};
+        // When to display.
+        // 
+        // - streamOnly: Display only when the user has a video stream (default).
+        // 
+        // - backup: Display only when the user has no video stream.
+        // 
+        // - always: Always display.
         shared_ptr<string> display_ {};
+        // Height.
+        // 
         // This parameter is required.
         shared_ptr<double> height_ {};
+        // The z-axis layer.
         shared_ptr<int32_t> layer_ {};
+        // The cropping mode. Valid values:
+        // 
+        // - **1**: Crop while maintaining aspect ratio.
+        // 
+        // - **2**: Maintain aspect ratio with padding.
+        // 
+        // - **3**: Stretch to fill.
         shared_ptr<int32_t> paneBackgroundCropMode_ {};
+        // The background image URL.
+        // 
         // This parameter is required.
         shared_ptr<string> url_ {};
+        // Width.
+        // 
         // This parameter is required.
         shared_ptr<double> width_ {};
+        // The horizontal coordinate.
+        // 
         // This parameter is required.
         shared_ptr<double> x_ {};
+        // The vertical coordinate.
+        // 
         // This parameter is required.
         shared_ptr<double> y_ {};
       };
@@ -954,16 +1096,49 @@ namespace Models
 
 
     protected:
+      // Background images.
       shared_ptr<vector<Panes::Backgrounds>> backgrounds_ {};
+      // Local image watermarks for the pane.
       shared_ptr<vector<Panes::Images>> images_ {};
+      // The cropping mode. Valid values:
+      // 
+      // - **1**: Crop while maintaining aspect ratio.
+      // 
+      // - **2**: Maintain aspect ratio with padding.
+      // 
+      // - **3**: Stretch to fill.
       shared_ptr<int32_t> paneCropMode_ {};
+      // The pane ID, starting from 0.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> paneId_ {};
+      // Reserves a pane for a user who goes offline. The default value is true. If true, the pane for a specified user or wildcard user remains as a placeholder. If false, the pane is filled with a video stream based on the Auto Fill order.
       shared_ptr<bool> reservePaneForOfflineUser_ {};
+      // The media source for the cell. You can specify a userId to target a specific user. Wildcard characters are also supported:
+      // 
+      // - **$ActiveSpeaker**: The current active speaker in the channel.
+      // 
+      // - **$ScreenShare**: A screen-sharing user. If multiple users share their screens, they are filled in sequence.
       shared_ptr<string> source_ {};
+      // The media type of the cell. Valid values:
+      // 
+      // - **video**: Camera or screen sharing stream (default).
+      // 
+      // - **camera**: Camera stream.
+      // 
+      // - **screen**: Screen sharing stream.
+      // 
+      // - **whiteboard**: Whiteboard.
       shared_ptr<string> sourceType_ {};
+      // Local text watermarks for the pane.
       shared_ptr<vector<Panes::Texts>> texts_ {};
+      // The fill order when SourceType is video.
+      // 
+      // - screenFirst: Prioritize screen sharing (default).
+      // 
+      // - cameraFirst: Prioritize camera.
       shared_ptr<string> videoOrder_ {};
+      // Whiteboard configuration.
       shared_ptr<Panes::Whiteboard> whiteboard_ {};
     };
 
@@ -1007,8 +1182,12 @@ namespace Models
 
 
     protected:
+      // The list of specified user IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> ids_ {};
+      // The type of the user list. Valid values: \`black\` for a blacklist and \`white\` for a whitelist.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -1106,17 +1285,36 @@ namespace Models
 
 
     protected:
+      // Transparency.
       shared_ptr<double> alpha_ {};
+      // Height.
+      // 
       // This parameter is required.
       shared_ptr<double> height_ {};
+      // The cropping mode. Valid values:
+      // 
+      // - **1**: Crop while maintaining aspect ratio.
+      // 
+      // - **2**: Maintain aspect ratio with padding.
+      // 
+      // - **3**: Stretch to fill.
       shared_ptr<int32_t> imageCropMode_ {};
+      // The z-axis layer.
       shared_ptr<int32_t> layer_ {};
+      // The image URL. The image content cannot be updated during stream ingest.
+      // 
       // This parameter is required.
       shared_ptr<string> url_ {};
+      // Width.
+      // 
       // This parameter is required.
       shared_ptr<double> width_ {};
+      // The horizontal coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> x_ {};
+      // The vertical coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> y_ {};
     };
@@ -1209,8 +1407,11 @@ namespace Models
 
 
       protected:
+        // B.
         shared_ptr<int32_t> b_ {};
+        // G.
         shared_ptr<int32_t> g_ {};
+        // R.
         shared_ptr<int32_t> r_ {};
       };
 
@@ -1261,8 +1462,11 @@ namespace Models
 
 
       protected:
+        // B.
         shared_ptr<int32_t> b_ {};
+        // G.
         shared_ptr<int32_t> g_ {};
+        // R.
         shared_ptr<int32_t> r_ {};
       };
 
@@ -1359,19 +1563,53 @@ namespace Models
 
 
     protected:
+      // Transparency.
       shared_ptr<double> alpha_ {};
+      // Rectangle box transparency.
       shared_ptr<double> boxAlpha_ {};
+      // Rectangle box border width.
       shared_ptr<int32_t> boxBorderw_ {};
+      // Rectangle box color.
       shared_ptr<ClockWidgets::BoxColor> boxColor_ {};
+      // Font.
+      // 
+      // - **0**: Alibaba PuHuiTi Regular
+      // 
+      // - **1**: Alibaba PuHuiTi Light
+      // 
+      // - **2**: Alibaba PuHuiTi Medium
+      // 
+      // - **3**: Alibaba PuHuiTi Bold
+      // 
+      // - **4**: Alibaba PuHuiTi Heavy
+      // 
+      // - **5**: Ali Mama ShuHeiTi
+      // 
+      // - **6**: DingTalk JinBuTi
+      // 
+      // - **7**: Ali Mama DaoLiTi
+      // 
+      // - **8**: Ali Mama DongFang DaKai
+      // 
+      // - **9**: Ali Mama FangYuanTi
       shared_ptr<int32_t> font_ {};
+      // Font color.
       shared_ptr<ClockWidgets::FontColor> fontColor_ {};
+      // Clock font size.
       shared_ptr<int32_t> fontSize_ {};
+      // Whether to draw a rectangle box.
       shared_ptr<bool> hasBox_ {};
+      // The z-axis layer.
       shared_ptr<int32_t> layer_ {};
+      // The horizontal coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> x_ {};
+      // The vertical coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> y_ {};
+      // Time zone.
       shared_ptr<int32_t> zone_ {};
     };
 
@@ -1468,17 +1706,36 @@ namespace Models
 
 
     protected:
+      // Transparency.
       shared_ptr<double> alpha_ {};
+      // The cropping mode. Valid values:
+      // 
+      // - **1**: Crop while maintaining aspect ratio.
+      // 
+      // - **2**: Maintain aspect ratio with padding.
+      // 
+      // - **3**: Stretch to fill.
       shared_ptr<int32_t> backgroundCropMode_ {};
+      // Height.
+      // 
       // This parameter is required.
       shared_ptr<double> height_ {};
+      // The z-axis layer.
       shared_ptr<int32_t> layer_ {};
+      // The image URL.
+      // 
       // This parameter is required.
       shared_ptr<string> url_ {};
+      // Width.
+      // 
       // This parameter is required.
       shared_ptr<double> width_ {};
+      // The horizontal coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> x_ {};
+      // The vertical coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> y_ {};
     };
@@ -1569,19 +1826,44 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query it in the console. Only one ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Background images.
     shared_ptr<vector<UpdateCloudRecordRequest::Backgrounds>> backgrounds_ {};
+    // The existing channel ID. Only one ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // Global clock watermarks.
     shared_ptr<vector<UpdateCloudRecordRequest::ClockWidgets>> clockWidgets_ {};
+    // Global image watermarks.
     shared_ptr<vector<UpdateCloudRecordRequest::Images>> images_ {};
+    // A list that specifies users for layout generation. It supports both blacklists and whitelists.
+    // 
+    // Whitelist: Specifies the users whose video streams are subscribed to in the channel.
+    // 
+    // - The auto-fill feature uses this list for sequential filling.
+    // 
+    // - During multi-layout switching, only users in the whitelist are included.
+    // 
+    // Blacklist: Specifies the users whose video streams are not subscribed to in the channel.
+    // 
+    // - During multi-layout switching, only users not in the blacklist are included.
     shared_ptr<UpdateCloudRecordRequest::LayoutSpecifiedUsers> layoutSpecifiedUsers_ {};
+    // Cell settings.
     shared_ptr<vector<UpdateCloudRecordRequest::Panes>> panes_ {};
+    // The task ID for this cloud recording. Only one ID is supported. It can contain letters, digits, underscores (_), and hyphens (-), with a maximum length of 55 bytes.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The template ID.
+    // >Notice: To update the layout, change the template ID. Resolution updates are not supported.
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
+    // Global text watermarks.
     shared_ptr<vector<UpdateCloudRecordRequest::Texts>> texts_ {};
   };
 

@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query applications in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The subscription ID. For more information, see [CreateEventSubscribe](https://help.aliyun.com/document_detail/274447.html).
+    // 
     // This parameter is required.
     shared_ptr<string> subscribeId_ {};
   };

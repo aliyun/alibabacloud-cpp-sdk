@@ -179,12 +179,26 @@ namespace Models
 
 
       protected:
+        // The text color in RGB format. The calculation formula is R + G × 256 + B × 65536. Valid values of R (red), G (green), and B (blue): **0 to 255**.
         shared_ptr<int32_t> fontColor_ {};
+        // The font size. Valid values: **(0, 72]**.
         shared_ptr<int32_t> fontSize_ {};
+        // The font type. Valid values:
+        // 
+        // - **0** (default): NOTO_SERIF_CJKSC_REGULAR.
+        // - **1**: ALIBABA_PUHUITI_REGULAR.
+        // - **2**: ALIBABA_PUHUITI_BOLD.
+        // - **3**: ALIBABA_PUHUITI_Heavy.
+        // - **4**: ALIBABA_PUHUITI_LIGHT.
+        // - **5**: ALIBABA_PUHUITI_MEDIUM.
         shared_ptr<int32_t> fontType_ {};
+        // The text content.
         shared_ptr<string> text_ {};
+        // The X coordinate, represented as a normalized percentage.
         shared_ptr<float> x_ {};
+        // The Y coordinate, represented as a normalized percentage.
         shared_ptr<float> y_ {};
+        // The stacking order. 0 indicates the bottom layer, 1 indicates the layer above 0, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -272,12 +286,23 @@ namespace Models
 
 
       protected:
+        // The display mode of the image. Valid values:
+        // 
+        // - **0** (None): The image is not displayed.
+        // - **1** (Always): The image is always displayed.
+        // - **2** (Backup): The image is displayed when the current user has no video stream.
         shared_ptr<int32_t> display_ {};
+        // The height of the pane, represented as a normalized percentage.
         shared_ptr<float> height_ {};
+        // The HTTP or HTTPS URL of the image.
         shared_ptr<string> url_ {};
+        // The width of the pane, represented as a normalized percentage.
         shared_ptr<float> width_ {};
+        // The X coordinate, represented as a normalized percentage.
         shared_ptr<float> x_ {};
+        // The Y coordinate, represented as a normalized percentage.
         shared_ptr<float> y_ {};
+        // The stacking order. 0 indicates the bottom layer, 1 indicates the layer above 0, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -323,10 +348,21 @@ namespace Models
 
 
     protected:
+      // The list of image panes in the current layout.
       shared_ptr<vector<UserPanes::Images>> images_ {};
+      // The pane ID. Valid values: **0** to **15**.
+      // 
+      // > - If the user specified by PaneId is not found, other streams are displayed by default. The streams are determined based on the order in which users join the channel.
+      // - If a parameter related to UserPanes is required, all other related parameters are also required. Otherwise, none of them are required.
       shared_ptr<int32_t> paneId_ {};
+      // The user video input that corresponds to the layout. Valid values:
+      // 
+      // - **camera** (default): the video stream.
+      // - **shareScreen**: the screen sharing stream.
       shared_ptr<string> sourceType_ {};
+      // The list of text panes in the current layout.
       shared_ptr<vector<UserPanes::Texts>> texts_ {};
+      // The ID of the user that corresponds to the layout pane. Valid values of N: **1 to 16**.
       shared_ptr<string> userId_ {};
     };
 
@@ -494,29 +530,72 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The channel ID. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The cropping mode of the video. Valid values:
+    // 
+    // - **1**: crops the video while maintaining the aspect ratio.
+    // - **2** (default): adds padding to the video while maintaining the aspect ratio.
     shared_ptr<int64_t> cropMode_ {};
+    // The list of layout IDs.
     shared_ptr<vector<int64_t>> layoutIds_ {};
+    // The encoding option. For more information, see the MediaEncode enum values below.
     shared_ptr<int32_t> mediaEncode_ {};
+    // The recording mode. Valid values:
+    // 
+    // - **0**: single-stream recording. Task parameters cannot be modified during the recording process. You cannot call the UpdateRecordTask operation to modify task parameters.
+    // - **1** (default): mixed-stream recording. Multiple video streams are mixed and output.
+    // 
+    // > - Valid parameters in single-stream recording mode: StreamType and SourceType.
+    // - Valid parameters in mixed-stream recording mode: TaskProfile, MediaEncode, LayoutIds, BackgroundColor, SubSpecUsers, CropMode, UserPanes, Backgrounds, Watermarks, and ClockWidgets.
     shared_ptr<int32_t> mixMode_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The video source in single-stream recording mode. Valid values:
+    // 
+    // - **camera**: the camera.
+    // - **shareScreen**: screen sharing.
+    // 
+    // > If the video source is shareScreen and only the camera stream is ingested, the camera stream is recorded. If both the camera stream and the screen sharing stream are ingested, the screen sharing stream is recorded.
     shared_ptr<string> sourceType_ {};
+    // The single-stream recording mode. Valid values:
+    // 
+    // - **0** (default): records the original stream.
+    // - **1**: records only the audio stream.
     shared_ptr<int32_t> streamType_ {};
+    // Specifies the users whose audio streams are subscribed to in the channel.
     shared_ptr<vector<string>> subSpecAudioUsers_ {};
+    // Specifies the users whose camera streams are subscribed to in the channel.
     shared_ptr<vector<string>> subSpecCameraUsers_ {};
+    // Specifies the users whose screen sharing streams are subscribed to in the channel.
     shared_ptr<vector<string>> subSpecShareScreenUsers_ {};
+    // Specifies the list of users to which the task subscribes.
     shared_ptr<vector<string>> subSpecUsers_ {};
+    // The task ID. Only a single ID is supported and the ID must be unique. The ID must be 1 to 55 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The billing configuration of the task. You are charged based on your settings. For more information, see the TaskProfile enum values below.
+    // 
+    // > - The resolution of the MediaEncode encoding option must be less than or equal to the resolution of TaskProfile.
+    // - The maximum number of panes in the layout must be less than or equal to the number of input streams specified by TaskProfile.
     shared_ptr<string> taskProfile_ {};
+    // The configuration template ID. For more information about how to obtain the template ID, see [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html).
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
+    // Specifies the users whose audio streams are not subscribed to in the channel.
     shared_ptr<vector<string>> unsubSpecAudioUsers_ {};
+    // Specifies the users whose camera streams are not subscribed to in the channel.
     shared_ptr<vector<string>> unsubSpecCameraUsers_ {};
+    // Specifies the users whose screen sharing streams are not subscribed to in the channel.
     shared_ptr<vector<string>> unsubSpecShareScreenUsers_ {};
+    // The list of layout parameters.
     shared_ptr<vector<StartRecordTaskRequest::UserPanes>> userPanes_ {};
   };
 

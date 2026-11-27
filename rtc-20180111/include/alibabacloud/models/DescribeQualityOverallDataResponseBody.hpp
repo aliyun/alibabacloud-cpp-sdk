@@ -93,7 +93,9 @@ namespace Models
 
 
       protected:
+        // The x-axis coordinate in the Trend Indicator.
         shared_ptr<string> x_ {};
+        // The y-axis coordinate in the Trend Indicator.
         shared_ptr<string> y_ {};
       };
 
@@ -123,8 +125,11 @@ namespace Models
 
 
     protected:
+      // The average value of the Metric.
       shared_ptr<string> average_ {};
+      // List of coordinate points for the Trend Indicator.
       shared_ptr<vector<QualityOverallData::Nodes>> nodes_ {};
+      // The Metric Type queried.
       shared_ptr<string> type_ {};
     };
 
@@ -147,7 +152,9 @@ namespace Models
 
 
   protected:
+    // List of overview data.
     shared_ptr<vector<DescribeQualityOverallDataResponseBody::QualityOverallData>> qualityOverallData_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -241,8 +241,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeAppsResponseBody::AppList> appList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of results returned.
     shared_ptr<int32_t> totalNum_ {};
+    // The total number of pages returned.
     shared_ptr<int32_t> totalPage_ {};
   };
 

@@ -129,13 +129,21 @@ namespace Models
 
 
     protected:
+      // The application ID.
       shared_ptr<string> appId_ {};
+      // The channel ID.
       shared_ptr<string> channelId_ {};
+      // The creation time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
       shared_ptr<string> createTime_ {};
+      // The duration of the recording file.
       shared_ptr<float> duration_ {};
+      // The start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
       shared_ptr<string> startTime_ {};
+      // The end time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
       shared_ptr<string> stopTime_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The OSS URL of the recording file.
       shared_ptr<string> url_ {};
     };
 
@@ -172,9 +180,13 @@ namespace Models
 
 
   protected:
+    // The file list.
     shared_ptr<vector<DescribeRecordFilesResponseBody::RecordFiles>> recordFiles_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int64_t> totalNum_ {};
+    // The total number of pages returned.
     shared_ptr<int64_t> totalPage_ {};
   };
 

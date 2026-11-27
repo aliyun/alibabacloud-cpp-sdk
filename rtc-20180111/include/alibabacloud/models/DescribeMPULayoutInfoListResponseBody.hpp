@@ -293,8 +293,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeMPULayoutInfoListResponseBody::Layouts> layouts_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of records.
     shared_ptr<int64_t> totalNum_ {};
+    // Total number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

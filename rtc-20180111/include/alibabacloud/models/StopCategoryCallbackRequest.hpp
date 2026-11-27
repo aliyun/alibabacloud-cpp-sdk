@@ -59,6 +59,8 @@ namespace Models
 
 
     protected:
+      // The callback code.
+      // 
       // This parameter is required.
       shared_ptr<string> category_ {};
     };
@@ -82,8 +84,12 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The callback.
+    // 
     // This parameter is required.
     shared_ptr<StopCategoryCallbackRequest::Callback> callback_ {};
   };

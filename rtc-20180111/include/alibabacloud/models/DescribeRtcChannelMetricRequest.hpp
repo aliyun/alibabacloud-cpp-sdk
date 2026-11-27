@@ -66,11 +66,19 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the application ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The channel ID. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The time when the record is queried, in UTC. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
+    // 
+    // The time granularity is day.
+    // 
     // This parameter is required.
     shared_ptr<string> timePoint_ {};
   };

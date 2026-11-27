@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Recording status. Valid values: enable or disable.
     shared_ptr<string> result_ {};
   };
 

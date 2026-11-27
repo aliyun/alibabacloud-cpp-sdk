@@ -106,11 +106,17 @@ namespace Models
 
 
     protected:
+      // Audio call duration, in minutes.
       shared_ptr<int64_t> audioCallDuration_ {};
+      // Call duration ratio, represented as a four-decimal number, such as 0.0984.
       shared_ptr<string> callDurationRatio_ {};
+      // SDK version name, such as 1.0.0 or 1.1.1.
       shared_ptr<string> name_ {};
+      // Operating system, such as iOS or Android.
       shared_ptr<string> os_ {};
+      // Total call duration, in minutes.
       shared_ptr<int64_t> totalCallDuration_ {};
+      // Video call duration, in minutes.
       shared_ptr<int64_t> videoCallDuration_ {};
     };
 
@@ -133,7 +139,9 @@ namespace Models
 
 
   protected:
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // List of SDK version data in usage statistics.
     shared_ptr<vector<DescribeUsageOsSdkVersionDistributionStatDataResponseBody::UsageOsSdkVersionStatList>> usageOsSdkVersionStatList_ {};
   };
 

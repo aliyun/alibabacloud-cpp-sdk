@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the application. You can create and query application IDs in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The hot word table parameters.
+    // 
     // This parameter is required.
     shared_ptr<string> phraseShrink_ {};
   };

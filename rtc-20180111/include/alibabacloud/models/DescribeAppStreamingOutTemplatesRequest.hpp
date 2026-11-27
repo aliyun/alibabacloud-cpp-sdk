@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // Template Name.
       shared_ptr<string> name_ {};
+      // Template ID.
       shared_ptr<string> templateId_ {};
     };
 
@@ -110,10 +112,15 @@ namespace Models
 
 
   protected:
+    // Application ID, created and queried through the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Search condition.
     shared_ptr<DescribeAppStreamingOutTemplatesRequest::Condition> condition_ {};
+    // Page number. By default, page 1 is queried.
     shared_ptr<int32_t> pageNum_ {};
+    // Number of entries per page. The default value is 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

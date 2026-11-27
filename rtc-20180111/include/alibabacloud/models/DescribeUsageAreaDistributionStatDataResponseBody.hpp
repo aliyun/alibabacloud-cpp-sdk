@@ -88,9 +88,13 @@ namespace Models
 
 
     protected:
+      // Audio call duration, in minutes.
       shared_ptr<int32_t> audioCallDuration_ {};
+      // Region name, such as China.
       shared_ptr<string> name_ {};
+      // Total call duration, in minutes.
       shared_ptr<int32_t> totalCallDuration_ {};
+      // Video call duration, in minutes.
       shared_ptr<int32_t> videoCallDuration_ {};
     };
 
@@ -113,7 +117,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The regional distribution data of usage statistics.
     shared_ptr<vector<DescribeUsageAreaDistributionStatDataResponseBody::UsageAreaStatList>> usageAreaStatList_ {};
   };
 

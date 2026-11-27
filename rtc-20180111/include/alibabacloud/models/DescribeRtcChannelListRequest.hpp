@@ -112,17 +112,32 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
     shared_ptr<string> appId_ {};
+    // The channel ID. Only a single ID is supported.
     shared_ptr<string> channelId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Valid values: greater than **0**. Default value: 1.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page. Valid values: greater than **0**. Default value: 10.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // The service area. By default, all areas are queried. Valid values:
+    // 
+    // - **cn**: China.
+    // 
+    // - **us**: United States.
     shared_ptr<string> serviceArea_ {};
+    // The sort order. By default, the records are sorted in descending order of StartTime.
     shared_ptr<string> sortType_ {};
+    // The query time in UTC. The format is yyyy-MM-ddTHH:mm:ssZ. The time granularity is one day.
+    // 
     // This parameter is required.
     shared_ptr<string> timePoint_ {};
+    // The user ID. Only a single ID is supported.
     shared_ptr<string> userId_ {};
   };
 

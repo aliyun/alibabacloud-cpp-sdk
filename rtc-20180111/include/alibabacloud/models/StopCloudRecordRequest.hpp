@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The application ID, created and queried via the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The existing channel ID. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The existing cloud recording job ID. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

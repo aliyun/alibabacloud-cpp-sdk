@@ -66,14 +66,29 @@ namespace Models
 
 
   protected:
-    // APP ID
+    // The app ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The end time of the query. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
+    // The start time of the query. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};
+    // The metric types to query. Separate multiple values with commas (,). Valid values:
+    // - **TOTAL_CALL_DURATION**: total duration.
+    // - **VIDEO_CALL_DURATION**: video communication duration.
+    // - **AUDIO_CALL_DURATION**: audio communication duration.
+    // - **CALL_CHANNEL_COUNT**: communication channel count.
+    // - **HIGHLY_CONCURRENT_CHANNEL_COUNT**: highly concurrent communication channel count.
+    // - **CHANNEL_CONCURRENT_PEAK**: peak concurrent channel count.
+    // - **ONLINE_USER_PEAK**: peak online user count.
+    // - **TOTAL_CALL_USER**: total call users.
+    // - **TOTAL_INOUT_NUM**: total inbound and outbound visits.
+    // 
     // This parameter is required.
     shared_ptr<string> types_ {};
   };

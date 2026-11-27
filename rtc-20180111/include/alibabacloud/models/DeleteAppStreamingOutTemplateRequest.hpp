@@ -59,6 +59,8 @@ namespace Models
 
 
     protected:
+      // The template ID.
+      // 
       // This parameter is required.
       shared_ptr<string> templateId_ {};
     };
@@ -82,8 +84,12 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The stream ingest template information.
+    // 
     // This parameter is required.
     shared_ptr<DeleteAppStreamingOutTemplateRequest::StreamingOutTemplate> streamingOutTemplate_ {};
   };

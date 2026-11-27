@@ -181,13 +181,24 @@ namespace Models
 
 
     protected:
+      // The transparency. A value of 0.0 indicates fully transparent, and 1.0 indicates fully opaque.
       shared_ptr<float> alpha_ {};
+      // Specifies whether to display the image. Valid values:
+      // 
+      // - **0 (None)**: not displayed.
+      // - **1 (Always)**: always displayed.
       shared_ptr<int32_t> display_ {};
+      // The height of the pane, as a normalized percentage.
       shared_ptr<float> height_ {};
+      // The HTTP or HTTPS URL of the image.
       shared_ptr<string> url_ {};
+      // The width of the pane, as a normalized percentage.
       shared_ptr<float> width_ {};
+      // The X-coordinate, as a normalized percentage.
       shared_ptr<float> x_ {};
+      // The Y-coordinate, as a normalized percentage.
       shared_ptr<float> y_ {};
+      // The stacking order. 0 indicates the bottom layer, 1 indicates the layer above 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -359,18 +370,45 @@ namespace Models
 
 
       protected:
+        // The transparency of the text box and text. A value of 0.0 indicates fully transparent, and 1.0 indicates fully opaque.
         shared_ptr<float> alpha_ {};
+        // The text stroke color in RGB format.
+        // The formula is `R + G × 256 + B × 65536`. Valid values for R (red), G (green), and B (blue): **0** to **255**.
         shared_ptr<int64_t> borderColor_ {};
+        // The text stroke width, in pixels. Default value: 0.
         shared_ptr<int32_t> borderWidth_ {};
+        // Specifies whether to display the text box. Valid values:
+        // 
+        // - false (default): not displayed.
+        // - true: displayed.
         shared_ptr<bool> box_ {};
+        // The text box border width, in pixels. Default value: 0.
         shared_ptr<int32_t> boxBorderWidth_ {};
+        // The text box color in RGB format.
+        // The formula is `R + G × 256 + B × 65536`. Valid values for R (red), G (green), and B (blue): **0** to **255**.
         shared_ptr<int64_t> boxColor_ {};
+        // The text color in RGB format.
+        // 
+        // The formula is `R + G × 256 + B × 65536`. Valid values for R (red), G (green), and B (blue): **0** to **255**.
         shared_ptr<int32_t> fontColor_ {};
+        // The font size. Valid values: **0** to **72**.
         shared_ptr<int32_t> fontSize_ {};
+        // The font type. Valid values:
+        // 
+        // - **0**: NOTO_SERIF_CJKSC_REGULAR (default).
+        // - **1**: ALIBABA_PUHUITI_REGULAR.
+        // - **2**: ALIBABA_PUHUITI_BOLD.
+        // - **3**: ALIBABA_PUHUITI_Heavy.
+        // - **4**: ALIBABA_PUHUITI_LIGHT.
+        // - **5**: ALIBABA_PUHUITI_MEDIUM.
         shared_ptr<int32_t> fontType_ {};
+        // The text content.
         shared_ptr<string> text_ {};
+        // The X-coordinate, as a normalized percentage.
         shared_ptr<float> x_ {};
+        // The Y-coordinate, as a normalized percentage.
         shared_ptr<float> y_ {};
+        // The stacking order. 0 indicates the bottom layer, 1 indicates the layer above 0, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -458,12 +496,23 @@ namespace Models
 
 
       protected:
+        // Specifies whether to display the image. Valid values:
+        // 
+        // - **0 (None)**: not displayed.
+        // - **1 (Always)**: always displayed.
+        // - **2 (Backup)**: displayed when the current user has no video stream.
         shared_ptr<int32_t> display_ {};
+        // The height of the pane, as a normalized percentage.
         shared_ptr<float> height_ {};
+        // The HTTP or HTTPS URL of the image.
         shared_ptr<string> url_ {};
+        // The width of the pane, as a normalized percentage.
         shared_ptr<float> width_ {};
+        // The X-coordinate, as a normalized percentage.
         shared_ptr<float> x_ {};
+        // The Y-coordinate, as a normalized percentage.
         shared_ptr<float> y_ {};
+        // The stacking order. 0 indicates the bottom layer, 1 indicates the layer above 0, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -516,11 +565,25 @@ namespace Models
 
 
     protected:
+      // The image panes in the current layout.
       shared_ptr<vector<UserPanes::Images>> images_ {};
+      // The pane ID. Valid values: **0** to **15**.
+      // >If the user specified by PaneId is not found, the system displays other streams by default. The streams are determined based on the order in which users join the channel.
       shared_ptr<int32_t> paneId_ {};
+      // The portrait segmentation type. Valid values:
+      // 
+      // - **0**: no portrait segmentation (default).
+      // 
+      // - **1**: portrait segmentation. This value takes effect only after the portrait segmentation feature is enabled.
       shared_ptr<int32_t> segmentType_ {};
+      // The user video input corresponding to the layout. Valid values:
+      // 
+      // - **camera**: video stream (default).
+      // - **shareScreen**: screen sharing stream.
       shared_ptr<string> sourceType_ {};
+      // The text panes in the current layout.
       shared_ptr<vector<UserPanes::Texts>> texts_ {};
+      // The ID of the user corresponding to the layout pane. Valid values: **1** to **16**.
       shared_ptr<string> userId_ {};
     };
 
@@ -552,6 +615,10 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable the portrait segmentation feature (in closed beta). Valid values:
+      // 
+      // - **true**: enabled.
+      // - **false** (default): disabled.
       shared_ptr<bool> enablePortraitSegmentation_ {};
     };
 
@@ -685,17 +752,43 @@ namespace Models
 
 
     protected:
+      // The transparency of the text box and text. A value of 0.0 indicates fully transparent, and 1.0 indicates fully opaque.
       shared_ptr<float> alpha_ {};
+      // The text stroke color in RGB format.
+      // The formula is `R + G × 256 + B × 65536`. Valid values for R (red), G (green), and B (blue): **0** to **255**.
       shared_ptr<int64_t> borderColor_ {};
+      // The text stroke width, in pixels. Default value: 0.
       shared_ptr<int32_t> borderWidth_ {};
+      // Specifies whether to display the text box. Valid values:
+      // 
+      // - false (default): not displayed.
+      // - true: displayed.
       shared_ptr<bool> box_ {};
+      // The text box border width, in pixels. Default value: 0.
       shared_ptr<int32_t> boxBorderWidth_ {};
+      // The text box color in RGB format.
+      // The formula is `R + G × 256 + B × 65536`. Valid values for R (red), G (green), and B (blue): **0** to **255**.
       shared_ptr<int64_t> boxColor_ {};
+      // The text color in RGB format.
+      // 
+      // The formula is `R + G × 256 + B × 65536`. Valid values for R (red), G (green), and B (blue): **0** to **255**.
       shared_ptr<int32_t> fontColor_ {};
+      // The font size. Valid values: **0** to **72**.
       shared_ptr<int32_t> fontSize_ {};
+      // The font type. Valid values:
+      // 
+      // - **0**: NOTO_SERIF_CJKSC_REGULAR (default).
+      // - **1**: ALIBABA_PUHUITI_REGULAR.
+      // - **2**: ALIBABA_PUHUITI_BOLD.
+      // - **3**: ALIBABA_PUHUITI_Heavy.
+      // - **4**: ALIBABA_PUHUITI_LIGHT.
+      // - **5**: ALIBABA_PUHUITI_MEDIUM.
       shared_ptr<int32_t> fontType_ {};
+      // The X-coordinate, as a normalized percentage.
       shared_ptr<float> x_ {};
+      // The Y-coordinate, as a normalized percentage.
       shared_ptr<float> y_ {};
+      // The stacking order. 0 indicates the bottom layer, 1 indicates the layer above 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -783,12 +876,22 @@ namespace Models
 
 
     protected:
+      // Specifies whether to display the image. Valid values:
+      // 
+      // - **0 (None)**: not displayed.
+      // - **1 (Always)**: always displayed.
       shared_ptr<int32_t> display_ {};
+      // The height of the pane, as a normalized percentage.
       shared_ptr<float> height_ {};
+      // The HTTP or HTTPS URL of the image.
       shared_ptr<string> url_ {};
+      // The width of the pane, as a normalized percentage.
       shared_ptr<float> width_ {};
+      // The X-coordinate, as a normalized percentage.
       shared_ptr<float> x_ {};
+      // The Y-coordinate, as a normalized percentage.
       shared_ptr<float> y_ {};
+      // The stacking order. 0 indicates the bottom layer, 1 indicates the layer above 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -1036,38 +1139,108 @@ namespace Models
 
 
   protected:
+    // The application ID. Only a single ID is supported.
+    // 
+    // You can create and query it in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The RGB value of the background color. Default value: **0** (black).
+    // 
+    // The formula is `R + G × 256 + B × 65536`. Valid values for R (red), G (green), and B (blue): 0 to 255.
     shared_ptr<int32_t> backgroundColor_ {};
+    // The canvas background image panes.
     shared_ptr<vector<StartMPUTaskRequest::Backgrounds>> backgrounds_ {};
+    // The channel ID. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The clock widgets.
     shared_ptr<vector<StartMPUTaskRequest::ClockWidgets>> clockWidgets_ {};
+    // The video cropping mode. Valid values:
+    // 
+    // - **1**: crop while keeping the aspect ratio.
+    // 
+    // - **2**: keep the aspect ratio and add padding (default).
     shared_ptr<int32_t> cropMode_ {};
+    // The enhanced parameters.
     shared_ptr<StartMPUTaskRequest::EnhancedParam> enhancedParam_ {};
+    // The layout IDs.
     shared_ptr<vector<int64_t>> layoutIds_ {};
+    // The encoding options. For more information, see the MediaEncode enum values below.
     shared_ptr<int32_t> mediaEncode_ {};
+    // The mixed streaming mode. Valid values:
+    // 
+    // - **0**: single-stream relay. The original single stream is relayed without mixed-stream transcoding. You do not need to configure mixed-stream transcoding parameters.
+    // - **1**: mixed-stream transcoding (default). Mixed-stream transcoding output is supported.
+    // 
+    // > - Valid parameters in single-stream relay mode: **StreamType**, **SourceType**, and **SubSpecUsers**.
+    // - Valid parameters in mixed-stream transcoding mode: **MediaEncode**, **LayoutIds**, **BackgroundColor**, **SubSpecUsers**, **CropMode**, **UserPanes**, **Backgrounds**, and **Watermarks**.
     shared_ptr<int32_t> mixMode_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The payload type. Valid values:
+    // - **0**: do not use a payload.
+    // - **1**: use VideoSEI.
     shared_ptr<int32_t> payloadType_ {};
+    // The voice activity detection (VAD) flag. Valid values:
+    // - **0**: do not pass VAD information.
+    // - **1**: pass VAD information.
     shared_ptr<int32_t> reportVad_ {};
+    // The RTP extension header information. Valid values:
+    // - **0**: do not pass.
+    // - **1**: pass.
     shared_ptr<int32_t> rtpExtInfo_ {};
+    // The user video input stream in single-stream relay mode. Valid values:
+    // 
+    // - **camera**: camera.
+    // - **shareScreen**: screen sharing.
     shared_ptr<string> sourceType_ {};
+    // The stream type to relay in single-stream relay mode. Valid values:
+    // 
+    // - **0**: relay the original stream.
+    // - **1**: relay only the audio stream.
+    // - **2**: relay only the video stream.
+    // 
+    // By default, the original stream is relayed.
     shared_ptr<int32_t> streamType_ {};
+    // The live streaming ingest URL. Only a single URL is supported. For more information about the generation rules, see [Ingest and streaming URLs](https://help.aliyun.com/document_detail/199339.html).
+    // 
+    // >- For domain names with hotlink protection authentication enabled, the ingest URL must include an authentication string.
+    // - The same StreamURL cannot be used simultaneously in different tasks.
+    // - The same StreamURL cannot be used within 10 seconds after a task is stopped.
     shared_ptr<string> streamURL_ {};
+    // Specifies the users whose audio streams are subscribed to in the channel.
     shared_ptr<vector<string>> subSpecAudioUsers_ {};
+    // Specifies the users whose camera video streams are subscribed to in the channel.
     shared_ptr<vector<string>> subSpecCameraUsers_ {};
+    // Specifies the users whose screen sharing video streams are subscribed to in the channel.
     shared_ptr<vector<string>> subSpecShareScreenUsers_ {};
+    // Specifies the list of users to which the task subscribes.
     shared_ptr<vector<string>> subSpecUsers_ {};
+    // The task ID. Only a single ID is supported. The ID can contain letters, digits, underscores (_), and hyphens (-), and can be up to 55 bytes in length.
+    // 
+    // > This ID identifies the bypass live streaming task and must be unique.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The media processing type. Valid values:
+    // 
+    // - **0**: bypass live streaming task.
+    // - **1**: MCU mixed-stream low-latency distribution task.
     shared_ptr<int32_t> taskType_ {};
+    // The timestamp.
     shared_ptr<int64_t> timeStampRef_ {};
+    // Specifies the users whose audio streams are not subscribed to in the channel.
     shared_ptr<vector<string>> unsubSpecAudioUsers_ {};
+    // Specifies the users whose camera video streams are not subscribed to in the channel.
     shared_ptr<vector<string>> unsubSpecCameraUsers_ {};
+    // Specifies the users whose screen sharing video streams are not subscribed to in the channel.
     shared_ptr<vector<string>> unsubSpecShareScreenUsers_ {};
+    // The layout parameters.
     shared_ptr<vector<StartMPUTaskRequest::UserPanes>> userPanes_ {};
+    // The callback interval for voice activity detection.
     shared_ptr<int64_t> vadInterval_ {};
+    // The watermark image panes.
     shared_ptr<vector<StartMPUTaskRequest::Watermarks>> watermarks_ {};
   };
 

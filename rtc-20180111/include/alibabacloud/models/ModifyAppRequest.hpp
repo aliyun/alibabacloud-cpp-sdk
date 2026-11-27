@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The ID of the application. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The name of the application. Only a single name is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -182,13 +182,24 @@ namespace Models
 
 
       protected:
+        // The transparency of the watermark. The value is a normalized percentage. A value of 0 indicates transparent, and a value of 1 indicates completely opaque.
         shared_ptr<float> alpha_ {};
+        // Specifies whether to display the watermark. Valid values:
+        // 
+        // - **0** (None): Not displayed.
+        // - **1** (Always): Always displayed.
         shared_ptr<int32_t> display_ {};
+        // The height of the watermark pane. The value is a normalized percentage.
         shared_ptr<float> height_ {};
+        // The HTTP or HTTPS URL of the watermark.
         shared_ptr<string> url_ {};
+        // The width of the watermark pane. The value is a normalized percentage.
         shared_ptr<float> width_ {};
+        // The X-coordinate of the watermark. The value is a normalized percentage.
         shared_ptr<float> x_ {};
+        // The Y-coordinate of the watermark. The value is a normalized percentage.
         shared_ptr<float> y_ {};
+        // The stacking order of the watermark. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above the bottom layer, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -266,11 +277,26 @@ namespace Models
 
 
       protected:
+        // The text color of the clock (RGB).
+        // 
+        // The calculation formula is `R + G × 256 + B × 65536`. Valid values for R (red), G (green), and B (blue): **0** to **255**.
         shared_ptr<int32_t> fontColor_ {};
+        // The font size of the clock. Valid values: **(0, 72]**.
         shared_ptr<int32_t> fontSize_ {};
+        // The font type of the clock. Valid values:
+        // 
+        // - **0** (default): NOTO_SERIF_CJKSC_REGULAR
+        // - **1**: ALIBABA_PUHUITI_REGULAR
+        // - **2**: ALIBABA_PUHUITI_BOLD
+        // - **3**: ALIBABA_PUHUITI_Heavy
+        // - **4**: ALIBABA_PUHUITI_LIGHT
+        // - **5**: ALIBABA_PUHUITI_MEDIUM
         shared_ptr<int32_t> fontType_ {};
+        // The X-coordinate of the clock. The value is a normalized percentage.
         shared_ptr<float> x_ {};
+        // The Y-coordinate of the clock. The value is a normalized percentage.
         shared_ptr<float> y_ {};
+        // The stacking order of the clock. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above the bottom layer, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -358,12 +384,22 @@ namespace Models
 
 
       protected:
+        // Specifies whether to display the background image. Valid values:
+        // 
+        // - **0** (None): Not displayed.
+        // - **1** (Always): Always displayed.
         shared_ptr<int32_t> display_ {};
+        // The height of the background image pane. The value is a normalized percentage.
         shared_ptr<float> height_ {};
+        // The HTTP or HTTPS URL of the background image.
         shared_ptr<string> url_ {};
+        // The width of the background image pane. The value is a normalized percentage.
         shared_ptr<float> width_ {};
+        // The X-coordinate of the background image. The value is a normalized percentage.
         shared_ptr<float> x_ {};
+        // The Y-coordinate of the background image. The value is a normalized percentage.
         shared_ptr<float> y_ {};
+        // The stacking order of the background image. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above the bottom layer, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -509,23 +545,41 @@ namespace Models
 
 
     protected:
+      // The RGB value of the background color. Default value: **0** (black). The calculation formula is R + G × 256 + B × 65536. Valid values for R (red), G (green), and B (blue): **0** to **255**.
       shared_ptr<int32_t> backgroundColor_ {};
+      // The list of background image information.
       shared_ptr<vector<Templates::Backgrounds>> backgrounds_ {};
+      // The list of clock widgets.
       shared_ptr<vector<Templates::ClockWidgets>> clockWidgets_ {};
+      // The creation time. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC time).
       shared_ptr<string> createTime_ {};
+      // The delay before stopping the recording. Unit: seconds.
       shared_ptr<int32_t> delayStopTime_ {};
+      // Specifies whether to add the timestamp of the TS file to the recorded M3U8 file.
       shared_ptr<bool> enableM3u8DateTime_ {};
+      // The file splitting duration.
       shared_ptr<int32_t> fileSplitInterval_ {};
+      // The list of recording file formats. Valid formats include M3U8, FLV, and MP4.
       shared_ptr<vector<string>> formats_ {};
+      // The HTTP callback URL for recording events.
       shared_ptr<string> httpCallbackUrl_ {};
+      // The list of mixed-stream layout IDs used by the recording template.
       shared_ptr<vector<int64_t>> layoutIds_ {};
+      // The encoding options.
       shared_ptr<int32_t> mediaEncode_ {};
+      // The name of the Message Service (MNS) queue for recording event callbacks.
       shared_ptr<string> mnsQueue_ {};
+      // The name of the recording configuration template.
       shared_ptr<string> name_ {};
+      // The name of the Object Storage Service (OSS) bucket where recording files are stored.
       shared_ptr<string> ossBucket_ {};
+      // The naming rule for recording files.
       shared_ptr<string> ossFilePrefix_ {};
+      // The task specifications.
       shared_ptr<string> taskProfile_ {};
+      // The ID of the recording configuration template.
       shared_ptr<string> templateId_ {};
+      // The list of watermark information.
       shared_ptr<vector<Templates::Watermarks>> watermarks_ {};
     };
 
@@ -562,9 +616,13 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The recording configuration templates.
     shared_ptr<vector<DescribeRecordTemplatesResponseBody::Templates>> templates_ {};
+    // The total number of entries returned.
     shared_ptr<int64_t> totalNum_ {};
+    // The total number of pages returned.
     shared_ptr<int64_t> totalPage_ {};
   };
 

@@ -106,14 +106,22 @@ namespace Models
 
 
   protected:
+    // The application ID. Only a single ID can be passed. You can create and query it in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The channel ID. Only a single ID can be passed.
     shared_ptr<string> channelId_ {};
+    // The end time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. By default, the first page is queried.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
     shared_ptr<string> startTime_ {};
+    // Recording task ID.
     shared_ptr<vector<string>> taskIds_ {};
   };
 

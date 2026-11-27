@@ -84,11 +84,22 @@ namespace Models
 
 
   protected:
+    // The application ID. Only a single ID can be specified.
+    // 
+    // By default, all application IDs are queried.
     shared_ptr<string> appId_ {};
+    // The end time for the data query. Specify the time in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
+    // 
+    // The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
+    // The time granularity for the data query, in seconds.
+    // 
+    // Valid values: **3600** (1 hour) or **86400** (1 day). Default value: **3600**.
     shared_ptr<string> interval_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The service area. CN: China (default value).
     shared_ptr<string> serviceArea_ {};
+    // The start time for the data query. Specify the time in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
   };
 

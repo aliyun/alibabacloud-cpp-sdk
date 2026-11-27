@@ -136,11 +136,11 @@ namespace Models
 
 
       protected:
-        // B。
+        // The blue component.
         shared_ptr<int32_t> b_ {};
-        // G。
+        // The green component.
         shared_ptr<int32_t> g_ {};
-        // R。
+        // The red component.
         shared_ptr<int32_t> r_ {};
       };
 
@@ -191,11 +191,11 @@ namespace Models
 
 
       protected:
-        // B。
+        // The blue component.
         shared_ptr<int32_t> b_ {};
-        // G。
+        // The green component.
         shared_ptr<int32_t> g_ {};
-        // R。
+        // The red component.
         shared_ptr<int32_t> r_ {};
       };
 
@@ -292,19 +292,44 @@ namespace Models
 
 
     protected:
+      // The opacity of the watermark.
       shared_ptr<double> alpha_ {};
+      // The opacity of the text box.
       shared_ptr<double> boxAlpha_ {};
+      // The border width of the text box.
       shared_ptr<int32_t> boxBorderw_ {};
+      // The border color of the text box.
       shared_ptr<Texts::BoxColor> boxColor_ {};
+      // The font. Valid values:
+      // - **0**: Alibaba PuHuiTi Regular
+      // - **1**: Alibaba PuHuiTi Light
+      // - **2**: Alibaba PuHuiTi Medium
+      // - **3**: Alibaba PuHuiTi Bold
+      // - **4**: Alibaba PuHuiTi Heavy
+      // - **5**: Alimama ShuHeiTi
+      // - **6**: DingTalk JinBuTi
+      // - **7**: Alimama DaoLiTi
+      // - **8**: Alimama DongFangDaKai
+      // - **9**: Alimama FangYuanTi
       shared_ptr<int32_t> font_ {};
+      // The font color.
       shared_ptr<Texts::FontColor> fontColor_ {};
+      // The font size.
       shared_ptr<int32_t> fontSize_ {};
+      // Specifies whether to display a text box.
       shared_ptr<bool> hasBox_ {};
+      // The z-axis layer.
       shared_ptr<int32_t> layer_ {};
+      // The content of the watermark.
+      // 
       // This parameter is required.
       shared_ptr<string> texture_ {};
+      // The x-coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> x_ {};
+      // The y-coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> y_ {};
     };
@@ -426,11 +451,11 @@ namespace Models
 
 
         protected:
-          // B。
+          // The blue component.
           shared_ptr<int32_t> b_ {};
-          // G。
+          // The green component.
           shared_ptr<int32_t> g_ {};
-          // R。
+          // The red component.
           shared_ptr<int32_t> r_ {};
         };
 
@@ -481,11 +506,11 @@ namespace Models
 
 
         protected:
-          // B。
+          // The blue component.
           shared_ptr<int32_t> b_ {};
-          // G。
+          // The green component.
           shared_ptr<int32_t> g_ {};
-          // R。
+          // The red component.
           shared_ptr<int32_t> r_ {};
         };
 
@@ -582,19 +607,44 @@ namespace Models
 
 
       protected:
+        // The opacity of the watermark.
         shared_ptr<double> alpha_ {};
+        // The opacity of the text box.
         shared_ptr<double> boxAlpha_ {};
+        // The border width of the text box.
         shared_ptr<int32_t> boxBorderw_ {};
+        // The border color of the text box.
         shared_ptr<Texts::BoxColor> boxColor_ {};
+        // The font. Valid values:
+        // - **0**: Alibaba PuHuiTi Regular
+        // - **1**: Alibaba PuHuiTi Light
+        // - **2**: Alibaba PuHuiTi Medium
+        // - **3**: Alibaba PuHuiTi Bold
+        // - **4**: Alibaba PuHuiTi Heavy
+        // - **5**: Alimama ShuHeiTi
+        // - **6**: DingTalk JinBuTi
+        // - **7**: Alimama DaoLiTi
+        // - **8**: Alimama DongFangDaKai
+        // - **9**: Alimama FangYuanTi
         shared_ptr<int32_t> font_ {};
+        // The font color.
         shared_ptr<Texts::FontColor> fontColor_ {};
+        // The font size.
         shared_ptr<int32_t> fontSize_ {};
+        // Specifies whether to display a text box.
         shared_ptr<bool> hasBox_ {};
+        // The z-axis layer.
         shared_ptr<int32_t> layer_ {};
+        // The content of the watermark.
+        // 
         // This parameter is required.
         shared_ptr<string> texture_ {};
+        // The x-coordinate.
+        // 
         // This parameter is required.
         shared_ptr<double> x_ {};
+        // The y-coordinate.
+        // 
         // This parameter is required.
         shared_ptr<double> y_ {};
       };
@@ -692,17 +742,33 @@ namespace Models
 
 
       protected:
+        // The opacity of the image.
         shared_ptr<double> alpha_ {};
+        // The height.
+        // 
         // This parameter is required.
         shared_ptr<double> height_ {};
+        // The z-axis layer.
         shared_ptr<int32_t> layer_ {};
+        // The crop mode of the image. Valid values:
+        // - **1**: Crops the image while maintaining the aspect ratio.
+        // - **2**: Maintains the aspect ratio and adds padding.
+        // - **3**: Stretches the image to fill the area.
         shared_ptr<int32_t> paneImageCropMode_ {};
+        // The URL of the image.
+        // 
         // This parameter is required.
         shared_ptr<string> url_ {};
+        // The width.
+        // 
         // This parameter is required.
         shared_ptr<double> width_ {};
+        // The x-coordinate.
+        // 
         // This parameter is required.
         shared_ptr<double> x_ {};
+        // The y-coordinate.
+        // 
         // This parameter is required.
         shared_ptr<double> y_ {};
       };
@@ -756,12 +822,27 @@ namespace Models
 
 
     protected:
+      // The image watermarks for the pane.
       shared_ptr<vector<Panes::Images>> images_ {};
+      // The crop mode of the image. Valid values:
+      // - **1**: Crops the image while maintaining the aspect ratio.
+      // - **2**: Maintains the aspect ratio and adds padding.
+      // - **3**: Stretches the image to fill the area.
       shared_ptr<int32_t> paneCropMode_ {};
+      // The ID of the pane. The ID starts from 0.
+      // 
       // This parameter is required.
       shared_ptr<string> paneId_ {};
+      // The media source of the pane. You can specify a userId. To specify a specific user type, you can use wildcard configurations. The following types are supported:
+      // - **$ActiveSpeaker**: The active speaker in the current channel.
+      // - **$ScreenShare**: The user who is sharing the screen. If multiple users are sharing their screens in the channel, the panes are filled in chronological order.
       shared_ptr<string> source_ {};
+      // The media type of the pane. Valid values:
+      // - **video**: The camera or screen sharing stream of the user. This is the default value.
+      // - **camera**: The camera stream.
+      // - **screen**: The screen sharing stream.
       shared_ptr<string> sourceType_ {};
+      // The text watermarks for the pane.
       shared_ptr<vector<Panes::Texts>> texts_ {};
     };
 
@@ -858,17 +939,33 @@ namespace Models
 
 
     protected:
+      // The opacity of the image.
       shared_ptr<double> alpha_ {};
+      // The height.
+      // 
       // This parameter is required.
       shared_ptr<double> height_ {};
+      // The crop mode of the image. Valid values:
+      // - **1**: Crops the image while maintaining the aspect ratio.
+      // - **2**: Maintains the aspect ratio and adds padding.
+      // - **3**: Stretches the image to fill the area.
       shared_ptr<int32_t> imageCropMode_ {};
+      // The z-axis layer.
       shared_ptr<int32_t> layer_ {};
+      // The URL of the image.
+      // 
       // This parameter is required.
       shared_ptr<string> url_ {};
+      // The width.
+      // 
       // This parameter is required.
       shared_ptr<double> width_ {};
+      // The x-coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> x_ {};
+      // The y-coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> y_ {};
     };
@@ -961,11 +1058,11 @@ namespace Models
 
 
       protected:
-        // B。
+        // The blue component.
         shared_ptr<int32_t> b_ {};
-        // G。
+        // The green component.
         shared_ptr<int32_t> g_ {};
-        // R。
+        // The red component.
         shared_ptr<int32_t> r_ {};
       };
 
@@ -1016,11 +1113,11 @@ namespace Models
 
 
       protected:
-        // B。
+        // The blue component.
         shared_ptr<int32_t> b_ {};
-        // G。
+        // The green component.
         shared_ptr<int32_t> g_ {};
-        // R。
+        // The red component.
         shared_ptr<int32_t> r_ {};
       };
 
@@ -1117,19 +1214,43 @@ namespace Models
 
 
     protected:
+      // The opacity of the image.
       shared_ptr<double> alpha_ {};
+      // The opacity of the text box.
       shared_ptr<double> boxAlpha_ {};
+      // The border width of the text box.
       shared_ptr<int32_t> boxBorderw_ {};
+      // The border color of the text box.
       shared_ptr<ClockWidgets::BoxColor> boxColor_ {};
+      // The font. Valid values:
+      // - **0**: Alibaba PuHuiTi Regular
+      // - **1**: Alibaba PuHuiTi Light
+      // - **2**: Alibaba PuHuiTi Medium
+      // - **3**: Alibaba PuHuiTi Bold
+      // - **4**: Alibaba PuHuiTi Heavy
+      // - **5**: Alimama ShuHeiTi
+      // - **6**: DingTalk JinBuTi
+      // - **7**: Alimama DaoLiTi
+      // - **8**: Alimama DongFangDaKai
+      // - **9**: Alimama FangYuanTi
       shared_ptr<int32_t> font_ {};
+      // The font color.
       shared_ptr<ClockWidgets::FontColor> fontColor_ {};
+      // The clock font size.
       shared_ptr<int32_t> fontSize_ {};
+      // Specifies whether to display a text box.
       shared_ptr<bool> hasBox_ {};
+      // The z-axis layer.
       shared_ptr<int32_t> layer_ {};
+      // The x-coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> x_ {};
+      // The y-coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> y_ {};
+      // The time zone.
       shared_ptr<int32_t> zone_ {};
     };
 
@@ -1226,17 +1347,33 @@ namespace Models
 
 
     protected:
+      // The opacity of the image.
       shared_ptr<double> alpha_ {};
+      // The crop mode of the image. Valid values:
+      // - **1**: Crops the image while maintaining the aspect ratio.
+      // - **2**: Maintains the aspect ratio and adds padding.
+      // - **3**: Stretches the image to fill the area.
       shared_ptr<int32_t> backgroundCropMode_ {};
+      // The height.
+      // 
       // This parameter is required.
       shared_ptr<double> height_ {};
+      // The z-axis layer.
       shared_ptr<int32_t> layer_ {};
+      // The URL of the image.
+      // 
       // This parameter is required.
       shared_ptr<string> url_ {};
+      // The width.
+      // 
       // This parameter is required.
       shared_ptr<double> width_ {};
+      // The x-coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> x_ {};
+      // The y-coordinate.
+      // 
       // This parameter is required.
       shared_ptr<double> y_ {};
     };
@@ -1325,19 +1462,33 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The background images.
     shared_ptr<vector<ModifyViewLayoutShrinkRequest::Backgrounds>> backgrounds_ {};
+    // The ID of an existing channel. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The global clock watermark.
     shared_ptr<vector<ModifyViewLayoutShrinkRequest::ClockWidgets>> clockWidgets_ {};
+    // The global image watermark.
     shared_ptr<vector<ModifyViewLayoutShrinkRequest::Images>> images_ {};
+    // The blacklists and whitelists settings.
     shared_ptr<string> layoutSpecifiedUsersShrink_ {};
+    // The pane settings. You can configure up to 16 panes.
     shared_ptr<vector<ModifyViewLayoutShrinkRequest::Panes>> panes_ {};
+    // The task ID. Only a single ID is supported. The ID can contain letters, digits, underscores (_), and hyphens (-), and can be up to 55 bytes in length.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
+    // The global text watermark.
     shared_ptr<vector<ModifyViewLayoutShrinkRequest::Texts>> texts_ {};
   };
 

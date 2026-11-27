@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID can be specified.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The template information.
+    // 
     // This parameter is required.
     shared_ptr<string> templateShrink_ {};
   };

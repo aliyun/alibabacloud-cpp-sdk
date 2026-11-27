@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // The layout ID.
       shared_ptr<string> layoutId_ {};
+      // The layout name.
       shared_ptr<string> name_ {};
     };
 
@@ -110,10 +112,15 @@ namespace Models
 
 
   protected:
+    // The application ID. Create and query it using the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The query conditions.
     shared_ptr<DescribeAppLayoutsRequest::Condition> condition_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

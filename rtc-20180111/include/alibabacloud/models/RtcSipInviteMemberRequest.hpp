@@ -167,27 +167,67 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The meeting token. For code generation, refer to https://help.aliyun.com/document_detail/2689025.html.
     shared_ptr<string> appToken_ {};
+    // The custom line number in PSTN scenarios.
     shared_ptr<string> callNumber_ {};
+    // The channel ID. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The type of the device used to call the third-party SIP endpoint. Valid values:
+    // - sip_device
+    // - mcu
+    // - phone
+    // 
+    // Note: Currently, only the phone type is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceType_ {};
+    // Specifies whether the third-party meeting system requires registration for inbound calls.
+    // 
     // This parameter is required.
     shared_ptr<bool> registered_ {};
+    // 1. The IP address of the nearest RTC SIP server.
+    // 2. You can resolve the domain name rtcsip.dingtalk.com locally to obtain the nearest access address.
+    // For example, run dig rtcsip.dingtalk.com to obtain the address.
     shared_ptr<string> serverAddress_ {};
+    // The username displayed on the third-party system.
+    // 
     // This parameter is required.
     shared_ptr<string> sipDisplayName_ {};
+    // 1. When the device is mcu, it indicates the channel number of the third-party meeting system to be called.
+    // 2. When the device is sip_device, it indicates the registration number of the registered device to be invited.
+    // 3. When the device is phone, it indicates the called phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> sipRoomId_ {};
+    // 1. When the device is mcu, it indicates the address information of the third-party meeting system in the format of ip:port;transport=tcp/udp/tls.
+    // Example: "30.240.160.66:5060;transport=tcp"
+    // 2. When the device is sip_device, it indicates the registration address of the registered device to be invited.
+    // Example: 39.101.232.13
+    // 3. When the device is phone, it indicates the address information of the telephone gateway.
+    // Example: "30.240.160.66:5060;transport=tcp"
     shared_ptr<string> sipUri_ {};
+    // The brand and model of the third-party SIP endpoint being called, such as polycom, cisco, tencent, zoom, or pstn.
     shared_ptr<string> sipUserAgent_ {};
+    // 1. When DeviceType is mcu, it represents the third-party meeting system.
+    // 2. When DeviceType is sip_device, it represents the registered device.
+    // 3. If the third-party meeting system requires registration for inbound calls, it is the account provided by the third-party system to create an account.
+    // 4. If registration is not required, it is the SIP username or RTC user ID for calling the third-party system.
+    // 
     // This parameter is required.
     shared_ptr<string> sipUserId_ {};
+    // The registration password that matches the SipUserId if the third-party system requires registration for inbound calls.
     shared_ptr<string> sipUserPassword_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> uid_ {};
   };

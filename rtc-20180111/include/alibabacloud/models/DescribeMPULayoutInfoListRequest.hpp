@@ -84,12 +84,18 @@ namespace Models
 
 
   protected:
+    // Application ID. You can specify only one ID. Create or view IDs in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Layout ID. To get a layout ID, see [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html).
     shared_ptr<int64_t> layoutId_ {};
+    // Layout name.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Page number. Default value: **1**.
     shared_ptr<int64_t> pageNum_ {};
+    // Number of entries per page. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
   };
 

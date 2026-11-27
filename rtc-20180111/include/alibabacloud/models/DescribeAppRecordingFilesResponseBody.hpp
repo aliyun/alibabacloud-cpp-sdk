@@ -149,15 +149,25 @@ namespace Models
 
 
     protected:
+      // User-defined bucket.
       shared_ptr<string> bucket_ {};
+      // Channel ID.
       shared_ptr<string> channelId_ {};
+      // Recording file creation timestamp, in milliseconds.
       shared_ptr<int64_t> fileCreateTs_ {};
+      // Recording file duration, in milliseconds.
       shared_ptr<int32_t> fileDuration_ {};
+      // Path where the recording file is stored. Use the SDK of your cloud provider\"s Object Storage Service to access the file. For Alibaba Cloud OSS, see [here](https://help.aliyun.com/zh/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects).
       shared_ptr<string> filePath_ {};
+      // Recording file size, in bytes.
       shared_ptr<int32_t> fileSize_ {};
+      // See region used in the recording task.
       shared_ptr<int32_t> region_ {};
+      // Recording task start timestamp, in milliseconds.
       shared_ptr<int64_t> startTs_ {};
+      // Recording task ID.
       shared_ptr<string> taskId_ {};
+      // See vendor used when starting the recording task.
       shared_ptr<int32_t> vendor_ {};
     };
 
@@ -201,11 +211,15 @@ namespace Models
 
 
   protected:
+    // List of recording files.
     shared_ptr<vector<DescribeAppRecordingFilesResponseBody::Items>> items_ {};
+    // Page number.
     shared_ptr<int32_t> pageNo_ {};
+    // Number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Total count.
     shared_ptr<int32_t> totalCnt_ {};
   };
 

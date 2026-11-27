@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The ID of the hot word table.
     shared_ptr<string> id_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

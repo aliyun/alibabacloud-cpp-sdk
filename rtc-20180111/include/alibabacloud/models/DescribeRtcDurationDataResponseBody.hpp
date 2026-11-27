@@ -178,6 +178,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeRtcDurationDataResponseBody::DurationDataPerInterval> durationDataPerInterval_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

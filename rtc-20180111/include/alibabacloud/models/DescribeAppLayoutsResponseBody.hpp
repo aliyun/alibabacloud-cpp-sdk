@@ -133,11 +133,17 @@ namespace Models
 
 
       protected:
+        // The pane height, as a normalized percentage. The value range for Height is 0.0 < Height ≤ 1.0.
         shared_ptr<float> height_ {};
+        // The pane ID.
         shared_ptr<int32_t> paneId_ {};
+        // The pane width, as a normalized percentage. The value range for Width is 0.0 < Width ≤ 1.0.
         shared_ptr<float> width_ {};
+        // The X coordinate, as a normalized percentage. The value range for X is 0.0 ≤ X ≤ 1.0.
         shared_ptr<float> x_ {};
+        // The Y coordinate, as a normalized percentage. The value range for Y is 0.0 ≤ Y ≤ 1.0.
         shared_ptr<float> y_ {};
+        // The Z-order. 0 is the bottom layer, 1 is above 0, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -167,8 +173,11 @@ namespace Models
 
 
     protected:
+      // The layout ID.
       shared_ptr<string> layoutId_ {};
+      // The layout name.
       shared_ptr<string> name_ {};
+      // The list of panes.
       shared_ptr<vector<Layouts::Panes>> panes_ {};
     };
 
@@ -205,9 +214,13 @@ namespace Models
 
 
   protected:
+    // The list of layouts.
     shared_ptr<vector<DescribeAppLayoutsResponseBody::Layouts>> layouts_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalNum_ {};
+    // The total number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

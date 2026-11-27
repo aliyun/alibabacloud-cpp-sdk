@@ -115,7 +115,9 @@ namespace Models
 
 
       protected:
+        // Time of joining the call, represented as a UNIX timestamp in seconds.
         shared_ptr<int64_t> joinTs_ {};
+        // Time of leaving the call, represented as a UNIX timestamp in seconds.
         shared_ptr<int64_t> leaveTs_ {};
       };
 
@@ -195,15 +197,25 @@ namespace Models
 
 
     protected:
+      // Call creation time, represented as a UNIX timestamp in seconds.
       shared_ptr<int64_t> createdTs_ {};
+      // [responses_200_schema_properties_UserDetail_properties_OnlineDuration_type]integer
       shared_ptr<int64_t> destroyedTs_ {};
+      // [responses_200_schema_properties_FactorList_title]List of impact factors. An empty value indicates that the impact factors are unknown.
       shared_ptr<int64_t> duration_ {};
+      // Geographic location information, such as: Beijing City - Beijing Municipality.
       shared_ptr<string> location_ {};
+      // [responses_200_schema_properties_UserDetail_properties_OnlinePeriods_items_properties_JoinTs_title]Time of joining the call, represented as a UNIX timestamp in seconds.
       shared_ptr<string> network_ {};
+      // Online duration, in seconds.
       shared_ptr<int64_t> onlineDuration_ {};
+      // Online period information.
       shared_ptr<vector<UserDetail::OnlinePeriods>> onlinePeriods_ {};
+      // [responses_200_schema_properties_UserDetail_properties_OnlinePeriods_type]array
       shared_ptr<string> os_ {};
+      // [responses_200_schema_properties_UserDetail_properties_Location_title]Geographic location information, such as: Beijing City - Beijing Municipality
       shared_ptr<string> sdkVersion_ {};
+      // [responses_200_schema_properties_UserDetail_properties_OnlinePeriods_items_properties_LeaveTs_title]Time of leaving the call, represented as a UNIX timestamp in seconds.
       shared_ptr<string> userId_ {};
     };
 
@@ -264,7 +276,9 @@ namespace Models
 
 
       protected:
+        // 指标趋势图中x轴横坐标，单位时间为1分钟。
         shared_ptr<string> x_ {};
+        // 指标趋势图中y轴纵坐标。
         shared_ptr<string> y_ {};
       };
 
@@ -279,6 +293,7 @@ namespace Models
 
 
     protected:
+      // List of metric coordinate points.
       shared_ptr<vector<FaultMetricData::Nodes>> nodes_ {};
     };
 
@@ -381,8 +396,11 @@ namespace Models
 
 
         protected:
+          // [responses_200_schema_properties_FactorList_items_properties_RelatedEventDatas_items_properties_EventDataItems_items_properties_EventList_items_properties_Ts_title]The time of the first management event occurrence, represented as a UNIX timestamp in seconds.
           Darabonba::Json ext_ {};
+          // [responses_200_schema_properties_FactorList_items_properties_FactorId_title]Factor ID: 1: Poor publisher-side Network; 2: Poor subscriber-side Network; 3: Poor publisher-side device Performance; 4: Publisher-side camera shutdown; 5: Publisher-side app moved to background Run
           shared_ptr<string> x_ {};
+          // [responses_200_schema_properties_RequestId_title]The Request ID.
           shared_ptr<string> y_ {};
         };
 
@@ -419,9 +437,15 @@ namespace Models
 
 
       protected:
+        // [responses_200_schema_properties_FactorList_items_properties_RelatedEventDatas_items_properties_EventDataItems_items_properties_EventList_items_properties_EventName_type]string
         shared_ptr<vector<RelatedMetricDatas::Nodes>> nodes_ {};
+        // Source role. Valid values:
+        // - **SENDER**: Publisher.
+        // - **RECEIVER**: Subscriber.
         shared_ptr<string> role_ {};
+        // Metric type, consistent with the metric types defined in the end-to-end metrics API.
         shared_ptr<string> type_ {};
+        // User ID of the publisher from which the data originates.
         shared_ptr<string> userId_ {};
       };
 
@@ -516,8 +540,13 @@ namespace Models
 
 
           protected:
+            // Event Name.
             shared_ptr<string> eventName_ {};
+            // Event Type. Valid values:
+            // - **USER**: User event.
+            // - **SYSTEM**: System event.
             shared_ptr<string> eventType_ {};
+            // The time of the first management event occurrence, represented as a UNIX timestamp in seconds.
             shared_ptr<int64_t> ts_ {};
           };
 
@@ -540,7 +569,9 @@ namespace Models
 
 
         protected:
+          // Event List.
           shared_ptr<vector<EventDataItems::EventList>> eventList_ {};
+          // [responses_200_schema_properties_FaultMetricData_properties_Nodes_description]List of metric coordinate points.
           shared_ptr<int64_t> ts_ {};
         };
 
@@ -570,8 +601,13 @@ namespace Models
 
 
       protected:
+        // List of event data.
         shared_ptr<vector<RelatedEventDatas::EventDataItems>> eventDataItems_ {};
+        // Source role. Valid values:
+        // - **SENDER**: Publisher (upstream).
+        // - **RECEIVER**: Subscriber (downstream).
         shared_ptr<string> role_ {};
+        // User ID
         shared_ptr<string> userId_ {};
       };
 
@@ -610,9 +646,13 @@ namespace Models
 
 
     protected:
+      // The factor ID. For details, see the factor ID values below.
       shared_ptr<string> factorId_ {};
+      // Abnormal source: LOCAL indicates the local end; REMOTE indicates the remote end.
       shared_ptr<string> faultSource_ {};
+      // Associated management events, grouped by time. Coordinate data is returned when FaultType is AUDIO_STUCK, VIDEO_STUCK, VIDEO_VAGUE, or HIGH_DELAY.
       shared_ptr<vector<FactorList::RelatedEventDatas>> relatedEventDatas_ {};
+      // Associated metrics and coordinate data, returned when FaultType is AUDIO_STUCK, VIDEO_STUCK, VIDEO_VAGUE, or HIGH_DELAY.
       shared_ptr<vector<FactorList::RelatedMetricDatas>> relatedMetricDatas_ {};
     };
 
@@ -692,10 +732,17 @@ namespace Models
     protected:
       // App ID。
       shared_ptr<string> appId_ {};
+      // Call status. Valid values:
+      // - **IN**: In progress.
+      // - **OUT**: Ended.
       shared_ptr<string> callStatus_ {};
+      // Channel ID.
       shared_ptr<string> channelId_ {};
+      // The time when the call was created, represented as a UNIX timestamp in seconds.
       shared_ptr<int64_t> createdTs_ {};
+      // The time when the call was released, represented as a UNIX timestamp in seconds.
       shared_ptr<int64_t> destroyedTs_ {};
+      // Call duration in seconds.
       shared_ptr<int64_t> duration_ {};
     };
 
@@ -754,11 +801,17 @@ namespace Models
 
 
   protected:
+    // Basic call information, returned when QueryCallUserInfo=false.
     shared_ptr<DescribeFaultDiagnosisUserDetailResponseBody::CallInfo> callInfo_ {};
+    // List of impact factors. An empty list indicates that the impact factors are unknown.
     shared_ptr<vector<DescribeFaultDiagnosisUserDetailResponseBody::FactorList>> factorList_ {};
+    // Abnormal metrics.
     shared_ptr<DescribeFaultDiagnosisUserDetailResponseBody::FaultMetricData> faultMetricData_ {};
+    // List of Network carriers
     shared_ptr<vector<string>> networkOperators_ {};
+    // The Request ID.
     shared_ptr<string> requestId_ {};
+    // [responses_200_schema_properties_UserDetail_properties_CreatedTs_type]integer
     shared_ptr<DescribeFaultDiagnosisUserDetailResponseBody::UserDetail> userDetail_ {};
   };
 

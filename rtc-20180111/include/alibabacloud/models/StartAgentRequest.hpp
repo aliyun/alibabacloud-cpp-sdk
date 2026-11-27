@@ -176,13 +176,29 @@ namespace Models
 
 
       protected:
+        // The API key of the service provider.
         shared_ptr<string> apiKey_ {};
+        // The configuration to filter out characters within specified brackets from text-to-speech conversion.
         shared_ptr<vector<int32_t>> filterBrackets_ {};
+        // The model name. Example: cosyvoice-v1.
         shared_ptr<string> model_ {};
+        // The pitch.
+        // Valid values: 0.5 to 2.0.
+        // Default value: 1.0.
         shared_ptr<double> pitch_ {};
+        // The speech rate.
+        // Valid values: 0.5 to 2.0.
+        // Default value: 1.0.
         shared_ptr<double> rate_ {};
+        // The service provider. Example: aliyun for Model Studio.
         shared_ptr<string> vendor_ {};
+        // The voice. If you select the Alibaba Cloud cosyvoice-v1 model, the default voice is longxiaoxia.
+        // Available voices:
+        // longwan, longcheng, longhua, longxiaochun, longxiaoxia, longxiaocheng, longxiaobai, longlaotie, longshu, longshuo, longjing, longmiao, longyue, longyuan, longfei, longjielidou, longtong, longxiang, loongstella, and loongbella.
         shared_ptr<string> voice_ {};
+        // The volume.
+        // Valid values: 0 to 100.
+        // Default value: 50.
         shared_ptr<int32_t> volume_ {};
       };
 
@@ -342,19 +358,41 @@ namespace Models
 
 
       protected:
+        // The API key of the service provider.
         shared_ptr<string> apiKey_ {};
+        // The agent application ID. You must specify either Model or AppId. If both are specified, AppId takes precedence.
         shared_ptr<string> appId_ {};
+        // The custom parameters.
         Darabonba::Json bizParams_ {};
+        // The number of historical conversation turns provided to the LLM.
+        // Default value: 3.
         shared_ptr<int32_t> historyDepth_ {};
+        // The maximum number of tokens for the output text.
+        // Default value: 8192.
+        // The maximum value for DeepSeek and Qwen models is 8192.
         shared_ptr<int32_t> maxToken_ {};
+        // The model name.
+        // Supported models under the aliyun provider:
+        // ["qwen-plus", "deepseek-r1", "qwen-omni-turbo"]
         shared_ptr<string> model_ {};
+        // The custom user parameters in key-value pairs. This parameter is deprecated. Use the BizParams parameter instead.
         Darabonba::Json params_ {};
+        // The prompt used to instruct the model on the role or behavior to adopt.
         shared_ptr<string> prompt_ {};
+        // The sampling temperature used to control the randomness and creativity of the generated text. A higher value indicates higher randomness.
+        // Default value: 0.7.
+        // Valid values: 0 to 2, excluding 2.
+        // Note: This parameter does not take effect for deepseek-r1.
         shared_ptr<double> temperature_ {};
         Darabonba::Json toolExecutionConfig_ {};
         shared_ptr<vector<Darabonba::Json>> tools_ {};
+        // The sampling range used to control the diversity of output tokens. The model samples from tokens whose cumulative probability exceeds this value to ensure the sampling range is not too broad. A higher value indicates a richer variety of output tokens.
+        // Valid values: 0 to 1, excluding 0.
+        // Default value: 0.8.
         shared_ptr<double> topP_ {};
+        // The endpoint URL for integrating a third-party LLM.
         shared_ptr<string> url_ {};
+        // The name of the service provider when a cloud service provider is integrated. Examples: aliyun for Model Studio, thirdparty.
         shared_ptr<string> vendor_ {};
       };
 
@@ -386,6 +424,7 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable semantic interruption. Default value: true.
         shared_ptr<bool> semanticsInterrupt_ {};
       };
 
@@ -427,6 +466,7 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable backchannel responses after the user finishes speaking. Default value: false.
         shared_ptr<bool> userTurnEnd_ {};
         shared_ptr<int32_t> version_ {};
       };
@@ -469,7 +509,14 @@ namespace Models
 
 
       protected:
+        // The ambient sound ID. Built-in and download modes are planned. Currently, only the built-in mode is supported.
+        // - If this parameter is not specified or is left empty, ambient sound is disabled.
+        // - Built-in mode: The agent provides the following default ambient sounds: white_noise (white noise) and office (office environment).
+        // - Download mode: You can specify a custom soundId in the console (which must be different from built-in IDs) and provide a URL. The agent will download and bind the sound internally.
         shared_ptr<string> soundId_ {};
+        // The volume of the ambient sound.
+        // Default value: 50 (original volume).
+        // Valid values: 0 to 100.
         shared_ptr<int32_t> volume_ {};
       };
 
@@ -538,10 +585,24 @@ namespace Models
 
 
       protected:
+        // The timeout period for silence reminders, in seconds.
+        // This reminder can be triggered multiple times. If the agent remains silent after a silence reminder timeout, the reminder is triggered again upon the next timeout.
+        // Valid values: 5 to 600.
+        // Default value: 0. A value of 0 indicates that no reminder is sent.
         shared_ptr<int32_t> alertTimeout_ {};
+        // The content of the silence prompt message.
         shared_ptr<string> content_ {};
+        // The switch.
         shared_ptr<bool> enable_ {};
+        // The script strategy for silence reminders. Valid values:
+        // - 1: Broadcast the prompt message specified by Content to the user by voice.
+        // - 2: Send the prompt message specified by Content and the conversation history to the LLM, and broadcast the generated reply by voice.
+        // Default value: 1.
         shared_ptr<int32_t> strategy_ {};
+        // The silence timeout period for triggering the agent silence timeout webhook, in seconds.
+        // This webhook can be triggered multiple times. If the agent remains silent after a webhook silence timeout, the webhook is triggered again upon the next timeout.
+        // Valid values: 10 to 600.
+        // Default value: 0. A value of 0 indicates that the webhook is not triggered.
         shared_ptr<int32_t> webhookTriggerTimeout_ {};
       };
 
@@ -602,6 +663,9 @@ namespace Models
 
 
         protected:
+          // The minimum duration of continuous human voice signals required to avoid false interruptions, in milliseconds.
+          // Valid values: 0 to 3000.
+          // Default value: 300.
           shared_ptr<int32_t> interruptSpeechDuration_ {};
         };
 
@@ -654,11 +718,23 @@ namespace Models
 
 
       protected:
+        // If this parameter is not specified, the model automatically identifies the language.
+        // Currently supported language codes:
+        // - zh: Chinese, including Mandarin and dialects such as Shanghainese, Wu, Minnan, Northeastern, Gansu, Guizhou, Henan, Hubei, Hunan, Jiangxi, Ningxia, Shanxi, Shaanxi, Shandong, Sichuan, Tianjin, Yunnan, and Cantonese.
+        // - en: English.
+        // - ja: Japanese.
+        // - yue: Cantonese.
+        // - ko: Korean.
         shared_ptr<vector<string>> languageHints_ {};
+        // The voice segmentation detection threshold. Default value: 800. Unit: milliseconds. Recommended range: 200 to 6000.
         shared_ptr<int32_t> maxSentenceSilence_ {};
+        // Specifies whether semantic or voice segmentation is enabled.
         shared_ptr<bool> semanticPunctuationEnabled_ {};
+        // No configuration is required.
         shared_ptr<string> sourceLanguage_ {};
+        // The Voice Activity Detection (VAD) configuration.
         shared_ptr<ASRConfig::VadConfig> vadConfig_ {};
+        // The ID of the supported hot word.
         shared_ptr<string> vocabularyId_ {};
       };
 
@@ -765,17 +841,38 @@ namespace Models
 
 
     protected:
+      // The Automatic Speech Recognition (ASR) configuration.
       shared_ptr<VoiceChatConfig::ASRConfig> ASRConfig_ {};
+      // The configuration for agent behavior during silence timeout. When a user joins the channel but does not interact effectively with the agent (the user does not speak), the agent is in a silent state. You can configure the agent to broadcast a voice messaging reminder or send a webhook notification during this silent state.
       shared_ptr<VoiceChatConfig::AgentSilenceConfig> agentSilenceConfig_ {};
+      // The ambient sound settings.
       shared_ptr<VoiceChatConfig::AmbientSoundConfig> ambientSoundConfig_ {};
+      // The backchannel settings.
       shared_ptr<VoiceChatConfig::BackChannelConfig> backChannelConfig_ {};
+      // The chat mode. Valid values:
+      // - 1: natural conversation mode. This is the default value.
+      // - 2: walkie-talkie mode.
       shared_ptr<int32_t> chatMode_ {};
+      // Specifies whether to enable visual understanding. If enabled, the large language model (LLM) must support multimodal data.
       shared_ptr<bool> enableVideoUnderstanding_ {};
+      // The greeting message.
       shared_ptr<string> greeting_ {};
+      // The interrupt settings.
       shared_ptr<VoiceChatConfig::InterruptConfig> interruptConfig_ {};
+      // The interrupt mode. Valid values:
+      // - 1: voice interruption supported. This is the default value.
+      // - 2: voice interruption disabled.
       shared_ptr<int32_t> interruptMode_ {};
+      // The large language model (LLM) configuration.
       shared_ptr<VoiceChatConfig::LLMConfig> LLMConfig_ {};
+      // The text-to-speech (TTS) configuration.
       shared_ptr<VoiceChatConfig::TTSConfig> TTSConfig_ {};
+      // After visual understanding is enabled, you can specify the video stream that the agent prioritizes for understanding. The agent can understand only one video stream when both the camera stream and the screen sharing stream are pushed simultaneously.
+      // 
+      // 1. The agent prioritizes the camera stream.
+      // 2. The agent prioritizes the screen sharing stream.
+      // 
+      // By default, the camera stream is prioritized.
       shared_ptr<int32_t> preferVideo_ {};
     };
 
@@ -828,9 +925,19 @@ namespace Models
 
 
     protected:
+      // The list of user IDs subscribed by the agent. Currently, only one user ID is supported.
       shared_ptr<vector<string>> targetUserIds_ {};
+      // The user ID of the agent in the RTC channel.
+      // 
       // This parameter is required.
       shared_ptr<string> userId_ {};
+      // The maximum duration threshold for user inactivity, in seconds.
+      // When the duration of any of the following states reaches this threshold, the agent automatically stops and exits the channel:
+      // 1. All users in the targetUserIds list have left the channel.
+      // 2. The users in the targetUserIds list have not joined the channel.
+      // 
+      // Default value: 30.
+      // Valid values: 5 to 180.
       shared_ptr<int32_t> userInactivityTimeout_ {};
     };
 
@@ -883,16 +990,27 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The ID of the channel to join. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The configuration for the agent to join a Real-Time Communication (RTC) channel.
+    // 
     // This parameter is required.
     shared_ptr<StartAgentRequest::RtcConfig> rtcConfig_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
+    // The configuration for AI voice chat.
     shared_ptr<StartAgentRequest::VoiceChatConfig> voiceChatConfig_ {};
   };
 

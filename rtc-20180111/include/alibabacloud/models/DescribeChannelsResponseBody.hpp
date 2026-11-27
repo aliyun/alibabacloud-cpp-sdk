@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The active channels.
     shared_ptr<vector<string>> records_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total count.
     shared_ptr<int32_t> totalCnt_ {};
   };
 

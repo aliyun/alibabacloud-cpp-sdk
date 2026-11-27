@@ -2,11 +2,13 @@
 #include <alibabacloud/Rtc20180111.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/gateway/POP.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
+using namespace AlibabaCloud::Gateway;
 using namespace AlibabaCloud::OpenApi;
 using namespace AlibabaCloud::Rtc20180111::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -17,6 +19,9 @@ namespace Rtc20180111
 {
 
 AlibabaCloud::Rtc20180111::Client::Client(Config &config): OpenApiClient(config){
+  this->_productId = "rtc";
+  shared_ptr<POP> gatewayClient = make_shared<POP>();
+  this->_spi = gatewayClient;
   this->_endpointRule = "central";
   checkConfig(config);
   this->_endpoint = getEndpoint("rtc", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -36,6 +41,13 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Adds a recording configuration template.
+ *
+ * @description # Usage notes
+ * This operation adds a recording configuration template. For example, when you add a recording configuration template, you can configure parameters such as recording specifications and encoding options.
+ * # QPS limits
+ * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request AddRecordTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddRecordTemplateResponse
@@ -137,6 +149,13 @@ AddRecordTemplateResponse Client::addRecordTemplateWithOptions(const AddRecordTe
 }
 
 /**
+ * @summary Adds a recording configuration template.
+ *
+ * @description # Usage notes
+ * This operation adds a recording configuration template. For example, when you add a recording configuration template, you can configure parameters such as recording specifications and encoding options.
+ * # QPS limits
+ * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request AddRecordTemplateRequest
  * @return AddRecordTemplateResponse
  */
@@ -146,7 +165,10 @@ AddRecordTemplateResponse Client::addRecordTemplate(const AddRecordTemplateReque
 }
 
 /**
- * @summary 创建应用智能体模版
+ * @summary Creates an application agent template.
+ *
+ * @description ### QPS limit
+ * The QPS limit for a single user is 10 calls per second for this API operation. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param tmpReq CreateAppAgentTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -263,7 +285,10 @@ CreateAppAgentTemplateResponse Client::createAppAgentTemplateWithOptions(const C
 }
 
 /**
- * @summary 创建应用智能体模版
+ * @summary Creates an application agent template.
+ *
+ * @description ### QPS limit
+ * The QPS limit for a single user is 10 calls per second for this API operation. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request CreateAppAgentTemplateRequest
  * @return CreateAppAgentTemplateResponse
@@ -274,7 +299,10 @@ CreateAppAgentTemplateResponse Client::createAppAgentTemplate(const CreateAppAge
 }
 
 /**
- * @summary 新增app自定义布局
+ * @summary Creates a custom layout for an application.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param tmpReq CreateAppLayoutRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +347,10 @@ CreateAppLayoutResponse Client::createAppLayoutWithOptions(const CreateAppLayout
 }
 
 /**
- * @summary 新增app自定义布局
+ * @summary Creates a custom layout for an application.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request CreateAppLayoutRequest
  * @return CreateAppLayoutResponse
@@ -330,7 +361,10 @@ CreateAppLayoutResponse Client::createAppLayout(const CreateAppLayoutRequest &re
 }
 
 /**
- * @summary 增加应用录制模版
+ * @summary Creates an application recording template.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
  *
  * @param tmpReq CreateAppRecordTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -375,7 +409,10 @@ CreateAppRecordTemplateResponse Client::createAppRecordTemplateWithOptions(const
 }
 
 /**
- * @summary 增加应用录制模版
+ * @summary Creates an application recording template.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
  *
  * @param request CreateAppRecordTemplateRequest
  * @return CreateAppRecordTemplateResponse
@@ -386,7 +423,12 @@ CreateAppRecordTemplateResponse Client::createAppRecordTemplate(const CreateAppR
 }
 
 /**
- * @summary 创建应用推流模版
+ * @summary Creates a stream forwarding template for an RTC 3.0 application.
+ *
+ * @description ### Usage notes
+ * This operation creates a stream forwarding template for an RTC 3.0 application.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param tmpReq CreateAppStreamingOutTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -427,7 +469,12 @@ CreateAppStreamingOutTemplateResponse Client::createAppStreamingOutTemplateWithO
 }
 
 /**
- * @summary 创建应用推流模版
+ * @summary Creates a stream forwarding template for an RTC 3.0 application.
+ *
+ * @description ### Usage notes
+ * This operation creates a stream forwarding template for an RTC 3.0 application.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param request CreateAppStreamingOutTemplateRequest
  * @return CreateAppStreamingOutTemplateResponse
@@ -438,7 +485,10 @@ CreateAppStreamingOutTemplateResponse Client::createAppStreamingOutTemplate(cons
 }
 
 /**
- * @summary 创建应用合流模版
+ * @summary Creates an application stream mixing template.
+ *
+ * @description ### QPS limits
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
  *
  * @param tmpReq CreateAppViewTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -479,7 +529,10 @@ CreateAppViewTemplateResponse Client::createAppViewTemplateWithOptions(const Cre
 }
 
 /**
- * @summary 创建应用合流模版
+ * @summary Creates an application stream mixing template.
+ *
+ * @description ### QPS limits
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
  *
  * @param request CreateAppViewTemplateRequest
  * @return CreateAppViewTemplateResponse
@@ -490,6 +543,13 @@ CreateAppViewTemplateResponse Client::createAppViewTemplate(const CreateAppViewT
 }
 
 /**
+ * @summary Calls CreateAutoLiveStreamRule to create an automatic single-stream relay rule.
+ *
+ * @description # Usage notes
+ * This operation is used to create a relay rule.
+ * # QPS limit
+ * The per-user QPS limit of this operation is 1,000 calls per minute. If the limit is exceeded, API calls will be throttled, which may affect your business. Call the operation properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request CreateAutoLiveStreamRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAutoLiveStreamRuleResponse
@@ -547,6 +607,13 @@ CreateAutoLiveStreamRuleResponse Client::createAutoLiveStreamRuleWithOptions(con
 }
 
 /**
+ * @summary Calls CreateAutoLiveStreamRule to create an automatic single-stream relay rule.
+ *
+ * @description # Usage notes
+ * This operation is used to create a relay rule.
+ * # QPS limit
+ * The per-user QPS limit of this operation is 1,000 calls per minute. If the limit is exceeded, API calls will be throttled, which may affect your business. Call the operation properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request CreateAutoLiveStreamRuleRequest
  * @return CreateAutoLiveStreamRuleResponse
  */
@@ -556,7 +623,7 @@ CreateAutoLiveStreamRuleResponse Client::createAutoLiveStreamRule(const CreateAu
 }
 
 /**
- * @summary 增加纪要热词表
+ * @summary Creates a hotword table for meeting minutes.
  *
  * @param tmpReq CreateCloudNotePhrasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -597,7 +664,7 @@ CreateCloudNotePhrasesResponse Client::createCloudNotePhrasesWithOptions(const C
 }
 
 /**
- * @summary 增加纪要热词表
+ * @summary Creates a hotword table for meeting minutes.
  *
  * @param request CreateCloudNotePhrasesRequest
  * @return CreateCloudNotePhrasesResponse
@@ -608,6 +675,13 @@ CreateCloudNotePhrasesResponse Client::createCloudNotePhrases(const CreateCloudN
 }
 
 /**
+ * @summary Calls CreateEventSubscribe to create a callback for subscribing to room messages.
+ *
+ * @description # Usage notes
+ * This operation is used to create a callback for subscribing to room messages. For example, when you create a callback, you can configure parameters such as the callback URL and event type.
+ * # QPS limit
+ * The per-user QPS limit of this operation is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make sure that you call this operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request CreateEventSubscribeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateEventSubscribeResponse
@@ -669,6 +743,13 @@ CreateEventSubscribeResponse Client::createEventSubscribeWithOptions(const Creat
 }
 
 /**
+ * @summary Calls CreateEventSubscribe to create a callback for subscribing to room messages.
+ *
+ * @description # Usage notes
+ * This operation is used to create a callback for subscribing to room messages. For example, when you create a callback, you can configure parameters such as the callback URL and event type.
+ * # QPS limit
+ * The per-user QPS limit of this operation is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make sure that you call this operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request CreateEventSubscribeRequest
  * @return CreateEventSubscribeResponse
  */
@@ -678,6 +759,13 @@ CreateEventSubscribeResponse Client::createEventSubscribe(const CreateEventSubsc
 }
 
 /**
+ * @summary Creates a bypass live streaming layout.
+ *
+ * @description # Usage notes
+ * This operation creates a bypass live streaming layout. For example, you can configure parameters such as the number of audio mixes and the main pane.
+ * # QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request CreateMPULayoutRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateMPULayoutResponse
@@ -723,6 +811,13 @@ CreateMPULayoutResponse Client::createMPULayoutWithOptions(const CreateMPULayout
 }
 
 /**
+ * @summary Creates a bypass live streaming layout.
+ *
+ * @description # Usage notes
+ * This operation creates a bypass live streaming layout. For example, you can configure parameters such as the number of audio mixes and the main pane.
+ * # QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request CreateMPULayoutRequest
  * @return CreateMPULayoutResponse
  */
@@ -732,7 +827,10 @@ CreateMPULayoutResponse Client::createMPULayout(const CreateMPULayoutRequest &re
 }
 
 /**
- * @summary 删除应用智能体模版
+ * @summary Deletes an application agent template.
+ *
+ * @description ### QPS limits
+ * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request DeleteAppAgentTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -767,7 +865,10 @@ DeleteAppAgentTemplateResponse Client::deleteAppAgentTemplateWithOptions(const D
 }
 
 /**
- * @summary 删除应用智能体模版
+ * @summary Deletes an application agent template.
+ *
+ * @description ### QPS limits
+ * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request DeleteAppAgentTemplateRequest
  * @return DeleteAppAgentTemplateResponse
@@ -778,7 +879,10 @@ DeleteAppAgentTemplateResponse Client::deleteAppAgentTemplate(const DeleteAppAge
 }
 
 /**
- * @summary 删除app自定义布局
+ * @summary Deletes a custom layout for an application.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param tmpReq DeleteAppLayoutRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -823,7 +927,10 @@ DeleteAppLayoutResponse Client::deleteAppLayoutWithOptions(const DeleteAppLayout
 }
 
 /**
- * @summary 删除app自定义布局
+ * @summary Deletes a custom layout for an application.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param request DeleteAppLayoutRequest
  * @return DeleteAppLayoutResponse
@@ -834,7 +941,10 @@ DeleteAppLayoutResponse Client::deleteAppLayout(const DeleteAppLayoutRequest &re
 }
 
 /**
- * @summary 删除应用录制模版
+ * @summary Deletes an application recording template.
+ *
+ * @description ### QPS limits
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param tmpReq DeleteAppRecordTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -879,7 +989,10 @@ DeleteAppRecordTemplateResponse Client::deleteAppRecordTemplateWithOptions(const
 }
 
 /**
- * @summary 删除应用录制模版
+ * @summary Deletes an application recording template.
+ *
+ * @description ### QPS limits
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request DeleteAppRecordTemplateRequest
  * @return DeleteAppRecordTemplateResponse
@@ -890,7 +1003,12 @@ DeleteAppRecordTemplateResponse Client::deleteAppRecordTemplate(const DeleteAppR
 }
 
 /**
- * @summary 删除应用推流模版
+ * @summary Deletes a stream ingest template for an RTC 3.0 application.
+ *
+ * @description ### Usage notes
+ * This operation deletes a stream ingest template for an RTC 3.0 application.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param tmpReq DeleteAppStreamingOutTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -931,7 +1049,12 @@ DeleteAppStreamingOutTemplateResponse Client::deleteAppStreamingOutTemplateWithO
 }
 
 /**
- * @summary 删除应用推流模版
+ * @summary Deletes a stream ingest template for an RTC 3.0 application.
+ *
+ * @description ### Usage notes
+ * This operation deletes a stream ingest template for an RTC 3.0 application.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request DeleteAppStreamingOutTemplateRequest
  * @return DeleteAppStreamingOutTemplateResponse
@@ -942,7 +1065,10 @@ DeleteAppStreamingOutTemplateResponse Client::deleteAppStreamingOutTemplate(cons
 }
 
 /**
- * @summary 删除应用合流模版
+ * @summary Deletes an application\\"s composite stream template.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit for this API is 10 calls per second for each user. If you exceed this limit, rate limiting is triggered. This may affect your business. Call this API at a reasonable rate.
  *
  * @param tmpReq DeleteAppViewTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -983,7 +1109,10 @@ DeleteAppViewTemplateResponse Client::deleteAppViewTemplateWithOptions(const Del
 }
 
 /**
- * @summary 删除应用合流模版
+ * @summary Deletes an application\\"s composite stream template.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit for this API is 10 calls per second for each user. If you exceed this limit, rate limiting is triggered. This may affect your business. Call this API at a reasonable rate.
  *
  * @param request DeleteAppViewTemplateRequest
  * @return DeleteAppViewTemplateResponse
@@ -994,6 +1123,13 @@ DeleteAppViewTemplateResponse Client::deleteAppViewTemplate(const DeleteAppViewT
 }
 
 /**
+ * @summary Deletes an automatic bypass single-stream relay rule.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+ * # QPS limits
+ * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DeleteAutoLiveStreamRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAutoLiveStreamRuleResponse
@@ -1031,6 +1167,13 @@ DeleteAutoLiveStreamRuleResponse Client::deleteAutoLiveStreamRuleWithOptions(con
 }
 
 /**
+ * @summary Deletes an automatic bypass single-stream relay rule.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+ * # QPS limits
+ * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DeleteAutoLiveStreamRuleRequest
  * @return DeleteAutoLiveStreamRuleResponse
  */
@@ -1040,6 +1183,13 @@ DeleteAutoLiveStreamRuleResponse Client::deleteAutoLiveStreamRule(const DeleteAu
 }
 
 /**
+ * @summary Deletes a channel.
+ *
+ * @description # Usage notes
+ * This operation deletes a channel.
+ * # QPS limit
+ * This operation has no QPS limit per user. Call this operation as needed. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DeleteChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteChannelResponse
@@ -1077,6 +1227,13 @@ DeleteChannelResponse Client::deleteChannelWithOptions(const DeleteChannelReques
 }
 
 /**
+ * @summary Deletes a channel.
+ *
+ * @description # Usage notes
+ * This operation deletes a channel.
+ * # QPS limit
+ * This operation has no QPS limit per user. Call this operation as needed. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DeleteChannelRequest
  * @return DeleteChannelResponse
  */
@@ -1086,7 +1243,7 @@ DeleteChannelResponse Client::deleteChannel(const DeleteChannelRequest &request)
 }
 
 /**
- * @summary 删除纪要热词表
+ * @summary Deletes a hot word table.
  *
  * @param tmpReq DeleteCloudNotePhrasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1127,7 +1284,7 @@ DeleteCloudNotePhrasesResponse Client::deleteCloudNotePhrasesWithOptions(const D
 }
 
 /**
- * @summary 删除纪要热词表
+ * @summary Deletes a hot word table.
  *
  * @param request DeleteCloudNotePhrasesRequest
  * @return DeleteCloudNotePhrasesResponse
@@ -1138,6 +1295,13 @@ DeleteCloudNotePhrasesResponse Client::deleteCloudNotePhrases(const DeleteCloudN
 }
 
 /**
+ * @summary Deletes a callback for subscribing to room messages by calling DeleteEventSubscribe.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateEventSubscribe](https://help.aliyun.com/document_detail/274447.html) to create a callback for subscribing to room messages.
+ * # QPS limits
+ * The QPS limit of this operation is 1,000 calls per minute per user. If the limit is exceeded, API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DeleteEventSubscribeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteEventSubscribeResponse
@@ -1175,6 +1339,13 @@ DeleteEventSubscribeResponse Client::deleteEventSubscribeWithOptions(const Delet
 }
 
 /**
+ * @summary Deletes a callback for subscribing to room messages by calling DeleteEventSubscribe.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateEventSubscribe](https://help.aliyun.com/document_detail/274447.html) to create a callback for subscribing to room messages.
+ * # QPS limits
+ * The QPS limit of this operation is 1,000 calls per minute per user. If the limit is exceeded, API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DeleteEventSubscribeRequest
  * @return DeleteEventSubscribeResponse
  */
@@ -1184,6 +1355,13 @@ DeleteEventSubscribeResponse Client::deleteEventSubscribe(const DeleteEventSubsc
 }
 
 /**
+ * @summary Deletes a bypass live streaming layout.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html) to create a bypass live streaming layout.
+ * # QPS limits
+ * The per-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DeleteMPULayoutRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteMPULayoutResponse
@@ -1221,6 +1399,13 @@ DeleteMPULayoutResponse Client::deleteMPULayoutWithOptions(const DeleteMPULayout
 }
 
 /**
+ * @summary Deletes a bypass live streaming layout.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html) to create a bypass live streaming layout.
+ * # QPS limits
+ * The per-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DeleteMPULayoutRequest
  * @return DeleteMPULayoutResponse
  */
@@ -1230,6 +1415,13 @@ DeleteMPULayoutResponse Client::deleteMPULayout(const DeleteMPULayoutRequest &re
 }
 
 /**
+ * @summary Deletes a recording configuration template.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording configuration template.
+ * # QPS limits
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DeleteRecordTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteRecordTemplateResponse
@@ -1267,6 +1459,13 @@ DeleteRecordTemplateResponse Client::deleteRecordTemplateWithOptions(const Delet
 }
 
 /**
+ * @summary Deletes a recording configuration template.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording configuration template.
+ * # QPS limits
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DeleteRecordTemplateRequest
  * @return DeleteRecordTemplateResponse
  */
@@ -1276,7 +1475,10 @@ DeleteRecordTemplateResponse Client::deleteRecordTemplate(const DeleteRecordTemp
 }
 
 /**
- * @summary 列出系统支持的事件回调
+ * @summary Lists the event callbacks supported by the system.
+ *
+ * @description ### QPS limit
+ * This API supports a maximum of 10 calls per second per user. If you exceed this limit, rate limiting is applied to your API calls, which may affect your business operations. Use this API judiciously.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAllCallbackResponse
@@ -1298,7 +1500,10 @@ DescribeAllCallbackResponse Client::describeAllCallbackWithOptions(const Darabon
 }
 
 /**
- * @summary 列出系统支持的事件回调
+ * @summary Lists the event callbacks supported by the system.
+ *
+ * @description ### QPS limit
+ * This API supports a maximum of 10 calls per second per user. If you exceed this limit, rate limiting is applied to your API calls, which may affect your business operations. Use this API judiciously.
  *
  * @return DescribeAllCallbackResponse
  */
@@ -1308,7 +1513,10 @@ DescribeAllCallbackResponse Client::describeAllCallback() {
 }
 
 /**
- * @summary 查询应用智能体开关
+ * @summary Query the status of the application agent feature.
+ *
+ * @description ### QPS limit
+ * This API operation supports a maximum of 10 queries per second per user. If you exceed this limit, rate limiting is triggered, which may affect your application. Call this API only as needed.
  *
  * @param request DescribeAppAgentFunctionStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1339,7 +1547,10 @@ DescribeAppAgentFunctionStatusResponse Client::describeAppAgentFunctionStatusWit
 }
 
 /**
- * @summary 查询应用智能体开关
+ * @summary Query the status of the application agent feature.
+ *
+ * @description ### QPS limit
+ * This API operation supports a maximum of 10 queries per second per user. If you exceed this limit, rate limiting is triggered, which may affect your application. Call this API only as needed.
  *
  * @param request DescribeAppAgentFunctionStatusRequest
  * @return DescribeAppAgentFunctionStatusResponse
@@ -1350,7 +1561,10 @@ DescribeAppAgentFunctionStatusResponse Client::describeAppAgentFunctionStatus(co
 }
 
 /**
- * @summary 应用智能体模版列表
+ * @summary Lists agent templates.
+ *
+ * @description ### Rate limits
+ * The rate limit for this API operation is 10 queries per second (QPS) per user. If you exceed the limit, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
  *
  * @param request DescribeAppAgentTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1397,7 +1611,10 @@ DescribeAppAgentTemplatesResponse Client::describeAppAgentTemplatesWithOptions(c
 }
 
 /**
- * @summary 应用智能体模版列表
+ * @summary Lists agent templates.
+ *
+ * @description ### Rate limits
+ * The rate limit for this API operation is 10 queries per second (QPS) per user. If you exceed the limit, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
  *
  * @param request DescribeAppAgentTemplatesRequest
  * @return DescribeAppAgentTemplatesResponse
@@ -1408,7 +1625,10 @@ DescribeAppAgentTemplatesResponse Client::describeAppAgentTemplates(const Descri
 }
 
 /**
- * @summary 查看app回调开关
+ * @summary Queries the callback switch of an application.
+ *
+ * @description ### QPS limits
+ * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API operation at a reasonable rate.
  *
  * @param request DescribeAppCallStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1439,7 +1659,10 @@ DescribeAppCallStatusResponse Client::describeAppCallStatusWithOptions(const Des
 }
 
 /**
- * @summary 查看app回调开关
+ * @summary Queries the callback switch of an application.
+ *
+ * @description ### QPS limits
+ * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API operation at a reasonable rate.
  *
  * @param request DescribeAppCallStatusRequest
  * @return DescribeAppCallStatusResponse
@@ -1450,7 +1673,10 @@ DescribeAppCallStatusResponse Client::describeAppCallStatus(const DescribeAppCal
 }
 
 /**
- * @summary 获取app回调密钥
+ * @summary Obtain the application callback key
+ *
+ * @description ### Queries per second (QPS) limit  
+ * The queries per second (QPS) limit for this API is 10 requests per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeAppCallbackSecretKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1481,7 +1707,10 @@ DescribeAppCallbackSecretKeyResponse Client::describeAppCallbackSecretKeyWithOpt
 }
 
 /**
- * @summary 获取app回调密钥
+ * @summary Obtain the application callback key
+ *
+ * @description ### Queries per second (QPS) limit  
+ * The queries per second (QPS) limit for this API is 10 requests per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeAppCallbackSecretKeyRequest
  * @return DescribeAppCallbackSecretKeyResponse
@@ -1492,7 +1721,12 @@ DescribeAppCallbackSecretKeyResponse Client::describeAppCallbackSecretKey(const 
 }
 
 /**
- * @summary 查看AppKey
+ * @summary Invoke DescribeAppKey to query the AppKey of a specified application.
+ *
+ * @description ### How-To  
+ * Before invoking this API, you must have already created an application in the RTC console.  
+ * ### queries per second (QPS) limit  
+ * The QPS limit for this API is 200 requests per minute per user. If the limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeAppKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1527,7 +1761,12 @@ DescribeAppKeyResponse Client::describeAppKeyWithOptions(const DescribeAppKeyReq
 }
 
 /**
- * @summary 查看AppKey
+ * @summary Invoke DescribeAppKey to query the AppKey of a specified application.
+ *
+ * @description ### How-To  
+ * Before invoking this API, you must have already created an application in the RTC console.  
+ * ### queries per second (QPS) limit  
+ * The QPS limit for this API is 200 requests per minute per user. If the limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeAppKeyRequest
  * @return DescribeAppKeyResponse
@@ -1538,7 +1777,10 @@ DescribeAppKeyResponse Client::describeAppKey(const DescribeAppKeyRequest &reque
 }
 
 /**
- * @summary 查询app自定义布局
+ * @summary Query custom application layouts.
+ *
+ * @description ### QPS limit
+ * This API supports up to 10 queries per second (QPS) per user. Exceeding this limit triggers rate limiting, which may affect your business operations. Use the API judiciously.
  *
  * @param tmpReq DescribeAppLayoutsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1571,7 +1813,10 @@ DescribeAppLayoutsResponse Client::describeAppLayoutsWithOptions(const DescribeA
 }
 
 /**
- * @summary 查询app自定义布局
+ * @summary Query custom application layouts.
+ *
+ * @description ### QPS limit
+ * This API supports up to 10 queries per second (QPS) per user. Exceeding this limit triggers rate limiting, which may affect your business operations. Use the API judiciously.
  *
  * @param request DescribeAppLayoutsRequest
  * @return DescribeAppLayoutsResponse
@@ -1582,7 +1827,10 @@ DescribeAppLayoutsResponse Client::describeAppLayouts(const DescribeAppLayoutsRe
 }
 
 /**
- * @summary 查看应用旁路开关
+ * @summary View the application bypass switch.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit for this API is 10 for each user. API calls that exceed this limit are subject to rate limiting, which may impact your business. We recommend that you call this API at a reasonable rate.
  *
  * @param request DescribeAppLiveStreamStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1609,7 +1857,10 @@ DescribeAppLiveStreamStatusResponse Client::describeAppLiveStreamStatusWithOptio
 }
 
 /**
- * @summary 查看应用旁路开关
+ * @summary View the application bypass switch.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit for this API is 10 for each user. API calls that exceed this limit are subject to rate limiting, which may impact your business. We recommend that you call this API at a reasonable rate.
  *
  * @param request DescribeAppLiveStreamStatusRequest
  * @return DescribeAppLiveStreamStatusResponse
@@ -1620,7 +1871,10 @@ DescribeAppLiveStreamStatusResponse Client::describeAppLiveStreamStatus(const De
 }
 
 /**
- * @summary 查询应用录制开关
+ * @summary Queries the recording status of an application.
+ *
+ * @description ### QPS limit
+ * The QPS limit for this operation is 10 calls per second per user. Exceeding this limit triggers rate limiting, which may affect your business. Call this operation only as needed.
  *
  * @param request DescribeAppRecordStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1647,7 +1901,10 @@ DescribeAppRecordStatusResponse Client::describeAppRecordStatusWithOptions(const
 }
 
 /**
- * @summary 查询应用录制开关
+ * @summary Queries the recording status of an application.
+ *
+ * @description ### QPS limit
+ * The QPS limit for this operation is 10 calls per second per user. Exceeding this limit triggers rate limiting, which may affect your business. Call this operation only as needed.
  *
  * @param request DescribeAppRecordStatusRequest
  * @return DescribeAppRecordStatusResponse
@@ -1658,7 +1915,10 @@ DescribeAppRecordStatusResponse Client::describeAppRecordStatus(const DescribeAp
 }
 
 /**
- * @summary 应用录制模版列表
+ * @summary Queries the list of application recording templates.
+ *
+ * @description ### QPS limit
+ * The QPS limit for a single user calling this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable frequency.
  *
  * @param tmpReq DescribeAppRecordTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1691,7 +1951,10 @@ DescribeAppRecordTemplatesResponse Client::describeAppRecordTemplatesWithOptions
 }
 
 /**
- * @summary 应用录制模版列表
+ * @summary Queries the list of application recording templates.
+ *
+ * @description ### QPS limit
+ * The QPS limit for a single user calling this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable frequency.
  *
  * @param request DescribeAppRecordTemplatesRequest
  * @return DescribeAppRecordTemplatesResponse
@@ -1702,7 +1965,10 @@ DescribeAppRecordTemplatesResponse Client::describeAppRecordTemplates(const Desc
 }
 
 /**
- * @summary 查询录制列表
+ * @summary Lists recording files.
+ *
+ * @description ### QPS limit
+ * The QPS limit for this API is 10 requests per second per user. Exceeding this limit triggers rate limiting, which may affect your service. Call this API only when necessary.
  *
  * @param tmpReq DescribeAppRecordingFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1735,7 +2001,10 @@ DescribeAppRecordingFilesResponse Client::describeAppRecordingFilesWithOptions(c
 }
 
 /**
- * @summary 查询录制列表
+ * @summary Lists recording files.
+ *
+ * @description ### QPS limit
+ * The QPS limit for this API is 10 requests per second per user. Exceeding this limit triggers rate limiting, which may affect your service. Call this API only when necessary.
  *
  * @param request DescribeAppRecordingFilesRequest
  * @return DescribeAppRecordingFilesResponse
@@ -1746,7 +2015,12 @@ DescribeAppRecordingFilesResponse Client::describeAppRecordingFiles(const Descri
 }
 
 /**
- * @summary 应用推流模版列表
+ * @summary Query the list of stream ingest templates under an RTC 3.0 application.
+ *
+ * @description ### How-To  
+ * This API is used to view the list of stream ingest templates for an RTC 3.0 application.  
+ * ### Queries per second (QPS) limit  
+ * The QPS limit for this API is 10 queries per second per user. If this limit is exceeded, API calls will be rate-limited, which may impact your business. Please invoke the API appropriately.
  *
  * @param tmpReq DescribeAppStreamingOutTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1795,7 +2069,12 @@ DescribeAppStreamingOutTemplatesResponse Client::describeAppStreamingOutTemplate
 }
 
 /**
- * @summary 应用推流模版列表
+ * @summary Query the list of stream ingest templates under an RTC 3.0 application.
+ *
+ * @description ### How-To  
+ * This API is used to view the list of stream ingest templates for an RTC 3.0 application.  
+ * ### Queries per second (QPS) limit  
+ * The QPS limit for this API is 10 queries per second per user. If this limit is exceeded, API calls will be rate-limited, which may impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeAppStreamingOutTemplatesRequest
  * @return DescribeAppStreamingOutTemplatesResponse
@@ -1806,7 +2085,10 @@ DescribeAppStreamingOutTemplatesResponse Client::describeAppStreamingOutTemplate
 }
 
 /**
- * @summary 查看合流开关
+ * @summary View the stream merging switch
+ *
+ * @description ### QPS limits
+ * This API has a QPS limit of 10 queries per second (QPS) per user. If you exceed this limit, rate limiting is triggered, which can affect your business operations. Call the API at a reasonable rate.
  *
  * @param request DescribeAppViewStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1837,7 +2119,10 @@ DescribeAppViewStatusResponse Client::describeAppViewStatusWithOptions(const Des
 }
 
 /**
- * @summary 查看合流开关
+ * @summary View the stream merging switch
+ *
+ * @description ### QPS limits
+ * This API has a QPS limit of 10 queries per second (QPS) per user. If you exceed this limit, rate limiting is triggered, which can affect your business operations. Call the API at a reasonable rate.
  *
  * @param request DescribeAppViewStatusRequest
  * @return DescribeAppViewStatusResponse
@@ -1848,7 +2133,10 @@ DescribeAppViewStatusResponse Client::describeAppViewStatus(const DescribeAppVie
 }
 
 /**
- * @summary 应用合流模版列表
+ * @summary Lists application compositing templates.
+ *
+ * @description ### QPS limit
+ * The per-user QPS limit for this operation is 10 calls per second. Exceeding this limit triggers rate limiting, which may affect your business. You should call this operation only as needed.
  *
  * @param tmpReq DescribeAppViewTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1897,7 +2185,10 @@ DescribeAppViewTemplatesResponse Client::describeAppViewTemplatesWithOptions(con
 }
 
 /**
- * @summary 应用合流模版列表
+ * @summary Lists application compositing templates.
+ *
+ * @description ### QPS limit
+ * The per-user QPS limit for this operation is 10 calls per second. Exceeding this limit triggers rate limiting, which may affect your business. You should call this operation only as needed.
  *
  * @param request DescribeAppViewTemplatesRequest
  * @return DescribeAppViewTemplatesResponse
@@ -1908,7 +2199,12 @@ DescribeAppViewTemplatesResponse Client::describeAppViewTemplates(const Describe
 }
 
 /**
- * @summary App列表
+ * @summary Queries the list of applications.
+ *
+ * @description ### Usage notes
+ * This operation queries the list of applications. For example, you can obtain data such as the application ID, application name, and application type from the query results.
+ * ### QPS limits
+ * The QPS limit for a single user is 200 calls per minute. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param request DescribeAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1963,7 +2259,12 @@ DescribeAppsResponse Client::describeAppsWithOptions(const DescribeAppsRequest &
 }
 
 /**
- * @summary App列表
+ * @summary Queries the list of applications.
+ *
+ * @description ### Usage notes
+ * This operation queries the list of applications. For example, you can obtain data such as the application ID, application name, and application type from the query results.
+ * ### QPS limits
+ * The QPS limit for a single user is 200 calls per minute. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param request DescribeAppsRequest
  * @return DescribeAppsResponse
@@ -1974,6 +2275,13 @@ DescribeAppsResponse Client::describeApps(const DescribeAppsRequest &request) {
 }
 
 /**
+ * @summary Queries the automatic bypass single-stream relay rules.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+ * # QPS limit
+ * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeAutoLiveStreamRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAutoLiveStreamRuleResponse
@@ -2007,6 +2315,13 @@ DescribeAutoLiveStreamRuleResponse Client::describeAutoLiveStreamRuleWithOptions
 }
 
 /**
+ * @summary Queries the automatic bypass single-stream relay rules.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+ * # QPS limit
+ * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeAutoLiveStreamRuleRequest
  * @return DescribeAutoLiveStreamRuleResponse
  */
@@ -2016,7 +2331,12 @@ DescribeAutoLiveStreamRuleResponse Client::describeAutoLiveStreamRule(const Desc
 }
 
 /**
- * @summary 调用DescribeCall获取单次通信详情。
+ * @summary Queries the details of a single communication session. For example, you can query the communication status and user details.
+ *
+ * @description ### Usage notes
+ * This operation queries the details of a single communication session. For example, you can query the communication status and user details.
+ * ### QPS limit
+ * The QPS limit per user for this operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
  *
  * @param request DescribeCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2067,7 +2387,12 @@ DescribeCallResponse Client::describeCallWithOptions(const DescribeCallRequest &
 }
 
 /**
- * @summary 调用DescribeCall获取单次通信详情。
+ * @summary Queries the details of a single communication session. For example, you can query the communication status and user details.
+ *
+ * @description ### Usage notes
+ * This operation queries the details of a single communication session. For example, you can query the communication status and user details.
+ * ### QPS limit
+ * The QPS limit per user for this operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
  *
  * @param request DescribeCallRequest
  * @return DescribeCallResponse
@@ -2078,7 +2403,12 @@ DescribeCallResponse Client::describeCall(const DescribeCallRequest &request) {
 }
 
 /**
- * @summary 调用DescribeCallList分页查询时间范围内创建的通信信息。
+ * @summary Invoke DescribeCallList to perform a paged query of communication records created within a specified time range.
+ *
+ * @description ### How-To  
+ * This API is used to query communication records created within a specified time range. For example, you can query information such as call duration, status, and user count.  
+ * ### Rate Limiting  
+ * The queries per second (QPS) limit for this API is 10 calls per second per user. If this limit is exceeded, API calls will be rate-limited, which may impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeCallListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2145,7 +2475,12 @@ DescribeCallListResponse Client::describeCallListWithOptions(const DescribeCallL
 }
 
 /**
- * @summary 调用DescribeCallList分页查询时间范围内创建的通信信息。
+ * @summary Invoke DescribeCallList to perform a paged query of communication records created within a specified time range.
+ *
+ * @description ### How-To  
+ * This API is used to query communication records created within a specified time range. For example, you can query information such as call duration, status, and user count.  
+ * ### Rate Limiting  
+ * The queries per second (QPS) limit for this API is 10 calls per second per user. If this limit is exceeded, API calls will be rate-limited, which may impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeCallListRequest
  * @return DescribeCallListResponse
@@ -2156,7 +2491,10 @@ DescribeCallListResponse Client::describeCallList(const DescribeCallListRequest 
 }
 
 /**
- * @summary app事件回调列表
+ * @summary Lists the event callbacks configured for an application.
+ *
+ * @description ### QPS limit
+ * This API supports up to 10 queries per second (QPS) per user. If you exceed this limit, the system applies rate limiting to your API calls, which may affect your business operations. Plan your API calls accordingly.
  *
  * @param request DescribeCallbacksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2187,7 +2525,10 @@ DescribeCallbacksResponse Client::describeCallbacksWithOptions(const DescribeCal
 }
 
 /**
- * @summary app事件回调列表
+ * @summary Lists the event callbacks configured for an application.
+ *
+ * @description ### QPS limit
+ * This API supports up to 10 queries per second (QPS) per user. If you exceed this limit, the system applies rate limiting to your API calls, which may affect your business operations. Plan your API calls accordingly.
  *
  * @param request DescribeCallbacksRequest
  * @return DescribeCallbacksResponse
@@ -2199,6 +2540,11 @@ DescribeCallbacksResponse Client::describeCallbacks(const DescribeCallbacksReque
 
 /**
  * @summary DescribeChannel
+ *
+ * @description ### How-To  
+ * This API is used to query online channel information.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second per user. If the limit is exceeded, Rate Limiting will be applied to your API Call, which may Impact your business. Please invoke the API reasonably.
  *
  * @param request DescribeChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2235,6 +2581,11 @@ DescribeChannelResponse Client::describeChannelWithOptions(const DescribeChannel
 /**
  * @summary DescribeChannel
  *
+ * @description ### How-To  
+ * This API is used to query online channel information.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second per user. If the limit is exceeded, Rate Limiting will be applied to your API Call, which may Impact your business. Please invoke the API reasonably.
+ *
  * @param request DescribeChannelRequest
  * @return DescribeChannelResponse
  */
@@ -2244,7 +2595,12 @@ DescribeChannelResponse Client::describeChannel(const DescribeChannelRequest &re
 }
 
 /**
- * @summary 查询频道的所有参会者
+ * @summary This API is used to query the user list in a channel.
+ *
+ * @description ### How-To  
+ * This API is used to query the list of users in an online channel.  
+ * ### QPS Limit  
+ * The queries per second (QPS) limit for this API is 10 requests per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Invoke this API appropriately.
  *
  * @param request DescribeChannelAllUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2279,7 +2635,12 @@ DescribeChannelAllUsersResponse Client::describeChannelAllUsersWithOptions(const
 }
 
 /**
- * @summary 查询频道的所有参会者
+ * @summary This API is used to query the user list in a channel.
+ *
+ * @description ### How-To  
+ * This API is used to query the list of users in an online channel.  
+ * ### QPS Limit  
+ * The queries per second (QPS) limit for this API is 10 requests per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Invoke this API appropriately.
  *
  * @param request DescribeChannelAllUsersRequest
  * @return DescribeChannelAllUsersResponse
@@ -2290,7 +2651,12 @@ DescribeChannelAllUsersResponse Client::describeChannelAllUsers(const DescribeCh
 }
 
 /**
- * @summary 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
+ * @summary Retrieves the regional distribution statistics of a channel.
+ *
+ * @description ### Usage notes
+ * This operation retrieves the regional distribution statistics of a channel.
+ * ### QPS limit
+ * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Plan your API calls accordingly.
  *
  * @param request DescribeChannelAreaDistributionStatDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2337,7 +2703,12 @@ DescribeChannelAreaDistributionStatDataResponse Client::describeChannelAreaDistr
 }
 
 /**
- * @summary 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
+ * @summary Retrieves the regional distribution statistics of a channel.
+ *
+ * @description ### Usage notes
+ * This operation retrieves the regional distribution statistics of a channel.
+ * ### QPS limit
+ * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Plan your API calls accordingly.
  *
  * @param request DescribeChannelAreaDistributionStatDataRequest
  * @return DescribeChannelAreaDistributionStatDataResponse
@@ -2348,7 +2719,12 @@ DescribeChannelAreaDistributionStatDataResponse Client::describeChannelAreaDistr
 }
 
 /**
- * @summary 调用DescribeChannelDistributionStatData获取频道分布统计数据。
+ * @summary Queries the channel distribution statistics.
+ *
+ * @description ### Usage notes
+ * This operation queries the channel distribution statistics. You can query the statistics by dimension, such as operating system type or SDK version.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request DescribeChannelDistributionStatDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2395,7 +2771,12 @@ DescribeChannelDistributionStatDataResponse Client::describeChannelDistributionS
 }
 
 /**
- * @summary 调用DescribeChannelDistributionStatData获取频道分布统计数据。
+ * @summary Queries the channel distribution statistics.
+ *
+ * @description ### Usage notes
+ * This operation queries the channel distribution statistics. You can query the statistics by dimension, such as operating system type or SDK version.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request DescribeChannelDistributionStatDataRequest
  * @return DescribeChannelDistributionStatDataResponse
@@ -2406,7 +2787,12 @@ DescribeChannelDistributionStatDataResponse Client::describeChannelDistributionS
 }
 
 /**
- * @summary 调用DescribeChannelOverallData查询频道概览数据。
+ * @summary This API is used to query channel overview data.
+ *
+ * @description ### How-To  
+ * This API is used to query channel overview data. For example, you can query basic communication information, Trend Indicators, and other information.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second per User. If the limit is exceeded, Rate Limiting will be applied to API Calls, which may Impact your business. Invoke the API appropriately.
  *
  * @param request DescribeChannelOverallDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2449,7 +2835,12 @@ DescribeChannelOverallDataResponse Client::describeChannelOverallDataWithOptions
 }
 
 /**
- * @summary 调用DescribeChannelOverallData查询频道概览数据。
+ * @summary This API is used to query channel overview data.
+ *
+ * @description ### How-To  
+ * This API is used to query channel overview data. For example, you can query basic communication information, Trend Indicators, and other information.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second per User. If the limit is exceeded, Rate Limiting will be applied to API Calls, which may Impact your business. Invoke the API appropriately.
  *
  * @param request DescribeChannelOverallDataRequest
  * @return DescribeChannelOverallDataResponse
@@ -2460,6 +2851,13 @@ DescribeChannelOverallDataResponse Client::describeChannelOverallData(const Desc
 }
 
 /**
+ * @summary Queries the list of online users in a channel without detailed information.
+ *
+ * @description # Usage notes
+ * This operation queries the list of online users in a channel, excluding detailed user information.
+ * # QPS limit
+ * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls appropriately. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeChannelParticipantsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeChannelParticipantsResponse
@@ -2509,6 +2907,13 @@ DescribeChannelParticipantsResponse Client::describeChannelParticipantsWithOptio
 }
 
 /**
+ * @summary Queries the list of online users in a channel without detailed information.
+ *
+ * @description # Usage notes
+ * This operation queries the list of online users in a channel, excluding detailed user information.
+ * # QPS limit
+ * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls appropriately. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeChannelParticipantsRequest
  * @return DescribeChannelParticipantsResponse
  */
@@ -2518,7 +2923,12 @@ DescribeChannelParticipantsResponse Client::describeChannelParticipants(const De
 }
 
 /**
- * @summary 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
+ * @summary Retrieves the list of publishing users in a channel in descending order of online duration.
+ *
+ * @description ### Usage notes
+ * This operation retrieves the list of publishing users in a channel in descending order of online duration. For example, you can query information such as the time when a user joined the call and the communication duration from the user list.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request DescribeChannelTopPubUserListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2561,7 +2971,12 @@ DescribeChannelTopPubUserListResponse Client::describeChannelTopPubUserListWithO
 }
 
 /**
- * @summary 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
+ * @summary Retrieves the list of publishing users in a channel in descending order of online duration.
+ *
+ * @description ### Usage notes
+ * This operation retrieves the list of publishing users in a channel in descending order of online duration. For example, you can query information such as the time when a user joined the call and the communication duration from the user list.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request DescribeChannelTopPubUserListRequest
  * @return DescribeChannelTopPubUserListResponse
@@ -2572,7 +2987,12 @@ DescribeChannelTopPubUserListResponse Client::describeChannelTopPubUserList(cons
 }
 
 /**
- * @summary DescribeChannelUser
+ * @summary Queries the information of a user in a channel.
+ *
+ * @description ### Usage notes
+ * This operation queries the information of a user in an online channel.
+ * ### QPS limit
+ * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable rate.
  *
  * @param request DescribeChannelUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2611,7 +3031,12 @@ DescribeChannelUserResponse Client::describeChannelUserWithOptions(const Describ
 }
 
 /**
- * @summary DescribeChannelUser
+ * @summary Queries the information of a user in a channel.
+ *
+ * @description ### Usage notes
+ * This operation queries the information of a user in an online channel.
+ * ### QPS limit
+ * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable rate.
  *
  * @param request DescribeChannelUserRequest
  * @return DescribeChannelUserResponse
@@ -2622,7 +3047,12 @@ DescribeChannelUserResponse Client::describeChannelUser(const DescribeChannelUse
 }
 
 /**
- * @summary 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
+ * @summary Queries the user data in the channel overview.
+ *
+ * @description ### Usage notes
+ * This operation queries the user data in the channel overview. For example, you can query metric data details and overview data.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
  *
  * @param request DescribeChannelUserMetricsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2665,7 +3095,12 @@ DescribeChannelUserMetricsResponse Client::describeChannelUserMetricsWithOptions
 }
 
 /**
- * @summary 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
+ * @summary Queries the user data in the channel overview.
+ *
+ * @description ### Usage notes
+ * This operation queries the user data in the channel overview. For example, you can query metric data details and overview data.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
  *
  * @param request DescribeChannelUserMetricsRequest
  * @return DescribeChannelUserMetricsResponse
@@ -2676,6 +3111,13 @@ DescribeChannelUserMetricsResponse Client::describeChannelUserMetrics(const Desc
 }
 
 /**
+ * @summary Queries the list of real-time online users in a channel.
+ *
+ * @description # Usage notes
+ * This operation queries the details of online users in a channel. For example, you can query the total number of users in communication mode and live streaming mode.
+ * # QPS limit
+ * The queries per second (QPS) limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeChannelUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeChannelUsersResponse
@@ -2713,6 +3155,13 @@ DescribeChannelUsersResponse Client::describeChannelUsersWithOptions(const Descr
 }
 
 /**
+ * @summary Queries the list of real-time online users in a channel.
+ *
+ * @description # Usage notes
+ * This operation queries the details of online users in a channel. For example, you can query the total number of users in communication mode and live streaming mode.
+ * # QPS limit
+ * The queries per second (QPS) limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeChannelUsersRequest
  * @return DescribeChannelUsersResponse
  */
@@ -2722,7 +3171,12 @@ DescribeChannelUsersResponse Client::describeChannelUsers(const DescribeChannelU
 }
 
 /**
- * @summary 查询在线频道列表
+ * @summary Queries all active channels under a single AppId.
+ *
+ * @description ### Usage notes
+ * This operation queries all active channels under a single AppId.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param request DescribeChannelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2749,7 +3203,12 @@ DescribeChannelsResponse Client::describeChannelsWithOptions(const DescribeChann
 }
 
 /**
- * @summary 查询在线频道列表
+ * @summary Queries all active channels under a single AppId.
+ *
+ * @description ### Usage notes
+ * This operation queries all active channels under a single AppId.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param request DescribeChannelsRequest
  * @return DescribeChannelsResponse
@@ -2760,7 +3219,7 @@ DescribeChannelsResponse Client::describeChannels(const DescribeChannelsRequest 
 }
 
 /**
- * @summary 纪要热词列表
+ * @summary Queries the hotword lists for meeting minutes.
  *
  * @param tmpReq DescribeCloudNotePhrasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2809,7 +3268,7 @@ DescribeCloudNotePhrasesResponse Client::describeCloudNotePhrasesWithOptions(con
 }
 
 /**
- * @summary 纪要热词列表
+ * @summary Queries the hotword lists for meeting minutes.
  *
  * @param request DescribeCloudNotePhrasesRequest
  * @return DescribeCloudNotePhrasesResponse
@@ -2820,7 +3279,12 @@ DescribeCloudNotePhrasesResponse Client::describeCloudNotePhrases(const Describe
 }
 
 /**
- * @summary 纪要列表
+ * @summary Meeting Summary List
+ *
+ * @description ### How-To  
+ * This API is used to query the list of meeting summary job files that have generated summary results.  
+ * ### Queries Per Second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second (QPS) per user. If this limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
  *
  * @param tmpReq DescribeCloudNotesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2853,7 +3317,12 @@ DescribeCloudNotesResponse Client::describeCloudNotesWithOptions(const DescribeC
 }
 
 /**
- * @summary 纪要列表
+ * @summary Meeting Summary List
+ *
+ * @description ### How-To  
+ * This API is used to query the list of meeting summary job files that have generated summary results.  
+ * ### Queries Per Second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second (QPS) per user. If this limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeCloudNotesRequest
  * @return DescribeCloudNotesResponse
@@ -2864,7 +3333,10 @@ DescribeCloudNotesResponse Client::describeCloudNotes(const DescribeCloudNotesRe
 }
 
 /**
- * @summary 查询录制任务状态
+ * @summary Queries the status of a recording task.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request DescribeCloudRecordStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2903,7 +3375,10 @@ DescribeCloudRecordStatusResponse Client::describeCloudRecordStatusWithOptions(c
 }
 
 /**
- * @summary 查询录制任务状态
+ * @summary Queries the status of a recording task.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request DescribeCloudRecordStatusRequest
  * @return DescribeCloudRecordStatusResponse
@@ -2914,7 +3389,12 @@ DescribeCloudRecordStatusResponse Client::describeCloudRecordStatus(const Descri
 }
 
 /**
- * @summary 调用DescribeEndPointEventList获取端对端用户事件列表。
+ * @summary Retrieves a list of end-to-end user events.
+ *
+ * @description ### Usage notes
+ * This operation retrieves a list of end-to-end user events. For example, you can obtain information such as the event name and event type from the event list.
+ * ### QPS limits
+ * The QPS limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param request DescribeEndPointEventListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2961,7 +3441,12 @@ DescribeEndPointEventListResponse Client::describeEndPointEventListWithOptions(c
 }
 
 /**
- * @summary 调用DescribeEndPointEventList获取端对端用户事件列表。
+ * @summary Retrieves a list of end-to-end user events.
+ *
+ * @description ### Usage notes
+ * This operation retrieves a list of end-to-end user events. For example, you can obtain information such as the event name and event type from the event list.
+ * ### QPS limits
+ * The QPS limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param request DescribeEndPointEventListRequest
  * @return DescribeEndPointEventListResponse
@@ -2972,7 +3457,12 @@ DescribeEndPointEventListResponse Client::describeEndPointEventList(const Descri
 }
 
 /**
- * @summary 调用DescribeEndPointMetricData获取端对端指标数据。
+ * @summary Retrieves end-to-end metric data.
+ *
+ * @description ### Usage notes
+ * This operation retrieves end-to-end metric data. For example, you can retrieve metric information for subscribers and publishers.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the number of calls per second exceeds the limit, throttling is triggered, which may affect your business. Make API calls at a reasonable frequency.
  *
  * @param request DescribeEndPointMetricDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3031,7 +3521,12 @@ DescribeEndPointMetricDataResponse Client::describeEndPointMetricDataWithOptions
 }
 
 /**
- * @summary 调用DescribeEndPointMetricData获取端对端指标数据。
+ * @summary Retrieves end-to-end metric data.
+ *
+ * @description ### Usage notes
+ * This operation retrieves end-to-end metric data. For example, you can retrieve metric information for subscribers and publishers.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the number of calls per second exceeds the limit, throttling is triggered, which may affect your business. Make API calls at a reasonable frequency.
  *
  * @param request DescribeEndPointMetricDataRequest
  * @return DescribeEndPointMetricDataResponse
@@ -3042,7 +3537,12 @@ DescribeEndPointMetricDataResponse Client::describeEndPointMetricData(const Desc
 }
 
 /**
- * @summary 获取异常诊断影响因素分布
+ * @summary Invoke the DescribeFaultDiagnosisFactorDistributionStat API to obtain the distribution of factors impacting abnormal diagnosis.
+ *
+ * @description ### How-To  
+ * This API is used to retrieve the distribution of factors impacting abnormal diagnosis. When using this API, you can query data from the last 48 hours, with each query covering a time range of no more than 24 hours.
+ * ### QPS Limit  
+ * The queries per second (QPS) limit for this API is 10 per user. If this limit is exceeded, API calls will be subject to rate limiting, which may impact your service. Please call the API responsibly.
  *
  * @param request DescribeFaultDiagnosisFactorDistributionStatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3081,7 +3581,12 @@ DescribeFaultDiagnosisFactorDistributionStatResponse Client::describeFaultDiagno
 }
 
 /**
- * @summary 获取异常诊断影响因素分布
+ * @summary Invoke the DescribeFaultDiagnosisFactorDistributionStat API to obtain the distribution of factors impacting abnormal diagnosis.
+ *
+ * @description ### How-To  
+ * This API is used to retrieve the distribution of factors impacting abnormal diagnosis. When using this API, you can query data from the last 48 hours, with each query covering a time range of no more than 24 hours.
+ * ### QPS Limit  
+ * The queries per second (QPS) limit for this API is 10 per user. If this limit is exceeded, API calls will be subject to rate limiting, which may impact your service. Please call the API responsibly.
  *
  * @param request DescribeFaultDiagnosisFactorDistributionStatRequest
  * @return DescribeFaultDiagnosisFactorDistributionStatResponse
@@ -3092,7 +3597,12 @@ DescribeFaultDiagnosisFactorDistributionStatResponse Client::describeFaultDiagno
 }
 
 /**
- * @summary 获取异常诊断总览数据
+ * @summary Retrieves the overview data of exception diagnostics.
+ *
+ * @description ### Usage notes
+ * This operation retrieves the overview data of exception diagnostics. When you call this operation, you can query data from the last 48 hours, and the query time range cannot exceed 24 hours.
+ * ### QPS limits
+ * The queries per second (QPS) limit on this operation is 10 per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
  *
  * @param request DescribeFaultDiagnosisOverallDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3135,7 +3645,12 @@ DescribeFaultDiagnosisOverallDataResponse Client::describeFaultDiagnosisOverallD
 }
 
 /**
- * @summary 获取异常诊断总览数据
+ * @summary Retrieves the overview data of exception diagnostics.
+ *
+ * @description ### Usage notes
+ * This operation retrieves the overview data of exception diagnostics. When you call this operation, you can query data from the last 48 hours, and the query time range cannot exceed 24 hours.
+ * ### QPS limits
+ * The queries per second (QPS) limit on this operation is 10 per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
  *
  * @param request DescribeFaultDiagnosisOverallDataRequest
  * @return DescribeFaultDiagnosisOverallDataResponse
@@ -3146,7 +3661,9 @@ DescribeFaultDiagnosisOverallDataResponse Client::describeFaultDiagnosisOverallD
 }
 
 /**
- * @summary 获取异常诊断用户详情
+ * @summary [responses_200_schema_properties_UserDetail_properties_Duration_type]integer
+ *
+ * @description [responses_200_schema_properties_UserDetail_properties_CreatedTs_description]Call creation time, represented as a UNIX timestamp in seconds.
  *
  * @param request DescribeFaultDiagnosisUserDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3197,7 +3714,9 @@ DescribeFaultDiagnosisUserDetailResponse Client::describeFaultDiagnosisUserDetai
 }
 
 /**
- * @summary 获取异常诊断用户详情
+ * @summary [responses_200_schema_properties_UserDetail_properties_Duration_type]integer
+ *
+ * @description [responses_200_schema_properties_UserDetail_properties_CreatedTs_description]Call creation time, represented as a UNIX timestamp in seconds.
  *
  * @param request DescribeFaultDiagnosisUserDetailRequest
  * @return DescribeFaultDiagnosisUserDetailResponse
@@ -3208,7 +3727,12 @@ DescribeFaultDiagnosisUserDetailResponse Client::describeFaultDiagnosisUserDetai
 }
 
 /**
- * @summary 获取异常诊断用户明细列表
+ * @summary Queries the detailed user list for fault diagnosis.
+ *
+ * @description ### Usage notes
+ * This operation is used to retrieve the detailed user list for fault diagnosis. When you call this operation, you can query data from the last 48 hours, and the query time range cannot exceed 24 hours.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param request DescribeFaultDiagnosisUserListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3267,7 +3791,12 @@ DescribeFaultDiagnosisUserListResponse Client::describeFaultDiagnosisUserListWit
 }
 
 /**
- * @summary 获取异常诊断用户明细列表
+ * @summary Queries the detailed user list for fault diagnosis.
+ *
+ * @description ### Usage notes
+ * This operation is used to retrieve the detailed user list for fault diagnosis. When you call this operation, you can query data from the last 48 hours, and the query time range cannot exceed 24 hours.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param request DescribeFaultDiagnosisUserListRequest
  * @return DescribeFaultDiagnosisUserListResponse
@@ -3278,6 +3807,13 @@ DescribeFaultDiagnosisUserListResponse Client::describeFaultDiagnosisUserList(co
 }
 
 /**
+ * @summary Call DescribeMPULayoutInfoList to retrieve layout parameters for a bypass live streaming task.
+ *
+ * @description # Usage notes
+ * Before calling this operation, call [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html) to create a bypass live streaming layout.
+ * # QPS limit
+ * The per-user QPS limit for this operation is 10 calls per second. Exceeding this limit triggers rate limiting, which may affect your business. Call this operation appropriately. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeMPULayoutInfoListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeMPULayoutInfoListResponse
@@ -3327,6 +3863,13 @@ DescribeMPULayoutInfoListResponse Client::describeMPULayoutInfoListWithOptions(c
 }
 
 /**
+ * @summary Call DescribeMPULayoutInfoList to retrieve layout parameters for a bypass live streaming task.
+ *
+ * @description # Usage notes
+ * Before calling this operation, call [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html) to create a bypass live streaming layout.
+ * # QPS limit
+ * The per-user QPS limit for this operation is 10 calls per second. Exceeding this limit triggers rate limiting, which may affect your business. Call this operation appropriately. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeMPULayoutInfoListRequest
  * @return DescribeMPULayoutInfoListResponse
  */
@@ -3336,7 +3879,12 @@ DescribeMPULayoutInfoListResponse Client::describeMPULayoutInfoList(const Descri
 }
 
 /**
- * @summary 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
+ * @summary This API is used to obtain the list of publishing users in a communication session based on the subscriber.
+ *
+ * @description ### How-To  
+ * This API is used to obtain the list of publishing users in a communication session based on the subscriber. For example, you can retrieve detailed information about both the subscriber and the publishing users.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 requests per second per user. If this limit is exceeded, API calls will be subject to rate limiting, which may affect your business. Please invoke the API appropriately.
  *
  * @param request DescribePubUserListBySubUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3383,7 +3931,12 @@ DescribePubUserListBySubUserResponse Client::describePubUserListBySubUserWithOpt
 }
 
 /**
- * @summary 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
+ * @summary This API is used to obtain the list of publishing users in a communication session based on the subscriber.
+ *
+ * @description ### How-To  
+ * This API is used to obtain the list of publishing users in a communication session based on the subscriber. For example, you can retrieve detailed information about both the subscriber and the publishing users.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 requests per second per user. If this limit is exceeded, API calls will be subject to rate limiting, which may affect your business. Please invoke the API appropriately.
  *
  * @param request DescribePubUserListBySubUserRequest
  * @return DescribePubUserListBySubUserResponse
@@ -3394,7 +3947,12 @@ DescribePubUserListBySubUserResponse Client::describePubUserListBySubUser(const 
 }
 
 /**
- * @summary 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
+ * @summary This API is used to obtain the downlink experience quality metrics of a user in a single communication session.
+ *
+ * @description ### How-To  
+ * This API is used to obtain the downlink experience quality metrics of a user in a single communication session. For example, you can retrieve information such as the metric types that impact communication experience and audio/video trend indicators.  
+ * ### QPS Limit  
+ * The queries per second (QPS) limit for this API is 10 per user. If this limit is exceeded, API calls will be subject to rate limiting, which may affect your business. Please invoke the API appropriately.
  *
  * @param request DescribeQoeMetricDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3441,7 +3999,12 @@ DescribeQoeMetricDataResponse Client::describeQoeMetricDataWithOptions(const Des
 }
 
 /**
- * @summary 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
+ * @summary This API is used to obtain the downlink experience quality metrics of a user in a single communication session.
+ *
+ * @description ### How-To  
+ * This API is used to obtain the downlink experience quality metrics of a user in a single communication session. For example, you can retrieve information such as the metric types that impact communication experience and audio/video trend indicators.  
+ * ### QPS Limit  
+ * The queries per second (QPS) limit for this API is 10 per user. If this limit is exceeded, API calls will be subject to rate limiting, which may affect your business. Please invoke the API appropriately.
  *
  * @param request DescribeQoeMetricDataRequest
  * @return DescribeQoeMetricDataResponse
@@ -3452,7 +4015,14 @@ DescribeQoeMetricDataResponse Client::describeQoeMetricData(const DescribeQoeMet
 }
 
 /**
- * @summary 获取质量统计区域分布统计数据
+ * @summary Queries the regional distribution data of quality statistics.
+ *
+ * @description ### Usage notes
+ * This operation queries the regional distribution data of quality statistics. When you call this operation, the following limits apply:
+ * - You can query data within any time range in the last 365 days, excluding the current day.
+ * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
  *
  * @param request DescribeQualityAreaDistributionStatDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3495,7 +4065,14 @@ DescribeQualityAreaDistributionStatDataResponse Client::describeQualityAreaDistr
 }
 
 /**
- * @summary 获取质量统计区域分布统计数据
+ * @summary Queries the regional distribution data of quality statistics.
+ *
+ * @description ### Usage notes
+ * This operation queries the regional distribution data of quality statistics. When you call this operation, the following limits apply:
+ * - You can query data within any time range in the last 365 days, excluding the current day.
+ * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
  *
  * @param request DescribeQualityAreaDistributionStatDataRequest
  * @return DescribeQualityAreaDistributionStatDataResponse
@@ -3506,7 +4083,14 @@ DescribeQualityAreaDistributionStatDataResponse Client::describeQualityAreaDistr
 }
 
 /**
- * @summary 获取质量统计分布数据
+ * @summary This API is used to obtain the distribution data of quality statistics.
+ *
+ * @description ### How-To
+ * This API is used to obtain the distribution data of quality statistics. The following limits apply when using this API:
+ * - You can query data for any period within the last 365 days (excluding the current day).
+ * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.
+ * ### Queries per second (QPS) limit
+ * The QPS limit for this API is 10 queries per second (QPS) per user. If you exceed this limit, your API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API reasonably.
  *
  * @param request DescribeQualityDistributionStatDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3549,7 +4133,14 @@ DescribeQualityDistributionStatDataResponse Client::describeQualityDistributionS
 }
 
 /**
- * @summary 获取质量统计分布数据
+ * @summary This API is used to obtain the distribution data of quality statistics.
+ *
+ * @description ### How-To
+ * This API is used to obtain the distribution data of quality statistics. The following limits apply when using this API:
+ * - You can query data for any period within the last 365 days (excluding the current day).
+ * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.
+ * ### Queries per second (QPS) limit
+ * The QPS limit for this API is 10 queries per second (QPS) per user. If you exceed this limit, your API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API reasonably.
  *
  * @param request DescribeQualityDistributionStatDataRequest
  * @return DescribeQualityDistributionStatDataResponse
@@ -3560,7 +4151,14 @@ DescribeQualityDistributionStatDataResponse Client::describeQualityDistributionS
 }
 
 /**
- * @summary 获取质量统计各操作系统下SDK版本分布数据
+ * @summary Retrieves the distribution data of operating systems and SDK versions in quality statistics.
+ *
+ * @description ### Usage notes
+ * This operation retrieves the distribution data of operating systems and SDK versions in quality statistics. The following limits apply when you call this operation:
+ * - You can query data within the last 365 days, excluding the current day.
+ * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
  *
  * @param request DescribeQualityOsSdkVersionDistributionStatDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3599,7 +4197,14 @@ DescribeQualityOsSdkVersionDistributionStatDataResponse Client::describeQualityO
 }
 
 /**
- * @summary 获取质量统计各操作系统下SDK版本分布数据
+ * @summary Retrieves the distribution data of operating systems and SDK versions in quality statistics.
+ *
+ * @description ### Usage notes
+ * This operation retrieves the distribution data of operating systems and SDK versions in quality statistics. The following limits apply when you call this operation:
+ * - You can query data within the last 365 days, excluding the current day.
+ * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
  *
  * @param request DescribeQualityOsSdkVersionDistributionStatDataRequest
  * @return DescribeQualityOsSdkVersionDistributionStatDataResponse
@@ -3610,7 +4215,14 @@ DescribeQualityOsSdkVersionDistributionStatDataResponse Client::describeQualityO
 }
 
 /**
- * @summary 获取质量统计概览数据
+ * @summary This API is used to obtain overview data of quality statistics.
+ *
+ * @description ### How-To  
+ * This API is used to obtain overview data of quality statistics. The following restrictions apply when using this API:  
+ * - You can query data for any time range within the last 365 days (excluding the current day).  
+ * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second per user. If you exceed this limit, your API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeQualityOverallDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3653,7 +4265,14 @@ DescribeQualityOverallDataResponse Client::describeQualityOverallDataWithOptions
 }
 
 /**
- * @summary 获取质量统计概览数据
+ * @summary This API is used to obtain overview data of quality statistics.
+ *
+ * @description ### How-To  
+ * This API is used to obtain overview data of quality statistics. The following restrictions apply when using this API:  
+ * - You can query data for any time range within the last 365 days (excluding the current day).  
+ * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second per user. If you exceed this limit, your API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeQualityOverallDataRequest
  * @return DescribeQualityOverallDataResponse
@@ -3664,6 +4283,13 @@ DescribeQualityOverallDataResponse Client::describeQualityOverallData(const Desc
 }
 
 /**
+ * @summary Calls DescribeRecordFiles to query the list of files generated by recording.
+ *
+ * @description # Usage notes
+ * This operation is used to query the list of files generated by recording. For example, you can query parameters such as the creation time and recording duration of files generated by recording.
+ * # QPS limit
+ * The per-user QPS limit of this operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please call this operation reasonably. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeRecordFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRecordFilesResponse
@@ -3721,6 +4347,13 @@ DescribeRecordFilesResponse Client::describeRecordFilesWithOptions(const Describ
 }
 
 /**
+ * @summary Calls DescribeRecordFiles to query the list of files generated by recording.
+ *
+ * @description # Usage notes
+ * This operation is used to query the list of files generated by recording. For example, you can query parameters such as the creation time and recording duration of files generated by recording.
+ * # QPS limit
+ * The per-user QPS limit of this operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please call this operation reasonably. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeRecordFilesRequest
  * @return DescribeRecordFilesResponse
  */
@@ -3730,6 +4363,13 @@ DescribeRecordFilesResponse Client::describeRecordFiles(const DescribeRecordFile
 }
 
 /**
+ * @summary Queries a list of recording template configurations.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording template.
+ * # QPS limit
+ * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeRecordTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRecordTemplatesResponse
@@ -3775,6 +4415,13 @@ DescribeRecordTemplatesResponse Client::describeRecordTemplatesWithOptions(const
 }
 
 /**
+ * @summary Queries a list of recording template configurations.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording template.
+ * # QPS limit
+ * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeRecordTemplatesRequest
  * @return DescribeRecordTemplatesResponse
  */
@@ -3784,6 +4431,8 @@ DescribeRecordTemplatesResponse Client::describeRecordTemplates(const DescribeRe
 }
 
 /**
+ * @summary Queries the list of channel communication records.
+ *
  * @param request DescribeRtcChannelListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRtcChannelListResponse
@@ -3845,6 +4494,8 @@ DescribeRtcChannelListResponse Client::describeRtcChannelListWithOptions(const D
 }
 
 /**
+ * @summary Queries the list of channel communication records.
+ *
  * @param request DescribeRtcChannelListRequest
  * @return DescribeRtcChannelListResponse
  */
@@ -3854,6 +4505,8 @@ DescribeRtcChannelListResponse Client::describeRtcChannelList(const DescribeRtcC
 }
 
 /**
+ * @summary Queries the details of communication records in a channel. You can query data within the last 180 days.
+ *
  * @param request DescribeRtcChannelMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRtcChannelMetricResponse
@@ -3895,6 +4548,8 @@ DescribeRtcChannelMetricResponse Client::describeRtcChannelMetricWithOptions(con
 }
 
 /**
+ * @summary Queries the details of communication records in a channel. You can query data within the last 180 days.
+ *
  * @param request DescribeRtcChannelMetricRequest
  * @return DescribeRtcChannelMetricResponse
  */
@@ -3904,6 +4559,10 @@ DescribeRtcChannelMetricResponse Client::describeRtcChannelMetric(const Describe
 }
 
 /**
+ * @summary Retrieves the total communication duration for an application within a specified time range. Data is aggregated by audio and video specifications.
+ *
+ * @description > The maximum query time range is 30 days.
+ *
  * @param request DescribeRtcDurationDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRtcDurationDataResponse
@@ -3953,6 +4612,10 @@ DescribeRtcDurationDataResponse Client::describeRtcDurationDataWithOptions(const
 }
 
 /**
+ * @summary Retrieves the total communication duration for an application within a specified time range. Data is aggregated by audio and video specifications.
+ *
+ * @description > The maximum query time range is 30 days.
+ *
  * @param request DescribeRtcDurationDataRequest
  * @return DescribeRtcDurationDataResponse
  */
@@ -3962,6 +4625,10 @@ DescribeRtcDurationDataResponse Client::describeRtcDurationData(const DescribeRt
 }
 
 /**
+ * @summary Queries the peak number of concurrent channels of an application in a specified time range.
+ *
+ * @description > The maximum time range that can be queried is 30 days.
+ *
  * @param request DescribeRtcPeakChannelCntDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRtcPeakChannelCntDataResponse
@@ -4011,6 +4678,10 @@ DescribeRtcPeakChannelCntDataResponse Client::describeRtcPeakChannelCntDataWithO
 }
 
 /**
+ * @summary Queries the peak number of concurrent channels of an application in a specified time range.
+ *
+ * @description > The maximum time range that can be queried is 30 days.
+ *
  * @param request DescribeRtcPeakChannelCntDataRequest
  * @return DescribeRtcPeakChannelCntDataResponse
  */
@@ -4020,6 +4691,10 @@ DescribeRtcPeakChannelCntDataResponse Client::describeRtcPeakChannelCntData(cons
 }
 
 /**
+ * @summary Queries the number of active users of an application within a specified time range, that is, the number of user terminals that engaged in communication.
+ *
+ * @description > The maximum time span between the start time and the end time of a data query is 30 days.
+ *
  * @param request DescribeRtcUserCntDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRtcUserCntDataResponse
@@ -4069,6 +4744,10 @@ DescribeRtcUserCntDataResponse Client::describeRtcUserCntDataWithOptions(const D
 }
 
 /**
+ * @summary Queries the number of active users of an application within a specified time range, that is, the number of user terminals that engaged in communication.
+ *
+ * @description > The maximum time span between the start time and the end time of a data query is 30 days.
+ *
  * @param request DescribeRtcUserCntDataRequest
  * @return DescribeRtcUserCntDataResponse
  */
@@ -4078,7 +4757,10 @@ DescribeRtcUserCntDataResponse Client::describeRtcUserCntData(const DescribeRtcU
 }
 
 /**
- * @summary 查询旁路推流状态
+ * @summary Queries the bypass streaming status.
+ *
+ * @description ### QPS limit
+ * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request DescribeStreamingOutStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4117,7 +4799,10 @@ DescribeStreamingOutStatusResponse Client::describeStreamingOutStatusWithOptions
 }
 
 /**
- * @summary 查询旁路推流状态
+ * @summary Queries the bypass streaming status.
+ *
+ * @description ### QPS limit
+ * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request DescribeStreamingOutStatusRequest
  * @return DescribeStreamingOutStatusResponse
@@ -4128,7 +4813,10 @@ DescribeStreamingOutStatusResponse Client::describeStreamingOutStatus(const Desc
 }
 
 /**
- * @summary 系统内置布局
+ * @summary Built-in system layouts
+ *
+ * @description ### QPS limit
+ * The per-user QPS limit for this API is 10 calls per second. Exceeding this limit triggers rate limiting, which may affect your business. Call the API responsibly.
  *
  * @param request DescribeSystemLayoutListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4167,7 +4855,10 @@ DescribeSystemLayoutListResponse Client::describeSystemLayoutListWithOptions(con
 }
 
 /**
- * @summary 系统内置布局
+ * @summary Built-in system layouts
+ *
+ * @description ### QPS limit
+ * The per-user QPS limit for this API is 10 calls per second. Exceeding this limit triggers rate limiting, which may affect your business. Call the API responsibly.
  *
  * @param request DescribeSystemLayoutListRequest
  * @return DescribeSystemLayoutListResponse
@@ -4178,7 +4869,14 @@ DescribeSystemLayoutListResponse Client::describeSystemLayoutList(const Describe
 }
 
 /**
- * @summary 获取用量统计地域分布数据
+ * @summary This API is used to retrieve the regional distribution data of usage statistics.
+ *
+ * @description ### How-To
+ * This API is used to retrieve the regional distribution data of usage statistics. The following restrictions apply when using this API:
+ * - You can query data for any period within the last 365 days (excluding the current day).
+ * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.
+ * ### QPS Limit
+ * The queries per second (QPS) limit for this API is 10 requests per second per user. If you exceed this limit, your API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeUsageAreaDistributionStatDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4221,7 +4919,14 @@ DescribeUsageAreaDistributionStatDataResponse Client::describeUsageAreaDistribut
 }
 
 /**
- * @summary 获取用量统计地域分布数据
+ * @summary This API is used to retrieve the regional distribution data of usage statistics.
+ *
+ * @description ### How-To
+ * This API is used to retrieve the regional distribution data of usage statistics. The following restrictions apply when using this API:
+ * - You can query data for any period within the last 365 days (excluding the current day).
+ * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.
+ * ### QPS Limit
+ * The queries per second (QPS) limit for this API is 10 requests per second per user. If you exceed this limit, your API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeUsageAreaDistributionStatDataRequest
  * @return DescribeUsageAreaDistributionStatDataResponse
@@ -4232,7 +4937,14 @@ DescribeUsageAreaDistributionStatDataResponse Client::describeUsageAreaDistribut
 }
 
 /**
- * @summary 获取用量统计分布数据
+ * @summary Queries the distribution data of usage statistics.
+ *
+ * @description ### Usage notes
+ * This operation queries the distribution data of usage statistics. When you call this operation, the following limits apply:
+ * - You can query data within any time range in the last 365 days, excluding the current day.
+ * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
  *
  * @param request DescribeUsageDistributionStatDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4275,7 +4987,14 @@ DescribeUsageDistributionStatDataResponse Client::describeUsageDistributionStatD
 }
 
 /**
- * @summary 获取用量统计分布数据
+ * @summary Queries the distribution data of usage statistics.
+ *
+ * @description ### Usage notes
+ * This operation queries the distribution data of usage statistics. When you call this operation, the following limits apply:
+ * - You can query data within any time range in the last 365 days, excluding the current day.
+ * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
  *
  * @param request DescribeUsageDistributionStatDataRequest
  * @return DescribeUsageDistributionStatDataResponse
@@ -4286,7 +5005,14 @@ DescribeUsageDistributionStatDataResponse Client::describeUsageDistributionStatD
 }
 
 /**
- * @summary 获取用量统计各操作系统下SDK版本分布数据
+ * @summary This API is used to obtain the distribution data of operating systems and SDK versions in usage statistics.
+ *
+ * @description ### How-To  
+ * This API is used to obtain the distribution data of operating systems and SDK versions in usage statistics. When using this API, the following restrictions apply:  
+ * - You can query data for any period within the last 365 days (excluding the current day).  
+ * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.  
+ * ### Rate Limiting  
+ * The queries per second (QPS) limit for this API is 10 requests per second per user. If you exceed this limit, your API calls will be rate-limited, which may impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeUsageOsSdkVersionDistributionStatDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4325,7 +5051,14 @@ DescribeUsageOsSdkVersionDistributionStatDataResponse Client::describeUsageOsSdk
 }
 
 /**
- * @summary 获取用量统计各操作系统下SDK版本分布数据
+ * @summary This API is used to obtain the distribution data of operating systems and SDK versions in usage statistics.
+ *
+ * @description ### How-To  
+ * This API is used to obtain the distribution data of operating systems and SDK versions in usage statistics. When using this API, the following restrictions apply:  
+ * - You can query data for any period within the last 365 days (excluding the current day).  
+ * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.  
+ * ### Rate Limiting  
+ * The queries per second (QPS) limit for this API is 10 requests per second per user. If you exceed this limit, your API calls will be rate-limited, which may impact your business. Please invoke the API appropriately.
  *
  * @param request DescribeUsageOsSdkVersionDistributionStatDataRequest
  * @return DescribeUsageOsSdkVersionDistributionStatDataResponse
@@ -4336,7 +5069,14 @@ DescribeUsageOsSdkVersionDistributionStatDataResponse Client::describeUsageOsSdk
 }
 
 /**
- * @summary 获取用量统计概览数据
+ * @summary Queries the overview data of usage statistics.
+ *
+ * @description ### Usage notes
+ * This operation retrieves the overview data of usage statistics. The following limits apply when you call this operation:
+ * - You can query data for any time range within the last 365 days, excluding the current day.
+ * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
  *
  * @param request DescribeUsageOverallDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4379,7 +5119,14 @@ DescribeUsageOverallDataResponse Client::describeUsageOverallDataWithOptions(con
 }
 
 /**
- * @summary 获取用量统计概览数据
+ * @summary Queries the overview data of usage statistics.
+ *
+ * @description ### Usage notes
+ * This operation retrieves the overview data of usage statistics. The following limits apply when you call this operation:
+ * - You can query data for any time range within the last 365 days, excluding the current day.
+ * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
  *
  * @param request DescribeUsageOverallDataRequest
  * @return DescribeUsageOverallDataResponse
@@ -4390,6 +5137,13 @@ DescribeUsageOverallDataResponse Client::describeUsageOverallData(const Describe
 }
 
 /**
+ * @summary Calls DescribeUserInfoInChannel to query the real-time information of a user in a channel.
+ *
+ * @description # Usage notes
+ * This operation is used to query the real-time information of a user in a channel. For example, you can query information such as the user role type and the time of joining the meeting.
+ * # QPS limit
+ * The per-user QPS limit of this operation is 100 times per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Call this operation properly. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeUserInfoInChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeUserInfoInChannelResponse
@@ -4431,6 +5185,13 @@ DescribeUserInfoInChannelResponse Client::describeUserInfoInChannelWithOptions(c
 }
 
 /**
+ * @summary Calls DescribeUserInfoInChannel to query the real-time information of a user in a channel.
+ *
+ * @description # Usage notes
+ * This operation is used to query the real-time information of a user in a channel. For example, you can query information such as the user role type and the time of joining the meeting.
+ * # QPS limit
+ * The per-user QPS limit of this operation is 100 times per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Call this operation properly. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DescribeUserInfoInChannelRequest
  * @return DescribeUserInfoInChannelResponse
  */
@@ -4440,6 +5201,13 @@ DescribeUserInfoInChannelResponse Client::describeUserInfoInChannel(const Descri
 }
 
 /**
+ * @summary Disables the automatic bypass single-stream relay rule.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+ * # QPS limit
+ * The QPS limit per user is 1,000 requests per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DisableAutoLiveStreamRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DisableAutoLiveStreamRuleResponse
@@ -4477,6 +5245,13 @@ DisableAutoLiveStreamRuleResponse Client::disableAutoLiveStreamRuleWithOptions(c
 }
 
 /**
+ * @summary Disables the automatic bypass single-stream relay rule.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+ * # QPS limit
+ * The QPS limit per user is 1,000 requests per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request DisableAutoLiveStreamRuleRequest
  * @return DisableAutoLiveStreamRuleResponse
  */
@@ -4486,6 +5261,13 @@ DisableAutoLiveStreamRuleResponse Client::disableAutoLiveStreamRule(const Disabl
 }
 
 /**
+ * @summary Enables the automatic bypass single-stream relay rule.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+ * # QPS limit
+ * The QPS limit per user for this operation is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request EnableAutoLiveStreamRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return EnableAutoLiveStreamRuleResponse
@@ -4523,6 +5305,13 @@ EnableAutoLiveStreamRuleResponse Client::enableAutoLiveStreamRuleWithOptions(con
 }
 
 /**
+ * @summary Enables the automatic bypass single-stream relay rule.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+ * # QPS limit
+ * The QPS limit per user for this operation is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request EnableAutoLiveStreamRuleRequest
  * @return EnableAutoLiveStreamRuleResponse
  */
@@ -4532,7 +5321,7 @@ EnableAutoLiveStreamRuleResponse Client::enableAutoLiveStreamRule(const EnableAu
 }
 
 /**
- * @summary GetAgent。
+ * @summary GetAgent.
  *
  * @param request GetAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4571,7 +5360,7 @@ GetAgentResponse Client::getAgentWithOptions(const GetAgentRequest &request, con
 }
 
 /**
- * @summary GetAgent。
+ * @summary GetAgent.
  *
  * @param request GetAgentRequest
  * @return GetAgentResponse
@@ -4582,6 +5371,13 @@ GetAgentResponse Client::getAgent(const GetAgentRequest &request) {
 }
 
 /**
+ * @summary Retrieves the status of a bypass transcoding task.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) to start a bypass transcoding task.
+ * # QPS limit
+ * The QPS limit for a single user is 4,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request GetMPUTaskStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMPUTaskStatusResponse
@@ -4619,6 +5415,13 @@ GetMPUTaskStatusResponse Client::getMPUTaskStatusWithOptions(const GetMPUTaskSta
 }
 
 /**
+ * @summary Retrieves the status of a bypass transcoding task.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) to start a bypass transcoding task.
+ * # QPS limit
+ * The QPS limit for a single user is 4,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request GetMPUTaskStatusRequest
  * @return GetMPUTaskStatusResponse
  */
@@ -4628,7 +5431,12 @@ GetMPUTaskStatusResponse Client::getMPUTaskStatus(const GetMPUTaskStatusRequest 
 }
 
 /**
- * @summary 修改App信息
+ * @summary Modifies the name of a specified application.
+ *
+ * @description #### Usage notes
+ * This operation modifies the name of a specified application.
+ * #### QPS limit
+ * The queries per second (QPS) limit per user for this operation is 200 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param request ModifyAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4667,7 +5475,12 @@ ModifyAppResponse Client::modifyAppWithOptions(const ModifyAppRequest &request, 
 }
 
 /**
- * @summary 修改App信息
+ * @summary Modifies the name of a specified application.
+ *
+ * @description #### Usage notes
+ * This operation modifies the name of a specified application.
+ * #### QPS limit
+ * The queries per second (QPS) limit per user for this operation is 200 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
  *
  * @param request ModifyAppRequest
  * @return ModifyAppResponse
@@ -4678,7 +5491,10 @@ ModifyAppResponse Client::modifyApp(const ModifyAppRequest &request) {
 }
 
 /**
- * @summary 修改应用智能体开关
+ * @summary Modifies the agent feature switch for an application.
+ *
+ * @description ### QPS limits
+ * The queries per second (QPS) limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request ModifyAppAgentFunctionStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4709,7 +5525,10 @@ ModifyAppAgentFunctionStatusResponse Client::modifyAppAgentFunctionStatusWithOpt
 }
 
 /**
- * @summary 修改应用智能体开关
+ * @summary Modifies the agent feature switch for an application.
+ *
+ * @description ### QPS limits
+ * The queries per second (QPS) limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request ModifyAppAgentFunctionStatusRequest
  * @return ModifyAppAgentFunctionStatusResponse
@@ -4720,7 +5539,10 @@ ModifyAppAgentFunctionStatusResponse Client::modifyAppAgentFunctionStatus(const 
 }
 
 /**
- * @summary 更新应用智能体模版
+ * @summary Updates an application agent template.
+ *
+ * @description ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the API at a reasonable rate.
  *
  * @param tmpReq ModifyAppAgentTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4841,7 +5663,10 @@ ModifyAppAgentTemplateResponse Client::modifyAppAgentTemplateWithOptions(const M
 }
 
 /**
- * @summary 更新应用智能体模版
+ * @summary Updates an application agent template.
+ *
+ * @description ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the API at a reasonable rate.
  *
  * @param request ModifyAppAgentTemplateRequest
  * @return ModifyAppAgentTemplateResponse
@@ -4852,7 +5677,10 @@ ModifyAppAgentTemplateResponse Client::modifyAppAgentTemplate(const ModifyAppAge
 }
 
 /**
- * @summary 更新app回调事件开关
+ * @summary Updates the callback event switch for an application.
+ *
+ * @description ### QPS limits
+ * The QPS limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
  *
  * @param request ModifyAppCallbackStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4883,7 +5711,10 @@ ModifyAppCallbackStatusResponse Client::modifyAppCallbackStatusWithOptions(const
 }
 
 /**
- * @summary 更新app回调事件开关
+ * @summary Updates the callback event switch for an application.
+ *
+ * @description ### QPS limits
+ * The QPS limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
  *
  * @param request ModifyAppCallbackStatusRequest
  * @return ModifyAppCallbackStatusResponse
@@ -4894,7 +5725,10 @@ ModifyAppCallbackStatusResponse Client::modifyAppCallbackStatus(const ModifyAppC
 }
 
 /**
- * @summary 修改app自定义布局
+ * @summary Modify a custom application layout.
+ *
+ * @description ### QPS limits
+ * This API supports a maximum of 10 calls per second per user. Exceeding this limit triggers rate limiting, which may impact your business operations. Use the API judiciously.
  *
  * @param tmpReq ModifyAppLayoutRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4939,7 +5773,10 @@ ModifyAppLayoutResponse Client::modifyAppLayoutWithOptions(const ModifyAppLayout
 }
 
 /**
- * @summary 修改app自定义布局
+ * @summary Modify a custom application layout.
+ *
+ * @description ### QPS limits
+ * This API supports a maximum of 10 calls per second per user. Exceeding this limit triggers rate limiting, which may impact your business operations. Use the API judiciously.
  *
  * @param request ModifyAppLayoutRequest
  * @return ModifyAppLayoutResponse
@@ -4950,7 +5787,10 @@ ModifyAppLayoutResponse Client::modifyAppLayout(const ModifyAppLayoutRequest &re
 }
 
 /**
- * @summary 修改应用旁路开关
+ * @summary Modify the bypass toggle of an application
+ *
+ * @description ### Queries per second (QPS) limit  
+ * The queries per second (QPS) limit for this API is 10 per user per second. If the limit is exceeded, API calls will be subject to Rate Limiting, which may impact your business. Please invoke the API appropriately.
  *
  * @param request ModifyAppLiveStreamStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4985,7 +5825,10 @@ ModifyAppLiveStreamStatusResponse Client::modifyAppLiveStreamStatusWithOptions(c
 }
 
 /**
- * @summary 修改应用旁路开关
+ * @summary Modify the bypass toggle of an application
+ *
+ * @description ### Queries per second (QPS) limit  
+ * The queries per second (QPS) limit for this API is 10 per user per second. If the limit is exceeded, API calls will be subject to Rate Limiting, which may impact your business. Please invoke the API appropriately.
  *
  * @param request ModifyAppLiveStreamStatusRequest
  * @return ModifyAppLiveStreamStatusResponse
@@ -4996,7 +5839,10 @@ ModifyAppLiveStreamStatusResponse Client::modifyAppLiveStreamStatus(const Modify
 }
 
 /**
- * @summary 修改应用录制开关
+ * @summary Modifies the recording switch of an application.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
  *
  * @param request ModifyAppRecordStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5031,7 +5877,10 @@ ModifyAppRecordStatusResponse Client::modifyAppRecordStatusWithOptions(const Mod
 }
 
 /**
- * @summary 修改应用录制开关
+ * @summary Modifies the recording switch of an application.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
  *
  * @param request ModifyAppRecordStatusRequest
  * @return ModifyAppRecordStatusResponse
@@ -5042,7 +5891,10 @@ ModifyAppRecordStatusResponse Client::modifyAppRecordStatus(const ModifyAppRecor
 }
 
 /**
- * @summary 修改应用录制模版
+ * @summary Modify an application recording template.
+ *
+ * @description ### QPS limit
+ * This API supports up to 10 calls per second per user. If you exceed this limit, rate limiting is triggered, which might affect your service. Call the API at a reasonable frequency.
  *
  * @param tmpReq ModifyAppRecordTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5087,7 +5939,10 @@ ModifyAppRecordTemplateResponse Client::modifyAppRecordTemplateWithOptions(const
 }
 
 /**
- * @summary 修改应用录制模版
+ * @summary Modify an application recording template.
+ *
+ * @description ### QPS limit
+ * This API supports up to 10 calls per second per user. If you exceed this limit, rate limiting is triggered, which might affect your service. Call the API at a reasonable frequency.
  *
  * @param request ModifyAppRecordTemplateRequest
  * @return ModifyAppRecordTemplateResponse
@@ -5098,7 +5953,12 @@ ModifyAppRecordTemplateResponse Client::modifyAppRecordTemplate(const ModifyAppR
 }
 
 /**
- * @summary 更新应用推流模版
+ * @summary Modify the stream ingest template for an RTC 3.0 application.
+ *
+ * @description ### How-To  
+ * This API modifies the stream ingest template for an RTC 3.0 application.  
+ * ### QPS Limit  
+ * The queries per second (QPS) limit for this API is 10 per user. If you exceed this limit, your API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
  *
  * @param tmpReq ModifyAppStreamingOutTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5139,7 +5999,12 @@ ModifyAppStreamingOutTemplateResponse Client::modifyAppStreamingOutTemplateWithO
 }
 
 /**
- * @summary 更新应用推流模版
+ * @summary Modify the stream ingest template for an RTC 3.0 application.
+ *
+ * @description ### How-To  
+ * This API modifies the stream ingest template for an RTC 3.0 application.  
+ * ### QPS Limit  
+ * The queries per second (QPS) limit for this API is 10 per user. If you exceed this limit, your API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
  *
  * @param request ModifyAppStreamingOutTemplateRequest
  * @return ModifyAppStreamingOutTemplateResponse
@@ -5150,7 +6015,10 @@ ModifyAppStreamingOutTemplateResponse Client::modifyAppStreamingOutTemplate(cons
 }
 
 /**
- * @summary 修改合流开关
+ * @summary Modifies the merging switch.
+ *
+ * @description ### QPS limits
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request ModifyAppViewStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5181,7 +6049,10 @@ ModifyAppViewStatusResponse Client::modifyAppViewStatusWithOptions(const ModifyA
 }
 
 /**
- * @summary 修改合流开关
+ * @summary Modifies the merging switch.
+ *
+ * @description ### QPS limits
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request ModifyAppViewStatusRequest
  * @return ModifyAppViewStatusResponse
@@ -5192,7 +6063,10 @@ ModifyAppViewStatusResponse Client::modifyAppViewStatus(const ModifyAppViewStatu
 }
 
 /**
- * @summary 更新应用合流模版
+ * @summary Update an application view template.
+ *
+ * @description ### QPS limits
+ * This API supports up to 10 calls per second per user. Exceeding this limit triggers rate limiting, which may affect your business. Use this API with caution.
  *
  * @param tmpReq ModifyAppViewTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5233,7 +6107,10 @@ ModifyAppViewTemplateResponse Client::modifyAppViewTemplateWithOptions(const Mod
 }
 
 /**
- * @summary 更新应用合流模版
+ * @summary Update an application view template.
+ *
+ * @description ### QPS limits
+ * This API supports up to 10 calls per second per user. Exceeding this limit triggers rate limiting, which may affect your business. Use this API with caution.
  *
  * @param request ModifyAppViewTemplateRequest
  * @return ModifyAppViewTemplateResponse
@@ -5244,7 +6121,10 @@ ModifyAppViewTemplateResponse Client::modifyAppViewTemplate(const ModifyAppViewT
 }
 
 /**
- * @summary 更新app回调
+ * @summary Updates the callback configuration of an application.
+ *
+ * @description ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
  *
  * @param tmpReq ModifyCallbackMetaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5289,7 +6169,10 @@ ModifyCallbackMetaResponse Client::modifyCallbackMetaWithOptions(const ModifyCal
 }
 
 /**
- * @summary 更新app回调
+ * @summary Updates the callback configuration of an application.
+ *
+ * @description ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
  *
  * @param request ModifyCallbackMetaRequest
  * @return ModifyCallbackMetaResponse
@@ -5300,7 +6183,7 @@ ModifyCallbackMetaResponse Client::modifyCallbackMeta(const ModifyCallbackMetaRe
 }
 
 /**
- * @summary 更新纪要热词表
+ * @summary Updates the hotwords table for meeting minutes.
  *
  * @param tmpReq ModifyCloudNotePhrasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5341,7 +6224,7 @@ ModifyCloudNotePhrasesResponse Client::modifyCloudNotePhrasesWithOptions(const M
 }
 
 /**
- * @summary 更新纪要热词表
+ * @summary Updates the hotwords table for meeting minutes.
  *
  * @param request ModifyCloudNotePhrasesRequest
  * @return ModifyCloudNotePhrasesResponse
@@ -5352,6 +6235,13 @@ ModifyCloudNotePhrasesResponse Client::modifyCloudNotePhrases(const ModifyCloudN
 }
 
 /**
+ * @summary Modifies a bypass live streaming layout.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html) to create a bypass live streaming layout.
+ * # QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request ModifyMPULayoutRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyMPULayoutResponse
@@ -5401,6 +6291,13 @@ ModifyMPULayoutResponse Client::modifyMPULayoutWithOptions(const ModifyMPULayout
 }
 
 /**
+ * @summary Modifies a bypass live streaming layout.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html) to create a bypass live streaming layout.
+ * # QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request ModifyMPULayoutRequest
  * @return ModifyMPULayoutResponse
  */
@@ -5410,7 +6307,10 @@ ModifyMPULayoutResponse Client::modifyMPULayout(const ModifyMPULayoutRequest &re
 }
 
 /**
- * @summary 设置流属性
+ * @summary Sets the stream properties.
+ *
+ * @description ### QPS limit
+ * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param tmpReq ModifyStreamingPropertyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5463,7 +6363,10 @@ ModifyStreamingPropertyResponse Client::modifyStreamingPropertyWithOptions(const
 }
 
 /**
- * @summary 设置流属性
+ * @summary Sets the stream properties.
+ *
+ * @description ### QPS limit
+ * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request ModifyStreamingPropertyRequest
  * @return ModifyStreamingPropertyResponse
@@ -5474,7 +6377,10 @@ ModifyStreamingPropertyResponse Client::modifyStreamingProperty(const ModifyStre
 }
 
 /**
- * @summary 设置合流布局
+ * @summary Configures the mixed stream layout.
+ *
+ * @description ### QPS limit
+ * The QPS limit per user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable rate.
  *
  * @param tmpReq ModifyViewLayoutRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5547,7 +6453,10 @@ ModifyViewLayoutResponse Client::modifyViewLayoutWithOptions(const ModifyViewLay
 }
 
 /**
- * @summary 设置合流布局
+ * @summary Configures the mixed stream layout.
+ *
+ * @description ### QPS limit
+ * The QPS limit per user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable rate.
  *
  * @param request ModifyViewLayoutRequest
  * @return ModifyViewLayoutResponse
@@ -5634,6 +6543,13 @@ NotifyAgentResponse Client::notifyAgent(const NotifyAgentRequest &request) {
 }
 
 /**
+ * @summary Call the RemoveTerminals operation to remove specified end users from a channel.
+ *
+ * @description # Usage notes
+ * This API removes specified end users from a channel.
+ * # QPS limit
+ * The queries per second (QPS) limit for this API is 1,000 calls per minute per user. If you exceed the limit, API calls are subject to rate limiting, which may affect your business. Call this API at a reasonable rate. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request RemoveTerminalsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemoveTerminalsResponse
@@ -5675,6 +6591,13 @@ RemoveTerminalsResponse Client::removeTerminalsWithOptions(const RemoveTerminals
 }
 
 /**
+ * @summary Call the RemoveTerminals operation to remove specified end users from a channel.
+ *
+ * @description # Usage notes
+ * This API removes specified end users from a channel.
+ * # QPS limit
+ * The queries per second (QPS) limit for this API is 1,000 calls per minute per user. If you exceed the limit, API calls are subject to rate limiting, which may affect your business. Call this API at a reasonable rate. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request RemoveTerminalsRequest
  * @return RemoveTerminalsResponse
  */
@@ -5685,6 +6608,11 @@ RemoveTerminalsResponse Client::removeTerminals(const RemoveTerminalsRequest &re
 
 /**
  * @summary RemoveUsers
+ *
+ * @description ### How-To  
+ * This API is used to kick users out of an online channel.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 requests per second per user. If the limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
  *
  * @param request RemoveUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5725,6 +6653,11 @@ RemoveUsersResponse Client::removeUsersWithOptions(const RemoveUsersRequest &req
 /**
  * @summary RemoveUsers
  *
+ * @description ### How-To  
+ * This API is used to kick users out of an online channel.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 requests per second per user. If the limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
+ *
  * @param request RemoveUsersRequest
  * @return RemoveUsersResponse
  */
@@ -5734,7 +6667,10 @@ RemoveUsersResponse Client::removeUsers(const RemoveUsersRequest &request) {
 }
 
 /**
- * @summary 取消Sip邀请
+ * @summary Cancels a SIP invite.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit for this API is 10 per user. If you exceed this limit, API calls are subject to rate limiting, which may affect your business. Call this API at a reasonable frequency.
  *
  * @param request RtcCancelSipInviteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5777,7 +6713,10 @@ RtcCancelSipInviteResponse Client::rtcCancelSipInviteWithOptions(const RtcCancel
 }
 
 /**
- * @summary 取消Sip邀请
+ * @summary Cancels a SIP invite.
+ *
+ * @description ### QPS limit
+ * The queries per second (QPS) limit for this API is 10 per user. If you exceed this limit, API calls are subject to rate limiting, which may affect your business. Call this API at a reasonable frequency.
  *
  * @param request RtcCancelSipInviteRequest
  * @return RtcCancelSipInviteResponse
@@ -5788,7 +6727,68 @@ RtcCancelSipInviteResponse Client::rtcCancelSipInvite(const RtcCancelSipInviteRe
 }
 
 /**
- * @summary 邀请SIP加入频道
+ * @summary Sends DTMF key signals to a target OneRTC SIP call in a specified channel.
+ *
+ * @param request RtcSendSipDtmfRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RtcSendSipDtmfResponse
+ */
+RtcSendSipDtmfResponse Client::rtcSendSipDtmfWithOptions(const RtcSendSipDtmfRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.getChannelId();
+  }
+
+  if (!!request.hasChannelUserId()) {
+    query["ChannelUserId"] = request.getChannelUserId();
+  }
+
+  if (!!request.hasDeviceType()) {
+    query["DeviceType"] = request.getDeviceType();
+  }
+
+  if (!!request.hasDigits()) {
+    query["Digits"] = request.getDigits();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RtcSendSipDtmf"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RtcSendSipDtmfResponse>();
+}
+
+/**
+ * @summary Sends DTMF key signals to a target OneRTC SIP call in a specified channel.
+ *
+ * @param request RtcSendSipDtmfRequest
+ * @return RtcSendSipDtmfResponse
+ */
+RtcSendSipDtmfResponse Client::rtcSendSipDtmf(const RtcSendSipDtmfRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rtcSendSipDtmfWithOptions(request, runtime);
+}
+
+/**
+ * @summary Invites a SIP endpoint to join a channel.
+ *
+ * @description ### Rate limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request RtcSipInviteMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5875,7 +6875,10 @@ RtcSipInviteMemberResponse Client::rtcSipInviteMemberWithOptions(const RtcSipInv
 }
 
 /**
- * @summary 邀请SIP加入频道
+ * @summary Invites a SIP endpoint to join a channel.
+ *
+ * @description ### Rate limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request RtcSipInviteMemberRequest
  * @return RtcSipInviteMemberResponse
@@ -5886,7 +6889,10 @@ RtcSipInviteMemberResponse Client::rtcSipInviteMember(const RtcSipInviteMemberRe
 }
 
 /**
- * @summary Mute操作
+ * @summary Mutes or unmutes the microphone for a SIP endpoint.
+ *
+ * @description ### QPS limits
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request RtcSipMuteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5925,7 +6931,10 @@ RtcSipMuteResponse Client::rtcSipMuteWithOptions(const RtcSipMuteRequest &reques
 }
 
 /**
- * @summary Mute操作
+ * @summary Mutes or unmutes the microphone for a SIP endpoint.
+ *
+ * @description ### QPS limits
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
  *
  * @param request RtcSipMuteRequest
  * @return RtcSipMuteResponse
@@ -5936,7 +6945,7 @@ RtcSipMuteResponse Client::rtcSipMute(const RtcSipMuteRequest &request) {
 }
 
 /**
- * @summary 启动AI Agent
+ * @summary Starts an AI agent.
  *
  * @param tmpReq StartAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5997,7 +7006,7 @@ StartAgentResponse Client::startAgentWithOptions(const StartAgentRequest &tmpReq
 }
 
 /**
- * @summary 启动AI Agent
+ * @summary Starts an AI agent.
  *
  * @param request StartAgentRequest
  * @return StartAgentResponse
@@ -6008,7 +7017,10 @@ StartAgentResponse Client::startAgent(const StartAgentRequest &request) {
 }
 
 /**
- * @summary 开启某个事件回调
+ * @summary Starts an event callback.
+ *
+ * @description ### QPS limits
+ * The queries per second (QPS) limit for this API is 10 calls per second per user. If you exceed the limit, API calls are subject to rate limiting, which may affect your business. Call the API at a reasonable rate.
  *
  * @param tmpReq StartCategoryCallbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6049,7 +7061,10 @@ StartCategoryCallbackResponse Client::startCategoryCallbackWithOptions(const Sta
 }
 
 /**
- * @summary 开启某个事件回调
+ * @summary Starts an event callback.
+ *
+ * @description ### QPS limits
+ * The queries per second (QPS) limit for this API is 10 calls per second per user. If you exceed the limit, API calls are subject to rate limiting, which may affect your business. Call the API at a reasonable rate.
  *
  * @param request StartCategoryCallbackRequest
  * @return StartCategoryCallbackResponse
@@ -6060,7 +7075,15 @@ StartCategoryCallbackResponse Client::startCategoryCallback(const StartCategoryC
 }
 
 /**
- * @summary 开启智能纪要
+ * @summary Starts an intelligent meeting minutes task.
+ *
+ * @description ### Usage notes
+ * This operation starts a meeting minutes task for an online channel. If you need meeting minutes and subtitles, enable all features.
+ * ### QPS limits
+ * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
+ * > Concurrency limits
+ * > - Only one meeting minutes task can run in the same channel at a time.
+ * > - You can start and stop meeting minutes tasks multiple times in the same channel, but the TaskId must be different each time.
  *
  * @param tmpReq StartCloudNoteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6177,7 +7200,15 @@ StartCloudNoteResponse Client::startCloudNoteWithOptions(const StartCloudNoteReq
 }
 
 /**
- * @summary 开启智能纪要
+ * @summary Starts an intelligent meeting minutes task.
+ *
+ * @description ### Usage notes
+ * This operation starts a meeting minutes task for an online channel. If you need meeting minutes and subtitles, enable all features.
+ * ### QPS limits
+ * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
+ * > Concurrency limits
+ * > - Only one meeting minutes task can run in the same channel at a time.
+ * > - You can start and stop meeting minutes tasks multiple times in the same channel, but the TaskId must be different each time.
  *
  * @param request StartCloudNoteRequest
  * @return StartCloudNoteResponse
@@ -6188,7 +7219,12 @@ StartCloudNoteResponse Client::startCloudNote(const StartCloudNoteRequest &reque
 }
 
 /**
- * @summary StartCloudRecord
+ * @summary Starts a cloud recording task.
+ *
+ * @description ### Usage notes
+ * This operation starts a cloud recording task for an online channel.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param tmpReq StartCloudRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6313,7 +7349,12 @@ StartCloudRecordResponse Client::startCloudRecordWithOptions(const StartCloudRec
 }
 
 /**
- * @summary StartCloudRecord
+ * @summary Starts a cloud recording task.
+ *
+ * @description ### Usage notes
+ * This operation starts a cloud recording task for an online channel.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request StartCloudRecordRequest
  * @return StartCloudRecordResponse
@@ -6324,6 +7365,17 @@ StartCloudRecordResponse Client::startCloudRecord(const StartCloudRecordRequest 
 }
 
 /**
+ * @summary Starts a bypass relaying task.
+ *
+ * @description # Usage notes
+ * This operation is used to start a bypass relaying task. When you use the bypass relaying service, ApsaraVideo Live has the following limits:
+ * <props="china">- For the concurrency limit on tasks, see [Concurrency limits](https://help.aliyun.com/document_detail/71050.html#section-eaz-anq-a47). If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex) two weeks in advance.
+ * <props="intl">- For the concurrency limit on tasks, see [Concurrency limits](https://www.alibabacloud.com/help/rtc-61399/latest/60e652#section-eaz-anq-a47). If you have special requirements, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) two weeks in advance.
+ * - If the transcoding feature is disabled, each account can concurrently push up to 20 original-quality live streams per live streaming accelerated domain name by default. If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+ * - If the transcoding feature is enabled, each account can concurrently push up to 10 transcoded live streams per live streaming accelerated domain name by default. If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+ * # QPS limit
+ * The QPS limit for a single user calling this operation is 500 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request StartMPUTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartMPUTaskResponse
@@ -6475,6 +7527,17 @@ StartMPUTaskResponse Client::startMPUTaskWithOptions(const StartMPUTaskRequest &
 }
 
 /**
+ * @summary Starts a bypass relaying task.
+ *
+ * @description # Usage notes
+ * This operation is used to start a bypass relaying task. When you use the bypass relaying service, ApsaraVideo Live has the following limits:
+ * <props="china">- For the concurrency limit on tasks, see [Concurrency limits](https://help.aliyun.com/document_detail/71050.html#section-eaz-anq-a47). If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex) two weeks in advance.
+ * <props="intl">- For the concurrency limit on tasks, see [Concurrency limits](https://www.alibabacloud.com/help/rtc-61399/latest/60e652#section-eaz-anq-a47). If you have special requirements, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) two weeks in advance.
+ * - If the transcoding feature is disabled, each account can concurrently push up to 20 original-quality live streams per live streaming accelerated domain name by default. If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+ * - If the transcoding feature is enabled, each account can concurrently push up to 10 transcoded live streams per live streaming accelerated domain name by default. If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+ * # QPS limit
+ * The QPS limit for a single user calling this operation is 500 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request StartMPUTaskRequest
  * @return StartMPUTaskResponse
  */
@@ -6484,6 +7547,15 @@ StartMPUTaskResponse Client::startMPUTask(const StartMPUTaskRequest &request) {
 }
 
 /**
+ * @summary Starts a video recording task.
+ *
+ * @description # Usage notes
+ * - Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording configuration template.
+ * <props="china">- By default, you can start a maximum of 100 recording tasks at the same time. If the limit is exceeded, new recording tasks become unavailable. If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+ * <props="intl">- By default, you can start a maximum of 100 recording tasks at the same time. If the limit is exceeded, new recording tasks become unavailable. If you have special requirements, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+ * # QPS limit
+ * The QPS limit for a single user is 500 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request StartRecordTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartRecordTaskResponse
@@ -6589,6 +7661,15 @@ StartRecordTaskResponse Client::startRecordTaskWithOptions(const StartRecordTask
 }
 
 /**
+ * @summary Starts a video recording task.
+ *
+ * @description # Usage notes
+ * - Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording configuration template.
+ * <props="china">- By default, you can start a maximum of 100 recording tasks at the same time. If the limit is exceeded, new recording tasks become unavailable. If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+ * <props="intl">- By default, you can start a maximum of 100 recording tasks at the same time. If the limit is exceeded, new recording tasks become unavailable. If you have special requirements, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+ * # QPS limit
+ * The QPS limit for a single user is 500 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request StartRecordTaskRequest
  * @return StartRecordTaskResponse
  */
@@ -6598,7 +7679,12 @@ StartRecordTaskResponse Client::startRecordTask(const StartRecordTaskRequest &re
 }
 
 /**
- * @summary StartStreamingOut
+ * @summary Starts a bypass streaming task.
+ *
+ * @description ### Usage notes
+ * This operation starts a bypass streaming task for an online channel.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param tmpReq StartStreamingOutRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6715,7 +7801,12 @@ StartStreamingOutResponse Client::startStreamingOutWithOptions(const StartStream
 }
 
 /**
- * @summary StartStreamingOut
+ * @summary Starts a bypass streaming task.
+ *
+ * @description ### Usage notes
+ * This operation starts a bypass streaming task for an online channel.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
  *
  * @param request StartStreamingOutRequest
  * @return StartStreamingOutResponse
@@ -6726,7 +7817,10 @@ StartStreamingOutResponse Client::startStreamingOut(const StartStreamingOutReque
 }
 
 /**
- * @summary 开始合流
+ * @summary Starts stream mixing.
+ *
+ * @description ### QPS limits
+ * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API operation at a reasonable frequency.
  *
  * @param tmpReq StartViewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6803,7 +7897,10 @@ StartViewResponse Client::startViewWithOptions(const StartViewRequest &tmpReq, c
 }
 
 /**
- * @summary 开始合流
+ * @summary Starts stream mixing.
+ *
+ * @description ### QPS limits
+ * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API operation at a reasonable frequency.
  *
  * @param request StartViewRequest
  * @return StartViewResponse
@@ -6814,7 +7911,7 @@ StartViewResponse Client::startView(const StartViewRequest &request) {
 }
 
 /**
- * @summary 停止AI Agent
+ * @summary Stops an AI agent.
  *
  * @param request StopAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6853,7 +7950,7 @@ StopAgentResponse Client::stopAgentWithOptions(const StopAgentRequest &request, 
 }
 
 /**
- * @summary 停止AI Agent
+ * @summary Stops an AI agent.
  *
  * @param request StopAgentRequest
  * @return StopAgentResponse
@@ -6864,7 +7961,10 @@ StopAgentResponse Client::stopAgent(const StopAgentRequest &request) {
 }
 
 /**
- * @summary 关闭某个事件回调
+ * @summary Disables an event callback.
+ *
+ * @description ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param tmpReq StopCategoryCallbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6905,7 +8005,10 @@ StopCategoryCallbackResponse Client::stopCategoryCallbackWithOptions(const StopC
 }
 
 /**
- * @summary 关闭某个事件回调
+ * @summary Disables an event callback.
+ *
+ * @description ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
  *
  * @param request StopCategoryCallbackRequest
  * @return StopCategoryCallbackResponse
@@ -6916,7 +8019,12 @@ StopCategoryCallbackResponse Client::stopCategoryCallback(const StopCategoryCall
 }
 
 /**
- * @summary 删除频道
+ * @summary This API is used by the server to actively shut down a channel.
+ *
+ * @description ### How-To  
+ * This API is used by the server to actively shut down an online channel.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your service. Invoke this API appropriately.
  *
  * @param request StopChannelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6951,7 +8059,12 @@ StopChannelResponse Client::stopChannelWithOptions(const StopChannelRequest &req
 }
 
 /**
- * @summary 删除频道
+ * @summary This API is used by the server to actively shut down a channel.
+ *
+ * @description ### How-To  
+ * This API is used by the server to actively shut down an online channel.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your service. Invoke this API appropriately.
  *
  * @param request StopChannelRequest
  * @return StopChannelResponse
@@ -6962,7 +8075,12 @@ StopChannelResponse Client::stopChannel(const StopChannelRequest &request) {
 }
 
 /**
- * @summary 停止智能纪要
+ * @summary Stops an intelligent meeting minutes task.
+ *
+ * @description ### Usage notes
+ * This operation stops a meeting minutes task for an online channel.
+ * ### QPS limits
+ * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable rate.
  *
  * @param request StopCloudNoteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7005,7 +8123,12 @@ StopCloudNoteResponse Client::stopCloudNoteWithOptions(const StopCloudNoteReques
 }
 
 /**
- * @summary 停止智能纪要
+ * @summary Stops an intelligent meeting minutes task.
+ *
+ * @description ### Usage notes
+ * This operation stops a meeting minutes task for an online channel.
+ * ### QPS limits
+ * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable rate.
  *
  * @param request StopCloudNoteRequest
  * @return StopCloudNoteResponse
@@ -7017,6 +8140,11 @@ StopCloudNoteResponse Client::stopCloudNote(const StopCloudNoteRequest &request)
 
 /**
  * @summary StopCloudRecord
+ *
+ * @description ### How-To  
+ * This API is used to stop an online channel cloud recording job.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second (QPS) per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
  *
  * @param request StopCloudRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7057,6 +8185,11 @@ StopCloudRecordResponse Client::stopCloudRecordWithOptions(const StopCloudRecord
 /**
  * @summary StopCloudRecord
  *
+ * @description ### How-To  
+ * This API is used to stop an online channel cloud recording job.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second (QPS) per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
+ *
  * @param request StopCloudRecordRequest
  * @return StopCloudRecordResponse
  */
@@ -7066,6 +8199,14 @@ StopCloudRecordResponse Client::stopCloudRecord(const StopCloudRecordRequest &re
 }
 
 /**
+ * @summary Calls the StopMPUTask operation to stop a stream relay task.
+ *
+ * @description # Usage notes
+ * - Before you call this operation, you must have called [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) to start a stream relay task.
+ * - If you need to stop a stream relay task and the stream relay task is abnormal (the StopMPUTask operation is not called to stop the task), the stream relay task is automatically stopped 2 minutes after the last user leaves the channel. After the task is stopped, if you need to resume stream relay, you need to call the [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) operation again.
+ * # QPS limit
+ * The QPS limit per user for this operation is 500 times per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the operation properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request StopMPUTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopMPUTaskResponse
@@ -7103,6 +8244,14 @@ StopMPUTaskResponse Client::stopMPUTaskWithOptions(const StopMPUTaskRequest &req
 }
 
 /**
+ * @summary Calls the StopMPUTask operation to stop a stream relay task.
+ *
+ * @description # Usage notes
+ * - Before you call this operation, you must have called [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) to start a stream relay task.
+ * - If you need to stop a stream relay task and the stream relay task is abnormal (the StopMPUTask operation is not called to stop the task), the stream relay task is automatically stopped 2 minutes after the last user leaves the channel. After the task is stopped, if you need to resume stream relay, you need to call the [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) operation again.
+ * # QPS limit
+ * The QPS limit per user for this operation is 500 times per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the operation properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request StopMPUTaskRequest
  * @return StopMPUTaskResponse
  */
@@ -7112,6 +8261,13 @@ StopMPUTaskResponse Client::stopMPUTask(const StopMPUTaskRequest &request) {
 }
 
 /**
+ * @summary Calls the StopRecordTask operation to stop a video recording task.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call the [StartRecordTask](https://help.aliyun.com/document_detail/193528.html) operation to start a video recording task.
+ * # QPS limit
+ * You can call this operation up to 4,000 times per minute per user. If the number of calls per minute exceeds the limit, throttling is triggered, which may affect your business. Call this operation as required. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request StopRecordTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopRecordTaskResponse
@@ -7149,6 +8305,13 @@ StopRecordTaskResponse Client::stopRecordTaskWithOptions(const StopRecordTaskReq
 }
 
 /**
+ * @summary Calls the StopRecordTask operation to stop a video recording task.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call the [StartRecordTask](https://help.aliyun.com/document_detail/193528.html) operation to start a video recording task.
+ * # QPS limit
+ * You can call this operation up to 4,000 times per minute per user. If the number of calls per minute exceeds the limit, throttling is triggered, which may affect your business. Call this operation as required. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request StopRecordTaskRequest
  * @return StopRecordTaskResponse
  */
@@ -7159,6 +8322,11 @@ StopRecordTaskResponse Client::stopRecordTask(const StopRecordTaskRequest &reque
 
 /**
  * @summary StopStreamingOut
+ *
+ * @description ### How-To  
+ * This API is used to stop a bypass stream ingest job for an online channel.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second (QPS) per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Invoke this API appropriately.
  *
  * @param request StopStreamingOutRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7199,6 +8367,11 @@ StopStreamingOutResponse Client::stopStreamingOutWithOptions(const StopStreaming
 /**
  * @summary StopStreamingOut
  *
+ * @description ### How-To  
+ * This API is used to stop a bypass stream ingest job for an online channel.  
+ * ### queries per second (QPS) Limit  
+ * The QPS limit for this API is 10 queries per second (QPS) per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Invoke this API appropriately.
+ *
  * @param request StopStreamingOutRequest
  * @return StopStreamingOutResponse
  */
@@ -7208,7 +8381,10 @@ StopStreamingOutResponse Client::stopStreamingOut(const StopStreamingOutRequest 
 }
 
 /**
- * @summary 停止合流
+ * @summary Stop stream mixing.
+ *
+ * @description ### QPS limit
+ * The QPS limit for this API is 10 requests per second per user. Exceeding this limit triggers rate limiting, which can affect your application. Therefore, call the API judiciously.
  *
  * @param request StopViewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7247,7 +8423,10 @@ StopViewResponse Client::stopViewWithOptions(const StopViewRequest &request, con
 }
 
 /**
- * @summary 停止合流
+ * @summary Stop stream mixing.
+ *
+ * @description ### QPS limit
+ * The QPS limit for this API is 10 requests per second per user. Exceeding this limit triggers rate limiting, which can affect your application. Therefore, call the API judiciously.
  *
  * @param request StopViewRequest
  * @return StopViewResponse
@@ -7258,7 +8437,7 @@ StopViewResponse Client::stopView(const StopViewRequest &request) {
 }
 
 /**
- * @summary 更新AI Agent
+ * @summary Update an AI Agent
  *
  * @param tmpReq UpdateAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7307,7 +8486,7 @@ UpdateAgentResponse Client::updateAgentWithOptions(const UpdateAgentRequest &tmp
 }
 
 /**
- * @summary 更新AI Agent
+ * @summary Update an AI Agent
  *
  * @param request UpdateAgentRequest
  * @return UpdateAgentResponse
@@ -7318,6 +8497,13 @@ UpdateAgentResponse Client::updateAgent(const UpdateAgentRequest &request) {
 }
 
 /**
+ * @summary Modifies an automatic bypass single-stream relay rule.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+ * # QPS limits
+ * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request UpdateAutoLiveStreamRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateAutoLiveStreamRuleResponse
@@ -7379,6 +8565,13 @@ UpdateAutoLiveStreamRuleResponse Client::updateAutoLiveStreamRuleWithOptions(con
 }
 
 /**
+ * @summary Modifies an automatic bypass single-stream relay rule.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+ * # QPS limits
+ * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request UpdateAutoLiveStreamRuleRequest
  * @return UpdateAutoLiveStreamRuleResponse
  */
@@ -7388,7 +8581,12 @@ UpdateAutoLiveStreamRuleResponse Client::updateAutoLiveStreamRule(const UpdateAu
 }
 
 /**
- * @summary 更新云端录制任务
+ * @summary Updates a cloud recording task.
+ *
+ * @description ### Usage
+ * Updates a cloud recording task for an online channel.
+ * ### QPS limit
+ * This API supports up to 10 requests per second per user. Exceeding this limit triggers rate limiting, which may affect your service. Call the API responsibly.
  *
  * @param tmpReq UpdateCloudRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7461,7 +8659,12 @@ UpdateCloudRecordResponse Client::updateCloudRecordWithOptions(const UpdateCloud
 }
 
 /**
- * @summary 更新云端录制任务
+ * @summary Updates a cloud recording task.
+ *
+ * @description ### Usage
+ * Updates a cloud recording task for an online channel.
+ * ### QPS limit
+ * This API supports up to 10 requests per second per user. Exceeding this limit triggers rate limiting, which may affect your service. Call the API responsibly.
  *
  * @param request UpdateCloudRecordRequest
  * @return UpdateCloudRecordResponse
@@ -7472,6 +8675,14 @@ UpdateCloudRecordResponse Client::updateCloudRecord(const UpdateCloudRecordReque
 }
 
 /**
+ * @summary Call UpdateMPUTask to update a bypass relay task.
+ *
+ * @description # Usage notes
+ * - Before calling this API, you must have called [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) to start a bypass relay task.
+ * - This API must be called while the task is running normally. Calls are invalid when the task has not started, has ended, or is in an abnormal state. You can call [GetMPUTaskStatus](https://help.aliyun.com/document_detail/93181.html) to obtain the task running status.
+ * # QPS limit
+ * The per-user QPS limit of this API is 4,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Please call reasonably. For more information, see [QPS Limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request UpdateMPUTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateMPUTaskResponse
@@ -7581,6 +8792,14 @@ UpdateMPUTaskResponse Client::updateMPUTaskWithOptions(const UpdateMPUTaskReques
 }
 
 /**
+ * @summary Call UpdateMPUTask to update a bypass relay task.
+ *
+ * @description # Usage notes
+ * - Before calling this API, you must have called [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) to start a bypass relay task.
+ * - This API must be called while the task is running normally. Calls are invalid when the task has not started, has ended, or is in an abnormal state. You can call [GetMPUTaskStatus](https://help.aliyun.com/document_detail/93181.html) to obtain the task running status.
+ * # QPS limit
+ * The per-user QPS limit of this API is 4,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Please call reasonably. For more information, see [QPS Limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request UpdateMPUTaskRequest
  * @return UpdateMPUTaskResponse
  */
@@ -7590,6 +8809,13 @@ UpdateMPUTaskResponse Client::updateMPUTask(const UpdateMPUTaskRequest &request)
 }
 
 /**
+ * @summary Updates a video recording task.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [StartRecordTask](https://help.aliyun.com/document_detail/193528.html) to start a video recording task.
+ * # QPS limits
+ * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request UpdateRecordTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateRecordTaskResponse
@@ -7683,6 +8909,13 @@ UpdateRecordTaskResponse Client::updateRecordTaskWithOptions(const UpdateRecordT
 }
 
 /**
+ * @summary Updates a video recording task.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [StartRecordTask](https://help.aliyun.com/document_detail/193528.html) to start a video recording task.
+ * # QPS limits
+ * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request UpdateRecordTaskRequest
  * @return UpdateRecordTaskResponse
  */
@@ -7692,6 +8925,13 @@ UpdateRecordTaskResponse Client::updateRecordTask(const UpdateRecordTaskRequest 
 }
 
 /**
+ * @summary Updates a recording configuration template.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording configuration template.
+ * # QPS limits
+ * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request UpdateRecordTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateRecordTemplateResponse
@@ -7797,6 +9037,13 @@ UpdateRecordTemplateResponse Client::updateRecordTemplateWithOptions(const Updat
 }
 
 /**
+ * @summary Updates a recording configuration template.
+ *
+ * @description # Usage notes
+ * Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording configuration template.
+ * # QPS limits
+ * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+ *
  * @param request UpdateRecordTemplateRequest
  * @return UpdateRecordTemplateResponse
  */
@@ -7806,7 +9053,12 @@ UpdateRecordTemplateResponse Client::updateRecordTemplate(const UpdateRecordTemp
 }
 
 /**
- * @summary 更新旁路推流任务
+ * @summary Updates a bypass live streaming task.
+ *
+ * @description ### Usage notes
+ * This operation updates a bypass live streaming task for an online channel.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
  *
  * @param tmpReq UpdateStreamingOutRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7895,7 +9147,12 @@ UpdateStreamingOutResponse Client::updateStreamingOutWithOptions(const UpdateStr
 }
 
 /**
- * @summary 更新旁路推流任务
+ * @summary Updates a bypass live streaming task.
+ *
+ * @description ### Usage notes
+ * This operation updates a bypass live streaming task for an online channel.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
  *
  * @param request UpdateStreamingOutRequest
  * @return UpdateStreamingOutResponse

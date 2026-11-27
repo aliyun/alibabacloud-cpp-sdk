@@ -177,18 +177,31 @@ namespace Models
 
 
     protected:
+      // Path where the chapter overview result file is stored.
       shared_ptr<string> autoChaptersFilePath_ {};
+      // The user-defined bucket.
       shared_ptr<string> bucket_ {};
+      // Channel ID.
       shared_ptr<string> channelId_ {};
+      // The path where the custom prompt result file is stored.
       shared_ptr<string> customPromptFilePath_ {};
+      // The path where the key points extraction result file is stored.
       shared_ptr<string> meetingAssistanceFilePath_ {};
+      // Reference job region.
       shared_ptr<int32_t> region_ {};
+      // The path where the service quality inspection result file is stored.
       shared_ptr<string> serviceInspectionFilePath_ {};
+      // Start Time of the meeting summary job.
       shared_ptr<int64_t> startTs_ {};
+      // Path where the summary result file is stored.
       shared_ptr<string> summarizationFilePath_ {};
+      // Job ID.
       shared_ptr<string> taskId_ {};
+      // The path where the spoken-to-written text result file is stored.
       shared_ptr<string> textPolishFilePath_ {};
+      // Path where the transcription result file is stored.
       shared_ptr<string> transcriptionFilePath_ {};
+      // The vendor referenced when enabling the job.
       shared_ptr<int32_t> vendor_ {};
     };
 
@@ -232,11 +245,15 @@ namespace Models
 
 
   protected:
+    // List of meeting summary results.
     shared_ptr<vector<DescribeCloudNotesResponseBody::Items>> items_ {};
+    // Page number.
     shared_ptr<int32_t> pageNo_ {};
+    // Quantity per page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Total quantity.
     shared_ptr<int32_t> totalCnt_ {};
   };
 

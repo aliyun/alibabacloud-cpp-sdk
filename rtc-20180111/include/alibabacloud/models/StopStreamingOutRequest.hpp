@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The application ID, which is created and queried via the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // An existing channel ID. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The ID of an existing bypass stream ingest job. Only a single ID is supported. It can contain uppercase and lowercase letters, digits, underscores, and hyphens (-), with a maximum length of 55 bytes. If not specified, the system will automatically generate one.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

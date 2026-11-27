@@ -78,14 +78,21 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The ID of an existing channel. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The ID of the stream mixing task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The stream mixing content.
     shared_ptr<string> viewContent_ {};
-    // ViewSubscribers。
+    // The view subscribers.
     shared_ptr<vector<string>> viewSubscribers_ {};
   };
 

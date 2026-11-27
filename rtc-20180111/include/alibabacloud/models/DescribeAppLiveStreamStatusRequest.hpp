@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The ID of the application. You can create and query the application ID in the console. You can specify only one application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // A parameter that ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
   };
 

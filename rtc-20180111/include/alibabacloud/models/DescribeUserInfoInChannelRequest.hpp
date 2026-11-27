@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The application ID, which is created and queried through the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The channel ID. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The user ID. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

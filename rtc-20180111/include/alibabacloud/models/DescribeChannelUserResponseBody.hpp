@@ -83,8 +83,11 @@ namespace Models
 
 
     protected:
+      // The UNIX timestamp in seconds when the user joined the channel. The time is in UTC.
       shared_ptr<int64_t> joined_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -121,9 +124,17 @@ namespace Models
 
 
   protected:
+    // Indicates whether the channel exists. Valid values:
+    // - **true**: The channel exists.
+    // - **false**: The channel does not exist.
     shared_ptr<bool> channelExist_ {};
+    // Indicates whether the user is currently in the channel. Valid values:
+    // - **true**: The user is in the channel.
+    // - **false**: The user is not in the channel.
     shared_ptr<bool> inChannel_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of session information.
     shared_ptr<vector<DescribeChannelUserResponseBody::Sessions>> sessions_ {};
   };
 

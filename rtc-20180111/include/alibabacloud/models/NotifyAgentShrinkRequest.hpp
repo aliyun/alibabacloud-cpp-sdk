@@ -103,13 +103,24 @@ namespace Models
 
 
   protected:
+    // The application ID. Create and query it in the console. Only a single ID is supported.
     shared_ptr<string> appId_ {};
+    // Background audio.
     shared_ptr<string> backgroundMusicShrink_ {};
+    // The channel to join. Only a single ID is supported.
     shared_ptr<string> channelId_ {};
+    // Custom parameters passed through to the client.
     shared_ptr<string> customAttribute_ {};
+    // Indicates whether the announcement can be interrupted. If false, the message cannot be interrupted by voice input, key presses, or other methods.
     shared_ptr<bool> interruptable_ {};
+    // The text content to announce.
     shared_ptr<string> message_ {};
+    // The priority level for inserting the announcement:
+    // 1 — Interrupt the current interaction and announce immediately.
+    // 2 — Announce after the current interaction ends.
+    // 3 — Announce only if no interaction is active.
     shared_ptr<int32_t> priority_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

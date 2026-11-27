@@ -122,12 +122,23 @@ namespace Models
 
 
     protected:
+      // The height of the pane, represented as a normalized percentage. Valid values: **0.0 < Height ≤ 1.0**.
       shared_ptr<float> height_ {};
+      // Specifies the main pane. Each layout can have only one main pane.
+      // 
+      // - **0**: secondary pane.
+      //  
+      // - **1**: main pane.
       shared_ptr<int32_t> majorPane_ {};
+      // The pane ID. Panes are sorted from top left to bottom right, starting from 0.
       shared_ptr<int32_t> paneId_ {};
+      // The width of the pane, represented as a normalized percentage. Valid values: **0.0 < Width ≤ 1.0**.
       shared_ptr<float> width_ {};
+      // The X-coordinate, represented as a normalized percentage. Valid values: **0.0 ≤ X ≤ 1.0**.
       shared_ptr<float> x_ {};
+      // The Y-coordinate, represented as a normalized percentage. Valid values: **0.0 ≤ Y ≤ 1.0**.
       shared_ptr<float> y_ {};
+      // The stacking order. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -171,12 +182,19 @@ namespace Models
 
 
   protected:
+    // The application ID. Only a single ID is supported. You can create and query application IDs in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The maximum number of audio mixes. Valid values: **0** to **6**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> audioMixCount_ {};
+    // The name of the layout.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The list of panes in the layout.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateMPULayoutRequest::Panes>> panes_ {};
   };

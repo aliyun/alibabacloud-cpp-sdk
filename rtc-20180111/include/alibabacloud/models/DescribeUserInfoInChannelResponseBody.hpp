@@ -85,8 +85,17 @@ namespace Models
 
 
     protected:
+      // The time when the user joined the meeting (UTC time).
       shared_ptr<int32_t> join_ {};
+      // The role type in the meeting. Valid values:
+      // 
+      // - **0**: The user role in communication mode.
+      //  
+      // - **1**: The interactive role.
+      //  
+      // - **2**: The live (view only) role.
       shared_ptr<int32_t> role_ {};
+      // The session ID.
       shared_ptr<string> session_ {};
     };
 
@@ -130,10 +139,19 @@ namespace Models
 
 
   protected:
+    // Indicates whether the channel exists. Valid values:
+    // - **true**: The channel exists.
+    // - **false**: The channel does not exist.
     shared_ptr<bool> isChannelExist_ {};
+    // Indicates whether the user is currently in the channel. Valid values:
+    // - **true**: The user is in the channel.
+    // - **false**: The user is not in the channel.
     shared_ptr<bool> isInChannel_ {};
+    // The information of the user in the channel.
     shared_ptr<vector<DescribeUserInfoInChannelResponseBody::Property>> property_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The timestamp of the current moment (UTC time).
     shared_ptr<int32_t> timestamp_ {};
   };
 

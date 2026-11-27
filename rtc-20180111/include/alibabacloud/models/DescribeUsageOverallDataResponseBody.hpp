@@ -91,7 +91,9 @@ namespace Models
 
 
       protected:
+        // The x-axis coordinate in the metric trends chart.
         shared_ptr<string> x_ {};
+        // The y-axis coordinate in the metric trends chart.
         shared_ptr<string> y_ {};
       };
 
@@ -114,7 +116,9 @@ namespace Models
 
 
     protected:
+      // The list of coordinate points for the metric trends chart.
       shared_ptr<vector<UsageOverallData::Nodes>> nodes_ {};
+      // The queried metric type.
       shared_ptr<string> type_ {};
     };
 
@@ -137,7 +141,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The usage overview data list.
     shared_ptr<vector<DescribeUsageOverallDataResponseBody::UsageOverallData>> usageOverallData_ {};
   };
 

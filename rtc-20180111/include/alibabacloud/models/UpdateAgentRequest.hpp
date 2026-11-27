@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // 1 – Natural conversation mode. 2 – Walkie-talkie mode.If this field is not included, no update occurs.
       shared_ptr<int32_t> chatMode_ {};
+      // 1 – Enable voice interruption. 2 – Disable voice interruption.If this field is not included, no update occurs.
       shared_ptr<int32_t> interruptMode_ {};
     };
 
@@ -110,12 +112,19 @@ namespace Models
 
 
   protected:
+    // The application ID. Specify only one ID. You can create and query applications in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The existing channel ID. Specify only one ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The task ID. Specify only one ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // Configuration for AI voice conversation.
     shared_ptr<UpdateAgentRequest::VoiceChatConfig> voiceChatConfig_ {};
   };
 

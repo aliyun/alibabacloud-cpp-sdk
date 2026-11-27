@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Application ID. Create and query through the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Idempotency parameter.
     shared_ptr<string> clientToken_ {};
+    // Recording template.
+    // 
     // This parameter is required.
     shared_ptr<string> recordTemplateShrink_ {};
   };

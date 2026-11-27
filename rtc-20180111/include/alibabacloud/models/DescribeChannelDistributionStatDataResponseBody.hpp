@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // The number of communicating users.
       shared_ptr<int32_t> callUserCount_ {};
+      // The proportion of communicating users, represented as a decimal. For example, 1.0000 indicates that the proportion is 100%.
       shared_ptr<string> callUserRatio_ {};
+      // The statistical dimension.
       shared_ptr<string> name_ {};
     };
 
@@ -103,7 +106,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The channel distribution statistics list.
     shared_ptr<vector<DescribeChannelDistributionStatDataResponseBody::StatList>> statList_ {};
   };
 

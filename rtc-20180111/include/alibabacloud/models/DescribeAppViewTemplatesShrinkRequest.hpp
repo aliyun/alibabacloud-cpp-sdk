@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // Application ID. Create and view it in the console. You can specify only one ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Search condition.
     shared_ptr<string> conditionShrink_ {};
+    // Page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
+    // Number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

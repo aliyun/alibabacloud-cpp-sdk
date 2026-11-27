@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The application ID. Only a single ID is supported. You can create and query application IDs in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The layout ID. Only a single ID is supported. To obtain a layout ID, see [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html).
+    // 
     // This parameter is required.
     shared_ptr<int64_t> layoutId_ {};
     shared_ptr<int64_t> ownerId_ {};

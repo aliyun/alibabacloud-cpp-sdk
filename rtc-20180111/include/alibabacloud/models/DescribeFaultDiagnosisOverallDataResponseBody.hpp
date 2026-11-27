@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The number of abnormal user visits or abnormal users.
       shared_ptr<int32_t> faultUserCount_ {};
+      // The total proportion of abnormal users.
       shared_ptr<float> faultUserRatio_ {};
+      // The total number of user visits or total users.
       shared_ptr<int32_t> totalUserCount_ {};
     };
 
@@ -154,8 +157,11 @@ namespace Models
 
 
       protected:
+        // The extended properties, where ratio indicates the proportion of abnormal users per unit time and totalCount indicates the total number of users per unit time.
         Darabonba::Json ext_ {};
+        // The x-axis coordinate in the metric trends chart. The unit of time is 1 minute.
         shared_ptr<string> x_ {};
+        // The y-axis coordinate in the metric trends chart.
         shared_ptr<string> y_ {};
       };
 
@@ -170,6 +176,7 @@ namespace Models
 
 
     protected:
+      // The list of coordinate points for the metric trends chart.
       shared_ptr<vector<MetricData::Nodes>> nodes_ {};
     };
 
@@ -201,8 +208,11 @@ namespace Models
 
 
   protected:
+    // The exception metric data.
     shared_ptr<DescribeFaultDiagnosisOverallDataResponseBody::MetricData> metricData_ {};
+    // The list of overview data for exception diagnostics.
     shared_ptr<DescribeFaultDiagnosisOverallDataResponseBody::OverallData> overallData_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -162,17 +162,29 @@ namespace Models
 
 
     protected:
+      // The audio delay, in milliseconds.
       shared_ptr<int64_t> audioDelay_ {};
+      // The audio high-quality transmission rate, represented by four decimal places.
       shared_ptr<string> audioHighQualityTransmissionRate_ {};
+      // The audio stuttering rate, represented by four decimal places.
       shared_ptr<string> audioStuckRate_ {};
+      // The call duration ratio, represented by four decimal places. For example, 1.0000 indicates that the call duration ratio is 100%.
       shared_ptr<string> callDurationRatio_ {};
+      // The 5-second channel join success rate, represented by four decimal places.
       shared_ptr<string> joinChannelSucFiveSecRate_ {};
+      // The channel join success rate, represented by four decimal places.
       shared_ptr<string> joinChannelSucRate_ {};
+      // The SDK version name, such as 1.0.0 or 1.1.1.
       shared_ptr<string> name_ {};
+      // The operating system name, such as iOS or Android.
       shared_ptr<string> os_ {};
+      // The video delay, in milliseconds.
       shared_ptr<int64_t> videoDelay_ {};
+      // The first video frame rendering time, in milliseconds.
       shared_ptr<int64_t> videoFirstPicDuration_ {};
+      // The video high-quality transmission rate, represented by four decimal places.
       shared_ptr<string> videoHighQualityTransmissionRate_ {};
+      // The video stuttering rate, represented by four decimal places.
       shared_ptr<string> videoStuckRate_ {};
     };
 
@@ -195,7 +207,9 @@ namespace Models
 
 
   protected:
+    // The list of data for operating systems and SDK versions in quality statistics.
     shared_ptr<vector<DescribeQualityOsSdkVersionDistributionStatDataResponseBody::QualityOsSdkVersionStatDataList>> qualityOsSdkVersionStatDataList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

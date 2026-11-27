@@ -95,6 +95,7 @@ namespace Models
 
 
       protected:
+        // The fault type.
         shared_ptr<string> faultType_ {};
       };
 
@@ -145,11 +146,17 @@ namespace Models
 
 
     protected:
+      // The creation timestamp of the channel. The time is a UNIX timestamp in seconds.
       shared_ptr<int64_t> channelCreatedTs_ {};
+      // The ID of the channel.
       shared_ptr<string> channelId_ {};
+      // The time when the user first joined the channel. The time is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createdTs_ {};
+      // The time when the user last left the channel. The time is a UNIX timestamp in seconds.
       shared_ptr<int64_t> destroyedTs_ {};
+      // The list of faults.
       shared_ptr<vector<UserList::FaultList>> faultList_ {};
+      // The ID of the user.
       shared_ptr<string> userId_ {};
     };
 
@@ -193,10 +200,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCnt_ {};
+    // The detailed list of users with faults.
     shared_ptr<vector<DescribeFaultDiagnosisUserListResponseBody::UserList>> userList_ {};
   };
 

@@ -95,7 +95,9 @@ namespace Models
 
 
       protected:
+        // The x-axis coordinate in the video metric trend graph.
         shared_ptr<string> x_ {};
+        // The y-axis coordinate in the Video Trend Indicator.
         shared_ptr<string> y_ {};
       };
 
@@ -125,8 +127,17 @@ namespace Models
 
 
     protected:
+      // List of coordinate points for the video metric trend graph.
       shared_ptr<vector<VideoData::Nodes>> nodes_ {};
+      // The type of metric that impacts communication experience. Valid values:
+      // - **VIDEO_CAMERA**: Camera bitrate.
+      // - **VIDEO_SCREEN_SHARE**: Screen sharing stream bitrate.
+      // - **VIDEO_STUCK_CAMERA**: Camera stuttering.
+      // - **VIDEO_STUCK_SCREEN_SHARE**: Screen sharing stuttering.
+      // - **VIDEO_VAGUE_CAMERA**: Camera blur.
+      // - **VIDEO_VAGUE_SCREEN_SHARE**: Screen sharing blur.
       shared_ptr<string> type_ {};
+      // User ID
       shared_ptr<string> userId_ {};
     };
 
@@ -191,7 +202,9 @@ namespace Models
 
 
       protected:
+        // X-axis coordinate in the audio trend indicator.
         shared_ptr<string> x_ {};
+        // Y-axis coordinate in the audio trend indicator.
         shared_ptr<string> y_ {};
       };
 
@@ -221,8 +234,13 @@ namespace Models
 
 
     protected:
+      // List of coordinate points for the audio trend indicator.
       shared_ptr<vector<AudioData::Nodes>> nodes_ {};
+      // Communication experience. Valid values:  
+      // - **AUDIO**: Audio bitrate.  
+      // - **AUDIO_STUCK**: Audio downlink stuttering.
       shared_ptr<string> type_ {};
+      // User ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -254,8 +272,11 @@ namespace Models
 
 
   protected:
+    // Audio data.
     shared_ptr<vector<DescribeQoeMetricDataResponseBody::AudioData>> audioData_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Video data.
     shared_ptr<vector<DescribeQoeMetricDataResponseBody::VideoData>> videoData_ {};
   };
 

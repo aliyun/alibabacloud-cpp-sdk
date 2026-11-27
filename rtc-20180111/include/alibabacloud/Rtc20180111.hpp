@@ -21,6 +21,13 @@ namespace Rtc20180111
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Adds a recording configuration template.
+       *
+       * @description # Usage notes
+       * This operation adds a recording configuration template. For example, when you add a recording configuration template, you can configure parameters such as recording specifications and encoding options.
+       * # QPS limits
+       * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request AddRecordTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddRecordTemplateResponse
@@ -28,13 +35,23 @@ namespace Rtc20180111
       Models::AddRecordTemplateResponse addRecordTemplateWithOptions(const Models::AddRecordTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Adds a recording configuration template.
+       *
+       * @description # Usage notes
+       * This operation adds a recording configuration template. For example, when you add a recording configuration template, you can configure parameters such as recording specifications and encoding options.
+       * # QPS limits
+       * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request AddRecordTemplateRequest
        * @return AddRecordTemplateResponse
        */
       Models::AddRecordTemplateResponse addRecordTemplate(const Models::AddRecordTemplateRequest &request);
 
       /**
-       * @summary 创建应用智能体模版
+       * @summary Creates an application agent template.
+       *
+       * @description ### QPS limit
+       * The QPS limit for a single user is 10 calls per second for this API operation. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param tmpReq CreateAppAgentTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -43,7 +60,10 @@ namespace Rtc20180111
       Models::CreateAppAgentTemplateResponse createAppAgentTemplateWithOptions(const Models::CreateAppAgentTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建应用智能体模版
+       * @summary Creates an application agent template.
+       *
+       * @description ### QPS limit
+       * The QPS limit for a single user is 10 calls per second for this API operation. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request CreateAppAgentTemplateRequest
        * @return CreateAppAgentTemplateResponse
@@ -51,7 +71,10 @@ namespace Rtc20180111
       Models::CreateAppAgentTemplateResponse createAppAgentTemplate(const Models::CreateAppAgentTemplateRequest &request);
 
       /**
-       * @summary 新增app自定义布局
+       * @summary Creates a custom layout for an application.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param tmpReq CreateAppLayoutRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -60,7 +83,10 @@ namespace Rtc20180111
       Models::CreateAppLayoutResponse createAppLayoutWithOptions(const Models::CreateAppLayoutRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增app自定义布局
+       * @summary Creates a custom layout for an application.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request CreateAppLayoutRequest
        * @return CreateAppLayoutResponse
@@ -68,7 +94,10 @@ namespace Rtc20180111
       Models::CreateAppLayoutResponse createAppLayout(const Models::CreateAppLayoutRequest &request);
 
       /**
-       * @summary 增加应用录制模版
+       * @summary Creates an application recording template.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
        *
        * @param tmpReq CreateAppRecordTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -77,7 +106,10 @@ namespace Rtc20180111
       Models::CreateAppRecordTemplateResponse createAppRecordTemplateWithOptions(const Models::CreateAppRecordTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 增加应用录制模版
+       * @summary Creates an application recording template.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
        *
        * @param request CreateAppRecordTemplateRequest
        * @return CreateAppRecordTemplateResponse
@@ -85,7 +117,12 @@ namespace Rtc20180111
       Models::CreateAppRecordTemplateResponse createAppRecordTemplate(const Models::CreateAppRecordTemplateRequest &request);
 
       /**
-       * @summary 创建应用推流模版
+       * @summary Creates a stream forwarding template for an RTC 3.0 application.
+       *
+       * @description ### Usage notes
+       * This operation creates a stream forwarding template for an RTC 3.0 application.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
        *
        * @param tmpReq CreateAppStreamingOutTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -94,7 +131,12 @@ namespace Rtc20180111
       Models::CreateAppStreamingOutTemplateResponse createAppStreamingOutTemplateWithOptions(const Models::CreateAppStreamingOutTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建应用推流模版
+       * @summary Creates a stream forwarding template for an RTC 3.0 application.
+       *
+       * @description ### Usage notes
+       * This operation creates a stream forwarding template for an RTC 3.0 application.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
        *
        * @param request CreateAppStreamingOutTemplateRequest
        * @return CreateAppStreamingOutTemplateResponse
@@ -102,7 +144,10 @@ namespace Rtc20180111
       Models::CreateAppStreamingOutTemplateResponse createAppStreamingOutTemplate(const Models::CreateAppStreamingOutTemplateRequest &request);
 
       /**
-       * @summary 创建应用合流模版
+       * @summary Creates an application stream mixing template.
+       *
+       * @description ### QPS limits
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
        *
        * @param tmpReq CreateAppViewTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -111,7 +156,10 @@ namespace Rtc20180111
       Models::CreateAppViewTemplateResponse createAppViewTemplateWithOptions(const Models::CreateAppViewTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建应用合流模版
+       * @summary Creates an application stream mixing template.
+       *
+       * @description ### QPS limits
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
        *
        * @param request CreateAppViewTemplateRequest
        * @return CreateAppViewTemplateResponse
@@ -119,6 +167,13 @@ namespace Rtc20180111
       Models::CreateAppViewTemplateResponse createAppViewTemplate(const Models::CreateAppViewTemplateRequest &request);
 
       /**
+       * @summary Calls CreateAutoLiveStreamRule to create an automatic single-stream relay rule.
+       *
+       * @description # Usage notes
+       * This operation is used to create a relay rule.
+       * # QPS limit
+       * The per-user QPS limit of this operation is 1,000 calls per minute. If the limit is exceeded, API calls will be throttled, which may affect your business. Call the operation properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request CreateAutoLiveStreamRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAutoLiveStreamRuleResponse
@@ -126,13 +181,20 @@ namespace Rtc20180111
       Models::CreateAutoLiveStreamRuleResponse createAutoLiveStreamRuleWithOptions(const Models::CreateAutoLiveStreamRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Calls CreateAutoLiveStreamRule to create an automatic single-stream relay rule.
+       *
+       * @description # Usage notes
+       * This operation is used to create a relay rule.
+       * # QPS limit
+       * The per-user QPS limit of this operation is 1,000 calls per minute. If the limit is exceeded, API calls will be throttled, which may affect your business. Call the operation properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request CreateAutoLiveStreamRuleRequest
        * @return CreateAutoLiveStreamRuleResponse
        */
       Models::CreateAutoLiveStreamRuleResponse createAutoLiveStreamRule(const Models::CreateAutoLiveStreamRuleRequest &request);
 
       /**
-       * @summary 增加纪要热词表
+       * @summary Creates a hotword table for meeting minutes.
        *
        * @param tmpReq CreateCloudNotePhrasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -141,7 +203,7 @@ namespace Rtc20180111
       Models::CreateCloudNotePhrasesResponse createCloudNotePhrasesWithOptions(const Models::CreateCloudNotePhrasesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 增加纪要热词表
+       * @summary Creates a hotword table for meeting minutes.
        *
        * @param request CreateCloudNotePhrasesRequest
        * @return CreateCloudNotePhrasesResponse
@@ -149,6 +211,13 @@ namespace Rtc20180111
       Models::CreateCloudNotePhrasesResponse createCloudNotePhrases(const Models::CreateCloudNotePhrasesRequest &request);
 
       /**
+       * @summary Calls CreateEventSubscribe to create a callback for subscribing to room messages.
+       *
+       * @description # Usage notes
+       * This operation is used to create a callback for subscribing to room messages. For example, when you create a callback, you can configure parameters such as the callback URL and event type.
+       * # QPS limit
+       * The per-user QPS limit of this operation is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make sure that you call this operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request CreateEventSubscribeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateEventSubscribeResponse
@@ -156,12 +225,26 @@ namespace Rtc20180111
       Models::CreateEventSubscribeResponse createEventSubscribeWithOptions(const Models::CreateEventSubscribeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Calls CreateEventSubscribe to create a callback for subscribing to room messages.
+       *
+       * @description # Usage notes
+       * This operation is used to create a callback for subscribing to room messages. For example, when you create a callback, you can configure parameters such as the callback URL and event type.
+       * # QPS limit
+       * The per-user QPS limit of this operation is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make sure that you call this operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request CreateEventSubscribeRequest
        * @return CreateEventSubscribeResponse
        */
       Models::CreateEventSubscribeResponse createEventSubscribe(const Models::CreateEventSubscribeRequest &request);
 
       /**
+       * @summary Creates a bypass live streaming layout.
+       *
+       * @description # Usage notes
+       * This operation creates a bypass live streaming layout. For example, you can configure parameters such as the number of audio mixes and the main pane.
+       * # QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request CreateMPULayoutRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateMPULayoutResponse
@@ -169,13 +252,23 @@ namespace Rtc20180111
       Models::CreateMPULayoutResponse createMPULayoutWithOptions(const Models::CreateMPULayoutRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a bypass live streaming layout.
+       *
+       * @description # Usage notes
+       * This operation creates a bypass live streaming layout. For example, you can configure parameters such as the number of audio mixes and the main pane.
+       * # QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request CreateMPULayoutRequest
        * @return CreateMPULayoutResponse
        */
       Models::CreateMPULayoutResponse createMPULayout(const Models::CreateMPULayoutRequest &request);
 
       /**
-       * @summary 删除应用智能体模版
+       * @summary Deletes an application agent template.
+       *
+       * @description ### QPS limits
+       * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request DeleteAppAgentTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -184,7 +277,10 @@ namespace Rtc20180111
       Models::DeleteAppAgentTemplateResponse deleteAppAgentTemplateWithOptions(const Models::DeleteAppAgentTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除应用智能体模版
+       * @summary Deletes an application agent template.
+       *
+       * @description ### QPS limits
+       * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request DeleteAppAgentTemplateRequest
        * @return DeleteAppAgentTemplateResponse
@@ -192,7 +288,10 @@ namespace Rtc20180111
       Models::DeleteAppAgentTemplateResponse deleteAppAgentTemplate(const Models::DeleteAppAgentTemplateRequest &request);
 
       /**
-       * @summary 删除app自定义布局
+       * @summary Deletes a custom layout for an application.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
        *
        * @param tmpReq DeleteAppLayoutRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -201,7 +300,10 @@ namespace Rtc20180111
       Models::DeleteAppLayoutResponse deleteAppLayoutWithOptions(const Models::DeleteAppLayoutRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除app自定义布局
+       * @summary Deletes a custom layout for an application.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
        *
        * @param request DeleteAppLayoutRequest
        * @return DeleteAppLayoutResponse
@@ -209,7 +311,10 @@ namespace Rtc20180111
       Models::DeleteAppLayoutResponse deleteAppLayout(const Models::DeleteAppLayoutRequest &request);
 
       /**
-       * @summary 删除应用录制模版
+       * @summary Deletes an application recording template.
+       *
+       * @description ### QPS limits
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param tmpReq DeleteAppRecordTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -218,7 +323,10 @@ namespace Rtc20180111
       Models::DeleteAppRecordTemplateResponse deleteAppRecordTemplateWithOptions(const Models::DeleteAppRecordTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除应用录制模版
+       * @summary Deletes an application recording template.
+       *
+       * @description ### QPS limits
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request DeleteAppRecordTemplateRequest
        * @return DeleteAppRecordTemplateResponse
@@ -226,7 +334,12 @@ namespace Rtc20180111
       Models::DeleteAppRecordTemplateResponse deleteAppRecordTemplate(const Models::DeleteAppRecordTemplateRequest &request);
 
       /**
-       * @summary 删除应用推流模版
+       * @summary Deletes a stream ingest template for an RTC 3.0 application.
+       *
+       * @description ### Usage notes
+       * This operation deletes a stream ingest template for an RTC 3.0 application.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param tmpReq DeleteAppStreamingOutTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -235,7 +348,12 @@ namespace Rtc20180111
       Models::DeleteAppStreamingOutTemplateResponse deleteAppStreamingOutTemplateWithOptions(const Models::DeleteAppStreamingOutTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除应用推流模版
+       * @summary Deletes a stream ingest template for an RTC 3.0 application.
+       *
+       * @description ### Usage notes
+       * This operation deletes a stream ingest template for an RTC 3.0 application.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request DeleteAppStreamingOutTemplateRequest
        * @return DeleteAppStreamingOutTemplateResponse
@@ -243,7 +361,10 @@ namespace Rtc20180111
       Models::DeleteAppStreamingOutTemplateResponse deleteAppStreamingOutTemplate(const Models::DeleteAppStreamingOutTemplateRequest &request);
 
       /**
-       * @summary 删除应用合流模版
+       * @summary Deletes an application\\"s composite stream template.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit for this API is 10 calls per second for each user. If you exceed this limit, rate limiting is triggered. This may affect your business. Call this API at a reasonable rate.
        *
        * @param tmpReq DeleteAppViewTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -252,7 +373,10 @@ namespace Rtc20180111
       Models::DeleteAppViewTemplateResponse deleteAppViewTemplateWithOptions(const Models::DeleteAppViewTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除应用合流模版
+       * @summary Deletes an application\\"s composite stream template.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit for this API is 10 calls per second for each user. If you exceed this limit, rate limiting is triggered. This may affect your business. Call this API at a reasonable rate.
        *
        * @param request DeleteAppViewTemplateRequest
        * @return DeleteAppViewTemplateResponse
@@ -260,6 +384,13 @@ namespace Rtc20180111
       Models::DeleteAppViewTemplateResponse deleteAppViewTemplate(const Models::DeleteAppViewTemplateRequest &request);
 
       /**
+       * @summary Deletes an automatic bypass single-stream relay rule.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+       * # QPS limits
+       * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DeleteAutoLiveStreamRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAutoLiveStreamRuleResponse
@@ -267,12 +398,26 @@ namespace Rtc20180111
       Models::DeleteAutoLiveStreamRuleResponse deleteAutoLiveStreamRuleWithOptions(const Models::DeleteAutoLiveStreamRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes an automatic bypass single-stream relay rule.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+       * # QPS limits
+       * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DeleteAutoLiveStreamRuleRequest
        * @return DeleteAutoLiveStreamRuleResponse
        */
       Models::DeleteAutoLiveStreamRuleResponse deleteAutoLiveStreamRule(const Models::DeleteAutoLiveStreamRuleRequest &request);
 
       /**
+       * @summary Deletes a channel.
+       *
+       * @description # Usage notes
+       * This operation deletes a channel.
+       * # QPS limit
+       * This operation has no QPS limit per user. Call this operation as needed. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DeleteChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteChannelResponse
@@ -280,13 +425,20 @@ namespace Rtc20180111
       Models::DeleteChannelResponse deleteChannelWithOptions(const Models::DeleteChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a channel.
+       *
+       * @description # Usage notes
+       * This operation deletes a channel.
+       * # QPS limit
+       * This operation has no QPS limit per user. Call this operation as needed. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DeleteChannelRequest
        * @return DeleteChannelResponse
        */
       Models::DeleteChannelResponse deleteChannel(const Models::DeleteChannelRequest &request);
 
       /**
-       * @summary 删除纪要热词表
+       * @summary Deletes a hot word table.
        *
        * @param tmpReq DeleteCloudNotePhrasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -295,7 +447,7 @@ namespace Rtc20180111
       Models::DeleteCloudNotePhrasesResponse deleteCloudNotePhrasesWithOptions(const Models::DeleteCloudNotePhrasesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除纪要热词表
+       * @summary Deletes a hot word table.
        *
        * @param request DeleteCloudNotePhrasesRequest
        * @return DeleteCloudNotePhrasesResponse
@@ -303,6 +455,13 @@ namespace Rtc20180111
       Models::DeleteCloudNotePhrasesResponse deleteCloudNotePhrases(const Models::DeleteCloudNotePhrasesRequest &request);
 
       /**
+       * @summary Deletes a callback for subscribing to room messages by calling DeleteEventSubscribe.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateEventSubscribe](https://help.aliyun.com/document_detail/274447.html) to create a callback for subscribing to room messages.
+       * # QPS limits
+       * The QPS limit of this operation is 1,000 calls per minute per user. If the limit is exceeded, API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DeleteEventSubscribeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteEventSubscribeResponse
@@ -310,12 +469,26 @@ namespace Rtc20180111
       Models::DeleteEventSubscribeResponse deleteEventSubscribeWithOptions(const Models::DeleteEventSubscribeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a callback for subscribing to room messages by calling DeleteEventSubscribe.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateEventSubscribe](https://help.aliyun.com/document_detail/274447.html) to create a callback for subscribing to room messages.
+       * # QPS limits
+       * The QPS limit of this operation is 1,000 calls per minute per user. If the limit is exceeded, API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DeleteEventSubscribeRequest
        * @return DeleteEventSubscribeResponse
        */
       Models::DeleteEventSubscribeResponse deleteEventSubscribe(const Models::DeleteEventSubscribeRequest &request);
 
       /**
+       * @summary Deletes a bypass live streaming layout.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html) to create a bypass live streaming layout.
+       * # QPS limits
+       * The per-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DeleteMPULayoutRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteMPULayoutResponse
@@ -323,12 +496,26 @@ namespace Rtc20180111
       Models::DeleteMPULayoutResponse deleteMPULayoutWithOptions(const Models::DeleteMPULayoutRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a bypass live streaming layout.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html) to create a bypass live streaming layout.
+       * # QPS limits
+       * The per-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DeleteMPULayoutRequest
        * @return DeleteMPULayoutResponse
        */
       Models::DeleteMPULayoutResponse deleteMPULayout(const Models::DeleteMPULayoutRequest &request);
 
       /**
+       * @summary Deletes a recording configuration template.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording configuration template.
+       * # QPS limits
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DeleteRecordTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteRecordTemplateResponse
@@ -336,13 +523,23 @@ namespace Rtc20180111
       Models::DeleteRecordTemplateResponse deleteRecordTemplateWithOptions(const Models::DeleteRecordTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a recording configuration template.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording configuration template.
+       * # QPS limits
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DeleteRecordTemplateRequest
        * @return DeleteRecordTemplateResponse
        */
       Models::DeleteRecordTemplateResponse deleteRecordTemplate(const Models::DeleteRecordTemplateRequest &request);
 
       /**
-       * @summary 列出系统支持的事件回调
+       * @summary Lists the event callbacks supported by the system.
+       *
+       * @description ### QPS limit
+       * This API supports a maximum of 10 calls per second per user. If you exceed this limit, rate limiting is applied to your API calls, which may affect your business operations. Use this API judiciously.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAllCallbackResponse
@@ -350,14 +547,20 @@ namespace Rtc20180111
       Models::DescribeAllCallbackResponse describeAllCallbackWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出系统支持的事件回调
+       * @summary Lists the event callbacks supported by the system.
+       *
+       * @description ### QPS limit
+       * This API supports a maximum of 10 calls per second per user. If you exceed this limit, rate limiting is applied to your API calls, which may affect your business operations. Use this API judiciously.
        *
        * @return DescribeAllCallbackResponse
        */
       Models::DescribeAllCallbackResponse describeAllCallback();
 
       /**
-       * @summary 查询应用智能体开关
+       * @summary Query the status of the application agent feature.
+       *
+       * @description ### QPS limit
+       * This API operation supports a maximum of 10 queries per second per user. If you exceed this limit, rate limiting is triggered, which may affect your application. Call this API only as needed.
        *
        * @param request DescribeAppAgentFunctionStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -366,7 +569,10 @@ namespace Rtc20180111
       Models::DescribeAppAgentFunctionStatusResponse describeAppAgentFunctionStatusWithOptions(const Models::DescribeAppAgentFunctionStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询应用智能体开关
+       * @summary Query the status of the application agent feature.
+       *
+       * @description ### QPS limit
+       * This API operation supports a maximum of 10 queries per second per user. If you exceed this limit, rate limiting is triggered, which may affect your application. Call this API only as needed.
        *
        * @param request DescribeAppAgentFunctionStatusRequest
        * @return DescribeAppAgentFunctionStatusResponse
@@ -374,7 +580,10 @@ namespace Rtc20180111
       Models::DescribeAppAgentFunctionStatusResponse describeAppAgentFunctionStatus(const Models::DescribeAppAgentFunctionStatusRequest &request);
 
       /**
-       * @summary 应用智能体模版列表
+       * @summary Lists agent templates.
+       *
+       * @description ### Rate limits
+       * The rate limit for this API operation is 10 queries per second (QPS) per user. If you exceed the limit, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request DescribeAppAgentTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -383,7 +592,10 @@ namespace Rtc20180111
       Models::DescribeAppAgentTemplatesResponse describeAppAgentTemplatesWithOptions(const Models::DescribeAppAgentTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 应用智能体模版列表
+       * @summary Lists agent templates.
+       *
+       * @description ### Rate limits
+       * The rate limit for this API operation is 10 queries per second (QPS) per user. If you exceed the limit, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request DescribeAppAgentTemplatesRequest
        * @return DescribeAppAgentTemplatesResponse
@@ -391,7 +603,10 @@ namespace Rtc20180111
       Models::DescribeAppAgentTemplatesResponse describeAppAgentTemplates(const Models::DescribeAppAgentTemplatesRequest &request);
 
       /**
-       * @summary 查看app回调开关
+       * @summary Queries the callback switch of an application.
+       *
+       * @description ### QPS limits
+       * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API operation at a reasonable rate.
        *
        * @param request DescribeAppCallStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -400,7 +615,10 @@ namespace Rtc20180111
       Models::DescribeAppCallStatusResponse describeAppCallStatusWithOptions(const Models::DescribeAppCallStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看app回调开关
+       * @summary Queries the callback switch of an application.
+       *
+       * @description ### QPS limits
+       * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API operation at a reasonable rate.
        *
        * @param request DescribeAppCallStatusRequest
        * @return DescribeAppCallStatusResponse
@@ -408,7 +626,10 @@ namespace Rtc20180111
       Models::DescribeAppCallStatusResponse describeAppCallStatus(const Models::DescribeAppCallStatusRequest &request);
 
       /**
-       * @summary 获取app回调密钥
+       * @summary Obtain the application callback key
+       *
+       * @description ### Queries per second (QPS) limit  
+       * The queries per second (QPS) limit for this API is 10 requests per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeAppCallbackSecretKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -417,7 +638,10 @@ namespace Rtc20180111
       Models::DescribeAppCallbackSecretKeyResponse describeAppCallbackSecretKeyWithOptions(const Models::DescribeAppCallbackSecretKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取app回调密钥
+       * @summary Obtain the application callback key
+       *
+       * @description ### Queries per second (QPS) limit  
+       * The queries per second (QPS) limit for this API is 10 requests per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeAppCallbackSecretKeyRequest
        * @return DescribeAppCallbackSecretKeyResponse
@@ -425,7 +649,12 @@ namespace Rtc20180111
       Models::DescribeAppCallbackSecretKeyResponse describeAppCallbackSecretKey(const Models::DescribeAppCallbackSecretKeyRequest &request);
 
       /**
-       * @summary 查看AppKey
+       * @summary Invoke DescribeAppKey to query the AppKey of a specified application.
+       *
+       * @description ### How-To  
+       * Before invoking this API, you must have already created an application in the RTC console.  
+       * ### queries per second (QPS) limit  
+       * The QPS limit for this API is 200 requests per minute per user. If the limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeAppKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -434,7 +663,12 @@ namespace Rtc20180111
       Models::DescribeAppKeyResponse describeAppKeyWithOptions(const Models::DescribeAppKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看AppKey
+       * @summary Invoke DescribeAppKey to query the AppKey of a specified application.
+       *
+       * @description ### How-To  
+       * Before invoking this API, you must have already created an application in the RTC console.  
+       * ### queries per second (QPS) limit  
+       * The QPS limit for this API is 200 requests per minute per user. If the limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeAppKeyRequest
        * @return DescribeAppKeyResponse
@@ -442,7 +676,10 @@ namespace Rtc20180111
       Models::DescribeAppKeyResponse describeAppKey(const Models::DescribeAppKeyRequest &request);
 
       /**
-       * @summary 查询app自定义布局
+       * @summary Query custom application layouts.
+       *
+       * @description ### QPS limit
+       * This API supports up to 10 queries per second (QPS) per user. Exceeding this limit triggers rate limiting, which may affect your business operations. Use the API judiciously.
        *
        * @param tmpReq DescribeAppLayoutsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -451,7 +688,10 @@ namespace Rtc20180111
       Models::DescribeAppLayoutsResponse describeAppLayoutsWithOptions(const Models::DescribeAppLayoutsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询app自定义布局
+       * @summary Query custom application layouts.
+       *
+       * @description ### QPS limit
+       * This API supports up to 10 queries per second (QPS) per user. Exceeding this limit triggers rate limiting, which may affect your business operations. Use the API judiciously.
        *
        * @param request DescribeAppLayoutsRequest
        * @return DescribeAppLayoutsResponse
@@ -459,7 +699,10 @@ namespace Rtc20180111
       Models::DescribeAppLayoutsResponse describeAppLayouts(const Models::DescribeAppLayoutsRequest &request);
 
       /**
-       * @summary 查看应用旁路开关
+       * @summary View the application bypass switch.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit for this API is 10 for each user. API calls that exceed this limit are subject to rate limiting, which may impact your business. We recommend that you call this API at a reasonable rate.
        *
        * @param request DescribeAppLiveStreamStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -468,7 +711,10 @@ namespace Rtc20180111
       Models::DescribeAppLiveStreamStatusResponse describeAppLiveStreamStatusWithOptions(const Models::DescribeAppLiveStreamStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看应用旁路开关
+       * @summary View the application bypass switch.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit for this API is 10 for each user. API calls that exceed this limit are subject to rate limiting, which may impact your business. We recommend that you call this API at a reasonable rate.
        *
        * @param request DescribeAppLiveStreamStatusRequest
        * @return DescribeAppLiveStreamStatusResponse
@@ -476,7 +722,10 @@ namespace Rtc20180111
       Models::DescribeAppLiveStreamStatusResponse describeAppLiveStreamStatus(const Models::DescribeAppLiveStreamStatusRequest &request);
 
       /**
-       * @summary 查询应用录制开关
+       * @summary Queries the recording status of an application.
+       *
+       * @description ### QPS limit
+       * The QPS limit for this operation is 10 calls per second per user. Exceeding this limit triggers rate limiting, which may affect your business. Call this operation only as needed.
        *
        * @param request DescribeAppRecordStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -485,7 +734,10 @@ namespace Rtc20180111
       Models::DescribeAppRecordStatusResponse describeAppRecordStatusWithOptions(const Models::DescribeAppRecordStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询应用录制开关
+       * @summary Queries the recording status of an application.
+       *
+       * @description ### QPS limit
+       * The QPS limit for this operation is 10 calls per second per user. Exceeding this limit triggers rate limiting, which may affect your business. Call this operation only as needed.
        *
        * @param request DescribeAppRecordStatusRequest
        * @return DescribeAppRecordStatusResponse
@@ -493,7 +745,10 @@ namespace Rtc20180111
       Models::DescribeAppRecordStatusResponse describeAppRecordStatus(const Models::DescribeAppRecordStatusRequest &request);
 
       /**
-       * @summary 应用录制模版列表
+       * @summary Queries the list of application recording templates.
+       *
+       * @description ### QPS limit
+       * The QPS limit for a single user calling this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable frequency.
        *
        * @param tmpReq DescribeAppRecordTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -502,7 +757,10 @@ namespace Rtc20180111
       Models::DescribeAppRecordTemplatesResponse describeAppRecordTemplatesWithOptions(const Models::DescribeAppRecordTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 应用录制模版列表
+       * @summary Queries the list of application recording templates.
+       *
+       * @description ### QPS limit
+       * The QPS limit for a single user calling this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable frequency.
        *
        * @param request DescribeAppRecordTemplatesRequest
        * @return DescribeAppRecordTemplatesResponse
@@ -510,7 +768,10 @@ namespace Rtc20180111
       Models::DescribeAppRecordTemplatesResponse describeAppRecordTemplates(const Models::DescribeAppRecordTemplatesRequest &request);
 
       /**
-       * @summary 查询录制列表
+       * @summary Lists recording files.
+       *
+       * @description ### QPS limit
+       * The QPS limit for this API is 10 requests per second per user. Exceeding this limit triggers rate limiting, which may affect your service. Call this API only when necessary.
        *
        * @param tmpReq DescribeAppRecordingFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -519,7 +780,10 @@ namespace Rtc20180111
       Models::DescribeAppRecordingFilesResponse describeAppRecordingFilesWithOptions(const Models::DescribeAppRecordingFilesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询录制列表
+       * @summary Lists recording files.
+       *
+       * @description ### QPS limit
+       * The QPS limit for this API is 10 requests per second per user. Exceeding this limit triggers rate limiting, which may affect your service. Call this API only when necessary.
        *
        * @param request DescribeAppRecordingFilesRequest
        * @return DescribeAppRecordingFilesResponse
@@ -527,7 +791,12 @@ namespace Rtc20180111
       Models::DescribeAppRecordingFilesResponse describeAppRecordingFiles(const Models::DescribeAppRecordingFilesRequest &request);
 
       /**
-       * @summary 应用推流模版列表
+       * @summary Query the list of stream ingest templates under an RTC 3.0 application.
+       *
+       * @description ### How-To  
+       * This API is used to view the list of stream ingest templates for an RTC 3.0 application.  
+       * ### Queries per second (QPS) limit  
+       * The QPS limit for this API is 10 queries per second per user. If this limit is exceeded, API calls will be rate-limited, which may impact your business. Please invoke the API appropriately.
        *
        * @param tmpReq DescribeAppStreamingOutTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -536,7 +805,12 @@ namespace Rtc20180111
       Models::DescribeAppStreamingOutTemplatesResponse describeAppStreamingOutTemplatesWithOptions(const Models::DescribeAppStreamingOutTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 应用推流模版列表
+       * @summary Query the list of stream ingest templates under an RTC 3.0 application.
+       *
+       * @description ### How-To  
+       * This API is used to view the list of stream ingest templates for an RTC 3.0 application.  
+       * ### Queries per second (QPS) limit  
+       * The QPS limit for this API is 10 queries per second per user. If this limit is exceeded, API calls will be rate-limited, which may impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeAppStreamingOutTemplatesRequest
        * @return DescribeAppStreamingOutTemplatesResponse
@@ -544,7 +818,10 @@ namespace Rtc20180111
       Models::DescribeAppStreamingOutTemplatesResponse describeAppStreamingOutTemplates(const Models::DescribeAppStreamingOutTemplatesRequest &request);
 
       /**
-       * @summary 查看合流开关
+       * @summary View the stream merging switch
+       *
+       * @description ### QPS limits
+       * This API has a QPS limit of 10 queries per second (QPS) per user. If you exceed this limit, rate limiting is triggered, which can affect your business operations. Call the API at a reasonable rate.
        *
        * @param request DescribeAppViewStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -553,7 +830,10 @@ namespace Rtc20180111
       Models::DescribeAppViewStatusResponse describeAppViewStatusWithOptions(const Models::DescribeAppViewStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看合流开关
+       * @summary View the stream merging switch
+       *
+       * @description ### QPS limits
+       * This API has a QPS limit of 10 queries per second (QPS) per user. If you exceed this limit, rate limiting is triggered, which can affect your business operations. Call the API at a reasonable rate.
        *
        * @param request DescribeAppViewStatusRequest
        * @return DescribeAppViewStatusResponse
@@ -561,7 +841,10 @@ namespace Rtc20180111
       Models::DescribeAppViewStatusResponse describeAppViewStatus(const Models::DescribeAppViewStatusRequest &request);
 
       /**
-       * @summary 应用合流模版列表
+       * @summary Lists application compositing templates.
+       *
+       * @description ### QPS limit
+       * The per-user QPS limit for this operation is 10 calls per second. Exceeding this limit triggers rate limiting, which may affect your business. You should call this operation only as needed.
        *
        * @param tmpReq DescribeAppViewTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -570,7 +853,10 @@ namespace Rtc20180111
       Models::DescribeAppViewTemplatesResponse describeAppViewTemplatesWithOptions(const Models::DescribeAppViewTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 应用合流模版列表
+       * @summary Lists application compositing templates.
+       *
+       * @description ### QPS limit
+       * The per-user QPS limit for this operation is 10 calls per second. Exceeding this limit triggers rate limiting, which may affect your business. You should call this operation only as needed.
        *
        * @param request DescribeAppViewTemplatesRequest
        * @return DescribeAppViewTemplatesResponse
@@ -578,7 +864,12 @@ namespace Rtc20180111
       Models::DescribeAppViewTemplatesResponse describeAppViewTemplates(const Models::DescribeAppViewTemplatesRequest &request);
 
       /**
-       * @summary App列表
+       * @summary Queries the list of applications.
+       *
+       * @description ### Usage notes
+       * This operation queries the list of applications. For example, you can obtain data such as the application ID, application name, and application type from the query results.
+       * ### QPS limits
+       * The QPS limit for a single user is 200 calls per minute. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
        *
        * @param request DescribeAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -587,7 +878,12 @@ namespace Rtc20180111
       Models::DescribeAppsResponse describeAppsWithOptions(const Models::DescribeAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary App列表
+       * @summary Queries the list of applications.
+       *
+       * @description ### Usage notes
+       * This operation queries the list of applications. For example, you can obtain data such as the application ID, application name, and application type from the query results.
+       * ### QPS limits
+       * The QPS limit for a single user is 200 calls per minute. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
        *
        * @param request DescribeAppsRequest
        * @return DescribeAppsResponse
@@ -595,6 +891,13 @@ namespace Rtc20180111
       Models::DescribeAppsResponse describeApps(const Models::DescribeAppsRequest &request);
 
       /**
+       * @summary Queries the automatic bypass single-stream relay rules.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+       * # QPS limit
+       * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeAutoLiveStreamRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAutoLiveStreamRuleResponse
@@ -602,13 +905,25 @@ namespace Rtc20180111
       Models::DescribeAutoLiveStreamRuleResponse describeAutoLiveStreamRuleWithOptions(const Models::DescribeAutoLiveStreamRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the automatic bypass single-stream relay rules.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+       * # QPS limit
+       * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeAutoLiveStreamRuleRequest
        * @return DescribeAutoLiveStreamRuleResponse
        */
       Models::DescribeAutoLiveStreamRuleResponse describeAutoLiveStreamRule(const Models::DescribeAutoLiveStreamRuleRequest &request);
 
       /**
-       * @summary 调用DescribeCall获取单次通信详情。
+       * @summary Queries the details of a single communication session. For example, you can query the communication status and user details.
+       *
+       * @description ### Usage notes
+       * This operation queries the details of a single communication session. For example, you can query the communication status and user details.
+       * ### QPS limit
+       * The QPS limit per user for this operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
        *
        * @param request DescribeCallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -617,7 +932,12 @@ namespace Rtc20180111
       Models::DescribeCallResponse describeCallWithOptions(const Models::DescribeCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DescribeCall获取单次通信详情。
+       * @summary Queries the details of a single communication session. For example, you can query the communication status and user details.
+       *
+       * @description ### Usage notes
+       * This operation queries the details of a single communication session. For example, you can query the communication status and user details.
+       * ### QPS limit
+       * The QPS limit per user for this operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
        *
        * @param request DescribeCallRequest
        * @return DescribeCallResponse
@@ -625,7 +945,12 @@ namespace Rtc20180111
       Models::DescribeCallResponse describeCall(const Models::DescribeCallRequest &request);
 
       /**
-       * @summary 调用DescribeCallList分页查询时间范围内创建的通信信息。
+       * @summary Invoke DescribeCallList to perform a paged query of communication records created within a specified time range.
+       *
+       * @description ### How-To  
+       * This API is used to query communication records created within a specified time range. For example, you can query information such as call duration, status, and user count.  
+       * ### Rate Limiting  
+       * The queries per second (QPS) limit for this API is 10 calls per second per user. If this limit is exceeded, API calls will be rate-limited, which may impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeCallListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -634,7 +959,12 @@ namespace Rtc20180111
       Models::DescribeCallListResponse describeCallListWithOptions(const Models::DescribeCallListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DescribeCallList分页查询时间范围内创建的通信信息。
+       * @summary Invoke DescribeCallList to perform a paged query of communication records created within a specified time range.
+       *
+       * @description ### How-To  
+       * This API is used to query communication records created within a specified time range. For example, you can query information such as call duration, status, and user count.  
+       * ### Rate Limiting  
+       * The queries per second (QPS) limit for this API is 10 calls per second per user. If this limit is exceeded, API calls will be rate-limited, which may impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeCallListRequest
        * @return DescribeCallListResponse
@@ -642,7 +972,10 @@ namespace Rtc20180111
       Models::DescribeCallListResponse describeCallList(const Models::DescribeCallListRequest &request);
 
       /**
-       * @summary app事件回调列表
+       * @summary Lists the event callbacks configured for an application.
+       *
+       * @description ### QPS limit
+       * This API supports up to 10 queries per second (QPS) per user. If you exceed this limit, the system applies rate limiting to your API calls, which may affect your business operations. Plan your API calls accordingly.
        *
        * @param request DescribeCallbacksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -651,7 +984,10 @@ namespace Rtc20180111
       Models::DescribeCallbacksResponse describeCallbacksWithOptions(const Models::DescribeCallbacksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary app事件回调列表
+       * @summary Lists the event callbacks configured for an application.
+       *
+       * @description ### QPS limit
+       * This API supports up to 10 queries per second (QPS) per user. If you exceed this limit, the system applies rate limiting to your API calls, which may affect your business operations. Plan your API calls accordingly.
        *
        * @param request DescribeCallbacksRequest
        * @return DescribeCallbacksResponse
@@ -660,6 +996,11 @@ namespace Rtc20180111
 
       /**
        * @summary DescribeChannel
+       *
+       * @description ### How-To  
+       * This API is used to query online channel information.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second per user. If the limit is exceeded, Rate Limiting will be applied to your API Call, which may Impact your business. Please invoke the API reasonably.
        *
        * @param request DescribeChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -670,13 +1011,23 @@ namespace Rtc20180111
       /**
        * @summary DescribeChannel
        *
+       * @description ### How-To  
+       * This API is used to query online channel information.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second per user. If the limit is exceeded, Rate Limiting will be applied to your API Call, which may Impact your business. Please invoke the API reasonably.
+       *
        * @param request DescribeChannelRequest
        * @return DescribeChannelResponse
        */
       Models::DescribeChannelResponse describeChannel(const Models::DescribeChannelRequest &request);
 
       /**
-       * @summary 查询频道的所有参会者
+       * @summary This API is used to query the user list in a channel.
+       *
+       * @description ### How-To  
+       * This API is used to query the list of users in an online channel.  
+       * ### QPS Limit  
+       * The queries per second (QPS) limit for this API is 10 requests per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Invoke this API appropriately.
        *
        * @param request DescribeChannelAllUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -685,7 +1036,12 @@ namespace Rtc20180111
       Models::DescribeChannelAllUsersResponse describeChannelAllUsersWithOptions(const Models::DescribeChannelAllUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询频道的所有参会者
+       * @summary This API is used to query the user list in a channel.
+       *
+       * @description ### How-To  
+       * This API is used to query the list of users in an online channel.  
+       * ### QPS Limit  
+       * The queries per second (QPS) limit for this API is 10 requests per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Invoke this API appropriately.
        *
        * @param request DescribeChannelAllUsersRequest
        * @return DescribeChannelAllUsersResponse
@@ -693,7 +1049,12 @@ namespace Rtc20180111
       Models::DescribeChannelAllUsersResponse describeChannelAllUsers(const Models::DescribeChannelAllUsersRequest &request);
 
       /**
-       * @summary 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
+       * @summary Retrieves the regional distribution statistics of a channel.
+       *
+       * @description ### Usage notes
+       * This operation retrieves the regional distribution statistics of a channel.
+       * ### QPS limit
+       * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Plan your API calls accordingly.
        *
        * @param request DescribeChannelAreaDistributionStatDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -702,7 +1063,12 @@ namespace Rtc20180111
       Models::DescribeChannelAreaDistributionStatDataResponse describeChannelAreaDistributionStatDataWithOptions(const Models::DescribeChannelAreaDistributionStatDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
+       * @summary Retrieves the regional distribution statistics of a channel.
+       *
+       * @description ### Usage notes
+       * This operation retrieves the regional distribution statistics of a channel.
+       * ### QPS limit
+       * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Plan your API calls accordingly.
        *
        * @param request DescribeChannelAreaDistributionStatDataRequest
        * @return DescribeChannelAreaDistributionStatDataResponse
@@ -710,7 +1076,12 @@ namespace Rtc20180111
       Models::DescribeChannelAreaDistributionStatDataResponse describeChannelAreaDistributionStatData(const Models::DescribeChannelAreaDistributionStatDataRequest &request);
 
       /**
-       * @summary 调用DescribeChannelDistributionStatData获取频道分布统计数据。
+       * @summary Queries the channel distribution statistics.
+       *
+       * @description ### Usage notes
+       * This operation queries the channel distribution statistics. You can query the statistics by dimension, such as operating system type or SDK version.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request DescribeChannelDistributionStatDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -719,7 +1090,12 @@ namespace Rtc20180111
       Models::DescribeChannelDistributionStatDataResponse describeChannelDistributionStatDataWithOptions(const Models::DescribeChannelDistributionStatDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DescribeChannelDistributionStatData获取频道分布统计数据。
+       * @summary Queries the channel distribution statistics.
+       *
+       * @description ### Usage notes
+       * This operation queries the channel distribution statistics. You can query the statistics by dimension, such as operating system type or SDK version.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request DescribeChannelDistributionStatDataRequest
        * @return DescribeChannelDistributionStatDataResponse
@@ -727,7 +1103,12 @@ namespace Rtc20180111
       Models::DescribeChannelDistributionStatDataResponse describeChannelDistributionStatData(const Models::DescribeChannelDistributionStatDataRequest &request);
 
       /**
-       * @summary 调用DescribeChannelOverallData查询频道概览数据。
+       * @summary This API is used to query channel overview data.
+       *
+       * @description ### How-To  
+       * This API is used to query channel overview data. For example, you can query basic communication information, Trend Indicators, and other information.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second per User. If the limit is exceeded, Rate Limiting will be applied to API Calls, which may Impact your business. Invoke the API appropriately.
        *
        * @param request DescribeChannelOverallDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -736,7 +1117,12 @@ namespace Rtc20180111
       Models::DescribeChannelOverallDataResponse describeChannelOverallDataWithOptions(const Models::DescribeChannelOverallDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DescribeChannelOverallData查询频道概览数据。
+       * @summary This API is used to query channel overview data.
+       *
+       * @description ### How-To  
+       * This API is used to query channel overview data. For example, you can query basic communication information, Trend Indicators, and other information.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second per User. If the limit is exceeded, Rate Limiting will be applied to API Calls, which may Impact your business. Invoke the API appropriately.
        *
        * @param request DescribeChannelOverallDataRequest
        * @return DescribeChannelOverallDataResponse
@@ -744,6 +1130,13 @@ namespace Rtc20180111
       Models::DescribeChannelOverallDataResponse describeChannelOverallData(const Models::DescribeChannelOverallDataRequest &request);
 
       /**
+       * @summary Queries the list of online users in a channel without detailed information.
+       *
+       * @description # Usage notes
+       * This operation queries the list of online users in a channel, excluding detailed user information.
+       * # QPS limit
+       * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls appropriately. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeChannelParticipantsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeChannelParticipantsResponse
@@ -751,13 +1144,25 @@ namespace Rtc20180111
       Models::DescribeChannelParticipantsResponse describeChannelParticipantsWithOptions(const Models::DescribeChannelParticipantsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the list of online users in a channel without detailed information.
+       *
+       * @description # Usage notes
+       * This operation queries the list of online users in a channel, excluding detailed user information.
+       * # QPS limit
+       * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls appropriately. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeChannelParticipantsRequest
        * @return DescribeChannelParticipantsResponse
        */
       Models::DescribeChannelParticipantsResponse describeChannelParticipants(const Models::DescribeChannelParticipantsRequest &request);
 
       /**
-       * @summary 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
+       * @summary Retrieves the list of publishing users in a channel in descending order of online duration.
+       *
+       * @description ### Usage notes
+       * This operation retrieves the list of publishing users in a channel in descending order of online duration. For example, you can query information such as the time when a user joined the call and the communication duration from the user list.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request DescribeChannelTopPubUserListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -766,7 +1171,12 @@ namespace Rtc20180111
       Models::DescribeChannelTopPubUserListResponse describeChannelTopPubUserListWithOptions(const Models::DescribeChannelTopPubUserListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
+       * @summary Retrieves the list of publishing users in a channel in descending order of online duration.
+       *
+       * @description ### Usage notes
+       * This operation retrieves the list of publishing users in a channel in descending order of online duration. For example, you can query information such as the time when a user joined the call and the communication duration from the user list.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request DescribeChannelTopPubUserListRequest
        * @return DescribeChannelTopPubUserListResponse
@@ -774,7 +1184,12 @@ namespace Rtc20180111
       Models::DescribeChannelTopPubUserListResponse describeChannelTopPubUserList(const Models::DescribeChannelTopPubUserListRequest &request);
 
       /**
-       * @summary DescribeChannelUser
+       * @summary Queries the information of a user in a channel.
+       *
+       * @description ### Usage notes
+       * This operation queries the information of a user in an online channel.
+       * ### QPS limit
+       * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable rate.
        *
        * @param request DescribeChannelUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -783,7 +1198,12 @@ namespace Rtc20180111
       Models::DescribeChannelUserResponse describeChannelUserWithOptions(const Models::DescribeChannelUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeChannelUser
+       * @summary Queries the information of a user in a channel.
+       *
+       * @description ### Usage notes
+       * This operation queries the information of a user in an online channel.
+       * ### QPS limit
+       * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable rate.
        *
        * @param request DescribeChannelUserRequest
        * @return DescribeChannelUserResponse
@@ -791,7 +1211,12 @@ namespace Rtc20180111
       Models::DescribeChannelUserResponse describeChannelUser(const Models::DescribeChannelUserRequest &request);
 
       /**
-       * @summary 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
+       * @summary Queries the user data in the channel overview.
+       *
+       * @description ### Usage notes
+       * This operation queries the user data in the channel overview. For example, you can query metric data details and overview data.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
        *
        * @param request DescribeChannelUserMetricsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -800,7 +1225,12 @@ namespace Rtc20180111
       Models::DescribeChannelUserMetricsResponse describeChannelUserMetricsWithOptions(const Models::DescribeChannelUserMetricsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
+       * @summary Queries the user data in the channel overview.
+       *
+       * @description ### Usage notes
+       * This operation queries the user data in the channel overview. For example, you can query metric data details and overview data.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
        *
        * @param request DescribeChannelUserMetricsRequest
        * @return DescribeChannelUserMetricsResponse
@@ -808,6 +1238,13 @@ namespace Rtc20180111
       Models::DescribeChannelUserMetricsResponse describeChannelUserMetrics(const Models::DescribeChannelUserMetricsRequest &request);
 
       /**
+       * @summary Queries the list of real-time online users in a channel.
+       *
+       * @description # Usage notes
+       * This operation queries the details of online users in a channel. For example, you can query the total number of users in communication mode and live streaming mode.
+       * # QPS limit
+       * The queries per second (QPS) limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeChannelUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeChannelUsersResponse
@@ -815,13 +1252,25 @@ namespace Rtc20180111
       Models::DescribeChannelUsersResponse describeChannelUsersWithOptions(const Models::DescribeChannelUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the list of real-time online users in a channel.
+       *
+       * @description # Usage notes
+       * This operation queries the details of online users in a channel. For example, you can query the total number of users in communication mode and live streaming mode.
+       * # QPS limit
+       * The queries per second (QPS) limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeChannelUsersRequest
        * @return DescribeChannelUsersResponse
        */
       Models::DescribeChannelUsersResponse describeChannelUsers(const Models::DescribeChannelUsersRequest &request);
 
       /**
-       * @summary 查询在线频道列表
+       * @summary Queries all active channels under a single AppId.
+       *
+       * @description ### Usage notes
+       * This operation queries all active channels under a single AppId.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
        *
        * @param request DescribeChannelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -830,7 +1279,12 @@ namespace Rtc20180111
       Models::DescribeChannelsResponse describeChannelsWithOptions(const Models::DescribeChannelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询在线频道列表
+       * @summary Queries all active channels under a single AppId.
+       *
+       * @description ### Usage notes
+       * This operation queries all active channels under a single AppId.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
        *
        * @param request DescribeChannelsRequest
        * @return DescribeChannelsResponse
@@ -838,7 +1292,7 @@ namespace Rtc20180111
       Models::DescribeChannelsResponse describeChannels(const Models::DescribeChannelsRequest &request);
 
       /**
-       * @summary 纪要热词列表
+       * @summary Queries the hotword lists for meeting minutes.
        *
        * @param tmpReq DescribeCloudNotePhrasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -847,7 +1301,7 @@ namespace Rtc20180111
       Models::DescribeCloudNotePhrasesResponse describeCloudNotePhrasesWithOptions(const Models::DescribeCloudNotePhrasesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 纪要热词列表
+       * @summary Queries the hotword lists for meeting minutes.
        *
        * @param request DescribeCloudNotePhrasesRequest
        * @return DescribeCloudNotePhrasesResponse
@@ -855,7 +1309,12 @@ namespace Rtc20180111
       Models::DescribeCloudNotePhrasesResponse describeCloudNotePhrases(const Models::DescribeCloudNotePhrasesRequest &request);
 
       /**
-       * @summary 纪要列表
+       * @summary Meeting Summary List
+       *
+       * @description ### How-To  
+       * This API is used to query the list of meeting summary job files that have generated summary results.  
+       * ### Queries Per Second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second (QPS) per user. If this limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
        *
        * @param tmpReq DescribeCloudNotesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -864,7 +1323,12 @@ namespace Rtc20180111
       Models::DescribeCloudNotesResponse describeCloudNotesWithOptions(const Models::DescribeCloudNotesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 纪要列表
+       * @summary Meeting Summary List
+       *
+       * @description ### How-To  
+       * This API is used to query the list of meeting summary job files that have generated summary results.  
+       * ### Queries Per Second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second (QPS) per user. If this limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeCloudNotesRequest
        * @return DescribeCloudNotesResponse
@@ -872,7 +1336,10 @@ namespace Rtc20180111
       Models::DescribeCloudNotesResponse describeCloudNotes(const Models::DescribeCloudNotesRequest &request);
 
       /**
-       * @summary 查询录制任务状态
+       * @summary Queries the status of a recording task.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request DescribeCloudRecordStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -881,7 +1348,10 @@ namespace Rtc20180111
       Models::DescribeCloudRecordStatusResponse describeCloudRecordStatusWithOptions(const Models::DescribeCloudRecordStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询录制任务状态
+       * @summary Queries the status of a recording task.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request DescribeCloudRecordStatusRequest
        * @return DescribeCloudRecordStatusResponse
@@ -889,7 +1359,12 @@ namespace Rtc20180111
       Models::DescribeCloudRecordStatusResponse describeCloudRecordStatus(const Models::DescribeCloudRecordStatusRequest &request);
 
       /**
-       * @summary 调用DescribeEndPointEventList获取端对端用户事件列表。
+       * @summary Retrieves a list of end-to-end user events.
+       *
+       * @description ### Usage notes
+       * This operation retrieves a list of end-to-end user events. For example, you can obtain information such as the event name and event type from the event list.
+       * ### QPS limits
+       * The QPS limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
        *
        * @param request DescribeEndPointEventListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -898,7 +1373,12 @@ namespace Rtc20180111
       Models::DescribeEndPointEventListResponse describeEndPointEventListWithOptions(const Models::DescribeEndPointEventListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DescribeEndPointEventList获取端对端用户事件列表。
+       * @summary Retrieves a list of end-to-end user events.
+       *
+       * @description ### Usage notes
+       * This operation retrieves a list of end-to-end user events. For example, you can obtain information such as the event name and event type from the event list.
+       * ### QPS limits
+       * The QPS limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
        *
        * @param request DescribeEndPointEventListRequest
        * @return DescribeEndPointEventListResponse
@@ -906,7 +1386,12 @@ namespace Rtc20180111
       Models::DescribeEndPointEventListResponse describeEndPointEventList(const Models::DescribeEndPointEventListRequest &request);
 
       /**
-       * @summary 调用DescribeEndPointMetricData获取端对端指标数据。
+       * @summary Retrieves end-to-end metric data.
+       *
+       * @description ### Usage notes
+       * This operation retrieves end-to-end metric data. For example, you can retrieve metric information for subscribers and publishers.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the number of calls per second exceeds the limit, throttling is triggered, which may affect your business. Make API calls at a reasonable frequency.
        *
        * @param request DescribeEndPointMetricDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -915,7 +1400,12 @@ namespace Rtc20180111
       Models::DescribeEndPointMetricDataResponse describeEndPointMetricDataWithOptions(const Models::DescribeEndPointMetricDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DescribeEndPointMetricData获取端对端指标数据。
+       * @summary Retrieves end-to-end metric data.
+       *
+       * @description ### Usage notes
+       * This operation retrieves end-to-end metric data. For example, you can retrieve metric information for subscribers and publishers.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the number of calls per second exceeds the limit, throttling is triggered, which may affect your business. Make API calls at a reasonable frequency.
        *
        * @param request DescribeEndPointMetricDataRequest
        * @return DescribeEndPointMetricDataResponse
@@ -923,7 +1413,12 @@ namespace Rtc20180111
       Models::DescribeEndPointMetricDataResponse describeEndPointMetricData(const Models::DescribeEndPointMetricDataRequest &request);
 
       /**
-       * @summary 获取异常诊断影响因素分布
+       * @summary Invoke the DescribeFaultDiagnosisFactorDistributionStat API to obtain the distribution of factors impacting abnormal diagnosis.
+       *
+       * @description ### How-To  
+       * This API is used to retrieve the distribution of factors impacting abnormal diagnosis. When using this API, you can query data from the last 48 hours, with each query covering a time range of no more than 24 hours.
+       * ### QPS Limit  
+       * The queries per second (QPS) limit for this API is 10 per user. If this limit is exceeded, API calls will be subject to rate limiting, which may impact your service. Please call the API responsibly.
        *
        * @param request DescribeFaultDiagnosisFactorDistributionStatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -932,7 +1427,12 @@ namespace Rtc20180111
       Models::DescribeFaultDiagnosisFactorDistributionStatResponse describeFaultDiagnosisFactorDistributionStatWithOptions(const Models::DescribeFaultDiagnosisFactorDistributionStatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取异常诊断影响因素分布
+       * @summary Invoke the DescribeFaultDiagnosisFactorDistributionStat API to obtain the distribution of factors impacting abnormal diagnosis.
+       *
+       * @description ### How-To  
+       * This API is used to retrieve the distribution of factors impacting abnormal diagnosis. When using this API, you can query data from the last 48 hours, with each query covering a time range of no more than 24 hours.
+       * ### QPS Limit  
+       * The queries per second (QPS) limit for this API is 10 per user. If this limit is exceeded, API calls will be subject to rate limiting, which may impact your service. Please call the API responsibly.
        *
        * @param request DescribeFaultDiagnosisFactorDistributionStatRequest
        * @return DescribeFaultDiagnosisFactorDistributionStatResponse
@@ -940,7 +1440,12 @@ namespace Rtc20180111
       Models::DescribeFaultDiagnosisFactorDistributionStatResponse describeFaultDiagnosisFactorDistributionStat(const Models::DescribeFaultDiagnosisFactorDistributionStatRequest &request);
 
       /**
-       * @summary 获取异常诊断总览数据
+       * @summary Retrieves the overview data of exception diagnostics.
+       *
+       * @description ### Usage notes
+       * This operation retrieves the overview data of exception diagnostics. When you call this operation, you can query data from the last 48 hours, and the query time range cannot exceed 24 hours.
+       * ### QPS limits
+       * The queries per second (QPS) limit on this operation is 10 per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
        *
        * @param request DescribeFaultDiagnosisOverallDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -949,7 +1454,12 @@ namespace Rtc20180111
       Models::DescribeFaultDiagnosisOverallDataResponse describeFaultDiagnosisOverallDataWithOptions(const Models::DescribeFaultDiagnosisOverallDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取异常诊断总览数据
+       * @summary Retrieves the overview data of exception diagnostics.
+       *
+       * @description ### Usage notes
+       * This operation retrieves the overview data of exception diagnostics. When you call this operation, you can query data from the last 48 hours, and the query time range cannot exceed 24 hours.
+       * ### QPS limits
+       * The queries per second (QPS) limit on this operation is 10 per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
        *
        * @param request DescribeFaultDiagnosisOverallDataRequest
        * @return DescribeFaultDiagnosisOverallDataResponse
@@ -957,7 +1467,9 @@ namespace Rtc20180111
       Models::DescribeFaultDiagnosisOverallDataResponse describeFaultDiagnosisOverallData(const Models::DescribeFaultDiagnosisOverallDataRequest &request);
 
       /**
-       * @summary 获取异常诊断用户详情
+       * @summary [responses_200_schema_properties_UserDetail_properties_Duration_type]integer
+       *
+       * @description [responses_200_schema_properties_UserDetail_properties_CreatedTs_description]Call creation time, represented as a UNIX timestamp in seconds.
        *
        * @param request DescribeFaultDiagnosisUserDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -966,7 +1478,9 @@ namespace Rtc20180111
       Models::DescribeFaultDiagnosisUserDetailResponse describeFaultDiagnosisUserDetailWithOptions(const Models::DescribeFaultDiagnosisUserDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取异常诊断用户详情
+       * @summary [responses_200_schema_properties_UserDetail_properties_Duration_type]integer
+       *
+       * @description [responses_200_schema_properties_UserDetail_properties_CreatedTs_description]Call creation time, represented as a UNIX timestamp in seconds.
        *
        * @param request DescribeFaultDiagnosisUserDetailRequest
        * @return DescribeFaultDiagnosisUserDetailResponse
@@ -974,7 +1488,12 @@ namespace Rtc20180111
       Models::DescribeFaultDiagnosisUserDetailResponse describeFaultDiagnosisUserDetail(const Models::DescribeFaultDiagnosisUserDetailRequest &request);
 
       /**
-       * @summary 获取异常诊断用户明细列表
+       * @summary Queries the detailed user list for fault diagnosis.
+       *
+       * @description ### Usage notes
+       * This operation is used to retrieve the detailed user list for fault diagnosis. When you call this operation, you can query data from the last 48 hours, and the query time range cannot exceed 24 hours.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
        *
        * @param request DescribeFaultDiagnosisUserListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -983,7 +1502,12 @@ namespace Rtc20180111
       Models::DescribeFaultDiagnosisUserListResponse describeFaultDiagnosisUserListWithOptions(const Models::DescribeFaultDiagnosisUserListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取异常诊断用户明细列表
+       * @summary Queries the detailed user list for fault diagnosis.
+       *
+       * @description ### Usage notes
+       * This operation is used to retrieve the detailed user list for fault diagnosis. When you call this operation, you can query data from the last 48 hours, and the query time range cannot exceed 24 hours.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
        *
        * @param request DescribeFaultDiagnosisUserListRequest
        * @return DescribeFaultDiagnosisUserListResponse
@@ -991,6 +1515,13 @@ namespace Rtc20180111
       Models::DescribeFaultDiagnosisUserListResponse describeFaultDiagnosisUserList(const Models::DescribeFaultDiagnosisUserListRequest &request);
 
       /**
+       * @summary Call DescribeMPULayoutInfoList to retrieve layout parameters for a bypass live streaming task.
+       *
+       * @description # Usage notes
+       * Before calling this operation, call [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html) to create a bypass live streaming layout.
+       * # QPS limit
+       * The per-user QPS limit for this operation is 10 calls per second. Exceeding this limit triggers rate limiting, which may affect your business. Call this operation appropriately. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeMPULayoutInfoListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeMPULayoutInfoListResponse
@@ -998,13 +1529,25 @@ namespace Rtc20180111
       Models::DescribeMPULayoutInfoListResponse describeMPULayoutInfoListWithOptions(const Models::DescribeMPULayoutInfoListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call DescribeMPULayoutInfoList to retrieve layout parameters for a bypass live streaming task.
+       *
+       * @description # Usage notes
+       * Before calling this operation, call [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html) to create a bypass live streaming layout.
+       * # QPS limit
+       * The per-user QPS limit for this operation is 10 calls per second. Exceeding this limit triggers rate limiting, which may affect your business. Call this operation appropriately. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeMPULayoutInfoListRequest
        * @return DescribeMPULayoutInfoListResponse
        */
       Models::DescribeMPULayoutInfoListResponse describeMPULayoutInfoList(const Models::DescribeMPULayoutInfoListRequest &request);
 
       /**
-       * @summary 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
+       * @summary This API is used to obtain the list of publishing users in a communication session based on the subscriber.
+       *
+       * @description ### How-To  
+       * This API is used to obtain the list of publishing users in a communication session based on the subscriber. For example, you can retrieve detailed information about both the subscriber and the publishing users.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 requests per second per user. If this limit is exceeded, API calls will be subject to rate limiting, which may affect your business. Please invoke the API appropriately.
        *
        * @param request DescribePubUserListBySubUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1013,7 +1556,12 @@ namespace Rtc20180111
       Models::DescribePubUserListBySubUserResponse describePubUserListBySubUserWithOptions(const Models::DescribePubUserListBySubUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
+       * @summary This API is used to obtain the list of publishing users in a communication session based on the subscriber.
+       *
+       * @description ### How-To  
+       * This API is used to obtain the list of publishing users in a communication session based on the subscriber. For example, you can retrieve detailed information about both the subscriber and the publishing users.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 requests per second per user. If this limit is exceeded, API calls will be subject to rate limiting, which may affect your business. Please invoke the API appropriately.
        *
        * @param request DescribePubUserListBySubUserRequest
        * @return DescribePubUserListBySubUserResponse
@@ -1021,7 +1569,12 @@ namespace Rtc20180111
       Models::DescribePubUserListBySubUserResponse describePubUserListBySubUser(const Models::DescribePubUserListBySubUserRequest &request);
 
       /**
-       * @summary 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
+       * @summary This API is used to obtain the downlink experience quality metrics of a user in a single communication session.
+       *
+       * @description ### How-To  
+       * This API is used to obtain the downlink experience quality metrics of a user in a single communication session. For example, you can retrieve information such as the metric types that impact communication experience and audio/video trend indicators.  
+       * ### QPS Limit  
+       * The queries per second (QPS) limit for this API is 10 per user. If this limit is exceeded, API calls will be subject to rate limiting, which may affect your business. Please invoke the API appropriately.
        *
        * @param request DescribeQoeMetricDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1030,7 +1583,12 @@ namespace Rtc20180111
       Models::DescribeQoeMetricDataResponse describeQoeMetricDataWithOptions(const Models::DescribeQoeMetricDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
+       * @summary This API is used to obtain the downlink experience quality metrics of a user in a single communication session.
+       *
+       * @description ### How-To  
+       * This API is used to obtain the downlink experience quality metrics of a user in a single communication session. For example, you can retrieve information such as the metric types that impact communication experience and audio/video trend indicators.  
+       * ### QPS Limit  
+       * The queries per second (QPS) limit for this API is 10 per user. If this limit is exceeded, API calls will be subject to rate limiting, which may affect your business. Please invoke the API appropriately.
        *
        * @param request DescribeQoeMetricDataRequest
        * @return DescribeQoeMetricDataResponse
@@ -1038,7 +1596,14 @@ namespace Rtc20180111
       Models::DescribeQoeMetricDataResponse describeQoeMetricData(const Models::DescribeQoeMetricDataRequest &request);
 
       /**
-       * @summary 获取质量统计区域分布统计数据
+       * @summary Queries the regional distribution data of quality statistics.
+       *
+       * @description ### Usage notes
+       * This operation queries the regional distribution data of quality statistics. When you call this operation, the following limits apply:
+       * - You can query data within any time range in the last 365 days, excluding the current day.
+       * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
        *
        * @param request DescribeQualityAreaDistributionStatDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1047,7 +1612,14 @@ namespace Rtc20180111
       Models::DescribeQualityAreaDistributionStatDataResponse describeQualityAreaDistributionStatDataWithOptions(const Models::DescribeQualityAreaDistributionStatDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取质量统计区域分布统计数据
+       * @summary Queries the regional distribution data of quality statistics.
+       *
+       * @description ### Usage notes
+       * This operation queries the regional distribution data of quality statistics. When you call this operation, the following limits apply:
+       * - You can query data within any time range in the last 365 days, excluding the current day.
+       * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
        *
        * @param request DescribeQualityAreaDistributionStatDataRequest
        * @return DescribeQualityAreaDistributionStatDataResponse
@@ -1055,7 +1627,14 @@ namespace Rtc20180111
       Models::DescribeQualityAreaDistributionStatDataResponse describeQualityAreaDistributionStatData(const Models::DescribeQualityAreaDistributionStatDataRequest &request);
 
       /**
-       * @summary 获取质量统计分布数据
+       * @summary This API is used to obtain the distribution data of quality statistics.
+       *
+       * @description ### How-To
+       * This API is used to obtain the distribution data of quality statistics. The following limits apply when using this API:
+       * - You can query data for any period within the last 365 days (excluding the current day).
+       * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.
+       * ### Queries per second (QPS) limit
+       * The QPS limit for this API is 10 queries per second (QPS) per user. If you exceed this limit, your API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API reasonably.
        *
        * @param request DescribeQualityDistributionStatDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1064,7 +1643,14 @@ namespace Rtc20180111
       Models::DescribeQualityDistributionStatDataResponse describeQualityDistributionStatDataWithOptions(const Models::DescribeQualityDistributionStatDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取质量统计分布数据
+       * @summary This API is used to obtain the distribution data of quality statistics.
+       *
+       * @description ### How-To
+       * This API is used to obtain the distribution data of quality statistics. The following limits apply when using this API:
+       * - You can query data for any period within the last 365 days (excluding the current day).
+       * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.
+       * ### Queries per second (QPS) limit
+       * The QPS limit for this API is 10 queries per second (QPS) per user. If you exceed this limit, your API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API reasonably.
        *
        * @param request DescribeQualityDistributionStatDataRequest
        * @return DescribeQualityDistributionStatDataResponse
@@ -1072,7 +1658,14 @@ namespace Rtc20180111
       Models::DescribeQualityDistributionStatDataResponse describeQualityDistributionStatData(const Models::DescribeQualityDistributionStatDataRequest &request);
 
       /**
-       * @summary 获取质量统计各操作系统下SDK版本分布数据
+       * @summary Retrieves the distribution data of operating systems and SDK versions in quality statistics.
+       *
+       * @description ### Usage notes
+       * This operation retrieves the distribution data of operating systems and SDK versions in quality statistics. The following limits apply when you call this operation:
+       * - You can query data within the last 365 days, excluding the current day.
+       * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
        *
        * @param request DescribeQualityOsSdkVersionDistributionStatDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1081,7 +1674,14 @@ namespace Rtc20180111
       Models::DescribeQualityOsSdkVersionDistributionStatDataResponse describeQualityOsSdkVersionDistributionStatDataWithOptions(const Models::DescribeQualityOsSdkVersionDistributionStatDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取质量统计各操作系统下SDK版本分布数据
+       * @summary Retrieves the distribution data of operating systems and SDK versions in quality statistics.
+       *
+       * @description ### Usage notes
+       * This operation retrieves the distribution data of operating systems and SDK versions in quality statistics. The following limits apply when you call this operation:
+       * - You can query data within the last 365 days, excluding the current day.
+       * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
        *
        * @param request DescribeQualityOsSdkVersionDistributionStatDataRequest
        * @return DescribeQualityOsSdkVersionDistributionStatDataResponse
@@ -1089,7 +1689,14 @@ namespace Rtc20180111
       Models::DescribeQualityOsSdkVersionDistributionStatDataResponse describeQualityOsSdkVersionDistributionStatData(const Models::DescribeQualityOsSdkVersionDistributionStatDataRequest &request);
 
       /**
-       * @summary 获取质量统计概览数据
+       * @summary This API is used to obtain overview data of quality statistics.
+       *
+       * @description ### How-To  
+       * This API is used to obtain overview data of quality statistics. The following restrictions apply when using this API:  
+       * - You can query data for any time range within the last 365 days (excluding the current day).  
+       * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second per user. If you exceed this limit, your API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeQualityOverallDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1098,7 +1705,14 @@ namespace Rtc20180111
       Models::DescribeQualityOverallDataResponse describeQualityOverallDataWithOptions(const Models::DescribeQualityOverallDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取质量统计概览数据
+       * @summary This API is used to obtain overview data of quality statistics.
+       *
+       * @description ### How-To  
+       * This API is used to obtain overview data of quality statistics. The following restrictions apply when using this API:  
+       * - You can query data for any time range within the last 365 days (excluding the current day).  
+       * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second per user. If you exceed this limit, your API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeQualityOverallDataRequest
        * @return DescribeQualityOverallDataResponse
@@ -1106,6 +1720,13 @@ namespace Rtc20180111
       Models::DescribeQualityOverallDataResponse describeQualityOverallData(const Models::DescribeQualityOverallDataRequest &request);
 
       /**
+       * @summary Calls DescribeRecordFiles to query the list of files generated by recording.
+       *
+       * @description # Usage notes
+       * This operation is used to query the list of files generated by recording. For example, you can query parameters such as the creation time and recording duration of files generated by recording.
+       * # QPS limit
+       * The per-user QPS limit of this operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please call this operation reasonably. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeRecordFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRecordFilesResponse
@@ -1113,12 +1734,26 @@ namespace Rtc20180111
       Models::DescribeRecordFilesResponse describeRecordFilesWithOptions(const Models::DescribeRecordFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Calls DescribeRecordFiles to query the list of files generated by recording.
+       *
+       * @description # Usage notes
+       * This operation is used to query the list of files generated by recording. For example, you can query parameters such as the creation time and recording duration of files generated by recording.
+       * # QPS limit
+       * The per-user QPS limit of this operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please call this operation reasonably. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeRecordFilesRequest
        * @return DescribeRecordFilesResponse
        */
       Models::DescribeRecordFilesResponse describeRecordFiles(const Models::DescribeRecordFilesRequest &request);
 
       /**
+       * @summary Queries a list of recording template configurations.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording template.
+       * # QPS limit
+       * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeRecordTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRecordTemplatesResponse
@@ -1126,12 +1761,21 @@ namespace Rtc20180111
       Models::DescribeRecordTemplatesResponse describeRecordTemplatesWithOptions(const Models::DescribeRecordTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries a list of recording template configurations.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording template.
+       * # QPS limit
+       * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeRecordTemplatesRequest
        * @return DescribeRecordTemplatesResponse
        */
       Models::DescribeRecordTemplatesResponse describeRecordTemplates(const Models::DescribeRecordTemplatesRequest &request);
 
       /**
+       * @summary Queries the list of channel communication records.
+       *
        * @param request DescribeRtcChannelListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRtcChannelListResponse
@@ -1139,12 +1783,16 @@ namespace Rtc20180111
       Models::DescribeRtcChannelListResponse describeRtcChannelListWithOptions(const Models::DescribeRtcChannelListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the list of channel communication records.
+       *
        * @param request DescribeRtcChannelListRequest
        * @return DescribeRtcChannelListResponse
        */
       Models::DescribeRtcChannelListResponse describeRtcChannelList(const Models::DescribeRtcChannelListRequest &request);
 
       /**
+       * @summary Queries the details of communication records in a channel. You can query data within the last 180 days.
+       *
        * @param request DescribeRtcChannelMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRtcChannelMetricResponse
@@ -1152,12 +1800,18 @@ namespace Rtc20180111
       Models::DescribeRtcChannelMetricResponse describeRtcChannelMetricWithOptions(const Models::DescribeRtcChannelMetricRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the details of communication records in a channel. You can query data within the last 180 days.
+       *
        * @param request DescribeRtcChannelMetricRequest
        * @return DescribeRtcChannelMetricResponse
        */
       Models::DescribeRtcChannelMetricResponse describeRtcChannelMetric(const Models::DescribeRtcChannelMetricRequest &request);
 
       /**
+       * @summary Retrieves the total communication duration for an application within a specified time range. Data is aggregated by audio and video specifications.
+       *
+       * @description > The maximum query time range is 30 days.
+       *
        * @param request DescribeRtcDurationDataRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRtcDurationDataResponse
@@ -1165,12 +1819,20 @@ namespace Rtc20180111
       Models::DescribeRtcDurationDataResponse describeRtcDurationDataWithOptions(const Models::DescribeRtcDurationDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the total communication duration for an application within a specified time range. Data is aggregated by audio and video specifications.
+       *
+       * @description > The maximum query time range is 30 days.
+       *
        * @param request DescribeRtcDurationDataRequest
        * @return DescribeRtcDurationDataResponse
        */
       Models::DescribeRtcDurationDataResponse describeRtcDurationData(const Models::DescribeRtcDurationDataRequest &request);
 
       /**
+       * @summary Queries the peak number of concurrent channels of an application in a specified time range.
+       *
+       * @description > The maximum time range that can be queried is 30 days.
+       *
        * @param request DescribeRtcPeakChannelCntDataRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRtcPeakChannelCntDataResponse
@@ -1178,12 +1840,20 @@ namespace Rtc20180111
       Models::DescribeRtcPeakChannelCntDataResponse describeRtcPeakChannelCntDataWithOptions(const Models::DescribeRtcPeakChannelCntDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the peak number of concurrent channels of an application in a specified time range.
+       *
+       * @description > The maximum time range that can be queried is 30 days.
+       *
        * @param request DescribeRtcPeakChannelCntDataRequest
        * @return DescribeRtcPeakChannelCntDataResponse
        */
       Models::DescribeRtcPeakChannelCntDataResponse describeRtcPeakChannelCntData(const Models::DescribeRtcPeakChannelCntDataRequest &request);
 
       /**
+       * @summary Queries the number of active users of an application within a specified time range, that is, the number of user terminals that engaged in communication.
+       *
+       * @description > The maximum time span between the start time and the end time of a data query is 30 days.
+       *
        * @param request DescribeRtcUserCntDataRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRtcUserCntDataResponse
@@ -1191,13 +1861,20 @@ namespace Rtc20180111
       Models::DescribeRtcUserCntDataResponse describeRtcUserCntDataWithOptions(const Models::DescribeRtcUserCntDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the number of active users of an application within a specified time range, that is, the number of user terminals that engaged in communication.
+       *
+       * @description > The maximum time span between the start time and the end time of a data query is 30 days.
+       *
        * @param request DescribeRtcUserCntDataRequest
        * @return DescribeRtcUserCntDataResponse
        */
       Models::DescribeRtcUserCntDataResponse describeRtcUserCntData(const Models::DescribeRtcUserCntDataRequest &request);
 
       /**
-       * @summary 查询旁路推流状态
+       * @summary Queries the bypass streaming status.
+       *
+       * @description ### QPS limit
+       * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request DescribeStreamingOutStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1206,7 +1883,10 @@ namespace Rtc20180111
       Models::DescribeStreamingOutStatusResponse describeStreamingOutStatusWithOptions(const Models::DescribeStreamingOutStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询旁路推流状态
+       * @summary Queries the bypass streaming status.
+       *
+       * @description ### QPS limit
+       * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request DescribeStreamingOutStatusRequest
        * @return DescribeStreamingOutStatusResponse
@@ -1214,7 +1894,10 @@ namespace Rtc20180111
       Models::DescribeStreamingOutStatusResponse describeStreamingOutStatus(const Models::DescribeStreamingOutStatusRequest &request);
 
       /**
-       * @summary 系统内置布局
+       * @summary Built-in system layouts
+       *
+       * @description ### QPS limit
+       * The per-user QPS limit for this API is 10 calls per second. Exceeding this limit triggers rate limiting, which may affect your business. Call the API responsibly.
        *
        * @param request DescribeSystemLayoutListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1223,7 +1906,10 @@ namespace Rtc20180111
       Models::DescribeSystemLayoutListResponse describeSystemLayoutListWithOptions(const Models::DescribeSystemLayoutListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 系统内置布局
+       * @summary Built-in system layouts
+       *
+       * @description ### QPS limit
+       * The per-user QPS limit for this API is 10 calls per second. Exceeding this limit triggers rate limiting, which may affect your business. Call the API responsibly.
        *
        * @param request DescribeSystemLayoutListRequest
        * @return DescribeSystemLayoutListResponse
@@ -1231,7 +1917,14 @@ namespace Rtc20180111
       Models::DescribeSystemLayoutListResponse describeSystemLayoutList(const Models::DescribeSystemLayoutListRequest &request);
 
       /**
-       * @summary 获取用量统计地域分布数据
+       * @summary This API is used to retrieve the regional distribution data of usage statistics.
+       *
+       * @description ### How-To
+       * This API is used to retrieve the regional distribution data of usage statistics. The following restrictions apply when using this API:
+       * - You can query data for any period within the last 365 days (excluding the current day).
+       * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.
+       * ### QPS Limit
+       * The queries per second (QPS) limit for this API is 10 requests per second per user. If you exceed this limit, your API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeUsageAreaDistributionStatDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1240,7 +1933,14 @@ namespace Rtc20180111
       Models::DescribeUsageAreaDistributionStatDataResponse describeUsageAreaDistributionStatDataWithOptions(const Models::DescribeUsageAreaDistributionStatDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用量统计地域分布数据
+       * @summary This API is used to retrieve the regional distribution data of usage statistics.
+       *
+       * @description ### How-To
+       * This API is used to retrieve the regional distribution data of usage statistics. The following restrictions apply when using this API:
+       * - You can query data for any period within the last 365 days (excluding the current day).
+       * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.
+       * ### QPS Limit
+       * The queries per second (QPS) limit for this API is 10 requests per second per user. If you exceed this limit, your API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeUsageAreaDistributionStatDataRequest
        * @return DescribeUsageAreaDistributionStatDataResponse
@@ -1248,7 +1948,14 @@ namespace Rtc20180111
       Models::DescribeUsageAreaDistributionStatDataResponse describeUsageAreaDistributionStatData(const Models::DescribeUsageAreaDistributionStatDataRequest &request);
 
       /**
-       * @summary 获取用量统计分布数据
+       * @summary Queries the distribution data of usage statistics.
+       *
+       * @description ### Usage notes
+       * This operation queries the distribution data of usage statistics. When you call this operation, the following limits apply:
+       * - You can query data within any time range in the last 365 days, excluding the current day.
+       * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
        *
        * @param request DescribeUsageDistributionStatDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1257,7 +1964,14 @@ namespace Rtc20180111
       Models::DescribeUsageDistributionStatDataResponse describeUsageDistributionStatDataWithOptions(const Models::DescribeUsageDistributionStatDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用量统计分布数据
+       * @summary Queries the distribution data of usage statistics.
+       *
+       * @description ### Usage notes
+       * This operation queries the distribution data of usage statistics. When you call this operation, the following limits apply:
+       * - You can query data within any time range in the last 365 days, excluding the current day.
+       * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
        *
        * @param request DescribeUsageDistributionStatDataRequest
        * @return DescribeUsageDistributionStatDataResponse
@@ -1265,7 +1979,14 @@ namespace Rtc20180111
       Models::DescribeUsageDistributionStatDataResponse describeUsageDistributionStatData(const Models::DescribeUsageDistributionStatDataRequest &request);
 
       /**
-       * @summary 获取用量统计各操作系统下SDK版本分布数据
+       * @summary This API is used to obtain the distribution data of operating systems and SDK versions in usage statistics.
+       *
+       * @description ### How-To  
+       * This API is used to obtain the distribution data of operating systems and SDK versions in usage statistics. When using this API, the following restrictions apply:  
+       * - You can query data for any period within the last 365 days (excluding the current day).  
+       * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.  
+       * ### Rate Limiting  
+       * The queries per second (QPS) limit for this API is 10 requests per second per user. If you exceed this limit, your API calls will be rate-limited, which may impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeUsageOsSdkVersionDistributionStatDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1274,7 +1995,14 @@ namespace Rtc20180111
       Models::DescribeUsageOsSdkVersionDistributionStatDataResponse describeUsageOsSdkVersionDistributionStatDataWithOptions(const Models::DescribeUsageOsSdkVersionDistributionStatDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用量统计各操作系统下SDK版本分布数据
+       * @summary This API is used to obtain the distribution data of operating systems and SDK versions in usage statistics.
+       *
+       * @description ### How-To  
+       * This API is used to obtain the distribution data of operating systems and SDK versions in usage statistics. When using this API, the following restrictions apply:  
+       * - You can query data for any period within the last 365 days (excluding the current day).  
+       * - If the query range is less than 24 hours, the data is aggregated by hour. If the query range is greater than or equal to 24 hours, the data is aggregated by day.  
+       * ### Rate Limiting  
+       * The queries per second (QPS) limit for this API is 10 requests per second per user. If you exceed this limit, your API calls will be rate-limited, which may impact your business. Please invoke the API appropriately.
        *
        * @param request DescribeUsageOsSdkVersionDistributionStatDataRequest
        * @return DescribeUsageOsSdkVersionDistributionStatDataResponse
@@ -1282,7 +2010,14 @@ namespace Rtc20180111
       Models::DescribeUsageOsSdkVersionDistributionStatDataResponse describeUsageOsSdkVersionDistributionStatData(const Models::DescribeUsageOsSdkVersionDistributionStatDataRequest &request);
 
       /**
-       * @summary 获取用量统计概览数据
+       * @summary Queries the overview data of usage statistics.
+       *
+       * @description ### Usage notes
+       * This operation retrieves the overview data of usage statistics. The following limits apply when you call this operation:
+       * - You can query data for any time range within the last 365 days, excluding the current day.
+       * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
        *
        * @param request DescribeUsageOverallDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1291,7 +2026,14 @@ namespace Rtc20180111
       Models::DescribeUsageOverallDataResponse describeUsageOverallDataWithOptions(const Models::DescribeUsageOverallDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用量统计概览数据
+       * @summary Queries the overview data of usage statistics.
+       *
+       * @description ### Usage notes
+       * This operation retrieves the overview data of usage statistics. The following limits apply when you call this operation:
+       * - You can query data for any time range within the last 365 days, excluding the current day.
+       * - If the query time range is less than 24 hours, the data is aggregated by hour. If the query time range is 24 hours or more, the data is aggregated by day.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
        *
        * @param request DescribeUsageOverallDataRequest
        * @return DescribeUsageOverallDataResponse
@@ -1299,6 +2041,13 @@ namespace Rtc20180111
       Models::DescribeUsageOverallDataResponse describeUsageOverallData(const Models::DescribeUsageOverallDataRequest &request);
 
       /**
+       * @summary Calls DescribeUserInfoInChannel to query the real-time information of a user in a channel.
+       *
+       * @description # Usage notes
+       * This operation is used to query the real-time information of a user in a channel. For example, you can query information such as the user role type and the time of joining the meeting.
+       * # QPS limit
+       * The per-user QPS limit of this operation is 100 times per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Call this operation properly. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeUserInfoInChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeUserInfoInChannelResponse
@@ -1306,12 +2055,26 @@ namespace Rtc20180111
       Models::DescribeUserInfoInChannelResponse describeUserInfoInChannelWithOptions(const Models::DescribeUserInfoInChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Calls DescribeUserInfoInChannel to query the real-time information of a user in a channel.
+       *
+       * @description # Usage notes
+       * This operation is used to query the real-time information of a user in a channel. For example, you can query information such as the user role type and the time of joining the meeting.
+       * # QPS limit
+       * The per-user QPS limit of this operation is 100 times per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Call this operation properly. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DescribeUserInfoInChannelRequest
        * @return DescribeUserInfoInChannelResponse
        */
       Models::DescribeUserInfoInChannelResponse describeUserInfoInChannel(const Models::DescribeUserInfoInChannelRequest &request);
 
       /**
+       * @summary Disables the automatic bypass single-stream relay rule.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+       * # QPS limit
+       * The QPS limit per user is 1,000 requests per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DisableAutoLiveStreamRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DisableAutoLiveStreamRuleResponse
@@ -1319,12 +2082,26 @@ namespace Rtc20180111
       Models::DisableAutoLiveStreamRuleResponse disableAutoLiveStreamRuleWithOptions(const Models::DisableAutoLiveStreamRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Disables the automatic bypass single-stream relay rule.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+       * # QPS limit
+       * The QPS limit per user is 1,000 requests per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request DisableAutoLiveStreamRuleRequest
        * @return DisableAutoLiveStreamRuleResponse
        */
       Models::DisableAutoLiveStreamRuleResponse disableAutoLiveStreamRule(const Models::DisableAutoLiveStreamRuleRequest &request);
 
       /**
+       * @summary Enables the automatic bypass single-stream relay rule.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+       * # QPS limit
+       * The QPS limit per user for this operation is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request EnableAutoLiveStreamRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableAutoLiveStreamRuleResponse
@@ -1332,13 +2109,20 @@ namespace Rtc20180111
       Models::EnableAutoLiveStreamRuleResponse enableAutoLiveStreamRuleWithOptions(const Models::EnableAutoLiveStreamRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Enables the automatic bypass single-stream relay rule.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+       * # QPS limit
+       * The QPS limit per user for this operation is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request EnableAutoLiveStreamRuleRequest
        * @return EnableAutoLiveStreamRuleResponse
        */
       Models::EnableAutoLiveStreamRuleResponse enableAutoLiveStreamRule(const Models::EnableAutoLiveStreamRuleRequest &request);
 
       /**
-       * @summary GetAgent。
+       * @summary GetAgent.
        *
        * @param request GetAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1347,7 +2131,7 @@ namespace Rtc20180111
       Models::GetAgentResponse getAgentWithOptions(const Models::GetAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetAgent。
+       * @summary GetAgent.
        *
        * @param request GetAgentRequest
        * @return GetAgentResponse
@@ -1355,6 +2139,13 @@ namespace Rtc20180111
       Models::GetAgentResponse getAgent(const Models::GetAgentRequest &request);
 
       /**
+       * @summary Retrieves the status of a bypass transcoding task.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) to start a bypass transcoding task.
+       * # QPS limit
+       * The QPS limit for a single user is 4,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request GetMPUTaskStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMPUTaskStatusResponse
@@ -1362,13 +2153,25 @@ namespace Rtc20180111
       Models::GetMPUTaskStatusResponse getMPUTaskStatusWithOptions(const Models::GetMPUTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the status of a bypass transcoding task.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) to start a bypass transcoding task.
+       * # QPS limit
+       * The QPS limit for a single user is 4,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request GetMPUTaskStatusRequest
        * @return GetMPUTaskStatusResponse
        */
       Models::GetMPUTaskStatusResponse getMPUTaskStatus(const Models::GetMPUTaskStatusRequest &request);
 
       /**
-       * @summary 修改App信息
+       * @summary Modifies the name of a specified application.
+       *
+       * @description #### Usage notes
+       * This operation modifies the name of a specified application.
+       * #### QPS limit
+       * The queries per second (QPS) limit per user for this operation is 200 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
        *
        * @param request ModifyAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1377,7 +2180,12 @@ namespace Rtc20180111
       Models::ModifyAppResponse modifyAppWithOptions(const Models::ModifyAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改App信息
+       * @summary Modifies the name of a specified application.
+       *
+       * @description #### Usage notes
+       * This operation modifies the name of a specified application.
+       * #### QPS limit
+       * The queries per second (QPS) limit per user for this operation is 200 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
        *
        * @param request ModifyAppRequest
        * @return ModifyAppResponse
@@ -1385,7 +2193,10 @@ namespace Rtc20180111
       Models::ModifyAppResponse modifyApp(const Models::ModifyAppRequest &request);
 
       /**
-       * @summary 修改应用智能体开关
+       * @summary Modifies the agent feature switch for an application.
+       *
+       * @description ### QPS limits
+       * The queries per second (QPS) limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request ModifyAppAgentFunctionStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1394,7 +2205,10 @@ namespace Rtc20180111
       Models::ModifyAppAgentFunctionStatusResponse modifyAppAgentFunctionStatusWithOptions(const Models::ModifyAppAgentFunctionStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改应用智能体开关
+       * @summary Modifies the agent feature switch for an application.
+       *
+       * @description ### QPS limits
+       * The queries per second (QPS) limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request ModifyAppAgentFunctionStatusRequest
        * @return ModifyAppAgentFunctionStatusResponse
@@ -1402,7 +2216,10 @@ namespace Rtc20180111
       Models::ModifyAppAgentFunctionStatusResponse modifyAppAgentFunctionStatus(const Models::ModifyAppAgentFunctionStatusRequest &request);
 
       /**
-       * @summary 更新应用智能体模版
+       * @summary Updates an application agent template.
+       *
+       * @description ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the API at a reasonable rate.
        *
        * @param tmpReq ModifyAppAgentTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1411,7 +2228,10 @@ namespace Rtc20180111
       Models::ModifyAppAgentTemplateResponse modifyAppAgentTemplateWithOptions(const Models::ModifyAppAgentTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新应用智能体模版
+       * @summary Updates an application agent template.
+       *
+       * @description ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the API at a reasonable rate.
        *
        * @param request ModifyAppAgentTemplateRequest
        * @return ModifyAppAgentTemplateResponse
@@ -1419,7 +2239,10 @@ namespace Rtc20180111
       Models::ModifyAppAgentTemplateResponse modifyAppAgentTemplate(const Models::ModifyAppAgentTemplateRequest &request);
 
       /**
-       * @summary 更新app回调事件开关
+       * @summary Updates the callback event switch for an application.
+       *
+       * @description ### QPS limits
+       * The QPS limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
        *
        * @param request ModifyAppCallbackStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1428,7 +2251,10 @@ namespace Rtc20180111
       Models::ModifyAppCallbackStatusResponse modifyAppCallbackStatusWithOptions(const Models::ModifyAppCallbackStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新app回调事件开关
+       * @summary Updates the callback event switch for an application.
+       *
+       * @description ### QPS limits
+       * The QPS limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
        *
        * @param request ModifyAppCallbackStatusRequest
        * @return ModifyAppCallbackStatusResponse
@@ -1436,7 +2262,10 @@ namespace Rtc20180111
       Models::ModifyAppCallbackStatusResponse modifyAppCallbackStatus(const Models::ModifyAppCallbackStatusRequest &request);
 
       /**
-       * @summary 修改app自定义布局
+       * @summary Modify a custom application layout.
+       *
+       * @description ### QPS limits
+       * This API supports a maximum of 10 calls per second per user. Exceeding this limit triggers rate limiting, which may impact your business operations. Use the API judiciously.
        *
        * @param tmpReq ModifyAppLayoutRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1445,7 +2274,10 @@ namespace Rtc20180111
       Models::ModifyAppLayoutResponse modifyAppLayoutWithOptions(const Models::ModifyAppLayoutRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改app自定义布局
+       * @summary Modify a custom application layout.
+       *
+       * @description ### QPS limits
+       * This API supports a maximum of 10 calls per second per user. Exceeding this limit triggers rate limiting, which may impact your business operations. Use the API judiciously.
        *
        * @param request ModifyAppLayoutRequest
        * @return ModifyAppLayoutResponse
@@ -1453,7 +2285,10 @@ namespace Rtc20180111
       Models::ModifyAppLayoutResponse modifyAppLayout(const Models::ModifyAppLayoutRequest &request);
 
       /**
-       * @summary 修改应用旁路开关
+       * @summary Modify the bypass toggle of an application
+       *
+       * @description ### Queries per second (QPS) limit  
+       * The queries per second (QPS) limit for this API is 10 per user per second. If the limit is exceeded, API calls will be subject to Rate Limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param request ModifyAppLiveStreamStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1462,7 +2297,10 @@ namespace Rtc20180111
       Models::ModifyAppLiveStreamStatusResponse modifyAppLiveStreamStatusWithOptions(const Models::ModifyAppLiveStreamStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改应用旁路开关
+       * @summary Modify the bypass toggle of an application
+       *
+       * @description ### Queries per second (QPS) limit  
+       * The queries per second (QPS) limit for this API is 10 per user per second. If the limit is exceeded, API calls will be subject to Rate Limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param request ModifyAppLiveStreamStatusRequest
        * @return ModifyAppLiveStreamStatusResponse
@@ -1470,7 +2308,10 @@ namespace Rtc20180111
       Models::ModifyAppLiveStreamStatusResponse modifyAppLiveStreamStatus(const Models::ModifyAppLiveStreamStatusRequest &request);
 
       /**
-       * @summary 修改应用录制开关
+       * @summary Modifies the recording switch of an application.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
        *
        * @param request ModifyAppRecordStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1479,7 +2320,10 @@ namespace Rtc20180111
       Models::ModifyAppRecordStatusResponse modifyAppRecordStatusWithOptions(const Models::ModifyAppRecordStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改应用录制开关
+       * @summary Modifies the recording switch of an application.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
        *
        * @param request ModifyAppRecordStatusRequest
        * @return ModifyAppRecordStatusResponse
@@ -1487,7 +2331,10 @@ namespace Rtc20180111
       Models::ModifyAppRecordStatusResponse modifyAppRecordStatus(const Models::ModifyAppRecordStatusRequest &request);
 
       /**
-       * @summary 修改应用录制模版
+       * @summary Modify an application recording template.
+       *
+       * @description ### QPS limit
+       * This API supports up to 10 calls per second per user. If you exceed this limit, rate limiting is triggered, which might affect your service. Call the API at a reasonable frequency.
        *
        * @param tmpReq ModifyAppRecordTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1496,7 +2343,10 @@ namespace Rtc20180111
       Models::ModifyAppRecordTemplateResponse modifyAppRecordTemplateWithOptions(const Models::ModifyAppRecordTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改应用录制模版
+       * @summary Modify an application recording template.
+       *
+       * @description ### QPS limit
+       * This API supports up to 10 calls per second per user. If you exceed this limit, rate limiting is triggered, which might affect your service. Call the API at a reasonable frequency.
        *
        * @param request ModifyAppRecordTemplateRequest
        * @return ModifyAppRecordTemplateResponse
@@ -1504,7 +2354,12 @@ namespace Rtc20180111
       Models::ModifyAppRecordTemplateResponse modifyAppRecordTemplate(const Models::ModifyAppRecordTemplateRequest &request);
 
       /**
-       * @summary 更新应用推流模版
+       * @summary Modify the stream ingest template for an RTC 3.0 application.
+       *
+       * @description ### How-To  
+       * This API modifies the stream ingest template for an RTC 3.0 application.  
+       * ### QPS Limit  
+       * The queries per second (QPS) limit for this API is 10 per user. If you exceed this limit, your API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param tmpReq ModifyAppStreamingOutTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1513,7 +2368,12 @@ namespace Rtc20180111
       Models::ModifyAppStreamingOutTemplateResponse modifyAppStreamingOutTemplateWithOptions(const Models::ModifyAppStreamingOutTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新应用推流模版
+       * @summary Modify the stream ingest template for an RTC 3.0 application.
+       *
+       * @description ### How-To  
+       * This API modifies the stream ingest template for an RTC 3.0 application.  
+       * ### QPS Limit  
+       * The queries per second (QPS) limit for this API is 10 per user. If you exceed this limit, your API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param request ModifyAppStreamingOutTemplateRequest
        * @return ModifyAppStreamingOutTemplateResponse
@@ -1521,7 +2381,10 @@ namespace Rtc20180111
       Models::ModifyAppStreamingOutTemplateResponse modifyAppStreamingOutTemplate(const Models::ModifyAppStreamingOutTemplateRequest &request);
 
       /**
-       * @summary 修改合流开关
+       * @summary Modifies the merging switch.
+       *
+       * @description ### QPS limits
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request ModifyAppViewStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1530,7 +2393,10 @@ namespace Rtc20180111
       Models::ModifyAppViewStatusResponse modifyAppViewStatusWithOptions(const Models::ModifyAppViewStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改合流开关
+       * @summary Modifies the merging switch.
+       *
+       * @description ### QPS limits
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request ModifyAppViewStatusRequest
        * @return ModifyAppViewStatusResponse
@@ -1538,7 +2404,10 @@ namespace Rtc20180111
       Models::ModifyAppViewStatusResponse modifyAppViewStatus(const Models::ModifyAppViewStatusRequest &request);
 
       /**
-       * @summary 更新应用合流模版
+       * @summary Update an application view template.
+       *
+       * @description ### QPS limits
+       * This API supports up to 10 calls per second per user. Exceeding this limit triggers rate limiting, which may affect your business. Use this API with caution.
        *
        * @param tmpReq ModifyAppViewTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1547,7 +2416,10 @@ namespace Rtc20180111
       Models::ModifyAppViewTemplateResponse modifyAppViewTemplateWithOptions(const Models::ModifyAppViewTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新应用合流模版
+       * @summary Update an application view template.
+       *
+       * @description ### QPS limits
+       * This API supports up to 10 calls per second per user. Exceeding this limit triggers rate limiting, which may affect your business. Use this API with caution.
        *
        * @param request ModifyAppViewTemplateRequest
        * @return ModifyAppViewTemplateResponse
@@ -1555,7 +2427,10 @@ namespace Rtc20180111
       Models::ModifyAppViewTemplateResponse modifyAppViewTemplate(const Models::ModifyAppViewTemplateRequest &request);
 
       /**
-       * @summary 更新app回调
+       * @summary Updates the callback configuration of an application.
+       *
+       * @description ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
        *
        * @param tmpReq ModifyCallbackMetaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1564,7 +2439,10 @@ namespace Rtc20180111
       Models::ModifyCallbackMetaResponse modifyCallbackMetaWithOptions(const Models::ModifyCallbackMetaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新app回调
+       * @summary Updates the callback configuration of an application.
+       *
+       * @description ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
        *
        * @param request ModifyCallbackMetaRequest
        * @return ModifyCallbackMetaResponse
@@ -1572,7 +2450,7 @@ namespace Rtc20180111
       Models::ModifyCallbackMetaResponse modifyCallbackMeta(const Models::ModifyCallbackMetaRequest &request);
 
       /**
-       * @summary 更新纪要热词表
+       * @summary Updates the hotwords table for meeting minutes.
        *
        * @param tmpReq ModifyCloudNotePhrasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1581,7 +2459,7 @@ namespace Rtc20180111
       Models::ModifyCloudNotePhrasesResponse modifyCloudNotePhrasesWithOptions(const Models::ModifyCloudNotePhrasesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新纪要热词表
+       * @summary Updates the hotwords table for meeting minutes.
        *
        * @param request ModifyCloudNotePhrasesRequest
        * @return ModifyCloudNotePhrasesResponse
@@ -1589,6 +2467,13 @@ namespace Rtc20180111
       Models::ModifyCloudNotePhrasesResponse modifyCloudNotePhrases(const Models::ModifyCloudNotePhrasesRequest &request);
 
       /**
+       * @summary Modifies a bypass live streaming layout.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html) to create a bypass live streaming layout.
+       * # QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request ModifyMPULayoutRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyMPULayoutResponse
@@ -1596,13 +2481,23 @@ namespace Rtc20180111
       Models::ModifyMPULayoutResponse modifyMPULayoutWithOptions(const Models::ModifyMPULayoutRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies a bypass live streaming layout.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateMPULayout](https://help.aliyun.com/document_detail/162192.html) to create a bypass live streaming layout.
+       * # QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request ModifyMPULayoutRequest
        * @return ModifyMPULayoutResponse
        */
       Models::ModifyMPULayoutResponse modifyMPULayout(const Models::ModifyMPULayoutRequest &request);
 
       /**
-       * @summary 设置流属性
+       * @summary Sets the stream properties.
+       *
+       * @description ### QPS limit
+       * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param tmpReq ModifyStreamingPropertyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1611,7 +2506,10 @@ namespace Rtc20180111
       Models::ModifyStreamingPropertyResponse modifyStreamingPropertyWithOptions(const Models::ModifyStreamingPropertyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置流属性
+       * @summary Sets the stream properties.
+       *
+       * @description ### QPS limit
+       * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request ModifyStreamingPropertyRequest
        * @return ModifyStreamingPropertyResponse
@@ -1619,7 +2517,10 @@ namespace Rtc20180111
       Models::ModifyStreamingPropertyResponse modifyStreamingProperty(const Models::ModifyStreamingPropertyRequest &request);
 
       /**
-       * @summary 设置合流布局
+       * @summary Configures the mixed stream layout.
+       *
+       * @description ### QPS limit
+       * The QPS limit per user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable rate.
        *
        * @param tmpReq ModifyViewLayoutRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1628,7 +2529,10 @@ namespace Rtc20180111
       Models::ModifyViewLayoutResponse modifyViewLayoutWithOptions(const Models::ModifyViewLayoutRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置合流布局
+       * @summary Configures the mixed stream layout.
+       *
+       * @description ### QPS limit
+       * The QPS limit per user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable rate.
        *
        * @param request ModifyViewLayoutRequest
        * @return ModifyViewLayoutResponse
@@ -1653,6 +2557,13 @@ namespace Rtc20180111
       Models::NotifyAgentResponse notifyAgent(const Models::NotifyAgentRequest &request);
 
       /**
+       * @summary Call the RemoveTerminals operation to remove specified end users from a channel.
+       *
+       * @description # Usage notes
+       * This API removes specified end users from a channel.
+       * # QPS limit
+       * The queries per second (QPS) limit for this API is 1,000 calls per minute per user. If you exceed the limit, API calls are subject to rate limiting, which may affect your business. Call this API at a reasonable rate. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request RemoveTerminalsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemoveTerminalsResponse
@@ -1660,6 +2571,13 @@ namespace Rtc20180111
       Models::RemoveTerminalsResponse removeTerminalsWithOptions(const Models::RemoveTerminalsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call the RemoveTerminals operation to remove specified end users from a channel.
+       *
+       * @description # Usage notes
+       * This API removes specified end users from a channel.
+       * # QPS limit
+       * The queries per second (QPS) limit for this API is 1,000 calls per minute per user. If you exceed the limit, API calls are subject to rate limiting, which may affect your business. Call this API at a reasonable rate. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request RemoveTerminalsRequest
        * @return RemoveTerminalsResponse
        */
@@ -1667,6 +2585,11 @@ namespace Rtc20180111
 
       /**
        * @summary RemoveUsers
+       *
+       * @description ### How-To  
+       * This API is used to kick users out of an online channel.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 requests per second per user. If the limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
        *
        * @param request RemoveUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1677,13 +2600,21 @@ namespace Rtc20180111
       /**
        * @summary RemoveUsers
        *
+       * @description ### How-To  
+       * This API is used to kick users out of an online channel.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 requests per second per user. If the limit is exceeded, API calls will be subject to Rate Limiting, which may Impact your business. Please invoke the API appropriately.
+       *
        * @param request RemoveUsersRequest
        * @return RemoveUsersResponse
        */
       Models::RemoveUsersResponse removeUsers(const Models::RemoveUsersRequest &request);
 
       /**
-       * @summary 取消Sip邀请
+       * @summary Cancels a SIP invite.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit for this API is 10 per user. If you exceed this limit, API calls are subject to rate limiting, which may affect your business. Call this API at a reasonable frequency.
        *
        * @param request RtcCancelSipInviteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1692,7 +2623,10 @@ namespace Rtc20180111
       Models::RtcCancelSipInviteResponse rtcCancelSipInviteWithOptions(const Models::RtcCancelSipInviteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消Sip邀请
+       * @summary Cancels a SIP invite.
+       *
+       * @description ### QPS limit
+       * The queries per second (QPS) limit for this API is 10 per user. If you exceed this limit, API calls are subject to rate limiting, which may affect your business. Call this API at a reasonable frequency.
        *
        * @param request RtcCancelSipInviteRequest
        * @return RtcCancelSipInviteResponse
@@ -1700,7 +2634,27 @@ namespace Rtc20180111
       Models::RtcCancelSipInviteResponse rtcCancelSipInvite(const Models::RtcCancelSipInviteRequest &request);
 
       /**
-       * @summary 邀请SIP加入频道
+       * @summary Sends DTMF key signals to a target OneRTC SIP call in a specified channel.
+       *
+       * @param request RtcSendSipDtmfRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RtcSendSipDtmfResponse
+       */
+      Models::RtcSendSipDtmfResponse rtcSendSipDtmfWithOptions(const Models::RtcSendSipDtmfRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sends DTMF key signals to a target OneRTC SIP call in a specified channel.
+       *
+       * @param request RtcSendSipDtmfRequest
+       * @return RtcSendSipDtmfResponse
+       */
+      Models::RtcSendSipDtmfResponse rtcSendSipDtmf(const Models::RtcSendSipDtmfRequest &request);
+
+      /**
+       * @summary Invites a SIP endpoint to join a channel.
+       *
+       * @description ### Rate limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request RtcSipInviteMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1709,7 +2663,10 @@ namespace Rtc20180111
       Models::RtcSipInviteMemberResponse rtcSipInviteMemberWithOptions(const Models::RtcSipInviteMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 邀请SIP加入频道
+       * @summary Invites a SIP endpoint to join a channel.
+       *
+       * @description ### Rate limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request RtcSipInviteMemberRequest
        * @return RtcSipInviteMemberResponse
@@ -1717,7 +2674,10 @@ namespace Rtc20180111
       Models::RtcSipInviteMemberResponse rtcSipInviteMember(const Models::RtcSipInviteMemberRequest &request);
 
       /**
-       * @summary Mute操作
+       * @summary Mutes or unmutes the microphone for a SIP endpoint.
+       *
+       * @description ### QPS limits
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request RtcSipMuteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1726,7 +2686,10 @@ namespace Rtc20180111
       Models::RtcSipMuteResponse rtcSipMuteWithOptions(const Models::RtcSipMuteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Mute操作
+       * @summary Mutes or unmutes the microphone for a SIP endpoint.
+       *
+       * @description ### QPS limits
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
        *
        * @param request RtcSipMuteRequest
        * @return RtcSipMuteResponse
@@ -1734,7 +2697,7 @@ namespace Rtc20180111
       Models::RtcSipMuteResponse rtcSipMute(const Models::RtcSipMuteRequest &request);
 
       /**
-       * @summary 启动AI Agent
+       * @summary Starts an AI agent.
        *
        * @param tmpReq StartAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1743,7 +2706,7 @@ namespace Rtc20180111
       Models::StartAgentResponse startAgentWithOptions(const Models::StartAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启动AI Agent
+       * @summary Starts an AI agent.
        *
        * @param request StartAgentRequest
        * @return StartAgentResponse
@@ -1751,7 +2714,10 @@ namespace Rtc20180111
       Models::StartAgentResponse startAgent(const Models::StartAgentRequest &request);
 
       /**
-       * @summary 开启某个事件回调
+       * @summary Starts an event callback.
+       *
+       * @description ### QPS limits
+       * The queries per second (QPS) limit for this API is 10 calls per second per user. If you exceed the limit, API calls are subject to rate limiting, which may affect your business. Call the API at a reasonable rate.
        *
        * @param tmpReq StartCategoryCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1760,7 +2726,10 @@ namespace Rtc20180111
       Models::StartCategoryCallbackResponse startCategoryCallbackWithOptions(const Models::StartCategoryCallbackRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启某个事件回调
+       * @summary Starts an event callback.
+       *
+       * @description ### QPS limits
+       * The queries per second (QPS) limit for this API is 10 calls per second per user. If you exceed the limit, API calls are subject to rate limiting, which may affect your business. Call the API at a reasonable rate.
        *
        * @param request StartCategoryCallbackRequest
        * @return StartCategoryCallbackResponse
@@ -1768,7 +2737,15 @@ namespace Rtc20180111
       Models::StartCategoryCallbackResponse startCategoryCallback(const Models::StartCategoryCallbackRequest &request);
 
       /**
-       * @summary 开启智能纪要
+       * @summary Starts an intelligent meeting minutes task.
+       *
+       * @description ### Usage notes
+       * This operation starts a meeting minutes task for an online channel. If you need meeting minutes and subtitles, enable all features.
+       * ### QPS limits
+       * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
+       * > Concurrency limits
+       * > - Only one meeting minutes task can run in the same channel at a time.
+       * > - You can start and stop meeting minutes tasks multiple times in the same channel, but the TaskId must be different each time.
        *
        * @param tmpReq StartCloudNoteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1777,7 +2754,15 @@ namespace Rtc20180111
       Models::StartCloudNoteResponse startCloudNoteWithOptions(const Models::StartCloudNoteRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启智能纪要
+       * @summary Starts an intelligent meeting minutes task.
+       *
+       * @description ### Usage notes
+       * This operation starts a meeting minutes task for an online channel. If you need meeting minutes and subtitles, enable all features.
+       * ### QPS limits
+       * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
+       * > Concurrency limits
+       * > - Only one meeting minutes task can run in the same channel at a time.
+       * > - You can start and stop meeting minutes tasks multiple times in the same channel, but the TaskId must be different each time.
        *
        * @param request StartCloudNoteRequest
        * @return StartCloudNoteResponse
@@ -1785,7 +2770,12 @@ namespace Rtc20180111
       Models::StartCloudNoteResponse startCloudNote(const Models::StartCloudNoteRequest &request);
 
       /**
-       * @summary StartCloudRecord
+       * @summary Starts a cloud recording task.
+       *
+       * @description ### Usage notes
+       * This operation starts a cloud recording task for an online channel.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param tmpReq StartCloudRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1794,7 +2784,12 @@ namespace Rtc20180111
       Models::StartCloudRecordResponse startCloudRecordWithOptions(const Models::StartCloudRecordRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary StartCloudRecord
+       * @summary Starts a cloud recording task.
+       *
+       * @description ### Usage notes
+       * This operation starts a cloud recording task for an online channel.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request StartCloudRecordRequest
        * @return StartCloudRecordResponse
@@ -1802,6 +2797,17 @@ namespace Rtc20180111
       Models::StartCloudRecordResponse startCloudRecord(const Models::StartCloudRecordRequest &request);
 
       /**
+       * @summary Starts a bypass relaying task.
+       *
+       * @description # Usage notes
+       * This operation is used to start a bypass relaying task. When you use the bypass relaying service, ApsaraVideo Live has the following limits:
+       * <props="china">- For the concurrency limit on tasks, see [Concurrency limits](https://help.aliyun.com/document_detail/71050.html#section-eaz-anq-a47). If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex) two weeks in advance.
+       * <props="intl">- For the concurrency limit on tasks, see [Concurrency limits](https://www.alibabacloud.com/help/rtc-61399/latest/60e652#section-eaz-anq-a47). If you have special requirements, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) two weeks in advance.
+       * - If the transcoding feature is disabled, each account can concurrently push up to 20 original-quality live streams per live streaming accelerated domain name by default. If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+       * - If the transcoding feature is enabled, each account can concurrently push up to 10 transcoded live streams per live streaming accelerated domain name by default. If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+       * # QPS limit
+       * The QPS limit for a single user calling this operation is 500 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request StartMPUTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartMPUTaskResponse
@@ -1809,12 +2815,32 @@ namespace Rtc20180111
       Models::StartMPUTaskResponse startMPUTaskWithOptions(const Models::StartMPUTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Starts a bypass relaying task.
+       *
+       * @description # Usage notes
+       * This operation is used to start a bypass relaying task. When you use the bypass relaying service, ApsaraVideo Live has the following limits:
+       * <props="china">- For the concurrency limit on tasks, see [Concurrency limits](https://help.aliyun.com/document_detail/71050.html#section-eaz-anq-a47). If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex) two weeks in advance.
+       * <props="intl">- For the concurrency limit on tasks, see [Concurrency limits](https://www.alibabacloud.com/help/rtc-61399/latest/60e652#section-eaz-anq-a47). If you have special requirements, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) two weeks in advance.
+       * - If the transcoding feature is disabled, each account can concurrently push up to 20 original-quality live streams per live streaming accelerated domain name by default. If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+       * - If the transcoding feature is enabled, each account can concurrently push up to 10 transcoded live streams per live streaming accelerated domain name by default. If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+       * # QPS limit
+       * The QPS limit for a single user calling this operation is 500 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request StartMPUTaskRequest
        * @return StartMPUTaskResponse
        */
       Models::StartMPUTaskResponse startMPUTask(const Models::StartMPUTaskRequest &request);
 
       /**
+       * @summary Starts a video recording task.
+       *
+       * @description # Usage notes
+       * - Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording configuration template.
+       * <props="china">- By default, you can start a maximum of 100 recording tasks at the same time. If the limit is exceeded, new recording tasks become unavailable. If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+       * <props="intl">- By default, you can start a maximum of 100 recording tasks at the same time. If the limit is exceeded, new recording tasks become unavailable. If you have special requirements, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+       * # QPS limit
+       * The QPS limit for a single user is 500 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request StartRecordTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartRecordTaskResponse
@@ -1822,13 +2848,27 @@ namespace Rtc20180111
       Models::StartRecordTaskResponse startRecordTaskWithOptions(const Models::StartRecordTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Starts a video recording task.
+       *
+       * @description # Usage notes
+       * - Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording configuration template.
+       * <props="china">- By default, you can start a maximum of 100 recording tasks at the same time. If the limit is exceeded, new recording tasks become unavailable. If you have special requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+       * <props="intl">- By default, you can start a maximum of 100 recording tasks at the same time. If the limit is exceeded, new recording tasks become unavailable. If you have special requirements, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+       * # QPS limit
+       * The QPS limit for a single user is 500 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request StartRecordTaskRequest
        * @return StartRecordTaskResponse
        */
       Models::StartRecordTaskResponse startRecordTask(const Models::StartRecordTaskRequest &request);
 
       /**
-       * @summary StartStreamingOut
+       * @summary Starts a bypass streaming task.
+       *
+       * @description ### Usage notes
+       * This operation starts a bypass streaming task for an online channel.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param tmpReq StartStreamingOutRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1837,7 +2877,12 @@ namespace Rtc20180111
       Models::StartStreamingOutResponse startStreamingOutWithOptions(const Models::StartStreamingOutRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary StartStreamingOut
+       * @summary Starts a bypass streaming task.
+       *
+       * @description ### Usage notes
+       * This operation starts a bypass streaming task for an online channel.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
        *
        * @param request StartStreamingOutRequest
        * @return StartStreamingOutResponse
@@ -1845,7 +2890,10 @@ namespace Rtc20180111
       Models::StartStreamingOutResponse startStreamingOut(const Models::StartStreamingOutRequest &request);
 
       /**
-       * @summary 开始合流
+       * @summary Starts stream mixing.
+       *
+       * @description ### QPS limits
+       * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API operation at a reasonable frequency.
        *
        * @param tmpReq StartViewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1854,7 +2902,10 @@ namespace Rtc20180111
       Models::StartViewResponse startViewWithOptions(const Models::StartViewRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开始合流
+       * @summary Starts stream mixing.
+       *
+       * @description ### QPS limits
+       * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API operation at a reasonable frequency.
        *
        * @param request StartViewRequest
        * @return StartViewResponse
@@ -1862,7 +2913,7 @@ namespace Rtc20180111
       Models::StartViewResponse startView(const Models::StartViewRequest &request);
 
       /**
-       * @summary 停止AI Agent
+       * @summary Stops an AI agent.
        *
        * @param request StopAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1871,7 +2922,7 @@ namespace Rtc20180111
       Models::StopAgentResponse stopAgentWithOptions(const Models::StopAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止AI Agent
+       * @summary Stops an AI agent.
        *
        * @param request StopAgentRequest
        * @return StopAgentResponse
@@ -1879,7 +2930,10 @@ namespace Rtc20180111
       Models::StopAgentResponse stopAgent(const Models::StopAgentRequest &request);
 
       /**
-       * @summary 关闭某个事件回调
+       * @summary Disables an event callback.
+       *
+       * @description ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
        *
        * @param tmpReq StopCategoryCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1888,7 +2942,10 @@ namespace Rtc20180111
       Models::StopCategoryCallbackResponse stopCategoryCallbackWithOptions(const Models::StopCategoryCallbackRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭某个事件回调
+       * @summary Disables an event callback.
+       *
+       * @description ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
        *
        * @param request StopCategoryCallbackRequest
        * @return StopCategoryCallbackResponse
@@ -1896,7 +2953,12 @@ namespace Rtc20180111
       Models::StopCategoryCallbackResponse stopCategoryCallback(const Models::StopCategoryCallbackRequest &request);
 
       /**
-       * @summary 删除频道
+       * @summary This API is used by the server to actively shut down a channel.
+       *
+       * @description ### How-To  
+       * This API is used by the server to actively shut down an online channel.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your service. Invoke this API appropriately.
        *
        * @param request StopChannelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1905,7 +2967,12 @@ namespace Rtc20180111
       Models::StopChannelResponse stopChannelWithOptions(const Models::StopChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除频道
+       * @summary This API is used by the server to actively shut down a channel.
+       *
+       * @description ### How-To  
+       * This API is used by the server to actively shut down an online channel.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your service. Invoke this API appropriately.
        *
        * @param request StopChannelRequest
        * @return StopChannelResponse
@@ -1913,7 +2980,12 @@ namespace Rtc20180111
       Models::StopChannelResponse stopChannel(const Models::StopChannelRequest &request);
 
       /**
-       * @summary 停止智能纪要
+       * @summary Stops an intelligent meeting minutes task.
+       *
+       * @description ### Usage notes
+       * This operation stops a meeting minutes task for an online channel.
+       * ### QPS limits
+       * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable rate.
        *
        * @param request StopCloudNoteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1922,7 +2994,12 @@ namespace Rtc20180111
       Models::StopCloudNoteResponse stopCloudNoteWithOptions(const Models::StopCloudNoteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止智能纪要
+       * @summary Stops an intelligent meeting minutes task.
+       *
+       * @description ### Usage notes
+       * This operation stops a meeting minutes task for an online channel.
+       * ### QPS limits
+       * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable rate.
        *
        * @param request StopCloudNoteRequest
        * @return StopCloudNoteResponse
@@ -1931,6 +3008,11 @@ namespace Rtc20180111
 
       /**
        * @summary StopCloudRecord
+       *
+       * @description ### How-To  
+       * This API is used to stop an online channel cloud recording job.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second (QPS) per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
        *
        * @param request StopCloudRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1941,12 +3023,25 @@ namespace Rtc20180111
       /**
        * @summary StopCloudRecord
        *
+       * @description ### How-To  
+       * This API is used to stop an online channel cloud recording job.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second (QPS) per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Please invoke the API appropriately.
+       *
        * @param request StopCloudRecordRequest
        * @return StopCloudRecordResponse
        */
       Models::StopCloudRecordResponse stopCloudRecord(const Models::StopCloudRecordRequest &request);
 
       /**
+       * @summary Calls the StopMPUTask operation to stop a stream relay task.
+       *
+       * @description # Usage notes
+       * - Before you call this operation, you must have called [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) to start a stream relay task.
+       * - If you need to stop a stream relay task and the stream relay task is abnormal (the StopMPUTask operation is not called to stop the task), the stream relay task is automatically stopped 2 minutes after the last user leaves the channel. After the task is stopped, if you need to resume stream relay, you need to call the [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) operation again.
+       * # QPS limit
+       * The QPS limit per user for this operation is 500 times per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the operation properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request StopMPUTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StopMPUTaskResponse
@@ -1954,12 +3049,27 @@ namespace Rtc20180111
       Models::StopMPUTaskResponse stopMPUTaskWithOptions(const Models::StopMPUTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Calls the StopMPUTask operation to stop a stream relay task.
+       *
+       * @description # Usage notes
+       * - Before you call this operation, you must have called [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) to start a stream relay task.
+       * - If you need to stop a stream relay task and the stream relay task is abnormal (the StopMPUTask operation is not called to stop the task), the stream relay task is automatically stopped 2 minutes after the last user leaves the channel. After the task is stopped, if you need to resume stream relay, you need to call the [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) operation again.
+       * # QPS limit
+       * The QPS limit per user for this operation is 500 times per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the operation properly. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request StopMPUTaskRequest
        * @return StopMPUTaskResponse
        */
       Models::StopMPUTaskResponse stopMPUTask(const Models::StopMPUTaskRequest &request);
 
       /**
+       * @summary Calls the StopRecordTask operation to stop a video recording task.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call the [StartRecordTask](https://help.aliyun.com/document_detail/193528.html) operation to start a video recording task.
+       * # QPS limit
+       * You can call this operation up to 4,000 times per minute per user. If the number of calls per minute exceeds the limit, throttling is triggered, which may affect your business. Call this operation as required. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request StopRecordTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StopRecordTaskResponse
@@ -1967,6 +3077,13 @@ namespace Rtc20180111
       Models::StopRecordTaskResponse stopRecordTaskWithOptions(const Models::StopRecordTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Calls the StopRecordTask operation to stop a video recording task.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call the [StartRecordTask](https://help.aliyun.com/document_detail/193528.html) operation to start a video recording task.
+       * # QPS limit
+       * You can call this operation up to 4,000 times per minute per user. If the number of calls per minute exceeds the limit, throttling is triggered, which may affect your business. Call this operation as required. For more information, see [QPS limit](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request StopRecordTaskRequest
        * @return StopRecordTaskResponse
        */
@@ -1974,6 +3091,11 @@ namespace Rtc20180111
 
       /**
        * @summary StopStreamingOut
+       *
+       * @description ### How-To  
+       * This API is used to stop a bypass stream ingest job for an online channel.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second (QPS) per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Invoke this API appropriately.
        *
        * @param request StopStreamingOutRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1984,13 +3106,21 @@ namespace Rtc20180111
       /**
        * @summary StopStreamingOut
        *
+       * @description ### How-To  
+       * This API is used to stop a bypass stream ingest job for an online channel.  
+       * ### queries per second (QPS) Limit  
+       * The QPS limit for this API is 10 queries per second (QPS) per user. If the limit is exceeded, API calls will be subject to rate limiting, which may impact your business. Invoke this API appropriately.
+       *
        * @param request StopStreamingOutRequest
        * @return StopStreamingOutResponse
        */
       Models::StopStreamingOutResponse stopStreamingOut(const Models::StopStreamingOutRequest &request);
 
       /**
-       * @summary 停止合流
+       * @summary Stop stream mixing.
+       *
+       * @description ### QPS limit
+       * The QPS limit for this API is 10 requests per second per user. Exceeding this limit triggers rate limiting, which can affect your application. Therefore, call the API judiciously.
        *
        * @param request StopViewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1999,7 +3129,10 @@ namespace Rtc20180111
       Models::StopViewResponse stopViewWithOptions(const Models::StopViewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止合流
+       * @summary Stop stream mixing.
+       *
+       * @description ### QPS limit
+       * The QPS limit for this API is 10 requests per second per user. Exceeding this limit triggers rate limiting, which can affect your application. Therefore, call the API judiciously.
        *
        * @param request StopViewRequest
        * @return StopViewResponse
@@ -2007,7 +3140,7 @@ namespace Rtc20180111
       Models::StopViewResponse stopView(const Models::StopViewRequest &request);
 
       /**
-       * @summary 更新AI Agent
+       * @summary Update an AI Agent
        *
        * @param tmpReq UpdateAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2016,7 +3149,7 @@ namespace Rtc20180111
       Models::UpdateAgentResponse updateAgentWithOptions(const Models::UpdateAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新AI Agent
+       * @summary Update an AI Agent
        *
        * @param request UpdateAgentRequest
        * @return UpdateAgentResponse
@@ -2024,6 +3157,13 @@ namespace Rtc20180111
       Models::UpdateAgentResponse updateAgent(const Models::UpdateAgentRequest &request);
 
       /**
+       * @summary Modifies an automatic bypass single-stream relay rule.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+       * # QPS limits
+       * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request UpdateAutoLiveStreamRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateAutoLiveStreamRuleResponse
@@ -2031,13 +3171,25 @@ namespace Rtc20180111
       Models::UpdateAutoLiveStreamRuleResponse updateAutoLiveStreamRuleWithOptions(const Models::UpdateAutoLiveStreamRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies an automatic bypass single-stream relay rule.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [CreateAutoLiveStreamRule](https://help.aliyun.com/document_detail/353179.html) to create a bypass rule.
+       * # QPS limits
+       * The QPS limit for a single user is 1,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request UpdateAutoLiveStreamRuleRequest
        * @return UpdateAutoLiveStreamRuleResponse
        */
       Models::UpdateAutoLiveStreamRuleResponse updateAutoLiveStreamRule(const Models::UpdateAutoLiveStreamRuleRequest &request);
 
       /**
-       * @summary 更新云端录制任务
+       * @summary Updates a cloud recording task.
+       *
+       * @description ### Usage
+       * Updates a cloud recording task for an online channel.
+       * ### QPS limit
+       * This API supports up to 10 requests per second per user. Exceeding this limit triggers rate limiting, which may affect your service. Call the API responsibly.
        *
        * @param tmpReq UpdateCloudRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2046,7 +3198,12 @@ namespace Rtc20180111
       Models::UpdateCloudRecordResponse updateCloudRecordWithOptions(const Models::UpdateCloudRecordRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新云端录制任务
+       * @summary Updates a cloud recording task.
+       *
+       * @description ### Usage
+       * Updates a cloud recording task for an online channel.
+       * ### QPS limit
+       * This API supports up to 10 requests per second per user. Exceeding this limit triggers rate limiting, which may affect your service. Call the API responsibly.
        *
        * @param request UpdateCloudRecordRequest
        * @return UpdateCloudRecordResponse
@@ -2054,6 +3211,14 @@ namespace Rtc20180111
       Models::UpdateCloudRecordResponse updateCloudRecord(const Models::UpdateCloudRecordRequest &request);
 
       /**
+       * @summary Call UpdateMPUTask to update a bypass relay task.
+       *
+       * @description # Usage notes
+       * - Before calling this API, you must have called [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) to start a bypass relay task.
+       * - This API must be called while the task is running normally. Calls are invalid when the task has not started, has ended, or is in an abnormal state. You can call [GetMPUTaskStatus](https://help.aliyun.com/document_detail/93181.html) to obtain the task running status.
+       * # QPS limit
+       * The per-user QPS limit of this API is 4,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Please call reasonably. For more information, see [QPS Limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request UpdateMPUTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateMPUTaskResponse
@@ -2061,12 +3226,27 @@ namespace Rtc20180111
       Models::UpdateMPUTaskResponse updateMPUTaskWithOptions(const Models::UpdateMPUTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call UpdateMPUTask to update a bypass relay task.
+       *
+       * @description # Usage notes
+       * - Before calling this API, you must have called [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) to start a bypass relay task.
+       * - This API must be called while the task is running normally. Calls are invalid when the task has not started, has ended, or is in an abnormal state. You can call [GetMPUTaskStatus](https://help.aliyun.com/document_detail/93181.html) to obtain the task running status.
+       * # QPS limit
+       * The per-user QPS limit of this API is 4,000 calls per minute. If the limit is exceeded, API calls are throttled, which may affect your business. Please call reasonably. For more information, see [QPS Limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request UpdateMPUTaskRequest
        * @return UpdateMPUTaskResponse
        */
       Models::UpdateMPUTaskResponse updateMPUTask(const Models::UpdateMPUTaskRequest &request);
 
       /**
+       * @summary Updates a video recording task.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [StartRecordTask](https://help.aliyun.com/document_detail/193528.html) to start a video recording task.
+       * # QPS limits
+       * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request UpdateRecordTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateRecordTaskResponse
@@ -2074,12 +3254,26 @@ namespace Rtc20180111
       Models::UpdateRecordTaskResponse updateRecordTaskWithOptions(const Models::UpdateRecordTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Updates a video recording task.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [StartRecordTask](https://help.aliyun.com/document_detail/193528.html) to start a video recording task.
+       * # QPS limits
+       * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request UpdateRecordTaskRequest
        * @return UpdateRecordTaskResponse
        */
       Models::UpdateRecordTaskResponse updateRecordTask(const Models::UpdateRecordTaskRequest &request);
 
       /**
+       * @summary Updates a recording configuration template.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording configuration template.
+       * # QPS limits
+       * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request UpdateRecordTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateRecordTemplateResponse
@@ -2087,13 +3281,25 @@ namespace Rtc20180111
       Models::UpdateRecordTemplateResponse updateRecordTemplateWithOptions(const Models::UpdateRecordTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Updates a recording configuration template.
+       *
+       * @description # Usage notes
+       * Before you call this operation, you must call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html) to add a recording configuration template.
+       * # QPS limits
+       * The QPS limit for a single user is 100 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate. For more information, see [QPS limits](https://help.aliyun.com/document_detail/341645.html).
+       *
        * @param request UpdateRecordTemplateRequest
        * @return UpdateRecordTemplateResponse
        */
       Models::UpdateRecordTemplateResponse updateRecordTemplate(const Models::UpdateRecordTemplateRequest &request);
 
       /**
-       * @summary 更新旁路推流任务
+       * @summary Updates a bypass live streaming task.
+       *
+       * @description ### Usage notes
+       * This operation updates a bypass live streaming task for an online channel.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
        *
        * @param tmpReq UpdateStreamingOutRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2102,7 +3308,12 @@ namespace Rtc20180111
       Models::UpdateStreamingOutResponse updateStreamingOutWithOptions(const Models::UpdateStreamingOutRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新旁路推流任务
+       * @summary Updates a bypass live streaming task.
+       *
+       * @description ### Usage notes
+       * This operation updates a bypass live streaming task for an online channel.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
        *
        * @param request UpdateStreamingOutRequest
        * @return UpdateStreamingOutResponse

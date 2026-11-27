@@ -117,18 +117,41 @@ namespace Models
 
 
   protected:
+    // The ID of the subscribed application.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The callback URL. For information about the callback content, see the following callback content example.
+    // 
     // This parameter is required.
     shared_ptr<string> callbackUrl_ {};
+    // The ID of the subscribed channel.
+    // 
+    // > This parameter is required if the Users.N parameter is not empty.
     shared_ptr<string> channelId_ {};
+    // The idempotence identifier used by the client to create the subscription.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The subscribed events.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> events_ {};
+    // Specifies whether to enable callback authentication. Valid values:
+    // 
+    // - **true**: enables callback authentication.
+    // - **fasle** (default): disables callback authentication.
+    // 
+    // For more information, see the following callback authentication description.
     shared_ptr<bool> needCallbackAuth_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The user role. Valid values:
+    // 
+    // - **1**: subscribes to host messages in the channel.
+    // - **2**: subscribes to audience messages in the channel.
+    // - **Empty or other values**: subscribes to messages from all roles in the channel without role filtering.
     shared_ptr<int64_t> role_ {};
+    // The subscribed users.
     shared_ptr<vector<string>> users_ {};
   };
 

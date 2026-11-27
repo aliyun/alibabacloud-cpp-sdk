@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of items per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

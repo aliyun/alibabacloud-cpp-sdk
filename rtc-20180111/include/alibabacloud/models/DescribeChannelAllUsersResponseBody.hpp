@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // User ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -91,8 +92,13 @@ namespace Models
 
 
   protected:
+    // Indicates whether the channel exists. Valid values:  
+    // - **true**: The channel exists.  
+    // - **false**: The channel does not exist.
     shared_ptr<bool> channelExist_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // List of online users in the channel.
     shared_ptr<vector<DescribeChannelAllUsersResponseBody::Users>> users_ {};
   };
 

@@ -97,10 +97,18 @@ namespace Models
 
 
     protected:
+      // The duration of audio calls, in minutes.
       shared_ptr<int64_t> audioCallDuration_ {};
+      // The ratio of the call duration, represented by four decimal places, such as 0.9782.
       shared_ptr<string> callDurationRatio_ {};
+      // The statistical dimension. Valid values:
+      // - When StatDim is set to CHANNEL_ONLINE, valid values are **ONE_TO_FIVE** (1 to 5 users), **SIX_TO_TEN** (6 to 10 users), **ELEVEN_TO_TWENTY** (11 to 20 users), **TWENTY_ONE_TO_FIFTY** (21 to 50 users), and **ABOVE_FIFTY** (more than 50 users).  
+      // - When StatDim is set to NETWORK, valid values are **WiFi**, **4G**, and others.  
+      // - When StatDim is set to OS, valid values are **iOS**, **Android**, and others.
       shared_ptr<string> name_ {};
+      // The total duration of calls, in minutes.
       shared_ptr<int64_t> totalCallDuration_ {};
+      // The duration of video calls, in minutes.
       shared_ptr<int64_t> videoCallDuration_ {};
     };
 
@@ -123,7 +131,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of usage statistics.
     shared_ptr<vector<DescribeUsageDistributionStatDataResponseBody::UsageStatList>> usageStatList_ {};
   };
 

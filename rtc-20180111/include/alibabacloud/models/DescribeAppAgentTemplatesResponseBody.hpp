@@ -189,14 +189,48 @@ namespace Models
 
 
       protected:
+        // The API key required by the LLM service provider.
         shared_ptr<string> apiKey_ {};
+        // The bracket filtering settings. Valid values:
+        // - 1: Chinese parentheses （）
+        // - 2: English parentheses ()
+        // - 3: Chinese square brackets 【】
+        // - 4: English square brackets []
+        // - 5: English curly braces {}
         shared_ptr<vector<int32_t>> filterBrackets_ {};
+        // The model provided by Alibaba Cloud Model Studio. Currently, only the cosyvoice-v1 model is supported.
         shared_ptr<string> model_ {};
+        // The name.
         shared_ptr<string> name_ {};
+        // The pitch. Valid values: 0.5 to 2.0. Default value: 1.0.
         shared_ptr<float> pitch_ {};
+        // The speech rate. Valid values: 0.5 to 2.0. Default value: 1.0.
         shared_ptr<float> rate_ {};
+        // The vendor. Currently, only Alibaba Cloud Model Studio is supported.
         shared_ptr<string> vendor_ {};
+        // The voice. Default value: longxiaoxia. Valid values:
+        // - longwan
+        // - longcheng
+        // - longhua
+        // - longxiaochun
+        // - longxiaoxia
+        // - longxiaocheng
+        // - longxiaobai
+        // - longlaotie
+        // - longshu
+        // - longshuo
+        // - longjing
+        // - longmiao
+        // - longyue
+        // - longyuan
+        // - longfei
+        // - longjielidou
+        // - longtong
+        // - longxiang
+        // - loongstella
+        // - loongbella
         shared_ptr<string> voice_ {};
+        // The volume. Valid values: 0 to 100. Default value: 50.
         shared_ptr<int32_t> volume_ {};
       };
 
@@ -320,16 +354,27 @@ namespace Models
 
 
       protected:
+        // The application ID of the agent when the model is a Model Studio agent.
         shared_ptr<string> agentAppId_ {};
+        // The API key required by the LLM service provider.
         shared_ptr<string> apiKey_ {};
+        // The number of historical conversation turns provided to the LLM. Maximum value: 100. Default value: 3.
         shared_ptr<int32_t> historyDepth_ {};
+        // The maximum number of tokens for the output text. Default value: 8192.
         shared_ptr<int32_t> maxToken_ {};
+        // The model provided by Alibaba Cloud Model Studio. Currently, qwen-plus and deepseek-r1 are supported.
         shared_ptr<string> model_ {};
+        // The name.
         shared_ptr<string> name_ {};
+        // The prompt for the large language model. The maximum length is 5,000 characters.
         shared_ptr<string> prompt_ {};
+        // The sampling temperature. Valid values: 0 to 2 (exclusive). Default value: 0.7.
         shared_ptr<float> temperature_ {};
+        // The top-p sampling range. Valid values: (0, 1]. Default value: 0.8.
         shared_ptr<float> topP_ {};
+        // The endpoint URL used to connect to a third-party large language model.
         shared_ptr<string> url_ {};
+        // The vendor. Currently, Alibaba Cloud Model Studio and third-party configurations that comply with the OpenAI API specification are supported.
         shared_ptr<string> vendor_ {};
       };
 
@@ -361,6 +406,7 @@ namespace Models
 
 
       protected:
+        // Specifies whether semantic interruption is enabled.
         shared_ptr<bool> semanticsInterrupt_ {};
       };
 
@@ -392,6 +438,7 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable backchanneling after the user finishes speaking.
         shared_ptr<bool> userTurnEnd_ {};
       };
 
@@ -469,8 +516,11 @@ namespace Models
 
 
         protected:
+          // The language code.
           shared_ptr<string> lang_ {};
+          // The weight of the hotword. Valid values: integers from 1 to 5. Common value: 4. If the effect is not obvious, you can increase the weight. However, a large weight may cause negative effects and lead to inaccurate recognition of other words.
           shared_ptr<int32_t> weight_ {};
+          // The text of the hotword. Each word can be up to 10 Chinese characters or English words in length.
           shared_ptr<string> word_ {};
         };
 
@@ -502,6 +552,7 @@ namespace Models
 
 
         protected:
+          // The minimum duration of continuous human voice signal detection required to avoid false interruptions, in milliseconds. Valid values: 0 to 3000.
           shared_ptr<int32_t> interruptSpeechDuration_ {};
         };
 
@@ -547,10 +598,15 @@ namespace Models
 
 
       protected:
+        // The threshold for detecting sentence pauses in speech, in milliseconds. Default value: 500. Valid values: 200 to 6000.
         shared_ptr<int32_t> maxSentenceSilence_ {};
+        // The name.
         shared_ptr<string> name_ {};
+        // The Voice Activity Detection (VAD) configuration.
         shared_ptr<AsrConfig::VadConfig> vadConfig_ {};
+        // The ID of the hotword vocabulary.
         shared_ptr<string> vocabularyId_ {};
+        // The hotword weights. Each vocabulary can contain up to 500 hotwords, and each hotword can be up to 10 Chinese characters in length. Hotwords must be UTF-8 encoded and cannot contain punctuation marks or special characters. Otherwise, the hotword feature will not take effect.
         shared_ptr<vector<AsrConfig::WordWeights>> wordWeights_ {};
       };
 
@@ -592,7 +648,9 @@ namespace Models
 
 
       protected:
+        // The ID of the ambient sound.
         shared_ptr<string> soundId_ {};
+        // The volume of the ambient sound.
         shared_ptr<int32_t> volume_ {};
       };
 
@@ -652,9 +710,15 @@ namespace Models
 
 
       protected:
+        // The timeout period for the silence alert, in seconds. This alert can be triggered multiple times. If the agent remains silent after the silence alert timeout, it will be triggered again upon the next timeout.
         shared_ptr<int32_t> alertTimeout_ {};
+        // The content of the silence prompt message.
         shared_ptr<string> content_ {};
+        // The silence timeout handling strategy. Valid values:
+        // - 1: Broadcast the prompt message specified by content to the user via voice.
+        // - 2: Send the prompt message specified by content and the conversation history to the LLM, and broadcast the reply generated by the model.
         shared_ptr<int32_t> strategy_ {};
+        // The silence timeout period for triggering the agent silence timeout webhook, in seconds. This webhook can be triggered multiple times. If the agent remains silent after the webhook silence timeout, it will be triggered again upon the next timeout.
         shared_ptr<int32_t> webhookTriggerTimeout_ {};
       };
 
@@ -789,21 +853,48 @@ namespace Models
 
 
     protected:
+      // The silence configuration for the agent.
       shared_ptr<Templates::AgentSilenceConfig> agentSilenceConfig_ {};
+      // The ambient sound configuration.
       shared_ptr<Templates::AmbientSoundConfig> ambientSoundConfig_ {};
+      // The speech-to-text configuration.
       shared_ptr<Templates::AsrConfig> asrConfig_ {};
+      // The backchannel configuration.
       shared_ptr<Templates::BackChannelConfig> backChannelConfig_ {};
+      // The conversation mode. Valid values:
+      // - 1: natural conversation mode (default)
+      // - 2: walkie-talkie mode
       shared_ptr<int32_t> chatMode_ {};
+      // The creation time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> createTime_ {};
+      // Specifies whether to enable video understanding. If enabled, the large language model must support multimodal data.
       shared_ptr<bool> enableVideoUnderstanding_ {};
+      // The greeting.
       shared_ptr<string> greeting_ {};
+      // The template ID.
       shared_ptr<string> id_ {};
+      // The interruption configuration.
       shared_ptr<Templates::InterruptConfig> interruptConfig_ {};
+      // The interruption mode. Valid values:
+      // - 1: Allow interruption (default).
+      // - 2: Disable interruption.
       shared_ptr<int32_t> interruptMode_ {};
+      // The large language model (LLM) configuration.
       shared_ptr<Templates::LlmConfig> llmConfig_ {};
+      // The template name.
       shared_ptr<string> name_ {};
+      // The preferred video stream for the agent to process when visual understanding is enabled. The agent can process only one video stream. When both the camera stream and the screen sharing stream are pushed, valid values are:
+      // 
+      // - 1: The agent prioritizes the camera stream.
+      // 
+      // - 2: The agent prioritizes the screen sharing stream.
+      // 
+      // Default value: 1.
       shared_ptr<int32_t> preferVideo_ {};
+      // The text-to-speech settings.
       shared_ptr<Templates::TtsConfig> ttsConfig_ {};
+      // The type of the agent. Valid values:
+      // - 1: Voice call (default).
       shared_ptr<int32_t> type_ {};
     };
 
@@ -842,8 +933,11 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The list of templates.
     shared_ptr<vector<DescribeAppAgentTemplatesResponseBody::Templates>> templates_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalNum_ {};
+    // The total number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

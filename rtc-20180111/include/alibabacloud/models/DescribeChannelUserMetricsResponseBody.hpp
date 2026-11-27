@@ -99,10 +99,15 @@ namespace Models
 
 
     protected:
+      // The total number of users with abnormal communication experience.
       shared_ptr<int64_t> totalBadExpNum_ {};
+      // The total number of users who failed to join the channel.
       shared_ptr<int64_t> totalJoinFailNum_ {};
+      // The total number of publishing users.
       shared_ptr<int64_t> totalPubUserNum_ {};
+      // The total number of subscribing users.
       shared_ptr<int64_t> totalSubUserNum_ {};
+      // The total number of users.
       shared_ptr<int64_t> totalUserNum_ {};
     };
 
@@ -176,8 +181,11 @@ namespace Models
 
 
       protected:
+        // The extended properties.
         Darabonba::Json ext_ {};
+        // The x-axis coordinate in the metric trends chart.
         shared_ptr<string> x_ {};
+        // The y-axis coordinate in the metric trends chart.
         shared_ptr<string> y_ {};
       };
 
@@ -200,7 +208,14 @@ namespace Models
 
 
     protected:
+      // The list of coordinate points in the metric trends chart.
       shared_ptr<vector<MetricDatas::Nodes>> nodes_ {};
+      // The metric type. Valid values:
+      // - **ALL_NUM**: the number of users per unit of time.
+      // - **PUB_NUM**: the number of publishing users per unit of time.
+      // - **SUB_NUM**: the number of subscribing users per unit of time.
+      // - **JOIN_FAIL_NUM**: the number of users who failed to join the channel per unit of time.
+      // - **BAD_EXP_NUM**: the number of users with abnormal communication experience per unit of time.
       shared_ptr<string> type_ {};
     };
 
@@ -232,8 +247,11 @@ namespace Models
 
 
   protected:
+    // The metric data list.
     shared_ptr<vector<DescribeChannelUserMetricsResponseBody::MetricDatas>> metricDatas_ {};
+    // The overview data.
     shared_ptr<DescribeChannelUserMetricsResponseBody::OverallData> overallData_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

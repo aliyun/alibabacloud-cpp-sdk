@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // The time when the user joined the channel. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> joinTs_ {};
+        // The time when the user left the channel. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> leaveTs_ {};
       };
 
@@ -160,12 +162,19 @@ namespace Models
 
 
     protected:
+      // The time when the user first joined the channel. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createdTs_ {};
+      // The time when the user last left the channel. The value is a UNIX timestamp in seconds. The value is 0 if the call has not ended.
       shared_ptr<int64_t> destroyedTs_ {};
+      // The total duration in seconds.
       shared_ptr<int64_t> duration_ {};
+      // The geographic location, such as Beijing-Beijing.
       shared_ptr<string> location_ {};
+      // The communication duration in seconds.
       shared_ptr<int64_t> onlineDuration_ {};
+      // The list of online periods for the user.
       shared_ptr<vector<TopPubUserDetailList::OnlinePeriods>> onlinePeriods_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -188,7 +197,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of details about top publishing users.
     shared_ptr<vector<DescribeChannelTopPubUserListResponseBody::TopPubUserDetailList>> topPubUserDetailList_ {};
   };
 

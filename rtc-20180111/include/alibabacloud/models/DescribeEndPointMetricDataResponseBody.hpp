@@ -106,8 +106,11 @@ namespace Models
 
 
       protected:
+        // The extended properties.
         Darabonba::Json ext_ {};
+        // The x-axis coordinate in the subscriber metric trends chart.
         shared_ptr<string> x_ {};
+        // The y-axis coordinate in the subscriber metric trends chart.
         shared_ptr<string> y_ {};
       };
 
@@ -137,8 +140,11 @@ namespace Models
 
 
     protected:
+      // The list of coordinate points for the subscriber metric trends chart.
       shared_ptr<vector<SubMetrics::Nodes>> nodes_ {};
+      // The metric type corresponding to the Metrics request parameter.
       shared_ptr<string> type_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -214,8 +220,11 @@ namespace Models
 
 
       protected:
+        // The extended properties.
         Darabonba::Json ext_ {};
+        // The x-axis coordinate in the publisher metric trends chart.
         shared_ptr<string> x_ {};
+        // The y-axis coordinate in the publisher metric trends chart.
         shared_ptr<string> y_ {};
       };
 
@@ -245,8 +254,11 @@ namespace Models
 
 
     protected:
+      // The list of coordinate points.
       shared_ptr<vector<PubMetrics::Nodes>> nodes_ {};
+      // The metric type corresponding to the Metrics request parameter.
       shared_ptr<string> type_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -278,8 +290,11 @@ namespace Models
 
 
   protected:
+    // The metric data of the publisher.
     shared_ptr<vector<DescribeEndPointMetricDataResponseBody::PubMetrics>> pubMetrics_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The metric data of the subscriber.
     shared_ptr<vector<DescribeEndPointMetricDataResponseBody::SubMetrics>> subMetrics_ {};
   };
 

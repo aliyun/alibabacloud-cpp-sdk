@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The callback configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> callbackShrink_ {};
     shared_ptr<int64_t> ownerId_ {};

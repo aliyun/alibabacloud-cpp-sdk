@@ -75,11 +75,15 @@ namespace Models
 
 
   protected:
+    // Status message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Start timestamp, in Unix time, measured in milliseconds.
     shared_ptr<string> startTime_ {};
+    // Agent status. Valid values: 0 (not started), 1 (starting), 2 (running), 3 (stopping), 4 (stopped), or 5 (failed).
     shared_ptr<string> status_ {};
+    // End timestamp, in Unix time, measured in milliseconds.
     shared_ptr<string> stopTime_ {};
   };
 

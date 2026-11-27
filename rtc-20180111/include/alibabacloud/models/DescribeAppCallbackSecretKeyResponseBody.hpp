@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // Callback key.
     shared_ptr<string> callbackSecretKey_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -75,15 +75,22 @@ namespace Models
 
 
   protected:
-    // APP ID。
+    // The app ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The channel ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The start time of the event query time range. This time cannot be earlier than the actual creation time of the channel or 30 days ago. The time is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> createdTs_ {};
+    // The end time of the event query time range. This time cannot be later than the release time of the channel. The time is a UNIX timestamp in seconds. If this parameter is left empty, the current time is used.
     shared_ptr<int64_t> destroyedTs_ {};
+    // The list of user IDs. Separate multiple user IDs with commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> userIdList_ {};
   };

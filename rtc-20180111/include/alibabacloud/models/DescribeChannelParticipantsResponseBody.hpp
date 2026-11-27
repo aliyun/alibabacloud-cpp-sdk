@@ -111,9 +111,13 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The time when the result is returned. The value is a UNIX timestamp in seconds.
     shared_ptr<int32_t> timestamp_ {};
+    // The total number of results returned.
     shared_ptr<int32_t> totalNum_ {};
+    // The total number of pages returned.
     shared_ptr<int32_t> totalPage_ {};
     shared_ptr<DescribeChannelParticipantsResponseBody::UserList> userList_ {};
   };

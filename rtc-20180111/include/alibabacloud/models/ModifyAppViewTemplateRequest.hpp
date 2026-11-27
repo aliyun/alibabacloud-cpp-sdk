@@ -90,12 +90,20 @@ namespace Models
 
 
     protected:
+      // List of layout IDs. Maximum of 16 IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> layoutIds_ {};
+      // Encoding option.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> mediaEncode_ {};
+      // Template name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // Template ID.
+      // 
       // This parameter is required.
       shared_ptr<string> templateId_ {};
     };
@@ -119,8 +127,12 @@ namespace Models
 
 
   protected:
+    // Application ID. Create and view it in the console. Only one ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The template.
+    // 
     // This parameter is required.
     shared_ptr<ModifyAppViewTemplateRequest::Template> template_ {};
   };

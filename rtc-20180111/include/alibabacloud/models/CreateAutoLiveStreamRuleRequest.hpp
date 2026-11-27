@@ -108,15 +108,28 @@ namespace Models
 
 
   protected:
+    // The application ID, which can be created and queried in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The callback URL used to notify the start and end of the relay. For details about the callback content, see the CallBack callback example below.
     shared_ptr<string> callBack_ {};
+    // The list of channel ID prefixes that are fuzzy matched.
     shared_ptr<vector<string>> channelIdPrefixes_ {};
+    // The list of channel IDs that are exactly matched.
     shared_ptr<vector<string>> channelIds_ {};
+    // The encoding option. For more information, see the MediaEncode enumeration values below.
     shared_ptr<int32_t> mediaEncode_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The streaming domain name for automatic relay. The streaming URL of an automatic relay task is in the format rtmp://${domain}/${app}/${stream}.
+    // 
+    // - domain: your live streaming domain name.
+    // - app: live.
+    // - stream: urlencode(${AppId}_${ChannelId}_${UserId}_${SourceType}), where SourceType indicates the type of the input source.
+    // 
     // This parameter is required.
     shared_ptr<string> playDomain_ {};
+    // The name of the relay rule.
     shared_ptr<string> ruleName_ {};
   };
 

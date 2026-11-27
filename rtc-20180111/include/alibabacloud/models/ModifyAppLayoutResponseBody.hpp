@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // Layout ID.
     shared_ptr<string> layoutId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

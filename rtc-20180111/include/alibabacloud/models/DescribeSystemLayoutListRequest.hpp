@@ -58,7 +58,9 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // Page number.
     shared_ptr<int64_t> pageNum_ {};
+    // Number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
   };
 

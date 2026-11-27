@@ -138,10 +138,15 @@ namespace Models
 
 
         protected:
+          // The duration of audio. Unit: minutes.
           shared_ptr<int32_t> audio_ {};
+          // The duration of screen sharing. Unit: minutes.
           shared_ptr<int32_t> content_ {};
+          // The duration of full high-definition (FHD) videos. Unit: minutes.
           shared_ptr<int32_t> video1080_ {};
+          // The duration of standard-definition (SD) videos. Unit: minutes.
           shared_ptr<int32_t> video360_ {};
+          // The duration of high-definition (HD) videos. Unit: minutes.
           shared_ptr<int32_t> video720_ {};
         };
 
@@ -210,10 +215,15 @@ namespace Models
 
 
         protected:
+          // The duration of audio. Unit: minutes.
           shared_ptr<int32_t> audio_ {};
+          // The duration of screen sharing. Unit: minutes.
           shared_ptr<int32_t> content_ {};
+          // The duration of full high-definition (FHD) videos. Unit: minutes.
           shared_ptr<int32_t> video1080_ {};
+          // The duration of standard-definition (SD) videos. Unit: minutes.
           shared_ptr<int32_t> video360_ {};
+          // The duration of high-definition (HD) videos. Unit: minutes.
           shared_ptr<int32_t> video720_ {};
         };
 
@@ -238,7 +248,9 @@ namespace Models
 
 
       protected:
+        // The duration information about publishing streams.
         shared_ptr<Duration::PubDuration> pubDuration_ {};
+        // The duration information about subscribing to streams.
         shared_ptr<Duration::SubDuration> subDuration_ {};
       };
 
@@ -316,11 +328,17 @@ namespace Models
 
 
       protected:
+        // The channel ID.
         shared_ptr<string> channelId_ {};
+        // The time when the user left the channel, in UTC. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
         shared_ptr<string> endTime_ {};
+        // The number of users that entered the channel and successfully published streams.
         shared_ptr<int32_t> pubUserCount_ {};
+        // The time when the user joined the channel, in UTC. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
         shared_ptr<string> startTime_ {};
+        // The number of users that entered the channel and successfully subscribed to streams.
         shared_ptr<int32_t> subUserCount_ {};
+        // The number of users that entered the channel.
         shared_ptr<int32_t> userCount_ {};
       };
 
@@ -345,7 +363,9 @@ namespace Models
 
 
     protected:
+      // The user information of the channel.
       shared_ptr<ChannelMetricInfo::ChannelMetric> channelMetric_ {};
+      // The duration information.
       shared_ptr<ChannelMetricInfo::Duration> duration_ {};
     };
 
@@ -368,7 +388,9 @@ namespace Models
 
 
   protected:
+    // The detailed information.
     shared_ptr<DescribeRtcChannelMetricResponseBody::ChannelMetricInfo> channelMetricInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -128,15 +128,32 @@ namespace Models
 
 
   protected:
+    // The channel mode. Valid values:
+    // 
+    // - **1**: Communication (communication mode).
+    // 
+    // - **2**: Interactive_live (live streaming mode).
     shared_ptr<int32_t> channelProfile_ {};
+    // The total number of users in the channel in communication mode. If the channel is not in communication mode, this parameter is 0.
     shared_ptr<int32_t> commTotalNum_ {};
+    // The list of interactive user IDs in the channel in live streaming mode. This parameter is empty if the channel is not in live streaming mode.
     shared_ptr<vector<string>> interactiveUserList_ {};
+    // The total number of interactive users in the channel in live streaming mode. If the channel is not in live streaming mode, this parameter is 0.
     shared_ptr<int32_t> interactiveUserNum_ {};
+    // Indicates whether the channel exists. Valid values:
+    // - **true**: The channel exists.
+    // 
+    // - **false**: The channel does not exist.
     shared_ptr<bool> isChannelExist_ {};
+    // The list of viewer IDs in the channel in live streaming mode. A maximum of 1,000 viewers are returned. This parameter is empty if the channel is not in live streaming mode.
     shared_ptr<vector<string>> liveUserList_ {};
+    // The total number of viewers in the channel in live streaming mode. If the channel is not in live streaming mode, this parameter is 0.
     shared_ptr<int32_t> liveUserNum_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The timestamp of the current time in UTC.
     shared_ptr<int32_t> timestamp_ {};
+    // The list of user IDs in the channel in communication mode. This parameter is empty if the channel is not in communication mode.
     shared_ptr<vector<string>> userList_ {};
   };
 

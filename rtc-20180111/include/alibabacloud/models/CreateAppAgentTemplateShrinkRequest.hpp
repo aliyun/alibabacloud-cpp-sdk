@@ -167,22 +167,47 @@ namespace Models
 
 
   protected:
+    // The agent silence configuration.
     shared_ptr<string> agentSilenceConfigShrink_ {};
+    // The ambient environment configuration for the agent. If this parameter is not specified, the ambient environment configuration is not used.
     shared_ptr<string> ambientSoundConfigShrink_ {};
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The speech-to-text settings.
     shared_ptr<string> asrConfigShrink_ {};
+    // The agent backchannel configuration.
     shared_ptr<string> backChannelConfigShrink_ {};
+    // The conversation mode. Valid values:
+    // - 1: Natural conversation mode (default).
+    // - 2: Walkie-talkie mode.
     shared_ptr<int32_t> chatMode_ {};
+    // Specifies whether to enable video understanding. If enabled, the LLM must support multimodal data.
     shared_ptr<bool> enableVideoUnderstanding_ {};
+    // The greeting message. The maximum length is 500 characters.
     shared_ptr<string> greeting_ {};
+    // The agent interruption configuration.
     shared_ptr<string> interruptConfigShrink_ {};
+    // The interruption mode. Valid values:
+    // - 1: Interruption allowed (default).
+    // - 2: Interruption disabled.
     shared_ptr<int32_t> interruptMode_ {};
+    // The large language model settings.
     shared_ptr<string> llmConfigShrink_ {};
+    // The template name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The preferred video stream for the agent to process when visual understanding is enabled. The agent can process only one video stream at a time. When both the camera stream and the screen sharing stream are pushed simultaneously, this parameter specifies the preferred stream. Valid values:
+    // - 1: The agent preferentially processes the camera stream.
+    // - 2: The agent preferentially processes the screen sharing stream.
+    // Default value: 1.
     shared_ptr<int32_t> preferVideo_ {};
+    // The text-to-speech settings.
     shared_ptr<string> ttsConfigShrink_ {};
+    // The agent type. Valid values:
+    // - 1: Voice call (default).
     shared_ptr<int32_t> type_ {};
   };
 

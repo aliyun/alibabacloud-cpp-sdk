@@ -50,6 +50,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The callback status. Valid values: enable (enabled) and disable (disabled).
     shared_ptr<string> result_ {};
   };
 

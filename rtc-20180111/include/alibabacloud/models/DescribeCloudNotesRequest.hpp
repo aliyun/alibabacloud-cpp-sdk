@@ -101,11 +101,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Channel ID.
     shared_ptr<string> channelId_ {};
+    // Query range, closed interval of job start time, in milliseconds.
     shared_ptr<int64_t> endTs_ {};
+    // Page number.
     shared_ptr<int32_t> pageNo_ {};
+    // Number of items per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Query range, open interval of job start time, in milliseconds. If not specified, defaults to querying recordings from the last 3 days, with a maximum range of one year in the past.
     shared_ptr<int64_t> startTs_ {};
+    // List of job TaskIds.
     shared_ptr<vector<string>> taskIds_ {};
   };
 

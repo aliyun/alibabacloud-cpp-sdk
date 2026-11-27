@@ -131,11 +131,17 @@ namespace Models
 
 
       protected:
+        // Pane height, normalized percentage. Height ranges from 0.0\<Height≤1.0.
         shared_ptr<double> height_ {};
+        // Pane ID, starting from 0.
         shared_ptr<int64_t> paneId_ {};
+        // Pane width, normalized percentage. Width ranges from 0.0\<Width≤1.0.
         shared_ptr<double> width_ {};
+        // X coordinate, normalized percentage. The X coordinate ranges from 0.0 to 1.0.
         shared_ptr<double> x_ {};
+        // Y coordinate, normalized percentage. The Y coordinate ranges from 0.0 to 1.0.
         shared_ptr<double> y_ {};
+        // Stacking order. 0 is the bottom layer, 1 is above 0, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -165,10 +171,15 @@ namespace Models
 
 
     protected:
+      // Layout ID.
+      // 
       // This parameter is required.
       shared_ptr<string> layoutId_ {};
+      // Layout name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // List of panes.
       shared_ptr<vector<Layout::Panes>> panes_ {};
     };
 
@@ -198,9 +209,14 @@ namespace Models
 
 
   protected:
+    // Application ID. Create and query through the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Idempotent parameter.
     shared_ptr<string> clientToken_ {};
+    // Layout.
+    // 
     // This parameter is required.
     shared_ptr<ModifyAppLayoutRequest::Layout> layout_ {};
   };

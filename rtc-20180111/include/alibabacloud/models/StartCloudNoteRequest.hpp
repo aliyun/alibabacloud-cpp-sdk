@@ -112,9 +112,17 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable speaker diarization.
       shared_ptr<bool> diarizationEnabled_ {};
+      // The hotword table ID.
       shared_ptr<string> phraseId_ {};
+      // The number of speakers for speaker diarization. Default value: 0. Valid values:
+      // - 0: The number of speakers is unknown.
+      // - 2: The number of speakers is 2.
       shared_ptr<int32_t> speakerCount_ {};
+      // The return level of speech recognition results. Default value: 2. Valid values:
+      // - 1: Returns recognition results when a complete sentence is recognized.
+      // - 2: Returns recognition results when intermediate results and complete sentences are recognized.
       shared_ptr<int32_t> transcriptionLevel_ {};
     };
 
@@ -146,6 +154,7 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable the feature.
       shared_ptr<bool> enabled_ {};
     };
 
@@ -189,7 +198,10 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable the feature.
       shared_ptr<bool> enabled_ {};
+      // The specific type.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> type_ {};
     };
@@ -259,18 +271,59 @@ namespace Models
 
 
     protected:
-      // accessKey。
+      // The AccessKey.
       // 
       // This parameter is required.
       shared_ptr<string> accessKey_ {};
+      // The bucket name.
+      // 
       // This parameter is required.
       shared_ptr<string> bucket_ {};
+      // The storage region.
+      // 
+      // | Region | AliYun OSS |
+      // |--------|------------|
+      // | 0 | CN_Hangzhou |
+      // | 1 | CN_Shanghai |
+      // | 2 | CN_Qingdao |
+      // | 3 | CN_Beijing |
+      // | 4 | CN_Zhangjiakou |
+      // | 5 | CN_Huhehaote |
+      // | 6 | CN_Shenzhen |
+      // | 7 | CN_Hongkong |
+      // | 8 | US_West_1 |
+      // | 9 | US_East_1 |
+      // | 10 | AP_Southeast_1 |
+      // | 11 | AP_Southeast_2 |
+      // | 12 | AP_Southeast_3 |
+      // | 13 | AP_Southeast_5 |
+      // | 14 | AP_Northeast_1 |
+      // | 15 | AP_South_1 (Offline. Do not use.) |
+      // | 16 | EU_Central_1 |
+      // | 17 | EU_West_1 |
+      // | 18 | EU_East_1(ME_East_1) |
+      // | 19 | AP_Southeast_6 |
+      // | 20 | CN_Heyuan |
+      // | 21 | CN_Guangzhou |
+      // | 22 | CN_Chengdu |
+      // | 23 | CN_Nanjing |
+      // | 24 | CN_Fuzhou |
+      // | 25 | CN_Wulanchabu |
+      // | 26 | AP_Northeast_2 |
+      // | 27 | AP_Southeast_7 |
+      // 
       // This parameter is required.
       shared_ptr<int32_t> region_ {};
-      // secretKey。
+      // The AccessKey secret.
       // 
       // This parameter is required.
       shared_ptr<string> secretKey_ {};
+      // The storage platform. Valid values:
+      // 
+      // | vendor | Object storage service | Remarks |
+      // |--------|---------|---------|
+      // | 1 | AliYun OSS | Alibaba Cloud |
+      // 
       // This parameter is required.
       shared_ptr<int32_t> vendor_ {};
     };
@@ -338,8 +391,12 @@ namespace Models
 
 
       protected:
+        // The definition of the inspection dimension for service inspection.
+        // 
         // This parameter is required.
         shared_ptr<string> content_ {};
+        // The name of the inspection dimension for service inspection.
+        // 
         // This parameter is required.
         shared_ptr<string> title_ {};
       };
@@ -377,11 +434,18 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable the feature.
       shared_ptr<bool> enabled_ {};
+      // The list of inspection dimensions for service inspection, including the names and definitions of the dimensions. This specifies the criteria for the large language model to determine whether a dimension is hit.
+      // 
       // This parameter is required.
       shared_ptr<vector<ServiceInspection::InspectionContents>> inspectionContents_ {};
+      // The description of the inspection objectives and focus areas for service inspection.
+      // 
       // This parameter is required.
       shared_ptr<string> inspectionIntroduction_ {};
+      // The description of the dialogue scene for service inspection.
+      // 
       // This parameter is required.
       shared_ptr<string> sceneIntroduction_ {};
     };
@@ -437,6 +501,10 @@ namespace Models
 
 
       protected:
+        // The output level of the translated text. Default value: 2.
+        // 
+        // - 1: Returns results when a complete sentence is recognized.
+        // - 2: Returns results when intermediate results and complete sentences are recognized.
         shared_ptr<int32_t> translateLevel_ {};
       };
 
@@ -466,8 +534,11 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable server-side callbacks.
       shared_ptr<bool> asrCallback_ {};
+      // Specifies whether to enable the feature.
       shared_ptr<bool> enabled_ {};
+      // The translation parameters. You can specify the target translation language by using the SDK.
       shared_ptr<RealtimeSubtitle::Translation> translation_ {};
     };
 
@@ -511,7 +582,10 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable the feature.
       shared_ptr<bool> enabled_ {};
+      // The algorithm type for the intelligent meeting minutes feature.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> meetingAssistanceType_ {};
     };
@@ -593,11 +667,20 @@ namespace Models
 
 
       protected:
+        // The model used for the prompt. Valid values: tingwu-turbo, tingwu-plus, and qwen-max. Default value: tingwu-turbo.
         shared_ptr<string> model_ {};
+        // The custom name of the prompt, which is used to match the output results.
+        // 
         // This parameter is required.
         shared_ptr<string> name_ {};
+        // The custom content of the prompt. The content must include the {Transcription} tag. The {Transcription} tag is automatically replaced with the speech transcription result as the model input.
+        // 
         // This parameter is required.
         shared_ptr<string> prompt_ {};
+        // The format of the {Transcription} tag. Valid values:
+        // 
+        // - chat: The transcription result includes speaker information.
+        // - default: The transcription result is in plain text format.
         shared_ptr<string> transType_ {};
       };
 
@@ -620,8 +703,11 @@ namespace Models
 
 
     protected:
+      // The list of parameters for the custom prompt.
+      // 
       // This parameter is required.
       shared_ptr<vector<CustomPrompt::CustomPromptContents>> customPromptContents_ {};
+      // Specifies whether to enable the feature.
       shared_ptr<bool> enabled_ {};
     };
 
@@ -653,6 +739,7 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable the feature.
       shared_ptr<bool> enabled_ {};
     };
 
@@ -779,23 +866,70 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The auto chapters feature. When enabled, chapter titles and summaries are generated.
     shared_ptr<StartCloudNoteRequest::AutoChapters> autoChapters_ {};
+    // The channel ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The custom prompt control parameter object.
     shared_ptr<StartCloudNoteRequest::CustomPrompt> customPrompt_ {};
+    // **[Deprecated]** This parameter is deprecated. You do not need to specify it.
     shared_ptr<vector<string>> languageHints_ {};
+    // The intelligent meeting minutes feature. When enabled, keywords, key content, and to-do items are generated.
     shared_ptr<StartCloudNoteRequest::MeetingAssistance> meetingAssistance_ {};
+    // The real-time subtitles.
     shared_ptr<StartCloudNoteRequest::RealtimeSubtitle> realtimeSubtitle_ {};
+    // The service inspection feature.
     shared_ptr<StartCloudNoteRequest::ServiceInspection> serviceInspection_ {};
+    // The source language model used by the channel. Valid values:
+    // - cn: Chinese
+    // - yue: Cantonese
+    // - en: English
+    // - multilingual: Multilingual
+    // - ja: Japanese
+    // - ko: Korean
+    // - de: German
+    // - fr: French
+    // - ru: Russian
+    // - es: Spanish
+    // - vi: Vietnamese
+    // - it: Italian
+    // - sv: Swedish
+    // - cs: Czech
+    // - pl: Polish
+    // - th: Thai
+    // - fi: Finnish
+    // - hi: Hindi
+    // - id: Indonesian
+    // - pt: Portuguese
+    // - ar: Arabic
+    // - fil: Filipino
+    // - ms: Malay
+    // - tr: Turkish
+    // - hu: Hungarian
+    // - lo: Lao
+    // - pt-br: Portuguese (Brazil)
+    // - es-ar: Spanish (Argentina)
+    // - es-mx: Spanish (Mexico)
     shared_ptr<string> sourceLanguage_ {};
+    // The storage configuration.
+    // 
     // This parameter is required.
     shared_ptr<StartCloudNoteRequest::StorageConfig> storageConfig_ {};
+    // The summarization feature. When enabled, full-text summaries and speaker summaries are generated.
     shared_ptr<StartCloudNoteRequest::Summarization> summarization_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The text polishing feature.
     shared_ptr<StartCloudNoteRequest::TextPolish> textPolish_ {};
+    // The transcription feature. Enabled by default.
     shared_ptr<StartCloudNoteRequest::Transcription> transcription_ {};
   };
 

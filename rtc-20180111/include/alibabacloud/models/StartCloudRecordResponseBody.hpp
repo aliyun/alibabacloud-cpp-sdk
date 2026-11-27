@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // requestId
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // taskId
+    // The task ID of the current cloud recording.
     shared_ptr<string> taskId_ {};
   };
 

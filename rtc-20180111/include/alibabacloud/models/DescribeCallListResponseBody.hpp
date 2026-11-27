@@ -133,12 +133,21 @@ namespace Models
     protected:
       // App ID。
       shared_ptr<string> appId_ {};
+      // Number of users with poor communication experience.
       shared_ptr<int32_t> badExpUserCnt_ {};
+      // Communication status. Valid values:  
+      // - **IN**: In progress.  
+      // - **OUT**: Ended.
       shared_ptr<string> callStatus_ {};
+      // Channel ID.
       shared_ptr<string> channelId_ {};
+      // The UNIX timestamp indicating when the communication was created, in seconds.
       shared_ptr<int64_t> createdTs_ {};
+      // The UNIX timestamp indicating when the communication was released, in seconds.
       shared_ptr<int64_t> destroyedTs_ {};
+      // Duration of the communication, in seconds.
       shared_ptr<int64_t> duration_ {};
+      // User Count.
       shared_ptr<int32_t> userCnt_ {};
     };
 
@@ -182,10 +191,15 @@ namespace Models
 
 
   protected:
+    // List of communications.
     shared_ptr<vector<DescribeCallListResponseBody::CallList>> callList_ {};
+    // Page number.
     shared_ptr<int32_t> pageNo_ {};
+    // Quantity per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total Quantity.
     shared_ptr<int32_t> totalCnt_ {};
   };
 

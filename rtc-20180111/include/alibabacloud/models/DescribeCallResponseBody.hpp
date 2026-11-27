@@ -121,7 +121,9 @@ namespace Models
 
 
       protected:
+        // The time when the user joined the channel. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> joinTs_ {};
+        // The time when the user left the channel. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> leaveTs_ {};
       };
 
@@ -236,15 +238,25 @@ namespace Models
 
 
       protected:
+        // The duration of published audio. Unit: seconds.
         shared_ptr<int64_t> pubAudio_ {};
+        // The duration of published 1080P video. Unit: seconds.
         shared_ptr<int64_t> pubVideo1080_ {};
+        // The duration of published 360P video. Unit: seconds.
         shared_ptr<int64_t> pubVideo360_ {};
+        // The duration of published 720P video. Unit: seconds.
         shared_ptr<int64_t> pubVideo720_ {};
+        // The duration of published screen sharing. Unit: seconds.
         shared_ptr<int64_t> pubVideoScreenShare_ {};
+        // The duration of subscribed audio. Unit: seconds.
         shared_ptr<int64_t> subAudio_ {};
+        // The duration of subscribed 1080P video. Unit: seconds.
         shared_ptr<int64_t> subVideo1080_ {};
+        // The duration of subscribed 360P video. Unit: seconds.
         shared_ptr<int64_t> subVideo360_ {};
+        // The duration of subscribed 720P video. Unit: seconds.
         shared_ptr<int64_t> subVideo720_ {};
+        // The duration of subscribed screen sharing. Unit: seconds.
         shared_ptr<int64_t> subVideoScreenShare_ {};
       };
 
@@ -377,21 +389,39 @@ namespace Models
 
 
     protected:
+      // The call experience. Valid values:
+      // - **GOOD**: Good.
+      // - **BAD**: Poor.
       shared_ptr<string> callExp_ {};
+      // The time when the user first joined the channel. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createdTs_ {};
+      // The time when the user last left the channel. The value is a UNIX timestamp in seconds. If the communication has not ended, the value is empty.
       shared_ptr<int64_t> destroyedTs_ {};
+      // The duration statistics.
       shared_ptr<UserDetailList::DurMetricStatData> durMetricStatData_ {};
+      // The communication duration from the first join to the last leave. Unit: seconds.
       shared_ptr<int64_t> duration_ {};
+      // The geographic location, such as Beijing-Beijing.
       shared_ptr<string> location_ {};
+      // The network type, such as Wi-Fi or 4G.
       shared_ptr<string> network_ {};
+      // The network type, such as Wi-Fi or 4G.
       shared_ptr<vector<string>> networkList_ {};
+      // The online duration. Unit: seconds.
       shared_ptr<int64_t> onlineDuration_ {};
+      // The online periods.
       shared_ptr<vector<UserDetailList::OnlinePeriods>> onlinePeriods_ {};
+      // The platform type. If the user client is WEB, this indicates the type of the browser. If the client is NATIVE, this indicates the operating system type.
       shared_ptr<string> os_ {};
+      // The platform type. If the user client is WEB, this indicates the type of the browser. If the client is NATIVE, this indicates the operating system type.
       shared_ptr<vector<string>> osList_ {};
+      // The user roles.
       shared_ptr<vector<string>> roles_ {};
+      // The SDK version, such as 1.0.0 or 1.1.1.
       shared_ptr<string> sdkVersion_ {};
+      // The list of SDK versions, such as 1.0.0 or 1.1.1.
       shared_ptr<vector<string>> sdkVersionList_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -469,12 +499,19 @@ namespace Models
 
 
     protected:
-      // App ID。
+      // The app ID.
       shared_ptr<string> appId_ {};
+      // The communication status. Valid values:
+      // - **IN**: In progress.
+      // - **OUT**: Ended.
       shared_ptr<string> callStatus_ {};
+      // The channel ID.
       shared_ptr<string> channelId_ {};
+      // The time when the channel was created. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createdTs_ {};
+      // The time when the channel was released. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> destroyedTs_ {};
+      // The duration of the channel. Unit: seconds.
       shared_ptr<int64_t> duration_ {};
     };
 
@@ -506,8 +543,11 @@ namespace Models
 
 
   protected:
+    // The basic communication information.
     shared_ptr<DescribeCallResponseBody::CallInfo> callInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of user details.
     shared_ptr<vector<DescribeCallResponseBody::UserDetailList>> userDetailList_ {};
   };
 

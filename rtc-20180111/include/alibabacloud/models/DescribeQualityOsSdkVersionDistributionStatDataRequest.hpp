@@ -57,12 +57,16 @@ namespace Models
 
 
   protected:
-    // APP ID
+    // The APP ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The end time of the query. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
+    // The start time of the query. The value is a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};
   };

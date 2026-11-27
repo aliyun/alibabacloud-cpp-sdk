@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task ID of this bypass stream ingest job.
     shared_ptr<string> taskId_ {};
   };
 

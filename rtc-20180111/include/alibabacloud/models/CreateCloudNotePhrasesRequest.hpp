@@ -93,8 +93,16 @@ namespace Models
 
 
       protected:
+        // The weight must be an integer in the range of [-6, 5].
+        // - A value greater than 0 increases the probability of the word being recognized, and a value less than 0 decreases the probability.
+        // - A value of -6 indicates that the word should not be recognized if possible.
+        // - A value of 2 is a common value.
+        // If the effect is not obvious, you can increase the weight. However, a large weight may cause negative effects and lead to inaccurate recognition of other words.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> weight_ {};
+        // The hotword.
+        // 
         // This parameter is required.
         shared_ptr<string> word_ {};
       };
@@ -125,9 +133,20 @@ namespace Models
 
 
     protected:
+      // The description. The description must be encoded in UTF-8 and be 1 to 200 characters in length.
       shared_ptr<string> description_ {};
+      // The name of the hotword table. The name must be encoded in UTF-8 and be 1 to 30 characters in length.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // Each hotword table can contain up to 300 hotwords, and each hotword can be up to 10 Chinese characters in length.
+      // 
+      // Hotwords must be encoded in UTF-8 and cannot contain punctuation marks or special characters. Otherwise, the hotwords do not take effect.
+      // 
+      // The weight of a hotword must be an integer in the range of [-6, 5].
+      // 
+      // Numbers in the text must be replaced with the corresponding Chinese characters based on their pronunciation. For example, "59.9元" must be replaced with "五十九点九元".
+      // 
       // This parameter is required.
       shared_ptr<vector<Phrase::WordWeights>> wordWeights_ {};
     };
@@ -151,8 +170,12 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query application IDs in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The hotword parameter.
+    // 
     // This parameter is required.
     shared_ptr<CreateCloudNotePhrasesRequest::Phrase> phrase_ {};
   };

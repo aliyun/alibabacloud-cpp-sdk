@@ -159,13 +159,24 @@ namespace Models
 
 
     protected:
+      // The transparency of the watermark. A value of 0.0 indicates fully transparent, and a value of 1.0 indicates fully opaque.
       shared_ptr<float> alpha_ {};
+      // Specifies whether to display the watermark. Valid values:
+      // 
+      // - **0** (None): Not displayed.
+      // - **1** (Always): Always displayed.
       shared_ptr<int32_t> display_ {};
+      // The height of the watermark pane, as a normalized percentage.
       shared_ptr<float> height_ {};
+      // The HTTP or HTTPS URL of the watermark.
       shared_ptr<string> url_ {};
+      // The width of the watermark pane, as a normalized percentage.
       shared_ptr<float> width_ {};
+      // The X-coordinate of the watermark, as a normalized percentage.
       shared_ptr<float> x_ {};
+      // The Y-coordinate of the watermark, as a normalized percentage.
       shared_ptr<float> y_ {};
+      // The Z-order of the watermark. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -243,11 +254,26 @@ namespace Models
 
 
     protected:
+      // The text color of the clock in RGB format.
+      // 
+      // The calculation formula is `R + G × 256 + B × 65536`. Valid values for R (red), G (green), and B (blue): **0** to **255**.
       shared_ptr<int32_t> fontColor_ {};
+      // The font size of the clock. Valid values: **(0, 72]**.
       shared_ptr<int32_t> fontSize_ {};
+      // The font type of the clock. Valid values:
+      // 
+      // - **0** (default): NOTO_SERIF_CJKSC_REGULAR.
+      // - **1**: ALIBABA_PUHUITI_REGULAR.
+      // - **2**: ALIBABA_PUHUITI_BOLD.
+      // - **3**: ALIBABA_PUHUITI_Heavy.
+      // - **4**: ALIBABA_PUHUITI_LIGHT.
+      // - **5**: ALIBABA_PUHUITI_MEDIUM.
       shared_ptr<int32_t> fontType_ {};
+      // The X-coordinate of the clock, as a normalized percentage.
       shared_ptr<float> x_ {};
+      // The Y-coordinate of the clock, as a normalized percentage.
       shared_ptr<float> y_ {};
+      // The Z-order of the clock. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -335,12 +361,22 @@ namespace Models
 
 
     protected:
+      // Specifies whether to display the background image. Valid values:
+      // 
+      // - **0** (None): Not displayed.
+      // - **1** (Always): Always displayed.
       shared_ptr<int32_t> display_ {};
+      // The height of the background image pane, as a normalized percentage.
       shared_ptr<float> height_ {};
+      // The HTTP or HTTPS URL of the background image.
       shared_ptr<string> url_ {};
+      // The width of the background image pane, as a normalized percentage.
       shared_ptr<float> width_ {};
+      // The X-coordinate of the background image, as a normalized percentage.
       shared_ptr<float> x_ {};
+      // The Y-coordinate of the background image, as a normalized percentage.
       shared_ptr<float> y_ {};
+      // The Z-order of the background image. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -493,33 +529,70 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The background color in RGB format. Default value: 0 (black). The calculation formula is R + G × 256 + B × 65536. Valid values for R (red), G (green), and B (blue): **0** to **255**.
     shared_ptr<int32_t> backgroundColor_ {};
+    // The list of background images.
     shared_ptr<vector<AddRecordTemplateRequest::Backgrounds>> backgrounds_ {};
+    // The list of clocks.
     shared_ptr<vector<AddRecordTemplateRequest::ClockWidgets>> clockWidgets_ {};
+    // The delay time before stopping the recording. Unit: seconds. Default value: **180**.
     shared_ptr<int32_t> delayStopTime_ {};
+    // Specifies whether to add the timestamp of the TS file to the recorded M3U8 file.
     shared_ptr<bool> enableM3u8DateTime_ {};
+    // The splitting duration of the recording file. The value must be greater than or equal to 1800. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> fileSplitInterval_ {};
+    // The list of recording file formats.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> formats_ {};
+    // The HTTP callback URL for recording events.
+    // > You must specify either this parameter or MnsQueue. You cannot specify both or neither.
     shared_ptr<string> httpCallbackUrl_ {};
+    // The list of layout IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> layoutIds_ {};
+    // The encoding option. For more information, see the MediaEncode enum values below.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> mediaEncode_ {};
+    // The MSMQ for recording event callbacks.
+    // 
+    // > You must specify either this parameter or HttpCallbackUrl. You cannot specify both or neither.
     shared_ptr<string> mnsQueue_ {};
+    // The name of the recording configuration template.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The OSS bucket where the recording files are stored.
+    // 
+    // > Only OSS buckets in the China (Shanghai) region are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> ossBucket_ {};
+    // The OSS endpoint of the region where the recording files are stored.
     shared_ptr<string> ossEndpoint_ {};
+    // The naming rule for recording files.
+    // 
+    // > To ensure the uniqueness of recording file names, the naming rule is record/{AppId}/{ChannelId_TaskId}/{EscapedStartTime}_{EscapedEndTime}.
+    // 
     // This parameter is required.
     shared_ptr<string> ossFilePrefix_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The billing configuration of the task. You are charged based on your settings. For more information, see the TaskProfile enum values below.
+    // 
+    // > - The resolution of the MediaEncode encoding option must be less than or equal to the resolution of TaskProfile.
+    // - The maximum number of layout panes must be less than or equal to the number of input channels of TaskProfile.
+    // 
     // This parameter is required.
     shared_ptr<string> taskProfile_ {};
+    // The list of watermarks.
     shared_ptr<vector<AddRecordTemplateRequest::Watermarks>> watermarks_ {};
   };
 

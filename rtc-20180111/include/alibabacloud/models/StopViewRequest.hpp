@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The application ID. Create and query it in the console. Only one ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // An existing channel ID. Only one ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // An existing task ID. Only one ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

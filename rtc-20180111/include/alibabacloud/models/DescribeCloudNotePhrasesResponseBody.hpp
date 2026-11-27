@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // The weight value.
         shared_ptr<int32_t> weight_ {};
+        // The hotword.
         shared_ptr<string> word_ {};
       };
 
@@ -145,10 +147,16 @@ namespace Models
 
 
     protected:
+      // The creation time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
       shared_ptr<string> createTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The hotword list ID.
       shared_ptr<string> id_ {};
+      // The hotword list name.
       shared_ptr<string> name_ {};
+      // The hotword weights.
+      // 
       // This parameter is required.
       shared_ptr<vector<Phrases::WordWeights>> wordWeights_ {};
     };
@@ -186,10 +194,13 @@ namespace Models
 
 
   protected:
+    // The hotword lists.
     shared_ptr<vector<DescribeCloudNotePhrasesResponseBody::Phrases>> phrases_ {};
-    // Id of the request。
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalNum_ {};
+    // The total number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

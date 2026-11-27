@@ -89,6 +89,10 @@ namespace Models
 
 
       protected:
+        // The actual value.
+        // - active: Unmutes the microphone.
+        // - inactive: Mutes the microphone.
+        // 
         // This parameter is required.
         shared_ptr<string> status_ {};
       };
@@ -135,14 +139,26 @@ namespace Models
 
 
     protected:
+      // The list of user IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> ids_ {};
+      // The operation type.
+      // - replace
+      // 
       // This parameter is required.
       shared_ptr<string> op_ {};
+      // The operation ID. If some operations fail, you can use this ID for troubleshooting.
+      // 
       // This parameter is required.
       shared_ptr<string> operationId_ {};
+      // The operation scope.
+      // - /media/audio/status: Modifies the audio stream status of the user.
+      // 
       // This parameter is required.
       shared_ptr<string> path_ {};
+      // The operation value.
+      // 
       // This parameter is required.
       shared_ptr<Operations::Value> value_ {};
     };
@@ -173,10 +189,16 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The ID of an existing channel. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The operations.
+    // 
     // This parameter is required.
     shared_ptr<vector<RtcSipMuteRequest::Operations>> operations_ {};
   };

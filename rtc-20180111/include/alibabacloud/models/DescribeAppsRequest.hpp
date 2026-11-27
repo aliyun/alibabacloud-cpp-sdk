@@ -94,12 +94,27 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query application IDs in the console. Only a single ID is supported. If this parameter is left empty, all application IDs are queried.
     shared_ptr<string> appId_ {};
+    // The application version.
     shared_ptr<string> appVersion_ {};
+    // The sort order. Valid values:
+    // 
+    // - **asc**: Ascending.
+    //  
+    // - **desc**: Descending. Default value.
     shared_ptr<string> order_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
+    // The application status. If this parameter is left empty, all statuses are queried. Valid values:
+    // - **1**: Available.
+    // 
+    // - **2**: Disabled.
+    // 
+    // - **3**: Disabled due to overdue payments.
     shared_ptr<string> status_ {};
   };
 

@@ -84,16 +84,26 @@ namespace Models
 
 
   protected:
-    // APP ID。
+    // The app ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The channel ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The time when the channel was created. You can query data of the last 30 days. The time is a UNIX timestamp in seconds.
+    // > The channel creation time must be exactly the same as the actual creation time (accurate to the second). You can call the [DescribeCallList](https://help.aliyun.com/document_detail/2655884.html) operation to view the channel creation time (the CreatedTS parameter in the response).
+    // 
     // This parameter is required.
     shared_ptr<int64_t> createdTs_ {};
+    // The time when the channel was released. The time is a UNIX timestamp in seconds. If this parameter is left empty, the current time is used.
+    // > If the specified channel release time is later than the actual release time, the data from the creation time to the actual release time is returned.
     shared_ptr<int64_t> destroyedTs_ {};
+    // The extended data type to query. Valid values:
+    // - USER_DURATION_STAT: user duration statistics.
     shared_ptr<string> extDataType_ {};
+    // Specifies whether to query the communication experience information. Default value: true.
     shared_ptr<bool> queryExpInfo_ {};
   };
 

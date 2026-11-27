@@ -103,10 +103,15 @@ namespace Models
 
 
     protected:
+      // Creation Time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> createTime_ {};
+      // List of layout IDs.
       shared_ptr<vector<string>> layoutIds_ {};
+      // Encoding options.
       shared_ptr<int32_t> mediaEncode_ {};
+      // Template Name.
       shared_ptr<string> name_ {};
+      // Template ID.
       shared_ptr<string> templateId_ {};
     };
 
@@ -145,8 +150,11 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // List of templates.
     shared_ptr<vector<DescribeAppStreamingOutTemplatesResponseBody::Templates>> templates_ {};
+    // Number of records.
     shared_ptr<int64_t> totalNum_ {};
+    // Number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

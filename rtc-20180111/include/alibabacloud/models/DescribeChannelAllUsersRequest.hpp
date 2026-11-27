@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Application ID. You can create and query this ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Channel ID to query. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
   };

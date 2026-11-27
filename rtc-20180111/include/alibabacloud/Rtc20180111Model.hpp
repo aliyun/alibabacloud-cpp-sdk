@@ -344,6 +344,9 @@
 #include <alibabacloud/models/RtcCancelSipInviteRequest.hpp>
 #include <alibabacloud/models/RtcCancelSipInviteResponseBody.hpp>
 #include <alibabacloud/models/RtcCancelSipInviteResponse.hpp>
+#include <alibabacloud/models/RtcSendSipDtmfRequest.hpp>
+#include <alibabacloud/models/RtcSendSipDtmfResponseBody.hpp>
+#include <alibabacloud/models/RtcSendSipDtmfResponse.hpp>
 #include <alibabacloud/models/RtcSipInviteMemberRequest.hpp>
 #include <alibabacloud/models/RtcSipInviteMemberResponseBody.hpp>
 #include <alibabacloud/models/RtcSipInviteMemberResponse.hpp>

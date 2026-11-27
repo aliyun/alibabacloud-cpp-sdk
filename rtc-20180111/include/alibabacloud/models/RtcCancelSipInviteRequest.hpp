@@ -66,12 +66,28 @@ namespace Models
 
 
   protected:
+    // The application ID. Create and find this ID in the console. Specify only one ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The ID of an existing channel. Specify only one ID.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // The type of the third-party SIP device:
+    // 
+    // - sip_device
+    // 
+    // - mcu
+    // 
+    // - phone
+    // 
+    // Note: Only the phone type is supported at this stage.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceType_ {};
+    // The user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

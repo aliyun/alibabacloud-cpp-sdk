@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The bypass rule ID. You can query the ID in the console or by calling the [DescribeAutoLiveStreamRule](https://help.aliyun.com/document_detail/353198.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
   };

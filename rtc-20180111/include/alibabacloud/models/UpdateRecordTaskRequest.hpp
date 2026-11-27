@@ -173,12 +173,26 @@ namespace Models
 
 
       protected:
+        // The text color in RGB format. The calculation formula is R + G × 256 + B × 65536. Valid values of R (red), G (green), and B (blue): **0 to 255**.
         shared_ptr<int32_t> fontColor_ {};
+        // The font size. Valid values: **(0, 72]**.
         shared_ptr<int32_t> fontSize_ {};
+        // The font type. Valid values:
+        // 
+        // - **0** (default): NOTO_SERIF_CJKSC_REGULAR.
+        // - **1**: ALIBABA_PUHUITI_REGULAR.
+        // - **2**: ALIBABA_PUHUITI_BOLD.
+        // - **3**: ALIBABA_PUHUITI_Heavy.
+        // - **4**: ALIBABA_PUHUITI_LIGHT.
+        // - **5**: ALIBABA_PUHUITI_MEDIUM.
         shared_ptr<int32_t> fontType_ {};
+        // The text content.
         shared_ptr<string> text_ {};
+        // The X-coordinate, as a normalized percentage.
         shared_ptr<float> x_ {};
+        // The Y-coordinate, as a normalized percentage.
         shared_ptr<float> y_ {};
+        // The Z-order. 0 indicates the bottom layer, 1 indicates the layer above 0, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -266,12 +280,23 @@ namespace Models
 
 
       protected:
+        // Specifies whether to display the image. Valid values:
+        // 
+        // - **0** (None): Not displayed.
+        // - **1** (Always): Always displayed.
+        // - **2** (Backup): Displayed when the current user has no video stream.
         shared_ptr<int32_t> display_ {};
+        // The height of the pane, as a normalized percentage.
         shared_ptr<float> height_ {};
+        // The HTTP or HTTPS URL of the image.
         shared_ptr<string> url_ {};
+        // The width of the pane, as a normalized percentage.
         shared_ptr<float> width_ {};
+        // The X-coordinate, as a normalized percentage.
         shared_ptr<float> x_ {};
+        // The Y-coordinate, as a normalized percentage.
         shared_ptr<float> y_ {};
+        // The Z-order. 0 indicates the bottom layer, 1 indicates the layer above 0, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -317,10 +342,22 @@ namespace Models
 
 
     protected:
+      // The list of image panes in the current layout.
       shared_ptr<vector<UserPanes::Images>> images_ {};
+      // The pane ID. Valid values of N: **1 to 16**. Valid values of PaneId: **0 to 15**.
+      // 
+      // > If the user specified by PaneId is not found, other streams are displayed by default. The streams are determined based on the order in which users join the channel.
       shared_ptr<int32_t> paneId_ {};
+      // The video input source of the user corresponding to the layout. Valid values:
+      // 
+      // - **camera** (default): the video stream.
+      // - **shareScreen**: the screen sharing stream.
+      // 
+      // Valid values of N: **1 to 16**.
       shared_ptr<string> sourceType_ {};
+      // The list of text panes in the current layout.
       shared_ptr<vector<UserPanes::Texts>> texts_ {};
+      // The ID of the user corresponding to the layout pane. Valid values of N: **1 to 16**.
       shared_ptr<string> userId_ {};
     };
 
@@ -467,26 +504,43 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The channel ID. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
     shared_ptr<int64_t> cropMode_ {};
+    // The array of layout IDs.
     shared_ptr<vector<int64_t>> layoutIds_ {};
     shared_ptr<int64_t> mediaEncode_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Specifies the users whose audio streams are subscribed to in the channel.
     shared_ptr<vector<string>> subSpecAudioUsers_ {};
+    // Specifies the users whose camera streams are subscribed to in the channel.
     shared_ptr<vector<string>> subSpecCameraUsers_ {};
+    // Specifies the users whose screen sharing streams are subscribed to in the channel.
     shared_ptr<vector<string>> subSpecShareScreenUsers_ {};
+    // Specifies the list of users to which the task subscribes.
     shared_ptr<vector<string>> subSpecUsers_ {};
+    // The task ID. Only a single ID is supported. The value must be the same as the TaskId request parameter of [StartRecordTask](https://help.aliyun.com/document_detail/193528.html).
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
     shared_ptr<string> taskProfile_ {};
+    // The configuration template ID. For more information about how to obtain the template ID, see [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html).
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
+    // Specifies the users whose audio streams are not subscribed to in the channel.
     shared_ptr<vector<string>> unsubSpecAudioUsers_ {};
+    // Specifies the users whose camera streams are not subscribed to in the channel.
     shared_ptr<vector<string>> unsubSpecCameraUsers_ {};
+    // Specifies the users whose screen sharing streams are not subscribed to in the channel.
     shared_ptr<vector<string>> unsubSpecShareScreenUsers_ {};
+    // The list of layout parameters.
     shared_ptr<vector<UpdateRecordTaskRequest::UserPanes>> userPanes_ {};
   };
 

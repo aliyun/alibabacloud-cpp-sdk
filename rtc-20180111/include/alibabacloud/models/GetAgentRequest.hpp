@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Application ID. You can create and view this ID in the console. Only one ID is supported.
     shared_ptr<string> appId_ {};
+    // Channel ID.
     shared_ptr<string> channelId_ {};
+    // Task ID.
     shared_ptr<string> taskId_ {};
   };
 

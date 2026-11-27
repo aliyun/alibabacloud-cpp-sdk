@@ -50,6 +50,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Switch status. Valid values: enable (on) and disable (off).
     shared_ptr<string> result_ {};
   };
 

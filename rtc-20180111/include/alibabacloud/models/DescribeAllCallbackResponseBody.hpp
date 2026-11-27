@@ -102,8 +102,11 @@ namespace Models
 
 
       protected:
+        // Subscribed sub-event code.
         shared_ptr<int32_t> event_ {};
+        // Subscribed sub-event name.
         shared_ptr<string> eventName_ {};
+        // Subscription event type: 0 for system, 1 for custom.
         shared_ptr<int32_t> type_ {};
       };
 
@@ -133,8 +136,11 @@ namespace Models
 
 
     protected:
+      // Event code.
       shared_ptr<string> category_ {};
+      // Event name.
       shared_ptr<string> name_ {};
+      // List of subscribed sub-events.
       shared_ptr<vector<Callbacks::SubEvent>> subEvent_ {};
     };
 
@@ -157,6 +163,7 @@ namespace Models
 
 
   protected:
+    // List of callback events.
     shared_ptr<vector<DescribeAllCallbackResponseBody::Callbacks>> callbacks_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

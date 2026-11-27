@@ -122,16 +122,31 @@ namespace Models
 
 
     protected:
+      // The delay time before stopping the recording. Unit: seconds.
       shared_ptr<int32_t> delayStopTime_ {};
+      // The naming rule for recorded files.
+      // > To ensure the uniqueness of recorded file names, the current naming rule for recorded files is record/{AppId}/{ChannelId}_{TaskId}/{EscapedStartTime}_{EscapedEndTime}.
+      // 
       // This parameter is required.
       shared_ptr<string> filePrefix_ {};
+      // The splitting duration of the recorded file. The value must be greater than or equal to 1800. Unit: seconds.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> fileSplitInterval_ {};
+      // The format of the recorded file. Only .m3u8, .mp4, and .flv are supported.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> formats_ {};
+      // The list of layout IDs. A maximum of 16 layout IDs can be specified.
+      // 
+      // Note: The layouts in the list must correspond to different numbers of data sources.
       shared_ptr<vector<string>> layoutIds_ {};
+      // The encoding options.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> mediaEncode_ {};
+      // The name of the template.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
     };
@@ -162,9 +177,14 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The client token.
     shared_ptr<string> clientToken_ {};
+    // The recording template.
+    // 
     // This parameter is required.
     shared_ptr<CreateAppRecordTemplateRequest::RecordTemplate> recordTemplate_ {};
   };

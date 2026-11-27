@@ -90,12 +90,22 @@ namespace Models
 
 
     protected:
+      // List of layout IDs. A maximum of 16 IDs are allowed.
+      // 
+      // Note: The data sources corresponding to the layouts in the list must not have the same quantity.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> layoutIds_ {};
+      // Encoding options.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> mediaEncode_ {};
+      // Template Name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // Template ID.
+      // 
       // This parameter is required.
       shared_ptr<string> templateId_ {};
     };
@@ -119,8 +129,12 @@ namespace Models
 
 
   protected:
+    // Application ID. You can create and query it in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Template.
+    // 
     // This parameter is required.
     shared_ptr<ModifyAppStreamingOutTemplateRequest::StreamingOutTemplate> streamingOutTemplate_ {};
   };

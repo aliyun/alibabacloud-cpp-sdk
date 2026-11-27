@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The layout ID.
     shared_ptr<int64_t> layoutId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

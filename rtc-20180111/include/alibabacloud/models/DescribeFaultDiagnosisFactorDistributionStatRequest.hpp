@@ -61,8 +61,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // End Time of the query, expressed as a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTs_ {};
+    // Start Time of the query, expressed as a UNIX timestamp. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTs_ {};
   };

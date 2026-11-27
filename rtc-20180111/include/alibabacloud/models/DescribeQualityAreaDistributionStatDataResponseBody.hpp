@@ -152,16 +152,27 @@ namespace Models
 
 
     protected:
+      // The audio delay, in milliseconds.
       shared_ptr<int64_t> audioDelay_ {};
+      // The high-quality transmission rate of audio, represented by a four-decimal number.
       shared_ptr<string> audioHighQualityTransmissionRate_ {};
+      // The audio stuttering rate, represented by a four-decimal number.
       shared_ptr<string> audioStuckRate_ {};
+      // The ratio of the call duration, represented by a four-decimal number. For example, 1.0000 indicates that the call duration ratio is 100%.
       shared_ptr<string> callDurationRatio_ {};
+      // The success rate of joining a channel within 5 seconds, represented by a four-decimal number.
       shared_ptr<string> joinChannelSucFiveSecRate_ {};
+      // The success rate of joining a channel, represented by a four-decimal number.
       shared_ptr<string> joinChannelSucRate_ {};
+      // The name of the region.
       shared_ptr<string> name_ {};
+      // The video delay, in milliseconds.
       shared_ptr<int64_t> videoDelay_ {};
+      // The time taken to render the first video frame, in milliseconds.
       shared_ptr<int64_t> videoFirstPicDuration_ {};
+      // The high-quality transmission rate of video, represented by a four-decimal number.
       shared_ptr<string> videoHighQualityTransmissionRate_ {};
+      // The video stuttering rate, represented by a four-decimal number.
       shared_ptr<string> videoStuckRate_ {};
     };
 
@@ -184,7 +195,9 @@ namespace Models
 
 
   protected:
+    // The list of quality distribution data.
     shared_ptr<vector<DescribeQualityAreaDistributionStatDataResponseBody::QualityStatDataList>> qualityStatDataList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

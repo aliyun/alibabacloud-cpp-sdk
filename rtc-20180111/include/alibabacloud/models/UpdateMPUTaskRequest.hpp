@@ -163,13 +163,24 @@ namespace Models
 
 
     protected:
+      // Transparency. 0.0 indicates transparent, and 1.0 indicates completely opaque.
       shared_ptr<float> alpha_ {};
+      // Image display. Values:
+      // 
+      // - **0 (None)**: not displayed.
+      // - **1 (Always)**: always displayed.
       shared_ptr<int32_t> display_ {};
+      // Pane height, normalized percentage.
       shared_ptr<float> height_ {};
+      // HTTP or HTTPS address of the image.
       shared_ptr<string> url_ {};
+      // Pane width, normalized percentage.
       shared_ptr<float> width_ {};
+      // X coordinate, normalized percentage.
       shared_ptr<float> x_ {};
+      // Y coordinate, normalized percentage.
       shared_ptr<float> y_ {};
+      // Stacking order. 0 is the bottom layer, layer 1 is above layer 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -341,18 +352,45 @@ namespace Models
 
 
       protected:
+        // Transparency of the text box and text. 0.0 indicates transparent, and 1.0 indicates completely opaque.
         shared_ptr<float> alpha_ {};
+        // Text border color.
+        // The calculation formula is `R + G × 256 + B × 65536`. Values of R (red), G (green), and B (blue): **0** to **255**.
         shared_ptr<int64_t> borderColor_ {};
+        // Text border width (unit: pixels). The default value is 0.
         shared_ptr<int32_t> borderWidth_ {};
+        // Whether to display a text box. Values:
+        // 
+        // - false (default): not displayed.
+        // - true: displayed.
         shared_ptr<bool> box_ {};
+        // Text box width (unit: pixels). The default value is 0.
         shared_ptr<int32_t> boxBorderWidth_ {};
+        // Text box color.
+        // The calculation formula is `R + G × 256 + B × 65536`. Values of R (red), G (green), and B (blue): **0** to **255**.
         shared_ptr<int64_t> boxColor_ {};
+        // Text color (RGB).
+        // 
+        // The calculation formula is `R + G × 256 + B × 65536`. Values of R (red), G (green), and B (blue): **0** to **255**.
         shared_ptr<int32_t> fontColor_ {};
+        // Font size. Value range: **0** to **72**.
         shared_ptr<int32_t> fontSize_ {};
+        // Font type. Values:
+        // 
+        // - **0** (default): NOTO_SERIF_CJKSC_REGULAR
+        // - **1**: ALIBABA_PUHUITI_REGULAR
+        // - **2**: ALIBABA_PUHUITI_BOLD
+        // - **3**: ALIBABA_PUHUITI_Heavy
+        // - **4**: ALIBABA_PUHUITI_LIGHT
+        // - **5**: ALIBABA_PUHUITI_MEDIUM
         shared_ptr<int32_t> fontType_ {};
+        // Text content.
         shared_ptr<string> text_ {};
+        // X coordinate, normalized percentage.
         shared_ptr<float> x_ {};
+        // Y coordinate, normalized percentage.
         shared_ptr<float> y_ {};
+        // Stacking order. 0 is the bottom layer, layer 1 is above layer 0, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -440,12 +478,23 @@ namespace Models
 
 
       protected:
+        // Image display. Values:
+        // 
+        // - **0 (None)**: not displayed.
+        // - **1 (Always)**: always displayed.
+        // - **2 (Backup)**: displayed when the current user has no video stream.
         shared_ptr<int32_t> display_ {};
+        // Pane height, normalized percentage.
         shared_ptr<float> height_ {};
+        // HTTP or HTTPS address of the image.
         shared_ptr<string> url_ {};
+        // Pane width, normalized percentage.
         shared_ptr<float> width_ {};
+        // X coordinate, normalized percentage.
         shared_ptr<float> x_ {};
+        // Y coordinate, normalized percentage.
         shared_ptr<float> y_ {};
+        // Stacking order. 0 is the bottom layer, layer 1 is above layer 0, and so on.
         shared_ptr<int32_t> ZOrder_ {};
       };
 
@@ -498,11 +547,25 @@ namespace Models
 
 
     protected:
+      // The list of image pane positions for the current layout.
       shared_ptr<vector<UserPanes::Images>> images_ {};
+      // Pane ID. Value range: **0** to **15**.
       shared_ptr<int32_t> paneId_ {};
+      // Portrait segmentation type. Values:
+      // 
+      // - **0**: no portrait segmentation (default).
+      // 
+      // - **1**: portrait segmentation. Only effective after the enhancement parameter (portrait segmentation feature) is enabled.
       shared_ptr<int32_t> segmentType_ {};
+      // User video input corresponding to the layout. Values:
+      // 
+      // - **camera**: camera stream.
+      // 
+      // - **shareScreen**: shared screen stream.
       shared_ptr<string> sourceType_ {};
+      // The list of text pane positions for the current layout.
       shared_ptr<vector<UserPanes::Texts>> texts_ {};
+      // The user ID corresponding to the layout pane. Values: **1** to **16**.
       shared_ptr<string> userId_ {};
     };
 
@@ -636,17 +699,43 @@ namespace Models
 
 
     protected:
+      // Transparency of the text box and text. 0.0 indicates transparent, and 1.0 indicates completely opaque.
       shared_ptr<float> alpha_ {};
+      // Text border color.
+      // The calculation formula is `R + G × 256 + B × 65536`. Values of R (red), G (green), and B (blue): **0** to **255**.
       shared_ptr<int64_t> borderColor_ {};
+      // Text border width (unit: pixels). The default value is 0.
       shared_ptr<int32_t> borderWidth_ {};
+      // Whether to display a text box. Values:
+      // 
+      // - false (default): not displayed.
+      // - true: displayed.
       shared_ptr<bool> box_ {};
+      // Text box width (unit: pixels). The default value is 0.
       shared_ptr<int32_t> boxBorderWidth_ {};
+      // Text box color.
+      // The calculation formula is `R + G × 256 + B × 65536`. Values of R (red), G (green), and B (blue): **0** to **255**.
       shared_ptr<int64_t> boxColor_ {};
+      // Text color (RGB).
+      // 
+      // The calculation formula is `R + G × 256 + B × 65536`. Values of R (red), G (green), and B (blue): **0** to **255**.
       shared_ptr<int32_t> fontColor_ {};
+      // Font size. Value range: **0** to **72**.
       shared_ptr<int32_t> fontSize_ {};
+      // Font type. Values:
+      // 
+      // - **0** (default): NOTO_SERIF_CJKSC_REGULAR
+      // - **1**: ALIBABA_PUHUITI_REGULAR
+      // - **2**: ALIBABA_PUHUITI_BOLD
+      // - **3**: ALIBABA_PUHUITI_Heavy
+      // - **4**: ALIBABA_PUHUITI_LIGHT
+      // - **5**: ALIBABA_PUHUITI_MEDIUM
       shared_ptr<int32_t> fontType_ {};
+      // X coordinate, normalized percentage.
       shared_ptr<float> x_ {};
+      // Y coordinate, normalized percentage.
       shared_ptr<float> y_ {};
+      // Stacking order. 0 is the bottom layer, layer 1 is above layer 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -734,12 +823,22 @@ namespace Models
 
 
     protected:
+      // Image display. Values:
+      // 
+      // - **0 (None)**: not displayed.
+      // - **1 (Always)**: always displayed.
       shared_ptr<int32_t> display_ {};
+      // Pane height, normalized percentage.
       shared_ptr<float> height_ {};
+      // HTTP or HTTPS address of the image.
       shared_ptr<string> url_ {};
+      // Pane width, normalized percentage.
       shared_ptr<float> width_ {};
+      // X coordinate, normalized percentage.
       shared_ptr<float> x_ {};
+      // Y coordinate, normalized percentage.
       shared_ptr<float> y_ {};
+      // Stacking order. 0 is the bottom layer, layer 1 is above layer 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -920,28 +1019,72 @@ namespace Models
 
 
   protected:
+    // Application ID. Only a single ID can be passed.
+    // 
+    // You can create and query it in the console.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Background color RGB. The default is **0** (black).
+    // 
+    // The calculation formula is `R + G × 256 + B × 65536`. Values of R (red), G (green), and B (blue): **0** to **255**.
     shared_ptr<int32_t> backgroundColor_ {};
+    // The list of canvas background image pane positions.
     shared_ptr<vector<UpdateMPUTaskRequest::Backgrounds>> backgrounds_ {};
+    // Clock widget.
     shared_ptr<vector<UpdateMPUTaskRequest::ClockWidgets>> clockWidgets_ {};
+    // Video cropping mode. Values:
+    // 
+    // 
+    // - **1**: crop while maintaining ratio.
+    // 
+    // - **2** (default): keep margins while maintaining ratio.
     shared_ptr<int32_t> cropMode_ {};
+    // Layout ID data.
     shared_ptr<vector<int64_t>> layoutIds_ {};
+    // Encoding option. See the MediaEncode enumeration values below.
     shared_ptr<int32_t> mediaEncode_ {};
+    // Stream mixing mode. Values:
+    // 
+    // - **0**: single-stream relay. No stream mixing or transcoding. Only the original single stream is relayed. No need to configure stream mixing and transcoding parameters.
+    // - **1**: stream mixing and transcoding (default). Supports stream mixing and transcoding output.
+    // 
+    // > - Valid parameters in single-stream relay mode: **StreamType**, **SourceType**.
+    // - Valid parameters in stream mixing and transcoding mode: **MediaEncode**, **LayoutIds**, **BackgroundColor**, **SubSpecUsers**, **CropMode**, **UserPanes**, **Backgrounds**, **Watermarks**.
     shared_ptr<int32_t> mixMode_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // User video input stream in single-stream relay mode. Values:
+    // 
+    // - **camera**: camera.
+    // - **shareScreen**: screen sharing.
     shared_ptr<string> sourceType_ {};
+    // Audio stream relayed in single-stream relay mode. Values:
+    // 
+    // - **0** (default): relay the original stream.
+    // - **1**: relay only the audio stream.
+    // - **2**: relay only the video stream.
     shared_ptr<int32_t> streamType_ {};
+    // Specifies the users in the room whose audio streams are subscribed to.
     shared_ptr<vector<string>> subSpecAudioUsers_ {};
+    // Specifies the users in the room whose camera video streams are subscribed to.
     shared_ptr<vector<string>> subSpecCameraUsers_ {};
+    // Specifies the users in the room whose shared video streams are subscribed to.
     shared_ptr<vector<string>> subSpecShareScreenUsers_ {};
+    // The list of users subscribed to by this task.
     shared_ptr<vector<string>> subSpecUsers_ {};
+    // Task ID. Only a single ID can be passed. It is consistent with the input parameter TaskId in [StartMpuTask](https://help.aliyun.com/document_detail/93183.html).
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // Specifies the users in the room whose audio streams are not subscribed to.
     shared_ptr<vector<string>> unsubSpecAudioUsers_ {};
+    // Specifies the users in the room whose camera video streams are not subscribed to.
     shared_ptr<vector<string>> unsubSpecCameraUsers_ {};
+    // Specifies the users in the room whose shared video streams are not subscribed to.
     shared_ptr<vector<string>> unsubSpecShareScreenUsers_ {};
+    // Layout parameters.
     shared_ptr<vector<UpdateMPUTaskRequest::UserPanes>> userPanes_ {};
+    // The list of watermark image pane positions.
     shared_ptr<vector<UpdateMPUTaskRequest::Watermarks>> watermarks_ {};
   };
 

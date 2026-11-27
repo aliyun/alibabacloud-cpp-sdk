@@ -62,6 +62,8 @@ namespace Models
 
 
     protected:
+      // User ID.
+      // 
       // This parameter is required.
       shared_ptr<string> userId_ {};
     };
@@ -92,10 +94,16 @@ namespace Models
 
 
   protected:
+    // Application ID. You can create and query it in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The ID of the joined channel. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // User List. Valid values of N: 1 to 30.
+    // 
     // This parameter is required.
     shared_ptr<vector<RemoveUsersRequest::Users>> users_ {};
   };

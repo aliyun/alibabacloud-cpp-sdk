@@ -88,13 +88,28 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // 频道ID
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // 频道创建时间，使用UNIX时间戳表示，单位：秒。
+    // 
     // This parameter is required.
     shared_ptr<int64_t> createdTs_ {};
+    // 异常类型。取值：
+    // - **JOIN_SLOW**：进频道慢 。
+    // - **AUDIO_STUCK**：音频卡顿。
+    // - **VIDEO_STUCK**：视频卡顿。
+    // - **VIDEO_VAGUE**：视频模糊。
+    // - **HIGH_DELAY**：通话延迟高 。
+    // - **FIRST_FRAME_SLOW**：接收首屏慢。
+    // 
     // This parameter is required.
     shared_ptr<string> faultType_ {};
+    // 是否查询通话用户信息，为空默认是false。
     shared_ptr<bool> queryCallUserInfo_ {};
+    // 用户ID
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

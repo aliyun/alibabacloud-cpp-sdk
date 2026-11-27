@@ -161,13 +161,24 @@ namespace Models
 
 
     protected:
+      // The transparency. A value of 0.0 indicates fully transparent, and a value of 1.0 indicates fully opaque.
       shared_ptr<float> alpha_ {};
+      // Specifies whether to display the watermark. Valid values:
+      // 
+      // - **0** (None): Not displayed.
+      // - **1** (Always): Always displayed.
       shared_ptr<int32_t> display_ {};
+      // The height of the pane, as a normalized percentage.
       shared_ptr<float> height_ {};
+      // The HTTP or HTTPS URL of the watermark.
       shared_ptr<string> url_ {};
+      // The width of the pane, as a normalized percentage.
       shared_ptr<float> width_ {};
+      // The X-coordinate, as a normalized percentage.
       shared_ptr<float> x_ {};
+      // The Y-coordinate, as a normalized percentage.
       shared_ptr<float> y_ {};
+      // The Z-order. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -245,11 +256,26 @@ namespace Models
 
 
     protected:
+      // The text color of the clock in RGB format.
+      // 
+      // The formula is `R + G × 256 + B × 65536`. Valid values for R (red), G (green), and B (blue): **0** to **255**.
       shared_ptr<int32_t> fontColor_ {};
+      // The font size of the clock. Valid values: **(0, 72]**.
       shared_ptr<int32_t> fontSize_ {};
+      // The font type of the clock. Valid values:
+      // 
+      // - **0** (default): NOTO_SERIF_CJKSC_REGULAR
+      // - **1**: ALIBABA_PUHUITI_REGULAR
+      // - **2**: ALIBABA_PUHUITI_BOLD
+      // - **3**: ALIBABA_PUHUITI_Heavy
+      // - **4**: ALIBABA_PUHUITI_LIGHT
+      // - **5**: ALIBABA_PUHUITI_MEDIUM
       shared_ptr<int32_t> fontType_ {};
+      // The X-coordinate of the clock, as a normalized percentage.
       shared_ptr<float> x_ {};
+      // The Y-coordinate of the clock, as a normalized percentage.
       shared_ptr<float> y_ {};
+      // The Z-order of the clock. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -337,12 +363,22 @@ namespace Models
 
 
     protected:
+      // Specifies whether to display the image. Valid values:
+      // 
+      // - **0** (None): Not displayed.
+      // - **1** (Always): Always displayed.
       shared_ptr<int32_t> display_ {};
+      // The height of the pane, as a normalized percentage.
       shared_ptr<float> height_ {};
+      // The HTTP or HTTPS URL of the image.
       shared_ptr<string> url_ {};
+      // The width of the pane, as a normalized percentage.
       shared_ptr<float> width_ {};
+      // The X-coordinate, as a normalized percentage.
       shared_ptr<float> x_ {};
+      // The Y-coordinate, as a normalized percentage.
       shared_ptr<float> y_ {};
+      // The Z-order. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above 0, and so on.
       shared_ptr<int32_t> ZOrder_ {};
     };
 
@@ -502,35 +538,64 @@ namespace Models
 
 
   protected:
+    // The application ID. You can create and query the ID in the console. Only a single ID is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The background color in RGB format. Default value: **0** (black). The formula is `R + G × 256 + B × 65536`. Valid values for R (red), G (green), and B (blue): **0** to **255**.
     shared_ptr<int32_t> backgroundColor_ {};
+    // The background image information.
     shared_ptr<vector<UpdateRecordTemplateRequest::Backgrounds>> backgrounds_ {};
+    // The clock information.
     shared_ptr<vector<UpdateRecordTemplateRequest::ClockWidgets>> clockWidgets_ {};
+    // The delay before stopping the recording. Unit: seconds. Default value: **180**.
     shared_ptr<int32_t> delayStopTime_ {};
+    // Specifies whether to add the timestamp of TS files to the recorded M3U8 file.
     shared_ptr<bool> enableM3u8DateTime_ {};
+    // The interval at which recording files are split. The value must be greater than or equal to 1800. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> fileSplitInterval_ {};
+    // The recording file formats.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> formats_ {};
+    // The HTTP callback URL for recording events.
     shared_ptr<string> httpCallbackUrl_ {};
+    // The layout IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> layoutIds_ {};
+    // The encoding options.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> mediaEncode_ {};
+    // The MSMQ for recording event callbacks.
     shared_ptr<string> mnsQueue_ {};
+    // The name of the recording configuration template.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The OSS bucket where the recording files are stored.
+    // 
     // This parameter is required.
     shared_ptr<string> ossBucket_ {};
+    // The OSS endpoint of the region where the recording files are stored.
     shared_ptr<string> ossEndpoint_ {};
+    // The naming rule for recording files.
+    // 
     // This parameter is required.
     shared_ptr<string> ossFilePrefix_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The billing configuration of the task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskProfile_ {};
+    // The configuration template ID. To obtain the template ID, call [AddRecordTemplate](https://help.aliyun.com/document_detail/193625.html).
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
+    // The watermark information.
     shared_ptr<vector<UpdateRecordTemplateRequest::Watermarks>> watermarks_ {};
   };
 

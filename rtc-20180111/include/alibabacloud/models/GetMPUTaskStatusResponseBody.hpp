@@ -48,7 +48,23 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status ID of the bypass transcoding task. Valid values:
+    //  - **0**: Waiting for the channel to start.
+    // > If the task is not started within 30 days, the task is automatically stopped.
+    // 
+    //  - **1**: The task is running.
+    // 
+    //  - **2**: The task is stopped.
+    // 
+    //  - **3**: The task is stopped by the user.
+    // 
+    //  - **4**: The channel is stopped.
+    // 
+    //  - **5**: Live streaming is stopped due to CDN network issues.
+    // 
+    //  - **6**: Live streaming is stopped due to live streaming URL issues.
     shared_ptr<int32_t> status_ {};
   };
 

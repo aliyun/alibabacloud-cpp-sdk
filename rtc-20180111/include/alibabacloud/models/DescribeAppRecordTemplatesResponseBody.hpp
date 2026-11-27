@@ -142,14 +142,25 @@ namespace Models
 
 
     protected:
+      // The creation time. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
       shared_ptr<string> createTime_ {};
+      // The delay time before stopping the recording. Unit: seconds.
       shared_ptr<int64_t> delayStopTime_ {};
+      // The naming rule for recording files.
+      // > To ensure the uniqueness of recording file names, the current naming rule is record/{AppId}/{ChannelId}_{TaskId}/{EscapedStartTime}_{EscapedEndTime}.
       shared_ptr<string> filePrefix_ {};
+      // The splitting duration of the recording file. The value must be greater than or equal to 1800. Unit: seconds.
       shared_ptr<int64_t> fileSplitInterval_ {};
+      // The formats of the recording file. Valid values: .m3u8, .mp4, and .flv.
+      // > Only lowercase letters are supported for file formats.
       shared_ptr<vector<string>> formats_ {};
+      // The list of layout IDs.
       shared_ptr<vector<string>> layoutIds_ {};
+      // The encoding options.
       shared_ptr<int32_t> mediaEncode_ {};
+      // The template name.
       shared_ptr<string> name_ {};
+      // The template ID.
       shared_ptr<string> templateId_ {};
     };
 
@@ -188,8 +199,11 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The list of templates.
     shared_ptr<vector<DescribeAppRecordTemplatesResponseBody::Templates>> templates_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalNum_ {};
+    // The total number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

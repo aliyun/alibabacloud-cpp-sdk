@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // Impact factor ID. For details, see the list of impact factor ID values below.
       shared_ptr<string> factorId_ {};
+      // Number of impacted users.
       shared_ptr<int32_t> userCount_ {};
+      // Proportion of impacted users.
       shared_ptr<float> userRatio_ {};
     };
 
@@ -103,7 +106,9 @@ namespace Models
 
 
   protected:
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Statistics on the distribution of impact factors.
     shared_ptr<vector<DescribeFaultDiagnosisFactorDistributionStatResponseBody::StatList>> statList_ {};
   };
 
